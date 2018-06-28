@@ -83,7 +83,7 @@ namespace RefrigtzDLL
     public class ThinkingChess
     {
         //Initiate Global and Static Variables. 
-        static NetworkQuantumLearningKrinskyAtamata LearniningTable = new NetworkQuantumLearningKrinskyAtamata(8, 8, 8);
+        public static NetworkQuantumLearningKrinskyAtamata LearniningTable = null;
         bool ThinkingAtRun = false;
         public static String ActionsString = "";
         String OutPutAction = "";
@@ -5910,7 +5910,7 @@ namespace RefrigtzDLL
             //calculation of huristic methos and storing value retured.
             double Hur = new double();
             if (j >= 0)
-                Hur = ReturnHuristicCalculartor(0, ii, j, Order) * LearniningTable.LearingValue(ii, j);
+                Hur = ReturnHuristicCalculartor(0, ii, j, Order) * LearniningTable.LearingValue(Row, Column);
             else
                 Hur = ReturnHuristicCalculartor(0, ii, j, Order);
 

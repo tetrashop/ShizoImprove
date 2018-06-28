@@ -333,7 +333,7 @@ namespace Refrigtz
 
 
             RefrigtzDLL.AllDraw.TableListAction.Add(Table);
-
+            RefrigtzDLL.ThinkingChess.LearniningTable = new LearningMachine.NetworkQuantumLearningKrinskyAtamata(8, 8, 8);
             //TakeRoot.CalculateRootGray(Draw);
         }
 
