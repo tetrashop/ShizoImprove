@@ -83,6 +83,7 @@ namespace RefrigtzW
     public class ThinkingChess
     {
         //Initiate Global and Static Variables. 
+        public static NetworkQuantumLearningKrinskyAtamata LearniningTable = null;
         bool ThinkingAtRun = false;
         public static String ActionsString = "";
         String OutPutAction = "";
@@ -5907,7 +5908,11 @@ namespace RefrigtzW
             //AllDraw.ActionStringReady = false;
             NumbersOfCurrentBranchesPenalties = 0;
             //calculation of huristic methos and storing value retured.
-            double Hur = ReturnHuristicCalculartor(0, ii, j, Order);
+            double Hur = new double();
+            if (j >= 0)
+                Hur = ReturnHuristicCalculartor(0, ii, j, Order) * LearniningTable.LearingValue(Row, Column);
+            else
+                Hur = ReturnHuristicCalculartor(0, ii, j, Order);
 
             //Optimization depend of numbers of unpealties nodes quefficient.
             return Hur * ((double)(NumbersOfAllNode - NumbersOfCurrentBranchesPenalties) / (double)(NumbersOfAllNode));
@@ -8223,6 +8228,8 @@ namespace RefrigtzW
                     //Penalty.
                     if (PDo)
                     {
+                        for (int ik = 0; ik < System.Math.Abs(TableS[ii, jj]); ik++)
+                            LearniningTable.LearningAlgorithmPenaltyNet(ii, jj);
                         DivisionPenaltyRegardHeuristicQueficient = 3;
                         //When previous Move of Enemy goes to Dangoure Current Object.
                         if (IsPrviousMovemntIsDangrousForCurr && Current.IsPenaltyAction() != 0)
@@ -8316,6 +8323,9 @@ namespace RefrigtzW
                     }
                     else if (RDo)
                     {
+                        for (int ik = 0; ik < System.Math.Abs(TableS[ii, jj]); ik++)
+                            LearniningTable.LearningAlgorithmRegardNet(ii, jj);
+
                         DivisionPenaltyRegardHeuristicQueficient = 3;
                         if (SelfNotSupported && Current.IsPenaltyAction() != 0)
                         {
@@ -8419,6 +8429,12 @@ namespace RefrigtzW
                 }
                 else
                 {
+                    for (int ik = 0; ik < System.Math.Abs(TableS[ii, jj]); ik++)
+                    {
+                        LearniningTable.LearningAlgorithmRegardNet(ii, jj);
+                        LearniningTable.LearningAlgorithmPenaltyNet(ii, jj);
+                    }
+
                     DivisionPenaltyRegardHeuristicQueficient = 2;
                     if (IsNextMovemntIsCheckOrCheckMateForCurrent && Current.IsPenaltyAction() != 0)
                     {
