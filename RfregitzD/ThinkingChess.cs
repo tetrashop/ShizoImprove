@@ -5909,11 +5909,14 @@ namespace RefrigtzDLL
             NumbersOfCurrentBranchesPenalties = 0;
             //calculation of huristic methos and storing value retured.
             double Hur = new double();
-            if (j >= 0)
-                Hur = ReturnHuristicCalculartor(0, ii, j, Order) * LearniningTable.LearingValue(Row, Column);
-            else
-                Hur = ReturnHuristicCalculartor(0, ii, j, Order);
-
+            Object O = new Object();
+            lock (O)
+            {
+                if (ii >= 0 && UsePenaltyRegardMechnisamT)
+                    Hur = ReturnHuristicCalculartor(0, ii, j, Order) * LearniningTable.LearingValue(Row, Column);
+                else
+                    Hur = ReturnHuristicCalculartor(0, ii, j, Order);
+            }
             //Optimization depend of numbers of unpealties nodes quefficient.
             return Hur * ((double)(NumbersOfAllNode - NumbersOfCurrentBranchesPenalties) / (double)(NumbersOfAllNode));
         }
@@ -8047,48 +8050,53 @@ namespace RefrigtzDLL
         bool PenaltyMechanisam(int Killed, bool Before, int kind, int[,] TableS, int ii, int jj, ref QuantumAtamata Current, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int i, int j, bool Castle)
         {
             bool RETURN = false;
-            if (!UsePenaltyRegardMechnisamT)
-            {
-                RETURN = true;
-                AddAtList(kind, Current);
-            }
-
-            //Consideration to go to Check.  
             ChessRules AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[ii, jj], TableS, Order, ii, jj);
-            //if (!Before)
+            Object O = new Object();
+            lock (O)
             {
-                //if (!UsePenaltyRegardMechnisamT)
-                if (AA.Check(TableS, Order))
+                if (!UsePenaltyRegardMechnisamT)
                 {
-                    if (Order == 1 && AA.CheckGray)
+                    RETURN = true;
+                    AddAtList(kind, Current);
+                }
+
+                //Consideration to go to Check.  
+             
+                //if (!Before)
+                {
+                    //if (!UsePenaltyRegardMechnisamT)
+                    if (AA.Check(TableS, Order))
                     {
-                        //KishBefore = true;
-                        Object A = new object();
-                        lock (A)
+                        if (Order == 1 && AA.CheckGray)
                         {
-                            NumberOfPenalties++;
+                            //KishBefore = true;
+                            Object A = new object();
+                            lock (A)
+                            {
+                                NumberOfPenalties++;
+                            }
+                            Current.LearningAlgorithmPenalty();
+                            AddAtList(kind, Current);
+                            return true;
                         }
-                        Current.LearningAlgorithmPenalty();
-                        AddAtList(kind, Current);
-                        return true;
-                    }
-                    else
-                        if (Order == -1 && AA.CheckBrown)
-                    {
-                        //KishBefore = true;
-                        Object A = new object();
-                        lock (A)
+                        else
+                            if (Order == -1 && AA.CheckBrown)
                         {
-                            NumberOfPenalties++;
+                            //KishBefore = true;
+                            Object A = new object();
+                            lock (A)
+                            {
+                                NumberOfPenalties++;
+                            }
+                            Current.LearningAlgorithmPenalty();
+                            AddAtList(kind, Current);
+                            return true;
                         }
-                        Current.LearningAlgorithmPenalty();
-                        AddAtList(kind, Current);
-                        return true;
                     }
                 }
+                if (RETURN)
+                    return false;
             }
-            if (RETURN)
-                return false;
 
             //Initiate Local Variables.
             bool IsCurrentCanGardHighPriorityEne = new bool();
@@ -8107,425 +8115,452 @@ namespace RefrigtzDLL
 
             bool[] LearningV = null;
             //Mechanisam of Regrad.  
-            if (kind == 1 && PenRegStrore && UsePenaltyRegardMechnisamT && PenaltyRegardListSolder.Count == TableListSolder.Count)
-                LearningV = CalculateLearningVars(Killed, TableS, ii, jj, i, j);
-            else
+            Object O1 = new Object();
+            lock (O1)
+            {
+                if (kind == 1 && PenRegStrore && UsePenaltyRegardMechnisamT && PenaltyRegardListSolder.Count == TableListSolder.Count)
+                    LearningV = CalculateLearningVars(Killed, TableS, ii, jj, i, j);
+                else
                 if (kind == 2 && PenRegStrore && UsePenaltyRegardMechnisamT && PenaltyRegardListElefant.Count == TableListElefant.Count)
-                LearningV = CalculateLearningVars(Killed, TableS, ii, jj, i, j);
-            else
+                    LearningV = CalculateLearningVars(Killed, TableS, ii, jj, i, j);
+                else
                     if (kind == 3 && PenRegStrore && UsePenaltyRegardMechnisamT && PenaltyRegardListHourse.Count == TableListHourse.Count)
-                LearningV = CalculateLearningVars(Killed, TableS, ii, jj, i, j);
-            else
+                    LearningV = CalculateLearningVars(Killed, TableS, ii, jj, i, j);
+                else
                         if (kind == 4 && PenRegStrore && UsePenaltyRegardMechnisamT && PenaltyRegardListMinister.Count == TableListMinister.Count)
-                LearningV = CalculateLearningVars(Killed, TableS, ii, jj, i, j);
-            else
+                    LearningV = CalculateLearningVars(Killed, TableS, ii, jj, i, j);
+                else
                             if (kind == 5 && PenRegStrore && UsePenaltyRegardMechnisamT && PenaltyRegardListKing.Count == TableListKing.Count)
-                LearningV = CalculateLearningVars(Killed, TableS, ii, jj, i, j);
-            else
+                    LearningV = CalculateLearningVars(Killed, TableS, ii, jj, i, j);
+                else
                                 if (kind == 6 && PenRegStrore && UsePenaltyRegardMechnisamT && PenaltyRegardListSolder.Count == TableListSolder.Count)
-                LearningV = CalculateLearningVars(Killed, TableS, ii, jj, i, j);
-
-            IsCurrentCanGardHighPriorityEne = LearningV[0];
-            IsNextMovemntIsCheckOrCheckMateForCurrent = LearningV[1];
-            IsDangerous = LearningV[2];
-            CanKillerAnUnSupportedEnemy = LearningV[3];
-            InDangrousUnSupported = LearningV[4];
-            Support = LearningV[5];
-            IsNextMovemntIsCheckOrCheckMateForEnemy = LearningV[6];
-            IsPrviousMovemntIsDangrousForCurr = LearningV[7];
-            PDo = LearningV[8];
-            RDo = LearningV[9];
-            SelfNotSupported = LearningV[10];
-            EnemyNotSupported = LearningV[11];
-            IsGardForCurrentMovmentsAndIsNotMova = LearningV[12];
-            IsNotSafeToMoveAenemeyToAttackMoreThanTowObj = LearningV[13];
-
-            if (IgnoreObjectDangour == 0)
-                IgnoreObjectDangour = 1;
-
-            if (AA.CheckMate(TableS, Order))
+                    LearningV = CalculateLearningVars(Killed, TableS, ii, jj, i, j);
+            }
+            Object O2 = new Object();
+            lock (O2)
             {
 
-                if (AllDraw.OrderPlate == 1 && AA.CheckMateBrown)
+                IsCurrentCanGardHighPriorityEne = LearningV[0];
+                IsNextMovemntIsCheckOrCheckMateForCurrent = LearningV[1];
+                IsDangerous = LearningV[2];
+                CanKillerAnUnSupportedEnemy = LearningV[3];
+                InDangrousUnSupported = LearningV[4];
+                Support = LearningV[5];
+                IsNextMovemntIsCheckOrCheckMateForEnemy = LearningV[6];
+                IsPrviousMovemntIsDangrousForCurr = LearningV[7];
+                PDo = LearningV[8];
+                RDo = LearningV[9];
+                SelfNotSupported = LearningV[10];
+                EnemyNotSupported = LearningV[11];
+                IsGardForCurrentMovmentsAndIsNotMova = LearningV[12];
+                IsNotSafeToMoveAenemeyToAttackMoreThanTowObj = LearningV[13];
+            }
+            Object O3 = new Object();
+            lock (O3)
+            {
+                if (IgnoreObjectDangour == 0)
+                    IgnoreObjectDangour = 1;
+
+                if (AA.CheckMate(TableS, Order))
                 {
-                    Object A = new object();
-                    lock (A)
+
+                    if (AllDraw.OrderPlate == 1 && AA.CheckMateBrown)
                     {
-                        FoundFirstMating++;
-                    }
+                        Object A = new object();
+                        lock (A)
+                        {
+                            FoundFirstMating++;
+                        }
 
-                }
-                if (AllDraw.OrderPlate == -1 && AA.CheckMateGray)
-                {
-                    DoEnemySelf = false;
-                    Object A = new object();
-                    lock (A)
+                    }
+                    if (AllDraw.OrderPlate == -1 && AA.CheckMateGray)
                     {
-                        FoundFirstMating++;
+                        DoEnemySelf = false;
+                        Object A = new object();
+                        lock (A)
+                        {
+                            FoundFirstMating++;
+                        }
                     }
-                }
-                if (Order == 1 && AA.CheckMateBrown)
-                {
-                    DoEnemySelf = false;
+                    if (Order == 1 && AA.CheckMateBrown)
+                    {
+                        DoEnemySelf = false;
 
-                    EnemyCheckMateActionsString = true;
-                }
-                if (Order == -1 && AA.CheckMateGray)
-                {
-                    DoEnemySelf = false;
+                        EnemyCheckMateActionsString = true;
+                    }
+                    if (Order == -1 && AA.CheckMateGray)
+                    {
+                        DoEnemySelf = false;
 
-                    EnemyCheckMateActionsString = true;
-                }
-                if (Order == 1 && AA.CheckMateGray)
-                {
+                        EnemyCheckMateActionsString = true;
+                    }
+                    if (Order == 1 && AA.CheckMateGray)
+                    {
 
-                    EnemyCheckMateActionsString = false;
-                }
-                if (Order == -1 && AA.CheckMateBrown)
-                {
+                        EnemyCheckMateActionsString = false;
+                    }
+                    if (Order == -1 && AA.CheckMateBrown)
+                    {
 
-                    EnemyCheckMateActionsString = false;
+                        EnemyCheckMateActionsString = false;
+                    }
                 }
             }
             //Consideration of Itterative Movments to ignore.
             //Operation of Penalty Regard Mechanisam on Check and mate speciffically.
             bool Equality = EqualitOne(Current, kind);
 
-            if (Equality)
+            Object O4 = new Object();
+            lock (O4)
             {
-                ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[ii, jj], TableS, Order, Row, Column);
-                if (A.Check(TableS, Order))
+                if (Equality)
                 {
-                    if (Order == 1 && (A.CheckGray))
+                    ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[ii, jj], TableS, Order, Row, Column);
+                    if (A.Check(TableS, Order))
                     {
-                        NumberOfPenalties++;
-                        Current.LearningAlgorithmPenalty();
-                    }
-                    else
-                        if (Order == -1 && (A.CheckBrown))
-                    {
-                        NumberOfPenalties++;
-                        Current.LearningAlgorithmPenalty();
-                    }
-                    AddAtList(kind, Current);
-                }
-                else
-                {
-                    if (IsCurrentStateIsDangreousForCurrentOrder(TableS, Order, color, i, j) && DoEnemySelf)
-                    {
-                        NumberOfPenalties++;
-                        Current.LearningAlgorithmPenalty();
-
+                        if (Order == 1 && (A.CheckGray))
+                        {
+                            NumberOfPenalties++;
+                            Current.LearningAlgorithmPenalty();
+                        }
+                        else
+                            if (Order == -1 && (A.CheckBrown))
+                        {
+                            NumberOfPenalties++;
+                            Current.LearningAlgorithmPenalty();
+                        }
                         AddAtList(kind, Current);
                     }
                     else
-                        AddAtList(kind, Current);
-                }
-
-                //When There is Penalty or Regard.To Side can not be equal.
-                if (PDo || RDo)
-                {
-                    //Penalty.
-                    if (PDo)
                     {
-                        for (int ik = 0; ik < System.Math.Abs(TableS[ii, jj]); ik++)
-                            LearniningTable.LearningAlgorithmPenaltyNet(ii, jj);
-                        DivisionPenaltyRegardHeuristicQueficient = 3;
-                        //When previous Move of Enemy goes to Dangoure Current Object.
-                        if (IsPrviousMovemntIsDangrousForCurr && Current.IsPenaltyAction() != 0)
+                        if (IsCurrentStateIsDangreousForCurrentOrder(TableS, Order, color, i, j) && DoEnemySelf)
                         {
                             NumberOfPenalties++;
-
-                            RemoveAtList(kind);
-
-                            Current.LearningAlgorithmPenalty();
-
-                            AddAtList(kind, Current);
-
-                        }
-                        //For Not Suppored In Attacked.
-                        if (SelfNotSupported && Current.IsPenaltyAction() != 0)
-                        {
-                            NumberOfPenalties++;
-
-                            RemoveAtList(kind);
-
-                            Current.LearningAlgorithmPenalty();
-
-                            AddAtList(kind, Current);
-
-                        }
-                        //When Current Move Dos,'t Supporte.
-                        //For Ocuuring in Enemy CheckMate.
-                        if (SelfNotSupported && Current.IsPenaltyAction() != 0)
-                        {
-
-                            NumberOfPenalties++;
-
-                            RemoveAtList(kind);
-
-                            Current.LearningAlgorithmPenalty();
-
-                            AddAtList(kind, Current);
-
-                        }
-                        if (IsGardForCurrentMovmentsAndIsNotMova && Current.IsPenaltyAction() != 0)
-                        {
-
-                            NumberOfPenalties++;
-
-                            RemoveAtList(kind);
-
-                            Current.LearningAlgorithmPenalty();
-
-                            AddAtList(kind, Current);
-
-                        }
-                        if (IsNotSafeToMoveAenemeyToAttackMoreThanTowObj && Current.IsPenaltyAction() != 0)
-                        {
-
-                            NumberOfPenalties++;
-
-                            RemoveAtList(kind);
-
-                            Current.LearningAlgorithmPenalty();
-
-                            AddAtList(kind, Current);
-
-                        }
-
-                        if (IsDangerous && Current.IsPenaltyAction() != 0)
-                        {
-
-                            NumberOfPenalties++;
-
-                            RemoveAtList(kind);
-
-                            Current.LearningAlgorithmPenalty();
-
-                            AddAtList(kind, Current);
-
-                        }
-
-
-                        if (EnemyNotSupported && Current.IsPenaltyAction() != 0 && Current.IsRewardAction() != 1)
-                        {
-                            NumberOfPenalties++;
-
-                            RemoveAtList(kind);
-
-                            Current.LearningAlgorithmRegard();
-
-                            AddAtList(kind, Current);
-                        }
-
-
-                    }
-                    else if (RDo)
-                    {
-                        for (int ik = 0; ik < System.Math.Abs(TableS[ii, jj]); ik++)
-                            LearniningTable.LearningAlgorithmRegardNet(ii, jj);
-
-                        DivisionPenaltyRegardHeuristicQueficient = 3;
-                        if (SelfNotSupported && Current.IsPenaltyAction() != 0)
-                        {
-                            RemoveAtList(kind);
-
                             Current.LearningAlgorithmPenalty();
 
                             AddAtList(kind, Current);
                         }
-                        if (IsGardForCurrentMovmentsAndIsNotMova && Current.IsPenaltyAction() != 0)
-                        {
-
-                            NumberOfPenalties++;
-
-                            RemoveAtList(kind);
-
-                            Current.LearningAlgorithmPenalty();
-
+                        else
                             AddAtList(kind, Current);
-
-                        }
-
-                        if (IsNotSafeToMoveAenemeyToAttackMoreThanTowObj && Current.IsPenaltyAction() != 0)
-                        {
-
-                            NumberOfPenalties++;
-
-                            RemoveAtList(kind);
-
-                            Current.LearningAlgorithmPenalty();
-
-                            AddAtList(kind, Current);
-
-                        }
-                        if (IsDangerous && Current.IsPenaltyAction() != 0)
-                        {
-
-                            NumberOfPenalties++;
-
-                            RemoveAtList(kind);
-
-                            Current.LearningAlgorithmPenalty();
-
-                            AddAtList(kind, Current);
-
-                        }
-
-                        if (EnemyNotSupported && Current.IsPenaltyAction() != 0 && Current.IsRewardAction() != 1)
-                        {
-                            NumberOfPenalties++;
-
-                            RemoveAtList(kind);
-
-                            Current.LearningAlgorithmRegard();
-
-                            AddAtList(kind, Current);
-                        }
-
-
-
-                        if (IsCurrentCanGardHighPriorityEne && Current.IsPenaltyAction() != 0 && Current.IsRewardAction() != 1)
-                        {
-                            RemoveAtList(kind);
-
-                            Current.LearningAlgorithmRegard();
-
-                            AddAtList(kind, Current);
-                        }
-                        //For Ocuuring Enemy Garding Objects.
-                        if (Support && Current.IsPenaltyAction() != 0 && Current.IsRewardAction() != 1)
-                        {
-                            RemoveAtList(kind);
-
-                            Current.LearningAlgorithmRegard();
-
-                            AddAtList(kind, Current);
-                        }
-
                     }
 
+                    //When There is Penalty or Regard.To Side can not be equal.
+                    if (PDo || RDo)
+                    {
+                        //Penalty.
+                        if (PDo)
+                        {
+                            Object OO = new Object();
+                            lock (OO)
+                            {
+                                for (int ik = 0; ik < System.Math.Abs(TableS[ii, jj]); ik++)
+                                    LearniningTable.LearningAlgorithmPenaltyNet(ii, jj);
+                            }
+                            DivisionPenaltyRegardHeuristicQueficient = 3;
+                            //When previous Move of Enemy goes to Dangoure Current Object.
+                            if (IsPrviousMovemntIsDangrousForCurr && Current.IsPenaltyAction() != 0)
+                            {
+                                NumberOfPenalties++;
 
-                    /*  bool IgnoreRemove = false;
-                      if (AA.CheckGray && Order == 1)
-                          IgnoreRemove = true;
-                      else
-                          if (AA.CheckBrown && Order == -1)
+                                RemoveAtList(kind);
+
+                                Current.LearningAlgorithmPenalty();
+
+                                AddAtList(kind, Current);
+
+                            }
+                            //For Not Suppored In Attacked.
+                            if (SelfNotSupported && Current.IsPenaltyAction() != 0)
+                            {
+                                NumberOfPenalties++;
+
+                                RemoveAtList(kind);
+
+                                Current.LearningAlgorithmPenalty();
+
+                                AddAtList(kind, Current);
+
+                            }
+                            //When Current Move Dos,'t Supporte.
+                            //For Ocuuring in Enemy CheckMate.
+                            if (SelfNotSupported && Current.IsPenaltyAction() != 0)
+                            {
+
+                                NumberOfPenalties++;
+
+                                RemoveAtList(kind);
+
+                                Current.LearningAlgorithmPenalty();
+
+                                AddAtList(kind, Current);
+
+                            }
+                            if (IsGardForCurrentMovmentsAndIsNotMova && Current.IsPenaltyAction() != 0)
+                            {
+
+                                NumberOfPenalties++;
+
+                                RemoveAtList(kind);
+
+                                Current.LearningAlgorithmPenalty();
+
+                                AddAtList(kind, Current);
+
+                            }
+                            if (IsNotSafeToMoveAenemeyToAttackMoreThanTowObj && Current.IsPenaltyAction() != 0)
+                            {
+
+                                NumberOfPenalties++;
+
+                                RemoveAtList(kind);
+
+                                Current.LearningAlgorithmPenalty();
+
+                                AddAtList(kind, Current);
+
+                            }
+
+                            if (IsDangerous && Current.IsPenaltyAction() != 0)
+                            {
+
+                                NumberOfPenalties++;
+
+                                RemoveAtList(kind);
+
+                                Current.LearningAlgorithmPenalty();
+
+                                AddAtList(kind, Current);
+
+                            }
+
+
+                            if (EnemyNotSupported && Current.IsPenaltyAction() != 0 && Current.IsRewardAction() != 1)
+                            {
+                                NumberOfPenalties++;
+
+                                RemoveAtList(kind);
+
+                                Current.LearningAlgorithmRegard();
+
+                                AddAtList(kind, Current);
+                            }
+
+
+                        }
+                        else if (RDo)
+                        {
+                            Object OO = new Object();
+                            lock (OO)
+                            {
+                                for (int ik = 0; ik < System.Math.Abs(TableS[ii, jj]); ik++)
+                                    LearniningTable.LearningAlgorithmRegardNet(ii, jj);
+                            }
+
+                            DivisionPenaltyRegardHeuristicQueficient = 3;
+                            if (SelfNotSupported && Current.IsPenaltyAction() != 0)
+                            {
+                                RemoveAtList(kind);
+
+                                Current.LearningAlgorithmPenalty();
+
+                                AddAtList(kind, Current);
+                            }
+                            if (IsGardForCurrentMovmentsAndIsNotMova && Current.IsPenaltyAction() != 0)
+                            {
+
+                                NumberOfPenalties++;
+
+                                RemoveAtList(kind);
+
+                                Current.LearningAlgorithmPenalty();
+
+                                AddAtList(kind, Current);
+
+                            }
+
+                            if (IsNotSafeToMoveAenemeyToAttackMoreThanTowObj && Current.IsPenaltyAction() != 0)
+                            {
+
+                                NumberOfPenalties++;
+
+                                RemoveAtList(kind);
+
+                                Current.LearningAlgorithmPenalty();
+
+                                AddAtList(kind, Current);
+
+                            }
+                            if (IsDangerous && Current.IsPenaltyAction() != 0)
+                            {
+
+                                NumberOfPenalties++;
+
+                                RemoveAtList(kind);
+
+                                Current.LearningAlgorithmPenalty();
+
+                                AddAtList(kind, Current);
+
+                            }
+
+                            if (EnemyNotSupported && Current.IsPenaltyAction() != 0 && Current.IsRewardAction() != 1)
+                            {
+                                NumberOfPenalties++;
+
+                                RemoveAtList(kind);
+
+                                Current.LearningAlgorithmRegard();
+
+                                AddAtList(kind, Current);
+                            }
+
+
+
+                            if (IsCurrentCanGardHighPriorityEne && Current.IsPenaltyAction() != 0 && Current.IsRewardAction() != 1)
+                            {
+                                RemoveAtList(kind);
+
+                                Current.LearningAlgorithmRegard();
+
+                                AddAtList(kind, Current);
+                            }
+                            //For Ocuuring Enemy Garding Objects.
+                            if (Support && Current.IsPenaltyAction() != 0 && Current.IsRewardAction() != 1)
+                            {
+                                RemoveAtList(kind);
+
+                                Current.LearningAlgorithmRegard();
+
+                                AddAtList(kind, Current);
+                            }
+
+                        }
+
+
+                        /*  bool IgnoreRemove = false;
+                          if (AA.CheckGray && Order == 1)
                               IgnoreRemove = true;
+                          else
+                              if (AA.CheckBrown && Order == -1)
+                                  IgnoreRemove = true;
 
-                      if ((!IgnoreRemove) && Current.IsPenaltyAction() == 0)
-                          if (RemovePenalty(TableS, Order, i, j))
-                          {
-                              Current = new QuantumAtamata(3, 3, 3);
-                              if (Current.IsPenaltyAction() != 0)
+                          if ((!IgnoreRemove) && Current.IsPenaltyAction() == 0)
+                              if (RemovePenalty(TableS, Order, i, j))
                               {
-                                  RemoveAtList(kind);
+                                  Current = new QuantumAtamata(3, 3, 3);
+                                  if (Current.IsPenaltyAction() != 0)
+                                  {
+                                      RemoveAtList(kind);
 
-                                  AddAtList(kind, Current);
+                                      AddAtList(kind, Current);
+                                  }
                               }
-                          }
-                     */
-                }
-                else
-                {
-                    for (int ik = 0; ik < System.Math.Abs(TableS[ii, jj]); ik++)
-                    {
-                        LearniningTable.LearningAlgorithmRegardNet(ii, jj);
-                        LearniningTable.LearningAlgorithmPenaltyNet(ii, jj);
+                         */
                     }
-
-                    DivisionPenaltyRegardHeuristicQueficient = 2;
-                    if (IsNextMovemntIsCheckOrCheckMateForCurrent && Current.IsPenaltyAction() != 0)
+                    else
                     {
-                        NumberOfPenalties++;
+                        Object OO = new Object();
+                        lock (OO)
+                        {
+                            for (int ik = 0; ik < System.Math.Abs(TableS[ii, jj]); ik++)
+                            {
+                                LearniningTable.LearningAlgorithmRegardNet(ii, jj);
+                                LearniningTable.LearningAlgorithmPenaltyNet(ii, jj);
+                            }
+                        }
 
-                        RemoveAtList(kind);
+                        DivisionPenaltyRegardHeuristicQueficient = 2;
+                        if (IsNextMovemntIsCheckOrCheckMateForCurrent && Current.IsPenaltyAction() != 0)
+                        {
+                            NumberOfPenalties++;
 
-                        Current.LearningAlgorithmPenalty();
+                            RemoveAtList(kind);
 
-                        AddAtList(kind, Current);
+                            Current.LearningAlgorithmPenalty();
 
-                    }
+                            AddAtList(kind, Current);
 
-                    if (SelfNotSupported && Current.IsPenaltyAction() != 0)
-                    {
+                        }
 
-                        RemoveAtList(kind);
+                        if (SelfNotSupported && Current.IsPenaltyAction() != 0)
+                        {
 
-                        Current.LearningAlgorithmPenalty();
+                            RemoveAtList(kind);
 
-                        AddAtList(kind, Current);
+                            Current.LearningAlgorithmPenalty();
 
-                    }
-                    if (IsGardForCurrentMovmentsAndIsNotMova && Current.IsPenaltyAction() != 0)
-                    {
+                            AddAtList(kind, Current);
 
-                        NumberOfPenalties++;
+                        }
+                        if (IsGardForCurrentMovmentsAndIsNotMova && Current.IsPenaltyAction() != 0)
+                        {
 
-                        RemoveAtList(kind);
+                            NumberOfPenalties++;
 
-                        Current.LearningAlgorithmPenalty();
+                            RemoveAtList(kind);
 
-                        AddAtList(kind, Current);
+                            Current.LearningAlgorithmPenalty();
 
-                    }
-                    if (IsNotSafeToMoveAenemeyToAttackMoreThanTowObj && Current.IsPenaltyAction() != 0)
-                    {
+                            AddAtList(kind, Current);
 
-                        NumberOfPenalties++;
+                        }
+                        if (IsNotSafeToMoveAenemeyToAttackMoreThanTowObj && Current.IsPenaltyAction() != 0)
+                        {
 
-                        RemoveAtList(kind);
+                            NumberOfPenalties++;
 
-                        Current.LearningAlgorithmPenalty();
+                            RemoveAtList(kind);
 
-                        AddAtList(kind, Current);
+                            Current.LearningAlgorithmPenalty();
 
-                    }
+                            AddAtList(kind, Current);
 
-                    if (IsDangerous && Current.IsPenaltyAction() != 0)
-                    {
+                        }
 
-                        NumberOfPenalties++;
+                        if (IsDangerous && Current.IsPenaltyAction() != 0)
+                        {
 
-                        RemoveAtList(kind);
+                            NumberOfPenalties++;
 
-                        Current.LearningAlgorithmPenalty();
+                            RemoveAtList(kind);
 
-                        AddAtList(kind, Current);
+                            Current.LearningAlgorithmPenalty();
 
-                    }
+                            AddAtList(kind, Current);
+
+                        }
 
 
 
-                    if (IsNextMovemntIsCheckOrCheckMateForEnemy && Current.IsPenaltyAction() != 0)
-                    {
-                        RemoveAtList(kind);
+                        if (IsNextMovemntIsCheckOrCheckMateForEnemy && Current.IsPenaltyAction() != 0)
+                        {
+                            RemoveAtList(kind);
 
-                        Current.LearningAlgorithmRegard();
+                            Current.LearningAlgorithmRegard();
 
-                        AddAtList(kind, Current);
+                            AddAtList(kind, Current);
 
-                    }
+                        }
 
-                    if (IsCurrentCanGardHighPriorityEne && Current.IsPenaltyAction() != 0)
-                    {
-                        RemoveAtList(kind);
+                        if (IsCurrentCanGardHighPriorityEne && Current.IsPenaltyAction() != 0)
+                        {
+                            RemoveAtList(kind);
 
-                        Current.LearningAlgorithmRegard();
+                            Current.LearningAlgorithmRegard();
 
-                        AddAtList(kind, Current);
+                            AddAtList(kind, Current);
 
-                    }
-                    if (EnemyNotSupported && Current.IsPenaltyAction() != 0 && Current.IsRewardAction() != 1)
-                    {
-                        NumberOfPenalties++;
+                        }
+                        if (EnemyNotSupported && Current.IsPenaltyAction() != 0 && Current.IsRewardAction() != 1)
+                        {
+                            NumberOfPenalties++;
 
-                        RemoveAtList(kind);
+                            RemoveAtList(kind);
 
-                        Current.LearningAlgorithmRegard();
+                            Current.LearningAlgorithmRegard();
 
-                        AddAtList(kind, Current);
+                            AddAtList(kind, Current);
+                        }
                     }
                 }
             }
