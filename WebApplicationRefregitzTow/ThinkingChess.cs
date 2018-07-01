@@ -8253,7 +8253,7 @@ namespace RefrigtzW
                             Object OO = new Object();
                             lock (OO)
                             {
-                                for (int ik = 0; ik < System.Math.Abs(TableS[ii, jj]); ik++)
+                                for (int ik = 0; ik < System.Math.Abs(TableS[i, j]); ik++)
                                     LearniningTable.LearningAlgorithmPenaltyNet(ii, jj);
                             }
                             DivisionPenaltyRegardHeuristicQueficient = 3;
@@ -8352,7 +8352,7 @@ namespace RefrigtzW
                             Object OO = new Object();
                             lock (OO)
                             {
-                                for (int ik = 0; ik < System.Math.Abs(TableS[ii, jj]); ik++)
+                                for (int ik = 0; ik < System.Math.Abs(TableS[i, j]); ik++)
                                     LearniningTable.LearningAlgorithmRegardNet(ii, jj);
                             }
 
@@ -8462,7 +8462,7 @@ namespace RefrigtzW
                         Object OO = new Object();
                         lock (OO)
                         {
-                            for (int ik = 0; ik < System.Math.Abs(TableS[ii, jj]); ik++)
+                            for (int ik = 0; ik < System.Math.Abs(TableS[i, j]); ik++)
                             {
                                 LearniningTable.LearningAlgorithmRegardNet(ii, jj);
                                 LearniningTable.LearningAlgorithmPenaltyNet(ii, jj);
@@ -10291,7 +10291,7 @@ namespace RefrigtzW
                           Object O = new Object();
                           lock (O)
                           {
-                              if (Scop(Row, Column, iii, jjj, System.Math.Abs(Table[Row, Column])))
+                              if (Scop(Row, Column, iii, jjj, System.Math.Abs(Table[Row, Column])) && (Table[Row, Column] != 0) && (Table[iii, jjj] == 0))
                               {
                                   if (SignEqualOrEmptySelf(Table[Row, Column], Table[iii, jjj], Order))
                                   {
@@ -10319,7 +10319,7 @@ namespace RefrigtzW
                                       {
                                           //When there is enemy attack dec.
                                           if (Attack(Table, Row, Column, iii, jjj, aa, Order * -1))
-                                              Val -= 64;
+                                              Val -= 999999999;
                                       }
                                       else
                                       if (SignEqual(Table[Row, Column], Table[iii, jjj]))
@@ -10352,7 +10352,7 @@ namespace RefrigtzW
                                       {
                                           //When there is enemy attack inc.
                                           if (Attack(Table, Row, Column, iii, jjj, aa, Order * -1))
-                                              Val += 64;
+                                              Val += 9999;
                                       }
                                       else
                                       if (SignEqual(Table[Row, Column], Table[iii, jjj]))
