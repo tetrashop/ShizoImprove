@@ -6525,6 +6525,33 @@ namespace RefrigtzW
             //Scope on estimation on rule movment.
             if (Kind == 1)//Sodier
             {
+                if (ArrangmentsChanged)
+                {
+                    if (Order == 1)
+                    {
+                        if (j <= jj)
+                            return false;
+                    }
+                    else
+                    {
+                        if (j >= jj)
+                            return false;
+                    }
+                }
+                else if (!ArrangmentsChanged)
+                {
+                    if (Order == -1)
+                    {
+                        if (j <= jj)
+                            return false;
+                    }
+                    else
+                    {
+                        if (j >= jj)
+                            return false;
+                    }
+                }
+                
                 if (System.Math.Abs(i - ii) <= 2 && System.Math.Abs(j - jj) <= 2)
                     Validity = true;
             }
@@ -6820,9 +6847,9 @@ namespace RefrigtzW
                     AS[0] = i;
                     AS[1] = j;
                     RowColumnKing.Add(AS);
-                    RowColumn[Index, 0] = i;
-                    RowColumn[Index, 1] = j;
-                    Index++;
+                    //RowColumn[Index, 0] = i;
+                    //RowColumn[Index, 1] = j;
+                    //Index++;
                     TableListKing.Add(CloneATable(TableS)); ;
                     IndexKing++;
                 }
@@ -6967,9 +6994,9 @@ namespace RefrigtzW
                     AS[0] = i;
                     AS[1] = j;
                     RowColumnMinister.Add(AS);
-                    RowColumn[Index, 0] = i;
-                    RowColumn[Index, 1] = j;
-                    Index++;
+                    //RowColumn[Index, 0] = i;
+                    //RowColumn[Index, 1] = j;
+                    //Index++;
                     TableListMinister.Add(CloneATable(TableS)); ;
                     IndexMinister++;
                 }
@@ -7595,9 +7622,9 @@ namespace RefrigtzW
                     AS[0] = i;
                     AS[1] = j;
                     RowColumnCastle.Add(AS);
-                    RowColumn[Index, 0] = i;
-                    RowColumn[Index, 1] = j;
-                    Index++;
+                    //RowColumn[Index, 0] = i;
+                    //RowColumn[Index, 1] = j;
+                    //Index++;
                     TableListCastle.Add(CloneATable(TableS)); ;
                     IndexCastle++;
                 }
@@ -7743,9 +7770,9 @@ namespace RefrigtzW
                     AS[0] = i;
                     AS[1] = j;
                     RowColumnHourse.Add(AS);
-                    RowColumn[Index, 0] = i;
-                    RowColumn[Index, 1] = j;
-                    Index++;
+                    //RowColumn[Index, 0] = i;
+                    //RowColumn[Index, 1] = j;
+                    //Index++;
                     TableListHourse.Add(CloneATable(TableS)); ;
                     IndexHourse++;
                 }
@@ -7895,9 +7922,9 @@ namespace RefrigtzW
                     AS[1] = j;
                     RowColumnElefant.Add(AS);
 
-                    RowColumn[Index, 0] = i;
-                    RowColumn[Index, 1] = j;
-                    Index++;
+                    //RowColumn[Index, 0] = i;
+                    //RowColumn[Index, 1] = j;
+                    //Index++;
                     TableListElefant.Add(CloneATable(TableS)); ;
                     IndexElefant++;
                 }
@@ -8674,9 +8701,9 @@ namespace RefrigtzW
                     AS[0] = i;
                     AS[1] = j;
                     RowColumnSoldier.Add(AS);
-                    RowColumn[Index, 0] = i;
-                    RowColumn[Index, 1] = j;
-                    Index++;
+                    //RowColumn[Index, 0] = i;
+                    //RowColumn[Index, 1] = j;
+                    //Index++;
                     TableListSolder.Add(CloneATable(TableS)); ;
                     IndexSoldier++;
                 }
@@ -8805,9 +8832,9 @@ namespace RefrigtzW
                 AS[0] = i;
                 AS[1] = j;
                 RowColumnKing.Add(AS);
-                RowColumn[Index, 0] = i;
-                RowColumn[Index, 1] = j;
-                Index++;
+                //RowColumn[Index, 0] = i;
+                //RowColumn[Index, 1] = j;
+                //Index++;
                 TableListKing.Add(CloneATable(TableS)); ;
                 IndexKing++;
                 //Calculate Huristic Sumation and Store in Specific List.
@@ -9023,10 +9050,10 @@ namespace RefrigtzW
                 AS[0] = i;
                 AS[1] = j;
                 RowColumnKing.Add(AS);
-                RowColumn[Index, 0] = i;
-                RowColumn[Index, 1] = j;
+                //RowColumn[Index, 0] = i;
+                //RowColumn[Index, 1] = j;
 
-                Index++;
+                //Index++;
                 TableListKing.Add(CloneATable(TableS));
                 IndexKing++;
                 //InAttackedNotSelfSupported = false;
