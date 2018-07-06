@@ -1568,111 +1568,115 @@ namespace RefrigtzW
         {
             //Initiate Global Variables.
             int Ord = Order;
-            int[,] Tab = new int[8, 8];
-            for (int ik = 0; ik < 8; ik++)
-                for (int jk = 0; jk < 8; jk++)
-                    Tab[ik, jk] = Table[ik, jk];
-            bool S = true;
-            bool EnemyNotSupported = true;
-            bool InAttackedNotEnemySupported = false;
-            //int i = iij, j = jji;
-            //For Current
-            for (int i = 0; i < 8; i++)
+            Object O4 = new Object();
+            lock (O4)
             {
-                for (int j = 0; j < 8; j++)
+                int[,] Tab = new int[8, 8];
+                for (int ik = 0; ik < 8; ik++)
+                    for (int jk = 0; jk < 8; jk++)
+                        Tab[ik, jk] = Table[ik, jk];
+                bool S = true;
+                bool EnemyNotSupported = true;
+                bool InAttackedNotEnemySupported = false;
+                //int i = iij, j = jji;
+                //For Current
+                for (int i = 0; i < 8; i++)
                 {
-                    //Ignore of Enemy
-                    if (Order == 1 && Tab[i, j] <= 0)
-                        continue;
-                    else
-                        if (Order == -1 && Tab[i, j] >= 0)
-                        continue;
-                    //For Enemies.
-                    for (int ii = 0; ii < 8; ii++)
+                    for (int j = 0; j < 8; j++)
                     {
-                        for (int jj = 0; jj < 8; jj++)
+                        //Ignore of Enemy
+                        if (Order == 1 && Tab[i, j] <= 0)
+                            continue;
+                        else
+                            if (Order == -1 && Tab[i, j] >= 0)
+                            continue;
+                        //For Enemies.
+                        for (int ii = 0; ii < 8; ii++)
                         {
-                            //Ignore of Curent
-                            if (Order == 1 && Tab[ii, jj] >= 0)
-                                continue;
-                            else
-                                if (Order == -1 && Tab[ii, jj] <= 0)
-                                continue;
-                            Object O = new Object();
-                            lock (O)
+                            for (int jj = 0; jj < 8; jj++)
                             {
-                                if (EnemyIsValuable && (!IsObjectValaubleObjectEnemy(ii, jj, Tab[ii, jj], ref ValuableEnemyNotSupported)))
+                                //Ignore of Curent
+                                if (Order == 1 && Tab[ii, jj] >= 0)
                                     continue;
-
-                                EnemyNotSupported = true;
-                                InAttackedNotEnemySupported = false;
-                                if (Attack(Tab, i, j, ii, jj, a, Order))
+                                else
+                                    if (Order == -1 && Tab[ii, jj] <= 0)
+                                    continue;
+                                Object O = new Object();
+                                lock (O)
                                 {
-                                    InAttackedNotEnemySupported = true;
+                                    if (EnemyIsValuable && (!IsObjectValaubleObjectEnemy(ii, jj, Tab[ii, jj], ref ValuableEnemyNotSupported)))
+                                        continue;
 
-                                    //Enemy
-                                    for (int iii = 0; iii < 8; iii++)
+                                    EnemyNotSupported = true;
+                                    InAttackedNotEnemySupported = false;
+                                    if (Attack(Tab, i, j, ii, jj, a, Order))
                                     {
-                                        for (int jjj = 0; jjj < 8; jjj++)
-                                        {
-                                            //Ignore of Current
-                                            if (Order == 1 && Tab[iii, jjj] >= 0)
-                                                continue;
-                                            else
-                                                if (Order == -1 && Tab[iii, jjj] <= 0)
-                                                continue;
-                                            a = Color.Gray;
-                                            if (Order * -1 == -1)
-                                                a = Color.Brown;
-                                            //
-                                            if (Support(Tab, iii, jjj, ii, jj, a, Order * -1)
-                                                //&& (GetObjectValue(Tab, i, j, Order) >= GetObjectValue(Tab, ii, jj, Order * -1)
+                                        InAttackedNotEnemySupported = true;
 
-                                                //Wehn [i,j] (Current) is less or equal than [ii,jj] (Enemy) 
-                                                //EnemyNotSupported method Should return [valid]
-                                                //By this situation return not valid
-                                                )
+                                        //Enemy
+                                        for (int iii = 0; iii < 8; iii++)
+                                        {
+                                            for (int jjj = 0; jjj < 8; jjj++)
                                             {
-                                                EnemyNotSupported = false;
+                                                //Ignore of Current
+                                                if (Order == 1 && Tab[iii, jjj] >= 0)
+                                                    continue;
+                                                else
+                                                    if (Order == -1 && Tab[iii, jjj] <= 0)
+                                                    continue;
+                                                a = Color.Gray;
+                                                if (Order * -1 == -1)
+                                                    a = Color.Brown;
+                                                //
+                                                if (Support(Tab, iii, jjj, ii, jj, a, Order * -1)
+                                                    //&& (GetObjectValue(Tab, i, j, Order) >= GetObjectValue(Tab, ii, jj, Order * -1)
+
+                                                    //Wehn [i,j] (Current) is less or equal than [ii,jj] (Enemy) 
+                                                    //EnemyNotSupported method Should return [valid]
+                                                    //By this situation return not valid
+                                                    )
+                                                {
+                                                    EnemyNotSupported = false;
+                                                }
                                             }
+                                            if (!EnemyNotSupported)
+                                                break;
                                         }
-                                        if (!EnemyNotSupported)
-                                            break;
+                                    }
+                                    if (EnemyNotSupported && InAttackedNotEnemySupported)
+                                    {
+                                        S = false;
+                                        break;
+
                                     }
                                 }
-                                if (EnemyNotSupported && InAttackedNotEnemySupported)
-                                {
-                                    S = false;
-                                    break;
-
-                                }
+                            }
+                            if (!S)
+                            {
+                                break;
                             }
                         }
+
                         if (!S)
                         {
                             break;
                         }
                     }
-
                     if (!S)
                     {
                         break;
                     }
                 }
+                //When there is at leat tow enmy of attackment.
+
                 if (!S)
                 {
-                    break;
+                    Order = Ord;
+                    return true;
                 }
-            }
-            //When there is at leat tow enmy of attackment.
 
-            if (!S)
-            {
                 Order = Ord;
-                return true;
             }
-
-            Order = Ord;
             return false;
         }
         //When  there is more than tow self object not supported on atacked by movement return true.
@@ -1685,6 +1689,8 @@ namespace RefrigtzW
 
             //For All Enemie
             //for (int i = 0; i < 8; i++)
+            Object O1 = new Object();
+            lock (O1)
             {
                 //for (int j = 0; j < 8; j++)
                 {
@@ -1717,8 +1723,8 @@ namespace RefrigtzW
                                         Tab[ik, jk] = Table[ik, jk];
                             }
                             //When there is attack to some self node.
-                            Object O1 = new Object();
-                            lock (O1)
+                            Object OO = new Object();
+                            lock (OO)
                             {
                                 if (A.Rules(i, j, ii, jj, a, Tab[i, j]))
                                 {
@@ -1867,139 +1873,143 @@ namespace RefrigtzW
         {
             //Initiate Variables.
             int[,] Tab = new int[8, 8];
-            for (int ik = 0; ik < 8; ik++)
-                for (int jk = 0; jk < 8; jk++)
-                    Tab[ik, jk] = TableS[ik, jk];
-            int Ord = Order;
-            bool SelfSupported = false;
-            bool InAttackedNotSelfSupported = false;
-            bool IsObjDangerest = false;
-            bool S = true;
-            int i = ii, j = jj;
-            //For Self
-            //for (int i = 0; i < 8; i++)
+            Object O = new Object();
+            lock (O)
             {
-                //for (int j = 0; j < 8; j++)
+                for (int ik = 0; ik < 8; ik++)
+                    for (int jk = 0; jk < 8; jk++)
+                        Tab[ik, jk] = TableS[ik, jk];
+                int Ord = Order;
+                bool SelfSupported = false;
+                bool InAttackedNotSelfSupported = false;
+                bool IsObjDangerest = false;
+                bool S = true;
+                int i = ii, j = jj;
+                //For Self
+                //for (int i = 0; i < 8; i++)
                 {
-                    //Ignore of Current
-                    //if (Order == 1 && Tab[i, j] <= 0)
-                    //  continue;
-                    //else
-                    //if (Order == -1 && Tab[i, j] >= 0)
-                    //continue;
-                    //For Enemy.
-                    for (int iii = 0; iii < 8; iii++)
+                    //for (int j = 0; j < 8; j++)
                     {
-                        for (int jjj = 0; jjj < 8; jjj++)
+                        //Ignore of Current
+                        //if (Order == 1 && Tab[i, j] <= 0)
+                        //  continue;
+                        //else
+                        //if (Order == -1 && Tab[i, j] >= 0)
+                        //continue;
+                        //For Enemy.
+                        for (int iii = 0; iii < 8; iii++)
                         {
-                            //Ignore of Current
-                            if (Order == 1 && Tab[iii, jjj] >= 0)
-                                continue;
-                            else
-                            if (Order == -1 && Tab[iii, jjj] <= 0)
-                                continue;
-                            //Enemy
-                            a = Color.Gray;
-                            if (Order * -1 == -1)
-                                a = Color.Brown;
-                            for (int ik = 0; ik < 8; ik++)
-                                for (int jk = 0; jk < 8; jk++)
-                                    Tab[ik, jk] = TableS[ik, jk];
-                            InAttackedNotSelfSupported = false;
-                            SelfSupported = false;
-                            Object O = new Object();
-                            lock (O)
+                            for (int jjj = 0; jjj < 8; jjj++)
                             {
-                                if (Attack(Tab, iii, jjj, i, j, a, Order * -1))
+                                //Ignore of Current
+                                if (Order == 1 && Tab[iii, jjj] >= 0)
+                                    continue;
+                                else
+                                if (Order == -1 && Tab[iii, jjj] <= 0)
+                                    continue;
+                                //Enemy
+                                a = Color.Gray;
+                                if (Order * -1 == -1)
+                                    a = Color.Brown;
+                                for (int ik = 0; ik < 8; ik++)
+                                    for (int jk = 0; jk < 8; jk++)
+                                        Tab[ik, jk] = TableS[ik, jk];
+                                InAttackedNotSelfSupported = false;
+                                SelfSupported = false;
+                                Object OO = new Object();
+                                lock (OO)
                                 {
-                                    InAttackedNotSelfSupported = true;
-                                    a = Color.Gray;
-                                    if (Order == -1)
-                                        a = Color.Brown;
-
-                                    //For Self.
-                                    for (int iiii = 0; iiii < 8; iiii++)
+                                    if (Attack(Tab, iii, jjj, i, j, a, Order * -1))
                                     {
-                                        for (int jjjj = 0; jjjj < 8; jjjj++)
+                                        InAttackedNotSelfSupported = true;
+                                        a = Color.Gray;
+                                        if (Order == -1)
+                                            a = Color.Brown;
+
+                                        //For Self.
+                                        for (int iiii = 0; iiii < 8; iiii++)
                                         {
-                                            //Ignore of Enemies
-                                            if (Order == 1 && Tab[iiii, jjjj] <= 0)
-                                                continue;
-                                            else
-                                                if (Order == -1 && Tab[iiii, jjjj] >= 0)
-                                                continue;
-                                            a = Color.Gray;
-                                            if (Order == -1)
-                                                a = Color.Brown;
-                                            for (int ik = 0; ik < 8; ik++)
-                                                for (int jk = 0; jk < 8; jk++)
-                                                    Tab[ik, jk] = TableS[ik, jk];
-                                            //When there is support and cuurent is less than enemy.
-                                            //method return true when is not supporte and the enemy is less than cuurent in to be hitten.
-                                            if (Support(Tab, iiii, jjjj, i, j, a, Order)
-                                                //&& (GetObjectValue(Tab, i, j, Order) <= GetObjectValue(Tab, iii, jjj, Order * -1))
-                                                )
+                                            for (int jjjj = 0; jjjj < 8; jjjj++)
                                             {
-                                                SelfSupported = true;
-                                                S = S && true;
-                                                break;
+                                                //Ignore of Enemies
+                                                if (Order == 1 && Tab[iiii, jjjj] <= 0)
+                                                    continue;
+                                                else
+                                                    if (Order == -1 && Tab[iiii, jjjj] >= 0)
+                                                    continue;
+                                                a = Color.Gray;
+                                                if (Order == -1)
+                                                    a = Color.Brown;
+                                                for (int ik = 0; ik < 8; ik++)
+                                                    for (int jk = 0; jk < 8; jk++)
+                                                        Tab[ik, jk] = TableS[ik, jk];
+                                                //When there is support and cuurent is less than enemy.
+                                                //method return true when is not supporte and the enemy is less than cuurent in to be hitten.
+                                                if (Support(Tab, iiii, jjjj, i, j, a, Order)
+                                                    //&& (GetObjectValue(Tab, i, j, Order) <= GetObjectValue(Tab, iii, jjj, Order * -1))
+                                                    )
+                                                {
+                                                    SelfSupported = true;
+                                                    S = S && true;
+                                                    break;
 
+                                                }
                                             }
+                                            if (SelfSupported)
+                                                break;
                                         }
-                                        if (SelfSupported)
-                                            break;
+                                        //When a source enemy object attack a destination source object 
+                                        //a source object is greater than another source object. Is = -1 Is another object valuable.
+                                        //a source object is less than or equal  than another source object.Is = 1 Is not another object valuable.
+                                        //IsObjDangerest = IsAnotherObjectMakeDangoure(TableS, Order, color, i, j, iii, jjj);
                                     }
-                                    //When a source enemy object attack a destination source object 
-                                    //a source object is greater than another source object. Is = -1 Is another object valuable.
-                                    //a source object is less than or equal  than another source object.Is = 1 Is not another object valuable.
-                                    //IsObjDangerest = IsAnotherObjectMakeDangoure(TableS, Order, color, i, j, iii, jjj);
                                 }
-                            }
-                            /*if (!SelfSupported
+                                /*if (!SelfSupported
+                                    )
+                                {
+                                    S = false;
+
+                                }
+                                */
+                                if ((!SelfSupported && InAttackedNotSelfSupported) //|| IsObjDangerest
                                 )
-                            {
-                                S = false;
+                                {
+                                    S = false;
+                                    break;
+                                }
 
                             }
-                            */
-                            if ((!SelfSupported && InAttackedNotSelfSupported) //|| IsObjDangerest
-                            )
+                            if ((!SelfSupported && InAttackedNotSelfSupported) || IsObjDangerest
+                                )
                             {
                                 S = false;
                                 break;
                             }
-
                         }
-                        if ((!SelfSupported && InAttackedNotSelfSupported) || IsObjDangerest
-                            )
+                        if (!SelfSupported
+                             && InAttackedNotSelfSupported
+                             )
                         {
                             S = false;
-                            break;
+                            //break;
                         }
+
+
                     }
                     if (!SelfSupported
-                         && InAttackedNotSelfSupported
-                         )
+                        && InAttackedNotSelfSupported
+                        )
                     {
                         S = false;
                         //break;
                     }
 
-
                 }
-                if (!SelfSupported
-                    && InAttackedNotSelfSupported
-                    )
-                {
-                    S = false;
-                    //break;
-                }
-
+                Order = Ord;
+                //When S is valid the any is not in [SelfNotSupported];Self is Supporeted.
+                if (S)
+                    return false;
             }
-            Order = Ord;
-            //When S is valid the any is not in [SelfNotSupported];Self is Supporeted.
-            if (S)
-                return false;
             return true;
         }
         //When there is at least on self object that is not safty.
@@ -2010,119 +2020,129 @@ namespace RefrigtzW
         {
             List<int[]> ValuableSelfSupported = new List<int[]>();
             bool IsTowValuableObject = false;
-            IsTowValuableObject = InAttackSelfThatNotSupportedCalculateValuableAll(TableS, Order, color, ikk, jkk, iik, jjk, ref ValuableSelfSupported);
-            //Initiate Variables.
-            int[,] Tab = new int[8, 8];
-            for (int ik = 0; ik < 8; ik++)
-                for (int jk = 0; jk < 8; jk++)
-                    Tab[ik, jk] = TableS[ik, jk];
-            //if (ij == 4 && ji == 6 && ii == 4 && jj == 7)
-            //    ij = 4;
-            int Ord = Order;
-            bool SelfSupported = false;
-            bool InAttackedNotSelfSupported = false;
-            int IsObjDangerest = 0;
-            bool S = true;
-
-            //int i = ii, j = jj;
-            //For Self
-            //for (int i = 0; i < 8; i++)
+            Object O1 = new Object();
+            lock (O1)
             {
-                //for (int j = 0; j < 8; j++)
+                IsTowValuableObject = InAttackSelfThatNotSupportedCalculateValuableAll(TableS, Order, color, ikk, jkk, iik, jjk, ref ValuableSelfSupported);
+                //Initiate Variables.
+                int[,] Tab = new int[8, 8];
+                for (int ik = 0; ik < 8; ik++)
+                    for (int jk = 0; jk < 8; jk++)
+                        Tab[ik, jk] = TableS[ik, jk];
+                //if (ij == 4 && ji == 6 && ii == 4 && jj == 7)
+                //    ij = 4;
+                int Ord = Order;
+                bool SelfSupported = false;
+                bool InAttackedNotSelfSupported = false;
+                int IsObjDangerest = 0;
+                bool S = true;
+
+                //int i = ii, j = jj;
+                //For Self
+                //for (int i = 0; i < 8; i++)
                 {
-                    Order = Ord;
-                    //Ignore of Enemies
-                    if (Order == 1 && Tab[i, j] <= 0)
-                        return false;
-                    else
-                        if (Order == -1 && Tab[i, j] >= 0)
-                        return false;
-                    //when there is another object valuable in List continue.
-                    if (IsTowValuableObject && (!IsObjectValaubleObjectSelf(i, j, Tab[i, j], ref ValuableSelfSupported)))
-                        return false;
-
-                    //For Enemy.
-                    //    for (int iii = 0; iii < 8; iii++)
+                    //for (int j = 0; j < 8; j++)
                     {
-                        //      for (int jjj = 0; jjj < 8; jjj++)
+                        Order = Ord;
+                        //Ignore of Enemies
+                        if (Order == 1 && Tab[i, j] <= 0)
+                            return false;
+                        else
+                            if (Order == -1 && Tab[i, j] >= 0)
+                            return false;
+                        //when there is another object valuable in List continue.
+                        if (IsTowValuableObject && (!IsObjectValaubleObjectSelf(i, j, Tab[i, j], ref ValuableSelfSupported)))
+                            return false;
+
+                        //For Enemy.
+                        //    for (int iii = 0; iii < 8; iii++)
                         {
-                            Order = Ord;
-                            //Ignore of Current
-                            if (Order == 1 && Tab[iii, jjj] >= 0)
-                                return false;
-                            else
-                                if (Order == -1 && Tab[iii, jjj] <= 0)
-                                return false;
-                            if (i == iii && j == jjj)
-                                return false;
-                            //Enemy
-                            a = Color.Gray;
-                            Order = Ord;
-                            if (Order * -1 == -1)
-                                a = Color.Brown;
-                            for (int ik = 0; ik < 8; ik++)
-                                for (int jk = 0; jk < 8; jk++)
-                                    Tab[ik, jk] = TableS[ik, jk];
-                            InAttackedNotSelfSupported = false;
-                            SelfSupported = false;
-                            for (int ik = 0; ik < 8; ik++)
-                                for (int jk = 0; jk < 8; jk++)
-                                    Tab[ik, jk] = TableS[ik, jk];
-                            /// if (iii == 6 && jjj == 2 && Tab[iii, jjj] == -1 && Tab[i, j] == 5 && i == 7 && j == 3)
-                            //   Tab[iii, jjj] = -1;
-                            //if (iii == 3 && jjj == 3 && i == 4 && j == 4 & Tab[iii, jjj] == -1 && Tab[i, j] == 5)
-                            //iii = 3;
-                            Object O = new Object();
-                            lock (O)
+                            //      for (int jjj = 0; jjj < 8; jjj++)
                             {
-                                if (Attack(Tab, iii, jjj, i, j, a, Order * -1))
+                                Order = Ord;
+                                //Ignore of Current
+                                if (Order == 1 && Tab[iii, jjj] >= 0)
+                                    return false;
+                                else
+                                    if (Order == -1 && Tab[iii, jjj] <= 0)
+                                    return false;
+                                if (i == iii && j == jjj)
+                                    return false;
+                                //Enemy
+                                a = Color.Gray;
+                                Order = Ord;
+                                if (Order * -1 == -1)
+                                    a = Color.Brown;
+                                for (int ik = 0; ik < 8; ik++)
+                                    for (int jk = 0; jk < 8; jk++)
+                                        Tab[ik, jk] = TableS[ik, jk];
+                                InAttackedNotSelfSupported = false;
+                                SelfSupported = false;
+                                for (int ik = 0; ik < 8; ik++)
+                                    for (int jk = 0; jk < 8; jk++)
+                                        Tab[ik, jk] = TableS[ik, jk];
+                                /// if (iii == 6 && jjj == 2 && Tab[iii, jjj] == -1 && Tab[i, j] == 5 && i == 7 && j == 3)
+                                //   Tab[iii, jjj] = -1;
+                                //if (iii == 3 && jjj == 3 && i == 4 && j == 4 & Tab[iii, jjj] == -1 && Tab[i, j] == 5)
+                                //iii = 3;
+                                Object O = new Object();
+                                lock (O)
                                 {
-                                    InAttackedNotSelfSupported = true;
-                                    a = Color.Gray;
-                                    if (Order == -1)
-                                        a = Color.Brown;
-
-                                    //For Self.
-                                    for (int iiii = 0; iiii < 8; iiii++)
+                                    if (Attack(Tab, iii, jjj, i, j, a, Order * -1))
                                     {
-                                        for (int jjjj = 0; jjjj < 8; jjjj++)
+                                        InAttackedNotSelfSupported = true;
+                                        a = Color.Gray;
+                                        if (Order == -1)
+                                            a = Color.Brown;
+
+                                        //For Self.
+                                        for (int iiii = 0; iiii < 8; iiii++)
                                         {
-                                            //Ignore of Enemies
-                                            if (Order == 1 && Tab[iiii, jjjj] <= 0)
-                                                continue;
-                                            else
-                                                if (Order == -1 && Tab[iiii, jjjj] >= 0)
-                                                continue;
-                                            if (i == iiii && j == jjjj)
-                                                continue;
-                                            a = Color.Gray;
-                                            if (Order == -1)
-                                                a = Color.Brown;
-                                            for (int ik = 0; ik < 8; ik++)
-                                                for (int jk = 0; jk < 8; jk++)
-                                                    Tab[ik, jk] = TableS[ik, jk];
-                                            //When there is supporte and cuurent is less than enemy.
-                                            //method return true when is not supporte and the enemy is less than cuurent in to be hitten.
-                                            if (Support(Tab, iiii, jjjj, i, j, a, Order) && (GetObjectValue(Tab, i, j, Order) <= GetObjectValue(Tab, iii, jjj, Order * -1)))
+                                            for (int jjjj = 0; jjjj < 8; jjjj++)
                                             {
-                                                SelfSupported = true;
-                                                S = S && true;
-                                                break;
+                                                //Ignore of Enemies
+                                                if (Order == 1 && Tab[iiii, jjjj] <= 0)
+                                                    continue;
+                                                else
+                                                    if (Order == -1 && Tab[iiii, jjjj] >= 0)
+                                                    continue;
+                                                if (i == iiii && j == jjjj)
+                                                    continue;
+                                                a = Color.Gray;
+                                                if (Order == -1)
+                                                    a = Color.Brown;
+                                                for (int ik = 0; ik < 8; ik++)
+                                                    for (int jk = 0; jk < 8; jk++)
+                                                        Tab[ik, jk] = TableS[ik, jk];
+                                                //When there is supporte and cuurent is less than enemy.
+                                                //method return true when is not supporte and the enemy is less than cuurent in to be hitten.
+                                                if (Support(Tab, iiii, jjjj, i, j, a, Order) && (GetObjectValue(Tab, i, j, Order) <= GetObjectValue(Tab, iii, jjj, Order * -1)))
+                                                {
+                                                    SelfSupported = true;
+                                                    S = S && true;
+                                                    break;
 
+                                                }
                                             }
-                                        }
-                                        //When a source enemy object attack a destination source object 
-                                        //a source object is greater than another source object. Is = -1 Is another object valuable.
-                                        //a source object is less than or equal  than another source object.Is = 1 Is not another object valuable.
-                                        //IsObjDangerest = IsAnotherObjectMakeDangoure(TableS, Order, color, i, j, iii, jjj);
+                                            //When a source enemy object attack a destination source object 
+                                            //a source object is greater than another source object. Is = -1 Is another object valuable.
+                                            //a source object is less than or equal  than another source object.Is = 1 Is not another object valuable.
+                                            //IsObjDangerest = IsAnotherObjectMakeDangoure(TableS, Order, color, i, j, iii, jjj);
 
-                                        if (SelfSupported)
-                                            break;
+                                            if (SelfSupported)
+                                                break;
+                                        }
                                     }
+                                }
+                                if ((!SelfSupported && InAttackedNotSelfSupported) //|| (IsObjDangerest < 0)
+
+                                    )
+                                {
+                                    S = false;
+                                    //break;
                                 }
                             }
                             if ((!SelfSupported && InAttackedNotSelfSupported) //|| (IsObjDangerest < 0)
-
                                 )
                             {
                                 S = false;
@@ -2135,6 +2155,7 @@ namespace RefrigtzW
                             S = false;
                             //break;
                         }
+
                     }
                     if ((!SelfSupported && InAttackedNotSelfSupported) //|| (IsObjDangerest < 0)
                         )
@@ -2144,18 +2165,11 @@ namespace RefrigtzW
                     }
 
                 }
-                if ((!SelfSupported && InAttackedNotSelfSupported) //|| (IsObjDangerest < 0)
-                    )
-                {
-                    S = false;
-                    //break;
-                }
-
+                Order = Ord;
+                //When S is valid the any is not in [SelfNotSupported];Self is Supporeted.
+                if (S)
+                    return false;
             }
-            Order = Ord;
-            //When S is valid the any is not in [SelfNotSupported];Self is Supporeted.
-            if (S)
-                return false;
             return true;
         }
         //Creation A Complete List of Attacked Self Object(s).
@@ -3305,133 +3319,136 @@ namespace RefrigtzW
         int[] IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(int Order, int[,] Tabl, int ik, int jk, int iki, int jki, int OrderPalte, int OrderPalteMulMinuse, int Depth, bool KindCheckedSelf)
         {
             int[] Is = new int[4];
-            Is[0] = 0;
-            Is[1] = 0;
-            Is[2] = 0;
-            Is[3] = 0;
-            int[,] Tab2 = CloneATable(Tabl);
-            /*Parallel.For( 0,  8, ki =>
+            Object O3 = new Object();
+            lock (O3)
             {
-                Parallel.For(0, 8, kj =>
-             {
-                 Tab2[ki, kj] = Tabl[ki, kj];
-             });
-            });*/
-            ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tab2[ik, jk], Tab2, Order * -1, ik, jk);
-            if (Order * -1 == 1)
-                color = Color.Gray;
-            else
-                color = Color.Brown;
-            //When Enemy Attack Currnet.
-            if (A.Rules(ik, jk, iki, jki, color, Tab2[ik, jk]))
-            {
-                Tab2[iki, jki] = Tab2[ik, jk];
-                Tab2[ik, jk] = 0;
-                A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tab2[iki, jki], Tab2, Order * -1, iki, jki);
-                //When Current Always is in CheckedMate.
-                if (A.CheckMate(Tab2, Order * -1))
+                Is[0] = 0;
+                Is[1] = 0;
+                Is[2] = 0;
+                Is[3] = 0;
+                int[,] Tab2 = CloneATable(Tabl);
+                /*Parallel.For( 0,  8, ki =>
                 {
-                    //When for penalty.
-                    //if (KindCheckedSelf)
-                    {
-                        //When Order is Gray.
-                        if (OrderPalte == 1)
-                        {
-                            if (A.CheckMateGray)
-                            {
-                                Is[0] = 1;
-                                if (KindCheckedSelf)
-                                    Is[1] = Depth;
-
-                            }
-                            else
-                            {
-                                //if (A.CheckMateBrown)
-                                //return Is;
-                            }
-                        }
-                        //When Order is Brown.
-                        else
-                           if (OrderPalte == -1)
-                        {
-                            if (A.CheckMateBrown)
-                            {
-                                Is[0] = 1;
-                                Is[1] = Depth;
-                            }
-                            else
-                            {
-                                //if (A.CheckMateGray)
-                                //return Is;
-                            }
-                        }
-
-                    }
-                    //When for regard.
-                    //else if (!KindCheckedSelf)
-                    {
-                        //When Order * -1 is Gray
-                        if (OrderPalteMulMinuse == 1)
-                        {
-                            if (A.CheckMateGray)
-                            {
-                                Is[2] = 1;
-                                Is[3] = Depth;
-                            }
-                            else
-                            {
-                                //if (A.CheckMateBrown)
-                                //return Is;
-                            }
-                        }
-                        //When Order * -1 is Brown
-                        else
-                           if (OrderPalteMulMinuse == -1)
-                        {
-                            if (A.CheckMateBrown)
-                            {
-                                Is[2] = 1;
-                                Is[3] = Depth;
-                            }
-                            else
-                            {
-                                //if (A.CheckMateGray)
-                                //return Is;
-                            }
-                        }
-
-                    }
-                }
-
+                    Parallel.For(0, 8, kj =>
+                 {
+                     Tab2[ki, kj] = Tabl[ki, kj];
+                 });
+                });*/
+                ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tab2[ik, jk], Tab2, Order * -1, ik, jk);
                 if (Order * -1 == 1)
                     color = Color.Gray;
                 else
                     color = Color.Brown;
-                //if (Tab2[iki, jki] == 0)
-                //return Is;
-                //For Movements.
-                int Ord = Order * -1;
-                int[,] Tab = CloneATable(Tab2);
-                Color a = color;
-                if (Ord == 1)
-                    a = Color.Gray;
-                else
-                    a = Color.Brown;
-                int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMulMinuse, Depth1 = Depth + 1;
-                bool KindCheckedSelf1 = KindCheckedSelf;
-                Object O = new Object();
-                int[] IS = null;
-                lock (O)
+                //When Enemy Attack Currnet.
+                if (A.Rules(ik, jk, iki, jki, color, Tab2[ik, jk]))
                 {
-                    IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovment(Tab, Ord, a, Depth1, OrderP, OrderM, KindCheckedSelf1);
+                    Tab2[iki, jki] = Tab2[ik, jk];
+                    Tab2[ik, jk] = 0;
+                    A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tab2[iki, jki], Tab2, Order * -1, iki, jki);
+                    //When Current Always is in CheckedMate.
+                    if (A.CheckMate(Tab2, Order * -1))
+                    {
+                        //When for penalty.
+                        //if (KindCheckedSelf)
+                        {
+                            //When Order is Gray.
+                            if (OrderPalte == 1)
+                            {
+                                if (A.CheckMateGray)
+                                {
+                                    Is[0] = 1;
+                                    if (KindCheckedSelf)
+                                        Is[1] = Depth;
+
+                                }
+                                else
+                                {
+                                    //if (A.CheckMateBrown)
+                                    //return Is;
+                                }
+                            }
+                            //When Order is Brown.
+                            else
+                               if (OrderPalte == -1)
+                            {
+                                if (A.CheckMateBrown)
+                                {
+                                    Is[0] = 1;
+                                    Is[1] = Depth;
+                                }
+                                else
+                                {
+                                    //if (A.CheckMateGray)
+                                    //return Is;
+                                }
+                            }
+
+                        }
+                        //When for regard.
+                        //else if (!KindCheckedSelf)
+                        {
+                            //When Order * -1 is Gray
+                            if (OrderPalteMulMinuse == 1)
+                            {
+                                if (A.CheckMateGray)
+                                {
+                                    Is[2] = 1;
+                                    Is[3] = Depth;
+                                }
+                                else
+                                {
+                                    //if (A.CheckMateBrown)
+                                    //return Is;
+                                }
+                            }
+                            //When Order * -1 is Brown
+                            else
+                               if (OrderPalteMulMinuse == -1)
+                            {
+                                if (A.CheckMateBrown)
+                                {
+                                    Is[2] = 1;
+                                    Is[3] = Depth;
+                                }
+                                else
+                                {
+                                    //if (A.CheckMateGray)
+                                    //return Is;
+                                }
+                            }
+
+                        }
+                    }
+
+                    if (Order * -1 == 1)
+                        color = Color.Gray;
+                    else
+                        color = Color.Brown;
+                    //if (Tab2[iki, jki] == 0)
+                    //return Is;
+                    //For Movements.
+                    int Ord = Order * -1;
+                    int[,] Tab = CloneATable(Tab2);
+                    Color a = color;
+                    if (Ord == 1)
+                        a = Color.Gray;
+                    else
+                        a = Color.Brown;
+                    int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMulMinuse, Depth1 = Depth + 1;
+                    bool KindCheckedSelf1 = KindCheckedSelf;
+                    Object O = new Object();
+                    int[] IS = null;
+                    lock (O)
+                    {
+                        IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovment(Tab, Ord, a, Depth1, OrderP, OrderM, KindCheckedSelf1);
+                    }
+                    if (IS[0] == 1) Is[0] = 1;
+                    if (IS[2] == 1) Is[2] = 1;
+
+                    Is[1] = IS[1];
+                    Is[3] = IS[3];
                 }
-                if (IS[0] == 1) Is[0] = 1;
-                if (IS[2] == 1) Is[2] = 1;
-
-                Is[1] = IS[1];
-                Is[3] = IS[3];
             }
-
             return Is;
         }
         //When Next Movements is Checked.QC_OK.
@@ -3519,49 +3536,72 @@ namespace RefrigtzW
         {
 
             int[] Is = new int[4];
-            Is[0] = 0;
-            Is[1] = 0;
-            Is[2] = 0;
-            Is[3] = 0;
-            int DummyOrder = Order;
-            int DummyCurrentOrder = ChessRules.CurrentOrder;
-            //int[,] Tabl = new int[8, 8];
-            //for (int ik = 0; ik < 8; ik++)
-            // for (int jk = 0; jk < 8; jk++)
-            //    Tabl[ik, jk] = Table[ik, jk];
-            //if (Depth == 0 && i == 1 && j == 2 && ii == 3 && jj == 2 && KindCheckedSelf)
-            //i = 1;
-
-            /*if (Tabl[i, j] != 0)
+            Object O3 = new Object();
+            lock (O3)
             {
-                Tabl[ii, jj] = Tabl[i, j];
-                Tabl[i, j] = 0;
-            }
-            */
+                Is[0] = 0;
+                Is[1] = 0;
+                Is[2] = 0;
+                Is[3] = 0;
+                int DummyOrder = Order;
+                int DummyCurrentOrder = ChessRules.CurrentOrder;
+                //int[,] Tabl = new int[8, 8];
+                //for (int ik = 0; ik < 8; ik++)
+                // for (int jk = 0; jk < 8; jk++)
+                //    Tabl[ik, jk] = Table[ik, jk];
+                //if (Depth == 0 && i == 1 && j == 2 && ii == 3 && jj == 2 && KindCheckedSelf)
+                //i = 1;
 
-            /*ChessRules A = new ChessRules( CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tabl[ii, jj], Tabl, OrderPalte, ii, jj);
-            //When Current Always is in CheckedMate.
-            if (A.CheckMate(Tabl, OrderPalte))
-            {
-                if (OrderPalte == AllDraw.OrderPlate)
+                /*if (Tabl[i, j] != 0)
                 {
-                    if (OrderPalte == 1)
+                    Tabl[ii, jj] = Tabl[i, j];
+                    Tabl[i, j] = 0;
+                }
+                */
+
+                /*ChessRules A = new ChessRules( CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tabl[ii, jj], Tabl, OrderPalte, ii, jj);
+                //When Current Always is in CheckedMate.
+                if (A.CheckMate(Tabl, OrderPalte))
+                {
+                    if (OrderPalte == AllDraw.OrderPlate)
                     {
-                        if (A.CheckMateGray)
+                        if (OrderPalte == 1)
                         {
-                            Is = true;
-                            CheckedMateDepth = Depth;
-                            return;
+                            if (A.CheckMateGray)
+                            {
+                                Is = true;
+                                CheckedMateDepth = Depth;
+                                return;
+                            }
+                            else
+                                if (A.CheckMateBrown)
+                                {
+                                    Is = false;
+                                    CheckedMateDepth = Depth;
+                                    return;
+                                }
                         }
                         else
-                            if (A.CheckMateBrown)
+                        {
+                            if (A.CheckMateGray)
                             {
                                 Is = false;
                                 CheckedMateDepth = Depth;
                                 return;
                             }
+                            else
+                                if (A.CheckMateBrown)
+                                {
+                                    Is = true;
+                                    CheckedMateDepth = Depth;
+                                    return;
+                                }
+                        }
                     }
-                    else
+                }
+                else
+                {
+                    if (OrderPalte == 1)
                     {
                         if (A.CheckMateGray)
                         {
@@ -3577,342 +3617,110 @@ namespace RefrigtzW
                                 return;
                             }
                     }
-                }
-            }
-            else
-            {
-                if (OrderPalte == 1)
-                {
-                    if (A.CheckMateGray)
-                    {
-                        Is = false;
-                        CheckedMateDepth = Depth;
-                        return;
-                    }
                     else
-                        if (A.CheckMateBrown)
+                    {
+                        if (A.CheckMateGray)
                         {
                             Is = true;
                             CheckedMateDepth = Depth;
                             return;
                         }
+                        else
+                            if (A.CheckMateBrown)
+                            {
+                                Is = false;
+                                CheckedMateDepth = Depth;
+                                return;
+                            }
+                    }
                 }
-                else
+
+                */
+                //ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tabl[ii, jj], Tabl, OrderPalte, ii, jj);
+                if (Depth >= AllDraw.MaxAStarGreedy)
+                    return Is;
+                //Store.
+
+                /*if (A.CheckMate(Tabl, OrderPalte))
                 {
-                    if (A.CheckMateGray)
+                    if (OrderPalte == 1)
                     {
-                        Is = true;
-                        CheckedMateDepth = Depth;
-                        return;
+                        if (A.CheckMateGray)
+                            Is = true;
+                        if (A.CheckGray)
+                            Is = true;
+                        if (A.CheckGrayObjectDangour)
+                            Is = true;
                     }
                     else
+                    {
                         if (A.CheckMateBrown)
-                        {
-                            Is = false;
-                            CheckedMateDepth = Depth;
-                            return;
-                        }
+                            Is = true;
+                        if (A.CheckBrown)
+                            Is = true;
+                        if (A.CheckBrownObjectDangour)
+                            Is = true;
+                    }
                 }
-            }
+                 */
 
-            */
-            //ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tabl[ii, jj], Tabl, OrderPalte, ii, jj);
-            if (Depth >= AllDraw.MaxAStarGreedy)
-                return Is;
-            //Store.
-
-            /*if (A.CheckMate(Tabl, OrderPalte))
-            {
-                if (OrderPalte == 1)
-                {
-                    if (A.CheckMateGray)
-                        Is = true;
-                    if (A.CheckGray)
-                        Is = true;
-                    if (A.CheckGrayObjectDangour)
-                        Is = true;
-                }
-                else
-                {
-                    if (A.CheckMateBrown)
-                        Is = true;
-                    if (A.CheckBrown)
-                        Is = true;
-                    if (A.CheckBrownObjectDangour)
-                        Is = true;
-                }
-            }
-             */
-
-            //For All Enemies.
-            Parallel.For(0, 8, ik =>
-                Parallel.For(0, 8, jk =>
-                {
+                //For All Enemies.
+                Parallel.For(0, 8, ik =>
+                    Parallel.For(0, 8, jk =>
+                    {
 
                     //Ignore of Current
                     if (Order == 1 && Tabl[ik, jk] >= 0)
-                        return;
-                    if (Order == -1 && Tabl[ik, jk] <= 0)
-                        return;
-                    if (System.Math.Abs(Tabl[ik, jk]) == 1)
-                    {
+                            return;
+                        if (Order == -1 && Tabl[ik, jk] <= 0)
+                            return;
+                        if (System.Math.Abs(Tabl[ik, jk]) == 1)
+                        {
                         //int iki = ii, jki = jj;
                         //For Current Home
                         Parallel.For(ik - 2, ik + 3, iki =>
-                           Parallel.For(jk - 2, jk + 3, jki =>
-                           // init subtotal
-                           {
-                               if (!Scop(ik, jk, iki, jki, 1))
-                                   return;
+                               Parallel.For(jk - 2, jk + 3, jki =>
+                               // init subtotal
+                               {
+                                   if (!Scop(ik, jk, iki, jki, 1))
+                                       return;
                                //Ignore of Enemy
                                if (Order == 1 && Tabl[iki, jki] < 0)
-                                   return;
-                               if (Order == -1 && Tabl[iki, jki] > 0)
-                                   return;
-                               if (Is[0] == 1)
-                                   return;
-                               int Ord = Order;
-                               int[,] Tab = CloneATable(Tabl);
-                               int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
-                               bool KindCheckedSelf1 = KindCheckedSelf;
-                               int[] IS = null;
-                               bool A = new bool();
-                               Object O = new Object();
-                               lock (O)
-                               {
-                                   IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
-                                   if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
-                                   Is[1] = IS[1]; Is[3] = IS[3];
+                                       return;
+                                   if (Order == -1 && Tabl[iki, jki] > 0)
+                                       return;
+                                   if (Is[0] == 1)
+                                       return;
+                                   int Ord = Order;
+                                   int[,] Tab = CloneATable(Tabl);
+                                   int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
+                                   bool KindCheckedSelf1 = KindCheckedSelf;
+                                   int[] IS = null;
+                                   bool A = new bool();
+                                   Object O = new Object();
+                                   lock (O)
+                                   {
+                                       IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                       if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
+                                       Is[1] = IS[1]; Is[3] = IS[3];
+                                   }
+
                                }
+                              ));
 
-                           }
-                          ));
-
-                    }
-                    else
-                           if (System.Math.Abs(Tabl[ik, jk]) == 2)
-                    {
+                        }
+                        else
+                               if (System.Math.Abs(Tabl[ik, jk]) == 2)
+                        {
                         //int iki = ii, jki = jj;
                         //For Current Home
                         Parallel.For(-7, 8, iki =>
-                        {
-                            int jki = iki + jk - ik;
-                            if (!Scop(ik, jk, iki, jki, 2))
-                                return;
-                            //Ignore of Enemy
-                            if (Order == 1 && Tabl[iki, jki] < 0)
-                                return;
-                            if (Order == -1 && Tabl[iki, jki] > 0)
-                                return;
-
-                            if (Is[0] == 1)
-                                return;
-                            int Ord = Order;
-                            int[,] Tab = CloneATable(Tabl);
-                            int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
-                            bool KindCheckedSelf1 = KindCheckedSelf;
-                            int[] IS = null;
-                            bool A = new bool();
-                            Object O = new Object();
-                            lock (O)
                             {
-                                IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
-                                if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
-                                Is[1] = IS[1]; Is[3] = IS[3];
-                            }
-                        });
-
-
-                        //============
-
-
-
-                        //int iki = ii, jki = jj;
-                        //For Current Home
-                        Parallel.For(-7, 8, iki =>
-                        {
-                            int jki = iki * -1 + jk + ik;
-                            if (!Scop(ik, jk, iki, jki, 2))
-                                return;
-                            //Ignore of Enemy
-                            if (Order == 1 && Tabl[iki, jki] < 0)
-                                return;
-                            if (Order == -1 && Tabl[iki, jki] > 0)
-                                return;
-
-                            if (Is[0] == 1)
-                                return;
-                            int Ord = Order;
-                            int[,] Tab = CloneATable(Tabl);
-                            int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
-                            bool KindCheckedSelf1 = KindCheckedSelf;
-                            int[] IS = null;
-                            bool A = new bool();
-                            Object O = new Object();
-                            lock (O)
-                            {
-                                IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
-                                if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
-                                Is[1] = IS[1]; Is[3] = IS[3];
-                            }
-                        });
-                    }
-                    else
-                               if (System.Math.Abs(Tabl[ik, jk]) == 3)
-                    {
-                        //int iki = ii, jki = jj;
-                        //For Current Home
-                        Parallel.For(ik - 2, ik + 3, iki =>
-                           Parallel.For(jk - 2, jk + 3, jki =>
-                           {
-                               if (!Scop(ik, jk, iki, jki, 3))
-                                   return;
-                               //Ignore of Enemy
-                               if (Order == 1 && Tabl[iki, jki] < 0)
-                                   return;
-                               if (Order == -1 && Tabl[iki, jki] > 0)
-                                   return;
-
-                               int Ord = Order;
-                               int[,] Tab = CloneATable(Tabl);
-                               int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
-                               bool KindCheckedSelf1 = KindCheckedSelf;
-                               int[] IS = null;
-                               bool A = new bool();
-                               Object O = new Object();
-                               lock (O)
-                               {
-                                   IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
-                                   if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
-                                   Is[1] = IS[1]; Is[3] = IS[3];
-                               }
-                           }));
-                    }
-                    else
-                                   if (System.Math.Abs(Tabl[ik, jk]) == 4)
-                    {
-
-                        //int iki = ii, jki = jj;
-                        //For Current Home
-                        Parallel.For(0, 8, iki =>
-                        {
-                            int jki = jk;
-                            if (!Scop(ik, jk, iki, jki, 4))
-                                return;
-                            //Ignore of Enemy
-                            if (Order == 1 && Tabl[iki, jki] < 0)
-                                return;
-                            if (Order == -1 && Tabl[iki, jki] > 0)
-                                return;
-
-                            if (Is[0] == 1)
-                                return;
-                            int Ord = Order;
-                            int[,] Tab = CloneATable(Tabl);
-                            int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
-                            bool KindCheckedSelf1 = KindCheckedSelf;
-                            int[] IS = null;
-                            bool A = new bool();
-                            Object O = new Object();
-                            lock (O)
-                            {
-                                IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
-                                if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
-                                Is[1] = IS[1]; Is[3] = IS[3];
-                            }
-                        });
-
-                        ///======================
-                        ///
-
-
-                        //int iki = ii, jki = jj;
-                        //For Current Home
-                        Parallel.For(0, 8, jki =>
-                        {
-                            int iki = ik;
-                            if (!Scop(ik, jk, iki, jki, 4))
-                                return;
-                            //Ignore of Enemy
-                            if (Order == 1 && Tabl[iki, jki] < 0)
-                                return;
-                            if (Order == -1 && Tabl[iki, jki] > 0)
-                                return;
-
-                            if (Is[0] == 1)
-                                return;
-                            int Ord = Order;
-                            int[,] Tab = CloneATable(Tabl);
-                            int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
-                            bool KindCheckedSelf1 = KindCheckedSelf;
-                            int[] IS = null;
-                            bool A = new bool();
-                            Object O = new Object();
-                            lock (O)
-                            {
-                                IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
-                                if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
-                                Is[1] = IS[1]; Is[3] = IS[3];
-                            }
-                        });
-
-                    }
-                    else
-                                       if (System.Math.Abs(Tabl[ik, jk]) == 5)
-                    {
-
-                        //int iki = ii, jki = jj;
-                        //For Current Home
-                        Parallel.For(0, 8, iki =>
-                           Parallel.For(0, 8, jki =>
-                           {
-                               //Ignore of Enemy
-                               if (Order == 1 && Tabl[iki, jki] < 0)
-                                   return;
-                               if (Order == -1 && Tabl[iki, jki] > 0)
-                                   return;
-                               if (!Scop(ik, jk, iki, jki, 5))
-                                   return;
-
-                               if (Is[0] == 1)
-                                   return;
-                               int Ord = Order;
-                               int[,] Tab = CloneATable(Tabl);
-                               int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
-                               bool KindCheckedSelf1 = KindCheckedSelf;
-                               int[] IS = null;
-                               bool A = new bool();
-                               Object O = new Object();
-                               lock (O)
-                               {
-                                   IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
-                                   if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
-                                   Is[1] = IS[1]; Is[3] = IS[3];
-                               }
-                           }));
-                    }
-                    else
-                                           if (System.Math.Abs(Tabl[ik, jk]) == 6)
-                    {
-                        /*int[,] Tab2 = new int[8, 8];
-                        Parallel.For(0, 8, aa =>
-                        {
-                            Parallel.For(0, 8, b =>
-                            {
-                                Tab2[aa, b] = Tabl[aa, b];
-                            });
-                        });
-                        */
-
-                        //int iki = ii, jki = jj;
-                        //For Current Home
-                        Parallel.For(ik - 1, ik + 2, iki =>
-                            Parallel.For(jk - 1, jk + 2, jki =>
-                            {
-                                if (!Scop(ik, jk, iki, jki, 6))
+                                int jki = iki + jk - ik;
+                                if (!Scop(ik, jk, iki, jki, 2))
                                     return;
-                                //Ignore of Enemy
-                                if (Order == 1 && Tabl[iki, jki] < 0)
+                            //Ignore of Enemy
+                            if (Order == 1 && Tabl[iki, jki] < 0)
                                     return;
                                 if (Order == -1 && Tabl[iki, jki] > 0)
                                     return;
@@ -3932,14 +3740,226 @@ namespace RefrigtzW
                                     if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
                                     Is[1] = IS[1]; Is[3] = IS[3];
                                 }
-                            }));
-                    }
-                }));
+                            });
 
 
-            Order = DummyOrder;
-            ChessRules.CurrentOrder = DummyCurrentOrder;
+                        //============
 
+
+
+                        //int iki = ii, jki = jj;
+                        //For Current Home
+                        Parallel.For(-7, 8, iki =>
+                            {
+                                int jki = iki * -1 + jk + ik;
+                                if (!Scop(ik, jk, iki, jki, 2))
+                                    return;
+                            //Ignore of Enemy
+                            if (Order == 1 && Tabl[iki, jki] < 0)
+                                    return;
+                                if (Order == -1 && Tabl[iki, jki] > 0)
+                                    return;
+
+                                if (Is[0] == 1)
+                                    return;
+                                int Ord = Order;
+                                int[,] Tab = CloneATable(Tabl);
+                                int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
+                                bool KindCheckedSelf1 = KindCheckedSelf;
+                                int[] IS = null;
+                                bool A = new bool();
+                                Object O = new Object();
+                                lock (O)
+                                {
+                                    IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                    if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
+                                    Is[1] = IS[1]; Is[3] = IS[3];
+                                }
+                            });
+                        }
+                        else
+                                   if (System.Math.Abs(Tabl[ik, jk]) == 3)
+                        {
+                        //int iki = ii, jki = jj;
+                        //For Current Home
+                        Parallel.For(ik - 2, ik + 3, iki =>
+                               Parallel.For(jk - 2, jk + 3, jki =>
+                               {
+                                   if (!Scop(ik, jk, iki, jki, 3))
+                                       return;
+                               //Ignore of Enemy
+                               if (Order == 1 && Tabl[iki, jki] < 0)
+                                       return;
+                                   if (Order == -1 && Tabl[iki, jki] > 0)
+                                       return;
+
+                                   int Ord = Order;
+                                   int[,] Tab = CloneATable(Tabl);
+                                   int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
+                                   bool KindCheckedSelf1 = KindCheckedSelf;
+                                   int[] IS = null;
+                                   bool A = new bool();
+                                   Object O = new Object();
+                                   lock (O)
+                                   {
+                                       IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                       if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
+                                       Is[1] = IS[1]; Is[3] = IS[3];
+                                   }
+                               }));
+                        }
+                        else
+                                       if (System.Math.Abs(Tabl[ik, jk]) == 4)
+                        {
+
+                        //int iki = ii, jki = jj;
+                        //For Current Home
+                        Parallel.For(0, 8, iki =>
+                            {
+                                int jki = jk;
+                                if (!Scop(ik, jk, iki, jki, 4))
+                                    return;
+                            //Ignore of Enemy
+                            if (Order == 1 && Tabl[iki, jki] < 0)
+                                    return;
+                                if (Order == -1 && Tabl[iki, jki] > 0)
+                                    return;
+
+                                if (Is[0] == 1)
+                                    return;
+                                int Ord = Order;
+                                int[,] Tab = CloneATable(Tabl);
+                                int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
+                                bool KindCheckedSelf1 = KindCheckedSelf;
+                                int[] IS = null;
+                                bool A = new bool();
+                                Object O = new Object();
+                                lock (O)
+                                {
+                                    IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                    if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
+                                    Is[1] = IS[1]; Is[3] = IS[3];
+                                }
+                            });
+
+                        ///======================
+                        ///
+
+
+                        //int iki = ii, jki = jj;
+                        //For Current Home
+                        Parallel.For(0, 8, jki =>
+                            {
+                                int iki = ik;
+                                if (!Scop(ik, jk, iki, jki, 4))
+                                    return;
+                            //Ignore of Enemy
+                            if (Order == 1 && Tabl[iki, jki] < 0)
+                                    return;
+                                if (Order == -1 && Tabl[iki, jki] > 0)
+                                    return;
+
+                                if (Is[0] == 1)
+                                    return;
+                                int Ord = Order;
+                                int[,] Tab = CloneATable(Tabl);
+                                int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
+                                bool KindCheckedSelf1 = KindCheckedSelf;
+                                int[] IS = null;
+                                bool A = new bool();
+                                Object O = new Object();
+                                lock (O)
+                                {
+                                    IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                    if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
+                                    Is[1] = IS[1]; Is[3] = IS[3];
+                                }
+                            });
+
+                        }
+                        else
+                                           if (System.Math.Abs(Tabl[ik, jk]) == 5)
+                        {
+
+                        //int iki = ii, jki = jj;
+                        //For Current Home
+                        Parallel.For(0, 8, iki =>
+                               Parallel.For(0, 8, jki =>
+                               {
+                               //Ignore of Enemy
+                               if (Order == 1 && Tabl[iki, jki] < 0)
+                                       return;
+                                   if (Order == -1 && Tabl[iki, jki] > 0)
+                                       return;
+                                   if (!Scop(ik, jk, iki, jki, 5))
+                                       return;
+
+                                   if (Is[0] == 1)
+                                       return;
+                                   int Ord = Order;
+                                   int[,] Tab = CloneATable(Tabl);
+                                   int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
+                                   bool KindCheckedSelf1 = KindCheckedSelf;
+                                   int[] IS = null;
+                                   bool A = new bool();
+                                   Object O = new Object();
+                                   lock (O)
+                                   {
+                                       IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                       if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
+                                       Is[1] = IS[1]; Is[3] = IS[3];
+                                   }
+                               }));
+                        }
+                        else
+                                               if (System.Math.Abs(Tabl[ik, jk]) == 6)
+                        {
+                        /*int[,] Tab2 = new int[8, 8];
+                        Parallel.For(0, 8, aa =>
+                        {
+                            Parallel.For(0, 8, b =>
+                            {
+                                Tab2[aa, b] = Tabl[aa, b];
+                            });
+                        });
+                        */
+
+                        //int iki = ii, jki = jj;
+                        //For Current Home
+                        Parallel.For(ik - 1, ik + 2, iki =>
+                                Parallel.For(jk - 1, jk + 2, jki =>
+                                {
+                                    if (!Scop(ik, jk, iki, jki, 6))
+                                        return;
+                                //Ignore of Enemy
+                                if (Order == 1 && Tabl[iki, jki] < 0)
+                                        return;
+                                    if (Order == -1 && Tabl[iki, jki] > 0)
+                                        return;
+
+                                    if (Is[0] == 1)
+                                        return;
+                                    int Ord = Order;
+                                    int[,] Tab = CloneATable(Tabl);
+                                    int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
+                                    bool KindCheckedSelf1 = KindCheckedSelf;
+                                    int[] IS = null;
+                                    bool A = new bool();
+                                    Object O = new Object();
+                                    lock (O)
+                                    {
+                                        IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                        if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
+                                        Is[1] = IS[1]; Is[3] = IS[3];
+                                    }
+                                }));
+                        }
+                    }));
+
+
+                Order = DummyOrder;
+                ChessRules.CurrentOrder = DummyCurrentOrder;
+            }
             //return false.
             return Is;
         }
@@ -3954,8 +3974,10 @@ namespace RefrigtzW
             int DummyCurrentOrder = ChessRules.CurrentOrder;
             //For Enemy Order.
             //for (int ii = 0; ii < 8; ii++)
-            {
-                //for (int jj = 0; jj < 8; jj++)
+          Object O1 = new Object();
+                                     lock (O1)
+                                     {
+                                       //for (int jj = 0; jj < 8; jj++)
                 {
                     //Ignore of Self Objects.
                     if (Order == 1 && Tab[ii, jj] >= 0)
@@ -4083,86 +4105,89 @@ namespace RefrigtzW
         {
             if (Depth >= CurrentAStarGredyMax)
                 return false;
-            Depth++;
-            IsGardHighPriority = false;
+            Object O4 = new Object();
+            lock (O4)
+            {
+                Depth++;
+                IsGardHighPriority = false;
 
-            int[,] Tabl1 = new int[8, 8];
+                int[,] Tabl1 = new int[8, 8];
 
-            for (int ik = 0; ik < 8; ik++)
-                for (int jk = 0; jk < 8; jk++)
-                    Tabl1[ik, jk] = Table[ik, jk];
-            //Take Movement.
-            //Tabl1[ii, jj] = Tabl1[i, j];
-            //Tabl1[i, j] = 0;
+                for (int ik = 0; ik < 8; ik++)
+                    for (int jk = 0; jk < 8; jk++)
+                        Tabl1[ik, jk] = Table[ik, jk];
+                //Take Movement.
+                //Tabl1[ii, jj] = Tabl1[i, j];
+                //Tabl1[i, j] = 0;
 
-            //For Current.
-            for (int i = 0; i < 8; i++)
-                for (int j = 0; j < 8; j++)
-                {
-                    //Ignore of Enemy.QC_OK.
-                    if (Order == 1 && Tabl1[i, j] <= 0)
-                        continue;
-                    else
-                        if (Order == -1 && Tabl1[i, j] >= 0)
-                        continue;
-                    //For Enemy.
-                    for (int ii = 0; ii < 8; ii++)
-                        for (int jj = 0; jj < 8; jj++)
-                        {
-                            //Ignore of Current.QC_OK.
-                            if (Order == 1 && Tabl1[ii, jj] >= 0)
-                                continue;
-                            else
-                                if (Order == -1 && Tabl1[ii, jj] >= 0)
-                                continue;
-                            for (int ik = 0; ik < 8; ik++)
-                                for (int jk = 0; jk < 8; jk++)
-                                    Tabl1[ik, jk] = Table[ik, jk];
-                            //Take Movement.
-                            //ChessRules A = new ChessRules( CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tabl1[i, j], Tabl1, Order, i, j);
-                            if (Attack(Tabl1, i, j, ii, jj, a, Order * -1))
+                //For Current.
+                for (int i = 0; i < 8; i++)
+                    for (int j = 0; j < 8; j++)
+                    {
+                        //Ignore of Enemy.QC_OK.
+                        if (Order == 1 && Tabl1[i, j] <= 0)
+                            continue;
+                        else
+                            if (Order == -1 && Tabl1[i, j] >= 0)
+                            continue;
+                        //For Enemy.
+                        for (int ii = 0; ii < 8; ii++)
+                            for (int jj = 0; jj < 8; jj++)
                             {
-                                //When Current Movments is
-                                if (GetObjectValue(Tabl1, i, j, Order * -1) <= GetObjectValue(Tabl1, ii, jj, Order * -1))
-                                {
-                                    //For Enemies
-                                    /* for (int ik = 0; ik < 8; ik++)
-                                         for (int jk = 0; jk < 8; jk++)
-                                         {
-                                             //Ignore of Current.QC_OK.
-                                             if (Order == 1 && Tabl1[ik, jk] >= 0)
-                                                 continue;
-                                             else
-                                                 if (Order == -1 && Tabl1[ik, jk] >= 0)
-                                                     continue;
-                                             if (Support(Tabl1, ik, jk, ii, jj, a, Order * -1))
-                                             {
-                                                 IsGardHighPriority = false;
-                                                 return IsGardHighPriority;
-                                             }
-                                             else
-                                                 if (Order == OrderPlate)
-                                                     IsGardHighPriority = true;
-                                         }
-                                     */
-                                    if (Order == OrderPlate)
-                                        IsGardHighPriority = true;
-                                }
+                                //Ignore of Current.QC_OK.
+                                if (Order == 1 && Tabl1[ii, jj] >= 0)
+                                    continue;
                                 else
+                                    if (Order == -1 && Tabl1[ii, jj] >= 0)
+                                    continue;
+                                for (int ik = 0; ik < 8; ik++)
+                                    for (int jk = 0; jk < 8; jk++)
+                                        Tabl1[ik, jk] = Table[ik, jk];
+                                //Take Movement.
+                                //ChessRules A = new ChessRules( CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tabl1[i, j], Tabl1, Order, i, j);
+                                if (Attack(Tabl1, i, j, ii, jj, a, Order * -1))
                                 {
-                                    Tabl1[ii, jj] = Tabl1[i, j];
-                                    Tabl1[i, j] = 0;
-                                    if (Order * -1 == 1)
-                                        a = Color.Gray;
+                                    //When Current Movments is
+                                    if (GetObjectValue(Tabl1, i, j, Order * -1) <= GetObjectValue(Tabl1, ii, jj, Order * -1))
+                                    {
+                                        //For Enemies
+                                        /* for (int ik = 0; ik < 8; ik++)
+                                             for (int jk = 0; jk < 8; jk++)
+                                             {
+                                                 //Ignore of Current.QC_OK.
+                                                 if (Order == 1 && Tabl1[ik, jk] >= 0)
+                                                     continue;
+                                                 else
+                                                     if (Order == -1 && Tabl1[ik, jk] >= 0)
+                                                         continue;
+                                                 if (Support(Tabl1, ik, jk, ii, jj, a, Order * -1))
+                                                 {
+                                                     IsGardHighPriority = false;
+                                                     return IsGardHighPriority;
+                                                 }
+                                                 else
+                                                     if (Order == OrderPlate)
+                                                         IsGardHighPriority = true;
+                                             }
+                                         */
+                                        if (Order == OrderPlate)
+                                            IsGardHighPriority = true;
+                                    }
                                     else
-                                        a = Color.Brown;
-                                    IsGardHighPriority = IsGardHighPriority || IsCurrentCanGardHighPriorityEnemy(Depth, Table, Order * -1, a, ii, jj, i, j, OrderPlate);
+                                    {
+                                        Tabl1[ii, jj] = Tabl1[i, j];
+                                        Tabl1[i, j] = 0;
+                                        if (Order * -1 == 1)
+                                            a = Color.Gray;
+                                        else
+                                            a = Color.Brown;
+                                        IsGardHighPriority = IsGardHighPriority || IsCurrentCanGardHighPriorityEnemy(Depth, Table, Order * -1, a, ii, jj, i, j, OrderPlate);
+                                    }
+
                                 }
-
                             }
-                        }
-                }
-
+                    }
+            }
 
             return IsGardHighPriority;
         }
@@ -5710,7 +5735,7 @@ namespace RefrigtzW
                 catch (Exception t) { Log(t); }
                 i++;
 
-            } while (i < SodierHigh + 1);
+            } while (i < SodierHigh);
 
             return Count;
 
@@ -5746,7 +5771,7 @@ namespace RefrigtzW
                 catch (Exception t) { Log(t); }
                 i++;
             }
-            while (i < ElefantHigh + 1);
+            while (i < ElefantHigh);
             return Count;
         }
         //Calculate Hourse on table.
@@ -5779,7 +5804,7 @@ namespace RefrigtzW
                 catch (Exception t) { Log(t); }
                 i++;
             }
-            while (i < HourseHight + 1);
+            while (i < HourseHight);
             return Count;
         }
         //Calculate Castles Count.
@@ -5812,7 +5837,7 @@ namespace RefrigtzW
 
                 i++;
             }
-            while (i < CastleHigh + 1);
+            while (i < CastleHigh);
             return Count;
         }
         //Calculate Minsiter Count.
@@ -5844,7 +5869,7 @@ namespace RefrigtzW
                 catch (Exception t) { Log(t); }
                 i++;
             }
-            while (i < MinisterHigh + 1);
+            while (i < MinisterHigh);
             return Count;
         }
         //Calculate King on Table.
@@ -5876,7 +5901,7 @@ namespace RefrigtzW
                 catch (Exception t) { Log(t); }
                 i++;
             }
-            while (i < KingHigh + 1);
+            while (i < KingHigh);
             return Count;
         }
         //Return Huristic.
@@ -6806,7 +6831,7 @@ namespace RefrigtzW
                     }
                 }
 
-                //KingValue = 10 * (VeryFye(TableS, Order, color) + 1);
+                //KingValue = 10 * (VeryFye(TableS, Order, color));
                 Object A4 = new object();
                 lock (A4)
                 {
@@ -7046,57 +7071,64 @@ namespace RefrigtzW
         {
             bool Dang = false;
             int BREAK = 0;
-            //.Current
-            for (int i = 0; i < 8; i++)
+            Object O = new Object();
+            lock (O)
             {
-                for (int j = 0; j < 8; j++)
+                //.Current
+                for (int i = 0; i < 8; i++)
                 {
-                    BREAK = 0;
-                    if (Order == 1 && TableS[i, j] <= 0)
-                        continue;
-                    else
-                        if (Order == -1 && TableS[i, j] >= 0)
-                        continue;
-                    //Enemy
-                    for (int ii = 0; ii < 8; ii++)
+                    for (int j = 0; j < 8; j++)
                     {
-                        for (int jj = 0; jj < 8; jj++)
+                        BREAK = 0;
+                        if (Order == 1 && TableS[i, j] <= 0)
+                            continue;
+                        else
+                            if (Order == -1 && TableS[i, j] >= 0)
+                            continue;
+                        //Enemy
+                        for (int ii = 0; ii < 8; ii++)
                         {
-                            BREAK = 0;
-                            if (Order == 1 && TableS[ii, jj] >= 0)
-                                continue;
-                            else
-                                if (Order == -1 && TableS[ii, jj] <= 0)
-                                continue;
-                            Color a = Color.Gray;
-                            if (Order * -1 == -1)
-                                a = Color.Brown;
-                            if (Attack(TableS, ii, jj, i, j, a, Order * -1))
+                            for (int jj = 0; jj < 8; jj++)
                             {
-                                BREAK = 1;
-                                //Current
-                                for (int iii = 0; iii < 8; iii++)
+                                BREAK = 0;
+                                if (Order == 1 && TableS[ii, jj] >= 0)
+                                    continue;
+                                else
+                                    if (Order == -1 && TableS[ii, jj] <= 0)
+                                    continue;
+                                Color a = Color.Gray;
+                                if (Order * -1 == -1)
+                                    a = Color.Brown;
+                                if (Attack(TableS, ii, jj, i, j, a, Order * -1))
                                 {
-                                    for (int jjj = 0; jjj < 8; jjj++)
+                                    BREAK = 1;
+                                    //Current
+                                    for (int iii = 0; iii < 8; iii++)
                                     {
-                                        BREAK = 0;
-                                        if (Order == 1 && TableS[iii, jjj] <= 0)
-                                            continue;
-                                        else
-                                            if (Order == -1 && TableS[iii, jjj] >= 0)
-                                            continue;
-                                        a = Color.Gray;
-                                        if (Order == -1)
-                                            a = Color.Brown;
-                                        if (Support(TableS, iii, jjj, i, j, a, Order))
+                                        for (int jjj = 0; jjj < 8; jjj++)
                                         {
-                                            BREAK = 2;
-                                            break;
+                                            BREAK = 0;
+                                            if (Order == 1 && TableS[iii, jjj] <= 0)
+                                                continue;
+                                            else
+                                                if (Order == -1 && TableS[iii, jjj] >= 0)
+                                                continue;
+                                            a = Color.Gray;
+                                            if (Order == -1)
+                                                a = Color.Brown;
+                                            if (Support(TableS, iii, jjj, i, j, a, Order))
+                                            {
+                                                BREAK = 2;
+                                                break;
+                                            }
                                         }
+                                        if (BREAK == 2)
+                                            break;
                                     }
-                                    if (BREAK == 2)
-                                        break;
                                 }
+                                if (BREAK == 1)
+                                    break;
+
                             }
                             if (BREAK == 1)
                                 break;
@@ -7111,11 +7143,8 @@ namespace RefrigtzW
 
                 }
                 if (BREAK == 1)
-                    break;
-
+                    Dang = true;
             }
-            if (BREAK == 1)
-                Dang = true;
             return Dang;
 
         }
@@ -7162,51 +7191,66 @@ namespace RefrigtzW
             int AttackCount = 0;
 
             bool[] LearningV = new bool[3];
-            Parallel.For(0, 8, i =>
-            //for (int i = 0; i < 8; i++)
+            Object O = new Object();
+            lock (O)
             {
-                if ((LearningV[0] || LearningV[1] || LearningV[2]))
-                    return;
-                Parallel.For(0, 8, j =>
-                //for (int j = 0; j < 8; j++)
+                Parallel.For(0, 8, i =>
+                //for (int i = 0; i < 8; i++)
                 {
                     if ((LearningV[0] || LearningV[1] || LearningV[2]))
                         return;
-                    Parallel.For(0, 8, iii =>
-                    //for (int iii = 0; iii < 8; iii++)
+                    Parallel.For(0, 8, j =>
+                    //for (int j = 0; j < 8; j++)
                     {
                         if ((LearningV[0] || LearningV[1] || LearningV[2]))
                             return;
-
-                        Parallel.For(0, 8, jjj =>
-                        //for (int jjj = 0; jjj < 8; jjj++)
+                        Parallel.For(0, 8, iii =>
+                        //for (int iii = 0; iii < 8; iii++)
                         {
                             if ((LearningV[0] || LearningV[1] || LearningV[2]))
                                 return;
 
-                            Parallel.Invoke(() =>
+                            Parallel.For(0, 8, jjj =>
+                            //for (int jjj = 0; jjj < 8; jjj++)
                             {
-
-                                if (!(LearningV[0] || LearningV[1] || LearningV[2]))
-                                    LearningV[0] = LearningV[0] || InAttackSelfThatNotSupportedAll(TableS, Order, color, i, j, iii, jjj, ik, jk, iik, jjk);
-                            }, () =>
-                            {
-
                                 if ((LearningV[0] || LearningV[1] || LearningV[2]))
                                     return;
 
-                                if (AttackCount <= 1 && (!(LearningV[0] || LearningV[1] || LearningV[2])))
-                                    AttackCount = AttackCount + IsNotSafeToMoveAenemeyToAttackMoreThanTowObject(AttackCount, TableS, Order, i, j, iii, jjj//, ii, jj, iiii, jjjj
-                                        );
-                                else
-                                if (!(LearningV[0] || LearningV[1] || LearningV[2]))
-                                    LearningV[1] = true;
-                            }, () =>
-                             {
-                                 if (!(LearningV[0] || LearningV[1] || LearningV[2]))
-                                     LearningV[2] = LearningV[2] || IsGardForCurrentMovmentsAndIsNotMovable(TableS, Order, color, i, j, iii, jjj//, ii, jj, iiii, jjjj
-                                         );
-                             });
+                                Parallel.Invoke(() =>
+                                {
+
+                                    Object O1 = new Object();
+                                    lock (O1)
+                                    {
+                                        if (!(LearningV[0] || LearningV[1] || LearningV[2]))
+                                            LearningV[0] = LearningV[0] || InAttackSelfThatNotSupportedAll(TableS, Order, color, i, j, iii, jjj, ik, jk, iik, jjk);
+                                    }
+                                }, () =>
+                                {
+
+                                    Object O1 = new Object();
+                                    lock (O1)
+                                    {
+                                        if ((LearningV[0] || LearningV[1] || LearningV[2]))
+                                            return;
+
+                                        if (AttackCount <= 1 && (!(LearningV[0] || LearningV[1] || LearningV[2])))
+                                            AttackCount = AttackCount + IsNotSafeToMoveAenemeyToAttackMoreThanTowObject(AttackCount, TableS, Order, i, j, iii, jjj//, ii, jj, iiii, jjjj
+                                                );
+                                        else
+                                        if (!(LearningV[0] || LearningV[1] || LearningV[2]))
+                                            LearningV[1] = true;
+                                    }
+                                }, () =>
+                                 {
+                                     Object O1 = new Object();
+                                     lock (O1)
+                                     {
+                                         if (!(LearningV[0] || LearningV[1] || LearningV[2]))
+                                             LearningV[2] = LearningV[2] || IsGardForCurrentMovmentsAndIsNotMovable(TableS, Order, color, i, j, iii, jjj//, ii, jj, iiii, jjjj
+                                                 );
+                                     }
+                                 });
 
                             /*                    Parallel.For(0, 8, ii =>
                                                 {
@@ -7242,14 +7286,15 @@ namespace RefrigtzW
                                                     });
                                                 });
                                                 */
+                            });
+
                         });
-
                     });
+
+
+
                 });
-
-
-
-            });
+            }
             return LearningV;
         }
 
@@ -7362,9 +7407,13 @@ namespace RefrigtzW
                 IsDangerous = false;//No Needed.
                                     //For All Current
                 bool[] LearningVars = SomeLearningVarsCalculator(TableS, ii, jj, i, j);
-                SelfNotSupported = LearningVars[0];
-                IsNotSafeToMoveAenemeyToAttackMoreThanTowObj = LearningVars[1];
-                IsGardForCurrentMovmentsAndIsNotMova = LearningVars[2];
+                Object O4 = new Object();
+                lock (O4)
+                {
+                    SelfNotSupported = LearningVars[0];
+                    IsNotSafeToMoveAenemeyToAttackMoreThanTowObj = LearningVars[1];
+                    IsGardForCurrentMovmentsAndIsNotMova = LearningVars[2];
+                }
                 /*if ((!SelfNotSupported) && (!IsPrviousMovemntIsDangrousForCurr))
                 {
                     SelfNotSupported = InAttackSelfThatNotSupportedAll(IsTowValuableObject, TableS, Order, color//, ii, jj, i, j
@@ -7413,26 +7462,34 @@ namespace RefrigtzW
                         //A
 
                     }
-                    if (Is[0] >= 1)
-                        IsNextMovemntIsCheckOrCheckMateForCurrent = true;
-                    else
-                        IsNextMovemntIsCheckOrCheckMateForCurrent = false;
-                    if (Is[2] >= 1)
-                        IsNextMovemntIsCheckOrCheckMateForEnemy = true;
-                    else
-                        IsNextMovemntIsCheckOrCheckMateForEnemy = false;
-                    SelfChackedMateDepth = Is[1];
-                    EnemyCheckedMateDepth = Is[3];
+                    Object OO1 = new Object();
+                    lock (OO1)
+                    {
+                        if (Is[0] >= 1)
+                            IsNextMovemntIsCheckOrCheckMateForCurrent = true;
+                        else
+                            IsNextMovemntIsCheckOrCheckMateForCurrent = false;
+                        if (Is[2] >= 1)
+                            IsNextMovemntIsCheckOrCheckMateForEnemy = true;
+                        else
+                            IsNextMovemntIsCheckOrCheckMateForEnemy = false;
+                        SelfChackedMateDepth = Is[1];
+                        EnemyCheckedMateDepth = Is[3];
+                    }
 
                 }
                 //Order Depth Consideration Constraint.
                 if (IsNextMovemntIsCheckOrCheckMateForCurrent && IsNextMovemntIsCheckOrCheckMateForEnemy)
                 {
-                    if (SelfChackedMateDepth < EnemyCheckedMateDepth)
-                        IsNextMovemntIsCheckOrCheckMateForEnemy = false;
-                    else
+                    Object OO2 = new Object();
+                    lock (OO2)
+                    {
+                        if (SelfChackedMateDepth < EnemyCheckedMateDepth)
+                            IsNextMovemntIsCheckOrCheckMateForEnemy = false;
+                        else
                         if (SelfChackedMateDepth > EnemyCheckedMateDepth)
-                        IsNextMovemntIsCheckOrCheckMateForCurrent = false;
+                            IsNextMovemntIsCheckOrCheckMateForCurrent = false;
+                    }
                 }
                 //For penalty.
                 /*if ((!IsNextMovemntIsCheckOrCheckMateForCurrent) && (!SelfNotSupported) && (!IsPrviousMovemntIsDangrousForCurr) && (!IsGardForCurrentMovmentsAndIsNotMova) && (!IsNotSafeToMoveAenemeyToAttackMoreThanTowObj))
@@ -7460,64 +7517,68 @@ namespace RefrigtzW
                     EnemyNotSupported = false;
                     IsNextMovemntIsCheckOrCheckMateForEnemy = false;
                 }
-                LearningV[0] = IsCurrentCanGardHighPriorityEne;
-                LearningV[1] = IsNextMovemntIsCheckOrCheckMateForCurrent;
-                LearningV[2] = IsDangerous;
-                LearningV[3] = CanKillerAnUnSupportedEnemy;
-                LearningV[4] = InDangrousUnSupported;
-                LearningV[5] = Support;
-                LearningV[6] = IsNextMovemntIsCheckOrCheckMateForEnemy;
-                LearningV[7] = IsPrviousMovemntIsDangrousForCurr;
-                LearningV[8] = PDo;
-                LearningV[9] = RDo;
-                LearningV[10] = SelfNotSupported;
-                LearningV[11] = EnemyNotSupported;
-                LearningV[12] = IsGardForCurrentMovmentsAndIsNotMova;
-                LearningV[13] = IsNotSafeToMoveAenemeyToAttackMoreThanTowObj;
-
-                CanKillerAnUnSupportedEnemy = Support || EnemyNotSupported || IsCurrentCanGardHighPriorityEne || IsNextMovemntIsCheckOrCheckMateForEnemy || IsNextMovemntIsCheckOrCheckMateForCurrent;//B
-                P = IsNotSafeToMoveAenemeyToAttackMoreThanTowObj || IsGardForCurrentMovmentsAndIsNotMova || IsPrviousMovemntIsDangrousForCurr || SelfNotSupported || IsDangerous || IsCurrentCanGardHighPriorityEne || IsNextMovemntIsCheckOrCheckMateForEnemy || IsNextMovemntIsCheckOrCheckMateForCurrent;//C
-                R = CanKillerAnUnSupportedEnemy;//D
-                InDangrousUnSupported = P && (!R);
-                PDo = P & (!R);
-                //if (IsNextMovemntIsCheckOrCheckMateForEnemy)
-                //  IsNextMovemntIsCheckOrCheckMateForEnemy = true; ;
-                //B+C
-                RDo = R && (!P);
-                /*if (CurrentAStarGredyMax == 0 && SelfNotSupported && (!IsNextMovemntIsCheckOrCheckMateForCurrent))
-                    LearningVarsCheckedMateOccured = true;
-                if (CurrentAStarGredyMax == 0 && IsNextMovemntIsCheckOrCheckMateForCurrent)
-                    LearningVarsCheckedMateOccuredOneCheckedMate = true;
-
-
-
-                if (CurrentAStarGredyMax == 0)
+                Object OO = new Object();
+                lock (OO)
                 {
-                    bool[] HA = new bool[6];
-                    HA[0] = IsPrviousMovemntIsDangrousForCurr;
-                    HA[1] = SelfNotSupported;
-                    HA[2] = EnemyNotSupported;
-                    HA[3] = IsCurrentCanGardHighPriorityEne;
-                    HA[4] = IsNextMovemntIsCheckOrCheckMateForCurrent;
-                    HA[5] = IsNextMovemntIsCheckOrCheckMateForEnemy;
-                    LearningVarsObject.Add(HA);
+                    LearningV[0] = IsCurrentCanGardHighPriorityEne;
+                    LearningV[1] = IsNextMovemntIsCheckOrCheckMateForCurrent;
+                    LearningV[2] = IsDangerous;
+                    LearningV[3] = CanKillerAnUnSupportedEnemy;
+                    LearningV[4] = InDangrousUnSupported;
+                    LearningV[5] = Support;
+                    LearningV[6] = IsNextMovemntIsCheckOrCheckMateForEnemy;
+                    LearningV[7] = IsPrviousMovemntIsDangrousForCurr;
+                    LearningV[8] = PDo;
+                    LearningV[9] = RDo;
+                    LearningV[10] = SelfNotSupported;
+                    LearningV[11] = EnemyNotSupported;
+                    LearningV[12] = IsGardForCurrentMovmentsAndIsNotMova;
+                    LearningV[13] = IsNotSafeToMoveAenemeyToAttackMoreThanTowObj;
+
+                    CanKillerAnUnSupportedEnemy = Support || EnemyNotSupported || IsCurrentCanGardHighPriorityEne || IsNextMovemntIsCheckOrCheckMateForEnemy || IsNextMovemntIsCheckOrCheckMateForCurrent;//B
+                    P = IsNotSafeToMoveAenemeyToAttackMoreThanTowObj || IsGardForCurrentMovmentsAndIsNotMova || IsPrviousMovemntIsDangrousForCurr || SelfNotSupported || IsDangerous || IsCurrentCanGardHighPriorityEne || IsNextMovemntIsCheckOrCheckMateForEnemy || IsNextMovemntIsCheckOrCheckMateForCurrent;//C
+                    R = CanKillerAnUnSupportedEnemy;//D
+                    InDangrousUnSupported = P && (!R);
+                    PDo = P & (!R);
+                    //if (IsNextMovemntIsCheckOrCheckMateForEnemy)
+                    //  IsNextMovemntIsCheckOrCheckMateForEnemy = true; ;
+                    //B+C
+                    RDo = R && (!P);
+                    /*if (CurrentAStarGredyMax == 0 && SelfNotSupported && (!IsNextMovemntIsCheckOrCheckMateForCurrent))
+                        LearningVarsCheckedMateOccured = true;
+                    if (CurrentAStarGredyMax == 0 && IsNextMovemntIsCheckOrCheckMateForCurrent)
+                        LearningVarsCheckedMateOccuredOneCheckedMate = true;
+
+
+
+                    if (CurrentAStarGredyMax == 0)
+                    {
+                        bool[] HA = new bool[6];
+                        HA[0] = IsPrviousMovemntIsDangrousForCurr;
+                        HA[1] = SelfNotSupported;
+                        HA[2] = EnemyNotSupported;
+                        HA[3] = IsCurrentCanGardHighPriorityEne;
+                        HA[4] = IsNextMovemntIsCheckOrCheckMateForCurrent;
+                        HA[5] = IsNextMovemntIsCheckOrCheckMateForEnemy;
+                        LearningVarsObject.Add(HA);
+                    }
+                    */
+
+
+                    //Weaker than previuos.
+                    /*CanKillerAnUnSupportedEnemy = Support || EnemyNotSupported || IsCurrentCanGardHighPriorityEne || IsGardHighPriority || IsGardHighPriority;//B
+                    P = IsDangerous || SelfNotSupported || IsGardHighPriority;//C
+                    R = CanKillerAnUnSupportedEnemy;//D
+                    InDangrousUnSupported = P && (!R);
+                    PDo = IsNextMovemntIsCheckOrCheckMateForCurrent || P;
+                    //B+C
+                    RDo = (!IsNextMovemntIsCheckOrCheckMateForEnemy) && (!IsNextMovemntIsCheckOrCheckMateForCurrent) && R 
+                        || (!P) && R 
+                        || IsNextMovemntIsCheckOrCheckMateForEnemy && (!P) 
+                        || P && (!R) && IsNextMovemntIsCheckOrCheckMateForCurrent;
+                    //(!A)(!B)(D)+(!C)D+A(!C)+C(!D)(B)
+                     */
                 }
-                */
-
-
-                //Weaker than previuos.
-                /*CanKillerAnUnSupportedEnemy = Support || EnemyNotSupported || IsCurrentCanGardHighPriorityEne || IsGardHighPriority || IsGardHighPriority;//B
-                P = IsDangerous || SelfNotSupported || IsGardHighPriority;//C
-                R = CanKillerAnUnSupportedEnemy;//D
-                InDangrousUnSupported = P && (!R);
-                PDo = IsNextMovemntIsCheckOrCheckMateForCurrent || P;
-                //B+C
-                RDo = (!IsNextMovemntIsCheckOrCheckMateForEnemy) && (!IsNextMovemntIsCheckOrCheckMateForCurrent) && R 
-                    || (!P) && R 
-                    || IsNextMovemntIsCheckOrCheckMateForEnemy && (!P) 
-                    || P && (!R) && IsNextMovemntIsCheckOrCheckMateForCurrent;
-                //(!A)(!B)(D)+(!C)D+A(!C)+C(!D)(B)
-                 */
             }
             return LearningV;
         }

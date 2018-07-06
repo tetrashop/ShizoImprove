@@ -12291,10 +12291,14 @@ namespace RefrigtzW
                            Parallel.For(0, AllDraw.SodierMovments, j =>
                           {
                               //Thinking of Gray Solder Operation.
-                              SolderesOnTable[i].SoldierThinking[0].ThinkingBegin = true;
-                              SolderesOnTable[i].SoldierThinking[0].ThinkingFinished = false;
-                              //SolderesOnTable[i].SoldierThinking[0].t = new Task(new Action(SolderesOnTable[i].SoldierThinking[0].Thinking));
-                              SolderesOnTable[i].SoldierThinking[0].Thinking();
+                              Object OOO = new Object();
+                              lock (OOO)
+                              {
+                                  SolderesOnTable[i].SoldierThinking[0].ThinkingBegin = true;
+                                  SolderesOnTable[i].SoldierThinking[0].ThinkingFinished = false;
+                                  //SolderesOnTable[i].SoldierThinking[0].t = new Task(new Action(SolderesOnTable[i].SoldierThinking[0].Thinking));
+                                  SolderesOnTable[i].SoldierThinking[0].Thinking();
+                              }
                               //SolderesOnTable[i].SoldierThinking[0].t.Start();
                               //if (SolderesOnTable[i].SoldierThinking[0].t != null) { Object tttt = new Object(); lock (tttt) { tH.Add(SolderesOnTable[i].SoldierThinking[0].t); } }
                               // Wait(this, i, j, 0, 1, false);
@@ -12440,9 +12444,13 @@ namespace RefrigtzW
                            Parallel.For(0, AllDraw.ElefantMovments, j =>
                         {
                             //Operational Thinking Gray Elephant. 
-                            ElephantOnTable[i].ElefantThinking[0].ThinkingBegin = true;
-                            ElephantOnTable[i].ElefantThinking[0].ThinkingFinished = false;
-                            ElephantOnTable[i].ElefantThinking[0].Thinking();
+                            Object OOO = new Object();
+                            lock (OOO)
+                            {
+                                ElephantOnTable[i].ElefantThinking[0].ThinkingBegin = true;
+                                ElephantOnTable[i].ElefantThinking[0].ThinkingFinished = false;
+                                ElephantOnTable[i].ElefantThinking[0].Thinking();
+                            }
                             //ElephantOnTable[i].ElefantThinking[0].t = new Task(new Action(ElephantOnTable[i].ElefantThinking[0].Thinking));
                             //ElephantOnTable[i].ElefantThinking[0].t.Start();
                             //if (ElephantOnTable[i].ElefantThinking[0].t != null) { Object tttt = new Object(); lock (tttt) { tH.Add(ElephantOnTable[i].ElefantThinking[0].t); } }
@@ -12592,9 +12600,13 @@ namespace RefrigtzW
                           Parallel.For(0, AllDraw.HourseMovments, j =>
                       {
                           //Thinking of Gray Hourse Oprational.
-                          HoursesOnTable[i].HourseThinking[0].ThinkingBegin = true;
-                          HoursesOnTable[i].HourseThinking[0].ThinkingFinished = false;
-                          HoursesOnTable[i].HourseThinking[0].Thinking();
+                          Object OOO = new Object();
+                          lock (OOO)
+                          {
+                              HoursesOnTable[i].HourseThinking[0].ThinkingBegin = true;
+                              HoursesOnTable[i].HourseThinking[0].ThinkingFinished = false;
+                              HoursesOnTable[i].HourseThinking[0].Thinking();
+                          }
                           //HoursesOnTable[i].HourseThinking[0].t = new Task(new Action(HoursesOnTable[i].HourseThinking[0].Thinking));
                           //HoursesOnTable[i].HourseThinking[0].t.Start();
                           //if (HoursesOnTable[i].HourseThinking[0].t != null) { Object tttt = new Object(); lock (tttt) { tH.Add(HoursesOnTable[i].HourseThinking[0].t); } }
@@ -12742,10 +12754,14 @@ namespace RefrigtzW
                           //For All Possible Movments.
                           Parallel.For(0, AllDraw.CastleMovments, j =>
                        {
-                           //Thinking of Gray Castles Operational.
-                           CastlesOnTable[i].CastleThinking[0].ThinkingBegin = true;
-                           CastlesOnTable[i].CastleThinking[0].ThinkingFinished = false;
-                           CastlesOnTable[i].CastleThinking[0].Thinking();
+                           Object OOO = new Object();
+                           lock (OOO)
+                           {
+                               //Thinking of Gray Castles Operational.
+                               CastlesOnTable[i].CastleThinking[0].ThinkingBegin = true;
+                               CastlesOnTable[i].CastleThinking[0].ThinkingFinished = false;
+                               CastlesOnTable[i].CastleThinking[0].Thinking();
+                           }
                            //CastlesOnTable[i].CastleThinking[0].t = new Task(new Action(CastlesOnTable[i].CastleThinking[0].Thinking));
                            //CastlesOnTable[i].CastleThinking[0].t.Start();
                            //if (CastlesOnTable[i].CastleThinking[0].t != null) { Object tttt = new Object(); lock (tttt) { tH.Add(CastlesOnTable[i].CastleThinking[0].t); } }
@@ -12891,9 +12907,13 @@ namespace RefrigtzW
                           Parallel.For(0, AllDraw.MinisterMovments, j =>
                       {
                           //Thinking of Gray Minister Operational.
-                          MinisterOnTable[i].MinisterThinking[0].ThinkingBegin = true;
-                          MinisterOnTable[i].MinisterThinking[0].ThinkingFinished = false;
-                          MinisterOnTable[i].MinisterThinking[0].Thinking();
+                          Object OOO = new Object();
+                          lock (OOO)
+                          {
+                              MinisterOnTable[i].MinisterThinking[0].ThinkingBegin = true;
+                              MinisterOnTable[i].MinisterThinking[0].ThinkingFinished = false;
+                              MinisterOnTable[i].MinisterThinking[0].Thinking();
+                          }
                           //MinisterOnTable[i].MinisterThinking[0].t = new Task(new Action(MinisterOnTable[i].MinisterThinking[0].Thinking));
                           //MinisterOnTable[i].MinisterThinking[0].t.Start();
                           //if (MinisterOnTable[i].MinisterThinking[0].t != null) { Object tttt = new Object(); lock (tttt) { tH.Add(MinisterOnTable[i].MinisterThinking[0].t); } }
@@ -13037,9 +13057,13 @@ namespace RefrigtzW
                           Parallel.For(0, AllDraw.KingMovments, j =>
                        {
                            //Thinking Of Gray King Operatins.
-                           KingOnTable[i].KingThinking[0].ThinkingBegin = true;
-                           KingOnTable[i].KingThinking[0].ThinkingFinished = false;
-                           KingOnTable[i].KingThinking[0].Thinking();
+                           Object OOO = new Object();
+                           lock (OOO)
+                           {
+                               KingOnTable[i].KingThinking[0].ThinkingBegin = true;
+                               KingOnTable[i].KingThinking[0].ThinkingFinished = false;
+                               KingOnTable[i].KingThinking[0].Thinking();
+                           }
                            //KingOnTable[i].KingThinking[0].t = new Task(new Action(KingOnTable[i].KingThinking[0].Thinking));
                            //KingOnTable[i].KingThinking[0].t.Start();
                            //if (KingOnTable[i].KingThinking[0].t != null) { Object tttt = new Object(); lock (tttt) { tH.Add(KingOnTable[i].KingThinking[0].t); } }
@@ -13193,9 +13217,13 @@ namespace RefrigtzW
                               Parallel.For(0, AllDraw.SodierMovments, j =>
                             {
                                 //Thinking Operations of Brown Current Objects.
-                                SolderesOnTable[i].SoldierThinking[0].ThinkingBegin = true;
-                                SolderesOnTable[i].SoldierThinking[0].ThinkingFinished = false;
-                                SolderesOnTable[i].SoldierThinking[0].Thinking();
+                                Object OOO = new Object();
+                                lock (OOO)
+                                {
+                                    SolderesOnTable[i].SoldierThinking[0].ThinkingBegin = true;
+                                    SolderesOnTable[i].SoldierThinking[0].ThinkingFinished = false;
+                                    SolderesOnTable[i].SoldierThinking[0].Thinking();
+                                }
                                 //SolderesOnTable[i].SoldierThinking[0].t = new Task(new Action(SolderesOnTable[i].SoldierThinking[0].Thinking));
                                 //SolderesOnTable[i].SoldierThinking[0].t.Start();
                                 //if (SolderesOnTable[i].SoldierThinking[0].t != null) { Object tttt = new Object(); lock (tttt) { tH.Add(SolderesOnTable[i].SoldierThinking[0].t); } }
@@ -13339,10 +13367,14 @@ namespace RefrigtzW
                                   //For Each Brown Possible Movments. 
                                   Parallel.For(0, AllDraw.ElefantMovments, j =>
                                 {
-                                    //Thinking Operations of Brown Current Objects.
-                                    ElephantOnTable[i].ElefantThinking[0].ThinkingBegin = true;
-                                    ElephantOnTable[i].ElefantThinking[0].ThinkingFinished = false;
-                                    ElephantOnTable[i].ElefantThinking[0].Thinking();
+                                    Object OOO = new Object();
+                                    lock (OOO)
+                                    {
+                                        //Thinking Operations of Brown Current Objects.
+                                        ElephantOnTable[i].ElefantThinking[0].ThinkingBegin = true;
+                                        ElephantOnTable[i].ElefantThinking[0].ThinkingFinished = false;
+                                        ElephantOnTable[i].ElefantThinking[0].Thinking();
+                                    }
                                     //ElephantOnTable[i].ElefantThinking[0].t = new Task(new Action(ElephantOnTable[i].ElefantThinking[0].Thinking));
                                     //ElephantOnTable[i].ElefantThinking[0].t.Start();
                                     //if (ElephantOnTable[i].ElefantThinking[0].t != null) { Object tttt = new Object(); lock (tttt) { tH.Add(ElephantOnTable[i].ElefantThinking[0].t); } }
@@ -13485,11 +13517,15 @@ namespace RefrigtzW
                               //For Each Brown Possible Movments. 
                               Parallel.For(0, AllDraw.HourseMovments, j =>
                           {
-                              //Thinking Operations of Brown Current Objects.
-                              //HoursesOnTable[i].HourseThinking[0].TableT = HoursesOnTable[i].HourseThinking[0].TableT;
-                              HoursesOnTable[i].HourseThinking[0].ThinkingBegin = true;
-                              HoursesOnTable[i].HourseThinking[0].ThinkingFinished = false;
-                              HoursesOnTable[i].HourseThinking[0].Thinking();
+                              Object OOO = new Object();
+                              lock (OOO)
+                              {
+                                  //Thinking Operations of Brown Current Objects.
+                                  //HoursesOnTable[i].HourseThinking[0].TableT = HoursesOnTable[i].HourseThinking[0].TableT;
+                                  HoursesOnTable[i].HourseThinking[0].ThinkingBegin = true;
+                                  HoursesOnTable[i].HourseThinking[0].ThinkingFinished = false;
+                                  HoursesOnTable[i].HourseThinking[0].Thinking();
+                              }
                               //HoursesOnTable[i].HourseThinking[0].t = new Task(new Action(HoursesOnTable[i].HourseThinking[0].Thinking));
                               //HoursesOnTable[i].HourseThinking[0].t.Start();
                               //if (HoursesOnTable[i].HourseThinking[0].t != null) { Object tttt = new Object(); lock (tttt) { tH.Add(HoursesOnTable[i].HourseThinking[0].t); } }
@@ -13647,10 +13683,14 @@ namespace RefrigtzW
                               //For Each Brown Possible Movments. 
                               Parallel.For(0, AllDraw.CastleMovments, j =>
                           {
-                              //Thinking Operations of Brown Current Objects.
-                              CastlesOnTable[i].CastleThinking[0].ThinkingBegin = true;
-                              CastlesOnTable[i].CastleThinking[0].ThinkingFinished = false;
-                              CastlesOnTable[i].CastleThinking[0].Thinking();
+                              Object OOO = new Object();
+                              lock (OOO)
+                              {
+                                  //Thinking Operations of Brown Current Objects.
+                                  CastlesOnTable[i].CastleThinking[0].ThinkingBegin = true;
+                                  CastlesOnTable[i].CastleThinking[0].ThinkingFinished = false;
+                                  CastlesOnTable[i].CastleThinking[0].Thinking();
+                              }
                               //CastlesOnTable[i].CastleThinking[0].t = new Task(new Action(CastlesOnTable[i].CastleThinking[0].Thinking));
                               //CastlesOnTable[i].CastleThinking[0].t.Start();
                               //if (CastlesOnTable[i].CastleThinking[0].t != null) { Object tttt = new Object(); lock (tttt) { tH.Add(CastlesOnTable[i].CastleThinking[0].t); } }
@@ -13793,10 +13833,14 @@ namespace RefrigtzW
                           //For Each Brown Possible Movments. 
                           Parallel.For(0, AllDraw.MinisterMovments, j =>
                        {
-                           //Thinking Operations of Brown Current Objects.
-                           MinisterOnTable[i].MinisterThinking[0].ThinkingBegin = true;
-                           MinisterOnTable[i].MinisterThinking[0].ThinkingFinished = false;
-                           MinisterOnTable[i].MinisterThinking[0].Thinking();
+                           Object OOO = new Object();
+                           lock (OOO)
+                           {
+                               //Thinking Operations of Brown Current Objects.
+                               MinisterOnTable[i].MinisterThinking[0].ThinkingBegin = true;
+                               MinisterOnTable[i].MinisterThinking[0].ThinkingFinished = false;
+                               MinisterOnTable[i].MinisterThinking[0].Thinking();
+                           }
                            //MinisterOnTable[i].MinisterThinking[0].t = new Task(new Action(MinisterOnTable[i].MinisterThinking[0].Thinking));
                            //MinisterOnTable[i].MinisterThinking[0].t.Start();
                            //if (MinisterOnTable[i].MinisterThinking[0].t != null) { Object tttt = new Object(); lock (tttt) { tH.Add(MinisterOnTable[i].MinisterThinking[0].t); } }
@@ -13938,10 +13982,14 @@ namespace RefrigtzW
                            //For Each Brown Possible Movments. 
                            Parallel.For(0, AllDraw.KingMovments, j =>
                          {
-                             //Thinking Operations of Brown Current Objects.
-                             KingOnTable[i].KingThinking[0].ThinkingBegin = true;
-                             KingOnTable[i].KingThinking[0].ThinkingFinished = false;
-                             KingOnTable[i].KingThinking[0].Thinking();
+                             Object OOO = new Object();
+                             lock (OOO)
+                             {
+                                 //Thinking Operations of Brown Current Objects.
+                                 KingOnTable[i].KingThinking[0].ThinkingBegin = true;
+                                 KingOnTable[i].KingThinking[0].ThinkingFinished = false;
+                                 KingOnTable[i].KingThinking[0].Thinking();
+                             }
                              //KingOnTable[i].KingThinking[0].t = new Task(new Action(KingOnTable[i].KingThinking[0].Thinking));
                              //KingOnTable[i].KingThinking[0].t.Start();
                              //if (KingOnTable[i].KingThinking[0].t != null) { Object tttt = new Object(); lock (tttt) { tH.Add(KingOnTable[i].KingThinking[0].t); } }
@@ -14503,12 +14551,21 @@ namespace RefrigtzW
                     ChessRules.CurrentOrder = DummyCurrentOrder;
                     int Ord = Order * -1, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
                     //System.Threading.Thread.Sleep(100);
+                    Parallel.Invoke(() =>
+                    {
+                        Do = this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false);
+                    });
+                    /*Order = DummyOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
+                    int Ord = Order * -1, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
+                    //System.Threading.Thread.Sleep(100);
                     Task ob = Task.Factory.StartNew(() => Do = this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false));
                     Object tttt = new Object();
                     lock (tttt)
                     { //ob.Start();
                         Task.WaitAll(ob);
                     }
+                    */
                     //do { System.Threading.Thread.Sleep(1000); } while (TaskBegin != TaskEnd);
                 }
 
@@ -15780,13 +15837,17 @@ namespace RefrigtzW
                                             return;
 
                                     }
-                                    if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy == null)
-                                        SolderesOnTable[ik].SoldierThinking[0].AStarGreedy = new List<AllDraw>();
-                                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Add(new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].TableList.Clear();
-                                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j]));
-                                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
-                                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
+                                    Object O3 = new Object();
+                                    lock (O3)
+                                    {
+                                        if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy == null)
+                                            SolderesOnTable[ik].SoldierThinking[0].AStarGreedy = new List<AllDraw>();
+                                        SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Add(new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                        SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].TableList.Clear();
+                                        SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j]));
+                                        SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
+                                        SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
+                                    }
                                     //SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j], Order, false);
                                     //ParameterizedThreadStart start = new ParameterizedThreadStart(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
                                     if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count > 0)
@@ -15864,12 +15925,16 @@ namespace RefrigtzW
                                             return;
 
                                     }
-                                    if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy == null)
-                                        SolderesOnTable[ik].SoldierThinking[0].AStarGreedy = new List<AllDraw>();
-                                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Add(new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].TableList.Clear();
-                                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j]));
-                                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
+                                    Object O3 = new Object();
+                                    lock (O3)
+                                    {
+                                        if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy == null)
+                                            SolderesOnTable[ik].SoldierThinking[0].AStarGreedy = new List<AllDraw>();
+                                        SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Add(new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                        SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].TableList.Clear();
+                                        SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j]));
+                                        SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
+                                    }
                                     SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
                                     //SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j], Order, false);
                                     //ParameterizedThreadStart start = new ParameterizedThreadStart(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
@@ -16014,9 +16079,12 @@ namespace RefrigtzW
                                             return;
 
                                     }
-                                    if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedy == null)
-                                        ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = new List<AllDraw>();
+                                    Object O3 = new Object();
+                                    lock (O3)
                                     {
+                                        if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedy == null)
+                                        ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = new List<AllDraw>();
+                                    
                                         ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Add(new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                         ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].TableList.Clear();
                                         ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j]));
@@ -16099,9 +16167,11 @@ namespace RefrigtzW
                                             return;
 
                                     }
-                                    if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedy == null)
-                                        ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = new List<AllDraw>();
+                                    Object O3 = new Object();
+                                    lock (O3)
                                     {
+                                        if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedy == null)
+                                        ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = new List<AllDraw>();                                    
                                         ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Add(new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                         ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].TableList.Clear();
                                         ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j]));
@@ -16251,13 +16321,17 @@ namespace RefrigtzW
                                            return;
 
                                    }
-                                   if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy == null)
-                                       HoursesOnTable[ik].HourseThinking[0].AStarGreedy = new List<AllDraw>();
-                                   HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Add(new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                   HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].TableList.Clear(); ;
-                                   HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j]));
-                                   HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
-                                   HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
+                                   Object O3 = new Object();
+                                   lock (O3)
+                                   {
+                                       if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy == null)
+                                           HoursesOnTable[ik].HourseThinking[0].AStarGreedy = new List<AllDraw>();
+                                       HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Add(new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                       HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].TableList.Clear(); ;
+                                       HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j]));
+                                       HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
+                                       HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
+                                   }
                                    //HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, HoursesOnTable[ik].HourseThinking[0].TableListHourse[j], Order, false);
                                    //ParameterizedThreadStart start = new ParameterizedThreadStart(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
                                    if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count > 0)
@@ -16335,13 +16409,17 @@ namespace RefrigtzW
                                            return;
 
                                    }
-                                   if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy == null)
-                                       HoursesOnTable[ik].HourseThinking[0].AStarGreedy = new List<AllDraw>();
-                                   HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Add(new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                   HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].TableList.Clear(); ;
-                                   HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j]));
-                                   HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
-                                   HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
+                                   Object O3 = new Object();
+                                   lock (O3)
+                                   {
+                                       if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy == null)
+                                           HoursesOnTable[ik].HourseThinking[0].AStarGreedy = new List<AllDraw>();
+                                       HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Add(new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                       HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].TableList.Clear(); ;
+                                       HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j]));
+                                       HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
+                                       HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
+                                   }
                                    //HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, HoursesOnTable[ik].HourseThinking[0].TableListHourse[j], Order, false);
                                    //ParameterizedThreadStart start = new ParameterizedThreadStart(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
                                    if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count > 0)
@@ -16484,14 +16562,17 @@ namespace RefrigtzW
                                             return;
 
                                     }
-                                    if (CastlesOnTable[ik].CastleThinking[0].AStarGreedy == null)
-                                        CastlesOnTable[ik].CastleThinking[0].AStarGreedy = new List<AllDraw>();
-                                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Add(new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].TableList.Clear();
-                                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j]));
-                                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
-                                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
-
+                                    Object O3 = new Object();
+                                    lock (O3)
+                                    {
+                                        if (CastlesOnTable[ik].CastleThinking[0].AStarGreedy == null)
+                                            CastlesOnTable[ik].CastleThinking[0].AStarGreedy = new List<AllDraw>();
+                                        CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Add(new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                        CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].TableList.Clear();
+                                        CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j]));
+                                        CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
+                                        CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
+                                    }
                                     //CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CastlesOnTable[ik].CastleThinking[0].TableListCastle[j], Order, false);
                                     //ParameterizedThreadStart start = new ParameterizedThreadStart(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
                                     if (CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count > 0)
@@ -16569,14 +16650,17 @@ namespace RefrigtzW
                                             return;
 
                                     }
-                                    if (CastlesOnTable[ik].CastleThinking[0].AStarGreedy == null)
-                                        CastlesOnTable[ik].CastleThinking[0].AStarGreedy = new List<AllDraw>();
-                                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Add(new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].TableList.Clear();
-                                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j]));
-                                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
-                                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
-
+                                    Object O3 = new Object();
+                                    lock (O3)
+                                    {
+                                        if (CastlesOnTable[ik].CastleThinking[0].AStarGreedy == null)
+                                            CastlesOnTable[ik].CastleThinking[0].AStarGreedy = new List<AllDraw>();
+                                        CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Add(new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                        CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].TableList.Clear();
+                                        CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j]));
+                                        CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
+                                        CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
+                                    }
                                     //CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CastlesOnTable[ik].CastleThinking[0].TableListCastle[j], Order, false);
                                     //ParameterizedThreadStart start = new ParameterizedThreadStart(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
                                     if (CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count > 0)
@@ -16717,13 +16801,17 @@ namespace RefrigtzW
                                            return;
 
                                    }
-                                   if (MinisterOnTable[ik].MinisterThinking[0].AStarGreedy == null)
-                                       MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = new List<AllDraw>();
-                                   MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Add(new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                   MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].TableList.Clear();
-                                   MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j]));
-                                   MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
-                                   MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
+                                   Object O3 = new Object();
+                                   lock (O3)
+                                   {
+                                       if (MinisterOnTable[ik].MinisterThinking[0].AStarGreedy == null)
+                                           MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = new List<AllDraw>();
+                                       MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Add(new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                       MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].TableList.Clear();
+                                       MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j]));
+                                       MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
+                                       MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
+                                   }
                                    //MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j], Order, false);
                                    //ParameterizedThreadStart start = new ParameterizedThreadStart(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
                                    if (MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count > 0)
@@ -16799,13 +16887,17 @@ namespace RefrigtzW
                                            return;
 
                                    }
-                                   if (MinisterOnTable[ik].MinisterThinking[0].AStarGreedy == null)
-                                       MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = new List<AllDraw>();
-                                   MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Add(new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                   MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].TableList.Clear();
-                                   MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j]));
-                                   MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
-                                   MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
+                                   Object O3 = new Object();
+                                   lock (O3)
+                                   {
+                                       if (MinisterOnTable[ik].MinisterThinking[0].AStarGreedy == null)
+                                           MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = new List<AllDraw>();
+                                       MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Add(new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                       MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].TableList.Clear();
+                                       MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j]));
+                                       MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
+                                       MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
+                                   }
                                    //MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j], Order, false);
                                    //ParameterizedThreadStart start = new ParameterizedThreadStart(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
                                    if (MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count > 0)
@@ -16946,13 +17038,17 @@ namespace RefrigtzW
                                        return;
 
                                }
-                               if (KingOnTable[ik].KingThinking[0].AStarGreedy == null)
-                                   KingOnTable[ik].KingThinking[0].AStarGreedy = new List<AllDraw>();
-                               KingOnTable[ik].KingThinking[0].AStarGreedy.Add(new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                               KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].TableList.Clear();
-                               KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(KingOnTable[ik].KingThinking[0].TableListKing[j]));
-                               KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
-                               KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
+                               Object O3 = new Object();
+                               lock (O3)
+                               {
+                                   if (KingOnTable[ik].KingThinking[0].AStarGreedy == null)
+                                       KingOnTable[ik].KingThinking[0].AStarGreedy = new List<AllDraw>();
+                                   KingOnTable[ik].KingThinking[0].AStarGreedy.Add(new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                   KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].TableList.Clear();
+                                   KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(KingOnTable[ik].KingThinking[0].TableListKing[j]));
+                                   KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
+                                   KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
+                               }
                                //KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, KingOnTable[ik].KingThinking[0].TableListKing[j], Order, false);
                                //ParameterizedThreadStart start = new ParameterizedThreadStart(KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
                                if (KingOnTable[ik].KingThinking[0].AStarGreedy.Count > 0)
@@ -17025,13 +17121,17 @@ namespace RefrigtzW
                                        return;
 
                                }
-                               if (KingOnTable[ik].KingThinking[0].AStarGreedy == null)
-                                   KingOnTable[ik].KingThinking[0].AStarGreedy = new List<AllDraw>();
-                               KingOnTable[ik].KingThinking[0].AStarGreedy.Add(new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                               KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].TableList.Clear();
-                               KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(KingOnTable[ik].KingThinking[0].TableListKing[j]));
-                               KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
-                               KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
+                               Object O3 = new Object();
+                               lock (O3)
+                               {
+                                   if (KingOnTable[ik].KingThinking[0].AStarGreedy == null)
+                                       KingOnTable[ik].KingThinking[0].AStarGreedy = new List<AllDraw>();
+                                   KingOnTable[ik].KingThinking[0].AStarGreedy.Add(new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                   KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].TableList.Clear();
+                                   KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(KingOnTable[ik].KingThinking[0].TableListKing[j]));
+                                   KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
+                                   KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
+                               }
                                //KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, KingOnTable[ik].KingThinking[0].TableListKing[j], Order, false);
                                //ParameterizedThreadStart start = new ParameterizedThreadStart(KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
                                if (KingOnTable[ik].KingThinking[0].AStarGreedy.Count > 0)
