@@ -18683,8 +18683,16 @@ namespace RefrigtzDLL
 
                 ThinkingChess.FoundFirstMating = 0;
                 //Monitor Log File Appending ZFirst Line. 
-                File.AppendAllText(AllDraw.Root + "\\Database\\Monitor.txt", "\n\t=====================================================================================================================================================================");
-                File.AppendAllText(AllDraw.Root + "\\Database\\Monitor.txt", "\n\tMovment Number:" + AllDraw.MovmentsNumber);
+                String state1 = CreateHtmlTag("\n\t=====================================================================================================================================================================");
+                String state2 = CreateHtmlTag("\n\tMovment Number:" + AllDraw.MovmentsNumber);
+                
+                String R = File.ReadAllText(Root + "\\Database\\Monitor.html");
+                R = R.Replace("</body>", "");
+                File.WriteAllText(Root + "\\Database\\Monitor.html", R);
+                File.AppendAllText(Root + "\\Database\\Monitor.html", "\n\t" + state1 + "<br/>");
+                File.AppendAllText(AllDraw.Root + "\\Database\\Monitor.html", state2 + "<br/>");
+                File.AppendAllText(Root + "\\Database\\Monitor.html", "\n\t" + "</body>");
+
                 //Initiate Local and Global Variables.            
                 //ThinkingChess.Sign = 1;
                 CurrentHuristic = Double.MinValue; ;
@@ -19442,7 +19450,13 @@ namespace RefrigtzDLL
             //Gen Not Found.
             return false;
         }
+        String CreateHtmlTag(String Tag)
+        {
 
+            String R = "<font Color=\"Red\">" + Tag + "</Font>";
+            return R;
+
+        }
     }
 }
 

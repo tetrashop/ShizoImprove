@@ -1113,6 +1113,8 @@ namespace Refrigtz
                     if (!System.IO.File.Exists(Root + "\\Database\\CurrentBank.accdb"))
                     {
                         System.IO.File.Copy(Root + "\\Database\\MainBank\\ChessBank.accdb", Root + "\\Database\\CurrentBank.accdb");
+                        if (!File.Exists(Root + "\\Database\\Monitor.html"))
+                            System.IO.File.Copy(Root + "\\Database\\MainBank\\Monitor_Log.html", Root + "\\Database\\Monitor.html");
                         if (File.Exists("List.txt"))
                             File.Delete("List.txt");
                         InsertTableAtDataBase(Table);
@@ -1148,7 +1150,7 @@ namespace Refrigtz
                             System.IO.File.Copy(Root + "\\Database\\CurrentBank.accdb", Root + "\\Database\\Games\\CurrentBank" + iii.ToString() + ".accdb");
                             System.IO.File.Delete(Root + "\\Database\\CurrentBank.accdb");
                             System.IO.File.Copy(Root + "\\Database\\MainBank\\ChessBank.accdb", Root + "\\Database\\CurrentBank.accdb");
-                            System.IO.File.Copy(Root + "\\Database\\MainBank\\Monitor_Log.txt", Root + "\\Database\\Monitor.txt");
+                            System.IO.File.Copy(Root + "\\Database\\MainBank\\Monitor_Log.html", Root + "\\Database\\Monitor.html");
 
                             InsertTableAtDataBase(Table);
                             CreateConfigurationTable();
@@ -8075,6 +8077,13 @@ namespace Refrigtz
             } while (true);
 
         }
+        String CreateHtmlTag(String Tag)
+        {
+            
+            String R = "<font Color=\"Red\">" + Tag + "</Font>";
+            return R;
+
+        }
         //Deligation of Control Threading.
         delegate void SetTextBoxTextCallback(String state);
 
@@ -8093,7 +8102,12 @@ namespace Refrigtz
 
                     SetTextBoxTextCallback d = new SetTextBoxTextCallback(SetBoxText);
                     this.Invoke(new Action(() => textBoxText.AppendText(state + " At Time " + A)));
-                    File.AppendAllText(Root + "\\Database\\Monitor.txt", "\n\t" + state + " At Time " + A);
+                    state = CreateHtmlTag(state);
+                    String R = File.ReadAllText(Root + "\\Database\\Monitor.html");
+                    R = R.Replace("</body>", "");
+                    File.AppendAllText(Root + "\\Database\\Monitor.html", "\n\t" + state + " At Time " + A + "<br/>");
+                    File.AppendAllText(Root + "\\Database\\Monitor.html", "\n\t" + "</body>");
+
                 }
                 catch (Exception t) { Log(t); }
             }
@@ -11140,7 +11154,7 @@ namespace Refrigtz
             {
                 folderBrowserDialogBackup.ShowDialog();
                 File.Copy(FormRefrigtz.Root + "\\Database\\CurrentBank.accdb", folderBrowserDialogBackup.SelectedPath + "\\CurrentBank.accdb");
-                File.Copy(FormRefrigtz.Root + "\\Database\\Monitor.txt", folderBrowserDialogBackup.SelectedPath + "\\Monitor.txt");
+                File.Copy(FormRefrigtz.Root + "\\Database\\Monitor.html", folderBrowserDialogBackup.SelectedPath + "\\Monitor.html");
                 MessageBox.Show("Backup Finished.");
             }
             catch (Exception t)

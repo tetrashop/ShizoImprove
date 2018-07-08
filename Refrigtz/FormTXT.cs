@@ -30,7 +30,7 @@ namespace Refrigtz
             }
             else
             {
-                textBoxTXT.Text = File.ReadAllText(FormRefrigtz.Root + "\\Database\\Monitor.txt");
+                textBoxTXT.Text = File.ReadAllText(FormRefrigtz.Root + "\\Database\\Monitor.html");
             }
         }
     }
