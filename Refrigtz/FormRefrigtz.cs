@@ -8085,15 +8085,18 @@ namespace Refrigtz
             {
                 if (i + 1 < Tag.Length)
                 {
-                    for (int j = i + 1; j < Tag.Length; j++)
+                    for (int j = i + 1; j < i + RefrigtzDLL.AllDraw.MaxAStarGreedy.ToString().Length + 1; j++)
                     {
                         try
                         {
-                            System.Convert.ToInt32(Tag.Substring(i, j));
-                            int[] Loc = new int[2];
-                            Loc[0] = i;
-                            Loc[1] = j;
-                            TagList.Add(Loc);
+                            int A = System.Convert.ToInt32(Tag.Substring(i, j - i));
+                            if (A >= 0 && A <= RefrigtzDLL.AllDraw.MaxAStarGreedy)
+                            {
+                                int[] Loc = new int[2];
+                                Loc[0] = i;
+                                Loc[1] = j - i;
+                                TagList.Add(Loc);
+                            }
                         }
                         catch (Exception t)
                         {
@@ -8110,25 +8113,48 @@ namespace Refrigtz
         }
         String CreateHtmlTag(String Tag)
         {
+            Object O = new Object();
+            lock (O)
+            {
+                //List<int[]> List = new List<int[]>();
+                //List = WhereNumbers(Tag);
+                //for (int i = 0; i < List.Count; i++)
+                   //Tag = Tag.Replace(Tag.Substring(List[i][0], List[i][1]), "<font Color=\"Gold\">" + Tag.Substring(List[i][0], List[i][1]) + "</font>");
 
-            if (Tag.Contains("Thinking"))
-                Tag = Tag.Replace("Thinking", "<font Color=\"Green\">" + "Thinking" + "</Font>");
-            if (Tag.Contains("Perception"))
-                Tag = Tag.Replace("Perception", "<font Color=\"Green\">" + "Perception" + "</Font>");
-            if (Tag.Contains("Bob"))
-                Tag = Tag.Replace("Bob", "<font Color=\"Gray\">" + "Bob" + "</Font>");
-            if (Tag.Contains("Alice"))
-                Tag = Tag.Replace("Alice", "<font Color=\"Brown\">" + "Brown" + "</Font>");
-            if (Tag.Contains("AStarGreedy"))
-                Tag = Tag.Replace("AStarGreedy", "<font Color=\"Yellow\">" + "AStarGreedy" + "</Font>");
-            if (Tag.Contains("Level"))
-                Tag = Tag.Replace("Level", "<font Color=\"Blue\">" + "Level" + "</Font>");
-            List<int[]> List = new List<int[]>();
-            List = WhereNumbers(Tag);
-            for (int i = 0; i < List.Count; i++)
-                Tag = Tag.Replace(Tag.Substring(List[i][0], List[i][1]), "<font Color=\"Gold\">" + Tag.Substring(List[i][0], List[i][1]) + "</Font>");
-            String R = "<font Color=\"Red\">" + Tag + "</Font>";
-            return R;
+                if (Tag.Contains("Thinking"))
+                    Tag = Tag.Replace("Thinking", "<font Color=\"Green\">" + "Thinking" + "</font>");
+                if (Tag.Contains("Perception"))
+                    Tag = Tag.Replace("Perception", "<font Color=\"Green\">" + "Perception" + "</font>");
+                if (Tag.Contains("Bob"))
+                    Tag = Tag.Replace("Bob", "<font Color=\"Gray\">" + "Bob" + "</font>");
+                if (Tag.Contains("Alice"))
+                    Tag = Tag.Replace("Alice", "<font Color=\"Brown\">" + "Brown" + "</font>");
+                if (Tag.Contains("AstarGreedy "))
+                    Tag = Tag.Replace("AstarGreedy ", "<font Color=\"Yellow\">" + "AstarGreedy " + "</font>");
+                if (Tag.Contains("Level"))
+                    Tag = Tag.Replace("Level", "<font Color=\"Blue\">" + "Level" + "</Font>");
+                /*if (Tag.Contains("Soldeir"))
+                    Tag = Tag.Replace("Soldeir", "<font Color=\"Silver\">" + "Soldeir" + "</font>");
+                else
+                if (Tag.Contains("Elephant"))
+                    Tag = Tag.Replace("Elephant", "<font Color=\"Silver\">" + "Elephant" + "</font>");
+                else
+                if (Tag.Contains("Hourse"))
+                    Tag = Tag.Replace("Hourse", "<font Color=\"Silver\">" + "Hourse" + "</font>");
+                else
+                if (Tag.Contains("Castle"))
+                    Tag = Tag.Replace("Castle", "<font Color=\"Silver\">" + "Castle" + "</font>");
+                else
+                if (Tag.Contains("Minister"))
+                    Tag = Tag.Replace("Minister", "<font Color=\"Silver\">" + "Minister" + "</font>");
+                else
+                if (Tag.Contains("King"))
+                    Tag = Tag.Replace("King", "<font Color=\"Silver\">" + "King" + "</font>");
+                    */
+                String R = "<font Color=\"Red\">" + Tag + "</font>";
+
+                return R;                
+                }
 
         }
         //Deligation of Control Threading.
