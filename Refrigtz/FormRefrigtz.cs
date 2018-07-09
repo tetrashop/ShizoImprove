@@ -8077,9 +8077,56 @@ namespace Refrigtz
             } while (true);
 
         }
+        List<int[]> WhereNumbers(String Tag)
+        {
+
+            List<int[]> TagList = new List<int[]>();
+            for (int i = 0; i < Tag.Length; i++)
+            {
+                if (i + 1 < Tag.Length)
+                {
+                    for (int j = i + 1; j < Tag.Length; j++)
+                    {
+                        try
+                        {
+                            System.Convert.ToInt32(Tag.Substring(i, j));
+                            int[] Loc = new int[2];
+                            Loc[0] = i;
+                            Loc[1] = j;
+                            TagList.Add(Loc);
+                        }
+                        catch (Exception t)
+                        {
+
+
+                        }
+
+
+
+                    }
+                }
+            }
+            return TagList;
+        }
         String CreateHtmlTag(String Tag)
         {
-            
+
+            if (Tag.Contains("Thinking"))
+                Tag = Tag.Replace("Thinking", "<font Color=\"Green\">" + "Thinking" + "</Font>");
+            if (Tag.Contains("Perception"))
+                Tag = Tag.Replace("Perception", "<font Color=\"Green\">" + "Perception" + "</Font>");
+            if (Tag.Contains("Bob"))
+                Tag = Tag.Replace("Bob", "<font Color=\"Gray\">" + "Bob" + "</Font>");
+            if (Tag.Contains("Alice"))
+                Tag = Tag.Replace("Alice", "<font Color=\"Brown\">" + "Brown" + "</Font>");
+            if (Tag.Contains("AStarGreedy"))
+                Tag = Tag.Replace("AStarGreedy", "<font Color=\"Yellow\">" + "AStarGreedy" + "</Font>");
+            if (Tag.Contains("Level"))
+                Tag = Tag.Replace("Level", "<font Color=\"Blue\">" + "Level" + "</Font>");
+            List<int[]> List = new List<int[]>();
+            List = WhereNumbers(Tag);
+            for (int i = 0; i < List.Count; i++)
+                Tag = Tag.Replace(Tag.Substring(List[i][0], List[i][1]), "<font Color=\"Gold\">" + Tag.Substring(List[i][0], List[i][1]) + "</Font>");
             String R = "<font Color=\"Red\">" + Tag + "</Font>";
             return R;
 

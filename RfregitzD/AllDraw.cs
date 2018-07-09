@@ -14343,8 +14343,8 @@ namespace RefrigtzDLL
 
                             Parallel.Invoke(() =>
                             {
-                                    //For All Gray Soldier Objects.
-                                    Object O = new Object();
+                                //For All Gray Soldier Objects.
+                                Object O = new Object();
                                 lock (O)
                                 {
                                     this.InitiateAStarGreedythSoldierBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND);
@@ -14353,8 +14353,8 @@ namespace RefrigtzDLL
                             ,
                             () =>
                             {
-                                    //For All Gray Elephant Objects.
-                                    Object O = new Object();
+                                //For All Gray Elephant Objects.
+                                Object O = new Object();
                                 lock (O)
                                 {
                                     this.InitiateAStarGreedythElephantBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND);
@@ -14362,8 +14362,8 @@ namespace RefrigtzDLL
                             }
                             , () =>
                             {
-                                    //For All Gray Hourse Objects.
-                                    Object O = new Object();
+                                //For All Gray Hourse Objects.
+                                Object O = new Object();
                                 lock (O)
                                 {
                                     this.InitiateAStarGreedythHourseBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND);
@@ -15015,7 +15015,7 @@ namespace RefrigtzDLL
             }
             //Parallel.ForEach(tHA, items => Task.WaitAny(items));
 
-        
+
         }
         void BlitzGameTreeCreationThinkingTreeElephant(Color a, int[] Index, int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND)
         {
@@ -16083,8 +16083,8 @@ namespace RefrigtzDLL
                                     lock (O3)
                                     {
                                         if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedy == null)
-                                        ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = new List<AllDraw>();
-                                    
+                                            ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = new List<AllDraw>();
+
                                         ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Add(new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                         ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].TableList.Clear();
                                         ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j]));
@@ -16171,7 +16171,7 @@ namespace RefrigtzDLL
                                     lock (O3)
                                     {
                                         if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedy == null)
-                                        ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = new List<AllDraw>();                                    
+                                            ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = new List<AllDraw>();
                                         ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Add(new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                         ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].TableList.Clear();
                                         ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j]));
@@ -17678,7 +17678,7 @@ namespace RefrigtzDLL
 
                                     }, () =>
                                     {
-                                    Object O1 = new Object();
+                                        Object O1 = new Object();
                                         lock (O1)
                                         {
                                             if (Order == 1)
@@ -17703,7 +17703,7 @@ namespace RefrigtzDLL
                                         }
                                     }, () =>
                                     {
-                                    Object O1 = new Object();
+                                        Object O1 = new Object();
                                         lock (O1)
                                         {
                                             if (Order == 1)
@@ -17728,7 +17728,7 @@ namespace RefrigtzDLL
                                         }
                                     }, () =>
                                     {
-                                    Object O1 = new Object();
+                                        Object O1 = new Object();
                                         lock (O1)
                                         {
                                             if (Order == 1)
@@ -17825,7 +17825,7 @@ namespace RefrigtzDLL
                     }
                 }, () =>
                 {
-                Object O1 = new Object();
+                    Object O1 = new Object();
                     lock (O1)
                     {
                         if (Order == 1)
@@ -17850,7 +17850,7 @@ namespace RefrigtzDLL
                     }
                 }, () =>
                 {
-                Object O1 = new Object();
+                    Object O1 = new Object();
                     lock (O1)
                     {
                         if (Order == 1)
@@ -17875,7 +17875,7 @@ namespace RefrigtzDLL
                     }
                 }, () =>
                 {
-                Object O1 = new Object();
+                    Object O1 = new Object();
                     lock (O1)
                     {
                         if (Order == 1)
@@ -18685,7 +18685,7 @@ namespace RefrigtzDLL
                 //Monitor Log File Appending ZFirst Line. 
                 String state1 = CreateHtmlTag("\n\t=====================================================================================================================================================================");
                 String state2 = CreateHtmlTag("\n\tMovment Number:" + AllDraw.MovmentsNumber);
-                
+
                 String R = File.ReadAllText(Root + "\\Database\\Monitor.html");
                 R = R.Replace("</body>", "");
                 File.WriteAllText(Root + "\\Database\\Monitor.html", R);
@@ -19450,9 +19450,56 @@ namespace RefrigtzDLL
             //Gen Not Found.
             return false;
         }
+        List<int[]> WhereNumbers(String Tag)
+        {
+
+            List<int[]> TagList = new List<int[]>();
+            for (int i = 0; i < Tag.Length; i++)
+            {
+                if (i + 1 < Tag.Length)
+                {
+                    for (int j = i + 1; j < Tag.Length; j++)
+                    {
+                        try
+                        {
+                            System.Convert.ToInt32(Tag.Substring(i, j));
+                            int[] Loc = new int[2];
+                            Loc[0] = i;
+                            Loc[1] = j;
+                            TagList.Add(Loc);
+                        }
+                        catch (Exception t)
+                        {
+
+
+                        }
+
+
+
+                    }
+                }
+            }
+            return TagList;
+        }
         String CreateHtmlTag(String Tag)
         {
 
+            if (Tag.Contains("Thinking"))
+                Tag = Tag.Replace("Thinking", "<font Color=\"Green\">" + "Thinking" + "</Font>");
+            if (Tag.Contains("Perception"))
+                Tag = Tag.Replace("Perception", "<font Color=\"Green\">" + "Perception" + "</Font>");
+            if (Tag.Contains("Bob"))
+                Tag = Tag.Replace("Bob", "<font Color=\"Gray\">" + "Bob" + "</Font>");
+            if (Tag.Contains("Alice"))
+                Tag = Tag.Replace("Alice", "<font Color=\"Brown\">" + "Brown" + "</Font>");
+            if (Tag.Contains("AStarGreedy"))
+                Tag = Tag.Replace("AStarGreedy", "<font Color=\"Yellow\">" + "AStarGreedy" + "</Font>");
+            if (Tag.Contains("Level"))
+                Tag = Tag.Replace("Level", "<font Color=\"Blue\">" + "Level" + "</Font>");
+            List<int[]> List = new List<int[]>();
+            List = WhereNumbers(Tag);
+            for (int i = 0; i < List.Count; i++)
+                Tag = Tag.Replace(Tag.Substring(List[i][0], List[i][1]), "<font Color=\"Gold\">" + Tag.Substring(List[i][0], List[i][1]) + "</Font>");
             String R = "<font Color=\"Red\">" + Tag + "</Font>";
             return R;
 
