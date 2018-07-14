@@ -38,13 +38,14 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Refrigtz\bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <UseVSHostingProcess>true</UseVSHostingProcess>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -60,18 +61,30 @@
   </PropertyGroup>
   <PropertyGroup />
   <ItemGroup>
+    <Reference Include="All">
+      <HintPath>..\Refrigtz\bin\Debug\All\All\bin\Debug\All.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="RefrigtzDLL">
+      <HintPath>..\RfregitzD\bin\Debug\RefrigtzDLL.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Timer">
+      <HintPath>..\RfregitzD\bin\Debug\Timer.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RefregitzOperator.cs" />
     <Compile Include="RefregizMemmory.cs" />
-    <Compile Include="TakeImageMemmorry.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Fakes Include="Fakes\All.fakes" />
     <None Include="GalleryStudio_1_TemporaryKey.pfx" />
     <None Include="GalleryStudio_TemporaryKey.pfx" />
   </ItemGroup>
@@ -81,12 +94,6 @@
       <ProductName>.NET Framework 2.0</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\RfregitzD\RefrigtzDLL.csproj">
-      <Project>{6fe9bef7-bd1c-48c4-9967-6d1517c76661}</Project>
-      <Name>RefrigtzDLL</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

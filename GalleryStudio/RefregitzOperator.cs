@@ -4,7 +4,7 @@ using System.Text;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
 using System.IO;
-using RefrigtzDLL;
+
 namespace GalleryStudio
 {
     class RefregitzOperator:RefregizMemmory
@@ -18,9 +18,9 @@ namespace GalleryStudio
         public bool AStarGreedyHuristicT = false;
         public bool ArrangmentsT = false;
 
-        const string SAllDraw = "AllDraw.asd";
+        const string SAllDraw = "RefrigtzDLL.AllDraw.asd";
         static GalleryStudio.RefregizMemmory Node;
-        AllDraw Current = null;
+        RefrigtzDLL.AllDraw Current = null;
         GalleryStudio.RefregizMemmory Next = null;
         public RefregitzOperator(bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments) : base(MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments)
         {
@@ -34,7 +34,7 @@ namespace GalleryStudio
             ArrangmentsT = Arrangments;
 
         }
-        public void RewriteCusomers(RefregizMemmory p)
+        public void RewriteAllDraw(RefregizMemmory p)
         {
             FileStream DummyFileStream = null;
             try
@@ -62,12 +62,12 @@ namespace GalleryStudio
             }
 
         }
-        public AllDraw GetRefregiz(int No)
+        public RefrigtzDLL.AllDraw GetRefregiz(int No)
         {
             FileStream DummyFileStream = null;
             DummyFileStream = new FileStream(SAllDraw, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.Read);
             int p = 0;
-            AllDraw Dummy = null;
+            RefrigtzDLL.AllDraw Dummy = null;
             BinaryFormatter Formatters = new BinaryFormatter();
             DummyFileStream.Seek(0, SeekOrigin.Begin);
             try
@@ -75,7 +75,7 @@ namespace GalleryStudio
                 while (p <= No)
                 {
                     if (DummyFileStream.Length >= DummyFileStream.Position)
-                        Dummy = (AllDraw)Formatters.Deserialize(DummyFileStream);
+                        Dummy = (RefrigtzDLL.AllDraw)Formatters.Deserialize(DummyFileStream);
                     else
                         Dummy = null;
                     p++;

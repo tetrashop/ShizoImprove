@@ -18654,7 +18654,7 @@ namespace RefrigtzDLL
 
         }
         //Main Initiate Thinking Method.
-        public int[,] Initiate(int ii, int jj, Color a, int[,] Table, int Order, bool TB, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, bool FOUND)
+        public int[,] Initiate(int ii, int jj, Color a, int[,] Table, int Order, bool TB, bool FOUND)
         {
             int[,] TableHuristic = new int[8, 8];
             int Current = ChessRules.CurrentOrder;
