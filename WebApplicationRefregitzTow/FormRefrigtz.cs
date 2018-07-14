@@ -179,6 +179,7 @@ namespace RefrigtzW
         float RowRealesed = -1, ColumnRealeased = -1;
         public static int[,] Table = new int[8, 8];
         FormRefrigtz THIs = null;
+        String connParam = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Root + "\\" + "Database\\CurrentBank.accdb;;Persist Security Info=False; Jet OLEDB:Database Password='!HN#BGHHN&N$G$V4'";
         //Error Handling.
         static void Log(Exception ex)
         {
@@ -307,6 +308,7 @@ namespace RefrigtzW
                     for (int j = 0; j < 8; j++)
                         Table[i, j] *= -1;
             }
+            RefrigtzW.ThinkingChess.LearniningTable = new LearningMachine.NetworkQuantumLearningKrinskyAtamata(8, 8, 8);
             Draw.TableList.Clear();
             Draw.TableList.Add(Table);
             Draw.SetRowColumn(0);
@@ -370,7 +372,7 @@ namespace RefrigtzW
             Again:
                 try
                 {
-                    String connParam = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Root + "\\" + "Database\\CurrentBank.accdb;Persist Security Info=true;Jet OLEDB:Database Password=''";
+                    
                     bookConn = new OleDbConnection(connParam);
                     bookConn.Open();
                     oleDbCmd.Connection = bookConn;
@@ -480,7 +482,7 @@ namespace RefrigtzW
                     {
 
 
-                        String connParam = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Root + "\\" + "Database\\CurrentBank.accdb;Persist Security Info=true;Jet OLEDB:Database Password=''";
+                        
                         bookConn = new OleDbConnection(connParam);
                         bookConn.Open();
                         oleDbCmd = new OleDbCommand();
@@ -608,7 +610,7 @@ namespace RefrigtzW
                         Order = 1;
                     else
                         Order = -1;
-                    String connParam = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Root + "\\" + "Database\\CurrentBank.accdb;Persist Security Info=true;Jet OLEDB:Database Password=''";
+                    
 
                     bookConn = new OleDbConnection(connParam);
                     oleDbCmd = new OleDbCommand();
@@ -736,7 +738,7 @@ namespace RefrigtzW
 
                             Move++;
 
-                            String connParam = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Root + "\\" + "Database\\CurrentBank.accdb;Persist Security Info=true;Jet OLEDB:Database Password=''";
+                            
 
                             bookConn = new OleDbConnection(connParam);
                             bookConn.Open();
@@ -799,7 +801,7 @@ namespace RefrigtzW
                         OrderPlate = -1;
                     ChessRules.CurrentOrder = OrderPlate;
                 }
-                String connParam = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Root + "\\" + "Database\\CurrentBank.accdb;Persist Security Info=true;Jet OLEDB:Database Password=''";
+                
                 bookConn = new OleDbConnection(connParam);
                 bookConn.Open();
                 oleDbCmd.Connection = bookConn;
@@ -891,7 +893,7 @@ namespace RefrigtzW
 
                     Move++;
 
-                    String connParam = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Root + "\\" + "Database\\CurrentBank.accdb;Persist Security Info=true;Jet OLEDB:Database Password=''";
+                    
                     bookConn = new OleDbConnection(connParam);
                     bookConn.Open();
                     oleDbCmd.Connection = bookConn;
@@ -992,7 +994,7 @@ namespace RefrigtzW
         Begin12:
             try
             {
-                String connParam = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Root + "\\" + "Database\\CurrentBank.accdb;Persist Security Info=true;Jet OLEDB:Database Password=''";
+                
 
                 bookConn = new OleDbConnection(connParam);
                 bookConn.Open();
@@ -1014,7 +1016,7 @@ namespace RefrigtzW
             catch (Exception t)
             {
                 
-                String connParam = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Root + "\\" + "Database\\CurrentBank.accdb;Persist Security Info=true;Jet OLEDB:Database Password=''";
+                
 
                 bookConn = new OleDbConnection(connParam);
                 bookConn.Open();
@@ -1040,7 +1042,7 @@ namespace RefrigtzW
         {
             if (bookConn == null)
             {
-                String connParam = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Root + "\\" + "Database\\CurrentBank.accdb;Persist Security Info=true;Jet OLEDB:Database Password=''";
+                
                 bookConn = new OleDbConnection(connParam);
                 bookConn.Open();
                 oleDbCmd.Connection = bookConn;
@@ -1180,7 +1182,7 @@ namespace RefrigtzW
         }
         public void InsertTableAtDataBase(int[,] Table)
         {
-            String connParam = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Root + "\\" + "Database\\CurrentBank.accdb;Persist Security Info=true;Jet OLEDB:Database Password=''";
+            
             bookConn = new OleDbConnection(connParam);
             oleDbCmd = new OleDbCommand();
             bookConn.Open();
@@ -1238,7 +1240,7 @@ namespace RefrigtzW
             
 
             ThinkingA = true;
-            String connParam = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Root + "\\" + "Database\\CurrentBank.accdb;Persist Security Info=true;Jet OLEDB:Database Password=''";
+            
             bookConn = new OleDbConnection(connParam);
             oleDbCmd = new OleDbCommand();
             bookConn.Open();

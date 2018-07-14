@@ -2171,3 +2171,151 @@ Thinking Minister AstarGreedy By Level 1 Bob at 3th Thinking String  c2b2 At Tim
 Thinking Minister AstarGreedy By Level 1 Bob at 7th Thinking String  c2d2 At Time 26:44
 	
 Thinking Minister AstarGreedy By Level 1 Bob at 4th Thinking String  c2c5 At Time 26:48
+	=====================================================================================================================================================================
+	Movment Number:7
+	
+Minimum Level During Thinking Tree Creation is 1at Iterative 1 At Time 0:39
+	=====================================================================================================================================================================
+	Movment Number:7
+	
+Minimum Level During Thinking Tree Creation is 1at Iterative 1 At Time 1:8
+	
+Thinking Hourse AstarGreedy By Level 0 Alice at 0th Thinking String  c5e4 At Time 1:16
+	
+Thinking Hourse AstarGreedy By Level 0 Alice at 1th Thinking String  c5a4 At Time 1:17
+	
+Thinking Hourse AstarGreedy By Level 0 Alice at 0th Thinking String  g7h5 At Time 1:20
+	
+Thinking Hourse AstarGreedy By Level 0 Alice at 2th Thinking String  c5d3 At Time 1:20
+	
+Thinking Castle AstarGreedy By Level 0 Alice at 0th Thinking String  a7b7 At Time 1:33
+	
+Thinking Hourse AstarGreedy By Level 0 Alice at 3th Thinking String  c5b7 At Time 1:33
+	
+Thinking Hourse AstarGreedy By Level 0 Alice at 1th Thinking String  g7f5 At Time 1:37
+	
+Thinking Hourse AstarGreedy By Level 0 Alice at 4th Thinking String  c5b3 At Time 1:37
+	
+Thinking Soldeir AstarGreedy By Level 0 Alice at 0th Thinking String  b6b5 At Time 1:39
+	
+Thinking Soldeir AstarGreedy By Level 0 Alice at 0th Thinking String  d6d5 At Time 1:49
+	
+Thinking Soldeir AstarGreedy By Level 0 Alice at 0th Thinking String  e6e5 At Time 1:57
+	
+Thinking Soldeir AstarGreedy By Level 0 Alice at 0th Thinking String  f6f5 At Time 2:6
+	
+Thinking Soldeir AstarGreedy By Level 0 Alice at 0th Thinking String  g6g5 At Time 2:13
+	
+Thinking Soldeir AstarGreedy By Level 0 Alice at 0th Thinking String  h6h5 At Time 2:25
+	
+Perception Soldier AstarGreedy By Bob at Level 1 By 0th Perception String  d6d5 At Time 2:28
+	
+Perception Castle AstarGreedy By Bob at Level 1 By 1th Perception String  a7b7 At Time 2:29
+	
+Thinking Soldeir AstarGreedy By Level 1 Bob at 0th Thinking String  e1e3 At Time 2:38
+	
+Thinking Soldeir AstarGreedy By Level 1 Bob at 1th Thinking String  e1e2 At Time 2:45
+	
+Thinking Hourse AstarGreedy By Level 1 Bob at 0th Thinking String  b0d1 At Time 2:46
+	
+Thinking Minister AstarGreedy By Level 1 Bob at 2th Thinking String  c2b3 At Time 2:49
+	
+Thinking Hourse AstarGreedy By Level 1 Bob at 0th Thinking String  g0f2 At Time 2:52
+	
+Thinking Minister AstarGreedy By Level 1 Bob at 4th Thinking String  c2c5 At Time 2:53
+	
+Thinking Elephant AstarGreedy By Level 1 Bob at 0th Thinking String  c0d1 At Time 2:54
+	
+Thinking Hourse AstarGreedy By Level 1 Bob at 1th Thinking String  g0h2 At Time 3:0
+	
+Thinking Minister AstarGreedy By Level 1 Bob at 5th Thinking String  c2c4 At Time 3:3
+	
+Thinking Minister AstarGreedy By Level 1 Bob at 6th Thinking String  c2c3 At Time 3:6
+	
+Thinking Minister AstarGreedy By Level 1 Bob at 7th Thinking String  c2d2 At Time 3:11
+	
+Thinking Elephant AstarGreedy By Level 1 Bob at 0th Thinking String  c0d1 At Time 3:13
+	
+Thinking Minister AstarGreedy By Level 1 Bob at 8th Thinking String  c2d1 At Time 3:14
+	
+Thinking Minister AstarGreedy By Level 1 Bob at 0th Thinking String  c2a4 At Time 3:20
+	
+Thinking Elephant AstarGreedy By Level 1 Bob at 1th Thinking String  c0e2 At Time 3:22
+	
+Thinking Minister AstarGreedy By Level 1 Bob at 9th Thinking String  c2e2 At Time 3:23
+	
+Thinking Minister AstarGreedy By Level 1 Bob at 10th Thinking String  c2e0 At Time 3:24
+	
+Thinking Minister AstarGreedy By Level 1 Bob at 11th Thinking String  c2f2 At Time 3:27
+	
+Thinking Minister AstarGreedy By Level 1 Bob at 12th Thinking String  c2g2 At Time 3:27
+	
+Thinking Elephant AstarGreedy By Level 1 Bob at 2th Thinking String  c0e2 At Time 3:28
+	
+Thinking Minister AstarGreedy By Level 1 Bob at 13th Thinking String  c2h2 At Time 3:30
+	
+Thinking Soldeir AstarGreedy By Level 1 Bob at 0th Thinking String  e1e3 At Time 3:31
+	
+Thinking Elephant AstarGreedy By Level 1 Bob at 3th Thinking String  c0f3 At Time 3:33
+	
+Thinking Elephant AstarGreedy By Level 1 Bob at 4th Thinking String  c0g4 At Time 3:39
+	
+Thinking Minister AstarGreedy By Level 1 Bob at 1th Thinking String  c2a2 At Time 3:43
+	
+Thinking Minister AstarGreedy By Level 1 Bob at 2th Thinking String  c2b3 At Time 3:47
+	
+Thinking Hourse AstarGreedy By Level 1 Bob at 1th Thinking String  g0h2 At Time 3:49
+	
+Thinking Elephant AstarGreedy By Level 1 Bob at 2th Thinking String  c0f3 At Time 3:50
+	
+Thinking King AstarGreedy By Level 1 Bob at 0th Thinking String  d0d1 At Time 3:51
+	
+Thinking Minister AstarGreedy By Level 1 Bob at 4th Thinking String  c2c5 At Time 3:52
+	
+Thinking Minister AstarGreedy By Level 1 Bob at 5th Thinking String  c2c4 At Time 3:53
+	
+Thinking King AstarGreedy By Level 1 Bob at 1th Thinking String  d0e0 At Time 3:58
+	
+Thinking Minister AstarGreedy By Level 1 Bob at 7th Thinking String  c2d2 At Time 4:0
+	
+Thinking Minister AstarGreedy By Level 1 Bob at 8th Thinking String  c2d1 At Time 4:4
+	
+Thinking Minister AstarGreedy By Level 1 Bob at 9th Thinking String  c2e2 At Time 4:10
+	
+Thinking Minister AstarGreedy By Level 1 Bob at 10th Thinking String  c2e0 At Time 4:11
+	
+Thinking King AstarGreedy By Level 1 Bob at 1th Thinking String  d0e0 At Time 4:11
+	
+Thinking Minister AstarGreedy By Level 1 Bob at 11th Thinking String  c2f2 At Time 4:12
+	
+Thinking Hourse AstarGreedy By Level 1 Bob at 0th Thinking String  b0d1 At Time 4:13
+	
+Thinking Minister AstarGreedy By Level 1 Bob at 12th Thinking String  c2g2 At Time 4:14
+	
+Thinking Elephant AstarGreedy By Level 1 Bob at 3th Thinking String  c0g4 At Time 4:16
+	
+Thinking Minister AstarGreedy By Level 1 Bob at 13th Thinking String  c2h2 At Time 4:26
+	
+Thinking Hourse AstarGreedy By Level 1 Bob at 1th Thinking String  b0a2 At Time 4:27
+	
+Thinking Elephant AstarGreedy By Level 1 Bob at 0th Thinking String  c0d1 At Time 4:41
+	
+Thinking Elephant AstarGreedy By Level 1 Bob at 4th Thinking String  c0h5 At Time 4:42
+	
+Thinking Elephant AstarGreedy By Level 1 Bob at 1th Thinking String  c0e2 At Time 4:50
+	
+Thinking Soldeir AstarGreedy By Level 1 Bob at 0th Thinking String  d3d4 At Time 4:52
+	
+Thinking Soldeir AstarGreedy By Level 1 Bob at 0th Thinking String  d3d4 At Time 4:54
+	
+Thinking Elephant AstarGreedy By Level 1 Bob at 2th Thinking String  c0f3 At Time 4:56
+	
+Thinking Elephant AstarGreedy By Level 1 Bob at 3th Thinking String  c0g4 At Time 5:2
+	
+Thinking Elephant AstarGreedy By Level 1 Bob at 4th Thinking String  c0h5 At Time 5:11
+	
+Thinking Soldeir AstarGreedy By Level 1 Bob at 0th Thinking String  d3d4 At Time 5:13
+	
+Thinking Soldeir AstarGreedy By Level 1 Bob at 1th Thinking String  a1a2 At Time 5:18
+	
+Thinking Soldeir AstarGreedy By Level 1 Bob at 0th Thinking String  b1b3 At Time 5:24
