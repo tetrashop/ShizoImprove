@@ -65,17 +65,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomerMemmorry.cs" />
-    <Compile Include="Customers.cs" />
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="Operator.cs" />
-    <Compile Include="Photo.cs" />
-    <Compile Include="PhotoMemmorry.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TakeImage.cs" />
+    <Compile Include="RefregitzOperator.cs" />
+    <Compile Include="RefregizMemmory.cs" />
     <Compile Include="TakeImageMemmorry.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -89,7 +82,12 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\RfregitzD\RefrigtzDLL.csproj">
+      <Project>{6fe9bef7-bd1c-48c4-9967-6d1517c76661}</Project>
+      <Name>RefrigtzDLL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
