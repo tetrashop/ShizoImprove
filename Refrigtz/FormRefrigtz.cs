@@ -8334,7 +8334,7 @@ namespace Refrigtz
 
                 // if (!FirstMovmentOnLoad)
                 //   FOUND = true;
-                Table = Draw.Initiate(1, 4, a, Table, OrderPlate, false, ref TimerText, ref BrownTimer, FOUND);
+                Table = Draw.Initiate(1, 4, a, Table, OrderPlate, false, FOUND);
                 LoadConvertedTable = true;
                 PaintedPaused = false;
                 this.SetBoxText("\r\nThinking Finished!");
@@ -8564,7 +8564,7 @@ namespace Refrigtz
                     RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                     RefrigtzDLL.AllDraw.DepthIterative = 0;
                 }
-                Table = Draw.Initiate(1, 4, a, Table, OrderPlate, false, ref TimerText, ref GrayTimer, FOUND);
+                Table = Draw.Initiate(1, 4, a, Table, OrderPlate, false, FOUND);
                 LoadConvertedTable = true;
                 Table = Draw.TableList[0];
                 try
@@ -8817,7 +8817,7 @@ namespace Refrigtz
 
             }
 
-            Table = Draw.Initiate(1, 4, a, Table, OrderPlate, false, ref TimerText, ref BrownTimer, FOUND);
+            Table = Draw.Initiate(1, 4, a, Table, OrderPlate, false, FOUND);
             LoadConvertedTable = true;
             //StateCP = false;
             try
@@ -9115,7 +9115,7 @@ namespace Refrigtz
                 RefrigtzDLL.AllDraw.DepthIterative = 0;
             }
 
-            Table = Draw.Initiate(1, 4, a, Table, OrderPlate, false, ref TimerText, ref GrayTimer, FOUND);
+            Table = Draw.Initiate(1, 4, a, Table, OrderPlate, false, FOUND);
             LoadConvertedTable = true;
             StateCC = StoreStateCC;
             StateCP = StoreStateCP;
