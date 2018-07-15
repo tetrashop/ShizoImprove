@@ -18,7 +18,7 @@ namespace GalleryStudio
         public bool AStarGreedyHuristicT = false;
         public bool ArrangmentsT = false;
 
-        const string SAllDraw = "RefrigtzDLL.AllDraw.asd";
+        const string SAllDraw = "AllDraw.asd";
         static GalleryStudio.RefregizMemmory Node;
         RefrigtzDLL.AllDraw Current = null;
         public GalleryStudio.RefregizMemmory Next = null;
@@ -35,7 +35,7 @@ namespace GalleryStudio
          ArrangmentsT = Arrangments;
 
     }
-    public void Load()
+        public void Load()
         {
             if (Node == null) Node = new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT); ;
             Node.AllDrawNextAccess = null;

@@ -7,7 +7,7 @@ using System.IO;
 
 namespace GalleryStudio
 {
-    class RefregitzOperator:RefregizMemmory
+    public class RefregitzOperator:RefregizMemmory
     {
         public bool MovementsAStarGreedyHuristicFoundT = false;
         public bool IgnoreSelfObjectsT = false;
@@ -18,7 +18,7 @@ namespace GalleryStudio
         public bool AStarGreedyHuristicT = false;
         public bool ArrangmentsT = false;
 
-        const string SAllDraw = "RefrigtzDLL.AllDraw.asd";
+        const string SAllDraw = "AllDraw.asd";
         static GalleryStudio.RefregizMemmory Node;
         RefrigtzDLL.AllDraw Current = null;
         GalleryStudio.RefregizMemmory Next = null;
