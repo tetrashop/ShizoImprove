@@ -107,6 +107,7 @@ using System.Media;
 using System.IO;
 namespace Refrigtz
 {
+    [Serializable]
     public partial class Load : Form
     {
         bool exit = false;

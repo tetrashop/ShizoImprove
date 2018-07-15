@@ -8,6 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 namespace Refrigtz
 {
+    [Serializable]
     static class Program
     {
         public static long SomeExtremelyLargeNumber { get; private set; }

@@ -204,7 +204,7 @@ using System.Drawing;
 using System.IO;
 namespace RefrigtzDLL
 {
-
+    [Serializable]
     public class ChessGeneticAlgorithm
     {
         //Initiate Global Variables.

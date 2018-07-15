@@ -7,6 +7,7 @@ using System.IO;
 
 namespace RefrigtzDLL
 {
+    [Serializable]
     public class DrawSoldier : ThingsConverter
     {
         //Iniatate Global Variables.

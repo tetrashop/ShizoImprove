@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Refrigtz
 {
+    [Serializable]
     class ImportantNodes
     {
 

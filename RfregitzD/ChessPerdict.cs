@@ -23,6 +23,7 @@ using System.Threading.Tasks;
 using System.IO;
 namespace RefrigtzDLL
 {
+    [Serializable]
     class ChessPerdict
     {
         //Initiate Global Variables. 

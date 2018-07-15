@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 namespace Refrigtz
 {
+    [Serializable]
     public partial class FormُSelectItems : Form
     {
         public static int Items = -1;

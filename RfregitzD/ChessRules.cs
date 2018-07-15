@@ -90,6 +90,7 @@ using System.Drawing;
 using System.IO;
 namespace RefrigtzDLL
 {
+    [Serializable]
     public class ChessRules
     {
         public bool IgnoreSelfObject = false;

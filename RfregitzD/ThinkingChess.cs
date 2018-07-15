@@ -80,6 +80,7 @@ using System.Threading.Tasks;
 
 namespace RefrigtzDLL
 {
+    [Serializable]
     public class ThinkingChess
     {
         //Initiate Global and Static Variables. 

@@ -5,7 +5,7 @@ using System.Text;
 using System.Drawing;
 namespace RefrigtzDLL
 {
-
+    [Serializable]
     public class ThingsConverter
     {
         //Initiate Global Variables.

@@ -1,4 +1,5 @@
-﻿namespace System.Threading
+﻿
+namespace System.Threading
 {
     using System;
     using System.Runtime.CompilerServices;

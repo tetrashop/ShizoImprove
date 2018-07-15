@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.IO;
 namespace Refrigtz
 {
+    [Serializable]
     public partial class FormTXT : Form
     {
         public FormTXT()

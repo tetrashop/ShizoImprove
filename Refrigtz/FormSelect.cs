@@ -9,6 +9,7 @@ using System.Threading;
 using System.IO;
 namespace Refrigtz
 {
+    [Serializable]
     public partial class FormSelect : Form
     {
         static void Log(Exception ex)

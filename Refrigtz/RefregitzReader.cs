@@ -5,6 +5,7 @@ using System.Text;
 using System.IO;
 namespace RefregitzReader
 {
+    [Serializable]
     class RefregitzReader
     {
         String Read;

@@ -24,8 +24,8 @@ namespace GalleryStudio
         public GalleryStudio.RefregizMemmory Next = null;
         public RefregizMemmory(bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments) : base(MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments)
         {
-            Node = new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT);
- MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
+            //Node = new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT);
+            MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
          IgnoreSelfObjectsT = IgnoreSelfObject;
          UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
          BestMovmentsT = BestMovment;

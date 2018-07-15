@@ -8,8 +8,10 @@ using System.Windows.Forms;
 
 namespace Refrigtz
 {
+    [Serializable]
     partial class AboutBoxChessRefregitz : Form
     {
+        
         public AboutBoxChessRefregitz()
         {
             InitializeComponent();
@@ -122,6 +124,11 @@ namespace Refrigtz
         }
 
         private void logoPictureBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxDescription_TextChanged(object sender, EventArgs e)
         {
 
         }

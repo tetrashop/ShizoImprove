@@ -154,7 +154,7 @@ using System.Diagnostics;
 namespace RefrigtzDLL
 {
 
-
+    [Serializable]
 
     public class AllDraw
     {

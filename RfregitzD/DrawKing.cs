@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 namespace RefrigtzDLL
 {
+    [Serializable]
     public class DrawKing
     {
         //Initiate Global Variables.
