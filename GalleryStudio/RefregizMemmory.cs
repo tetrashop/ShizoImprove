@@ -7,7 +7,7 @@ using System.IO;
 using RefrigtzDLL;
 namespace GalleryStudio
 {
-    class RefregizMemmory : AllDraw
+    public class RefregizMemmory : AllDraw
     {
         public bool MovementsAStarGreedyHuristicFoundT = false;
         public bool IgnoreSelfObjectsT = false;
@@ -21,7 +21,7 @@ namespace GalleryStudio
         const string SAllDraw = "RefrigtzDLL.AllDraw.asd";
         static GalleryStudio.RefregizMemmory Node;
         RefrigtzDLL.AllDraw Current = null;
-        GalleryStudio.RefregizMemmory Next = null;
+        public GalleryStudio.RefregizMemmory Next = null;
         public RefregizMemmory(bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments) : base(MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments)
         {
             Node = new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT);
@@ -128,6 +128,43 @@ namespace GalleryStudio
             set
             { Current = value; }
         }
+        public int OrderPlateCurrentAccess
+        {
+            get
+            { return OrderPlate; }
+            set
+            { OrderPlate = value; }
+        }
+        public RefregizMemmory ReterunAstrarGreedysolder(int i, int j, RefregizMemmory t)
+        {
+            return AllDrawNext(t.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j]);
+        }
+        public RefregizMemmory ReterunAstrarGreedyelephant(int i, int j, RefregizMemmory t)
+        {
+            return AllDrawNext(t.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j]);
+        }
+        public RefregizMemmory ReterunAstrarGreedyHours(int i, int j, RefregizMemmory t)
+        {
+            return AllDrawNext(t.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j]);
+        }
+        public RefregizMemmory ReterunAstrarGreedyCastle(int i, int j, RefregizMemmory t)
+        {
+            return AllDrawNext(t.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j]);
+        }
+        public RefregizMemmory ReterunAstrarGreedyMinister(int i, int j, RefregizMemmory t)
+        {
+            return AllDrawNext(t.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j]);
+        }
+        public RefregizMemmory ReterunAstrarGreedyKing(int i, int j, RefregizMemmory t)
+        {
+            return AllDrawNext(t.KingOnTable[i].KingThinking[0].AStarGreedy[j]);
+        }
+        public RefregizMemmory AllDrawNext(AllDraw Cur)
+        {
+            Next.Current = Cur;
+            return Next;
+        }
+
         public RefregizMemmory AllDrawNextAccess
         {
             get
@@ -135,5 +172,6 @@ namespace GalleryStudio
             set
             { Next = value; }
         }
+        
     }
 }

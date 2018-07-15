@@ -8866,6 +8866,7 @@ namespace Refrigtz
                 for (int j = 0; j < 8; j++)
                     TableCon[i, j] = Table[i, j];
             Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+          
             if (FOUND)
             {
                 Draw = THIS;
