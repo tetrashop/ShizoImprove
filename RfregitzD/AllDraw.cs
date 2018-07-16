@@ -158,6 +158,7 @@ namespace RefrigtzDLL
 
     public class AllDraw
     {
+        public int OrderP = 0;
         public static int DepthIterative = 0;
         int PerceptionCount = 0;
         public String OutPutAction = "";
@@ -327,6 +328,7 @@ namespace RefrigtzDLL
             }
             catch (Exception t) { Log(t); }
         }
+
         public void SetObjectNumbers(int[,] TabS)
         {
             SodierMidle = 0;
@@ -14117,7 +14119,7 @@ namespace RefrigtzDLL
         public AllDraw InitiateAStarGreedyt(int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
             )
         {
-
+            OrderP = Order;
             SetObjectNumbers(Tab);
 
             int[,] Table = new int[8, 8];

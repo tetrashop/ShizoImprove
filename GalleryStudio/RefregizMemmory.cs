@@ -6,8 +6,8 @@ using System.Runtime.Serialization;
 using System.IO;
 using RefrigtzDLL;
 namespace GalleryStudio
-{
-    public class RefregizMemmory : AllDraw
+{[Serializable]
+    public class RefregizMemmory //:AllDraw
     {
         public bool MovementsAStarGreedyHuristicFoundT = false;
         public bool IgnoreSelfObjectsT = false;
@@ -17,27 +17,29 @@ namespace GalleryStudio
         public bool OnlySelfT = false;
         public bool AStarGreedyHuristicT = false;
         public bool ArrangmentsT = false;
-
         const string SAllDraw = "AllDraw.asd";
+        public int Kind = 0;
         static GalleryStudio.RefregizMemmory Node;
         RefrigtzDLL.AllDraw Current = null;
         public GalleryStudio.RefregizMemmory Next = null;
-        public RefregizMemmory(bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments) : base(MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments)
+        public RefregizMemmory(//bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments) //: base(MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments
+            )
         {
             //Node = new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT);
-            MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
-         IgnoreSelfObjectsT = IgnoreSelfObject;
-         UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
-         BestMovmentsT = BestMovment;
-        PredictHuristicT = PredictHurist;
-         OnlySelfT = OnlySel;
-         AStarGreedyHuristicT = AStarGreedyHuris;
-         ArrangmentsT = Arrangments;
+            //MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
+         //IgnoreSelfObjectsT = IgnoreSelfObject;
+         //UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
+         //BestMovmentsT = BestMovment;
+        //PredictHuristicT = PredictHurist;
+         //OnlySelfT = OnlySel;
+         //AStarGreedyHuristicT = AStarGreedyHuris;
+         //ArrangmentsT = Arrangments;
 
     }
         public void Load()
         {
-            if (Node == null) Node = new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT); ;
+            if (Node == null) Node = new RefregizMemmory(//MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT
+                ); ;
             Node.AllDrawNextAccess = null;
             Node.AllDrawCurrentAccess = null;
             try
@@ -58,7 +60,8 @@ namespace GalleryStudio
                         Last = Node;
                         while (Last.Next != null)
                             Last = Last.Next;
-                        RefregizMemmory New = new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT);
+                        RefregizMemmory New = new RefregizMemmory(//MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT
+                            );
                         New.Current = Dummy;
                         Last.AllDrawNextAccess = New;
                     }
@@ -105,7 +108,8 @@ namespace GalleryStudio
         */
         public void AddObject(RefregizMemmory p)
         {
-            RefregizMemmory t = new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT);
+            RefregizMemmory t = new RefregizMemmory(//MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT
+                );
             t = p.AllDrawNodeAccess;
             while (t.AllDrawNextAccess != null)
                 t = t.AllDrawNextAccess;
@@ -131,37 +135,66 @@ namespace GalleryStudio
         public int OrderPlateCurrentAccess
         {
             get
-            { return OrderPlate; }
+            { return Current.OrderP; }
             set
-            { OrderPlate = value; }
+            { Current.OrderP = value; }
         }
         public RefregizMemmory ReterunAstrarGreedysolder(int i, int j, RefregizMemmory t)
         {
-            return AllDrawNext(t.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j]);
+            if (t.Current.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count != 0)
+            {
+                Kind = 1;
+                t.Next.Current = t.Current.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j];
+            }
+            return AllDrawNext(t.Current);
         }
         public RefregizMemmory ReterunAstrarGreedyelephant(int i, int j, RefregizMemmory t)
         {
-            return AllDrawNext(t.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j]);
+            if (t.Current.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count != 0)
+            {
+                Kind = 2;
+                t.Next.Current = t.Current.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j];
+            }
+            return AllDrawNext(t.Current);
         }
         public RefregizMemmory ReterunAstrarGreedyHours(int i, int j, RefregizMemmory t)
         {
-            return AllDrawNext(t.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j]);
+            if (t.Current.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count != 0)
+            {
+                Kind = 3;
+                t.Next.Current = t.Current.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j];
+            }
+            return AllDrawNext(t.Current);
         }
         public RefregizMemmory ReterunAstrarGreedyCastle(int i, int j, RefregizMemmory t)
         {
-            return AllDrawNext(t.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j]);
+            if (t.Current.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count != 0)
+            {
+                Kind = 4;
+                t.Next.Current = t.Current.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j];
+            }
+            return AllDrawNext(t.Current);
         }
         public RefregizMemmory ReterunAstrarGreedyMinister(int i, int j, RefregizMemmory t)
         {
-            return AllDrawNext(t.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j]);
+            if (t.Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count != 0)
+            {
+                Kind = 5;
+                t.Next.Current = t.Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j];
+            }
+            return AllDrawNext(t.Current);
         }
         public RefregizMemmory ReterunAstrarGreedyKing(int i, int j, RefregizMemmory t)
         {
-            return AllDrawNext(t.KingOnTable[i].KingThinking[0].AStarGreedy[j]);
+            if (t.Current.KingOnTable[i].KingThinking[0].AStarGreedy.Count != 0)
+            {
+                Kind = 6;
+                t.Next.Current = t.Current.KingOnTable[i].KingThinking[0].AStarGreedy[j];
+            }
+            return AllDrawNext(t.Current);
         }
         public RefregizMemmory AllDrawNext(AllDraw Cur)
         {
-            Next.Current = Cur;
             return Next;
         }
 

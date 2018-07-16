@@ -814,7 +814,8 @@ namespace Refrigtz
         {
             if (File.Exists("AllDraw.asd"))
             {
-                GalleryStudio.RefregizMemmory tr = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                GalleryStudio.RefregizMemmory tr = new GalleryStudio.RefregizMemmory(//MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged
+                    );
 
                 tr.Load();
                 if (tr.AllDrawNodeAccess.AllDrawCurrentAccess != null)
@@ -10487,9 +10488,12 @@ namespace Refrigtz
             }
             if (!File.Exists("AllDraw.asd"))
             {
-                GalleryStudio.RefregitzOperator tr = new GalleryStudio.RefregitzOperator(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-                GalleryStudio.RefregizMemmory rt = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-                rt.AllDrawNodeAccess = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                GalleryStudio.RefregitzOperator tr = new GalleryStudio.RefregitzOperator(//MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged
+                    );
+                GalleryStudio.RefregizMemmory rt = new GalleryStudio.RefregizMemmory(//MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged
+                    );
+                rt.AllDrawNodeAccess = new GalleryStudio.RefregizMemmory(//MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged
+                    );
                 rt.AllDrawNodeAccess.AllDrawCurrentAccess = Draw;
                 tr.RewriteAllDraw(rt);
                 MessageBox.Show("Saved Completed.");
@@ -10498,9 +10502,12 @@ namespace Refrigtz
             if (File.Exists("AllDraw.asd"))
             {
                 File.Delete("AllDraw.asd");
-                GalleryStudio.RefregitzOperator tr = new GalleryStudio.RefregitzOperator(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-                GalleryStudio.RefregizMemmory rt = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-                rt.AllDrawNodeAccess = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                GalleryStudio.RefregitzOperator tr = new GalleryStudio.RefregitzOperator(//MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged
+                    );
+                GalleryStudio.RefregizMemmory rt = new GalleryStudio.RefregizMemmory(//MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged
+                    );
+                rt.AllDrawNodeAccess = new GalleryStudio.RefregizMemmory(//MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged
+                    );
                 rt.AllDrawNodeAccess.AllDrawCurrentAccess = Draw;
                 tr.RewriteAllDraw(rt);
                 MessageBox.Show("Saved Completed.");
