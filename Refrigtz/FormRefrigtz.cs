@@ -809,6 +809,7 @@ namespace Refrigtz
 
             } while (true);
         }
+        
         //Load Refregitz Form.
         private void Form1_Load(object sender, EventArgs e)
         {

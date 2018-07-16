@@ -187,7 +187,7 @@ namespace RefrigtzDLL
         public int Row, Column;
         public Color color;
         public int Order;
-        public Task t = null;
+        [NonSerialized()] public Task t = null;
         public List<AllDraw> AStarGreedy = null;
         int CurrentAStarGredyMax = -1;
         ///Log of Errors.

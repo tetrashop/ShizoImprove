@@ -227,6 +227,8 @@ namespace GalleryStudio
             FileStream DummyFileStream = null;
             try
             {
+        
+        
                 RefregizMemmory t = p.AllDrawNodeAccess;
                 RewriteAllDrawRec(t);
                 
@@ -235,7 +237,8 @@ namespace GalleryStudio
                 DummyFileStream = new FileStream(SAllDraw, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.Write);
                 BinaryFormatter Formatters = new BinaryFormatter();
                 DummyFileStream.Seek(0, SeekOrigin.Begin);
-                Formatters.Serialize(DummyFileStream, t);
+                
+        Formatters.Serialize(DummyFileStream, t);
 
 
                 DummyFileStream.Flush(); DummyFileStream.Close();

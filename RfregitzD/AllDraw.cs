@@ -313,6 +313,7 @@ namespace RefrigtzDLL
         const int MaxCastlesFounded = 14;
         const int MaxMinisterFounded = 18;
         const int MaxKingFounded = 22;
+        [NonSerialized()] public Task ob;
         //public AllDraw. THIS;
         //Error Handling
         static void Log(Exception ex)
@@ -18917,13 +18918,16 @@ namespace RefrigtzDLL
                 int MaxAStarGreedy1 = MaxAStarGreedy;
                 int[,] Tabl = CloneATable(Table);
                 Color aaa = a;
-                Task ob = Task.Factory.StartNew(() => THISDummy.InitiateAStarGreedyt(MaxAStarGreedy1, iiii, jjjj, aaa, Tabl, Ord, false, FOUND));
-                Object ttttt = new Object();
-                lock (ttttt)
-                { //ob.Start(); 
-                    Task.WaitAll(ob);
-                }
-                ob.Dispose();
+                THISDummy.InitiateAStarGreedyt(MaxAStarGreedy1, iiii, jjjj, aaa, Tabl, Ord, false, FOUND);
+                /*ob= Task.Factory.StartNew(() => THISDummy.InitiateAStarGreedyt(MaxAStarGreedy1, iiii, jjjj, aaa, Tabl, Ord, false, FOUND));
+                        Object ttttt = new Object();
+                        lock (ttttt)
+                        { //ob.Start(); 
+
+                Task.WaitAll(ob);
+                        }
+                        ob.Dispose();
+                        */
 
                 //THISDummy.CheckedMateConfiguratiion(Order);
                 //while (ThinkingChess.BeginThread > ThinkingChess.EndThread) ;
