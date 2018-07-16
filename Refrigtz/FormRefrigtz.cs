@@ -819,10 +819,12 @@ namespace Refrigtz
                 {
                     GalleryStudio.RefregizMemmory tr = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged
                         );
-                    RefrigtzDLL.AllDraw t = Draw = tr.Load();
+                    RefrigtzDLL.AllDraw t = tr.Load();
                     if (t != null)
                     {
                         Draw = t;
+                        pictureBoxRefrigtz.Update();
+                        pictureBoxRefrigtz.Refresh();
                         MessageBox.Show("Load Completed.");
                     }
                     File.Delete("AllDraw.asd");

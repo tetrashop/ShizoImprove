@@ -60,30 +60,29 @@ namespace GalleryStudio
         }
         public AllDraw Load()
         {
-            if (Node == null) return null;
-                
-            Node.AllDrawNextAccessS = null;
-            Node.AllDrawNextAccessE = null;
-            Node.AllDrawNextAccessH = null;
-            Node.AllDrawNextAccessC = null;
-            Node.AllDrawNextAccessM = null;
-            Node.AllDrawNextAccessK = null;
-            Node.AllDrawCurrentAccess = null;
+                            
+            //Node.AllDrawNextAccessS = null;
+            //Node.AllDrawNextAccessE = null;
+            //Node.AllDrawNextAccessH = null;
+            //Node.AllDrawNextAccessC = null;
+            //Node.AllDrawNextAccessM = null;
+            //Node.AllDrawNextAccessK = null;
+            //Node.AllDrawCurrentAccess = null;
             GalleryStudio.RefregizMemmory Last = null;
             try
             {
                 FileStream DummyFileStream = new FileStream(SAllDraw, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.ReadWrite);
                 BinaryFormatter Formatters = new BinaryFormatter();
-                RefrigtzDLL.AllDraw Dummy = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT); ;
+                RefregizMemmory Dummy = new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT); ;
                 
                 Console.WriteLine("Loading...");
                 DummyFileStream.Seek(0, SeekOrigin.Begin);
                 //NEWNOD = Node.AllDrawCurrentAccess;
                 while (DummyFileStream.Position < DummyFileStream.Length)
                 {
-                    Dummy = (RefrigtzDLL.AllDraw)Formatters.Deserialize(DummyFileStream);
-                    if (Node.Current == null)
-                        Node.Current = Dummy;
+                    Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
+                    if (Last == null)
+                        Last = Dummy;
                     else
                     {
                         Last = Node;
@@ -91,60 +90,60 @@ namespace GalleryStudio
                         {
                             while (Last.NextS != null)
                                 Last = Last.NextS;
-                            RefregizMemmory New = new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT
-                                );
-                            New.Current = Dummy;
-                            Last.AllDrawNextAccessS = New;
+                            
+                                
+                            
+                            Last.AllDrawNextAccessS = Dummy;
                         }
                         else
                             if (Last.NextE != null)
                         {
                             while (Last.NextE != null)
                                 Last = Last.NextE;
-                            RefregizMemmory New = new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT
-                                );
-                            New.Current = Dummy;
-                            Last.AllDrawNextAccessE = New;
+                            
+                                
+                            
+                            Last.AllDrawNextAccessE = Dummy;
                         }
                         else
                             if (Last.NextH != null)
                         {
                             while (Last.NextH != null)
                                 Last = Last.NextH;
-                            RefregizMemmory New = new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT
-                                );
-                            New.Current = Dummy;
-                            Last.AllDrawNextAccessH = New;
+                            
+                                
+                            
+                            Last.AllDrawNextAccessH = Dummy;
                         }
                         else
                             if (Last.NextC != null)
                         {
                             while (Last.NextC != null)
                                 Last = Last.NextC;
-                            RefregizMemmory New = new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT
-                                );
-                            New.Current = Dummy;
-                            Last.AllDrawNextAccessC = New;
+                            
+                                
+                            
+                            Last.AllDrawNextAccessC = Dummy;
                         }
                         else
                             if (Last.NextM != null)
                         {
                             while (Last.NextM != null)
                                 Last = Last.NextM;
-                            RefregizMemmory New = new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT
-                                );
-                            New.Current = Dummy;
-                            Last.AllDrawNextAccessM = New;
+                            
+                                
+                            
+                            Last.AllDrawNextAccessM = Dummy;
                         }
                         else
                             if (Last.NextK != null)
                         {
                             while (Last.NextK != null)
                                 Last = Last.NextK;
-                            RefregizMemmory New = new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT
-                                );
-                            New.Current = Dummy;
-                            Last.AllDrawNextAccessK = New;
+                            
+                                
+                            
+                            Last.AllDrawNextAccessK = Dummy;
                         }
 
                     }
