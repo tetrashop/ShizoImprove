@@ -1,4 +1,9 @@
-﻿using System;
+﻿/**************************************************************************************************************
+ * Ramin Edjlal Copyright 1397/04/20 **************************************************************************
+ * 1397/04/26:Problem in Seirlization Recurisvely of linked list for refrigitz.********************************
+ * ************************************************************************************************************
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Runtime.Serialization.Formatters.Binary;
