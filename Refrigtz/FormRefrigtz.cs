@@ -814,36 +814,7 @@ namespace Refrigtz
         private void Form1_Load(object sender, EventArgs e)
         {
             bool LoadTree = false;
-            try
-            {
-                if (File.Exists("AllDraw.asd"))
-                {
-                    GalleryStudio.RefregizMemmory tr = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged
-                        );
-                    RefrigtzDLL.AllDraw t = tr.Load();
-                    if (t != null)
-                    {
-                        Draw = t;
-                        MovementsAStarGreedyHuristicFound = Draw.MovementsAStarGreedyHuristicFoundT;
-                        IInoreSelfObjects = Draw.IgnoreSelfObjectsT;
-                        UsePenaltyRegardMechnisam = Draw.UsePenaltyRegardMechnisamT;
-                        BestMovments = Draw.BestMovmentsT;
-                        PredictHuristic = Draw.PredictHuristicT;
-                        OnlySelf = Draw.OnlySelfT;
-                        AStarGreedyHuristic = Draw.AStarGreedyHuristicT; ;
-                        ArrangmentsChanged = Draw.ArrangmentsChanged;
-
-                        LoadTree = true;
-                        pictureBoxRefrigtz.Update();
-                        pictureBoxRefrigtz.Refresh();
-                        MessageBox.Show("Load Completed.");
-                    }
-                    File.Delete("AllDraw.asd");
-
-
-                }
-            }
-            catch (Exception t) { Log(t); }
+               
             Thread tttt = new Thread(new ThreadStart(SetRefregitzDLL));
             tttt.Start();
             /*Stockfish = true;
@@ -1169,6 +1140,37 @@ namespace Refrigtz
                             OrderPlate = 1;
                             //Read Last Table and Set MovementNumber                            
                             Table = ReadTable(0, ref MovmentsNumber);
+                            try
+                            {
+                                if (File.Exists("AllDraw.asd")) 
+                                {
+                                    if (MovmentsNumber > 0)
+                                    {
+                                        GalleryStudio.RefregizMemmory tr = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged
+                                            );
+                                        RefrigtzDLL.AllDraw t = tr.Load(OrderPlate);
+                                        if (t != null)
+                                        {
+                                            Draw = t;
+                                            MovementsAStarGreedyHuristicFound = Draw.MovementsAStarGreedyHuristicFoundT;
+                                            IInoreSelfObjects = Draw.IgnoreSelfObjectsT;
+                                            UsePenaltyRegardMechnisam = Draw.UsePenaltyRegardMechnisamT;
+                                            BestMovments = Draw.BestMovmentsT;
+                                            PredictHuristic = Draw.PredictHuristicT;
+                                            OnlySelf = Draw.OnlySelfT;
+                                            AStarGreedyHuristic = Draw.AStarGreedyHuristicT; ;
+                                            ArrangmentsChanged = Draw.ArrangmentsChanged;
+
+                                            LoadTree = true;
+                                            pictureBoxRefrigtz.Update();
+                                            pictureBoxRefrigtz.Refresh();
+                                            MessageBox.Show("Load Completed.");
+                                        }                                        
+                                    }
+                                    File.Delete("AllDraw.asd");
+                                }
+                            }
+                            catch (Exception t) { Log(t); }
                             //Clear Table List.
                             if (!LoadTree)
                             {
@@ -10515,7 +10517,7 @@ namespace Refrigtz
                 rt.AllDrawCurrentAccess = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged
                     );
                 rt.AllDrawCurrentAccess.Clone(Draw);
-                rt.RewriteAllDraw(rt);
+                rt.RewriteAllDraw(rt, OrderPlate);
                 MessageBox.Show("Saved Completed.");
 
             } else
@@ -10529,7 +10531,7 @@ namespace Refrigtz
                 rt.AllDrawNodeAccess = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged
                     );
                 rt.AllDrawNodeAccess.AllDrawCurrentAccess = Draw;
-                rt.RewriteAllDraw(rt);
+                rt.RewriteAllDraw(rt, OrderPlate);
                 MessageBox.Show("Saved Completed.");
 
             }

@@ -64,7 +64,7 @@ namespace GalleryStudio
 
         }
         //async 
-        void RewriteAllDrawRec(RefregizMemmory t, AllDraw Current)
+        void RewriteAllDrawRec(RefregizMemmory t, AllDraw Current,int Order)
         {
             try
             {
@@ -72,7 +72,7 @@ namespace GalleryStudio
                 {
                     t.AllDrawCurrentAccess = Current;
                     //Kind = t.Kind;
-                    if (t.OrderPlateCurrentAccess == 1)
+                    if (Order == 1)
                     {
                         //if (Kind == 1)
                         {
@@ -83,7 +83,7 @@ namespace GalleryStudio
                                 {
                                     t.iii = i;
                                     t.jjj = j;
-                                    RewriteAllDrawRec(t.ReterunAstrarGreedysolder(i, j, t), Current.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j]);
+                                    RewriteAllDrawRec(t.ReterunAstrarGreedysolder(i, j, t), Current.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j],Order*-1);
                                 }
                             }
                         }
@@ -96,7 +96,7 @@ namespace GalleryStudio
                                 {
                                     t.iii = i;
                                     t.jjj = j;
-                                    RewriteAllDrawRec(t.ReterunAstrarGreedyelephant(i, j, t), Current.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j]);
+                                    RewriteAllDrawRec(t.ReterunAstrarGreedyelephant(i, j, t), Current.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j],Order*-1);
                                 }
                             }
                         }
@@ -110,7 +110,7 @@ namespace GalleryStudio
                                 {
                                     t.iii = i;
                                     t.jjj = j;
-                                    RewriteAllDrawRec(t.ReterunAstrarGreedyHours(i, j, t), Current.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j]);
+                                    RewriteAllDrawRec(t.ReterunAstrarGreedyHours(i, j, t), Current.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j],Order*-1);
                                 }
                             }
                         }
@@ -124,7 +124,7 @@ namespace GalleryStudio
                                 {
                                     t.iii = i;
                                     t.jjj = j;
-                                    RewriteAllDrawRec(t.ReterunAstrarGreedyCastle(i, j, t), Current.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j]);
+                                    RewriteAllDrawRec(t.ReterunAstrarGreedyCastle(i, j, t), Current.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j],Order*-1);
                                 }
                             }
                         }
@@ -138,7 +138,7 @@ namespace GalleryStudio
                                 {
                                     t.iii = i;
                                     t.jjj = j;
-                                    RewriteAllDrawRec(t.ReterunAstrarGreedyMinister(i, j, t), Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j]);
+                                    RewriteAllDrawRec(t.ReterunAstrarGreedyMinister(i, j, t), Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j],Order*-1);
                                 }
 
                             }
@@ -153,7 +153,7 @@ namespace GalleryStudio
                                 {
                                     t.iii = i;
                                     t.jjj = j;
-                                    RewriteAllDrawRec(t.ReterunAstrarGreedyKing(i, j, t), Current.KingOnTable[i].KingThinking[0].AStarGreedy[j]);
+                                    RewriteAllDrawRec(t.ReterunAstrarGreedyKing(i, j, t), Current.KingOnTable[i].KingThinking[0].AStarGreedy[j],Order*-1);
                                 }
                             }
                         }
@@ -169,7 +169,7 @@ namespace GalleryStudio
                                 {
                                     t.iii = i;
                                     t.jjj = j;
-                                    RewriteAllDrawRec(t.ReterunAstrarGreedysolder(i, j, t), Current.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j]);
+                                    RewriteAllDrawRec(t.ReterunAstrarGreedysolder(i, j, t), Current.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j],Order*-1);
                                 }
                             }
                         }
@@ -183,7 +183,7 @@ namespace GalleryStudio
                                 {
                                     t.iii = i;
                                     t.jjj = j;
-                                    RewriteAllDrawRec(t.ReterunAstrarGreedyelephant(i, j, t), Current.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j]);
+                                    RewriteAllDrawRec(t.ReterunAstrarGreedyelephant(i, j, t), Current.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j],Order*-1);
                                 }
                             }
                         }
@@ -198,7 +198,7 @@ namespace GalleryStudio
                                 {
                                     t.iii = i;
                                     t.jjj = j;
-                                    RewriteAllDrawRec(t.ReterunAstrarGreedyHours(i, j, t), Current.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j]);
+                                    RewriteAllDrawRec(t.ReterunAstrarGreedyHours(i, j, t), Current.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j],Order*-1);
                                 }
                             }
                         }
@@ -213,7 +213,7 @@ namespace GalleryStudio
                                 {
                                     t.iii = i;
                                     t.jjj = j;
-                                    RewriteAllDrawRec(t.ReterunAstrarGreedyCastle(i, j, t), Current.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j]);
+                                    RewriteAllDrawRec(t.ReterunAstrarGreedyCastle(i, j, t), Current.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j],Order*-1);
                                 }
                             }
                         }
@@ -227,7 +227,7 @@ namespace GalleryStudio
                                 {
                                     t.iii = i;
                                     t.jjj = j;
-                                    RewriteAllDrawRec(t.ReterunAstrarGreedyMinister(i, j, t), Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j]);
+                                    RewriteAllDrawRec(t.ReterunAstrarGreedyMinister(i, j, t), Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j],Order*-1);
                                 }
 
                             }
@@ -242,7 +242,7 @@ namespace GalleryStudio
                                 {
                                     t.iii = i;
                                     t.jjj = j;
-                                    RewriteAllDrawRec(t.ReterunAstrarGreedyKing(i, j, t), Current.KingOnTable[i].KingThinking[0].AStarGreedy[j]);
+                                    RewriteAllDrawRec(t.ReterunAstrarGreedyKing(i, j, t), Current.KingOnTable[i].KingThinking[0].AStarGreedy[j],Order*-1);
                                 }
                             }
                         }
@@ -259,7 +259,7 @@ namespace GalleryStudio
                 t = t.AllDrawNextAccess;
             }*/
         }
-        public void RewriteAllDraw(RefregizMemmory p)
+        public void RewriteAllDraw(RefregizMemmory p,int Order)
         {
             Current = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT);
             FileStream DummyFileStream = null;
@@ -268,7 +268,7 @@ namespace GalleryStudio
 
 
                 RefregizMemmory t = p;
-                RewriteAllDrawRec(t, t.Current);
+                RewriteAllDrawRec(t, t.Current, Order);
 
                 FileInfo DummyFileInfo = new FileInfo(SAllDraw);
                 DummyFileInfo.Delete();
@@ -291,7 +291,7 @@ namespace GalleryStudio
             }
 
         }
-        public AllDraw Load()
+        public AllDraw Load(int Order)
         {
                             
             //Node.AllDrawNextAccessS = null;
@@ -385,10 +385,10 @@ namespace GalleryStudio
                 DummyFileStream.Close();
             }
             catch (IOException tt) {Log(tt);  }
-            return CreateAllDrawFromMemmory(Last, new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT)); 
+            return CreateAllDrawFromMemmory(Last, new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT), Order);
             //return Node.al;
         }
-        AllDraw CreateAllDrawFromMemmory(RefregizMemmory t, AllDraw Last)
+        AllDraw CreateAllDrawFromMemmory(RefregizMemmory t, AllDraw Last,int Order)
         {
 
             if (t == null)
@@ -402,7 +402,7 @@ namespace GalleryStudio
                     while (t.NextS != null)
                         t = t.NextS;
                     t.NextS.Current.Clone(Last.SolderesOnTable[t.iii].SoldierThinking[0].AStarGreedy[t.jjj]);
-                    CreateAllDrawFromMemmory(t.NextS, Last.SolderesOnTable[t.iii].SoldierThinking[0].AStarGreedy[t.jjj]);
+                    CreateAllDrawFromMemmory(t.NextS, Last.SolderesOnTable[t.iii].SoldierThinking[0].AStarGreedy[t.jjj],Order*-1);
                 }
                 else
                 if (t.NextE != null)
@@ -410,7 +410,7 @@ namespace GalleryStudio
                     while (t.NextE != null)
                         t = t.NextE;
                     t.NextE.Current.Clone(Last.ElephantOnTable[t.iii].ElefantThinking[0].AStarGreedy[t.jjj]);
-                    CreateAllDrawFromMemmory(t.NextE, Last.ElephantOnTable[t.iii].ElefantThinking[0].AStarGreedy[t.jjj]);
+                    CreateAllDrawFromMemmory(t.NextE, Last.ElephantOnTable[t.iii].ElefantThinking[0].AStarGreedy[t.jjj],Order*-1);
                 }
                 else
                 if (t.NextH != null)
@@ -418,7 +418,7 @@ namespace GalleryStudio
                     while (t.NextH != null)
                         t = t.NextH;
                     t.NextH.Current.Clone(Last.HoursesOnTable[t.iii].HourseThinking[0].AStarGreedy[t.jjj]);
-                    CreateAllDrawFromMemmory(t.NextH, Last.HoursesOnTable[t.iii].HourseThinking[0].AStarGreedy[t.jjj]);
+                    CreateAllDrawFromMemmory(t.NextH, Last.HoursesOnTable[t.iii].HourseThinking[0].AStarGreedy[t.jjj],Order*-1);
                 }
                 else
                 if (t.NextC != null)
@@ -426,7 +426,7 @@ namespace GalleryStudio
                     while (t.NextC != null)
                         t = t.NextC;
                     t.NextC.Current.Clone(Last.CastlesOnTable[t.iii].CastleThinking[0].AStarGreedy[t.jjj]);
-                    CreateAllDrawFromMemmory(t.NextC, Last.CastlesOnTable[t.iii].CastleThinking[0].AStarGreedy[t.jjj]);
+                    CreateAllDrawFromMemmory(t.NextC, Last.CastlesOnTable[t.iii].CastleThinking[0].AStarGreedy[t.jjj],Order*-1);
                 }
                 else
                 if (t.NextM != null)
@@ -434,7 +434,7 @@ namespace GalleryStudio
                     while (t.NextM != null)
                         t = t.NextM;
                     t.NextM.Current.Clone(Last.MinisterOnTable[t.iii].MinisterThinking[0].AStarGreedy[t.jjj]);
-                    CreateAllDrawFromMemmory(t.NextM, Last.MinisterOnTable[t.iii].MinisterThinking[0].AStarGreedy[t.jjj]);
+                    CreateAllDrawFromMemmory(t.NextM, Last.MinisterOnTable[t.iii].MinisterThinking[0].AStarGreedy[t.jjj],Order*-1);
                 }
                 else
                 if (t.NextK != null)
@@ -442,7 +442,7 @@ namespace GalleryStudio
                     while (t.NextK != null)
                         t = t.NextK;
                     t.NextK.Current.Clone(Last.KingOnTable[t.iii].KingThinking[0].AStarGreedy[t.jjj]);
-                    CreateAllDrawFromMemmory(t.NextM, Last.KingOnTable[t.iii].KingThinking[0].AStarGreedy[t.jjj]);
+                    CreateAllDrawFromMemmory(t.NextM, Last.KingOnTable[t.iii].KingThinking[0].AStarGreedy[t.jjj],Order*-1);
                 }
 
             }
