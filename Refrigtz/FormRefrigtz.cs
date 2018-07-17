@@ -1144,7 +1144,7 @@ namespace Refrigtz
                             {
                                 if (File.Exists("AllDraw.asd")) 
                                 {
-                                    if (MovmentsNumber > 0)
+                                    if (MovmentsNumber >= 0)
                                     {
                                         GalleryStudio.RefregizMemmory tr = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged
                                             );
@@ -10516,7 +10516,7 @@ namespace Refrigtz
                     );
                 rt.AllDrawCurrentAccess = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged
                     );
-                rt.AllDrawCurrentAccess.Clone(Draw);
+                rt.AllDrawCurrentAccess.Clone(RefrigtzDLL.AllDraw.THISDummy);
                 rt.RewriteAllDraw(rt, OrderPlate);
                 MessageBox.Show("Saved Completed.");
 
@@ -10530,7 +10530,7 @@ namespace Refrigtz
                     );
                 rt.AllDrawNodeAccess = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged
                     );
-                rt.AllDrawNodeAccess.AllDrawCurrentAccess = Draw;
+                rt.AllDrawCurrentAccess.Clone(RefrigtzDLL.AllDraw.THISDummy);
                 rt.RewriteAllDraw(rt, OrderPlate);
                 MessageBox.Show("Saved Completed.");
 
