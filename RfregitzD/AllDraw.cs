@@ -158,6 +158,7 @@ namespace RefrigtzDLL
 
     public class AllDraw
     {
+        int[,] Tabl = new int[8, 8];
         public int OrderP = 0;
         public static int DepthIterative = 0;
         int PerceptionCount = 0;
@@ -208,7 +209,7 @@ namespace RefrigtzDLL
         public bool AStarGreedyHuristicT = false;
         int[] Index = { -1, -1, -1, -1, -1, -1 }, jindex = { -1, -1, -1, -1, -1, -1 }, Kind = { -1, -1, -1, -1, -1, -1 };
         //public static AllDraw. THISDummy = null;
-        bool ArrangmentsChanged = false;
+        public bool ArrangmentsChanged = false;
         public static double AStarGreedytMaxCount = 0;
         public static bool FoundATable = false;
         public static double Less = Double.MinValue;
@@ -3597,6 +3598,13 @@ namespace RefrigtzDLL
         {
             if (Found)
                 return THIS;
+            if (ThinkingChess.TableEqual(TableListAction[TableListAction.Count - 1], Tab))
+            {
+                THIS = this;
+                Found = true;
+                return THIS;
+            }
+            else
             if (Order == 1)
             {
 
@@ -4149,10 +4157,12 @@ namespace RefrigtzDLL
             }
             return Leaf;
         }
-        public void FoundOfLeafDepenOfKindFullGame(int Order, int iAStarGreedy, int ii, int jj, int ik, int jjj, bool FOUND)
+        public void FoundOfLeafDepenOfKindFullGame(int[,] table,int Order, int iAStarGreedy, int ii, int jj, int ik, int jjj, bool FOUND)
         {
+            bool FullGameFound = false;
             //if (ThinkingChess.FoundFirstMating > MaxAStarGreedy)
             //   return;
+            table = CloneATable(table);
             if (Order == 1)
             {
 
@@ -4164,12 +4174,13 @@ namespace RefrigtzDLL
                         {
                             if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count == 0)
                             {
+                                FullGameFound = true;
                                 FullGameThinkingTree(Order, iAStarGreedy, ii, jj, ik, jjj, false);
 
                             }
                             else
                                 for (int iii = 0; iii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count - 1; iii++)
-                                    SolderesOnTable[i].SoldierThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND);
+                                    SolderesOnTable[i].SoldierThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(SolderesOnTable[i].SoldierThinking[0].TableT,Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND);
 
                         }
 
@@ -4185,11 +4196,12 @@ namespace RefrigtzDLL
                         {
                             if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count == 0)
                             {
+                                FullGameFound = true;
                                 FullGameThinkingTree(Order, iAStarGreedy, ii, jj, ik, jjj, false);
                             }
                             else
                                 for (int iii = 0; iii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count - 1; iii++)
-                                    ElephantOnTable[i].ElefantThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND);
+                                    ElephantOnTable[i].ElefantThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(ElephantOnTable[i].ElefantThinking[0].TableT,Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND);
 
 
                         }
@@ -4205,11 +4217,12 @@ namespace RefrigtzDLL
                         {
                             if (HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count == 0)
                             {
+                                FullGameFound = true;
                                 FullGameThinkingTree(Order, iAStarGreedy, ii, jj, ik, jjj, false);
                             }
                             else
                                 for (int iii = 0; iii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count - 1; iii++)
-                                    HoursesOnTable[i].HourseThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND);
+                                    HoursesOnTable[i].HourseThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(HoursesOnTable[i].HourseThinking[0].TableT,Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND);
 
                         }
                         catch (Exception t)
@@ -4226,11 +4239,12 @@ namespace RefrigtzDLL
                         {
                             if (CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count == 0)
                             {
+                                FullGameFound = true;
                                 FullGameThinkingTree(Order, iAStarGreedy, ii, jj, ik, jjj, false);
                             }
                             else
                                 for (int iii = 0; iii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count - 1; iii++)
-                                    CastlesOnTable[i].CastleThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND);
+                                    CastlesOnTable[i].CastleThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(CastlesOnTable[i].CastleThinking[0].TableT,Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND);
                         }
                         catch (Exception t)
                         {
@@ -4245,11 +4259,12 @@ namespace RefrigtzDLL
                         {
                             if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count == 0)
                             {
+                                FullGameFound = true;
                                 FullGameThinkingTree(Order, iAStarGreedy, ii, jj, ik, jjj, false);
                             }
                             else
                                 for (int iii = 0; iii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count - 1; iii++)
-                                    MinisterOnTable[i].MinisterThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND);
+                                    MinisterOnTable[i].MinisterThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(MinisterOnTable[i].MinisterThinking[0].TableT,Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND);
 
                         }
                         catch (Exception t)
@@ -4265,11 +4280,12 @@ namespace RefrigtzDLL
                         {
                             if (KingOnTable[i].KingThinking[0].AStarGreedy.Count == 0)
                             {
+                                FullGameFound = true;
                                 FullGameThinkingTree(Order, iAStarGreedy, ii, jj, ik, jjj, false);
                             }
                             else
                                 for (int iii = 0; iii < KingOnTable[i].KingThinking[0].AStarGreedy.Count - 1; iii++)
-                                    KingOnTable[i].KingThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND);
+                                    KingOnTable[i].KingThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(KingOnTable[i].KingThinking[0].TableT,Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND);
 
                         }
                         catch (Exception t)
@@ -4289,11 +4305,12 @@ namespace RefrigtzDLL
 
                             if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count == 0)
                             {
+                                FullGameFound = true;
                                 FullGameThinkingTree(Order, iAStarGreedy, ii, jj, ik, jjj, false);
                             }
                             else
                                 for (int iii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count - 1; iii++)
-                                    SolderesOnTable[i].SoldierThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND);
+                                    SolderesOnTable[i].SoldierThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(SolderesOnTable[i].SoldierThinking[0].TableT,Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND);
                         }
                         catch (Exception t)
                         {
@@ -4308,11 +4325,12 @@ namespace RefrigtzDLL
 
                             if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count == 0)
                             {
+                                FullGameFound = true;
                                 FullGameThinkingTree(Order, iAStarGreedy, ii, jj, ik, jjj, false);
                             }
                             else
                                 for (int iii = 0; iii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count - 1; iii++)
-                                    ElephantOnTable[i].ElefantThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND);
+                                    ElephantOnTable[i].ElefantThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(ElephantOnTable[i].ElefantThinking[0].TableT,Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND);
                         }
                         catch (Exception t)
                         {
@@ -4327,11 +4345,12 @@ namespace RefrigtzDLL
 
                             if (HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count == 0)
                             {
+                                FullGameFound = true;
                                 FullGameThinkingTree(Order, iAStarGreedy, ii, jj, ik, jjj, false);
                             }
                             else
                                 for (int iii = 0; iii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count - 1; iii++)
-                                    HoursesOnTable[i].HourseThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND);
+                                    HoursesOnTable[i].HourseThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(HoursesOnTable[i].HourseThinking[0].TableT,Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND);
                         }
                         catch (Exception t)
                         {
@@ -4346,11 +4365,12 @@ namespace RefrigtzDLL
 
                             if (CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count == 0)
                             {
+                                FullGameFound = true;
                                 FullGameThinkingTree(Order, iAStarGreedy, ii, jj, ik, jjj, false);
                             }
                             else
                                 for (int iii = 0; iii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count - 1; iii++)
-                                    CastlesOnTable[i].CastleThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND);
+                                    CastlesOnTable[i].CastleThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(CastlesOnTable[i].CastleThinking[0].TableT,Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND);
 
                         }
                         catch (Exception t)
@@ -4365,11 +4385,13 @@ namespace RefrigtzDLL
                         {
                             if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count == 0)
                             {
+
+                                FullGameFound = true;
                                 FullGameThinkingTree(Order, iAStarGreedy, ii, jj, ik, jjj, false);
                             }
                             else
                                 for (int iii = 0; iii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count - 1; iii++)
-                                    MinisterOnTable[i].MinisterThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND);
+                                    MinisterOnTable[i].MinisterThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(MinisterOnTable[i].MinisterThinking[0].TableT,Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND);
 
                         }
                         catch (Exception t)
@@ -4384,11 +4406,12 @@ namespace RefrigtzDLL
                         {
                             if (KingOnTable[i].KingThinking[0].AStarGreedy.Count == 0)
                             {
+                                FullGameFound = true;
                                 FullGameThinkingTree(Order, iAStarGreedy, ii, jj, ik, jjj, false);
                             }
                             else
                                 for (int iii = 0; iii < KingOnTable[i].KingThinking[0].AStarGreedy.Count - 1; iii++)
-                                    KingOnTable[i].KingThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND);
+                                    KingOnTable[i].KingThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(KingOnTable[i].KingThinking[0].TableT,Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND);
 
 
                         }
@@ -4397,6 +4420,13 @@ namespace RefrigtzDLL
                             Log(t);
                         }
                     }
+            }
+            if (!FullGameFound)
+            {
+                Color a = Color.Gray;
+                if (Order == -1)
+                    a = Color.Brown;
+                Initiate(ii, jj, a, table, Order, false, false);                
             }
             return;
         }
@@ -14546,7 +14576,8 @@ namespace RefrigtzDLL
 
                 if (FOUND)
                 {
-                    FoundOfLeafDepenOfKindFullGame(Order * -1, iAStarGreedy, ii, jj, ik, j, FOUND);
+                    Tabl = CloneATable(Table);
+                    FoundOfLeafDepenOfKindFullGame(Tabl,Order, iAStarGreedy, ii, jj, ik, j, FOUND);
                 }
                 else
                 {
