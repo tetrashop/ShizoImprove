@@ -18897,8 +18897,7 @@ namespace RefrigtzDLL
                 int[,] Tab = null;
                 int[,] TablInit = null;
 
-                THISDummy = new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
-                if (!FOUND)
+                 if (!FOUND)
                 {
                     /*    for (int i = 0; i < 8; i++)
                             for (int j = 0; j < 8; j++)
@@ -18906,8 +18905,9 @@ namespace RefrigtzDLL
                                 THISDummy.Table[i, j] = Table[i, j];
                             }
                      */
-                    THISDummy.TableList.Add(Table);
-                    THISDummy.SetRowColumn(0);
+                    //RefrigtzDLL.AllDraw.THISDummy = Draw;
+                    //RefrigtzDLL.AllDraw.THISDummy.TableList.Add(Table);
+                    //RefrigtzDLL.AllDraw.THISDummy.SetRowColumn(0);
                     //Clone(THISDummy);
 
 

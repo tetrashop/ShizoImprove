@@ -1413,6 +1413,10 @@ namespace Refrigtz
             RefrigtzDLL.AllDraw.DrawTable = true;
             Thread ttt = new Thread(new ThreadStart(SetNodesCount));
             ttt.Start();
+            RefrigtzDLL.AllDraw.THISDummy = Draw;
+            //RefrigtzDLL.AllDraw.THISDummy.TableList.Add(Table);
+            //RefrigtzDLL.AllDraw.THISDummy.SetRowColumn(0);
+
 
 
         }
