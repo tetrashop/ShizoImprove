@@ -10520,7 +10520,7 @@ namespace Refrigtz
                     );
                 rt.AllDrawCurrentAccess = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged
                     );
-                rt.AllDrawCurrentAccess.Clone(RefrigtzDLL.AllDraw.THISDummy);
+                RefrigtzDLL.AllDraw.THISDummy.Clone(rt.AllDrawCurrentAccess);
                 rt.RewriteAllDraw(rt, OrderPlate);
                 MessageBox.Show("Saved Completed.");
 
@@ -10534,7 +10534,7 @@ namespace Refrigtz
                     );
                 rt.AllDrawNodeAccess = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged
                     );
-                rt.AllDrawCurrentAccess.Clone(RefrigtzDLL.AllDraw.THISDummy);
+                RefrigtzDLL.AllDraw.THISDummy.Clone(rt.AllDrawCurrentAccess);
                 rt.RewriteAllDraw(rt, OrderPlate);
                 MessageBox.Show("Saved Completed.");
 

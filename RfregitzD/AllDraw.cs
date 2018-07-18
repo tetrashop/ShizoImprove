@@ -531,6 +531,30 @@ namespace RefrigtzDLL
         {
             if (TableList.Count == 1)
                 SetObjectNumbers(TableList[0]);
+            MaxHuristicxT = Double.MinValue;
+            AA.MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicFoundT;
+            AA.IgnoreSelfObjectsT = IgnoreSelfObjectsT;
+            AA.UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisamT;
+            AA.BestMovmentsT = BestMovmentsT;
+            AA.PredictHuristicT = PredictHuristicT;
+            AA.OnlySelfT = OnlySelfT;
+            AA.AStarGreedyHuristicT = AStarGreedyHuristicT;
+            AA.ArrangmentsChanged = ArrangmentsChanged;
+            AA.CastlesKing = CastlesKing;
+
+
+            AA.SodierMidle = SodierMidle;
+            AA.SodierHigh = SodierHigh;
+            AA.ElefantMidle = ElefantMidle;
+            AA.ElefantHigh = ElefantHigh;
+            AA.HourseMidle = HourseMidle;
+            AA.HourseHight = HourseHight;
+            AA.CastleMidle = CastleMidle;
+            AA.CastleHigh = CastleHigh;
+            AA.MinisterMidle = MinisterMidle;
+            AA.MinisterHigh = MinisterHigh;
+            AA.KingMidle = KingMidle;
+            AA.KingHigh = KingHigh;
             //Initiate a new class object and clone a copy.
             AA.SolderesOnTable = new DrawSoldier[SodierHigh];
             AA.ArrangmentsChanged = ArrangmentsChanged;
