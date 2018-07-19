@@ -45,45 +45,52 @@ namespace GalleryStudio
         public RefregitzOperator(bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments//) : base(MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments
             )
         {
-            MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
-            IgnoreSelfObjectsT = IgnoreSelfObject;
-            UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
-            BestMovmentsT = BestMovment;
-            PredictHuristicT = PredictHurist;
-            OnlySelfT = OnlySel;
-            AStarGreedyHuristicT = AStarGreedyHuris;
-            ArrangmentsT = Arrangments;
-            RefrigtzDLL.AllDraw Current = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT);
-
+            Object o = new Object();
+            lock (o)
+            {
+                MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
+                IgnoreSelfObjectsT = IgnoreSelfObject;
+                UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
+                BestMovmentsT = BestMovment;
+                PredictHuristicT = PredictHurist;
+                OnlySelfT = OnlySel;
+                AStarGreedyHuristicT = AStarGreedyHuris;
+                ArrangmentsT = Arrangments;
+                RefrigtzDLL.AllDraw Current = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT);
+            }
         }
        
         
         public RefrigtzDLL.AllDraw GetRefregiz(int No)
-        {
-            FileStream DummyFileStream = null;
-            DummyFileStream = new FileStream(SAllDraw, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.Read);
-            int p = 0;
-            RefrigtzDLL.AllDraw Dummy = null;
-            BinaryFormatter Formatters = new BinaryFormatter();
-            DummyFileStream.Seek(0, SeekOrigin.Begin);
-            try
+        { Object o = new Object();
+            lock (o)
             {
-                while (p <= No)
+
+                FileStream DummyFileStream = null;
+                DummyFileStream = new FileStream(SAllDraw, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.Read);
+                int p = 0;
+                RefrigtzDLL.AllDraw Dummy = null;
+                BinaryFormatter Formatters = new BinaryFormatter();
+                DummyFileStream.Seek(0, SeekOrigin.Begin);
+                try
                 {
-                    if (DummyFileStream.Length >= DummyFileStream.Position)
-                        Dummy = (RefrigtzDLL.AllDraw)Formatters.Deserialize(DummyFileStream);
-                    else
-                        Dummy = null;
-                    p++;
+                    while (p <= No)
+                    {
+                        if (DummyFileStream.Length >= DummyFileStream.Position)
+                            Dummy = (RefrigtzDLL.AllDraw)Formatters.Deserialize(DummyFileStream);
+                        else
+                            Dummy = null;
+                        p++;
+                    }
+                    DummyFileStream.Flush(); DummyFileStream.Close();
                 }
-                DummyFileStream.Flush(); DummyFileStream.Close();
+                catch (SerializationException t)
+                {
+                    Console.WriteLine(t.Message.ToString());
+                    Dummy = null;
+                }
+                return Dummy;
             }
-            catch (SerializationException t)
-            {
-                Console.WriteLine(t.Message.ToString());
-                Dummy = null;
-            }
-            return Dummy;
         }
 
     }

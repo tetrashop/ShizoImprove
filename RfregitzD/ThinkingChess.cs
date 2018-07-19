@@ -412,224 +412,229 @@ namespace RefrigtzDLL
         public void Clone(ref ThinkingChess AA//, ref AllDraw. THIS
             )
         {
-            //Assignment Content to New Content Object.
-            //Initaite New Object.
-            AA = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column);
-            AA.ArrangmentsChanged = ArrangmentsChanged;
-            //When Depth Object is not NULL.
-            if (AStarGreedy.Count != 0)
+            Object O = new Object();
+            lock (O)
             {
-                AA.AStarGreedy = new System.Collections.Generic.List<AllDraw>();
-                //For All Depth(s).
-                for (int i = 0; i < AStarGreedy.Count; i++)
+                //Assignment Content to New Content Object.
+                //Initaite New Object.
+                if (AA == null)
+                    AA = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column);
+                AA.ArrangmentsChanged = ArrangmentsChanged;
+                //When Depth Object is not NULL.
+                if (AStarGreedy.Count != 0)
                 {
-                    try
+                    AA.AStarGreedy = new System.Collections.Generic.List<AllDraw>();
+                    //For All Depth(s).
+                    for (int i = 0; i < AStarGreedy.Count; i++)
                     {
-                        //Clone a Copy From Depth Objects.
-                        AStarGreedy[i].Clone(AA.AStarGreedy[i]);
+                        try
+                        {
+                            //Clone a Copy From Depth Objects.
+                            AStarGreedy[i].Clone(AA.AStarGreedy[i]);
+                        }
+                        catch (Exception tt) { Log(tt); }
                     }
-                    catch (Exception tt) { Log(tt); }
                 }
-            }
-            //For All Moves Indexx Solders List Count.
-            for (int j = 0; j < RowColumnSoldier.Count; j++)
+                //For All Moves Indexx Solders List Count.
+                for (int j = 0; j < RowColumnSoldier.Count; j++)
 
-                //Add a Clone To New Solder indexx Object.
-                AA.RowColumnSoldier.Add(CloneAList(RowColumnSoldier[j], 2));
-            //For All Castle List Count.
-            for (int j = 0; j < RowColumnCastle.Count; j++)
-                //Add a Clone to New Castle index Objects List.
-                AA.RowColumnCastle.Add(CloneAList(RowColumnCastle[j], 2));
+                    //Add a Clone To New Solder indexx Object.
+                    RowColumnSoldier.Add(AA.CloneAList(RowColumnSoldier[j], 2));
+                //For All Castle List Count.
+                for (int j = 0; j < RowColumnCastle.Count; j++)
+                    //Add a Clone to New Castle index Objects List.
+                    RowColumnCastle.Add(AA.CloneAList(RowColumnCastle[j], 2));
 
-            //For All Elephant index List Count.
-            for (int j = 0; j < RowColumnElefant.Count; j++)
-                //Add a Clone to New Elephant Object List.
-                AA.RowColumnElefant.Add(CloneAList(RowColumnElefant[j], 2));
-            //For All Hourse index List Count.
-            for (int j = 0; j < RowColumnHourse.Count; j++)
-                //Add a Clone to New Hourse index List.
-                AA.RowColumnHourse.Add(CloneAList(RowColumnHourse[j], 2));
-            //For All King index List Count.
-            for (int j = 0; j < RowColumnKing.Count; j++)
-                //Add a Clone To New King Object List.
-                AA.RowColumnKing.Add(CloneAList(RowColumnKing[j], 2));
-            //For All Minister index Count.
-            for (int j = 0; j < RowColumnMinister.Count; j++)
-                //Add a Clone To Minister New index List.
-                AA.RowColumnMinister.Add(CloneAList(RowColumnMinister[j], 2));
-            //Assgine thread.
-            AA.t = t;
-            //Create and Initiate new Table Object.
-            AA.TableT = new int[8, 8];
-            //Create and Initaite New Table Object.
-            AA.TableConst = new int[8, 8];
-            //if Table is not NULL>
-            if (TableT != null)
-                //For All Items in Table Object.
-                for (int i = 0; i < 8; i++)
-                    for (int j = 0; j < 8; j++)
-                        //Assgine Table items in New Table Object.
-                        AA.TableT[i, j] = TableT[i, j];
-            //If Table is Not Null.
-            if (TableConst != null)
-                //For All Items in Table Object.
-                for (int i = 0; i < 8; i++)
-                    for (int j = 0; j < 8; j++)
-                        //Assignm Items in New Table Object.
-                        AA.TableConst[i, j] = TableConst[i, j];
-            //For All Table State Movements in Castles Objects.
-            for (int i = 0; i < TableListCastle.Count; i++)
-                //Add aclon of a Table in New Briges Table List.
-                AA.TableListCastle.Add(CloneATable(TableListCastle[i]));
-            //For All Table List Movements in  Elephant Objects 
-            for (int i = 0; i < TableListElefant.Count; i++)
-                //Add a Clone of Tables in Elephant Mevments Obejcts List To New One.
-                AA.TableListElefant.Add(CloneATable(TableListElefant[i]));
-            //For All Hourse Table Movemnts items.
-            for (int i = 0; i < TableListHourse.Count; i++)
-                //Add a Clone of Hourse Table Movement in New List.
-                AA.TableListHourse.Add(CloneATable(TableListHourse[i]));
-            //For All King Tables Movment Count.
-            for (int i = 0; i < TableListKing.Count; i++)
-                //Add a Clone To New King Table List.
-                AA.TableListKing.Add(CloneATable(TableListKing[i]));
-            //For All Minister Table Movment Items.
-            for (int i = 0; i < TableListMinister.Count; i++)
-                //Add a clone To New Minister Table Movment List.
-                AA.TableListMinister.Add(CloneATable(TableListMinister[i]));
-            //For All Solder Table Movment Count.
-            for (int i = 0; i < TableListSolder.Count; i++)
-                //Add a Clone of Table item to New Table List Movments.
-                AA.TableListSolder.Add(CloneATable(TableListSolder[i]));
+                //For All Elephant index List Count.
+                for (int j = 0; j < RowColumnElefant.Count; j++)
+                    //Add a Clone to New Elephant Object List.
+                    RowColumnElefant.Add(AA.CloneAList(RowColumnElefant[j], 2));
+                //For All Hourse index List Count.
+                for (int j = 0; j < RowColumnHourse.Count; j++)
+                    //Add a Clone to New Hourse index List.
+                    RowColumnHourse.Add(AA.CloneAList(RowColumnHourse[j], 2));
+                //For All King index List Count.
+                for (int j = 0; j < RowColumnKing.Count; j++)
+                    //Add a Clone To New King Object List.
+                    RowColumnKing.Add(AA.CloneAList(RowColumnKing[j], 2));
+                //For All Minister index Count.
+                for (int j = 0; j < RowColumnMinister.Count; j++)
+                    //Add a Clone To Minister New index List.
+                    RowColumnMinister.Add(AA.CloneAList(RowColumnMinister[j], 2));
+                //Assgine thread.
+                AA.t = t;
+                //Create and Initiate new Table Object.
+                AA.TableT = new int[8, 8];
+                //Create and Initaite New Table Object.
+                AA.TableConst = new int[8, 8];
+                //if Table is not NULL>
+                if (TableT != null)
+                    //For All Items in Table Object.
+                    for (int i = 0; i < 8; i++)
+                        for (int j = 0; j < 8; j++)
+                            //Assgine Table items in New Table Object.
+                            AA.TableT[i, j] = TableT[i, j];
+                //If Table is Not Null.
+                if (TableConst != null)
+                    //For All Items in Table Object.
+                    for (int i = 0; i < 8; i++)
+                        for (int j = 0; j < 8; j++)
+                            //Assignm Items in New Table Object.
+                            AA.TableConst[i, j] = TableConst[i, j];
+                //For All Table State Movements in Castles Objects.
+                for (int i = 0; i < TableListCastle.Count; i++)
+                    //Add aclon of a Table in New Briges Table List.
+                    TableListCastle.Add(AA.CloneATable(TableListCastle[i]));
+                //For All Table List Movements in  Elephant Objects 
+                for (int i = 0; i < TableListElefant.Count; i++)
+                    //Add a Clone of Tables in Elephant Mevments Obejcts List To New One.
+                    AA.TableListElefant.Add(CloneATable(TableListElefant[i]));
+                //For All Hourse Table Movemnts items.
+                for (int i = 0; i < TableListHourse.Count; i++)
+                    //Add a Clone of Hourse Table Movement in New List.
+                    TableListHourse.Add(AA.CloneATable(TableListHourse[i]));
+                //For All King Tables Movment Count.
+                for (int i = 0; i < TableListKing.Count; i++)
+                    //Add a Clone To New King Table List.
+                    TableListKing.Add(AA.CloneATable(TableListKing[i]));
+                //For All Minister Table Movment Items.
+                for (int i = 0; i < TableListMinister.Count; i++)
+                    //Add a clone To New Minister Table Movment List.
+                    AA.TableListMinister.Add(CloneATable(TableListMinister[i]));
+                //For All Solder Table Movment Count.
+                for (int i = 0; i < TableListSolder.Count; i++)
+                    //Add a Clone of Table item to New Table List Movments.
+                    TableListSolder.Add(AA.CloneATable(TableListSolder[i]));
 
-            //For All Solder Husrist List Count.
-            for (int i = 0; i < HuristicListSolder.Count; i++)
-                //Ad a Clone of Hueristic Solders To New List.
-                AA.HuristicListSolder.Add(CloneAList(HuristicListSolder[i], 4));
-            //For All Elephant Huristic List Count. 
-            for (int i = 0; i < HuristicListElefant.Count; i++)
-                //Add A Clone of Copy to New Elephant Huristic List.
-                AA.HuristicListElefant.Add(CloneAList(HuristicListElefant[i], 4));
-            //For All Hours Huristic Hourse Count.
-            for (int i = 0; i < HuristicListHourse.Count; i++)
-                //Add a Clone of Copy To New Housre Huristic List.
-                AA.HuristicListHourse.Add(CloneAList(HuristicListHourse[i], 4));
-            //For All Castles Huristic List Count.
-            for (int i = 0; i < HuristicListCastle.Count; i++)
-                //Add a Clone of Copy to New Castles Huristic List.
-                AA.HuristicListCastle.Add(CloneAList(HuristicListCastle[i], 4));
-            //For All Minister Huristic List Count.
-            for (int i = 0; i < HuristicListMinister.Count; i++)
-                //Add a Clone of Copy to New Minister List.
-                AA.HuristicListMinister.Add(CloneAList(HuristicListMinister[i], 4));
-            //For All King Husrict List Items.
-            for (int i = 0; i < HuristicListKing.Count; i++)
-                //Add a Clone of Copy to New King Hursitic List.
-                AA.HuristicListKing.Add(CloneAList(HuristicListKing[i], 4));
-            //Initiate and create Penalty Solder List.
-            AA.PenaltyRegardListSolder = new List<QuantumAtamata>();
-            //For All Solder Penalty List Count.
-            for (int i = 0; i < PenaltyRegardListSolder.Count; i++)
-            {
-                //Initiate a new Quantum Atamata Object
-                QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                //Clone a Copy Of Penalty Solider.
-                PenaltyRegardListSolder[i].Clone(ref Current);
-                //Add New Object Create to New Penalty Solder List.
-                AA.PenaltyRegardListSolder.Add(Current);
+                //For All Solder Husrist List Count.
+                for (int i = 0; i < HuristicListSolder.Count; i++)
+                    //Ad a Clone of Hueristic Solders To New List.
+                    HuristicListSolder.Add(AA.CloneAList(HuristicListSolder[i], 4));
+                //For All Elephant Huristic List Count. 
+                for (int i = 0; i < HuristicListElefant.Count; i++)
+                    //Add A Clone of Copy to New Elephant Huristic List.
+                    HuristicListElefant.Add(AA.CloneAList(HuristicListElefant[i], 4));
+                //For All Hours Huristic Hourse Count.
+                for (int i = 0; i < HuristicListHourse.Count; i++)
+                    //Add a Clone of Copy To New Housre Huristic List.
+                    HuristicListHourse.Add(AA.CloneAList(HuristicListHourse[i], 4));
+                //For All Castles Huristic List Count.
+                for (int i = 0; i < HuristicListCastle.Count; i++)
+                    //Add a Clone of Copy to New Castles Huristic List.
+                    HuristicListCastle.Add(AA.CloneAList(HuristicListCastle[i], 4));
+                //For All Minister Huristic List Count.
+                for (int i = 0; i < HuristicListMinister.Count; i++)
+                    //Add a Clone of Copy to New Minister List.
+                    HuristicListMinister.Add(AA.CloneAList(HuristicListMinister[i], 4));
+                //For All King Husrict List Items.
+                for (int i = 0; i < HuristicListKing.Count; i++)
+                    //Add a Clone of Copy to New King Hursitic List.
+                    HuristicListKing.Add(AA.CloneAList(HuristicListKing[i], 4));
+                //Initiate and create Penalty Solder List.
+                AA.PenaltyRegardListSolder = new List<QuantumAtamata>();
+                //For All Solder Penalty List Count.
+                for (int i = 0; i < PenaltyRegardListSolder.Count; i++)
+                {
+                    //Initiate a new Quantum Atamata Object
+                    QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                    //Clone a Copy Of Penalty Solider.
+                    PenaltyRegardListSolder[i].Clone(ref Current);
+                    //Add New Object Create to New Penalty Solder List.
+                    AA.PenaltyRegardListSolder.Add(Current);
+                }
+                //Initaite and Create Elephant Penalty List Object.
+                AA.PenaltyRegardListElefant = new List<QuantumAtamata>();
+                //For All Elepahtn Penalty List Count.
+                for (int i = 0; i < PenaltyRegardListElefant.Count; i++)
+                {
+                    //Initiate a new Quantum Atamata Object
+                    QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                    //Clone a Copy Of Penalty Elephant.
+                    PenaltyRegardListElefant[i].Clone(ref Current);
+                    //Add New Object Create to New Penalty Elephant List.
+                    AA.PenaltyRegardListElefant.Add(Current);
+                }
+                //Initaite and Create Hourse Penalty List Object.
+                AA.PenaltyRegardListHourse = new List<QuantumAtamata>();
+                //For All Solder Hourse List Count.
+                for (int i = 0; i < PenaltyRegardListHourse.Count; i++)
+                {
+                    //Initiate a new Quantum Atamata Object
+                    QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                    //Clone a Copy Of Penalty Hourse.
+                    PenaltyRegardListHourse[i].Clone(ref Current);
+                    //Add New Object Create to New Penalty Hourse List.
+                    AA.PenaltyRegardListHourse.Add(Current);
+                }
+                //Initaite and Create Castles Penalty List Object.
+                AA.PenaltyRegardListCastle = new List<QuantumAtamata>();
+                //For All Solder Castle List Count.
+                for (int i = 0; i < PenaltyRegardListCastle.Count; i++)
+                {
+                    //Initiate a new Quantum Atamata Object
+                    QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                    //Clone a Copy Of Penalty Castles.
+                    PenaltyRegardListCastle[i].Clone(ref Current);
+                    //Add New Object Create to New Penalty Castles List.
+                    AA.PenaltyRegardListCastle.Add(Current);
+                }
+                //Initaite and Create Minister Penalty List Object.
+                AA.PenaltyRegardListMinister = new List<QuantumAtamata>();
+                //For All Solder Minster List Count.
+                for (int i = 0; i < PenaltyRegardListMinister.Count; i++)
+                {
+                    //Initiate a new Quantum Atamata Object
+                    QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                    //Clone a Copy Of Penalty Minsiter.
+                    PenaltyRegardListMinister[i].Clone(ref Current);
+                    //Add New Object Create to New Penalty Minsietr List.
+                    AA.PenaltyRegardListMinister.Add(Current);
+                }
+                //Initaite and Create King Penalty List Object.
+                AA.PenaltyRegardListKing = new List<QuantumAtamata>();
+                //For All Solder King List Count.
+                for (int i = 0; i < PenaltyRegardListKing.Count; i++)
+                {
+                    //Initiate a new Quantum Atamata Object
+                    QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                    //Clone a Copy Of Penalty King.
+                    PenaltyRegardListKing[i].Clone(ref Current);
+                    //Add New Object Create to New Penalty King List.
+                    AA.PenaltyRegardListKing.Add(Current);
+                }
+                //Iniktiate Same Obejcts to New Same Obejcts.
+                AA.AStarGreedy = AStarGreedy;
+                AA.CastleValue = CastleValue;
+                AA.color = color;
+                AA.Column = Column;
+                AA.CurrentArray = CurrentArray;
+                AA.CurrentColumn = CurrentColumn;
+                AA.CurrentRow = CurrentRow;
+                AA.ElefantValue = ElefantValue;
+                //AA.EnemyNotSupported = EnemyNotSupported;
+                AA.ExistingOfEnemyHiiting = ExistingOfEnemyHiiting;
+                AA.HourseValue = HourseValue;
+                AA.IgnoreObjectDangour = IgnoreObjectDangour;
+                AA.IndexCastle = IndexCastle;
+                AA.IndexElefant = IndexElefant;
+                AA.IndexHourse = IndexHourse;
+                AA.IndexKing = IndexKing;
+                AA.IndexMinister = IndexMinister;
+                AA.IndexSoldier = IndexSoldier;
+                AA.IsCheck = IsCheck;
+                AA.Kind = Kind;
+                AA.KingValue = KingValue;
+                AA.CheckMateAStarGreedy = CheckMateAStarGreedy;
+                AA.CheckMateOcuured = CheckMateOcuured;
+                AA.Max = Max;
+                AA.MinisterValue = MinisterValue;
+                AA.Order = Order;
+                AA.Row = Row;
+                AA.SodierValue = SodierValue;
+                AA.ThingsNumber = ThingsNumber;
+                AA.ThinkingBegin = ThinkingBegin;
+                AA.ThinkingFinished = ThinkingFinished;
             }
-            //Initaite and Create Elephant Penalty List Object.
-            AA.PenaltyRegardListElefant = new List<QuantumAtamata>();
-            //For All Elepahtn Penalty List Count.
-            for (int i = 0; i < PenaltyRegardListElefant.Count; i++)
-            {
-                //Initiate a new Quantum Atamata Object
-                QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                //Clone a Copy Of Penalty Elephant.
-                PenaltyRegardListElefant[i].Clone(ref Current);
-                //Add New Object Create to New Penalty Elephant List.
-                AA.PenaltyRegardListElefant.Add(Current);
-            }
-            //Initaite and Create Hourse Penalty List Object.
-            AA.PenaltyRegardListHourse = new List<QuantumAtamata>();
-            //For All Solder Hourse List Count.
-            for (int i = 0; i < PenaltyRegardListHourse.Count; i++)
-            {
-                //Initiate a new Quantum Atamata Object
-                QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                //Clone a Copy Of Penalty Hourse.
-                PenaltyRegardListHourse[i].Clone(ref Current);
-                //Add New Object Create to New Penalty Hourse List.
-                AA.PenaltyRegardListHourse.Add(Current);
-            }
-            //Initaite and Create Castles Penalty List Object.
-            AA.PenaltyRegardListCastle = new List<QuantumAtamata>();
-            //For All Solder Castle List Count.
-            for (int i = 0; i < PenaltyRegardListCastle.Count; i++)
-            {
-                //Initiate a new Quantum Atamata Object
-                QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                //Clone a Copy Of Penalty Castles.
-                PenaltyRegardListCastle[i].Clone(ref Current);
-                //Add New Object Create to New Penalty Castles List.
-                AA.PenaltyRegardListCastle.Add(Current);
-            }
-            //Initaite and Create Minister Penalty List Object.
-            AA.PenaltyRegardListMinister = new List<QuantumAtamata>();
-            //For All Solder Minster List Count.
-            for (int i = 0; i < PenaltyRegardListMinister.Count; i++)
-            {
-                //Initiate a new Quantum Atamata Object
-                QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                //Clone a Copy Of Penalty Minsiter.
-                PenaltyRegardListMinister[i].Clone(ref Current);
-                //Add New Object Create to New Penalty Minsietr List.
-                AA.PenaltyRegardListMinister.Add(Current);
-            }
-            //Initaite and Create King Penalty List Object.
-            AA.PenaltyRegardListKing = new List<QuantumAtamata>();
-            //For All Solder King List Count.
-            for (int i = 0; i < PenaltyRegardListKing.Count; i++)
-            {
-                //Initiate a new Quantum Atamata Object
-                QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                //Clone a Copy Of Penalty King.
-                PenaltyRegardListKing[i].Clone(ref Current);
-                //Add New Object Create to New Penalty King List.
-                AA.PenaltyRegardListKing.Add(Current);
-            }
-            //Iniktiate Same Obejcts to New Same Obejcts.
-            AA.AStarGreedy = AStarGreedy;
-            AA.CastleValue = CastleValue;
-            AA.color = color;
-            AA.Column = Column;
-            AA.CurrentArray = CurrentArray;
-            AA.CurrentColumn = CurrentColumn;
-            AA.CurrentRow = CurrentRow;
-            AA.ElefantValue = ElefantValue;
-            //AA.EnemyNotSupported = EnemyNotSupported;
-            AA.ExistingOfEnemyHiiting = ExistingOfEnemyHiiting;
-            AA.HourseValue = HourseValue;
-            AA.IgnoreObjectDangour = IgnoreObjectDangour;
-            AA.IndexCastle = IndexCastle;
-            AA.IndexElefant = IndexElefant;
-            AA.IndexHourse = IndexHourse;
-            AA.IndexKing = IndexKing;
-            AA.IndexMinister = IndexMinister;
-            AA.IndexSoldier = IndexSoldier;
-            AA.IsCheck = IsCheck;
-            AA.Kind = Kind;
-            AA.KingValue = KingValue;
-            AA.CheckMateAStarGreedy = CheckMateAStarGreedy;
-            AA.CheckMateOcuured = CheckMateOcuured;
-            AA.Max = Max;
-            AA.MinisterValue = MinisterValue;
-            AA.Order = Order;
-            AA.Row = Row;
-            AA.SodierValue = SodierValue;
-            AA.ThingsNumber = ThingsNumber;
-            AA.ThinkingBegin = ThinkingBegin;
-            AA.ThinkingFinished = ThinkingFinished;
             //AA.THIS = THIS;
         }
         ///Huristic of Attacker.

@@ -1413,7 +1413,7 @@ namespace Refrigtz
             RefrigtzDLL.AllDraw.DrawTable = true;
             Thread ttt = new Thread(new ThreadStart(SetNodesCount));
             ttt.Start();
-            RefrigtzDLL.AllDraw.THISDummy = Draw;
+            ////Draw.Clone(RefrigtzDLL.AllDraw.THISDummy);
             //RefrigtzDLL.AllDraw.THISDummy.TableList.Add(Table);
             //RefrigtzDLL.AllDraw.THISDummy.SetRowColumn(0);
 
@@ -6749,6 +6749,9 @@ namespace Refrigtz
 
             do
             {
+                //if (RefrigtzDLL.AllDraw.THISDummy != null)
+                   // RefrigtzDLL.AllDraw.THISDummy.Clone(Draw);
+
                 if (MovmentsNumber == 0)
                 {
                     if (Stockfish)
@@ -10520,7 +10523,8 @@ namespace Refrigtz
                     );
                 rt.AllDrawCurrentAccess = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged
                     );
-                RefrigtzDLL.AllDraw.THISDummy.Clone(rt.AllDrawCurrentAccess);
+                //RefrigtzDLL.AllDraw.THISDummy.Clone(rt.AllDrawCurrentAccess);
+                Draw.Clone(rt.AllDrawCurrentAccess);
                 rt.RewriteAllDraw(rt, OrderPlate);
                 MessageBox.Show("Saved Completed.");
 
@@ -10534,7 +10538,8 @@ namespace Refrigtz
                     );
                 rt.AllDrawNodeAccess = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged
                     );
-                RefrigtzDLL.AllDraw.THISDummy.Clone(rt.AllDrawCurrentAccess);
+                //RefrigtzDLL.AllDraw.THISDummy.Clone(rt.AllDrawCurrentAccess);
+                Draw.Clone(rt.AllDrawCurrentAccess);
                 rt.RewriteAllDraw(rt, OrderPlate);
                 MessageBox.Show("Saved Completed.");
 
@@ -11382,7 +11387,7 @@ namespace Refrigtz
             {
                 for (int i = 0; i < 8; i++)
                     for (int j = 0; j < 8; j++)
-                        Table[i, j] *= -1;
+                        Table[i, j] *= -1;              
                 Draw.SetRowColumn(0);
                 RefrigtzDLL.AllDraw.TableListAction.Clear();
                 RefrigtzDLL.AllDraw.TableListAction.Add(Table);
