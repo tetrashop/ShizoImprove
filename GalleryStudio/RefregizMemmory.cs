@@ -78,7 +78,7 @@ namespace GalleryStudio
                 {
                     if (t.AllDrawCurrentAccess != null)
                     {
-                        t.AllDrawCurrentAccess = Current;
+                        Current.Clone(t.AllDrawCurrentAccess);
                         Formatters.Serialize(DummyFileStream, t);
                         //Kind = t.Kind;
                         if (Order == 1)

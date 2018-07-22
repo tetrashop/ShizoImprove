@@ -189,6 +189,7 @@ namespace RefrigtzDLL
         public int Order;
         [NonSerialized()] public Task t = null;
         public List<AllDraw> AStarGreedy = null;
+        
         int CurrentAStarGredyMax = -1;
         ///Log of Errors.
         static void Log(Exception ex)

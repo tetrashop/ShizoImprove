@@ -809,7 +809,13 @@ namespace Refrigtz
 
             } while (true);
         }
-        
+        RefrigtzDLL.AllDraw RoorFound()
+        {
+            do {
+                Draw = Draw.AStarGreedyString;
+            } while (Draw.AStarGreedyString != null);
+            return Draw;
+        }
         //Load Refregitz Form.
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -10523,7 +10529,9 @@ namespace Refrigtz
                     );
                 rt.AllDrawCurrentAccess = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged
                     );
+
                 //RefrigtzDLL.AllDraw.THISDummy.Clone(rt.AllDrawCurrentAccess);
+                Draw = RoorFound();
                 Draw.Clone(rt.AllDrawCurrentAccess);
                 rt.RewriteAllDraw(rt, OrderPlate);
                 MessageBox.Show("Saved Completed.");
@@ -10538,6 +10546,8 @@ namespace Refrigtz
                     );
                 rt.AllDrawNodeAccess = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged
                     );
+                //"Universal Root Founding";
+                Draw = RoorFound();
                 //RefrigtzDLL.AllDraw.THISDummy.Clone(rt.AllDrawCurrentAccess);
                 Draw.Clone(rt.AllDrawCurrentAccess);
                 rt.RewriteAllDraw(rt, OrderPlate);
