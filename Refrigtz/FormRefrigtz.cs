@@ -811,10 +811,18 @@ namespace Refrigtz
         }
         RefrigtzDLL.AllDraw RoorFound()
         {
-            while (Draw.AStarGreedyString != null)
+            try
             {
-                Draw = Draw.AStarGreedyString;
+                if (Draw != null)
+                {
+                    while (Draw.AStarGreedyString != null)
+                    {
+                        Draw = Draw.AStarGreedyString;
+                    }
+                }
+
             }
+            catch (Exception t) { Log(t); }
             return Draw;
         }
         //Load Refregitz Form.
@@ -10456,7 +10464,7 @@ namespace Refrigtz
         //Exit ToolStrip Event Handling.
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UpdateConfigurationTable();
+            try{UpdateConfigurationTable();
             RefrigtzDLL.ChessRules A = new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, -1, Table, OrderPlate, -1, -1);
             RefrigtzDLL.ChessRules AA = new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, -1, Table, OrderPlate, -1, -1);
             Color a = Color.Gray;
@@ -10532,12 +10540,20 @@ namespace Refrigtz
                     );
 
                 //RefrigtzDLL.AllDraw.THISDummy.Clone(rt.AllDrawCurrentAccess);
-                Draw = RoorFound();
-                Draw.Clone(rt.AllDrawCurrentAccess);
-                rt.RewriteAllDraw(rt, OrderPlate);
-                MessageBox.Show("Saved Completed.");
+               // Draw = RoorFound();
+                if (Draw != null)
+                {
+                    Draw = RoorFound();
+                    // if (DrawT != null)
+                    //    DrawT.Clone(Draw);
+                    //RefrigtzDLL.AllDraw.THISDummy.Clone(rt.AllDrawCurrentAccess);
+                    Draw.Clone(rt.AllDrawCurrentAccess);
+                    rt.RewriteAllDraw(rt, OrderPlate);
+                    MessageBox.Show("Saved Completed.");
+                }
 
-            } else
+            }
+            else
             if (File.Exists("AllDraw.asd"))
             {
                 File.Delete("AllDraw.asd");
@@ -10548,16 +10564,22 @@ namespace Refrigtz
                 rt.AllDrawNodeAccess = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged
                     );
                 //"Universal Root Founding";
-                Draw = RoorFound();
-                //RefrigtzDLL.AllDraw.THISDummy.Clone(rt.AllDrawCurrentAccess);
-                Draw.Clone(rt.AllDrawCurrentAccess);
-                rt.RewriteAllDraw(rt, OrderPlate);
-                MessageBox.Show("Saved Completed.");
+                if (Draw != null)
+                {
+                    Draw = RoorFound();
+                    // if (DrawT != null)
+                    //    DrawT.Clone(Draw);
+                    //RefrigtzDLL.AllDraw.THISDummy.Clone(rt.AllDrawCurrentAccess);
+                    Draw.Clone(rt.AllDrawCurrentAccess);
+                    rt.RewriteAllDraw(rt, OrderPlate);
+                    MessageBox.Show("Saved Completed.");
+                }
 
             }
 
             Application.Exit();
-
+            }
+            catch (Exception t) { Log(t); }
         }
 
         //AStarGreedy Huristic Checkbox Checked Event Handling.
