@@ -536,6 +536,8 @@ namespace RefrigtzDLL
 
                 if (AA == null)
                     AA = new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
+                if (AStarGreedyString != null)
+                    AStarGreedyString.Clone(AA.AStarGreedyString);
                 if (TableList.Count == 1)
                     SetObjectNumbers(TableList[0]);
                 MaxHuristicxT = Double.MinValue;

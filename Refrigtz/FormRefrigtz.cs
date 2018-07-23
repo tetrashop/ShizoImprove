@@ -811,9 +811,10 @@ namespace Refrigtz
         }
         RefrigtzDLL.AllDraw RoorFound()
         {
-            do {
+            while (Draw.AStarGreedyString != null)
+            {
                 Draw = Draw.AStarGreedyString;
-            } while (Draw.AStarGreedyString != null);
+            }
             return Draw;
         }
         //Load Refregitz Form.
