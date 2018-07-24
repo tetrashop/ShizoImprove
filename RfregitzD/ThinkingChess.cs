@@ -189,6 +189,7 @@ namespace RefrigtzDLL
         public int Order;
         [NonSerialized()] public Task t = null;
         public List<AllDraw> AStarGreedy = null;
+        int[,] Value = new int[8, 8];
         
         int CurrentAStarGredyMax = -1;
         ///Log of Errors.
@@ -253,8 +254,20 @@ namespace RefrigtzDLL
             PenaltyRegardListMinister = new List<QuantumAtamata>();
             PenaltyRegardListKing = new List<QuantumAtamata>();
             AStarGreedy = new List<AllDraw>();
+            Object o = new Object();
+            lock (o)
+            {
+                for (int h = 0; h < 8; h++)
+                    for (int m = 0; m < 8; m++)
+                    {
+                        if (Value[h, m] == 0)
+                            continue;
+                        Value[h, m] = ObjectValueCalculator(TableConst, Order, h, m);
 
+                    }
+            }
         }
+        
 
         bool BeginArragmentsOfOrderFinished(int[,] Table, int Order)
         {
@@ -408,6 +421,13 @@ namespace RefrigtzDLL
                 Table[i] = Tab[i];
             //Return New Object.
             return Table;
+        }
+        int GetValue(int i, int j)
+        { Object O = new Object();
+            lock (O) {
+
+                return Value[i,j];
+            }
         }
         ///Clone a Copy.
         public void Clone(ref ThinkingChess AA//, ref AllDraw. THIS
@@ -710,7 +730,7 @@ namespace RefrigtzDLL
                         {
 
                             //Find Huristic Value Of Current and Add to Sumation.
-                            HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Table, ii, jj, Order) + GetObjectValueHuristic(Table, i, j, Order))));
+                            HA += (Sign * (System.Math.Abs(GetValue(ii,jj) + GetValue(i,j))));
                             //When there is supporter of attacked Objects take huristic negative else take muliply sign and muliply huristic.
                             bool Supported = new bool();
                             Supported = false;
@@ -743,13 +763,13 @@ namespace RefrigtzDLL
                                         {
                                             A = Support(Table, g, h, ii, jj, aaa, Order * -1);
                                         }
-                                    //bool B = (GetObjectValueHuristic(Table, i, j, Order) > GetObjectValueHuristic(Table, ii, jj, Order));
+                                    //bool B = (GetValue(i,j) > GetValue(ii,jj));
                                     //When Enemy is Supported.
                                     if (A)
                                         {
                                         //Assgine variable.
                                         Supported = true;
-                                        //HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Table, g, h, Order) + GetObjectValueHuristic(Table, ii, jj, Order))));
+                                        //HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Table, g, h, Order) + GetValue(ii,jj))));
                                         return;
 
                                         }
@@ -832,7 +852,7 @@ namespace RefrigtzDLL
                         if (Attack(Table, i, j, ii, jj, a, Order))
                         {
 
-                            HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Table, ii, jj, Order) + GetObjectValueHuristic(Table, i, j, Order)
+                            HA += (Sign * (System.Math.Abs(GetValue(ii,jj) + GetValue(i,j)
                            )));
 
                             //When there is supporter of attacked Objects take huristic negative else take muliply sign and muliply huristic.
@@ -866,13 +886,13 @@ namespace RefrigtzDLL
                                         {
                                             A = Support(Table, g, h, ii, jj, aaa, Order * -1);
                                         }
-                                    //bool B = (GetObjectValueHuristic(Table, i, j, Order) > GetObjectValueHuristic(Table, ii, jj, Order));
+                                    //bool B = (GetValue(i,j) > GetValue(ii,jj));
                                     //When Enemy is Supported.
                                     if (A)
                                         {
                                         //Assgine variable.
                                         Supported = true;
-                                        //HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Table, g, h, Order) + GetObjectValueHuristic(Table, ii, jj, Order))));
+                                        //HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Table, g, h, Order) + GetValue(ii,jj))));
                                         return;
 
                                         }
@@ -981,7 +1001,7 @@ namespace RefrigtzDLL
                         if (Attack(Table, ii, jj, i, j, a, Order))
                         {
 
-                            HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Table, i, j, Order) + GetObjectValueHuristic(Table, ii, jj, Order))));
+                            HA += (Sign * (System.Math.Abs(GetValue(i,j) + GetValue(ii,jj))));
                             bool Reduced = new bool();
                             Reduced = false;
                             //For All Self Obejcts.                                             
@@ -1011,13 +1031,13 @@ namespace RefrigtzDLL
                                     {
                                         A = Support(Table, g, h, ii, jj, aaa, Order * 1);
                                     }
-                                    //bool B = (GetObjectValueHuristic(Table, i, j, Order) > GetObjectValueHuristic(Table, ii, jj, Order));
+                                    //bool B = (GetValue(i,j) > GetValue(ii,jj));
                                     //When Self is Supported.
                                     if (A)
                                     {
                                         //Assgine variable.
                                         Reduced = true;
-                                        //HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Table, g, h, Order) + GetObjectValueHuristic(Table, ii, jj, Order))));
+                                        //HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Table, g, h, Order) + GetValue(ii,jj))));
                                         return;
 
                                     }
@@ -1099,7 +1119,7 @@ namespace RefrigtzDLL
                         if (Attack(Table, ii, jj, i, j, a, Order))
                         {
 
-                            HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Table, i, j, Order) + GetObjectValueHuristic(Table, ii, jj, Order))));
+                            HA += (Sign * (System.Math.Abs(GetValue(i,j) + GetValue(ii,jj))));
                             bool Reduced = new bool();
                             Reduced = false;
                             //For All Self Obejcts.                                             
@@ -1129,13 +1149,13 @@ namespace RefrigtzDLL
                                     {
                                         A = Support(Table, g, h, ii, jj, aaa, Order * 1);
                                     }
-                                    //bool B = (GetObjectValueHuristic(Table, i, j, Order) > GetObjectValueHuristic(Table, ii, jj, Order));
+                                    //bool B = (GetValue(i,j) > GetValue(ii,jj));
                                     //When Self is Supported.
                                     if (A)
                                     {
                                         //Assgine variable.
                                         Reduced = true;
-                                        //HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Table, g, h, Order) + GetObjectValueHuristic(Table, ii, jj, Order))));
+                                        //HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Table, g, h, Order) + GetValue(ii,jj))));
                                         return;
 
                                     }
@@ -1352,7 +1372,7 @@ namespace RefrigtzDLL
                     if (Attack(Tab, i, j, ii, jj, a, Order) && EnemyNotSupported)
                     {
                         //Huristic positive.
-                        HA += AllDraw.SignKiller * (double)((GetObjectValueHuristic(Tab, i, j, Order) + GetObjectValueHuristic(Tab, ii, jj, Order)
+                        HA += AllDraw.SignKiller * (double)((GetValue(i,j) + GetValue(ii,jj)
                         ) * Sign);
                     }
                     a = colorAS;
@@ -1421,7 +1441,7 @@ namespace RefrigtzDLL
                         lock (O)
                         {
                             if (Support(Tab, iii, jjj, ii, jj, a, Order1 * -1)
-                                   && GetObjectValue(Tab, i, j, Order1) >= GetObjectValue(Tab, ii, jj, Order1 * -1)
+                                   && GetValue(i,j) >= GetValue(ii,jj)
                                     )
 
                             //Wehn [i,j] (Current) is less or equal than [ii,jj] (Enemy) 
@@ -1846,7 +1866,7 @@ namespace RefrigtzDLL
                         if (Attack(TableS, CurDangRow, CurDangCol, i, j, a, Order))
                         {
                             //a source object is greater than another source object.
-                            if (GetObjectValue(TableS, ObjRow, ObjCol, Order) < GetObjectValue(TableS, i, j, Order))
+                            if (GetValue(ObjRow,ObjCol) < GetValue(i,j))
                             {
                                 //Is another object valuable.
                                 Is = -1;
@@ -1854,7 +1874,7 @@ namespace RefrigtzDLL
                             }
                             else
                             //a source object is less than or equal  than another source object.
-                            if (GetObjectValue(TableS, ObjRow, ObjCol, Order) >= GetObjectValue(TableS, i, j, Order) && (ObjRow != i) && (ObjCol != j))
+                            if (GetValue(ObjRow,ObjCol) >= GetValue(i,j) && (ObjRow != i) && (ObjCol != j))
                             {
                                 //Is not another object valuable.
                                 Is = 1;
@@ -2654,7 +2674,7 @@ namespace RefrigtzDLL
                     if (Support(Tab, i, j, ii, jj, a, Order))
                     {
                         //Calculate Local Support Huristic.
-                        HA += (Sign * (System.Math.Abs((GetObjectValueHuristic(Tab, ii, jj, Order) + GetObjectValueHuristic(Tab, i, j, Order)
+                        HA += (Sign * (System.Math.Abs((GetValue(ii,jj) + GetValue(i,j)
                         ))));
                         bool Supported = new bool();
                         Supported = false;
@@ -2686,13 +2706,13 @@ namespace RefrigtzDLL
                                     //When Enemy is Supported.
                                     bool A = new bool();
                                     A = Support(Tab, g, h, ii, jj, aaa, Order);
-                                    //bool B = (GetObjectValueHuristic(Table, i, j, Order) > GetObjectValueHuristic(Table, ii, jj, Order));
+                                    //bool B = (GetValue(i,j) > GetValue(ii,jj));
                                     //When Enemy is Supported.
                                     if (A)
                                     {
                                         //Assgine variable.
                                         Supported = true;
-                                        //HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Tab, g, h, Order) + GetObjectValueHuristic(Tab, ii, jj, Order))));
+                                        //HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Tab, g, h, Order) + GetValue(ii,jj))));
                                         return;
 
                                     }
@@ -2782,7 +2802,7 @@ namespace RefrigtzDLL
                         if (Support(Tab, i, j, ii, jj, a, Order))
                         {
                             //Calculate Local Support Huristic.
-                            HA += (Sign * (System.Math.Abs((GetObjectValueHuristic(Tab, ii, jj, Order) + GetObjectValueHuristic(Tab, i, j, Order)
+                            HA += (Sign * (System.Math.Abs((GetValue(ii,jj) + GetValue(i,j)
                             ))));
 
                             bool Supported = new bool();
@@ -2820,13 +2840,13 @@ namespace RefrigtzDLL
                                     {
                                         A = Support(Tab, g, h, ii, jj, aaa, Order);
                                     }
-                                    //bool B = (GetObjectValueHuristic(Table, i, j, Order) > GetObjectValueHuristic(Table, ii, jj, Order));
+                                    //bool B = (GetValue(i,j) > GetValue(ii,jj));
                                     //When Enemy is Supported.
                                     if (A)
                                     {
                                         //Assgine variable.
                                         Supported = true;
-                                        //HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Tab, g, h, Order) + GetObjectValueHuristic(Tab, ii, jj, Order))));
+                                        //HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Tab, g, h, Order) + GetValue(ii,jj))));
                                         return;
 
                                     }
@@ -4904,7 +4924,7 @@ namespace RefrigtzDLL
                     //When is Movable Movement inCurrent.
                     if (Movable(Table, ii, jj, i, j, a, Order))
                     {
-                        HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Table, ii, jj, Order) + GetObjectValueHuristic(Table, i, j, Order))));
+                        HA += (Sign * (System.Math.Abs(GetValue(ii,jj) + GetValue(i,j))));
                         bool Supported = false;
                         //For All Enemy Obejcts.                                             
                         Parallel.For(0, 8, g =>
@@ -4935,13 +4955,13 @@ namespace RefrigtzDLL
                                     bool A = new bool();
                                     A = Support(Table, g, h, i, j, aaa, Order * -1);
 
-                                    //bool B = (GetObjectValueHuristic(Table, i, j, Order) > GetObjectValueHuristic(Table, ii, jj, Order));
+                                    //bool B = (GetValue(i,j) > GetValue(ii,jj));
                                     //When Enemy is Supported.
                                     if (A)
                                     {
                                         //Assgine variable.
                                         Supported = true;
-                                        //HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Table, g, h, Order) + GetObjectValueHuristic(Table, i, j, Order))));
+                                        //HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Table, g, h, Order) + GetValue(i,j))));
                                         return;
 
                                     }
@@ -5027,7 +5047,7 @@ namespace RefrigtzDLL
                     //When is Movable Movement inCurrent.
                     if (Movable(Table, ii, jj, i, j, a, Order))
                     {
-                        HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Table, ii, jj, Order) + GetObjectValueHuristic(Table, i, j, Order))));
+                        HA += (Sign * (System.Math.Abs(GetValue(ii,jj) + GetValue(i,j))));
                         bool Supported = false;
                         //For All Enemy Obejcts.                                             
                         Parallel.For(0, 8, g =>
@@ -5058,13 +5078,13 @@ namespace RefrigtzDLL
                                 {
                                     A = Support(Table, g, h, i, j, aaa, Order * -1);
                                 }
-                                //bool B = (GetObjectValueHuristic(Table, i, j, Order) > GetObjectValueHuristic(Table, ii, jj, Order));
+                                //bool B = (GetValue(i,j) > GetValue(ii,jj));
                                 //When Enemy is Supported.
                                 if (A)
                                 {
                                     //Assgine variable.
                                     Supported = true;
-                                    //HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Table, g, h, Order) + GetObjectValueHuristic(Table, i, j, Order))));
+                                    //HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Table, g, h, Order) + GetValue(i,j))));
                                     return;
 
                                 }

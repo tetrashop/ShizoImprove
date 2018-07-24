@@ -10544,11 +10544,12 @@ namespace Refrigtz
                 if (Draw != null)
                 {
                     Draw = RoorFound();
-                    // if (DrawT != null)
-                    //    DrawT.Clone(Draw);
-                    //RefrigtzDLL.AllDraw.THISDummy.Clone(rt.AllDrawCurrentAccess);
-                    Draw.Clone(rt.AllDrawCurrentAccess);
-                    rt.RewriteAllDraw(rt, OrderPlate);
+                        // if (DrawT != null)
+                        //    DrawT.Clone(Draw);
+                        //RefrigtzDLL.AllDraw.THISDummy.Clone(rt.AllDrawCurrentAccess);
+                        //Draw.Clone(rt.AllDrawCurrentAccess);
+                        rt.AllDrawCurrentAccess = Draw;
+                        rt.RewriteAllDraw(rt, OrderPlate);
                     MessageBox.Show("Saved Completed.");
                 }
 
@@ -10563,17 +10564,19 @@ namespace Refrigtz
                     );
                 rt.AllDrawNodeAccess = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged
                     );
-                //"Universal Root Founding";
-                if (Draw != null)
-                {
-                    Draw = RoorFound();
-                    // if (DrawT != null)
-                    //    DrawT.Clone(Draw);
-                    //RefrigtzDLL.AllDraw.THISDummy.Clone(rt.AllDrawCurrentAccess);
-                    Draw.Clone(rt.AllDrawCurrentAccess);
-                    rt.RewriteAllDraw(rt, OrderPlate);
-                    MessageBox.Show("Saved Completed.");
-                }
+                    //"Universal Root Founding";
+                    if (Draw != null)
+                    {
+                        Draw = RoorFound();
+                        // if (DrawT != null)
+                        //    DrawT.Clone(Draw);
+                        //RefrigtzDLL.AllDraw.THISDummy.Clone(rt.AllDrawCurrentAccess);
+                        //Draw.Clone(rt.AllDrawCurrentAccess);
+                        rt.AllDrawCurrentAccess = Draw;
+                        rt.RewriteAllDraw(rt, OrderPlate);
+                        MessageBox.Show("Saved Completed.");
+                    }
+                    
 
             }
 
