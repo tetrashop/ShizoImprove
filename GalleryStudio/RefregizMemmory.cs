@@ -97,7 +97,8 @@ namespace GalleryStudio
                                             {
                                                 t.iii = i;
                                                 t.jjj = j;
-                                                RewriteAllDrawRec(Formatters, DummyFileStream, t.ReterunAstrarGreedysolder(i, j, t), Current.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j], Order * -1);
+                                                RefregizMemmory tCurrent = t.ReterunAstrarGreedysolder(i, j, t);
+                                                tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream, tCurrent, Current.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j], Order * -1);
                                             }
                                         }
                                     }
@@ -118,7 +119,8 @@ namespace GalleryStudio
                                             {
                                                 t.iii = i;
                                                 t.jjj = j;
-                                                RewriteAllDrawRec(Formatters, DummyFileStream, t.ReterunAstrarGreedyelephant(i, j, t), Current.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j], Order * -1);
+                                                RefregizMemmory tCurrent = t.ReterunAstrarGreedyelephant(i, j, t);
+                                                tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream, tCurrent, Current.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j], Order * -1);
                                             }
                                         }
                                     }
@@ -140,7 +142,8 @@ namespace GalleryStudio
                                             {
                                                 t.iii = i;
                                                 t.jjj = j;
-                                                RewriteAllDrawRec(Formatters, DummyFileStream, t.ReterunAstrarGreedyHours(i, j, t), Current.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j], Order * -1);
+                                                RefregizMemmory tCurrent = t.ReterunAstrarGreedyHours(i, j, t);
+                                                tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream, tCurrent, Current.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j], Order * -1);
                                             }
                                         }
                                     }
@@ -162,7 +165,8 @@ namespace GalleryStudio
                                             {
                                                 t.iii = i;
                                                 t.jjj = j;
-                                                RewriteAllDrawRec(Formatters, DummyFileStream, t.ReterunAstrarGreedyCastle(i, j, t), Current.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j], Order * -1);
+                                                RefregizMemmory tCurrent = t.ReterunAstrarGreedyCastle(i, j, t);
+                                                tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream, tCurrent, Current.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j], Order * -1);
                                             }
                                         }
                                     }
@@ -184,7 +188,8 @@ namespace GalleryStudio
                                             {
                                                 t.iii = i;
                                                 t.jjj = j;
-                                                RewriteAllDrawRec(Formatters, DummyFileStream, t.ReterunAstrarGreedyMinister(i, j, t), Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j], Order * -1);
+                                                RefregizMemmory tCurrent = t.ReterunAstrarGreedyMinister(i, j, t);
+                                                tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream, tCurrent, Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j], Order * -1);
                                             }
                                         }
 
@@ -207,7 +212,8 @@ namespace GalleryStudio
                                             {
                                                 t.iii = i;
                                                 t.jjj = j;
-                                                RewriteAllDrawRec(Formatters, DummyFileStream, t.ReterunAstrarGreedyKing(i, j, t), Current.KingOnTable[i].KingThinking[0].AStarGreedy[j], Order * -1);
+                                                RefregizMemmory tCurrent = t.ReterunAstrarGreedyKing(i, j, t);
+                                                tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream, tCurrent, Current.KingOnTable[i].KingThinking[0].AStarGreedy[j], Order * -1);
                                             }
                                         }
                                     }
@@ -231,7 +237,8 @@ namespace GalleryStudio
                                             {
                                                 t.iii = i;
                                                 t.jjj = j;
-                                                RewriteAllDrawRec(Formatters, DummyFileStream, t.ReterunAstrarGreedysolder(i, j, t), Current.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j], Order * -1);
+                                                RefregizMemmory tCurrent = t.ReterunAstrarGreedysolder(i, j, t);
+                                                tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream, tCurrent, Current.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j], Order * -1);
                                             }
                                         }
                                     }
@@ -253,7 +260,8 @@ namespace GalleryStudio
                                             {
                                                 t.iii = i;
                                                 t.jjj = j;
-                                                RewriteAllDrawRec(Formatters, DummyFileStream, t.ReterunAstrarGreedyelephant(i, j, t), Current.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j], Order * -1);
+                                                RefregizMemmory tCurrent = t.ReterunAstrarGreedyelephant(i, j, t);
+                                                tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream, tCurrent, Current.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j], Order * -1);
                                             }
                                         }
                                     }
@@ -276,7 +284,8 @@ namespace GalleryStudio
                                             {
                                                 t.iii = i;
                                                 t.jjj = j;
-                                                RewriteAllDrawRec(Formatters, DummyFileStream, t.ReterunAstrarGreedyHours(i, j, t), Current.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j], Order * -1);
+                                                RefregizMemmory tCurrent = t.ReterunAstrarGreedyHours(i, j, t);
+                                                tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream, tCurrent, Current.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j], Order * -1);
                                             }
                                         }
                                     }
@@ -299,7 +308,8 @@ namespace GalleryStudio
                                             {
                                                 t.iii = i;
                                                 t.jjj = j;
-                                                RewriteAllDrawRec(Formatters, DummyFileStream, t.ReterunAstrarGreedyCastle(i, j, t), Current.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j], Order * -1);
+                                                RefregizMemmory tCurrent = t.ReterunAstrarGreedyCastle(i, j, t);
+                                                tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream, tCurrent, Current.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j], Order * -1);
                                             }
                                         }
                                     }
@@ -321,7 +331,8 @@ namespace GalleryStudio
                                             {
                                                 t.iii = i;
                                                 t.jjj = j;
-                                                RewriteAllDrawRec(Formatters, DummyFileStream, t.ReterunAstrarGreedyMinister(i, j, t), Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j], Order * -1);
+                                                RefregizMemmory tCurrent = t.ReterunAstrarGreedyMinister(i, j, t);
+                                                tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream, tCurrent, Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j], Order * -1);
                                             }
                                         }
 
@@ -344,7 +355,8 @@ namespace GalleryStudio
                                             {
                                                 t.iii = i;
                                                 t.jjj = j;
-                                                RewriteAllDrawRec(Formatters, DummyFileStream, t.ReterunAstrarGreedyKing(i, j, t), Current.KingOnTable[i].KingThinking[0].AStarGreedy[j], Order * -1);
+                                                RefregizMemmory tCurrent = t.ReterunAstrarGreedyMinister(i, j, t);
+                                                tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream, tCurrent, Current.KingOnTable[i].KingThinking[0].AStarGreedy[j], Order * -1);
                                             }
                                         }
                                     }

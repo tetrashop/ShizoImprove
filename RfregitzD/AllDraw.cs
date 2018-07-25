@@ -12394,266 +12394,223 @@ namespace RefrigtzDLL
                 {
                     Parallel.Invoke(() =>
                     {
-                        if (SodierMidle < i)
-                            return;
-                        Object O = new Object();
-                        lock (O)
+                        if (SodierMidle > i)
                         {
-                            try
+                            Object O = new Object();
+                            lock (O)
                             {
-                                Order = DummyOrder;
-                                ChessRules.CurrentOrder = DummyCurrentOrder;
-                                //If Solders Not Exist Continue and Traversal Back.
-                                if (SolderesOnTable[i] == null)
-                                    return;
-                                //Initiate of Local Variables By Global Objective Gray Current Solder.
-                                ii = (int)SolderesOnTable[i].Row;
-                                jj = (int)SolderesOnTable[i].Column;
-                                //Construction of Thinking Gray Soldier By Local Variables.
-                                if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count == 0)
-                                    SolderesOnTable[i] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
-                                //If There is no Thinking Movments on Current Object 
-
-                                if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count == 0)
+                                try
                                 {
-                                    //For All Movable Gray Solders.
-                                    Parallel.For(0, AllDraw.SodierMovments, j =>
+                                    Order = DummyOrder;
+                                    ChessRules.CurrentOrder = DummyCurrentOrder;
+                                    //If Solders Not Exist Continue and Traversal Back.
+                                    if (SolderesOnTable[i] == null)
+                                        return;
+                                    //Initiate of Local Variables By Global Objective Gray Current Solder.
+                                    ii = (int)SolderesOnTable[i].Row;
+                                    jj = (int)SolderesOnTable[i].Column;
+                                    //Construction of Thinking Gray Soldier By Local Variables.
+                                    if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count == 0)
+                                        SolderesOnTable[i] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                                    //If There is no Thinking Movments on Current Object 
+
+                                    if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count == 0)
                                     {
+                                        //For All Movable Gray Solders.
+                                        Parallel.For(0, AllDraw.SodierMovments, j =>
+                                        {
                                         //Thinking of Gray Solder Operation.
                                         Object OOO = new Object();
-                                        lock (OOO)
-                                        {
-                                            SolderesOnTable[i].SoldierThinking[0].ThinkingBegin = true;
-                                            SolderesOnTable[i].SoldierThinking[0].ThinkingFinished = false;
+                                            lock (OOO)
+                                            {
+                                                SolderesOnTable[i].SoldierThinking[0].ThinkingBegin = true;
+                                                SolderesOnTable[i].SoldierThinking[0].ThinkingFinished = false;
                                             //SolderesOnTable[i].SoldierThinking[0].t = new Task(new Action(SolderesOnTable[i].SoldierThinking[0].Thinking));
                                             SolderesOnTable[i].SoldierThinking[0].Thinking();
-                                        }
-                                    });
+                                            }
+                                        });
+                                    }
                                 }
-                            }
-                            catch (Exception t)
-                            {
-                                // SolderesOnTable[i] = null;
-                                Log(t);
+                                catch (Exception t)
+                                {
+                                    // SolderesOnTable[i] = null;
+                                    Log(t);
+                                }
                             }
                         }
                     },
 () =>
 {
-    if (ElefantMidle < i)
-        return;
-
-    Object O = new Object();
-    lock (O)
+    if (ElefantMidle > i)
     {
-        try
+
+        Object O = new Object();
+        lock (O)
         {
-            Order = DummyOrder;
-            ChessRules.CurrentOrder = DummyCurrentOrder;
-            //Ignore of Non Exist Current Elephant Gray Objects.
-            if (ElephantOnTable[i] == null)
-                return;
-            //Inititae Local Varibale By Global Gray Elephant Objects Varibales.
-            ii = (int)ElephantOnTable[i].Row;
-            jj = (int)ElephantOnTable[i].Column;
-            //Construction of Thinking Objects By Local Varibales.
-            if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count == 0)
-                ElephantOnTable[i] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
-            //If There is Not Thinking Objetive List Elephant Gray. 
-            if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count == 0)
+            try
             {
-                //For All Possible Movments.
-                Parallel.For(0, AllDraw.ElefantMovments, j =>
+                Order = DummyOrder;
+                ChessRules.CurrentOrder = DummyCurrentOrder;
+                //Ignore of Non Exist Current Elephant Gray Objects.
+                if (ElephantOnTable[i] == null)
+                    return;
+                //Inititae Local Varibale By Global Gray Elephant Objects Varibales.
+                ii = (int)ElephantOnTable[i].Row;
+                jj = (int)ElephantOnTable[i].Column;
+                //Construction of Thinking Objects By Local Varibales.
+                if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count == 0)
+                    ElephantOnTable[i] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                //If There is Not Thinking Objetive List Elephant Gray. 
+                if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count == 0)
                 {
+                    //For All Possible Movments.
+                    Parallel.For(0, AllDraw.ElefantMovments, j =>
+                    {
                     //Operational Thinking Gray Elephant. 
                     Object OOO = new Object();
-                    lock (OOO)
-                    {
-                        ElephantOnTable[i].ElefantThinking[0].ThinkingBegin = true;
-                        ElephantOnTable[i].ElefantThinking[0].ThinkingFinished = false;
-                        ElephantOnTable[i].ElefantThinking[0].Thinking();
-                    }
-                });
+                        lock (OOO)
+                        {
+                            ElephantOnTable[i].ElefantThinking[0].ThinkingBegin = true;
+                            ElephantOnTable[i].ElefantThinking[0].ThinkingFinished = false;
+                            ElephantOnTable[i].ElefantThinking[0].Thinking();
+                        }
+                    });
+                }
+            }
+            catch (Exception t)
+            {
+                Log(t);
             }
         }
-        catch (Exception t)
-        {
-            Log(t);
-        }
     }
-
 },
 () =>
 {
-    if (HourseMidle < i)
-        return;
-
-    Object O = new Object();
-    lock (O)
+    if (HourseMidle > i)
     {
-        try
+
+        Object O = new Object();
+        lock (O)
         {
-            Order = DummyOrder;
-            ChessRules.CurrentOrder = DummyCurrentOrder;
-            //Ignore of Non Exist Current Gray Hourse Objects.
-            if (HoursesOnTable[i] == null)
-                return;
-            //Initiate of Local Variables By Global Gray Hourse Objectives.
-            ii = (int)HoursesOnTable[i].Row;
-            jj = (int)HoursesOnTable[i].Column;
-            //Construction of Gray Hourse Thinking Objects..
-            if (HoursesOnTable[i].HourseThinking[0].TableListHourse.Count == 0)
-                HoursesOnTable[i] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
-            //When There is Not HourseList Count. 
-            if (HoursesOnTable[i].HourseThinking[0].TableListHourse.Count == 0)
+            try
             {
-                //For All Possible Movments.
-                Parallel.For(0, AllDraw.HourseMovments, j =>
+                Order = DummyOrder;
+                ChessRules.CurrentOrder = DummyCurrentOrder;
+                //Ignore of Non Exist Current Gray Hourse Objects.
+                if (HoursesOnTable[i] == null)
+                    return;
+                //Initiate of Local Variables By Global Gray Hourse Objectives.
+                ii = (int)HoursesOnTable[i].Row;
+                jj = (int)HoursesOnTable[i].Column;
+                //Construction of Gray Hourse Thinking Objects..
+                if (HoursesOnTable[i].HourseThinking[0].TableListHourse.Count == 0)
+                    HoursesOnTable[i] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                //When There is Not HourseList Count. 
+                if (HoursesOnTable[i].HourseThinking[0].TableListHourse.Count == 0)
                 {
+                    //For All Possible Movments.
+                    Parallel.For(0, AllDraw.HourseMovments, j =>
+                    {
                     //Thinking of Gray Hourse Oprational.
                     Object OOO = new Object();
-                    lock (OOO)
-                    {
-                        HoursesOnTable[i].HourseThinking[0].ThinkingBegin = true;
-                        HoursesOnTable[i].HourseThinking[0].ThinkingFinished = false;
-                        HoursesOnTable[i].HourseThinking[0].Thinking();
-                    }
-                });
-            }
+                        lock (OOO)
+                        {
+                            HoursesOnTable[i].HourseThinking[0].ThinkingBegin = true;
+                            HoursesOnTable[i].HourseThinking[0].ThinkingFinished = false;
+                            HoursesOnTable[i].HourseThinking[0].Thinking();
+                        }
+                    });
+                }
 
-        }
-        catch (Exception t)
-        {
-            Log(t);
-        }
-    }
-},
-() =>
-{
-    if (CastleMidle < i)
-        return;
-    Object O = new Object();
-    lock (O)
-    {
-        try
-        {
-            Order = DummyOrder;
-            ChessRules.CurrentOrder = DummyCurrentOrder;
-            //When Current Castles Gray Not Exist Continue Traversal Back.
-            if (CastlesOnTable[i] == null)
-                return;
-            //Initaiate of Local Varibales By Global Varoiables.
-            ii = (int)CastlesOnTable[i].Row;
-            jj = (int)CastlesOnTable[i].Column;
-            //Construction of Thinking Variables By Local Variables.
-            if (CastlesOnTable[i].CastleThinking[0].TableListCastle.Count == 0)
-                CastlesOnTable[i] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
-            //When Count of Table Castles of Thinking Not Exist Do Operational.
-            if (CastlesOnTable[i].CastleThinking[0].TableListCastle.Count == 0)
+            }
+            catch (Exception t)
             {
-                //For All Possible Movments.
-                Parallel.For(0, AllDraw.CastleMovments, j =>
-                {
-                    Object OOO = new Object();
-                    lock (OOO)
-                    {
-                        //Thinking of Gray Castles Operational.
-                        CastlesOnTable[i].CastleThinking[0].ThinkingBegin = true;
-                        CastlesOnTable[i].CastleThinking[0].ThinkingFinished = false;
-                        CastlesOnTable[i].CastleThinking[0].Thinking();
-                    }
-                });
+                Log(t);
             }
         }
-        catch (Exception t)
-        {
-            Log(t);
-        }
     }
-
 },
 () =>
 {
-    if (MinisterMidle < i)
-        return;
-
-    try
+    if (CastleMidle > i)
     {
         Object O = new Object();
         lock (O)
         {
-            Order = DummyOrder;
-            ChessRules.CurrentOrder = DummyCurrentOrder;
-            //For Each Non Exist Gray Minister Objectives.
-            if (MinisterOnTable[i] == null)
-                return;
-            //Inititate Local Variables By Global Varibales.
-            ii = (int)MinisterOnTable[i].Row;
-            jj = (int)MinisterOnTable[i].Column;
-            //Construction of Thinking Objects Gray Minister.
-            if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count == 0)
-                MinisterOnTable[i] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
-            //If There is Not Minister Of Gray In The Thinking Table List.   
-            if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count == 0)
+            try
             {
-                //For All Possible Movments.
-                Parallel.For(0, AllDraw.MinisterMovments, j =>
+                Order = DummyOrder;
+                ChessRules.CurrentOrder = DummyCurrentOrder;
+                //When Current Castles Gray Not Exist Continue Traversal Back.
+                if (CastlesOnTable[i] == null)
+                    return;
+                //Initaiate of Local Varibales By Global Varoiables.
+                ii = (int)CastlesOnTable[i].Row;
+                jj = (int)CastlesOnTable[i].Column;
+                //Construction of Thinking Variables By Local Variables.
+                if (CastlesOnTable[i].CastleThinking[0].TableListCastle.Count == 0)
+                    CastlesOnTable[i] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                //When Count of Table Castles of Thinking Not Exist Do Operational.
+                if (CastlesOnTable[i].CastleThinking[0].TableListCastle.Count == 0)
                 {
-                    //Thinking of Gray Minister Operational.
-                    Object OOO = new Object();
-                    lock (OOO)
+                    //For All Possible Movments.
+                    Parallel.For(0, AllDraw.CastleMovments, j =>
                     {
-                        MinisterOnTable[i].MinisterThinking[0].ThinkingBegin = true;
-                        MinisterOnTable[i].MinisterThinking[0].ThinkingFinished = false;
-                        MinisterOnTable[i].MinisterThinking[0].Thinking();
-                    }
-                });
+                        Object OOO = new Object();
+                        lock (OOO)
+                        {
+                        //Thinking of Gray Castles Operational.
+                        CastlesOnTable[i].CastleThinking[0].ThinkingBegin = true;
+                            CastlesOnTable[i].CastleThinking[0].ThinkingFinished = false;
+                            CastlesOnTable[i].CastleThinking[0].Thinking();
+                        }
+                    });
+                }
+            }
+            catch (Exception t)
+            {
+                Log(t);
             }
         }
     }
-    catch (Exception t)
-    {
-        Log(t);
-    }
-
 },
 () =>
 {
-    if (KingMidle < i)
-        return;
-
-
-    Object O = new Object();
-    lock (O)
+    if (MinisterMidle > i)
     {
+
         try
         {
-            Order = DummyOrder;
-            ChessRules.CurrentOrder = DummyCurrentOrder;
-            //If There is Not Current Object Continue Traversal Back.
-            if (KingOnTable[i] == null)
-                return;
-            //Initiate Local varibale By Global Objective Varibales.
-            ii = (int)(int)KingOnTable[i].Row;
-            jj = (int)KingOnTable[i].Column;
-            //Construction of Gray King Thinking Objects.
-            if (KingOnTable[i].KingThinking[0].TableListKing.Count == 0)
-                KingOnTable[i] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
-            //When There is Not Thinking Table Gray King Movments.
-            if (KingOnTable[i].KingThinking[0].TableListKing.Count == 0)
+            Object O = new Object();
+            lock (O)
             {
-                //For All Possible Gray King Movments.
-                Parallel.For(0, AllDraw.KingMovments, j =>
+                Order = DummyOrder;
+                ChessRules.CurrentOrder = DummyCurrentOrder;
+                //For Each Non Exist Gray Minister Objectives.
+                if (MinisterOnTable[i] == null)
+                    return;
+                //Inititate Local Variables By Global Varibales.
+                ii = (int)MinisterOnTable[i].Row;
+                jj = (int)MinisterOnTable[i].Column;
+                //Construction of Thinking Objects Gray Minister.
+                if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count == 0)
+                    MinisterOnTable[i] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                //If There is Not Minister Of Gray In The Thinking Table List.   
+                if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count == 0)
                 {
-                    //Thinking Of Gray King Operatins.
-                    Object OOO = new Object();
-                    lock (OOO)
+                    //For All Possible Movments.
+                    Parallel.For(0, AllDraw.MinisterMovments, j =>
                     {
-                        KingOnTable[i].KingThinking[0].ThinkingBegin = true;
-                        KingOnTable[i].KingThinking[0].ThinkingFinished = false;
-                        KingOnTable[i].KingThinking[0].Thinking();
-                    }
-                });
+                    //Thinking of Gray Minister Operational.
+                    Object OOO = new Object();
+                        lock (OOO)
+                        {
+                            MinisterOnTable[i].MinisterThinking[0].ThinkingBegin = true;
+                            MinisterOnTable[i].MinisterThinking[0].ThinkingFinished = false;
+                            MinisterOnTable[i].MinisterThinking[0].Thinking();
+                        }
+                    });
+                }
             }
         }
         catch (Exception t)
@@ -12661,7 +12618,52 @@ namespace RefrigtzDLL
             Log(t);
         }
     }
+},
+() =>
+{
+    if (KingMidle > i)
+    {
 
+
+        Object O = new Object();
+        lock (O)
+        {
+            try
+            {
+                Order = DummyOrder;
+                ChessRules.CurrentOrder = DummyCurrentOrder;
+                //If There is Not Current Object Continue Traversal Back.
+                if (KingOnTable[i] == null)
+                    return;
+                //Initiate Local varibale By Global Objective Varibales.
+                ii = (int)(int)KingOnTable[i].Row;
+                jj = (int)KingOnTable[i].Column;
+                //Construction of Gray King Thinking Objects.
+                if (KingOnTable[i].KingThinking[0].TableListKing.Count == 0)
+                    KingOnTable[i] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                //When There is Not Thinking Table Gray King Movments.
+                if (KingOnTable[i].KingThinking[0].TableListKing.Count == 0)
+                {
+                    //For All Possible Gray King Movments.
+                    Parallel.For(0, AllDraw.KingMovments, j =>
+                    {
+                    //Thinking Of Gray King Operatins.
+                    Object OOO = new Object();
+                        lock (OOO)
+                        {
+                            KingOnTable[i].KingThinking[0].ThinkingBegin = true;
+                            KingOnTable[i].KingThinking[0].ThinkingFinished = false;
+                            KingOnTable[i].KingThinking[0].Thinking();
+                        }
+                    });
+                }
+            }
+            catch (Exception t)
+            {
+                Log(t);
+            }
+        }
+    }
 });
                 });
             }
@@ -12677,232 +12679,223 @@ namespace RefrigtzDLL
                 {
                     Parallel.Invoke(() =>
                     {
-                        if (SodierMidle > i)
-                            return;
-                        if (SodierHigh >= i)
-                            return;
-                        Object O = new Object();
-                        lock (O)
+                        if (SodierMidle >= i && SodierHigh > i)
                         {
-                            try
+                            Object O = new Object();
+                            lock (O)
                             {
-                                Order = DummyOrder;
-                                ChessRules.CurrentOrder = DummyCurrentOrder;
-                                //If Solders Not Exist Continue and Traversal Back.
-                                if (SolderesOnTable[i] == null)
-                                    return;
-                                //Initiate of Local Variables By Global Objective Gray Current Solder.
-                                ii = (int)SolderesOnTable[i].Row;
-                                jj = (int)SolderesOnTable[i].Column;
-                                //Construction of Thinking Gray Soldier By Local Variables.
-                                if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count == 0)
-                                    SolderesOnTable[i] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
-                                //If There is no Thinking Movments on Current Object 
-
-                                if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count == 0)
+                                try
                                 {
-                                    //For All Movable Gray Solders.
-                                    Parallel.For(0, AllDraw.SodierMovments, j =>
+                                    Order = DummyOrder;
+                                    ChessRules.CurrentOrder = DummyCurrentOrder;
+                                    //If Solders Not Exist Continue and Traversal Back.
+                                    if (SolderesOnTable[i] == null)
+                                        return;
+                                    //Initiate of Local Variables By Global Objective Gray Current Solder.
+                                    ii = (int)SolderesOnTable[i].Row;
+                                    jj = (int)SolderesOnTable[i].Column;
+                                    //Construction of Thinking Gray Soldier By Local Variables.
+                                    if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count == 0)
+                                        SolderesOnTable[i] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                                    //If There is no Thinking Movments on Current Object 
+
+                                    if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count == 0)
                                     {
+                                        //For All Movable Gray Solders.
+                                        Parallel.For(0, AllDraw.SodierMovments, j =>
+                                        {
                                         //Thinking of Gray Solder Operation.
                                         Object OOO = new Object();
-                                        lock (OOO)
-                                        {
-                                            SolderesOnTable[i].SoldierThinking[0].ThinkingBegin = true;
-                                            SolderesOnTable[i].SoldierThinking[0].ThinkingFinished = false;
+                                            lock (OOO)
+                                            {
+                                                SolderesOnTable[i].SoldierThinking[0].ThinkingBegin = true;
+                                                SolderesOnTable[i].SoldierThinking[0].ThinkingFinished = false;
                                             //SolderesOnTable[i].SoldierThinking[0].t = new Task(new Action(SolderesOnTable[i].SoldierThinking[0].Thinking));
                                             SolderesOnTable[i].SoldierThinking[0].Thinking();
-                                        }
-                                    });
+                                            }
+                                        });
+                                    }
                                 }
-                            }
-                            catch (Exception t)
-                            {
-                                // SolderesOnTable[i] = null;
-                                Log(t);
+                                catch (Exception t)
+                                {
+                                    // SolderesOnTable[i] = null;
+                                    Log(t);
+                                }
                             }
                         }
                     },
 () =>
 {
-    if (ElefantMidle > i)
-        return;
-    if (ElefantHigh >= i)
-        return;
-
-    Object O = new Object();
-    lock (O)
+    if (ElefantMidle >= i && ElefantHigh < i)
     {
-        try
-        {
-            Order = DummyOrder;
-            ChessRules.CurrentOrder = DummyCurrentOrder;
-            //Ignore of Non Exist Current Elephant Gray Objects.
-            if (ElephantOnTable[i] == null)
-                return;
-            //Inititae Local Varibale By Global Gray Elephant Objects Varibales.
-            ii = (int)ElephantOnTable[i].Row;
-            jj = (int)ElephantOnTable[i].Column;
-            //Construction of Thinking Objects By Local Varibales.
-            if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count == 0)
-                ElephantOnTable[i] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
-            //If There is Not Thinking Objetive List Elephant Gray. 
-            if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count == 0)
-            {
-                //For All Possible Movments.
-                Parallel.For(0, AllDraw.ElefantMovments, j =>
-                {
-                    //Operational Thinking Gray Elephant. 
-                    Object OOO = new Object();
-                    lock (OOO)
-                    {
-                        ElephantOnTable[i].ElefantThinking[0].ThinkingBegin = true;
-                        ElephantOnTable[i].ElefantThinking[0].ThinkingFinished = false;
-                        ElephantOnTable[i].ElefantThinking[0].Thinking();
-                    }
-                });
-            }
-        }
-        catch (Exception t)
-        {
-            Log(t);
-        }
-    }
 
-},
-() =>
-{
-    if (HourseMidle > i)
-        return;
-    if (HourseHight >= i)
-        return;
-
-    Object O = new Object();
-    lock (O)
-    {
-        try
-        {
-            Order = DummyOrder;
-            ChessRules.CurrentOrder = DummyCurrentOrder;
-            //Ignore of Non Exist Current Gray Hourse Objects.
-            if (HoursesOnTable[i] == null)
-                return;
-            //Initiate of Local Variables By Global Gray Hourse Objectives.
-            ii = (int)HoursesOnTable[i].Row;
-            jj = (int)HoursesOnTable[i].Column;
-            //Construction of Gray Hourse Thinking Objects..
-            if (HoursesOnTable[i].HourseThinking[0].TableListHourse.Count == 0)
-                HoursesOnTable[i] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
-            //When There is Not HourseList Count. 
-            if (HoursesOnTable[i].HourseThinking[0].TableListHourse.Count == 0)
-            {
-                //For All Possible Movments.
-                Parallel.For(0, AllDraw.HourseMovments, j =>
-                {
-                    //Thinking of Gray Hourse Oprational.
-                    Object OOO = new Object();
-                    lock (OOO)
-                    {
-                        HoursesOnTable[i].HourseThinking[0].ThinkingBegin = true;
-                        HoursesOnTable[i].HourseThinking[0].ThinkingFinished = false;
-                        HoursesOnTable[i].HourseThinking[0].Thinking();
-                    }
-                });
-            }
-
-        }
-        catch (Exception t)
-        {
-            Log(t);
-        }
-    }
-},
-() =>
-{
-    if (CastleMidle > i)
-        return;
-    if (CastleHigh >= i)
-        return;
-    Object O = new Object();
-    lock (O)
-    {
-        try
-        {
-            Order = DummyOrder;
-            ChessRules.CurrentOrder = DummyCurrentOrder;
-            //When Current Castles Gray Not Exist Continue Traversal Back.
-            if (CastlesOnTable[i] == null)
-                return;
-            //Initaiate of Local Varibales By Global Varoiables.
-            ii = (int)CastlesOnTable[i].Row;
-            jj = (int)CastlesOnTable[i].Column;
-            //Construction of Thinking Variables By Local Variables.
-            if (CastlesOnTable[i].CastleThinking[0].TableListCastle.Count == 0)
-                CastlesOnTable[i] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
-            //When Count of Table Castles of Thinking Not Exist Do Operational.
-            if (CastlesOnTable[i].CastleThinking[0].TableListCastle.Count == 0)
-            {
-                //For All Possible Movments.
-                Parallel.For(0, AllDraw.CastleMovments, j =>
-                {
-                    Object OOO = new Object();
-                    lock (OOO)
-                    {
-                        //Thinking of Gray Castles Operational.
-                        CastlesOnTable[i].CastleThinking[0].ThinkingBegin = true;
-                        CastlesOnTable[i].CastleThinking[0].ThinkingFinished = false;
-                        CastlesOnTable[i].CastleThinking[0].Thinking();
-                    }
-                });
-            }
-        }
-        catch (Exception t)
-        {
-            Log(t);
-        }
-    }
-
-},
-() =>
-{
-    if (MinisterMidle < i)
-        return;
-
-    try
-    {
-        if (MinisterMidle > i)
-            return;
-        if (MinisterHigh >= i)
-            return;
         Object O = new Object();
         lock (O)
         {
-            Order = DummyOrder;
-            ChessRules.CurrentOrder = DummyCurrentOrder;
-            //For Each Non Exist Gray Minister Objectives.
-            if (MinisterOnTable[i] == null)
-                return;
-            //Inititate Local Variables By Global Varibales.
-            ii = (int)MinisterOnTable[i].Row;
-            jj = (int)MinisterOnTable[i].Column;
-            //Construction of Thinking Objects Gray Minister.
-            if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count == 0)
-                MinisterOnTable[i] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
-            //If There is Not Minister Of Gray In The Thinking Table List.   
-            if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count == 0)
+            try
             {
-                //For All Possible Movments.
-                Parallel.For(0, AllDraw.MinisterMovments, j =>
+                Order = DummyOrder;
+                ChessRules.CurrentOrder = DummyCurrentOrder;
+                //Ignore of Non Exist Current Elephant Gray Objects.
+                if (ElephantOnTable[i] == null)
+                    return;
+                //Inititae Local Varibale By Global Gray Elephant Objects Varibales.
+                ii = (int)ElephantOnTable[i].Row;
+                jj = (int)ElephantOnTable[i].Column;
+                //Construction of Thinking Objects By Local Varibales.
+                if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count == 0)
+                    ElephantOnTable[i] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                //If There is Not Thinking Objetive List Elephant Gray. 
+                if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count == 0)
                 {
+                    //For All Possible Movments.
+                    Parallel.For(0, AllDraw.ElefantMovments, j =>
+                    {
+                    //Operational Thinking Gray Elephant. 
+                    Object OOO = new Object();
+                        lock (OOO)
+                        {
+                            ElephantOnTable[i].ElefantThinking[0].ThinkingBegin = true;
+                            ElephantOnTable[i].ElefantThinking[0].ThinkingFinished = false;
+                            ElephantOnTable[i].ElefantThinking[0].Thinking();
+                        }
+                    });
+                }
+            }
+            catch (Exception t)
+            {
+                Log(t);
+            }
+        }
+    }
+},
+() =>
+{
+    if (HourseMidle >= i && HourseHight > i)
+    {
+
+        Object O = new Object();
+        lock (O)
+        {
+            try
+            {
+                Order = DummyOrder;
+                ChessRules.CurrentOrder = DummyCurrentOrder;
+                //Ignore of Non Exist Current Gray Hourse Objects.
+                if (HoursesOnTable[i] == null)
+                    return;
+                //Initiate of Local Variables By Global Gray Hourse Objectives.
+                ii = (int)HoursesOnTable[i].Row;
+                jj = (int)HoursesOnTable[i].Column;
+                //Construction of Gray Hourse Thinking Objects..
+                if (HoursesOnTable[i].HourseThinking[0].TableListHourse.Count == 0)
+                    HoursesOnTable[i] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                //When There is Not HourseList Count. 
+                if (HoursesOnTable[i].HourseThinking[0].TableListHourse.Count == 0)
+                {
+                    //For All Possible Movments.
+                    Parallel.For(0, AllDraw.HourseMovments, j =>
+                    {
+                    //Thinking of Gray Hourse Oprational.
+                    Object OOO = new Object();
+                        lock (OOO)
+                        {
+                            HoursesOnTable[i].HourseThinking[0].ThinkingBegin = true;
+                            HoursesOnTable[i].HourseThinking[0].ThinkingFinished = false;
+                            HoursesOnTable[i].HourseThinking[0].Thinking();
+                        }
+                    });
+                }
+
+            }
+            catch (Exception t)
+            {
+                Log(t);
+            }
+        }
+    }
+},
+() =>
+{
+    if (CastleMidle >= i && CastleHigh > i)
+    {
+        Object O = new Object();
+        lock (O)
+        {
+            try
+            {
+                Order = DummyOrder;
+                ChessRules.CurrentOrder = DummyCurrentOrder;
+                //When Current Castles Gray Not Exist Continue Traversal Back.
+                if (CastlesOnTable[i] == null)
+                    return;
+                //Initaiate of Local Varibales By Global Varoiables.
+                ii = (int)CastlesOnTable[i].Row;
+                jj = (int)CastlesOnTable[i].Column;
+                //Construction of Thinking Variables By Local Variables.
+                if (CastlesOnTable[i].CastleThinking[0].TableListCastle.Count == 0)
+                    CastlesOnTable[i] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                //When Count of Table Castles of Thinking Not Exist Do Operational.
+                if (CastlesOnTable[i].CastleThinking[0].TableListCastle.Count == 0)
+                {
+                    //For All Possible Movments.
+                    Parallel.For(0, AllDraw.CastleMovments, j =>
+                    {
+                        Object OOO = new Object();
+                        lock (OOO)
+                        {
+                        //Thinking of Gray Castles Operational.
+                        CastlesOnTable[i].CastleThinking[0].ThinkingBegin = true;
+                            CastlesOnTable[i].CastleThinking[0].ThinkingFinished = false;
+                            CastlesOnTable[i].CastleThinking[0].Thinking();
+                        }
+                    });
+                }
+            }
+            catch (Exception t)
+            {
+                Log(t);
+            }
+        }
+    }
+},
+() =>
+{
+    
+    try
+    {
+        if (MinisterMidle >= i && MinisterHigh < i)
+        {
+            Object O = new Object();
+            lock (O)
+            {
+                Order = DummyOrder;
+                ChessRules.CurrentOrder = DummyCurrentOrder;
+                //For Each Non Exist Gray Minister Objectives.
+                if (MinisterOnTable[i] == null)
+                    return;
+                //Inititate Local Variables By Global Varibales.
+                ii = (int)MinisterOnTable[i].Row;
+                jj = (int)MinisterOnTable[i].Column;
+                //Construction of Thinking Objects Gray Minister.
+                if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count == 0)
+                    MinisterOnTable[i] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                //If There is Not Minister Of Gray In The Thinking Table List.   
+                if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count == 0)
+                {
+                    //For All Possible Movments.
+                    Parallel.For(0, AllDraw.MinisterMovments, j =>
+                    {
                     //Thinking of Gray Minister Operational.
                     Object OOO = new Object();
-                    lock (OOO)
-                    {
-                        MinisterOnTable[i].MinisterThinking[0].ThinkingBegin = true;
-                        MinisterOnTable[i].MinisterThinking[0].ThinkingFinished = false;
-                        MinisterOnTable[i].MinisterThinking[0].Thinking();
-                    }
-                });
+                        lock (OOO)
+                        {
+                            MinisterOnTable[i].MinisterThinking[0].ThinkingBegin = true;
+                            MinisterOnTable[i].MinisterThinking[0].ThinkingFinished = false;
+                            MinisterOnTable[i].MinisterThinking[0].Thinking();
+                        }
+                    });
+                }
             }
         }
     }
@@ -12914,51 +12907,49 @@ namespace RefrigtzDLL
 },
 () =>
 {
-    if (KingMidle > i)
-        return;
-    if (KingHigh >= i)
-        return;
-
-
-    Object O = new Object();
-    lock (O)
+    if (KingMidle >= i && KingHigh > i)
     {
-        try
+
+
+        Object O = new Object();
+        lock (O)
         {
-            Order = DummyOrder;
-            ChessRules.CurrentOrder = DummyCurrentOrder;
-            //If There is Not Current Object Continue Traversal Back.
-            if (KingOnTable[i] == null)
-                return;
-            //Initiate Local varibale By Global Objective Varibales.
-            ii = (int)(int)KingOnTable[i].Row;
-            jj = (int)KingOnTable[i].Column;
-            //Construction of Gray King Thinking Objects.
-            if (KingOnTable[i].KingThinking[0].TableListKing.Count == 0)
-                KingOnTable[i] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
-            //When There is Not Thinking Table Gray King Movments.
-            if (KingOnTable[i].KingThinking[0].TableListKing.Count == 0)
+            try
             {
-                //For All Possible Gray King Movments.
-                Parallel.For(0, AllDraw.KingMovments, j =>
+                Order = DummyOrder;
+                ChessRules.CurrentOrder = DummyCurrentOrder;
+                //If There is Not Current Object Continue Traversal Back.
+                if (KingOnTable[i] == null)
+                    return;
+                //Initiate Local varibale By Global Objective Varibales.
+                ii = (int)(int)KingOnTable[i].Row;
+                jj = (int)KingOnTable[i].Column;
+                //Construction of Gray King Thinking Objects.
+                if (KingOnTable[i].KingThinking[0].TableListKing.Count == 0)
+                    KingOnTable[i] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                //When There is Not Thinking Table Gray King Movments.
+                if (KingOnTable[i].KingThinking[0].TableListKing.Count == 0)
                 {
+                    //For All Possible Gray King Movments.
+                    Parallel.For(0, AllDraw.KingMovments, j =>
+                    {
                     //Thinking Of Gray King Operatins.
                     Object OOO = new Object();
-                    lock (OOO)
-                    {
-                        KingOnTable[i].KingThinking[0].ThinkingBegin = true;
-                        KingOnTable[i].KingThinking[0].ThinkingFinished = false;
-                        KingOnTable[i].KingThinking[0].Thinking();
-                    }
-                });
+                        lock (OOO)
+                        {
+                            KingOnTable[i].KingThinking[0].ThinkingBegin = true;
+                            KingOnTable[i].KingThinking[0].ThinkingFinished = false;
+                            KingOnTable[i].KingThinking[0].Thinking();
+                        }
+                    });
+                }
+            }
+            catch (Exception t)
+            {
+                Log(t);
             }
         }
-        catch (Exception t)
-        {
-            Log(t);
-        }
     }
-
 });
                 });
             }
@@ -15538,7 +15529,7 @@ namespace RefrigtzDLL
                         if(Order==1)
                             InitiateAStarGreedytObjectGray(i, j, Tabl, DummyOrder, DummyCurrentOrder, iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND);
                         else
-                            InitiateAStarGreedytObjectGray(i, j, Tabl, DummyOrder, DummyCurrentOrder, iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND);
+                            InitiateAStarGreedytObjectBrown(i, j, Tabl, DummyOrder, DummyCurrentOrder, iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND);
                     }
                 }
 
