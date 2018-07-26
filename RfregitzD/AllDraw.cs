@@ -12392,7 +12392,7 @@ namespace RefrigtzDLL
             {
                 Parallel.For(0, MaxGrayMidle(), i =>
                 {
-                    Parallel.Invoke(() =>
+                    //Parallel.Invoke(() =>
                     {
                         if (SodierMidle > i)
                         {
@@ -12438,8 +12438,8 @@ namespace RefrigtzDLL
                                 }
                             }
                         }
-                    },
-() =>
+                    }//,
+//() =>
 {
     if (ElefantMidle > i)
     {
@@ -12483,8 +12483,8 @@ namespace RefrigtzDLL
             }
         }
     }
-},
-() =>
+}//,
+//() =>
 {
     if (HourseMidle > i)
     {
@@ -12529,8 +12529,8 @@ namespace RefrigtzDLL
             }
         }
     }
-},
-() =>
+}//,
+//() =>
 {
     if (CastleMidle > i)
     {
@@ -12573,8 +12573,8 @@ namespace RefrigtzDLL
             }
         }
     }
-},
-() =>
+}//,
+//() =>
 {
     if (MinisterMidle > i)
     {
@@ -12618,8 +12618,8 @@ namespace RefrigtzDLL
             Log(t);
         }
     }
-},
-() =>
+}//,
+//() =>
 {
     if (KingMidle > i)
     {
@@ -12664,7 +12664,7 @@ namespace RefrigtzDLL
             }
         }
     }
-});
+}//);
                 });
             }
             return this;
@@ -12677,9 +12677,9 @@ namespace RefrigtzDLL
             {
                 Parallel.For(MinBrownMidle(), MaxGrayMidle(), i =>
                 {
-                    Parallel.Invoke(() =>
+                    //Parallel.Invoke(() =>
                     {
-                        if (SodierMidle >= i && SodierHigh > i)
+                        if (SodierMidle <= i && SodierHigh > i)
                         {
                             Object O = new Object();
                             lock (O)
@@ -12723,10 +12723,10 @@ namespace RefrigtzDLL
                                 }
                             }
                         }
-                    },
-() =>
+                    }//,
+                    //) =>
 {
-    if (ElefantMidle >= i && ElefantHigh < i)
+    if (ElefantMidle <= i && ElefantHigh < i)
     {
 
         Object O = new Object();
@@ -12768,10 +12768,10 @@ namespace RefrigtzDLL
             }
         }
     }
-},
-() =>
+}//,
+//() =>
 {
-    if (HourseMidle >= i && HourseHight > i)
+    if (HourseMidle <= i && HourseHight > i)
     {
 
         Object O = new Object();
@@ -12814,10 +12814,10 @@ namespace RefrigtzDLL
             }
         }
     }
-},
-() =>
+}///,
+//() =>
 {
-    if (CastleMidle >= i && CastleHigh > i)
+    if (CastleMidle <= i && CastleHigh > i)
     {
         Object O = new Object();
         lock (O)
@@ -12858,13 +12858,13 @@ namespace RefrigtzDLL
             }
         }
     }
-},
-() =>
+}//,
+//() =>
 {
     
     try
     {
-        if (MinisterMidle >= i && MinisterHigh < i)
+        if (MinisterMidle <= i && MinisterHigh < i)
         {
             Object O = new Object();
             lock (O)
@@ -12904,10 +12904,10 @@ namespace RefrigtzDLL
         Log(t);
     }
 
-},
-() =>
+}//,
+//() =>
 {
-    if (KingMidle >= i && KingHigh > i)
+    if (KingMidle <= i && KingHigh > i)
     {
 
 
@@ -12950,7 +12950,7 @@ namespace RefrigtzDLL
             }
         }
     }
-});
+}//);
                 });
             }
             return this;
@@ -15527,9 +15527,9 @@ namespace RefrigtzDLL
                     lock (o)
                     {
                         if(Order==1)
-                            InitiateAStarGreedytObjectGray(i, j, Tabl, DummyOrder, DummyCurrentOrder, iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND);
+                            InitiateAStarGreedytObjectGray(i, j, Table, DummyOrder, DummyCurrentOrder, iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND);
                         else
-                            InitiateAStarGreedytObjectBrown(i, j, Tabl, DummyOrder, DummyCurrentOrder, iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND);
+                            InitiateAStarGreedytObjectBrown(i, j, Table, DummyOrder, DummyCurrentOrder, iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND);
                     }
                 }
 
