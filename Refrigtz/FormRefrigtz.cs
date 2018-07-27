@@ -1163,7 +1163,7 @@ namespace Refrigtz
                                     {
                                         GalleryStudio.RefregizMemmory tr = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged
                                             );
-                                        RefrigtzDLL.AllDraw t = tr.Load(OrderPlate);
+                                        RefrigtzDLL.AllDraw t = tr.Load(OrderPlate,tr);
                                         if (t != null)
                                         {
                                             Draw = t;
@@ -1177,8 +1177,35 @@ namespace Refrigtz
                                             ArrangmentsChanged = Draw.ArrangmentsChanged;
 
                                             LoadTree = true;
-                                            pictureBoxRefrigtz.Update();
-                                            pictureBoxRefrigtz.Refresh();
+                                            bool FOUND = false;
+                                            Draw = RoorFound();
+                                            RefrigtzDLL.AllDraw THIS = null;
+                                            Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+                                            if (FOUND)
+                                            {
+                                             
+                                                Draw = THIS;
+                                                RefrigtzDLL.AllDraw.DrawTable = true;
+                                                SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
+                                                SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
+                                                SetBoxText("\r\nDraw Found");
+                                                RefreshBoxText();
+                                                MessageBox.Show("Draw Found.");
+
+                                            }
+                                            else
+                                            {
+                                                SetBoxText("\r\nDraw Not Found");
+                                                RefreshBoxText();
+                                                Draw = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                                                Draw.TableList.Clear();
+                                                Draw.TableList.Add(Table);
+                                                Draw.SetRowColumn(0);
+                                                RefrigtzDLL.AllDraw.DepthIterative = 0;
+                                                MessageBox.Show("Draw Not Found.");
+
+
+                                            }
                                             MessageBox.Show("Load Completed.");
                                         }                                        
                                     }
@@ -1420,12 +1447,22 @@ namespace Refrigtz
             else
                 if (Sec.radioButtonBrownOrder.Checked && OrderPlate == -1)
                     Person = true;
+            if (!LoadTree)
+            {
+                Draw = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                Draw.TableList.Clear();
+                Draw.TableList.Add(Table);
+                Draw.SetRowColumn(0);
+                RefrigtzDLL.AllDraw.DrawTable = true;
+            }
+            else
+            {
+                RefrigtzDLL.AllDraw.DrawTable = true;
+                SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
+                SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
+
+            }
             
-            Draw = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-            Draw.TableList.Clear();
-            Draw.TableList.Add(Table);
-            Draw.SetRowColumn(0);
-            RefrigtzDLL.AllDraw.DrawTable = true;
             Thread ttt = new Thread(new ThreadStart(SetNodesCount));
             ttt.Start();
             ////Draw.Clone(RefrigtzDLL.AllDraw.THISDummy);
@@ -6347,6 +6384,8 @@ namespace Refrigtz
                         Clicked = false;
                         SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
                         SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
+                        SetBoxText("\r\nDraw Found");
+                        RefreshBoxText();
 
                         return true;
                     }
@@ -6552,16 +6591,23 @@ namespace Refrigtz
             Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
             if (FOUND)
             {
+
                 Draw = THIS;
+                SetBoxText("\r\nDraw Found");
+                RefreshBoxText();
+
             }
             else
             {
+
                 Draw = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                 Draw.TableList.Clear();
                 Draw.TableList.Add(Table);
                 Draw.SetRowColumn(0);
                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                 RefrigtzDLL.AllDraw.DepthIterative = 0;
+                SetBoxText("\r\nDraw Not Found");
+                RefreshBoxText();
             }
             if (OrderPlate == 1)
                 this.SetBoxText("\r\nThinking Finished by Bob!");
@@ -8375,10 +8421,13 @@ namespace Refrigtz
                 Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
                 if (FOUND)
                 {
+                 
                     Draw = THIS;
                     RefrigtzDLL.AllDraw.DrawTable = true;
                     SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
                     SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
+                    SetBoxText("\r\nDraw Found");
+                    RefreshBoxText();
                 }
                 else
                 {
@@ -8388,11 +8437,15 @@ namespace Refrigtz
                     Draw.SetRowColumn(0);
                     RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                     RefrigtzDLL.AllDraw.DepthIterative = 0;
+                    SetBoxText("\r\nDraw Not Found");
+                    RefreshBoxText();
+
                 }
 
                 // if (!FirstMovmentOnLoad)
                 //   FOUND = true;
-                Table = Draw.Initiate(1, 4, a, Table, OrderPlate, false, FOUND);
+                int LeafAStarGrteedy = 0;
+                Table = Draw.Initiate(1, 4, a, Table, OrderPlate, false, FOUND, LeafAStarGrteedy);
                 LoadConvertedTable = true;
                 PaintedPaused = false;
                 this.SetBoxText("\r\nThinking Finished!");
@@ -8461,10 +8514,13 @@ namespace Refrigtz
                  if (Draw.THISDummy != null)
                      Draw.THISDummy.accessDraw.FoundOfCurrentTableNode(TableCon, OrderPlate, ref THIS, ref FOUND);
                  if (FOUND)
-                 {
+                 {   
                      Draw = THIS;
                      this.SetBoxText("\r\nAlice Table Found.");
                      this.RefreshBoxText();
+                      SetBoxText("\r\nDraw Found");
+                        RefreshBoxText();
+                    
                  }
                  else
                  {
@@ -8472,16 +8528,22 @@ namespace Refrigtz
                      Draw.TableList.Clear();
                      Draw.TableList.Add(TableCon);
                      Draw.SetRowColumn(0);
+                     SetBoxText("\r\nDraw Not Found");
+                RefreshBoxText();
+
                  }
                  */
                 FOUND = false;
                 Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
                 if (FOUND)
                 {
+                
                     Draw = THIS;
                     RefrigtzDLL.AllDraw.DrawTable = true;
                     SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
                     SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
+                    SetBoxText("\r\nDraw Found");
+                    RefreshBoxText();
 
                 }
                 else
@@ -8494,6 +8556,8 @@ namespace Refrigtz
                     Draw.SetRowColumn(0);
                     RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                     RefrigtzDLL.AllDraw.DepthIterative = 0;
+                    SetBoxText("\r\nDraw Not Found");
+                    RefreshBoxText();
                 }
                 if (RefrigtzDLL.AllDraw.TableListAction.Count > 1)
                 {
@@ -8607,10 +8671,13 @@ namespace Refrigtz
                 Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
                 if (FOUND)
                 {
+
                     Draw = THIS;
                     RefrigtzDLL.AllDraw.DrawTable = true;
                     SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
                     SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
+                    SetBoxText("\r\nDraw Found");
+                    RefreshBoxText();
 
                 }
                 else
@@ -8621,8 +8688,12 @@ namespace Refrigtz
                     Draw.SetRowColumn(0);
                     RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                     RefrigtzDLL.AllDraw.DepthIterative = 0;
+                    SetBoxText("\r\nDraw Not Found");
+                    RefreshBoxText();
+
                 }
-                Table = Draw.Initiate(1, 4, a, Table, OrderPlate, false, FOUND);
+                int LeafAStarGrteedy = 0;
+                Table = Draw.Initiate(1, 4, a, Table, OrderPlate, false, FOUND, LeafAStarGrteedy);
                 LoadConvertedTable = true;
                 Table = Draw.TableList[0];
                 try
@@ -8687,10 +8758,13 @@ namespace Refrigtz
                 Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
                 if (FOUND)
                 {
+
                     Draw = THIS;
                     RefrigtzDLL.AllDraw.DrawTable = true;
                     SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
                     SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
+                    SetBoxText("\r\nDraw Found");
+                    RefreshBoxText();
 
                 }
                 else
@@ -8701,6 +8775,8 @@ namespace Refrigtz
                     Draw.SetRowColumn(0);
                     RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                     RefrigtzDLL.AllDraw.DepthIterative = 0;
+                    SetBoxText("\r\nDraw Not Found");
+                    RefreshBoxText();
                 }
                 this.SetBoxText("\r\nThinking Finished!");
                 try
@@ -8862,6 +8938,9 @@ namespace Refrigtz
                 RefrigtzDLL.AllDraw.DrawTable = true;
                 SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
                 SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
+                SetBoxText("\r\nDraw Found");
+                RefreshBoxText();
+
 
             }
             else
@@ -8871,11 +8950,15 @@ namespace Refrigtz
                 Draw.TableList.Add(Table);
                 Draw.SetRowColumn(0);
                 RefrigtzDLL.AllDraw.DepthIterative = 0;
+                SetBoxText("\r\nDraw Not Found");
+                RefreshBoxText();
 
 
             }
 
-            Table = Draw.Initiate(1, 4, a, Table, OrderPlate, false, FOUND);
+            int LeafAStarGrteedy = 0;
+            Table = Draw.Initiate(1, 4, a, Table, OrderPlate, false, FOUND, LeafAStarGrteedy);
+
             LoadConvertedTable = true;
             //StateCP = false;
             try
@@ -8927,10 +9010,13 @@ namespace Refrigtz
           
             if (FOUND)
             {
+
                 Draw = THIS;
                 RefrigtzDLL.AllDraw.DrawTable = true;
                 SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
                 SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
+                SetBoxText("\r\nDraw Found");
+                RefreshBoxText();
 
             }
             else
@@ -8943,6 +9029,8 @@ namespace Refrigtz
                 Draw.SetRowColumn(0);
                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                 RefrigtzDLL.AllDraw.DepthIterative = 0;
+                SetBoxText("\r\nDraw Not Found");
+                RefreshBoxText();
             }
 
 
@@ -9162,6 +9250,8 @@ namespace Refrigtz
                 RefrigtzDLL.AllDraw.DrawTable = true;
                 SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
                 SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
+                SetBoxText("\r\nDraw Found");
+                RefreshBoxText();
 
             }
             else
@@ -9172,9 +9262,12 @@ namespace Refrigtz
                 Draw.SetRowColumn(0);
                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                 RefrigtzDLL.AllDraw.DepthIterative = 0;
+                SetBoxText("\r\nDraw Not Found");
+                RefreshBoxText();
             }
+            int LeafAStarGrteedy = 0;
+            Table = Draw.Initiate(1, 4, a, Table, OrderPlate, false, FOUND, LeafAStarGrteedy);
 
-            Table = Draw.Initiate(1, 4, a, Table, OrderPlate, false, FOUND);
             LoadConvertedTable = true;
             StateCC = StoreStateCC;
             StateCP = StoreStateCP;
@@ -9231,19 +9324,26 @@ namespace Refrigtz
             Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
             if (FOUND)
             {
+
                 Draw = THIS;
                 RefrigtzDLL.AllDraw.DrawTable = true;
                 SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
                 SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
+                SetBoxText("\r\nDraw Found");
+                RefreshBoxText();
             }
             else
             {
+                
                 Draw = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                 Draw.TableList.Clear();
                 Draw.TableList.Add(TableCon);
                 Draw.SetRowColumn(0);
                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                 RefrigtzDLL.AllDraw.DepthIterative = 0;
+                SetBoxText("\r\nDraw Not Found");
+                RefreshBoxText();
+
             }
             this.SetBoxText("\r\nThinking Finished by Bob!");
             RefreshBoxText();
