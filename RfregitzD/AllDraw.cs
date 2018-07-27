@@ -174,7 +174,7 @@ namespace RefrigtzDLL
         int CurrentAStarGredyMax = 0;
         public static int TaskBegin = 0;
         public static int TaskEnd = 0;
-        public static String Root = "";
+        public static String Root = System.IO.Path.GetDirectoryName(Environment.GetCommandLineArgs()[0]);
         public static int OrderPlate = 1;
         public static bool Blitz = false;
         public static int ConvertedKind = -2;

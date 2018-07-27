@@ -87,6 +87,7 @@ namespace Refrigtz
         //Variables That to be Included at RefregitzDLL
         
         //Initiate Variables.
+
         bool LoadConvertedTable = false;
         bool LoadedDLL = false;
         bool WaitOn = true;
@@ -205,6 +206,7 @@ namespace Refrigtz
 
         FormRefrigtz THIs = null;
         String connParam = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Root + "\\" + "Database\\CurrentBank.accdb;;Persist Security Info=False; Jet OLEDB:Database Password='!HN#BGHHN&N$G$V4'";
+        bool LoadTree = false;
         //Error Handling.
         static void Log(Exception ex)
         {
@@ -828,7 +830,7 @@ namespace Refrigtz
         //Load Refregitz Form.
         private void Form1_Load(object sender, EventArgs e)
         {
-            bool LoadTree = false;
+            
                
             Thread tttt = new Thread(new ThreadStart(SetRefregitzDLL));
             tttt.Start();
@@ -1447,6 +1449,12 @@ namespace Refrigtz
             else
                 if (Sec.radioButtonBrownOrder.Checked && OrderPlate == -1)
                     Person = true;
+            
+            Thread ttt = new Thread(new ThreadStart(SetNodesCount));
+            ttt.Start();
+            ////Draw.Clone(RefrigtzDLL.AllDraw.THISDummy);
+            //RefrigtzDLL.AllDraw.THISDummy.TableList.Add(Table);
+            //RefrigtzDLL.AllDraw.THISDummy.SetRowColumn(0);
             if (!LoadTree)
             {
                 Draw = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
@@ -1457,17 +1465,11 @@ namespace Refrigtz
             }
             else
             {
-                RefrigtzDLL.AllDraw.DrawTable = true;
-                SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
-                SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
+                 RefrigtzDLL.AllDraw.DrawTable = true;
+                //SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
+                //SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
 
             }
-            
-            Thread ttt = new Thread(new ThreadStart(SetNodesCount));
-            ttt.Start();
-            ////Draw.Clone(RefrigtzDLL.AllDraw.THISDummy);
-            //RefrigtzDLL.AllDraw.THISDummy.TableList.Add(Table);
-            //RefrigtzDLL.AllDraw.THISDummy.SetRowColumn(0);
 
 
 
@@ -11996,9 +11998,12 @@ namespace Refrigtz
             StateCP = false;
             StateGe = false;
             BobSection = true;
-            Draw = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-            Draw.TableList.Add(Table);
-            Draw.SetRowColumn(0);
+            if (!LoadTree)
+            {
+                Draw = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                Draw.TableList.Add(Table);
+                Draw.SetRowColumn(0);
+            }
 
         }
 
@@ -12024,9 +12029,12 @@ namespace Refrigtz
             StateCC = true;
             //BobSection = true;
             UsePenaltyRegardMechnisam = false;
-            Draw = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-            Draw.TableList.Add(Table);
-            Draw.SetRowColumn(0);
+            if (!AllDrawLoad)
+            {
+                Draw = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                Draw.TableList.Add(Table);
+                Draw.SetRowColumn(0);
+                }
 
         }
     }
