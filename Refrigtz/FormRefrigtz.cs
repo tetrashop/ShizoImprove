@@ -9322,6 +9322,7 @@ namespace Refrigtz
             for (int i = 0; i < 8; i++)
                 for (int j = 0; j < 8; j++)
                     TableCon[i, j] = Table[i, j];
+            RefrigtzDLL.AllDraw.TableListAction.Add(TableCon);
             FOUND = false;
             Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
             if (FOUND)
@@ -9349,7 +9350,7 @@ namespace Refrigtz
             }
             this.SetBoxText("\r\nThinking Finished by Bob!");
             RefreshBoxText();
-            RefrigtzDLL.AllDraw.TableListAction.Add(TableCon);
+            
             if (RefrigtzDLL.AllDraw.TableListAction.Count >= 1)
             {
                 RefrigtzDLL.ChessGeneticAlgorithm R = new RefrigtzDLL.ChessGeneticAlgorithm(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
