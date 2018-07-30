@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 using System.IO;
-namespace RefrigtzW
+namespace AStRefrigtzW
 {
+    [Serializable]
     public class DrawHourse
     {
         //Iniatite Global Variables.

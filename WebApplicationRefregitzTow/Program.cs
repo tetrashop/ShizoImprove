@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
-namespace RefrigtzW
+namespace AStRefrigtzW
 {
+    
+    
     static class Program
     {
         public static long SomeExtremelyLargeNumber { get; private set; }
@@ -70,7 +73,7 @@ namespace RefrigtzW
 
 
         //Main Programm.
-        [STAThreadAttribute]
+        [STAThread]
         public static void Main()
         {
             // IncreasingThreadPerformance();

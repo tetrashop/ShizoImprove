@@ -68,18 +68,15 @@
  */
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Drawing;
-using System.Threading;
 using LearningMachine;
 using System.IO;
-using System.Diagnostics;
 using System.Threading.Tasks;
 
 
-namespace RefrigtzW
+namespace AStRefrigtzW
 {
+    [Serializable]
     public class ThinkingChess
     {
         //Initiate Global and Static Variables. 
@@ -190,8 +187,10 @@ namespace RefrigtzW
         public int Row, Column;
         public Color color;
         public int Order;
-        public Task t = null;
+        [NonSerialized()] public Task t = null;
         public List<AllDraw> AStarGreedy = null;
+        int[,] Value = new int[8, 8];
+        
         int CurrentAStarGredyMax = -1;
         ///Log of Errors.
         static void Log(Exception ex)
@@ -255,8 +254,20 @@ namespace RefrigtzW
             PenaltyRegardListMinister = new List<QuantumAtamata>();
             PenaltyRegardListKing = new List<QuantumAtamata>();
             AStarGreedy = new List<AllDraw>();
+            Object o = new Object();
+            lock (o)
+            {
+                for (int h = 0; h < 8; h++)
+                    for (int m = 0; m < 8; m++)
+                    {
+                        if (Value[h, m] == 0)
+                            continue;
+                        Value[h, m] = ObjectValueCalculator(TableConst, Order, h, m);
 
+                    }
+            }
         }
+        
 
         bool BeginArragmentsOfOrderFinished(int[,] Table, int Order)
         {
@@ -411,228 +422,240 @@ namespace RefrigtzW
             //Return New Object.
             return Table;
         }
+        int GetValue(int i, int j)
+        { Object O = new Object();
+            lock (O) {
+
+                return Value[i,j];
+            }
+        }
         ///Clone a Copy.
         public void Clone(ref ThinkingChess AA//, ref AllDraw. THIS
             )
         {
-            //Assignment Content to New Content Object.
-            //Initaite New Object.
-            AA = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column);
-            AA.ArrangmentsChanged = ArrangmentsChanged;
-            //When Depth Object is not NULL.
-            if (AStarGreedy.Count != 0)
+            Object O = new Object();
+            lock (O)
             {
-                AA.AStarGreedy = new System.Collections.Generic.List<AllDraw>();
-                //For All Depth(s).
-                for (int i = 0; i < AStarGreedy.Count; i++)
+                //Assignment Content to New Content Object.
+                //Initaite New Object.
+                if (AA == null)
+                    AA = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column);
+                AA.ArrangmentsChanged = ArrangmentsChanged;
+                //When Depth Object is not NULL.
+                if (AStarGreedy.Count != 0)
                 {
-                    try
+                    AA.AStarGreedy = new System.Collections.Generic.List<AllDraw>();
+                    //For All Depth(s).
+                    for (int i = 0; i < AStarGreedy.Count; i++)
                     {
-                        //Clone a Copy From Depth Objects.
-                        AStarGreedy[i].Clone(AA.AStarGreedy[i]);
+                        try
+                        {
+                            //Clone a Copy From Depth Objects.
+                            AStarGreedy[i].Clone(AA.AStarGreedy[i]);
+                        }
+                        catch (Exception tt) { Log(tt); }
                     }
-                    catch (Exception tt) { Log(tt); }
                 }
-            }
-            //For All Moves Indexx Solders List Count.
-            for (int j = 0; j < RowColumnSoldier.Count; j++)
+                //For All Moves Indexx Solders List Count.
+                for (int j = 0; j < RowColumnSoldier.Count; j++)
 
-                //Add a Clone To New Solder indexx Object.
-                AA.RowColumnSoldier.Add(CloneAList(RowColumnSoldier[j], 2));
-            //For All Castle List Count.
-            for (int j = 0; j < RowColumnCastle.Count; j++)
-                //Add a Clone to New Castle index Objects List.
-                AA.RowColumnCastle.Add(CloneAList(RowColumnCastle[j], 2));
+                    //Add a Clone To New Solder indexx Object.
+                    RowColumnSoldier.Add(AA.CloneAList(RowColumnSoldier[j], 2));
+                //For All Castle List Count.
+                for (int j = 0; j < RowColumnCastle.Count; j++)
+                    //Add a Clone to New Castle index Objects List.
+                    RowColumnCastle.Add(AA.CloneAList(RowColumnCastle[j], 2));
 
-            //For All Elephant index List Count.
-            for (int j = 0; j < RowColumnElefant.Count; j++)
-                //Add a Clone to New Elephant Object List.
-                AA.RowColumnElefant.Add(CloneAList(RowColumnElefant[j], 2));
-            //For All Hourse index List Count.
-            for (int j = 0; j < RowColumnHourse.Count; j++)
-                //Add a Clone to New Hourse index List.
-                AA.RowColumnHourse.Add(CloneAList(RowColumnHourse[j], 2));
-            //For All King index List Count.
-            for (int j = 0; j < RowColumnKing.Count; j++)
-                //Add a Clone To New King Object List.
-                AA.RowColumnKing.Add(CloneAList(RowColumnKing[j], 2));
-            //For All Minister index Count.
-            for (int j = 0; j < RowColumnMinister.Count; j++)
-                //Add a Clone To Minister New index List.
-                AA.RowColumnMinister.Add(CloneAList(RowColumnMinister[j], 2));
-            //Assgine thread.
-            AA.t = t;
-            //Create and Initiate new Table Object.
-            AA.TableT = new int[8, 8];
-            //Create and Initaite New Table Object.
-            AA.TableConst = new int[8, 8];
-            //if Table is not NULL>
-            if (TableT != null)
-                //For All Items in Table Object.
-                for (int i = 0; i < 8; i++)
-                    for (int j = 0; j < 8; j++)
-                        //Assgine Table items in New Table Object.
-                        AA.TableT[i, j] = TableT[i, j];
-            //If Table is Not Null.
-            if (TableConst != null)
-                //For All Items in Table Object.
-                for (int i = 0; i < 8; i++)
-                    for (int j = 0; j < 8; j++)
-                        //Assignm Items in New Table Object.
-                        AA.TableConst[i, j] = TableConst[i, j];
-            //For All Table State Movements in Castles Objects.
-            for (int i = 0; i < TableListCastle.Count; i++)
-                //Add aclon of a Table in New Briges Table List.
-                AA.TableListCastle.Add(CloneATable(TableListCastle[i]));
-            //For All Table List Movements in  Elephant Objects 
-            for (int i = 0; i < TableListElefant.Count; i++)
-                //Add a Clone of Tables in Elephant Mevments Obejcts List To New One.
-                AA.TableListElefant.Add(CloneATable(TableListElefant[i]));
-            //For All Hourse Table Movemnts items.
-            for (int i = 0; i < TableListHourse.Count; i++)
-                //Add a Clone of Hourse Table Movement in New List.
-                AA.TableListHourse.Add(CloneATable(TableListHourse[i]));
-            //For All King Tables Movment Count.
-            for (int i = 0; i < TableListKing.Count; i++)
-                //Add a Clone To New King Table List.
-                AA.TableListKing.Add(CloneATable(TableListKing[i]));
-            //For All Minister Table Movment Items.
-            for (int i = 0; i < TableListMinister.Count; i++)
-                //Add a clone To New Minister Table Movment List.
-                AA.TableListMinister.Add(CloneATable(TableListMinister[i]));
-            //For All Solder Table Movment Count.
-            for (int i = 0; i < TableListSolder.Count; i++)
-                //Add a Clone of Table item to New Table List Movments.
-                AA.TableListSolder.Add(CloneATable(TableListSolder[i]));
+                //For All Elephant index List Count.
+                for (int j = 0; j < RowColumnElefant.Count; j++)
+                    //Add a Clone to New Elephant Object List.
+                    RowColumnElefant.Add(AA.CloneAList(RowColumnElefant[j], 2));
+                //For All Hourse index List Count.
+                for (int j = 0; j < RowColumnHourse.Count; j++)
+                    //Add a Clone to New Hourse index List.
+                    RowColumnHourse.Add(AA.CloneAList(RowColumnHourse[j], 2));
+                //For All King index List Count.
+                for (int j = 0; j < RowColumnKing.Count; j++)
+                    //Add a Clone To New King Object List.
+                    RowColumnKing.Add(AA.CloneAList(RowColumnKing[j], 2));
+                //For All Minister index Count.
+                for (int j = 0; j < RowColumnMinister.Count; j++)
+                    //Add a Clone To Minister New index List.
+                    RowColumnMinister.Add(AA.CloneAList(RowColumnMinister[j], 2));
+                //Assgine thread.
+                AA.t = t;
+                //Create and Initiate new Table Object.
+                AA.TableT = new int[8, 8];
+                //Create and Initaite New Table Object.
+                AA.TableConst = new int[8, 8];
+                //if Table is not NULL>
+                if (TableT != null)
+                    //For All Items in Table Object.
+                    for (int i = 0; i < 8; i++)
+                        for (int j = 0; j < 8; j++)
+                            //Assgine Table items in New Table Object.
+                            AA.TableT[i, j] = TableT[i, j];
+                //If Table is Not Null.
+                if (TableConst != null)
+                    //For All Items in Table Object.
+                    for (int i = 0; i < 8; i++)
+                        for (int j = 0; j < 8; j++)
+                            //Assignm Items in New Table Object.
+                            AA.TableConst[i, j] = TableConst[i, j];
+                //For All Table State Movements in Castles Objects.
+                for (int i = 0; i < TableListCastle.Count; i++)
+                    //Add aclon of a Table in New Briges Table List.
+                    TableListCastle.Add(AA.CloneATable(TableListCastle[i]));
+                //For All Table List Movements in  Elephant Objects 
+                for (int i = 0; i < TableListElefant.Count; i++)
+                    //Add a Clone of Tables in Elephant Mevments Obejcts List To New One.
+                    AA.TableListElefant.Add(CloneATable(TableListElefant[i]));
+                //For All Hourse Table Movemnts items.
+                for (int i = 0; i < TableListHourse.Count; i++)
+                    //Add a Clone of Hourse Table Movement in New List.
+                    TableListHourse.Add(AA.CloneATable(TableListHourse[i]));
+                //For All King Tables Movment Count.
+                for (int i = 0; i < TableListKing.Count; i++)
+                    //Add a Clone To New King Table List.
+                    TableListKing.Add(AA.CloneATable(TableListKing[i]));
+                //For All Minister Table Movment Items.
+                for (int i = 0; i < TableListMinister.Count; i++)
+                    //Add a clone To New Minister Table Movment List.
+                    AA.TableListMinister.Add(CloneATable(TableListMinister[i]));
+                //For All Solder Table Movment Count.
+                for (int i = 0; i < TableListSolder.Count; i++)
+                    //Add a Clone of Table item to New Table List Movments.
+                    TableListSolder.Add(AA.CloneATable(TableListSolder[i]));
 
-            //For All Solder Husrist List Count.
-            for (int i = 0; i < HuristicListSolder.Count; i++)
-                //Ad a Clone of Hueristic Solders To New List.
-                AA.HuristicListSolder.Add(CloneAList(HuristicListSolder[i], 4));
-            //For All Elephant Huristic List Count. 
-            for (int i = 0; i < HuristicListElefant.Count; i++)
-                //Add A Clone of Copy to New Elephant Huristic List.
-                AA.HuristicListElefant.Add(CloneAList(HuristicListElefant[i], 4));
-            //For All Hours Huristic Hourse Count.
-            for (int i = 0; i < HuristicListHourse.Count; i++)
-                //Add a Clone of Copy To New Housre Huristic List.
-                AA.HuristicListHourse.Add(CloneAList(HuristicListHourse[i], 4));
-            //For All Castles Huristic List Count.
-            for (int i = 0; i < HuristicListCastle.Count; i++)
-                //Add a Clone of Copy to New Castles Huristic List.
-                AA.HuristicListCastle.Add(CloneAList(HuristicListCastle[i], 4));
-            //For All Minister Huristic List Count.
-            for (int i = 0; i < HuristicListMinister.Count; i++)
-                //Add a Clone of Copy to New Minister List.
-                AA.HuristicListMinister.Add(CloneAList(HuristicListMinister[i], 4));
-            //For All King Husrict List Items.
-            for (int i = 0; i < HuristicListKing.Count; i++)
-                //Add a Clone of Copy to New King Hursitic List.
-                AA.HuristicListKing.Add(CloneAList(HuristicListKing[i], 4));
-            //Initiate and create Penalty Solder List.
-            AA.PenaltyRegardListSolder = new List<QuantumAtamata>();
-            //For All Solder Penalty List Count.
-            for (int i = 0; i < PenaltyRegardListSolder.Count; i++)
-            {
-                //Initiate a new Quantum Atamata Object
-                QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                //Clone a Copy Of Penalty Solider.
-                PenaltyRegardListSolder[i].Clone(ref Current);
-                //Add New Object Create to New Penalty Solder List.
-                AA.PenaltyRegardListSolder.Add(Current);
+                //For All Solder Husrist List Count.
+                for (int i = 0; i < HuristicListSolder.Count; i++)
+                    //Ad a Clone of Hueristic Solders To New List.
+                    HuristicListSolder.Add(AA.CloneAList(HuristicListSolder[i], 4));
+                //For All Elephant Huristic List Count. 
+                for (int i = 0; i < HuristicListElefant.Count; i++)
+                    //Add A Clone of Copy to New Elephant Huristic List.
+                    HuristicListElefant.Add(AA.CloneAList(HuristicListElefant[i], 4));
+                //For All Hours Huristic Hourse Count.
+                for (int i = 0; i < HuristicListHourse.Count; i++)
+                    //Add a Clone of Copy To New Housre Huristic List.
+                    HuristicListHourse.Add(AA.CloneAList(HuristicListHourse[i], 4));
+                //For All Castles Huristic List Count.
+                for (int i = 0; i < HuristicListCastle.Count; i++)
+                    //Add a Clone of Copy to New Castles Huristic List.
+                    HuristicListCastle.Add(AA.CloneAList(HuristicListCastle[i], 4));
+                //For All Minister Huristic List Count.
+                for (int i = 0; i < HuristicListMinister.Count; i++)
+                    //Add a Clone of Copy to New Minister List.
+                    HuristicListMinister.Add(AA.CloneAList(HuristicListMinister[i], 4));
+                //For All King Husrict List Items.
+                for (int i = 0; i < HuristicListKing.Count; i++)
+                    //Add a Clone of Copy to New King Hursitic List.
+                    HuristicListKing.Add(AA.CloneAList(HuristicListKing[i], 4));
+                //Initiate and create Penalty Solder List.
+                AA.PenaltyRegardListSolder = new List<QuantumAtamata>();
+                //For All Solder Penalty List Count.
+                for (int i = 0; i < PenaltyRegardListSolder.Count; i++)
+                {
+                    //Initiate a new Quantum Atamata Object
+                    QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                    //Clone a Copy Of Penalty Solider.
+                    PenaltyRegardListSolder[i].Clone(ref Current);
+                    //Add New Object Create to New Penalty Solder List.
+                    AA.PenaltyRegardListSolder.Add(Current);
+                }
+                //Initaite and Create Elephant Penalty List Object.
+                AA.PenaltyRegardListElefant = new List<QuantumAtamata>();
+                //For All Elepahtn Penalty List Count.
+                for (int i = 0; i < PenaltyRegardListElefant.Count; i++)
+                {
+                    //Initiate a new Quantum Atamata Object
+                    QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                    //Clone a Copy Of Penalty Elephant.
+                    PenaltyRegardListElefant[i].Clone(ref Current);
+                    //Add New Object Create to New Penalty Elephant List.
+                    AA.PenaltyRegardListElefant.Add(Current);
+                }
+                //Initaite and Create Hourse Penalty List Object.
+                AA.PenaltyRegardListHourse = new List<QuantumAtamata>();
+                //For All Solder Hourse List Count.
+                for (int i = 0; i < PenaltyRegardListHourse.Count; i++)
+                {
+                    //Initiate a new Quantum Atamata Object
+                    QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                    //Clone a Copy Of Penalty Hourse.
+                    PenaltyRegardListHourse[i].Clone(ref Current);
+                    //Add New Object Create to New Penalty Hourse List.
+                    AA.PenaltyRegardListHourse.Add(Current);
+                }
+                //Initaite and Create Castles Penalty List Object.
+                AA.PenaltyRegardListCastle = new List<QuantumAtamata>();
+                //For All Solder Castle List Count.
+                for (int i = 0; i < PenaltyRegardListCastle.Count; i++)
+                {
+                    //Initiate a new Quantum Atamata Object
+                    QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                    //Clone a Copy Of Penalty Castles.
+                    PenaltyRegardListCastle[i].Clone(ref Current);
+                    //Add New Object Create to New Penalty Castles List.
+                    AA.PenaltyRegardListCastle.Add(Current);
+                }
+                //Initaite and Create Minister Penalty List Object.
+                AA.PenaltyRegardListMinister = new List<QuantumAtamata>();
+                //For All Solder Minster List Count.
+                for (int i = 0; i < PenaltyRegardListMinister.Count; i++)
+                {
+                    //Initiate a new Quantum Atamata Object
+                    QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                    //Clone a Copy Of Penalty Minsiter.
+                    PenaltyRegardListMinister[i].Clone(ref Current);
+                    //Add New Object Create to New Penalty Minsietr List.
+                    AA.PenaltyRegardListMinister.Add(Current);
+                }
+                //Initaite and Create King Penalty List Object.
+                AA.PenaltyRegardListKing = new List<QuantumAtamata>();
+                //For All Solder King List Count.
+                for (int i = 0; i < PenaltyRegardListKing.Count; i++)
+                {
+                    //Initiate a new Quantum Atamata Object
+                    QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                    //Clone a Copy Of Penalty King.
+                    PenaltyRegardListKing[i].Clone(ref Current);
+                    //Add New Object Create to New Penalty King List.
+                    AA.PenaltyRegardListKing.Add(Current);
+                }
+                //Iniktiate Same Obejcts to New Same Obejcts.
+                AA.AStarGreedy = AStarGreedy;
+                AA.CastleValue = CastleValue;
+                AA.color = color;
+                AA.Column = Column;
+                AA.CurrentArray = CurrentArray;
+                AA.CurrentColumn = CurrentColumn;
+                AA.CurrentRow = CurrentRow;
+                AA.ElefantValue = ElefantValue;
+                //AA.EnemyNotSupported = EnemyNotSupported;
+                AA.ExistingOfEnemyHiiting = ExistingOfEnemyHiiting;
+                AA.HourseValue = HourseValue;
+                AA.IgnoreObjectDangour = IgnoreObjectDangour;
+                AA.IndexCastle = IndexCastle;
+                AA.IndexElefant = IndexElefant;
+                AA.IndexHourse = IndexHourse;
+                AA.IndexKing = IndexKing;
+                AA.IndexMinister = IndexMinister;
+                AA.IndexSoldier = IndexSoldier;
+                AA.IsCheck = IsCheck;
+                AA.Kind = Kind;
+                AA.KingValue = KingValue;
+                AA.CheckMateAStarGreedy = CheckMateAStarGreedy;
+                AA.CheckMateOcuured = CheckMateOcuured;
+                AA.Max = Max;
+                AA.MinisterValue = MinisterValue;
+                AA.Order = Order;
+                AA.Row = Row;
+                AA.SodierValue = SodierValue;
+                AA.ThingsNumber = ThingsNumber;
+                AA.ThinkingBegin = ThinkingBegin;
+                AA.ThinkingFinished = ThinkingFinished;
             }
-            //Initaite and Create Elephant Penalty List Object.
-            AA.PenaltyRegardListElefant = new List<QuantumAtamata>();
-            //For All Elepahtn Penalty List Count.
-            for (int i = 0; i < PenaltyRegardListElefant.Count; i++)
-            {
-                //Initiate a new Quantum Atamata Object
-                QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                //Clone a Copy Of Penalty Elephant.
-                PenaltyRegardListElefant[i].Clone(ref Current);
-                //Add New Object Create to New Penalty Elephant List.
-                AA.PenaltyRegardListElefant.Add(Current);
-            }
-            //Initaite and Create Hourse Penalty List Object.
-            AA.PenaltyRegardListHourse = new List<QuantumAtamata>();
-            //For All Solder Hourse List Count.
-            for (int i = 0; i < PenaltyRegardListHourse.Count; i++)
-            {
-                //Initiate a new Quantum Atamata Object
-                QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                //Clone a Copy Of Penalty Hourse.
-                PenaltyRegardListHourse[i].Clone(ref Current);
-                //Add New Object Create to New Penalty Hourse List.
-                AA.PenaltyRegardListHourse.Add(Current);
-            }
-            //Initaite and Create Castles Penalty List Object.
-            AA.PenaltyRegardListCastle = new List<QuantumAtamata>();
-            //For All Solder Castle List Count.
-            for (int i = 0; i < PenaltyRegardListCastle.Count; i++)
-            {
-                //Initiate a new Quantum Atamata Object
-                QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                //Clone a Copy Of Penalty Castles.
-                PenaltyRegardListCastle[i].Clone(ref Current);
-                //Add New Object Create to New Penalty Castles List.
-                AA.PenaltyRegardListCastle.Add(Current);
-            }
-            //Initaite and Create Minister Penalty List Object.
-            AA.PenaltyRegardListMinister = new List<QuantumAtamata>();
-            //For All Solder Minster List Count.
-            for (int i = 0; i < PenaltyRegardListMinister.Count; i++)
-            {
-                //Initiate a new Quantum Atamata Object
-                QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                //Clone a Copy Of Penalty Minsiter.
-                PenaltyRegardListMinister[i].Clone(ref Current);
-                //Add New Object Create to New Penalty Minsietr List.
-                AA.PenaltyRegardListMinister.Add(Current);
-            }
-            //Initaite and Create King Penalty List Object.
-            AA.PenaltyRegardListKing = new List<QuantumAtamata>();
-            //For All Solder King List Count.
-            for (int i = 0; i < PenaltyRegardListKing.Count; i++)
-            {
-                //Initiate a new Quantum Atamata Object
-                QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                //Clone a Copy Of Penalty King.
-                PenaltyRegardListKing[i].Clone(ref Current);
-                //Add New Object Create to New Penalty King List.
-                AA.PenaltyRegardListKing.Add(Current);
-            }
-            //Iniktiate Same Obejcts to New Same Obejcts.
-            AA.AStarGreedy = AStarGreedy;
-            AA.CastleValue = CastleValue;
-            AA.color = color;
-            AA.Column = Column;
-            AA.CurrentArray = CurrentArray;
-            AA.CurrentColumn = CurrentColumn;
-            AA.CurrentRow = CurrentRow;
-            AA.ElefantValue = ElefantValue;
-            //AA.EnemyNotSupported = EnemyNotSupported;
-            AA.ExistingOfEnemyHiiting = ExistingOfEnemyHiiting;
-            AA.HourseValue = HourseValue;
-            AA.IgnoreObjectDangour = IgnoreObjectDangour;
-            AA.IndexCastle = IndexCastle;
-            AA.IndexElefant = IndexElefant;
-            AA.IndexHourse = IndexHourse;
-            AA.IndexKing = IndexKing;
-            AA.IndexMinister = IndexMinister;
-            AA.IndexSoldier = IndexSoldier;
-            AA.IsCheck = IsCheck;
-            AA.Kind = Kind;
-            AA.KingValue = KingValue;
-            AA.CheckMateAStarGreedy = CheckMateAStarGreedy;
-            AA.CheckMateOcuured = CheckMateOcuured;
-            AA.Max = Max;
-            AA.MinisterValue = MinisterValue;
-            AA.Order = Order;
-            AA.Row = Row;
-            AA.SodierValue = SodierValue;
-            AA.ThingsNumber = ThingsNumber;
-            AA.ThinkingBegin = ThinkingBegin;
-            AA.ThinkingFinished = ThinkingFinished;
             //AA.THIS = THIS;
         }
         ///Huristic of Attacker.
@@ -707,7 +730,7 @@ namespace RefrigtzW
                         {
 
                             //Find Huristic Value Of Current and Add to Sumation.
-                            HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Table, ii, jj, Order) + GetObjectValueHuristic(Table, i, j, Order))));
+                            HA += (Sign * (System.Math.Abs(GetValue(ii,jj) + GetValue(i,j))));
                             //When there is supporter of attacked Objects take huristic negative else take muliply sign and muliply huristic.
                             bool Supported = new bool();
                             Supported = false;
@@ -740,13 +763,13 @@ namespace RefrigtzW
                                         {
                                             A = Support(Table, g, h, ii, jj, aaa, Order * -1);
                                         }
-                                    //bool B = (GetObjectValueHuristic(Table, i, j, Order) > GetObjectValueHuristic(Table, ii, jj, Order));
+                                    //bool B = (GetValue(i,j) > GetValue(ii,jj));
                                     //When Enemy is Supported.
                                     if (A)
                                         {
                                         //Assgine variable.
                                         Supported = true;
-                                        //HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Table, g, h, Order) + GetObjectValueHuristic(Table, ii, jj, Order))));
+                                        //HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Table, g, h, Order) + GetValue(ii,jj))));
                                         return;
 
                                         }
@@ -829,7 +852,7 @@ namespace RefrigtzW
                         if (Attack(Table, i, j, ii, jj, a, Order))
                         {
 
-                            HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Table, ii, jj, Order) + GetObjectValueHuristic(Table, i, j, Order)
+                            HA += (Sign * (System.Math.Abs(GetValue(ii,jj) + GetValue(i,j)
                            )));
 
                             //When there is supporter of attacked Objects take huristic negative else take muliply sign and muliply huristic.
@@ -863,13 +886,13 @@ namespace RefrigtzW
                                         {
                                             A = Support(Table, g, h, ii, jj, aaa, Order * -1);
                                         }
-                                    //bool B = (GetObjectValueHuristic(Table, i, j, Order) > GetObjectValueHuristic(Table, ii, jj, Order));
+                                    //bool B = (GetValue(i,j) > GetValue(ii,jj));
                                     //When Enemy is Supported.
                                     if (A)
                                         {
                                         //Assgine variable.
                                         Supported = true;
-                                        //HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Table, g, h, Order) + GetObjectValueHuristic(Table, ii, jj, Order))));
+                                        //HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Table, g, h, Order) + GetValue(ii,jj))));
                                         return;
 
                                         }
@@ -978,7 +1001,7 @@ namespace RefrigtzW
                         if (Attack(Table, ii, jj, i, j, a, Order))
                         {
 
-                            HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Table, i, j, Order) + GetObjectValueHuristic(Table, ii, jj, Order))));
+                            HA += (Sign * (System.Math.Abs(GetValue(i,j) + GetValue(ii,jj))));
                             bool Reduced = new bool();
                             Reduced = false;
                             //For All Self Obejcts.                                             
@@ -1008,13 +1031,13 @@ namespace RefrigtzW
                                     {
                                         A = Support(Table, g, h, ii, jj, aaa, Order * 1);
                                     }
-                                    //bool B = (GetObjectValueHuristic(Table, i, j, Order) > GetObjectValueHuristic(Table, ii, jj, Order));
+                                    //bool B = (GetValue(i,j) > GetValue(ii,jj));
                                     //When Self is Supported.
                                     if (A)
                                     {
                                         //Assgine variable.
                                         Reduced = true;
-                                        //HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Table, g, h, Order) + GetObjectValueHuristic(Table, ii, jj, Order))));
+                                        //HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Table, g, h, Order) + GetValue(ii,jj))));
                                         return;
 
                                     }
@@ -1096,7 +1119,7 @@ namespace RefrigtzW
                         if (Attack(Table, ii, jj, i, j, a, Order))
                         {
 
-                            HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Table, i, j, Order) + GetObjectValueHuristic(Table, ii, jj, Order))));
+                            HA += (Sign * (System.Math.Abs(GetValue(i,j) + GetValue(ii,jj))));
                             bool Reduced = new bool();
                             Reduced = false;
                             //For All Self Obejcts.                                             
@@ -1126,13 +1149,13 @@ namespace RefrigtzW
                                     {
                                         A = Support(Table, g, h, ii, jj, aaa, Order * 1);
                                     }
-                                    //bool B = (GetObjectValueHuristic(Table, i, j, Order) > GetObjectValueHuristic(Table, ii, jj, Order));
+                                    //bool B = (GetValue(i,j) > GetValue(ii,jj));
                                     //When Self is Supported.
                                     if (A)
                                     {
                                         //Assgine variable.
                                         Reduced = true;
-                                        //HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Table, g, h, Order) + GetObjectValueHuristic(Table, ii, jj, Order))));
+                                        //HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Table, g, h, Order) + GetValue(ii,jj))));
                                         return;
 
                                     }
@@ -1349,7 +1372,7 @@ namespace RefrigtzW
                     if (Attack(Tab, i, j, ii, jj, a, Order) && EnemyNotSupported)
                     {
                         //Huristic positive.
-                        HA += AllDraw.SignKiller * (double)((GetObjectValueHuristic(Tab, i, j, Order) + GetObjectValueHuristic(Tab, ii, jj, Order)
+                        HA += AllDraw.SignKiller * (double)((GetValue(i,j) + GetValue(ii,jj)
                         ) * Sign);
                     }
                     a = colorAS;
@@ -1418,7 +1441,7 @@ namespace RefrigtzW
                         lock (O)
                         {
                             if (Support(Tab, iii, jjj, ii, jj, a, Order1 * -1)
-                                   && GetObjectValue(Tab, i, j, Order1) >= GetObjectValue(Tab, ii, jj, Order1 * -1)
+                                   && GetValue(i,j) >= GetValue(ii,jj)
                                     )
 
                             //Wehn [i,j] (Current) is less or equal than [ii,jj] (Enemy) 
@@ -1843,7 +1866,7 @@ namespace RefrigtzW
                         if (Attack(TableS, CurDangRow, CurDangCol, i, j, a, Order))
                         {
                             //a source object is greater than another source object.
-                            if (GetObjectValue(TableS, ObjRow, ObjCol, Order) < GetObjectValue(TableS, i, j, Order))
+                            if (GetValue(ObjRow,ObjCol) < GetValue(i,j))
                             {
                                 //Is another object valuable.
                                 Is = -1;
@@ -1851,7 +1874,7 @@ namespace RefrigtzW
                             }
                             else
                             //a source object is less than or equal  than another source object.
-                            if (GetObjectValue(TableS, ObjRow, ObjCol, Order) >= GetObjectValue(TableS, i, j, Order) && (ObjRow != i) && (ObjCol != j))
+                            if (GetValue(ObjRow,ObjCol) >= GetValue(i,j) && (ObjRow != i) && (ObjCol != j))
                             {
                                 //Is not another object valuable.
                                 Is = 1;
@@ -2651,7 +2674,7 @@ namespace RefrigtzW
                     if (Support(Tab, i, j, ii, jj, a, Order))
                     {
                         //Calculate Local Support Huristic.
-                        HA += (Sign * (System.Math.Abs((GetObjectValueHuristic(Tab, ii, jj, Order) + GetObjectValueHuristic(Tab, i, j, Order)
+                        HA += (Sign * (System.Math.Abs((GetValue(ii,jj) + GetValue(i,j)
                         ))));
                         bool Supported = new bool();
                         Supported = false;
@@ -2683,13 +2706,13 @@ namespace RefrigtzW
                                     //When Enemy is Supported.
                                     bool A = new bool();
                                     A = Support(Tab, g, h, ii, jj, aaa, Order);
-                                    //bool B = (GetObjectValueHuristic(Table, i, j, Order) > GetObjectValueHuristic(Table, ii, jj, Order));
+                                    //bool B = (GetValue(i,j) > GetValue(ii,jj));
                                     //When Enemy is Supported.
                                     if (A)
                                     {
                                         //Assgine variable.
                                         Supported = true;
-                                        //HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Tab, g, h, Order) + GetObjectValueHuristic(Tab, ii, jj, Order))));
+                                        //HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Tab, g, h, Order) + GetValue(ii,jj))));
                                         return;
 
                                     }
@@ -2779,7 +2802,7 @@ namespace RefrigtzW
                         if (Support(Tab, i, j, ii, jj, a, Order))
                         {
                             //Calculate Local Support Huristic.
-                            HA += (Sign * (System.Math.Abs((GetObjectValueHuristic(Tab, ii, jj, Order) + GetObjectValueHuristic(Tab, i, j, Order)
+                            HA += (Sign * (System.Math.Abs((GetValue(ii,jj) + GetValue(i,j)
                             ))));
 
                             bool Supported = new bool();
@@ -2817,13 +2840,13 @@ namespace RefrigtzW
                                     {
                                         A = Support(Tab, g, h, ii, jj, aaa, Order);
                                     }
-                                    //bool B = (GetObjectValueHuristic(Table, i, j, Order) > GetObjectValueHuristic(Table, ii, jj, Order));
+                                    //bool B = (GetValue(i,j) > GetValue(ii,jj));
                                     //When Enemy is Supported.
                                     if (A)
                                     {
                                         //Assgine variable.
                                         Supported = true;
-                                        //HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Tab, g, h, Order) + GetObjectValueHuristic(Tab, ii, jj, Order))));
+                                        //HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Tab, g, h, Order) + GetValue(ii,jj))));
                                         return;
 
                                     }
@@ -4901,7 +4924,7 @@ namespace RefrigtzW
                     //When is Movable Movement inCurrent.
                     if (Movable(Table, ii, jj, i, j, a, Order))
                     {
-                        HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Table, ii, jj, Order) + GetObjectValueHuristic(Table, i, j, Order))));
+                        HA += (Sign * (System.Math.Abs(GetValue(ii,jj) + GetValue(i,j))));
                         bool Supported = false;
                         //For All Enemy Obejcts.                                             
                         Parallel.For(0, 8, g =>
@@ -4932,13 +4955,13 @@ namespace RefrigtzW
                                     bool A = new bool();
                                     A = Support(Table, g, h, i, j, aaa, Order * -1);
 
-                                    //bool B = (GetObjectValueHuristic(Table, i, j, Order) > GetObjectValueHuristic(Table, ii, jj, Order));
+                                    //bool B = (GetValue(i,j) > GetValue(ii,jj));
                                     //When Enemy is Supported.
                                     if (A)
                                     {
                                         //Assgine variable.
                                         Supported = true;
-                                        //HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Table, g, h, Order) + GetObjectValueHuristic(Table, i, j, Order))));
+                                        //HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Table, g, h, Order) + GetValue(i,j))));
                                         return;
 
                                     }
@@ -5024,7 +5047,7 @@ namespace RefrigtzW
                     //When is Movable Movement inCurrent.
                     if (Movable(Table, ii, jj, i, j, a, Order))
                     {
-                        HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Table, ii, jj, Order) + GetObjectValueHuristic(Table, i, j, Order))));
+                        HA += (Sign * (System.Math.Abs(GetValue(ii,jj) + GetValue(i,j))));
                         bool Supported = false;
                         //For All Enemy Obejcts.                                             
                         Parallel.For(0, 8, g =>
@@ -5055,13 +5078,13 @@ namespace RefrigtzW
                                 {
                                     A = Support(Table, g, h, i, j, aaa, Order * -1);
                                 }
-                                //bool B = (GetObjectValueHuristic(Table, i, j, Order) > GetObjectValueHuristic(Table, ii, jj, Order));
+                                //bool B = (GetValue(i,j) > GetValue(ii,jj));
                                 //When Enemy is Supported.
                                 if (A)
                                 {
                                     //Assgine variable.
                                     Supported = true;
-                                    //HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Table, g, h, Order) + GetObjectValueHuristic(Table, i, j, Order))));
+                                    //HA += (Sign * (System.Math.Abs(GetObjectValueHuristic(Table, g, h, Order) + GetValue(i,j))));
                                     return;
 
                                 }

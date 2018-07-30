@@ -654,7 +654,7 @@ namespace RefrigtzW
                     Draw.TableList.Clear();
                     Draw.TableList.Add(TableA);
                     Draw.SetRowColumn(0);
-                    if (!Draw.isEnemyThingsinStable(TableA, AllDraw.TableVeryfy, Order))
+                    if (!Draw.IsEnemyThingsinStable(TableA, AllDraw.TableVeryfy, Order))
                     {
                         Tab = null;
                         Tab[0, 0] = -1;

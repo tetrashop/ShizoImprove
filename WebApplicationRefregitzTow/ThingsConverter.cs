@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Drawing;
-namespace RefrigtzW
+namespace AStRefrigtzW
 {
-
+    [Serializable]
     public class ThingsConverter
     {
         //Initiate Global Variables.

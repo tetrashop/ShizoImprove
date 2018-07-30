@@ -21,8 +21,9 @@ using System.Drawing;
 using System.Threading;
 using System.Threading.Tasks;
 using System.IO;
-namespace RefrigtzW
+namespace AStRefrigtzW
 {
+    [Serializable]
     class ChessPerdict
     {
         //Initiate Global Variables. 

@@ -5,8 +5,9 @@ using System.Text;
 using System.Drawing;
 using System.IO;
 
-namespace RefrigtzW
+namespace AStRefrigtzW
 {
+    [Serializable]
     public class DrawSoldier : ThingsConverter
     {
         //Iniatate Global Variables.
