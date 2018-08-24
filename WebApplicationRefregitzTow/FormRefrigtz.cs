@@ -75,13 +75,14 @@ using System.Threading;
 using System.Data.OleDb;
 using System.Media;
 using System.IO;
-
+using GalleryStudio;
 
 [assembly: CLSCompliant(true)]
 
 
 namespace RefrigtzW
 {
+    [Serializable]
     //Constructor
     public partial class FormRefrigtz
     {
@@ -1413,7 +1414,8 @@ namespace RefrigtzW
                 Color a = Color.Gray;
                 if (OrderPlate == -1)
                     a = Color.Brown;
-                Draw.Initiate(1, 4, a, Table, OrderPlate, false,false);
+                int LeafAStarGrteedy = 0;
+                Draw.Initiate(1, 4, a, Table, OrderPlate, false, false, LeafAStarGrteedy);
                 //this.//SetBoxText("\r\nThinking Finished!");
                 try
                 {

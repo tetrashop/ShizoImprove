@@ -88,7 +88,7 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 using System.IO;
-namespace AStRefrigtzW
+namespace RefrigtzW
 {
     [Serializable]
     public class ChessRules

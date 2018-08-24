@@ -17877,7 +17877,7 @@ namespace RefrigtzDLL
                 Parallel.ForEach(TH, items => Task.WaitAny(items));
             }
             */
-            if (Order == -1)
+            if (Order == 1)
             {
                 //Index[0] = -1;
                 //Soldeir

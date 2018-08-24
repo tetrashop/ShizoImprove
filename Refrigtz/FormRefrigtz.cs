@@ -10417,6 +10417,32 @@ namespace Refrigtz
                 label2.Text = "You";
             }
 
+            RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+            bool FOUND = false;
+            Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+            if (FOUND)
+            {
+                Draw = THIS;
+                RefrigtzDLL.AllDraw.DrawTable = true;
+                SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
+                SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
+                SetBoxText("\r\nDraw Found");
+                RefreshBoxText();
+
+
+            }
+            else
+            {
+                Draw = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                Draw.TableList.Clear();
+                Draw.TableList.Add(Table);
+                Draw.SetRowColumn(0);
+                RefrigtzDLL.AllDraw.DepthIterative = 0;
+                SetBoxText("\r\nDraw Not Found");
+                RefreshBoxText();
+
+
+            }
 
             UpdateConfigurationTableVal = true;
             //UpdateConfigurationTable();
@@ -11075,6 +11101,33 @@ namespace Refrigtz
                 label1.Text = "Refregiz";
                 label2.Text = "You";                
             }
+            RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+            bool FOUND = false;
+            Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+            if (FOUND)
+            {
+                Draw = THIS;
+                RefrigtzDLL.AllDraw.DrawTable = true;
+                SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
+                SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
+                SetBoxText("\r\nDraw Found");
+                RefreshBoxText();
+
+
+            }
+            else
+            {
+                Draw = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                Draw.TableList.Clear();
+                Draw.TableList.Add(Table);
+                Draw.SetRowColumn(0);
+                RefrigtzDLL.AllDraw.DepthIterative = 0;
+                SetBoxText("\r\nDraw Not Found");
+                RefreshBoxText();
+
+
+            }
+
             UpdateConfigurationTableVal = true;
             UpdateConfigurationTable();
         }
@@ -11527,8 +11580,9 @@ namespace Refrigtz
             {
                 for (int i = 0; i < 8; i++)
                     for (int j = 0; j < 8; j++)
-                        Table[i, j] *= -1;              
-                Draw.SetRowColumn(0);
+                        Table[i, j] *= -1;
+                
+    
                 RefrigtzDLL.AllDraw.TableListAction.Clear();
                 RefrigtzDLL.AllDraw.TableListAction.Add(Table);
                 if (!ArrangmentsChanged)
@@ -11548,7 +11602,10 @@ namespace Refrigtz
                     Log(t);
                     InsertTableAtDataBase(Table);
                 }
+                Draw = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                Draw.SetRowColumn(0);
             }
+
             RefrigtzDLL.AllDraw.DrawTable = true;
             SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
             SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
@@ -11666,6 +11723,36 @@ namespace Refrigtz
             FullGame = true;
             Blitz = false;
             StateCC = true;
+            RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+            bool FOUND = false;
+            Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+            if (FOUND)
+            {
+                Draw = THIS;
+                RefrigtzDLL.AllDraw.DrawTable = true;
+                SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
+                SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
+                SetBoxText("\r\nDraw Found");
+                RefreshBoxText();
+
+
+            }
+            else
+            {
+                Draw = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                Draw.TableList.Clear();
+                Draw.TableList.Add(Table);
+                Draw.SetRowColumn(0);
+                RefrigtzDLL.AllDraw.DepthIterative = 0;
+                SetBoxText("\r\nDraw Not Found");
+                RefreshBoxText();
+
+
+            }
+
+            UpdateConfigurationTableVal = true;
+            UpdateConfigurationTable();
+
             //BobSection = true;
             //RefregitzisCurrent = false;
         }
@@ -11751,6 +11838,33 @@ namespace Refrigtz
                 label1.Text = "Refregiz";
                 label2.Text = "You";
             }
+            RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+            bool FOUND = false;
+            Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+            if (FOUND)
+            {
+                Draw = THIS;
+                RefrigtzDLL.AllDraw.DrawTable = true;
+                SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
+                SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
+                SetBoxText("\r\nDraw Found");
+                RefreshBoxText();
+
+
+            }
+            else
+            {
+                Draw = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                Draw.TableList.Clear();
+                Draw.TableList.Add(Table);
+                Draw.SetRowColumn(0);
+                RefrigtzDLL.AllDraw.DepthIterative = 0;
+                SetBoxText("\r\nDraw Not Found");
+                RefreshBoxText();
+
+
+            }
+
 
             UpdateConfigurationTableVal = true;
             UpdateConfigurationTable();
@@ -11800,6 +11914,32 @@ namespace Refrigtz
             {
                 label1.Text = "Refregiz";
                 label2.Text = "You";
+            }
+            RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+            bool FOUND = false;
+            Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+            if (FOUND)
+            {
+                Draw = THIS;
+                RefrigtzDLL.AllDraw.DrawTable = true;
+                SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
+                SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
+                SetBoxText("\r\nDraw Found");
+                RefreshBoxText();
+
+
+            }
+            else
+            {
+                Draw = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                Draw.TableList.Clear();
+                Draw.TableList.Add(Table);
+                Draw.SetRowColumn(0);
+                RefrigtzDLL.AllDraw.DepthIterative = 0;
+                SetBoxText("\r\nDraw Not Found");
+                RefreshBoxText();
+
+
             }
 
             //UpdateConfigurationTableVal = true;
@@ -11856,6 +11996,33 @@ namespace Refrigtz
                 label1.Text = "Refregiz";
                 label2.Text = "You";
             }
+            RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+            bool FOUND = false;
+            Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+            if (FOUND)
+            {
+                Draw = THIS;
+                RefrigtzDLL.AllDraw.DrawTable = true;
+                SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
+                SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
+                SetBoxText("\r\nDraw Found");
+                RefreshBoxText();
+
+
+            }
+            else
+            {
+                Draw = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                Draw.TableList.Clear();
+                Draw.TableList.Add(Table);
+                Draw.SetRowColumn(0);
+                RefrigtzDLL.AllDraw.DepthIterative = 0;
+                SetBoxText("\r\nDraw Not Found");
+                RefreshBoxText();
+
+
+            }
+
             //UpdateConfigurationTableVal = true;
             UpdateConfigurationTable();
 
@@ -11906,6 +12073,33 @@ namespace Refrigtz
                 label1.Text = "Refregiz";
                 label2.Text = "Refregiz";
             }
+            RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+            bool FOUND = false;
+            Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+            if (FOUND)
+            {
+                Draw = THIS;
+                RefrigtzDLL.AllDraw.DrawTable = true;
+                SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
+                SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
+                SetBoxText("\r\nDraw Found");
+                RefreshBoxText();
+
+
+            }
+            else
+            {
+                Draw = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                Draw.TableList.Clear();
+                Draw.TableList.Add(Table);
+                Draw.SetRowColumn(0);
+                RefrigtzDLL.AllDraw.DepthIterative = 0;
+                SetBoxText("\r\nDraw Not Found");
+                RefreshBoxText();
+
+
+            }
+
             UpdateConfigurationTableVal = true;
 
         }
@@ -11963,9 +12157,33 @@ namespace Refrigtz
             StateCC = true;
             //BobSection = true;
             UsePenaltyRegardMechnisam = false;
-            Draw = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-            Draw.TableList.Add(Table);
-            Draw.SetRowColumn(0);
+            RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+            bool FOUND = false;
+            Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+            if (FOUND)
+            {
+                Draw = THIS;
+                RefrigtzDLL.AllDraw.DrawTable = true;
+                SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
+                SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
+                SetBoxText("\r\nDraw Found");
+                RefreshBoxText();
+
+
+            }
+            else
+            {
+                Draw = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                Draw.TableList.Clear();
+                Draw.TableList.Add(Table);
+                Draw.SetRowColumn(0);
+                RefrigtzDLL.AllDraw.DepthIterative = 0;
+                SetBoxText("\r\nDraw Not Found");
+                RefreshBoxText();
+
+
+            }
+
         }
 
         private void toolStripMenuItem19_Click(object sender, EventArgs e)
@@ -12002,10 +12220,35 @@ namespace Refrigtz
             BobSection = true;
             if (!LoadTree)
             {
-                Draw = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-                Draw.TableList.Add(Table);
-                Draw.SetRowColumn(0);
+                RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                bool FOUND = false;
+                Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+                if (FOUND)
+                {
+                    Draw = THIS;
+                    RefrigtzDLL.AllDraw.DrawTable = true;
+                    SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
+                    SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
+                    SetBoxText("\r\nDraw Found");
+                    RefreshBoxText();
+
+
+                }
+                else
+                {
+                    Draw = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                    Draw.TableList.Clear();
+                    Draw.TableList.Add(Table);
+                    Draw.SetRowColumn(0);
+                    RefrigtzDLL.AllDraw.DepthIterative = 0;
+                    SetBoxText("\r\nDraw Not Found");
+                    RefreshBoxText();
+
+
+                }
             }
+            UpdateConfigurationTableVal = true;
+            UpdateConfigurationTable();
 
         }
 

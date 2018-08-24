@@ -21,7 +21,7 @@ using System.Drawing;
 using System.Threading;
 using System.Threading.Tasks;
 using System.IO;
-namespace AStRefrigtzW
+namespace RefrigtzW
 {
     [Serializable]
     class ChessPerdict

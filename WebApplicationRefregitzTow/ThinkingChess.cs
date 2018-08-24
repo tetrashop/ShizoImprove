@@ -74,7 +74,7 @@ using System.IO;
 using System.Threading.Tasks;
 
 
-namespace AStRefrigtzW
+namespace RefrigtzW
 {
     [Serializable]
     public class ThinkingChess
@@ -1707,9 +1707,7 @@ namespace AStRefrigtzW
             int[,] Table, int Order, int i, int j, int ii, int jj//,int iii,int jjj,int iiii,int jjjj
             )
         {
-            //int AttackCount = 0;
-            bool IsNotSafeToMoveAenemeyToAttackMoreThanTowObjectV = false;
-
+            
             //For All Enemie
             //for (int i = 0; i < 8; i++)
             Object O1 = new Object();
@@ -2057,7 +2055,6 @@ namespace AStRefrigtzW
                 int Ord = Order;
                 bool SelfSupported = false;
                 bool InAttackedNotSelfSupported = false;
-                int IsObjDangerest = 0;
                 bool S = true;
 
                 //int i = ii, j = jj;
@@ -2207,7 +2204,7 @@ namespace AStRefrigtzW
             int Ord = Order;
             bool SelfSupported = false;
             bool InAttackedNotSelfSupported = false;
-            int IsObjDangerest = 0;
+            
             bool S = true;
             //int i = ii, j = jj;
             //For Self
@@ -3719,7 +3716,6 @@ namespace AStRefrigtzW
                                    int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
                                    bool KindCheckedSelf1 = KindCheckedSelf;
                                    int[] IS = null;
-                                   bool A = new bool();
                                    Object O = new Object();
                                    lock (O)
                                    {
@@ -3755,7 +3751,6 @@ namespace AStRefrigtzW
                                 int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
                                 bool KindCheckedSelf1 = KindCheckedSelf;
                                 int[] IS = null;
-                                bool A = new bool();
                                 Object O = new Object();
                                 lock (O)
                                 {
@@ -3790,7 +3785,6 @@ namespace AStRefrigtzW
                                 int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
                                 bool KindCheckedSelf1 = KindCheckedSelf;
                                 int[] IS = null;
-                                bool A = new bool();
                                 Object O = new Object();
                                 lock (O)
                                 {
@@ -3821,7 +3815,6 @@ namespace AStRefrigtzW
                                    int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
                                    bool KindCheckedSelf1 = KindCheckedSelf;
                                    int[] IS = null;
-                                   bool A = new bool();
                                    Object O = new Object();
                                    lock (O)
                                    {
@@ -3855,7 +3848,6 @@ namespace AStRefrigtzW
                                 int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
                                 bool KindCheckedSelf1 = KindCheckedSelf;
                                 int[] IS = null;
-                                bool A = new bool();
                                 Object O = new Object();
                                 lock (O)
                                 {
@@ -3889,7 +3881,6 @@ namespace AStRefrigtzW
                                 int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
                                 bool KindCheckedSelf1 = KindCheckedSelf;
                                 int[] IS = null;
-                                bool A = new bool();
                                 Object O = new Object();
                                 lock (O)
                                 {
@@ -3924,7 +3915,6 @@ namespace AStRefrigtzW
                                    int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
                                    bool KindCheckedSelf1 = KindCheckedSelf;
                                    int[] IS = null;
-                                   bool A = new bool();
                                    Object O = new Object();
                                    lock (O)
                                    {
@@ -3967,7 +3957,6 @@ namespace AStRefrigtzW
                                     int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
                                     bool KindCheckedSelf1 = KindCheckedSelf;
                                     int[] IS = null;
-                                    bool A = new bool();
                                     Object O = new Object();
                                     lock (O)
                                     {
@@ -4218,7 +4207,6 @@ namespace AStRefrigtzW
         public double HuristicCheckAndCheckMate(int[,] Table, Color a//, ref double HuristicObjectDangourCheckMateValue
             )
         {
-            double HuristicObjectDangourCheckMateValue = 0;
             double HA = 0;
             //int DumOrder = AllDraw.OrderPlate;
             int DummyOrder = AllDraw.OrderPlate;
@@ -6032,11 +6020,11 @@ namespace AStRefrigtzW
 
 
         }
-        public double ReturnHuristicCalculartor(int iAstarGready, int ii, int j, int Order)
+               public double ReturnHuristicCalculartor(int iAstarGready, int ii, int j, int Order)
         {
             if (iAstarGready > AllDraw.MaxAStarGreedy)
                 return 0;
-
+            SetObjectNumbers(TableConst);
             //NumbersOfCurrentBranchesPenalties = 0;
             double Huristic = 0; ;
             int[] iIndex = { -1, -1, -1, -1, -1, -1 }, mIndex = { -1, -1, -1, -1, -1, -1 }, jIndex = { -1, -1, -1, -1, -1, -1 }, Kin = { -1, -1, -1, -1, -1, -1 };
