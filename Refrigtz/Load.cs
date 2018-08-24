@@ -216,7 +216,7 @@ namespace Refrigtz
         {
             do
             {
-                System.Threading.Thread.Sleep(1000);
+                System.Threading.Thread.Sleep(10);
             } while (!FormRefrigtz.LoadedTable);
 
             SetLoadVisible();

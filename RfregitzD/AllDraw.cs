@@ -406,6 +406,36 @@ namespace RefrigtzDLL
                     }
                 }
         }
+        float[] FoundLocationOfObject(ref int[,] Tabl, int Kind, bool IsGray)
+        {
+            float[] Location = { -1, -1 };
+            for (int i = 0; i < 8; i++)
+                for (int j = 0; j < 8; j++)
+                {
+                    if (IsGray)
+                    {
+                        if (Tabl[i, j] == Kind)
+                        {
+                            Location[0] = i;
+                            Location[1] = j;
+                            Tabl[i, j] = 0;
+
+                        }
+                    }
+                    else
+                    {
+                        if (Tabl[i, j] * -1 == Kind)
+                        {
+                            Location[0] = i;
+                            Location[1] = j;
+                            Tabl[i, j] = 0;
+
+                        }
+                    }
+
+                }
+            return Location;
+        }
         //Constructor
         public AllDraw(bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments//, ref AllDraw. th
             )
@@ -420,7 +450,7 @@ namespace RefrigtzDLL
             OnlySelfT = OnlySel;
             AStarGreedyHuristicT = AStarGreedyHuris;
             ArrangmentsChanged = Arrangments;
-             FoundATable = false;
+            FoundATable = false;
             CastlesKing = false;
             increasedProgress = 0;
             CurrentHuristic = Double.MinValue;
@@ -496,29 +526,133 @@ namespace RefrigtzDLL
             MaxHuristicAStarGreedytBackWard.Clear();
 
             //Initiayte Locally Variables.
-             TableList = new List<int[,]>();
+            TableList = new List<int[,]>();
             APredict = new ChessPerdict(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged//, ref th
                 );
+            if (TableList.Count > 0)
+            {
+                Color A = Color.Gray;
+                int[,] Tab = new int[8, 8];
+                for (int g = 0; g < 8; g++)
+                    for (int k = 0; k < 8; k++)
+                        Tab[g, k] = TableList[0][g, k];
+                int[,] Tabl = new int[8, 8];
+                for (int g = 0; g < 8; g++)
+                    for (int k = 0; k < 8; k++)
+                        Tabl[g, k] = TableList[0][g, k];
+                int Order = OrderP;
+                bool TB = false;
 
-            SolderesOnTable = new DrawSoldier[SodierHigh];
-            for (int i = 0; i < SodierHigh; i++)
-                SolderesOnTable[i] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
-            ElephantOnTable = new DrawElefant[ElefantHigh];
-            for (int i = 0; i < ElefantHigh; i++)
-                ElephantOnTable[i] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
-            HoursesOnTable = new DrawHourse[HourseHight];
-            for (int i = 0; i < HourseHight; i++)
-                HoursesOnTable[i] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
-            CastlesOnTable = new DrawCastle[CastleHigh];
-            for (int i = 0; i < CastleHigh; i++)
-                CastlesOnTable[i] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
-            MinisterOnTable = new DrawMinister[MinisterHigh];
-            for (int i = 0; i < MinisterHigh; i++)
-                MinisterOnTable[i] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
-            KingOnTable = new DrawKing[KingHigh];
-            for (int i = 0; i < KingHigh; i++)
-                KingOnTable[i] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
+                SolderesOnTable = new DrawSoldier[SodierHigh];
+                for (int i = 0; i < SodierHigh; i++)
+                {
+                    float[] Location = null;
+                    if (i <= SodierMidle)
+                    {
+                        Order = 1;
+                        A = Color.Gray;
+                        Location = FoundLocationOfObject(ref Tabl, 1, true);
+                    }
+                    else
+                    {
+                        Order = -1;
+                        A = Color.Brown;
+                        Location = FoundLocationOfObject(ref Tabl, -1, false);
+                    }
+                    SolderesOnTable[i] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Location[0], Location[1], A, Tab, Order, TB, i);
+                }
+                ElephantOnTable = new DrawElefant[ElefantHigh];
+                for (int i = 0; i < ElefantHigh; i++)
+                {
+                    float[] Location = null;
+                    if (i <= ElefantMidle)
+                    {
+                        Order = 1;
+                        A = Color.Gray;
+                        Location = FoundLocationOfObject(ref Tabl, 1, true);
+                    }
+                    else
+                    {
+                        Order = -1;
+                        A = Color.Brown;
+                        Location = FoundLocationOfObject(ref Tabl, -1, false);
+                    }
+                    ElephantOnTable[i] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Location[0], Location[1], A, Tab, Order, TB, i);
+                }
+                HoursesOnTable = new DrawHourse[HourseHight];
+                for (int i = 0; i < HourseHight; i++)
+                {
+                    float[] Location = null;
+                    if (i <= HourseMidle)
+                    {
+                        Order = 1;
+                        A = Color.Gray;
+                        Location = FoundLocationOfObject(ref Tabl, 1, true);
+                    }
+                    else
+                    {
+                        A = Color.Brown;
+                        Location = FoundLocationOfObject(ref Tabl, -1, false);
+                        Order = -1;
+                    }
+                    HoursesOnTable[i] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Location[0], Location[1], A, Tab, Order, TB, i);
+                }
+                CastlesOnTable = new DrawCastle[CastleHigh];
+                for (int i = 0; i < CastleHigh; i++)
+                {
+                    float[] Location = null;
+                    if (i <= CastleMidle)
+                    {
+                        Order = 1;
+                        A = Color.Gray;
+                        Location = FoundLocationOfObject(ref Tabl, 1, true);
+                    }
+                    else
+                    {
+                        A = Color.Brown;
+                        Location = FoundLocationOfObject(ref Tabl, -1, false);
+                        Order = -1;
+                    }
+                    CastlesOnTable[i] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Location[0], Location[1], A, Tab, Order, TB, i);
+                }
+                MinisterOnTable = new DrawMinister[MinisterHigh];
+                for (int i = 0; i < MinisterHigh; i++)
+                {
+                    float[] Location = null;
+                    if (i <= MinisterMidle)
+                    {
+                        Order = 1;
+                        A = Color.Gray;
+                        Location = FoundLocationOfObject(ref Tabl, 1, true);
+                    }
+                    else
+                    {
+                        Order = -1;
+                        A = Color.Brown;
+                        Location = FoundLocationOfObject(ref Tabl, -1, false);
+                    }
+                    MinisterOnTable[i] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Location[0], Location[1], A, Tab, Order, TB, i);
+                }
+                KingOnTable = new DrawKing[KingHigh];
+                for (int i = 0; i < KingHigh; i++)
+                {
+                    float[] Location = null;
+                    if (i <= KingMidle)
+                    {
+                        Order = 1;
+                        A = Color.Gray;
+                        Location = FoundLocationOfObject(ref Tabl, 1, true);
+                    }
+                    else
+                    {
+                        Order = -1;
+                        A = Color.Brown;
+                        Location = FoundLocationOfObject(ref Tabl, -1, false);
+                    }
+                    KingOnTable[i] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Location[0], Location[1], A, Tab, Order, TB, i);
+                }
 
+            }
         }
         //Clone Copy Method
         public void Clone(AllDraw AA)
@@ -750,25 +884,126 @@ namespace RefrigtzDLL
             MinisterOnTable = null;
             KingOnTable = null;
 
+            Color A = Color.Gray;
+            int[,] Tab = new int[8, 8];
+            for (int g = 0; g < 8; g++)
+                for (int k = 0; k < 8; k++)
+                    Tab[g, k] = TableList[0][g, k];
+            int[,] Tabl = new int[8, 8];
+            for (int g = 0; g < 8; g++)
+                for (int k = 0; k < 8; k++)
+                    Tabl[g, k] = TableList[0][g, k];
+            int Order = OrderP;
+            bool TB = false;
+
             SolderesOnTable = new DrawSoldier[SodierHigh];
             for (int i = 0; i < SodierHigh; i++)
-                SolderesOnTable[i] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
+            {
+                float[] Location = null;
+                if (i <= SodierMidle)
+                {
+                    Order = 1;
+                    A = Color.Gray;
+                    Location = FoundLocationOfObject(ref Tabl, 1, true);
+                }
+                else
+                {
+                    Order = -1;
+                    A = Color.Brown;
+                    Location = FoundLocationOfObject(ref Tabl, -1, false);
+                }
+                SolderesOnTable[i] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Location[0], Location[1], A, Tab, Order, TB, i);
+            }
             ElephantOnTable = new DrawElefant[ElefantHigh];
             for (int i = 0; i < ElefantHigh; i++)
-                ElephantOnTable[i] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
+            {
+                float[] Location = null;
+                if (i <= ElefantMidle)
+                {
+                    Order = 1;
+                    A = Color.Gray;
+                    Location = FoundLocationOfObject(ref Tabl, 1, true);
+                }
+                else
+                {
+                    Order = -1;
+                    A = Color.Brown;
+                    Location = FoundLocationOfObject(ref Tabl, -1, false);
+                }
+                ElephantOnTable[i] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Location[0], Location[1], A, Tab, Order, TB, i);
+            }
             HoursesOnTable = new DrawHourse[HourseHight];
             for (int i = 0; i < HourseHight; i++)
-                HoursesOnTable[i] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
+            {
+                float[] Location = null;
+                if (i <= HourseMidle)
+                {
+                    Order = 1;
+                    A = Color.Gray;
+                    Location = FoundLocationOfObject(ref Tabl, 1, true);
+                }
+                else
+                {
+                    A = Color.Brown;
+                    Location = FoundLocationOfObject(ref Tabl, -1, false);
+                    Order = -1;
+                }
+                HoursesOnTable[i] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Location[0], Location[1], A, Tab, Order, TB, i);
+            }
             CastlesOnTable = new DrawCastle[CastleHigh];
             for (int i = 0; i < CastleHigh; i++)
-                CastlesOnTable[i] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
+            {
+                float[] Location = null;
+                if (i <= CastleMidle)
+                {
+                    Order = 1;
+                    A = Color.Gray;
+                    Location = FoundLocationOfObject(ref Tabl, 1, true);
+                }
+                else
+                {
+                    A = Color.Brown;
+                    Location = FoundLocationOfObject(ref Tabl, -1, false);
+                    Order = -1;
+                }
+                CastlesOnTable[i] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Location[0], Location[1], A, Tab, Order, TB, i);
+            }
             MinisterOnTable = new DrawMinister[MinisterHigh];
             for (int i = 0; i < MinisterHigh; i++)
-                MinisterOnTable[i] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
+            {
+                float[] Location = null;
+                if (i <= MinisterMidle)
+                {
+                    Order = 1;
+                    A = Color.Gray;
+                    Location = FoundLocationOfObject(ref Tabl, 1, true);
+                }
+                else
+                {
+                    Order = -1;
+                    A = Color.Brown;
+                    Location = FoundLocationOfObject(ref Tabl, -1, false);
+                }
+                MinisterOnTable[i] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Location[0], Location[1], A, Tab, Order, TB, i);
+            }
             KingOnTable = new DrawKing[KingHigh];
             for (int i = 0; i < KingHigh; i++)
-                KingOnTable[i] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
-
+            {
+                float[] Location = null;
+                if (i <= KingMidle)
+                {
+                    Order = 1;
+                    A = Color.Gray;
+                    Location = FoundLocationOfObject(ref Tabl, 1, true);
+                }
+                else
+                {
+                    Order = -1;
+                    A = Color.Brown;
+                    Location = FoundLocationOfObject(ref Tabl, -1, false);
+                }
+                KingOnTable[i] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Location[0], Location[1], A, Tab, Order, TB, i);
+            }
             MaxDuringLevelThinkingCreation = System.Convert.ToInt32(AllDraw.THIScomboBoxMaxLevelText);
 
 

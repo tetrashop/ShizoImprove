@@ -60,6 +60,7 @@
  * Calling of All Events From Pressing a Single Button.Mal Function of Database Leading.******CU*****0.88**1**Risk Control************************<*>QC_OK
  * Proccess Calling of Stockfish8 not run Comlpetely.*********************************************************************************************(*)QC_OK
  * Can not Send Arguments via Foriegn Sites Studies. Problem Misleading.**************************************************************************(*)QC_OK
+ * Serialization and Deserialization Wrong Config vars conflict.**********************************************************************************)
  * ***********************************************************************************************************
  * ***********************************************************************************************************
  */
@@ -303,11 +304,18 @@ namespace Refrigtz
                     RefrigtzDLL.AllDraw.TableVeryfy[i, j] = Table[i, j];
                     RefrigtzDLL.AllDraw.TableVeryfyConst[i, j] = Table[i, j];
                 }
+            Draw.SolderesOnTable = new RefrigtzDLL.DrawSoldier[16];
+            Draw.ElephantOnTable= new RefrigtzDLL.DrawElefant[4];
+            Draw.HoursesOnTable = new RefrigtzDLL.DrawHourse[4];
+            Draw.CastlesOnTable = new RefrigtzDLL.DrawCastle[4];
+            Draw.MinisterOnTable = new RefrigtzDLL.DrawMinister[2];
+            Draw.KingOnTable = new RefrigtzDLL.DrawKing[2];
+            
             if (!AllDrawLoad)
             {
                 RefrigtzDLL.AllDraw.TableListAction.Add(Table);
             }
-            for (int i = 0; i < 8; i++)
+             for (int i = 0; i < 8; i++)
             {
                 Draw.SolderesOnTable[i] = new RefrigtzDLL.DrawSoldier(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, i, 1, Color.Gray, Table, 1, false, i);
             }
@@ -1705,7 +1713,7 @@ namespace Refrigtz
                 }
 
 
-            } while (MoveNumber < MovmentsNumberMax);
+            } while (MoveNumber < MovmentsNumberMax - 1);
             return Tab;
 
 
@@ -8383,7 +8391,7 @@ namespace Refrigtz
         //The State of Alice with Person Thinking.
         void AliceWithPerson()
         {
-
+            int[,] TableC = new int[8, 8];
             RefrigtzDLL.ThinkingChess.ThinkingRun = true;
             PaintedPaused = true;
             try
@@ -8443,6 +8451,9 @@ namespace Refrigtz
                 try
                 {
                     Table = Draw.TableList[0];
+                    for (int i = 0; i < 8; i++)
+                        for (int j = 0; j < 8; j++)
+                            TableC[i, j] = Draw.TableList[0][i, j];
                     if (!TableZero(Table))
                     {
                         if (!SettingPRFALSE)
@@ -8525,7 +8536,7 @@ namespace Refrigtz
                  }
                  */
                 FOUND = false;
-                Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+                Draw.FoundOfCurrentTableNode(TableC, OrderPlate, ref THIS, ref FOUND);
                 if (FOUND)
                 {
                 
@@ -8539,11 +8550,11 @@ namespace Refrigtz
                 }
                 else
                 {
-                    RefrigtzDLL.AllDraw.TableListAction.Add(TableCon);
+                    RefrigtzDLL.AllDraw.TableListAction.Add(TableC);
                     OrderPlate = OrderPlate * -1;
                     Draw = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                     Draw.TableList.Clear();
-                    Draw.TableList.Add(TableCon);
+                    Draw.TableList.Add(TableC);
                     Draw.SetRowColumn(0);
                     RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                     RefrigtzDLL.AllDraw.DepthIterative = 0;
@@ -8635,6 +8646,7 @@ namespace Refrigtz
         //The State of Bob with Person Thinking.
         void BobWithPerson()
         {
+            int[,] TableC = new int[8, 8];
             LoadConvertedTable = false;
             RefrigtzDLL.ThinkingChess.ThinkingRun = true;
             try
@@ -8690,6 +8702,9 @@ namespace Refrigtz
                 try
                 {
                     Table = Draw.TableList[0];
+                    for (int i = 0; i < 8; i++)
+                        for (int j = 0; j < 8; j++)
+                            TableC[i, j] = Draw.TableList[0][i, j];
                     if (!TableZero(Table))
                     {
                         if (!SettingPRFALSE)
@@ -8746,7 +8761,7 @@ namespace Refrigtz
                 for (int i = 0; i < 8; i++)
                     for (int j = 0; j < 8; j++)
                         TableCon[i, j] = Table[i, j];
-                Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+                Draw.FoundOfCurrentTableNode(TableC, OrderPlate, ref THIS, ref FOUND);
                 if (FOUND)
                 {
 
@@ -8762,7 +8777,7 @@ namespace Refrigtz
                 {
                     Draw = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                     Draw.TableList.Clear();
-                    Draw.TableList.Add(TableCon);
+                    Draw.TableList.Add(TableC);
                     Draw.SetRowColumn(0);
                     RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                     RefrigtzDLL.AllDraw.DepthIterative = 0;
@@ -8897,6 +8912,7 @@ namespace Refrigtz
         //Alice Section of Computer by Computer Thinking.
         void AliceAction()
         {
+            int[,] TableC = new int[8, 8];
             RefrigtzDLL.ThinkingChess.ThinkingRun = true;
         Begin4:
             LoadConvertedTable = false;
@@ -8955,6 +8971,10 @@ namespace Refrigtz
             try
             {
                 Table = Draw.TableList[0];
+                
+                for (int i = 0; i < 8; i++)
+                    for (int j = 0; j < 8; j++)
+                        TableC[i, j] = Draw.TableList[0][i, j];
                 if (!TableZero(Table))
                 {
                     checkBoxUsePenaltyRegradMechnisam.Checked = false;
@@ -8997,7 +9017,7 @@ namespace Refrigtz
             for (int i = 0; i < 8; i++)
                 for (int j = 0; j < 8; j++)
                     TableCon[i, j] = Table[i, j];
-            Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+            Draw.FoundOfCurrentTableNode(TableC, OrderPlate, ref THIS, ref FOUND);
           
             if (FOUND)
             {
@@ -9012,11 +9032,11 @@ namespace Refrigtz
             }
             else
             {
-                RefrigtzDLL.AllDraw.TableListAction.Add(TableCon);
+                RefrigtzDLL.AllDraw.TableListAction.Add(TableC);
                 OrderPlate = OrderPlate * -1;
                 Draw = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                 Draw.TableList.Clear();
-                Draw.TableList.Add(TableCon);
+                Draw.TableList.Add(TableC);
                 Draw.SetRowColumn(0);
                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                 RefrigtzDLL.AllDraw.DepthIterative = 0;
@@ -9205,6 +9225,7 @@ namespace Refrigtz
         //Bob Section of Computer By Computer Thinking.
         void BobAction()
         {
+            int[,] TableC = new int[8, 8];
             LoadConvertedTable = false;
 
             RefrigtzDLL.ThinkingChess.ThinkingRun = true;
@@ -9269,6 +9290,9 @@ namespace Refrigtz
             try
             {
                 Table = Draw.TableList[0];
+                for (int i = 0; i < 8; i++)
+                    for (int j = 0; j < 8; j++)
+                        TableC[i, j] = Draw.TableList[0][i, j];
                 if (!TableZero(Table))
                 {
                      checkBoxUsePenaltyRegradMechnisam.Checked = false;
@@ -9313,7 +9337,7 @@ namespace Refrigtz
                     TableCon[i, j] = Table[i, j];
             RefrigtzDLL.AllDraw.TableListAction.Add(TableCon);
             FOUND = false;
-            Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+            Draw.FoundOfCurrentTableNode(TableC, OrderPlate, ref THIS, ref FOUND);
             if (FOUND)
             {
 
@@ -9329,7 +9353,7 @@ namespace Refrigtz
                 
                 Draw = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                 Draw.TableList.Clear();
-                Draw.TableList.Add(TableCon);
+                Draw.TableList.Add(TableC);
                 Draw.SetRowColumn(0);
                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                 RefrigtzDLL.AllDraw.DepthIterative = 0;
@@ -11581,15 +11605,15 @@ namespace Refrigtz
                 for (int i = 0; i < 8; i++)
                     for (int j = 0; j < 8; j++)
                         Table[i, j] *= -1;
-                
-    
+
+
                 RefrigtzDLL.AllDraw.TableListAction.Clear();
                 RefrigtzDLL.AllDraw.TableListAction.Add(Table);
-                if (!ArrangmentsChanged)
-                {
-                    if (Table[0, 0] < 0)
-                        ArrangmentsChanged = true;
-                }
+                ArrangmentsChanged = !ArrangmentsChanged;
+                Draw = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                Draw.TableList.Clear();
+                Draw.TableList.Add(Table);
+                Draw.SetRowColumn(0);
                 UpdateConfigurationTableVal = true;
                 //UpdateConfigurationTable();
 
@@ -11602,9 +11626,7 @@ namespace Refrigtz
                     Log(t);
                     InsertTableAtDataBase(Table);
                 }
-                Draw = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-                Draw.SetRowColumn(0);
-            }
+                }
 
             RefrigtzDLL.AllDraw.DrawTable = true;
             SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
