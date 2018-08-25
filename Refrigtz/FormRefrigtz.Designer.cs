@@ -1055,19 +1055,24 @@ namespace Refrigtz
             // pictureBoxTimerBrown
             // 
             this.pictureBoxTimerBrown.ErrorImage = global::Refrigtz.Properties.Resources.Brown;
-            this.pictureBoxTimerBrown.Location = new System.Drawing.Point(784, 38);
+            this.pictureBoxTimerBrown.Image = global::Refrigtz.Properties.Resources.Brown;
+            this.pictureBoxTimerBrown.Location = new System.Drawing.Point(801, 39);
             this.pictureBoxTimerBrown.Name = "pictureBoxTimerBrown";
-            this.pictureBoxTimerBrown.Size = new System.Drawing.Size(114, 66);
+            this.pictureBoxTimerBrown.Size = new System.Drawing.Size(192, 66);
+            this.pictureBoxTimerBrown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxTimerBrown.TabIndex = 8;
             this.pictureBoxTimerBrown.TabStop = false;
+            this.pictureBoxTimerBrown.Click += new System.EventHandler(this.pictureBoxTimerBrown_Click);
             this.pictureBoxTimerBrown.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxTimerBrown_Paint);
             // 
             // pictureBoxTimerGray
             // 
             this.pictureBoxTimerGray.ErrorImage = global::Refrigtz.Properties.Resources.Gray;
-            this.pictureBoxTimerGray.Location = new System.Drawing.Point(613, 38);
+            this.pictureBoxTimerGray.Image = global::Refrigtz.Properties.Resources.Gray;
+            this.pictureBoxTimerGray.Location = new System.Drawing.Point(595, 38);
             this.pictureBoxTimerGray.Name = "pictureBoxTimerGray";
-            this.pictureBoxTimerGray.Size = new System.Drawing.Size(104, 66);
+            this.pictureBoxTimerGray.Size = new System.Drawing.Size(193, 66);
+            this.pictureBoxTimerGray.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxTimerGray.TabIndex = 7;
             this.pictureBoxTimerGray.TabStop = false;
             this.pictureBoxTimerGray.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxTimerGray_Paint);
@@ -1254,7 +1259,7 @@ namespace Refrigtz
             // 
             // pictureBoxRefrigtz
             // 
-            this.pictureBoxRefrigtz.Location = new System.Drawing.Point(3, 43);
+            this.pictureBoxRefrigtz.Location = new System.Drawing.Point(0, 38);
             this.pictureBoxRefrigtz.Name = "pictureBoxRefrigtz";
             this.pictureBoxRefrigtz.Size = new System.Drawing.Size(574, 508);
             this.pictureBoxRefrigtz.TabIndex = 0;

@@ -77,7 +77,7 @@ namespace GalleryStudio
 
         }
         //async 
-        void RewriteAllDrawRec(BinaryFormatter Formatters, FileStream DummyFileStream, AllDraw Current, int Order)
+        void RewriteAllDrawRec(BinaryFormatter Formatters, FileStream DummyFileStream, int Order)
         {
             Object o = new Object();
             lock (o)
@@ -449,7 +449,7 @@ namespace GalleryStudio
 
             return t;
         }
-        public void RewriteAllDraw(RefregizMemmory p,int Order)
+        public void RewriteAllDraw(int Order)
         {
             Object oo = new Object();
             lock (oo)
@@ -470,7 +470,7 @@ namespace GalleryStudio
                     DummyFileStream.Seek(0, SeekOrigin.Begin);
 
                     //Formatters.Serialize(DummyFileStream, t);
-                    p.RewriteAllDrawRec(Formatters, DummyFileStream, p.AllDrawCurrentAccess, Order);
+                    RewriteAllDrawRec(Formatters, DummyFileStream, Order);
 
 
                     DummyFileStream.Flush(); DummyFileStream.Close();
@@ -485,7 +485,7 @@ namespace GalleryStudio
                 }
             }
         }
-        public AllDraw Load(int Order, GalleryStudio.RefregizMemmory Last)
+        public AllDraw Load(int Order)
         {
             Object o = new Object();
             lock (o)
@@ -503,13 +503,10 @@ namespace GalleryStudio
                 {
                     FileStream DummyFileStream = new FileStream(SAllDraw, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.ReadWrite);
                     BinaryFormatter Formatters = new BinaryFormatter();
-                    RefregizMemmory Dummy = new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT);
-
+                 
                     Console.WriteLine("Loading...");
                     DummyFileStream.Seek(0, SeekOrigin.Begin);
-                    if (Last == null)
-                       Last = new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT);
-                    t = Last.LoadrEC(Order, Last, DummyFileStream, Formatters);
+                    t = LoadrEC(Order, this, DummyFileStream, Formatters);
 
                     DummyFileStream.Flush();
                     DummyFileStream.Close();
@@ -521,7 +518,7 @@ namespace GalleryStudio
         }
         public AllDraw LoadrEC(int Order, GalleryStudio.RefregizMemmory Last, FileStream DummyFileStream, BinaryFormatter Formatters)
         {
-            RefregizMemmory Dummy = new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT);
+            RefregizMemmory Dummy = null;
             Object o = new Object();
             lock (o)
             {

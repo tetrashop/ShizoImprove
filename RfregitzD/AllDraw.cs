@@ -529,7 +529,7 @@ namespace RefrigtzDLL
             TableList = new List<int[,]>();
             APredict = new ChessPerdict(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged//, ref th
                 );
-            if (TableList.Count > 0)
+            /*if (TableList.Count > 0)
             {
                 Color A = Color.Gray;
                 int[,] Tab = new int[8, 8];
@@ -652,7 +652,7 @@ namespace RefrigtzDLL
                     KingOnTable[i] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Location[0], Location[1], A, Tab, Order, TB, i);
                 }
 
-            }
+            }*/
         }
         //Clone Copy Method
         public void Clone(AllDraw AA)
@@ -664,7 +664,10 @@ namespace RefrigtzDLL
 
 
                 if (AA == null)
+                {
                     AA = new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
+                    AA.TableList.Add(TableList[0]);
+                }
                 AA.Tabl = new int[8, 8];
                 for (int i = 0; i < 8; i++)
                     for (int j = 0; j < 8; j++)
@@ -884,7 +887,7 @@ namespace RefrigtzDLL
             MinisterOnTable = null;
             KingOnTable = null;
 
-            Color A = Color.Gray;
+            /*Color A = Color.Gray;
             int[,] Tab = new int[8, 8];
             for (int g = 0; g < 8; g++)
                 for (int k = 0; k < 8; k++)
@@ -1004,6 +1007,7 @@ namespace RefrigtzDLL
                 }
                 KingOnTable[i] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Location[0], Location[1], A, Tab, Order, TB, i);
             }
+            */
             MaxDuringLevelThinkingCreation = System.Convert.ToInt32(AllDraw.THIScomboBoxMaxLevelText);
 
 
@@ -1120,6 +1124,7 @@ namespace RefrigtzDLL
                                             SodierMidle++;
                                             SodierHigh++;
                                         }
+                                       
 
                                     }
                                     catch (Exception t)
@@ -3221,7 +3226,7 @@ namespace RefrigtzDLL
         {
             if (Found)
                 return THIS;
-            if (ThinkingChess.TableEqual(TableListAction[TableListAction.Count - 1], Tab))
+            if (TableList.Count > 0 && ThinkingChess.TableEqual(TableList[0], Tab))
             {
                 THIS = this;
                 Found = true;
@@ -3239,7 +3244,7 @@ namespace RefrigtzDLL
                         {
                             if (ThinkingChess.TableEqual(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j], Tab))
                             {
-                                THIS = SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j];
+                                THIS = this;
                                 Found = true;
                                 return THIS;
                             }
@@ -3262,7 +3267,7 @@ namespace RefrigtzDLL
 
                             if (ThinkingChess.TableEqual(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j], Tab))
                             {
-                                THIS = ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j];
+                                THIS = this;
                                 Found = true;
                                 return THIS;
                             }
@@ -3284,7 +3289,7 @@ namespace RefrigtzDLL
                         {
                             if (ThinkingChess.TableEqual(HoursesOnTable[i].HourseThinking[0].TableListHourse[j], Tab))
                             {
-                                THIS = HoursesOnTable[i].HourseThinking[0].AStarGreedy[j];
+                                THIS = this;
                                 Found = true;
                                 return THIS;
                             }
@@ -3307,7 +3312,7 @@ namespace RefrigtzDLL
                         {
                             if (ThinkingChess.TableEqual(CastlesOnTable[i].CastleThinking[0].TableListCastle[j], Tab))
                             {
-                                THIS = CastlesOnTable[i].CastleThinking[0].AStarGreedy[j];
+                                THIS = this;
                                 Found = true;
                                 return THIS;
                             }
@@ -3328,7 +3333,7 @@ namespace RefrigtzDLL
                         {
                             if (ThinkingChess.TableEqual(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j], Tab))
                             {
-                                THIS = MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j];
+                                THIS = this;
                                 Found = true;
                                 return THIS;
                             }
@@ -3350,7 +3355,7 @@ namespace RefrigtzDLL
                         {
                             if (ThinkingChess.TableEqual(KingOnTable[i].KingThinking[0].TableListKing[j], Tab))
                             {
-                                THIS = KingOnTable[i].KingThinking[0].AStarGreedy[j];
+                                THIS = this;
                                 Found = true;
                                 return THIS;
                             }
@@ -3376,7 +3381,7 @@ namespace RefrigtzDLL
 
                             if (ThinkingChess.TableEqual(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j], Tab))
                             {
-                                THIS = SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j];
+                                THIS = this;
                                 Found = true;
                                 return THIS;
                             }
@@ -3398,7 +3403,7 @@ namespace RefrigtzDLL
 
                             if (ThinkingChess.TableEqual(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j], Tab))
                             {
-                                THIS = ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j];
+                                THIS = this;
                                 Found = true;
                                 return THIS;
                             }
@@ -3420,7 +3425,7 @@ namespace RefrigtzDLL
 
                             if (ThinkingChess.TableEqual(HoursesOnTable[i].HourseThinking[0].TableListHourse[j], Tab))
                             {
-                                THIS = HoursesOnTable[i].HourseThinking[0].AStarGreedy[j];
+                                THIS = this;
                                 Found = true;
                                 return THIS;
                             }
@@ -3443,7 +3448,7 @@ namespace RefrigtzDLL
 
                             if (ThinkingChess.TableEqual(CastlesOnTable[i].CastleThinking[0].TableListCastle[j], Tab))
                             {
-                                THIS = CastlesOnTable[i].CastleThinking[0].AStarGreedy[j];
+                                THIS = this;
                                 Found = true;
                                 return THIS;
                             }
@@ -3464,7 +3469,7 @@ namespace RefrigtzDLL
                         {
                             if (ThinkingChess.TableEqual(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j], Tab))
                             {
-                                THIS = MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j];
+                                THIS = this;
                                 Found = true;
                                 return THIS;
                             }
@@ -3485,7 +3490,7 @@ namespace RefrigtzDLL
                         {
                             if (ThinkingChess.TableEqual(KingOnTable[i].KingThinking[0].TableListKing[j], Tab))
                             {
-                                THIS = KingOnTable[i].KingThinking[0].AStarGreedy[j];
+                                THIS = this;
                                 Found = true;
                                 return THIS;
                             }
@@ -11886,7 +11891,7 @@ namespace RefrigtzDLL
             bool FOUND = false;
             if (KindIndex == 1 || KindIndex == -1)
             {
-                SolderesOnTable[iIndex].SoldierThinking[0].AStarGreedy.Add(new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                SolderesOnTable[iIndex].SoldierThinking[0].AStarGreedy.Add(new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));                
                 SolderesOnTable[iIndex].SoldierThinking[0].AStarGreedy[SolderesOnTable[iIndex].SoldierThinking[0].AStarGreedy.Count - 1].TableList.Clear();
                 SolderesOnTable[iIndex].SoldierThinking[0].AStarGreedy[SolderesOnTable[iIndex].SoldierThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(Tab));
                 SolderesOnTable[iIndex].SoldierThinking[0].AStarGreedy[SolderesOnTable[iIndex].SoldierThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
@@ -18823,6 +18828,7 @@ namespace RefrigtzDLL
         {
             //Initiate Local Variables.
             AllDraw Dummy = new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
+            Dummy.TableList.Add(TableList[0]);
             Dummy.SolderesOnTable = new DrawSoldier[SodierHigh];
             Dummy.ElephantOnTable = new DrawElefant[ElefantHigh];
             Dummy.HoursesOnTable = new DrawHourse[HourseHight];
@@ -19704,7 +19710,8 @@ namespace RefrigtzDLL
                 }//);
 
                 //Iniatite Dehidspt Movments Of Possible.
-                AllDraw DummtTHIS = new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
+                //AllDraw DummtTHIS = new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
+                //DummtTHIS.TableList.Add(TableList[0]);
                 ChessRules.CurrentOrder = Current;
                 Order = DummyOrder;
                 int iiii = ii, jjjj = jj, Ord = Order;

@@ -4,14 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 using System.IO;
-namespace RefrigtzDLL
+namespace Refrigtz
 {
-    [Serializable]
     public class DrawHourse
     {
         //Iniatite Global Variables.
-        List<int[]> ValuableSelfSupported = new List<int[]>();
-      
         public bool MovementsAStarGreedyHuristicFoundT = false;
         public bool IgnoreSelfObjectsT = false;
         public bool UsePenaltyRegardMechnisamT = true;
@@ -27,18 +24,15 @@ namespace RefrigtzDLL
         public ThinkingChess[] HourseThinking = new ThinkingChess[AllDraw.HourseMovments];
         public int Current = 0;
         public int Order;
-        int CurrentAStarGredyMax = -1;
+        Refrigtz.Timer timer = null;
+        Refrigtz.Timer TimerColor = null;
 
         static void Log(Exception ex)
         {
             try
             {
-                Object a = new Object();
-                lock (a)
-                {
-                    string stackTrace = ex.ToString();
-                    File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
-                }
+                string stackTrace = ex.ToString();
+                File.AppendAllText(FormRefrigtz.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
             }
             catch (Exception t) { Log(t); }
         }
@@ -49,14 +43,10 @@ namespace RefrigtzDLL
                 double a = ReturnHuristic();
                 if (MaxHuristicxH < a)
                 {
-                    Object O2 = new Object();
-                    lock (O2)
-                    {
-                        MaxNotFound = false;
-                        if (ThinkingChess.MaxHuristicx < MaxHuristicxH)
-                            ThinkingChess.MaxHuristicx = a;
-                        MaxHuristicxH = a;
-                    }
+                    MaxNotFound = false;
+                    if (ThinkingChess.MaxHuristicx < MaxHuristicxH)
+                        ThinkingChess.MaxHuristicx = a;
+                    MaxHuristicxH = a;
                     return true;
                 }
             }
@@ -83,9 +73,8 @@ namespace RefrigtzDLL
             return a;
         }
         //Constructor 1.
-       /* public DrawHourse(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
+        public DrawHourse(bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
         {
-            CurrentAStarGredyMax = CurrentAStarGredy;
             MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
             IgnoreSelfObjectsT = IgnoreSelfObject;
             UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
@@ -95,13 +84,10 @@ namespace RefrigtzDLL
             AStarGreedyHuristicT = AStarGreedyHuris;
             ArrangmentsChanged = Arrangments;
         }
-        */
         //Constructpor 2.
-        public DrawHourse(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//,ref AllDraw. THIS
+        public DrawHourse(bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//,ref FormRefrigtz THIS
             )
         {
-            
-            CurrentAStarGredyMax = CurrentAStarGredy;
             MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
             IgnoreSelfObjectsT = IgnoreSelfObject;
             UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
@@ -116,7 +102,7 @@ namespace RefrigtzDLL
                 for (int jj = 0; jj < 8; jj++)
                     Table[ii, jj] = Tab[ii, jj];
             for (int ii = 0; ii < AllDraw.HourseMovments; ii++)
-                HourseThinking[ii] = new ThinkingChess( CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 8, Ord, TB, Cur, 4, 3);
+                HourseThinking[ii] = new ThinkingChess(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 8, Ord, TB, Cur, 4, 3);
 
             Row = i;
             Column = j;
@@ -126,7 +112,7 @@ namespace RefrigtzDLL
 
         }
         //Cloen a Copy.
-        public void Clone(ref DrawHourse AA//, ref AllDraw. THIS
+        public void Clone(ref DrawHourse AA//, ref FormRefrigtz THIS
             )
         {
             int[,] Tab = new int[8, 8];
@@ -134,13 +120,13 @@ namespace RefrigtzDLL
                 for (int j = 0; j < 8; j++)
                     Tab[i, j] = this.Table[i, j];
             //Create a Construction Ojects and Initiate a Clone Copy.
-            AA = new DrawHourse( CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, this.Row, this.Column, this.color, this.Table, this.Order, false, this.Current);
+            AA = new DrawHourse(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, this.Row, this.Column, this.color, this.Table, this.Order, false, this.Current);
             AA.ArrangmentsChanged = ArrangmentsChanged;
             for (int i = 0; i < AllDraw.HourseMovments; i++)
             {
                 try
                 {
-                    AA.HourseThinking[i] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
+                    AA.HourseThinking[i] = new ThinkingChess(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
                     this.HourseThinking[i].Clone(ref AA.HourseThinking[i]);
                 }
                 catch (Exception t)
@@ -165,24 +151,19 @@ namespace RefrigtzDLL
         {
             try
             {
-                if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
-                { //Gray Order.
-                    if (color == Color.Gray)
-                    {
-                        //Draw an Instatnt Gray Hourse on the Table.
-                        g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "HG.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                    }
-                    else
-                    {
-                        //Draw an Instatnt Brown Hourse on the Table.
-                        g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "HB.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                    }
+                //Gray Order.
+                if (color == Color.Gray)
+                {
+                    //Draw an Instatnt Gray Hourse on the Table.
+                    g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "HG.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                }
+                else
+                {
+                    //Draw an Instatnt Brown Hourse on the Table.
+                    g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "HB.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                 }
             }
-            catch (Exception t)
-            {
-                Log(t);
-            }
+            catch (Exception t) { Log(t); }
         }
     }
 }
