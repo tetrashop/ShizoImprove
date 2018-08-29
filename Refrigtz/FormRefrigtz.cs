@@ -1721,7 +1721,7 @@ namespace Refrigtz
                 }
 
 
-            } while (MoveNumber < MovmentsNumberMax - 1);
+            } while (MoveNumber < MovmentsNumberMax);
             return Tab;
 
 
@@ -2495,7 +2495,7 @@ namespace Refrigtz
         //Painting of Form Refregitz PictureBox and Tow Refrigtz.Timer Pictue Box on Time.
         private void pictureBoxRefrigtz_Paint(object sender, PaintEventArgs e)
         {
-            if (RefrigtzDLL.AllDraw.DrawTable)
+            //if (RefrigtzDLL.AllDraw.DrawTable)
             {
                 //System.Threading.Thread.Sleep(100);
                 if (GameStarted)
@@ -6559,6 +6559,8 @@ namespace Refrigtz
                 this.SetBoxText("\r\nThinking Finished by Alice!");
             RefreshBoxText();
 
+            RefrigtzDLL.AllDraw.TableListAction.Add(Table);
+
             if (RefrigtzDLL.AllDraw.TableListAction.Count >= 1)
             {
                 RefrigtzDLL.ChessGeneticAlgorithm R = new RefrigtzDLL.ChessGeneticAlgorithm(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
@@ -6605,7 +6607,7 @@ namespace Refrigtz
 
             OrderPlate *= -1;
             BobSection = true;
-            RefrigtzDLL.AllDraw.TableListAction.Add(Table);
+            
             bool FOUND = false;
             RefrigtzDLL.AllDraw THIS = null;
             Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
@@ -6615,6 +6617,9 @@ namespace Refrigtz
                 Draw = THIS;
                 SetBoxText("\r\nDraw Found");
                 RefreshBoxText();
+                RefrigtzDLL.AllDraw.DrawTable = true;
+                SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
+                SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
 
             }
             else
@@ -6628,6 +6633,9 @@ namespace Refrigtz
                 RefrigtzDLL.AllDraw.DepthIterative = 0;
                 SetBoxText("\r\nDraw Not Found");
                 RefreshBoxText();
+                RefrigtzDLL.AllDraw.DrawTable = true;
+                SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
+                SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
             }
             //Draw.TableList.Clear();
             //Draw.TableList.Add(Table);
@@ -6679,7 +6687,6 @@ namespace Refrigtz
             ColumnClickP = -1;
             RowRealesed = -1;
             ColumnRealeased = -1;
-            OrderPlate *= -1;
             //Thread.Sleep(1500);
             BobSection = false;
             MovmentsNumber++;
@@ -8476,7 +8483,8 @@ namespace Refrigtz
                     Log(t);
                     goto Begin1;
                 }
-                RefrigtzDLL.AllDraw.TableListAction.Add(Table);
+                
+
                 int[,] TableCon = new int[8, 8];
                 for (int i = 0; i < 8; i++)
                     for (int j = 0; j < 8; j++)
@@ -8506,6 +8514,8 @@ namespace Refrigtz
 
                  }
                  */
+                RefrigtzDLL.AllDraw.TableListAction.Add(Table);
+
                 if (RefrigtzDLL.AllDraw.TableListAction.Count > 1)
                 {
                     RefrigtzDLL.ChessGeneticAlgorithm R = new RefrigtzDLL.ChessGeneticAlgorithm(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
@@ -8999,6 +9009,9 @@ namespace Refrigtz
 
             this.SetBoxText("\r\nThinking Finished By Alice!");
             RefreshBoxText();
+
+            RefrigtzDLL.AllDraw.TableListAction.Add(Table);
+
             if (RefrigtzDLL.AllDraw.TableListAction.Count >= 1)
             {
                 RefrigtzDLL.ChessGeneticAlgorithm R = new RefrigtzDLL.ChessGeneticAlgorithm(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
@@ -9045,8 +9058,7 @@ namespace Refrigtz
                 soundClick.Dispose();
             }
 
-            InsertTableAtDataBase(Table);
-            RefrigtzDLL.AllDraw.TableListAction.Add(Table);
+            InsertTableAtDataBase(Table);            
             FOUND = false;
             Draw.FoundOfCurrentTableNode(TableC, OrderPlate, ref THIS, ref FOUND);
 
@@ -9313,7 +9325,8 @@ namespace Refrigtz
             }
             this.SetBoxText("\r\nThinking Finished by Bob!");
             RefreshBoxText();
-            
+            RefrigtzDLL.AllDraw.TableListAction.Add(Table);
+
             if (RefrigtzDLL.AllDraw.TableListAction.Count >= 1)
             {
                 RefrigtzDLL.ChessGeneticAlgorithm R = new RefrigtzDLL.ChessGeneticAlgorithm(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
@@ -9362,7 +9375,7 @@ namespace Refrigtz
                 soundClick.Dispose();
             }
 
-            RefrigtzDLL.AllDraw.TableListAction.Add(Table);
+            
             int[,] TableCon = new int[8, 8];
             for (int i = 0; i < 8; i++)
                 for (int j = 0; j < 8; j++)
@@ -9397,8 +9410,7 @@ namespace Refrigtz
             AliceSection = true;
             RefrigtzDLL.ThinkingChess.ThinkingRun = false;
             SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
-            SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
-
+            SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);            
             if (SettingPRFALSE)
             {
                 SettingPRFALSE = false;

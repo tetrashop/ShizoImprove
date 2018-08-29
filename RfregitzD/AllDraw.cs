@@ -4100,7 +4100,8 @@ namespace RefrigtzDLL
                     Color a = Color.Gray;
                     if (Order == -1)
                         a = Color.Brown;
-                    Initiate(ii, jj, a, table, Order, false, false,LeafAStarGreedy);
+                    InitiateAStarGreedytObject(MaxAStarGreedy, ii, jj, a, table, Order, false, false, LeafAStarGreedy);
+                    //Initiate(ii, jj, a, table, Order, false, false,LeafAStarGreedy);
                 }
             }
             return;
@@ -19035,12 +19036,12 @@ namespace RefrigtzDLL
 
         public bool TableZero(int[,] Ta)
         {
-            bool NotZerro = false;
+            bool Zerro = true;
             for (int i = 0; i < 8; i++)
                 for (int j = 0; j < 8; j++)
                     if (Ta[i, j] != 0)
-                        NotZerro = true;
-            return NotZerro;
+                        Zerro = false;
+            return Zerro;
         }
         void CheckedMateConfiguratiionSoldier(int Order, int i, bool Regrad)
         {
@@ -19757,7 +19758,7 @@ namespace RefrigtzDLL
                 //AStarGreedy Huristic Consideration.
                 //TableHuristic = THISDummy.HuristicAStarGreedySearch(0, a, Order, false);
                 TableHuristic = HuristicAStarGreedySearch(0, a, Order, false);
-                if (TableHuristic == null || (!(TableZero(TableHuristic))))
+                if (TableHuristic == null || ((TableZero(TableHuristic))))
                 {
 
                     try
