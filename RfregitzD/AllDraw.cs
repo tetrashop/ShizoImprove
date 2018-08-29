@@ -3244,9 +3244,12 @@ namespace RefrigtzDLL
                         {
                             if (ThinkingChess.TableEqual(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j], Tab))
                             {
-                                THIS = this;
-                                Found = true;
-                                return THIS;
+                                if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count >= j)
+                                {
+                                    THIS = SolderesOnTable[i].SoldierThinking[0].AStarGreedy[i];
+                                    Found = true;
+                                    return THIS;
+                                }
                             }
                             else
                                 for (int ii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count - 1; ii++)
@@ -3267,9 +3270,12 @@ namespace RefrigtzDLL
 
                             if (ThinkingChess.TableEqual(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j], Tab))
                             {
-                                THIS = this;
-                                Found = true;
-                                return THIS;
+                                if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count >= j)
+                                {
+                                    THIS = ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j];
+                                    Found = true;
+                                    return THIS;
+                                }
                             }
                             else
                                 for (int ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count - 1; ii++)
@@ -3289,9 +3295,12 @@ namespace RefrigtzDLL
                         {
                             if (ThinkingChess.TableEqual(HoursesOnTable[i].HourseThinking[0].TableListHourse[j], Tab))
                             {
-                                THIS = this;
-                                Found = true;
-                                return THIS;
+                                if (HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count >= j)
+                                {
+                                    THIS = HoursesOnTable[i].HourseThinking[0].AStarGreedy[j];
+                                    Found = true;
+                                    return THIS;
+                                }
                             }
                             else
                                 for (int ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count - 1; ii++)
@@ -3312,9 +3321,12 @@ namespace RefrigtzDLL
                         {
                             if (ThinkingChess.TableEqual(CastlesOnTable[i].CastleThinking[0].TableListCastle[j], Tab))
                             {
-                                THIS = this;
-                                Found = true;
-                                return THIS;
+                                if (CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count >= j)
+                                {
+                                    THIS = CastlesOnTable[i].CastleThinking[0].AStarGreedy[j];
+                                    Found = true;
+                                    return THIS;
+                                }
                             }
                             else
                                 for (int ii = 0; ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count - 1; ii++)
@@ -3333,9 +3345,12 @@ namespace RefrigtzDLL
                         {
                             if (ThinkingChess.TableEqual(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j], Tab))
                             {
-                                THIS = this;
-                                Found = true;
-                                return THIS;
+                                if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count >= j)
+                                {
+                                    THIS = MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j];
+                                    Found = true;
+                                    return THIS;
+                                }
                             }
                             else
                                 for (int ii = 0; ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count - 1; ii++)
@@ -3355,9 +3370,12 @@ namespace RefrigtzDLL
                         {
                             if (ThinkingChess.TableEqual(KingOnTable[i].KingThinking[0].TableListKing[j], Tab))
                             {
-                                THIS = this;
-                                Found = true;
-                                return THIS;
+                                if (KingOnTable[i].KingThinking[0].AStarGreedy.Count >= j)
+                                {
+                                    THIS = KingOnTable[i].KingThinking[0].AStarGreedy[j];
+                                    Found = true;
+                                    return THIS;
+                                }
                             }
                             else
                                 for (int ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy.Count - 1; ii++)
@@ -3381,9 +3399,12 @@ namespace RefrigtzDLL
 
                             if (ThinkingChess.TableEqual(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j], Tab))
                             {
-                                THIS = this;
-                                Found = true;
-                                return THIS;
+                                if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count >= j)
+                                {
+                                    THIS = SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j];
+                                    Found = true;
+                                    return THIS;
+                                }
                             }
                             else
                                 for (int ii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count - 1; ii++)
@@ -3403,9 +3424,12 @@ namespace RefrigtzDLL
 
                             if (ThinkingChess.TableEqual(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j], Tab))
                             {
-                                THIS = this;
-                                Found = true;
-                                return THIS;
+                                if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count >= j)
+                                {
+                                    THIS = ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j];
+                                    Found = true;
+                                    return THIS;
+                                }
                             }
                             else
                                 for (int ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count - 1; ii++)
@@ -3425,9 +3449,12 @@ namespace RefrigtzDLL
 
                             if (ThinkingChess.TableEqual(HoursesOnTable[i].HourseThinking[0].TableListHourse[j], Tab))
                             {
-                                THIS = this;
-                                Found = true;
-                                return THIS;
+                                if (HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count >= j)
+                                {
+                                    THIS = HoursesOnTable[i].HourseThinking[0].AStarGreedy[j];
+                                    Found = true;
+                                    return THIS;
+                                }
                             }
                             else
                                 for (int ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count - 1; ii++)
@@ -3448,9 +3475,12 @@ namespace RefrigtzDLL
 
                             if (ThinkingChess.TableEqual(CastlesOnTable[i].CastleThinking[0].TableListCastle[j], Tab))
                             {
-                                THIS = this;
-                                Found = true;
-                                return THIS;
+                                if (CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count >= j)
+                                {
+                                    THIS = this;
+                                    Found = true;
+                                    return THIS;
+                                }
                             }
                             else
                                 for (int ii = 0; ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count - 1; ii++)
@@ -3469,9 +3499,12 @@ namespace RefrigtzDLL
                         {
                             if (ThinkingChess.TableEqual(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j], Tab))
                             {
-                                THIS = this;
-                                Found = true;
-                                return THIS;
+                                if(MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count >= j)
+                                {
+                                    THIS = MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j];
+                                    Found = true;
+                                    return THIS;
+                                }
                             }
                             else
                                 for (int ii = 0; ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count - 1; ii++)
@@ -3490,9 +3523,12 @@ namespace RefrigtzDLL
                         {
                             if (ThinkingChess.TableEqual(KingOnTable[i].KingThinking[0].TableListKing[j], Tab))
                             {
-                                THIS = this;
-                                Found = true;
-                                return THIS;
+                                if (KingOnTable[i].KingThinking[0].AStarGreedy.Count >= j)
+                                {
+                                    THIS = KingOnTable[i].KingThinking[0].AStarGreedy[j];
+                                    Found = true;
+                                    return THIS;
+                                }
                             }
                             else
                                 for (int ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy.Count - 1; ii++)
