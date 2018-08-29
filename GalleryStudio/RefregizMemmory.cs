@@ -475,14 +475,10 @@ namespace GalleryStudio
 
                     DummyFileStream.Flush(); DummyFileStream.Close();
                 }
-                catch (NullReferenceException o)
+                catch (Exception o)
                 {
                     Console.WriteLine(o.Message.ToString());
-                }
-                catch (IOException o)
-                {
-                    Console.WriteLine(o.Message.ToString());
-                }
+                }                
             }
         }
         public AllDraw Load(int Order)
