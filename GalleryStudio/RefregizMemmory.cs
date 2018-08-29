@@ -667,7 +667,7 @@ namespace GalleryStudio
                 if (t == null)
                     return null;
                 else
-                    t.Current.Clone(Last);
+                    t.Current = Last;
                 try
                 {
                     /*if (t.NextS.Count > 0)
@@ -730,7 +730,7 @@ namespace GalleryStudio
                 }
                 catch (IOException tt) { Log(tt); }
                 
-                return Last;
+                return t.Current;
             }
         }
 

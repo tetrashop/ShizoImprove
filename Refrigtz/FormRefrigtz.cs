@@ -204,12 +204,12 @@ namespace Refrigtz
         float RowRealesed = -1, ColumnRealeased = -1;
         public int[,] Table ={
             { -4, -1, 0, 0, 0, 0, 1, 4 },
-            { -2, -1, 0, 0, 0, 0, 1, 2 },
             { -3, -1, 0, 0, 0, 0, 1, 3 },
+            { -2, -1, 0, 0, 0, 0, 1, 2 },
             { -5, -1, 0, 0, 0, 0, 1, 5 },
             { -6, -1, 0, 0, 0, 0, 1, 6 },
-            { -3, -1, 0, 0, 0, 0, 1, 3 },
             { -2, -1, 0, 0, 0, 0, 1, 2 },
+            { -3, -1, 0, 0, 0, 0, 1, 3 },
             { -4, -1, 0, 0, 0, 0, 1, 4 }
             };
         List<char> fenS = new List<char>("position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\0");
@@ -656,6 +656,16 @@ namespace Refrigtz
                 Object o = new Object();
                 lock (o)
                 {
+                    while (!(RefrigtzDLL.ChessRules.ObjectHittedRow != -1 && RefrigtzDLL.ChessRules.ObjectHittedColumn != -1) &&
+                        (!RefrigtzDLL.AllDraw.ActionStringReady) &&
+                             (!(RefrigtzDLL.AllDraw.OutPut != "")) &&
+                                 (!(RefrigtzDLL.AllDraw.ConvertedKind == -1)) &&
+                                     (!StateCC) &&
+                                         (!StateCP))
+                    {
+                        Thread.Sleep(1);
+
+                    }
                     if (RefrigtzDLL.ChessRules.ObjectHittedRow != -1 && RefrigtzDLL.ChessRules.ObjectHittedColumn != -1)
                     {
                         SetObjectInPictureBox(RefrigtzDLL.ChessRules.ObjectHittedRow, RefrigtzDLL.ChessRules.ObjectHittedColumn);
@@ -676,33 +686,6 @@ namespace Refrigtz
                         RefrigtzDLL.AllDraw.OutPut = "";
 
                     }
-                    /*if (RefrigtzDLL.ThingsConverter.LoadConvertTable)
-                    {
-                        if (RefrigtzDLL.ThingsConverter.TableConverted != null)
-                        {
-                            for (int iii = 0; iii < 8; iii++)
-                                for (int jjj = 0; jjj < 8; jjj++)
-                                    Table[iii, jjj] = RefrigtzDLL.ThingsConverter.TableConverted[iii, jjj];
-                            RefrigtzDLL.ThingsConverter.TableConverted = null;
-                            FormُSelectItems.Items = -1;
-                            RefrigtzDLL.AllDraw.ConvertedKind = -2;
-                            RefrigtzDLL.ThingsConverter.LoadConvertTable = false;
-                            Draw = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-                            Draw.TableList.Clear();
-                            Draw.TableList.Add(Table);
-                            Draw.SetRowColumn(0);
-                            SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
-                            SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
-
-
-                        }
-                        LoadConvertedTable = false;
-                    }
-                    else
-
-                        RefrigtzDLL.ThingsConverter.TableConverted = null;
-                        */
-
 
                     RefrigtzDLL.AllDraw.Root = Root;
                     RefrigtzDLL.AllDraw.OrderPlate = OrderPlate;
@@ -732,15 +715,7 @@ namespace Refrigtz
                     }
                     //public static AllDraw THISDummy;
                     RefrigtzDLL.AllDraw.StateCP = StateCP;
-                    if (StateCC)
-                    {
-                        //LastRow = RefrigtzDLL.AllDraw.LastRow;
-                        //LastColumn = RefrigtzDLL.AllDraw.LastColumn;
-                        //NextRow = RefrigtzDLL.AllDraw.NextRow;
-                        //NextColumn = RefrigtzDLL.AllDraw.NextRow;
-                    }
-                    else
-                        if (StateCP && (!Stockfish))
+                    if (StateCP && (!Stockfish))
                     {
                         if (OrderPlate == -1 && Sec.radioButtonGrayOrder.Checked)
                         {
@@ -1200,7 +1175,8 @@ namespace Refrigtz
                     for (int i = 0; i < 8 - TableName.Length; i++)
                         Zero += "0";
                     TableName = Zero + TableName;
-
+                    bookConn.Close();
+                    bookConn.Open();
                     oleDbCmd.CommandText = "Select * From " + TableName;
                     OleDbDataReader dr = null;
                     dr = oleDbCmd.ExecuteReader();
@@ -1222,9 +1198,6 @@ namespace Refrigtz
                         for (int j = 0; j < 8; j++)
                             TableA[i, j] = Tab[i, j];
                     MaxCurrentMovmentsNumber++;
-                    Draw.TableList.Clear();
-                    Draw.TableList.Add(TableA);
-                    Draw.SetRowColumn(0);
                     RefrigtzDLL.AllDraw.TableListAction.Add(TableA);
                     if (Move == 42)
                         Move = 42;
@@ -1397,6 +1370,9 @@ namespace Refrigtz
 
 
             } while (MoveNumber < MovmentsNumberMax);
+            Draw.TableList.Clear();
+            Draw.TableList.Add(Tab);
+            Draw.SetRowColumn(0);
             return Tab;
 
 
@@ -1951,10 +1927,18 @@ namespace Refrigtz
         //Painting of Form Refregitz PictureBox and Tow Refrigtz.Timer Pictue Box on Time.
         private void pictureBoxRefrigtz_Paint(object sender, PaintEventArgs e)
         {
+            Thread tP = new Thread(new ThreadStart(SetRefregitzBicture));
+            tP.Start();
+            tP.Join();
+            //pictureBoxRefrigtz.Update();
+            //pictureBoxRefrigtz.Invalidate();
+        }
+        void SetRefregitzBicture()
+        {
             Object o = new Object();
             lock (o)
             {
-                if (RefrigtzDLL.AllDraw.DrawTable)
+                //if (RefrigtzDLL.AllDraw.DrawTable)
                 {
                     //System.Threading.Thread.Sleep(100);
                     if (GameStarted)
@@ -2117,13 +2101,12 @@ namespace Refrigtz
 
                  */
                 AllDrawLoad = true;
-                pictureBoxTimerGray.Update();
-                pictureBoxTimerGray.Invalidate();
-                System.Threading.Thread.Sleep(30);
+                //pictureBoxTimerGray.Update();
+                //pictureBoxTimerGray.Invalidate();
+                //System.Threading.Thread.Sleep(30);
                 //return;
             }
         }
-
         double CalculateMoveMentHueuristicUser(int[,] Table, int Order, int Row, int Column,int RowS,int ColumnS, Color color)
         {
             RefrigtzDLL.ThinkingChess th = new RefrigtzDLL.ThinkingChess(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, Row, Column);
@@ -6161,7 +6144,7 @@ namespace Refrigtz
         void AllOperations()
         {
 
-            while (!AllDrawLoad) { Thread.Sleep(100); }
+            while (!AllDrawLoad || RefrigtzDLL.AllDraw.TableListAction.Count == 0) { Thread.Sleep(100); }
 
             //Fen();
             String FolderLocation = Root;
@@ -8843,7 +8826,7 @@ namespace Refrigtz
                     TableCon[i, j] = Table[i, j];
             //RefrigtzDLL.AllDraw.TableListAction.Add(TableCon);
             FOUND = false;
-            Draw.FoundOfCurrentTableNode(TableC, OrderPlate, ref THIS, ref FOUND);
+            Draw.FoundOfCurrentTableNode(TableCon, OrderPlate, ref THIS, ref FOUND);
             if (FOUND)
             {
 
@@ -8859,7 +8842,7 @@ namespace Refrigtz
 
                 Draw = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                 Draw.TableList.Clear();
-                Draw.TableList.Add(TableC);
+                Draw.TableList.Add(TableCon);
                 Draw.SetRowColumn(0);
                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                 RefrigtzDLL.AllDraw.DepthIterative = 0;
@@ -10061,6 +10044,8 @@ namespace Refrigtz
         //Exit ToolStrip Event Handling.
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
+            
             try
             {
                 UpdateConfigurationTable();
@@ -10146,7 +10131,13 @@ namespace Refrigtz
                         Draw = RootFound();
                         rt.AllDrawCurrentAccess = Draw;
                         rt.RewriteAllDraw(OrderPlate);
-                        MessageBox.Show("Saved Completed.");
+                        RefrigtzDLL.AllDraw.DrawTable = false;
+                        SetBoxText("\r\nSaved Completed.");
+                        RefreshBoxText();
+                        //pictureBoxRefrigtz.SendToBack();
+                        //pictureBoxTimerGray.SendToBack();
+                        //pictureBoxTimerBrown.SendToBack();
+                        //MessageBox.Show("Saved Completed.");
                     }
                 }
                 else
@@ -10161,7 +10152,13 @@ namespace Refrigtz
                         Draw = RootFound();
                         rt.AllDrawCurrentAccess = Draw;
                         rt.RewriteAllDraw(OrderPlate);
-                        MessageBox.Show("Saved Completed.");
+                        RefrigtzDLL.AllDraw.DrawTable = false;
+                        SetBoxText("\r\nSaved Completed.");
+                        RefreshBoxText();
+                        //pictureBoxRefrigtz.SendToBack();
+                        //pictureBoxTimerGray.SendToBack();
+                        //pictureBoxTimerBrown.SendToBack();
+                        //MessageBox.Show("Saved Completed.");
                     }
                 }
                 Application.Exit();
@@ -11104,7 +11101,7 @@ namespace Refrigtz
             lock (o)
             {
                 //UpadatTimer();
-                if (RefrigtzDLL.AllDraw.DrawTable)
+                if (GrayTimer.TextChanged)
                 {
                     try
                     {
@@ -11119,15 +11116,15 @@ namespace Refrigtz
                     }
                     catch (Exception t)
                     {
-                        pictureBoxTimerGray.Update();
-                        pictureBoxTimerGray.Invalidate();
+                        //pictureBoxTimerGray.Update();
+                       // pictureBoxTimerGray.Invalidate();
                         //RunInFront();
                         Log(t);
                     }
                 }
-                pictureBoxTimerBrown.Update();
-                pictureBoxTimerBrown.Invalidate();
-                System.Threading.Thread.Sleep(30);
+                //pictureBoxTimerBrown.Update();
+                //pictureBoxTimerBrown.Invalidate();
+                //System.Threading.Thread.Sleep(30);
             }
         }
         void UpadatTimer()
@@ -11157,7 +11154,7 @@ namespace Refrigtz
             {
                 //UpadatTimer();
 
-                if (RefrigtzDLL.AllDraw.DrawTable)
+                if (BrownTimer.TextChanged)
                 {
                     try
                     {
@@ -11173,14 +11170,14 @@ namespace Refrigtz
                     catch (Exception t)
                     {
                         Log(t);
-                        pictureBoxTimerBrown.Update();
-                        pictureBoxTimerBrown.Invalidate();
+                        //pictureBoxTimerBrown.Update();
+                        //pictureBoxTimerBrown.Invalidate();
                         //RunInFront();
                     }
                 }
-                pictureBoxRefrigtz.Update();
-                pictureBoxRefrigtz.Invalidate();
-                System.Threading.Thread.Sleep(30);
+                //pictureBoxRefrigtz.Update();
+                //pictureBoxRefrigtz.Invalidate();
+                //System.Threading.Thread.Sleep(30);
             }
 
         }
