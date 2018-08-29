@@ -12,7 +12,8 @@ namespace RefrigtzDLL
     {
         //Iniatate Global Variables.
         List<int[]> ValuableSelfSupported = new List<int[]>();
-      
+
+        public static Image[] S = new Image[2];
         public bool MovementsAStarGreedyHuristicFoundT = false;
         public bool IgnoreSelfObjectsT = false;
         public bool UsePenaltyRegardMechnisamT = true;
@@ -101,7 +102,13 @@ namespace RefrigtzDLL
             ) :
             base(Arrangments, (int)i, (int)j, a, Tab, Ord, TB, Cur)
         {
-             CurrentAStarGredyMax = CurrentAStarGredy;
+            if (S[0] == null && S[1] == null)
+            {
+                S[0] = Image.FromFile(AllDraw.ImagesSubRoot + "SG.png");
+                S[1] = Image.FromFile(AllDraw.ImagesSubRoot + "SB.png");
+            }
+            
+            CurrentAStarGredyMax = CurrentAStarGredy;
             MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
             IgnoreSelfObjectsT = IgnoreSelfObject;
             UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
@@ -177,12 +184,12 @@ namespace RefrigtzDLL
                         if (color == Color.Gray)
                         {
                             //Draw an Instant from File of Gray Soldeirs.
-                            g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "SG.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                            g.DrawImage(S[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                         }
                         else
                         {
                             //Draw an Instatnt of Brown Soldier File On the Table.
-                            g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "SB.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                            g.DrawImage(S[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                         }
                     }
                     catch (Exception t)
@@ -200,12 +207,12 @@ namespace RefrigtzDLL
                             if (color == Color.Gray)
                             {
                                 //Draw of Gray Minsister Image File By an Instant.
-                                g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "MG.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                g.DrawImage(DrawMinister.M[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                             }
                             else
                             {
                                 //Draw a Image File on the Table Form n Instatnt One.
-                                g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "MB.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                g.DrawImage(DrawMinister.M[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                             }
                         }
                         catch (Exception t)
@@ -221,12 +228,12 @@ namespace RefrigtzDLL
                             if (color == Color.Gray)
                             {
                                 //Create on the Inststant of Gray Castles Images.
-                                g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "BrG.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                g.DrawImage(DrawCastle.C[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                             }
                             else
                             {
                                 //Creat of an Instant of Brown Image Castles.
-                                g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "BrB.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                g.DrawImage(DrawCastle.C[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                             }
                         }
                         catch (Exception t)
@@ -243,12 +250,12 @@ namespace RefrigtzDLL
                             if (color == Color.Gray)
                             {
                                 //Draw an Instatnt of Gray Hourse Image File.
-                                g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "HG.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (int)CellH), CellW, CellH));
+                                g.DrawImage(DrawHourse.H[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (int)CellH), CellW, CellH));
                             }
                             else
                             {
                                 //Creat of an Instatnt Hourse Image File.
-                                g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "HB.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                g.DrawImage(DrawHourse.H[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                             }
                         }
                         catch (Exception t)
@@ -265,12 +272,12 @@ namespace RefrigtzDLL
                             if (color == Color.Gray)
                             {
                                 //Draw an Instatnt Image of Gray Elephant.
-                                g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "EG.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                g.DrawImage(DrawElefant.E[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                             }
                             else
                             {
                                 //Draw of Instant Image of Brown Elephant.
-                                g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "EB.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                g.DrawImage(DrawElefant.E[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                             }
 
                         }

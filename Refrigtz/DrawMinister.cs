@@ -4,11 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 using System.IO;
-namespace Refrigtz
+namespace RefrigtzDLL
 {
+    [Serializable]
     public class DrawMinister//:DrawKing
     {
         //Initiate Global Variable.
+        List<int[]> ValuableSelfSupported = new List<int[]>();
+      
         public bool MovementsAStarGreedyHuristicFoundT = false;
         public bool IgnoreSelfObjectsT = false;
         public bool UsePenaltyRegardMechnisamT = true;
@@ -25,12 +28,17 @@ namespace Refrigtz
         public int Current = 0;
         public int Order;
         public ThinkingChess[] MinisterThinking = new ThinkingChess[AllDraw.MinisterMovments];
+        int CurrentAStarGredyMax = -1;
         static void Log(Exception ex)
         {
             try
             {
-                string stackTrace = ex.ToString();
-                File.AppendAllText(FormRefrigtz.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
+                Object a = new Object();
+                lock (a)
+                {
+                    string stackTrace = ex.ToString();
+                    File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
+                }
             }
             catch (Exception t) { Log(t); }
         }
@@ -41,10 +49,14 @@ namespace Refrigtz
                 double a = ReturnHuristic();
                 if (MaxHuristicxM < a)
                 {
-                    MaxNotFound = false;
-                    if (ThinkingChess.MaxHuristicx < MaxHuristicxM)
-                        ThinkingChess.MaxHuristicx = a;
-                    MaxHuristicxM = a;
+                    Object O2 = new Object();
+                    lock (O2)
+                    {
+                        MaxNotFound = false;
+                        if (ThinkingChess.MaxHuristicx < MaxHuristicxM)
+                            ThinkingChess.MaxHuristicx = a;
+                        MaxHuristicxM = a;
+                    }
                     return true;
                 }
             }
@@ -71,8 +83,9 @@ namespace Refrigtz
             return a;
         }
         //constructor 1.
-        public DrawMinister(bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
+        /*public DrawMinister(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
         {
+            CurrentAStarGredyMax = CurrentAStarGredy;
             MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
             IgnoreSelfObjectsT = IgnoreSelfObject;
             UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
@@ -82,10 +95,13 @@ namespace Refrigtz
             AStarGreedyHuristicT = AStarGreedyHuris;
             ArrangmentsChanged = Arrangments;
         }
+        */
         //Constructor 2.
-        public DrawMinister(bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref FormRefrigtz THIS
+        public DrawMinister(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. THIS
             )
         {
+            
+            CurrentAStarGredyMax = CurrentAStarGredy;
             MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
             IgnoreSelfObjectsT = IgnoreSelfObject;
             UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
@@ -100,7 +116,7 @@ namespace Refrigtz
                 for (int jj = 0; jj < 8; jj++)
                     Table[ii, jj] = Tab[ii, jj];
             for (int ii = 0; ii < AllDraw.MinisterMovments; ii++)
-                MinisterThinking[ii] = new ThinkingChess(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 32, Ord, TB, Cur, 2, 5);
+                MinisterThinking[ii] = new ThinkingChess( CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 32, Ord, TB, Cur, 2, 5);
 
             Row = i;
             Column = j;
@@ -110,7 +126,7 @@ namespace Refrigtz
 
         }
         //Clone a Copy.
-        public void Clone(ref DrawMinister AA//, ref FormRefrigtz THIS
+        public void Clone(ref DrawMinister AA//, ref AllDraw. THIS
             )
         {
             int[,] Tab = new int[8, 8];
@@ -118,13 +134,13 @@ namespace Refrigtz
                 for (int j = 0; j < 8; j++)
                     Tab[i, j] = this.Table[i, j];
             //Initiate an Object and Clone a Construction Objectve.
-            AA = new DrawMinister(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, this.color, this.Table, this.Order, false, this.Current);
+            AA = new DrawMinister( CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, this.color, this.Table, this.Order, false, this.Current);
             AA.ArrangmentsChanged = ArrangmentsChanged;
             for (int i = 0; i < AllDraw.MinisterMovments; i++)
             {
                 try
                 {
-                    AA.MinisterThinking[i] = new ThinkingChess(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
+                    AA.MinisterThinking[i] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
                     this.MinisterThinking[i].Clone(ref AA.MinisterThinking[i]);
                 }
                 catch (Exception t)
@@ -150,21 +166,29 @@ namespace Refrigtz
         {
             try
             {
-                //Gray Order.
-                if (color == Color.Gray)
+                //Gray Color.
+                if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
                 {
-                    //Draw a Gray Instatnt Minister Image on the Table.
-                    g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "MG.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                }
-                else
-                {
-                    //Draw a Brown Instatnt Minister Image on the Table.
-                    g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "MB.png"), new Rectangle((int)(Row * CellW), (int)(Column * (float)CellH), CellW, CellH));
+                    //Gray Order.
+                    if (color == Color.Gray)
+                    {
+                        //Draw a Gray Instatnt Minister Image on the Table.
+                        g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "MG.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                    }
+                    else
+                    {
+                        //Draw a Brown Instatnt Minister Image on the Table.
+                        g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "MB.png"), new Rectangle((int)(Row * CellW), (int)(Column * (float)CellH), CellW, CellH));
+                    }
                 }
 
             }
-            catch (Exception t) { Log(t); }
+            catch (Exception t)
+            {
+                Log(t);
+            }
         }
     }
 }
+
 //End of Documentation.

@@ -4,11 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 using System.IO;
-namespace Refrigtz
+namespace RefrigtzDLL
 {
+    [Serializable]
     public class DrawKing
     {
         //Initiate Global Variables.
+        List<int[]> ValuableSelfSupported = new List<int[]>();
+      
         public bool MovementsAStarGreedyHuristicFoundT = false;
         public bool IgnoreSelfObjectsT = false;
         public bool UsePenaltyRegardMechnisamT = true;
@@ -25,13 +28,18 @@ namespace Refrigtz
         public ThinkingChess[] KingThinking = new ThinkingChess[AllDraw.KingMovments];
         public int Current = 0;
         public int Order;
+        int CurrentAStarGredyMax = -1;
 
         static void Log(Exception ex)
         {
             try
             {
-                string stackTrace = ex.ToString();
-                File.AppendAllText(FormRefrigtz.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
+                Object a = new Object();
+                lock (a)
+                {
+                    string stackTrace = ex.ToString();
+                    File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
+                }
             }
             catch (Exception t) { Log(t); }
         }
@@ -57,10 +65,14 @@ namespace Refrigtz
                 double a = ReturnHuristic();
                 if (MaxHuristicxK < a)
                 {
-                    MaxNotFound = false;
-                    if (ThinkingChess.MaxHuristicx < MaxHuristicxK)
-                        ThinkingChess.MaxHuristicx = a;
-                    MaxHuristicxK = a;
+                    Object O2 = new Object();
+                    lock (O2)
+                    {
+                        MaxNotFound = false;
+                        if (ThinkingChess.MaxHuristicx < MaxHuristicxK)
+                            ThinkingChess.MaxHuristicx = a;
+                        MaxHuristicxK = a;
+                    }
                     return true;
                 }
             }
@@ -73,8 +85,9 @@ namespace Refrigtz
             return false;
         }
         //Constructor 1.
-        public DrawKing(bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
+        /*public DrawKing(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
         {
+            CurrentAStarGredyMax = CurrentAStarGredy;
             MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
             IgnoreSelfObjectsT = IgnoreSelfObject;
             UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
@@ -84,11 +97,13 @@ namespace Refrigtz
             AStarGreedyHuristicT = AStarGreedyHuris;
             ArrangmentsChanged = Arrangments;
         }
+        */
         //Constructor 2.
-        public DrawKing(bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref FormRefrigtz THIS
+        public DrawKing(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. THIS
             )
         {
-
+            
+            CurrentAStarGredyMax = CurrentAStarGredy;
             MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
             IgnoreSelfObjectsT = IgnoreSelfObject;
             UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
@@ -103,7 +118,7 @@ namespace Refrigtz
                 for (int jj = 0; jj < 8; jj++)
                     Table[ii, jj] = Tab[ii, jj];
             for (int ii = 0; ii < AllDraw.KingMovments; ii++)
-                KingThinking[ii] = new ThinkingChess(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 8, Ord, TB, Cur, 2, 6);
+                KingThinking[ii] = new ThinkingChess( CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 8, Ord, TB, Cur, 2, 6);
 
             Row = i;
             Column = j;
@@ -113,7 +128,7 @@ namespace Refrigtz
 
         }
         //Clone a Copy.
-        public void Clone(ref DrawKing AA//, ref FormRefrigtz THIS
+        public void Clone(ref DrawKing AA//, ref AllDraw. THIS
             )
         {
             int[,] Tab = new int[8, 8];
@@ -121,13 +136,13 @@ namespace Refrigtz
                 for (int j = 0; j < 8; j++)
                     Tab[i, j] = this.Table[i, j];
             //Initiate a Construction Object and Clone a Copy.
-            AA = new DrawKing(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, this.Row, this.Column, this.color, this.Table, this.Order, false, this.Current);
+            AA = new DrawKing( CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, this.Row, this.Column, this.color, this.Table, this.Order, false, this.Current);
             AA.ArrangmentsChanged = ArrangmentsChanged;
             for (int i = 0; i < AllDraw.KingMovments; i++)
             {
                 try
                 {
-                    AA.KingThinking[i] = new ThinkingChess(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
+                    AA.KingThinking[i] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
                     this.KingThinking[i].Clone(ref AA.KingThinking[i]);
                 }
                 catch (Exception t)
@@ -153,20 +168,25 @@ namespace Refrigtz
 
             try
             {
-                //Gray Order.
-                if (color == Color.Gray)
-                {
-                    //Draw an Instatnt Gray King Image On the Table.
-                    g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "KG.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
+                { //Gray Order.
+                    if (color == Color.Gray)
+                    {
+                        //Draw an Instatnt Gray King Image On the Table.
+                        g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "KG.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
 
-                }
-                else
-                {
-                    //Draw an Instatnt Brown King Image On the Table.
-                    g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "KB.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                    }
+                    else
+                    {
+                        //Draw an Instatnt Brown King Image On the Table.
+                        g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "KB.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                    }
                 }
             }
-            catch (Exception t) { Log(t); }
+            catch (Exception t)
+            {
+                Log(t);
+            }
 
         }
     }

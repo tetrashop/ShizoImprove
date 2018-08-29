@@ -5,11 +5,14 @@ using System.Text;
 using System.Drawing;
 using System.IO;
 
-namespace Refrigtz
+namespace RefrigtzDLL
 {
+    [Serializable]
     public class DrawSoldier : ThingsConverter
     {
         //Iniatate Global Variables.
+        List<int[]> ValuableSelfSupported = new List<int[]>();
+      
         public bool MovementsAStarGreedyHuristicFoundT = false;
         public bool IgnoreSelfObjectsT = false;
         public bool UsePenaltyRegardMechnisamT = true;
@@ -18,19 +21,24 @@ namespace Refrigtz
         public bool OnlySelfT = false;
         public bool AStarGreedyHuristicT = false;
         public bool ArrangmentsChanged = false;
-        public static double MaxHuristicxS = -20000000000000000;
+        public static double MaxHuristicxS =Double.MinValue;
         public float RowS, ColumnS;
         public Color color;
         public ThinkingChess[] SoldierThinking = new ThinkingChess[AllDraw.SodierMovments];
         public int[,] Table = null;
         public int Order = 0;
         public int Current = 0;
+        int CurrentAStarGredyMax = -1;
         static void Log(Exception ex)
         {
             try
             {
-                string stackTrace = ex.ToString();
-                File.AppendAllText(FormRefrigtz.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
+                Object a = new Object();
+                lock (a)
+                {
+                    string stackTrace = ex.ToString();
+                    File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
+                }
             }
             catch (Exception t) { Log(t); }
         }
@@ -41,10 +49,14 @@ namespace Refrigtz
                 double a = ReturnHuristic();
                 if (MaxHuristicxS < a)
                 {
-                    MaxNotFound = false;
-                    if (ThinkingChess.MaxHuristicx < MaxHuristicxS)
-                        ThinkingChess.MaxHuristicx = a;
-                    MaxHuristicxS = a;
+                    Object O2 = new Object();
+                    lock (O2)
+                    {
+                        MaxNotFound = false;
+                        if (ThinkingChess.MaxHuristicx < MaxHuristicxS)
+                            ThinkingChess.MaxHuristicx = a;
+                        MaxHuristicxS = a;
+                    }
                     return true;
                 }
             }
@@ -71,8 +83,9 @@ namespace Refrigtz
             return a;
         }
         //Constructor 1.
-        public DrawSoldier(bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
+       /* public DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
         {
+            CurrentAStarGredyMax = CurrentAStarGredy;
             MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
             IgnoreSelfObjectsT = IgnoreSelfObject;
             UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
@@ -82,11 +95,13 @@ namespace Refrigtz
             AStarGreedyHuristicT = AStarGreedyHuris;
             ArrangmentsChanged = Arrangments;
         }
+        */
         //Constructor 2.
-        public DrawSoldier(bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur, ref FormRefrigtz THIS
+        public DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. THIS
             ) :
-            base(Arrangments, (int)i, (int)j, a, Tab, Ord, TB, Cur,ref THIS)
+            base(Arrangments, (int)i, (int)j, a, Tab, Ord, TB, Cur)
         {
+             CurrentAStarGredyMax = CurrentAStarGredy;
             MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
             IgnoreSelfObjectsT = IgnoreSelfObject;
             UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
@@ -102,7 +117,7 @@ namespace Refrigtz
                     Table[ii, jj] = Tab[ii, jj];
             for (int ii = 0; ii < AllDraw.SodierMovments; ii++)
 
-                SoldierThinking[ii] = new ThinkingChess(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 4, Ord, TB, Cur, 16, 1);
+                SoldierThinking[ii] = new ThinkingChess( CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 4, Ord, TB, Cur, 16, 1);
             RowS = i;
             ColumnS = j;
             color = a;
@@ -110,7 +125,7 @@ namespace Refrigtz
             Current = Cur;
         }
         //Clone a Copy Method.
-        public void Clone(ref DrawSoldier AA, ref FormRefrigtz THIS
+        public void Clone(ref DrawSoldier AA//, ref AllDraw. THIS
             )
         {
             int[,] Tab = new int[8, 8];
@@ -119,13 +134,14 @@ namespace Refrigtz
                     Tab[i, j] = this.Table[i, j];
             //Initiate a Object and Assignemt of a Clone to Construction of a Copy.
 
-            AA = new DrawSoldier(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, this.Row, this.Column, this.color, Tab, this.Order, false, this.Current, ref THIS);
+            AA = new DrawSoldier( CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, this.Row, this.Column, this.color, Tab, this.Order, false, this.Current
+                );
             AA.ArrangmentsChanged = ArrangmentsChanged;
             for (int i = 0; i < AllDraw.SodierMovments; i++)
             {
                 try
                 {
-                    AA.SoldierThinking[i] = new ThinkingChess(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
+                    AA.SoldierThinking[i] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
                     this.SoldierThinking[i].Clone(ref AA.SoldierThinking[i]);
                 }
                 catch (Exception t)
@@ -152,99 +168,118 @@ namespace Refrigtz
             if (!ConvertOperation((int)Row, (int)Column, color, Table, Order, false, Current))
             {
 
-                try
+                //Gray Color.
+                if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
                 {
-                    //If Order is Gray.
-                    if (color == Color.Gray)
+                    try
                     {
-                        //Draw an Instant from File of Gray Soldeirs.
-                        g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "SG.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                        //If Order is Gray.
+                        if (color == Color.Gray)
+                        {
+                            //Draw an Instant from File of Gray Soldeirs.
+                            g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "SG.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                        }
+                        else
+                        {
+                            //Draw an Instatnt of Brown Soldier File On the Table.
+                            g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "SB.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                        }
                     }
-                    else
+                    catch (Exception t)
                     {
-                        //Draw an Instatnt of Brown Soldier File On the Table.
-                        g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "SB.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                        Log(t);
                     }
-                }
-                catch (Exception t) { Log(t); }
 
+                }
+                else//If Minsister Conversion Occured.
+                    if (ConvertedToMinister)
+                    {
+                        try
+                        {
+                            //Color of Gray.
+                            if (color == Color.Gray)
+                            {
+                                //Draw of Gray Minsister Image File By an Instant.
+                                g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "MG.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                            }
+                            else
+                            {
+                                //Draw a Image File on the Table Form n Instatnt One.
+                                g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "MB.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                            }
+                        }
+                        catch (Exception t)
+                        {
+                            Log(t);
+                        }
+                    }
+                    else if (ConvertedToCastle)//When Castled Converted.
+                    {
+                        try
+                        {
+                            //Color of Gray.
+                            if (color == Color.Gray)
+                            {
+                                //Create on the Inststant of Gray Castles Images.
+                                g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "BrG.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                            }
+                            else
+                            {
+                                //Creat of an Instant of Brown Image Castles.
+                                g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "BrB.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                            }
+                        }
+                        catch (Exception t)
+                        {
+                            Log(t);
+                        }
+                    }
+                    else if (ConvertedToHourse)//When Hourse Conversion Occured.
+                    {
+
+                        try
+                        {
+                            //Color of Gray.
+                            if (color == Color.Gray)
+                            {
+                                //Draw an Instatnt of Gray Hourse Image File.
+                                g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "HG.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (int)CellH), CellW, CellH));
+                            }
+                            else
+                            {
+                                //Creat of an Instatnt Hourse Image File.
+                                g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "HB.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                            }
+                        }
+                        catch (Exception t)
+                        {
+                            Log(t);
+                        }
+
+                    }
+                    else if (ConvertedToElefant)//When Elephant Conversion.
+                    {
+                        try
+                        {
+                            //Color of Gray.
+                            if (color == Color.Gray)
+                            {
+                                //Draw an Instatnt Image of Gray Elephant.
+                                g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "EG.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                            }
+                            else
+                            {
+                                //Draw of Instant Image of Brown Elephant.
+                                g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "EB.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                            }
+
+                        }
+                        catch (Exception t)
+                        {
+                            Log(t);
+                        }
+                    }
             }
-            else//If Minsister Conversion Occured.
-                if (ConvertedToMinister)
-                {
-                    try
-                    {
-                        //Color of Gray.
-                        if (color == Color.Gray)
-                        {
-                            //Draw of Gray Minsister Image File By an Instant.
-                            g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "MG.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                        }
-                        else
-                        {
-                            //Draw a Image File on the Table Form n Instatnt One.
-                            g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "MB.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                        }
-                    }
-                    catch (Exception t) { Log(t); }
-                }
-                else if (ConvertedToBridge)//When Bridged Converted.
-                {
-                    try
-                    {
-                        //Color of Gray.
-                        if (color == Color.Gray)
-                        {
-                            //Create on the Inststant of Gray Bridges Images.
-                            g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "BrG.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                        }
-                        else
-                        {
-                            //Creat of an Instant of Brown Image Bridges.
-                            g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "BrB.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                        }
-                    }
-                    catch (Exception t) { Log(t); }
-                }
-                else if (ConvertedToHourse)//When Hourse Conversion Occured.
-                {
-
-                    try
-                    {
-                        //Color of Gray.
-                        if (color == Color.Gray)
-                        {
-                            //Draw an Instatnt of Gray Hourse Image File.
-                            g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "HG.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (int)CellH), CellW, CellH));
-                        }
-                        else
-                        {
-                            //Creat of an Instatnt Hourse Image File.
-                            g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "HB.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                        }
-                    }
-                    catch (Exception t) { Log(t); }
-
-                }
-                else if (ConvertedToElefant)//When Elephant Conversion.
-                {
-                    try
-                    {
-                        //Color of Gray.
-                        if (color == Color.Gray)
-                        {
-                            //Draw an Instatnt Image of Gray Elephant.
-                            g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "EG.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                        }
-                        else
-                        {
-                            //Draw of Instant Image of Brown Elephant.
-                            g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "EB.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                        }
-
-                    }
-                    catch (Exception t) { Log(t); }
-                }
         }
     }
 }

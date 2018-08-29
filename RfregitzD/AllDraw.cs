@@ -225,7 +225,7 @@ namespace RefrigtzDLL
         public static double SignDistance = -1;
         public static double SignKingSafe = -1;
         public static double SignKingDangour = 1;
-        public static bool DrawTable = false;
+        public static bool DrawTable = true;
         public static int[,] TableVeryfy = new int[8, 8];
         public static int MaxAStarGreedy = 1;
         public static int[,] TableVeryfyConst = new int[8, 8];
@@ -244,7 +244,7 @@ namespace RefrigtzDLL
         public static bool SodierConversionOcuured = false;
         public static int SodierMovments = 1;
         public static int ElefantMovments = 1;
-        public static int HourseMovments = 1;
+        public static int HourseMovments = 1;        
         public static int CastleMovments = 1;
         public static int MinisterMovments = 1;
         public static int KingMovments = 1;
@@ -3477,7 +3477,7 @@ namespace RefrigtzDLL
                             {
                                 if (CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count >= j)
                                 {
-                                    THIS = this;
+                                    THIS = CastlesOnTable[i].CastleThinking[0].AStarGreedy[j];
                                     Found = true;
                                     return THIS;
                                 }
@@ -19806,7 +19806,7 @@ namespace RefrigtzDLL
 
                         }
                         //THIS.RefreshBoxText();
-                        bool aa = THISDummy.UsePenaltyRegardMechnisamT;
+                        bool aa = UsePenaltyRegardMechnisamT;
                         UsePenaltyRegardMechnisamT = false;
                         //THISDummy = THISDummy.RemovePenalltyFromFirstBranches(Order);
                         RemovePenalltyFromFirstBranches(Order);

@@ -6,7 +6,8 @@ using System.Drawing;
 using System.IO;
 namespace RefrigtzDLL
 {
-    public class DrawBridge
+    [Serializable]
+    public class DrawCastle
     {
         //Iniatite Global Variable.
         List<int[]> ValuableSelfSupported = new List<int[]>();
@@ -22,7 +23,7 @@ namespace RefrigtzDLL
         public static double MaxHuristicxB = -20000000000000000;
         public float Row, Column;
         public Color color;
-        public ThinkingChess[] BridgeThinking = new ThinkingChess[AllDraw.BridgeMovments];
+        public ThinkingChess[] CastleThinking = new ThinkingChess[AllDraw.CastleMovments];
         public int[,] Table = null;
         public int Current = 0;
         public int Order;
@@ -32,8 +33,12 @@ namespace RefrigtzDLL
         {
             try
             {
-                string stackTrace = ex.ToString();
-                File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
+                Object a = new Object();
+                lock (a)
+                {
+                    string stackTrace = ex.ToString();
+                    File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
+                }
             }
             catch (Exception t) { Log(t); }
         }
@@ -45,9 +50,13 @@ namespace RefrigtzDLL
                 if (MaxHuristicxB < a)
                 {
                     MaxNotFound = false;
-                    if (ThinkingChess.MaxHuristicx < MaxHuristicxB)
-                        ThinkingChess.MaxHuristicx = a;
-                    MaxHuristicxB = a;
+                    Object O = new Object();
+                    lock (O)
+                    {
+                        if (ThinkingChess.MaxHuristicx < MaxHuristicxB)
+                            ThinkingChess.MaxHuristicx = a;
+                        MaxHuristicxB = a;
+                    }
                     return true;
                 }
             }
@@ -62,10 +71,10 @@ namespace RefrigtzDLL
         public double ReturnHuristic()
         {
             double a = 0;
-            for (int ii = 0; ii < AllDraw.BridgeMovments; ii++)
+            for (int ii = 0; ii < AllDraw.CastleMovments; ii++)
                 try
                 {
-                    a += BridgeThinking[ii].ReturnHuristic(-1, -1, Order);
+                    a += CastleThinking[ii].ReturnHuristic(-1, -1, Order);
                 }
                 catch (Exception t)
                 {
@@ -77,7 +86,7 @@ namespace RefrigtzDLL
 
 
         //Constructor 1.
-        public DrawBridge(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
+      /*  public DrawCastle(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
         {
             CurrentAStarGredyMax = CurrentAStarGredy;
             MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
@@ -88,9 +97,9 @@ namespace RefrigtzDLL
             OnlySelfT = OnlySel;
             AStarGreedyHuristicT = AStarGreedyHuris;
             ArrangmentsChanged = Arrangments;
-        }
+        }*/
         //constructor 2.
-        public DrawBridge(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. THIS
+        public DrawCastle(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. THIS
             )
         {
             
@@ -108,8 +117,8 @@ namespace RefrigtzDLL
             for (int ii = 0; ii < 8; ii++)
                 for (int jj = 0; jj < 8; jj++)
                     Table[ii, jj] = Tab[ii, jj];
-            for (int ii = 0; ii < AllDraw.BridgeMovments; ii++)
-                BridgeThinking[ii] = new ThinkingChess( CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 16, Ord, TB, Cur, 4, 4);
+            for (int ii = 0; ii < AllDraw.CastleMovments; ii++)
+                CastleThinking[ii] = new ThinkingChess( CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 16, Ord, TB, Cur, 4, 4);
 
             Row = i;
             Column = j;
@@ -119,7 +128,7 @@ namespace RefrigtzDLL
 
         }
         //Clone a Copy.
-        public void Clone(ref DrawBridge AA//, ref AllDraw. THIS
+        public void Clone(ref DrawCastle AA//, ref AllDraw. THIS
             )
         {
             int[,] Tab = new int[8, 8];
@@ -127,19 +136,19 @@ namespace RefrigtzDLL
                 for (int j = 0; j < 8; j++)
                     Tab[i, j] = this.Table[i, j];
             //Initiate a Constructed Brideges an Clone a Copy.
-            AA = new DrawBridge(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, this.Row, this.Column, this.color, this.Table, this.Order, false, this.Current);
+            AA = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, this.Row, this.Column, this.color, this.Table, this.Order, false, this.Current);
             AA.ArrangmentsChanged = ArrangmentsChanged;
-            for (int i = 0; i < AllDraw.BridgeMovments; i++)
+            for (int i = 0; i < AllDraw.CastleMovments; i++)
             {
                 try
                 {
-                    AA.BridgeThinking[i] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
-                    this.BridgeThinking[i].Clone(ref AA.BridgeThinking[i]);
+                    AA.CastleThinking[i] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
+                    this.CastleThinking[i].Clone(ref AA.CastleThinking[i]);
                 }
                 catch (Exception t)
                 {
                     Log(t);
-                    AA.BridgeThinking[i] = null;
+                    AA.CastleThinking[i] = null;
                 }
             }
             AA.Table = new int[8, 8];
@@ -154,7 +163,7 @@ namespace RefrigtzDLL
 
         }
         //Draw An Instatnt Brideges Images On the Table Method.
-        public void DrawBridgeOnTable(ref Graphics g, int CellW, int CellH)
+        public void DrawCastleOnTable(ref Graphics g, int CellW, int CellH)
         {
             try
             {
@@ -162,12 +171,12 @@ namespace RefrigtzDLL
                 { //Gray Color.
                     if (color == Color.Gray)
                     {
-                        //Draw a Gray Bridges Instatnt Image On hte Tabe.
+                        //Draw a Gray Castles Instatnt Image On hte Tabe.
                         g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "BrG.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                     }
                     else
                     {
-                        //Draw an Instatnt of Brown Bridges On the Table.
+                        //Draw an Instatnt of Brown Castles On the Table.
                         g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "BrB.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                     }
                 }

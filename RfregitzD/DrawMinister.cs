@@ -9,6 +9,7 @@ namespace RefrigtzDLL
     [Serializable]
     public class DrawMinister//:DrawKing
     {
+        public static Image[] M = new Image[2];
         //Initiate Global Variable.
         List<int[]> ValuableSelfSupported = new List<int[]>();
       
@@ -100,7 +101,11 @@ namespace RefrigtzDLL
         public DrawMinister(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. THIS
             )
         {
-            
+            if (M[0] == null && M[1] == null)
+            {
+                M[0] = Image.FromFile(AllDraw.ImagesSubRoot + "MG.png");
+                M[1] = Image.FromFile(AllDraw.ImagesSubRoot + "MB.png");
+            }
             CurrentAStarGredyMax = CurrentAStarGredy;
             MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
             IgnoreSelfObjectsT = IgnoreSelfObject;
@@ -173,12 +178,12 @@ namespace RefrigtzDLL
                     if (color == Color.Gray)
                     {
                         //Draw a Gray Instatnt Minister Image on the Table.
-                        g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "MG.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                        g.DrawImage(M[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                     }
                     else
                     {
                         //Draw a Brown Instatnt Minister Image on the Table.
-                        g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "MB.png"), new Rectangle((int)(Row * CellW), (int)(Column * (float)CellH), CellW, CellH));
+                        g.DrawImage(M[1], new Rectangle((int)(Row * CellW), (int)(Column * (float)CellH), CellW, CellH));
                     }
                 }
 

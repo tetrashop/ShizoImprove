@@ -1,36 +1,91 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <DirectedGraph DataVirtualized="True" Layout="Sugiyama" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
   <Nodes>
-    <Node Id="(@1 @2 Type=ThinkingChess Member=(Name=Clone OverloadingParameters=[(@1 @2 Type=ThinkingChess ParamKind=Ref)]))" Category="CodeSchema_Method" Bounds="-2.03237465008965,148.001148686978,66.4333333333333,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="Clone" Icon="CodeSchema_Method" Label="Clone" SourceLocation="(Assembly=file:///H:/'Personal'_'Files'/Refregitz/RfregitzD/ThinkingChess.cs StartLineNumber=419 StartCharacterOffset=0 EndLineNumber=419 EndCharacterOffset=0)">
+    <Node Id="(@4 @5 @6 Member=(Name=FoundOfLeafDepenOfKindFullGame OverloadingParameters=[(@7 @8 Type=(Name=Int32 ArrayRank=2 ParentType=Int32)),@9,@9,@9,@9,@9,@9,@12,@9]))" Category="CodeSchema_Method" Bounds="576.585,335.76,224.883333333333,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="FoundOfLeafDepenOfKindFullGame" Icon="CodeSchema_Method" Label="FoundOfLeafDepenOfKindFullGame" SourceLocation="(Assembly=file:///H:/'Personal'_'Files'/Refregitz/RfregitzD/AllDraw.cs StartLineNumber=3826 StartCharacterOffset=0 EndLineNumber=3826 EndCharacterOffset=0)">
       <Category Ref="CallStackEntry" />
       <Category Ref="CodeSchema_SourceLocation" />
     </Node>
-    <Node Id="@3" Category="CodeSchema_Method" Bounds="22.6555123125985,32.684883840397,66.4333333333333,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="Clone" Icon="CodeSchema_Method" Label="Clone" SourceLocation="(Assembly=file:///H:/'Personal'_'Files'/Refregitz/RfregitzD/AllDraw.cs StartLineNumber=586 StartCharacterOffset=0 EndLineNumber=586 EndCharacterOffset=0)">
+    <Node Id="(@4 @5 @6 Member=(Name=HuristicAStarGreadySearchCastleGray @15))" Category="CodeSchema_Method" Bounds="816.426666666667,391.72,233.2,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="HuristicAStarGreadySearchCastleGray" Icon="CodeSchema_Method" Label="HuristicAStarGreadySearchCastleGray" SourceLocation="(Assembly=file:///H:/'Personal'_'Files'/Refregitz/RfregitzD/AllDraw.cs StartLineNumber=7426 StartCharacterOffset=0 EndLineNumber=7426 EndCharacterOffset=0)">
       <Category Ref="CallStackEntry" />
       <Category Ref="CodeSchema_SourceLocation" />
     </Node>
-    <Node Id="@4" Category="CodeSchema_Method" Bounds="1.06932097062175,88.644983840397,66.4333333333333,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="Clone" Icon="CodeSchema_Method" Label="Clone" SourceLocation="(Assembly=file:///H:/'Personal'_'Files'/Refregitz/RfregitzD/DrawHourse.cs StartLineNumber=142 StartCharacterOffset=0 EndLineNumber=142 EndCharacterOffset=0)">
+    <Node Id="(@4 @5 @6 Member=(Name=HuristicAStarGreadySearchElephantGray @15))" Category="CodeSchema_Method" Bounds="268.336666666667,391.72,247.38,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="HuristicAStarGreadySearchElephantGray" Icon="CodeSchema_Method" Label="HuristicAStarGreadySearchElephantGray" SourceLocation="(Assembly=file:///H:/'Personal'_'Files'/Refregitz/RfregitzD/AllDraw.cs StartLineNumber=6761 StartCharacterOffset=0 EndLineNumber=6761 EndCharacterOffset=0)">
       <Category Ref="CallStackEntry" />
       <Category Ref="CodeSchema_SourceLocation" />
     </Node>
-    <Node Id="@7" Category="CodeSchema_Method" Bounds="-15.8458736136926,-23.275216159603,185.263333333333,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="exitToolStripMenuItem_Click" Icon="CodeSchema_Method" Label="exitToolStripMenuItem_Click" SourceLocation="(Assembly=file:///H:/'Personal'_'Files'/Refregitz/Refrigtz/FormRefrigtz.cs StartLineNumber=10525 StartCharacterOffset=0 EndLineNumber=10525 EndCharacterOffset=0)">
+    <Node Id="(@4 @5 @6 Member=(Name=HuristicAStarGreadySearchHourseGray @15))" Category="CodeSchema_Method" Bounds="546.425,391.72,239.203333333333,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="HuristicAStarGreadySearchHourseGray" Icon="CodeSchema_Method" Label="HuristicAStarGreadySearchHourseGray" SourceLocation="(Assembly=file:///H:/'Personal'_'Files'/Refregitz/RfregitzD/AllDraw.cs StartLineNumber=7094 StartCharacterOffset=0 EndLineNumber=7094 EndCharacterOffset=0)">
       <Category Ref="CallStackEntry" />
       <Category Ref="CodeSchema_SourceLocation" />
     </Node>
-    <Node Id="@8" Category="CodeSchema_Method" Bounds="-2.93638114046367,-88.0020998030313,97.0566666666667,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="BaseThread" Icon="CodeSchema_Method" Label="BaseThread" SourceLocation="(Assembly=file:///H:/'Personal'_'Files'/Refregitz/Refrigtz/Load.cs StartLineNumber=229 StartCharacterOffset=0 EndLineNumber=229 EndCharacterOffset=0)">
+    <Node Id="(@4 @5 @6 Member=(Name=HuristicAStarGreadySearchKing OverloadingParameters=[(@7 @8 Type=(Name=Int32 ArrayRank=2 ParentType=Int32) ParamKind=Ref),@9,@9,@11,@9,@12,(@7 @8 Type=Boolean ParamKind=Ref)]))" Category="CodeSchema_Method" Bounds="1372.665,447.68,200.723333333333,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="HuristicAStarGreadySearchKing" Icon="CodeSchema_Method" Label="HuristicAStarGreadySearchKing" SourceLocation="(Assembly=file:///H:/'Personal'_'Files'/Refregitz/RfregitzD/AllDraw.cs StartLineNumber=8081 StartCharacterOffset=0 EndLineNumber=8081 EndCharacterOffset=0)">
       <Category Ref="CallStackEntry" />
       <Category Ref="CodeSchema_SourceLocation" />
     </Node>
-    <Node Id="ExternalCodeRootNode" Category="ExternalCallStackEntry" Bounds="-2.91020392983692,-158.053699337022,92.9866666666667,25.96" Label="External Code">
+    <Node Id="(@4 @5 @6 Member=(Name=HuristicAStarGreadySearchMinsisterGray @15))" Category="CodeSchema_Method" Bounds="1080.325,391.72,249.403333333333,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="HuristicAStarGreadySearchMinsisterGray" Icon="CodeSchema_Method" Label="HuristicAStarGreadySearchMinsisterGray" SourceLocation="(Assembly=file:///H:/'Personal'_'Files'/Refregitz/RfregitzD/AllDraw.cs StartLineNumber=7748 StartCharacterOffset=0 EndLineNumber=7748 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="(@4 @5 @6 Member=(Name=HuristicAStarGreadySearchSoldier OverloadingParameters=[(@7 @8 Type=(Name=Int32 ArrayRank=2 ParentType=Int32) ParamKind=Ref),@9,@9,@11,@9,@12,(@7 @8 Type=Boolean ParamKind=Ref)]))" Category="CodeSchema_Method" Bounds="12.16,447.68,213.733333333333,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="HuristicAStarGreadySearchSoldier" Icon="CodeSchema_Method" Label="HuristicAStarGreadySearchSoldier" SourceLocation="(Assembly=file:///H:/'Personal'_'Files'/Refregitz/RfregitzD/AllDraw.cs StartLineNumber=6725 StartCharacterOffset=0 EndLineNumber=6725 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@13" Category="CodeSchema_Method" Bounds="844.441666666666,279.8,177.17,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="HuristicAStarGreedySearch" Icon="CodeSchema_Method" Label="HuristicAStarGreedySearch" SourceLocation="(Assembly=file:///H:/'Personal'_'Files'/Refregitz/RfregitzD/AllDraw.cs StartLineNumber=10352 StartCharacterOffset=0 EndLineNumber=10352 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@14" Category="CodeSchema_Method" Bounds="832.366666666666,335.76,201.32,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="HuristicAStarGreadySearchGray" Icon="CodeSchema_Method" Label="HuristicAStarGreadySearchGray" SourceLocation="(Assembly=file:///H:/'Personal'_'Files'/Refregitz/RfregitzD/AllDraw.cs StartLineNumber=8411 StartCharacterOffset=0 EndLineNumber=8411 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@16" Category="CodeSchema_Method" Bounds="1360.505,391.72,225.043333333333,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="HuristicAStarGreadySearchKingGray" Icon="CodeSchema_Method" Label="HuristicAStarGreadySearchKingGray" SourceLocation="(Assembly=file:///H:/'Personal'_'Files'/Refregitz/RfregitzD/AllDraw.cs StartLineNumber=8069 StartCharacterOffset=0 EndLineNumber=8069 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@17" Category="CodeSchema_Method" Bounds="0,391.72,238.053333333333,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="HuristicAStarGreadySearchSoldierGray" Icon="CodeSchema_Method" Label="HuristicAStarGreadySearchSoldierGray" SourceLocation="(Assembly=file:///H:/'Personal'_'Files'/Refregitz/RfregitzD/AllDraw.cs StartLineNumber=6750 StartCharacterOffset=0 EndLineNumber=6750 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@18" Category="CodeSchema_Method" Bounds="896.87,223.84,72.3133333333334,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="Initiate" Icon="CodeSchema_Method" Label="Initiate" SourceLocation="(Assembly=file:///H:/'Personal'_'Files'/Refregitz/RfregitzD/AllDraw.cs StartLineNumber=19790 StartCharacterOffset=0 EndLineNumber=19790 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@19" Category="CodeSchema_Method" Bounds="636.436666666667,279.8,177.18,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="InitiateAStarGreedytObject" Icon="CodeSchema_Method" Label="InitiateAStarGreedytObject" SourceLocation="(Assembly=file:///H:/'Personal'_'Files'/Refregitz/RfregitzD/AllDraw.cs StartLineNumber=15211 StartCharacterOffset=0 EndLineNumber=15211 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@20" Category="CodeSchema_Method" Bounds="878.978333333333,55.9599999999999,108.096666666667,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="AllOperations" Icon="CodeSchema_Method" Label="AllOperations" SourceLocation="(Assembly=file:///H:/'Personal'_'Files'/Refregitz/Refrigtz/FormRefrigtz.cs StartLineNumber=6902 StartCharacterOffset=0 EndLineNumber=6902 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@21" Category="CodeSchema_Method" Bounds="887.506666666667,167.88,91.04,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="BobAction" Icon="CodeSchema_Method" Label="BobAction" SourceLocation="(Assembly=file:///H:/'Personal'_'Files'/Refregitz/Refrigtz/FormRefrigtz.cs StartLineNumber=9271 StartCharacterOffset=0 EndLineNumber=9271 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@3" Category="CodeSchema_Method" Bounds="815.24,111.92,235.573333333333,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="ComputerByComputerBobAsRefregitz" Icon="CodeSchema_Method" Label="ComputerByComputerBobAsRefregitz" SourceLocation="(Assembly=file:///H:/'Personal'_'Files'/Refregitz/Refrigtz/FormRefrigtz.cs StartLineNumber=6652 StartCharacterOffset=0 EndLineNumber=6652 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="ExternalCodeRootNode" Category="ExternalCallStackEntry" Bounds="886.533333333333,0,92.9866666666667,25.96" Label="External Code">
       <Category Ref="CallStackEntry" />
     </Node>
   </Nodes>
   <Links>
-    <Link Source="@3" Target="@4" Category="CallStackDirectCall" Bounds="42.5319810264241,58.644883840397,8.3332597304494,21.6031647479697" />
-    <Link Source="@4" Target="(@1 @2 Type=ThinkingChess Member=(Name=Clone OverloadingParameters=[(@1 @2 Type=ThinkingChess ParamKind=Ref)]))" Category="CallStackDirectCall" Bounds="32.3322306399344,114.604983840397,1.27547851927349,24.4084276815359" />
-    <Link Source="@7" Target="@3" Category="CallStackDirectCall" Bounds="63.87378775011,2.684783840397,8.06107203654138,21.5696051233511" />
-    <Link Source="@8" Target="@7" Category="CallStackIndirectCall" Bounds="51.8474063654307,-62.0420998030313,14.7756387506606,30.6592911870149" Label="External Code" LabelBounds="-15.553128138442,-45.8441667063413,72.9866666666667,15.96" />
-    <Link Source="ExternalCodeRootNode" Target="@8" Category="CallStackIndirectCall" Bounds="43.9553481676577,-132.093699337022,1.00640434169546,35.0952977468538" />
+    <Link Source="@13" Target="@14" Category="CallStackDirectCall" Bounds="933.026672363281,305.760009765625,0,21" />
+    <Link Source="@14" Target="(@4 @5 @6 Member=(Name=HuristicAStarGreadySearchCastleGray @15))" Category="CallStackDirectCall" Bounds="933.026672363281,361.720001220703,0,21" />
+    <Link Source="@14" Target="(@4 @5 @6 Member=(Name=HuristicAStarGreadySearchElephantGray @15))" Category="CallStackDirectCall" Bounds="523.420104980469,359.690856933594,309.107971191406,31.6839294433594" />
+    <Link Source="@14" Target="(@4 @5 @6 Member=(Name=HuristicAStarGreadySearchHourseGray @15))" Category="CallStackDirectCall" Bounds="736.766296386719,361.720001220703,134.329345703125,28.15380859375" />
+    <Link Source="@14" Target="(@4 @5 @6 Member=(Name=HuristicAStarGreadySearchMinsisterGray @15))" Category="CallStackDirectCall" Bounds="996.117431640625,361.720001220703,137.003051757813,28.1863708496094" />
+    <Link Source="@14" Target="@16" Category="CallStackDirectCall" Bounds="1033.65307617188,359.167877197266,318.381713867188,32.9937744140625" />
+    <Link Source="@14" Target="@17" Category="CallStackDirectCall" Bounds="229.91731262207,361.720001220703,606.053146362305,29.1963806152344" />
+    <Link Source="@16" Target="(@4 @5 @6 Member=(Name=HuristicAStarGreadySearchKing OverloadingParameters=[(@7 @8 Type=(Name=Int32 ArrayRank=2 ParentType=Int32) ParamKind=Ref),@9,@9,@11,@9,@12,(@7 @8 Type=Boolean ParamKind=Ref)]))" Category="CallStackDirectCall" Bounds="1473.02661132813,417.679992675781,0,21" />
+    <Link Source="@17" Target="(@4 @5 @6 Member=(Name=HuristicAStarGreadySearchSoldier OverloadingParameters=[(@7 @8 Type=(Name=Int32 ArrayRank=2 ParentType=Int32) ParamKind=Ref),@9,@9,@11,@9,@12,(@7 @8 Type=Boolean ParamKind=Ref)]))" Category="CallStackDirectCall" Bounds="119.026664733887,417.679992675781,0,21" />
+    <Link Source="@18" Target="@13" Category="CallStackDirectCall" Bounds="933.026672363281,249.800003051758,0,20.9999847412109" />
+    <Link Source="@18" Target="@19" Category="CallStackDirectCall" Bounds="781.963500976563,246.54753112793,114.906494140625,30.9142608642578" />
+    <Link Source="@19" Target="(@4 @5 @6 Member=(Name=FoundOfLeafDepenOfKindFullGame OverloadingParameters=[(@7 @8 Type=(Name=Int32 ArrayRank=2 ParentType=Int32)),@9,@9,@9,@9,@9,@9,@12,@9]))" Category="CallStackDirectCall" Bounds="702.246215820313,305.760009765625,14.43017578125,22.4309692382813" />
+    <Link Source="@20" Target="@3" Category="CallStackDirectCall" Bounds="933.026672363281,81.9199981689453,0,21" />
+    <Link Source="@21" Target="@18" Category="CallStackDirectCall" Bounds="933.026672363281,193.839996337891,0,21" />
+    <Link Source="@3" Target="@21" Category="CallStackDirectCall" Bounds="933.026672363281,137.880004882813,0,21" />
+    <Link Source="ExternalCodeRootNode" Target="@20" Category="CallStackIndirectCall" Bounds="933.026672363281,25.9599990844727,0,21" />
   </Links>
   <Categories>
     <Category Id="CallStackDirectCall" Label="Call Stack direct call" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Call Stack direct call" OutgoingActionLabel="Call Stack direct call" />
@@ -57,7 +112,6 @@
     <Property Id="IsEnabled" DataType="System.Boolean" />
     <Property Id="IsProviderRoot" Label="IsProviderRoot" Description="IsProviderRoot" DataType="System.Boolean" />
     <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
-    <Property Id="LabelBounds" DataType="System.Windows.Rect" />
     <Property Id="Layout" DataType="System.String" />
     <Property Id="NavigationActionLabel" Label="NavigationActionLabel" Description="NavigationActionLabel" DataType="System.String" />
     <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
@@ -68,23 +122,38 @@
     <Property Id="Visibility" Label="Visibility" Description="Defines whether a node in the graph is visible or not" DataType="System.Windows.Visibility" />
   </Properties>
   <QualifiedNames>
+    <Name Id="ArrayRank" Label="Array Rank" ValueType="System.String" />
     <Name Id="Assembly" Label="Assembly" ValueType="Uri" />
     <Name Id="Member" Label="Member" ValueType="System.Object" />
     <Name Id="Name" Label="Name" ValueType="System.String" />
     <Name Id="Namespace" Label="Namespace" ValueType="System.String" />
     <Name Id="OverloadingParameters" Label="Parameter" ValueType="Microsoft.VisualStudio.GraphModel.GraphNodeIdCollection" Formatter="NameValueNoEscape" />
     <Name Id="ParamKind" Label="Parameter Kind" ValueType="Microsoft.VisualStudio.GraphModel.CodeSchema.ParamKind" />
+    <Name Id="ParentType" Label="Parent Type" ValueType="System.Object" />
     <Name Id="Type" Label="Type" ValueType="System.Object" />
   </QualifiedNames>
   <IdentifierAliases>
-    <Alias n="1" Uri="Assembly=$(6fe9bef7-bd1c-48c4-9967-6d1517c76661.OutputPathUri)" />
-    <Alias n="2" Id="Namespace=RefrigtzDLL" />
-    <Alias n="3" Id="(@1 @2 Type=AllDraw Member=(Name=Clone OverloadingParameters=[(@1 @2 Type=AllDraw)]))" />
-    <Alias n="4" Id="(@1 @2 Type=DrawHourse Member=(Name=Clone OverloadingParameters=[(@1 @2 Type=DrawHourse ParamKind=Ref)]))" />
-    <Alias n="5" Uri="Assembly=$(54dd9d6d-eb54-4aed-bd2e-397b746a9bf6.OutputPathUri)" />
-    <Alias n="6" Uri="Assembly=$(FxReferenceAssembliesUri)/.NETFramework/v4.7.1/mscorlib.dll" />
-    <Alias n="7" Id="(@5 Namespace=Refrigtz Type=FormRefrigtz Member=(Name=exitToolStripMenuItem_Click OverloadingParameters=[(@6 Namespace=System Type=Object),(@6 Namespace=System Type=EventArgs)]))" />
-    <Alias n="8" Id="(@5 Namespace=Refrigtz Type=Load Member=BaseThread)" />
+    <Alias n="1" Uri="Assembly=$(54dd9d6d-eb54-4aed-bd2e-397b746a9bf6.OutputPathUri)" />
+    <Alias n="2" Uri="Assembly=$(FxReferenceAssembliesUri)/.NETFramework/v4.6.1/System.dll" />
+    <Alias n="3" Id="(@1 Namespace=Refrigtz Type=FormRefrigtz Member=(Name=ComputerByComputerBobAsRefregitz OverloadingParameters=[(@2 Namespace=System.Diagnostics Type=Process ParamKind=Ref)]))" />
+    <Alias n="4" Uri="Assembly=$(6fe9bef7-bd1c-48c4-9967-6d1517c76661.OutputPathUri)" />
+    <Alias n="5" Id="Namespace=RefrigtzDLL" />
+    <Alias n="6" Id="Type=AllDraw" />
+    <Alias n="7" Uri="Assembly=$(FxReferenceAssembliesUri)/.NETFramework/v4.6.1/mscorlib.dll" />
+    <Alias n="8" Id="Namespace=System" />
+    <Alias n="9" Id="(@7 @8 Type=Int32)" />
+    <Alias n="10" Uri="Assembly=$(FxReferenceAssembliesUri)/.NETFramework/v4.6.1/System.Drawing.dll" />
+    <Alias n="11" Id="(@10 Namespace=System.Drawing Type=Color)" />
+    <Alias n="12" Id="(@7 @8 Type=Boolean)" />
+    <Alias n="13" Id="(@4 @5 @6 Member=(Name=HuristicAStarGreedySearch OverloadingParameters=[@9,@11,@9,@12]))" />
+    <Alias n="14" Id="(@4 @5 @6 Member=(Name=HuristicAStarGreadySearchGray OverloadingParameters=[@9,@11,@9,@12,(@7 @8 Type=Boolean ParamKind=Ref)]))" />
+    <Alias n="15" Id="OverloadingParameters=[(@7 @8 Type=(Name=Int32 ArrayRank=2 ParentType=Int32) ParamKind=Ref),@9,@11,@9,@12,(@7 @8 Type=Boolean ParamKind=Ref)]" />
+    <Alias n="16" Id="(@4 @5 @6 Member=(Name=HuristicAStarGreadySearchKingGray @15))" />
+    <Alias n="17" Id="(@4 @5 @6 Member=(Name=HuristicAStarGreadySearchSoldierGray @15))" />
+    <Alias n="18" Id="(@4 @5 @6 Member=(Name=Initiate OverloadingParameters=[@9,@9,@11,(@7 @8 Type=(Name=Int32 ArrayRank=2 ParentType=Int32)),@9,@12,@12,@9]))" />
+    <Alias n="19" Id="(@4 @5 @6 Member=(Name=InitiateAStarGreedytObject OverloadingParameters=[@9,@9,@9,@11,(@7 @8 Type=(Name=Int32 ArrayRank=2 ParentType=Int32)),@9,@12,@12,@9]))" />
+    <Alias n="20" Id="(@1 Namespace=Refrigtz Type=FormRefrigtz Member=AllOperations)" />
+    <Alias n="21" Id="(@1 Namespace=Refrigtz Type=FormRefrigtz Member=BobAction)" />
   </IdentifierAliases>
   <Styles>
     <Style TargetType="Link" GroupLabel="Current Call Stack Link" ValueLabel="True" Visibility="Hidden">

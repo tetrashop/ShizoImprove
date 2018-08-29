@@ -9,6 +9,7 @@ namespace RefrigtzDLL
     [Serializable]
     public class DrawHourse
     {
+        public static Image[] H = new Image[2];
         //Iniatite Global Variables.
         List<int[]> ValuableSelfSupported = new List<int[]>();
       
@@ -100,7 +101,11 @@ namespace RefrigtzDLL
         public DrawHourse(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//,ref AllDraw. THIS
             )
         {
-            
+            if (H[0] == null && H[1] == null)
+            {
+                H[0] = Image.FromFile(AllDraw.ImagesSubRoot + "HG.png");
+                H[1] = Image.FromFile(AllDraw.ImagesSubRoot + "HB.png");
+            }
             CurrentAStarGredyMax = CurrentAStarGredy;
             MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
             IgnoreSelfObjectsT = IgnoreSelfObject;
@@ -170,12 +175,12 @@ namespace RefrigtzDLL
                     if (color == Color.Gray)
                     {
                         //Draw an Instatnt Gray Hourse on the Table.
-                        g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "HG.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                        g.DrawImage(H[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                     }
                     else
                     {
                         //Draw an Instatnt Brown Hourse on the Table.
-                        g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "HB.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                        g.DrawImage(H[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                     }
                 }
             }

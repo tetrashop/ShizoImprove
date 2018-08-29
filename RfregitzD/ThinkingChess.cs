@@ -264,10 +264,12 @@ namespace RefrigtzDLL
                     for (int h = 0; h < 8; h++)
                         for (int m = 0; m < 8; m++)
                         {
-                            if (Value[h, m] == 0)
-                                continue;
-                            Value[h, m] = ObjectValueCalculator(TableConst, Order, h, m);
-
+                            if (TableConst != null)
+                            {
+                                if (TableConst[h, m] == 0)
+                                    continue;
+                                Value[h, m] = ObjectValueCalculator(TableConst, Order, h, m);
+                            }
                         }
                 }
             }
@@ -393,6 +395,21 @@ namespace RefrigtzDLL
                 Order = Ord;
                 ThinkingBegin = ThinkingBeg;
                 AStarGreedy = new List<AllDraw>();
+                Object o = new Object();
+                lock (o)
+                {
+                    for (int h = 0; h < 8; h++)
+                        for (int m = 0; m < 8; m++)
+                        {
+                            if (TableConst != null)
+                            {
+                                if (TableConst[h, m] == 0)
+                                    continue;
+                                Value[h, m] = ObjectValueCalculator(TableConst, Order, h, m);
+                            }
+
+                        }
+                }
             }
         }
         //Clone A Table
@@ -8761,13 +8778,13 @@ namespace RefrigtzDLL
                     if (A.ObjectDangourKingMove(Order, Table, false))
                     {
                         if (Order == 1 && A.CheckGrayObjectDangour)
-                            Val -= 64;
+                            Val -= 5;
                         if (Order == -1 && A.CheckBrownObjectDangour)
-                            Val -= 64;
+                            Val -= 5;
                         if (Order == -1 && A.CheckGrayObjectDangour)
-                            Val += 64;
+                            Val += 5;
                         if (Order == 1 && A.CheckBrownObjectDangour)
-                            Val += 64;
+                            Val += 5;
                     }
 
                     if (System.Math.Abs(Table[ii, jj]) == 2)
