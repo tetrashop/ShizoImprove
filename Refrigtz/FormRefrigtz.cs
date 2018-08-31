@@ -204,12 +204,12 @@ namespace Refrigtz
         float RowRealesed = -1, ColumnRealeased = -1;
         public int[,] Table ={
             { -4, -1, 0, 0, 0, 0, 1, 4 },
-            { -3, -1, 0, 0, 0, 0, 1, 3 },
             { -2, -1, 0, 0, 0, 0, 1, 2 },
+            { -3, -1, 0, 0, 0, 0, 1, 3 },
             { -5, -1, 0, 0, 0, 0, 1, 5 },
             { -6, -1, 0, 0, 0, 0, 1, 6 },
-            { -2, -1, 0, 0, 0, 0, 1, 2 },
             { -3, -1, 0, 0, 0, 0, 1, 3 },
+            { -2, -1, 0, 0, 0, 0, 1, 2 },
             { -4, -1, 0, 0, 0, 0, 1, 4 }
             };
         List<char> fenS = new List<char>("position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\0");
