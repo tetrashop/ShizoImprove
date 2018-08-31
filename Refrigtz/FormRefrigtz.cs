@@ -2121,7 +2121,7 @@ namespace Refrigtz
             double HeuristicFromCenter = new double();
             double HeuristicKingDangour = new double();
 
-            th.CalculateHuristics(0,Table, Row, Column, RowS, ColumnS, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicHittingValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue,ref HeuristicKingSafe,ref HeuristicFromCenter,ref HeuristicKingDangour);
+            th.CalculateHuristics(true, 0,Table, Row, Column, RowS, ColumnS, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicHittingValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue,ref HeuristicKingSafe,ref HeuristicFromCenter,ref HeuristicKingDangour);
             double[] Hu = new double[4];
 
             return HuristicAttackValue +HuristicMovementValue +

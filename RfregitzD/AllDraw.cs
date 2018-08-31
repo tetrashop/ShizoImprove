@@ -222,7 +222,7 @@ namespace RefrigtzDLL
         public static double SignSupport = 1;
         public static double SignKiller = 1;
         public static double SignMovments = 1;
-        public static double SignDistance = -1;
+        public static double SignDistance = -1000;
         public static double SignKingSafe = -1;
         public static double SignKingDangour = 1;
         public static bool DrawTable = true;

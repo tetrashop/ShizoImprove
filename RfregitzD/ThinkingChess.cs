@@ -695,7 +695,7 @@ namespace RefrigtzDLL
             }
         }
         ///Huristic of Attacker.
-        double HuristicAttack(int[,] Table, int Ord, Color aa, int i, int j, int ii, int jj)
+        double HuristicAttack(bool  Before,int[,] Table, int Ord, Color aa, int i, int j, int ii, int jj)
         {
             Object O = new Object();
             lock (O)
@@ -741,62 +741,65 @@ namespace RefrigtzDLL
                         Object O1 = new Object();
                         lock (O1)
                         {
-                            if (Attack(Table, i, j, ii, jj, a, Order))
+                            if (Before)
                             {
-
-                                //Find Huristic Value Of Current and Add to Sumation.
-                                HA += (Sign * (System.Math.Abs(GetValue(ii, jj) + GetValue(i, j))));
-                                //When there is supporter of attacked Objects take huristic negative else take muliply sign and muliply huristic.
-                                bool Supported = new bool();
-                                Supported = false;
-                                //For All Enemy Obejcts.                                             
-                                Parallel.For(0, 8, g =>
+                                if (Attack(Table, i, j, ii, jj, a, Order))
                                 {
-                                    if (Supported)
-                                        return;
-                                    Parallel.For(0, 8, h =>
-                                        {
-                                            if (Supported)
-                                                return;
-                                            //Ignore Of Self Objects.
-                                            if (Order == 1 && Table[g, h] >= 0)
-                                                return;
-                                            if (Order == -1 && Table[g, h] <= 0)
-                                                return;
-                                            Color aaa = new Color();
-                                            //Assgin Enemy ints.
-                                            aaa = Color.Gray;
-                                            if (Order * -1 == -1)
-                                                aaa = Color.Brown;
-                                            else
+
+                                    //Find Huristic Value Of Current and Add to Sumation.
+                                    HA += (Sign * (System.Math.Abs(GetValue(ii, jj) + GetValue(i, j))));
+                                    //When there is supporter of attacked Objects take huristic negative else take muliply sign and muliply huristic.
+                                    bool Supported = new bool();
+                                    Supported = false;
+                                    //For All Enemy Obejcts.                                             
+                                    Parallel.For(0, 8, g =>
+                                    {
+                                        if (Supported)
+                                            return;
+                                        Parallel.For(0, 8, h =>
+                                            {
+                                                if (Supported)
+                                                    return;
+                                                //Ignore Of Self Objects.
+                                                if (Order == 1 && Table[g, h] >= 0)
+                                                        return;
+                                                    if (Order == -1 && Table[g, h] <= 0)
+                                                        return;
+                                                    Color aaa = new Color();
+                                                //Assgin Enemy ints.
                                                 aaa = Color.Gray;
-                                            //When Enemy is Supported.
-                                            bool A = new bool();
-                                            Object O2 = new Object();
-                                            lock (O2)
-                                            {
-                                                A = Support(Table, g, h, ii, jj, aaa, Order * -1);
-                                            }
-                                            //When Enemy is Supported.
-                                            if (A)
-                                            {
-                                                //Assgine variable.
-                                                Supported = true;
-                                                return;
+                                                    if (Order * -1 == -1)
+                                                        aaa = Color.Brown;
+                                                    else
+                                                        aaa = Color.Gray;
+                                                //When Enemy is Supported.
+                                                bool A = new bool();
+                                                    Object O2 = new Object();
+                                                    lock (O2)
+                                                    {
+                                                        A = Support(Table, g, h, ii, jj, aaa, Order * -1);
+                                                    }
+                                                //When Enemy is Supported.
+                                                if (A)
+                                                    {
+                                                    //Assgine variable.
+                                                    Supported = true;
+                                                        return;
 
-                                            }
+                                                    }                                                
 
-                                        });
-                                    if (Supported)
-                                        return;
-                                });
-                                if (!Supported)
-                                    //When is Not Supported multyply 100.
-                                    HA *= 20;
-                                else
-                                    //When is Supported Multyply -100.
-                                    HA *= -20;
+                                            });
+                                        if (Supported)
+                                            return;
+                                    });
+                                    if (!Supported)
+                                        //When is Not Supported multyply 20.
+                                        HA *= 20;
+                                    else
+                                        //When is Supported Multyply -20.
+                                        HA *= -20;
 
+                                }
                             }
                         }
 
@@ -837,62 +840,64 @@ namespace RefrigtzDLL
                         Object O2 = new Object();
                         lock (O2)
                         {
-                            if (Attack(Table, i, j, ii, jj, a, Order))
+                            if (Before)
                             {
-
-                                HA += (Sign * (System.Math.Abs(GetValue(ii, jj) + GetValue(i, j)
-                               )));
-
-                                //When there is supporter of attacked Objects take huristic negative else take muliply sign and muliply huristic.
-                                //For All Enemy Obejcts.                                             
-                                Parallel.For(0, 8, g =>
+                                if (Attack(Table, i, j, ii, jj, a, Order))
                                 {
-                                    if (Supported)
-                                        return;
-                                    Parallel.For(0, 8, h =>
-                                        {
-                                            if (Supported)
-                                                return;
+
+                                    HA += (Sign * (System.Math.Abs(GetValue(ii, jj) + GetValue(i, j)
+                                   )));
+
+                                    //When there is supporter of attacked Objects take huristic negative else take muliply sign and muliply huristic.
+                                    //For All Enemy Obejcts.                                             
+                                    Parallel.For(0, 8, g =>
+                                    {
+                                        if (Supported)
+                                            return;
+                                        Parallel.For(0, 8, h =>
+                                            {
+                                                if (Supported)
+                                                    return;
                                             //Ignore Of Self Objects.
                                             if (Order == 1 && Table[g, h] >= 0)
-                                                return;
-                                            if (Order == -1 && Table[g, h] <= 0)
-                                                return;
-                                            Color aaa = new Color();
+                                                    return;
+                                                if (Order == -1 && Table[g, h] <= 0)
+                                                    return;
+                                                Color aaa = new Color();
                                             //Assgin Enemy ints.
                                             aaa = Color.Gray;
-                                            if (Order * -1 == -1)
-                                                aaa = Color.Brown;
-                                            else
-                                                aaa = Color.Gray;
+                                                if (Order * -1 == -1)
+                                                    aaa = Color.Brown;
+                                                else
+                                                    aaa = Color.Gray;
                                             //When Enemy is Supported.
                                             bool A = new bool();
-                                            Object O1 = new Object();
-                                            lock (O1)
-                                            {
-                                                A = Support(Table, g, h, ii, jj, aaa, Order * -1);
-                                            }
+                                                Object O1 = new Object();
+                                                lock (O1)
+                                                {
+                                                    A = Support(Table, g, h, ii, jj, aaa, Order * -1);
+                                                }
                                             //When Enemy is Supported.
                                             if (A)
-                                            {
+                                                {
                                                 //Assgine variable.
                                                 Supported = true;
-                                                return;
+                                                    return;
 
-                                            }
-                                        });
-                                    if (Supported)
-                                        return;
-                                });
-                                //When there is supported take positive multiply else take negative multiply.                               
+                                                }
+                                            });
+                                        if (Supported)
+                                            return;
+                                    });
+                                    //When there is supported take positive multiply else take negative multiply.                               
 
-                                if (!Supported)
-                                    //When is Not Supported multyply 100.
-                                    HA *= 20;
-                                else
-                                    //When is Supported Multyply -100.
-                                    HA *= -20;
-
+                                    if (!Supported)
+                                        //When is Not Supported multyply 20.
+                                        HA *= 20;
+                                    else
+                                        //When is Supported Multyply -20.
+                                        HA *= -20;
+                                }
                             }
                         }
                     }
@@ -908,7 +913,7 @@ namespace RefrigtzDLL
                 return HA;
             }
         }
-        double HuristicReducsedAttack(int[,] Table, int Ord, Color aa, int i, int j, int ii, int jj)
+        double HuristicReducsedAttack(bool Before, int[,] Table, int Ord, Color aa, int i, int j, int ii, int jj)
         {
             Object O = new Object();
             lock (O)
@@ -958,59 +963,62 @@ namespace RefrigtzDLL
                         Object O1 = new Object();
                         lock (O1)
                         {
-                            if (Attack(Table, ii, jj, i, j, a, Order))
+                            if (Before)
                             {
-
-                                HA += (Sign * (System.Math.Abs(GetValue(i, j) + GetValue(ii, jj))));
-                                bool Reduced = new bool();
-                                Reduced = false;
-                                Parallel.For(0, 8, g =>
+                                if (Attack(Table, ii, jj, i, j, a, Order))
                                 {
-                                    if (Reduced)
-                                        return;
-                                    Parallel.For(0, 8, h =>
 
+                                    HA += (Sign * (System.Math.Abs(GetValue(i, j) + GetValue(ii, jj))));
+                                    bool Reduced = new bool();
+                                    Reduced = false;
+                                    Parallel.For(0, 8, g =>
                                     {
                                         if (Reduced)
                                             return;
-                                        //Ignore Of Enemy Objects.
-                                        if (Order == 1 && Table[g, h] <= 0)
-                                            return;
-                                        if (Order == -1 && Table[g, h] >= 0)
-                                            return;
-                                        Color aaa = new Color();
-                                        //Assgin Enemy ints.
-                                        if (Order * -1 == -1)
-                                            aaa = Color.Brown;
-                                        else
-                                            aaa = Color.Gray;
-                                        bool A = new bool();
-                                        Object O2 = new Object();
-                                        lock (O2)
+                                        Parallel.For(0, 8, h =>
+
                                         {
-                                            A = Support(Table, g, h, ii, jj, aaa, Order * 1);
-                                        }
-                                        //When Self is Supported.
-                                        if (A)
-                                        {
-                                            //Assgine variable.
-                                            Reduced = true;
+                                            if (Reduced)
+                                                return;
+                                            //Ignore Of Enemy Objects.
+                                            if (Order == 1 && Table[g, h] <= 0)
+                                                return;
+                                            if (Order == -1 && Table[g, h] >= 0)
+                                                return;
+                                            Color aaa = new Color();
+                                            //Assgin Enemy ints.
+                                            if (Order * -1 == -1)
+                                                aaa = Color.Brown;
+                                            else
+                                                aaa = Color.Gray;
+                                            bool A = new bool();
+                                            Object O2 = new Object();
+                                            lock (O2)
+                                            {
+                                                A = Support(Table, g, h, ii, jj, aaa, Order * 1);
+                                            }
+                                            //When Enemy is Supported.
+                                            if (A)
+                                            {
+                                                //Assgine variable.
+                                                Reduced = true;
+                                                return;
+                                            }
+                                        });
+                                        if (Reduced)
                                             return;
-                                        }
                                     });
+
+
                                     if (Reduced)
-                                        return;
-                                });
+                                        //When is Not Supported multyply 100.
+                                        HA *= 20;
+                                    else
+                                        //When is Supported Multyply -100.
+                                        HA *= -20;
 
 
-                                if (!Reduced)
-                                    //When is Not Supported multyply 100.
-                                    HA *= 20;
-                                else
-                                    //When is Supported Multyply -100.
-                                    HA *= -20;
-
-
+                                }
                             }
                         }
                     }
@@ -1047,58 +1055,61 @@ namespace RefrigtzDLL
                         Object O1 = new Object();
                         lock (O1)
                         {
-                            if (Attack(Table, ii, jj, i, j, a, Order))
+                            if (Before)
                             {
-
-                                HA += (Sign * (System.Math.Abs(GetValue(i, j) + GetValue(ii, jj))));
-                                bool Reduced = new bool();
-                                Reduced = false;
-                                //For All Self Obejcts.                                             
-                                Parallel.For(0, 8, g =>
+                                if (Attack(Table, ii, jj, i, j, a, Order))
                                 {
-                                    if (Reduced)
-                                        return;
-                                    Parallel.For(0, 8, h =>
 
+                                    HA += (Sign * (System.Math.Abs(GetValue(i, j) + GetValue(ii, jj))));
+                                    bool Reduced = new bool();
+                                    Reduced = false;
+                                    //For All Self Obejcts.                                             
+                                    Parallel.For(0, 8, g =>
                                     {
                                         if (Reduced)
                                             return;
-                                        //Ignore Of Enemy Objects.
-                                        if (Order == 1 && Table[g, h] <= 0)
-                                            return;
-                                        if (Order == -1 && Table[g, h] >= 0)
-                                            return;
-                                        Color aaa = new Color();
-                                        //Assgin Enemy ints.
-                                        if (Order * -1 == -1)
-                                            aaa = Color.Brown;
-                                        else
-                                            aaa = Color.Gray;
-                                        bool A = new bool();
-                                        Object O2 = new Object();
-                                        lock (O2)
-                                        {
-                                            A = Support(Table, g, h, ii, jj, aaa, Order * 1);
-                                        }
-                                        //When Self is Supported.
-                                        if (A)
-                                        {
-                                            //Assgine variable.
-                                            Reduced = true;
-                                            return;
+                                        Parallel.For(0, 8, h =>
 
-                                        }
+                                        {
+                                            if (Reduced)
+                                                return;
+                                            //Ignore Of Enemy Objects.
+                                            if (Order == 1 && Table[g, h] <= 0)
+                                                return;
+                                            if (Order == -1 && Table[g, h] >= 0)
+                                                return;
+                                            Color aaa = new Color();
+                                            //Assgin Enemy ints.
+                                            if (Order * -1 == -1)
+                                                aaa = Color.Brown;
+                                            else
+                                                aaa = Color.Gray;
+                                            bool A = new bool();
+                                            Object O2 = new Object();
+                                            lock (O2)
+                                            {
+                                                A = Support(Table, g, h, ii, jj, aaa, Order * 1);
+                                            }
+                                            //When Self is Supported.
+                                            if (A)
+                                            {
+                                                //Assgine variable.
+                                                Reduced = true;
+                                                return;
 
+                                            }
+
+                                        });
+                                        if (Reduced)
+                                            return;
                                     });
                                     if (Reduced)
-                                        return;
-                                });
-                                if (!Reduced)
-                                    //When is Not Supported multyply 100.
-                                    HA *= 20;
-                                else
-                                    //When is Supported Multyply -100.
-                                    HA *= -20;
+                                        //When is Not Supported multyply 100.
+                                        HA *= 20;
+                                    else
+                                        //When is Supported Multyply -100.
+                                        HA *= -20;
+                                }
                             }
                         }
                     }
@@ -1283,7 +1294,7 @@ namespace RefrigtzDLL
                         if (Attack(Tab, i, j, ii, jj, a, Order) && EnemyNotSupported)
                         {
                             //Huristic positive.
-                            HA += AllDraw.SignKiller * (double)((GetValue(i, j) + GetValue(ii, jj)
+                            HA += AllDraw.SignKiller * (double)((ObjectValueCalculator(Tab, Order, i, j) + ObjectValueCalculator(Tab, Order, ii, jj)
                             ) * Sign);
                         }
                         a = colorAS;
@@ -2351,7 +2362,7 @@ namespace RefrigtzDLL
                             Object O1 = new Object();
                             lock (O1)
                             {
-                                if (!Supported)
+                                if (Supported)
                                     //When is Not Supported multyply 100.
                                     HA *= 20;
                                 else
@@ -3597,8 +3608,8 @@ namespace RefrigtzDLL
                 double HA = 0;
                 int DummyOrder = AllDraw.OrderPlate;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
-                double ObjectDangour = 0;
-                double Check = 0;
+                double ObjectDangour = 10;
+                double Check = 10000;
                 double CheckMate = 1000000;
                 try
                 {
@@ -4050,7 +4061,7 @@ namespace RefrigtzDLL
                 return HA * SignOrderToPlate(Order);
             }
         }
-        public double[] HuristicAll(int Killed, int[,] Table, Color aa, int Ord, int iii, int jjj, int iiii, int jjjj)
+        public double[] HuristicAll(bool Before,int Killed, int[,] Table, Color aa, int Ord, int iii, int jjj, int iiii, int jjjj)
         {
             Object O = new Object();
             lock (O)
@@ -4077,7 +4088,7 @@ namespace RefrigtzDLL
                                     int[,] Table1 = CloneATable(Table);
                                     int Ord1 = Ord;
                                     Color aa1 = aa;
-                                    double HAA1 = HuristicAttack(Table1, Ord1, aa1, i1, j1, iiii1, jjjj1);
+                                    double HAA1 = HuristicAttack(Before, Table1, Ord1, aa1, i1, j1, iiii1, jjjj1);
                                     if (HAA1 != 0)
                                         Huristic[0] += HAA1;
 
@@ -4094,7 +4105,7 @@ namespace RefrigtzDLL
                                     int[,] Table3 = CloneATable(Table);
                                     int Ord3 = Ord;
                                     Color aa3 = aa;
-                                    double HAA3 = HuristicMovment(Table3, aa3, Ord3, i3, j3, iiii3, jjjj3);
+                                    double HAA3 = HuristicMovment(Before, Table3, aa3, Ord3, i3, j3, iiii3, jjjj3);
                                     if (HAA3 != 0)
                                         Huristic[2] += HAA3;
 
@@ -4110,7 +4121,7 @@ namespace RefrigtzDLL
                                     int[,] Table5 = CloneATable(Table);
                                     int Ord5 = Ord;
                                     Color aa5 = aa;
-                                    double HAA5 = HuristicReducsedAttack(Table5, Ord5, aa5, i5, j5, iiii5, jjjj5);
+                                    double HAA5 = HuristicReducsedAttack(Before, Table5, Ord5, aa5, i5, j5, iiii5, jjjj5);
                                     if (HAA5 != 0)
                                         Huristic[4] += HAA5;
 
@@ -4144,7 +4155,7 @@ namespace RefrigtzDLL
                                             int[,] Table1 = CloneATable(Table);
                                             int Ord1 = Ord;
                                             Color aa1 = aa;
-                                            double HAA1 = HuristicAttack(Table1, Ord1, aa1, i1, j1, iiii1, jjjj1);
+                                            double HAA1 = HuristicAttack(Before, Table1, Ord1, aa1, i1, j1, iiii1, jjjj1);
                                             Huristic[0] += HAA1;
 
                                             int i2 = i, j2 = j, iiii2 = iii, jjjj2 = jjj;
@@ -4159,7 +4170,7 @@ namespace RefrigtzDLL
                                             int[,] Table3 = CloneATable(Table);
                                             int Ord3 = Ord;
                                             Color aa3 = aa;
-                                            double HAA3 = HuristicMovment(Table3, aa3, Ord3, i3, j3, iiii3, jjjj3);
+                                            double HAA3 = HuristicMovment(Before, Table3, aa3, Ord3, i3, j3, iiii3, jjjj3);
                                             Huristic[2] += HAA3;
 
                                             int i4 = i, j4 = j, iiii4 = iii, jjjj4 = jjj;
@@ -4173,7 +4184,7 @@ namespace RefrigtzDLL
                                             int[,] Table5 = CloneATable(Table);
                                             int Ord5 = Ord;
                                             Color aa5 = aa;
-                                            double HAA5 = HuristicReducsedAttack(Table5, Ord5, aa5, i5, j5, iiii5, jjjj5);
+                                            double HAA5 = HuristicReducsedAttack(Before, Table5, Ord5, aa5, i5, j5, iiii5, jjjj5);
                                             Huristic[4] += HAA5;
 
                                             int i6 = i, j6 = j, iiii6 = iii, jjjj6 = jjj;
@@ -4209,7 +4220,7 @@ namespace RefrigtzDLL
             }
         }
         ///Huristic of Movments.
-        public double HuristicMovment(int[,] Table, Color aa, int Ord, int i, int j, int ii, int jj)
+        public double HuristicMovment(bool Before,int[,] Table, Color aa, int Ord, int i, int j, int ii, int jj)
         {
             Object O = new Object();
             lock (O)
@@ -4256,59 +4267,62 @@ namespace RefrigtzDLL
                         }
                         else
                             return HuristicMovementValue;
-                        //When is Movable Movement inCurrent.
-                        if (Movable(Table, ii, jj, i, j, a, Order))
+                        if (Before)
                         {
-                            HA += (Sign * (System.Math.Abs(GetValue(ii, jj) + GetValue(i, j))));
-                            bool Supported = false;
-                            //For All Enemy Obejcts.                                             
-                            Parallel.For(0, 8, g =>
+                            //When is Movable Movement inCurrent.
+                            if (Movable(Table, ii, jj, i, j, a, Order))
                             {
-                                if (Supported)
-                                    return;
-                                Parallel.For(0, 8, h =>
+                                HA += (Sign * (System.Math.Abs(GetValue(ii, jj) + GetValue(i, j))));
+                                bool Supported = false;
+                                //For All Enemy Obejcts.                                             
+                                Parallel.For(0, 8, g =>
                                 {
-                                    Object O2 = new Object();
-                                    lock (O2)
+                                    if (Supported)
+                                        return;
+                                    Parallel.For(0, 8, h =>
                                     {
-                                        if (Supported)
-                                            return;
+                                        Object O2 = new Object();
+                                        lock (O2)
+                                        {
+                                            if (Supported)
+                                                return;
                                         //Ignore Of Self Objects.
                                         if (Order == 1 && Table[g, h] >= 0)
-                                            return;
-                                        if (Order == -1 && Table[g, h] <= 0)
-                                            return;
-                                        Color aaa = new Color();
+                                                return;
+                                            if (Order == -1 && Table[g, h] <= 0)
+                                                return;
+                                            Color aaa = new Color();
                                         //Assgin Enemy ints.
                                         aaa = Color.Gray;
-                                        if (Order * -1 == -1)
-                                            aaa = Color.Brown;
-                                        else
-                                            aaa = Color.Gray;
+                                            if (Order * -1 == -1)
+                                                aaa = Color.Brown;
+                                            else
+                                                aaa = Color.Gray;
                                         //When Enemy is Supported.
                                         bool A = new bool();
-                                        A = Support(Table, g, h, i, j, aaa, Order * -1);
+                                            A = Support(Table, g, h, i, j, aaa, Order * -1);
                                         //When Enemy is Supported.
                                         if (A)
-                                        {
+                                            {
                                             //Assgine variable.
                                             Supported = true;
-                                            return;
+                                                return;
+                                            }
                                         }
-                                    }
+                                    });
+                                    if (Supported)
+                                        return;
                                 });
-                                if (Supported)
-                                    return;
-                            });
-                            Object O1 = new Object();
-                            lock (O1)
-                            {
-                                if (!Supported)
-                                    //When is Not Supported multyply 100.
-                                    HA *= 20;
-                                else
-                                    //When is Supported Multyply -100.
-                                    HA *= -20;
+                                Object O1 = new Object();
+                                lock (O1)
+                                {
+                                    if (!Supported)
+                                        //When is Not Supported multyply 100.
+                                        HA *= 20;
+                                    else
+                                        //When is Supported Multyply -100.
+                                        HA *= -20;
+                                }
                             }
                         }
 
@@ -4350,57 +4364,60 @@ namespace RefrigtzDLL
                         }
                         else
                             return HuristicMovementValue;
-                        //When is Movable Movement inCurrent.
-                        if (Movable(Table, ii, jj, i, j, a, Order))
+                        if (Before)
                         {
-                            HA += (Sign * (System.Math.Abs(GetValue(ii, jj) + GetValue(i, j))));
-                            bool Supported = false;
-                            //For All Enemy Obejcts.                                             
-                            Parallel.For(0, 8, g =>
+                            //When is Movable Movement inCurrent.
+                            if (Movable(Table, ii, jj, i, j, a, Order))
                             {
-                                if (Supported)
-                                    return;
-                                //for (int h = 0; h < 8; h++)
-                                Parallel.For(0, 8, h =>
+                                HA += (Sign * (System.Math.Abs(GetValue(ii, jj) + GetValue(i, j))));
+                                bool Supported = false;
+                                //For All Enemy Obejcts.                                             
+                                Parallel.For(0, 8, g =>
                                 {
                                     if (Supported)
                                         return;
+                                //for (int h = 0; h < 8; h++)
+                                Parallel.For(0, 8, h =>
+                                    {
+                                        if (Supported)
+                                            return;
                                     //Ignore Of Self Objects.
                                     if (Order == 1 && Table[g, h] >= 0)
-                                        return;
-                                    if (Order == -1 && Table[g, h] <= 0)
-                                        return;
-                                    Color aaa = new Color();
+                                            return;
+                                        if (Order == -1 && Table[g, h] <= 0)
+                                            return;
+                                        Color aaa = new Color();
                                     //Assgin Enemy ints.
                                     aaa = Color.Gray;
-                                    if (Order * -1 == -1)
-                                        aaa = Color.Brown;
-                                    else
-                                        aaa = Color.Gray;
+                                        if (Order * -1 == -1)
+                                            aaa = Color.Brown;
+                                        else
+                                            aaa = Color.Gray;
                                     //When Enemy is Supported.
                                     bool A = new bool();
-                                    Object O2 = new Object();
-                                    lock (O2)
-                                    {
-                                        A = Support(Table, g, h, i, j, aaa, Order * -1);
-                                    }
+                                        Object O2 = new Object();
+                                        lock (O2)
+                                        {
+                                            A = Support(Table, g, h, i, j, aaa, Order * -1);
+                                        }
                                     //When Enemy is Supported.
                                     if (A)
-                                    {
+                                        {
                                         //Assgine variable.
                                         Supported = true;
+                                            return;
+                                        }
+                                    });
+                                    if (Supported)
                                         return;
-                                    }
                                 });
-                                if (Supported)
-                                    return;
-                            });
-                            if (!Supported)
-                                //When is Not Supported multyply 100.
-                                HA *= 20;
-                            else
-                                //When is Supported Multyply -100.
-                                HA *= -20;
+                                if (!Supported)
+                                    //When is Not Supported multyply 100.
+                                    HA *= 20;
+                                else
+                                    //When is Supported Multyply -100.
+                                    HA *= -20;
+                            }
                         }
                     }
                 }
@@ -5873,7 +5890,7 @@ namespace RefrigtzDLL
                     Object A = new object();
                     lock (A)
                     {
-                        CalculateHuristics(0, TableS, ii, jj, i, j, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                        CalculateHuristics(true, 0, TableS, ii, jj, i, j, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                     }
                     Object A1 = new object();
                     lock (A1)
@@ -5933,7 +5950,7 @@ namespace RefrigtzDLL
                     Object A6 = new object();
                     lock (A6)
                     {
-                        CalculateHuristics(0, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                        CalculateHuristics(false, 0, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                     }
 
                     Object A7 = new object();
@@ -6003,7 +6020,7 @@ namespace RefrigtzDLL
                     Object A = new object();
                     lock (A)
                     {
-                        CalculateHuristics(0, TableS, ii, jj, i, j, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                        CalculateHuristics(true, 0, TableS, ii, jj, i, j, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                     }
                     Object A1 = new object();
                     lock (A1)
@@ -6041,7 +6058,7 @@ namespace RefrigtzDLL
                     Object A5 = new object();
                     lock (A5)
                     {
-                        CalculateHuristics(0, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                        CalculateHuristics(false, 0, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                     }
 
                     ///Calculate Huristic and Add to List Speciifically and Cal Syntax.
@@ -6465,7 +6482,7 @@ namespace RefrigtzDLL
                     Object A = new object();
                     lock (A)
                     {
-                        CalculateHuristics(0, TableS, ii, jj, i, j, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                        CalculateHuristics(true, 0, TableS, ii, jj, i, j, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                     }
                     Object A1 = new object();
                     lock (A1)
@@ -6500,7 +6517,7 @@ namespace RefrigtzDLL
                     Object A5 = new object();
                     lock (A5)
                     {
-                        CalculateHuristics(Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                        CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                     }
 
 
@@ -6572,7 +6589,7 @@ namespace RefrigtzDLL
                     Object A = new object();
                     lock (A)
                     {
-                        CalculateHuristics(0, TableS, ii, jj, i, j, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                        CalculateHuristics(true, 0, TableS, ii, jj, i, j, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                     }
                     Object A1 = new object();
                     lock (A1)
@@ -6613,7 +6630,7 @@ namespace RefrigtzDLL
                     Object A5 = new object();
                     lock (A5)
                     {
-                        CalculateHuristics(Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                        CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                     }
 
                     //Calculate Huristic and Add to List and Cal Syntax.
@@ -6682,7 +6699,7 @@ namespace RefrigtzDLL
                     Object A = new object();
                     lock (A)
                     {
-                        CalculateHuristics(0, TableS, ii, jj, i, j, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                        CalculateHuristics(true, 0, TableS, ii, jj, i, j, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                     }
                     Object A1 = new object();
                     lock (A1)
@@ -6723,7 +6740,7 @@ namespace RefrigtzDLL
                     Object A5 = new object();
                     lock (A5)
                     {
-                        CalculateHuristics(Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                        CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                     }
 
 
@@ -7409,7 +7426,7 @@ namespace RefrigtzDLL
                     Object A = new object();
                     lock (A)
                     {
-                        CalculateHuristics(0, TableS, ii, jj, i, j, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                        CalculateHuristics(true, 0, TableS, ii, jj, i, j, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                     }
                     Object A1 = new object();
                     lock (A1)
@@ -7452,7 +7469,7 @@ namespace RefrigtzDLL
                     Object A5 = new object();
                     lock (A5)
                     {
-                        CalculateHuristics(Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                        CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                     }
 
                     ///Calculate Huristic and Add to List Speciifically and Cal Syntax.
@@ -7516,7 +7533,7 @@ namespace RefrigtzDLL
                     {
                         ThinkingRun = true;
                     }
-                    CalculateHuristics(0, TableS, ii, jj, i, j, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                    CalculateHuristics(true, 0, TableS, ii, jj, i, j, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                     Object A = new object();
                     lock (A)
                     {
@@ -7592,7 +7609,7 @@ namespace RefrigtzDLL
             }
         
 
-        public void CalculateHuristics(int Killed, int[,] TableSS, int i, int j, int ii, int jj, Color color
+        public void CalculateHuristics(bool Before,int Killed, int[,] TableSS, int i, int j, int ii, int jj, Color color
             , ref double HuristicAttackValue
                 , ref double HuristicMovementValue
                 , ref double HuristicSelfSupportedValue
@@ -7619,7 +7636,7 @@ namespace RefrigtzDLL
                     Object O = new Object();
                     lock (O)
                     {
-                        Huriistic = HuristicAll(Killed, TableSS, color, Order, i, j, ii, jj);
+                        Huriistic = HuristicAll(Before, Killed, TableSS, color, Order, i, j, ii, jj);
                     }
                 }
                  , () =>
@@ -7714,7 +7731,7 @@ namespace RefrigtzDLL
                     ThinkingRun = true;
                 }
 
-                CalculateHuristics(0, TableS, ii, jj, i, j, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                CalculateHuristics(true, 0, TableS, ii, jj, i, j, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                 Object A = new object();
                 lock (A)
                 {
@@ -7750,7 +7767,7 @@ namespace RefrigtzDLL
                 TableListKing.Add(CloneATable(TableS));
                 IndexKing++;
                 //Calculate Movment Huristic After Movments.
-                CalculateHuristics(Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
 
                 double[] Hu = new double[10]; HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
                 Hu[0] += HuristicAttackValue;
@@ -7804,7 +7821,7 @@ namespace RefrigtzDLL
                     if (AllDraw.OrderPlate == Order)
                     {
                         if (Current.IsPenaltyAction() == 0)
-                            HuristicAttackValue += (-3000 / DivisionPenaltyRegardHeuristicQueficient);
+                            HuristicAttackValue += (-300 / DivisionPenaltyRegardHeuristicQueficient);
                     }
                     else
                         if (AllDraw.OrderPlate != Order)
