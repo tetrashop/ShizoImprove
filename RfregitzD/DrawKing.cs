@@ -103,10 +103,14 @@ namespace RefrigtzDLL
         public DrawKing(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. THIS
             )
         {
-            if (K[0] == null && K[1] == null)
+            Object O = new Object();
+            lock (O)
             {
-                K[0] = Image.FromFile(AllDraw.ImagesSubRoot + "KG.png");
-                K[1] = Image.FromFile(AllDraw.ImagesSubRoot + "KB.png");
+                if (K[0] == null && K[1] == null)
+                {
+                    K[0] = Image.FromFile(AllDraw.ImagesSubRoot + "KG.png");
+                    K[1] = Image.FromFile(AllDraw.ImagesSubRoot + "KB.png");
+                }
             }
 
             CurrentAStarGredyMax = CurrentAStarGredy;
@@ -174,18 +178,25 @@ namespace RefrigtzDLL
 
             try
             {
-                if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
-                { //Gray Order.
-                    if (color == Color.Gray)
-                    {
-                        //Draw an Instatnt Gray King Image On the Table.
-                        g.DrawImage(K[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
 
-                    }
-                    else
-                    {
-                        //Draw an Instatnt Brown King Image On the Table.
-                        g.DrawImage(K[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                Object O = new Object();
+                lock (O)
+                {
+                    if (K[0] == null || K[1] == null)
+                        return;
+                    if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
+                    { //Gray Order.
+                        if (color == Color.Gray)
+                        {
+                            //Draw an Instatnt Gray King Image On the Table.
+                            g.DrawImage(K[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+
+                        }
+                        else
+                        {
+                            //Draw an Instatnt Brown King Image On the Table.
+                            g.DrawImage(K[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                        }
                     }
                 }
             }

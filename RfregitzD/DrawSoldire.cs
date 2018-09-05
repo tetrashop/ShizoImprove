@@ -102,10 +102,14 @@ namespace RefrigtzDLL
             ) :
             base(Arrangments, (int)i, (int)j, a, Tab, Ord, TB, Cur)
         {
-            if (S[0] == null && S[1] == null)
+            Object O = new Object();
+            lock (O)
             {
-                S[0] = Image.FromFile(AllDraw.ImagesSubRoot + "SG.png");
-                S[1] = Image.FromFile(AllDraw.ImagesSubRoot + "SB.png");
+                if (S[0] == null && S[1] == null)
+                {
+                    S[0] = Image.FromFile(AllDraw.ImagesSubRoot + "SG.png");
+                    S[1] = Image.FromFile(AllDraw.ImagesSubRoot + "SB.png");
+                }
             }
             
             CurrentAStarGredyMax = CurrentAStarGredy;
@@ -171,35 +175,41 @@ namespace RefrigtzDLL
         //Drawing Soldiers On the Table Method..
         public void DrawSoldierOnTable(ref Graphics g, int CellW, int CellH)
         {
-            //When Conversion Solders Not Occured.
-            if (!ConvertOperation((int)Row, (int)Column, color, Table, Order, false, Current))
+
+            Object O = new Object();
+            lock (O)
             {
-
-                //Gray Color.
-                if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
+                if (S[0] == null || S[1] == null)
+                    return;
+                //When Conversion Solders Not Occured.
+                if (!ConvertOperation((int)Row, (int)Column, color, Table, Order, false, Current))
                 {
-                    try
-                    {
-                        //If Order is Gray.
-                        if (color == Color.Gray)
-                        {
-                            //Draw an Instant from File of Gray Soldeirs.
-                            g.DrawImage(S[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                        }
-                        else
-                        {
-                            //Draw an Instatnt of Brown Soldier File On the Table.
-                            g.DrawImage(S[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                        }
-                    }
-                    catch (Exception t)
-                    {
-                        Log(t);
-                    }
 
-                }
-                else//If Minsister Conversion Occured.
-                    if (ConvertedToMinister)
+                    //Gray Color.
+                    if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
+                    {
+                        try
+                        {
+                            //If Order is Gray.
+                            if (color == Color.Gray)
+                            {
+                                //Draw an Instant from File of Gray Soldeirs.
+                                g.DrawImage(S[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                            }
+                            else
+                            {
+                                //Draw an Instatnt of Brown Soldier File On the Table.
+                                g.DrawImage(S[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                            }
+                        }
+                        catch (Exception t)
+                        {
+                            Log(t);
+                        }
+
+                    }
+                    else//If Minsister Conversion Occured.
+                        if (ConvertedToMinister)
                     {
                         try
                         {
@@ -286,6 +296,7 @@ namespace RefrigtzDLL
                             Log(t);
                         }
                     }
+                }
             }
         }
     }

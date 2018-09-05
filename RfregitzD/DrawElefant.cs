@@ -101,10 +101,14 @@ namespace RefrigtzDLL
         public DrawElefant(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//,ref AllDraw. THIS
             )
         {
-            if (E[0] == null && E[1] == null)
+            Object O = new Object();
+            lock (O)
             {
-                E[0] = Image.FromFile(AllDraw.ImagesSubRoot + "EG.png");
-                E[1] = Image.FromFile(AllDraw.ImagesSubRoot + "EB.png");
+                if (E[0] == null && E[1] == null)
+                {
+                    E[0] = Image.FromFile(AllDraw.ImagesSubRoot + "EG.png");
+                    E[1] = Image.FromFile(AllDraw.ImagesSubRoot + "EB.png");
+                }
             }
 
 
@@ -172,18 +176,27 @@ namespace RefrigtzDLL
         {
             try
             {
-                //Gray Color.
-                if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
+
+                Object O = new Object();
+                lock (O)
                 {
-                    if (color == Color.Gray)
+                    if (E[0] == null || E[1] == null)
+                        return;
+
+
+                    //Gray Color.
+                    if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
                     {
-                        //Draw an Instatnt Gray Elephant On the Table.
-                        g.DrawImage(E[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                    }
-                    else
-                    {
-                        //Draw an Instatnt Brown Elepehnt On the Table.
-                        g.DrawImage(E[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                        if (color == Color.Gray)
+                        {
+                            //Draw an Instatnt Gray Elephant On the Table.
+                            g.DrawImage(E[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                        }
+                        else
+                        {
+                            //Draw an Instatnt Brown Elepehnt On the Table.
+                            g.DrawImage(E[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                        }
                     }
                 }
             }

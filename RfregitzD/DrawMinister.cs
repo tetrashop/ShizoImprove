@@ -101,10 +101,14 @@ namespace RefrigtzDLL
         public DrawMinister(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. THIS
             )
         {
-            if (M[0] == null && M[1] == null)
+            Object O = new Object();
+            lock (O)
             {
-                M[0] = Image.FromFile(AllDraw.ImagesSubRoot + "MG.png");
-                M[1] = Image.FromFile(AllDraw.ImagesSubRoot + "MB.png");
+                if (M[0] == null && M[1] == null)
+                {
+                    M[0] = Image.FromFile(AllDraw.ImagesSubRoot + "MG.png");
+                    M[1] = Image.FromFile(AllDraw.ImagesSubRoot + "MB.png");
+                }
             }
             CurrentAStarGredyMax = CurrentAStarGredy;
             MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
@@ -171,22 +175,28 @@ namespace RefrigtzDLL
         {
             try
             {
-                //Gray Color.
-                if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
+
+                Object O = new Object();
+                lock (O)
                 {
-                    //Gray Order.
-                    if (color == Color.Gray)
+                    if (M[0] == null || M[1] == null)
+                        return;
+                    //Gray Color.
+                    if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
                     {
-                        //Draw a Gray Instatnt Minister Image on the Table.
-                        g.DrawImage(M[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                    }
-                    else
-                    {
-                        //Draw a Brown Instatnt Minister Image on the Table.
-                        g.DrawImage(M[1], new Rectangle((int)(Row * CellW), (int)(Column * (float)CellH), CellW, CellH));
+                        //Gray Order.
+                        if (color == Color.Gray)
+                        {
+                            //Draw a Gray Instatnt Minister Image on the Table.
+                            g.DrawImage(M[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                        }
+                        else
+                        {
+                            //Draw a Brown Instatnt Minister Image on the Table.
+                            g.DrawImage(M[1], new Rectangle((int)(Row * CellW), (int)(Column * (float)CellH), CellW, CellH));
+                        }
                     }
                 }
-
             }
             catch (Exception t)
             {

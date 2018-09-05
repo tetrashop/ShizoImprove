@@ -401,7 +401,7 @@ namespace RefrigtzDLL
         public void InitiateForEveryKindThingHome(AllDraw DummyHA, int ii, int jj, Color a, int[,] Table, int Order, bool TB, int IN)
         {
             int i = 0, j = 0;
-            AllDraw Dummy = new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
+            AllDraw Dummy = new AllDraw(Order, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
             //Gray Order.
             if (Order == 1)
             {
@@ -2338,9 +2338,9 @@ namespace RefrigtzDLL
                 } while (SolderesOnTable[In] == null && iiii < 16);
                 //For Sixteen Times Take a Look At Thinking.
                 if (iiii < 16)
-                    this.InitiateForEveryKindThingHome(new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged), (int)(int)SolderesOnTable[In].Row, (int)(int)SolderesOnTable[In].Column, a, TablInit, Order, false, In);
+                    this.InitiateForEveryKindThingHome(new AllDraw(Order, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged), (int)(int)SolderesOnTable[In].Row, (int)(int)SolderesOnTable[In].Column, a, TablInit, Order, false, In);
                 else
-                    this.InitiateForEveryKindThingHome(new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged), (int)1, 2, a, TablInit, Order, false, In);
+                    this.InitiateForEveryKindThingHome(new AllDraw(Order, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged), (int)1, 2, a, TablInit, Order, false, In);
 
                 //Initiate Local Variables.
                 double Less = -100000;
@@ -2462,7 +2462,7 @@ namespace RefrigtzDLL
                         In = (new System.Random()).Next(8, 16);
                 } while (SolderesOnTable[In] == null);
                 //Intiatation of Thinking.
-                this.InitiateForEveryKindThingHome(new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged), (int)SolderesOnTable[In].Row, (int)SolderesOnTable[In].Column, a, Table, Order, false, In);
+                this.InitiateForEveryKindThingHome(new AllDraw(Order, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged), (int)SolderesOnTable[In].Row, (int)SolderesOnTable[In].Column, a, Table, Order, false, In);
                 //Iniatite Local Variables.
                 double Less = 0;
                 int[,] Tab = null;

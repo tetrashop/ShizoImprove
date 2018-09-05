@@ -5854,7 +5854,7 @@ namespace RefrigtzDLL
         }
 
 
-        void KingThinkingChess(int DummyOrder, int DummyCurrentOrder, int[,] TableS, int ii, int jj, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int i, int j, bool Castle, ChessRules AAA)
+        void KingThinkingChess(int DummyOrder, int DummyCurrentOrder, int[,] TableS, int ii, int jj, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int i, int j, bool Castle)
         {
             Object O = new Object();
             lock (O)
@@ -5875,111 +5875,121 @@ namespace RefrigtzDLL
                 ///When There is Movments.
                 if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[ii, jj], TableS, Order, ii, jj)).Rules(ii, jj, i, j, color, TableS[ii, jj]))
                 {
-                    QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                    ThinkingAtRun = true;
-                    //KingValue = ObjectValueCalculator(TableS, Order, ii, jj);
+                    try
+                    {
+                        QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                        ThinkingAtRun = true;
+                        //KingValue = ObjectValueCalculator(TableS, Order, ii, jj);
 
-                    ///Add Table to List of Private.
-                    HitNumberKing.Add(TableS[i, j]);
-                    Object O1 = new Object();
-                    lock (O1)
-                    {
-                        ThinkingRun = true;
-                    }
-                    ///Predict Huristic.
-                    Object A = new object();
-                    lock (A)
-                    {
-                        CalculateHuristics(true, 0, TableS, ii, jj, i, j, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
-                    }
-                    Object A1 = new object();
-                    lock (A1)
-                    {
-                        NumbersOfAllNode++;
-                    }
-                    ///Calculate Huristic and Add to List Speciifically and Cal Syntax.
-                    ///ActionsString of Movements.
-                    int Killed = 0;
-                    Object A2 = new object();
-                    lock (A2)
-                    {
-                        Killed = TableS[i, j];
-                        TableS[i, j] = TableS[ii, jj];
-                        TableS[ii, jj] = 0;
-                    }
-
-                    //RemoveAtList(Kind);
-                    //Learning Autamata
-                    Object A3 = new object();
-                    lock (A3)
-                    {
-                        if (PenaltyMechanisam(Killed, false, 6, TableS, ii, jj, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle))
-                        { ThinkingAtRun = false; return; }
-                    }
-
-                    Object A4 = new object();
-                    lock (A4)
-                    {
-                        int RowB = 0, ColumnB = 0;
-                        int RowG = 0, ColumnG = 0;
-                        AAA.FindBrownKing(TableS, ref RowB, ref ColumnB);
-                        AAA.FindGrayKing(TableS, ref RowG, ref ColumnG);
-                        //Gray Order.
-                        //Illegal King Foundation.
-                        if (System.Math.Abs(RowB - RowG) <= 1 && System.Math.Abs(ColumnB - ColumnG) <= 1)
+                        ///Add Table to List of Private.
+                        HitNumberKing.Add(TableS[i, j]);
+                        Object O1 = new Object();
+                        lock (O1)
                         {
-                            NumberOfPenalties++;
-                            Current.LearningAlgorithmPenalty();
-                            PenaltyRegardListKing.Add(Current);
+                            ThinkingRun = true;
+                        }
+                        ///Predict Huristic.
+                        Object A = new object();
+                        lock (A)
+                        {
+                            CalculateHuristics(true, 0, TableS, ii, jj, i, j, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                        }
+                        Object A1 = new object();
+                        lock (A1)
+                        {
+                            NumbersOfAllNode++;
+                        }
+                        ///Calculate Huristic and Add to List Speciifically and Cal Syntax.
+                        ///ActionsString of Movements.
+                        int Killed = 0;
+                        Object A2 = new object();
+                        lock (A2)
+                        {
+                            Killed = TableS[i, j];
+                            TableS[i, j] = TableS[ii, jj];
+                            TableS[ii, jj] = 0;
+                        }
+
+                        //RemoveAtList(Kind);
+                        //Learning Autamata
+                        Object A3 = new object();
+                        lock (A3)
+                        {
+                            if (PenaltyMechanisam(Killed, false, 6, TableS, ii, jj, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle))
+                            { ThinkingAtRun = false; return; }
+                        }
+
+                        Object A4 = new object();
+                        lock (A4)
+                        {
+                            int RowB = 0, ColumnB = 0;
+                            int RowG = 0, ColumnG = 0;
+                            ChessRules AAA = new ChessRules(0, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 6, TableS, Order, ii, jj);
+                            AAA.FindBrownKing(TableS, ref RowB, ref ColumnB);
+                            AAA.FindGrayKing(TableS, ref RowG, ref ColumnG);
+                            //Gray Order.
+                            //Illegal King Foundation.
+                            if (System.Math.Abs(RowB - RowG) <= 1 && System.Math.Abs(ColumnB - ColumnG) <= 1)
+                            {
+                                NumberOfPenalties++;
+                                Current.LearningAlgorithmPenalty();
+                                PenaltyRegardListKing.Add(Current);
+                            }
+                        }
+
+                        //Consideration of Prevention from going Check State by self order.
+                        ///Store of Indexes Changes and Table in specific List.
+                        Object A5 = new object();
+                        lock (A5)
+                        {
+                            int[] AS = new int[2];
+                            AS[0] = i;
+                            AS[1] = j;
+                            RowColumnKing.Add(AS);
+                            //Index++;
+                            TableListKing.Add(CloneATable(TableS)); ;
+                            IndexKing++;
+                        }
+                        Object A6 = new object();
+                        lock (A6)
+                        {
+                            CalculateHuristics(false, 0, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                        }
+
+                        Object A7 = new object();
+                        lock (A7)
+                        {
+                            double[] Hu = new double[10]; HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
+                            Hu[0] += HuristicAttackValue;
+                            Hu[1] += HuristicMovementValue;
+                            Hu[2] += HuristicSelfSupportedValue;
+                            Hu[3] += HuristicObjectDangourCheckMateValue;
+                            Hu[4] += HuristicKillerValue;
+                            Hu[5] += HuristicReducedAttackValue;
+                            Hu[6] += HeuristicDistabceOfCurrentMoveFromEnemyKingValue;
+                            Hu[7] += HeuristicKingSafe;
+                            Hu[8] = HeuristicFromCenter;
+                            Hu[9] = HeuristicKingDangour;
+                            HuristicListKing.Add(Hu);
+                        }
+                        Object O2 = new Object();
+                        lock (O2)
+                        {
+                            OutPutAction = " " + Alphabet(ii) + Number(jj) + Alphabet(i) + Number(j);
+                            if (Order == 1)
+                                AllDraw.OutPut = "\r\nThinking King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                            else
+                                AllDraw.OutPut = "\r\nThinking King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                            ThinkingLevel++;
+
+                            ThinkingAtRun = false;
                         }
                     }
-
-                    //Consideration of Prevention from going Check State by self order.
-                    ///Store of Indexes Changes and Table in specific List.
-                    Object A5 = new object();
-                    lock (A5)
+                    catch (Exception t)
                     {
-                        int[] AS = new int[2];
-                        AS[0] = i;
-                        AS[1] = j;
-                        RowColumnKing.Add(AS);
-                        //Index++;
-                        TableListKing.Add(CloneATable(TableS)); ;
-                        IndexKing++;
-                    }
-                    Object A6 = new object();
-                    lock (A6)
-                    {
-                        CalculateHuristics(false, 0, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
-                    }
-
-                    Object A7 = new object();
-                    lock (A7)
-                    {
-                        double[] Hu = new double[10]; HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
-                        Hu[0] += HuristicAttackValue;
-                        Hu[1] += HuristicMovementValue;
-                        Hu[2] += HuristicSelfSupportedValue;
-                        Hu[3] += HuristicObjectDangourCheckMateValue;
-                        Hu[4] += HuristicKillerValue;
-                        Hu[5] += HuristicReducedAttackValue;
-                        Hu[6] += HeuristicDistabceOfCurrentMoveFromEnemyKingValue;
-                        Hu[7] += HeuristicKingSafe;
-                        Hu[8] = HeuristicFromCenter;
-                        Hu[9] = HeuristicKingDangour;
-                        HuristicListKing.Add(Hu);
-                    }
-                    Object O2 = new Object();
-                    lock (O2)
-                    {
-                        OutPutAction = " " + Alphabet(ii) + Number(jj) + Alphabet(i) + Number(j);
-                        if (Order == 1)
-                            AllDraw.OutPut = "\r\nThinking King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
-                        else
-                            AllDraw.OutPut = "\r\nThinking King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
-                        ThinkingLevel++;
-
+                        Log(t);
                         ThinkingAtRun = false;
+
                     }
 
                 }
@@ -6007,87 +6017,95 @@ namespace RefrigtzDLL
                 ///When There is Movments.
                 if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[ii, jj], TableS, Order, ii, jj)).Rules(ii, jj, i, j, color, TableS[ii, jj]))
                 {
-                    QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                    ThinkingAtRun = true;
-                    ///Add Table to List of Private.
-                    HitNumberMinister.Add(TableS[i, j]);
-                    Object O = new Object();
-                    lock (O)
+                    try
                     {
-                        ThinkingRun = true;
-                    }
-                    ///Predict Huristic.
-                    Object A = new object();
-                    lock (A)
-                    {
-                        CalculateHuristics(true, 0, TableS, ii, jj, i, j, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
-                    }
-                    Object A1 = new object();
-                    lock (A1)
-                    {
-                        NumbersOfAllNode++;
-                    }
-                    int Killed = 0;
-                    Object A2 = new object();
-                    lock (A2)
-                    {
-                        Killed = TableS[i, j];
-                        TableS[i, j] = TableS[ii, jj];
-                        TableS[ii, jj] = 0;
-                    }
-                    Object A3 = new object();
-                    lock (A3)
-                    {
-                        if (PenaltyMechanisam(Killed, false, 5, TableS, ii, jj, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle))
-                        { ThinkingAtRun = false; return; }
-                    }
-                    ///Store of Indexes Changes and Table in specific List.
-                    Object A4 = new object();
-                    lock (A4)
-                    {
-                        int[] AS = new int[2];
-                        AS[0] = i;
-                        AS[1] = j;
-                        RowColumnMinister.Add(AS);
-                        //RowColumn[Index, 0] = i;
-                        //RowColumn[Index, 1] = j;
-                        //Index++;
-                        TableListMinister.Add(CloneATable(TableS)); ;
-                        IndexMinister++;
-                    }
-                    Object A5 = new object();
-                    lock (A5)
-                    {
-                        CalculateHuristics(false, 0, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
-                    }
+                        QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                        ThinkingAtRun = true;
+                        ///Add Table to List of Private.
+                        HitNumberMinister.Add(TableS[i, j]);
+                        Object O = new Object();
+                        lock (O)
+                        {
+                            ThinkingRun = true;
+                        }
+                        ///Predict Huristic.
+                        Object A = new object();
+                        lock (A)
+                        {
+                            CalculateHuristics(true, 0, TableS, ii, jj, i, j, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                        }
+                        Object A1 = new object();
+                        lock (A1)
+                        {
+                            NumbersOfAllNode++;
+                        }
+                        int Killed = 0;
+                        Object A2 = new object();
+                        lock (A2)
+                        {
+                            Killed = TableS[i, j];
+                            TableS[i, j] = TableS[ii, jj];
+                            TableS[ii, jj] = 0;
+                        }
+                        Object A3 = new object();
+                        lock (A3)
+                        {
+                            if (PenaltyMechanisam(Killed, false, 5, TableS, ii, jj, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle))
+                            { ThinkingAtRun = false; return; }
+                        }
+                        ///Store of Indexes Changes and Table in specific List.
+                        Object A4 = new object();
+                        lock (A4)
+                        {
+                            int[] AS = new int[2];
+                            AS[0] = i;
+                            AS[1] = j;
+                            RowColumnMinister.Add(AS);
+                            //RowColumn[Index, 0] = i;
+                            //RowColumn[Index, 1] = j;
+                            //Index++;
+                            TableListMinister.Add(CloneATable(TableS)); ;
+                            IndexMinister++;
+                        }
+                        Object A5 = new object();
+                        lock (A5)
+                        {
+                            CalculateHuristics(false, 0, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                        }
 
-                    ///Calculate Huristic and Add to List Speciifically and Cal Syntax.
-                    Object A6 = new object();
-                    lock (A6)
-                    {
-                        double[] Hu = new double[10]; HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
-                        Hu[0] += HuristicAttackValue;
-                        Hu[1] += HuristicMovementValue;
-                        Hu[2] += HuristicSelfSupportedValue;
-                        Hu[3] += HuristicObjectDangourCheckMateValue;
-                        Hu[4] += HuristicKillerValue;
-                        Hu[5] += HuristicReducedAttackValue;
-                        Hu[6] += HeuristicDistabceOfCurrentMoveFromEnemyKingValue;
-                        Hu[7] += HeuristicKingSafe;
-                        Hu[8] = HeuristicFromCenter;
-                        Hu[9] = HeuristicKingDangour;
-                        HuristicListMinister.Add(Hu);
-                    }
-                    Object O1 = new Object();
-                    lock (O1)
-                    {
-                        OutPutAction = " " + Alphabet(ii) + Number(jj) + Alphabet(i) + Number(j);
-                        if (Order == 1)
-                            AllDraw.OutPut = "\r\nThinking Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
-                        else
-                            AllDraw.OutPut = "\r\nThinking Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
-                        ThinkingLevel++;
+                        ///Calculate Huristic and Add to List Speciifically and Cal Syntax.
+                        Object A6 = new object();
+                        lock (A6)
+                        {
+                            double[] Hu = new double[10]; HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
+                            Hu[0] += HuristicAttackValue;
+                            Hu[1] += HuristicMovementValue;
+                            Hu[2] += HuristicSelfSupportedValue;
+                            Hu[3] += HuristicObjectDangourCheckMateValue;
+                            Hu[4] += HuristicKillerValue;
+                            Hu[5] += HuristicReducedAttackValue;
+                            Hu[6] += HeuristicDistabceOfCurrentMoveFromEnemyKingValue;
+                            Hu[7] += HeuristicKingSafe;
+                            Hu[8] = HeuristicFromCenter;
+                            Hu[9] = HeuristicKingDangour;
+                            HuristicListMinister.Add(Hu);
+                        }
+                        Object O1 = new Object();
+                        lock (O1)
+                        {
+                            OutPutAction = " " + Alphabet(ii) + Number(jj) + Alphabet(i) + Number(j);
+                            if (Order == 1)
+                                AllDraw.OutPut = "\r\nThinking Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                            else
+                                AllDraw.OutPut = "\r\nThinking Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                            ThinkingLevel++;
 
+                            ThinkingAtRun = false;
+                        }
+                    }
+                    catch (Exception t)
+                    {
+                        Log(t);
                         ThinkingAtRun = false;
                     }
                 }
@@ -6575,93 +6593,102 @@ namespace RefrigtzDLL
 
                 if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[ii, jj], TableS, Order, ii, jj)).Rules(ii, jj, i, j, color, TableS[ii, jj]))
                 {
-                    QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                    ThinkingAtRun = true;
+                    try
+                    {
+                        QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                        ThinkingAtRun = true;
 
-                    ///Add Table to List of Private.
-                    HitNumberHourse.Add(TableS[i, j]);
-                    Object O = new Object();
-                    lock (O)
-                    {
-                        ThinkingRun = true;
-                    }
-                    ///Predict Huristic.
-                    Object A = new object();
-                    lock (A)
-                    {
-                        CalculateHuristics(true, 0, TableS, ii, jj, i, j, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
-                    }
-                    Object A1 = new object();
-                    lock (A1)
-                    {
-                        NumbersOfAllNode++;
-                    }
-                    int Killed = 0;
-                    Object A2 = new object();
-                    lock (A2)
-                    {
-                        Killed = TableS[i, j];
-                        TableS[i, j] = TableS[ii, jj];
-                        TableS[ii, jj] = 0;
-                    }
+                        ///Add Table to List of Private.
+                        HitNumberHourse.Add(TableS[i, j]);
+                        Object O = new Object();
+                        lock (O)
+                        {
+                            ThinkingRun = true;
+                        }
+                        ///Predict Huristic.
+                        Object A = new object();
+                        lock (A)
+                        {
+                            CalculateHuristics(true, 0, TableS, ii, jj, i, j, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                        }
+                        Object A1 = new object();
+                        lock (A1)
+                        {
+                            NumbersOfAllNode++;
+                        }
+                        int Killed = 0;
+                        Object A2 = new object();
+                        lock (A2)
+                        {
+                            Killed = TableS[i, j];
+                            TableS[i, j] = TableS[ii, jj];
+                            TableS[ii, jj] = 0;
+                        }
 
-                    Object A3 = new object();
-                    lock (A3)
-                    {
-                        if (PenaltyMechanisam(Killed, false, 3, TableS, ii, jj, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle))
-                        { ThinkingAtRun = false; return; }
-                    }
+                        Object A3 = new object();
+                        lock (A3)
+                        {
+                            if (PenaltyMechanisam(Killed, false, 3, TableS, ii, jj, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle))
+                            { ThinkingAtRun = false; return; }
+                        }
 
-                    ///Store of Indexes Changes and Table in specific List.
-                    Object A4 = new object();
-                    lock (A4)
-                    {
-                        int[] AS = new int[2];
-                        AS[0] = i;
-                        AS[1] = j;
-                        RowColumnHourse.Add(AS);
-                        //RowColumn[Index, 0] = i;
-                        //RowColumn[Index, 1] = j;
-                        //Index++;
-                        TableListHourse.Add(CloneATable(TableS)); ;
-                        IndexHourse++;
-                    }
-                    ///Wehn Predict of Operation Do operate a Predict of this movments.
-                    Object A5 = new object();
-                    lock (A5)
-                    {
-                        CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
-                    }
+                        ///Store of Indexes Changes and Table in specific List.
+                        Object A4 = new object();
+                        lock (A4)
+                        {
+                            int[] AS = new int[2];
+                            AS[0] = i;
+                            AS[1] = j;
+                            RowColumnHourse.Add(AS);
+                            //RowColumn[Index, 0] = i;
+                            //RowColumn[Index, 1] = j;
+                            //Index++;
+                            TableListHourse.Add(CloneATable(TableS)); ;
+                            IndexHourse++;
+                        }
+                        ///Wehn Predict of Operation Do operate a Predict of this movments.
+                        Object A5 = new object();
+                        lock (A5)
+                        {
+                            CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                        }
 
-                    //Calculate Huristic and Add to List and Cal Syntax.
-                    Object A6 = new object();
-                    lock (A6)
-                    {
-                        double[] Hu = new double[10]; HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
-                        Hu[0] += HuristicAttackValue;
-                        Hu[1] += HuristicMovementValue;
-                        Hu[2] += HuristicSelfSupportedValue;
-                        Hu[3] += HuristicObjectDangourCheckMateValue;
-                        Hu[4] += HuristicKillerValue;
-                        Hu[5] += HuristicReducedAttackValue;
-                        Hu[6] += HeuristicDistabceOfCurrentMoveFromEnemyKingValue;
-                        Hu[7] += HeuristicKingSafe;
-                        Hu[8] = HeuristicFromCenter;
-                        Hu[9] = HeuristicKingDangour;
-                        HuristicListHourse.Add(Hu);
+                        //Calculate Huristic and Add to List and Cal Syntax.
+                        Object A6 = new object();
+                        lock (A6)
+                        {
+                            double[] Hu = new double[10]; HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
+                            Hu[0] += HuristicAttackValue;
+                            Hu[1] += HuristicMovementValue;
+                            Hu[2] += HuristicSelfSupportedValue;
+                            Hu[3] += HuristicObjectDangourCheckMateValue;
+                            Hu[4] += HuristicKillerValue;
+                            Hu[5] += HuristicReducedAttackValue;
+                            Hu[6] += HeuristicDistabceOfCurrentMoveFromEnemyKingValue;
+                            Hu[7] += HeuristicKingSafe;
+                            Hu[8] = HeuristicFromCenter;
+                            Hu[9] = HeuristicKingDangour;
+                            HuristicListHourse.Add(Hu);
+                        }
+                        Object O4 = new Object();
+                        lock (O4)
+                        {
+                            OutPutAction = " " + Alphabet(ii) + Number(jj) + Alphabet(i) + Number(j);
+                            if (Order == 1)
+                                AllDraw.OutPut = "\r\nThinking Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                            else
+                                AllDraw.OutPut = "\r\nThinking Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                            ThinkingLevel++;
+                            ThinkingAtRun = false;
+                        }
                     }
-                    Object O4 = new Object();
-                    lock (O4)
+                    catch (Exception t)
                     {
-                        OutPutAction = " " + Alphabet(ii) + Number(jj) + Alphabet(i) + Number(j);
-                        if (Order == 1)
-                            AllDraw.OutPut = "\r\nThinking Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
-                        else
-                            AllDraw.OutPut = "\r\nThinking Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
-                        ThinkingLevel++;
                         ThinkingAtRun = false;
-                    }
+                        Log(t);
 
+
+                    }
                 }
             }
         }
@@ -6685,92 +6712,100 @@ namespace RefrigtzDLL
                 ///When There is Movments.
                 if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[ii, jj], TableS, Order, ii, jj)).Rules(ii, jj, i, j, color, TableS[ii, jj]))
                 {
-                    QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                    ThinkingAtRun = true;
-
-                    ///Add Table to List of Private.
-                    HitNumberElefant.Add(TableS[i, j]);
-                    Object O = new Object();
-                    lock (O)
+                    try
                     {
-                        ThinkingRun = true;
+                        QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                        ThinkingAtRun = true;
+
+                        ///Add Table to List of Private.
+                        HitNumberElefant.Add(TableS[i, j]);
+                        Object O = new Object();
+                        lock (O)
+                        {
+                            ThinkingRun = true;
+                        }
+
+                        Object A = new object();
+                        lock (A)
+                        {
+                            CalculateHuristics(true, 0, TableS, ii, jj, i, j, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                        }
+                        Object A1 = new object();
+                        lock (A1)
+                        {
+                            NumbersOfAllNode++;
+                        }
+
+                        Object A2 = new object();
+                        int Killed = 0;
+                        lock (A2)
+                        {
+                            Killed = TableS[i, j];
+                            TableS[i, j] = TableS[ii, jj];
+                            TableS[ii, jj] = 0;
+                        }
+
+                        Object A3 = new object();
+                        lock (A3)
+                        {
+                            if (PenaltyMechanisam(Killed, false, 2, TableS, ii, jj, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle))
+                            { ThinkingAtRun = false; return; }
+                        }
+
+
+                        ///Store of Indexes Changes and Table in specific List.
+                        Object A4 = new object();
+                        lock (A4)
+                        {
+                            int[] AS = new int[2];
+                            AS[0] = i;
+                            AS[1] = j;
+                            RowColumnElefant.Add(AS);
+
+                            TableListElefant.Add(CloneATable(TableS)); ;
+                            IndexElefant++;
+                        }
+
+                        Object A5 = new object();
+                        lock (A5)
+                        {
+                            CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                        }
+
+
+                        Object A6 = new object();
+                        lock (A6)
+                        {
+                            double[] Hu = new double[10]; HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
+                            Hu[0] += HuristicAttackValue;
+                            Hu[1] += HuristicMovementValue;
+                            Hu[2] += HuristicSelfSupportedValue;
+                            Hu[3] += HuristicObjectDangourCheckMateValue;
+                            Hu[4] += HuristicKillerValue;
+                            Hu[5] += HuristicReducedAttackValue;
+                            Hu[6] += HeuristicDistabceOfCurrentMoveFromEnemyKingValue;
+                            Hu[7] += HeuristicKingSafe;
+                            Hu[8] = HeuristicFromCenter;
+                            Hu[9] = HeuristicKingDangour;
+                            HuristicListElefant.Add(Hu);
+                        }
+                        Object O5 = new Object();
+                        lock (O5)
+                        {
+                            OutPutAction = " " + Alphabet(ii) + Number(jj) + Alphabet(i) + Number(j);
+                            if (Order == 1)
+                                AllDraw.OutPut = "\r\nThinking Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                            else
+                                AllDraw.OutPut = "\r\nThinking Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                            ThinkingLevel++;
+
+                            ThinkingAtRun = false;
+                        }
                     }
-
-                    Object A = new object();
-                    lock (A)
+                    catch (Exception t)
                     {
-                        CalculateHuristics(true, 0, TableS, ii, jj, i, j, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
-                    }
-                    Object A1 = new object();
-                    lock (A1)
-                    {
-                        NumbersOfAllNode++;
-                    }
-
-                    Object A2 = new object();
-                    int Killed = 0;
-                    lock (A2)
-                    {
-                        Killed = TableS[i, j];
-                        TableS[i, j] = TableS[ii, jj];
-                        TableS[ii, jj] = 0;
-                    }
-
-                    Object A3 = new object();
-                    lock (A3)
-                    {
-                        if (PenaltyMechanisam(Killed, false, 2, TableS, ii, jj, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle))
-                        { ThinkingAtRun = false; return; }
-                    }
-
-
-                    ///Store of Indexes Changes and Table in specific List.
-                    Object A4 = new object();
-                    lock (A4)
-                    {
-                        int[] AS = new int[2];
-                        AS[0] = i;
-                        AS[1] = j;
-                        RowColumnElefant.Add(AS);
-
-                        TableListElefant.Add(CloneATable(TableS)); ;
-                        IndexElefant++;
-                    }
-
-                    Object A5 = new object();
-                    lock (A5)
-                    {
-                        CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
-                    }
-
-
-                    Object A6 = new object();
-                    lock (A6)
-                    {
-                        double[] Hu = new double[10]; HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
-                        Hu[0] += HuristicAttackValue;
-                        Hu[1] += HuristicMovementValue;
-                        Hu[2] += HuristicSelfSupportedValue;
-                        Hu[3] += HuristicObjectDangourCheckMateValue;
-                        Hu[4] += HuristicKillerValue;
-                        Hu[5] += HuristicReducedAttackValue;
-                        Hu[6] += HeuristicDistabceOfCurrentMoveFromEnemyKingValue;
-                        Hu[7] += HeuristicKingSafe;
-                        Hu[8] = HeuristicFromCenter;
-                        Hu[9] = HeuristicKingDangour;
-                        HuristicListElefant.Add(Hu);
-                    }
-                    Object O5 = new Object();
-                    lock (O5)
-                    {
-                        OutPutAction = " " + Alphabet(ii) + Number(jj) + Alphabet(i) + Number(j);
-                        if (Order == 1)
-                            AllDraw.OutPut = "\r\nThinking Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
-                        else
-                            AllDraw.OutPut = "\r\nThinking Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
-                        ThinkingLevel++;
-
                         ThinkingAtRun = false;
+                        Log(t);
                     }
                 }
             }
@@ -7414,91 +7449,100 @@ namespace RefrigtzDLL
                 ///When There is Movments.
                 if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[ii, jj], TableS, Order, ii, jj)).Rules(ii, jj, i, j, color, TableS[ii, jj]))
                 {
-                    QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                    ThinkingAtRun = true;
-                    ///Add Table to List of Private.
-                    HitNumberSoldier.Add(TableS[i, j]);
-                    Object O = new Object();
-                    lock (O)
+                    try
                     {
-                        ThinkingRun = true;
-                    }
-                    Object A = new object();
-                    lock (A)
-                    {
-                        CalculateHuristics(true, 0, TableS, ii, jj, i, j, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
-                    }
-                    Object A1 = new object();
-                    lock (A1)
-                    {
-                        NumbersOfAllNode++;
-                    }
+                        QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                        ThinkingAtRun = true;
+                        ///Add Table to List of Private.
+                        HitNumberSoldier.Add(TableS[i, j]);
+                        Object O = new Object();
+                        lock (O)
+                        {
+                            ThinkingRun = true;
+                        }
+                        Object A = new object();
+                        lock (A)
+                        {
+                            CalculateHuristics(true, 0, TableS, ii, jj, i, j, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                        }
+                        Object A1 = new object();
+                        lock (A1)
+                        {
+                            NumbersOfAllNode++;
+                        }
 
 
-                    ///ActionsString of Movements.
+                        ///ActionsString of Movements.
 
-                    int Killed = 0;
-                    Object A2 = new object();
+                        int Killed = 0;
+                        Object A2 = new object();
 
-                    lock (A2)
-                    {
-                        Killed = TableS[i, j];
-                        TableS[i, j] = TableS[ii, jj];
-                        TableS[ii, jj] = 0;
+                        lock (A2)
+                        {
+                            Killed = TableS[i, j];
+                            TableS[i, j] = TableS[ii, jj];
+                            TableS[ii, jj] = 0;
+                        }
+
+                        Object A3 = new object();
+                        lock (A3)
+                        {
+                            if (PenaltyMechanisam(Killed, false, 1, TableS, ii, jj, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle))
+                            { ThinkingAtRun = false; return; }
+                        }
+                        //}
+
+                        ///Store of Indexes Changes and Table in specific List.
+                        Object A4 = new object();
+                        lock (A4)
+                        {
+                            int[] AS = new int[2];
+                            AS[0] = i;
+                            AS[1] = j;
+                            RowColumnSoldier.Add(AS);
+                            TableListSolder.Add(CloneATable(TableS)); ;
+                            IndexSoldier++;
+                        }
+                        Object A5 = new object();
+                        lock (A5)
+                        {
+                            CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                        }
+
+                        ///Calculate Huristic and Add to List Speciifically and Cal Syntax.
+                        Object A6 = new object();
+                        lock (A6)
+                        {
+                            double[] Hu = new double[10]; HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
+                            Hu[0] += HuristicAttackValue;
+                            Hu[1] += HuristicMovementValue;
+                            Hu[2] += HuristicSelfSupportedValue;
+                            Hu[3] += HuristicObjectDangourCheckMateValue;
+                            Hu[4] += HuristicKillerValue;
+                            Hu[5] += HuristicReducedAttackValue;
+                            Hu[6] += HeuristicDistabceOfCurrentMoveFromEnemyKingValue;
+                            Hu[7] += HeuristicKingSafe;
+                            Hu[8] = HeuristicFromCenter;
+                            Hu[9] = HeuristicKingDangour;
+                            HuristicListSolder.Add(Hu);
+                        }
+                        Object O8 = new Object();
+                        lock (O8)
+                        {
+                            OutPutAction = " " + Alphabet(ii) + Number(jj) + Alphabet(i) + Number(j);
+                            if (Order == 1)
+                                AllDraw.OutPut = "\r\nThinking Soldeir AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                            else
+                                AllDraw.OutPut = "\r\nThinking Soldeir AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                            ThinkingLevel++;
+
+                            ThinkingAtRun = false;
+                        }
+
                     }
-
-                    Object A3 = new object();
-                    lock (A3)
+                    catch (Exception t)
                     {
-                        if (PenaltyMechanisam(Killed, false, 1, TableS, ii, jj, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle))
-                        { ThinkingAtRun = false; return; }
-                    }
-                    //}
-
-                    ///Store of Indexes Changes and Table in specific List.
-                    Object A4 = new object();
-                    lock (A4)
-                    {
-                        int[] AS = new int[2];
-                        AS[0] = i;
-                        AS[1] = j;
-                        RowColumnSoldier.Add(AS);
-                        TableListSolder.Add(CloneATable(TableS)); ;
-                        IndexSoldier++;
-                    }
-                    Object A5 = new object();
-                    lock (A5)
-                    {
-                        CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
-                    }
-
-                    ///Calculate Huristic and Add to List Speciifically and Cal Syntax.
-                    Object A6 = new object();
-                    lock (A6)
-                    {
-                        double[] Hu = new double[10]; HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
-                        Hu[0] += HuristicAttackValue;
-                        Hu[1] += HuristicMovementValue;
-                        Hu[2] += HuristicSelfSupportedValue;
-                        Hu[3] += HuristicObjectDangourCheckMateValue;
-                        Hu[4] += HuristicKillerValue;
-                        Hu[5] += HuristicReducedAttackValue;
-                        Hu[6] += HeuristicDistabceOfCurrentMoveFromEnemyKingValue;
-                        Hu[7] += HeuristicKingSafe;
-                        Hu[8] = HeuristicFromCenter;
-                        Hu[9] = HeuristicKingDangour;
-                        HuristicListSolder.Add(Hu);
-                    }
-                    Object O8 = new Object();
-                    lock (O8)
-                    {
-                        OutPutAction = " " + Alphabet(ii) + Number(jj) + Alphabet(i) + Number(j);
-                        if (Order == 1)
-                            AllDraw.OutPut = "\r\nThinking Soldeir AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
-                        else
-                            AllDraw.OutPut = "\r\nThinking Soldeir AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
-                        ThinkingLevel++;
-
+                       Log(t);
                         ThinkingAtRun = false;
                     }
                 }
@@ -7906,10 +7950,13 @@ namespace RefrigtzDLL
                         Object O = new Object();
                         lock (O)
                         {
-                            while (ThinkingAtRun) { }
+
                             if (Scop(ii, jj, i, j, 1))
+                            {
                                 ThinkingSoldierBase(ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
-                            ThinkingAtRun = false;
+                                while (ThinkingAtRun) { }
+                            }
+                            
                         }
 
                     });
@@ -7959,12 +8006,15 @@ namespace RefrigtzDLL
                         Object O = new Object();
                         lock (O)
                         {
-                            while (ThinkingAtRun) { }
+
 
                             int j = i + jj - ii;
                             if (Scop(ii, jj, i, j, 2))
+                            {
                                 ThinkingElephantBase(ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
-                            ThinkingAtRun = false;
+                                while (ThinkingAtRun) { }
+                            }
+                            
                         }
                     });
                     //==================
@@ -8200,56 +8250,56 @@ namespace RefrigtzDLL
             Object O = new Object();
             lock (O)
             {
-                ThinkingAtRun = true;
+
                 ThinkingHourseOne(ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
                 while (ThinkingAtRun) { }
             }
             Object O1 = new Object();
             lock (O1)
             {
-                ThinkingAtRun = true;
+
                 ThinkingHourseTwo(ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
                 while (ThinkingAtRun) { }
             }
             Object O2 = new Object();
             lock (O2)
             {
-                ThinkingAtRun = true;
+
                 ThinkingHourseThree(ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
                 while (ThinkingAtRun) { }
             }
             Object O3 = new Object();
             lock (O3)
             {
-                ThinkingAtRun = true;
+
                 ThinkingHourseFour(ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
                 while (ThinkingAtRun) { }
             }
             Object O4 = new Object();
             lock (O4)
             {
-                ThinkingAtRun = true;
+
                 ThinkingHourseFive(ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
                 while (ThinkingAtRun) { }
             }
             Object O5 = new Object();
             lock (O5)
             {
-                ThinkingAtRun = true;
+
                 ThinkingHourseSix(ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
                 while (ThinkingAtRun) { }
             }
             Object O6 = new Object();
             lock (O6)
             {
-                ThinkingAtRun = true;
+
                 ThinkingHourseSeven(ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
                 while (ThinkingAtRun) { }
             }
             Object O7 = new Object();
             lock (O7)
             {
-                ThinkingAtRun = true;
+
                 ThinkingHourseEight(ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
                 while (ThinkingAtRun) { }
             }
@@ -8265,7 +8315,7 @@ namespace RefrigtzDLL
                     Object O = new Object();
                     lock (O)
                     {
-                        while (ThinkingAtRun) { }
+                        
 
                         int j = jj;
 
@@ -8280,10 +8330,10 @@ namespace RefrigtzDLL
                             }
                         if (Scop(ii, jj, i, j, 4) && System.Math.Abs(TableS[ii, jj]) == 4 && System.Math.Abs(Kind) == 4)
                         {
+                            while (ThinkingAtRun) { }
                             Order = ord;
                             CastlesThinkingChess(DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
-                        }
-                        ThinkingAtRun = false;
+                        }                        
                     }
                 });
             }
@@ -8298,14 +8348,14 @@ namespace RefrigtzDLL
                     Object O = new Object();
                     lock (O)
                     {
-                        while (ThinkingAtRun) { }
+
 
                         int i = ii;
 
-                    ///Initiate a Local Variables.
-                    int[,] TableS = new int[8, 8];
-                    ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
-                    QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                        ///Initiate a Local Variables.
+                        int[,] TableS = new int[8, 8];
+                        ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
+                        QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                         for (int iii = 0; iii < 8; iii++)
                             for (int jjj = 0; jjj < 8; jjj++)
                             {
@@ -8313,11 +8363,12 @@ namespace RefrigtzDLL
                             }
                         if (Scop(ii, jj, i, j, 4) && System.Math.Abs(TableS[ii, jj]) == 4 && System.Math.Abs(Kind) == 4)
                         {
+                            while (ThinkingAtRun) { }
                             Order = ord;
                             CastlesThinkingChess(DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle
     );
                         }
-                        ThinkingAtRun = false;
+
                     }
 
                 });
@@ -8357,11 +8408,12 @@ namespace RefrigtzDLL
                         }
                     if (Scop(ii, jj, i, j, 5) && System.Math.Abs(TableS[ii, jj]) == 5 && System.Math.Abs(Kind) == 5)
                     {
+                        while (ThinkingAtRun) { }
                         Order = ord;
                         MinisterThinkingChess(DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle
         );
                     }
-                    ThinkingAtRun = false;
+
                 }
             }
         }
@@ -8377,11 +8429,10 @@ namespace RefrigtzDLL
                     {
                         Object O = new Object();
                         lock (O)
-                        {
-                            while (ThinkingAtRun) { }
-
+                        {                            
+                            
                             ThinkingMinisterBase(ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
-                            ThinkingAtRun = false;
+                            
                         }
                     });
                 });
@@ -8445,7 +8496,7 @@ namespace RefrigtzDLL
 
             }
         }
-        public void ThinkingKing(int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle, ref ChessRules AAA)
+        public void ThinkingKing(int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
             Object O1 = new Object();
             lock (O1)
@@ -8454,29 +8505,30 @@ namespace RefrigtzDLL
                 Object O = new Object();
                 lock (O)
                 {
-                    for (int i = ii - 1; i <= ii + 1; i++)
-                        for (int j = jj - 1; j <= jj + 1; j++)
-                        {
-                            while (ThinkingAtRun) { }
+                    Parallel.For(ii - 1, ii + 1, i =>
+                    {
+                        Parallel.For(jj - 1, jj + 1, j =>
+                      {
 
 
-                            ///Initiate a Local Variables.
-                            TableS = new int[8, 8];
-                            ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
-                            QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                            for (int iii = 0; iii < 8; iii++)
-                                for (int jjj = 0; jjj < 8; jjj++)
-                                {
-                                    TableS[iii, jjj] = TableConst[iii, jjj];
-                                }
-                            if (Scop(ii, jj, i, j, 6) && System.Math.Abs(TableS[ii, jj]) == 6 && System.Math.Abs(Kind) == 6)
-                            {
-                                Order = ord;
-                                KingThinkingChess(DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle, AAA);
-                            }
-                            ThinkingAtRun = false;
 
-                        }
+                          ///Initiate a Local Variables.
+                          TableS = new int[8, 8];
+                          ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
+                          QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                          for (int iii = 0; iii < 8; iii++)
+                              for (int jjj = 0; jjj < 8; jjj++)
+                              {
+                                  TableS[iii, jjj] = TableConst[iii, jjj];
+                              }
+                          if (Scop(ii, jj, i, j, 6) && System.Math.Abs(TableS[ii, jj]) == 6 && System.Math.Abs(Kind) == 6)
+                          {
+                              while (ThinkingAtRun) { }
+                              Order = ord;
+                              KingThinkingChess(DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
+                          }
+                      });
+                    });
                 }
             }
         }
@@ -8646,7 +8698,7 @@ namespace RefrigtzDLL
                     else
                                                 if (System.Math.Abs(Kind) == 6)///For King Thinking
                     {
-                        ThinkingKing(ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle, ref AAA);
+                        ThinkingKing(ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
 
                     }
                 }

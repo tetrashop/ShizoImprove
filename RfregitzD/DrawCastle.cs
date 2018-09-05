@@ -103,10 +103,14 @@ namespace RefrigtzDLL
         public DrawCastle(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. THIS
             )
         {
-            if (C[0] == null && C[1] == null)
+            Object O = new Object();
+            lock (O)
             {
-                C[0] = Image.FromFile(AllDraw.ImagesSubRoot + "BrG.png");
-                C[1] = Image.FromFile(AllDraw.ImagesSubRoot + "BrB.png");
+                if (C[0] == null && C[1] == null)
+                {
+                    C[0] = Image.FromFile(AllDraw.ImagesSubRoot + "BrG.png");
+                    C[1] = Image.FromFile(AllDraw.ImagesSubRoot + "BrB.png");
+                }
             }
             CurrentAStarGredyMax = CurrentAStarGredy;
             MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
@@ -172,17 +176,25 @@ namespace RefrigtzDLL
         {
             try
             {
-                if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
-                { //Gray Color.
-                    if (color == Color.Gray)
-                    {
-                        //Draw a Gray Castles Instatnt Image On hte Tabe.
-                        g.DrawImage(C[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                    }
-                    else
-                    {
-                        //Draw an Instatnt of Brown Castles On the Table.
-                        g.DrawImage(C[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                Object O = new Object();
+                lock (O)
+                {
+
+                    if (C[0] == null || C[1] == null)
+                        return;
+
+                    if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
+                    { //Gray Color.
+                        if (color == Color.Gray)
+                        {
+                            //Draw a Gray Castles Instatnt Image On hte Tabe.
+                            g.DrawImage(C[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                        }
+                        else
+                        {
+                            //Draw an Instatnt of Brown Castles On the Table.
+                            g.DrawImage(C[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                        }
                     }
                 }
             }

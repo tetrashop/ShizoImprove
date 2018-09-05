@@ -101,10 +101,14 @@ namespace RefrigtzDLL
         public DrawHourse(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//,ref AllDraw. THIS
             )
         {
-            if (H[0] == null && H[1] == null)
+            Object O = new Object();
+            lock (O)
             {
-                H[0] = Image.FromFile(AllDraw.ImagesSubRoot + "HG.png");
-                H[1] = Image.FromFile(AllDraw.ImagesSubRoot + "HB.png");
+                if (H[0] == null && H[1] == null)
+                {
+                    H[0] = Image.FromFile(AllDraw.ImagesSubRoot + "HG.png");
+                    H[1] = Image.FromFile(AllDraw.ImagesSubRoot + "HB.png");
+                }
             }
             CurrentAStarGredyMax = CurrentAStarGredy;
             MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
@@ -170,17 +174,25 @@ namespace RefrigtzDLL
         {
             try
             {
-                if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
-                { //Gray Order.
-                    if (color == Color.Gray)
-                    {
-                        //Draw an Instatnt Gray Hourse on the Table.
-                        g.DrawImage(H[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                    }
-                    else
-                    {
-                        //Draw an Instatnt Brown Hourse on the Table.
-                        g.DrawImage(H[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+
+                Object O = new Object();
+                lock (O)
+                {
+                    if (H[0] == null || H[1] == null)
+                        return;
+
+                    if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
+                    { //Gray Order.
+                        if (color == Color.Gray)
+                        {
+                            //Draw an Instatnt Gray Hourse on the Table.
+                            g.DrawImage(H[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                        }
+                        else
+                        {
+                            //Draw an Instatnt Brown Hourse on the Table.
+                            g.DrawImage(H[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                        }
                     }
                 }
             }
