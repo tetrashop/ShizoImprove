@@ -7889,6 +7889,7 @@ namespace RefrigtzDLL
                 if (Scop(ii, jj, i, j, 1) && System.Math.Abs(TableS[ii, jj]) == 1 && System.Math.Abs(Kind) == 1)
                 {
                     Order = ord;
+                    
                     SolderThinkingChess(DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
                 }
             }
@@ -8199,58 +8200,58 @@ namespace RefrigtzDLL
             Object O = new Object();
             lock (O)
             {
-                //ThinkingAtRun = true;
+                ThinkingAtRun = true;
                 ThinkingHourseOne(ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
-                //while (ThinkingAtRun) { }
+                while (ThinkingAtRun) { }
             }
             Object O1 = new Object();
             lock (O1)
             {
-                //ThinkingAtRun = true;
+                ThinkingAtRun = true;
                 ThinkingHourseTwo(ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
-                //while (ThinkingAtRun) { }
+                while (ThinkingAtRun) { }
             }
             Object O2 = new Object();
             lock (O2)
             {
-                //ThinkingAtRun = true;
+                ThinkingAtRun = true;
                 ThinkingHourseThree(ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
-                //while (ThinkingAtRun) { }
+                while (ThinkingAtRun) { }
             }
             Object O3 = new Object();
             lock (O3)
             {
-                //ThinkingAtRun = true;
+                ThinkingAtRun = true;
                 ThinkingHourseFour(ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
-                //while (ThinkingAtRun) { }
+                while (ThinkingAtRun) { }
             }
             Object O4 = new Object();
             lock (O4)
             {
-                //ThinkingAtRun = true;
+                ThinkingAtRun = true;
                 ThinkingHourseFive(ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
-                //while (ThinkingAtRun) { }
+                while (ThinkingAtRun) { }
             }
             Object O5 = new Object();
             lock (O5)
             {
-                //ThinkingAtRun = true;
+                ThinkingAtRun = true;
                 ThinkingHourseSix(ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
-                //while (ThinkingAtRun) { }
+                while (ThinkingAtRun) { }
             }
             Object O6 = new Object();
             lock (O6)
             {
-                //ThinkingAtRun = true;
+                ThinkingAtRun = true;
                 ThinkingHourseSeven(ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
-                //while (ThinkingAtRun) { }
+                while (ThinkingAtRun) { }
             }
             Object O7 = new Object();
             lock (O7)
             {
-                //ThinkingAtRun = true;
+                ThinkingAtRun = true;
                 ThinkingHourseEight(ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
-                //while (ThinkingAtRun) { }
+                while (ThinkingAtRun) { }
             }
         }
         public void ThinkingCastleOne(int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)

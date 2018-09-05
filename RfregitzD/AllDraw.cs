@@ -3023,9 +3023,9 @@ namespace RefrigtzDLL
             Object a = new Object();
             lock (a)
             {
+                //if (Found)
+                    //return THIS;
 
-                if (Found)
-                    return THIS;
                 if (TableList.Count > 0 && ThinkingChess.TableEqual(TableList[0], Tab))
                 {
                     THIS = this;

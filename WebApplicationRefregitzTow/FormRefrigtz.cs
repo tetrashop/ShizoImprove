@@ -75,7 +75,7 @@ using System.Threading;
 using System.Data.OleDb;
 using System.Media;
 using System.IO;
-using GalleryStudio;
+using Refrigtz;
 
 [assembly: CLSCompliant(true)]
 
@@ -272,7 +272,10 @@ namespace RefrigtzW
             {
                 AllDraw.TableListAction.Add(Table);
             }
-            for (int i = 0; i < 8; i++)
+            Draw.TableList.Clear();
+            Draw.TableList.Add(Table);
+            Draw.SetRowColumn(0);
+            /*for (int i = 0; i < 8; i++)
             {
                 Draw.SolderesOnTable[i] = new DrawSoldier(0,MovementsAStarGreedyHuristicFound,IInoreSelfObjects,UsePenaltyRegardMechnisam,BestMovments,PredictHuristic,OnlySelf,AStarGreedyHuristic,ArrangmentsChanged,i, 1, Color.Gray, Table, 1, false, i);
             }
@@ -300,7 +303,7 @@ namespace RefrigtzW
 
             Draw.MinisterOnTable[0] = new DrawMinister(0,MovementsAStarGreedyHuristicFound,IInoreSelfObjects,UsePenaltyRegardMechnisam,BestMovments,PredictHuristic,OnlySelf,AStarGreedyHuristic,ArrangmentsChanged,4, 0, Color.Gray, Table, 1, false, 0);
             Draw.MinisterOnTable[1] = new DrawMinister(0,MovementsAStarGreedyHuristicFound,IInoreSelfObjects,UsePenaltyRegardMechnisam,BestMovments,PredictHuristic,OnlySelf,AStarGreedyHuristic,ArrangmentsChanged,4, 7, Color.Brown, Table, -1, false, 1);
-
+            */
 
             AllDraw.TableListAction.Add(Table);
             if (WebApplicationRefregitzTow._Default.First && MovmentsNumber == 0)
@@ -1217,7 +1220,22 @@ namespace RefrigtzW
         }
 
         //Inserting of New Tabler at Database.
-       
+        AllDraw RootFound()
+        {
+            try
+            {
+                if (Draw != null)
+                {
+                    while (Draw.AStarGreedyString != null)
+                    {
+                        Draw = Draw.AStarGreedyString;
+                    }
+                }
+
+            }
+            catch (Exception t) { Log(t); }
+            return Draw;
+        }
         void L()
         {
             do
@@ -1375,6 +1393,32 @@ namespace RefrigtzW
                         ttt.LoadPlaceHolder();
                     }
                 }
+                if (!File.Exists("AllDraw.asd"))
+                {
+                    RefrigtzW.RefregizMemmory rt = new RefrigtzW.RefregizMemmory(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged
+                        );
+                    if (Draw != null)
+                    {
+                        Draw = RootFound();
+                        rt.AllDrawCurrentAccess = Draw;
+                        rt.RewriteAllDraw(OrderPlate);
+                        RefrigtzW.AllDraw.DrawTable = false;
+                        }
+                }
+                else
+                    if (File.Exists("AllDraw.asd"))
+                {
+                    File.Delete("AllDraw.asd");
+                    RefrigtzW.RefregizMemmory rt = new RefrigtzW.RefregizMemmory(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged
+                        );
+                    //"Universal Root Founding";
+                    if (Draw != null)
+                    {
+                        Draw = RootFound();
+                        rt.AllDrawCurrentAccess = Draw;
+                        rt.RewriteAllDraw(OrderPlate);
+                      }
+                }
             } while (true);
         }
         //Inserting of New Tabler at Database.
@@ -1415,6 +1459,25 @@ namespace RefrigtzW
                 if (OrderPlate == -1)
                     a = Color.Brown;
                 int LeafAStarGrteedy = 0;
+                bool FOUND = false;
+                AllDraw THIS = null;
+                Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+                if (FOUND)
+                {
+
+                    Draw = THIS;
+
+                }
+                else
+                {
+                    RefrigtzW.AllDraw.TableListAction.Add(Table);
+                    OrderPlate = OrderPlate * -1;
+                    Draw = new AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                    Draw.TableList.Clear();
+                    Draw.TableList.Add(Table);
+                    Draw.SetRowColumn(0);
+                    RefrigtzW.AllDraw.DepthIterative = 0;
+                }
                 Draw.Initiate(1, 4, a, Table, OrderPlate, false, false, LeafAStarGrteedy);
                 //this.//SetBoxText("\r\nThinking Finished!");
                 try
@@ -1467,9 +1530,6 @@ namespace RefrigtzW
                 for (int i = 0; i < 8; i++)
                     for (int j = 0; j < 8; j++)
                         Tab[i, j] = Table[i, j];
-                Draw.TableList.Clear();
-                Draw.TableList.Add(Tab);
-                Draw.SetRowColumn(0);
                 //RefrigtzW.FormRefrigtz.MovmentsNumber++; 
                 InsertTableAtDataBase(Tab);
 
@@ -1509,6 +1569,24 @@ namespace RefrigtzW
                         //SetBoxStatistic(AllDraw.SyntaxToWrite);
                         //RefreshBoxStatistic();
                     }
+                }
+                FOUND = false;
+                Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+                if (FOUND)
+                {
+
+                    Draw = THIS;
+
+                }
+                else
+                {
+                    RefrigtzW.AllDraw.TableListAction.Add(Table);
+                    OrderPlate = OrderPlate * -1;
+                    Draw = new AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                    Draw.TableList.Clear();
+                    Draw.TableList.Add(Table);
+                    Draw.SetRowColumn(0);
+                    RefrigtzW.AllDraw.DepthIterative = 0;
                 }
                 OrderPlate = OrderPlate * -1;
                 ChessRules.CurrentOrder = OrderPlate;

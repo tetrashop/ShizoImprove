@@ -103,15 +103,15 @@ namespace Refrigtz
         int StockMove = 1;
         //Initiate Global Variable.
         //public bool DisableTemporarlyTimerUpdate = false;
-        public static bool ConvertWait = false;
-        public static double MaxHuristicx = Double.MinValue;
-        public static bool MovementsAStarGreedyHuristicFound = false;
-        public static bool IInoreSelfObjects = false;
-        public static bool UsePenaltyRegardMechnisam = true;
-        public static bool BestMovments = false;
-        public static bool PredictHuristic = true;
-        public static bool OnlySelf = false;
-        public static bool AStarGreedyHuristic = true;
+        public  bool ConvertWait = false;
+        public  double MaxHuristicx = Double.MinValue;
+        public  bool MovementsAStarGreedyHuristicFound = false;
+        public  bool IInoreSelfObjects = false;
+        public  bool UsePenaltyRegardMechnisam = false;
+        public  bool PredictHuristic = false;
+        public  bool OnlySelf = false;
+        public bool AStarGreedyHuristic = false;
+        public bool BestMovments = false;
 
         bool Loaded = false;
         bool FirstMovmentOnLoad = true;
@@ -214,7 +214,7 @@ namespace Refrigtz
             };
         List<char> fenS = new List<char>("position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\0");
 
-        FormRefrigtz THIs = null;
+        //FormRefrigtz THIs = null;
         String connParam = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Root + "\\" + "Database\\CurrentBank.accdb;;Persist Security Info=False; Jet OLEDB:Database Password='!HN#BGHHN&N$G$V4'";
         bool LoadTree = false;
         Thread tttt = null;
@@ -257,35 +257,13 @@ namespace Refrigtz
                 ttt = new Thread(new ThreadStart(SetNodesCount));
             }
 
-            THIs = this;
 
-
-
-            if (!AllDrawLoad)
-            {
-                BrownTimer = new Refrigtz.Timer(false);
-                GrayTimer = new Refrigtz.Timer(false);
-                TimerText = new Refrigtz.Timer(true);
-
-                BrownTimer.TimerInitiate();
-                GrayTimer.TimerInitiate();
-                TTimerSet = new Thread(new ThreadStart(SetTimer));
-                TTimerSet.Start();
-
-                TimerText.TimerInitiate();
-
-                TimerText.StartTime();
-            }
             for (int i = 0; i < 8; i++)
                 for (int j = 0; j < 8; j++)
                 {
                     RefrigtzDLL.AllDraw.TableVeryfy[i, j] = Table[i, j];
                     RefrigtzDLL.AllDraw.TableVeryfyConst[i, j] = Table[i, j];
                 }
-            RefrigtzDLL.AllDraw.TableListAction.Add(Table);
-            Draw = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-            Draw.TableList.Add(Table);
-            Draw.SetRowColumn(0);
             RefrigtzDLL.ThinkingChess.LearniningTable = new LearningMachine.NetworkQuantumLearningKrinskyAtamata(8, 8, 8);
             try
             {
@@ -299,7 +277,7 @@ namespace Refrigtz
             catch (FileNotFoundException t)
             {
                 Log(t);
-                
+
             }
 
         }
@@ -651,11 +629,21 @@ namespace Refrigtz
         }
         void SetRefregitzDLL()
         {
+            bool Set = false;
             do
             {
                 Object o = new Object();
                 lock (o)
                 {
+                    RefrigtzDLL.AllDraw.Root = Root;
+                    RefrigtzDLL.AllDraw.OrderPlate = OrderPlate;
+                    RefrigtzDLL.AllDraw.Blitz = Blitz;
+                    ConvertWait = RefrigtzDLL.AllDraw.ConvertWait;
+                    RefrigtzDLL.AllDraw.Stockfish = Stockfish;
+                    RefrigtzDLL.AllDraw.Person = Person;
+                    RefrigtzDLL.AllDraw.THISSecradioButtonGrayOrderChecked = Sec.radioButtonGrayOrder.Checked;
+                    RefrigtzDLL.AllDraw.THISSecradioButtonBrownOrderChecked = Sec.radioButtonBrownOrder.Checked;
+                    RefrigtzDLL.AllDraw.MovmentsNumber = MovmentsNumber;
                     while (!(RefrigtzDLL.ChessRules.ObjectHittedRow != -1 && RefrigtzDLL.ChessRules.ObjectHittedColumn != -1) &&
                         (!RefrigtzDLL.AllDraw.ActionStringReady) &&
                              (!(RefrigtzDLL.AllDraw.OutPut != "")) &&
@@ -687,10 +675,7 @@ namespace Refrigtz
 
                     }
 
-                    RefrigtzDLL.AllDraw.Root = Root;
-                    RefrigtzDLL.AllDraw.OrderPlate = OrderPlate;
-                    RefrigtzDLL.AllDraw.Blitz = Blitz;
-
+                    
                     if (RefrigtzDLL.AllDraw.ConvertedKind == -1)
                     {
                         FormُSelectItems.Items = -1;
@@ -703,11 +688,6 @@ namespace Refrigtz
 
                     }
 
-                    ConvertWait = RefrigtzDLL.AllDraw.ConvertWait;
-                    RefrigtzDLL.AllDraw.Stockfish = Stockfish;
-                    RefrigtzDLL.AllDraw.Person = Person;
-                    RefrigtzDLL.AllDraw.THISSecradioButtonGrayOrderChecked = Sec.radioButtonGrayOrder.Checked;
-                    RefrigtzDLL.AllDraw.THISSecradioButtonBrownOrderChecked = Sec.radioButtonBrownOrder.Checked;
                     if (LoadedDLL)
                     {
                         SetcomboBoxText();
@@ -743,335 +723,39 @@ namespace Refrigtz
                             NextColumn = RefrigtzDLL.AllDraw.NextRow;
                         }
                     }
-                    ConvertWait = RefrigtzDLL.AllDraw.ConvertWait;
-                    RefrigtzDLL.AllDraw.MovmentsNumber = MovmentsNumber;
-                    RefrigtzDLL.AllDraw.MaxAStarGreedyHuristicProgress = MaxAStarGreedyHuristicProgress;
-                    RefrigtzDLL.AllDraw.EndOfGame = EndOfGame;
                     //System.Threading.Thread.Sleep(1);
                 }
 
             } while (true);
         }
-        
+
         //Load Refregitz Form.
         private void Form1_Load(object sender, EventArgs e)
         {
+            bool DrawDrawen = false;
 
             //Set and syncronization with dynamic refregitzdll.   
             tttt = new Thread(new ThreadStart(SetRefregitzDLL));
-            tttt.Start();
             ttt = new Thread(new ThreadStart(SetNodesCount));
-            ttt.Start();
-            //Wehn no need to load.
-            if (File.Exists(Root + "\\Run.txt"))
-            {
-                AllDrawLoad = false;
-                NewTable = false;
-            }
+            AllOperate = new Thread(new ThreadStart(AllOperations));
+            BrownTimer = new Refrigtz.Timer(false);
+            GrayTimer = new Refrigtz.Timer(false);
+            TimerText = new Refrigtz.Timer(true);
 
-            //When Exit not occured.
-            if (!exit)
-            {
-                exit = true;
-                if (Sec.radioButtonGrayOrder.Checked)
-                {
-                    RefrigtzDLL.ChessRules.CurrentOrder = 1;
-                    OrderPlate = 1;
-                }
-                else
-                    if (Sec.radioButtonBrownOrder.Checked)
-                    {
-                        RefrigtzDLL.ChessRules.CurrentOrder = -1;
-                        OrderPlate = -1;
-                    }
-                //Determne of several refrigitz proccess.
-                if (!LoadAG)
-                {
-                    List<Process> a = new List<Process>();
-                    a.AddRange(Process.GetProcessesByName("Refrigtz"));
-                    if (a.Count > 1)
-                    {
+            BrownTimer.TimerInitiate();
+            GrayTimer.TimerInitiate();
+            TTimerSet = new Thread(new ThreadStart(SetTimer));
+            TTimerSet.Start();
 
-                        if (System.Windows.Forms.MessageBox.Show(null, "New Instant Of Refregitz!", "New Instant", MessageBoxButtons.YesNo) == DialogResult.No)
-                        {
-                            for (int i = 0; i < a.Count; i++)
-                            {
-                                try
-                                {
+            TimerText.TimerInitiate();
 
-                                    a[i].Kill();
-                                    exitToolStripMenuItem_Click(sender, e);
-                                }
-                                catch (Exception t) { Log(t); Application.ExitThread(); }
+            TimerText.StartTime();
 
-                            }
-
-                        }
-                    }
-                }
-                //When direcrories not exist.
-                if (!Directory.Exists(Root + "\\DataBase"))
-                {
-                    if (!Directory.Exists(Root + "\\DataBase\\MainBank"))
-                    {
-                        Directory.CreateDirectory(Root + "\\DataBase\\MainBank");
-                        File.Move(Root + "\\ChessBank.accdb", Root + "\\DataBase\\MainBank\\ChessBank.accdb");
-                    }
-                }
-                if (!Directory.Exists(Root + "\\Images"))
-                {
-                    if (!Directory.Exists(Root + "\\Images\\Original"))
-                    {
-                        Directory.CreateDirectory(Root + "\\Images\\Original");
-                    }
-                }
-                
-                //When file dos't exist.
-                if (!AllDrawLoad)
-                {
-                    if (!System.IO.File.Exists(Root + "\\Database\\CurrentBank.accdb"))
-                    {
-                        System.IO.File.Copy(Root + "\\Database\\MainBank\\ChessBank.accdb", Root + "\\Database\\CurrentBank.accdb");
-                        if (!File.Exists(Root + "\\Database\\Monitor.html"))
-                            System.IO.File.Copy(Root + "\\Database\\MainBank\\Monitor_Log.html", Root + "\\Database\\Monitor.html");
-                        if (File.Exists("List.txt"))
-                            File.Delete("List.txt");
-                        bookConn = new OleDbConnection(connParam);
-                        bookConn.Open();
-                        oleDbCmd.Connection = bookConn;
-                        InsertTableAtDataBase(Table);
-                        CreateConfigurationTable();
-                    }
-                    else
-                    {
-                        //When movments not occured.
-                        if (!NewTable)
-                        {
-                            UpdateConfigurationTableVal = false;
-                            //When Configuration is Allowed Read Configuration.
-                            ReadConfigurationTable();
-                            //Set Configuration To True for some unknown reason!.
-                            UpdateConfigurationTableVal = true;
-                            //Read Last Table and Set MovementNumber                            
-                            Table = ReadTable(0, ref MovmentsNumber);
-                            try
-                            {
-                                //Load Middle Targets.
-                                if (File.Exists("AllDraw.asd"))
-                                {
-                                    if (MovmentsNumber >= 0)
-                                    {
-                                        GalleryStudio.RefregizMemmory tr = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-                                        RefrigtzDLL.AllDraw t = tr.Load(OrderPlate);
-                                        if (t != null)
-                                        {
-                                            Draw = t;
-                                            MovementsAStarGreedyHuristicFound = t.MovementsAStarGreedyHuristicFoundT;
-                                            IInoreSelfObjects = t.IgnoreSelfObjectsT;
-                                            UsePenaltyRegardMechnisam = t.UsePenaltyRegardMechnisamT;
-                                            BestMovments = t.BestMovmentsT;
-                                            PredictHuristic = t.PredictHuristicT;
-                                            OnlySelf = t.OnlySelfT;
-                                            AStarGreedyHuristic = t.AStarGreedyHuristicT; ;
-                                            ArrangmentsChanged = t.ArrangmentsChanged;
-                                            LoadTree = true;
-                                            bool FOUND = false;
-                                            Draw = RootFound();
-                                            RefrigtzDLL.AllDraw THIS = null;
-                                            Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
-                                            if (FOUND)
-                                            {
-                                                Draw = THIS;
-                                                RefrigtzDLL.AllDraw.DrawTable = true;
-                                                SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
-                                                SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
-                                                SetBoxText("\r\nDraw Found");
-                                                RefreshBoxText();
-                                                MessageBox.Show("Draw Found.");
-                                            }
-                                            else
-                                            {
-                                                SetBoxText("\r\nDraw Not Found");
-                                                RefreshBoxText();
-                                                Draw = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-                                                Draw.TableList.Clear();
-                                                Draw.TableList.Add(Table);
-                                                Draw.SetRowColumn(0);
-                                                RefrigtzDLL.AllDraw.DepthIterative = 0;
-                                                MessageBox.Show("Draw Not Found.");
-                                            }
-                                            MessageBox.Show("Load Completed.");
-                                        }
-                                    }
-                                    File.Delete("AllDraw.asd");
-                                }
-                            }
-                            catch (Exception t) { Log(t); }
-                            //Clear Table List.
-                            if (!LoadTree)
-                            {
-                                Draw.TableList.Clear();
-                                //Add Table List.
-                                Draw.TableList.Add(Table);
-                                //Construction of Draw Things and Thinkings.
-                                Draw.SetRowColumn(0);
-                            }
-                        }
-                        else
-                        {
-                            int iii = 0;
-                            do { iii++; } while (System.IO.File.Exists(Root + "\\Database\\Games\\CurrentBank" + iii.ToString() + ".accdb"));
-                            System.IO.File.Copy(Root + "\\Database\\CurrentBank.accdb", Root + "\\Database\\Games\\CurrentBank" + iii.ToString() + ".accdb");
-                            System.IO.File.Delete(Root + "\\Database\\CurrentBank.accdb");
-                            System.IO.File.Copy(Root + "\\Database\\MainBank\\ChessBank.accdb", Root + "\\Database\\CurrentBank.accdb");
-                            System.IO.File.Copy(Root + "\\Database\\MainBank\\Monitor_Log.html", Root + "\\Database\\Monitor.html");
-                            InsertTableAtDataBase(Table);
-                            CreateConfigurationTable();
-                        }
-                    }
-                    //Set Level Variable from selection.
-                    comboBoxMaxLevelText = comboBoxMaxLevel.Text;
-
-                    AllOperate = new Thread(new ThreadStart(AllOperations));
-                    AllOperate.Start();
-
-                    if (Blitz)
-                    {
-                        GrayTimer.Sign = 1;
-                        BrownTimer.Sign = 1;
-                        if (OrderPlate == 1)
-                        {
-                            GrayTimer.StartTime();
-                            BrownTimer.StopTime();
-                        }
-                        else
-                        {
-                            GrayTimer.StopTime();
-                            BrownTimer.StartTime();
-                        }
-                    }
-                    else if (FullGame)
-                    {
-
-                        GrayTimer.Sign = 1;
-                        BrownTimer.Sign = 1;
-                        if (OrderPlate == 1)
-                        {
-                            GrayTimer.StartTime();
-                            BrownTimer.StopTime();
-                        }
-                        else
-                        {
-                            GrayTimer.StopTime();
-                            BrownTimer.StartTime();
-                        }
-                    }
-                    else if (StateCC && MovmentsNumber == 0)
-                    {
-                        GrayTimer = new Refrigtz.Timer(true);
-                        BrownTimer = new Refrigtz.Timer(true);
-                        GrayTimer.TimerInitiate();
-                        BrownTimer.TimerInitiate();
-                        if (OrderPlate == 1)
-                        {
-                            BobSection = true;
-                            AliceSection = false;
-                            GrayTimer.StartTime();
-                        }
-                        else
-                        {
-                            BobSection = false;
-                            AliceSection = true;
-                            BrownTimer.StartTime();
-                        }
-                        UpdateConfigurationTableVal = true;
-                    }
-                    else if (Stockfish)
-                    {
-                        GrayTimer.Sign = 1;
-                        BrownTimer.Sign = 1;
-                        if (OrderPlate == 1)
-                        {
-                            GrayTimer.StartTime();
-                            BrownTimer.StopTime();
-                            BobSection = true;
-                            AliceSection = false;
-                            GrayTimer.StartTime();
-                        }
-                        else
-                        {
-                            BrownTimer.StartTime();
-                            GrayTimer.StopTime();
-                            BobSection = false;
-                            AliceSection = true;
-                            BrownTimer.StartTime();
-                        }
-                        RefrigtzDLL.AllDraw.DrawTable = true;
-                        SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
-                        SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
-
-                    }
-
-                }
-                else
-                {
-                    if (t1 != null)
-                        t1.Abort();
-                    if (t2 != null)
-                        t2.Abort();
-                    if (t3 != null)
-                        t3.Abort();
-                    if (t4 != null)
-                        t4.Abort();
-                    if (AllOperate != null)
-                        AllOperate.Abort();
-                    if (tttt != null)
-                        tttt.Abort();
-                    if (ttt != null)
-                        ttt.Abort();
-
-                }
-                RefrigtzDLL.AllDraw.DrawTable = true;
-            }
-            else
-            {
-                UpdateConfigurationTableVal = true;
-                //UpdateConfigurationTable();
-
-                if (t1 != null)
-                    t1.Abort();
-                if (t2 != null)
-                    t2.Abort();
-                if (t3 != null)
-                    t3.Abort();
-                if (t4 != null)
-                    t4.Abort();
-                if (AllOperate != null)
-                    AllOperate.Abort();
-                if (tttt != null)
-                    tttt.Abort();
-                if (ttt != null)
-                    ttt.Abort();
-                Application.Exit();
-            }
-
-
-
-            if (File.Exists(Root + "\\Run.txt"))
-            {
-                String _0 = File.ReadAllText(Root + "\\Run.txt");
-                if (_0[0] == '1') _1 = true; else _1 = false;
-                if (_0[1] == '1') _2 = true; else _2 = false;
-                if (_0[2] == '1') _3 = true; else _3 = false;
-                if (_0[3] == '1') _4 = true; else _4 = false;
-                File.Delete(Root + "Run.txt");
-                continueAGameToolStripMenuItem.Visible = false; if (_1) { computerWithComputerToolStripMenuItem_Click(sender, e); } else if (_2) { computerWithComputerToolStripMenuItem1_Click(sender, e); } else if (_3) { toolStripMenuItem3_Click(sender, e); } else if (_4) { toolStripMenuItem6_Click(sender, e); }
-
-            }
             if (Blitz)
             {
-                GrayTimer.Sign = 1;
-                BrownTimer.Sign = 1;
+                BrownTimer = new Refrigtz.Timer(true);
+                GrayTimer = new Refrigtz.Timer(true);
+
                 if (OrderPlate == 1)
                 {
                     GrayTimer.StartTime();
@@ -1085,8 +769,10 @@ namespace Refrigtz
             }
             else if (FullGame)
             {
-                GrayTimer.Sign = 1;
-                BrownTimer.Sign = 1;
+
+                BrownTimer = new Refrigtz.Timer(true);
+                GrayTimer = new Refrigtz.Timer(true);
+
                 if (OrderPlate == 1)
                 {
                     GrayTimer.StartTime();
@@ -1097,34 +783,224 @@ namespace Refrigtz
                     GrayTimer.StopTime();
                     BrownTimer.StartTime();
                 }
+            }
+            else if (StateCC && MovmentsNumber == 0)
+            {
+                GrayTimer = new Refrigtz.Timer(true);
+                BrownTimer = new Refrigtz.Timer(true);
+                GrayTimer.TimerInitiate();
+                BrownTimer.TimerInitiate();
+                if (OrderPlate == 1)
+                {
+                    BobSection = true;
+                    AliceSection = false;
+                    GrayTimer.StartTime();
+                }
+                else
+                {
+                    BobSection = false;
+                    AliceSection = true;
+                    BrownTimer.StartTime();
+                }
+                UpdateConfigurationTableVal = true;
+            }
+            else if (Stockfish)
+            {
+                BrownTimer = new Refrigtz.Timer(true);
+                GrayTimer = new Refrigtz.Timer(true);
+
+                if (OrderPlate == 1)
+                {
+                    GrayTimer.StartTime();
+                    BrownTimer.StopTime();
+                    BobSection = true;
+                    AliceSection = false;
+                    GrayTimer.StartTime();
+                }
+                else
+                {
+                    BrownTimer.StartTime();
+                    GrayTimer.StopTime();
+                    BobSection = false;
+                    AliceSection = true;
+                    BrownTimer.StartTime();
+                }
+                RefrigtzDLL.AllDraw.DrawTable = true;
+                //SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
+                // SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
 
             }
-            if (Sec.radioButtonGrayOrder.Checked)
+            //Wehn no need to load.
+            if (File.Exists(Root + "\\Run.txt"))
             {
-                if (OrderPlate == 1)
+                AllDrawLoad = false;
+                NewTable = false;
+            }
+
+            //Determne of several refrigitz proccess.
+            if (!LoadAG)
+            {
+                List<Process> a = new List<Process>();
+                a.AddRange(Process.GetProcessesByName("Refrigtz"));
+                if (a.Count > 1)
                 {
-                    BobSection = true;
-                    AliceSection = false;
+
+                    if (System.Windows.Forms.MessageBox.Show(null, "New Instant Of Refregitz!", "New Instant", MessageBoxButtons.YesNo) == DialogResult.No)
+                    {
+                        for (int i = 0; i < a.Count; i++)
+                        {
+                            try
+                            {
+
+                                a[i].Kill();
+                                exitToolStripMenuItem_Click(sender, e);
+                            }
+                            catch (Exception t) { Log(t); Application.ExitThread(); }
+
+                        }
+
+                    }
+                }
+            }
+            //When direcrories not exist.
+            if (!Directory.Exists(Root + "\\DataBase"))
+            {
+                if (!Directory.Exists(Root + "\\DataBase\\MainBank"))
+                {
+                    Directory.CreateDirectory(Root + "\\DataBase\\MainBank");
+                    File.Move(Root + "\\ChessBank.accdb", Root + "\\DataBase\\MainBank\\ChessBank.accdb");
+                }
+            }
+            if (!Directory.Exists(Root + "\\Images"))
+            {
+                if (!Directory.Exists(Root + "\\Images\\Original"))
+                {
+                    Directory.CreateDirectory(Root + "\\Images\\Original");
+                }
+            }
+
+            //When file dos't exist.
+            if (!AllDrawLoad)
+            {
+                if (!System.IO.File.Exists(Root + "\\Database\\CurrentBank.accdb"))
+                {
+                    System.IO.File.Copy(Root + "\\Database\\MainBank\\ChessBank.accdb", Root + "\\Database\\CurrentBank.accdb");
+                    if (!File.Exists(Root + "\\Database\\Monitor.html"))
+                        System.IO.File.Copy(Root + "\\Database\\MainBank\\Monitor_Log.html", Root + "\\Database\\Monitor.html");
+                    if (File.Exists("List.txt"))
+                        File.Delete("List.txt");
+
+                    bookConn = new OleDbConnection(connParam);
+                    bookConn.Open();
+                    oleDbCmd.Connection = bookConn;
+
+                    InsertTableAtDataBase(Table);
+                    CreateConfigurationTable();
+
                 }
                 else
                 {
-                    BobSection = false;
-                    AliceSection = true;
+                    //When movments not occured.
+                    if (!NewTable)
+                    {
+                        UpdateConfigurationTableVal = false;
+
+                        //When Configuration is Allowed Read Configuration.
+                        ReadConfigurationTable();
+
+                        //Set Configuration To True for some unknown reason!.
+                        UpdateConfigurationTableVal = true;
+                        //Read Last Table and Set MovementNumber                            
+                        Table = ReadTable(0, ref MovmentsNumber);
+                        try
+                        {
+                            //Load Middle Targets.
+                            if (File.Exists("AllDraw.asd"))
+                            {
+                                if (MovmentsNumber >= 0)
+                                {
+                                    GalleryStudio.RefregizMemmory tr = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                                    RefrigtzDLL.AllDraw t = tr.Load(OrderPlate);
+                                    if (t != null)
+                                    {
+                                        Draw = t;
+
+                                        LoadTree = true;
+                                        bool FOUND = false;
+
+                                        Draw = RootFound();
+
+                                        RefrigtzDLL.AllDraw THIS = null;
+                                        if (MovmentsNumber == 0)
+                                            Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+                                        else
+                                            Draw.FoundOfCurrentTableNode(Table, OrderPlate * -1, ref THIS, ref FOUND);
+                                        if (FOUND)
+                                        {
+                                            Draw = THIS;
+                                            RefrigtzDLL.AllDraw.DrawTable = true;
+                                            SetBoxText("\r\nDraw Found");
+                                            RefreshBoxText();
+                                            //MessageBox.Show("Draw Found.");
+                                            DrawDrawen = true;
+                                        }
+                                        else
+                                        {
+                                            SetBoxText("\r\nDraw Not Found");
+                                            RefreshBoxText();
+                                            Draw = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                                            Draw.TableList.Clear();
+                                            Draw.TableList.Add(Table);
+                                            Draw.SetRowColumn(0);
+                                            RefrigtzDLL.AllDraw.DepthIterative = 0;
+                                            DrawDrawen = true;
+                                            //MessageBox.Show("Draw Not Found.");
+                                        }
+                                        MessageBox.Show("Load Completed.");
+                                    }
+                                }
+                                File.Delete("AllDraw.asd");
+                            }
+                        }
+                        catch (Exception t) { Log(t); }
+
+                    }
+                    else
+                    {
+                        int iii = 0;
+                        do { iii++; } while (System.IO.File.Exists(Root + "\\Database\\Games\\CurrentBank" + iii.ToString() + ".accdb"));
+                        System.IO.File.Copy(Root + "\\Database\\CurrentBank.accdb", Root + "\\Database\\Games\\CurrentBank" + iii.ToString() + ".accdb");
+                        System.IO.File.Delete(Root + "\\Database\\CurrentBank.accdb");
+                        System.IO.File.Copy(Root + "\\Database\\MainBank\\ChessBank.accdb", Root + "\\Database\\CurrentBank.accdb");
+                        System.IO.File.Copy(Root + "\\Database\\MainBank\\Monitor_Log.html", Root + "\\Database\\Monitor.html");
+                        InsertTableAtDataBase(Table);
+                        CreateConfigurationTable();
+                    }
                 }
+
+                //Set Level Variable from selection.
+                comboBoxMaxLevelText = comboBoxMaxLevel.Text;
+
+
+
+
             }
-            else
+            RefrigtzDLL.AllDraw.DrawTable = true;
+
+
+            if (File.Exists(Root + "\\Run.txt"))
             {
-                if (OrderPlate == 1)
-                {
-                    BobSection = false;
-                    AliceSection = true;
-                }
-                else
-                {
-                    BobSection = true;
-                    AliceSection = false;
-                }
+                String _0 = File.ReadAllText(Root + "\\Run.txt");
+                if (_0[0] == '1') _1 = true; else _1 = false;
+                if (_0[1] == '1') _2 = true; else _2 = false;
+                if (_0[2] == '1') _3 = true; else _3 = false;
+                if (_0[3] == '1') _4 = true; else _4 = false;
+                File.Delete(Root + "Run.txt");
+                continueAGameToolStripMenuItem.Visible = false; if (_1) { computerWithComputerToolStripMenuItem_Click(sender, e); } else if (_2) { computerWithComputerToolStripMenuItem1_Click(sender, e); } else if (_3) { toolStripMenuItem3_Click(sender, e); } else if (_4) { toolStripMenuItem6_Click(sender, e); }
+
             }
+
+
             Loaded = true;
             LoadedDLL = true;
 
@@ -1132,27 +1008,25 @@ namespace Refrigtz
                 Person = true;
             else
                 if (Sec.radioButtonBrownOrder.Checked && OrderPlate == -1)
-                    Person = true;
-            
-            ////Draw.Clone(RefrigtzDLL.AllDraw.THISDummy);
-            //RefrigtzDLL.AllDraw.THISDummy.TableList.Add(Table);
-            //RefrigtzDLL.AllDraw.THISDummy.SetRowColumn(0);
-            if (!LoadTree)
+                Person = true;
+
+
+            tttt.Start();
+            ttt.Start();
+            AllOperate.Start();
+
+            if (!DrawDrawen)
             {
                 Draw = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                 Draw.TableList.Clear();
                 Draw.TableList.Add(Table);
                 Draw.SetRowColumn(0);
-                RefrigtzDLL.AllDraw.DrawTable = true;
+                RefrigtzDLL.AllDraw.DepthIterative = 0;
+                
+                //MessageBox.Show("Draw Not Found.");
             }
-            else
-            {
-                 RefrigtzDLL.AllDraw.DrawTable = true;
-                SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
-                SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
-
-            }
-
+            if (RefrigtzDLL.AllDraw.TableListAction.Count == 0)
+                RefrigtzDLL.AllDraw.TableListAction.Add(Table);
             SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
             SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
         }
@@ -1370,9 +1244,9 @@ namespace Refrigtz
 
 
             } while (MoveNumber < MovmentsNumberMax);
-            Draw.TableList.Clear();
-            Draw.TableList.Add(Tab);
-            Draw.SetRowColumn(0);
+            //Draw.TableList.Clear();
+            //Draw.TableList.Add(Tab);
+            //Draw.SetRowColumn(0);
             return Tab;
 
 
@@ -1698,8 +1572,9 @@ namespace Refrigtz
                     oleDbCmd.CommandText = "Create Table Configuration (checkBoxAStarGreedyHuristic Number NOT NULL,checkBoxPredictHuristci Number NOT NULL,checkBoxAStarGreadyFirstSearch Number NOT NULL,checkBoxBestMovments Number NOT NULL,checkBoxOnlySelf Number NOT NULL,radioButtonOriginalImages Number NOT NULL,radioButtonBigFittingImages Number NOT NULL,radioButtonSmallFittingImages Number NOT NULL,checkBoxAStarGreedyMovement Number NOT NULL,checkBoxUseDoubleTime Number NOT NULL,checkBoxUsePenaltyRegradMechnisam Number NOT NULL,checkBoxDynamicProgrammingAStarGreedyt Number NOT NULL,comboBoxMaxTree Number NOT NULL,comboBoxAttack Number NOT NULL,comboBoxObjectDangour Number NOT NULL,comboBoxReducedAttacked Number NOT NULL,comboBoxSupport Number NOT NULL,comboBoxHitting Number NOT NULL,comboBoxMovments Number NOT NULL,ArrangmentsChanged Number NOT NULL,GrayTimer Number NOT NULL,BrownTimer Number NOT NULL,BobSection Number NOT NULL,AliceSection Number NOT NULL,StateCP Number NOT NULL,StateCC Number NOT NULL,StateGe Number NOT NULL,Blitz Number NOT NULL,Person Number NOT NULL,SettingPRFALSE Number NOT NULL,FullGame Number NOT NULL,Stockfish Number NOT NULL,lable1 Text NOT NULL,lable2 Text NOT NULL,MovmentsNumber Number NOT NULL)";
                     int temp = 0;
                     temp = oleDbCmd.ExecuteNonQuery();
-                 
 
+                    bookConn.Close();
+                    bookConn.Open();
                     oleDbCmd.CommandText = "Insert into Configuration (checkBoxAStarGreedyHuristic,checkBoxPredictHuristci,checkBoxAStarGreadyFirstSearch,checkBoxBestMovments,checkBoxOnlySelf,radioButtonOriginalImages,radioButtonBigFittingImages,radioButtonSmallFittingImages,checkBoxAStarGreedyMovement,checkBoxUseDoubleTime,checkBoxUsePenaltyRegradMechnisam,checkBoxDynamicProgrammingAStarGreedyt,comboBoxMaxTree,comboBoxAttack,comboBoxObjectDangour,comboBoxReducedAttacked,comboBoxSupport,comboBoxHitting,comboBoxMovments,ArrangmentsChanged,GrayTimer,BrownTimer,BobSection,AliceSection,StateCP,StateCC,StateGe,Blitz,Person,SettingPRFALSE,FullGame,Stockfish,lable1,lable2,MovmentsNumber) values(" + System.Convert.ToInt32(checkBoxAStarGreedyHuristic.Checked).ToString() + "," + System.Convert.ToInt32(checkBoxPredictHuristci.Checked).ToString() + "," + System.Convert.ToInt32(checkBoxAStarGreadyFirstSearch.Checked).ToString() + "," + System.Convert.ToInt32(checkBoxBestMovments.Checked).ToString() + "," + System.Convert.ToInt32(checkBoxOnlySelf.Checked).ToString() + "," + System.Convert.ToInt32(radioButtonOriginalImages.Checked).ToString() + "," + System.Convert.ToInt32(radioButtonBigFittingImages.Checked).ToString() + "," + System.Convert.ToInt32(radioButtonSmallFittingImages.Checked).ToString() + "," + System.Convert.ToInt32(checkBoxBestMovments.Checked).ToString() + "," + System.Convert.ToInt32(checkBoxUseDoubleTime.Checked).ToString() + "," + System.Convert.ToInt32(checkBoxUsePenaltyRegradMechnisam.Checked).ToString() + "," + System.Convert.ToInt32(checkBoxDynamicProgrammingAStarGreedyt.Checked).ToString() + "," + System.Convert.ToInt32(comboBoxMaxLevel.Text).ToString() + "," + System.Convert.ToInt32(comboBoxAttack.Text).ToString() + "," + System.Convert.ToInt32(comboBoxObjectDangour.Text).ToString() + "," + System.Convert.ToInt32(comboBoxReducedAttacked.Text).ToString() + "," + System.Convert.ToInt32(comboBoxSupport.Text).ToString() + "," + System.Convert.ToInt32(comboBoxKiller.Text).ToString() + "," + System.Convert.ToInt32(comboBoxMovments.Text).ToString() + "," + System.Convert.ToInt32(ArrangmentsChanged).ToString() + "," + GrayTimer.Times.ToString() + "," + BrownTimer.Times.ToString() + "," + System.Convert.ToInt32(BobSection).ToString() + "," + System.Convert.ToInt32(AliceSection).ToString() + "," + System.Convert.ToInt32(StateCP).ToString() + "," + System.Convert.ToInt32(StateCC).ToString() + "," + System.Convert.ToInt32(StateGe).ToString() + "," + System.Convert.ToInt32(Blitz).ToString() + "," + System.Convert.ToInt32(Person).ToString() + "," + System.Convert.ToInt32(SettingPRFALSE).ToString() + "," + System.Convert.ToInt32(FullGame).ToString() + "," + System.Convert.ToInt32(Stockfish).ToString() + ",'" + label1.Text + "','" + label2.Text + "','" + MovmentsNumber.ToString() + "')";
 
                     temp = oleDbCmd.ExecuteNonQuery();
@@ -1709,7 +1584,8 @@ namespace Refrigtz
                 {
                     
                     Log(t);
-                    
+                    bookConn.Close();
+                    bookConn.Open();
 
                     oleDbCmd.CommandText = "Drop Table Configuration";
                     int temp = 0;
@@ -1752,6 +1628,7 @@ namespace Refrigtz
                     oleDbCmd.CommandText = "Select * from Configuration";
                     OleDbDataReader dr = null;
                     dr = oleDbCmd.ExecuteReader();
+                    bool ARead = false;
                     if (dr.Read())
                     {
                         checkBoxAStarGreedyHuristic.Checked = System.Convert.ToBoolean(dr["checkBoxAStarGreedyHuristic"]);
@@ -1813,7 +1690,12 @@ namespace Refrigtz
                         label1.Text = System.Convert.ToString(dr["lable1"]);
                         label2.Text = System.Convert.ToString(dr["lable2"]);
                         MovmentsNumberMax = System.Convert.ToInt32(dr["MovmentsNumber"]);
+                        ARead = true;
                     }
+                    if (!ARead)
+                        CreateConfigurationTable();            
+
+                    
                    
                 }
                 catch (Exception t)
@@ -1941,7 +1823,7 @@ namespace Refrigtz
                 //if (RefrigtzDLL.AllDraw.DrawTable)
                 {
                     //System.Threading.Thread.Sleep(100);
-                    if (GameStarted)
+                    if (GameStarted && MovmentsNumber == 0)
                         buttonChangeArrangment.Visible = false;
                     //System.Threading.Thread.Sleep(8);
 
@@ -5727,7 +5609,10 @@ namespace Refrigtz
                     Tab[i, j] = 0;
                     bool FOUND = false;
                     RefrigtzDLL.AllDraw THIS = null;
-                    Draw.FoundOfCurrentTableNode(Tab, OrderPlate, ref THIS, ref FOUND);
+                    if (MovmentsNumber == 0)
+                        Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+                    else
+                        Draw.FoundOfCurrentTableNode(Table, OrderPlate * -1, ref THIS, ref FOUND);
                     if (FOUND)
                     {
                         Table[ii, jj] = Table[i, j];
@@ -6048,10 +5933,6 @@ namespace Refrigtz
                 soundClick.Dispose();
             }
 
-
-            OrderPlate *= -1;
-            BobSection = true;
-            
             bool FOUND = false;
             RefrigtzDLL.AllDraw THIS = null;
             Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
@@ -6081,6 +5962,10 @@ namespace Refrigtz
                 SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
                 SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
             }
+
+            OrderPlate *= -1;
+            BobSection = true;
+            
             //Draw.TableList.Clear();
             //Draw.TableList.Add(Table);
             //Draw.SetRowColumn(0);
@@ -7837,7 +7722,10 @@ namespace Refrigtz
                     a = Color.Brown;
                 bool FOUND = false;
                 RefrigtzDLL.AllDraw THIS = null;
-                Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+                if (MovmentsNumber == 0)
+                    Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+                else
+                    Draw.FoundOfCurrentTableNode(Table, OrderPlate * -1, ref THIS, ref FOUND);
                 if (FOUND)
                 {
                  
@@ -7937,7 +7825,7 @@ namespace Refrigtz
                 /* THIS = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound,IInoreSelfObjects,UsePenaltyRegardMechnisam,BestMovments,PredictHuristic,OnlySelf,AStarGreedyHuristic,ArrangmentsChanged);
                  FOUND = false;
                  if (Draw.THISDummy != null)
-                     Draw.THISDummy.accessDraw.FoundOfCurrentTableNode(TableCon, OrderPlate, ref THIS, ref FOUND);
+                     Draw.THISDummy.accessDraw.FoundOfCurrentTableNode(Tableon, OrderPlate, ref THIS, ref FOUND);
                  if (FOUND)
                  {   
                      Draw = THIS;
@@ -8011,7 +7899,7 @@ namespace Refrigtz
 
                 InsertTableAtDataBase(Table);
                 FOUND = false;
-                Draw.FoundOfCurrentTableNode(TableC, OrderPlate, ref THIS, ref FOUND);
+                Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
                 if (FOUND)
                 {
 
@@ -8097,7 +7985,10 @@ namespace Refrigtz
                     a = Color.Brown;
                 bool FOUND = false;
                 RefrigtzDLL.AllDraw THIS = null;
-                Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+                if (MovmentsNumber == 0)
+                    Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+                else
+                    Draw.FoundOfCurrentTableNode(Table, OrderPlate * -1, ref THIS, ref FOUND);
                 if (FOUND)
                 {
 
@@ -8272,12 +8163,12 @@ namespace Refrigtz
                         RefreshBoxStatistic();
                     }
                 }
-                RefrigtzDLL.AllDraw.TableListAction.Add(Table);
+                
                 
                 for (int i = 0; i < 8; i++)
                     for (int j = 0; j < 8; j++)
                         TableCon[i, j] = Table[i, j];
-                Draw.FoundOfCurrentTableNode(TableC, OrderPlate, ref THIS, ref FOUND);
+                Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
                 if (FOUND)
                 {
 
@@ -8367,7 +8258,10 @@ namespace Refrigtz
                 a = Color.Brown;
             RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
             bool FOUND = false;
-            Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+            if (MovmentsNumber == 0)
+                Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+            else
+                Draw.FoundOfCurrentTableNode(Table, OrderPlate * -1, ref THIS, ref FOUND);
             if (FOUND)
             {
                 Draw = THIS;
@@ -8504,7 +8398,7 @@ namespace Refrigtz
 
             InsertTableAtDataBase(Table);            
             FOUND = false;
-            Draw.FoundOfCurrentTableNode(TableC, OrderPlate, ref THIS, ref FOUND);
+            Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
 
             if (FOUND)
             {
@@ -8689,8 +8583,10 @@ namespace Refrigtz
                 a = Color.Brown;
             bool FOUND = false;
             RefrigtzDLL.AllDraw THIS = null;
-
-            Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+            if (MovmentsNumber == 0)
+                Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+            else
+                Draw.FoundOfCurrentTableNode(Table, OrderPlate * -1, ref THIS, ref FOUND);
             if (FOUND)
             {
                 Draw = THIS;
@@ -8826,7 +8722,7 @@ namespace Refrigtz
                     TableCon[i, j] = Table[i, j];
             //RefrigtzDLL.AllDraw.TableListAction.Add(TableCon);
             FOUND = false;
-            Draw.FoundOfCurrentTableNode(TableCon, OrderPlate, ref THIS, ref FOUND);
+            Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
             if (FOUND)
             {
 
@@ -9881,7 +9777,10 @@ namespace Refrigtz
 
             RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
             bool FOUND = false;
-            Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+            if (MovmentsNumber == 0)
+                Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+            else
+                Draw.FoundOfCurrentTableNode(Table, OrderPlate * -1, ref THIS, ref FOUND);
             if (FOUND)
             {
                 Draw = THIS;
@@ -10038,7 +9937,7 @@ namespace Refrigtz
         {
             Sec.Dispose();
             //Draw.THIS.Dispose();
-            THIs.Dispose();
+            //THIs.Dispose();
             this.Dispose();
         }
         //Exit ToolStrip Event Handling.
@@ -10578,7 +10477,10 @@ namespace Refrigtz
             }
             RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
             bool FOUND = false;
-            Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+            if (MovmentsNumber == 0)
+                Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+            else
+                Draw.FoundOfCurrentTableNode(Table, OrderPlate * -1, ref THIS, ref FOUND);
             if (FOUND)
             {
                 Draw = THIS;
@@ -11272,7 +11174,10 @@ namespace Refrigtz
             StateCC = true;
             RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
             bool FOUND = false;
-            Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+            if (MovmentsNumber == 0)
+                Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+            else
+                Draw.FoundOfCurrentTableNode(Table, OrderPlate * -1, ref THIS, ref FOUND);
             if (FOUND)
             {
                 Draw = THIS;
@@ -11286,6 +11191,8 @@ namespace Refrigtz
             }
             else
             {
+                UsePenaltyRegardMechnisam = false;
+                AStarGreedyHuristic = false;
                 Draw = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                 Draw.TableList.Clear();
                 Draw.TableList.Add(Table);
@@ -11387,7 +11294,10 @@ namespace Refrigtz
             }
             RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
             bool FOUND = false;
-            Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+            if (MovmentsNumber == 0)
+                Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+            else
+                Draw.FoundOfCurrentTableNode(Table, OrderPlate * -1, ref THIS, ref FOUND);
             if (FOUND)
             {
                 Draw = THIS;
@@ -11464,7 +11374,10 @@ namespace Refrigtz
             }
             RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
             bool FOUND = false;
-            Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+            if (MovmentsNumber == 0)
+                Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+            else
+                Draw.FoundOfCurrentTableNode(Table, OrderPlate * -1, ref THIS, ref FOUND);
             if (FOUND)
             {
                 Draw = THIS;
@@ -11550,7 +11463,10 @@ namespace Refrigtz
             }
             RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
             bool FOUND = false;
-            Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+            if (MovmentsNumber == 0)
+                Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+            else
+                Draw.FoundOfCurrentTableNode(Table, OrderPlate * -1, ref THIS, ref FOUND);
             if (FOUND)
             {
                 Draw = THIS;
@@ -11627,7 +11543,10 @@ namespace Refrigtz
             }
             RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
             bool FOUND = false;
-            Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+            if (MovmentsNumber == 0)
+                Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+            else
+                Draw.FoundOfCurrentTableNode(Table, OrderPlate * -1, ref THIS, ref FOUND);
             if (FOUND)
             {
                 Draw = THIS;
@@ -11711,7 +11630,10 @@ namespace Refrigtz
             UsePenaltyRegardMechnisam = false;
             RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
             bool FOUND = false;
-            Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+            if (MovmentsNumber == 0)
+                Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+            else
+                Draw.FoundOfCurrentTableNode(Table, OrderPlate * -1, ref THIS, ref FOUND);
             if (FOUND)
             {
                 Draw = THIS;
@@ -11784,7 +11706,10 @@ namespace Refrigtz
             {
                 RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                 bool FOUND = false;
-                Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+                if (MovmentsNumber == 0)
+                    Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+                else
+                    Draw.FoundOfCurrentTableNode(Table, OrderPlate * -1, ref THIS, ref FOUND);
                 if (FOUND)
                 {
                     Draw = THIS;
@@ -11798,6 +11723,8 @@ namespace Refrigtz
                 }
                 else
                 {
+                    UsePenaltyRegardMechnisam = false;
+                    AStarGreedyHuristic = false;
                     Draw = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                     Draw.TableList.Clear();
                     Draw.TableList.Add(Table);

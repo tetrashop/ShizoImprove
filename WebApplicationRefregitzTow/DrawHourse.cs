@@ -9,6 +9,7 @@ namespace RefrigtzW
     [Serializable]
     public class DrawHourse
     {
+        public static Image[] H = new Image[2];
         //Iniatite Global Variables.
         List<int[]> ValuableSelfSupported = new List<int[]>();
       
@@ -83,7 +84,7 @@ namespace RefrigtzW
             return a;
         }
         //Constructor 1.
-        public DrawHourse(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
+       /* public DrawHourse(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
         {
             CurrentAStarGredyMax = CurrentAStarGredy;
             MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
@@ -95,35 +96,45 @@ namespace RefrigtzW
             AStarGreedyHuristicT = AStarGreedyHuris;
             ArrangmentsChanged = Arrangments;
         }
+        */
         //Constructpor 2.
         public DrawHourse(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//,ref AllDraw. THIS
             )
         {
-            
-            CurrentAStarGredyMax = CurrentAStarGredy;
-            MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
-            IgnoreSelfObjectsT = IgnoreSelfObject;
-            UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
-            BestMovmentsT = BestMovment;
-            PredictHuristicT = PredictHurist;
-            OnlySelfT = OnlySel;
-            AStarGreedyHuristicT = AStarGreedyHuris;
-            ArrangmentsChanged = Arrangments;
-            //Initiate Global Variable By Local Paramenters.
-            Table = new int[8, 8];
-            for (int ii = 0; ii < 8; ii++)
-                for (int jj = 0; jj < 8; jj++)
-                    Table[ii, jj] = Tab[ii, jj];
-            for (int ii = 0; ii < AllDraw.HourseMovments; ii++)
-                HourseThinking[ii] = new ThinkingChess( CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 8, Ord, TB, Cur, 4, 3);
+            try
+            {
+                if (H[0] == null && H[1] == null)
+                {
+                    H[0] = Image.FromFile(AllDraw.ImagesSubRoot + "HG.png");
+                    H[1] = Image.FromFile(AllDraw.ImagesSubRoot + "HB.png");
+                }
+            }
+            catch (Exception t) { Log(t); }
 
-            Row = i;
-            Column = j;
-            color = a;
-            Order = Ord;
-            Current = Cur;
+                CurrentAStarGredyMax = CurrentAStarGredy;
+                MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
+                IgnoreSelfObjectsT = IgnoreSelfObject;
+                UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
+                BestMovmentsT = BestMovment;
+                PredictHuristicT = PredictHurist;
+                OnlySelfT = OnlySel;
+                AStarGreedyHuristicT = AStarGreedyHuris;
+                ArrangmentsChanged = Arrangments;
+                //Initiate Global Variable By Local Paramenters.
+                Table = new int[8, 8];
+                for (int ii = 0; ii < 8; ii++)
+                    for (int jj = 0; jj < 8; jj++)
+                        Table[ii, jj] = Tab[ii, jj];
+                for (int ii = 0; ii < AllDraw.HourseMovments; ii++)
+                    HourseThinking[ii] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 8, Ord, TB, Cur, 4, 3);
 
-        }
+                Row = i;
+                Column = j;
+                color = a;
+                Order = Ord;
+                Current = Cur;
+
+            }
         //Cloen a Copy.
         public void Clone(ref DrawHourse AA//, ref AllDraw. THIS
             )
@@ -169,12 +180,12 @@ namespace RefrigtzW
                     if (color == Color.Gray)
                     {
                         //Draw an Instatnt Gray Hourse on the Table.
-                        g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "HG.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                        g.DrawImage(H[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                     }
                     else
                     {
                         //Draw an Instatnt Brown Hourse on the Table.
-                        g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "HB.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                        g.DrawImage(H[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                     }
                 }
             }

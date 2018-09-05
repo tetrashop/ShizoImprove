@@ -5,7 +5,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
 using System.IO;
 
-namespace GalleryStudio
+namespace RefrigtzW
 {
     class RefregitzOperator
     {
@@ -38,7 +38,7 @@ namespace GalleryStudio
             }
 
         }
-        public Customers GetRefregiz(int No)
+        /*public Customers GetRefregiz(int No)
         {
             FileStream DummyFileStream = null;
             DummyFileStream = new FileStream(SAllDraw, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.Read);
@@ -65,6 +65,6 @@ namespace GalleryStudio
             }
             return Dummy;
         }
-        
+        */
     }
 }

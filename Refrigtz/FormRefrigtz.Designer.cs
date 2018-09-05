@@ -702,7 +702,7 @@
             // checkBoxUsePenaltyRegradMechnisam
             // 
             this.checkBoxUsePenaltyRegradMechnisam.AutoSize = true;
-            this.checkBoxUsePenaltyRegradMechnisam.Location = new System.Drawing.Point(583, 285);
+            this.checkBoxUsePenaltyRegradMechnisam.Location = new System.Drawing.Point(580, 285);
             this.checkBoxUsePenaltyRegradMechnisam.Name = "checkBoxUsePenaltyRegradMechnisam";
             this.checkBoxUsePenaltyRegradMechnisam.Size = new System.Drawing.Size(184, 17);
             this.checkBoxUsePenaltyRegradMechnisam.TabIndex = 22;

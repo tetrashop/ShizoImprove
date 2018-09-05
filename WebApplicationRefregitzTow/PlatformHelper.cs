@@ -1,13 +1,11 @@
 ﻿
 namespace System.Threading
 {
-    
     using System;
     using System.Runtime.CompilerServices;
-    [field: NonSerialized]
+
     internal static class PlatformHelper
     {
-        
         private const int PROCESSOR_COUNT_REFRESH_INTERVAL_MS = 0x7530;
         private static volatile int s_lastProcessorCountRefreshTicks;
         private static volatile int s_processorCount;
