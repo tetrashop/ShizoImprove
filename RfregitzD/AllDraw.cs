@@ -139,6 +139,7 @@
  * Index out of Range Unlogically at Full Game Soldier Order Brown.**************************0.88**1**Risk Control********************************************<*>QC_OK
  * Execution make zero table but trace make valid table.*************************************0.88**1**Risk Control********************************************{*}Qc-OK.
  * Virtualization need to more hardware capabilities gone to malfunction virtualization.******0.88**1**Risk Control*******************************************{*}QC-BAD.
+ * MalFunction on AllDraw Hadeling of Draw Midle Target Motion Graphics.**********************0.88**1**Risk Control*******************************************{*}QC-BAD.
  * ********************************************************************************************************************************************************(+:Sum(63)) 
  * 1394/12/19**********************************************************************************************************************************************(*:Sum(4))
  * ********************************************************************************************************************************************************(-:sum(2)) (_:Sum(0)):2:(+:Sum(3)) (-:Sum(1)) (*:Sum(2)) 3: (+:Sum(4)) (*:Sum(1)) 4:(+:Sum(6))  5:(+:Sum(2)) (-:Sum(1)) 6:(+:Sum(6)) (*:Sum(2)) 7.(+:Sum(2)) (*:Sum(1)) 8.(+:Sum(1)) 9.(+:Sum(4)) (*:Sum(1)) (-:Sum(1)) 10.(+:Sum(4)) (*:Sum(2)) 11.(+:Sum(4)) 12.(+:Sum(2)) (*:Sum(2)) 13.(+:Sum(4)) 14.(+:Sum(2)) (*:Sum(1)) 15.(+:Sum(6)) 16.(+:Sum(2)) 17.(QC-OK.:Sum(13))
@@ -4352,12 +4353,11 @@ namespace RefrigtzDLL
                                                         TableHuristic[SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][1]] = 3 * Sign;
                                                     else if (SolderesOnTable[i].ConvertedToElefant)
                                                         TableHuristic[SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][1]] = 2 * Sign;
-                                                    TableList.Clear();
-                                                    TableList.Add(TableHuristic);
+                                                   
+                                                    
 
-                                                    SetRowColumn(0);
-                                                    TableList.Clear();
-                                                }
+                                                   
+                                                 }
                                                 RegardOccurred = true;
                                                 //if (Do == 1 || AA)
                                                 //return TableHuristic;
@@ -4505,12 +4505,11 @@ namespace RefrigtzDLL
                                                         TableHuristic[SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][1]] = 3 * Sign;
                                                     else if (SolderesOnTable[i].ConvertedToElefant)
                                                         TableHuristic[SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][1]] = 2 * Sign;
-                                                    TableList.Clear();
-                                                    TableList.Add(TableHuristic);
+                                                   
+                                                    
 
-                                                    SetRowColumn(0);
-                                                    TableList.Clear();
-
+                                                   
+                                             
                                                 }
                                             }
 
@@ -4567,12 +4566,11 @@ namespace RefrigtzDLL
                                                             TableHuristic[SolderesOnTable[RW1].SoldierThinking[CL1].RowColumnSoldier[Ki1][0], SolderesOnTable[RW1].SoldierThinking[CL1].RowColumnSoldier[Ki1][1]] = 3 * Sign;
                                                         else if (SolderesOnTable[RW1].ConvertedToElefant)
                                                             TableHuristic[SolderesOnTable[RW1].SoldierThinking[CL1].RowColumnSoldier[Ki1][0], SolderesOnTable[RW1].SoldierThinking[CL1].RowColumnSoldier[Ki1][1]] = 2 * Sign;
-                                                        TableList.Clear();
-                                                        TableList.Add(TableHuristic);
+                                                       
+                                                        
 
-                                                        SetRowColumn(0);
-                                                        TableList.Clear();
-
+                                                       
+                                                  
                                                     }
                                                     Object O = new Object();
                                                     lock (O)
@@ -5906,11 +5904,10 @@ namespace RefrigtzDLL
                                                     TableHuristic[SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][1]] = 3 * Sign;
                                                 else if (SolderesOnTable[i].ConvertedToElefant)
                                                     TableHuristic[SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][1]] = 2 * Sign;
-                                                TableList.Clear();
-                                                TableList.Add(TableHuristic);
+                                               
+                                                
 
-                                                SetRowColumn(0);
-                                                TableList.Clear();
+                                               
                                             }
                                             Object O = new Object();
                                             lock (O)
@@ -6063,12 +6060,11 @@ namespace RefrigtzDLL
                                                     TableHuristic[SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][1]] = 3 * Sign;
                                                 else if (SolderesOnTable[i].ConvertedToElefant)
                                                     TableHuristic[SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][1]] = 2 * Sign;
-                                                TableList.Clear();
-                                                TableList.Add(TableHuristic);
+                                               
+                                                
 
-                                                SetRowColumn(0);
-                                                TableList.Clear();
-
+                                               
+                                           
                                             }
                                         }
 
@@ -7453,11 +7449,10 @@ namespace RefrigtzDLL
                                                     TableHuristic[SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][1]] = 3 * Sign;
                                                 else if (SolderesOnTable[i].ConvertedToElefant)
                                                     TableHuristic[SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][1]] = 2 * Sign;
-                                                TableList.Clear();
-                                                TableList.Add(TableHuristic);
+                                               
+                                                
 
-                                                SetRowColumn(0);
-                                                TableList.Clear();
+                                               
                                                 RegardOccurred = true;
                                                 //if (Do == 1 || AA)
                                                 //return TableHuristic;
@@ -7604,12 +7599,11 @@ namespace RefrigtzDLL
                                                     TableHuristic[SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][1]] = 3 * Sign;
                                                 else if (SolderesOnTable[i].ConvertedToElefant)
                                                     TableHuristic[SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][1]] = 2 * Sign;
-                                                TableList.Clear();
-                                                TableList.Add(TableHuristic);
+                                               
+                                                
 
-                                                SetRowColumn(0);
-                                                TableList.Clear();
-
+                                               
+                                            
                                             }
 
                                         }
@@ -7662,12 +7656,11 @@ namespace RefrigtzDLL
                                                             TableHuristic[SolderesOnTable[RW1].SoldierThinking[CL1].RowColumnSoldier[Ki1][0], SolderesOnTable[RW1].SoldierThinking[CL1].RowColumnSoldier[Ki1][1]] = 3 * Sign;
                                                         else if (SolderesOnTable[RW1].ConvertedToElefant)
                                                             TableHuristic[SolderesOnTable[RW1].SoldierThinking[CL1].RowColumnSoldier[Ki1][0], SolderesOnTable[RW1].SoldierThinking[CL1].RowColumnSoldier[Ki1][1]] = 2 * Sign;
-                                                        TableList.Clear();
-                                                        TableList.Add(TableHuristic);
+                                                       
+                                                        
 
-                                                        SetRowColumn(0);
-                                                        TableList.Clear();
-                                                    }
+                                                       
+                                                   }
                                                     Object OO = new Object();
                                                     lock (OO)
                                                     {
@@ -9135,10 +9128,10 @@ namespace RefrigtzDLL
                 //Initiate Local and Global Variables.
                 int Current = ChessRules.CurrentOrder;
                 int DummyOrder = Order;
-                TableList.Clear();
+               
                 TableList.Add(Table);
-                SetRowColumn(0);
-                TableList.Clear();
+               
+               
                 Object OO = new Object();
                 lock (OO)
                 {
@@ -15785,10 +15778,10 @@ namespace RefrigtzDLL
                 int[,] Tab = null;
                 int[,] TablInit = null;
 
-                TableList.Clear();
+               
                 TableList.Add(Table);
-                SetRowColumn(0);
-                TableList.Clear();
+               
+               
                 ThinkingChess.NotSolvedKingDanger = false;
                 LoopHuristicIndex = 0;
                 //For All Pssible One.
@@ -15908,26 +15901,12 @@ namespace RefrigtzDLL
                 CL6 = -1;
                 Ki6 = -1;
                 MaxHuristicAStarGreedytBackWard.Clear();
-                TableList.Clear();
+               
                 int[,] Tab = null;
                 int[,] TablInit = null;
 
                 if (!FOUND)
                 {
-                    /*    for (int i = 0; i < 8; i++)
-                            for (int j = 0; j < 8; j++)
-                            {
-                                THISDummy.Table[i, j] = Table[i, j];
-                            }
-                     */
-                    //RefrigtzDLL.AllDraw.THISDummy = Draw;
-                    //RefrigtzDLL.AllDraw.THISDummy.TableList.Add(Table);
-                    //RefrigtzDLL.AllDraw.THISDummy.SetRowColumn(0);
-                    //Clone(THISDummy);
-
-
-
-                    //THISDummy.THIS = THIS;
                     Object O7 = new Object();
                     lock (O7)
                     {
@@ -15940,24 +15919,7 @@ namespace RefrigtzDLL
 
 
                 }
-                else
-                {
-                    //THISDummy.THIS = THIS;
-                    //THISDummy = this;
-                }
-                // Simulate work.
-                /*   if (AllDraw.Blitz)
-                   {
-                       MaxAStarGreedy = 2;
-                       AStarGreedyiLevelMax = 2;
-                   }
-                   else
-                   {
-                       MaxAStarGreedy = 2;
-                       AStarGreedyiLevelMax = 2;
-                   }
-                 */
-                //THIS.Invoke((MethodInvoker)delegate()
+                   //THIS.Invoke((MethodInvoker)delegate()
                 {
 
                     MaxAStarGreedy = System.Convert.ToInt32(AllDraw.THIScomboBoxMaxLevelText);
@@ -15972,40 +15934,18 @@ namespace RefrigtzDLL
                     //SetprogressBarRefregitzValue(THIS.progressBarVerify, increasedProgress);
                 }//);
 
-                //Iniatite Dehidspt Movments Of Possible.
-                //AllDraw DummtTHIS = new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
-                //DummtTHIS.TableList.Add(TableList[0]);
-                ChessRules.CurrentOrder = Current;
+                 ChessRules.CurrentOrder = Current;
                 Order = DummyOrder;
                 int iiii = ii, jjjj = jj, Ord = Order;
                 int MaxAStarGreedy1 = MaxAStarGreedy;
                 int[,] Tabl = CloneATable(Table);
                 Color aaa = a;
-                //
-                //THISDummy.InitiateAStarGreedyt(MaxAStarGreedy1, iiii, jjjj, aaa, Tabl, Ord, false, FOUND, LeafAStarGreedy);
-                InitiateAStarGreedytObject(MaxAStarGreedy1, iiii, jjjj, aaa, Tabl, Ord, false, FOUND, LeafAStarGreedy);
-                /*ob= Task.Factory.StartNew(() => THISDummy.InitiateAStarGreedyt(MaxAStarGreedy1, iiii, jjjj, aaa, Tabl, Ord, false, FOUND));
-                        Object ttttt = new Object();
-                        lock (ttttt)
-                        { //ob.Start(); 
+                 InitiateAStarGreedytObject(MaxAStarGreedy1, iiii, jjjj, aaa, Tabl, Ord, false, FOUND, LeafAStarGreedy);
 
-                Task.WaitAll(ob);
-                        }
-                        ob.Dispose();
-                        */
-
-                //THISDummy.CheckedMateConfiguratiion(Order);
-                //while (ThinkingChess.BeginThread > ThinkingChess.EndThread) ;
-                //while (!ThinkingFinished) ;
-                //ThinkingFinished = false;
-                //SetprogressBarRefregitzValue(THIS.progressBarVerify, 999999999);
-                //THIS.progressBarVerify.Invalidate();
-                //SetprogressBarUpdate(THIS.progressBarVerify);
                 MinThinkingTreeDepth = MaxAStarGreedy - MinThinkingTreeDepth;
                 //Initaite Local Varibales.
                 Tab = new int[8, 8];
                 Less = Double.MinValue;
-                //MaxHuristicAStarGreedytBackWard.Clear();
                 ChessRules.CurrentOrder = Current;
                 Order = DummyOrder;
                 //Thread.Sleep(1000);
@@ -16014,11 +15954,7 @@ namespace RefrigtzDLL
                 {
                     OutPut = "\r\nMinimum Thinking Tree Depth:" + MinThinkingTreeDepth.ToString() + "!";
                 }
-                //THIS.RefreshBoxText();
 
-
-                //AStarGreedy Huristic Consideration.
-                //TableHuristic = THISDummy.HuristicAStarGreedySearch(0, a, Order, false);
                 TableHuristic = HuristicAStarGreedySearch(0, a, Order, false);
                 if (TableHuristic == null || ((TableZero(TableHuristic))))
                 {
@@ -16051,32 +15987,11 @@ namespace RefrigtzDLL
                         Log(t);
                     }
                 }
-                // THISDummy.ADraw[0].HuristicAStarGreedySearch(0, THISDummy.ADraw, a, ref Less, Order, false);
-                //if (Timerint.Times > 60 * 1000)
-                //MaxAStarGreedy++;
-                //else
-                //MaxAStarGreedy--;
-                try
-                {
-                    Tab = new int[8, 8];
-                    for (int i = 0; i < 8; i++)
-                        for (int j = 0; j < 8; j++)
-                            Tab[i, j] = TableHuristic[i, j];
-                }
-                catch (Exception t)
-                {
-                    Log(t);
-                }
-                TableList.Clear();
+                
                 //If Table Found.
 
-                if (Tab != null)
+                if (TableHuristic != null)
                 {
-                    //Initiate Local Varibales.
-                    //THISDummy.Dispose();
-                    TableList.Add(Tab);
-                    if (THISDummy != null)
-                    {
                         Object OOOOO = new Object();
                         lock (OOOOO)
                         {
@@ -16092,90 +16007,8 @@ namespace RefrigtzDLL
 
                             }
                         }
-                        TablInit = new int[8, 8];
-                        //Less = Double.MinValue; ;
-
-
-
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = Current;
-                        //If There is Reapetedly Movments Number.
-                        /*if (ThinkingChess.ExistTableInList(Tab, TableListAction, 0))
-                        {
-                            //Order Gray.
-                            if (Order == 1)
-                            {
-                                OutPut="\r\nGenetic Algorithm Begin AStarGreedy 0 By Bob!";
-                                //THIS.RefreshBoxText();
-                            }
-                            else
-                            {
-                                OutPut="\r\nGenetic Algirithm Begin AStarGreedy 0 By Alice!";
-                                //THIS.RefreshBoxText();
-
-                            }
-                            //Genetic Algorithms.
-                            ChessGeneticAlgorithm R = (new ChessGeneticAlgorithm(MovementsAStarGreedyHuristicFoundT,IgnoreSelfObjectsT,UsePenaltyRegardMechnisamT,BestMovmentsT,PredictHuristicT,OnlySelfT,AStarGreedyHuristicT,ArrangmentsChanged));
-                            //Found Of Tables.
-                            Tab = R.GenerateTable(TableListAction, LoopHuristicIndex, Order);
-                            //Adding Table To Movments Tables List.
-                            if (Tab != null)
-                                AllDraw.TableCurrent.Add(Tab);
-                            //Order Gray.
-                            if (Order == 1)
-                            {
-                                OutPut="\r\nGenetic Algorithm Finsished AStarGreedy 0 By Bob!";
-                                //THIS.RefreshBoxText();
-                            }
-                            else
-                            {
-                                OutPut="\r\nGenetic Algirithm Finished AStarGreedy 0 By Alice!";
-                                //THIS.RefreshBoxText();
-
-                            }
-                        }*/
-                        //When Table Found.
-                        if (Tab != null)
-                        {
-                            //Clone a Table Copy.
-                            for (int iii = 0; iii < 8; iii++)
-                                for (int jjj = 0; jjj < 8; jjj++)
-                                {
-                                    TablInit[iii, jjj] = Tab[iii, jjj];
-                                }
-                            //Clear Lists.
-                            TableList.Clear();
-                            TableList.Add(TablInit);
-                            AStarGreedy++;
-
-                            //Global Order By Local One.
-                            Order = DummyOrder;
-                            ChessRules.CurrentOrder = Current;
-                            try
-                            {
-                                //Iniatite of Global Varibales.
-                                ChessRules.CurrentOrder = Current;
-                                //Genetic for Syntax of Table Found.
-                                ChessGeneticAlgorithm RR = new ChessGeneticAlgorithm(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
-                                //Consideration of Autorithy.
-                                if (RR.FindGenToModified(AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], Tab, AllDraw.TableListAction, 0, Order, true))
-                                {
-
-                                }
-                            }
-                            catch (IndexOutOfRangeException t)
-                            {
-                                Log(t);
-                            }
-                        }
-                        else
-                        {
-                            //Clear AStarGreedy Varibales.
-                            AllDraw.StoreADraw.Clear();
-                            TableCurrent.Clear();
-                            AStarGreedy = 0;
-                        }
-                    }
                 }
                 else
                 {
@@ -16189,14 +16022,7 @@ namespace RefrigtzDLL
                 //THISDummy.Dispose();
                 DrawTable = true;
                 FoundATable = true;
-
-            }
-            if (FoundATable)
-            {
-                //GalleryStudio.
-
-
-            }
+            }            
             return TableHuristic;
         }
         //Identification of Illegal AStarGreedy First and Common Hurist Movments.
