@@ -3730,8 +3730,7 @@ namespace RefrigtzDLL
                 {
                     Log(t);
                 }
-                HA *= SignOrderToPlate(Order);
-                if (HA < 0)
+                 if (HA < 0)
                     IgnoreFromCheckandMateHuristic = true;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 return HA;
