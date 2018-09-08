@@ -1111,9 +1111,9 @@ namespace Refrigtz
                             RefreshBoxStatistic();
                         }
                     }
-                    while (RefrigtzDLL.ChessRules.ObjectHittedRow != -1 && RefrigtzDLL.ChessRules.ObjectHittedColumn != -1)
+                    //while (RefrigtzDLL.ChessRules.ObjectHittedRow != -1 && RefrigtzDLL.ChessRules.ObjectHittedColumn != -1)
                     {
-                        Thread.Sleep(100);
+                     //   Thread.Sleep(100);
 
                     }
 

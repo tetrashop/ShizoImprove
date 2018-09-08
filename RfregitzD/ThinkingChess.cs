@@ -190,7 +190,7 @@ namespace RefrigtzDLL
         [NonSerialized()] public Task t = null;
         public List<AllDraw> AStarGreedy = null;
         int[,] Value = new int[8, 8];
-
+        bool IgnoreFromCheckandMateHuristic = false;
         int CurrentAStarGredyMax = -1;
         ///Log of Errors.
         static void Log(Exception ex)
@@ -258,20 +258,24 @@ namespace RefrigtzDLL
                 PenaltyRegardListKing = new List<QuantumAtamata>();
                 AStarGreedy = new List<AllDraw>();
                 //Network Quantum Atamata Book Initiate For Every Clone.
-                Object o = new Object();
-                lock (o)
-                {
-                    for (int h = 0; h < 8; h++)
-                        for (int m = 0; m < 8; m++)
+                SetValueOfTabls();
+            }
+        }
+        void SetValueOfTabls()
+        {
+            Object o = new Object();
+            lock (o)
+            {
+                for (int h = 0; h < 8; h++)
+                    for (int m = 0; m < 8; m++)
+                    {
                         {
+                            if (TableConst == null || TableConst[h, m] == 0)
+                                continue;
                             if (TableConst != null)
-                            {
-                                if (TableConst[h, m] == 0)
-                                    continue;
-                                Value[h, m] = ObjectValueCalculator(TableConst, Order, h, m);
-                            }
+                                Value[h, m] += ObjectValueCalculator(TableConst, Order, h, m);
                         }
-                }
+                    }
             }
         }
 
@@ -3608,9 +3612,17 @@ namespace RefrigtzDLL
                 double HA = 0;
                 int DummyOrder = AllDraw.OrderPlate;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
-                double ObjectDangour = 10;
-                double Check = 10000;
-                double CheckMate = 1000000;
+                double ObjectDangour = 1;
+                double Check = 1000;
+                double CheckMate = 100000;
+                //When is self objects order divide valuse by 100
+                //Becuse reduce from danger is most favareable of caused to enemy attack
+                if (Order == AllDraw.OrderPlate)
+                {
+                    ObjectDangour = 0.01;
+                    Check = 10;
+                    CheckMate = 1000;
+                }
                 try
                 {
                     Object O1 = new Object();
@@ -3719,6 +3731,8 @@ namespace RefrigtzDLL
                     Log(t);
                 }
                 HA *= SignOrderToPlate(Order);
+                if (HA < 0)
+                    IgnoreFromCheckandMateHuristic = true;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 return HA;
             }
@@ -4577,31 +4591,7 @@ namespace RefrigtzDLL
                         {
                             //if (Order == AllDraw.OrderPlate)
                             {
-                                if (Less < HuristicListSolder[i][0] +
-                                    HuristicListSolder[i][1] +
-                                    HuristicListSolder[i][2] +
-                                    HuristicListSolder[i][3] +
-                                    HuristicListSolder[i][4] +
-                                    HuristicListSolder[i][5] +
-                                    HuristicListSolder[i][6] +
-                                    HuristicListSolder[i][7] +
-                                    HuristicListSolder[i][8] +
-                                    HuristicListSolder[i][9])
-
-                                {
-                                    Less = HuristicListSolder[i][0] +
-                                HuristicListSolder[i][1] +
-                                HuristicListSolder[i][2] +
-                                HuristicListSolder[i][3] +
-                                HuristicListSolder[i][4] +
-                                HuristicListSolder[i][5] +
-                                HuristicListSolder[i][6] +
-                                HuristicListSolder[i][7] +
-                                    HuristicListSolder[i][8] +
-                                    HuristicListSolder[i][9];
-                                    j = i;
-                                    Found = true;
-                                }
+                                
                             }
                         }
                     }
@@ -4615,7 +4605,7 @@ namespace RefrigtzDLL
                     {
                         if (PenaltyRegardListElefant[i].IsPenaltyAction() != 0)
                         {
-                            //if (Order == AllDraw.OrderPlate)
+                            if (Order == AllDraw.OrderPlate)
                             {
                                 if (Less < HuristicListElefant[i][0] +
                                     HuristicListElefant[i][1] +
@@ -4642,6 +4632,33 @@ namespace RefrigtzDLL
                                     Found = true;
                                 }
                             }
+                            else
+                            {
+                                if (Less > HuristicListElefant[i][0] +
+                             HuristicListElefant[i][1] +
+                             HuristicListElefant[i][2] +
+                             HuristicListElefant[i][3] +
+                             HuristicListElefant[i][4] +
+                             HuristicListElefant[i][5] +
+                             HuristicListElefant[i][6] +
+                             HuristicListElefant[i][7] +
+                             HuristicListElefant[i][8] +
+                             HuristicListElefant[i][9])
+                                {
+                                    Less = HuristicListElefant[i][0] +
+                                HuristicListElefant[i][1] +
+                                HuristicListElefant[i][2] +
+                                HuristicListElefant[i][3] +
+                                HuristicListElefant[i][4] +
+                                HuristicListElefant[i][5] +
+                                HuristicListElefant[i][6] +
+                                HuristicListElefant[i][7] +
+                                    HuristicListElefant[i][8] +
+                                    HuristicListElefant[i][9];
+                                    j = i;
+                                    Found = true;
+                                }
+                            }
 
                         }
                     }
@@ -4653,7 +4670,7 @@ namespace RefrigtzDLL
                     {
                         if (PenaltyRegardListHourse[i].IsPenaltyAction() != 0)
                         {
-                            //if (Order == AllDraw.OrderPlate)
+                            if (Order == AllDraw.OrderPlate)
                             {
                                 if (Less < HuristicListHourse[i][0] +
                                     HuristicListHourse[i][1] +
@@ -4680,6 +4697,34 @@ namespace RefrigtzDLL
                                     Found = true;
                                 }
                             }
+                            else
+                            {
+                                if (Less > HuristicListHourse[i][0] +
+                             HuristicListHourse[i][1] +
+                             HuristicListHourse[i][2] +
+                             HuristicListHourse[i][3] +
+                             HuristicListHourse[i][4] +
+                             HuristicListHourse[i][5] +
+                             HuristicListHourse[i][6] +
+                             HuristicListHourse[i][7] +
+                             HuristicListHourse[i][8] +
+                             HuristicListHourse[i][9])
+                                {
+                                    Less = HuristicListHourse[i][0] +
+                                HuristicListHourse[i][1] +
+                                HuristicListHourse[i][2] +
+                                HuristicListHourse[i][3] +
+                                HuristicListHourse[i][4] +
+                                HuristicListHourse[i][5] +
+                                HuristicListHourse[i][6] +
+                                HuristicListHourse[i][7] +
+                                    HuristicListHourse[i][8] +
+                                    HuristicListHourse[i][9];
+                                    j = i;
+                                    Found = true;
+                                }
+                            }
+
                         }
                     }
                 }
@@ -4690,7 +4735,7 @@ namespace RefrigtzDLL
                     {
                         if (PenaltyRegardListCastle[i].IsPenaltyAction() != 0)
                         {
-                            //if (Order == AllDraw.OrderPlate)
+                            if (Order == AllDraw.OrderPlate)
                             {
                                 if (Less < HuristicListCastle[i][0] +
                                     HuristicListCastle[i][1] +
@@ -4717,6 +4762,33 @@ namespace RefrigtzDLL
                                     Found = true;
                                 }
                             }
+                            else
+                            {
+                                if (Less > HuristicListCastle[i][0] +
+                             HuristicListCastle[i][1] +
+                             HuristicListCastle[i][2] +
+                             HuristicListCastle[i][3] +
+                             HuristicListCastle[i][4] +
+                             HuristicListCastle[i][5] +
+                             HuristicListCastle[i][6] +
+                             HuristicListCastle[i][7] +
+                             HuristicListCastle[i][8] +
+                             HuristicListCastle[i][9])
+                                {
+                                    Less = HuristicListCastle[i][0] +
+                                HuristicListCastle[i][1] +
+                                HuristicListCastle[i][2] +
+                                HuristicListCastle[i][3] +
+                                HuristicListCastle[i][4] +
+                                HuristicListCastle[i][5] +
+                                HuristicListCastle[i][6] +
+                                HuristicListCastle[i][7] +
+                                    HuristicListCastle[i][8] +
+                                    HuristicListCastle[i][9];
+                                    j = i;
+                                    Found = true;
+                                }
+                            }
                         }
                     }
                 }
@@ -4727,7 +4799,7 @@ namespace RefrigtzDLL
                     {
                         if (PenaltyRegardListMinister[i].IsPenaltyAction() != 0)
                         {
-                            //if (Order == AllDraw.OrderPlate)
+                            if (Order == AllDraw.OrderPlate)
                             {
                                 if (Less < HuristicListMinister[i][0] +
                                     HuristicListMinister[i][1] +
@@ -4755,6 +4827,34 @@ namespace RefrigtzDLL
                                     Found = true;
                                 }
                             }
+                            else
+                            {
+                                if (Less > HuristicListMinister[i][0] +
+                             HuristicListMinister[i][1] +
+                             HuristicListMinister[i][2] +
+                             HuristicListMinister[i][3] +
+                             HuristicListMinister[i][4] +
+                             HuristicListMinister[i][5] +
+                             HuristicListMinister[i][6] +
+                             HuristicListMinister[i][7] +
+                             HuristicListMinister[i][8] +
+                             HuristicListMinister[i][9]
+                             )
+                                {
+                                    Less = HuristicListMinister[i][0] +
+                                HuristicListMinister[i][1] +
+                                HuristicListMinister[i][2] +
+                                HuristicListMinister[i][3] +
+                                HuristicListMinister[i][4] +
+                                HuristicListMinister[i][5] +
+                                HuristicListMinister[i][6] +
+                                HuristicListMinister[i][7] +
+                                    HuristicListMinister[i][8] +
+                                    HuristicListMinister[i][9];
+                                    j = i;
+                                    Found = true;
+                                }
+                            }
                         }
                     }
                 }
@@ -4765,7 +4865,7 @@ namespace RefrigtzDLL
                     {
                         if (PenaltyRegardListKing[i].IsPenaltyAction() != 0)
                         {
-                            //if (Order == AllDraw.OrderPlate)
+                            if (Order == AllDraw.OrderPlate)
                             {
                                 if (Less < HuristicListKing[i][0] +
                                     HuristicListKing[i][1] +
@@ -4777,6 +4877,33 @@ namespace RefrigtzDLL
                                     HuristicListKing[i][7] +
                                     HuristicListKing[i][8] +
                                     HuristicListKing[i][9])
+                                {
+                                    Less = HuristicListKing[i][0] +
+                                HuristicListKing[i][1] +
+                                HuristicListKing[i][2] +
+                                HuristicListKing[i][3] +
+                                HuristicListKing[i][4] +
+                                HuristicListKing[i][5] +
+                                HuristicListKing[i][6] +
+                                HuristicListKing[i][7] +
+                                    HuristicListKing[i][8] +
+                                    HuristicListKing[i][9];
+                                    j = i;
+                                    Found = true;
+                                }
+                            }
+                            else
+                            {
+                                if (Less > HuristicListKing[i][0] +
+                             HuristicListKing[i][1] +
+                             HuristicListKing[i][2] +
+                             HuristicListKing[i][3] +
+                             HuristicListKing[i][4] +
+                             HuristicListKing[i][5] +
+                             HuristicListKing[i][6] +
+                             HuristicListKing[i][7] +
+                             HuristicListKing[i][8] +
+                             HuristicListKing[i][9])
                                 {
                                     Less = HuristicListKing[i][0] +
                                 HuristicListKing[i][1] +
@@ -5223,9 +5350,18 @@ namespace RefrigtzDLL
                 double Huristic = 0; ;
                 int[] iIndex = { -1, -1, -1, -1, -1, -1 }, mIndex = { -1, -1, -1, -1, -1, -1 }, jIndex = { -1, -1, -1, -1, -1, -1 }, Kin = { -1, -1, -1, -1, -1, -1 };
                 double[] Less = new double[6];
-                for (int i = 0; i < 6; i++)
+                if (Order == AllDraw.OrderPlate)
                 {
-                    Less[i] = Double.MinValue;
+                    for (int i = 0; i < 6; i++)
+                    {
+                        Less[i] = Double.MinValue;
+                    }
+                }
+                else {
+                    for (int i = 0; i < 6; i++)
+                    {
+                        Less[i] = Double.MaxValue;
+                    }
                 }
                 iAstarGready++;
                 //Calculate numbers of current branches penalties.
@@ -5456,7 +5592,10 @@ namespace RefrigtzDLL
 
                     }
                     int IJ = -1;
-                    IJ = MaxOfSixHuristic(Less) + 1;
+                    if(Order==AllDraw.OrderPlate)
+                        IJ = MaxOfSixHuristic(Less) + 1;
+                    else
+                        IJ = MinOfSixHuristic(Less) + 1;
                     //Calculate Huristic of Current Node.
                     //When Sodleris Kind.
                     if (System.Math.Abs(Kind) == 1 && HuristicListSolder.Count > 0)
@@ -5953,13 +6092,16 @@ namespace RefrigtzDLL
                         Object A6 = new object();
                         lock (A6)
                         {
-                            CalculateHuristics(false, 0, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                            //Caused this for Stachostic results.
+                            SetValueOfTabls();   CalculateHuristics(false, 0, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                         }
 
                         Object A7 = new object();
                         lock (A7)
                         {
                             double[] Hu = new double[10]; HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
+                            if (IgnoreFromCheckandMateHuristic)
+                                HuristicObjectDangourCheckMateValue = 0;
                             Hu[0] += HuristicAttackValue;
                             Hu[1] += HuristicMovementValue;
                             Hu[2] += HuristicSelfSupportedValue;
@@ -6070,7 +6212,8 @@ namespace RefrigtzDLL
                         Object A5 = new object();
                         lock (A5)
                         {
-                            CalculateHuristics(false, 0, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                            //Caused this for Stachostic results.
+                            SetValueOfTabls();   CalculateHuristics(false, 0, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                         }
 
                         ///Calculate Huristic and Add to List Speciifically and Cal Syntax.
@@ -6078,6 +6221,8 @@ namespace RefrigtzDLL
                         lock (A6)
                         {
                             double[] Hu = new double[10]; HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
+                            if (IgnoreFromCheckandMateHuristic)
+                                HuristicObjectDangourCheckMateValue = 0;
                             Hu[0] += HuristicAttackValue;
                             Hu[1] += HuristicMovementValue;
                             Hu[2] += HuristicSelfSupportedValue;
@@ -6452,7 +6597,8 @@ namespace RefrigtzDLL
                         LearningV[11] = EnemyNotSupported;
                         LearningV[12] = IsGardForCurrentMovmentsAndIsNotMova;
                         LearningV[13] = IsNotSafeToMoveAenemeyToAttackMoreThanTowObj;
-
+                        if (IsNextMovemntIsCheckOrCheckMateForCurrent)
+                            IgnoreFromCheckandMateHuristic = true;
                         CanKillerAnUnSupportedEnemy = Support || EnemyNotSupported || IsCurrentCanGardHighPriorityEne || IsNextMovemntIsCheckOrCheckMateForEnemy || IsNextMovemntIsCheckOrCheckMateForCurrent;//B
                         P = IsNotSafeToMoveAenemeyToAttackMoreThanTowObj || IsGardForCurrentMovmentsAndIsNotMova || IsPrviousMovemntIsDangrousForCurr || SelfNotSupported || IsDangerous || IsCurrentCanGardHighPriorityEne || IsNextMovemntIsCheckOrCheckMateForEnemy || IsNextMovemntIsCheckOrCheckMateForCurrent;//C
                         R = CanKillerAnUnSupportedEnemy;//D
@@ -6535,7 +6681,8 @@ namespace RefrigtzDLL
                     Object A5 = new object();
                     lock (A5)
                     {
-                        CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                        //Caused this for Stachostic results.
+                        SetValueOfTabls();   CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                     }
 
 
@@ -6544,6 +6691,8 @@ namespace RefrigtzDLL
                     lock (A6)
                     {
                         double[] Hu = new double[10]; HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
+                        if (IgnoreFromCheckandMateHuristic)
+                            HuristicObjectDangourCheckMateValue = 0;
                         Hu[0] += HuristicAttackValue;
                         Hu[1] += HuristicMovementValue;
                         Hu[2] += HuristicSelfSupportedValue;
@@ -6650,7 +6799,8 @@ namespace RefrigtzDLL
                         Object A5 = new object();
                         lock (A5)
                         {
-                            CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                            //Caused this for Stachostic results.
+                            SetValueOfTabls();   CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                         }
 
                         //Calculate Huristic and Add to List and Cal Syntax.
@@ -6658,6 +6808,8 @@ namespace RefrigtzDLL
                         lock (A6)
                         {
                             double[] Hu = new double[10]; HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
+                            if (IgnoreFromCheckandMateHuristic)
+                                HuristicObjectDangourCheckMateValue = 0;
                             Hu[0] += HuristicAttackValue;
                             Hu[1] += HuristicMovementValue;
                             Hu[2] += HuristicSelfSupportedValue;
@@ -6769,7 +6921,8 @@ namespace RefrigtzDLL
                         Object A5 = new object();
                         lock (A5)
                         {
-                            CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                            //Caused this for Stachostic results.
+                            SetValueOfTabls();   CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                         }
 
 
@@ -6777,6 +6930,8 @@ namespace RefrigtzDLL
                         lock (A6)
                         {
                             double[] Hu = new double[10]; HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
+                            if (IgnoreFromCheckandMateHuristic)
+                                HuristicObjectDangourCheckMateValue = 0;
                             Hu[0] += HuristicAttackValue;
                             Hu[1] += HuristicMovementValue;
                             Hu[2] += HuristicSelfSupportedValue;
@@ -7506,7 +7661,8 @@ namespace RefrigtzDLL
                         Object A5 = new object();
                         lock (A5)
                         {
-                            CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                            //Caused this for Stachostic results.
+                            SetValueOfTabls();   CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                         }
 
                         ///Calculate Huristic and Add to List Speciifically and Cal Syntax.
@@ -7514,6 +7670,8 @@ namespace RefrigtzDLL
                         lock (A6)
                         {
                             double[] Hu = new double[10]; HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
+                            if (IgnoreFromCheckandMateHuristic)
+                                HuristicObjectDangourCheckMateValue = 0;
                             Hu[0] += HuristicAttackValue;
                             Hu[1] += HuristicMovementValue;
                             Hu[2] += HuristicSelfSupportedValue;
@@ -7613,7 +7771,9 @@ namespace RefrigtzDLL
                     IndexKing++;
                     //Calculate Huristic Sumation and Store in Specific List.
                     double[] Hu = new double[10]; HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
-                    Hu[0] += HuristicAttackValue;
+                if (IgnoreFromCheckandMateHuristic)
+                    HuristicObjectDangourCheckMateValue = 0;
+                Hu[0] += HuristicAttackValue;
                     Hu[1] += HuristicMovementValue;
                     Hu[2] += HuristicSelfSupportedValue;
                     Hu[3] += HuristicObjectDangourCheckMateValue;
@@ -7735,7 +7895,7 @@ namespace RefrigtzDLL
                     HuristicAttackValue = Huriistic[0];
                     HuristicKillerValue = Huriistic[1];
                     HuristicMovementValue = Huriistic[2];
-                    HuristicObjectDangourCheckMateValue = Huriistic[3];
+                    HuristicObjectDangourCheckMateValue = Huriistic[3] + HCheck;
                     HuristicReducedAttackValue = Huriistic[4];
                     HuristicSelfSupportedValue = Huriistic[5];
                     HeuristicDistabceOfCurrentMoveFromEnemyKingValue = HDistance;
@@ -7743,7 +7903,6 @@ namespace RefrigtzDLL
                     HeuristicFromCenter = HFromCenter;
                     HeuristicKingDangour = HKingDangour;
                 }
-
             }
         }
         void CastleThinkingGray(int DummyOrder, int DummyCurrentOrder, int[,] TableS, int ii, int jj, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int i, int j, bool Castle)
@@ -7811,9 +7970,12 @@ namespace RefrigtzDLL
                 TableListKing.Add(CloneATable(TableS));
                 IndexKing++;
                 //Calculate Movment Huristic After Movments.
-                CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                //Caused this for Stachostic results.
+                SetValueOfTabls();   CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
 
                 double[] Hu = new double[10]; HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
+                if (IgnoreFromCheckandMateHuristic)
+                    HuristicObjectDangourCheckMateValue = 0;
                 Hu[0] += HuristicAttackValue;
                 Hu[1] += HuristicMovementValue;
                 Hu[2] += HuristicSelfSupportedValue;
