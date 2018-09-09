@@ -181,8 +181,10 @@ namespace RefrigtzDLL
                 lock (O)
                 {
                     if (E[0] == null || E[1] == null)
-                        return;
-
+                    {
+                        E[0] = Image.FromFile(AllDraw.ImagesSubRoot + "EG.png");
+                        E[1] = Image.FromFile(AllDraw.ImagesSubRoot + "EB.png");
+                    }
 
                     //Gray Color.
                     if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))

@@ -180,8 +180,10 @@ namespace RefrigtzDLL
                 lock (O)
                 {
                     if (M[0] == null || M[1] == null)
-                        return;
-                    //Gray Color.
+                    {
+                        M[0] = Image.FromFile(AllDraw.ImagesSubRoot + "MG.png");
+                        M[1] = Image.FromFile(AllDraw.ImagesSubRoot + "MB.png");
+                    }     //Gray Color.
                     if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
                     {
                         //Gray Order.

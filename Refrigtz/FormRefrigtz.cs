@@ -7936,6 +7936,8 @@ namespace Refrigtz
                     Draw.TableList.Clear();
                     Draw.TableList.Add(TableC);
                     Draw.SetRowColumn(0);
+                    RefrigtzDLL.AllDraw.DrawTable = true; SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
+                    SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
                     RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                     RefrigtzDLL.AllDraw.DepthIterative = 0;
                     SetBoxText("\r\nDraw Not Found");
@@ -8200,17 +8202,16 @@ namespace Refrigtz
                     Draw.TableList.Clear();
                     Draw.TableList.Add(TableC);
                     Draw.SetRowColumn(0);
+                    RefrigtzDLL.AllDraw.DrawTable = true; SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
+                    SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
                     RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                     RefrigtzDLL.AllDraw.DepthIterative = 0;
                     SetBoxText("\r\nDraw Not Found");
                     RefreshBoxText();
                 }
                 OrderPlate *= -1;
-                RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
-                
-                RefrigtzDLL.AllDraw.DrawTable = true;SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
-                SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
-
+                RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;               
+               
                 GrayTimer.StartTime();
                 BrownTimer.StopTime();
 
@@ -8430,6 +8431,8 @@ namespace Refrigtz
                 Draw.TableList.Clear();
                 Draw.TableList.Add(TableC);
                 Draw.SetRowColumn(0);
+                RefrigtzDLL.AllDraw.DrawTable = true; SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
+                SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                 RefrigtzDLL.AllDraw.DepthIterative = 0;
                 SetBoxText("\r\nDraw Not Found");

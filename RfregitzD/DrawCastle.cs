@@ -181,8 +181,10 @@ namespace RefrigtzDLL
                 {
 
                     if (C[0] == null || C[1] == null)
-                        return;
-
+                    {
+                        C[0] = Image.FromFile(AllDraw.ImagesSubRoot + "BrG.png");
+                        C[1] = Image.FromFile(AllDraw.ImagesSubRoot + "BrB.png");
+                    }
                     if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
                     { //Gray Color.
                         if (color == Color.Gray)

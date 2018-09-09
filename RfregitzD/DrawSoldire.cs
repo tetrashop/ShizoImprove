@@ -180,7 +180,10 @@ namespace RefrigtzDLL
             lock (O)
             {
                 if (S[0] == null || S[1] == null)
-                    return;
+                {
+                    S[0] = Image.FromFile(AllDraw.ImagesSubRoot + "SG.png");
+                    S[1] = Image.FromFile(AllDraw.ImagesSubRoot + "SB.png");
+                }
                 //When Conversion Solders Not Occured.
                 if (!ConvertOperation((int)Row, (int)Column, color, Table, Order, false, Current))
                 {
