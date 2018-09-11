@@ -60,7 +60,8 @@
  * Calling of All Events From Pressing a Single Button.Mal Function of Database Leading.******CU*****0.88**1**Risk Control************************<*>QC_OK
  * Proccess Calling of Stockfish8 not run Comlpetely.*********************************************************************************************(*)QC_OK
  * Can not Send Arguments via Foriegn Sites Studies. Problem Misleading.**************************************************************************(*)QC_OK
- * Serialization and Deserialization Wrong Config vars conflict.**********************************************************************************)
+ * Serialization and Deserialization Wrong Config vars conflict.**********************************************************************************
+ * MalFunctionally break heart of Access Database Configuration Table.****************************************************************************
  * ***********************************************************************************************************
  * ***********************************************************************************************************
  */
@@ -7889,9 +7890,6 @@ namespace Refrigtz
                 StoreStateCP = StateCP;
                 StoreStateGe = StateGe;
 
-                StateCC = false;
-                StateCP = false;
-                StateGe = false;
                 //AliceSection = false;
                 MovmentsNumber++;
 
@@ -9900,6 +9898,8 @@ namespace Refrigtz
 
         private void toolStripMenuItem6_Click(object sender, EventArgs e)
         {
+            AStarGreedyHuristic = false;
+            checkBoxAStarGreedyHuristic.Checked = false;
             UsePenaltyRegardMechnisam = false;
             checkBoxUsePenaltyRegradMechnisam.Checked = false;
 
@@ -10581,10 +10581,10 @@ namespace Refrigtz
 
         private void toolStripMenuItem10_Click(object sender, EventArgs e)
         {
-            //AStarGreedyHuristic = false;
-            //checkBoxAStarGreedyHuristic.Checked = false;
-            //UsePenaltyRegardMechnisam = true;
-            // checkBoxUsePenaltyRegradMechnisam.Checked = true;
+            AStarGreedyHuristic = false;
+            checkBoxAStarGreedyHuristic.Checked = false;
+            UsePenaltyRegardMechnisam = false;
+            checkBoxUsePenaltyRegradMechnisam.Checked = false;
             if (MovmentsNumber == 0)
             {
                 GrayTimer = new Refrigtz.Timer(true);
@@ -10672,6 +10672,8 @@ namespace Refrigtz
 
         private void toolStripMenuItem12_Click(object sender, EventArgs e)
         {
+            AStarGreedyHuristic = false;
+            checkBoxAStarGreedyHuristic.Checked = false;
             UsePenaltyRegardMechnisam = false;
             checkBoxUsePenaltyRegradMechnisam.Checked = false;
 
@@ -10726,6 +10728,8 @@ namespace Refrigtz
 
         private void toolStripMenuItem13_Click(object sender, EventArgs e)
         {
+            AStarGreedyHuristic = false;
+            checkBoxAStarGreedyHuristic.Checked = false;
             UsePenaltyRegardMechnisam = false;
             checkBoxUsePenaltyRegradMechnisam.Checked = false;
 
@@ -10794,6 +10798,8 @@ namespace Refrigtz
 
         private void toolStripMenuItem14_Click(object sender, EventArgs e)
         {
+            AStarGreedyHuristic = false;
+            checkBoxAStarGreedyHuristic.Checked = false;
             UsePenaltyRegardMechnisam = false;
             checkBoxUsePenaltyRegradMechnisam.Checked = false;
 
@@ -10858,6 +10864,10 @@ namespace Refrigtz
 
         private void toolStripMenuItem15_Click(object sender, EventArgs e)
         {
+            AStarGreedyHuristic = false;
+            checkBoxAStarGreedyHuristic.Checked = false;
+            UsePenaltyRegardMechnisam = false;
+            checkBoxUsePenaltyRegradMechnisam.Checked = false;
             StateCP = false;
             StateGe = false;
             Blitz = false;
@@ -10963,10 +10973,10 @@ namespace Refrigtz
 
         private void toolStripMenuItem19_Click(object sender, EventArgs e)
         {
-            //UsePenaltyRegardMechnisam = true;
-            //AStarGreedyHuristic = false;
-            //checkBoxAStarGreedyHuristic.Checked = false;
-            // checkBoxUsePenaltyRegradMechnisam.Checked = true;
+            UsePenaltyRegardMechnisam = false;
+            AStarGreedyHuristic = false;
+            checkBoxAStarGreedyHuristic.Checked = false;
+            checkBoxUsePenaltyRegradMechnisam.Checked = false;
             if (MovmentsNumber == 0)
             {
                 GrayTimer = new Refrigtz.Timer(true);

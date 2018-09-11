@@ -8672,7 +8672,8 @@ namespace RefrigtzDLL
                       {
 
 
-
+                          if (i == ii && j == jj)
+                              return;
                           ///Initiate a Local Variables.
                           TableS = new int[8, 8];
                           ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
