@@ -1422,6 +1422,7 @@
             this.pictureBoxTimerGray.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxTimerGray.TabIndex = 7;
             this.pictureBoxTimerGray.TabStop = false;
+            this.pictureBoxTimerGray.Click += new System.EventHandler(this.pictureBoxTimerGray_Click);
             this.pictureBoxTimerGray.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxTimerGray_Paint);
             // 
             // pictureBoxRefrigtz
