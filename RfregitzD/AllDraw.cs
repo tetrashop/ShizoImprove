@@ -9913,6 +9913,7 @@ namespace RefrigtzDLL
                                             {
                                                 SolderesOnTable[i].SoldierThinking[0].ThinkingBegin = true;
                                                 SolderesOnTable[i].SoldierThinking[0].ThinkingFinished = false;
+                                                SolderesOnTable[i].SoldierThinking[0].Kind = 1;
                                                 //SolderesOnTable[i].SoldierThinking[0].t = new Task(new Action(SolderesOnTable[i].SoldierThinking[0].Thinking));
                                                 SolderesOnTable[i].SoldierThinking[0].Thinking();
                                             }
@@ -9960,6 +9961,7 @@ namespace RefrigtzDLL
                                             {
                                                 ElephantOnTable[i].ElefantThinking[0].ThinkingBegin = true;
                                                 ElephantOnTable[i].ElefantThinking[0].ThinkingFinished = false;
+                                                ElephantOnTable[i].ElefantThinking[0].Kind = 2;
                                                 ElephantOnTable[i].ElefantThinking[0].Thinking();
                                             }
                                         });
@@ -10005,6 +10007,7 @@ namespace RefrigtzDLL
                                             {
                                                 HoursesOnTable[i].HourseThinking[0].ThinkingBegin = true;
                                                 HoursesOnTable[i].HourseThinking[0].ThinkingFinished = false;
+                                                HoursesOnTable[i].HourseThinking[0].Kind = 3;
                                                 HoursesOnTable[i].HourseThinking[0].Thinking();
                                             }
                                         });
@@ -10047,9 +10050,10 @@ namespace RefrigtzDLL
                                             Object OOO = new Object();
                                             lock (OOO)
                                             {
-                            //Thinking of Gray Castles Operational.
-                            CastlesOnTable[i].CastleThinking[0].ThinkingBegin = true;
+                                                //Thinking of Gray Castles Operational.
+                                                CastlesOnTable[i].CastleThinking[0].ThinkingBegin = true;
                                                 CastlesOnTable[i].CastleThinking[0].ThinkingFinished = false;
+                                                CastlesOnTable[i].CastleThinking[0].Kind = 4;
                                                 CastlesOnTable[i].CastleThinking[0].Thinking();
                                             }
                                         });
@@ -10095,6 +10099,7 @@ namespace RefrigtzDLL
                                             {
                                                 MinisterOnTable[i].MinisterThinking[0].ThinkingBegin = true;
                                                 MinisterOnTable[i].MinisterThinking[0].ThinkingFinished = false;
+                                                MinisterOnTable[i].MinisterThinking[0].Kind = 5;
                                                 MinisterOnTable[i].MinisterThinking[0].Thinking();
                                             }
                                         });
@@ -10141,6 +10146,7 @@ namespace RefrigtzDLL
                                             {
                                                 KingOnTable[i].KingThinking[0].ThinkingBegin = true;
                                                 KingOnTable[i].KingThinking[0].ThinkingFinished = false;
+                                                KingOnTable[i].KingThinking[0].Kind = 6;
                                                 KingOnTable[i].KingThinking[0].Thinking();
                                             }
                                         });
@@ -10198,6 +10204,7 @@ namespace RefrigtzDLL
                                             {
                                                 SolderesOnTable[i].SoldierThinking[0].ThinkingBegin = true;
                                                 SolderesOnTable[i].SoldierThinking[0].ThinkingFinished = false;
+                                                SolderesOnTable[i].SoldierThinking[0].Kind = 1;
                                                 //SolderesOnTable[i].SoldierThinking[0].t = new Task(new Action(SolderesOnTable[i].SoldierThinking[0].Thinking));
                                                 SolderesOnTable[i].SoldierThinking[0].Thinking();
                                             }
@@ -10245,6 +10252,7 @@ namespace RefrigtzDLL
                                             {
                                                 ElephantOnTable[i].ElefantThinking[0].ThinkingBegin = true;
                                                 ElephantOnTable[i].ElefantThinking[0].ThinkingFinished = false;
+                                                ElephantOnTable[i].ElefantThinking[0].Kind = 2;
                                                 ElephantOnTable[i].ElefantThinking[0].Thinking();
                                             }
                                         });
@@ -10290,6 +10298,7 @@ namespace RefrigtzDLL
                                             {
                                                 HoursesOnTable[i].HourseThinking[0].ThinkingBegin = true;
                                                 HoursesOnTable[i].HourseThinking[0].ThinkingFinished = false;
+                                                HoursesOnTable[i].HourseThinking[0].Kind = 3;
                                                 HoursesOnTable[i].HourseThinking[0].Thinking();
                                             }
                                         });
@@ -10332,9 +10341,10 @@ namespace RefrigtzDLL
                                             Object OOO = new Object();
                                             lock (OOO)
                                             {
-                            //Thinking of Gray Castles Operational.
-                            CastlesOnTable[i].CastleThinking[0].ThinkingBegin = true;
+                                                //Thinking of Gray Castles Operational.
+                                                CastlesOnTable[i].CastleThinking[0].ThinkingBegin = true;
                                                 CastlesOnTable[i].CastleThinking[0].ThinkingFinished = false;
+                                                CastlesOnTable[i].CastleThinking[0].Kind = 4;
                                                 CastlesOnTable[i].CastleThinking[0].Thinking();
                                             }
                                         });
@@ -10380,6 +10390,7 @@ namespace RefrigtzDLL
                                             {
                                                 MinisterOnTable[i].MinisterThinking[0].ThinkingBegin = true;
                                                 MinisterOnTable[i].MinisterThinking[0].ThinkingFinished = false;
+                                                MinisterOnTable[i].MinisterThinking[0].Kind = 5;
                                                 MinisterOnTable[i].MinisterThinking[0].Thinking();
                                             }
                                         });
@@ -10427,6 +10438,7 @@ namespace RefrigtzDLL
                                             {
                                                 KingOnTable[i].KingThinking[0].ThinkingBegin = true;
                                                 KingOnTable[i].KingThinking[0].ThinkingFinished = false;
+                                                KingOnTable[i].KingThinking[0].Kind = 6;
                                                 KingOnTable[i].KingThinking[0].Thinking();
                                             }
                                         });

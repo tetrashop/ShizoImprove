@@ -8104,9 +8104,9 @@ namespace RefrigtzDLL
             Object O1 = new Object();
             lock (O1)
             {
-                Parallel.For(ii - 2, ii + 2, i =>
+                Parallel.For(ii - 2, ii + 3, i =>
                 {
-                    Parallel.For(jj - 2, jj + 2, j =>
+                    Parallel.For(jj - 2, jj + 3, j =>
                     {
                         Object O = new Object();
                         lock (O)
@@ -8666,9 +8666,9 @@ namespace RefrigtzDLL
                 Object O = new Object();
                 lock (O)
                 {
-                    Parallel.For(ii - 1, ii + 1, i =>
+                    Parallel.For(ii - 1, ii + 2, i =>
                     {
-                        Parallel.For(jj - 1, jj + 1, j =>
+                        Parallel.For(jj - 1, jj + 2, j =>
                       {
 
 
