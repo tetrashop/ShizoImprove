@@ -258,10 +258,10 @@ namespace RefrigtzDLL
                 PenaltyRegardListKing = new List<QuantumAtamata>();
                 AStarGreedy = new List<AllDraw>();
                 //Network Quantum Atamata Book Initiate For Every Clone.
-                SetValueOfTabls();
+                SetValueOfTabls(Row, Column);
             }
         }
-        void SetValueOfTabls()
+        void SetValueOfTabls(int Row,int Column)
         {
             Object o = new Object();
             lock (o)
@@ -269,6 +269,9 @@ namespace RefrigtzDLL
                 for (int h = 0; h < 8; h++)
                     for (int m = 0; m < 8; m++)
                     {
+                        if (h != Row || m != Column)
+                            continue;
+                        Value[h, m] = 0;
                         {
                             if (TableConst == null || TableConst[h, m] == 0)
                                 continue;
@@ -1298,7 +1301,7 @@ namespace RefrigtzDLL
                         if (Attack(Tab, i, j, ii, jj, a, Order) && EnemyNotSupported)
                         {
                             //Huristic positive.
-                            HA += AllDraw.SignKiller * (double)((ObjectValueCalculator(Tab, Order, i, j) + ObjectValueCalculator(Tab, Order, ii, jj)
+                            HA += AllDraw.SignKiller * (double)((GetValue(i, j) + GetValue(ii,jj)
                             ) * Sign);
                         }
                         a = colorAS;
@@ -2157,7 +2160,7 @@ namespace RefrigtzDLL
                     });
                 });
                 //For Enemy and Self Sign.
-                HeuristicKingSafe += HA * SignOrderToPlate(Order);
+                HeuristicKingSafe += HA;
                 return HeuristicKingSafe;
             }
         }
@@ -4222,12 +4225,12 @@ namespace RefrigtzDLL
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 //Store Local Huristic in Global One.
-                Huristic[0] = (Huristic[0] * SignOrderToPlate(Order));
-                Huristic[1] = (Huristic[1] * SignOrderToPlate(Order));
-                Huristic[2] = (Huristic[2] * SignOrderToPlate(Order));
-                Huristic[3] = (Huristic[3] * SignOrderToPlate(Order));
-                Huristic[4] = (Huristic[4] * SignOrderToPlate(Order));
-                Huristic[5] = (Huristic[5] * SignOrderToPlate(Order));
+                //Huristic[0] = (Huristic[0]* SignOrderToPlate(Order));
+                //Huristic[1] = (Huristic[1]* SignOrderToPlate(Order));
+                //Huristic[2] = (Huristic[2]* SignOrderToPlate(Order));
+                //Huristic[3] = (Huristic[3]* SignOrderToPlate(Order));
+                //Huristic[4] = (Huristic[4]* SignOrderToPlate(Order));
+                //Huristic[5] = (Huristic[5]* SignOrderToPlate(Order));
                 //Return Local Huristic.
                 return Huristic;
             }
@@ -6092,7 +6095,7 @@ namespace RefrigtzDLL
                         lock (A6)
                         {
                             //Caused this for Stachostic results.
-                            SetValueOfTabls();   CalculateHuristics(false, 0, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                            SetValueOfTabls(ii,jj);   CalculateHuristics(false, 0, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                         }
 
                         Object A7 = new object();
@@ -6212,7 +6215,7 @@ namespace RefrigtzDLL
                         lock (A5)
                         {
                             //Caused this for Stachostic results.
-                            SetValueOfTabls();   CalculateHuristics(false, 0, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                            SetValueOfTabls(ii,jj);   CalculateHuristics(false, 0, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                         }
 
                         ///Calculate Huristic and Add to List Speciifically and Cal Syntax.
@@ -6681,7 +6684,7 @@ namespace RefrigtzDLL
                     lock (A5)
                     {
                         //Caused this for Stachostic results.
-                        SetValueOfTabls();   CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                        SetValueOfTabls(ii,jj);   CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                     }
 
 
@@ -6799,7 +6802,7 @@ namespace RefrigtzDLL
                         lock (A5)
                         {
                             //Caused this for Stachostic results.
-                            SetValueOfTabls();   CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                            SetValueOfTabls(ii,jj);   CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                         }
 
                         //Calculate Huristic and Add to List and Cal Syntax.
@@ -6921,7 +6924,7 @@ namespace RefrigtzDLL
                         lock (A5)
                         {
                             //Caused this for Stachostic results.
-                            SetValueOfTabls();   CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                            SetValueOfTabls(ii,jj);   CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                         }
 
 
@@ -7661,7 +7664,7 @@ namespace RefrigtzDLL
                         lock (A5)
                         {
                             //Caused this for Stachostic results.
-                            SetValueOfTabls();   CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                            SetValueOfTabls(ii,jj);   CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                         }
 
                         ///Calculate Huristic and Add to List Speciifically and Cal Syntax.
@@ -7891,16 +7894,16 @@ namespace RefrigtzDLL
                 lock (O1)
                 {
 
-                    HuristicAttackValue = Huriistic[0];
-                    HuristicKillerValue = Huriistic[1];
-                    HuristicMovementValue = Huriistic[2];
-                    HuristicObjectDangourCheckMateValue = Huriistic[3] + HCheck;
-                    HuristicReducedAttackValue = Huriistic[4];
-                    HuristicSelfSupportedValue = Huriistic[5];
-                    HeuristicDistabceOfCurrentMoveFromEnemyKingValue = HDistance;
-                    HeuristicKingSafe = HKingSafe;
-                    HeuristicFromCenter = HFromCenter;
-                    HeuristicKingDangour = HKingDangour;
+                    HuristicAttackValue = Huriistic[0] * SignOrderToPlate(Order);
+                    HuristicKillerValue = Huriistic[1] * SignOrderToPlate(Order);
+                    HuristicMovementValue = Huriistic[2] * SignOrderToPlate(Order);
+                    HuristicObjectDangourCheckMateValue = (Huriistic[3] + HCheck) * SignOrderToPlate(Order); 
+                    HuristicReducedAttackValue = Huriistic[4] * SignOrderToPlate(Order); 
+                    HuristicSelfSupportedValue = Huriistic[5] * SignOrderToPlate(Order); 
+                    HeuristicDistabceOfCurrentMoveFromEnemyKingValue = HDistance * SignOrderToPlate(Order); 
+                    HeuristicKingSafe = HKingSafe * SignOrderToPlate(Order); 
+                    HeuristicFromCenter = HFromCenter * SignOrderToPlate(Order); 
+                    HeuristicKingDangour = HKingDangour * SignOrderToPlate(Order); 
                 }
             }
         }
@@ -7970,7 +7973,7 @@ namespace RefrigtzDLL
                 IndexKing++;
                 //Calculate Movment Huristic After Movments.
                 //Caused this for Stachostic results.
-                SetValueOfTabls();   CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                SetValueOfTabls(ii,jj);   CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
 
                 double[] Hu = new double[10]; HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
                 if (IgnoreFromCheckandMateHuristic)
