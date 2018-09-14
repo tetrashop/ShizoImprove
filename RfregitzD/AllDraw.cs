@@ -11148,7 +11148,9 @@ namespace RefrigtzDLL
                 int j = 0;
                 //if (AllDraw.Blitz)
                 {
-                    if (iAStarGreedy <= 0)
+                    //if (iAStarGreedy <= 0)
+                    //  return null;
+                    if (ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
                         return null;
                 }
                 CurrentAStarGredyMax = AStarGreedyiLevelMax - iAStarGreedy;

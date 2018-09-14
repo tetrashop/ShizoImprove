@@ -5345,8 +5345,8 @@ namespace RefrigtzDLL
             lock (O)
             {
 
-                if (iAstarGready > AllDraw.MaxAStarGreedy)
-                    return 0;
+                //if (iAstarGready > AllDraw.MaxAStarGreedy)
+                    //return 0;
                 SetObjectNumbers(TableConst);
                 //NumbersOfCurrentBranchesPenalties = 0;
                 double Huristic = 0; ;
@@ -8721,7 +8721,7 @@ namespace RefrigtzDLL
                 }
                 //if (!AllDraw.Blitz)
                 {
-                    if (CheckMateOcuured //|| FoundFirstMating > AllDraw.MaxAStarGreedy
+                    if (CheckMateOcuured || FoundFirstMating > AllDraw.MaxAStarGreedy
                         )
                     {
                         Object O2 = new Object();
@@ -8756,7 +8756,7 @@ namespace RefrigtzDLL
                 int ii = Row;
                 int jj = Column;
                 if (CheckMateOcuured
-                    //|| FoundFirstMating > AllDraw.MaxAStarGreedy
+                    || FoundFirstMating > AllDraw.MaxAStarGreedy
                     )
                 {
                     Object O2 = new Object();
