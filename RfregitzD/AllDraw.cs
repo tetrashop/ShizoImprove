@@ -331,6 +331,7 @@ namespace RefrigtzDLL
             }
             catch (Exception t)
             {
+                Log(t);
             }
         }
 
@@ -15751,7 +15752,7 @@ namespace RefrigtzDLL
                 MaxDuringLevelThinkingCreation = System.Convert.ToInt32(AllDraw.THIScomboBoxMaxLevelText);
 
                 MinThinkingTreeDepth = 0;
-                ThinkingChess.NumbersOfAllNode = 0;
+                //ThinkingChess.NumbersOfAllNode = 0;
 
                 ThinkingChess.FoundFirstMating = 0;
                 //Monitor Log File Appending ZFirst Line. 

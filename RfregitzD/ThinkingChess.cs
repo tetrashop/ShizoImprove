@@ -2049,7 +2049,7 @@ namespace RefrigtzDLL
             }
         }
         //When Current Movment Take Supporte.QC_OK
-        bool isCurrentMoveTakeSupporte(int[,] Table, int Order, Color a, int i, int j, int ii, int jj)
+        bool IsCurrentMoveTakeSupporte(int[,] Table, int Order, Color a, int i, int j, int ii, int jj)
         {
             Object O = new Object();
             lock (O)
@@ -5259,7 +5259,7 @@ namespace RefrigtzDLL
             {
                 ActionsString = "";
                 //AllDraw.ActionStringReady = false;
-                NumbersOfCurrentBranchesPenalties = 0;
+                //NumbersOfCurrentBranchesPenalties = 0;
                 //calculation of huristic methos and storing value retured.
                 double Hur = new double();
                 Object O1 = new Object();

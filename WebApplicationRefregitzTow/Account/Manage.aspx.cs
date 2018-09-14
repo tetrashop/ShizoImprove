@@ -49,7 +49,7 @@ namespace WebApplicationRefregitzTow.Account
 
         }
 
-        protected void setPassword_Click(object sender, EventArgs e)
+        protected void SetPassword_Click(object sender, EventArgs e)
         {
             if (IsValid)
             {

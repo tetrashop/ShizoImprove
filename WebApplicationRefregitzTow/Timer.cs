@@ -85,12 +85,12 @@ namespace Refrigtz
             Object o = new Object();
             lock (o)
             {
-                t = new Thread(new ThreadStart(timerThread));
+                t = new Thread(new ThreadStart(TimerThread));
                 t.Start();
             }
         }
         //Main Timer of Threading.
-        void timerThread()
+        void TimerThread()
         {
 
             Object o = new Object();
