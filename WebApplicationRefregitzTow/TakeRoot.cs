@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 
-namespace RefrigtzW
+namespace RefrigtzDLL
 {
     [Serializable]
     public static class TakeRoot

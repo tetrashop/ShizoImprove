@@ -103,7 +103,8 @@ namespace RefrigtzW
         public DrawCastle(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. THIS
             )
         {
-            try
+            Object O = new Object();
+            lock (O)
             {
                 if (C[0] == null && C[1] == null)
                 {
@@ -111,32 +112,30 @@ namespace RefrigtzW
                     C[1] = Image.FromFile(AllDraw.ImagesSubRoot + "BrB.png");
                 }
             }
-            catch (Exception t)
-            { Log(t); }
-                CurrentAStarGredyMax = CurrentAStarGredy;
-                MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
-                IgnoreSelfObjectsT = IgnoreSelfObject;
-                UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
-                BestMovmentsT = BestMovment;
-                PredictHuristicT = PredictHurist;
-                OnlySelfT = OnlySel;
-                AStarGreedyHuristicT = AStarGreedyHuris;
-                ArrangmentsChanged = Arrangments;
-                //Initiate Global Variable By Local Parmenter.
-                Table = new int[8, 8];
-                for (int ii = 0; ii < 8; ii++)
-                    for (int jj = 0; jj < 8; jj++)
-                        Table[ii, jj] = Tab[ii, jj];
-                for (int ii = 0; ii < AllDraw.CastleMovments; ii++)
-                    CastleThinking[ii] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 16, Ord, TB, Cur, 4, 4);
+            CurrentAStarGredyMax = CurrentAStarGredy;
+            MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
+            IgnoreSelfObjectsT = IgnoreSelfObject;
+            UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
+            BestMovmentsT = BestMovment;
+            PredictHuristicT = PredictHurist;
+            OnlySelfT = OnlySel;
+            AStarGreedyHuristicT = AStarGreedyHuris;
+            ArrangmentsChanged = Arrangments;
+            //Initiate Global Variable By Local Parmenter.
+            Table = new int[8, 8];
+            for (int ii = 0; ii < 8; ii++)
+                for (int jj = 0; jj < 8; jj++)
+                    Table[ii, jj] = Tab[ii, jj];
+            for (int ii = 0; ii < AllDraw.CastleMovments; ii++)
+                CastleThinking[ii] = new ThinkingChess( CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 16, Ord, TB, Cur, 4, 4);
 
-                Row = i;
-                Column = j;
-                color = a;
-                Order = Ord;
-                Current = Cur;
+            Row = i;
+            Column = j;
+            color = a;
+            Order = Ord;
+            Current = Cur;
 
-            }
+        }
         //Clone a Copy.
         public void Clone(ref DrawCastle AA//, ref AllDraw. THIS
             )
@@ -177,17 +176,27 @@ namespace RefrigtzW
         {
             try
             {
-                if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
-                { //Gray Color.
-                    if (color == Color.Gray)
+                Object O = new Object();
+                lock (O)
+                {
+
+                    if (C[0] == null || C[1] == null)
                     {
-                        //Draw a Gray Castles Instatnt Image On hte Tabe.
-                        g.DrawImage(C[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                        C[0] = Image.FromFile(AllDraw.ImagesSubRoot + "BrG.png");
+                        C[1] = Image.FromFile(AllDraw.ImagesSubRoot + "BrB.png");
                     }
-                    else
-                    {
-                        //Draw an Instatnt of Brown Castles On the Table.
-                        g.DrawImage(C[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                    if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
+                    { //Gray Color.
+                        if (color == Color.Gray)
+                        {
+                            //Draw a Gray Castles Instatnt Image On hte Tabe.
+                            g.DrawImage(C[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                        }
+                        else
+                        {
+                            //Draw an Instatnt of Brown Castles On the Table.
+                            g.DrawImage(C[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                        }
                     }
                 }
             }

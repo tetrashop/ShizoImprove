@@ -210,7 +210,7 @@ namespace RefrigtzW
 
 
             THIs = this;
-            Draw = new AllDraw(MovementsAStarGreedyHuristicFound,IInoreSelfObjects,UsePenaltyRegardMechnisam,BestMovments,PredictHuristic,OnlySelf,AStarGreedyHuristic,ArrangmentsChanged);
+            Draw = new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound,IInoreSelfObjects,UsePenaltyRegardMechnisam,BestMovments,PredictHuristic,OnlySelf,AStarGreedyHuristic,ArrangmentsChanged);
 
             if (!AllDrawLoad)
             {
@@ -1472,7 +1472,7 @@ namespace RefrigtzW
                 {
                     RefrigtzW.AllDraw.TableListAction.Add(Table);
                     OrderPlate = OrderPlate * -1;
-                    Draw = new AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                    Draw = new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                     Draw.TableList.Clear();
                     Draw.TableList.Add(Table);
                     Draw.SetRowColumn(0);
@@ -1582,7 +1582,7 @@ namespace RefrigtzW
                 {
                     RefrigtzW.AllDraw.TableListAction.Add(Table);
                     OrderPlate = OrderPlate * -1;
-                    Draw = new AllDraw(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                    Draw = new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                     Draw.TableList.Clear();
                     Draw.TableList.Add(Table);
                     Draw.SetRowColumn(0);
