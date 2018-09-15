@@ -60,8 +60,8 @@
  * Calling of All Events From Pressing a Single Button.Mal Function of Database Leading.******CU*****0.88**1**Risk Control************************<*>QC_OK
  * Proccess Calling of Stockfish8 not run Comlpetely.*********************************************************************************************(*)QC_OK
  * Can not Send Arguments via Foriegn Sites Studies. Problem Misleading.**************************************************************************(*)QC_OK
- * Serialization and Deserialization Wrong Config vars conflict.**********************************************************************************
- * MalFunctionally break heart of Access Database Configuration Table.****************************************************************************
+ * Serialization and Deserialization Wrong Config vars conflict.**********************************************************************************(*)QC_OK
+ * MalFunctionally break heart of Access Database Configuration Table.****************************************************************************(*)QC_OK
  * ***********************************************************************************************************
  * ***********************************************************************************************************
  */
