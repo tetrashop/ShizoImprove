@@ -942,7 +942,7 @@ namespace Refrigtz
 
                                         RefrigtzDLL.AllDraw THIS = null;
 
-                                        SetDrawFounding(ref FOUND, ref THIS);
+                                        SetDrawFounding(ref FOUND, ref THIS, false);
                                         DrawDrawen = true;
 
                                         MessageBox.Show("Load Completed.");
@@ -5961,7 +5961,7 @@ namespace Refrigtz
             bool FOUND = false;
             RefrigtzDLL.AllDraw THIS = null;
 
-            SetDrawFounding(ref FOUND, ref THIS);
+            SetDrawFounding(ref FOUND, ref THIS, false);
 
             for (int i = 0; i < 8; i++)
                 for (int j = 0; j < 8; j++)
@@ -6031,7 +6031,7 @@ namespace Refrigtz
 
 
         }
-        void SetDrawFounding(ref bool FOUND, ref RefrigtzDLL.AllDraw THIS)
+        void SetDrawFounding(ref bool FOUND, ref RefrigtzDLL.AllDraw THIS,bool First)
         {
             Object O = new Object();
             lock (O)
@@ -6040,7 +6040,10 @@ namespace Refrigtz
                 THIS = null;
 
                 Color a = Color.Brown;
-                Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+                if (First)
+                    Draw.FoundOfCurrentTableNode(Table, OrderPlate * -1, ref THIS, ref FOUND);
+                else
+                    Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
                 if (FOUND)
                 {
 
@@ -6376,7 +6379,7 @@ namespace Refrigtz
                                         bool FOUND = false;
                                         RefrigtzDLL.AllDraw THIS = null;
 
-                                        SetDrawFounding(ref FOUND, ref THIS);
+                                        SetDrawFounding(ref FOUND, ref THIS, false);
 
                                         if (RefrigtzDLL.ChessRules.BigKingCastleGray)
                                         {
@@ -6473,7 +6476,7 @@ namespace Refrigtz
                                         RefrigtzDLL.AllDraw THIS = null;
 
 
-                                        SetDrawFounding(ref FOUND, ref THIS);
+                                        SetDrawFounding(ref FOUND, ref THIS, true);
                                     
                                         BobSection = false;
                                         StateCC = SCC;
@@ -7820,7 +7823,7 @@ namespace Refrigtz
                     bool FOUND = false;
                     RefrigtzDLL.AllDraw THIS = null;
 
-                    SetDrawFounding(ref FOUND, ref THIS);
+                    SetDrawFounding(ref FOUND, ref THIS, true);
 
                     // if (!FirstMovmentOnLoad)
                     //   FOUND = true;
@@ -7844,7 +7847,7 @@ namespace Refrigtz
 
                     FOUND = false;
                     THIS = null;
-                    SetDrawFounding(ref FOUND, ref THIS);
+                    SetDrawFounding(ref FOUND, ref THIS, false);
 
                     SetAndConfirmSyntax();
 
@@ -7881,7 +7884,7 @@ namespace Refrigtz
 
                     RefrigtzDLL.AllDraw THIS = null;
 
-                    SetDrawFounding(ref FOUND, ref THIS);
+                    SetDrawFounding(ref FOUND, ref THIS, true);
 
                     int LeafAStarGrteedy = 0;
 
@@ -7904,7 +7907,7 @@ namespace Refrigtz
 
                     FOUND = false;
                     THIS = null;
-                    SetDrawFounding(ref FOUND, ref THIS);
+                    SetDrawFounding(ref FOUND, ref THIS, false);
 
                     OpAfterAllTinking(ref StoreStateCC, ref StoreStateCP, ref StoreStateGe);
 
@@ -8102,7 +8105,7 @@ namespace Refrigtz
                 RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                 bool FOUND = false;
 
-                SetDrawFounding(ref FOUND, ref THIS);
+                SetDrawFounding(ref FOUND, ref THIS, true);
 
                 int LeafAStarGrteedy = 0;
                 Table = Draw.Initiate(1, 4, a, Table, OrderPlate, false, FOUND, LeafAStarGrteedy);
@@ -8128,7 +8131,7 @@ namespace Refrigtz
 
                 FOUND = false;
                 THIS = null;
-                SetDrawFounding(ref FOUND, ref THIS);
+                SetDrawFounding(ref FOUND, ref THIS, false);
 
                 OpAfterAllTinking(ref StoreStateCC, ref StoreStateCP, ref StoreStateGe);
 
@@ -8261,7 +8264,7 @@ namespace Refrigtz
 
                 RefrigtzDLL.AllDraw THIS = null;
 
-                SetDrawFounding(ref FOUND, ref THIS);
+                SetDrawFounding(ref FOUND, ref THIS, true);
 
                 int LeafAStarGrteedy = 0;
                 Table = Draw.Initiate(1, 4, a, Table, OrderPlate, false, FOUND, LeafAStarGrteedy);
@@ -8296,7 +8299,7 @@ namespace Refrigtz
 
                 FOUND = false;
                 THIS = null;
-                SetDrawFounding(ref FOUND, ref THIS);
+                SetDrawFounding(ref FOUND, ref THIS, false);
 
                 OpAfterAllTinking(ref StoreStateCC, ref StoreStateCP, ref StoreStateGe);
 
@@ -9324,7 +9327,7 @@ namespace Refrigtz
             RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
             bool FOUND = false;
 
-            SetDrawFounding(ref FOUND, ref THIS);
+            SetDrawFounding(ref FOUND, ref THIS, false);
 
             UpdateConfigurationTableVal = true;
             //UpdateConfigurationTable();
@@ -10003,7 +10006,7 @@ namespace Refrigtz
             RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
             bool FOUND = false;
 
-            SetDrawFounding(ref FOUND, ref THIS);
+            SetDrawFounding(ref FOUND, ref THIS, false);
 
             UpdateConfigurationTableVal = true;
             UpdateConfigurationTable();
@@ -10677,7 +10680,7 @@ namespace Refrigtz
             RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
             bool FOUND = false;
 
-            SetDrawFounding(ref FOUND, ref THIS);
+            SetDrawFounding(ref FOUND, ref THIS, false);
 
             UpdateConfigurationTableVal = true;
             UpdateConfigurationTable();
@@ -10772,7 +10775,7 @@ namespace Refrigtz
             RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
             bool FOUND = false;
 
-            SetDrawFounding(ref FOUND, ref THIS);
+            SetDrawFounding(ref FOUND, ref THIS, false);
 
             UpdateConfigurationTableVal = true;
             UpdateConfigurationTable();
@@ -10828,7 +10831,8 @@ namespace Refrigtz
             RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
             bool FOUND = false;
 
-            SetDrawFounding(ref FOUND, ref THIS);     //UpdateConfigurationTableVal = true;
+            SetDrawFounding(ref FOUND, ref THIS, false);
+            UpdateConfigurationTableVal = true;
 
             UpdateConfigurationTable();
 
@@ -10898,9 +10902,9 @@ namespace Refrigtz
             RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
             bool FOUND = false;
 
-            SetDrawFounding(ref FOUND, ref THIS);
+            SetDrawFounding(ref FOUND, ref THIS, false);
 
-            //UpdateConfigurationTableVal = true;
+            UpdateConfigurationTableVal = true;
             UpdateConfigurationTable();
 
         }
@@ -10957,7 +10961,7 @@ namespace Refrigtz
             RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
             bool FOUND = false;
 
-            SetDrawFounding(ref FOUND, ref THIS);
+            SetDrawFounding(ref FOUND, ref THIS, false);
 
             UpdateConfigurationTableVal = true;
 
@@ -11020,7 +11024,7 @@ namespace Refrigtz
             RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
             bool FOUND = false;
 
-            SetDrawFounding(ref FOUND, ref THIS);
+            SetDrawFounding(ref FOUND, ref THIS, false);
 
         }
 
@@ -11072,7 +11076,7 @@ namespace Refrigtz
                 RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                 bool FOUND = false;
 
-                SetDrawFounding(ref FOUND, ref THIS);
+                SetDrawFounding(ref FOUND, ref THIS,false);
 
             }
             UpdateConfigurationTableVal = true;
