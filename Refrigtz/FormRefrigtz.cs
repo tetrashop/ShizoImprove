@@ -614,21 +614,23 @@ namespace Refrigtz
         void SetNodesCount()
         {
             Double Store = 0;
-            Int32 Count = 1;
-            Int64 TimeElapsed = DateTime.Now.Hour * 36000000 + DateTime.Now.Minute * 60000 + DateTime.Now.Second * 1000 + DateTime.Now.Millisecond;
-            Int64 FirstTime = DateTime.Now.Hour * 36000000 + DateTime.Now.Minute * 60000 + DateTime.Now.Second * 1000 + DateTime.Now.Millisecond;
-            //Int64 FirstNode = RefrigtzDLL.ThinkingChess.NumbersOfAllNode;
+            Double Count = 1;
+            Int64 TimeElapsed = DateTime.Now.Hour * 3600000 + DateTime.Now.Minute * 60000 + DateTime.Now.Second * 1000 + DateTime.Now.Millisecond;
+            Int64 FirstTime = DateTime.Now.Hour * 3600000 + DateTime.Now.Minute * 60000 + DateTime.Now.Second * 1000 + DateTime.Now.Millisecond;
+
             do
             {
+                Int64 FirstTimeD = DateTime.Now.Hour * 3600000 + DateTime.Now.Minute * 60000 + DateTime.Now.Second * 1000 + DateTime.Now.Millisecond;
+                Int64 FirstNode = RefrigtzDLL.ThinkingChess.NumbersOfAllNode;
                 Thread.Sleep(50);
-                Int64 EndTime = DateTime.Now.Hour * 36000000 + DateTime.Now.Minute * 60000 + DateTime.Now.Second * 1000 + DateTime.Now.Millisecond;
-                Double S = ((double)RefrigtzDLL.ThinkingChess.NumbersOfAllNode) / (((double)EndTime - (double)FirstTime) / 1000);
-                Store = ((Store * Count) + S) / (Count + 1);
+                Int64 EndTime = DateTime.Now.Hour * 3600000 + DateTime.Now.Minute * 60000 + DateTime.Now.Second * 1000 + DateTime.Now.Millisecond;
+                Double S = ((double)RefrigtzDLL.ThinkingChess.NumbersOfAllNode - FirstNode) / (((double)EndTime - (double)FirstTimeD) / 1000.0);
+                Store = ((Store * Count) + S) / (Count + 1.0);
                 Count++;
                 if (RefrigtzDLL.AllDraw.ActionStringReady)
-                    SetlableRefregitzMaxValue(labelNodesCount, RefrigtzDLL.ThinkingChess.NumbersOfAllNode.ToString() + " at time " + ((int)(Store)).ToString() + "N/s and by Elapsed time " + ((int)((EndTime - TimeElapsed) / 1000)).ToString() + " s by string" + RefrigtzDLL.AllDraw.ActionString);
+                    SetlableRefregitzMaxValue(labelNodesCount, RefrigtzDLL.ThinkingChess.NumbersOfAllNode.ToString() + " at time " + ((int)(Store)).ToString() + "N/s and by Elapsed time " + ((int)((EndTime - TimeElapsed) / 1000)).ToString() + " s by string" + RefrigtzDLL.AllDraw.ActionString + " By CheckMate Count " + RefrigtzDLL.ThinkingChess.FoundFirstMating.ToString() + " For Order  " + RefrigtzDLL.AllDraw.OrderPlate.ToString());
                 else
-                    SetlableRefregitzMaxValue(labelNodesCount, RefrigtzDLL.ThinkingChess.NumbersOfAllNode.ToString() + " at time " + ((int)(Store)).ToString() + "N/s and by Elapsed time " + ((int)((EndTime - TimeElapsed) / 1000)).ToString() + " s");
+                    SetlableRefregitzMaxValue(labelNodesCount, RefrigtzDLL.ThinkingChess.NumbersOfAllNode.ToString() + " at time " + ((int)(Store)).ToString() + "N/s and by Elapsed time " + ((int)((EndTime - TimeElapsed) / 1000)).ToString() + " s" + " By CheckMate Count " + RefrigtzDLL.ThinkingChess.FoundFirstMating.ToString() + " For Order  " + RefrigtzDLL.AllDraw.OrderPlate.ToString());
                 //labelNodesCount.Refresh();
 
 
@@ -1809,15 +1811,15 @@ namespace Refrigtz
 
                     //RefrigtzDLL.AllDraw.DrawTable = false;
                     SetRefregitzBicture();
-                    Thread.Sleep(20);
+                    //Thread.Sleep(20);
                 }
 
                 
                 
             }
 
-            pictureBoxRefrigtz.Invalidate();
-            pictureBoxRefrigtz.Update();
+            //pictureBoxRefrigtz.Invalidate();
+            //pictureBoxRefrigtz.Update();
 
         }
         void SetRefregitzBicture()
@@ -7678,7 +7680,8 @@ namespace Refrigtz
                             A = TimerText.ReturnTime();
                         SetTextBoxTextCallback d = new SetTextBoxTextCallback(SetBoxText);
                         this.Invoke(new Action(() => textBoxText.AppendText(state + " At Time " + A)));
-                        Out += state + " At Time " + A;
+                        state = CreateHtmlTag(state);
+                        Out += state + " At Time " + A + "\n\t";
                     }
                     catch (Exception t) { Log(t); }
                 }
@@ -7690,7 +7693,8 @@ namespace Refrigtz
                         if (OrderPlate == -1)
                             A = BrownTimer.ReturnTime();
                         textBoxText.AppendText(state + " At Time " + A);
-                        Out += state + " At Time " + A;
+                        state = CreateHtmlTag(state);
+                        Out += state + " At Time " + A + "\n\t";
                     }
                     catch (Exception t) { Log(t); }
                 }
@@ -10486,7 +10490,7 @@ namespace Refrigtz
             }
 
 
-             SetPrictureBoxRefregitzUpdate(pictureBoxTimerBrown);
+            SetPrictureBoxRefregitzUpdate(pictureBoxTimerBrown);
             SetPrictureBoxRefregitzInvalidate(pictureBoxTimerBrown);
 
             //DisableTemporarlyTimerUpdate = false;
@@ -10510,7 +10514,7 @@ namespace Refrigtz
                         pictureBoxTimerGray.Image = TimerImageGray;
                         g1.Dispose();
                         GrayTimer.TextChanged = false;
-                        Thread.Sleep(20);
+                        //Thread.Sleep(20);
                     }
                     catch (Exception t)
                     {
@@ -10521,8 +10525,8 @@ namespace Refrigtz
                     }
                 }
 
-                pictureBoxTimerBrown.Invalidate();
-                pictureBoxTimerBrown.Update();
+                //pictureBoxTimerBrown.Invalidate();
+                //pictureBoxTimerBrown.Update();
                 //System.Threading.Thread.Sleep(10);
             }
         }
@@ -10564,7 +10568,7 @@ namespace Refrigtz
                         pictureBoxTimerBrown.Image = TimerImageBrown;
                         g2.Dispose();
                         BrownTimer.TextChanged = false;
-                        Thread.Sleep(20);
+                        //Thread.Sleep(20);
                     }
                     catch (Exception t)
                     {
@@ -10574,8 +10578,8 @@ namespace Refrigtz
                         //RunInFront();
                     }
                 }
-                pictureBoxRefrigtz.Invalidate();
-                pictureBoxRefrigtz.Update();
+                //pictureBoxRefrigtz.Invalidate();
+                //pictureBoxRefrigtz.Update();
                 
                 //System.Threading.Thread.Sleep(10);
             }

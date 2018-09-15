@@ -9264,8 +9264,8 @@ namespace RefrigtzDLL
                 for (int iii = 0; iii < 8; iii++)
                     for (int jjj = 0; jjj < 8; jjj++)
                         Table[iii, jjj] = Tab[iii, jjj];
-                ParallelOptions parallelOptions = new ParallelOptions();
-                parallelOptions.MaxDegreeOfParallelism = PlatformHelper.ProcessorCount;
+                //ParallelOptions parallelOptions = new ParallelOptions();
+                //parallelOptions.MaxDegreeOfParallelism = PlatformHelper.ProcessorCount;
                 ThinkingChess.BeginThread = 0;
                 ThinkingChess.EndThread = 0;
                 //Initiate of global Variables Byte Local Variables.
@@ -15756,15 +15756,17 @@ namespace RefrigtzDLL
 
                 ThinkingChess.FoundFirstMating = 0;
                 //Monitor Log File Appending ZFirst Line. 
-                String state1 = CreateHtmlTag("\n\t=====================================================================================================================================================================");
-                String state2 = CreateHtmlTag("\n\tMovment Number:" + AllDraw.MovmentsNumber);
+                String state1 = "\n\t=====================================================================================================================================================================";
+                String state2 = "\n\tMovment Number:" + AllDraw.MovmentsNumber;
 
-                String R = File.ReadAllText(Root + "\\Database\\Monitor.html");
-                R = R.Replace("</body>", "");
-                File.WriteAllText(Root + "\\Database\\Monitor.html", R);
-                File.AppendAllText(Root + "\\Database\\Monitor.html", "\n\t" + state1 + "<br/>");
-                File.AppendAllText(AllDraw.Root + "\\Database\\Monitor.html", state2 + "<br/>");
-                File.AppendAllText(Root + "\\Database\\Monitor.html", "\n\t" + "</body>");
+                //String R = File.ReadAllText(Root + "\\Database\\Monitor.html");
+                //R = R.Replace("</body>", "");
+                //File.WriteAllText(Root + "\\Database\\Monitor.html", R);
+                ////File.AppendAllText(Root + "\\Database\\Monitor.html", "\n\t" + state1 + "<br/>");
+                //File.AppendAllText(AllDraw.Root + "\\Database\\Monitor.html", state2 + "<br/>");
+                //File.AppendAllText(Root + "\\Database\\Monitor.html", "\n\t" + "</body>");
+                OutPut += state1;
+                OutPut += state2;
 
                 //Initiate Local and Global Variables.            
                 //ThinkingChess.Sign = 1;

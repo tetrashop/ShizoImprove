@@ -9263,8 +9263,8 @@ namespace RefrigtzW
                 for (int iii = 0; iii < 8; iii++)
                     for (int jjj = 0; jjj < 8; jjj++)
                         Table[iii, jjj] = Tab[iii, jjj];
-                ParallelOptions parallelOptions = new ParallelOptions();
-                parallelOptions.MaxDegreeOfParallelism = PlatformHelper.ProcessorCount;
+                //ParallelOptions parallelOptions = new ParallelOptions();
+                //parallelOptions.MaxDegreeOfParallelism = PlatformHelper.ProcessorCount;
                 ThinkingChess.BeginThread = 0;
                 ThinkingChess.EndThread = 0;
                 //Initiate of global Variables Byte Local Variables.

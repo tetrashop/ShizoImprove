@@ -63,6 +63,7 @@
  * Thinking Tree Construction was not Complition and have empty with no reason.********RC**0.88**1**Risk Control************************************{*}QC_OK
  * Heuristic of 'Attack';'Movment';'Support';'CheckMate...' Undisiarable.**************RC**0.88**1**Risk Control************************************<*>QC _BAD
  * Huristic and Learning regime work in worth state.***********************************RC**0.88**1**Risk Control************************************(*)QC_BAD
+ * Midle Targetive Search to Mate Enemy is not Legal.**********************************RC**0.88**1**Risk Control************************************(*)QC_BAD
  * **************************************************************************(+:Sum(26)) (*:Sum(1)) 5:(+:Sum(3)) 6.(+:Sum0.12**4**Managements and Cuation Programing**********************(+)) 7.(:Sum(1))
  * **************************************************************************
  */
