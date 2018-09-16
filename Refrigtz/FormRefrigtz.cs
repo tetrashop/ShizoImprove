@@ -259,12 +259,15 @@ namespace Refrigtz
             }
 
 
-            for (int i = 0; i < 8; i++)
-                for (int j = 0; j < 8; j++)
+
+            System.Threading.Tasks.Parallel.For(0, 8, i =>
+            {
+                System.Threading.Tasks.Parallel.For(0, 8, j =>
                 {
                     RefrigtzDLL.AllDraw.TableVeryfy[i, j] = Table[i, j];
                     RefrigtzDLL.AllDraw.TableVeryfyConst[i, j] = Table[i, j];
-                }
+                });
+            });
             RefrigtzDLL.ThinkingChess.LearniningTable = new LearningMachine.NetworkQuantumLearningKrinskyAtamata(8, 8, 8);
             try
             {
@@ -416,14 +419,17 @@ namespace Refrigtz
             else
                 RefrigtzDLL.ChessRules.CurrentOrder = -1;
             bool[,] Tab = new bool[8, 8];
-            for (int i = 0; i < 8; i++)
-                for (int j = 0; j < 8; j++)
+
+            System.Threading.Tasks.Parallel.For(0, 8, i =>
+            {
+                System.Threading.Tasks.Parallel.For(0, 8, j =>
                 {
                     if ((new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, Table[(int)RowClickP, (int)ColumnClickP], Table, Order, (int)RowClickP, (int)ColumnClickP)).Rules((int)RowClickP, (int)ColumnClickP, i, j, a, Table[(int)RowClickP, (int)ColumnClickP]))
-                    {
+
                         Tab[i, j] = true;
-                    }
-                }
+
+                });
+            });
             RefrigtzDLL.ChessRules.CurrentOrder = Cdummy;
             return Tab;
         }
@@ -857,17 +863,18 @@ namespace Refrigtz
 
                     if (System.Windows.Forms.MessageBox.Show(null, "New Instant Of Refregitz!", "New Instant", MessageBoxButtons.YesNo) == DialogResult.No)
                     {
-                        for (int i = 0; i < a.Count; i++)
+
+                        System.Threading.Tasks.Parallel.For(0, a.Count, i =>
                         {
-                            try
-                            {
+                           try
+                           {
 
-                                a[i].Kill();
-                                exitToolStripMenuItem_Click(sender, e);
-                            }
-                            catch (Exception t) { Log(t); Application.ExitThread(); }
+                               a[i].Kill();
+                               exitToolStripMenuItem_Click(sender, e);
+                           }
+                           catch (Exception t) { Log(t); Application.ExitThread(); }
 
-                        }
+                       });
 
                     }
                 }
@@ -1058,9 +1065,13 @@ namespace Refrigtz
                         ii++;
                     }
                     int[,] TableA = new int[8, 8];
-                    for (int i = 0; i < 8; i++)
-                        for (int j = 0; j < 8; j++)
+                    System.Threading.Tasks.Parallel.For(0, 8, i =>
+                    {
+                        System.Threading.Tasks.Parallel.For(0, 8, j =>
+                        {
                             TableA[i, j] = Tab[i, j];
+                      });
+                   });
                     //MaxCurrentMovmentsNumber++;
                     RefrigtzDLL.AllDraw.TableListAction.Add(TableA);
                     if (Move == 42)
@@ -1115,9 +1126,13 @@ namespace Refrigtz
                     if (Move > 1)
                         MoveNumber++;
 
-                    for (int i = 0; i < 8; i++)
-                        for (int j = 0; j < 8; j++)
+                    System.Threading.Tasks.Parallel.For(0, 8, i =>
+                    {
+                        System.Threading.Tasks.Parallel.For(0, 8, j =>
+                        {
                             TableA[i, j] = Tab[i, j];
+                        });
+                    });
 
 
                     if ((new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, 1, TableA, OrderPlate, -1, -1).CheckMate(TableA, OrderPlate)))
@@ -1162,9 +1177,13 @@ namespace Refrigtz
                             ii++;
                         }
                         int[,] TableA = new int[8, 8];
-                        for (int i = 0; i < 8; i++)
-                            for (int j = 0; j < 8; j++)
+                        System.Threading.Tasks.Parallel.For(0, 8, i =>
+                        {
+                            System.Threading.Tasks.Parallel.For(0, 8, j =>
+                            {
                                 TableA[i, j] = Tab[i, j];
+                            });
+                        });
 
                         Draw.TableList.Clear();
                         Draw.TableList.Add(TableA);
@@ -1204,9 +1223,13 @@ namespace Refrigtz
                         }
 
 
-                        for (int i = 0; i < 8; i++)
-                            for (int j = 0; j < 8; j++)
+                        System.Threading.Tasks.Parallel.For(0, 8, i =>
+                        {
+                            System.Threading.Tasks.Parallel.For(0, 8, j =>
+                            {
                                 TableA[i, j] = Tab[i, j];
+                            });
+                        });
 
 
                         if ((new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, 1, TableA, OrderPlate, -1, -1).CheckMate(TableA, OrderPlate)))
@@ -1293,9 +1316,13 @@ namespace Refrigtz
                         ii++;
                     }
                     int[,] TableA = new int[8, 8];
-                    for (int i = 0; i < 8; i++)
-                        for (int j = 0; j < 8; j++)
+                    System.Threading.Tasks.Parallel.For(0, 8, i =>
+                    {
+                        System.Threading.Tasks.Parallel.For(0, 8, j =>
+                        {
                             TableA[i, j] = Tab[i, j];
+                        });
+                    });
                     Draw.TableList.Clear();
                     Draw.TableList.Add(TableA);
                     Draw.SetRowColumn(0);
@@ -1306,9 +1333,13 @@ namespace Refrigtz
                     }
                     else
                     {
-                        for (int i = 0; i < 8; i++)
-                            for (int j = 0; j < 8; j++)
+                        System.Threading.Tasks.Parallel.For(0, 8, i =>
+                        {
+                            System.Threading.Tasks.Parallel.For(0, 8, j =>
+                            {
                                 RefrigtzDLL.AllDraw.TableVeryfy[i, j] = Tab[i, j];
+                            });
+                        });
 
                     }
 
@@ -1316,9 +1347,13 @@ namespace Refrigtz
                     Move++;
                     if (Move > 1)
                         MoveNumber++;
-                    for (int i = 0; i < 8; i++)
-                        for (int j = 0; j < 8; j++)
+                    System.Threading.Tasks.Parallel.For(0, 8, i =>
+                    {
+                        System.Threading.Tasks.Parallel.For(0, 8, j =>
+                        {
                             TableA[i, j] = Tab[i, j];
+                        });
+                    });
 
                     RefrigtzDLL.ChessRules A = new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, 1, TableA, OrderPlate, -1, -1);
                     if (A.CheckMate(TableA, OrderPlate))
@@ -1451,9 +1486,13 @@ namespace Refrigtz
                     ii++;
                 }
                 int[,] TableA = new int[8, 8];
-                for (int i = 0; i < 8; i++)
-                    for (int j = 0; j < 8; j++)
+                System.Threading.Tasks.Parallel.For(0, 8, i =>
+                {
+                    System.Threading.Tasks.Parallel.For(0, 8, j =>
+                    {
                         TableA[i, j] = Tab[i, j];
+                    });
+                });
 
 
                 Move++;
@@ -1492,9 +1531,13 @@ namespace Refrigtz
                         ii++;
                     }
                     int[,] TableA = new int[8, 8];
-                    for (int i = 0; i < 8; i++)
-                        for (int j = 0; j < 8; j++)
+                    System.Threading.Tasks.Parallel.For(0, 8, i =>
+                    {
+                        System.Threading.Tasks.Parallel.For(0, 8, j =>
+                        {
                             TableA[i, j] = Tab[i, j];
+                        });
+                    });
 
 
                 }
@@ -1779,9 +1822,13 @@ namespace Refrigtz
         {
             //TimersSet = false;
             int[,] Tab = new int[8, 8];
-            for (int i = 0; i < 8; i++)
-                for (int j = 0; j < 8; j++)
+            System.Threading.Tasks.Parallel.For(0, 8, i =>
+            {
+                System.Threading.Tasks.Parallel.For(0, 8, j =>
+                {
                     Tab[i, j] = Table[i, j];
+                });
+            });
             String TableName = CreatTable();
 
 
@@ -1892,90 +1939,99 @@ namespace Refrigtz
                                 }
                                 catch (Exception t) { Log(t); }
                             }
-
-                        for (int i = 0; i < Draw.SodierHigh; i++)
+                        System.Threading.Tasks.Parallel.Invoke(() =>
                         {
-                            if (Draw.SolderesOnTable[i] == null)
-                                continue;
-                            try
+                            System.Threading.Tasks.Parallel.For(0, Draw.SodierHigh, i =>
                             {
-                                Draw.SolderesOnTable[i].DrawSoldierOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
-                            }
-                            catch (Exception t)
-                            {
-                                Log(t);
-                            }
-                        }
-                        for (int i = 0; i < Draw.ElefantHigh; i++)
+                                if (Draw.SolderesOnTable[i] == null)
+                                    return;
+                                try
+                                {
+                                    Draw.SolderesOnTable[i].DrawSoldierOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                                }
+                                catch (Exception t)
+                                {
+                                    Log(t);
+                                }
+                            });
+                        }, () =>
                         {
-                            if (Draw.ElephantOnTable[i] == null)
-                                continue;
-                            try
+                            System.Threading.Tasks.Parallel.For(0, Draw.ElefantHigh, i =>
                             {
-                                Draw.ElephantOnTable[i].DrawElefantOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
-                            }
-                            catch (Exception t)
-                            {
-                                Log(t);
-                            }
-                        }
-                        for (int i = 0; i < Draw.HourseHight; i++)
-                        {
-                            if (Draw.HoursesOnTable[i] == null)
-                                continue;
-                            try
-                            {
-                                Draw.HoursesOnTable[i].DrawHourseOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
-                            }
-                            catch (Exception t)
-                            {
-                                Log(t);
-                            }
-                        }
-                        for (int i = 0; i < Draw.CastleHigh; i++)
-                        {
-                            if (Draw.CastlesOnTable[i] == null)
-                                continue;
-                            try
-                            {
-                                Draw.CastlesOnTable[i].DrawCastleOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
-                            }
-                            catch (Exception t)
-                            {
-                                Log(t);
-                            }
+                                if (Draw.ElephantOnTable[i] == null)
+                                    return;
+                                try
+                                {
+                                    Draw.ElephantOnTable[i].DrawElefantOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                                }
+                                catch (Exception t)
+                                {
+                                    Log(t);
+                                }
+                            });
+                        }, () =>
+                         {
+                             System.Threading.Tasks.Parallel.For(0, Draw.HourseHight, i =>
+                             {
+                                 if (Draw.HoursesOnTable[i] == null)
+                                     return;
+                                 try
+                                 {
+                                     Draw.HoursesOnTable[i].DrawHourseOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                                 }
+                                 catch (Exception t)
+                                 {
+                                     Log(t);
+                                 }
 
-                        }
+                             });
+                         }, () =>
+                         {
+                             System.Threading.Tasks.Parallel.For(0, Draw.CastleHigh, i =>
+                             {
+                                 if (Draw.CastlesOnTable[i] == null)
+                                     return;
+                                 try
+                                 {
+                                     Draw.CastlesOnTable[i].DrawCastleOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                                 }
+                                 catch (Exception t)
+                                 {
+                                     Log(t);
+                                 }
 
-
-                        for (int i = 0; i < Draw.MinisterHigh; i++)
-                        {
-                            if (Draw.MinisterOnTable[i] == null)
-                                continue;
-                            try
-                            {
-                                Draw.MinisterOnTable[i].DrawMinisterOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
-                            }
-                            catch (Exception t)
-                            {
-                                Log(t);
-                            }
-                        }
-
-                        for (int i = 0; i < Draw.KingHigh; i++)
-                        {
-                            if (Draw.KingOnTable[i] == null)
-                                continue;
-                            try
-                            {
-                                Draw.KingOnTable[i].DrawKingOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
-                            }
-                            catch (Exception t)
-                            {
-                                Log(t);
-                            }
-                        }
-
+                             });
+                         }, () =>
+                         {
+                             System.Threading.Tasks.Parallel.For(0, Draw.MinisterHigh, i =>
+                             {
+                                 if (Draw.MinisterOnTable[i] == null)
+                                     return;
+                                 try
+                                 {
+                                     Draw.MinisterOnTable[i].DrawMinisterOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                                 }
+                                 catch (Exception t)
+                                 {
+                                     Log(t);
+                                 }
+                             });
+                         }, () =>
+                         {
+                             System.Threading.Tasks.Parallel.For(0, Draw.KingHigh, i =>
+                             {
+                                 if (Draw.KingOnTable[i] == null)
+                                     return;
+                                 try
+                                 {
+                                     Draw.KingOnTable[i].DrawKingOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                                 }
+                                 catch (Exception t)
+                                 {
+                                     Log(t);
+                                 }
+                             });
+                         });
 
                         pictureBoxRefrigtz.Image = ChessTable;
                         g.Dispose();
@@ -2035,9 +2091,13 @@ namespace Refrigtz
         {
             bool Check = false;
             int[,] Tab = new int[8, 8];
-            for (int iii = 0; iii < 8; iii++)
-                for (int jjj = 0; jjj < 8; jjj++)
-                    Tab[iii, jjj] = Table[iii, jjj];
+            System.Threading.Tasks.Parallel.For(0, 8, iii =>
+            {
+                System.Threading.Tasks.Parallel.For(0, 8, jjj =>
+               {
+                   Tab[iii, jjj] = Table[iii, jjj];
+               });
+            });
             Tab[ii, jj] = Tab[i, j];
             Tab[i, j] = 0;
             RefrigtzDLL.ChessRules A = new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, Order);
@@ -2065,9 +2125,13 @@ namespace Refrigtz
                     System.Threading.Thread.Sleep(10);
 
                     int[,] TabStor = new int[8, 8];
-                    for (int i = 0; i < 8; i++)
-                        for (int j = 0; j < 8; j++)
+                    System.Threading.Tasks.Parallel.For(0, 8, i =>
+                    {
+                        System.Threading.Tasks.Parallel.For(0, 8, j =>
+                        {
                             TabStor[i, j] = Table[i, j];
+                        });
+                    });
                     //For Iterative Movewmnt
                     if (SetMovement((int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased))
                         continue;
@@ -2113,15 +2177,15 @@ namespace Refrigtz
                                                 {
                                                     Table[(int)RowRealesed - 1, (int)ColumnRealeased] = 4;
                                                     Table[(int)RowRealesed + 1, (int)ColumnRealeased] = 0;
-                                                    for (int i = 0; i < Draw.CastleHigh; i++)
+                                                    System.Threading.Tasks.Parallel.For(0, Draw.CastleHigh, i =>
                                                     {
                                                         if (Draw.CastlesOnTable[i].Row == RowClickP + 3 && Draw.CastlesOnTable[i].Column == ColumnClick && ColumnClick == 0)
                                                         {
                                                             Draw.CastlesOnTable[i] = new RefrigtzDLL.DrawCastle(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowRealesed + 1, ColumnRealeased, Color.Gray, Table, OrderPlate, false, King);
                                                             Castles = i;
-                                                            break;
+                                                            return;
                                                         }
-                                                    }
+                                                    });
                                                     if (Castles != -1)
                                                     {
                                                         Draw.CastlesOnTable[Castles].Row = RowClickP + 3;
@@ -2134,17 +2198,17 @@ namespace Refrigtz
                                                 {
                                                     Table[(int)RowRealesed + 1, (int)ColumnRealeased] = 4;
                                                     Table[(int)RowRealesed - 2, (int)ColumnRealeased] = 0;
-                                                    for (int i = 0; i < Draw.CastleHigh; i++)
+                                                    System.Threading.Tasks.Parallel.For(0, Draw.CastleHigh, i =>
                                                     {
                                                         if (Draw.CastlesOnTable[i].Row == RowClickP - 4 && Draw.CastlesOnTable[i].Column == ColumnClickP & ColumnClick == 0)
                                                         {
                                                             Draw.CastlesOnTable[i] = new RefrigtzDLL.DrawCastle(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowRealesed - 1, ColumnRealeased, Color.Gray, Table, OrderPlate, false, King);
                                                             Castles = i;
-                                                            break;
+                                                            return;
 
                                                         }
 
-                                                    }
+                                                    });
                                                     if (Castles != -1)
                                                     {
                                                         Draw.CastlesOnTable[Castles].Row = RowClickP - 4;
@@ -2159,18 +2223,18 @@ namespace Refrigtz
                                                 {
                                                     Table[(int)RowRealesed - 1, (int)ColumnRealeased] = 4;
                                                     Table[(int)RowRealesed + 1, (int)ColumnRealeased] = 0;
-                                                    for (int i = 0; i < Draw.CastleHigh; i++)
+                                                    System.Threading.Tasks.Parallel.For(0, Draw.CastleHigh, i =>
                                                     {
                                                         if (Draw.CastlesOnTable[i].Row == RowClickP + 3 && Draw.CastlesOnTable[i].Column == ColumnClick && ColumnClick == 7)
                                                         {
                                                             Draw.CastlesOnTable[i] = new RefrigtzDLL.DrawCastle(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowRealesed + 1, ColumnRealeased, Color.Gray, Table, OrderPlate, false, King);
                                                             Castles = i;
 
-                                                            break;
+                                                            return;
 
                                                         }
 
-                                                    }
+                                                    });
                                                     if (Castles != -1)
                                                     {
                                                         Draw.CastlesOnTable[Castles].Row = RowClickP + 3;
@@ -2183,17 +2247,17 @@ namespace Refrigtz
                                                 {
                                                     Table[(int)RowRealesed + 1, (int)ColumnRealeased] = 4;
                                                     Table[(int)RowRealesed - 2, (int)ColumnRealeased] = 0;
-                                                    for (int i = 0; i < Draw.CastleHigh; i++)
+                                                    System.Threading.Tasks.Parallel.For(0, Draw.CastleHigh, i =>
                                                     {
                                                         if (Draw.CastlesOnTable[i].Row == RowClickP - 4 && Draw.CastlesOnTable[i].Column == ColumnClickP && ColumnClick == 7)
                                                         {
                                                             Draw.CastlesOnTable[i] = new RefrigtzDLL.DrawCastle(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowRealesed - 1, ColumnRealeased, Color.Gray, Table, OrderPlate, false, King);
                                                             Castles = i;
-                                                            break;
+                                                            return;
 
                                                         }
 
-                                                    }
+                                                    });
                                                     if (Castles != -1)
                                                     {
                                                         Draw.CastlesOnTable[Castles].Row = RowClickP - 4;
@@ -2227,9 +2291,13 @@ namespace Refrigtz
 
                                             Person = false;
                                             int[,] TableCon = new int[8, 8];
-                                            for (int i = 0; i < 8; i++)
-                                                for (int j = 0; j < 8; j++)
-                                                    TableCon[i, j] = Table[i, j];
+                                            System.Threading.Tasks.Parallel.For(0, 8, i =>
+                                             {
+                                                 System.Threading.Tasks.Parallel.For(0, 8, j =>
+                                                                                    {
+                                                                                        TableCon[i, j] = Table[i, j];
+                                                                                    });
+                                             });
                                             RefrigtzDLL.AllDraw.TableListAction.Add(TableCon);
                                             if (RefrigtzDLL.AllDraw.AStarGreadyFirstSearch && RefrigtzDLL.AllDraw.StoreADraw.Count > 0)
                                             {
@@ -2370,9 +2438,13 @@ namespace Refrigtz
                                                  */
                                                 Draw.SolderesOnTable[Soldier].DrawSoldierOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
                                                 RefrigtzDLL.ThingsConverter.ClickOcurred = false;
-                                                for (int i = 0; i < 8; i++)
-                                                    for (int j = 0; j < 8; j++)
+                                                System.Threading.Tasks.Parallel.For(0, 8, i =>
+                                                {
+                                                    System.Threading.Tasks.Parallel.For(0, 8, j =>
+                                                    {
                                                         TableCon[i, j] = Table[i, j];
+                                                    });
+                                                });
                                                 Draw = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                                                 Draw.TableList.Clear();
                                                 Draw.TableList.Add(Table);
@@ -2393,9 +2465,13 @@ namespace Refrigtz
                                                 Table[(int)RowClickP, (int)ColumnClickP] = 0;
                                                 Table[(int)RowRealesed, (int)ColumnRealeased] = 1;
                                                 Draw.SolderesOnTable[Soldier].DrawSoldierOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
-                                                for (int i = 0; i < 8; i++)
-                                                    for (int j = 0; j < 8; j++)
+                                                System.Threading.Tasks.Parallel.For(0, 8, i =>
+                                                {
+                                                    System.Threading.Tasks.Parallel.For(0, 8, j =>
+                                                    {
                                                         TableCon[i, j] = Table[i, j];
+                                                    });
+                                                });
 
                                             }
                                             AA = new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, 1, Table, OrderPlate, -1, -1);
@@ -2415,9 +2491,13 @@ namespace Refrigtz
                                                 }
                                             }
                                             Person = false;
-                                            for (int i = 0; i < 8; i++)
-                                                for (int j = 0; j < 8; j++)
+                                            System.Threading.Tasks.Parallel.For(0, 8, i =>
+                                            {
+                                                System.Threading.Tasks.Parallel.For(0, 8, j =>
+                                                {
                                                     Table[i, j] = TableCon[i, j];
+                                                });
+                                            });
                                             RefrigtzDLL.AllDraw.TableListAction.Add(TableCon);
                                             if (RefrigtzDLL.AllDraw.AStarGreadyFirstSearch && RefrigtzDLL.AllDraw.StoreADraw.Count > 0)
                                             {
@@ -2539,9 +2619,13 @@ namespace Refrigtz
 
                                             Person = false;
                                             int[,] TableCon = new int[8, 8];
-                                            for (int i = 0; i < 8; i++)
-                                                for (int j = 0; j < 8; j++)
+                                            System.Threading.Tasks.Parallel.For(0, 8, i =>
+                                            {
+                                                System.Threading.Tasks.Parallel.For(0, 8, j =>
+                                                {
                                                     TableCon[i, j] = Table[i, j];
+                                                });
+                                            });
                                             RefrigtzDLL.AllDraw.TableListAction.Add(TableCon);
                                             if (RefrigtzDLL.AllDraw.AStarGreadyFirstSearch && RefrigtzDLL.AllDraw.StoreADraw.Count > 0)
                                             {
@@ -2662,9 +2746,13 @@ namespace Refrigtz
                                             Draw.HoursesOnTable[Hourse].DrawHourseOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
 
                                             int[,] TableCon = new int[8, 8];
-                                            for (int i = 0; i < 8; i++)
-                                                for (int j = 0; j < 8; j++)
+                                            System.Threading.Tasks.Parallel.For(0, 8, i =>
+                                            {
+                                                System.Threading.Tasks.Parallel.For(0, 8, j =>
+                                                {
                                                     TableCon[i, j] = Table[i, j];
+                                                });
+                                            });
                                             RefrigtzDLL.AllDraw.TableListAction.Add(TableCon);
                                             Person = false;
                                             if (RefrigtzDLL.AllDraw.AStarGreadyFirstSearch && RefrigtzDLL.AllDraw.StoreADraw.Count > 0)
@@ -2788,9 +2876,13 @@ namespace Refrigtz
                                             Draw.CastlesOnTable[Castle].DrawCastleOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
 
                                             int[,] TableCon = new int[8, 8];
-                                            for (int i = 0; i < 8; i++)
-                                                for (int j = 0; j < 8; j++)
+                                            System.Threading.Tasks.Parallel.For(0, 8, i =>
+                                            {
+                                                System.Threading.Tasks.Parallel.For(0, 8, j =>
+                                                {
                                                     TableCon[i, j] = Table[i, j];
+                                                });
+                                            });
                                             RefrigtzDLL.AllDraw.TableListAction.Add(TableCon);
                                             Person = false;
                                             if (RefrigtzDLL.AllDraw.AStarGreadyFirstSearch && RefrigtzDLL.AllDraw.StoreADraw.Count > 0)
@@ -2914,9 +3006,14 @@ namespace Refrigtz
                                             Draw.MinisterOnTable[Minister].DrawMinisterOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
 
                                             int[,] TableCon = new int[8, 8];
-                                            for (int i = 0; i < 8; i++)
-                                                for (int j = 0; j < 8; j++)
+                                            System.Threading.Tasks.Parallel.For(0, 8, i =>
+                                            {
+                                                System.Threading.Tasks.Parallel.For(0, 8, j =>
+                                                {
                                                     TableCon[i, j] = Table[i, j];
+                                                });
+                                            });
+
                                             RefrigtzDLL.AllDraw.TableListAction.Add(TableCon);
                                             Person = false;
                                             if (RefrigtzDLL.AllDraw.AStarGreadyFirstSearch && RefrigtzDLL.AllDraw.StoreADraw.Count > 0)
@@ -3037,9 +3134,13 @@ namespace Refrigtz
                                             Draw.KingOnTable[King].DrawKingOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
 
                                             int[,] TableCon = new int[8, 8];
-                                            for (int i = 0; i < 8; i++)
-                                                for (int j = 0; j < 8; j++)
+                                            System.Threading.Tasks.Parallel.For(0, 8, i =>
+                                            {
+                                                System.Threading.Tasks.Parallel.For(0, 8, j =>
+                                                {
                                                     TableCon[i, j] = Table[i, j];
+                                                });
+                                            });
                                             RefrigtzDLL.AllDraw.TableListAction.Add(TableCon);
                                             Person = false;
                                             if (RefrigtzDLL.AllDraw.AStarGreadyFirstSearch && RefrigtzDLL.AllDraw.StoreADraw.Count > 0)
@@ -3153,18 +3254,18 @@ namespace Refrigtz
                                                 {
                                                     Table[(int)RowRealesed - 1, (int)ColumnRealeased] = -4;
                                                     Table[(int)RowRealesed + 1, (int)ColumnRealeased] = 0;
-                                                    for (int i = 0; i < Draw.CastleHigh; i++)
+                                                    System.Threading.Tasks.Parallel.For(0, Draw.CastleHigh, i =>
                                                     {
                                                         if (Draw.CastlesOnTable[i].Row == RowClickP + 3 && Draw.CastlesOnTable[i].Column == ColumnClick && ColumnClick == 7)
                                                         {
                                                             Draw.CastlesOnTable[i] = new RefrigtzDLL.DrawCastle(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowRealesed + 1, ColumnRealeased, Color.Brown, Table, OrderPlate, false, King);
                                                             Castles = i;
 
-                                                            break;
+                                                            return;
 
                                                         }
 
-                                                    }
+                                                    });
                                                     if (Castles != -1)
                                                     {
                                                         Draw.CastlesOnTable[Castles].Row = RowClickP + 3;
@@ -3177,17 +3278,17 @@ namespace Refrigtz
                                                 {
                                                     Table[(int)RowRealesed + 1, (int)ColumnRealeased] = -4;
                                                     Table[(int)RowRealesed - 2, (int)ColumnRealeased] = 0;
-                                                    for (int i = 0; i < Draw.CastleHigh; i++)
+                                                    System.Threading.Tasks.Parallel.For(0, Draw.CastleHigh, i =>
                                                     {
                                                         if (Draw.CastlesOnTable[i].Row == RowClickP - 4 && Draw.CastlesOnTable[i].Column == ColumnClickP & ColumnClick == 0)
                                                         {
                                                             Draw.CastlesOnTable[i] = new RefrigtzDLL.DrawCastle(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowRealesed - 1, ColumnRealeased, Color.Brown, Table, OrderPlate, false, King);
                                                             Castles = i;
-                                                            break;
+                                                            return;
 
                                                         }
 
-                                                    }
+                                                    });
                                                     if (Castles != -1)
                                                     {
                                                         Draw.CastlesOnTable[Castles].Row = RowClickP - 4;
@@ -3202,18 +3303,17 @@ namespace Refrigtz
                                                 {
                                                     Table[(int)RowRealesed - 1, (int)ColumnRealeased] = -4;
                                                     Table[(int)RowRealesed + 1, (int)ColumnRealeased] = 0;
-                                                    for (int i = 0; i < Draw.CastleHigh; i++)
+                                                    System.Threading.Tasks.Parallel.For(0, Draw.CastleHigh, i =>
                                                     {
                                                         if (Draw.CastlesOnTable[i].Row == RowClickP + 3 && Draw.CastlesOnTable[i].Column == ColumnClick && ColumnClick == 7)
                                                         {
                                                             Draw.CastlesOnTable[i] = new RefrigtzDLL.DrawCastle(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowRealesed + 1, ColumnRealeased, Color.Brown, Table, OrderPlate, false, King);
                                                             Castles = i;
-
-                                                            break;
+                                                            return;
 
                                                         }
 
-                                                    }
+                                                    });
                                                     if (Castles != -1)
                                                     {
                                                         Draw.CastlesOnTable[Castles].Row = RowClickP + 3;
@@ -3226,17 +3326,17 @@ namespace Refrigtz
                                                 {
                                                     Table[(int)RowRealesed + 1, (int)ColumnRealeased] = -4;
                                                     Table[(int)RowRealesed - 2, (int)ColumnRealeased] = 0;
-                                                    for (int i = 0; i < Draw.CastleHigh; i++)
+                                                    System.Threading.Tasks.Parallel.For(0, Draw.CastleHigh, i =>
                                                     {
                                                         if (Draw.CastlesOnTable[i].Row == RowClickP - 4 && Draw.CastlesOnTable[i].Column == ColumnClickP && ColumnClick == 7)
                                                         {
                                                             Draw.CastlesOnTable[i] = new RefrigtzDLL.DrawCastle(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowRealesed - 1, ColumnRealeased, Color.Brown, Table, OrderPlate, false, King);
                                                             Castles = i;
-                                                            break;
+                                                            return;
 
                                                         }
 
-                                                    }
+                                                    });
                                                     if (Castles != -1)
                                                     {
                                                         Draw.CastlesOnTable[Castles].Row = RowClickP - 4;
@@ -3270,9 +3370,13 @@ namespace Refrigtz
 
                                             Person = false;
                                             int[,] TableCon = new int[8, 8];
-                                            for (int i = 0; i < 8; i++)
-                                                for (int j = 0; j < 8; j++)
+                                            System.Threading.Tasks.Parallel.For(0, 8, i =>
+                                            {
+                                                System.Threading.Tasks.Parallel.For(0, 8, j =>
+                                                {
                                                     TableCon[i, j] = Table[i, j];
+                                                });
+                                            });
                                             RefrigtzDLL.AllDraw.TableListAction.Add(TableCon);
                                             if (RefrigtzDLL.AllDraw.AStarGreadyFirstSearch && RefrigtzDLL.AllDraw.StoreADraw.Count > 0)
                                             {
@@ -3409,9 +3513,13 @@ namespace Refrigtz
                                                  */
                                                 Draw.SolderesOnTable[Soldier].DrawSoldierOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
                                                 RefrigtzDLL.ThingsConverter.ClickOcurred = false;
-                                                for (int i = 0; i < 8; i++)
-                                                    for (int j = 0; j < 8; j++)
+                                                System.Threading.Tasks.Parallel.For(0, 8, i =>
+                                                {
+                                                    System.Threading.Tasks.Parallel.For(0, 8, j =>
+                                                    {
                                                         TableCon[i, j] = Table[i, j];
+                                                    });
+                                                });
                                                 Draw = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                                                 Draw.TableList.Clear();
                                                 Draw.TableList.Add(Table);
@@ -3430,9 +3538,13 @@ namespace Refrigtz
                                                 Draw.SolderesOnTable[Soldier] = new RefrigtzDLL.DrawSoldier(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowRealesed, ColumnRealeased, Color.Brown, Table, OrderPlate, false, Soldier);
                                                 Table[(int)RowClickP, (int)ColumnClickP] = 0;
                                                 Table[(int)RowRealesed, (int)ColumnRealeased] = -1;
-                                                for (int i = 0; i < 8; i++)
-                                                    for (int j = 0; j < 8; j++)
-                                                        TableCon[i, j] = Table[i, j];
+                                                System.Threading.Tasks.Parallel.For(0, 8, i =>
+                                            {
+                                                System.Threading.Tasks.Parallel.For(0, 8, j =>
+                                                 {
+                                                     TableCon[i, j] = Table[i, j];
+                                                 });
+                                            });
                                             }
                                             AA = new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, 1, Table, OrderPlate, -1, -1);
                                             if (AA.Check(Table, OrderPlate))
@@ -3452,9 +3564,13 @@ namespace Refrigtz
                                             }
                                             Draw.SolderesOnTable[Soldier].DrawSoldierOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
 
-                                            for (int i = 0; i < 8; i++)
-                                                for (int j = 0; j < 8; j++)
+                                            System.Threading.Tasks.Parallel.For(0, 8, i =>
+                                            {
+                                                System.Threading.Tasks.Parallel.For(0, 8, j =>
+                                                {
                                                     Table[i, j] = TableCon[i, j];
+                                                });
+                                            });
                                             RefrigtzDLL.AllDraw.TableListAction.Add(TableCon);
                                             Person = false;
                                             if (RefrigtzDLL.AllDraw.AStarGreadyFirstSearch && RefrigtzDLL.AllDraw.StoreADraw.Count > 0)
@@ -3574,9 +3690,13 @@ namespace Refrigtz
                                             Draw.ElephantOnTable[Elefant].DrawElefantOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
 
                                             int[,] TableCon = new int[8, 8];
-                                            for (int i = 0; i < 8; i++)
-                                                for (int j = 0; j < 8; j++)
+                                            System.Threading.Tasks.Parallel.For(0, 8, i =>
+                                            {
+                                                System.Threading.Tasks.Parallel.For(0, 8, j =>
+                                                {
                                                     TableCon[i, j] = Table[i, j];
+                                                });
+                                            });
                                             RefrigtzDLL.AllDraw.TableListAction.Add(TableCon);
                                             Person = false;
                                             if (RefrigtzDLL.AllDraw.AStarGreadyFirstSearch && RefrigtzDLL.AllDraw.StoreADraw.Count > 0)
@@ -3698,9 +3818,13 @@ namespace Refrigtz
                                             Draw.HoursesOnTable[Hourse].DrawHourseOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
 
                                             int[,] TableCon = new int[8, 8];
-                                            for (int i = 0; i < 8; i++)
-                                                for (int j = 0; j < 8; j++)
+                                            System.Threading.Tasks.Parallel.For(0, 8, i =>
+                                            {
+                                                System.Threading.Tasks.Parallel.For(0, 8, j =>
+                                                {
                                                     TableCon[i, j] = Table[i, j];
+                                                });
+                                            });
                                             RefrigtzDLL.AllDraw.TableListAction.Add(TableCon);
                                             Person = false;
                                             if (RefrigtzDLL.AllDraw.AStarGreadyFirstSearch && RefrigtzDLL.AllDraw.StoreADraw.Count > 0)
@@ -3822,9 +3946,13 @@ namespace Refrigtz
                                             Draw.CastlesOnTable[Castle].DrawCastleOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
 
                                             int[,] TableCon = new int[8, 8];
-                                            for (int i = 0; i < 8; i++)
-                                                for (int j = 0; j < 8; j++)
+                                            System.Threading.Tasks.Parallel.For(0, 8, i =>
+                                            {
+                                                System.Threading.Tasks.Parallel.For(0, 8, j =>
+                                                {
                                                     TableCon[i, j] = Table[i, j];
+                                                });
+                                            });
                                             RefrigtzDLL.AllDraw.TableListAction.Add(TableCon);
                                             Person = false;
                                             if (RefrigtzDLL.AllDraw.AStarGreadyFirstSearch && RefrigtzDLL.AllDraw.StoreADraw.Count > 0)
@@ -3947,9 +4075,13 @@ namespace Refrigtz
                                             Draw.MinisterOnTable[Minister].DrawMinisterOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
 
                                             int[,] TableCon = new int[8, 8];
-                                            for (int i = 0; i < 8; i++)
-                                                for (int j = 0; j < 8; j++)
+                                            System.Threading.Tasks.Parallel.For(0, 8, i =>
+                                            {
+                                                System.Threading.Tasks.Parallel.For(0, 8, j =>
+                                                {
                                                     TableCon[i, j] = Table[i, j];
+                                                });
+                                            });
                                             RefrigtzDLL.AllDraw.TableListAction.Add(TableCon);
                                             Person = false;
                                             if (RefrigtzDLL.AllDraw.AStarGreadyFirstSearch && RefrigtzDLL.AllDraw.StoreADraw.Count > 0)
@@ -4078,9 +4210,13 @@ namespace Refrigtz
 
 
                                             int[,] TableCon = new int[8, 8];
-                                            for (int i = 0; i < 8; i++)
-                                                for (int j = 0; j < 8; j++)
+                                            System.Threading.Tasks.Parallel.For(0, 8, i =>
+                                            {
+                                                System.Threading.Tasks.Parallel.For(0, 8, j =>
+                                                {
                                                     TableCon[i, j] = Table[i, j];
+                                                });
+                                            });
                                             RefrigtzDLL.AllDraw.TableListAction.Add(TableCon);
                                             Person = false;
                                             if (RefrigtzDLL.AllDraw.AStarGreadyFirstSearch && RefrigtzDLL.AllDraw.StoreADraw.Count > 0)
@@ -4255,6 +4391,7 @@ namespace Refrigtz
         String ListToString(List<char> A)
         {
             String B = "";
+
             for (int i = 0; i < A.Count; i++)
                 B += A[i];
             return B;
@@ -5552,12 +5689,20 @@ namespace Refrigtz
             {
                 int[,] Table1 = new int[8, 8];
                 int[,] Table2 = new int[8, 8];
-                for (int i = 0; i < 8; i++)
-                    for (int j = 0; j < 8; j++)
+                System.Threading.Tasks.Parallel.For(0, 8, i =>
+                {
+                    System.Threading.Tasks.Parallel.For(0, 8, j =>
+                    {
                         Table1[i, j] = RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2][i, j];
-                for (int i = 0; i < 8; i++)
-                    for (int j = 0; j < 8; j++)
+                    });
+                });
+                System.Threading.Tasks.Parallel.For(0, 8, i =>
+                {
+                    System.Threading.Tasks.Parallel.For(0, 8, j =>
+                    {
                         Table2[i, j] = RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1][i, j];
+                    });
+                });
                 for (int i = 0; i < 8; i++)
                     for (int j = 0; j < 8; j++)
                     {
@@ -5625,9 +5770,13 @@ namespace Refrigtz
                     a = Color.Brown;
 
                 int[,] Tab = new int[8, 8];
-                for (int ik = 0; ik < 8; ik++)
-                    for (int jk = 0; jk < 8; jk++)
+                System.Threading.Tasks.Parallel.For(0, 8, ik =>
+                {
+                    System.Threading.Tasks.Parallel.For(0, 8, jk =>
+                    {
                         Tab[ik, jk] = Table[ik, jk];
+                    });
+                });
                 if (A.Rules(i, j, ii, jj, a, Tab[i, j]))
                 {
                     Tab[ii, jj] = Tab[i, j];
@@ -5765,9 +5914,13 @@ namespace Refrigtz
         void ComputerByComputerAliceAsStockFish(ref Process proc)
         {
             int[,] Tab = new int[8, 8];
-            for (int i = 0; i < 8; i++)
-                for (int j = 0; j < 8; j++)
+            System.Threading.Tasks.Parallel.For(0, 8, i =>
+            {
+                System.Threading.Tasks.Parallel.For(0, 8, j =>
+                {
                     Tab[i, j] = Table[i, j];
+                });
+            });
             RowClickP = -1;
             ColumnClickP = -1;
             RowRealesed = -1;
@@ -5963,9 +6116,13 @@ namespace Refrigtz
 
             SetDrawFounding(ref FOUND, ref THIS, false);
 
-            for (int i = 0; i < 8; i++)
-                for (int j = 0; j < 8; j++)
+            System.Threading.Tasks.Parallel.For(0, 8, i =>
+            {
+                System.Threading.Tasks.Parallel.For(0, 8, j =>
+                {
                     Table[i, j] = Tab[i, j];
+                });
+            });
 
             OrderPlate *= -1;
             BobSection = true;
@@ -7926,10 +8083,16 @@ namespace Refrigtz
         public bool TableZero(int[,] Ta)
         {
             bool Zerro = true;
-            for (int i = 0; i < 8; i++)
-                for (int j = 0; j < 8; j++)
-                    if (Ta[i, j] != 0)
-                        Zerro = false;
+
+            System.Threading.Tasks.Parallel.For(0, 8, i =>
+          {
+              System.Threading.Tasks.Parallel.For(0, 8, j =>
+             {
+                 if (Ta[i, j] != 0)
+                     Zerro = false;
+             });
+          });
+
             return Zerro;
         }
         void OpBeforeThinking(ref Color a, ref bool StoreStateCC, ref bool StoreStateCP, ref bool StoreStateGe)
@@ -8279,9 +8442,13 @@ namespace Refrigtz
                 try
                 {
                     ////Table = Draw.TableList[0];
-                    for (int i = 0; i < 8; i++)
-                        for (int j = 0; j < 8; j++)
-                            TableC[i, j] = Table[i, j];
+                    System.Threading.Tasks.Parallel.For(0, 8, i =>
+                    {
+                        System.Threading.Tasks.Parallel.For(0, 8, j =>
+                       {
+                           TableC[i, j] = Table[i, j];
+                       }); 
+                    });
                     if (TableZero(Table))
                         OpTableZero();
 
@@ -8325,68 +8492,69 @@ namespace Refrigtz
             Draw.MinisterHigh = 0;
             Draw.KingMidle = 0;
             Draw.KingHigh = 0;
-            for (int h = 0; h < 8; h++)
-                for (int s = 0; s < 8; s++)
-                {
-                    if (TabS[h, s] == 1)
-                    {
-                        Draw.SodierMidle++;
-                        Draw.SodierHigh++;
-                    }
-                    else if (TabS[h, s] == 2)
-                    {
-                        Draw.ElefantMidle++;
-                        Draw.ElefantHigh++;
-                    }
-                    else if (TabS[h, s] == 3)
-                    {
-                        Draw.HourseMidle++;
-                        Draw.HourseHight++;
-                    }
-                    else if (TabS[h, s] == 4)
-                    {
-                        Draw.CastleMidle++;
-                        Draw.CastleHigh++;
-                    }
-                    else if (TabS[h, s] == 5)
-                    {
-                        Draw.MinisterMidle++;
-                        Draw.MinisterHigh++;
-                    }
-                    else if (TabS[h, s] == 6)
-                    {
-                        Draw.KingMidle++;
-                        Draw.KingHigh++;
-                    }
-                    else
-                        if (TabS[h, s] == -1)
-                    {
-                        Draw.SodierHigh++;
-                    }
-                    else if (TabS[h, s] == -2)
-                    {
-                        Draw.ElefantHigh++;
-                    }
-                    else if (TabS[h, s] == -3)
-                    {
-                        Draw.HourseHight++;
-                    }
-                    else if (TabS[h, s] == -4)
-                    {
-                        Draw.CastleHigh++;
-                    }
-                    else if (TabS[h, s] == -5)
-                    {
+            System.Threading.Tasks.Parallel.For(0, 8, h =>
+           {
+               System.Threading.Tasks.Parallel.For(0, 8, s =>
+              {
+                  if (TabS[h, s] == 1)
+                  {
+                      Draw.SodierMidle++;
+                      Draw.SodierHigh++;
+                  }
+                  else if (TabS[h, s] == 2)
+                  {
+                      Draw.ElefantMidle++;
+                      Draw.ElefantHigh++;
+                  }
+                  else if (TabS[h, s] == 3)
+                  {
+                      Draw.HourseMidle++;
+                      Draw.HourseHight++;
+                  }
+                  else if (TabS[h, s] == 4)
+                  {
+                      Draw.CastleMidle++;
+                      Draw.CastleHigh++;
+                  }
+                  else if (TabS[h, s] == 5)
+                  {
+                      Draw.MinisterMidle++;
+                      Draw.MinisterHigh++;
+                  }
+                  else if (TabS[h, s] == 6)
+                  {
+                      Draw.KingMidle++;
+                      Draw.KingHigh++;
+                  }
+                  else
+                      if (TabS[h, s] == -1)
+                  {
+                      Draw.SodierHigh++;
+                  }
+                  else if (TabS[h, s] == -2)
+                  {
+                      Draw.ElefantHigh++;
+                  }
+                  else if (TabS[h, s] == -3)
+                  {
+                      Draw.HourseHight++;
+                  }
+                  else if (TabS[h, s] == -4)
+                  {
+                      Draw.CastleHigh++;
+                  }
+                  else if (TabS[h, s] == -5)
+                  {
 
-                        Draw.MinisterHigh++;
-                    }
-                    else if (TabS[h, s] == -6)
-                    {
-                        Draw.KingHigh++;
-                    }
-                }
+                      Draw.MinisterHigh++;
+                  }
+                  else if (TabS[h, s] == -6)
+                  {
+                      Draw.KingHigh++;
+                  }
+              });
+           });
         }
-
         //Hit Reconstruction of Table.
         /*void HitRecustruct()
         {
@@ -9018,183 +9186,185 @@ namespace Refrigtz
         {
             System.Threading.Thread.Sleep(10);
             MouseClicked = true;
-            for (int i = 0; i < 8; i++)
-                for (int j = 0; j < 8; j++)
-                {
-                    try
-                    {
-                        if (System.Math.Abs(e.X - i * (pictureBoxRefrigtz.Image.Width / 8)) < pictureBoxRefrigtz.Image.Width / 8 && System.Math.Abs(e.Y - j * (pictureBoxRefrigtz.Image.Height / 8)) < pictureBoxRefrigtz.Image.Height / 8)
-                        {
+            System.Threading.Tasks.Parallel.For(0, 8, i =>
+           {
+               System.Threading.Tasks.Parallel.For(0, 8, j =>
+              {
+              try
+              {
+                  if (System.Math.Abs(e.X - i * (pictureBoxRefrigtz.Image.Width / 8)) < pictureBoxRefrigtz.Image.Width / 8 && System.Math.Abs(e.Y - j * (pictureBoxRefrigtz.Image.Height / 8)) < pictureBoxRefrigtz.Image.Height / 8)
+                  {
 
-                            //if (!RefrigtzDLL.ThingsConverter.ClickOcurred)
+                      //if (!RefrigtzDLL.ThingsConverter.ClickOcurred)
+                      {
+
+                          if (RefrigtzDLL.AllDraw.MouseClick == 0)
+                          {
+                              RowClickP = i;
+                              ColumnClickP = j;
+                              System.Threading.Tasks.Parallel.For(0, Draw.SodierHigh, ii =>
+                             {
+                                 try
+                                 {
+                                     if ((Draw.SolderesOnTable[ii].Row == i & Draw.SolderesOnTable[ii].Column == j) && System.Math.Abs(Table[i, j]) == 1)
+                                     {
+                                         Soldier = ii;
+                                         RefrigtzDLL.AllDraw.MouseClick++;
+                                         SetBoxText("\r\nObject Selected.");
+                                         RefreshBoxText();
+                                         return;
+                                     }
+                                 }
+                                 catch (Exception t)
+                                 {
+                                     Log(t);
+                                 }
+
+                             });
+                              System.Threading.Tasks.Parallel.For(0, Draw.ElefantHigh, ii =>
                             {
-
-                                if (RefrigtzDLL.AllDraw.MouseClick == 0)
+                                try
                                 {
-                                    RowClickP = i;
-                                    ColumnClickP = j;
-                                    for (int ii = 0; ii < Draw.SodierHigh; ii++)
+                                    if ((Draw.ElephantOnTable[ii].Row == i & Draw.ElephantOnTable[ii].Column == j) && System.Math.Abs(Table[i, j]) == 2)
                                     {
-                                        try
-                                        {
-                                            if ((Draw.SolderesOnTable[ii].Row == i & Draw.SolderesOnTable[ii].Column == j) && System.Math.Abs(Table[i, j]) == 1)
-                                            {
-                                                Soldier = ii;
-                                                RefrigtzDLL.AllDraw.MouseClick++;
-                                                SetBoxText("\r\nObject Selected.");
-                                                RefreshBoxText();
-                                                return;
-                                            }
-                                        }
-                                        catch (Exception t)
-                                        {
-                                            Log(t);
-                                        }
-
-                                    }
-                                    for (int ii = 0; ii < Draw.ElefantHigh; ii++)
-                                    {
-                                        try
-                                        {
-                                            if ((Draw.ElephantOnTable[ii].Row == i & Draw.ElephantOnTable[ii].Column == j) && System.Math.Abs(Table[i, j]) == 2)
-                                            {
-                                                Elefant = ii;
-                                                RefrigtzDLL.AllDraw.MouseClick++;
-                                                SetBoxText("\r\nObject Selected.");
-                                                RefreshBoxText();
-                                                return;
-                                            }
-                                        }
-                                        catch (Exception t)
-                                        {
-                                            Log(t);
-                                        }
-
-                                    }
-                                    for (int ii = 0; ii < Draw.HourseHight; ii++)
-                                    {
-                                        try
-                                        {
-                                            if ((Draw.HoursesOnTable[ii].Row == i & Draw.HoursesOnTable[ii].Column == j) && System.Math.Abs(Table[i, j]) == 3)
-                                            {
-                                                Hourse = ii;
-                                                RefrigtzDLL.AllDraw.MouseClick++;
-                                                SetBoxText("\r\nObject Selected.");
-                                                RefreshBoxText();
-
-                                                return;
-                                            }
-                                        }
-                                        catch (Exception t)
-                                        {
-                                            Log(t);
-                                        }
-                                    }
-                                    for (int ii = 0; ii < Draw.CastleHigh; ii++)
-                                    {
-                                        try
-                                        {
-                                            if ((Draw.CastlesOnTable[ii].Row == i & Draw.CastlesOnTable[ii].Column == j) && System.Math.Abs(Table[i, j]) == 4)
-                                            {
-                                                Castle = ii;
-                                                RefrigtzDLL.AllDraw.MouseClick++;
-                                                SetBoxText("\r\nObject Selected.");
-                                                RefreshBoxText();
-                                                return;
-                                            }
-                                        }
-                                        catch (Exception t)
-                                        {
-                                            Log(t);
-                                        }
-                                    }
-
-                                    for (int ii = 0; ii < Draw.MinisterHigh; ii++)
-                                    {
-                                        try
-                                        {
-                                            if ((Draw.MinisterOnTable[ii].Row == i & Draw.MinisterOnTable[ii].Column == j) && System.Math.Abs(Table[i, j]) == 5)
-                                            {
-                                                Minister = ii;
-                                                RefrigtzDLL.AllDraw.MouseClick++;
-                                                SetBoxText("\r\nObject Selected.");
-                                                RefreshBoxText();
-                                                return;
-                                            }
-                                        }
-                                        catch (Exception t)
-                                        {
-                                            Log(t);
-                                        }
-                                    }
-
-                                    for (int ii = 0; ii < Draw.KingHigh; ii++)
-                                    {
-                                        try
-                                        {
-                                            if ((Draw.KingOnTable[ii].Row == i & Draw.KingOnTable[ii].Column == j) && System.Math.Abs(Table[i, j]) == 6)
-                                            {
-                                                King = ii;
-                                                RefrigtzDLL.AllDraw.MouseClick++;
-                                                SetBoxText("\r\nObject Selected.");
-                                                RefreshBoxText();
-                                                return;
-                                            }
-                                        }
-                                        catch (Exception t)
-                                        {
-                                            Log(t);
-                                        }
-
-                                    }
-
-
-                                }
-                                else
-                                {
-                                    if (RefrigtzDLL.AllDraw.MouseClick == 1)
-                                    {
-
-                                        RowRealesed = i;
-                                        ColumnRealeased = j;
-
-                                        RowClick = i;
-                                        ColumnClick = j;
+                                        Elefant = ii;
                                         RefrigtzDLL.AllDraw.MouseClick++;
-                                        SetBoxText("\r\nObject Released.");
+                                        SetBoxText("\r\nObject Selected.");
                                         RefreshBoxText();
-
-                                    }
-                                    else
-                                    {
-                                        //Needing for Objects for fen string of stockfish
-                                        if (!Stockfish)
-                                        {
-                                            RowClick = -1;
-                                            ColumnClick = -1;
-                                            RowClickP = -1;
-                                            ColumnClickP = -1;
-                                            RowRealesed = -1;
-                                            ColumnRealeased = -1;
-                                        }
-                                        RefrigtzDLL.AllDraw.MouseClick = 0;
-                                        SetBoxText("\r\nObject Cleared.");
-                                        RefreshBoxText();
-
+                                        return;
                                     }
                                 }
-                            }
+                                catch (Exception t)
+                                {
+                                    Log(t);
+                                }
 
-                            return;
-                        }
-                    }
-                    catch (Exception t)
-                    {
-                        Log(t);
-                    }
-                }
+                            });
+                              System.Threading.Tasks.Parallel.For(0, Draw.HourseHight, ii =>
+                            {
+                                try
+                                {
+                                    if ((Draw.HoursesOnTable[ii].Row == i & Draw.HoursesOnTable[ii].Column == j) && System.Math.Abs(Table[i, j]) == 3)
+                                    {
+                                        Hourse = ii;
+                                        RefrigtzDLL.AllDraw.MouseClick++;
+                                        SetBoxText("\r\nObject Selected.");
+                                        RefreshBoxText();
+
+                                        return;
+                                    }
+                                }
+                                catch (Exception t)
+                                {
+                                    Log(t);
+                                }
+                            });
+                              System.Threading.Tasks.Parallel.For(0, Draw.CastleHigh, ii =>
+                            {
+                                try
+                                {
+                                    if ((Draw.CastlesOnTable[ii].Row == i & Draw.CastlesOnTable[ii].Column == j) && System.Math.Abs(Table[i, j]) == 4)
+                                    {
+                                        Castle = ii;
+                                        RefrigtzDLL.AllDraw.MouseClick++;
+                                        SetBoxText("\r\nObject Selected.");
+                                        RefreshBoxText();
+                                        return;
+                                    }
+                                }
+                                catch (Exception t)
+                                {
+                                    Log(t);
+                                }
+                            });
+
+               System.Threading.Tasks.Parallel.For(0, Draw.MinisterHigh, ii =>
+                                     {
+                                         try
+                                         {
+                                             if ((Draw.MinisterOnTable[ii].Row == i & Draw.MinisterOnTable[ii].Column == j) && System.Math.Abs(Table[i, j]) == 5)
+                                             {
+                                                 Minister = ii;
+                                                 RefrigtzDLL.AllDraw.MouseClick++;
+                                                 SetBoxText("\r\nObject Selected.");
+                                                 RefreshBoxText();
+                                                 return;
+                                             }
+                                         }
+                                         catch (Exception t)
+                                         {
+                                             Log(t);
+                                         }
+                                     });
+
+               System.Threading.Tasks.Parallel.For(0, Draw.KingHigh, ii =>
+                                      {
+                                          try
+                                          {
+                                              if ((Draw.KingOnTable[ii].Row == i & Draw.KingOnTable[ii].Column == j) && System.Math.Abs(Table[i, j]) == 6)
+                                              {
+                                                  King = ii;
+                                                  RefrigtzDLL.AllDraw.MouseClick++;
+                                                  SetBoxText("\r\nObject Selected.");
+                                                  RefreshBoxText();
+                                                  return;
+                                              }
+                                          }
+                                          catch (Exception t)
+                                          {
+                                              Log(t);
+                                          }
+
+                                      });
 
 
+                              }
+                              else
+                              {
+                                  if (RefrigtzDLL.AllDraw.MouseClick == 1)
+                                  {
+
+                                      RowRealesed = i;
+                                      ColumnRealeased = j;
+
+                                      RowClick = i;
+                                      ColumnClick = j;
+                                      RefrigtzDLL.AllDraw.MouseClick++;
+                                      SetBoxText("\r\nObject Released.");
+                                      RefreshBoxText();
+
+                                  }
+                                  else
+                                  {
+                                      //Needing for Objects for fen string of stockfish
+                                      if (!Stockfish)
+                                      {
+                                          RowClick = -1;
+                                          ColumnClick = -1;
+                                          RowClickP = -1;
+                                          ColumnClickP = -1;
+                                          RowRealesed = -1;
+                                          ColumnRealeased = -1;
+                                      }
+                                      RefrigtzDLL.AllDraw.MouseClick = 0;
+                                      SetBoxText("\r\nObject Cleared.");
+                                      RefreshBoxText();
+
+                                  }
+                              }
+                          }
+
+                          return;
+                      }
+                  }
+                  catch (Exception t)
+                  {
+                      Log(t);
+                  }
+              });
+
+
+               });
         }
 
         //Mouse Movments of FormRefregitz PictureBox Event Handling.
@@ -9204,63 +9374,65 @@ namespace Refrigtz
             try
             {
 
-                for (int i = 0; i < 8; i++)
-                    for (int j = 0; j < 8; j++)
-                    {
+                System.Threading.Tasks.Parallel.For(0, 8, i =>
+                {
+                    System.Threading.Tasks.Parallel.For(0, 8, j =>
+                   {
 
-                        if ((e != null) && (pictureBoxRefrigtz != null) && (pictureBoxRefrigtz.Image != null) && (System.Math.Abs(e.X - i * (pictureBoxRefrigtz.Image.Width / 8)) < pictureBoxRefrigtz.Image.Width / 8) && (System.Math.Abs(e.Y - j * (pictureBoxRefrigtz.Image.Height / 8)) < pictureBoxRefrigtz.Image.Height / 8))
-                        {
-                            if (RefrigtzDLL.AllDraw.MouseClick == 1)
-                            {
+                       if ((e != null) && (pictureBoxRefrigtz != null) && (pictureBoxRefrigtz.Image != null) && (System.Math.Abs(e.X - i * (pictureBoxRefrigtz.Image.Width / 8)) < pictureBoxRefrigtz.Image.Width / 8) && (System.Math.Abs(e.Y - j * (pictureBoxRefrigtz.Image.Height / 8)) < pictureBoxRefrigtz.Image.Height / 8))
+                       {
+                           if (RefrigtzDLL.AllDraw.MouseClick == 1)
+                           {
 
-                                for (int ii = 0; ii < pictureBoxRefrigtz.Image.Width; ii += pictureBoxRefrigtz.Image.Width / 8)
-                                    for (int jj = 0; jj < pictureBoxRefrigtz.Image.Height; jj += pictureBoxRefrigtz.Image.Height / 8)
-                                    {
-                                        try
-                                        {
-                                            Color a = Color.Gray;
-                                            if (OrderPlate == -1)
-                                                a = Color.Brown;
-                                            bool[,] Tab = new bool[8, 8];
-                                            if (RowClickP != -1 && ColumnClickP != -1)
-                                                Tab = VeryFye(Table, OrderPlate, a);
-                                            if ((ii >= 0) && (ii < 8) && (jj >= 0) && (jj < 8) && ((int)(this.pictureBoxRefrigtz.Width / 8) >= 0) && ((int)(this.pictureBoxRefrigtz.Width / 8) < 8) && ((int)(this.pictureBoxRefrigtz.Height / 8) >= 0) && ((int)(this.pictureBoxRefrigtz.Height / 8) < 8))
-                                            {
-                                                if ((ii + jj) % 2 == 0)
-                                                    g.DrawImage(Image.FromFile(Root + "\\Images\\Program\\Black.jpg"), new Rectangle((int)ii, (int)jj, (int)(this.pictureBoxRefrigtz.Width / 8), (int)(this.pictureBoxRefrigtz.Height / 8)));
-                                                else
-                                                    g.DrawImage(Image.FromFile(Root + "\\Images\\Program\\White.jpg"), new Rectangle((int)ii, (int)jj, (int)(this.pictureBoxRefrigtz.Width / 8), (int)(this.pictureBoxRefrigtz.Height / 8)));
-                                            }
-                                            if (Tab != null)
-                                            {
-                                                if (Tab[(int)(i / (pictureBoxRefrigtz.Image.Width / 8)), (int)(j / (pictureBoxRefrigtz.Image.Height / 8))])
-                                                {
-                                                    g.DrawString("*", new Font("Times New Roman", 50), new SolidBrush(Color.Red), new Rectangle(i, j, (int)(this.pictureBoxRefrigtz.Width / 8), (int)(this.pictureBoxRefrigtz.Height / 8)));
-                                                }
-                                            }
-                                        }
-                                        catch (Exception t) { Log(t); }
-                                    }
-
-
-                                if (RowRealesed == -1 && ColumnRealeased == -1 & RowRealesedP == -1 && ColumnRealeasedP == -1)
-                                {
-                                    RowRealesed = i;
-                                    ColumnRealeased = j;
-                                    RowRealesedP = i;
-                                    ColumnRealeasedP = j;
-                                }
+                               for (int ii = 0; ii < pictureBoxRefrigtz.Image.Width; ii += pictureBoxRefrigtz.Image.Width / 8)
+                                   for (int jj = 0; jj < pictureBoxRefrigtz.Image.Height; jj += pictureBoxRefrigtz.Image.Height / 8)
+                                   {
+                                       try
+                                       {
+                                           Color a = Color.Gray;
+                                           if (OrderPlate == -1)
+                                               a = Color.Brown;
+                                           bool[,] Tab = new bool[8, 8];
+                                           if (RowClickP != -1 && ColumnClickP != -1)
+                                               Tab = VeryFye(Table, OrderPlate, a);
+                                           if ((ii >= 0) && (ii < 8) && (jj >= 0) && (jj < 8) && ((int)(this.pictureBoxRefrigtz.Width / 8) >= 0) && ((int)(this.pictureBoxRefrigtz.Width / 8) < 8) && ((int)(this.pictureBoxRefrigtz.Height / 8) >= 0) && ((int)(this.pictureBoxRefrigtz.Height / 8) < 8))
+                                           {
+                                               if ((ii + jj) % 2 == 0)
+                                                   g.DrawImage(Image.FromFile(Root + "\\Images\\Program\\Black.jpg"), new Rectangle((int)ii, (int)jj, (int)(this.pictureBoxRefrigtz.Width / 8), (int)(this.pictureBoxRefrigtz.Height / 8)));
+                                               else
+                                                   g.DrawImage(Image.FromFile(Root + "\\Images\\Program\\White.jpg"), new Rectangle((int)ii, (int)jj, (int)(this.pictureBoxRefrigtz.Width / 8), (int)(this.pictureBoxRefrigtz.Height / 8)));
+                                           }
+                                           if (Tab != null)
+                                           {
+                                               if (Tab[(int)(i / (pictureBoxRefrigtz.Image.Width / 8)), (int)(j / (pictureBoxRefrigtz.Image.Height / 8))])
+                                               {
+                                                   g.DrawString("*", new Font("Times New Roman", 50), new SolidBrush(Color.Red), new Rectangle(i, j, (int)(this.pictureBoxRefrigtz.Width / 8), (int)(this.pictureBoxRefrigtz.Height / 8)));
+                                               }
+                                           }
+                                       }
+                                       catch (Exception t) { Log(t); }
+                                   }
 
 
+                               if (RowRealesed == -1 && ColumnRealeased == -1 & RowRealesedP == -1 && ColumnRealeasedP == -1)
+                               {
+                                   RowRealesed = i;
+                                   ColumnRealeased = j;
+                                   RowRealesedP = i;
+                                   ColumnRealeasedP = j;
+                               }
 
-                            }
-                            RowRealesedP = RowRealesed;
-                            ColumnRealeasedP = ColumnRealeased;
-                            RowRealesed = i;
-                            ColumnRealeased = j;
-                            return;
-                        }
-                    }
+
+
+                           }
+                           RowRealesedP = RowRealesed;
+                           ColumnRealeasedP = ColumnRealeased;
+                           RowRealesed = i;
+                           ColumnRealeased = j;
+                           return;
+                       }
+                   });
+                });
             }
             catch (Exception t)
             {
@@ -10150,11 +10322,13 @@ namespace Refrigtz
                 String FileName = Root + "\\Database\\Games\\CurrentBank" + iii.ToString() + ".accdb";
                 //Read Last Table and Set MovementNumber
                 MovmentsNumber = 0;
-                for (int i = 0; i < 8; i++)
-                    for (int j = 0; j < 8; j++)
+                System.Threading.Tasks.Parallel.For(0, 8, i=>
+                {
+                    System.Threading.Tasks.Parallel.For( 0, 8, j=>
                     {
                         RefrigtzDLL.AllDraw.TableVeryfy[i, j] = RefrigtzDLL.AllDraw.TableVeryfyConst[i, j];
-                    }
+                    });
+                });
 
                 try
                 {
@@ -10466,9 +10640,13 @@ namespace Refrigtz
 
             if (MovmentsNumber == 0)
             {
-                for (int i = 0; i < 8; i++)
-                    for (int j = 0; j < 8; j++)
-                        Table[i, j] *= -1;
+                System.Threading.Tasks.Parallel.For(0, 8, i =>
+                {
+                    System.Threading.Tasks.Parallel.For(0, 8, j =>
+                    {
+                    Table[i, j] *= -1;
+                });
+            });
 
 
                 RefrigtzDLL.AllDraw.TableListAction.Clear();
