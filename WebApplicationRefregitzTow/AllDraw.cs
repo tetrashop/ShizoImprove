@@ -331,6 +331,7 @@ namespace RefrigtzW
             }
             catch (Exception t)
             {
+                Log(t);
             }
         }
 
@@ -9914,8 +9915,9 @@ namespace RefrigtzW
                                                 SolderesOnTable[i].SoldierThinking[0].ThinkingBegin = true;
                                                 SolderesOnTable[i].SoldierThinking[0].ThinkingFinished = false;
                                                 SolderesOnTable[i].SoldierThinking[0].Kind = 1;
-                                                //SolderesOnTable[i].SoldierThinking[0].t = new Task(new Action(SolderesOnTable[i].SoldierThinking[0].Thinking));
-                                                SolderesOnTable[i].SoldierThinking[0].Thinking();
+                                                SolderesOnTable[i].SoldierThinking[0].t = new Task(new Action(SolderesOnTable[i].SoldierThinking[0].Thinking));
+                                                SolderesOnTable[i].SoldierThinking[0].t.Start();
+                                                //SolderesOnTable[i].SoldierThinking[0].Thinking();
                                             }
                                         });
                                     }
@@ -9962,7 +9964,9 @@ namespace RefrigtzW
                                                 ElephantOnTable[i].ElefantThinking[0].ThinkingBegin = true;
                                                 ElephantOnTable[i].ElefantThinking[0].ThinkingFinished = false;
                                                 ElephantOnTable[i].ElefantThinking[0].Kind = 2;
-                                                ElephantOnTable[i].ElefantThinking[0].Thinking();
+                                                ElephantOnTable[i].ElefantThinking[0].t = new Task(new Action(ElephantOnTable[i].ElefantThinking[0].Thinking));
+                                                ElephantOnTable[i].ElefantThinking[0].t.Start();
+
                                             }
                                         });
                                     }
@@ -10008,7 +10012,9 @@ namespace RefrigtzW
                                                 HoursesOnTable[i].HourseThinking[0].ThinkingBegin = true;
                                                 HoursesOnTable[i].HourseThinking[0].ThinkingFinished = false;
                                                 HoursesOnTable[i].HourseThinking[0].Kind = 3;
-                                                HoursesOnTable[i].HourseThinking[0].Thinking();
+                                                HoursesOnTable[i].HourseThinking[0].t = new Task(new Action(HoursesOnTable[i].HourseThinking[0].Thinking));
+                                                HoursesOnTable[i].HourseThinking[0].t.Start();
+
                                             }
                                         });
                                     }
@@ -10054,7 +10060,10 @@ namespace RefrigtzW
                                                 CastlesOnTable[i].CastleThinking[0].ThinkingBegin = true;
                                                 CastlesOnTable[i].CastleThinking[0].ThinkingFinished = false;
                                                 CastlesOnTable[i].CastleThinking[0].Kind = 4;
-                                                CastlesOnTable[i].CastleThinking[0].Thinking();
+                                                CastlesOnTable[i].CastleThinking[0].t = new Task(new Action(CastlesOnTable[i].CastleThinking[0].Thinking));
+                                                CastlesOnTable[i].CastleThinking[0].t.Start();
+
+
                                             }
                                         });
                                     }
@@ -10100,7 +10109,9 @@ namespace RefrigtzW
                                                 MinisterOnTable[i].MinisterThinking[0].ThinkingBegin = true;
                                                 MinisterOnTable[i].MinisterThinking[0].ThinkingFinished = false;
                                                 MinisterOnTable[i].MinisterThinking[0].Kind = 5;
-                                                MinisterOnTable[i].MinisterThinking[0].Thinking();
+                                                MinisterOnTable[i].MinisterThinking[0].t = new Task(new Action(MinisterOnTable[i].MinisterThinking[0].Thinking));
+                                                MinisterOnTable[i].MinisterThinking[0].t.Start();
+
                                             }
                                         });
                                     }
@@ -10147,7 +10158,10 @@ namespace RefrigtzW
                                                 KingOnTable[i].KingThinking[0].ThinkingBegin = true;
                                                 KingOnTable[i].KingThinking[0].ThinkingFinished = false;
                                                 KingOnTable[i].KingThinking[0].Kind = 6;
-                                                KingOnTable[i].KingThinking[0].Thinking();
+                                                KingOnTable[i].KingThinking[0].t = new Task(new Action(KingOnTable[i].KingThinking[0].Thinking));
+                                                KingOnTable[i].KingThinking[0].t.Start();
+
+                                                
                                             }
                                         });
                                     }
@@ -10497,8 +10511,9 @@ namespace RefrigtzW
                                     {
                                         SolderesOnTable[i].SoldierThinking[0].ThinkingBegin = true;
                                         SolderesOnTable[i].SoldierThinking[0].ThinkingFinished = false;
-                                        //SolderesOnTable[i].SoldierThinking[0].t = new Task(new Action(SolderesOnTable[i].SoldierThinking[0].Thinking));
-                                        SolderesOnTable[i].SoldierThinking[0].Thinking();
+                                        SolderesOnTable[i].SoldierThinking[0].t = new Task(new Action(SolderesOnTable[i].SoldierThinking[0].Thinking));
+                                        SolderesOnTable[i].SoldierThinking[0].t.Start();
+                                        //SolderesOnTable[i].SoldierThinking[0].Thinking();
                                     }
 
                                 });
@@ -10553,7 +10568,9 @@ namespace RefrigtzW
                                     {
                                         ElephantOnTable[i].ElefantThinking[0].ThinkingBegin = true;
                                         ElephantOnTable[i].ElefantThinking[0].ThinkingFinished = false;
-                                        ElephantOnTable[i].ElefantThinking[0].Thinking();
+                                        ElephantOnTable[i].ElefantThinking[0].t = new Task(new Action(ElephantOnTable[i].ElefantThinking[0].Thinking));
+                                        ElephantOnTable[i].ElefantThinking[0].t.Start();
+
                                     }
                                 });
                            }
@@ -10606,7 +10623,10 @@ namespace RefrigtzW
                                   {
                                       HoursesOnTable[i].HourseThinking[0].ThinkingBegin = true;
                                       HoursesOnTable[i].HourseThinking[0].ThinkingFinished = false;
-                                      HoursesOnTable[i].HourseThinking[0].Thinking();
+                                      HoursesOnTable[i].HourseThinking[0].t = new Task(new Action(HoursesOnTable[i].HourseThinking[0].Thinking));
+                                      HoursesOnTable[i].HourseThinking[0].t.Start();
+
+
                                   }
                               });
                           }
@@ -10659,7 +10679,9 @@ namespace RefrigtzW
                                    //Thinking of Gray Castles Operational.
                                    CastlesOnTable[i].CastleThinking[0].ThinkingBegin = true;
                                        CastlesOnTable[i].CastleThinking[0].ThinkingFinished = false;
-                                       CastlesOnTable[i].CastleThinking[0].Thinking();
+                                       CastlesOnTable[i].CastleThinking[0].t = new Task(new Action(CastlesOnTable[i].CastleThinking[0].Thinking));
+                                       CastlesOnTable[i].CastleThinking[0].t.Start();
+
                                    }
                                });
 
@@ -10713,7 +10735,9 @@ namespace RefrigtzW
                                   {
                                       MinisterOnTable[i].MinisterThinking[0].ThinkingBegin = true;
                                       MinisterOnTable[i].MinisterThinking[0].ThinkingFinished = false;
-                                      MinisterOnTable[i].MinisterThinking[0].Thinking();
+                                      MinisterOnTable[i].MinisterThinking[0].t = new Task(new Action(MinisterOnTable[i].MinisterThinking[0].Thinking));
+                                      MinisterOnTable[i].MinisterThinking[0].t.Start();
+
                                   }
                               });
 
@@ -10767,7 +10791,9 @@ namespace RefrigtzW
                                   {
                                       KingOnTable[i].KingThinking[0].ThinkingBegin = true;
                                       KingOnTable[i].KingThinking[0].ThinkingFinished = false;
-                                      KingOnTable[i].KingThinking[0].Thinking();
+
+                                      KingOnTable[i].KingThinking[0].t = new Task(new Action(KingOnTable[i].KingThinking[0].Thinking));
+                                      KingOnTable[i].KingThinking[0].t.Start();
                                   }
                               });
 
@@ -12550,7 +12576,7 @@ namespace RefrigtzW
                 TaskBegin++;
                 while (SolderesOnTable[ik].SoldierThinking[0].ThinkingBegin && (!SolderesOnTable[ik].SoldierThinking[0].ThinkingFinished))
                 {
-
+                    System.Threading.Thread.Sleep(1);
                 }// S += 100; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
 
 
@@ -12631,9 +12657,10 @@ namespace RefrigtzW
                                             Color aa = a;
                                             int[,] Tab = CloneATable(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j]);
                                             int Ord = Order;
-                                            //Task array = Task.Factory.StartNew(() => SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j]), Order, false, FOUND));
                                             SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                            SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
+                                            Task array = Task.Factory.StartNew(() => SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j]), Order, false, FOUND,LeafAStarGreedy));
+                                            
+                                            //SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                             //array.Start();
                                             /*if (!AllDraw.Blitz)
                                             {
@@ -12720,9 +12747,10 @@ namespace RefrigtzW
                                             Color aa = a;
                                             int[,] Tab = CloneATable(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j]);
                                             int Ord = Order;
-                                            //Task array = Task.Factory.StartNew(() => SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j]), Order, false, FOUND));
                                             SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                            SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
+                                            Task array = Task.Factory.StartNew(() => SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j]), Order, false, FOUND,LeafAStarGreedy));
+                                            
+                                            //SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                             //array.Start();
                                             /*if (!AllDraw.Blitz)
                                             {
@@ -12797,7 +12825,7 @@ namespace RefrigtzW
                 while (ElephantOnTable[ik].ElefantThinking[0].ThinkingBegin && (!ElephantOnTable[ik].ElefantThinking[0].ThinkingFinished))
 
                 {
-                    //
+                    System.Threading.Thread.Sleep(1);
                 }// S += 100; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
 
                 //List<Task> tHA = new List<Task>();
@@ -12874,9 +12902,9 @@ namespace RefrigtzW
                                                 Color aa = a;
                                                 int[,] Tab = CloneATable(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j]);
                                                 int Ord = Order;
-                                                SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                //Task array = Task.Factory.StartNew(() => ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j]), Order, false, FOUND));
-                                                ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
+                                                ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                                Task array = Task.Factory.StartNew(() => ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j]), Order, false, FOUND,LeafAStarGreedy));
+                                                //ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                                 //array.Start();
                                                 /*if (!AllDraw.Blitz)
                                                 {
@@ -12961,9 +12989,10 @@ namespace RefrigtzW
                                                 Color aa = a;
                                                 int[,] Tab = CloneATable(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j]);
                                                 int Ord = Order;
-                                                ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                //Task array = Task.Factory.StartNew(() => ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j]), Order, false, FOUND));
+                                                //ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                                                 ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
+                                                Task array = Task.Factory.StartNew(() => ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j]), Order, false, FOUND,LeafAStarGreedy));
+                                                
                                                 //array.Start();
                                                 /*if (!AllDraw.Blitz)
                                                 {
@@ -13039,7 +13068,7 @@ namespace RefrigtzW
                 TaskBegin++;
                 while (HoursesOnTable[ik].HourseThinking[0].ThinkingBegin && (!HoursesOnTable[ik].HourseThinking[0].ThinkingFinished))
                 {
-                    //
+                    System.Threading.Thread.Sleep(1);
                 }// S += 100; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
 
                 //List<Task> tHA = new List<Task>();
@@ -13117,8 +13146,9 @@ namespace RefrigtzW
                                            int[,] Tab = CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j]);
                                            int Ord = Order;
                                            HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                           //Task array = Task.Factory.StartNew(() => HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j]), Order, false, FOUND));
-                                           HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
+                                           //HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
+                                           Task array = Task.Factory.StartNew(() => HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j]), Order, false, FOUND,LeafAStarGreedy));
+                                           
                                            //array.Start();
                                            /*if (!AllDraw.Blitz)
                                           {
@@ -13205,8 +13235,8 @@ namespace RefrigtzW
                                            int[,] Tab = CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j]);
                                            int Ord = Order;
                                            HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                           //Task array = Task.Factory.StartNew(() => HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j]), Order, false, FOUND));
-                                           HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
+                                           Task array = Task.Factory.StartNew(() => HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j]), Order, false, FOUND,LeafAStarGreedy));
+                                           //HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                            //array.Start();
                                            /*if (!AllDraw.Blitz)
                                           {
@@ -13281,7 +13311,7 @@ namespace RefrigtzW
                 TaskBegin++;
                 while (CastlesOnTable[ik].CastleThinking[0].ThinkingBegin && (!CastlesOnTable[ik].CastleThinking[0].ThinkingFinished))
                 {
-                    //
+                    System.Threading.Thread.Sleep(1);
                 }// S += 100; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
 
                 //List<Task> tHA = new List<Task>();
@@ -13358,8 +13388,8 @@ namespace RefrigtzW
                                             int[,] Tab = CloneATable(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j]);
                                             int Ord = Order;
                                             CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                            //Task array = Task.Factory.StartNew(() => CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j]), Order, false, FOUND));
-                                            CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
+                                            Task array = Task.Factory.StartNew(() => CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j]), Order, false, FOUND,LeafAStarGreedy));
+                                            //CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                             //array.Start();
                                             /*if (!AllDraw.Blitz)
                                             {
@@ -13446,8 +13476,8 @@ namespace RefrigtzW
                                             int[,] Tab = CloneATable(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j]);
                                             int Ord = Order;
                                             CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                            //Task array = Task.Factory.StartNew(() => CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j]), Order, false, FOUND));
-                                            CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
+                                            Task array = Task.Factory.StartNew(() => CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j]), Order, false, FOUND,LeafAStarGreedy));
+                                            //CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                             //array.Start();
                                             /*if (!AllDraw.Blitz)
                                             {
@@ -13520,7 +13550,7 @@ namespace RefrigtzW
                 TaskBegin++;
                 while (MinisterOnTable[ik].MinisterThinking[0].ThinkingBegin && (!MinisterOnTable[ik].MinisterThinking[0].ThinkingFinished))
                 {
-
+                    System.Threading.Thread.Sleep(1);
                 }// S += 100; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
 
                 //List<Task> tHA = new List<Task>();
@@ -13598,8 +13628,8 @@ namespace RefrigtzW
                                            int[,] Tab = CloneATable(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j]);
                                            int Ord = Order;
                                            MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                           //Task array = Task.Factory.StartNew(() => MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j]), Order, false, FOUND));
-                                           MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
+                                           Task array = Task.Factory.StartNew(() => MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j]), Order, false, FOUND,LeafAStarGreedy));
+                                           //MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                            //array.Start();
                                            /*if (!AllDraw.Blitz)
                                            {
@@ -13683,8 +13713,8 @@ namespace RefrigtzW
                                            int[,] Tab = CloneATable(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j]);
                                            int Ord = Order;
                                            MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                           //Task array = Task.Factory.StartNew(() => MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j]), Order, false, FOUND));
-                                           MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
+                                           Task array = Task.Factory.StartNew(() => MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j]), Order, false, FOUND,LeafAStarGreedy));
+                                           ///MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                            //array.Start();
                                            /*if (!AllDraw.Blitz)
                                            {
@@ -13759,7 +13789,7 @@ namespace RefrigtzW
                 TaskBegin++;
                 while (KingOnTable[ik].KingThinking[0].ThinkingBegin && (!KingOnTable[ik].KingThinking[0].ThinkingFinished))
                 {
-                    //
+                    System.Threading.Thread.Sleep(1);
                 }// S += 100; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
 
                 //List<Task> tHA = new List<Task>();
@@ -13835,8 +13865,8 @@ namespace RefrigtzW
                                        int[,] Tab = CloneATable(KingOnTable[ik].KingThinking[0].TableListKing[j]);
                                        int Ord = Order;
                                        KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                       //Task array = Task.Factory.StartNew(() => KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(KingOnTable[ik].KingThinking[0].TableListKing[j]), Order, false, FOUND));
-                                       KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
+                                       Task array = Task.Factory.StartNew(() => KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(KingOnTable[ik].KingThinking[0].TableListKing[j]), Order, false, FOUND,LeafAStarGreedy));
+                                       //KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                        //array.Start();
                                        /*if (!AllDraw.Blitz)
                                        {
@@ -13917,8 +13947,8 @@ namespace RefrigtzW
                                        int[,] Tab = CloneATable(KingOnTable[ik].KingThinking[0].TableListKing[j]);
                                        int Ord = Order;
                                        KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                       //Task array = Task.Factory.StartNew(() => KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(KingOnTable[ik].KingThinking[0].TableListKing[j]), Order, false, FOUND));
-                                       KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
+                                       Task array = Task.Factory.StartNew(() => KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(KingOnTable[ik].KingThinking[0].TableListKing[j]), Order, false, FOUND,LeafAStarGreedy));
+                                       //KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                        //array.Start();
                                        /*if (!AllDraw.Blitz)
                                        {
@@ -15751,19 +15781,21 @@ namespace RefrigtzW
                 MaxDuringLevelThinkingCreation = System.Convert.ToInt32(AllDraw.THIScomboBoxMaxLevelText);
 
                 MinThinkingTreeDepth = 0;
-                ThinkingChess.NumbersOfAllNode = 0;
+                //ThinkingChess.NumbersOfAllNode = 0;
 
                 ThinkingChess.FoundFirstMating = 0;
                 //Monitor Log File Appending ZFirst Line. 
-                String state1 = CreateHtmlTag("\n\t=====================================================================================================================================================================");
-                String state2 = CreateHtmlTag("\n\tMovment Number:" + AllDraw.MovmentsNumber);
+                String state1 = "\n\t=====================================================================================================================================================================";
+                String state2 = "\n\tMovment Number:" + AllDraw.MovmentsNumber;
 
-                String R = File.ReadAllText(Root + "\\Database\\Monitor.html");
-                R = R.Replace("</body>", "");
-                File.WriteAllText(Root + "\\Database\\Monitor.html", R);
-                File.AppendAllText(Root + "\\Database\\Monitor.html", "\n\t" + state1 + "<br/>");
-                File.AppendAllText(AllDraw.Root + "\\Database\\Monitor.html", state2 + "<br/>");
-                File.AppendAllText(Root + "\\Database\\Monitor.html", "\n\t" + "</body>");
+                //String R = File.ReadAllText(Root + "\\Database\\Monitor.html");
+                //R = R.Replace("</body>", "");
+                //File.WriteAllText(Root + "\\Database\\Monitor.html", R);
+                ////File.AppendAllText(Root + "\\Database\\Monitor.html", "\n\t" + state1 + "<br/>");
+                //File.AppendAllText(AllDraw.Root + "\\Database\\Monitor.html", state2 + "<br/>");
+                //File.AppendAllText(Root + "\\Database\\Monitor.html", "\n\t" + "</body>");
+                OutPut += state1;
+                OutPut += state2;
 
                 //Initiate Local and Global Variables.            
                 //ThinkingChess.Sign = 1;

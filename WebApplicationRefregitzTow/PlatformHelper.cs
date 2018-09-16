@@ -4,7 +4,7 @@ namespace System.Threading
     
     using System;
     using System.Runtime.CompilerServices;
-    [field: NonSerialized]
+    //[field: NonSerialized]
     internal static class PlatformHelper
     {
         

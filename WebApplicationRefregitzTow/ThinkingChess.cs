@@ -63,7 +63,6 @@
  * Thinking Tree Construction was not Complition and have empty with no reason.********RC**0.88**1**Risk Control************************************{*}QC_OK
  * Heuristic of 'Attack';'Movment';'Support';'CheckMate...' Undisiarable.**************RC**0.88**1**Risk Control************************************<*>QC _BAD
  * Huristic and Learning regime work in worth state.***********************************RC**0.88**1**Risk Control************************************(*)QC_BAD
- * Midle Targetive Search to Mate Enemy is not Legal.**********************************RC**0.88**1**Risk Control************************************(*)QC_BAD
  * **************************************************************************(+:Sum(26)) (*:Sum(1)) 5:(+:Sum(3)) 6.(+:Sum0.12**4**Managements and Cuation Programing**********************(+)) 7.(:Sum(1))
  * **************************************************************************
  */
@@ -7088,105 +7087,53 @@ namespace RefrigtzW
         }
         bool PenaltyMechanisam(int Killed, bool Before, int kind, int[,] TableS, int ii, int jj, ref QuantumAtamata Current, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int i, int j, bool Castle)
         {
-            ChessRules AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[ii, jj], TableS, Order, ii, jj);
-
-            Object O3 = new Object();
-            lock (O3)
+            Object OO = new Object();
+            lock (OO)
             {
-                if (IgnoreObjectDangour == 0)
-                    IgnoreObjectDangour = 1;
-
-                if (AA.CheckMate(TableS, Order))
+                bool RETURN = false;
+                ChessRules AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[ii, jj], TableS, Order, ii, jj);
+                Object O = new Object();
+                lock (O)
                 {
-
-                    if (AllDraw.OrderPlate == 1 && AA.CheckMateBrown)
+                    if (!UsePenaltyRegardMechnisamT)
                     {
-                        Object A = new object();
-                        lock (A)
+                        RETURN = true;
+                        AddAtList(kind, Current);
+                    }
+
+                    //Consideration to go to Check.  
+
+                    //if (!UsePenaltyRegardMechnisamT)
+                    if (AA.Check(TableS, Order))
+                    {
+                        if (Order == 1 && AA.CheckGray)
                         {
-                            FoundFirstMating++;
+                            //KishBefore = true;
+                            Object A = new object();
+                            lock (A)
+                            {
+                                NumberOfPenalties++;
+                            }
+                            Current.LearningAlgorithmPenalty();
+                            AddAtList(kind, Current);
+                            return true;
                         }
-
-                    }
-                    if (AllDraw.OrderPlate == -1 && AA.CheckMateGray)
-                    {
-                        DoEnemySelf = false;
-                        Object A = new object();
-                        lock (A)
+                        else
+                            if (Order == -1 && AA.CheckBrown)
                         {
-                            FoundFirstMating++;
+                            //KishBefore = true;
+                            Object A = new object();
+                            lock (A)
+                            {
+                                NumberOfPenalties++;
+                            }
+                            Current.LearningAlgorithmPenalty();
+                            AddAtList(kind, Current);
+                            return true;
                         }
                     }
-                    if (Order == 1 && AA.CheckMateBrown)
-                    {
-                        DoEnemySelf = false;
-
-                        EnemyCheckMateActionsString = true;
-                    }
-                    if (Order == -1 && AA.CheckMateGray)
-                    {
-                        DoEnemySelf = false;
-
-                        EnemyCheckMateActionsString = true;
-                    }
-                    if (Order == 1 && AA.CheckMateGray)
-                    {
-
-                        EnemyCheckMateActionsString = false;
-                    }
-                    if (Order == -1 && AA.CheckMateBrown)
-                    {
-
-                        EnemyCheckMateActionsString = false;
-                    }
-                    Object OO = new Object();
-                    lock (OO)
-                    {
-                        bool RETURN = false;
-                        Object O = new Object();
-                        lock (O)
-                        {
-                            if (!UsePenaltyRegardMechnisamT)
-                            {
-                                RETURN = true;
-                                AddAtList(kind, Current);
-                            }
-
-                            //Consideration to go to Check.  
-
-                            //if (!UsePenaltyRegardMechnisamT)
-                            if (Order == 1 && AA.CheckGray)
-                            {
-                                //KishBefore = true;
-                                Object A = new object();
-                                lock (A)
-                                {
-                                    NumberOfPenalties++;
-                                }
-                                Current.LearningAlgorithmPenalty();
-                                AddAtList(kind, Current);
-                                return true;
-                            }
-                            else
-                                if (Order == -1 && AA.CheckBrown)
-                            {
-                                //KishBefore = true;
-                                Object A = new object();
-                                lock (A)
-                                {
-                                    NumberOfPenalties++;
-                                }
-                                Current.LearningAlgorithmPenalty();
-                                AddAtList(kind, Current);
-                                return true;
-                            }
-
-                            if (RETURN)
-                                return false;
-                        }
-
-                    }
-
+                    if (RETURN)
+                        return false;
                 }
 
                 //Initiate Local Variables.
@@ -7246,7 +7193,57 @@ namespace RefrigtzW
                     IsGardForCurrentMovmentsAndIsNotMova = LearningV[12];
                     IsNotSafeToMoveAenemeyToAttackMoreThanTowObj = LearningV[13];
                 }
-                
+                Object O3 = new Object();
+                lock (O3)
+                {
+                    if (IgnoreObjectDangour == 0)
+                        IgnoreObjectDangour = 1;
+
+                    if (AA.CheckMate(TableS, Order))
+                    {
+
+                        if (AllDraw.OrderPlate == 1 && AA.CheckMateBrown)
+                        {
+                            Object A = new object();
+                            lock (A)
+                            {
+                                FoundFirstMating++;
+                            }
+
+                        }
+                        if (AllDraw.OrderPlate == -1 && AA.CheckMateGray)
+                        {
+                            DoEnemySelf = false;
+                            Object A = new object();
+                            lock (A)
+                            {
+                                FoundFirstMating++;
+                            }
+                        }
+                        if (Order == 1 && AA.CheckMateBrown)
+                        {
+                            DoEnemySelf = false;
+
+                            EnemyCheckMateActionsString = true;
+                        }
+                        if (Order == -1 && AA.CheckMateGray)
+                        {
+                            DoEnemySelf = false;
+
+                            EnemyCheckMateActionsString = true;
+                        }
+                        if (Order == 1 && AA.CheckMateGray)
+                        {
+
+                            EnemyCheckMateActionsString = false;
+                        }
+                        if (Order == -1 && AA.CheckMateBrown)
+                        {
+
+                            EnemyCheckMateActionsString = false;
+                        }
+                    }
+                }
                 //Consideration of Itterative Movments to ignore.
                 //Operation of Penalty Regard Mechanisam on Check and mate speciffically.
                 bool Equality = EqualitOne(Current, kind);
