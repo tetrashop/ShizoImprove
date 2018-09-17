@@ -6056,8 +6056,8 @@ namespace RefrigtzDLL
                         Object A3 = new object();
                         lock (A3)
                         {
-                            if (PenaltyMechanisam(Killed, false, 6, TableS, ii, jj, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle))
-                            { ThinkingAtRun = false; return; }
+                            PenaltyMechanisam(Killed, false, 6, TableS, ii, jj, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
+                            //{ ThinkingAtRun = false; return; }
                         }
 
                         Object A4 = new object();
@@ -6194,8 +6194,8 @@ namespace RefrigtzDLL
                         Object A3 = new object();
                         lock (A3)
                         {
-                            if (PenaltyMechanisam(Killed, false, 5, TableS, ii, jj, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle))
-                            { ThinkingAtRun = false; return; }
+                            PenaltyMechanisam(Killed, false, 5, TableS, ii, jj, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
+                            //{ ThinkingAtRun = false; return; }
                         }
                         ///Store of Indexes Changes and Table in specific List.
                         Object A4 = new object();
@@ -6666,8 +6666,8 @@ namespace RefrigtzDLL
                     Object A3 = new object();
                     lock (A3)
                     {
-                        if (PenaltyMechanisam(Killed, false, 4, TableS, ii, jj, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle))
-                        { ThinkingAtRun = false; return; }
+                        PenaltyMechanisam(Killed, false, 4, TableS, ii, jj, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
+                        //{ ThinkingAtRun = false; return; }
                     }
                     ///Store of Indexes Changes and Table in specific List.
                     Object A4 = new object();
@@ -6779,8 +6779,8 @@ namespace RefrigtzDLL
                         Object A3 = new object();
                         lock (A3)
                         {
-                            if (PenaltyMechanisam(Killed, false, 3, TableS, ii, jj, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle))
-                            { ThinkingAtRun = false; return; }
+                            PenaltyMechanisam(Killed, false, 3, TableS, ii, jj, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
+                            //{ ThinkingAtRun = false; return; }
                         }
 
                         ///Store of Indexes Changes and Table in specific List.
@@ -6902,8 +6902,8 @@ namespace RefrigtzDLL
                         Object A3 = new object();
                         lock (A3)
                         {
-                            if (PenaltyMechanisam(Killed, false, 2, TableS, ii, jj, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle))
-                            { ThinkingAtRun = false; return; }
+                            PenaltyMechanisam(Killed, false, 2, TableS, ii, jj, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
+                            //{ ThinkingAtRun = false; return; }
                         }
 
 
@@ -7644,8 +7644,8 @@ namespace RefrigtzDLL
                         Object A3 = new object();
                         lock (A3)
                         {
-                            if (PenaltyMechanisam(Killed, false, 1, TableS, ii, jj, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle))
-                            { ThinkingAtRun = false; return; }
+                            PenaltyMechanisam(Killed, false, 1, TableS, ii, jj, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
+                            //{ ThinkingAtRun = false; return; }
                         }
                         //}
 
@@ -7762,8 +7762,8 @@ namespace RefrigtzDLL
                         TableS[7, jj] = 0;
 
                     }
-                    if (PenaltyMechanisam(Killed, false, 6, TableS, ii, jj, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle))
-                    { ThinkingAtRun = false; return; }
+                    PenaltyMechanisam(Killed, false, 6, TableS, ii, jj, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
+                    //{ ThinkingAtRun = false; return; }
                     //Store Movments Items. 
                     int[] AS = new int[2];
                     AS[0] = i;
@@ -7961,8 +7961,8 @@ namespace RefrigtzDLL
                     TableS[7, jj] = 0;
 
                 }
-                if (PenaltyMechanisam(Killed, false, 6, TableS, ii, jj, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle))
-                { ThinkingAtRun = false; return; }
+                PenaltyMechanisam(Killed, false, 6, TableS, ii, jj, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
+                //{ ThinkingAtRun = false; return; }
 
                 //Store Movments Items.
                 int[] AS = new int[2];
