@@ -7779,7 +7779,7 @@ namespace Refrigtz
                 if (Tag.Contains("King"))
                     Tag = Tag.Replace("King", "<font Color=\"Silver\">" + "King" + "</font>");
                     */
-                String R = "<font Color=\"Red\">" + Tag + "</font>";
+                String R = "<font Color=\"Red\">" + Tag + "</font><br/>";
 
                 return R;
             }

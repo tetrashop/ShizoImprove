@@ -611,6 +611,7 @@ namespace RefrigtzDLL
                 AA.KingMidle = KingMidle;
                 AA.KingHigh = KingHigh;
                 //Initiate a new class object and clone a copy.
+
                 AA.SolderesOnTable = new DrawSoldier[SodierHigh];
                 AA.ArrangmentsChanged = ArrangmentsChanged;
                 for (int i = 0; i < SodierHigh; i++)
@@ -3636,7 +3637,7 @@ namespace RefrigtzDLL
             Object a1 = new Object();
             lock (a1)
             {
-
+                //if()
                 bool FullGameFound = false;
                 //if (ThinkingChess.FoundFirstMating > MaxAStarGreedy)
                 //   return;
