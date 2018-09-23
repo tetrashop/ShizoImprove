@@ -838,24 +838,25 @@ namespace RefrigtzDLL
             Object a1 = new Object();
             lock (a1)
             {
+                int So1 = 0;
+                int So2 = SodierMidle;
+                int El1 = 0;
+                int El2 = ElefantMidle;
+                int Ho1 = 0;
+                int Ho2 = HourseMidle;
+                int Br1 = 0;
+                int Br2 = CastleMidle;
+                int Mi1 = 0;
+                int Mi2 = MinisterMidle;
+                int Ki1 = 0;
+                int Ki2 = KingMidle;
+
                 try
                 {
                     SetRowColumnFinished = false;
                     SetObjectNumbers(TableList[0]);
                     Move = 0;
                     //Intiate Dummy Variables.
-                    int So1 = 0;
-                    int So2 = SodierMidle;
-                    int El1 = 0;
-                    int El2 = ElefantMidle;
-                    int Ho1 = 0;
-                    int Ho2 = HourseMidle;
-                    int Br1 = 0;
-                    int Br2 = CastleMidle;
-                    int Mi1 = 0;
-                    int Mi2 = MinisterMidle;
-                    int Ki1 = 0;
-                    int Ki2 = KingMidle;
                     //When Conversion Occured.
                     SolderesOnTable = new DrawSoldier[SodierHigh];
                     ElephantOnTable = new DrawElefant[ElefantHigh];
@@ -889,6 +890,8 @@ namespace RefrigtzDLL
                                     {
                                         try
                                         {
+                                            if (SolderesOnTable[So1] != null)
+                                                SolderesOnTable[So1].Dispose();
                                             //Construct Soder Gray.
                                             SolderesOnTable[So1] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, So1);
                                             //Increase So1.
@@ -912,6 +915,8 @@ namespace RefrigtzDLL
                                     {
                                         try
                                         {
+                                            if (SolderesOnTable[So2] != null)
+                                                SolderesOnTable[So2].Dispose();
                                             //Construct Soldeir Brown.
                                             SolderesOnTable[So2] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, So2);
                                             //Increase So2.
@@ -940,6 +945,9 @@ namespace RefrigtzDLL
                                     {
                                         try
                                         {
+                                            if (ElephantOnTable[El1] != null)
+                                                ElephantOnTable[El1].Dispose();
+
                                             //Construction of Draw Object.
                                             ElephantOnTable[El1] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, El1);
                                             //Increament of Gray Index.
@@ -960,6 +968,9 @@ namespace RefrigtzDLL
                                     {
                                         try
                                         {
+                                            if (ElephantOnTable[El2] != null)
+                                                ElephantOnTable[El2].Dispose();
+
                                             //Construction of Draw Brown Elephant Object. 
                                             ElephantOnTable[El2] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, El2);
                                             //Increament of Index.
@@ -991,6 +1002,9 @@ namespace RefrigtzDLL
 
                                         try
                                         {
+                                            if (HoursesOnTable[Ho1] != null)
+                                                HoursesOnTable[Ho1].Dispose();
+
                                             //Construction of Draw Brown Hourse.
                                             HoursesOnTable[Ho1] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, Ho1);
                                             //Increament of Index.
@@ -1011,6 +1025,9 @@ namespace RefrigtzDLL
                                     {
                                         try
                                         {
+                                            if (HoursesOnTable[Ho2] != null)
+                                                HoursesOnTable[Ho2].Dispose();
+
                                             //Construction of Draw Brown Hourse.
                                             HoursesOnTable[Ho2] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, Ho2);
                                             //Increament of Index.
@@ -1040,6 +1057,9 @@ namespace RefrigtzDLL
 
                                         try
                                         {
+                                            if (CastlesOnTable[Br1] != null)
+                                                CastlesOnTable[Br1].Dispose();
+
                                             //Construction of New Draw Gray Castles.
                                             CastlesOnTable[Br1] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, Br1);
                                             //Increamnt of Index.
@@ -1061,6 +1081,9 @@ namespace RefrigtzDLL
                                     {
                                         try
                                         {
+                                            if (CastlesOnTable[Br2] != null)
+                                                CastlesOnTable[Br2].Dispose();
+
                                             //Construction Draw of New Brown Castles.
                                             CastlesOnTable[Br2] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, Br2);
                                             //Increament of Index.
@@ -1089,8 +1112,12 @@ namespace RefrigtzDLL
                                     if (a == Color.Gray)
                                     {
 
+
                                         try
                                         {
+                                            if (MinisterOnTable[Mi1] != null)
+                                                MinisterOnTable[Mi1].Dispose();
+
                                             //construction of new draw Gray Minster.
                                             MinisterOnTable[Mi1] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, Mi1);
                                             //Increament of Index.
@@ -1112,6 +1139,9 @@ namespace RefrigtzDLL
                                     {
                                         try
                                         {
+                                            if (MinisterOnTable[Mi2] != null)
+                                                MinisterOnTable[Mi2].Dispose();
+
                                             //Construction of New Draw Brown Minster.
                                             MinisterOnTable[Mi2] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, Mi2);
                                             //Increament Index.
@@ -1142,6 +1172,9 @@ namespace RefrigtzDLL
 
                                         try
                                         {
+                                            if (KingOnTable[Ki1] != null)
+                                                KingOnTable[Ki1].Dispose();
+
                                             //Construction of New Draw Gray King.
                                             KingOnTable[Ki1] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, Ki1);
                                             //Increament of Index.
@@ -1164,6 +1197,9 @@ namespace RefrigtzDLL
                                     {
                                         try
                                         {
+                                            if (KingOnTable[Ki2] != null)
+                                                KingOnTable[Ki2].Dispose();
+
                                             //Construction of New Draw King Brown Object.
                                             KingOnTable[Ki2] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, Ki2);
                                             //Increament of Index.
@@ -1181,43 +1217,9 @@ namespace RefrigtzDLL
 
                                 }
                             }
-                        SetObjectNumbers(TableList[0]);
+                        
                         //Make Empty Remaining.
-                        for (int i = So1; i < SodierMidle; i++)
-                            SolderesOnTable[i] = null;
-
-                        for (int i = So2; i < SodierHigh; i++)
-                            SolderesOnTable[i] = null;
-
-                        for (int i = El1; i < ElefantMidle; i++)
-                            ElephantOnTable[i] = null;
-
-                        for (int i = El2; i < ElefantHigh; i++)
-                            ElephantOnTable[i] = null;
-
-                        for (int i = Ho1; i < HourseMidle; i++)
-                            HoursesOnTable[i] = null;
-
-                        for (int i = Ho2; i < HourseHight; i++)
-                            HoursesOnTable[i] = null;
-
-                        for (int i = Br1; i < CastleMidle; i++)
-                            CastlesOnTable[i] = null;
-
-                        for (int i = Br2; i < CastleHigh; i++)
-                            CastlesOnTable[i] = null;
-
-                        for (int i = Mi1; i < MinisterMidle; i++)
-                            MinisterOnTable[i] = null;
-
-                        for (int i = Mi2; i < MinisterHigh; i++)
-                            MinisterOnTable[i] = null;
-
-                        for (int i = Ki1; i < KingMidle; i++)
-                            KingOnTable[i] = null;
-
-                        for (int i = Ki2; i < KingHigh; i++)
-                            KingOnTable[i] = null;
+                     
 
                     }
 
@@ -1227,6 +1229,42 @@ namespace RefrigtzDLL
                 {
                     Log(t);
                 }
+                SetObjectNumbers(TableList[0]);
+                for (int i = So1; i < SodierMidle; i++)
+                    SolderesOnTable[i] = null;
+
+                for (int i = So2; i < SodierHigh; i++)
+                    SolderesOnTable[i] = null;
+
+                for (int i = El1; i < ElefantMidle; i++)
+                    ElephantOnTable[i] = null;
+
+                for (int i = El2; i < ElefantHigh; i++)
+                    ElephantOnTable[i] = null;
+
+                for (int i = Ho1; i < HourseMidle; i++)
+                    HoursesOnTable[i] = null;
+
+                for (int i = Ho2; i < HourseHight; i++)
+                    HoursesOnTable[i] = null;
+
+                for (int i = Br1; i < CastleMidle; i++)
+                    CastlesOnTable[i] = null;
+
+                for (int i = Br2; i < CastleHigh; i++)
+                    CastlesOnTable[i] = null;
+
+                for (int i = Mi1; i < MinisterMidle; i++)
+                    MinisterOnTable[i] = null;
+
+                for (int i = Mi2; i < MinisterHigh; i++)
+                    MinisterOnTable[i] = null;
+
+                for (int i = Ki1; i < KingMidle; i++)
+                    KingOnTable[i] = null;
+
+                for (int i = Ki2; i < KingHigh; i++)
+                    KingOnTable[i] = null;
                 SetRowColumnFinished = true;
             }
         }
@@ -15950,8 +15988,7 @@ namespace RefrigtzDLL
                 MaxHuristicAStarGreedytBackWard.Clear();
                
                 int[,] Tab = null;
-                int[,] TablInit = null;
-
+              
                 if (!FOUND)
                 {
                     Object O7 = new Object();

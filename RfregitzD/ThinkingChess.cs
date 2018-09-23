@@ -63,6 +63,7 @@
  * Thinking Tree Construction was not Complition and have empty with no reason.********RC**0.88**1**Risk Control************************************{*}QC_OK
  * Heuristic of 'Attack';'Movment';'Support';'CheckMate...' Undisiarable.**************RC**0.88**1**Risk Control************************************<*>QC _BAD
  * Huristic and Learning regime work in worth state.***********************************RC**0.88**1**Risk Control************************************(*)QC_BAD
+ * Mal Function in Boundray Conditions founding in Leaf Creation Tree.*****************RC**0.88**1**Risk Control************************************(*)QC_BAD
  * **************************************************************************(+:Sum(26)) (*:Sum(1)) 5:(+:Sum(3)) 6.(+:Sum0.12**4**Managements and Cuation Programing**********************(+)) 7.(:Sum(1))
  * **************************************************************************
  */
@@ -120,7 +121,7 @@ namespace RefrigtzDLL
         public int KingHigh = 2;
         public static bool KingMaovableGray = false;
         public static bool KingMaovableBrown = false;
-        public static int FoundFirstMating = 0;
+        public static int FoundFirstMating;
         public int SodierValue = 1 * 3;
         public int ElefantValue = 2 * 16;
         public int HourseValue = 3 * 8;
@@ -200,14 +201,10 @@ namespace RefrigtzDLL
                 Object a = new Object();
                 lock (a)
                 {
-                    try
-                    {        //Initiate Variable.
-                        string stackTrace = ex.ToString();
+                      string stackTrace = ex.ToString();
                         //Write to File.
                         File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); /// path of file where stack trace will be stored.
-                    }
-                    catch (Exception t)
-                    { }
+                    
                 }
             }
             catch (Exception t) { Log(t); }
@@ -2165,6 +2162,7 @@ namespace RefrigtzDLL
                                         Table[iiii, jjjj] = Table[ii, jj];
                                         Table[ii, jj] = 0;
                                         //Is Dangrous for King.
+                                        A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tab[iiii, jjjj], Table, Order , iiii, jjjj);
                                         if (A.ObjectDangourKingMove(Order, Table, false))
                                         {
                                             //Clone a Copy.
@@ -7121,6 +7119,7 @@ namespace RefrigtzDLL
             lock (OO)
             {
                 bool RETURN = false;
+                Object O3 = new Object();
                 ChessRules AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[ii, jj], TableS, Order, ii, jj);
                 Object O = new Object();
                 lock (O)
@@ -7130,12 +7129,50 @@ namespace RefrigtzDLL
                         RETURN = true;
                         AddAtList(kind, Current);
                     }
-
                     //Consideration to go to Check.  
 
                     //if (!UsePenaltyRegardMechnisamT)
-                    if (AA.Check(TableS, Order))
+                    AA.CheckMate(TableS, Order);
                     {
+                        if (AllDraw.OrderPlate == 1 && AA.CheckMateBrown)
+                        {
+                            Object A = new Object();
+                            lock (A)
+                            {
+                                FoundFirstMating++;
+                            }
+
+                        }
+                        if (AllDraw.OrderPlate == -1 && AA.CheckMateGray)
+                        {
+                            DoEnemySelf = false;
+                            Object A = new Object();
+                            lock (A)
+                            {
+                                FoundFirstMating++;
+                            }
+                        }
+                        if (Order == 1 && AA.CheckMateBrown)
+                        {
+                            DoEnemySelf = false;
+                            EnemyCheckMateActionsString = true;
+                        }
+                        if (Order == -1 && AA.CheckMateGray)
+                        {
+                            DoEnemySelf = false;
+                            EnemyCheckMateActionsString = true;
+                        }
+                        if (Order == 1 && AA.CheckMateGray)
+                        {
+
+                            EnemyCheckMateActionsString = false;
+                        }
+                        if (Order == -1 && AA.CheckMateBrown)
+                        {
+
+                            EnemyCheckMateActionsString = false;
+                        }
+
                         if (Order == 1 && AA.CheckGray)
                         {
                             //KishBefore = true;
@@ -7144,9 +7181,12 @@ namespace RefrigtzDLL
                             {
                                 NumberOfPenalties++;
                             }
-                            Current.LearningAlgorithmPenalty();
-                            AddAtList(kind, Current);
-                            return true;
+                            if (!RETURN)
+                            {
+                                Current.LearningAlgorithmPenalty();
+                                AddAtList(kind, Current);
+                                return true;
+                            }
                         }
                         else
                             if (Order == -1 && AA.CheckBrown)
@@ -7157,9 +7197,12 @@ namespace RefrigtzDLL
                             {
                                 NumberOfPenalties++;
                             }
-                            Current.LearningAlgorithmPenalty();
-                            AddAtList(kind, Current);
-                            return true;
+                            if (!RETURN)
+                            {
+                                Current.LearningAlgorithmPenalty();
+                                AddAtList(kind, Current);
+                                return true;
+                            }
                         }
                     }
                     if (RETURN)
@@ -7223,58 +7266,7 @@ namespace RefrigtzDLL
                     IsGardForCurrentMovmentsAndIsNotMova = LearningV[12];
                     IsNotSafeToMoveAenemeyToAttackMoreThanTowObj = LearningV[13];
                 }
-                Object O3 = new Object();
-                lock (O3)
-                {
-                    if (IgnoreObjectDangour == 0)
-                        IgnoreObjectDangour = 1;
-
-                    if (AA.CheckMate(TableS, Order))
-                    {
-
-                        if (AllDraw.OrderPlate == 1 && AA.CheckMateBrown)
-                        {
-                            Object A = new object();
-                            lock (A)
-                            {
-                                FoundFirstMating++;
-                            }
-
-                        }
-                        if (AllDraw.OrderPlate == -1 && AA.CheckMateGray)
-                        {
-                            DoEnemySelf = false;
-                            Object A = new object();
-                            lock (A)
-                            {
-                                FoundFirstMating++;
-                            }
-                        }
-                        if (Order == 1 && AA.CheckMateBrown)
-                        {
-                            DoEnemySelf = false;
-
-                            EnemyCheckMateActionsString = true;
-                        }
-                        if (Order == -1 && AA.CheckMateGray)
-                        {
-                            DoEnemySelf = false;
-
-                            EnemyCheckMateActionsString = true;
-                        }
-                        if (Order == 1 && AA.CheckMateGray)
-                        {
-
-                            EnemyCheckMateActionsString = false;
-                        }
-                        if (Order == -1 && AA.CheckMateBrown)
-                        {
-
-                            EnemyCheckMateActionsString = false;
-                        }
-                    }
-                }
-                //Consideration of Itterative Movments to ignore.
+                     //Consideration of Itterative Movments to ignore.
                 //Operation of Penalty Regard Mechanisam on Check and mate speciffically.
                 bool Equality = EqualitOne(Current, kind);
 

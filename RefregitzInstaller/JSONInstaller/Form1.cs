@@ -44,7 +44,7 @@ namespace JSONInstaller
                 {
                     using (Process p = Process.GetCurrentProcess())
                     {
-                        bool retVal;
+                        bool retVal = false;
                         if (!IsWow64Process(p.Handle, out retVal))
                         {
                             return false;
@@ -67,7 +67,7 @@ namespace JSONInstaller
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            PlatformID A = new PlatformID();
+            
             if (!FormJSONInstaller.InternalCheck.InternalCheckIsWow64())
             {
                 MessageBox.Show("نصب 32 بیتی");
@@ -305,9 +305,6 @@ namespace JSONInstaller
  
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
        
-        }
     }
 }

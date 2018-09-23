@@ -43,6 +43,11 @@ namespace RefrigtzDLL
             }
             catch (Exception t) { Log(t); }
         }
+        public void Dispose()
+        {
+            ValuableSelfSupported = null;
+            C = null;
+        }
         public bool MaxFound(ref bool MaxNotFound)
         {
             try

@@ -3188,7 +3188,6 @@ namespace RefrigtzDLL
         public bool SoldierRules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool ExistInDestinationEnemy)
         {
 
-            bool Move = false;
             if (!(ArrangmentsBoard))
             {
                 return SoldierRulesaArrangmentsBoardZero(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy);

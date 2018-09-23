@@ -44,6 +44,12 @@ namespace RefrigtzDLL
             }
             catch (Exception t) { Log(t); }
         }
+        public void Dispose()
+        {
+            ValuableSelfSupported = null;
+            K = null;
+        }
+
         public double ReturnHuristic()
         {
             double a = 0;
