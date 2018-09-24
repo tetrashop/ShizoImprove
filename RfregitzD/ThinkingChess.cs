@@ -264,17 +264,17 @@ namespace RefrigtzDLL
             Object o = new Object();
             lock (o)
             {
-                for (int h = 0; h < 8; h++)
-                    for (int m = 0; m < 8; m++)
+                //for (int h = 0; h < 8; h++)
+                    //for (int m = 0; m < 8; m++)
                     {
-                        if (h != Row || m != Column)
-                            continue;
-                        Value[h, m] = 0;
+                        //if (h != Row || m != Column)
+                            //return;
+                        Value[Row, Column] = 0;
                         {
-                            if (TableConst == null || TableConst[h, m] == 0)
-                                continue;
+                            if (TableConst == null || TableConst[Row, Column] == 0)
+                                return;
                             if (TableConst != null)
-                                Value[h, m] += ObjectValueCalculator(TableConst, Order, h, m);
+                                Value[Row, Column] += ObjectValueCalculator(TableConst, Order, Row, Column);
                         }
                     }
             }
@@ -401,7 +401,7 @@ namespace RefrigtzDLL
                 Order = Ord;
                 ThinkingBegin = ThinkingBeg;
                 //AStarGreedy = new List<AllDraw>();
-                Object o = new Object();
+                /*Object o = new Object();
                 lock (o)
                 {
                     for (int h = 0; h < 8; h++)
@@ -416,6 +416,7 @@ namespace RefrigtzDLL
 
                         }
                 }
+                */
             }
         }
         //Clone A Table
@@ -604,9 +605,9 @@ namespace RefrigtzDLL
                     for (int i = 0; i < PenaltyRegardListSolder.Count; i++)
                     {
                         //Initiate a new Quantum Atamata Object
-                        QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                        //QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                         //Add New Object Create to New Penalty Solder List.
-                        AA.PenaltyRegardListSolder.Add(Current);
+                        AA.PenaltyRegardListSolder.Add(PenaltyRegardListSolder[i]);
                     }
                 }
                 else
@@ -618,11 +619,11 @@ namespace RefrigtzDLL
                     for (int i = 0; i < PenaltyRegardListElefant.Count; i++)
                     {
                         //Initiate a new Quantum Atamata Object
-                        QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                        //QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                         //Clone a Copy Of Penalty Elephant.
-                        PenaltyRegardListElefant[i].Clone(ref Current);
+                        AA.PenaltyRegardListElefant.Add(PenaltyRegardListElefant[i]);
                         //Add New Object Create to New Penalty Elephant List.
-                        AA.PenaltyRegardListElefant.Add(Current);
+                        //AA.PenaltyRegardListElefant.Add(Current);
                     }
 
                 }
@@ -638,9 +639,9 @@ namespace RefrigtzDLL
                         //Initiate a new Quantum Atamata Object
                         QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                         //Clone a Copy Of Penalty Hourse.
-                        PenaltyRegardListHourse[i].Clone(ref Current);
+                        //PenaltyRegardListHourse[i].Clone(ref Current);
                         //Add New Object Create to New Penalty Hourse List.
-                        AA.PenaltyRegardListHourse.Add(Current);
+                        AA.PenaltyRegardListHourse.Add(PenaltyRegardListHourse[i]);
                     }
 
                 }
@@ -654,11 +655,11 @@ namespace RefrigtzDLL
                     for (int i = 0; i < PenaltyRegardListCastle.Count; i++)
                     {
                         //Initiate a new Quantum Atamata Object
-                        QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                        //QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                         //Clone a Copy Of Penalty Castles.
-                        PenaltyRegardListCastle[i].Clone(ref Current);
+                        //PenaltyRegardListCastle[i].Clone(ref Current);
                         //Add New Object Create to New Penalty Castles List.
-                        AA.PenaltyRegardListCastle.Add(Current);
+                        AA.PenaltyRegardListCastle.Add(PenaltyRegardListCastle[i]);
                     }
                 }
                 else
@@ -671,11 +672,11 @@ namespace RefrigtzDLL
                     for (int i = 0; i < PenaltyRegardListMinister.Count; i++)
                     {
                         //Initiate a new Quantum Atamata Object
-                        QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                        //QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                         //Clone a Copy Of Penalty Minsiter.
-                        PenaltyRegardListMinister[i].Clone(ref Current);
+                        //PenaltyRegardListMinister[i].Clone(ref Current);
                         //Add New Object Create to New Penalty Minsietr List.
-                        AA.PenaltyRegardListMinister.Add(Current);
+                        AA.PenaltyRegardListMinister.Add(PenaltyRegardListMinister[i]);
                     }
                 }
                 else
@@ -688,11 +689,11 @@ namespace RefrigtzDLL
                     for (int i = 0; i < PenaltyRegardListKing.Count; i++)
                     {
                         //Initiate a new Quantum Atamata Object
-                        QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                        //QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                         //Clone a Copy Of Penalty King.
-                        PenaltyRegardListKing[i].Clone(ref Current);
+                        //PenaltyRegardListKing[i].Clone(ref Current);
                         //Add New Object Create to New Penalty King List.
-                        AA.PenaltyRegardListKing.Add(Current);
+                        AA.PenaltyRegardListKing.Add(PenaltyRegardListKing[i]);
                     }
                 }
                 //Iniktiate Same Obejcts to New Same Obejcts.
