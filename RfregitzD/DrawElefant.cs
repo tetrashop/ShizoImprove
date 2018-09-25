@@ -194,15 +194,23 @@ namespace RefrigtzDLL
                     //Gray Color.
                     if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
                     {
-                        if (color == Color.Gray)
+                        if(Order==1)
                         {
-                            //Draw an Instatnt Gray Elephant On the Table.
-                            g.DrawImage(E[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                            Object O1 = new Object();
+                            lock (O1)
+                            {    //Draw an Instant from File of Gray Soldeirs.
+                                 //Draw an Instatnt Gray Elephant On the Table.
+                                g.DrawImage(E[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                            }
                         }
                         else
                         {
-                            //Draw an Instatnt Brown Elepehnt On the Table.
-                            g.DrawImage(E[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                            Object O1 = new Object();
+                            lock (O1)
+                            {    //Draw an Instant from File of Gray Soldeirs.
+                                 //Draw an Instatnt Brown Elepehnt On the Table.
+                                g.DrawImage(E[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                            }
                         }
                     }
                 }

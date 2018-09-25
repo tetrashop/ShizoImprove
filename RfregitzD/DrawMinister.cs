@@ -193,15 +193,23 @@ namespace RefrigtzDLL
                     if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
                     {
                         //Gray Order.
-                        if (color == Color.Gray)
+                        if(Order==1)
                         {
-                            //Draw a Gray Instatnt Minister Image on the Table.
-                            g.DrawImage(M[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                            Object O1 = new Object();
+                            lock (O1)
+                            {    //Draw an Instant from File of Gray Soldeirs.
+                                 //Draw a Gray Instatnt Minister Image on the Table.
+                                g.DrawImage(M[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                            }
                         }
                         else
                         {
-                            //Draw a Brown Instatnt Minister Image on the Table.
-                            g.DrawImage(M[1], new Rectangle((int)(Row * CellW), (int)(Column * (float)CellH), CellW, CellH));
+                            Object O1 = new Object();
+                            lock (O1)
+                            {    //Draw an Instant from File of Gray Soldeirs.
+                                 //Draw a Brown Instatnt Minister Image on the Table.
+                                g.DrawImage(M[1], new Rectangle((int)(Row * CellW), (int)(Column * (float)CellH), CellW, CellH));
+                            }
                         }
                     }
                 }

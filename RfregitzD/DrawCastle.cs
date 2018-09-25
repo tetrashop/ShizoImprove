@@ -192,15 +192,23 @@ namespace RefrigtzDLL
                     }
                     if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
                     { //Gray Color.
-                        if (color == Color.Gray)
+                        if(Order==1)
                         {
-                            //Draw a Gray Castles Instatnt Image On hte Tabe.
-                            g.DrawImage(C[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                            Object O1 = new Object();
+                            lock (O1)
+                            {    //Draw an Instant from File of Gray Soldeirs.
+                                 //Draw a Gray Castles Instatnt Image On hte Tabe.
+                                g.DrawImage(C[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                            }
                         }
                         else
                         {
-                            //Draw an Instatnt of Brown Castles On the Table.
-                            g.DrawImage(C[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                            Object O1 = new Object();
+                            lock (O1)
+                            {    //Draw an Instant from File of Gray Soldeirs.
+                                 //Draw an Instatnt of Brown Castles On the Table.
+                                g.DrawImage(C[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                            }
                         }
                     }
                 }

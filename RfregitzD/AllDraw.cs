@@ -11509,7 +11509,10 @@ namespace RefrigtzDLL
                 //if (iAStarGreedy <= 0)
                 //return null;
                 if (ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
+                {
+                    OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
                     return null;
+                }
 
                 CurrentAStarGredyMax = AStarGreedyiLevelMax - iAStarGreedy;
                 iAStarGreedy--;
