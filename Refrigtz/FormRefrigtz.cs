@@ -1952,19 +1952,20 @@ namespace Refrigtz
                             Object O1 = new Object();
                                 lock (O1)
                                 {
-                                    if (Draw.SolderesOnTable[i] == null)
-                                        return;
-                                    try
+                                    if (Draw.SolderesOnTable[i] != null)
                                     {
-                                        Object O = new Object();
-                                        lock (O)
+                                        try
                                         {
-                                            Draw.SolderesOnTable[i].DrawSoldierOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                                            Object O = new Object();
+                                            lock (O)
+                                            {
+                                                Draw.SolderesOnTable[i].DrawSoldierOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                                            }
                                         }
-                                    }
-                                    catch (Exception t)
-                                    {
-                                        Log(t);
+                                        catch (Exception t)
+                                        {
+                                            Log(t);
+                                        }
                                     }
                                 }
                             });
@@ -1975,19 +1976,20 @@ namespace Refrigtz
                             Object O1 = new Object();
                                 lock (O1)
                                 {
-                                    if (Draw.ElephantOnTable[i] == null)
-                                        return;
-                                    try
+                                    if (Draw.ElephantOnTable[i] != null)
                                     {
-                                        Object O = new Object();
-                                        lock (O)
+                                        try
                                         {
-                                            Draw.ElephantOnTable[i].DrawElefantOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                                            Object O = new Object();
+                                            lock (O)
+                                            {
+                                                Draw.ElephantOnTable[i].DrawElefantOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                                            }
                                         }
-                                    }
-                                    catch (Exception t)
-                                    {
-                                        Log(t);
+                                        catch (Exception t)
+                                        {
+                                            Log(t);
+                                        }
                                     }
                                 }
                             });
@@ -1998,19 +2000,20 @@ namespace Refrigtz
                              Object O1 = new Object();
                                  lock (O1)
                                  {
-                                     if (Draw.HoursesOnTable[i] == null)
-                                         return;
-                                     try
+                                     if (Draw.HoursesOnTable[i] != null)
                                      {
-                                         Object O = new Object();
-                                         lock (O)
+                                         try
                                          {
-                                             Draw.HoursesOnTable[i].DrawHourseOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                                             Object O = new Object();
+                                             lock (O)
+                                             {
+                                                 Draw.HoursesOnTable[i].DrawHourseOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                                             }
                                          }
-                                     }
-                                     catch (Exception t)
-                                     {
-                                         Log(t);
+                                         catch (Exception t)
+                                         {
+                                             Log(t);
+                                         }
                                      }
                                  }
                              });
@@ -2021,19 +2024,20 @@ namespace Refrigtz
                              Object O1 = new Object();
                                  lock (O1)
                                  {
-                                     if (Draw.CastlesOnTable[i] == null)
-                                         return;
-                                     try
+                                     if (Draw.CastlesOnTable[i] != null)
                                      {
-                                         Object O = new Object();
-                                         lock (O)
+                                         try
                                          {
-                                             Draw.CastlesOnTable[i].DrawCastleOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                                             Object O = new Object();
+                                             lock (O)
+                                             {
+                                                 Draw.CastlesOnTable[i].DrawCastleOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                                             }
                                          }
-                                     }
-                                     catch (Exception t)
-                                     {
-                                         Log(t);
+                                         catch (Exception t)
+                                         {
+                                             Log(t);
+                                         }
                                      }
                                  }
                              });
@@ -2044,20 +2048,21 @@ namespace Refrigtz
                              Object O1 = new Object();
                                  lock (O1)
                                  {
-                                     if (Draw.MinisterOnTable[i] == null)
-                                         return;
-                                     try
+                                     if (Draw.MinisterOnTable[i] != null)
                                      {
-                                         Object O = new Object();
-                                         lock (O)
+                                         try
                                          {
-                                             Draw.MinisterOnTable[i].DrawMinisterOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
-                                         }
+                                             Object O = new Object();
+                                             lock (O)
+                                             {
+                                                 Draw.MinisterOnTable[i].DrawMinisterOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                                             }
 
-                                     }
-                                     catch (Exception t)
-                                     {
-                                         Log(t);
+                                         }
+                                         catch (Exception t)
+                                         {
+                                             Log(t);
+                                         }
                                      }
                                  }
                              });
@@ -2068,19 +2073,20 @@ namespace Refrigtz
                              Object O1 = new Object();
                                  lock (O1)
                                  {
-                                     if (Draw.KingOnTable[i] == null)
-                                         return;
-                                     try
+                                     if (Draw.KingOnTable[i] != null)
                                      {
-                                         Object O = new Object();
-                                         lock (O)
+                                         try
                                          {
-                                             Draw.KingOnTable[i].DrawKingOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                                             Object O = new Object();
+                                             lock (O)
+                                             {
+                                                 Draw.KingOnTable[i].DrawKingOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                                             }
                                          }
-                                     }
-                                     catch (Exception t)
-                                     {
-                                         Log(t);
+                                         catch (Exception t)
+                                         {
+                                             Log(t);
+                                         }
                                      }
                                  }
                              });
