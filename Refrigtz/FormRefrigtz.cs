@@ -63,6 +63,7 @@
  * Serialization and Deserialization Wrong Config vars conflict.**********************************************************************************(*)QC_OK
  * MalFunctionally break heart of Access Database Configuration Table.****************************************************************************(*)QC_OK
  * Parallleism occured Misfaulting in all Opetions of this work.**********************************************************************************(*)QC_BAD
+ * Mal Function in Drawing some part of objects in somthings of games.****************************************************************************(*)QC_BAD
  * ***********************************************************************************************************
  * ***********************************************************************************************************
  */
@@ -80,6 +81,7 @@ using System.Threading;
 using System.Data.OleDb;
 using System.Media;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace Refrigtz
 {
@@ -867,15 +869,15 @@ namespace Refrigtz
 
                         System.Threading.Tasks.Parallel.For(0, a.Count, i =>
                         {
-                           try
-                           {
+                            try
+                            {
 
-                               a[i].Kill();
-                               exitToolStripMenuItem_Click(sender, e);
-                           }
-                           catch (Exception t) { Log(t); Application.ExitThread(); }
+                                a[i].Kill();
+                                exitToolStripMenuItem_Click(sender, e);
+                            }
+                            catch (Exception t) { Log(t); Application.ExitThread(); }
 
-                       });
+                        });
 
                     }
                 }
@@ -1029,6 +1031,22 @@ namespace Refrigtz
             SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
             SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
 
+            bool A = GrayTimer.TextChanged;
+            GrayTimer.TextChanged = true;
+            SetPrictureBoxRefregitzInvalidate(pictureBoxTimerGray);
+            SetPrictureBoxRefregitzUpdate(pictureBoxTimerGray);
+            GrayTimer.TextChanged = A;
+
+            A = BrownTimer.TextChanged;
+            BrownTimer.TextChanged = true;
+            SetPrictureBoxRefregitzInvalidate(pictureBoxTimerBrown);
+            SetPrictureBoxRefregitzUpdate(pictureBoxTimerBrown);
+            BrownTimer.TextChanged = A;
+
+            var parallelOptions = new ParallelOptions();
+            parallelOptions.MaxDegreeOfParallelism = PlatformHelper.ProcessorCount;
+            
+            
 
         }
         //Reading Table Database.
@@ -1945,6 +1963,8 @@ namespace Refrigtz
                                 }
                                 catch (Exception t) { Log(t); }
                             }
+                        Draw.SetObjectNumbers(Draw.TableList[0]);
+
                         System.Threading.Tasks.Parallel.Invoke(() =>
                         {
                             System.Threading.Tasks.Parallel.For(0, Draw.SodierHigh, i =>
@@ -6263,15 +6283,17 @@ namespace Refrigtz
                 THIS = null;
 
                 Color a = Color.Brown;
-                if (First)
-                    Draw.FoundOfCurrentTableNode(Table, OrderPlate * -1, ref THIS, ref FOUND);
-                else
-                    Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+                //if (First)
+                //Draw.FoundOfCurrentTableNode(Table, OrderPlate * -1, ref THIS, ref FOUND);
+                //else
+                Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
                 if (FOUND)
                 {
 
                     Draw = THIS;
-
+                    Draw.TableList.Clear();
+                    Draw.TableList.Add(Table);
+                    Draw.SetRowColumn(0);
                     // 
                     //
                     SetBoxText("\r\nDraw Found");
@@ -6699,7 +6721,7 @@ namespace Refrigtz
                                         RefrigtzDLL.AllDraw THIS = null;
 
 
-                                        SetDrawFounding(ref FOUND, ref THIS, true);
+                                        //SetDrawFounding(ref FOUND, ref THIS, true);
                                     
                                         BobSection = false;
                                         StateCC = SCC;
@@ -8046,7 +8068,7 @@ namespace Refrigtz
                     bool FOUND = false;
                     RefrigtzDLL.AllDraw THIS = null;
 
-                    SetDrawFounding(ref FOUND, ref THIS, true);
+                    //SetDrawFounding(ref FOUND, ref THIS, true);
 
                     // if (!FirstMovmentOnLoad)
                     //   FOUND = true;
@@ -8112,7 +8134,7 @@ namespace Refrigtz
 
                     RefrigtzDLL.AllDraw THIS = null;
 
-                    SetDrawFounding(ref FOUND, ref THIS, true);
+                    //SetDrawFounding(ref FOUND, ref THIS, true);
 
                     int LeafAStarGrteedy = 0;
 
@@ -8343,7 +8365,7 @@ namespace Refrigtz
                 RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                 bool FOUND = false;
 
-                SetDrawFounding(ref FOUND, ref THIS, true);
+                //SetDrawFounding(ref FOUND, ref THIS, true);
 
                 int LeafAStarGrteedy = 0;
                 Table = Draw.Initiate(1, 4, a, Table, OrderPlate, false, FOUND, LeafAStarGrteedy);
@@ -8507,7 +8529,7 @@ namespace Refrigtz
 
                 RefrigtzDLL.AllDraw THIS = null;
 
-                SetDrawFounding(ref FOUND, ref THIS, true);
+                //SetDrawFounding(ref FOUND, ref THIS, true);
 
                 int LeafAStarGrteedy = 0;
                 Table = Draw.Initiate(1, 4, a, Table, OrderPlate, false, FOUND, LeafAStarGrteedy);
@@ -11303,6 +11325,7 @@ namespace Refrigtz
                 BrownTimer = new Refrigtz.Timer(true);
                 GrayTimer.TimerInitiate();
                 BrownTimer.TimerInitiate();
+
             }
             PredictHuristic = false;
             TimerIniataite = true;

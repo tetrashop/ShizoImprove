@@ -2175,10 +2175,16 @@ namespace RefrigtzDLL
                                                 });
                                             });
                                             //When Before Move such situation is observed calculate huristic count.
-                                            if (Order == 1 && A.CheckGrayObjectDangour)
+                                            /*if (Order == 1 && A.CheckGrayObjectDangour)
                                                 HA += AllDraw.SignKingSafe * (GetObjectValue(Table, ii, jj, Order * -1) + GetObjectValue(Table, iiii, jjjj, Order));
                                             else
                                                 if (Order == -1 && A.CheckBrownObjectDangour)
+                                                HA += AllDraw.SignKingSafe * (GetObjectValue(Table, ii, jj, Order * -1) + GetObjectValue(Table, iiii, jjjj, Order));
+                                                */
+                                            if (Order == 1 && A.CheckMateGray)
+                                                HA += AllDraw.SignKingSafe * (GetObjectValue(Table, ii, jj, Order * -1) + GetObjectValue(Table, iiii, jjjj, Order));
+                                            else
+                                            if (Order == -1 && A.CheckMateBrown)
                                                 HA += AllDraw.SignKingSafe * (GetObjectValue(Table, ii, jj, Order * -1) + GetObjectValue(Table, iiii, jjjj, Order));
 
                                         }
@@ -2271,11 +2277,18 @@ namespace RefrigtzDLL
                                                 Object O4 = new Object();
                                                 lock (O4)
                                                 {
-                                                    if (Order == -1 && A.CheckGrayObjectDangour)
+                                                    /*if (Order == -1 && A.CheckGrayObjectDangour)
                                                         HA += AllDraw.SignKingDangour * (GetObjectValue(Table1, ii, jj, Order * -1) + GetObjectValue(Table1, iiii, jjjj, Order));
                                                     else
                                                         if (Order == 1 && A.CheckBrownObjectDangour)
                                                         HA += AllDraw.SignKingDangour * (GetObjectValue(Table1, ii, jj, Order * -1) + GetObjectValue(Table1, iiii, jjjj, Order));
+                                                        */
+                                                    if (Order == -1 && A.CheckMateGray)
+                                                        HA += AllDraw.SignKingDangour * (GetObjectValue(Table1, ii, jj, Order * -1) + GetObjectValue(Table1, iiii, jjjj, Order));
+                                                    else
+                                                    if (Order == 1 && A.CheckMateBrown)
+                                                        HA += AllDraw.SignKingDangour * (GetObjectValue(Table1, ii, jj, Order * -1) + GetObjectValue(Table1, iiii, jjjj, Order));
+
                                                 }
 
                                             }
@@ -3644,15 +3657,17 @@ namespace RefrigtzDLL
                 double HA = 0;
                 int DummyOrder = AllDraw.OrderPlate;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
-                double ObjectDangour = 1;
-                double Check = 1000;
+                //double ObjectDangour = 1;
+                //double Check = 1000;
+                double ObjectDangour = 0;
+                double Check = 0;
                 double CheckMate = 100000;
                 //When is self objects order divide valuse by 100
                 //Becuse reduce from danger is most favareable of caused to enemy attack
                 if (Order == AllDraw.OrderPlate)
                 {
-                    ObjectDangour = 0.01;
-                    Check = 10;
+                    //ObjectDangour = 0.01;
+                    //Check = 10;
                     CheckMate = 1000;
                 }
                 try
@@ -5898,6 +5913,8 @@ namespace RefrigtzDLL
             Object O = new Object();
             lock (O)
             {
+                if (i == ii && j == jj)
+                    return false;
                 //Scope of index out of range.
                 if (i < 0)
                     return false;
@@ -5948,19 +5965,24 @@ namespace RefrigtzDLL
                     }
 
                     if (System.Math.Abs(i - ii) <= 2 && System.Math.Abs(j - jj) <= 2)
+
                         Validity = true;
                 }
                 else
                     if (Kind == 2)//Elephant
                 {
                     if (System.Math.Abs(i - ii) == System.Math.Abs(j - jj))
+                    {
 
                         Validity = true;
+                    }
                 }
                 else
                         if (Kind == 3)//Hourse
                 {
-                    if (System.Math.Abs(i - ii) <= 2 && System.Math.Abs(j - jj) <= 2)
+                    if (System.Math.Abs(i - ii) == 1 && System.Math.Abs(j - jj) == 2)
+                        Validity = true;
+                    if (System.Math.Abs(i - ii) == 2 && System.Math.Abs(j - jj) == 1)
                         Validity = true;
                 }
                 else
@@ -5976,7 +5998,7 @@ namespace RefrigtzDLL
                         Validity = true;
                 }
                 else
-                                    if (Kind == 6)//King
+              if (Kind == 6)//King
                 {
                     if (System.Math.Abs(i - ii) <= 1 && System.Math.Abs(j - jj) <= 1)
                         Validity = true;
