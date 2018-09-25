@@ -62,6 +62,7 @@
  * Can not Send Arguments via Foriegn Sites Studies. Problem Misleading.**************************************************************************(*)QC_OK
  * Serialization and Deserialization Wrong Config vars conflict.**********************************************************************************(*)QC_OK
  * MalFunctionally break heart of Access Database Configuration Table.****************************************************************************(*)QC_OK
+ * Parallleism occured Misfaulting in all Opetions of this work.**********************************************************************************(*)QC_BAD
  * ***********************************************************************************************************
  * ***********************************************************************************************************
  */
@@ -1024,8 +1025,11 @@ namespace Refrigtz
             if (RefrigtzDLL.AllDraw.TableListAction.Count == 0)
                 RefrigtzDLL.AllDraw.TableListAction.Add(Table);
 
-             
-            
+            RefrigtzDLL.AllDraw.DrawTable = true;
+            SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
+            SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
+
+
         }
         //Reading Table Database.
         int[,] ReadTable(int Movment, ref int MoveNumber)
@@ -1850,16 +1854,18 @@ namespace Refrigtz
             Object O = new Object();
             lock (O)
             {
-                //if (RefrigtzDLL.AllDraw.DrawTable)
+                if (RefrigtzDLL.AllDraw.DrawTable)
                 {
-                    //  Thread tP = new Thread(new ThreadStart(SetRefregitzBicture));
+                    //Thread tP = new Thread(new ThreadStart(SetRefregitzBicture));
                     //tP.Start();
                     //tP.Join();
-
-                    //RefrigtzDLL.AllDraw.DrawTable = false;
                     SetRefregitzBicture();
+                    RefrigtzDLL.AllDraw.DrawTable = false;
+
+                    
                     //Thread.Sleep(20);
                 }
+
 
                 
                 
@@ -1943,107 +1949,154 @@ namespace Refrigtz
                         {
                             System.Threading.Tasks.Parallel.For(0, Draw.SodierHigh, i =>
                             {
-                                if (Draw.SolderesOnTable[i] == null)
-                                    return;
-                                try
+                            Object O1 = new Object();
+                                lock (O1)
                                 {
-                                    Draw.SolderesOnTable[i].DrawSoldierOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
-                                }
-                                catch (Exception t)
-                                {
-                                    Log(t);
+                                    if (Draw.SolderesOnTable[i] == null)
+                                        return;
+                                    try
+                                    {
+                                        Object O = new Object();
+                                        lock (O)
+                                        {
+                                            Draw.SolderesOnTable[i].DrawSoldierOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                                        }
+                                    }
+                                    catch (Exception t)
+                                    {
+                                        Log(t);
+                                    }
                                 }
                             });
                         }, () =>
                         {
                             System.Threading.Tasks.Parallel.For(0, Draw.ElefantHigh, i =>
                             {
-                                if (Draw.ElephantOnTable[i] == null)
-                                    return;
-                                try
+                            Object O1 = new Object();
+                                lock (O1)
                                 {
-                                    Draw.ElephantOnTable[i].DrawElefantOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
-                                }
-                                catch (Exception t)
-                                {
-                                    Log(t);
+                                    if (Draw.ElephantOnTable[i] == null)
+                                        return;
+                                    try
+                                    {
+                                        Object O = new Object();
+                                        lock (O)
+                                        {
+                                            Draw.ElephantOnTable[i].DrawElefantOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                                        }
+                                    }
+                                    catch (Exception t)
+                                    {
+                                        Log(t);
+                                    }
                                 }
                             });
                         }, () =>
                          {
                              System.Threading.Tasks.Parallel.For(0, Draw.HourseHight, i =>
                              {
-                                 if (Draw.HoursesOnTable[i] == null)
-                                     return;
-                                 try
+                             Object O1 = new Object();
+                                 lock (O1)
                                  {
-                                     Draw.HoursesOnTable[i].DrawHourseOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                                     if (Draw.HoursesOnTable[i] == null)
+                                         return;
+                                     try
+                                     {
+                                         Object O = new Object();
+                                         lock (O)
+                                         {
+                                             Draw.HoursesOnTable[i].DrawHourseOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                                         }
+                                     }
+                                     catch (Exception t)
+                                     {
+                                         Log(t);
+                                     }
                                  }
-                                 catch (Exception t)
-                                 {
-                                     Log(t);
-                                 }
-
                              });
                          }, () =>
                          {
                              System.Threading.Tasks.Parallel.For(0, Draw.CastleHigh, i =>
                              {
-                                 if (Draw.CastlesOnTable[i] == null)
-                                     return;
-                                 try
+                             Object O1 = new Object();
+                                 lock (O1)
                                  {
-                                     Draw.CastlesOnTable[i].DrawCastleOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                                     if (Draw.CastlesOnTable[i] == null)
+                                         return;
+                                     try
+                                     {
+                                         Object O = new Object();
+                                         lock (O)
+                                         {
+                                             Draw.CastlesOnTable[i].DrawCastleOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                                         }
+                                     }
+                                     catch (Exception t)
+                                     {
+                                         Log(t);
+                                     }
                                  }
-                                 catch (Exception t)
-                                 {
-                                     Log(t);
-                                 }
-
                              });
                          }, () =>
                          {
                              System.Threading.Tasks.Parallel.For(0, Draw.MinisterHigh, i =>
                              {
-                                 if (Draw.MinisterOnTable[i] == null)
-                                     return;
-                                 try
+                             Object O1 = new Object();
+                                 lock (O1)
                                  {
-                                     Draw.MinisterOnTable[i].DrawMinisterOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
-                                 }
-                                 catch (Exception t)
-                                 {
-                                     Log(t);
+                                     if (Draw.MinisterOnTable[i] == null)
+                                         return;
+                                     try
+                                     {
+                                         Object O = new Object();
+                                         lock (O)
+                                         {
+                                             Draw.MinisterOnTable[i].DrawMinisterOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                                         }
+
+                                     }
+                                     catch (Exception t)
+                                     {
+                                         Log(t);
+                                     }
                                  }
                              });
                          }, () =>
                          {
                              System.Threading.Tasks.Parallel.For(0, Draw.KingHigh, i =>
                              {
-                                 if (Draw.KingOnTable[i] == null)
-                                     return;
-                                 try
+                             Object O1 = new Object();
+                                 lock (O1)
                                  {
-                                     Draw.KingOnTable[i].DrawKingOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
-                                 }
-                                 catch (Exception t)
-                                 {
-                                     Log(t);
+                                     if (Draw.KingOnTable[i] == null)
+                                         return;
+                                     try
+                                     {
+                                         Object O = new Object();
+                                         lock (O)
+                                         {
+                                             Draw.KingOnTable[i].DrawKingOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                                         }
+                                     }
+                                     catch (Exception t)
+                                     {
+                                         Log(t);
+                                     }
                                  }
                              });
-                         });
+                    });
 
-                        pictureBoxRefrigtz.Image = ChessTable;
-                        g.Dispose();
-                    }
-                    catch (Exception t)
-                    {
-                        Log(t);
-                         
-                        
-                        //RunInFront();
-                    }
+                    pictureBoxRefrigtz.Image = ChessTable;
+                    g.Dispose();
                 }
+                    catch (Exception t)
+                {
+                    Log(t);
+
+
+                    //RunInFront();
+                }
+            }
                 LoadedTable = true;
                 //UpadatTimer();
 
@@ -6137,6 +6190,10 @@ namespace Refrigtz
             SetBoxTextWrite(Out);
 
 
+            RefrigtzDLL.AllDraw.DrawTable = true;
+            SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
+            SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
+
         }
         void ComputerByComputerBobAsRefregitz(ref Process proc)
         {
@@ -6187,6 +6244,9 @@ namespace Refrigtz
             SetBoxTextWrite(Out);
 
 
+            RefrigtzDLL.AllDraw.DrawTable = true;
+            SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
+            SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
         }
         void SetDrawFounding(ref bool FOUND, ref RefrigtzDLL.AllDraw THIS,bool First)
         {
@@ -7970,7 +8030,7 @@ namespace Refrigtz
                 PaintedPaused = true;
                 try
                 {
-                    Begin1:
+                Begin1:
                     LoadConvertedTable = false;
 
                     Color a = Color.Gray;
@@ -8013,6 +8073,11 @@ namespace Refrigtz
                     OrderPlate *= -1;
 
                     SetBoxTextWrite(Out);
+
+
+                    RefrigtzDLL.AllDraw.DrawTable = true;
+                    SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
+                    SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
                 }
                 catch (Exception t)
                 {
@@ -8072,6 +8137,10 @@ namespace Refrigtz
 
                     SetBoxTextWrite(Out);
 
+
+                    RefrigtzDLL.AllDraw.DrawTable = true;
+                    SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
+                    SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
                 }
                 catch (Exception t)
                 {
@@ -8303,6 +8372,11 @@ namespace Refrigtz
                 BobSection = true;
 
                 SetBoxTextWrite(Out);
+
+
+                RefrigtzDLL.AllDraw.DrawTable = true;
+                SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
+                SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
             }
         }
         void GeneticAction()
@@ -8475,6 +8549,11 @@ namespace Refrigtz
                 OrderPlate *= -1;
 
                 SetBoxTextWrite(Out);
+
+
+                RefrigtzDLL.AllDraw.DrawTable = true;
+                SetPrictureBoxRefregitzInvalidate(pictureBoxRefrigtz);
+                SetPrictureBoxRefregitzUpdate(pictureBoxRefrigtz);
 
             }
         }

@@ -7141,7 +7141,12 @@ namespace RefrigtzDLL
                             lock (A)
                             {
                                 FoundFirstMating++;
+                                Current.LearningAlgorithmRegard();
+                                RemoveAtList(kind);
+                                AddAtList(kind, Current);
+                                return true;
                             }
+
 
                         }
                         if (AllDraw.OrderPlate == -1 && AA.CheckMateGray)
@@ -7151,6 +7156,10 @@ namespace RefrigtzDLL
                             lock (A)
                             {
                                 FoundFirstMating++;
+                                RemoveAtList(kind);
+                                Current.LearningAlgorithmRegard();
+                                AddAtList(kind, Current);
+                                return true;
                             }
                         }
                         if (Order == 1 && AA.CheckMateBrown)
@@ -7182,12 +7191,6 @@ namespace RefrigtzDLL
                             {
                                 NumberOfPenalties++;
                             }
-                            if (!RETURN)
-                            {
-                                Current.LearningAlgorithmPenalty();
-                                AddAtList(kind, Current);
-                                return true;
-                            }
                         }
                         else
                             if (Order == -1 && AA.CheckBrown)
@@ -7197,12 +7200,6 @@ namespace RefrigtzDLL
                             lock (A)
                             {
                                 NumberOfPenalties++;
-                            }
-                            if (!RETURN)
-                            {
-                                Current.LearningAlgorithmPenalty();
-                                AddAtList(kind, Current);
-                                return true;
                             }
                         }
                     }
@@ -8746,10 +8743,11 @@ namespace RefrigtzDLL
                 {
                     if (CheckMateOcuured || FoundFirstMating > AllDraw.MaxAStarGreedy
                         )
-                    {
+                    {                        
                         Object O2 = new Object();
                         lock (O2)
                         {
+                            AllDraw.OutPut = "\r\nBoundry Condition at Thinking at " + ThinkingChess.FoundFirstMating.ToString() + " Checkmate";
                             ThinkingBegin = false;
                             ThinkingFinished = true;
                             EndThread++;
@@ -8782,9 +8780,11 @@ namespace RefrigtzDLL
                     || FoundFirstMating > AllDraw.MaxAStarGreedy
                     )
                 {
+                    
                     Object O2 = new Object();
                     lock (O2)
                     {
+                        AllDraw.OutPut = "\r\nBoundry Condition at Thinking at " + ThinkingChess.FoundFirstMating.ToString() + " Checkmate";
                         ThinkingFinished = true;
                         ThinkingBegin = false;
                         EndThread++;
@@ -8815,6 +8815,7 @@ namespace RefrigtzDLL
                         Object O2 = new Object();
                         lock (O2)
                         {
+                            AllDraw.OutPut = "\r\nBoundry Condition at Thinking at " + ThinkingChess.FoundFirstMating.ToString() + " Checkmate";
                             ThinkingFinished = true;
                             CheckMateOcuured = true;
                             EndThread++;
