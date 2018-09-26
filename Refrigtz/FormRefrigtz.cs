@@ -9172,7 +9172,10 @@ namespace Refrigtz
                                         {
                                             if (Tab[ii / (int)(pictureBoxRefrigtz.Image.Width / 8), jj / (int)(pictureBoxRefrigtz.Image.Height / 8)])
                                             {
-                                                g.DrawString("*", new Font("Times New Roman", 50), new SolidBrush(Color.Red), new Rectangle(new Point(ii, jj), new Size((int)(this.pictureBoxRefrigtz.Width / 8), (int)(this.pictureBoxRefrigtz.Height / 8))));
+                                                if (((int)(this.pictureBoxRefrigtz.Width / 8) >= 0) && ((int)(this.pictureBoxRefrigtz.Width / 8) < 8) && ((int)(this.pictureBoxRefrigtz.Height / 8) >= 0) && ((int)(this.pictureBoxRefrigtz.Height / 8) < 8 && ((int)(this.pictureBoxRefrigtz.Height) >= jj) && ((int)(this.pictureBoxRefrigtz.Width) >= ii)))
+                                                {
+                                                    g.DrawString("*", new Font("Times New Roman", 50), new SolidBrush(Color.Red), new Rectangle(new Point(ii, jj), new Size((int)(this.pictureBoxRefrigtz.Width / 8), (int)(this.pictureBoxRefrigtz.Height / 8))));
+                                                }
                                             }
                                         }
                                     }

@@ -194,6 +194,7 @@ namespace RefrigtzDLL
         int[,] Value = new int[8, 8];
         bool IgnoreFromCheckandMateHuristic = false;
         int CurrentAStarGredyMax = -1;
+        List<int[,]> ObjectNumbers = new List<int[,]>();
         ///Log of Errors.
         static void Log(Exception ex)
         {
@@ -209,6 +210,115 @@ namespace RefrigtzDLL
                 }
             }
             catch (Exception t) { Log(t); }
+        }
+        void SetObjectNumbersInList(int[,] Tab)
+        {
+            SetObjectNumbers(Tab);
+
+            int[,] A = new int[2, 6];
+            A[0, 0] = SodierMidle;
+            A[1, 0] = SodierHigh;
+
+
+            A[0, 1] = ElefantMidle;
+            A[1, 1] = ElefantHigh;
+
+
+            A[0, 2] = HourseMidle;
+            A[1, 2] = HourseHight;
+
+
+            A[0, 3] = CastleMidle;
+            A[1, 3] = CastleHigh;
+
+
+            A[0, 4] = MinisterMidle;
+            A[1, 4] = MinisterHigh;
+
+
+            A[0, 5] = KingMidle;
+            A[1, 5] = KingHigh;
+            ObjectNumbers.Add(A);
+        }
+        public void SetObjectNumbers(int[,] TabS)
+        {
+            Object a = new Object();
+            lock (a)
+            {
+
+                SodierMidle = 0;
+                SodierHigh = 0;
+                ElefantMidle = 0;
+                ElefantHigh = 0;
+                HourseMidle = 0;
+                HourseHight = 0;
+                CastleMidle = 0;
+                CastleHigh = 0;
+                MinisterMidle = 0;
+                MinisterHigh = 0;
+                KingMidle = 0;
+                KingHigh = 0;
+                for (int h = 0; h < 8; h++)
+                    for (int s = 0; s < 8; s++)
+                    {
+                        if (TabS[h, s] == 1)
+                        {
+                            SodierMidle++;
+                            SodierHigh++;
+                        }
+                        else if (TabS[h, s] == 2)
+                        {
+                            ElefantMidle++;
+                            ElefantHigh++;
+                        }
+                        else if (TabS[h, s] == 3)
+                        {
+                            HourseMidle++;
+                            HourseHight++;
+                        }
+                        else if (TabS[h, s] == 4)
+                        {
+                            CastleMidle++;
+                            CastleHigh++;
+                        }
+                        else if (TabS[h, s] == 5)
+                        {
+                            MinisterMidle++;
+                            MinisterHigh++;
+                        }
+                        else if (TabS[h, s] == 6)
+                        {
+                            KingMidle++;
+                            KingHigh++;
+                        }
+                        else
+                            if (TabS[h, s] == -1)
+                        {
+                            SodierHigh++;
+                        }
+                        else if (TabS[h, s] == -2)
+                        {
+                            ElefantHigh++;
+                        }
+                        else if (TabS[h, s] == -3)
+                        {
+                            HourseHight++;
+                        }
+                        else if (TabS[h, s] == -4)
+                        {
+                            CastleHigh++;
+                        }
+                        else if (TabS[h, s] == -5)
+                        {
+
+                            MinisterHigh++;
+                        }
+                        else if (TabS[h, s] == -6)
+                        {
+                            KingHigh++;
+                        }
+                    }
+            }
         }
         //Constructor
         public ThinkingChess(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, int i, int j)
@@ -4975,106 +5085,13 @@ namespace RefrigtzDLL
             }
         }
         //Setting Numbers of Objects in Current Table boards.
-        public void SetObjectNumbers(int[,] TabS)
-        {
-            Object O = new Object();
-            lock (O)
-            {
-
-                //Set Zero Object Table Count.
-                SodierMidle = 0;
-                SodierHigh = 0;
-                ElefantMidle = 0;
-                ElefantHigh = 0;
-                HourseMidle = 0;
-                HourseHight = 0;
-                CastleMidle = 0;
-                CastleHigh = 0;
-                MinisterMidle = 0;
-                MinisterHigh = 0;
-                KingMidle = 0;
-                KingHigh = 0;
-                //For All Table items.
-                for (int h = 0; h < 8; h++)
-                    for (int s = 0; s < 8; s++)
-                    {
-                        //When Gray Soldier.
-                        if (TabS[h, s] == 1)
-                        {
-                            SodierMidle++;
-                            SodierHigh++;
-                        }
-                        //When Gray Elephant.
-                        else if (TabS[h, s] == 2)
-                        {
-                            ElefantMidle++;
-                            ElefantHigh++;
-                        }
-                        //When Gray Hourse.
-                        else if (TabS[h, s] == 3)
-                        {
-                            HourseMidle++;
-                            HourseHight++;
-                        }
-                        //When Castles Gray.
-                        else if (TabS[h, s] == 4)
-                        {
-                            CastleMidle++;
-                            CastleHigh++;
-                        }
-                        //When Gray Minster.
-                        else if (TabS[h, s] == 5)
-                        {
-                            MinisterMidle++;
-                            MinisterHigh++;
-                        }
-                        //When Gray King.
-                        else if (TabS[h, s] == 6)
-                        {
-                            KingMidle++;
-                            KingHigh++;
-                        }
-                        else//When Brown Solder.
-                            if (TabS[h, s] == -1)
-                        {
-                            SodierHigh++;
-                        }
-                        //When Brown Elephant.
-                        else if (TabS[h, s] == -2)
-                        {
-                            ElefantHigh++;
-                        }
-                        //When Brown Hourse.
-                        else if (TabS[h, s] == -3)
-                        {
-                            HourseHight++;
-                        }
-                        //When Brown Castles.
-                        else if (TabS[h, s] == -4)
-                        {
-                            CastleHigh++;
-                        }
-                        //When Brown Minster.
-                        else if (TabS[h, s] == -5)
-                        {
-
-                            MinisterHigh++;
-                        }
-                        //When Brown King.
-                        else if (TabS[h, s] == -6)
-                        {
-                            KingHigh++;
-                        }
-                    }
-            }
-        }
         //Count of Solders on Table.
-        int SolderOnTableCount(ref DrawSoldier[] So, bool Mi)
+        int SolderOnTableCount(ref DrawSoldier[] So, bool Mi, int MaxCount)
         {
             Object O = new Object();
             lock (O)
             {
-
+               
                 int Count = 0, i = 0;
                 //For Alll Solders on int Calculate Solkder Count.
                 do
@@ -5082,7 +5099,7 @@ namespace RefrigtzDLL
                     //The Index out of range exeption is not fixable.
                     try
                     {
-                        if (So[i] != null)
+                        if (So[i] != null && So != null)
                         {
                             //When int is Gray or Brown.
                             if (So[i].color == Color.Gray || So[i].color == Color.Brown)
@@ -5102,13 +5119,13 @@ namespace RefrigtzDLL
                     catch (Exception t) { Log(t); }
                     i++;
 
-                } while (i < SodierHigh);
+                } while (i < MaxCount);
 
                 return Count;
             }
         }
         //Elepahnt On Table Count.
-        int ElefantOnTableCount(ref DrawElefant[] So, bool Mi)
+        int ElefantOnTableCount(ref DrawElefant[] So, bool Mi, int MaxCount)
         {
             Object O = new Object();
             lock (O)
@@ -5122,7 +5139,7 @@ namespace RefrigtzDLL
                     try
                     {
                         //The Index out of range exeption is not fixable.
-                        if (So[i] != null)
+                        if (So[i] != null&& So!=null)
                         {
                             //when Elaphant int is Gray or Brown.
                             if (So[i].color == Color.Gray || So[i].color == Color.Brown)
@@ -5142,12 +5159,12 @@ namespace RefrigtzDLL
                     catch (Exception t) { Log(t); }
                     i++;
                 }
-                while (i < ElefantHigh);
+                while (i < MaxCount);
                 return Count;
             }
         }
         //Calculate Hourse on table.
-        int HourseOnTableCount(ref DrawHourse[] So, bool Mi)
+        int HourseOnTableCount(ref DrawHourse[] So, bool Mi, int MaxCount)
         {
             Object O = new Object();
             lock (O)
@@ -5160,7 +5177,7 @@ namespace RefrigtzDLL
                     //The Index out of range exeption is not fixable.
                     try
                     {
-                        if (So[i] != null)
+                        if (So[i] != null&& So!=null)
                         {
                             //When int is Gray or Brown.
                             if (So[i].color == Color.Gray || So[i].color == Color.Brown)
@@ -5180,12 +5197,12 @@ namespace RefrigtzDLL
                     catch (Exception t) { Log(t); }
                     i++;
                 }
-                while (i < HourseHight);
+                while (i < MaxCount);
                 return Count;
             }
         }
         //Calculate Castles Count.
-        int CastleOnTableCount(ref DrawCastle[] So, bool Mi)
+        int CastleOnTableCount(ref DrawCastle[] So, bool Mi, int MaxCount)
         {
             Object O = new Object();
             lock (O)
@@ -5197,7 +5214,7 @@ namespace RefrigtzDLL
                     try
                     {
                         //The Index out of range exeption is not fixable.
-                        if (So[i] != null)
+                        if (So[i] != null&& So!=null)
                         {
                             //When Castles int is Gray or Brown.
                             if (So[i].color == Color.Gray || So[i].color == Color.Brown)
@@ -5218,12 +5235,12 @@ namespace RefrigtzDLL
 
                     i++;
                 }
-                while (i < CastleHigh);
+                while (i < MaxCount);
                 return Count;
             }
         }
         //Calculate Minsiter Count.
-        int MinisterOnTableCount(ref DrawMinister[] So, bool Mi)
+        int MinisterOnTableCount(ref DrawMinister[] So, bool Mi, int MaxCount)
         {
             Object O = new Object();
             lock (O)
@@ -5235,7 +5252,7 @@ namespace RefrigtzDLL
                     try
                     {
                         //The Index out of range exeption is not fixable.
-                        if (So[i] != null)
+                        if (So[i] != null&& So!=null)
                         {
                             //When int of items is gray or Brown.
                             if (So[i].color == Color.Gray || So[i].color == Color.Brown)
@@ -5255,12 +5272,12 @@ namespace RefrigtzDLL
                     catch (Exception t) { Log(t); }
                     i++;
                 }
-                while (i < MinisterHigh);
+                while (i < MaxCount);
                 return Count;
             }
         }
         //Calculate King on Table.
-        int KingOnTableCount(ref DrawKing[] So, bool Mi)
+        int KingOnTableCount(ref DrawKing[] So, bool Mi, int MaxCount)
         {
             Object O = new Object();
             lock (O)
@@ -5272,7 +5289,7 @@ namespace RefrigtzDLL
                     try
                     {
                         //The Index out of range exeption is not fixable.
-                        if (So[i] != null)
+                        if (So[i] != null&& So!=null)
                         {
                             //when int is Gray or Brown.
                             if (So[i].color == Color.Gray || So[i].color == Color.Brown)
@@ -5292,7 +5309,7 @@ namespace RefrigtzDLL
                     catch (Exception t) { Log(t); }
                     i++;
                 }
-                while (i < KingHigh);
+                while (i < MaxCount);
                 return Count;
             }
         }
@@ -5424,7 +5441,7 @@ namespace RefrigtzDLL
                         for (int i = 0; i < AStarGreedy.Count; i++)
                         {
                             //For All solder DrawOn Table Count.
-                            for (int m = 0; m < SolderOnTableCount(ref AStarGreedy[i].SolderesOnTable, true); m++)
+                            for (int m = 0; m < SolderOnTableCount(ref AStarGreedy[i].SolderesOnTable, true, AStarGreedy[i].SodierHigh); m++)
                             {
                                 //When Depth of Solders On Table is Not NULL.
                                 if (AStarGreedy[i].SolderesOnTable[m] != null)
@@ -5441,7 +5458,7 @@ namespace RefrigtzDLL
 
                             }
                             //For All Elephant On Table Count.
-                            for (int m = 0; m < ElefantOnTableCount(ref AStarGreedy[i].ElephantOnTable, true); m++)
+                            for (int m = 0; m < ElefantOnTableCount(ref AStarGreedy[i].ElephantOnTable, true, AStarGreedy[i].ElefantHigh); m++)
                             {
                                 //For All Elephant in Depth Count.
                                 if (AStarGreedy[i].ElephantOnTable[m] != null)
@@ -5458,7 +5475,7 @@ namespace RefrigtzDLL
 
                             }
                             //For All Hourse on Table Count.
-                            for (int m = 0; m < HourseOnTableCount(ref AStarGreedy[i].HoursesOnTable, true); m++)
+                            for (int m = 0; m < HourseOnTableCount(ref AStarGreedy[i].HoursesOnTable, true, AStarGreedy[i].HourseHight); m++)
                             {
                                 //When is HourseOn Table Depth Object is Not NULL.
                                 if (AStarGreedy[i].HoursesOnTable[m] != null)
@@ -5475,7 +5492,7 @@ namespace RefrigtzDLL
 
                             }
                             //For All Castles on table Count.
-                            for (int m = 0; m < CastleOnTableCount(ref AStarGreedy[i].CastlesOnTable, true); m++)
+                            for (int m = 0; m < CastleOnTableCount(ref AStarGreedy[i].CastlesOnTable, true, AStarGreedy[i].CastleHigh); m++)
                             {
                                 //When Depth Objects of Hourse Table is Not NULL.
                                 if (AStarGreedy[i].CastlesOnTable[m] != null)
@@ -5492,7 +5509,7 @@ namespace RefrigtzDLL
 
                             }
                             //For All Minsiter on table count.
-                            for (int m = 0; m < MinisterOnTableCount(ref AStarGreedy[i].MinisterOnTable, true); m++)
+                            for (int m = 0; m < MinisterOnTableCount(ref AStarGreedy[i].MinisterOnTable, true, AStarGreedy[i].MinisterHigh); m++)
                             {
                                 //When Minster of Depth is Not Null.
                                 if (AStarGreedy[i].MinisterOnTable[m] != null)
@@ -5509,7 +5526,7 @@ namespace RefrigtzDLL
 
                             }
                             //For All King on table Count.
-                            for (int m = 0; m < KingOnTableCount(ref AStarGreedy[i].KingOnTable, true); m++)
+                            for (int m = 0; m < KingOnTableCount(ref AStarGreedy[i].KingOnTable, true, AStarGreedy[i].KingHigh); m++)
                             {
                                 //When Depth Object of King Table is Not NULL.
                                 if (AStarGreedy[i].KingOnTable[m] != null)
@@ -5534,7 +5551,7 @@ namespace RefrigtzDLL
                         for (int i = 0; i < AStarGreedy.Count; i++)
                         {
                             //For All Brown Solders on table count.
-                            for (int m = SolderOnTableCount(ref AStarGreedy[i].SolderesOnTable, true); m < SolderOnTableCount(ref AStarGreedy[i].SolderesOnTable, false); m++)
+                            for (int m = SolderOnTableCount(ref AStarGreedy[i].SolderesOnTable, true, AStarGreedy[i].SodierHigh); m < SolderOnTableCount(ref AStarGreedy[i].SolderesOnTable, false, AStarGreedy[i].SodierHigh); m++)
                             {
                                 //When solderis on table depth obejcts is nopt null.
                                 if (AStarGreedy[i].SolderesOnTable[m] != null)
@@ -5551,7 +5568,7 @@ namespace RefrigtzDLL
 
                             }
                             //For All Elephant On Table Count.
-                            for (int m = ElefantOnTableCount(ref AStarGreedy[i].ElephantOnTable, true); m < ElefantOnTableCount(ref AStarGreedy[i].ElephantOnTable, false); m++)
+                            for (int m = ElefantOnTableCount(ref AStarGreedy[i].ElephantOnTable, true, AStarGreedy[i].ElefantHigh); m < ElefantOnTableCount(ref AStarGreedy[i].ElephantOnTable, false, AStarGreedy[i].ElefantHigh); m++)
                             {
                                 //For All Elephant in Depth Count.
                                 if (AStarGreedy[i].ElephantOnTable[m] != null)
@@ -5568,7 +5585,7 @@ namespace RefrigtzDLL
 
                             }
                             //For All Hourse on Table Count.
-                            for (int m = HourseOnTableCount(ref AStarGreedy[i].HoursesOnTable, true); m < HourseOnTableCount(ref AStarGreedy[i].HoursesOnTable, false); m++)
+                            for (int m = HourseOnTableCount(ref AStarGreedy[i].HoursesOnTable, true, AStarGreedy[i].HourseHight); m < HourseOnTableCount(ref AStarGreedy[i].HoursesOnTable, false, AStarGreedy[i].HourseHight); m++)
                             {
                                 //When is HourseOn Table Depth Object is Not NULL.
                                 if (AStarGreedy[i].HoursesOnTable[m] != null)
@@ -5585,7 +5602,7 @@ namespace RefrigtzDLL
 
                             }
                             //For All Castles on table Count.
-                            for (int m = CastleOnTableCount(ref AStarGreedy[i].CastlesOnTable, true); m < CastleOnTableCount(ref AStarGreedy[i].CastlesOnTable, false); m++)
+                            for (int m = CastleOnTableCount(ref AStarGreedy[i].CastlesOnTable, true, AStarGreedy[i].CastleHigh); m < CastleOnTableCount(ref AStarGreedy[i].CastlesOnTable, false, AStarGreedy[i].CastleHigh); m++)
                             {
                                 //When Depth Objects of Hourse Table is Not NULL.
                                 if (AStarGreedy[i].CastlesOnTable[m] != null)
@@ -5602,7 +5619,7 @@ namespace RefrigtzDLL
 
                             }
                             //For All Minsiter on table count.
-                            for (int m = MinisterOnTableCount(ref AStarGreedy[i].MinisterOnTable, true); m < MinisterOnTableCount(ref AStarGreedy[i].MinisterOnTable, false); m++)
+                            for (int m = MinisterOnTableCount(ref AStarGreedy[i].MinisterOnTable, true, AStarGreedy[i].MinisterHigh); m < MinisterOnTableCount(ref AStarGreedy[i].MinisterOnTable, false, AStarGreedy[i].MinisterHigh); m++)
                             {
                                 //When Minster of Depth is Not Null.
                                 if (AStarGreedy[i].MinisterOnTable[m] != null)
@@ -5619,7 +5636,7 @@ namespace RefrigtzDLL
 
                             }
                             //For All King on table Count.
-                            for (int m = KingOnTableCount(ref AStarGreedy[i].KingOnTable, true); m < KingOnTableCount(ref AStarGreedy[i].KingOnTable, false); m++)
+                            for (int m = KingOnTableCount(ref AStarGreedy[i].KingOnTable, true, AStarGreedy[i].KingHigh); m < KingOnTableCount(ref AStarGreedy[i].KingOnTable, false, AStarGreedy[i].KingHigh); m++)
                             {
                                 //When Minster of Depth is Not Null.
                                 if (AStarGreedy[i].KingOnTable[m] != null)
@@ -7830,8 +7847,8 @@ namespace RefrigtzDLL
                     Hu[9] = HeuristicKingDangour;
                     HuristicListKing.Add(Hu);
                     Castle = true;
-                    Object O7 = new Object();
-                    lock (O7)
+                Object O7 = new Object(); SetObjectNumbersInList(TableS);
+                lock (O7)
                     {
                         if (i < ii)
                         {
