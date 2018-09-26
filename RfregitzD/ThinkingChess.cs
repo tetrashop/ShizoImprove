@@ -64,6 +64,7 @@
  * Heuristic of 'Attack';'Movment';'Support';'CheckMate...' Undisiarable.**************RC**0.88**1**Risk Control************************************<*>QC _BAD
  * Huristic and Learning regime work in worth state.***********************************RC**0.88**1**Risk Control************************************(*)QC_BAD
  * Mal Function in Boundray Conditions founding in Leaf Creation Tree.*****************RC**0.88**1**Risk Control************************************(*)QC_BAD
+ * Index was out of range in same grope of thinking objects by hitting.****************RC**0.88**1**Risk Control************************************(*)QC_BAD
  * **************************************************************************(+:Sum(26)) (*:Sum(1)) 5:(+:Sum(3)) 6.(+:Sum0.12**4**Managements and Cuation Programing**********************(+)) 7.(:Sum(1))
  * **************************************************************************
  */
@@ -5417,7 +5418,7 @@ namespace RefrigtzDLL
                 {
 
                     //When is Gray.
-                    if (Order == -1)
+                    if (Order == 1)
                     {
                         //For All Depth Count.
                         for (int i = 0; i < AStarGreedy.Count; i++)
@@ -5429,7 +5430,7 @@ namespace RefrigtzDLL
                                 if (AStarGreedy[i].SolderesOnTable[m] != null)
                                 {
                                     //Calculate Maximum Huristic in Branch.
-                                    if (AStarGreedy[i].SolderesOnTable[m].SoldierThinking[0].MaxHuristic(ref jIndex[0], 1, ref Less[0], Order * -1))
+                                    if (AStarGreedy[i].SolderesOnTable[m].SoldierThinking[0].MaxHuristic(ref jIndex[0], 1, ref Less[0], Order))
                                     {
                                         iIndex[0] = i;
                                         mIndex[0] = m;
@@ -5463,7 +5464,7 @@ namespace RefrigtzDLL
                                 if (AStarGreedy[i].HoursesOnTable[m] != null)
                                 {
                                     //Forund of Maximum on on Branch.
-                                    if (AStarGreedy[i].HoursesOnTable[m].HourseThinking[0].MaxHuristic(ref jIndex[2], 3, ref Less[2], Order))
+                                    if (AStarGreedy[i].ElephantOnTable[m].ElefantThinking[0].MaxHuristic(ref jIndex[1], 2, ref Less[1], Order))
                                     {
                                         iIndex[2] = i;
                                         mIndex[2] = m;
@@ -8747,7 +8748,7 @@ namespace RefrigtzDLL
             Object O = new Object();
             lock (O)
             {
-                while (!ThinkingBegin) { }// S += 2; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
+                while (!ThinkingBegin) { System.Threading.Thread.Sleep(1); }// S += 2; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
 
                 NumberOfPenalties = 0;
                 SetObjectNumbers(CloneATable(TableConst));
@@ -8763,7 +8764,8 @@ namespace RefrigtzDLL
                 }
                 //if (!AllDraw.Blitz)
                 {
-                    if (CheckMateOcuured || FoundFirstMating > AllDraw.MaxAStarGreedy
+                    if (//CheckMateOcuured || 
+                        FoundFirstMating > AllDraw.MaxAStarGreedy
                         )
                     {                        
                         Object O2 = new Object();

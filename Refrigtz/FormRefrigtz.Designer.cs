@@ -1028,12 +1028,14 @@
             // 
             // buttonChangeArrangment
             // 
+            this.buttonChangeArrangment.Enabled = false;
             this.buttonChangeArrangment.Location = new System.Drawing.Point(592, 239);
             this.buttonChangeArrangment.Name = "buttonChangeArrangment";
             this.buttonChangeArrangment.Size = new System.Drawing.Size(37, 23);
             this.buttonChangeArrangment.TabIndex = 43;
             this.buttonChangeArrangment.Text = "<>";
             this.buttonChangeArrangment.UseVisualStyleBackColor = true;
+            this.buttonChangeArrangment.Visible = false;
             this.buttonChangeArrangment.Click += new System.EventHandler(this.buttonChangeArrangment_Click);
             // 
             // textBoxText
@@ -1433,7 +1435,7 @@
             this.pictureBoxRefrigtz.Size = new System.Drawing.Size(574, 508);
             this.pictureBoxRefrigtz.TabIndex = 0;
             this.pictureBoxRefrigtz.TabStop = false;
-            this.pictureBoxRefrigtz.Click += new System.EventHandler(this.pictureBoxRefrigtz_Click);
+            this.pictureBoxRefrigtz.Click += new System.EventHandler(this.buttonChangeArrangment_Click);
             this.pictureBoxRefrigtz.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxRefrigtz_Paint);
             this.pictureBoxRefrigtz.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBoxRefrigtz_MouseClick);
             this.pictureBoxRefrigtz.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pictureBoxRefrigtz_MouseDoubleClick);

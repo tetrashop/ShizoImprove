@@ -199,6 +199,7 @@ namespace RefrigtzDLL
                     {
                         try
                         {
+
                             //If Order is Gray.
                             if (Order == 1)
                             {
