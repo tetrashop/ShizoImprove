@@ -82,6 +82,7 @@ namespace RefrigtzDLL
     public class ThinkingChess
     {
         //Initiate Global and Static Variables. 
+        public bool IsThereMateOfEnemy = false;
         public static NetworkQuantumLearningKrinskyAtamata LearniningTable = null;
         bool ThinkingAtRun = false;
         public static String ActionsString = "";
@@ -4754,6 +4755,10 @@ namespace RefrigtzDLL
             lock (O)
             {
 
+
+                
+
+
                 bool Found = false;
                 //When Solders.
                 if (Kin == 1)
@@ -4762,10 +4767,61 @@ namespace RefrigtzDLL
                     {
                         if (PenaltyRegardListSolder[i].IsPenaltyAction() != 0)
                         {
-                            //if (Order == AllDraw.OrderPlate)
+                            if (Order == AllDraw.OrderPlate)
                             {
-                                
+                                if (Less < HuristicListSolder[i][0] +
+                                    HuristicListSolder[i][1] +
+                                    HuristicListSolder[i][2] +
+                                    HuristicListSolder[i][3] +
+                                    HuristicListSolder[i][4] +
+                                    HuristicListSolder[i][5] +
+                                    HuristicListSolder[i][6] +
+                                    HuristicListSolder[i][7] +
+                                    HuristicListSolder[i][8] +
+                                    HuristicListSolder[i][9])
+                                {
+                                    Less = HuristicListSolder[i][0] +
+                                HuristicListSolder[i][1] +
+                                HuristicListSolder[i][2] +
+                                HuristicListSolder[i][3] +
+                                HuristicListSolder[i][4] +
+                                HuristicListSolder[i][5] +
+                                HuristicListSolder[i][6] +
+                                HuristicListSolder[i][7] +
+                                    HuristicListSolder[i][8] +
+                                    HuristicListSolder[i][9];
+                                    j = i;
+                                    Found = true;
+                                }
                             }
+                            else
+                            {
+                                if (Less > HuristicListSolder[i][0] +
+                             HuristicListSolder[i][1] +
+                             HuristicListSolder[i][2] +
+                             HuristicListSolder[i][3] +
+                             HuristicListSolder[i][4] +
+                             HuristicListSolder[i][5] +
+                             HuristicListSolder[i][6] +
+                             HuristicListSolder[i][7] +
+                             HuristicListSolder[i][8] +
+                             HuristicListSolder[i][9])
+                                {
+                                    Less = HuristicListSolder[i][0] +
+                                HuristicListSolder[i][1] +
+                                HuristicListSolder[i][2] +
+                                HuristicListSolder[i][3] +
+                                HuristicListSolder[i][4] +
+                                HuristicListSolder[i][5] +
+                                HuristicListSolder[i][6] +
+                                HuristicListSolder[i][7] +
+                                    HuristicListSolder[i][8] +
+                                    HuristicListSolder[i][9];
+                                    j = i;
+                                    Found = true;
+                                }
+                            }
+
                         }
                     }
 
@@ -7193,6 +7249,7 @@ namespace RefrigtzDLL
                             Object A = new Object();
                             lock (A)
                             {
+                                IsThereMateOfEnemy = true;
                                 FoundFirstMating++;
                                 Current.LearningAlgorithmRegard();
                                 RemoveAtList(kind);
@@ -7208,6 +7265,8 @@ namespace RefrigtzDLL
                             Object A = new Object();
                             lock (A)
                             {
+                                IsThereMateOfEnemy = true;
+
                                 FoundFirstMating++;
                                 RemoveAtList(kind);
                                 Current.LearningAlgorithmRegard();
