@@ -249,7 +249,7 @@ namespace RefrigtzDLL
         public static int CastleMovments = 1;
         public static int MinisterMovments = 1;
         public static int KingMovments = 1;
-        public int SodierMidle = 8;
+        /*public int SodierMidle = 8;
         public int SodierHigh = 16;
         public int ElefantMidle = 2;
         public int ElefantHigh = 4;
@@ -261,6 +261,19 @@ namespace RefrigtzDLL
         public int MinisterHigh = 2;
         public int KingMidle = 1;
         public int KingHigh = 2;
+        */
+        public int SodierMidle = 0;
+        public int SodierHigh = 0;
+        public int ElefantMidle = 0;
+        public int ElefantHigh = 0;
+        public int HourseMidle = 0;
+        public int HourseHight = 0;
+        public int CastleMidle = 0;
+        public int CastleHigh = 0;
+        public int MinisterMidle = 0;
+        public int MinisterHigh = 0;
+        public int KingMidle = 0;
+        public int KingHigh = 0;
         ChessPerdict APredict = null;
         int RW = 0;
         int CL = 0;
@@ -300,12 +313,12 @@ namespace RefrigtzDLL
 
         public List<int[,]> TableList = new List<int[,]>();
         public int AStarGreedy = 0;
-        public DrawSoldier[] SolderesOnTable = null;
-        public DrawElefant[] ElephantOnTable = null;
-        public DrawHourse[] HoursesOnTable = null;
-        public DrawCastle[] CastlesOnTable = null;
-        public DrawMinister[] MinisterOnTable = null;
-        public DrawKing[] KingOnTable = null;
+        public DrawSoldier[] SolderesOnTable = new DrawSoldier[16];
+        public DrawElefant[] ElephantOnTable = new DrawElefant[4];
+        public DrawHourse[] HoursesOnTable = new DrawHourse[4];
+        public DrawCastle[] CastlesOnTable = new DrawCastle[4];
+        public DrawMinister[] MinisterOnTable = new DrawMinister[2];
+        public DrawKing[] KingOnTable = new DrawKing[2];
         List<double[]> MaxHuristicAStarGreedytBackWard = new List<double[]>();
         const int MaxSoldeirFounded = 2;
         const int MaxElephntFounded = 6;
@@ -451,7 +464,7 @@ namespace RefrigtzDLL
             }
         }
         //Constructor
-        public AllDraw(int Order,bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
+        public AllDraw(int Order, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
         {
             Object a = new Object();
             lock (a)
@@ -488,7 +501,7 @@ namespace RefrigtzDLL
                 CastleMovments = 1;
                 MinisterMovments = 1;
                 KingMovments = 1;
-                SodierMidle = 8;
+                /*SodierMidle = 8;
                 SodierHigh = 16;
                 ElefantMidle = 2;
                 ElefantHigh = 4;
@@ -499,7 +512,7 @@ namespace RefrigtzDLL
                 MinisterMidle = 1;
                 MinisterHigh = 2;
                 KingMidle = 1;
-                KingHigh = 2;
+                KingHigh = 2;*/
                 APredict = null;
                 RW = 0;
                 CL = 0;
@@ -538,6 +551,7 @@ namespace RefrigtzDLL
                 HoursesOnTable = null;
                 CastlesOnTable = null;
                 MinisterOnTable = null;
+                
                 KingOnTable = null;
                 MaxHuristicAStarGreedytBackWard.Clear();
 
@@ -684,7 +698,7 @@ namespace RefrigtzDLL
             }
         }
         //aBlanck Constructor
-        public AllDraw(int Order,bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, AllDraw THi)
+        public AllDraw(int Order, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, AllDraw THi)
         {
             Object a = new Object();
             lock (a)
@@ -737,6 +751,7 @@ namespace RefrigtzDLL
                 MinisterHigh = 2;
                 KingMidle = 1;
                 KingHigh = 2;
+                
                 APredict = null;
                 RW = 0;
                 CL = 0;
@@ -770,13 +785,13 @@ namespace RefrigtzDLL
                 MouseClick = 0;
                 AStarGreedyIndex = new int[20];
                 AStarGreedy = 0;
-                SolderesOnTable = null;
+                /*SolderesOnTable = null;
                 ElephantOnTable = null;
                 HoursesOnTable = null;
                 CastlesOnTable = null;
                 MinisterOnTable = null;
                 KingOnTable = null;
-
+                */
                 MaxDuringLevelThinkingCreation = System.Convert.ToInt32(AllDraw.THIScomboBoxMaxLevelText);
             }
         }
@@ -856,7 +871,7 @@ namespace RefrigtzDLL
                 try
                 {
                     SetRowColumnFinished = false;
-                    
+
                     Move = 0;
                     //Intiate Dummy Variables.
                     //When Conversion Occured.
@@ -1219,9 +1234,9 @@ namespace RefrigtzDLL
 
                                 }
                             }
-                        
+
                         //Make Empty Remaining.
-                     
+
 
                     }
 
@@ -1371,7 +1386,7 @@ namespace RefrigtzDLL
 
                     //For Solderis.
                     for (int i = 0; i < SodierMidle; i++)
-                        for (int j = 0; A.SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && j < A.SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                        for (int j = 0; A.SolderesOnTable !=null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && j < A.SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                         {
                             try
                             {
@@ -1402,12 +1417,12 @@ namespace RefrigtzDLL
                                 Log(t);
                             }
                             Order *= -1;
-                            for (int ii = 0; A.SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && ii < A.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; ii++)
+                            for (int ii = 0; A.SolderesOnTable !=null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && ii < A.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; ii++)
                                 AA = AA || IsToCheckMateHasLessDeeperThanForCheckMate(A.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii], Order, ref ToCheckMate, ref ForCheckMate, AStarGreedy++);
                             Order = CDummy;
                         }
                     for (int i = 0; i < ElefantMidle; i++)
-                        for (int j = 0; A.ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && j < A.ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                        for (int j = 0; A.ElephantOnTable  != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && j < A.ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                         {
 
                             try
@@ -1440,12 +1455,12 @@ namespace RefrigtzDLL
                                 Log(t);
                             }
                             Order *= -1;
-                            for (int ii = 0; A.ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && ii < A.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; ii++)
+                            for (int ii = 0; A.ElephantOnTable  != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && ii < A.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; ii++)
                                 AA = AA || IsToCheckMateHasLessDeeperThanForCheckMate(A.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii], Order, ref ToCheckMate, ref ForCheckMate, AStarGreedy++);
                             Order = CDummy;
                         }
                     for (int i = 0; i < HourseMidle; i++)
-                        for (int j = 0; A.HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && j < A.HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                        for (int j = 0; A.HoursesOnTable  != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && j < A.HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                         {
 
                             try
@@ -1475,12 +1490,12 @@ namespace RefrigtzDLL
                                 Log(t);
                             }
                             Order *= -1;
-                            for (int ii = 0; A.HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && ii < A.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; ii++)
+                            for (int ii = 0; A.HoursesOnTable  != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && ii < A.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; ii++)
                                 AA = AA || IsToCheckMateHasLessDeeperThanForCheckMate(A.HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii], Order, ref ToCheckMate, ref ForCheckMate, AStarGreedy++);
                             Order = CDummy;
                         }
                     for (int i = 0; i < CastleMidle; i++)
-                        for (int j = 0; A.CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && j < A.CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                        for (int j = 0; A.CastlesOnTable  != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && j < A.CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
 
                             try
@@ -1510,12 +1525,12 @@ namespace RefrigtzDLL
                                 Log(t);
                             }
                             Order *= -1;
-                            for (int ii = 0; A.CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && ii < A.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; ii++)
+                            for (int ii = 0; A.CastlesOnTable  != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && ii < A.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; ii++)
                                 AA = AA || IsToCheckMateHasLessDeeperThanForCheckMate(A.CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii], Order, ref ToCheckMate, ref ForCheckMate, AStarGreedy++);
                             Order = CDummy;
                         }
                     for (int i = 0; i < MinisterMidle; i++)
-                        for (int j = 0; A.MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && j < A.MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                        for (int j = 0; A.MinisterOnTable  != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && j < A.MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                         {
 
                             try
@@ -1547,12 +1562,12 @@ namespace RefrigtzDLL
                                 Log(t);
                             }
                             Order *= -1;
-                            for (int ii = 0; A.MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && ii < A.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; ii++)
+                            for (int ii = 0; A.MinisterOnTable  != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && ii < A.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; ii++)
                                 AA = AA || IsToCheckMateHasLessDeeperThanForCheckMate(A.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii], Order, ref ToCheckMate, ref ForCheckMate, AStarGreedy++);
                             Order = CDummy;
                         }
                     for (int i = 0; i < KingMidle; i++)
-                        for (int j = 0; A.KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && j < A.KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                        for (int j = 0; A.KingOnTable  != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && j < A.KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                         {
 
                             try
@@ -1582,7 +1597,7 @@ namespace RefrigtzDLL
                                 Log(t);
                             }
                             Order *= -1;
-                            for (int ii = 0; A.KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && ii < A.KingOnTable[i].KingThinking[0].AStarGreedy.Count; ii++)
+                            for (int ii = 0; A.KingOnTable  != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && ii < A.KingOnTable[i].KingThinking[0].AStarGreedy.Count; ii++)
                                 AA = AA || IsToCheckMateHasLessDeeperThanForCheckMate(A.KingOnTable[i].KingThinking[0].AStarGreedy[ii], Order, ref ToCheckMate, ref ForCheckMate, AStarGreedy++);
                             Order = CDummy;
                         }
@@ -1591,7 +1606,7 @@ namespace RefrigtzDLL
                 {
                     //ChessRules.CurrentOrder = -1;
                     for (int i = SodierMidle; i < SodierHigh; i++)
-                        for (int j = 0; A.SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && j < A.SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                        for (int j = 0; A.SolderesOnTable !=null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && j < A.SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                         {
 
                             try
@@ -1621,12 +1636,12 @@ namespace RefrigtzDLL
                                 Log(t);
                             }
                             Order *= -1;
-                            for (int ii = 0; A.SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && ii < A.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; ii++)
+                            for (int ii = 0; A.SolderesOnTable !=null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && ii < A.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; ii++)
                                 AA = AA || IsToCheckMateHasLessDeeperThanForCheckMate(A.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii], Order, ref ToCheckMate, ref ForCheckMate, AStarGreedy++);
                             Order = CDummy;
                         }
                     for (int i = ElefantMidle; i < ElefantHigh; i++)
-                        for (int j = 0; A.ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && j < A.ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                        for (int j = 0; A.ElephantOnTable  != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && j < A.ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                         {
 
                             try
@@ -1656,12 +1671,12 @@ namespace RefrigtzDLL
                                 Log(t);
                             }
                             Order *= -1;
-                            for (int ii = 0; A.ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && ii < A.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; ii++)
+                            for (int ii = 0; A.ElephantOnTable  != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && ii < A.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; ii++)
                                 AA = AA || IsToCheckMateHasLessDeeperThanForCheckMate(A.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii], Order, ref ToCheckMate, ref ForCheckMate, AStarGreedy++);
                             Order = CDummy;
                         }
                     for (int i = HourseMidle; i < HourseHight; i++)
-                        for (int j = 0; A.HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && j < A.HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                        for (int j = 0; A.HoursesOnTable  != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && j < A.HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                         {
 
                             try
@@ -1691,12 +1706,12 @@ namespace RefrigtzDLL
                                 Log(t);
                             }
                             Order *= -1;
-                            for (int ii = 0; A.HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && ii < A.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; ii++)
+                            for (int ii = 0; A.HoursesOnTable  != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && ii < A.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; ii++)
                                 AA = AA || IsToCheckMateHasLessDeeperThanForCheckMate(A.HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii], Order, ref ToCheckMate, ref ForCheckMate, AStarGreedy++);
                             Order = CDummy;
                         }
                     for (int i = CastleMidle; i < CastleHigh; i++)
-                        for (int j = 0; A.CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && j < A.CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                        for (int j = 0; A.CastlesOnTable  != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && j < A.CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
 
                             try
@@ -1726,12 +1741,12 @@ namespace RefrigtzDLL
                                 Log(t);
                             }
                             Order *= -1;
-                            for (int ii = 0; A.CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && ii < A.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; ii++)
+                            for (int ii = 0; A.CastlesOnTable  != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && ii < A.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; ii++)
                                 AA = AA || IsToCheckMateHasLessDeeperThanForCheckMate(A.CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii], Order, ref ToCheckMate, ref ForCheckMate, AStarGreedy++);
                             Order = CDummy;
                         }
                     for (int i = MinisterMidle; i < MinisterHigh; i++)
-                        for (int j = 0; A.MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && j < A.MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                        for (int j = 0; A.MinisterOnTable  != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && j < A.MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                         {
 
                             try
@@ -1762,12 +1777,12 @@ namespace RefrigtzDLL
                             }
 
                             Order *= -1;
-                            for (int ii = 0; A.MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && ii < A.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; ii++)
+                            for (int ii = 0; A.MinisterOnTable  != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && ii < A.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; ii++)
                                 AA = AA || IsToCheckMateHasLessDeeperThanForCheckMate(A.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii], Order, ref ToCheckMate, ref ForCheckMate, AStarGreedy++);
                             Order = CDummy;
                         }
                     for (int i = KingMidle; i < KingHigh; i++)
-                        for (int j = 0; A.KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && j < A.KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                        for (int j = 0; A.KingOnTable  != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && j < A.KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                         {
 
                             try
@@ -1798,7 +1813,7 @@ namespace RefrigtzDLL
                                 Log(t);
                             }
                             Order *= -1;
-                            for (int ii = 0; A.KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && ii < A.KingOnTable[i].KingThinking[0].AStarGreedy.Count; ii++)
+                            for (int ii = 0; A.KingOnTable  != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && ii < A.KingOnTable[i].KingThinking[0].AStarGreedy.Count; ii++)
                                 AA = AA || IsToCheckMateHasLessDeeperThanForCheckMate(A.KingOnTable[i].KingThinking[0].AStarGreedy[ii], Order, ref ToCheckMate, ref ForCheckMate, AStarGreedy++);
                             Order = CDummy;
                         }
@@ -1824,7 +1839,7 @@ namespace RefrigtzDLL
                     //ChessRules.CurrentOrder = 1;
                     //For  Soldeirs.
                     for (int i = 0; i < SodierMidle; i++)
-                        for (int j = 0; SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                        for (int j = 0; SolderesOnTable !=null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                         {
                             try
                             {
@@ -1870,7 +1885,7 @@ namespace RefrigtzDLL
                                 Order *= -1;
                                 ChessRules.CurrentOrder *= -1;
                                 //For Subbranchs.
-                                for (int ii = 0; SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; ii++)
+                                for (int ii = 0; SolderesOnTable !=null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; ii++)
                                     SolderesOnTable[ii].SoldierThinking[0].AStarGreedy[i].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
                                 Order = COrder;
                                 ChessRules.CurrentOrder = CDummy;
@@ -1879,7 +1894,7 @@ namespace RefrigtzDLL
                         }
                     //For Elephant.
                     for (int i = 0; i < ElefantMidle; i++)
-                        for (int j = 0; ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                        for (int j = 0; ElephantOnTable  != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                         {
 
                             try
@@ -1925,7 +1940,7 @@ namespace RefrigtzDLL
                                 Order *= -1;
                                 ChessRules.CurrentOrder *= -1;
                                 //For Subbranchs.
-                                for (int ii = 0; ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; ii++)
+                                for (int ii = 0; ElephantOnTable  != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; ii++)
                                     ElephantOnTable[ii].ElefantThinking[0].AStarGreedy[i].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
                                 Order = COrder;
                                 ChessRules.CurrentOrder = CDummy;
@@ -1933,7 +1948,7 @@ namespace RefrigtzDLL
                         }
                     //For Hourse.
                     for (int i = 0; i < HourseMidle; i++)
-                        for (int j = 0; HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                        for (int j = 0; HoursesOnTable  != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                         {
 
                             try
@@ -1979,7 +1994,7 @@ namespace RefrigtzDLL
                                 Order *= -1;
                                 ChessRules.CurrentOrder *= -1;
                                 //Sub branchs For Hourse.
-                                for (int ii = 0; HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; ii++)
+                                for (int ii = 0; HoursesOnTable  != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; ii++)
                                     HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
                                 Order = COrder;
                                 ChessRules.CurrentOrder = CDummy;
@@ -1987,7 +2002,7 @@ namespace RefrigtzDLL
                         }
                     //For Gray Briges.
                     for (int i = 0; i < CastleMidle; i++)
-                        for (int j = 0; CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                        for (int j = 0; CastlesOnTable  != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
 
                             try
@@ -2035,7 +2050,7 @@ namespace RefrigtzDLL
                                 //For Castles Gray Subbranchs.
                                 try
                                 {
-                                    for (int ii = 0; CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; ii++)
+                                    for (int ii = 0; CastlesOnTable  != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; ii++)
                                         CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
                                 }
                                 catch (Exception t)
@@ -2048,7 +2063,7 @@ namespace RefrigtzDLL
                         }
                     //For Ministers Gray.
                     for (int i = 0; i < MinisterMidle; i++)
-                        for (int j = 0; MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                        for (int j = 0; MinisterOnTable  != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                         {
 
                             try
@@ -2096,7 +2111,7 @@ namespace RefrigtzDLL
                                 //For Gray Ministers Subbranchs.
                                 try
                                 {
-                                    for (int ii = 0; MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; ii++)
+                                    for (int ii = 0; MinisterOnTable  != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; ii++)
                                         MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
                                 }
                                 catch (Exception t)
@@ -2109,7 +2124,7 @@ namespace RefrigtzDLL
                         }
                     //For Gray King.
                     for (int i = 0; i < KingMidle; i++)
-                        for (int j = 0; KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                        for (int j = 0; KingOnTable  != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                         {
 
                             try
@@ -2157,7 +2172,7 @@ namespace RefrigtzDLL
                                 //For King Gray Subbranchs.
                                 try
                                 {
-                                    for (int ii = 0; KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && ii < KingOnTable[i].KingThinking[0].AStarGreedy.Count; ii++)
+                                    for (int ii = 0; KingOnTable  != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && ii < KingOnTable[i].KingThinking[0].AStarGreedy.Count; ii++)
                                         KingOnTable[i].KingThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
                                 }
                                 catch (Exception t)
@@ -2176,7 +2191,7 @@ namespace RefrigtzDLL
                     //ChessRules.CurrentOrder = -1;
                     //For Solders Brown.
                     for (int i = SodierMidle; i < SodierHigh; i++)
-                        for (int j = 0; SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                        for (int j = 0; SolderesOnTable !=null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                         {
 
                             try
@@ -2224,7 +2239,7 @@ namespace RefrigtzDLL
                                 //Solders Brown Subbranchs Calling.
                                 try
                                 {
-                                    for (int ii = 0; SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; ii++)
+                                    for (int ii = 0; SolderesOnTable !=null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; ii++)
                                         SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
                                 }
                                 catch (Exception t)
@@ -2237,7 +2252,7 @@ namespace RefrigtzDLL
                         }
                     //Elephant Brown 
                     for (int i = ElefantMidle; i < ElefantHigh; i++)
-                        for (int j = 0; ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                        for (int j = 0; ElephantOnTable  != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                         {
 
                             try
@@ -2285,7 +2300,7 @@ namespace RefrigtzDLL
                                 //Subbranchs Elephenat Brown Calling.
                                 try
                                 {
-                                    for (int ii = 0; ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; ii++)
+                                    for (int ii = 0; ElephantOnTable  != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; ii++)
                                         ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
                                 }
                                 catch (Exception t)
@@ -2298,7 +2313,7 @@ namespace RefrigtzDLL
                         }
                     //Hourse Brown 
                     for (int i = HourseMidle; i < HourseHight; i++)
-                        for (int j = 0; HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                        for (int j = 0; HoursesOnTable  != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                         {
 
                             try
@@ -2346,7 +2361,7 @@ namespace RefrigtzDLL
                                 //Hourse Brown Calling Subbranchs.
                                 try
                                 {
-                                    for (int ii = 0; HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; ii++)
+                                    for (int ii = 0; HoursesOnTable  != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; ii++)
                                         HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
                                 }
                                 catch (Exception t)
@@ -2359,7 +2374,7 @@ namespace RefrigtzDLL
                         }
                     //Castles Brown 
                     for (int i = CastleMidle; i < CastleHigh; i++)
-                        for (int j = 0; CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                        for (int j = 0; CastlesOnTable  != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
 
                             try
@@ -2407,7 +2422,7 @@ namespace RefrigtzDLL
                                 //Brown Castles Calling Subbranches.
                                 try
                                 {
-                                    for (int ii = 0; CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; ii++)
+                                    for (int ii = 0; CastlesOnTable  != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; ii++)
                                         CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
                                 }
                                 catch (Exception t)
@@ -2420,7 +2435,7 @@ namespace RefrigtzDLL
                         }
                     //Minister Brown 
                     for (int i = MinisterMidle; i < MinisterHigh; i++)
-                        for (int j = 0; MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                        for (int j = 0; MinisterOnTable  != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                         {
 
                             try
@@ -2469,7 +2484,7 @@ namespace RefrigtzDLL
                                 //Minister Brown SubBranches Calling.
                                 try
                                 {
-                                    for (int ii = 0; MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; ii++)
+                                    for (int ii = 0; MinisterOnTable  != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; ii++)
                                         MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
                                 }
                                 catch (Exception t)
@@ -2482,7 +2497,7 @@ namespace RefrigtzDLL
                         }
                     //King Brown
                     for (int i = KingMidle; i < KingHigh; i++)
-                        for (int j = 0; KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                        for (int j = 0; KingOnTable  != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                         {
 
                             try
@@ -2531,7 +2546,7 @@ namespace RefrigtzDLL
                                 //King Brown Subbranches Calling.
                                 try
                                 {
-                                    for (int ii = 0; KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && ii < KingOnTable[i].KingThinking[0].AStarGreedy.Count; ii++)
+                                    for (int ii = 0; KingOnTable  != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && ii < KingOnTable[i].KingThinking[0].AStarGreedy.Count; ii++)
                                         KingOnTable[i].KingThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
                                 }
                                 catch (Exception t)
@@ -2558,7 +2573,7 @@ namespace RefrigtzDLL
                 {
 
                     for (int i = 0; i < SodierMidle; i++)
-                        for (int j = 0; A.SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && j < A.SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                        for (int j = 0; A.SolderesOnTable !=null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && j < A.SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                         {
                             try
                             {
@@ -2569,12 +2584,12 @@ namespace RefrigtzDLL
                                 Log(t);
                             }
                             Order *= -1; ChessRules.CurrentOrder *= -1;
-                            for (int ii = 0; A.SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && ii < A.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; ii++)
+                            for (int ii = 0; A.SolderesOnTable !=null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && ii < A.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; ii++)
                                 MakePenaltyAllCheckMateBranches(A.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii], Order);
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (int i = 0; i < ElefantMidle; i++)
-                        for (int j = 0; A.ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && j < A.ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                        for (int j = 0; A.ElephantOnTable  != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && j < A.ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                         {
 
                             try
@@ -2589,7 +2604,7 @@ namespace RefrigtzDLL
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && ii < A.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; ii++)
+                                for (int ii = 0; A.ElephantOnTable  != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && ii < A.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; ii++)
                                     MakePenaltyAllCheckMateBranches(A.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -2599,7 +2614,7 @@ namespace RefrigtzDLL
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (int i = 0; i < HourseMidle; i++)
-                        for (int j = 0; A.HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && j < A.HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                        for (int j = 0; A.HoursesOnTable  != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && j < A.HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                         {
                             try
                             {
@@ -2614,7 +2629,7 @@ namespace RefrigtzDLL
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && ii < A.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; ii++)
+                                for (int ii = 0; A.HoursesOnTable  != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && ii < A.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; ii++)
                                     MakePenaltyAllCheckMateBranches(A.HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -2624,7 +2639,7 @@ namespace RefrigtzDLL
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (int i = 0; i < CastleMidle; i++)
-                        for (int j = 0; A.CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && j < A.CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                        for (int j = 0; A.CastlesOnTable  != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && j < A.CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
                             try
                             {
@@ -2638,7 +2653,7 @@ namespace RefrigtzDLL
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && ii < A.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; ii++)
+                                for (int ii = 0; A.CastlesOnTable  != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && ii < A.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; ii++)
                                     MakePenaltyAllCheckMateBranches(A.CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -2648,7 +2663,7 @@ namespace RefrigtzDLL
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (int i = 0; i < MinisterMidle; i++)
-                        for (int j = 0; A.MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && j < A.MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                        for (int j = 0; A.MinisterOnTable  != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && j < A.MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                         {
                             try
                             {
@@ -2662,7 +2677,7 @@ namespace RefrigtzDLL
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && ii < A.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; ii++)
+                                for (int ii = 0; A.MinisterOnTable  != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && ii < A.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; ii++)
                                     MakePenaltyAllCheckMateBranches(A.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -2672,7 +2687,7 @@ namespace RefrigtzDLL
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (int i = 0; i < KingMidle; i++)
-                        for (int j = 0; A.KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && j < A.KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                        for (int j = 0; A.KingOnTable  != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && j < A.KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                         {
                             try
                             {
@@ -2686,7 +2701,7 @@ namespace RefrigtzDLL
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && ii < A.KingOnTable[i].KingThinking[0].AStarGreedy.Count; ii++)
+                                for (int ii = 0; A.KingOnTable  != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && ii < A.KingOnTable[i].KingThinking[0].AStarGreedy.Count; ii++)
                                     MakePenaltyAllCheckMateBranches(A.KingOnTable[i].KingThinking[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -2699,7 +2714,7 @@ namespace RefrigtzDLL
                 else
                 {
                     for (int i = SodierMidle; i < SodierHigh; i++)
-                        for (int j = 0; A.SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && j < A.SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                        for (int j = 0; A.SolderesOnTable !=null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && j < A.SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                         {
                             try
                             {
@@ -2712,7 +2727,7 @@ namespace RefrigtzDLL
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && ii < A.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; ii++)
+                                for (int ii = 0; A.SolderesOnTable !=null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && ii < A.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; ii++)
                                     MakePenaltyAllCheckMateBranches(A.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -2722,7 +2737,7 @@ namespace RefrigtzDLL
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (int i = ElefantMidle; i < ElefantHigh; i++)
-                        for (int j = 0; A.ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && j < A.ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                        for (int j = 0; A.ElephantOnTable  != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && j < A.ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                         {
                             try
                             {
@@ -2736,7 +2751,7 @@ namespace RefrigtzDLL
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && ii < A.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; ii++)
+                                for (int ii = 0; A.ElephantOnTable  != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && ii < A.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; ii++)
                                     MakePenaltyAllCheckMateBranches(A.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -2746,7 +2761,7 @@ namespace RefrigtzDLL
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (int i = HourseMidle; i < HourseHight; i++)
-                        for (int j = 0; A.HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && j < A.HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                        for (int j = 0; A.HoursesOnTable  != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && j < A.HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                         {
                             try
                             {
@@ -2761,7 +2776,7 @@ namespace RefrigtzDLL
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && ii < A.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; ii++)
+                                for (int ii = 0; A.HoursesOnTable  != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && ii < A.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; ii++)
                                     MakePenaltyAllCheckMateBranches(A.HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -2771,7 +2786,7 @@ namespace RefrigtzDLL
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (int i = CastleMidle; i < CastleHigh; i++)
-                        for (int j = 0; A.CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && j < A.CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                        for (int j = 0; A.CastlesOnTable  != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && j < A.CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
                             try
                             {
@@ -2785,7 +2800,7 @@ namespace RefrigtzDLL
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && ii < A.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; ii++)
+                                for (int ii = 0; A.CastlesOnTable  != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && ii < A.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; ii++)
                                     MakePenaltyAllCheckMateBranches(A.CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -2795,7 +2810,7 @@ namespace RefrigtzDLL
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (int i = MinisterMidle; i < MinisterHigh; i++)
-                        for (int j = 0; A.MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && j < A.MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                        for (int j = 0; A.MinisterOnTable  != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && j < A.MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                         {
                             try
                             {
@@ -2809,7 +2824,7 @@ namespace RefrigtzDLL
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && ii < A.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; ii++)
+                                for (int ii = 0; A.MinisterOnTable  != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && ii < A.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; ii++)
                                     MakePenaltyAllCheckMateBranches(A.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -2819,7 +2834,7 @@ namespace RefrigtzDLL
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (int i = KingMidle; i < MinisterHigh; i++)
-                        for (int j = 0; A.KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && j < A.KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                        for (int j = 0; A.KingOnTable  != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && j < A.KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                         {
                             try
                             {
@@ -2833,7 +2848,7 @@ namespace RefrigtzDLL
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && ii < A.KingOnTable[i].KingThinking[0].AStarGreedy.Count; ii++)
+                                for (int ii = 0; A.KingOnTable  != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && ii < A.KingOnTable[i].KingThinking[0].AStarGreedy.Count; ii++)
                                     MakePenaltyAllCheckMateBranches(A.KingOnTable[i].KingThinking[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -2855,7 +2870,7 @@ namespace RefrigtzDLL
                 {
 
                     for (int i = 0; i < SodierMidle; i++)
-                        for (int j = 0; SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                        for (int j = 0; SolderesOnTable !=null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                         {
                             UsePenaltyRegardMechnisamT = false;
                             try
@@ -2870,7 +2885,7 @@ namespace RefrigtzDLL
                             }
                         }
                     for (int i = 0; i < ElefantMidle; i++)
-                        for (int j = 0; ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                        for (int j = 0; ElephantOnTable  != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                         {
                             UsePenaltyRegardMechnisamT = false;
                             try
@@ -2887,7 +2902,7 @@ namespace RefrigtzDLL
                             }
                         }
                     for (int i = 0; i < HourseMidle; i++)
-                        for (int j = 0; HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                        for (int j = 0; HoursesOnTable  != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                         {
                             UsePenaltyRegardMechnisamT = false;
                             try
@@ -2904,7 +2919,7 @@ namespace RefrigtzDLL
 
                         }
                     for (int i = 0; i < CastleMidle; i++)
-                        for (int j = 0; CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                        for (int j = 0; CastlesOnTable  != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
                             UsePenaltyRegardMechnisamT = false;
                             try
@@ -2921,7 +2936,7 @@ namespace RefrigtzDLL
 
                         }
                     for (int i = 0; i < MinisterMidle; i++)
-                        for (int j = 0; MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                        for (int j = 0; MinisterOnTable  != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                         {
                             UsePenaltyRegardMechnisamT = false;
                             try
@@ -2938,7 +2953,7 @@ namespace RefrigtzDLL
 
                         }
                     for (int i = 0; i < KingMidle; i++)
-                        for (int j = 0; KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                        for (int j = 0; KingOnTable  != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                         {
                             UsePenaltyRegardMechnisamT = false;
                             try
@@ -2958,7 +2973,7 @@ namespace RefrigtzDLL
                 else
                 {
                     for (int i = SodierMidle; i < SodierHigh; i++)
-                        for (int j = 0; SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                        for (int j = 0; SolderesOnTable !=null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                         {
                             UsePenaltyRegardMechnisamT = false;
                             try
@@ -2974,7 +2989,7 @@ namespace RefrigtzDLL
                             }
                         }
                     for (int i = ElefantMidle; i < ElefantHigh; i++)
-                        for (int j = 0; ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                        for (int j = 0; ElephantOnTable  != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                         {
                             UsePenaltyRegardMechnisamT = false;
                             try
@@ -2991,7 +3006,7 @@ namespace RefrigtzDLL
                             }
                         }
                     for (int i = HourseMidle; i < HourseHight; i++)
-                        for (int j = 0; HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                        for (int j = 0; HoursesOnTable  != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                         {
                             UsePenaltyRegardMechnisamT = false;
                             try
@@ -3009,7 +3024,7 @@ namespace RefrigtzDLL
                             }
                         }
                     for (int i = CastleMidle; i < CastleHigh; i++)
-                        for (int j = 0; CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                        for (int j = 0; CastlesOnTable  != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
                             UsePenaltyRegardMechnisamT = false;
                             try
@@ -3026,7 +3041,7 @@ namespace RefrigtzDLL
                             }
                         }
                     for (int i = MinisterMidle; i < MinisterHigh; i++)
-                        for (int j = 0; MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                        for (int j = 0; MinisterOnTable  != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                         {
                             UsePenaltyRegardMechnisamT = false;
                             try
@@ -3043,7 +3058,7 @@ namespace RefrigtzDLL
                             }
                         }
                     for (int i = KingMidle; i < KingHigh; i++)
-                        for (int j = 0; KingOnTable[i] != null
+                        for (int j = 0; KingOnTable  != null && KingOnTable[i] != null
                             && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                         {
                             UsePenaltyRegardMechnisamT = false;
@@ -3069,7 +3084,7 @@ namespace RefrigtzDLL
             lock (a)
             {
                 //if (Found)
-                    //return THIS;
+                //return THIS;
 
                 if (TableList.Count > 0 && ThinkingChess.TableEqual(TableList[0], Tab))
                 {
@@ -3082,14 +3097,14 @@ namespace RefrigtzDLL
                 {
 
                     for (int i = 0; i < SodierMidle; i++)
-                        for (int j = 0; SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                        for (int j = 0; SolderesOnTable !=null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                         {
 
                             try
                             {
                                 if (ThinkingChess.TableEqual(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j], Tab))
                                 {
-                                    if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count >j && SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null)
+                                    if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count > j && SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null)
                                     {
                                         THIS = SolderesOnTable[i].SoldierThinking[0].AStarGreedy[i];
                                         Found = true;
@@ -3097,7 +3112,7 @@ namespace RefrigtzDLL
                                     }
                                 }
                                 else
-                                    for (int ii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count - 1; ii++)
+                                    for (int ii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; ii++)
                                         SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, ref THIS, ref Found);
 
                             }
@@ -3108,161 +3123,7 @@ namespace RefrigtzDLL
                             }
                         }
                     for (int i = 0; i < ElefantMidle; i++)
-                        for (int j = 0; ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
-                        {
-                            try
-                            {
-
-                                if (ThinkingChess.TableEqual(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j], Tab))
-                                {
-                                    if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count >j && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null)
-                                    {
-                                        THIS = ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j];
-                                        Found = true;
-                                        return THIS;
-                                    }
-                                }
-                                else
-                                    for (int ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count - 1; ii++)
-                                        ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, ref THIS, ref Found);
-
-
-                            }
-                            catch (Exception t)
-                            {
-                                Log(t);
-                            }
-                        }
-                    for (int i = 0; i < HourseMidle; i++)
-                        for (int j = 0; HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
-                        {
-                            try
-                            {
-                                if (ThinkingChess.TableEqual(HoursesOnTable[i].HourseThinking[0].TableListHourse[j], Tab))
-                                {
-                                    if (HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count >j && HoursesOnTable[i].HourseThinking[0].AStarGreedy != null)
-                                    {
-                                        THIS = HoursesOnTable[i].HourseThinking[0].AStarGreedy[j];
-                                        Found = true;
-                                        return THIS;
-                                    }
-                                }
-                                else
-                                    for (int ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count - 1; ii++)
-                                        HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, ref THIS, ref Found);
-
-                            }
-                            catch (Exception t)
-                            {
-                                Log(t);
-                            }
-
-
-                        }
-                    for (int i = 0; i < CastleMidle; i++)
-                        for (int j = 0; CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
-                        {
-                            try
-                            {
-                                if (ThinkingChess.TableEqual(CastlesOnTable[i].CastleThinking[0].TableListCastle[j], Tab))
-                                {
-                                    if (CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count > j && CastlesOnTable[i].CastleThinking[0].AStarGreedy != null)
-                                    {
-                                        THIS = CastlesOnTable[i].CastleThinking[0].AStarGreedy[j];
-                                        Found = true;
-                                        return THIS;
-                                    }
-                                }
-                                else
-                                    for (int ii = 0; ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count - 1; ii++)
-                                        CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, ref THIS, ref Found);
-                            }
-                            catch (Exception t)
-                            {
-                                Log(t);
-                            }
-
-                        }
-                    for (int i = 0; i < MinisterMidle; i++)
-                        for (int j = 0; MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
-                        {
-                            try
-                            {
-                                if (ThinkingChess.TableEqual(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j], Tab))
-                                {
-                                    if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count > j && MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null)
-                                    {
-                                        THIS = MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j];
-                                        Found = true;
-                                        return THIS;
-                                    }
-                                }
-                                else
-                                    for (int ii = 0; ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count - 1; ii++)
-                                        MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, ref THIS, ref Found);
-
-                            }
-                            catch (Exception t)
-                            {
-                                Log(t);
-                            }
-
-                        }
-                    for (int i = 0; i < KingMidle; i++)
-                        for (int j = 0; KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
-                        {
-                            try
-                            {
-                                if (ThinkingChess.TableEqual(KingOnTable[i].KingThinking[0].TableListKing[j], Tab))
-                                {
-                                    if (KingOnTable[i].KingThinking[0].AStarGreedy.Count > j && KingOnTable[i].KingThinking[0].AStarGreedy != null)
-                                    {
-                                        THIS = KingOnTable[i].KingThinking[0].AStarGreedy[j];
-                                        Found = true;
-                                        return THIS;
-                                    }
-                                }
-                                else
-                                    for (int ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy.Count - 1; ii++)
-                                        KingOnTable[i].KingThinking[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, ref THIS, ref Found);
-
-                            }
-                            catch (Exception t)
-                            {
-                                Log(t);
-                            }
-
-                        }
-                }
-                else
-                {
-                    for (int i = SodierMidle; i < SodierHigh; i++)
-                        for (int j = 0; SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
-                        {
-                            try
-                            {
-
-                                if (ThinkingChess.TableEqual(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j], Tab))
-                                {
-                                    if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count > j && SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null)
-                                    {
-                                        THIS = SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j];
-                                        Found = true;
-                                        return THIS;
-                                    }
-                                }
-                                else
-                                    for (int ii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count - 1; ii++)
-                                        SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, ref THIS, ref Found);
-
-                            }
-                            catch (Exception t)
-                            {
-                                Log(t);
-                            }
-                        }
-                    for (int i = ElefantMidle; i < ElefantHigh; i++)
-                        for (int j = 0; ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                        for (int j = 0; ElephantOnTable  != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                         {
                             try
                             {
@@ -3277,7 +3138,161 @@ namespace RefrigtzDLL
                                     }
                                 }
                                 else
-                                    for (int ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count - 1; ii++)
+                                    for (int ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; ii++)
+                                        ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, ref THIS, ref Found);
+
+
+                            }
+                            catch (Exception t)
+                            {
+                                Log(t);
+                            }
+                        }
+                    for (int i = 0; i < HourseMidle; i++)
+                        for (int j = 0; HoursesOnTable  != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                        {
+                            try
+                            {
+                                if (ThinkingChess.TableEqual(HoursesOnTable[i].HourseThinking[0].TableListHourse[j], Tab))
+                                {
+                                    if (HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count > j && HoursesOnTable[i].HourseThinking[0].AStarGreedy != null)
+                                    {
+                                        THIS = HoursesOnTable[i].HourseThinking[0].AStarGreedy[j];
+                                        Found = true;
+                                        return THIS;
+                                    }
+                                }
+                                else
+                                    for (int ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; ii++)
+                                        HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, ref THIS, ref Found);
+
+                            }
+                            catch (Exception t)
+                            {
+                                Log(t);
+                            }
+
+
+                        }
+                    for (int i = 0; i < CastleMidle; i++)
+                        for (int j = 0; CastlesOnTable  != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                        {
+                            try
+                            {
+                                if (ThinkingChess.TableEqual(CastlesOnTable[i].CastleThinking[0].TableListCastle[j], Tab))
+                                {
+                                    if (CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count > j && CastlesOnTable[i].CastleThinking[0].AStarGreedy != null)
+                                    {
+                                        THIS = CastlesOnTable[i].CastleThinking[0].AStarGreedy[j];
+                                        Found = true;
+                                        return THIS;
+                                    }
+                                }
+                                else
+                                    for (int ii = 0; ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; ii++)
+                                        CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, ref THIS, ref Found);
+                            }
+                            catch (Exception t)
+                            {
+                                Log(t);
+                            }
+
+                        }
+                    for (int i = 0; i < MinisterMidle; i++)
+                        for (int j = 0; MinisterOnTable  != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                        {
+                            try
+                            {
+                                if (ThinkingChess.TableEqual(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j], Tab))
+                                {
+                                    if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count > j && MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null)
+                                    {
+                                        THIS = MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j];
+                                        Found = true;
+                                        return THIS;
+                                    }
+                                }
+                                else
+                                    for (int ii = 0; ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; ii++)
+                                        MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, ref THIS, ref Found);
+
+                            }
+                            catch (Exception t)
+                            {
+                                Log(t);
+                            }
+
+                        }
+                    for (int i = 0; i < KingMidle; i++)
+                        for (int j = 0; KingOnTable  != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                        {
+                            try
+                            {
+                                if (ThinkingChess.TableEqual(KingOnTable[i].KingThinking[0].TableListKing[j], Tab))
+                                {
+                                    if (KingOnTable[i].KingThinking[0].AStarGreedy.Count > j && KingOnTable[i].KingThinking[0].AStarGreedy != null)
+                                    {
+                                        THIS = KingOnTable[i].KingThinking[0].AStarGreedy[j];
+                                        Found = true;
+                                        return THIS;
+                                    }
+                                }
+                                else
+                                    for (int ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy.Count; ii++)
+                                        KingOnTable[i].KingThinking[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, ref THIS, ref Found);
+
+                            }
+                            catch (Exception t)
+                            {
+                                Log(t);
+                            }
+
+                        }
+                }
+                else
+                {
+                    for (int i = SodierMidle; i < SodierHigh; i++)
+                        for (int j = 0; SolderesOnTable !=null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                        {
+                            try
+                            {
+
+                                if (ThinkingChess.TableEqual(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j], Tab))
+                                {
+                                    if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count > j && SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null)
+                                    {
+                                        THIS = SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j];
+                                        Found = true;
+                                        return THIS;
+                                    }
+                                }
+                                else
+                                    for (int ii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; ii++)
+                                        SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, ref THIS, ref Found);
+
+                            }
+                            catch (Exception t)
+                            {
+                                Log(t);
+                            }
+                        }
+                    for (int i = ElefantMidle; i < ElefantHigh; i++)
+                        for (int j = 0; ElephantOnTable  != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                        {
+                            try
+                            {
+
+                                if (ThinkingChess.TableEqual(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j], Tab))
+                                {
+                                    if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count > j && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null)
+                                    {
+                                        THIS = ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j];
+                                        Found = true;
+                                        return THIS;
+                                    }
+                                }
+                                else
+                                    for (int ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; ii++)
                                         ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, ref THIS, ref Found);
 
                             }
@@ -3287,7 +3302,7 @@ namespace RefrigtzDLL
                             }
                         }
                     for (int i = HourseMidle; i < HourseHight; i++)
-                        for (int j = 0; HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                        for (int j = 0; HoursesOnTable  != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                         {
                             try
                             {
@@ -3302,7 +3317,7 @@ namespace RefrigtzDLL
                                     }
                                 }
                                 else
-                                    for (int ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count - 1; ii++)
+                                    for (int ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; ii++)
                                         HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, ref THIS, ref Found);
 
 
@@ -3313,7 +3328,7 @@ namespace RefrigtzDLL
                             }
                         }
                     for (int i = CastleMidle; i < CastleHigh; i++)
-                        for (int j = 0; CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                        for (int j = 0; CastlesOnTable  != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
                             try
                             {
@@ -3328,7 +3343,7 @@ namespace RefrigtzDLL
                                     }
                                 }
                                 else
-                                    for (int ii = 0; ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count - 1; ii++)
+                                    for (int ii = 0; ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; ii++)
                                         CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, ref THIS, ref Found);
 
                             }
@@ -3338,7 +3353,7 @@ namespace RefrigtzDLL
                             }
                         }
                     for (int i = MinisterMidle; i < MinisterHigh; i++)
-                        for (int j = 0; MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                        for (int j = 0; MinisterOnTable  != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                         {
                             try
                             {
@@ -3352,7 +3367,7 @@ namespace RefrigtzDLL
                                     }
                                 }
                                 else
-                                    for (int ii = 0; ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count - 1; ii++)
+                                    for (int ii = 0; ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; ii++)
                                         MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, ref THIS, ref Found);
 
                             }
@@ -3362,7 +3377,7 @@ namespace RefrigtzDLL
                             }
                         }
                     for (int i = KingMidle; i < KingHigh; i++)
-                        for (int j = 0; KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                        for (int j = 0; KingOnTable  != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                         {
                             try
                             {
@@ -3376,7 +3391,7 @@ namespace RefrigtzDLL
                                     }
                                 }
                                 else
-                                    for (int ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy.Count - 1; ii++)
+                                    for (int ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy.Count; ii++)
                                         KingOnTable[i].KingThinking[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, ref THIS, ref Found);
 
                             }
@@ -3403,7 +3418,7 @@ namespace RefrigtzDLL
                 {
 
                     for (int i = 0; i < SodierMidle; i++)
-                        for (int j = 0; SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                        for (int j = 0; SolderesOnTable !=null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                         {
 
                             try
@@ -3427,7 +3442,7 @@ namespace RefrigtzDLL
                             }
                         }
                     for (int i = 0; i < ElefantMidle; i++)
-                        for (int j = 0; ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                        for (int j = 0; ElephantOnTable  != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                         {
                             try
                             {
@@ -3449,7 +3464,7 @@ namespace RefrigtzDLL
                             }
                         }
                     for (int i = 0; i < HourseMidle; i++)
-                        for (int j = 0; HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                        for (int j = 0; HoursesOnTable  != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                         {
                             try
                             {
@@ -3472,7 +3487,7 @@ namespace RefrigtzDLL
 
                         }
                     for (int i = 0; i < CastleMidle; i++)
-                        for (int j = 0; CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                        for (int j = 0; CastlesOnTable  != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
                             try
                             {
@@ -3493,7 +3508,7 @@ namespace RefrigtzDLL
 
                         }
                     for (int i = 0; i < MinisterMidle; i++)
-                        for (int j = 0; MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                        for (int j = 0; MinisterOnTable  != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                         {
                             try
                             {
@@ -3515,7 +3530,7 @@ namespace RefrigtzDLL
 
                         }
                     for (int i = 0; i < KingMidle; i++)
-                        for (int j = 0; KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                        for (int j = 0; KingOnTable  != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                         {
                             try
                             {
@@ -3540,7 +3555,7 @@ namespace RefrigtzDLL
                 else
                 {
                     for (int i = SodierMidle; i < SodierHigh; i++)
-                        for (int j = 0; SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                        for (int j = 0; SolderesOnTable !=null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                         {
                             try
                             {
@@ -3561,7 +3576,7 @@ namespace RefrigtzDLL
                             }
                         }
                     for (int i = ElefantMidle; i < ElefantHigh; i++)
-                        for (int j = 0; ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                        for (int j = 0; ElephantOnTable  != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                         {
                             try
                             {
@@ -3582,7 +3597,7 @@ namespace RefrigtzDLL
                             }
                         }
                     for (int i = HourseMidle; i < HourseHight; i++)
-                        for (int j = 0; HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                        for (int j = 0; HoursesOnTable  != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                         {
                             try
                             {
@@ -3603,7 +3618,7 @@ namespace RefrigtzDLL
                             }
                         }
                     for (int i = CastleMidle; i < CastleHigh; i++)
-                        for (int j = 0; CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                        for (int j = 0; CastlesOnTable  != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
                             try
                             {
@@ -3625,7 +3640,7 @@ namespace RefrigtzDLL
                             }
                         }
                     for (int i = MinisterMidle; i < MinisterHigh; i++)
-                        for (int j = 0; MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                        for (int j = 0; MinisterOnTable  != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                         {
                             try
                             {
@@ -3646,7 +3661,7 @@ namespace RefrigtzDLL
                             }
                         }
                     for (int i = KingMidle; i < KingHigh; i++)
-                        for (int j = 0; KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                        for (int j = 0; KingOnTable  != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                         {
                             try
                             {
@@ -3690,7 +3705,7 @@ namespace RefrigtzDLL
                     {
 
                         for (int i = 0; i < SodierMidle; i++)
-                            for (int j = 0; SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                            for (int j = 0; SolderesOnTable !=null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                             {
 
                                 try
@@ -3716,7 +3731,7 @@ namespace RefrigtzDLL
                                 }
                             }
                         for (int i = 0; i < ElefantMidle; i++)
-                            for (int j = 0; ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                            for (int j = 0; ElephantOnTable  != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                             {
                                 try
                                 {
@@ -3740,7 +3755,7 @@ namespace RefrigtzDLL
                                 }
                             }
                         for (int i = 0; i < HourseMidle; i++)
-                            for (int j = 0; HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                            for (int j = 0; HoursesOnTable  != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                             {
                                 try
                                 {
@@ -3765,7 +3780,7 @@ namespace RefrigtzDLL
 
                             }
                         for (int i = 0; i < CastleMidle; i++)
-                            for (int j = 0; CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                            for (int j = 0; CastlesOnTable  != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                             {
                                 try
                                 {
@@ -3788,7 +3803,7 @@ namespace RefrigtzDLL
 
                             }
                         for (int i = 0; i < MinisterMidle; i++)
-                            for (int j = 0; MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                            for (int j = 0; MinisterOnTable  != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                             {
                                 try
                                 {
@@ -3813,7 +3828,7 @@ namespace RefrigtzDLL
 
                             }
                         for (int i = 0; i < KingMidle; i++)
-                            for (int j = 0; KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                            for (int j = 0; KingOnTable  != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                             {
                                 try
                                 {
@@ -3840,7 +3855,7 @@ namespace RefrigtzDLL
                     else
                     {
                         for (int i = SodierMidle; i < SodierHigh; i++)
-                            for (int j = 0; SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                            for (int j = 0; SolderesOnTable !=null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                             {
                                 try
                                 {
@@ -3863,7 +3878,7 @@ namespace RefrigtzDLL
                                 }
                             }
                         for (int i = ElefantMidle; i < ElefantHigh; i++)
-                            for (int j = 0; ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                            for (int j = 0; ElephantOnTable  != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                             {
                                 try
                                 {
@@ -3886,7 +3901,7 @@ namespace RefrigtzDLL
                                 }
                             }
                         for (int i = HourseMidle; i < HourseHight; i++)
-                            for (int j = 0; HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                            for (int j = 0; HoursesOnTable  != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                             {
                                 try
                                 {
@@ -3909,7 +3924,7 @@ namespace RefrigtzDLL
                                 }
                             }
                         for (int i = CastleMidle; i < CastleHigh; i++)
-                            for (int j = 0; CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                            for (int j = 0; CastlesOnTable  != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                             {
                                 try
                                 {
@@ -3933,7 +3948,7 @@ namespace RefrigtzDLL
                                 }
                             }
                         for (int i = MinisterMidle; i < MinisterHigh; i++)
-                            for (int j = 0; MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                            for (int j = 0; MinisterOnTable  != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                             {
                                 try
                                 {
@@ -3957,7 +3972,7 @@ namespace RefrigtzDLL
                                 }
                             }
                         for (int i = KingMidle; i < KingHigh; i++)
-                            for (int j = 0; KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                            for (int j = 0; KingOnTable  != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                             {
                                 try
                                 {
@@ -4011,7 +4026,7 @@ namespace RefrigtzDLL
                 {
 
                     for (int i = 0; i < SodierMidle; i++)
-                        for (int j = 0; A.SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && j < A.SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                        for (int j = 0; A.SolderesOnTable !=null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && j < A.SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                         {
 
                             try
@@ -4025,7 +4040,7 @@ namespace RefrigtzDLL
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && ii < A.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; ii++)
+                                for (int ii = 0; A.SolderesOnTable !=null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && ii < A.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; ii++)
                                     MakeRegardAllCheckMateBranches(A.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii], Order);
 
                             }
@@ -4036,7 +4051,7 @@ namespace RefrigtzDLL
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (int i = 0; i < ElefantMidle; i++)
-                        for (int j = 0; A.ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && j < A.ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                        for (int j = 0; A.ElephantOnTable  != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && j < A.ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                         {
 
                             try
@@ -4051,7 +4066,7 @@ namespace RefrigtzDLL
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && ii < A.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; ii++)
+                                for (int ii = 0; A.ElephantOnTable  != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && ii < A.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; ii++)
                                     MakeRegardAllCheckMateBranches(A.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -4061,7 +4076,7 @@ namespace RefrigtzDLL
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (int i = 0; i < HourseMidle; i++)
-                        for (int j = 0; A.HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && j < A.HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                        for (int j = 0; A.HoursesOnTable  != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && j < A.HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                         {
                             try
                             {
@@ -4075,7 +4090,7 @@ namespace RefrigtzDLL
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && ii < A.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; ii++)
+                                for (int ii = 0; A.HoursesOnTable  != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && ii < A.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; ii++)
                                     MakeRegardAllCheckMateBranches(A.HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -4085,7 +4100,7 @@ namespace RefrigtzDLL
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (int i = 0; i < CastleMidle; i++)
-                        for (int j = 0; A.CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && j < A.CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                        for (int j = 0; A.CastlesOnTable  != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && j < A.CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
                             try
                             {
@@ -4098,7 +4113,7 @@ namespace RefrigtzDLL
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && ii < A.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; ii++)
+                                for (int ii = 0; A.CastlesOnTable  != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && ii < A.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; ii++)
                                     MakeRegardAllCheckMateBranches(A.CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -4108,7 +4123,7 @@ namespace RefrigtzDLL
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (int i = 0; i < MinisterMidle; i++)
-                        for (int j = 0; A.MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && j < A.MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                        for (int j = 0; A.MinisterOnTable  != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && j < A.MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                         {
                             try
                             {
@@ -4122,7 +4137,7 @@ namespace RefrigtzDLL
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && ii < A.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; ii++)
+                                for (int ii = 0; A.MinisterOnTable  != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && ii < A.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; ii++)
                                     MakeRegardAllCheckMateBranches(A.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -4132,7 +4147,7 @@ namespace RefrigtzDLL
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (int i = 0; i < KingMidle; i++)
-                        for (int j = 0; A.KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && j < A.KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                        for (int j = 0; A.KingOnTable  != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && j < A.KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                         {
                             try
                             {
@@ -4145,7 +4160,7 @@ namespace RefrigtzDLL
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && ii < A.KingOnTable[i].KingThinking[0].AStarGreedy.Count; ii++)
+                                for (int ii = 0; A.KingOnTable  != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && ii < A.KingOnTable[i].KingThinking[0].AStarGreedy.Count; ii++)
                                     MakeRegardAllCheckMateBranches(A.KingOnTable[i].KingThinking[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -4158,7 +4173,7 @@ namespace RefrigtzDLL
                 else
                 {
                     for (int i = SodierMidle; i < SodierHigh; i++)
-                        for (int j = 0; A.SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && j < A.SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                        for (int j = 0; A.SolderesOnTable !=null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && j < A.SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                         {
                             try
                             {
@@ -4171,7 +4186,7 @@ namespace RefrigtzDLL
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && ii < A.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; ii++)
+                                for (int ii = 0; A.SolderesOnTable !=null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && ii < A.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; ii++)
                                     MakeRegardAllCheckMateBranches(A.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -4181,7 +4196,7 @@ namespace RefrigtzDLL
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (int i = ElefantMidle; i < ElefantHigh; i++)
-                        for (int j = 0; A.ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && j < A.ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                        for (int j = 0; A.ElephantOnTable  != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && j < A.ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                         {
                             try
                             {
@@ -4195,7 +4210,7 @@ namespace RefrigtzDLL
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && ii < A.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; ii++)
+                                for (int ii = 0; A.ElephantOnTable  != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && ii < A.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; ii++)
                                     MakeRegardAllCheckMateBranches(A.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -4205,7 +4220,7 @@ namespace RefrigtzDLL
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (int i = HourseMidle; i < HourseHight; i++)
-                        for (int j = 0; A.HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && j < A.HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                        for (int j = 0; A.HoursesOnTable  != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && j < A.HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                         {
                             try
                             {
@@ -4219,7 +4234,7 @@ namespace RefrigtzDLL
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && ii < A.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; ii++)
+                                for (int ii = 0; A.HoursesOnTable  != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && ii < A.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; ii++)
                                     MakeRegardAllCheckMateBranches(A.HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -4229,7 +4244,7 @@ namespace RefrigtzDLL
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (int i = CastleMidle; i < CastleHigh; i++)
-                        for (int j = 0; A.CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && j < A.CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                        for (int j = 0; A.CastlesOnTable  != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && j < A.CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
                             try
                             {
@@ -4242,7 +4257,7 @@ namespace RefrigtzDLL
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && ii < A.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; ii++)
+                                for (int ii = 0; A.CastlesOnTable  != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && ii < A.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; ii++)
                                     MakeRegardAllCheckMateBranches(A.CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -4252,7 +4267,7 @@ namespace RefrigtzDLL
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (int i = MinisterMidle; i < MinisterHigh; i++)
-                        for (int j = 0; A.MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && j < A.MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                        for (int j = 0; A.MinisterOnTable  != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && j < A.MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                         {
                             try
                             {
@@ -4265,7 +4280,7 @@ namespace RefrigtzDLL
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && ii < A.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; ii++)
+                                for (int ii = 0; A.MinisterOnTable  != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && ii < A.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; ii++)
                                     MakeRegardAllCheckMateBranches(A.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -4275,7 +4290,7 @@ namespace RefrigtzDLL
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (int i = KingMidle; i < MinisterHigh; i++)
-                        for (int j = 0; A.KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && j < A.KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                        for (int j = 0; A.KingOnTable  != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && j < A.KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                         {
                             try
                             {
@@ -4288,7 +4303,7 @@ namespace RefrigtzDLL
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && ii < A.KingOnTable[i].KingThinking[0].AStarGreedy.Count; ii++)
+                                for (int ii = 0; A.KingOnTable  != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && ii < A.KingOnTable[i].KingThinking[0].AStarGreedy.Count; ii++)
                                     MakeRegardAllCheckMateBranches(A.KingOnTable[i].KingThinking[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -4325,7 +4340,7 @@ namespace RefrigtzDLL
                         //When There is an Movment in such situation.
                         try
                         {
-                            for (j = 0; SolderesOnTable[i] != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[k] != null && SolderesOnTable[i].SoldierThinking[k] != null && j < SolderesOnTable[i].SoldierThinking[k].TableListSolder.Count; j++)
+                            for (j = 0; SolderesOnTable !=null && SolderesOnTable[i] != null && SolderesOnTable !=null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[k] != null && SolderesOnTable[i].SoldierThinking[k] != null && j < SolderesOnTable[i].SoldierThinking[k].TableListSolder.Count; j++)
                             {
                                 {
                                     try
@@ -4395,11 +4410,11 @@ namespace RefrigtzDLL
                                                         TableHuristic[SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][1]] = 3 * Sign;
                                                     else if (SolderesOnTable[i].ConvertedToElefant)
                                                         TableHuristic[SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][1]] = 2 * Sign;
-                                                   
-                                                    
 
-                                                   
-                                                 }
+
+
+
+                                                }
                                                 RegardOccurred = true;
                                                 //if (Do == 1 || AA)
                                                 //return TableHuristic;
@@ -4547,11 +4562,11 @@ namespace RefrigtzDLL
                                                         TableHuristic[SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][1]] = 3 * Sign;
                                                     else if (SolderesOnTable[i].ConvertedToElefant)
                                                         TableHuristic[SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][1]] = 2 * Sign;
-                                                   
-                                                    
 
-                                                   
-                                             
+
+
+
+
                                                 }
                                             }
 
@@ -4608,11 +4623,11 @@ namespace RefrigtzDLL
                                                             TableHuristic[SolderesOnTable[RW1].SoldierThinking[CL1].RowColumnSoldier[Ki1][0], SolderesOnTable[RW1].SoldierThinking[CL1].RowColumnSoldier[Ki1][1]] = 3 * Sign;
                                                         else if (SolderesOnTable[RW1].ConvertedToElefant)
                                                             TableHuristic[SolderesOnTable[RW1].SoldierThinking[CL1].RowColumnSoldier[Ki1][0], SolderesOnTable[RW1].SoldierThinking[CL1].RowColumnSoldier[Ki1][1]] = 2 * Sign;
-                                                       
-                                                        
 
-                                                       
-                                                  
+
+
+
+
                                                     }
                                                     Object O = new Object();
                                                     lock (O)
@@ -4670,7 +4685,7 @@ namespace RefrigtzDLL
                     for (int k = 0; k < AllDraw.ElefantMovments; k++)
                         try
                         {
-                            for (j = 0; ElephantOnTable[i] != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[k] != null && ElephantOnTable[i].ElefantThinking[k] != null && j < ElephantOnTable[i].ElefantThinking[k].TableListElefant.Count; j++)
+                            for (j = 0; ElephantOnTable  != null && ElephantOnTable[i] != null && ElephantOnTable  != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[k] != null && ElephantOnTable[i].ElefantThinking[k] != null && j < ElephantOnTable[i].ElefantThinking[k].TableListElefant.Count; j++)
                             {
                                 {
                                     try
@@ -4906,7 +4921,7 @@ namespace RefrigtzDLL
                     for (int k = 0; k < AllDraw.HourseMovments; k++)
                         try
                         {
-                            for (j = 0; HoursesOnTable[i] != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[k] != null && HoursesOnTable[i].HourseThinking[k] != null && j < HoursesOnTable[i].HourseThinking[k].TableListHourse.Count; j++)
+                            for (j = 0; HoursesOnTable  != null && HoursesOnTable[i] != null && HoursesOnTable  != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[k] != null && HoursesOnTable[i].HourseThinking[k] != null && j < HoursesOnTable[i].HourseThinking[k].TableListHourse.Count; j++)
                             {
                                 {
                                     try
@@ -5150,7 +5165,7 @@ namespace RefrigtzDLL
                     for (int k = 0; k < AllDraw.CastleMovments; k++)
                         try
                         {
-                            for (j = 0; CastlesOnTable[i] != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[k] != null && CastlesOnTable[i].CastleThinking[k] != null && j < CastlesOnTable[i].CastleThinking[k].TableListCastle.Count; j++)
+                            for (j = 0; CastlesOnTable  != null && CastlesOnTable[i] != null && CastlesOnTable  != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[k] != null && CastlesOnTable[i].CastleThinking[k] != null && j < CastlesOnTable[i].CastleThinking[k].TableListCastle.Count; j++)
                             {
                                 {
                                     try
@@ -5386,7 +5401,7 @@ namespace RefrigtzDLL
                     for (int k = 0; k < AllDraw.MinisterMovments; k++)
                         try
                         {
-                            for (j = 0; MinisterOnTable[i] != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[k] != null && MinisterOnTable[i].MinisterThinking[k] != null && j < MinisterOnTable[i].MinisterThinking[k].TableListMinister.Count; j++)
+                            for (j = 0; MinisterOnTable  != null && MinisterOnTable[i] != null && MinisterOnTable  != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[k] != null && MinisterOnTable[i].MinisterThinking[k] != null && j < MinisterOnTable[i].MinisterThinking[k].TableListMinister.Count; j++)
                             {
                                 {
                                     //For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
@@ -5619,7 +5634,7 @@ namespace RefrigtzDLL
                     for (int k = 0; k < AllDraw.KingMovments; k++)
                         try
                         {
-                            for (j = 0; KingOnTable[i] != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[k] != null && KingOnTable[i].KingThinking[k] != null && j < KingOnTable[i].KingThinking[k].TableListKing.Count; j++)
+                            for (j = 0; KingOnTable  != null && KingOnTable[i] != null && KingOnTable  != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[k] != null && KingOnTable[i].KingThinking[k] != null && j < KingOnTable[i].KingThinking[k].TableListKing.Count; j++)
                             {
                                 {
                                     try
@@ -5881,7 +5896,7 @@ namespace RefrigtzDLL
                     //When There is an Movment in such situation.
                     try
                     {
-                        for (j = 0; SolderesOnTable[i] != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[k] != null && SolderesOnTable[i].SoldierThinking[k] != null && j < SolderesOnTable[i].SoldierThinking[k].TableListSolder.Count; j++)
+                        for (j = 0; SolderesOnTable !=null && SolderesOnTable[i] != null && SolderesOnTable !=null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[k] != null && SolderesOnTable[i].SoldierThinking[k] != null && j < SolderesOnTable[i].SoldierThinking[k].TableListSolder.Count; j++)
                         {
                             {
                                 try
@@ -5946,10 +5961,10 @@ namespace RefrigtzDLL
                                                     TableHuristic[SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][1]] = 3 * Sign;
                                                 else if (SolderesOnTable[i].ConvertedToElefant)
                                                     TableHuristic[SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][1]] = 2 * Sign;
-                                               
-                                                
 
-                                               
+
+
+
                                             }
                                             Object O = new Object();
                                             lock (O)
@@ -6102,11 +6117,11 @@ namespace RefrigtzDLL
                                                     TableHuristic[SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][1]] = 3 * Sign;
                                                 else if (SolderesOnTable[i].ConvertedToElefant)
                                                     TableHuristic[SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][1]] = 2 * Sign;
-                                               
-                                                
 
-                                               
-                                           
+
+
+
+
                                             }
                                         }
 
@@ -6209,7 +6224,7 @@ namespace RefrigtzDLL
                 for (int k = 0; k < AllDraw.ElefantMovments; k++)
                     try
                     {
-                        for (j = 0; ElephantOnTable[i] != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[k] != null && ElephantOnTable[i].ElefantThinking[k] != null && j < ElephantOnTable[i].ElefantThinking[k].TableListElefant.Count; j++)
+                        for (j = 0; ElephantOnTable  != null && ElephantOnTable[i] != null && ElephantOnTable  != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[k] != null && ElephantOnTable[i].ElefantThinking[k] != null && j < ElephantOnTable[i].ElefantThinking[k].TableListElefant.Count; j++)
                         {
                             {
                                 try
@@ -6456,7 +6471,7 @@ namespace RefrigtzDLL
                 for (int k = 0; k < AllDraw.HourseMovments; k++)
                     try
                     {
-                        for (j = 0; HoursesOnTable[i] != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[k] != null && HoursesOnTable[i].HourseThinking[k] != null && j < HoursesOnTable[i].HourseThinking[k].TableListHourse.Count; j++)
+                        for (j = 0; HoursesOnTable  != null && HoursesOnTable[i] != null && HoursesOnTable  != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[k] != null && HoursesOnTable[i].HourseThinking[k] != null && j < HoursesOnTable[i].HourseThinking[k].TableListHourse.Count; j++)
                         {
                             {
                                 try
@@ -6688,7 +6703,7 @@ namespace RefrigtzDLL
                 for (int k = 0; k < AllDraw.CastleMovments; k++)
                     try
                     {
-                        for (j = 0; CastlesOnTable[i] != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[k] != null && CastlesOnTable[i].CastleThinking[k] != null && j < CastlesOnTable[i].CastleThinking[k].TableListCastle.Count; j++)
+                        for (j = 0; CastlesOnTable  != null && CastlesOnTable[i] != null && CastlesOnTable  != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[k] != null && CastlesOnTable[i].CastleThinking[k] != null && j < CastlesOnTable[i].CastleThinking[k].TableListCastle.Count; j++)
                         {
                             {
                                 try
@@ -6921,7 +6936,7 @@ namespace RefrigtzDLL
                 for (int k = 0; k < AllDraw.MinisterMovments; k++)
                     try
                     {
-                        for (j = 0; MinisterOnTable[i] != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[k] != null && MinisterOnTable[i].MinisterThinking[k] != null && j < MinisterOnTable[i].MinisterThinking[k].TableListMinister.Count; j++)
+                        for (j = 0; MinisterOnTable  != null && MinisterOnTable[i] != null && MinisterOnTable  != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[k] != null && MinisterOnTable[i].MinisterThinking[k] != null && j < MinisterOnTable[i].MinisterThinking[k].TableListMinister.Count; j++)
                         {
                             {
                                 //For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
@@ -7148,7 +7163,7 @@ namespace RefrigtzDLL
                 for (int k = 0; k < AllDraw.KingMovments; k++)
                     try
                     {
-                        for (j = 0; KingOnTable[i] != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[k] != null && KingOnTable[i].KingThinking[k] != null && j < KingOnTable[i].KingThinking[k].TableListKing.Count; j++)
+                        for (j = 0; KingOnTable  != null && KingOnTable[i] != null && KingOnTable  != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[k] != null && KingOnTable[i].KingThinking[k] != null && j < KingOnTable[i].KingThinking[k].TableListKing.Count; j++)
                         {
                             {
                                 try
@@ -7423,7 +7438,7 @@ namespace RefrigtzDLL
                         //When There is an Movment in such situation.
                         try
                         {
-                            for (j = 0; SolderesOnTable[i] != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[k] != null && SolderesOnTable[i].SoldierThinking[k] != null && j < SolderesOnTable[i].SoldierThinking[k].TableListSolder.Count; j++)
+                            for (j = 0; SolderesOnTable !=null && SolderesOnTable[i] != null && SolderesOnTable !=null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[k] != null && SolderesOnTable[i].SoldierThinking[k] != null && j < SolderesOnTable[i].SoldierThinking[k].TableListSolder.Count; j++)
                             {
                                 try
                                 {
@@ -7491,10 +7506,10 @@ namespace RefrigtzDLL
                                                     TableHuristic[SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][1]] = 3 * Sign;
                                                 else if (SolderesOnTable[i].ConvertedToElefant)
                                                     TableHuristic[SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][1]] = 2 * Sign;
-                                               
-                                                
 
-                                               
+
+
+
                                                 RegardOccurred = true;
                                                 //if (Do == 1 || AA)
                                                 //return TableHuristic;
@@ -7641,11 +7656,11 @@ namespace RefrigtzDLL
                                                     TableHuristic[SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][1]] = 3 * Sign;
                                                 else if (SolderesOnTable[i].ConvertedToElefant)
                                                     TableHuristic[SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][1]] = 2 * Sign;
-                                               
-                                                
 
-                                               
-                                            
+
+
+
+
                                             }
 
                                         }
@@ -7698,11 +7713,11 @@ namespace RefrigtzDLL
                                                             TableHuristic[SolderesOnTable[RW1].SoldierThinking[CL1].RowColumnSoldier[Ki1][0], SolderesOnTable[RW1].SoldierThinking[CL1].RowColumnSoldier[Ki1][1]] = 3 * Sign;
                                                         else if (SolderesOnTable[RW1].ConvertedToElefant)
                                                             TableHuristic[SolderesOnTable[RW1].SoldierThinking[CL1].RowColumnSoldier[Ki1][0], SolderesOnTable[RW1].SoldierThinking[CL1].RowColumnSoldier[Ki1][1]] = 2 * Sign;
-                                                       
-                                                        
 
-                                                       
-                                                   }
+
+
+
+                                                    }
                                                     Object OO = new Object();
                                                     lock (OO)
                                                     {
@@ -7761,7 +7776,7 @@ namespace RefrigtzDLL
                     for (int k = 0; k < AllDraw.ElefantMovments; k++)
                         try
                         {
-                            for (j = 0; ElephantOnTable[i] != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[k] != null && ElephantOnTable[i].ElefantThinking[k] != null && j < ElephantOnTable[i].ElefantThinking[k].TableListElefant.Count; j++)
+                            for (j = 0; ElephantOnTable  != null && ElephantOnTable[i] != null && ElephantOnTable  != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[k] != null && ElephantOnTable[i].ElefantThinking[k] != null && j < ElephantOnTable[i].ElefantThinking[k].TableListElefant.Count; j++)
                             {
                                 try
                                 {
@@ -8001,7 +8016,7 @@ namespace RefrigtzDLL
                     for (int k = 0; k < AllDraw.HourseMovments; k++)
                         try
                         {
-                            for (j = 0; HoursesOnTable[i] != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[k] != null && HoursesOnTable[i].HourseThinking[k] != null && j < HoursesOnTable[i].HourseThinking[k].TableListHourse.Count; j++)
+                            for (j = 0; HoursesOnTable  != null && HoursesOnTable[i] != null && HoursesOnTable  != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[k] != null && HoursesOnTable[i].HourseThinking[k] != null && j < HoursesOnTable[i].HourseThinking[k].TableListHourse.Count; j++)
                             {
                                 try
                                 {
@@ -8244,7 +8259,7 @@ namespace RefrigtzDLL
                     for (int k = 0; k < AllDraw.CastleMovments; k++)
                         try
                         {
-                            for (j = 0; CastlesOnTable[i] != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[k] != null && CastlesOnTable[i].CastleThinking[k] != null && j < CastlesOnTable[i].CastleThinking[k].TableListCastle.Count; j++)
+                            for (j = 0; CastlesOnTable  != null && CastlesOnTable[i] != null && CastlesOnTable  != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[k] != null && CastlesOnTable[i].CastleThinking[k] != null && j < CastlesOnTable[i].CastleThinking[k].TableListCastle.Count; j++)
                             {
                                 try
                                 {
@@ -8479,7 +8494,7 @@ namespace RefrigtzDLL
                     for (int k = 0; k < AllDraw.MinisterMovments; k++)
                         try
                         {
-                            for (j = 0; MinisterOnTable[i] != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[k] != null && MinisterOnTable[i].MinisterThinking[k] != null && j < MinisterOnTable[i].MinisterThinking[k].TableListMinister.Count; j++)
+                            for (j = 0; MinisterOnTable  != null && MinisterOnTable[i] != null && MinisterOnTable  != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[k] != null && MinisterOnTable[i].MinisterThinking[k] != null && j < MinisterOnTable[i].MinisterThinking[k].TableListMinister.Count; j++)
                             {
                                 try
                                 {
@@ -8719,7 +8734,7 @@ namespace RefrigtzDLL
                     for (int k = 0; k < AllDraw.KingMovments; k++)
                         try
                         {
-                            for (j = 0; KingOnTable[i] != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[k] != null && KingOnTable[i].KingThinking[k] != null && j < KingOnTable[i].KingThinking[k].TableListKing.Count; j++)
+                            for (j = 0; KingOnTable  != null && KingOnTable[i] != null && KingOnTable  != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[k] != null && KingOnTable[i].KingThinking[k] != null && j < KingOnTable[i].KingThinking[k].TableListKing.Count; j++)
                             {
                                 try
                                 {
@@ -9170,10 +9185,10 @@ namespace RefrigtzDLL
                 //Initiate Local and Global Variables.
                 int Current = ChessRules.CurrentOrder;
                 int DummyOrder = Order;
-               
+
                 TableList.Add(Table);
-               
-               
+
+
                 Object OO = new Object();
                 lock (OO)
                 {
@@ -9873,7 +9888,7 @@ namespace RefrigtzDLL
         }
         int MaxBrownHigh()
         {
-            
+
             Object O = new Object();
             lock (O)
             {
@@ -9938,7 +9953,7 @@ namespace RefrigtzDLL
                                         Order = DummyOrder;
                                         ChessRules.CurrentOrder = DummyCurrentOrder;
                                         //If Solders Not Exist Continue and Traversal Back.
-                                        if (SolderesOnTable[i] != null)
+                                        if (SolderesOnTable !=null && SolderesOnTable[i] != null)
                                         {
                                             //Initiate of Local Variables By Global Objective Gray Current Solder.
                                             ii = (int)SolderesOnTable[i].Row;
@@ -9953,16 +9968,16 @@ namespace RefrigtzDLL
                                                 //For All Movable Gray Solders.
                                                 Parallel.For(0, AllDraw.SodierMovments, j =>
                                                 {
-                                                //Thinking of Gray Solder Operation.
-                                                Object OOO = new Object();
+                                                    //Thinking of Gray Solder Operation.
+                                                    Object OOO = new Object();
                                                     lock (OOO)
                                                     {
                                                         SolderesOnTable[i].SoldierThinking[0].ThinkingBegin = true;
                                                         SolderesOnTable[i].SoldierThinking[0].ThinkingFinished = false;
                                                         SolderesOnTable[i].SoldierThinking[0].Kind = 1;
-                                                        SolderesOnTable[i].SoldierThinking[0].Thinking();                                                        
-                                                    
-                                                }
+                                                        SolderesOnTable[i].SoldierThinking[0].Thinking();
+
+                                                    }
                                                 });
                                             }
                                         }
@@ -9992,7 +10007,7 @@ namespace RefrigtzDLL
                                         Order = DummyOrder;
                                         ChessRules.CurrentOrder = DummyCurrentOrder;
                                         //Ignore of Non Exist Current Elephant Gray Objects.
-                                        if (ElephantOnTable[i] != null)
+                                        if (ElephantOnTable  != null && ElephantOnTable[i] != null)
                                         {
                                             //Inititae Local Varibale By Global Gray Elephant Objects Varibales.
                                             ii = (int)ElephantOnTable[i].Row;
@@ -10006,8 +10021,8 @@ namespace RefrigtzDLL
                                                 //For All Possible Movments.
                                                 Parallel.For(0, AllDraw.ElefantMovments, j =>
                                                 {
-                                                //Operational Thinking Gray Elephant. 
-                                                Object OOO = new Object();
+                                                    //Operational Thinking Gray Elephant. 
+                                                    Object OOO = new Object();
                                                     lock (OOO)
                                                     {
                                                         ElephantOnTable[i].ElefantThinking[0].ThinkingBegin = true;
@@ -10045,7 +10060,7 @@ namespace RefrigtzDLL
                                         Order = DummyOrder;
                                         ChessRules.CurrentOrder = DummyCurrentOrder;
                                         //Ignore of Non Exist Current Gray Hourse Objects.
-                                        if (HoursesOnTable[i] != null)
+                                        if (HoursesOnTable  != null && HoursesOnTable[i] != null)
                                         {
                                             //Initiate of Local Variables By Global Gray Hourse Objectives.
                                             ii = (int)HoursesOnTable[i].Row;
@@ -10059,8 +10074,8 @@ namespace RefrigtzDLL
                                                 //For All Possible Movments.
                                                 Parallel.For(0, AllDraw.HourseMovments, j =>
                                                 {
-                                                //Thinking of Gray Hourse Oprational.
-                                                Object OOO = new Object();
+                                                    //Thinking of Gray Hourse Oprational.
+                                                    Object OOO = new Object();
                                                     lock (OOO)
                                                     {
                                                         HoursesOnTable[i].HourseThinking[0].ThinkingBegin = true;
@@ -10097,7 +10112,7 @@ namespace RefrigtzDLL
                                         Order = DummyOrder;
                                         ChessRules.CurrentOrder = DummyCurrentOrder;
                                         //When Current Castles Gray Not Exist Continue Traversal Back.
-                                        if (CastlesOnTable[i] != null)
+                                        if (CastlesOnTable  != null && CastlesOnTable[i] != null)
                                         {
                                             //Initaiate of Local Varibales By Global Varoiables.
                                             ii = (int)CastlesOnTable[i].Row;
@@ -10114,12 +10129,12 @@ namespace RefrigtzDLL
                                                     Object OOO = new Object();
                                                     lock (OOO)
                                                     {
-                                                    //Thinking of Gray Castles Operational.
-                                                    CastlesOnTable[i].CastleThinking[0].ThinkingBegin = true;
+                                                        //Thinking of Gray Castles Operational.
+                                                        CastlesOnTable[i].CastleThinking[0].ThinkingBegin = true;
                                                         CastlesOnTable[i].CastleThinking[0].ThinkingFinished = false;
                                                         CastlesOnTable[i].CastleThinking[0].Kind = 4;
                                                         CastlesOnTable[i].CastleThinking[0].Thinking();
-                                                        
+
 
 
                                                     }
@@ -10151,7 +10166,7 @@ namespace RefrigtzDLL
                                         Order = DummyOrder;
                                         ChessRules.CurrentOrder = DummyCurrentOrder;
                                         //For Each Non Exist Gray Minister Objectives.
-                                        if (MinisterOnTable[i] != null)
+                                        if (MinisterOnTable  != null && MinisterOnTable[i] != null)
                                         {
                                             //Inititate Local Variables By Global Varibales.
                                             ii = (int)MinisterOnTable[i].Row;
@@ -10165,8 +10180,8 @@ namespace RefrigtzDLL
                                                 //For All Possible Movments.
                                                 Parallel.For(0, AllDraw.MinisterMovments, j =>
                                                 {
-                                                //Thinking of Gray Minister Operational.
-                                                Object OOO = new Object();
+                                                    //Thinking of Gray Minister Operational.
+                                                    Object OOO = new Object();
                                                     lock (OOO)
                                                     {
                                                         MinisterOnTable[i].MinisterThinking[0].ThinkingBegin = true;
@@ -10189,7 +10204,8 @@ namespace RefrigtzDLL
                         }
                     }//,
                      //() =>
-                    { Object ooo = new Object();
+                    {
+                        Object ooo = new Object();
                         lock (ooo)
                         {
 
@@ -10205,7 +10221,7 @@ namespace RefrigtzDLL
                                         Order = DummyOrder;
                                         ChessRules.CurrentOrder = DummyCurrentOrder;
                                         //If There is Not Current Object Continue Traversal Back.
-                                        if (KingOnTable[i] != null)
+                                        if (KingOnTable  != null && KingOnTable[i] != null)
                                         {
                                             //Initiate Local varibale By Global Objective Varibales.
                                             ii = (int)(int)KingOnTable[i].Row;
@@ -10219,8 +10235,8 @@ namespace RefrigtzDLL
                                                 //For All Possible Gray King Movments.
                                                 Parallel.For(0, AllDraw.KingMovments, j =>
                                                 {
-                                                //Thinking Of Gray King Operatins.
-                                                Object OOO = new Object();
+                                                    //Thinking Of Gray King Operatins.
+                                                    Object OOO = new Object();
                                                     lock (OOO)
                                                     {
                                                         KingOnTable[i].KingThinking[0].ThinkingBegin = true;
@@ -10268,7 +10284,7 @@ namespace RefrigtzDLL
                                     Order = DummyOrder;
                                     ChessRules.CurrentOrder = DummyCurrentOrder;
                                     //If Solders Not Exist Continue and Traversal Back.
-                                    if (SolderesOnTable[i] != null)
+                                    if (SolderesOnTable !=null && SolderesOnTable[i] != null)
                                     {
                                         //Initiate of Local Variables By Global Objective Gray Current Solder.
                                         ii = (int)SolderesOnTable[i].Row;
@@ -10283,15 +10299,15 @@ namespace RefrigtzDLL
                                             //For All Movable Gray Solders.
                                             Parallel.For(0, AllDraw.SodierMovments, j =>
                                             {
-                                            //Thinking of Gray Solder Operation.
-                                            Object OOO = new Object();
+                                                //Thinking of Gray Solder Operation.
+                                                Object OOO = new Object();
                                                 lock (OOO)
                                                 {
                                                     SolderesOnTable[i].SoldierThinking[0].ThinkingBegin = true;
                                                     SolderesOnTable[i].SoldierThinking[0].ThinkingFinished = false;
                                                     SolderesOnTable[i].SoldierThinking[0].Kind = 1;
-                                                //SolderesOnTable[i].SoldierThinking[0].t = new Task(new Action(SolderesOnTable[i].SoldierThinking[0].Thinking));
-                                                SolderesOnTable[i].SoldierThinking[0].Thinking();
+                                                    //SolderesOnTable[i].SoldierThinking[0].t = new Task(new Action(SolderesOnTable[i].SoldierThinking[0].Thinking));
+                                                    SolderesOnTable[i].SoldierThinking[0].Thinking();
                                                 }
                                             });
                                         }
@@ -10306,7 +10322,8 @@ namespace RefrigtzDLL
                         }
                     }//,
                      //) =>
-                    { Object oooo = new Object();
+                    {
+                        Object oooo = new Object();
                         lock (oooo)
                         {
 
@@ -10321,22 +10338,22 @@ namespace RefrigtzDLL
                                         Order = DummyOrder;
                                         ChessRules.CurrentOrder = DummyCurrentOrder;
                                         //Ignore of Non Exist Current Elephant Gray Objects.
-                                        if (ElephantOnTable[i] != null)
-                                        { 
-                                        //Inititae Local Varibale By Global Gray Elephant Objects Varibales.
-                                        ii = (int)ElephantOnTable[i].Row;
-                                        jj = (int)ElephantOnTable[i].Column;
-                                        //Construction of Thinking Objects By Local Varibales.
-                                        if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count == 0)
-                                            ElephantOnTable[i] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                                        if (ElephantOnTable  != null && ElephantOnTable[i] != null)
+                                        {
+                                            //Inititae Local Varibale By Global Gray Elephant Objects Varibales.
+                                            ii = (int)ElephantOnTable[i].Row;
+                                            jj = (int)ElephantOnTable[i].Column;
+                                            //Construction of Thinking Objects By Local Varibales.
+                                            if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count == 0)
+                                                ElephantOnTable[i] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
                                             //If There is Not Thinking Objetive List Elephant Gray. 
                                             if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count == 0)
                                             {
                                                 //For All Possible Movments.
                                                 Parallel.For(0, AllDraw.ElefantMovments, j =>
                                                 {
-                                                //Operational Thinking Gray Elephant. 
-                                                Object OOO = new Object();
+                                                    //Operational Thinking Gray Elephant. 
+                                                    Object OOO = new Object();
                                                     lock (OOO)
                                                     {
                                                         ElephantOnTable[i].ElefantThinking[0].ThinkingBegin = true;
@@ -10357,7 +10374,8 @@ namespace RefrigtzDLL
                         }
                     }//,
                      //() =>
-                    { Object oooo = new Object();
+                    {
+                        Object oooo = new Object();
                         lock (oooo)
                         {
 
@@ -10372,7 +10390,7 @@ namespace RefrigtzDLL
                                         Order = DummyOrder;
                                         ChessRules.CurrentOrder = DummyCurrentOrder;
                                         //Ignore of Non Exist Current Gray Hourse Objects.
-                                        if (HoursesOnTable[i] != null)
+                                        if (HoursesOnTable  != null && HoursesOnTable[i] != null)
                                         {
                                             //Initiate of Local Variables By Global Gray Hourse Objectives.
                                             ii = (int)HoursesOnTable[i].Row;
@@ -10386,8 +10404,8 @@ namespace RefrigtzDLL
                                                 //For All Possible Movments.
                                                 Parallel.For(0, AllDraw.HourseMovments, j =>
                                                 {
-                                                //Thinking of Gray Hourse Oprational.
-                                                Object OOO = new Object();
+                                                    //Thinking of Gray Hourse Oprational.
+                                                    Object OOO = new Object();
                                                     lock (OOO)
                                                     {
                                                         HoursesOnTable[i].HourseThinking[0].ThinkingBegin = true;
@@ -10406,10 +10424,11 @@ namespace RefrigtzDLL
                                 }
                             }
                         }
-                        
+
                     }///,
                     //() =>
-                    { Object oooo = new Object();
+                    {
+                        Object oooo = new Object();
                         lock (oooo)
                         {
 
@@ -10423,7 +10442,7 @@ namespace RefrigtzDLL
                                         Order = DummyOrder;
                                         ChessRules.CurrentOrder = DummyCurrentOrder;
                                         //When Current Castles Gray Not Exist Continue Traversal Back.
-                                        if (CastlesOnTable[i] != null)
+                                        if (CastlesOnTable  != null && CastlesOnTable[i] != null)
                                         {
                                             //Initaiate of Local Varibales By Global Varoiables.
                                             ii = (int)CastlesOnTable[i].Row;
@@ -10440,8 +10459,8 @@ namespace RefrigtzDLL
                                                     Object OOO = new Object();
                                                     lock (OOO)
                                                     {
-                                                    //Thinking of Gray Castles Operational.
-                                                    CastlesOnTable[i].CastleThinking[0].ThinkingBegin = true;
+                                                        //Thinking of Gray Castles Operational.
+                                                        CastlesOnTable[i].CastleThinking[0].ThinkingBegin = true;
                                                         CastlesOnTable[i].CastleThinking[0].ThinkingFinished = false;
                                                         CastlesOnTable[i].CastleThinking[0].Kind = 4;
                                                         CastlesOnTable[i].CastleThinking[0].Thinking();
@@ -10466,7 +10485,7 @@ namespace RefrigtzDLL
 
                             try
                             {
-                            
+
                                 if (MinisterMidle <= i && MinisterHigh > i)
                                 {
                                     Object O = new Object();
@@ -10475,7 +10494,7 @@ namespace RefrigtzDLL
                                         Order = DummyOrder;
                                         ChessRules.CurrentOrder = DummyCurrentOrder;
                                         //For Each Non Exist Gray Minister Objectives.
-                                        if (MinisterOnTable[i] != null)
+                                        if (MinisterOnTable  != null && MinisterOnTable[i] != null)
                                         {
                                             //Inititate Local Variables By Global Varibales.
                                             ii = (int)MinisterOnTable[i].Row;
@@ -10489,8 +10508,8 @@ namespace RefrigtzDLL
                                                 //For All Possible Movments.
                                                 Parallel.For(0, AllDraw.MinisterMovments, j =>
                                                 {
-                                                //Thinking of Gray Minister Operational.
-                                                Object OOO = new Object();
+                                                    //Thinking of Gray Minister Operational.
+                                                    Object OOO = new Object();
                                                     lock (OOO)
                                                     {
                                                         MinisterOnTable[i].MinisterThinking[0].ThinkingBegin = true;
@@ -10504,31 +10523,31 @@ namespace RefrigtzDLL
                                     }
                                 }
                             }
-                        catch (Exception t)
-                        {
-                            Log(t);
+                            catch (Exception t)
+                            {
+                                Log(t);
+                            }
                         }
-                    }
 
                     }//,
                      //() =>
                     {
-                    Object oooo = new Object();
-                    lock (oooo)
-                    {
-                        if (KingMidle <= i && KingHigh > i)
+                        Object oooo = new Object();
+                        lock (oooo)
                         {
-
-
-                            Object O = new Object();
-                            lock (O)
+                            if (KingMidle <= i && KingHigh > i)
                             {
-                                try
+
+
+                                Object O = new Object();
+                                lock (O)
                                 {
-                                    Order = DummyOrder;
-                                    ChessRules.CurrentOrder = DummyCurrentOrder;
+                                    try
+                                    {
+                                        Order = DummyOrder;
+                                        ChessRules.CurrentOrder = DummyCurrentOrder;
                                         //If There is Not Current Object Continue Traversal Back.
-                                        if (KingOnTable[i] != null)
+                                        if (KingOnTable  != null && KingOnTable[i] != null)
                                         {
                                             //Initiate Local varibale By Global Objective Varibales.
                                             ii = (int)(int)KingOnTable[i].Row;
@@ -10542,8 +10561,8 @@ namespace RefrigtzDLL
                                                 //For All Possible Gray King Movments.
                                                 Parallel.For(0, AllDraw.KingMovments, j =>
                                                 {
-                                            //Thinking Of Gray King Operatins.
-                                            Object OOO = new Object();
+                                                    //Thinking Of Gray King Operatins.
+                                                    Object OOO = new Object();
                                                     lock (OOO)
                                                     {
                                                         KingOnTable[i].KingThinking[0].ThinkingBegin = true;
@@ -10554,14 +10573,14 @@ namespace RefrigtzDLL
                                                 });
                                             }
                                         }
-                                }
-                                catch (Exception t)
-                                {
-                                    Log(t);
+                                    }
+                                    catch (Exception t)
+                                    {
+                                        Log(t);
+                                    }
                                 }
                             }
                         }
-                    }
                     }//);
                 });
             }
@@ -10588,7 +10607,7 @@ namespace RefrigtzDLL
                             Order = DummyOrder;
                             ChessRules.CurrentOrder = DummyCurrentOrder;
                             //If Solders Not Exist Continue and Traversal Back.
-                            if (SolderesOnTable[i] != null)
+                            if (SolderesOnTable !=null && SolderesOnTable[i] != null)
                             {
                                 //Initiate of Local Variables By Global Objective Gray Current Solder.
                                 ii = (int)SolderesOnTable[i].Row;
@@ -10603,14 +10622,14 @@ namespace RefrigtzDLL
                                     //For All Movable Gray Solders.
                                     Parallel.For(0, AllDraw.SodierMovments, j =>
                                     {
-                                    //Thinking of Gray Solder Operation.
-                                    Object OOO = new Object();
+                                        //Thinking of Gray Solder Operation.
+                                        Object OOO = new Object();
                                         lock (OOO)
                                         {
                                             SolderesOnTable[i].SoldierThinking[0].ThinkingBegin = true;
                                             SolderesOnTable[i].SoldierThinking[0].ThinkingFinished = false;
                                             SolderesOnTable[i].SoldierThinking[0].Thinking();
-                                    }
+                                        }
 
                                     });
                                 }
@@ -10645,7 +10664,7 @@ namespace RefrigtzDLL
                            Order = DummyOrder;
                            ChessRules.CurrentOrder = DummyCurrentOrder;
                            //Ignore of Non Exist Current Elephant Gray Objects.
-                           if (ElephantOnTable[i] != null)
+                           if (ElephantOnTable  != null && ElephantOnTable[i] != null)
                            {
                                //Inititae Local Varibale By Global Gray Elephant Objects Varibales.
                                ii = (int)ElephantOnTable[i].Row;
@@ -10659,14 +10678,14 @@ namespace RefrigtzDLL
                                    //For All Possible Movments.
                                    Parallel.For(0, AllDraw.ElefantMovments, j =>
                                     {
-                                    //Operational Thinking Gray Elephant. 
-                                    Object OOO = new Object();
+                                        //Operational Thinking Gray Elephant. 
+                                        Object OOO = new Object();
                                         lock (OOO)
                                         {
                                             ElephantOnTable[i].ElefantThinking[0].ThinkingBegin = true;
                                             ElephantOnTable[i].ElefantThinking[0].ThinkingFinished = false;
                                             ElephantOnTable[i].ElefantThinking[0].Thinking();
-                                            
+
 
                                         }
                                     });
@@ -10701,7 +10720,7 @@ namespace RefrigtzDLL
                           Order = DummyOrder;
                           ChessRules.CurrentOrder = DummyCurrentOrder;
                           //Ignore of Non Exist Current Gray Hourse Objects.
-                          if (HoursesOnTable[i] != null)
+                          if (HoursesOnTable  != null && HoursesOnTable[i] != null)
                           {
                               //Initiate of Local Variables By Global Gray Hourse Objectives.
                               ii = (int)HoursesOnTable[i].Row;
@@ -10715,14 +10734,14 @@ namespace RefrigtzDLL
                                   //For All Possible Movments.
                                   Parallel.For(0, AllDraw.HourseMovments, j =>
                                   {
-                                  //Thinking of Gray Hourse Oprational.
-                                  Object OOO = new Object();
+                                      //Thinking of Gray Hourse Oprational.
+                                      Object OOO = new Object();
                                       lock (OOO)
                                       {
                                           HoursesOnTable[i].HourseThinking[0].ThinkingBegin = true;
                                           HoursesOnTable[i].HourseThinking[0].ThinkingFinished = false;
                                           HoursesOnTable[i].HourseThinking[0].Thinking();
-                                          
+
 
 
                                       }
@@ -10758,7 +10777,7 @@ namespace RefrigtzDLL
                           Order = DummyOrder;
                           ChessRules.CurrentOrder = DummyCurrentOrder;
                           //When Current Castles Gray Not Exist Continue Traversal Back.
-                          if (CastlesOnTable[i] != null)
+                          if (CastlesOnTable  != null && CastlesOnTable[i] != null)
                           {
                               //Initaiate of Local Varibales By Global Varoiables.
                               ii = (int)CastlesOnTable[i].Row;
@@ -10775,11 +10794,11 @@ namespace RefrigtzDLL
                                        Object OOO = new Object();
                                        lock (OOO)
                                        {
-                                       //Thinking of Gray Castles Operational.
-                                       CastlesOnTable[i].CastleThinking[0].ThinkingBegin = true;
+                                           //Thinking of Gray Castles Operational.
+                                           CastlesOnTable[i].CastleThinking[0].ThinkingBegin = true;
                                            CastlesOnTable[i].CastleThinking[0].ThinkingFinished = false;
                                            CastlesOnTable[i].CastleThinking[0].Thinking();
-                                           
+
 
                                        }
                                    });
@@ -10815,7 +10834,7 @@ namespace RefrigtzDLL
                           Order = DummyOrder;
                           ChessRules.CurrentOrder = DummyCurrentOrder;
                           //For Each Non Exist Gray Minister Objectives.
-                          if (MinisterOnTable[i] != null)
+                          if (MinisterOnTable  != null && MinisterOnTable[i] != null)
                           {
                               //Inititate Local Variables By Global Varibales.
                               ii = (int)MinisterOnTable[i].Row;
@@ -10836,7 +10855,7 @@ namespace RefrigtzDLL
                                       MinisterOnTable[i].MinisterThinking[0].ThinkingBegin = true;
                                       MinisterOnTable[i].MinisterThinking[0].ThinkingFinished = false;
                                       MinisterOnTable[i].MinisterThinking[0].Thinking();
-                                      
+
 
                                   }
                               });
@@ -10872,7 +10891,7 @@ namespace RefrigtzDLL
                           Order = DummyOrder;
                           ChessRules.CurrentOrder = DummyCurrentOrder;
                           //If There is Not Current Object Continue Traversal Back.
-                          if (KingOnTable[i] != null)
+                          if (KingOnTable  != null && KingOnTable[i] != null)
                           {
                               //Initiate Local varibale By Global Objective Varibales.
                               ii = (int)(int)KingOnTable[i].Row;
@@ -10886,15 +10905,15 @@ namespace RefrigtzDLL
                                   //For All Possible Gray King Movments.
                                   Parallel.For(0, AllDraw.KingMovments, j =>
                                   {
-                                  //Thinking Of Gray King Operatins.
-                                  Object OOO = new Object();
+                                      //Thinking Of Gray King Operatins.
+                                      Object OOO = new Object();
                                       lock (OOO)
                                       {
                                           KingOnTable[i].KingThinking[0].ThinkingBegin = true;
                                           KingOnTable[i].KingThinking[0].ThinkingFinished = false;
 
                                           KingOnTable[i].KingThinking[0].Thinking();
-                                          
+
                                       }
                                   });
                               }
@@ -10929,7 +10948,7 @@ namespace RefrigtzDLL
                           Order = DummyOrder;
                           ChessRules.CurrentOrder = DummyCurrentOrder;
                           //Wheen Brown King Object There is Not Continue Traversal Back.
-                          if (SolderesOnTable[i] != null)
+                          if (SolderesOnTable !=null && SolderesOnTable[i] != null)
                           {
                               //Initiate Local varibale By Global Objective Varibales.
                               ii = (int)SolderesOnTable[i].Row;
@@ -10943,8 +10962,8 @@ namespace RefrigtzDLL
                                       //For Each Brown Possible Movments. 
                                       Parallel.For(0, AllDraw.SodierMovments, j =>
                                         {
-                                        //Thinking Operations of Brown Current Objects.
-                                        Object OOO = new Object();
+                                            //Thinking Operations of Brown Current Objects.
+                                            Object OOO = new Object();
                                             lock (OOO)
                                             {
                                                 SolderesOnTable[i].SoldierThinking[0].ThinkingBegin = true;
@@ -10985,7 +11004,7 @@ namespace RefrigtzDLL
                           {
                               Order = DummyOrder;
                               ChessRules.CurrentOrder = DummyCurrentOrder;
-                              if (ElephantOnTable[i] != null)
+                              if (ElephantOnTable  != null && ElephantOnTable[i] != null)
                               {
                                   //Initiate Local varibale By Global Objective Varibales.
                                   ii = (int)ElephantOnTable[i].Row;
@@ -11002,8 +11021,8 @@ namespace RefrigtzDLL
                                                 Object OOO = new Object();
                                                 lock (OOO)
                                                 {
-                                                //Thinking Operations of Brown Current Objects.
-                                                ElephantOnTable[i].ElefantThinking[0].ThinkingBegin = true;
+                                                    //Thinking Operations of Brown Current Objects.
+                                                    ElephantOnTable[i].ElefantThinking[0].ThinkingBegin = true;
                                                     ElephantOnTable[i].ElefantThinking[0].ThinkingFinished = false;
                                                     ElephantOnTable[i].ElefantThinking[0].Thinking();
                                                 }
@@ -11040,7 +11059,7 @@ namespace RefrigtzDLL
                       {
                           Order = DummyOrder;
                           ChessRules.CurrentOrder = DummyCurrentOrder;
-                          if (HoursesOnTable[i] != null)
+                          if (HoursesOnTable  != null && HoursesOnTable[i] != null)
                           {
                               //Initiate Local varibale By Global Objective Varibales.
                               ii = (int)HoursesOnTable[i].Row;
@@ -11058,9 +11077,9 @@ namespace RefrigtzDLL
                                           Object OOO = new Object();
                                           lock (OOO)
                                           {
-                                          //Thinking Operations of Brown Current Objects.
-                                          //HoursesOnTable[i].HourseThinking[0].TableT = HoursesOnTable[i].HourseThinking[0].TableT;
-                                          HoursesOnTable[i].HourseThinking[0].ThinkingBegin = true;
+                                              //Thinking Operations of Brown Current Objects.
+                                              //HoursesOnTable[i].HourseThinking[0].TableT = HoursesOnTable[i].HourseThinking[0].TableT;
+                                              HoursesOnTable[i].HourseThinking[0].ThinkingBegin = true;
                                               HoursesOnTable[i].HourseThinking[0].ThinkingFinished = false;
                                               HoursesOnTable[i].HourseThinking[0].Thinking();
                                           }
@@ -11097,7 +11116,7 @@ namespace RefrigtzDLL
                       {
                           Order = DummyOrder;
                           ChessRules.CurrentOrder = DummyCurrentOrder;
-                          if (CastlesOnTable[i] != null)
+                          if (CastlesOnTable  != null && CastlesOnTable[i] != null)
 
                           {
                               //Initiate Local varibale By Global Objective Varibales.
@@ -11116,8 +11135,8 @@ namespace RefrigtzDLL
                                           Object OOO = new Object();
                                           lock (OOO)
                                           {
-                                          //Thinking Operations of Brown Current Objects.
-                                          CastlesOnTable[i].CastleThinking[0].ThinkingBegin = true;
+                                              //Thinking Operations of Brown Current Objects.
+                                              CastlesOnTable[i].CastleThinking[0].ThinkingBegin = true;
                                               CastlesOnTable[i].CastleThinking[0].ThinkingFinished = false;
                                               CastlesOnTable[i].CastleThinking[0].Thinking();
                                           }
@@ -11153,7 +11172,7 @@ namespace RefrigtzDLL
                       {
                           Order = DummyOrder;
                           ChessRules.CurrentOrder = DummyCurrentOrder;
-                          if (MinisterOnTable[i] != null)
+                          if (MinisterOnTable  != null && MinisterOnTable[i] != null)
                           {
                               //Initiate Local varibale By Global Objective Varibales.
                               ii = (int)MinisterOnTable[i].Row;
@@ -11170,8 +11189,8 @@ namespace RefrigtzDLL
                                        Object OOO = new Object();
                                        lock (OOO)
                                        {
-                                       //Thinking Operations of Brown Current Objects.
-                                       MinisterOnTable[i].MinisterThinking[0].ThinkingBegin = true;
+                                           //Thinking Operations of Brown Current Objects.
+                                           MinisterOnTable[i].MinisterThinking[0].ThinkingBegin = true;
                                            MinisterOnTable[i].MinisterThinking[0].ThinkingFinished = false;
                                            MinisterOnTable[i].MinisterThinking[0].Thinking();
                                        }
@@ -11205,7 +11224,7 @@ namespace RefrigtzDLL
                        {
                            Order = DummyOrder;
                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                           if (KingOnTable[i] != null)
+                           if (KingOnTable  != null && KingOnTable[i] != null)
                            {
                                //Initiate Local varibale By Global Objective Varibales.
                                ii = (int)KingOnTable[i].Row;
@@ -11222,8 +11241,8 @@ namespace RefrigtzDLL
                                          Object OOO = new Object();
                                          lock (OOO)
                                          {
-                                         //Thinking Operations of Brown Current Objects.
-                                         KingOnTable[i].KingThinking[0].ThinkingBegin = true;
+                                             //Thinking Operations of Brown Current Objects.
+                                             KingOnTable[i].KingThinking[0].ThinkingBegin = true;
                                              KingOnTable[i].KingThinking[0].ThinkingFinished = false;
                                              KingOnTable[i].KingThinking[0].Thinking();
                                          }
@@ -11234,7 +11253,7 @@ namespace RefrigtzDLL
                        }
                        catch (Exception t)
                        {
-                           KingOnTable[i] = null;
+                           //KingOnTable[i] = null;
                            Log(t);
                        }
                    }
@@ -11599,7 +11618,7 @@ namespace RefrigtzDLL
             for (ik = 0; ik < SodierMidle; ik++)
                 try
                 {
-                    if (SolderesOnTable[ik] == null)
+                    if (SolderesOnTable == null || SolderesOnTable[ik] == null)
                         continue;
                     for (j = 0; j < SolderesOnTable[ik].SoldierThinking[0].HuristicListSolder.Count; j++)
                     {
@@ -11646,7 +11665,8 @@ namespace RefrigtzDLL
         { //Elephant
             for (ik = 0; ik < ElefantMidle; ik++)
                 try
-                {if (ElephantOnTable[ik] == null)
+                {
+                    if (ElephantOnTable == null || ElephantOnTable[ik] == null)
                         continue;
                     for (j = 0; j < ElephantOnTable[ik].ElefantThinking[0].HuristicListElefant.Count; j++)
                     {
@@ -11693,7 +11713,8 @@ namespace RefrigtzDLL
         { //Hourse.
             for (ik = 0; ik < HourseMidle; ik++)
                 try
-                {if (HoursesOnTable[ik] == null)
+                {
+                    if (HoursesOnTable == null || HoursesOnTable[ik] == null)
                         continue;
                     for (j = 0; j < HoursesOnTable[ik].HourseThinking[0].HuristicListHourse.Count; j++)
                     {
@@ -11740,7 +11761,8 @@ namespace RefrigtzDLL
             //Castle.
             for (ik = 0; ik < CastleMidle; ik++)
                 try
-                {if (CastlesOnTable[ik] == null)
+                {
+                    if (CastlesOnTable == null || CastlesOnTable[ik] == null)
                         continue;
                     for (j = 0; j < CastlesOnTable[ik].CastleThinking[0].HuristicListCastle.Count; j++)
                     {
@@ -11791,7 +11813,8 @@ namespace RefrigtzDLL
         { //Minister.
             for (ik = 0; ik < MinisterMidle; ik++)
                 try
-                {if (MinisterOnTable[ik] == null)
+                {
+                    if (MinisterOnTable == null || MinisterOnTable[ik] == null)
                         continue;
                     for (j = 0; j < MinisterOnTable[ik].MinisterThinking[0].HuristicListMinister.Count; j++)
                     {
@@ -11842,7 +11865,7 @@ namespace RefrigtzDLL
             for (ik = 0; ik < KingMidle; ik++)
                 try
                 {
-                    if (KingOnTable[ik] == null)
+                    if (KingOnTable == null || KingOnTable[ik] == null)
                         continue;
                     for (j = 0; j < KingOnTable[ik].KingThinking[0].HuristicListKing.Count; j++)
                     {
@@ -12043,7 +12066,8 @@ namespace RefrigtzDLL
             for (ik = SodierMidle; ik < SodierHigh; ik++)
                 try
                 {
-
+                    if (SolderesOnTable == null || SolderesOnTable[ik] == null)
+                        continue;
                     //Soldier.
                     for (j = 0; j < SolderesOnTable[ik].SoldierThinking[0].HuristicListSolder.Count; j++)
                     {
@@ -12087,6 +12111,8 @@ namespace RefrigtzDLL
             for (ik = ElefantMidle; ik < ElefantHigh; ik++)
                 try
                 {
+                    if (ElephantOnTable == null || ElephantOnTable[ik] == null)
+                        continue;
                     for (j = 0; j < ElephantOnTable[ik].ElefantThinking[0].HuristicListElefant.Count; j++)
                     {
                         if (AllDraw.OrderPlate == Order)
@@ -12131,6 +12157,8 @@ namespace RefrigtzDLL
             for (ik = HourseMidle; ik < HourseHight; ik++)
                 try
                 {
+                    if (HoursesOnTable == null || HoursesOnTable[ik] == null)
+                        continue;
                     for (j = 0; j < HoursesOnTable[ik].HourseThinking[0].HuristicListHourse.Count; j++)
                     {
                         if (AllDraw.OrderPlate == Order)
@@ -12244,6 +12272,8 @@ namespace RefrigtzDLL
             for (ik = CastleMidle; ik < CastleHigh; ik++)
                 try
                 {
+                    if (CastlesOnTable == null || CastlesOnTable[ik] == null)
+                        continue;
                     for (j = 0; j < CastlesOnTable[ik].CastleThinking[0].HuristicListCastle.Count; j++)
                     {
 
@@ -12293,6 +12323,8 @@ namespace RefrigtzDLL
             for (ik = MinisterMidle; ik < MinisterHigh; ik++)
                 try
                 {
+                    if (MinisterOnTable == null || MinisterOnTable[ik] == null)
+                        continue;
                     for (j = 0; j < MinisterOnTable[ik].MinisterThinking[0].HuristicListMinister.Count; j++)
                     {
                         if (AllDraw.OrderPlate == Order)
@@ -12336,6 +12368,8 @@ namespace RefrigtzDLL
             for (ik = KingMidle; ik < KingHigh; ik++)
                 try
                 {
+                    if (KingOnTable == null || KingOnTable[ik] == null)
+                        continue;
                     for (j = 0; j < KingOnTable[ik].KingThinking[0].HuristicListKing.Count; j++)
                     {
                         if (AllDraw.OrderPlate == Order)
@@ -12695,7 +12729,7 @@ namespace RefrigtzDLL
 
                 Parallel.For(0, SolderesOnTable[ik].SoldierThinking[0].TableListSolder.Count, j =>
                 {
-                Object ooo = new Object();
+                    Object ooo = new Object();
                     lock (ooo)
                     {
 
@@ -12728,13 +12762,32 @@ namespace RefrigtzDLL
                                             if (Index[0] != -1)
                                             {
                                                 if (ik != Index[0])
+                                                {
+                                                    if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy == null)
+                                                        SolderesOnTable[ik].SoldierThinking[0].AStarGreedy = new List<AllDraw>();
+                                                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                                                     return;
+                                                }
                                                 else
+
                                                     if (j != jindex[0])
+                                                {
+                                                    if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy == null)
+                                                        SolderesOnTable[ik].SoldierThinking[0].AStarGreedy = new List<AllDraw>();
+                                                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                                                     return;
+                                                }
                                             }
                                             else
+                                            {
+                                                if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy == null)
+                                                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy = new List<AllDraw>();
+                                                SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                                SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                                                 return;
+                                            }
 
                                         }
                                         Object O3 = new Object();
@@ -12818,14 +12871,32 @@ namespace RefrigtzDLL
                                             if (Index[0] != -1)
                                             {
                                                 if (ik != Index[0])
+                                                {
+                                                    if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy == null)
+                                                        SolderesOnTable[ik].SoldierThinking[0].AStarGreedy = new List<AllDraw>();
+                                                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                                                     return;
+                                                }
                                                 else
+
                                                     if (j != jindex[0])
+                                                {
+                                                    if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy == null)
+                                                        SolderesOnTable[ik].SoldierThinking[0].AStarGreedy = new List<AllDraw>();
+                                                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                                                     return;
+                                                }
                                             }
                                             else
+                                            {
+                                                if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy == null)
+                                                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy = new List<AllDraw>();
+                                                SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                                SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                                                 return;
-
+                                            }
                                         }
                                         Object O3 = new Object();
                                         lock (O3)
@@ -12913,7 +12984,7 @@ namespace RefrigtzDLL
                 {
                     Parallel.For(0, SodierMidle, ik =>
                     {
-                        if (SolderesOnTable[ik] != null)
+                        if (SolderesOnTable != null && SolderesOnTable[ik] != null)
                         {
                             Object O = new Object();
                             lock (O)
@@ -12943,10 +13014,10 @@ namespace RefrigtzDLL
                 //List<Task> tHA = new List<Task>();
 
                 //if (ElephantOnTable[ik].ElefantThinking[0].TableListElefant.Count == 0)
-               //     return Do;
+                //     return Do;
                 Parallel.For(0, ElephantOnTable[ik].ElefantThinking[0].TableListElefant.Count, j =>
                 {
-                Object ooo = new Object();
+                    Object ooo = new Object();
                     lock (ooo)
                     {
 
@@ -12979,13 +13050,31 @@ namespace RefrigtzDLL
                                             {
 
                                                 if (ik != Index[1])
+                                                {
+                                                    if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedy == null)
+                                                        ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = new List<AllDraw>();
+                                                    ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                                    ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                                                     return;
+                                                }
                                                 else
                                                     if (j != jindex[1])
+                                                {
+                                                    if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedy == null)
+                                                        ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = new List<AllDraw>();
+                                                    ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                                    ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                                                     return;
+                                                }
                                             }
                                             else
+                                            {
+                                                if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedy == null)
+                                                    ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = new List<AllDraw>();
+                                                ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                                ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                                                 return;
+                                            }
 
                                         }
                                         Object O3 = new Object();
@@ -13067,14 +13156,31 @@ namespace RefrigtzDLL
                                             {
 
                                                 if (ik != Index[1])
+                                                {
+                                                    if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedy == null)
+                                                        ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = new List<AllDraw>();
+                                                    ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                                    ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                                                     return;
+                                                }
                                                 else
                                                     if (j != jindex[1])
+                                                {
+                                                    if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedy == null)
+                                                        ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = new List<AllDraw>();
+                                                    ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                                    ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                                                     return;
+                                                }
                                             }
                                             else
+                                            {
+                                                if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedy == null)
+                                                    ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = new List<AllDraw>();
+                                                ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                                ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                                                 return;
-
+                                            }
                                         }
                                         Object O3 = new Object();
                                         lock (O3)
@@ -13105,7 +13211,7 @@ namespace RefrigtzDLL
                                                     Color aa = a;
                                                     int[,] Tab = CloneATable(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j]);
                                                     int Ord = Order;
-                                                    //ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                                    ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                                                     ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                                     Task array = Task.Factory.StartNew(() => ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j]), Order, false, FOUND, LeafAStarGreedy));
 
@@ -13161,7 +13267,7 @@ namespace RefrigtzDLL
                 {
                     Parallel.For(0, ElefantMidle, ik =>
                   {
-                      if (ElephantOnTable[ik] != null)
+                      if (ElephantOnTable != null && ElephantOnTable[ik] != null)
                       {
                           Object O = new Object();
                           lock (O)
@@ -13194,7 +13300,7 @@ namespace RefrigtzDLL
                 //    return Do;
                 Parallel.For(0, HoursesOnTable[ik].HourseThinking[0].TableListHourse.Count, j =>
                {
-               Object ooo = new Object();
+                   Object ooo = new Object();
                    lock (ooo)
                    {
                        try
@@ -13226,102 +13332,140 @@ namespace RefrigtzDLL
                                            {
 
                                                if (ik != Index[2])
+                                               {
+                                                   if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy == null)
+                                                       HoursesOnTable[ik].HourseThinking[0].AStarGreedy = new List<AllDraw>();
+                                                   HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                                   HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                                                    return;
+                                               }
                                                else
                                                    if (j != jindex[2])
+                                               {
+                                                   if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy == null)
+                                                       HoursesOnTable[ik].HourseThinking[0].AStarGreedy = new List<AllDraw>();
+                                                   HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                                   HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                                                    return;
+                                               }
                                            }
                                            else
-                                               return;
-
-                                       }
-                                       Object O3 = new Object();
-                                       lock (O3)
-                                       {
-                                           if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy == null)
-                                               HoursesOnTable[ik].HourseThinking[0].AStarGreedy = new List<AllDraw>();
-                                           HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                           HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].TableList.Clear(); ;
-                                           HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j]));
-                                           HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
-                                           HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
-                                       }
-                                       //HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, HoursesOnTable[ik].HourseThinking[0].TableListHourse[j], Order, false);
-                                       //ParameterizedThreadStart start = new ParameterizedThreadStart(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
-                                       if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count > 0)
-                                       {
-                                           Object O = new Object();
-                                           lock (O)
                                            {
-                                               OutPutAction = " " + Alphabet(HoursesOnTable[ik].HourseThinking[0].Row) + Number(HoursesOnTable[ik].HourseThinking[0].Column) + Alphabet(HoursesOnTable[ik].HourseThinking[0].RowColumnHourse[j][0]) + Number(HoursesOnTable[ik].HourseThinking[0].RowColumnHourse[j][1]);
-                                               if (Order == 1)
-                                                   OutPut = "\r\nPerception Hourse AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
-                                               else
-                                                   OutPut = "\r\nPerception Hourse AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
-
-                                               PerceptionCount++;
-                                               int iii = HoursesOnTable[ik].HourseThinking[0].RowColumnHourse[j][0];
-                                               int jjj = HoursesOnTable[ik].HourseThinking[0].RowColumnHourse[j][1];
-                                               Color aa = a;
-                                               int[,] Tab = CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j]);
-                                               int Ord = Order;
+                                               if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy == null)
+                                                   HoursesOnTable[ik].HourseThinking[0].AStarGreedy = new List<AllDraw>();
+                                               HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                               //HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
-                                               Task array = Task.Factory.StartNew(() => HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j]), Order, false, FOUND, LeafAStarGreedy));
-
-                                               //array.Start();
-                                               /*if (!AllDraw.Blitz)
-                                              {
-                                                  Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
-                                              }
-                                              else
-                                              {
-                                                  Object ttttt = new Object(); lock (ttttt) { array.Wait(); }
-                                              }
-                                              */
-                                               //array.Name = "H" + i.ToString();
-                                               Do = true;
+                                               return;
                                            }
-                                       }
 
+
+                                           Object O3 = new Object();
+                                           lock (O3)
+                                           {
+                                               if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy == null)
+                                                   HoursesOnTable[ik].HourseThinking[0].AStarGreedy = new List<AllDraw>();
+                                               HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                               HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].TableList.Clear(); ;
+                                               HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j]));
+                                               HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
+                                               HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
+                                           }
+                                           //HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, HoursesOnTable[ik].HourseThinking[0].TableListHourse[j], Order, false);
+                                           //ParameterizedThreadStart start = new ParameterizedThreadStart(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
+                                           if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count > 0)
+                                           {
+                                               Object O = new Object();
+                                               lock (O)
+                                               {
+                                                   OutPutAction = " " + Alphabet(HoursesOnTable[ik].HourseThinking[0].Row) + Number(HoursesOnTable[ik].HourseThinking[0].Column) + Alphabet(HoursesOnTable[ik].HourseThinking[0].RowColumnHourse[j][0]) + Number(HoursesOnTable[ik].HourseThinking[0].RowColumnHourse[j][1]);
+                                                   if (Order == 1)
+                                                       OutPut = "\r\nPerception Hourse AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
+                                                   else
+                                                       OutPut = "\r\nPerception Hourse AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
+
+                                                   PerceptionCount++;
+                                                   int iii = HoursesOnTable[ik].HourseThinking[0].RowColumnHourse[j][0];
+                                                   int jjj = HoursesOnTable[ik].HourseThinking[0].RowColumnHourse[j][1];
+                                                   Color aa = a;
+                                                   int[,] Tab = CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j]);
+                                                   int Ord = Order;
+                                                   HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                                   //HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
+                                                   Task array = Task.Factory.StartNew(() => HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j]), Order, false, FOUND, LeafAStarGreedy));
+
+                                                   //array.Start();
+                                                   /*if (!AllDraw.Blitz)
+                                                  {
+                                                      Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
+                                                  }
+                                                  else
+                                                  {
+                                                      Object ttttt = new Object(); lock (ttttt) { array.Wait(); }
+                                                  }
+                                                  */
+                                                   //array.Name = "H" + i.ToString();
+                                                   Do = true;
+                                               }
+                                           }
+
+                                       }
                                    }
                                }
-                           }
-                           else
-                           {
-                               if (//HoursesOnTable[ik].HourseThinking[0].PenaltyRegardListHourse[j].IsPenaltyAction() != 0 //&& 
-                               HoursesOnTable[ik].HourseThinking[0].PenaltyRegardListHourse[j].IsRewardAction() != 1
-                               )
+                               else
                                {
-                                   //if (Index[2] != -1)
+                                   if (//HoursesOnTable[ik].HourseThinking[0].PenaltyRegardListHourse[j].IsPenaltyAction() != 0 //&& 
+                                   HoursesOnTable[ik].HourseThinking[0].PenaltyRegardListHourse[j].IsRewardAction() != 1
+                                   )
                                    {
-                                       if (AllDraw.Blitz)
+                                       //if (Index[2] != -1)
                                        {
-                                           /*   if (Kind != -1)
-                                              {
-                                                  if (Kind != 3)
-                                                      continue;
-                                                  else
-                                                      if (ik != Index)
+                                           if (AllDraw.Blitz)
+                                           {
+                                               /*   if (Kind != -1)
+                                                  {
+                                                      if (Kind != 3)
                                                           continue;
                                                       else
-                                                          if (j != jindex)
+                                                          if (ik != Index)
                                                               continue;
-                                              }
-                                              else
-                                                  continue;
-                                            */
-                                           if (Index[2] != -1)
-                                           {
+                                                          else
+                                                              if (j != jindex)
+                                                                  continue;
+                                                  }
+                                                  else
+                                                      continue;
+                                                */
+                                               if (Index[2] != -1)
+                                               {
 
-                                               if (ik != Index[2])
-                                                   return;
+                                                   if (ik != Index[2])
+                                                   {
+                                                       if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy == null)
+                                                           HoursesOnTable[ik].HourseThinking[0].AStarGreedy = new List<AllDraw>();
+                                                       HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                                       HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                                       return;
+                                                   }
+                                                   else
+                                                       if (j != jindex[2])
+                                                   {
+                                                       if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy == null)
+                                                           HoursesOnTable[ik].HourseThinking[0].AStarGreedy = new List<AllDraw>();
+                                                       HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                                       HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                                       return;
+                                                   }
+                                               }
                                                else
-                                                   if (j != jindex[2])
+                                               {
+                                                   if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy == null)
+                                                       HoursesOnTable[ik].HourseThinking[0].AStarGreedy = new List<AllDraw>();
+                                                   HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                                   HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                                                    return;
+                                               }
+
                                            }
-                                           else
-                                               return;
 
                                        }
                                        Object O3 = new Object();
@@ -13409,7 +13553,7 @@ namespace RefrigtzDLL
                 {
                     Parallel.For(0, HourseMidle, ik =>
                    {
-                       if (HoursesOnTable[ik] != null)
+                       if (HoursesOnTable != null && HoursesOnTable[ik] != null)
                        {
                            Object O = new Object();
                            lock (O)
@@ -13441,7 +13585,7 @@ namespace RefrigtzDLL
                 //    return Do;
                 Parallel.For(0, CastlesOnTable[ik].CastleThinking[0].TableListCastle.Count, j =>
                 {
-                Object ooo = new Object();
+                    Object ooo = new Object();
                     lock (ooo)
                     {
                         try
@@ -13473,14 +13617,31 @@ namespace RefrigtzDLL
                                             if (Index[3] != -1)
                                             {
                                                 if (ik != Index[3])
+                                                {
+                                                    if (CastlesOnTable[ik].CastleThinking[0].AStarGreedy == null)
+                                                        CastlesOnTable[ik].CastleThinking[0].AStarGreedy = new List<AllDraw>();
+                                                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                                                     return;
+                                                }
                                                 else
                                                     if (j != jindex[0])
+                                                {
+                                                    if (CastlesOnTable[ik].CastleThinking[0].AStarGreedy == null)
+                                                        CastlesOnTable[ik].CastleThinking[0].AStarGreedy = new List<AllDraw>();
+                                                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                                                     return;
+                                                }
                                             }
                                             else
+                                            {
+                                                if (CastlesOnTable[ik].CastleThinking[0].AStarGreedy == null)
+                                                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy = new List<AllDraw>();
+                                                CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                                CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                                                 return;
-
+                                            }
                                         }
                                         Object O3 = new Object();
                                         lock (O3)
@@ -13561,14 +13722,31 @@ namespace RefrigtzDLL
                                             if (Index[3] != -1)
                                             {
                                                 if (ik != Index[3])
+                                                {
+                                                    if (CastlesOnTable[ik].CastleThinking[0].AStarGreedy == null)
+                                                        CastlesOnTable[ik].CastleThinking[0].AStarGreedy = new List<AllDraw>();
+                                                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                                                     return;
+                                                }
                                                 else
                                                     if (j != jindex[0])
+                                                {
+                                                    if (CastlesOnTable[ik].CastleThinking[0].AStarGreedy == null)
+                                                        CastlesOnTable[ik].CastleThinking[0].AStarGreedy = new List<AllDraw>();
+                                                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                                                     return;
+                                                }
                                             }
                                             else
+                                            {
+                                                if (CastlesOnTable[ik].CastleThinking[0].AStarGreedy == null)
+                                                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy = new List<AllDraw>();
+                                                CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                                CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                                                 return;
-
+                                            }
                                         }
                                         Object O3 = new Object();
                                         lock (O3)
@@ -13654,7 +13832,7 @@ namespace RefrigtzDLL
                 {
                     Parallel.For(0, CastleMidle, ik =>
                    {
-                       if (CastlesOnTable[ik] != null)
+                       if (CastlesOnTable != null && CastlesOnTable[ik] != null)
                        {
                            Object O = new Object();
                            lock (O)
@@ -13682,11 +13860,11 @@ namespace RefrigtzDLL
 
                 //List<Task> tHA = new List<Task>();
 
-               // if (MinisterOnTable[ik].MinisterThinking[0].TableListMinister.Count == 0)
-                 //   return Do;
+                // if (MinisterOnTable[ik].MinisterThinking[0].TableListMinister.Count == 0)
+                //   return Do;
                 Parallel.For(0, MinisterOnTable[ik].MinisterThinking[0].TableListMinister.Count, j =>
                {
-               Object ooo = new Object();
+                   Object ooo = new Object();
                    lock (ooo)
                    {
 
@@ -13718,13 +13896,32 @@ namespace RefrigtzDLL
                                            if (Index[4] != -1)
                                            {
                                                if (ik != Index[4])
+                                               {
+                                                   if (MinisterOnTable[ik].MinisterThinking[0].AStarGreedy == null)
+                                                       MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = new List<AllDraw>();
+                                                   MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                                   MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                                                    return;
+                                               }
                                                else
                                                     if (j != jindex[4])
+
+                                               {
+                                                   if (MinisterOnTable[ik].MinisterThinking[0].AStarGreedy == null)
+                                                       MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = new List<AllDraw>();
+                                                   MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                                   MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                                                    return;
+                                               }
                                            }
                                            else
+                                           {
+                                               if (MinisterOnTable[ik].MinisterThinking[0].AStarGreedy == null)
+                                                   MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = new List<AllDraw>();
+                                               MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                               MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                                                return;
+                                           }
 
                                        }
                                        Object O3 = new Object();
@@ -13804,14 +14001,32 @@ namespace RefrigtzDLL
                                            if (Index[4] != -1)
                                            {
                                                if (ik != Index[4])
+                                               {
+                                                   if (MinisterOnTable[ik].MinisterThinking[0].AStarGreedy == null)
+                                                       MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = new List<AllDraw>();
+                                                   MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                                   MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                                                    return;
+                                               }
                                                else
                                                     if (j != jindex[4])
+
+                                               {
+                                                   if (MinisterOnTable[ik].MinisterThinking[0].AStarGreedy == null)
+                                                       MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = new List<AllDraw>();
+                                                   MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                                   MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                                                    return;
+                                               }
                                            }
                                            else
+                                           {
+                                               if (MinisterOnTable[ik].MinisterThinking[0].AStarGreedy == null)
+                                                   MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = new List<AllDraw>();
+                                               MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                               MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                                                return;
-
+                                           }
                                        }
                                        Object O3 = new Object();
                                        lock (O3)
@@ -13898,7 +14113,7 @@ namespace RefrigtzDLL
                 {
                     Parallel.For(0, MinisterMidle, ik =>
                   {
-                      if (MinisterOnTable[ik] != null)
+                      if (MinisterOnTable != null && MinisterOnTable[ik] != null)
                       {
                           Object O = new Object();
                           lock (O)
@@ -13930,7 +14145,7 @@ namespace RefrigtzDLL
                     return Do;
                 Parallel.For(0, KingOnTable[ik].KingThinking[0].TableListKing.Count, j =>
                {
-               Object ooo = new Object();
+                   Object ooo = new Object();
                    lock (ooo)
                    {
 
@@ -13960,13 +14175,31 @@ namespace RefrigtzDLL
                                        if (Index[5] != -1)
                                        {
                                            if (ik != Index[5])
+                                           {
+                                               if (KingOnTable[ik].KingThinking[0].AStarGreedy == null)
+                                                   KingOnTable[ik].KingThinking[0].AStarGreedy = new List<AllDraw>();
+                                               KingOnTable[ik].KingThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                               KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                                                return;
+                                           }
                                            else
                                                 if (j != jindex[5])
+                                           {
+                                               if (KingOnTable[ik].KingThinking[0].AStarGreedy == null)
+                                                   KingOnTable[ik].KingThinking[0].AStarGreedy = new List<AllDraw>();
+                                               KingOnTable[ik].KingThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                               KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                                                return;
+                                           }
                                        }
                                        else
+                                       {
+                                           if (KingOnTable[ik].KingThinking[0].AStarGreedy == null)
+                                               KingOnTable[ik].KingThinking[0].AStarGreedy = new List<AllDraw>();
+                                           KingOnTable[ik].KingThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                           KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                                            return;
+                                       }
 
                                    }
                                    Object O3 = new Object();
@@ -14040,18 +14273,34 @@ namespace RefrigtzDLL
                                        else
                                            continue;
                                         */
-                                       if (Index[5] != -1)
+                                       if (ik != Index[5])
                                        {
-                                           if (ik != Index[5])
-                                               return;
-                                           else
-                                                if (j != jindex[5])
-                                               return;
+                                           if (KingOnTable[ik].KingThinking[0].AStarGreedy == null)
+                                               KingOnTable[ik].KingThinking[0].AStarGreedy = new List<AllDraw>();
+                                           KingOnTable[ik].KingThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                           KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                           return;
                                        }
                                        else
-                                           return;
 
+                                       if (j != jindex[5])
+                                       {
+                                           if (KingOnTable[ik].KingThinking[0].AStarGreedy == null)
+                                               KingOnTable[ik].KingThinking[0].AStarGreedy = new List<AllDraw>();
+                                           KingOnTable[ik].KingThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                           KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                           return;
+                                       }
                                    }
+                                   else
+                                   {
+                                       if (KingOnTable[ik].KingThinking[0].AStarGreedy == null)
+                                           KingOnTable[ik].KingThinking[0].AStarGreedy = new List<AllDraw>();
+                                       KingOnTable[ik].KingThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                                       KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                       return;
+                                   }
+
                                    Object O3 = new Object();
                                    lock (O3)
                                    {
@@ -14134,7 +14383,7 @@ namespace RefrigtzDLL
                 {
                     Parallel.For(0, KingMidle, ik =>
                   {
-                      if (KingOnTable[ik] != null)
+                      if (KingOnTable != null && KingOnTable[ik] != null)
                       {
                           Object O = new Object();
                           lock (O)
@@ -14159,7 +14408,7 @@ namespace RefrigtzDLL
                 {
                     Parallel.For(SodierMidle, SodierHigh, ik =>
                   {
-                      if (SolderesOnTable[ik] != null)
+                      if (SolderesOnTable != null && SolderesOnTable[ik] != null)
                       {
                           //Soldier.
                           Object O = new Object();
@@ -14186,7 +14435,7 @@ namespace RefrigtzDLL
                 {
                     Parallel.For(ElefantMidle, ElefantHigh, ik =>
                   {
-                      if (ElephantOnTable[ik] != null)
+                      if (ElephantOnTable != null && ElephantOnTable[ik] != null)
                       {
                           Object O = new Object();
                           lock (O)
@@ -14211,7 +14460,7 @@ namespace RefrigtzDLL
                 {
                     Parallel.For(HourseMidle, HourseHight, ik =>
                    {
-                       if (HoursesOnTable[ik] != null)
+                       if (HoursesOnTable != null && HoursesOnTable[ik] != null)
                        {
                            Object O = new Object();
                            lock (O)
@@ -14236,7 +14485,7 @@ namespace RefrigtzDLL
                 {
                     Parallel.For(CastleMidle, CastleHigh, ik =>
                    {
-                       if (CastlesOnTable[ik] != null)
+                       if (CastlesOnTable != null && CastlesOnTable[ik] != null)
                        {
                            Object O = new Object();
                            lock (O)
@@ -14262,14 +14511,14 @@ namespace RefrigtzDLL
                 {
                     Parallel.For(MinisterMidle, MinisterHigh, ik =>
                   {
-                      if (MinisterOnTable[ik] != null)
+                      if (MinisterOnTable != null && MinisterOnTable[ik] != null)
                       {
                           Object O = new Object();
                           lock (O)
                           {
                               Do = FullGameThinkingTreeMinister(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
                           }
-                      }                      
+                      }
                   });
                 }
                 catch (Exception t) { Log(t); }
@@ -14288,7 +14537,7 @@ namespace RefrigtzDLL
                     Parallel.For(KingMidle, KingHigh, ik =>
                   {
 
-                      if (KingOnTable[ik] != null)
+                      if (KingOnTable != null && KingOnTable[ik] != null)
                       {
                           Object O = new Object();
                           lock (O)
@@ -14896,7 +15145,7 @@ namespace RefrigtzDLL
                     Parallel.Invoke(() =>
 
                       {
-                      Object ooo = new Object();
+                          Object ooo = new Object();
                           lock (ooo)
                           {
                               if (i < SodierMidle)
@@ -14925,7 +15174,7 @@ namespace RefrigtzDLL
                           }
                       }, () =>
                       {
-                      Object ooo = new Object();
+                          Object ooo = new Object();
                           lock (ooo)
                           {
 
@@ -14955,7 +15204,7 @@ namespace RefrigtzDLL
                           }
                       }, () =>
                       {
-                      Object ooo = new Object();
+                          Object ooo = new Object();
                           lock (ooo)
                           {
 
@@ -14985,7 +15234,7 @@ namespace RefrigtzDLL
                           }
                       }, () =>
                       {
-                      Object ooo = new Object();
+                          Object ooo = new Object();
                           lock (ooo)
                           {
 
@@ -15015,7 +15264,7 @@ namespace RefrigtzDLL
                           }
                       }, () =>
                       {
-                      Object ooo = new Object();
+                          Object ooo = new Object();
                           lock (ooo)
                           {
 
@@ -15044,7 +15293,7 @@ namespace RefrigtzDLL
                           }
                       }, () =>
                       {
-                      Object ooo = new Object();
+                          Object ooo = new Object();
                           lock (ooo)
                           {
 
@@ -15081,7 +15330,7 @@ namespace RefrigtzDLL
                 {
                     Parallel.Invoke(() =>
                 {
-                Object ooo = new Object();
+                    Object ooo = new Object();
                     lock (ooo)
                     {
 
@@ -15195,7 +15444,7 @@ namespace RefrigtzDLL
                             ChessRules.CurrentOrder = DummyCurrentOrder;
                         }
                     }
-                    
+
                 }, () =>
                 {
                     if (i >= KingMidle && i < KingHigh)
@@ -15693,7 +15942,7 @@ namespace RefrigtzDLL
                 if (Order == 1)
                 {
                     for (int i = 0; i < SodierMidle; i++)
-                        if (SolderesOnTable[i] != null)
+                        if (SolderesOnTable !=null && SolderesOnTable[i] != null)
                             try
                             {
                                 CheckedMateConfiguratiionSoldier(Order, i, true);
@@ -15704,7 +15953,7 @@ namespace RefrigtzDLL
                             }
 
                     for (int i = 0; i < ElefantMidle; i++)
-                        if (ElephantOnTable[i] != null)
+                        if (ElephantOnTable  != null && ElephantOnTable[i] != null)
                             try
                             {
                                 CheckedMateConfiguratiionElephant(Order, i, true);
@@ -15714,7 +15963,7 @@ namespace RefrigtzDLL
                                 Log(t);
                             }
                     for (int i = 0; i < HourseMidle; i++)
-                        if (HoursesOnTable[i] != null)
+                        if (HoursesOnTable  != null && HoursesOnTable[i] != null)
                             try
                             {
                                 CheckedMateConfiguratiionHourse(Order, i, true);
@@ -15724,7 +15973,7 @@ namespace RefrigtzDLL
                                 Log(t);
                             }
                     for (int i = 0; i < CastleMidle; i++)
-                        if (CastlesOnTable[i] != null)
+                        if (CastlesOnTable  != null && CastlesOnTable[i] != null)
                             try
                             {
                                 CheckedMateConfiguratiionCastle(Order, i, true);
@@ -15734,7 +15983,7 @@ namespace RefrigtzDLL
                                 Log(t);
                             }
                     for (int i = 0; i < MinisterMidle; i++)
-                        if (MinisterOnTable[i] != null)
+                        if (MinisterOnTable  != null && MinisterOnTable[i] != null)
                             try
                             {
                                 CheckedMateConfiguratiionMinister(Order, i, true);
@@ -15744,7 +15993,7 @@ namespace RefrigtzDLL
                                 Log(t);
                             }
                     for (int i = 0; i < KingMidle; i++)
-                        if (KingOnTable[i] != null)
+                        if (KingOnTable  != null && KingOnTable[i] != null)
                             try
                             {
                                 CheckedMateConfiguratiionking(Order, i, true);
@@ -15757,7 +16006,7 @@ namespace RefrigtzDLL
                 else
                 {
                     for (int i = SodierMidle; i < SodierHigh; i++)
-                        if (SolderesOnTable[i] != null)
+                        if (SolderesOnTable !=null && SolderesOnTable[i] != null)
                             try
                             {
                                 CheckedMateConfiguratiionSoldier(Order, i, true);
@@ -15767,7 +16016,7 @@ namespace RefrigtzDLL
                                 Log(t);
                             }
                     for (int i = ElefantMidle; i < ElefantHigh; i++)
-                        if (ElephantOnTable[i] != null)
+                        if (ElephantOnTable  != null && ElephantOnTable[i] != null)
                             try
                             {
                                 CheckedMateConfiguratiionElephant(Order, i, true);
@@ -15777,7 +16026,7 @@ namespace RefrigtzDLL
                                 Log(t);
                             }
                     for (int i = HourseMidle; i < HourseHight; i++)
-                        if (HoursesOnTable[i] != null)
+                        if (HoursesOnTable  != null && HoursesOnTable[i] != null)
                             try
                             {
                                 CheckedMateConfiguratiionHourse(Order, i, true);
@@ -15787,7 +16036,7 @@ namespace RefrigtzDLL
                                 Log(t);
                             }
                     for (int i = CastleMidle; i < CastleHigh; i++)
-                        if (CastlesOnTable[i] != null)
+                        if (CastlesOnTable  != null && CastlesOnTable[i] != null)
                             try
                             {
                                 CheckedMateConfiguratiionCastle(Order, i, true);
@@ -15797,7 +16046,7 @@ namespace RefrigtzDLL
                                 Log(t);
                             }
                     for (int i = MinisterMidle; i < MinisterHigh; i++)
-                        if (MinisterOnTable[i] != null)
+                        if (MinisterOnTable  != null && MinisterOnTable[i] != null)
                             try
                             {
                                 CheckedMateConfiguratiionMinister(Order, i, true);
@@ -15807,7 +16056,7 @@ namespace RefrigtzDLL
                                 Log(t);
                             }
                     for (int i = KingMidle; i < KingHigh; i++)
-                        if (KingOnTable[i] != null)
+                        if (KingOnTable  != null && KingOnTable[i] != null)
                             try
                             {
                                 CheckedMateConfiguratiionking(Order, i, true);
@@ -15825,7 +16074,7 @@ namespace RefrigtzDLL
                 if (Order == 1)
                 {
                     for (int i = 0; i < SodierMidle; i++)
-                        if (SolderesOnTable[i] != null)
+                        if (SolderesOnTable !=null && SolderesOnTable[i] != null)
                             try
                             {
                                 CheckedMateConfiguratiionSoldier(Order, i, false);
@@ -15835,7 +16084,7 @@ namespace RefrigtzDLL
                                 Log(t);
                             }
                     for (int i = 0; i < ElefantMidle; i++)
-                        if (ElephantOnTable[i] != null)
+                        if (ElephantOnTable  != null && ElephantOnTable[i] != null)
                             try
                             {
                                 CheckedMateConfiguratiionElephant(Order, i, false);
@@ -15845,7 +16094,7 @@ namespace RefrigtzDLL
                                 Log(t);
                             }
                     for (int i = 0; i < HourseMidle; i++)
-                        if (HoursesOnTable[i] != null)
+                        if (HoursesOnTable  != null && HoursesOnTable[i] != null)
                             try
                             {
                                 CheckedMateConfiguratiionHourse(Order, i, false);
@@ -15855,7 +16104,7 @@ namespace RefrigtzDLL
                                 Log(t);
                             }
                     for (int i = 0; i < CastleMidle; i++)
-                        if (CastlesOnTable[i] != null)
+                        if (CastlesOnTable  != null && CastlesOnTable[i] != null)
                             try
                             {
                                 CheckedMateConfiguratiionCastle(Order, i, false);
@@ -15865,7 +16114,7 @@ namespace RefrigtzDLL
                                 Log(t);
                             }
                     for (int i = 0; i < MinisterMidle; i++)
-                        if (MinisterOnTable[i] != null)
+                        if (MinisterOnTable  != null && MinisterOnTable[i] != null)
                             try
                             {
                                 CheckedMateConfiguratiionMinister(Order, i, false);
@@ -15875,7 +16124,7 @@ namespace RefrigtzDLL
                                 Log(t);
                             }
                     for (int i = 0; i < KingMidle; i++)
-                        if (KingOnTable[i] != null)
+                        if (KingOnTable  != null && KingOnTable[i] != null)
                             try
                             {
                                 CheckedMateConfiguratiionking(Order, i, false);
@@ -15888,7 +16137,7 @@ namespace RefrigtzDLL
                 else
                 {
                     for (int i = SodierMidle; i < SodierHigh; i++)
-                        if (SolderesOnTable[i] != null)
+                        if (SolderesOnTable !=null && SolderesOnTable[i] != null)
                             try
                             {
                                 CheckedMateConfiguratiionSoldier(Order, i, false);
@@ -15898,7 +16147,7 @@ namespace RefrigtzDLL
                                 Log(t);
                             }
                     for (int i = ElefantMidle; i < ElefantHigh; i++)
-                        if (ElephantOnTable[i] != null)
+                        if (ElephantOnTable  != null && ElephantOnTable[i] != null)
                             try
                             {
                                 CheckedMateConfiguratiionElephant(Order, i, false);
@@ -15908,7 +16157,7 @@ namespace RefrigtzDLL
                                 Log(t);
                             }
                     for (int i = HourseMidle; i < HourseHight; i++)
-                        if (HoursesOnTable[i] != null)
+                        if (HoursesOnTable  != null && HoursesOnTable[i] != null)
                             try
                             {
                                 CheckedMateConfiguratiionHourse(Order, i, false);
@@ -15918,7 +16167,7 @@ namespace RefrigtzDLL
                                 Log(t);
                             }
                     for (int i = CastleMidle; i < CastleHigh; i++)
-                        if (CastlesOnTable[i] != null)
+                        if (CastlesOnTable  != null && CastlesOnTable[i] != null)
                             try
                             {
                                 CheckedMateConfiguratiionCastle(Order, i, false);
@@ -15928,7 +16177,7 @@ namespace RefrigtzDLL
                                 Log(t);
                             }
                     for (int i = MinisterMidle; i < MinisterHigh; i++)
-                        if (MinisterOnTable[i] != null)
+                        if (MinisterOnTable  != null && MinisterOnTable[i] != null)
                             try
                             {
                                 CheckedMateConfiguratiionMinister(Order, i, false);
@@ -15938,7 +16187,7 @@ namespace RefrigtzDLL
                                 Log(t);
                             }
                     for (int i = KingMidle; i < KingHigh; i++)
-                        if (KingOnTable[i] != null)
+                        if (KingOnTable  != null && KingOnTable[i] != null)
                             try
                             {
                                 CheckedMateConfiguratiionking(Order, i, false);
@@ -15970,7 +16219,7 @@ namespace RefrigtzDLL
                 RegardOccurred = false;
                 TaskBegin = 0;
                 TaskEnd = 0;
-               
+
                 MaxDuringLevelThinkingCreation = System.Convert.ToInt32(AllDraw.THIScomboBoxMaxLevelText);
 
                 MinThinkingTreeDepth = 0;
@@ -16140,9 +16389,9 @@ namespace RefrigtzDLL
                 CL6 = -1;
                 Ki6 = -1;
                 MaxHuristicAStarGreedytBackWard.Clear();
-               
+
                 int[,] Tab = null;
-              
+
                 if (!FOUND)
                 {
                     Object O7 = new Object();
@@ -16157,7 +16406,7 @@ namespace RefrigtzDLL
 
 
                 }
-                   //THIS.Invoke((MethodInvoker)delegate()
+                //THIS.Invoke((MethodInvoker)delegate()
                 {
 
                     MaxAStarGreedy = System.Convert.ToInt32(AllDraw.THIScomboBoxMaxLevelText);
@@ -16172,13 +16421,13 @@ namespace RefrigtzDLL
                     //SetprogressBarRefregitzValue(THIS.progressBarVerify, increasedProgress);
                 }//);
 
-                 ChessRules.CurrentOrder = Current;
+                ChessRules.CurrentOrder = Current;
                 Order = DummyOrder;
                 int iiii = ii, jjjj = jj, Ord = Order;
                 int MaxAStarGreedy1 = MaxAStarGreedy;
                 int[,] Tabl = CloneATable(Table);
                 Color aaa = a;
-                 InitiateAStarGreedytObject(MaxAStarGreedy1, iiii, jjjj, aaa, Tabl, Ord, false, FOUND, LeafAStarGreedy);
+                InitiateAStarGreedytObject(MaxAStarGreedy1, iiii, jjjj, aaa, Tabl, Ord, false, FOUND, LeafAStarGreedy);
 
                 MinThinkingTreeDepth = MaxAStarGreedy - MinThinkingTreeDepth;
                 //Initaite Local Varibales.
@@ -16225,28 +16474,28 @@ namespace RefrigtzDLL
                         Log(t);
                     }
                 }
-                
+
                 //If Table Found.
 
                 if (TableHuristic != null)
                 {
-                        Object OOOOO = new Object();
-                        lock (OOOOO)
+                    Object OOOOO = new Object();
+                    lock (OOOOO)
+                    {
+                        if (Order == 1)
                         {
-                            if (Order == 1)
-                            {
-                                OutPut = "\r\nHuristic Find Best Movements AStarGreedy " + AStarGreedy.ToString() + " By Bob!";
-                                //THIS.RefreshBoxText();
-                            }
-                            else
-                            {
-                                OutPut = "\r\nHuristic Find Best Movements AStarGreedy " + AStarGreedy.ToString() + " By Alice!";
-                                //THIS.RefreshBoxText();
-
-                            }
+                            OutPut = "\r\nHuristic Find Best Movements AStarGreedy " + AStarGreedy.ToString() + " By Bob!";
+                            //THIS.RefreshBoxText();
                         }
-                        Order = DummyOrder;
-                        ChessRules.CurrentOrder = Current;
+                        else
+                        {
+                            OutPut = "\r\nHuristic Find Best Movements AStarGreedy " + AStarGreedy.ToString() + " By Alice!";
+                            //THIS.RefreshBoxText();
+
+                        }
+                    }
+                    Order = DummyOrder;
+                    ChessRules.CurrentOrder = Current;
                 }
                 else
                 {
@@ -16260,7 +16509,7 @@ namespace RefrigtzDLL
                 //THISDummy.Dispose();
                 DrawTable = true;
                 FoundATable = true;
-            }            
+            }
             return TableHuristic;
         }
         //Identification of Illegal AStarGreedy First and Common Hurist Movments.

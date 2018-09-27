@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("RefrigtzW")]
+[assembly: AssemblyTitle("RefrigtzDLL")]
 [assembly: AssemblyDescription("Chess Refregitz 2018")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Manshore Varzesh Inistitude")]
-[assembly: AssemblyProduct("RefrigtzW")]
+[assembly: AssemblyProduct("RefrigtzDLL")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("8.11.16.314")]
-[assembly: AssemblyFileVersion("8.11.16.314")]
+[assembly: AssemblyVersion("8.12.16.314")]
+[assembly: AssemblyFileVersion("8.12.16.314")]

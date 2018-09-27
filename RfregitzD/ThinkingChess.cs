@@ -108,7 +108,7 @@ namespace RefrigtzDLL
         public int NumberOfPenalties = 0;
         static int NumbersOfCurrentBranchesPenalties = 0;
         public static int NumbersOfAllNode = 0;
-        public int SodierMidle = 8;
+        /*public int SodierMidle = 8;
         public int SodierHigh = 16;
         public int ElefantMidle = 2;
         public int ElefantHigh = 4;
@@ -120,6 +120,20 @@ namespace RefrigtzDLL
         public int MinisterHigh = 2;
         public int KingMidle = 1;
         public int KingHigh = 2;
+        */
+        public int SodierMidle = 0;
+        public int SodierHigh = 0;
+        public int ElefantMidle = 0;
+        public int ElefantHigh = 0;
+        public int HourseMidle = 0;
+        public int HourseHight = 0;
+        public int CastleMidle = 0;
+        public int CastleHigh = 0;
+        public int MinisterMidle = 0;
+        public int MinisterHigh = 0;
+        public int KingMidle = 0;
+        public int KingHigh = 0;
+
         public static bool KingMaovableGray = false;
         public static bool KingMaovableBrown = false;
         public static int FoundFirstMating;
@@ -336,7 +350,7 @@ namespace RefrigtzDLL
                 OnlySelfT = OnlySel;
                 AStarGreedyHuristicT = AStarGreedyHuris;
                 ArrangmentsChanged = Arrangments;
-
+                //SetObjectNumbers(TableConst);
                 Row = i;
                 Column = j;
                 //Clear Dearty Part.
@@ -368,6 +382,7 @@ namespace RefrigtzDLL
                 */
                 //Network Quantum Atamata Book Initiate For Every Clone.
                 SetValueOfTabls(Row, Column);
+                
             }
         }
         void SetValueOfTabls(int Row, int Column)
@@ -528,6 +543,7 @@ namespace RefrigtzDLL
                         }
                 }
                 */
+                //SetObjectNumbers(TableConst);
             }
         }
         //Clone A Table
@@ -5094,13 +5110,13 @@ namespace RefrigtzDLL
                
                 int Count = 0, i = 0;
                 //For Alll Solders on int Calculate Solkder Count.
-                do
+                while (i < MaxCount) 
                 {
                     //The Index out of range exeption is not fixable.
                     try
                     {
-                        if (So[i] != null && So != null)
-                        {
+                        if (So != null) if (So[i] != null)
+                            {
                             //When int is Gray or Brown.
                             if (So[i].color == Color.Gray || So[i].color == Color.Brown)
                             {
@@ -5119,7 +5135,7 @@ namespace RefrigtzDLL
                     catch (Exception t) { Log(t); }
                     i++;
 
-                } while (i < MaxCount);
+                };
 
                 return Count;
             }
@@ -5134,12 +5150,12 @@ namespace RefrigtzDLL
 
                 int Count = 0, i = 0;
                 //For All Elephant items in Table.
-                do
+                while (i < MaxCount)
                 {
                     try
                     {
                         //The Index out of range exeption is not fixable.
-                        if (So[i] != null&& So!=null)
+                        if (So != null)  if (So[i] != null)
                         {
                             //when Elaphant int is Gray or Brown.
                             if (So[i].color == Color.Gray || So[i].color == Color.Brown)
@@ -5158,8 +5174,7 @@ namespace RefrigtzDLL
                     }
                     catch (Exception t) { Log(t); }
                     i++;
-                }
-                while (i < MaxCount);
+                };
                 return Count;
             }
         }
@@ -5171,13 +5186,13 @@ namespace RefrigtzDLL
             {
 
                 int Count = 0, i = 0;
-                do
+                while (i < MaxCount)
                 {
                     //For All Hourse on Table .
                     //The Index out of range exeption is not fixable.
                     try
                     {
-                        if (So[i] != null&& So!=null)
+                        if (So != null)  if (So[i] != null)
                         {
                             //When int is Gray or Brown.
                             if (So[i].color == Color.Gray || So[i].color == Color.Brown)
@@ -5196,8 +5211,8 @@ namespace RefrigtzDLL
                     }
                     catch (Exception t) { Log(t); }
                     i++;
-                }
-                while (i < MaxCount);
+                };
+                
                 return Count;
             }
         }
@@ -5209,12 +5224,12 @@ namespace RefrigtzDLL
             {
 
                 int Count = 0, i = 0;
-                do
+                while (i < MaxCount)
                 {
                     try
                     {
                         //The Index out of range exeption is not fixable.
-                        if (So[i] != null&& So!=null)
+                        if (So != null)  if (So[i] != null)
                         {
                             //When Castles int is Gray or Brown.
                             if (So[i].color == Color.Gray || So[i].color == Color.Brown)
@@ -5234,8 +5249,8 @@ namespace RefrigtzDLL
                     catch (Exception t) { Log(t); }
 
                     i++;
-                }
-                while (i < MaxCount);
+                };
+                
                 return Count;
             }
         }
@@ -5247,13 +5262,13 @@ namespace RefrigtzDLL
             {
 
                 int Count = 0, i = 0;
-                do
+                while (i < MaxCount)
                 {
                     try
                     {
                         //The Index out of range exeption is not fixable.
-                        if (So[i] != null&& So!=null)
-                        {
+                        if (So != null) if (So[i] != null)
+                            {
                             //When int of items is gray or Brown.
                             if (So[i].color == Color.Gray || So[i].color == Color.Brown)
                             {
@@ -5271,8 +5286,7 @@ namespace RefrigtzDLL
                     }
                     catch (Exception t) { Log(t); }
                     i++;
-                }
-                while (i < MaxCount);
+                };
                 return Count;
             }
         }
@@ -5284,13 +5298,13 @@ namespace RefrigtzDLL
             {
 
                 int Count = 0, i = 0;
-                do
+                while (i < MaxCount)
                 {
                     try
                     {
                         //The Index out of range exeption is not fixable.
-                        if (So[i] != null&& So!=null)
-                        {
+                        if (So != null) if (So[i] != null)
+                            {
                             //when int is Gray or Brown.
                             if (So[i].color == Color.Gray || So[i].color == Color.Brown)
                             {
@@ -5308,8 +5322,7 @@ namespace RefrigtzDLL
                     }
                     catch (Exception t) { Log(t); }
                     i++;
-                }
-                while (i < MaxCount);
+                };
                 return Count;
             }
         }

@@ -63,6 +63,8 @@
  * Thinking Tree Construction was not Complition and have empty with no reason.********RC**0.88**1**Risk Control************************************{*}QC_OK
  * Heuristic of 'Attack';'Movment';'Support';'CheckMate...' Undisiarable.**************RC**0.88**1**Risk Control************************************<*>QC _BAD
  * Huristic and Learning regime work in worth state.***********************************RC**0.88**1**Risk Control************************************(*)QC_BAD
+ * Mal Function in Boundray Conditions founding in Leaf Creation Tree.*****************RC**0.88**1**Risk Control************************************(*)QC_BAD
+ * Index was out of range in same grope of thinking objects by hitting.****************RC**0.88**1**Risk Control************************************(*)QC_BAD
  * **************************************************************************(+:Sum(26)) (*:Sum(1)) 5:(+:Sum(3)) 6.(+:Sum0.12**4**Managements and Cuation Programing**********************(+)) 7.(:Sum(1))
  * **************************************************************************
  */
@@ -120,7 +122,7 @@ namespace RefrigtzW
         public int KingHigh = 2;
         public static bool KingMaovableGray = false;
         public static bool KingMaovableBrown = false;
-        public static int FoundFirstMating = 0;
+        public static int FoundFirstMating;
         public int SodierValue = 1 * 3;
         public int ElefantValue = 2 * 16;
         public int HourseValue = 3 * 8;
@@ -151,19 +153,19 @@ namespace RefrigtzW
         public int IndexKing = 0;
         static public int Index = 0;
         static public int[,] RowColumn;
-        public List<int[]> RowColumnSoldier;
-        public List<int[]> RowColumnElefant;
-        public List<int[]> RowColumnHourse;
-        public List<int[]> RowColumnCastle;
-        public List<int[]> RowColumnMinister;
-        public List<int[]> RowColumnKing;
+        public List<int[]> RowColumnSoldier = new List<int[]>();
+        public List<int[]> RowColumnElefant = new List<int[]>();
+        public List<int[]> RowColumnHourse = new List<int[]>();
+        public List<int[]> RowColumnCastle = new List<int[]>();
+        public List<int[]> RowColumnMinister = new List<int[]>();
+        public List<int[]> RowColumnKing = new List<int[]>();
         public int[,] TableT;
-        public List<int> HitNumberSoldier;
-        public List<int> HitNumberElefant;
-        public List<int> HitNumberHourse;
-        public List<int> HitNumberCastle;
-        public List<int> HitNumberMinister;
-        public List<int> HitNumberKing;
+        public List<int> HitNumberSoldier = new List<int>();
+        public List<int> HitNumberElefant = new List<int>();
+        public List<int> HitNumberHourse = new List<int>();
+        public List<int> HitNumberCastle = new List<int>();
+        public List<int> HitNumberMinister = new List<int>();
+        public List<int> HitNumberKing = new List<int>();
         public int[,] TableConst;
         public List<int[,]> TableListSolder = new List<int[,]>();
         public List<int[,]> TableListElefant = new List<int[,]>();
@@ -188,10 +190,11 @@ namespace RefrigtzW
         public Color color;
         public int Order;
         [NonSerialized()] public Task t = null;
-        public List<AllDraw> AStarGreedy = null;
+        public List<AllDraw> AStarGreedy = new List<AllDraw>();
         int[,] Value = new int[8, 8];
         bool IgnoreFromCheckandMateHuristic = false;
         int CurrentAStarGredyMax = -1;
+        List<int[,]> ObjectNumbers = new List<int[,]>();
         ///Log of Errors.
         static void Log(Exception ex)
         {
@@ -200,17 +203,122 @@ namespace RefrigtzW
                 Object a = new Object();
                 lock (a)
                 {
-                    try
-                    {        //Initiate Variable.
-                        string stackTrace = ex.ToString();
+                      string stackTrace = ex.ToString();
                         //Write to File.
                         File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); /// path of file where stack trace will be stored.
-                    }
-                    catch (Exception t)
-                    { }
+                    
                 }
             }
             catch (Exception t) { Log(t); }
+        }
+        void SetObjectNumbersInList(int[,] Tab)
+        {
+            SetObjectNumbers(Tab);
+
+            int[,] A = new int[2, 6];
+            A[0, 0] = SodierMidle;
+            A[1, 0] = SodierHigh;
+
+
+            A[0, 1] = ElefantMidle;
+            A[1, 1] = ElefantHigh;
+
+
+            A[0, 2] = HourseMidle;
+            A[1, 2] = HourseHight;
+
+
+            A[0, 3] = CastleMidle;
+            A[1, 3] = CastleHigh;
+
+
+            A[0, 4] = MinisterMidle;
+            A[1, 4] = MinisterHigh;
+
+
+            A[0, 5] = KingMidle;
+            A[1, 5] = KingHigh;
+            ObjectNumbers.Add(A);
+        }
+        public void SetObjectNumbers(int[,] TabS)
+        {
+            Object a = new Object();
+            lock (a)
+            {
+
+                SodierMidle = 0;
+                SodierHigh = 0;
+                ElefantMidle = 0;
+                ElefantHigh = 0;
+                HourseMidle = 0;
+                HourseHight = 0;
+                CastleMidle = 0;
+                CastleHigh = 0;
+                MinisterMidle = 0;
+                MinisterHigh = 0;
+                KingMidle = 0;
+                KingHigh = 0;
+                for (int h = 0; h < 8; h++)
+                    for (int s = 0; s < 8; s++)
+                    {
+                        if (TabS[h, s] == 1)
+                        {
+                            SodierMidle++;
+                            SodierHigh++;
+                        }
+                        else if (TabS[h, s] == 2)
+                        {
+                            ElefantMidle++;
+                            ElefantHigh++;
+                        }
+                        else if (TabS[h, s] == 3)
+                        {
+                            HourseMidle++;
+                            HourseHight++;
+                        }
+                        else if (TabS[h, s] == 4)
+                        {
+                            CastleMidle++;
+                            CastleHigh++;
+                        }
+                        else if (TabS[h, s] == 5)
+                        {
+                            MinisterMidle++;
+                            MinisterHigh++;
+                        }
+                        else if (TabS[h, s] == 6)
+                        {
+                            KingMidle++;
+                            KingHigh++;
+                        }
+                        else
+                            if (TabS[h, s] == -1)
+                        {
+                            SodierHigh++;
+                        }
+                        else if (TabS[h, s] == -2)
+                        {
+                            ElefantHigh++;
+                        }
+                        else if (TabS[h, s] == -3)
+                        {
+                            HourseHight++;
+                        }
+                        else if (TabS[h, s] == -4)
+                        {
+                            CastleHigh++;
+                        }
+                        else if (TabS[h, s] == -5)
+                        {
+
+                            MinisterHigh++;
+                        }
+                        else if (TabS[h, s] == -6)
+                        {
+                            KingHigh++;
+                        }
+                    }
+            }
         }
         //Constructor
         public ThinkingChess(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, int i, int j)
@@ -232,7 +340,7 @@ namespace RefrigtzW
                 Row = i;
                 Column = j;
                 //Clear Dearty Part.
-                TableListSolder.Clear();
+                /*TableListSolder.Clear();
                 TableListElefant.Clear();
                 TableListHourse.Clear();
                 TableListCastle.Clear();
@@ -257,26 +365,27 @@ namespace RefrigtzW
                 PenaltyRegardListMinister = new List<QuantumAtamata>();
                 PenaltyRegardListKing = new List<QuantumAtamata>();
                 AStarGreedy = new List<AllDraw>();
+                */
                 //Network Quantum Atamata Book Initiate For Every Clone.
                 SetValueOfTabls(Row, Column);
             }
         }
-        void SetValueOfTabls(int Row,int Column)
+        void SetValueOfTabls(int Row, int Column)
         {
             Object o = new Object();
             lock (o)
             {
-                for (int h = 0; h < 8; h++)
-                    for (int m = 0; m < 8; m++)
+                //for (int h = 0; h < 8; h++)
+                    //for (int m = 0; m < 8; m++)
                     {
-                        if (h != Row || m != Column)
-                            continue;
-                        Value[h, m] = 0;
+                        //if (h != Row || m != Column)
+                            //return;
+                        Value[Row, Column] = 0;
                         {
-                            if (TableConst == null || TableConst[h, m] == 0)
-                                continue;
+                            if (TableConst == null || TableConst[Row, Column] == 0)
+                                return;
                             if (TableConst != null)
-                                Value[h, m] += ObjectValueCalculator(TableConst, Order, h, m);
+                                Value[Row, Column] += ObjectValueCalculator(TableConst, Order, Row, Column);
                         }
                     }
             }
@@ -294,7 +403,7 @@ namespace RefrigtzW
                     if (Order == 1)
                     {
                         //Number of Gray Objects at Last Row Bottmm.
-                        for (int i = 0; i < 8; i++)
+                        for (int i = 0; i < 2; i++)
                             for (int j = 6; j < 8; j++)
                                 if (Table[i, j] > 0)
                                     CH++;
@@ -315,15 +424,15 @@ namespace RefrigtzW
                     {
                         //Number of Brown Objects Table at Last tow row Uppper.
                         for (int i = 0; i < 8; i++)
-                            for (int j = 6; j < 8; j++)
+                            for (int j = 6; j < 2; j++)
                                 if (Table[i, j] > 0)
                                     CH++;
                     }
                     else
                     {
                         //Number of Gray Objects Table at Last tow rown below.
-                        for (int i = 0; i < 8; i++)
-                            for (int j = 0; j < 2; j++)
+                        for (int i = 0; i < 2; i++)
+                            for (int j = 0; j < 8; j++)
                                 if (Table[i, j] < 0)
                                     CH++;
                     }
@@ -356,7 +465,7 @@ namespace RefrigtzW
                 AStarGreedy = new List<AllDraw>();
                 ThingsNumber = ThingN;
                 CurrentArray = CurA;
-                TableListSolder.Clear();
+                /*TableListSolder.Clear();
                 TableListElefant.Clear();
                 TableListHourse.Clear();
                 TableListCastle.Clear();
@@ -381,6 +490,7 @@ namespace RefrigtzW
                 PenaltyRegardListCastle = new List<QuantumAtamata>();
                 PenaltyRegardListMinister = new List<QuantumAtamata>();
                 PenaltyRegardListKing = new List<QuantumAtamata>();
+                */
                 Row = i;
                 Column = j;
                 color = a;
@@ -401,8 +511,8 @@ namespace RefrigtzW
                     }
                 Order = Ord;
                 ThinkingBegin = ThinkingBeg;
-                AStarGreedy = new List<AllDraw>();
-                Object o = new Object();
+                //AStarGreedy = new List<AllDraw>();
+                /*Object o = new Object();
                 lock (o)
                 {
                     for (int h = 0; h < 8; h++)
@@ -417,6 +527,7 @@ namespace RefrigtzW
 
                         }
                 }
+                */
             }
         }
         //Clone A Table
@@ -505,28 +616,28 @@ namespace RefrigtzW
                 for (int j = 0; j < RowColumnSoldier.Count; j++)
 
                     //Add a Clone To New Solder indexx Object.
-                    RowColumnSoldier.Add(AA.CloneAList(RowColumnSoldier[j], 2));
+                    AA.RowColumnSoldier.Add(CloneAList(RowColumnSoldier[j], 2));
                 //For All Castle List Count.
                 for (int j = 0; j < RowColumnCastle.Count; j++)
                     //Add a Clone to New Castle index Objects List.
-                    RowColumnCastle.Add(AA.CloneAList(RowColumnCastle[j], 2));
+                    AA.RowColumnCastle.Add(CloneAList(RowColumnCastle[j], 2));
 
                 //For All Elephant index List Count.
                 for (int j = 0; j < RowColumnElefant.Count; j++)
                     //Add a Clone to New Elephant Object List.
-                    RowColumnElefant.Add(AA.CloneAList(RowColumnElefant[j], 2));
+                    AA.RowColumnElefant.Add(CloneAList(RowColumnElefant[j], 2));
                 //For All Hourse index List Count.
                 for (int j = 0; j < RowColumnHourse.Count; j++)
                     //Add a Clone to New Hourse index List.
-                    RowColumnHourse.Add(AA.CloneAList(RowColumnHourse[j], 2));
+                    AA.RowColumnHourse.Add(CloneAList(RowColumnHourse[j], 2));
                 //For All King index List Count.
                 for (int j = 0; j < RowColumnKing.Count; j++)
                     //Add a Clone To New King Object List.
-                    RowColumnKing.Add(AA.CloneAList(RowColumnKing[j], 2));
+                    AA.RowColumnKing.Add(CloneAList(RowColumnKing[j], 2));
                 //For All Minister index Count.
                 for (int j = 0; j < RowColumnMinister.Count; j++)
                     //Add a Clone To Minister New index List.
-                    RowColumnMinister.Add(AA.CloneAList(RowColumnMinister[j], 2));
+                    AA.RowColumnMinister.Add(CloneAList(RowColumnMinister[j], 2));
                 //Assgine thread.
                 AA.t = t;
                 //Create and Initiate new Table Object.
@@ -550,7 +661,7 @@ namespace RefrigtzW
                 //For All Table State Movements in Castles Objects.
                 for (int i = 0; i < TableListCastle.Count; i++)
                     //Add aclon of a Table in New Briges Table List.
-                    TableListCastle.Add(AA.CloneATable(TableListCastle[i]));
+                    AA.TableListCastle.Add(CloneATable(TableListCastle[i]));
                 //For All Table List Movements in  Elephant Objects 
                 for (int i = 0; i < TableListElefant.Count; i++)
                     //Add a Clone of Tables in Elephant Mevments Obejcts List To New One.
@@ -558,11 +669,11 @@ namespace RefrigtzW
                 //For All Hourse Table Movemnts items.
                 for (int i = 0; i < TableListHourse.Count; i++)
                     //Add a Clone of Hourse Table Movement in New List.
-                    TableListHourse.Add(AA.CloneATable(TableListHourse[i]));
+                    AA.TableListHourse.Add(CloneATable(TableListHourse[i]));
                 //For All King Tables Movment Count.
                 for (int i = 0; i < TableListKing.Count; i++)
                     //Add a Clone To New King Table List.
-                    TableListKing.Add(AA.CloneATable(TableListKing[i]));
+                    AA.TableListKing.Add(CloneATable(TableListKing[i]));
                 //For All Minister Table Movment Items.
                 for (int i = 0; i < TableListMinister.Count; i++)
                     //Add a clone To New Minister Table Movment List.
@@ -570,103 +681,131 @@ namespace RefrigtzW
                 //For All Solder Table Movment Count.
                 for (int i = 0; i < TableListSolder.Count; i++)
                     //Add a Clone of Table item to New Table List Movments.
-                    TableListSolder.Add(AA.CloneATable(TableListSolder[i]));
+                    AA.TableListSolder.Add(CloneATable(TableListSolder[i]));
 
                 //For All Solder Husrist List Count.
                 for (int i = 0; i < HuristicListSolder.Count; i++)
                     //Ad a Clone of Hueristic Solders To New List.
-                    HuristicListSolder.Add(AA.CloneAList(HuristicListSolder[i], 4));
+                    AA.HuristicListSolder.Add(CloneAList(HuristicListSolder[i], 4));
                 //For All Elephant Huristic List Count. 
                 for (int i = 0; i < HuristicListElefant.Count; i++)
                     //Add A Clone of Copy to New Elephant Huristic List.
-                    HuristicListElefant.Add(AA.CloneAList(HuristicListElefant[i], 4));
+                    AA.HuristicListElefant.Add(CloneAList(HuristicListElefant[i], 4));
                 //For All Hours Huristic Hourse Count.
                 for (int i = 0; i < HuristicListHourse.Count; i++)
                     //Add a Clone of Copy To New Housre Huristic List.
-                    HuristicListHourse.Add(AA.CloneAList(HuristicListHourse[i], 4));
+                    AA.HuristicListHourse.Add(CloneAList(HuristicListHourse[i], 4));
                 //For All Castles Huristic List Count.
                 for (int i = 0; i < HuristicListCastle.Count; i++)
                     //Add a Clone of Copy to New Castles Huristic List.
-                    HuristicListCastle.Add(AA.CloneAList(HuristicListCastle[i], 4));
+                    AA.HuristicListCastle.Add(CloneAList(HuristicListCastle[i], 4));
                 //For All Minister Huristic List Count.
                 for (int i = 0; i < HuristicListMinister.Count; i++)
                     //Add a Clone of Copy to New Minister List.
-                    HuristicListMinister.Add(AA.CloneAList(HuristicListMinister[i], 4));
+                    AA.HuristicListMinister.Add(CloneAList(HuristicListMinister[i], 4));
                 //For All King Husrict List Items.
                 for (int i = 0; i < HuristicListKing.Count; i++)
                     //Add a Clone of Copy to New King Hursitic List.
-                    HuristicListKing.Add(AA.CloneAList(HuristicListKing[i], 4));
+                    AA.HuristicListKing.Add(CloneAList(HuristicListKing[i], 4));
                 //Initiate and create Penalty Solder List.
                 AA.PenaltyRegardListSolder = new List<QuantumAtamata>();
                 //For All Solder Penalty List Count.
-                for (int i = 0; i < PenaltyRegardListSolder.Count; i++)
+                if (Kind == 1)
                 {
-                    //Initiate a new Quantum Atamata Object
-                    QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                    //Clone a Copy Of Penalty Solider.
-                    PenaltyRegardListSolder[i].Clone(ref Current);
-                    //Add New Object Create to New Penalty Solder List.
-                    AA.PenaltyRegardListSolder.Add(Current);
+                    AA.PenaltyRegardListSolder = new List<QuantumAtamata>();
+                    for (int i = 0; i < PenaltyRegardListSolder.Count; i++)
+                    {
+                        //Initiate a new Quantum Atamata Object
+                        //QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                        //Add New Object Create to New Penalty Solder List.
+                        AA.PenaltyRegardListSolder.Add(PenaltyRegardListSolder[i]);
+                    }
                 }
-                //Initaite and Create Elephant Penalty List Object.
-                AA.PenaltyRegardListElefant = new List<QuantumAtamata>();
-                //For All Elepahtn Penalty List Count.
-                for (int i = 0; i < PenaltyRegardListElefant.Count; i++)
+                else
+                if (Kind == 2)
                 {
-                    //Initiate a new Quantum Atamata Object
-                    QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                    //Clone a Copy Of Penalty Elephant.
-                    PenaltyRegardListElefant[i].Clone(ref Current);
-                    //Add New Object Create to New Penalty Elephant List.
-                    AA.PenaltyRegardListElefant.Add(Current);
+                    //Initaite and Create Elephant Penalty List Object.
+                    AA.PenaltyRegardListElefant = new List<QuantumAtamata>();
+                    //For All Elepahtn Penalty List Count.
+                    for (int i = 0; i < PenaltyRegardListElefant.Count; i++)
+                    {
+                        //Initiate a new Quantum Atamata Object
+                        //QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                        //Clone a Copy Of Penalty Elephant.
+                        AA.PenaltyRegardListElefant.Add(PenaltyRegardListElefant[i]);
+                        //Add New Object Create to New Penalty Elephant List.
+                        //AA.PenaltyRegardListElefant.Add(Current);
+                    }
+
                 }
-                //Initaite and Create Hourse Penalty List Object.
-                AA.PenaltyRegardListHourse = new List<QuantumAtamata>();
-                //For All Solder Hourse List Count.
-                for (int i = 0; i < PenaltyRegardListHourse.Count; i++)
+                else
+            if (Kind == 3)
                 {
-                    //Initiate a new Quantum Atamata Object
-                    QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                    //Clone a Copy Of Penalty Hourse.
-                    PenaltyRegardListHourse[i].Clone(ref Current);
-                    //Add New Object Create to New Penalty Hourse List.
-                    AA.PenaltyRegardListHourse.Add(Current);
+
+                    //Initaite and Create Hourse Penalty List Object.
+                    AA.PenaltyRegardListHourse = new List<QuantumAtamata>();
+                    //For All Solder Hourse List Count.
+                    for (int i = 0; i < PenaltyRegardListHourse.Count; i++)
+                    {
+                        //Initiate a new Quantum Atamata Object
+                        QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                        //Clone a Copy Of Penalty Hourse.
+                        //PenaltyRegardListHourse[i].Clone(ref Current);
+                        //Add New Object Create to New Penalty Hourse List.
+                        AA.PenaltyRegardListHourse.Add(PenaltyRegardListHourse[i]);
+                    }
+
                 }
-                //Initaite and Create Castles Penalty List Object.
-                AA.PenaltyRegardListCastle = new List<QuantumAtamata>();
-                //For All Solder Castle List Count.
-                for (int i = 0; i < PenaltyRegardListCastle.Count; i++)
+                else
+                if (Kind == 4)
                 {
-                    //Initiate a new Quantum Atamata Object
-                    QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                    //Clone a Copy Of Penalty Castles.
-                    PenaltyRegardListCastle[i].Clone(ref Current);
-                    //Add New Object Create to New Penalty Castles List.
-                    AA.PenaltyRegardListCastle.Add(Current);
+
+                    //Initaite and Create Castles Penalty List Object.
+                    AA.PenaltyRegardListCastle = new List<QuantumAtamata>();
+                    //For All Solder Castle List Count.
+                    for (int i = 0; i < PenaltyRegardListCastle.Count; i++)
+                    {
+                        //Initiate a new Quantum Atamata Object
+                        //QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                        //Clone a Copy Of Penalty Castles.
+                        //PenaltyRegardListCastle[i].Clone(ref Current);
+                        //Add New Object Create to New Penalty Castles List.
+                        AA.PenaltyRegardListCastle.Add(PenaltyRegardListCastle[i]);
+                    }
                 }
-                //Initaite and Create Minister Penalty List Object.
-                AA.PenaltyRegardListMinister = new List<QuantumAtamata>();
-                //For All Solder Minster List Count.
-                for (int i = 0; i < PenaltyRegardListMinister.Count; i++)
+                else
+                if (Kind == 5)
                 {
-                    //Initiate a new Quantum Atamata Object
-                    QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                    //Clone a Copy Of Penalty Minsiter.
-                    PenaltyRegardListMinister[i].Clone(ref Current);
-                    //Add New Object Create to New Penalty Minsietr List.
-                    AA.PenaltyRegardListMinister.Add(Current);
+
+                    //Initaite and Create Minister Penalty List Object.
+                    AA.PenaltyRegardListMinister = new List<QuantumAtamata>();
+                    //For All Solder Minster List Count.
+                    for (int i = 0; i < PenaltyRegardListMinister.Count; i++)
+                    {
+                        //Initiate a new Quantum Atamata Object
+                        //QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                        //Clone a Copy Of Penalty Minsiter.
+                        //PenaltyRegardListMinister[i].Clone(ref Current);
+                        //Add New Object Create to New Penalty Minsietr List.
+                        AA.PenaltyRegardListMinister.Add(PenaltyRegardListMinister[i]);
+                    }
                 }
-                //Initaite and Create King Penalty List Object.
-                AA.PenaltyRegardListKing = new List<QuantumAtamata>();
-                //For All Solder King List Count.
-                for (int i = 0; i < PenaltyRegardListKing.Count; i++)
+                else
+                if (Kind == 6)
                 {
-                    //Initiate a new Quantum Atamata Object
-                    QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                    //Clone a Copy Of Penalty King.
-                    PenaltyRegardListKing[i].Clone(ref Current);
-                    //Add New Object Create to New Penalty King List.
-                    AA.PenaltyRegardListKing.Add(Current);
+
+                    //Initaite and Create King Penalty List Object.
+                    AA.PenaltyRegardListKing = new List<QuantumAtamata>();
+                    //For All Solder King List Count.
+                    for (int i = 0; i < PenaltyRegardListKing.Count; i++)
+                    {
+                        //Initiate a new Quantum Atamata Object
+                        //QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                        //Clone a Copy Of Penalty King.
+                        //PenaltyRegardListKing[i].Clone(ref Current);
+                        //Add New Object Create to New Penalty King List.
+                        AA.PenaltyRegardListKing.Add(PenaltyRegardListKing[i]);
+                    }
                 }
                 //Iniktiate Same Obejcts to New Same Obejcts.
                 AA.AStarGreedy = AStarGreedy;
@@ -2135,6 +2274,7 @@ namespace RefrigtzW
                                         Table[iiii, jjjj] = Table[ii, jj];
                                         Table[ii, jj] = 0;
                                         //Is Dangrous for King.
+                                        A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tab[iiii, jjjj], Table, Order , iiii, jjjj);
                                         if (A.ObjectDangourKingMove(Order, Table, false))
                                         {
                                             //Clone a Copy.
@@ -2146,10 +2286,16 @@ namespace RefrigtzW
                                                 });
                                             });
                                             //When Before Move such situation is observed calculate huristic count.
-                                            if (Order == 1 && A.CheckGrayObjectDangour)
+                                            /*if (Order == 1 && A.CheckGrayObjectDangour)
                                                 HA += AllDraw.SignKingSafe * (GetObjectValue(Table, ii, jj, Order * -1) + GetObjectValue(Table, iiii, jjjj, Order));
                                             else
                                                 if (Order == -1 && A.CheckBrownObjectDangour)
+                                                HA += AllDraw.SignKingSafe * (GetObjectValue(Table, ii, jj, Order * -1) + GetObjectValue(Table, iiii, jjjj, Order));
+                                                */
+                                            if (Order == 1 && A.CheckMateGray)
+                                                HA += AllDraw.SignKingSafe * (GetObjectValue(Table, ii, jj, Order * -1) + GetObjectValue(Table, iiii, jjjj, Order));
+                                            else
+                                            if (Order == -1 && A.CheckMateBrown)
                                                 HA += AllDraw.SignKingSafe * (GetObjectValue(Table, ii, jj, Order * -1) + GetObjectValue(Table, iiii, jjjj, Order));
 
                                         }
@@ -2242,11 +2388,18 @@ namespace RefrigtzW
                                                 Object O4 = new Object();
                                                 lock (O4)
                                                 {
-                                                    if (Order == -1 && A.CheckGrayObjectDangour)
+                                                    /*if (Order == -1 && A.CheckGrayObjectDangour)
                                                         HA += AllDraw.SignKingDangour * (GetObjectValue(Table1, ii, jj, Order * -1) + GetObjectValue(Table1, iiii, jjjj, Order));
                                                     else
                                                         if (Order == 1 && A.CheckBrownObjectDangour)
                                                         HA += AllDraw.SignKingDangour * (GetObjectValue(Table1, ii, jj, Order * -1) + GetObjectValue(Table1, iiii, jjjj, Order));
+                                                        */
+                                                    if (Order == -1 && A.CheckMateGray)
+                                                        HA += AllDraw.SignKingDangour * (GetObjectValue(Table1, ii, jj, Order * -1) + GetObjectValue(Table1, iiii, jjjj, Order));
+                                                    else
+                                                    if (Order == 1 && A.CheckMateBrown)
+                                                        HA += AllDraw.SignKingDangour * (GetObjectValue(Table1, ii, jj, Order * -1) + GetObjectValue(Table1, iiii, jjjj, Order));
+
                                                 }
 
                                             }
@@ -3615,15 +3768,17 @@ namespace RefrigtzW
                 double HA = 0;
                 int DummyOrder = AllDraw.OrderPlate;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
-                double ObjectDangour = 1;
-                double Check = 1000;
+                //double ObjectDangour = 1;
+                //double Check = 1000;
+                double ObjectDangour = 0;
+                double Check = 0;
                 double CheckMate = 100000;
                 //When is self objects order divide valuse by 100
                 //Becuse reduce from danger is most favareable of caused to enemy attack
                 if (Order == AllDraw.OrderPlate)
                 {
-                    ObjectDangour = 0.01;
-                    Check = 10;
+                    //ObjectDangour = 0.01;
+                    //Check = 10;
                     CheckMate = 1000;
                 }
                 try
@@ -4930,106 +5085,13 @@ namespace RefrigtzW
             }
         }
         //Setting Numbers of Objects in Current Table boards.
-        public void SetObjectNumbers(int[,] TabS)
-        {
-            Object O = new Object();
-            lock (O)
-            {
-
-                //Set Zero Object Table Count.
-                SodierMidle = 0;
-                SodierHigh = 0;
-                ElefantMidle = 0;
-                ElefantHigh = 0;
-                HourseMidle = 0;
-                HourseHight = 0;
-                CastleMidle = 0;
-                CastleHigh = 0;
-                MinisterMidle = 0;
-                MinisterHigh = 0;
-                KingMidle = 0;
-                KingHigh = 0;
-                //For All Table items.
-                for (int h = 0; h < 8; h++)
-                    for (int s = 0; s < 8; s++)
-                    {
-                        //When Gray Soldier.
-                        if (TabS[h, s] == 1)
-                        {
-                            SodierMidle++;
-                            SodierHigh++;
-                        }
-                        //When Gray Elephant.
-                        else if (TabS[h, s] == 2)
-                        {
-                            ElefantMidle++;
-                            ElefantHigh++;
-                        }
-                        //When Gray Hourse.
-                        else if (TabS[h, s] == 3)
-                        {
-                            HourseMidle++;
-                            HourseHight++;
-                        }
-                        //When Castles Gray.
-                        else if (TabS[h, s] == 4)
-                        {
-                            CastleMidle++;
-                            CastleHigh++;
-                        }
-                        //When Gray Minster.
-                        else if (TabS[h, s] == 5)
-                        {
-                            MinisterMidle++;
-                            MinisterHigh++;
-                        }
-                        //When Gray King.
-                        else if (TabS[h, s] == 6)
-                        {
-                            KingMidle++;
-                            KingHigh++;
-                        }
-                        else//When Brown Solder.
-                            if (TabS[h, s] == -1)
-                        {
-                            SodierHigh++;
-                        }
-                        //When Brown Elephant.
-                        else if (TabS[h, s] == -2)
-                        {
-                            ElefantHigh++;
-                        }
-                        //When Brown Hourse.
-                        else if (TabS[h, s] == -3)
-                        {
-                            HourseHight++;
-                        }
-                        //When Brown Castles.
-                        else if (TabS[h, s] == -4)
-                        {
-                            CastleHigh++;
-                        }
-                        //When Brown Minster.
-                        else if (TabS[h, s] == -5)
-                        {
-
-                            MinisterHigh++;
-                        }
-                        //When Brown King.
-                        else if (TabS[h, s] == -6)
-                        {
-                            KingHigh++;
-                        }
-                    }
-            }
-        }
         //Count of Solders on Table.
-        int SolderOnTableCount(ref DrawSoldier[] So, bool Mi)
+        int SolderOnTableCount(ref DrawSoldier[] So, bool Mi, int MaxCount)
         {
             Object O = new Object();
             lock (O)
             {
-
+               
                 int Count = 0, i = 0;
                 //For Alll Solders on int Calculate Solkder Count.
                 do
@@ -5037,7 +5099,7 @@ namespace RefrigtzW
                     //The Index out of range exeption is not fixable.
                     try
                     {
-                        if (So[i] != null)
+                        if (So[i] != null && So != null)
                         {
                             //When int is Gray or Brown.
                             if (So[i].color == Color.Gray || So[i].color == Color.Brown)
@@ -5057,13 +5119,13 @@ namespace RefrigtzW
                     catch (Exception t) { Log(t); }
                     i++;
 
-                } while (i < SodierHigh);
+                } while (i < MaxCount);
 
                 return Count;
             }
         }
         //Elepahnt On Table Count.
-        int ElefantOnTableCount(ref DrawElefant[] So, bool Mi)
+        int ElefantOnTableCount(ref DrawElefant[] So, bool Mi, int MaxCount)
         {
             Object O = new Object();
             lock (O)
@@ -5077,7 +5139,7 @@ namespace RefrigtzW
                     try
                     {
                         //The Index out of range exeption is not fixable.
-                        if (So[i] != null)
+                        if (So[i] != null&& So!=null)
                         {
                             //when Elaphant int is Gray or Brown.
                             if (So[i].color == Color.Gray || So[i].color == Color.Brown)
@@ -5097,12 +5159,12 @@ namespace RefrigtzW
                     catch (Exception t) { Log(t); }
                     i++;
                 }
-                while (i < ElefantHigh);
+                while (i < MaxCount);
                 return Count;
             }
         }
         //Calculate Hourse on table.
-        int HourseOnTableCount(ref DrawHourse[] So, bool Mi)
+        int HourseOnTableCount(ref DrawHourse[] So, bool Mi, int MaxCount)
         {
             Object O = new Object();
             lock (O)
@@ -5115,7 +5177,7 @@ namespace RefrigtzW
                     //The Index out of range exeption is not fixable.
                     try
                     {
-                        if (So[i] != null)
+                        if (So[i] != null&& So!=null)
                         {
                             //When int is Gray or Brown.
                             if (So[i].color == Color.Gray || So[i].color == Color.Brown)
@@ -5135,12 +5197,12 @@ namespace RefrigtzW
                     catch (Exception t) { Log(t); }
                     i++;
                 }
-                while (i < HourseHight);
+                while (i < MaxCount);
                 return Count;
             }
         }
         //Calculate Castles Count.
-        int CastleOnTableCount(ref DrawCastle[] So, bool Mi)
+        int CastleOnTableCount(ref DrawCastle[] So, bool Mi, int MaxCount)
         {
             Object O = new Object();
             lock (O)
@@ -5152,7 +5214,7 @@ namespace RefrigtzW
                     try
                     {
                         //The Index out of range exeption is not fixable.
-                        if (So[i] != null)
+                        if (So[i] != null&& So!=null)
                         {
                             //When Castles int is Gray or Brown.
                             if (So[i].color == Color.Gray || So[i].color == Color.Brown)
@@ -5173,12 +5235,12 @@ namespace RefrigtzW
 
                     i++;
                 }
-                while (i < CastleHigh);
+                while (i < MaxCount);
                 return Count;
             }
         }
         //Calculate Minsiter Count.
-        int MinisterOnTableCount(ref DrawMinister[] So, bool Mi)
+        int MinisterOnTableCount(ref DrawMinister[] So, bool Mi, int MaxCount)
         {
             Object O = new Object();
             lock (O)
@@ -5190,7 +5252,7 @@ namespace RefrigtzW
                     try
                     {
                         //The Index out of range exeption is not fixable.
-                        if (So[i] != null)
+                        if (So[i] != null&& So!=null)
                         {
                             //When int of items is gray or Brown.
                             if (So[i].color == Color.Gray || So[i].color == Color.Brown)
@@ -5210,12 +5272,12 @@ namespace RefrigtzW
                     catch (Exception t) { Log(t); }
                     i++;
                 }
-                while (i < MinisterHigh);
+                while (i < MaxCount);
                 return Count;
             }
         }
         //Calculate King on Table.
-        int KingOnTableCount(ref DrawKing[] So, bool Mi)
+        int KingOnTableCount(ref DrawKing[] So, bool Mi, int MaxCount)
         {
             Object O = new Object();
             lock (O)
@@ -5227,7 +5289,7 @@ namespace RefrigtzW
                     try
                     {
                         //The Index out of range exeption is not fixable.
-                        if (So[i] != null)
+                        if (So[i] != null&& So!=null)
                         {
                             //when int is Gray or Brown.
                             if (So[i].color == Color.Gray || So[i].color == Color.Brown)
@@ -5247,7 +5309,7 @@ namespace RefrigtzW
                     catch (Exception t) { Log(t); }
                     i++;
                 }
-                while (i < KingHigh);
+                while (i < MaxCount);
                 return Count;
             }
         }
@@ -5373,19 +5435,19 @@ namespace RefrigtzW
                 {
 
                     //When is Gray.
-                    if (Order == -1)
+                    if (Order == 1)
                     {
                         //For All Depth Count.
                         for (int i = 0; i < AStarGreedy.Count; i++)
                         {
                             //For All solder DrawOn Table Count.
-                            for (int m = 0; m < SolderOnTableCount(ref AStarGreedy[i].SolderesOnTable, true); m++)
+                            for (int m = 0; m < SolderOnTableCount(ref AStarGreedy[i].SolderesOnTable, true, AStarGreedy[i].SodierHigh); m++)
                             {
                                 //When Depth of Solders On Table is Not NULL.
                                 if (AStarGreedy[i].SolderesOnTable[m] != null)
                                 {
                                     //Calculate Maximum Huristic in Branch.
-                                    if (AStarGreedy[i].SolderesOnTable[m].SoldierThinking[0].MaxHuristic(ref jIndex[0], 1, ref Less[0], Order * -1))
+                                    if (AStarGreedy[i].SolderesOnTable[m].SoldierThinking[0].MaxHuristic(ref jIndex[0], 1, ref Less[0], Order))
                                     {
                                         iIndex[0] = i;
                                         mIndex[0] = m;
@@ -5396,7 +5458,7 @@ namespace RefrigtzW
 
                             }
                             //For All Elephant On Table Count.
-                            for (int m = 0; m < ElefantOnTableCount(ref AStarGreedy[i].ElephantOnTable, true); m++)
+                            for (int m = 0; m < ElefantOnTableCount(ref AStarGreedy[i].ElephantOnTable, true, AStarGreedy[i].ElefantHigh); m++)
                             {
                                 //For All Elephant in Depth Count.
                                 if (AStarGreedy[i].ElephantOnTable[m] != null)
@@ -5413,13 +5475,13 @@ namespace RefrigtzW
 
                             }
                             //For All Hourse on Table Count.
-                            for (int m = 0; m < HourseOnTableCount(ref AStarGreedy[i].HoursesOnTable, true); m++)
+                            for (int m = 0; m < HourseOnTableCount(ref AStarGreedy[i].HoursesOnTable, true, AStarGreedy[i].HourseHight); m++)
                             {
                                 //When is HourseOn Table Depth Object is Not NULL.
                                 if (AStarGreedy[i].HoursesOnTable[m] != null)
                                 {
                                     //Forund of Maximum on on Branch.
-                                    if (AStarGreedy[i].HoursesOnTable[m].HourseThinking[0].MaxHuristic(ref jIndex[2], 3, ref Less[2], Order))
+                                    if (AStarGreedy[i].ElephantOnTable[m].ElefantThinking[0].MaxHuristic(ref jIndex[1], 2, ref Less[1], Order))
                                     {
                                         iIndex[2] = i;
                                         mIndex[2] = m;
@@ -5430,7 +5492,7 @@ namespace RefrigtzW
 
                             }
                             //For All Castles on table Count.
-                            for (int m = 0; m < CastleOnTableCount(ref AStarGreedy[i].CastlesOnTable, true); m++)
+                            for (int m = 0; m < CastleOnTableCount(ref AStarGreedy[i].CastlesOnTable, true, AStarGreedy[i].CastleHigh); m++)
                             {
                                 //When Depth Objects of Hourse Table is Not NULL.
                                 if (AStarGreedy[i].CastlesOnTable[m] != null)
@@ -5447,7 +5509,7 @@ namespace RefrigtzW
 
                             }
                             //For All Minsiter on table count.
-                            for (int m = 0; m < MinisterOnTableCount(ref AStarGreedy[i].MinisterOnTable, true); m++)
+                            for (int m = 0; m < MinisterOnTableCount(ref AStarGreedy[i].MinisterOnTable, true, AStarGreedy[i].MinisterHigh); m++)
                             {
                                 //When Minster of Depth is Not Null.
                                 if (AStarGreedy[i].MinisterOnTable[m] != null)
@@ -5464,7 +5526,7 @@ namespace RefrigtzW
 
                             }
                             //For All King on table Count.
-                            for (int m = 0; m < KingOnTableCount(ref AStarGreedy[i].KingOnTable, true); m++)
+                            for (int m = 0; m < KingOnTableCount(ref AStarGreedy[i].KingOnTable, true, AStarGreedy[i].KingHigh); m++)
                             {
                                 //When Depth Object of King Table is Not NULL.
                                 if (AStarGreedy[i].KingOnTable[m] != null)
@@ -5489,7 +5551,7 @@ namespace RefrigtzW
                         for (int i = 0; i < AStarGreedy.Count; i++)
                         {
                             //For All Brown Solders on table count.
-                            for (int m = SolderOnTableCount(ref AStarGreedy[i].SolderesOnTable, true); m < SolderOnTableCount(ref AStarGreedy[i].SolderesOnTable, false); m++)
+                            for (int m = SolderOnTableCount(ref AStarGreedy[i].SolderesOnTable, true, AStarGreedy[i].SodierHigh); m < SolderOnTableCount(ref AStarGreedy[i].SolderesOnTable, false, AStarGreedy[i].SodierHigh); m++)
                             {
                                 //When solderis on table depth obejcts is nopt null.
                                 if (AStarGreedy[i].SolderesOnTable[m] != null)
@@ -5506,7 +5568,7 @@ namespace RefrigtzW
 
                             }
                             //For All Elephant On Table Count.
-                            for (int m = ElefantOnTableCount(ref AStarGreedy[i].ElephantOnTable, true); m < ElefantOnTableCount(ref AStarGreedy[i].ElephantOnTable, false); m++)
+                            for (int m = ElefantOnTableCount(ref AStarGreedy[i].ElephantOnTable, true, AStarGreedy[i].ElefantHigh); m < ElefantOnTableCount(ref AStarGreedy[i].ElephantOnTable, false, AStarGreedy[i].ElefantHigh); m++)
                             {
                                 //For All Elephant in Depth Count.
                                 if (AStarGreedy[i].ElephantOnTable[m] != null)
@@ -5523,7 +5585,7 @@ namespace RefrigtzW
 
                             }
                             //For All Hourse on Table Count.
-                            for (int m = HourseOnTableCount(ref AStarGreedy[i].HoursesOnTable, true); m < HourseOnTableCount(ref AStarGreedy[i].HoursesOnTable, false); m++)
+                            for (int m = HourseOnTableCount(ref AStarGreedy[i].HoursesOnTable, true, AStarGreedy[i].HourseHight); m < HourseOnTableCount(ref AStarGreedy[i].HoursesOnTable, false, AStarGreedy[i].HourseHight); m++)
                             {
                                 //When is HourseOn Table Depth Object is Not NULL.
                                 if (AStarGreedy[i].HoursesOnTable[m] != null)
@@ -5540,7 +5602,7 @@ namespace RefrigtzW
 
                             }
                             //For All Castles on table Count.
-                            for (int m = CastleOnTableCount(ref AStarGreedy[i].CastlesOnTable, true); m < CastleOnTableCount(ref AStarGreedy[i].CastlesOnTable, false); m++)
+                            for (int m = CastleOnTableCount(ref AStarGreedy[i].CastlesOnTable, true, AStarGreedy[i].CastleHigh); m < CastleOnTableCount(ref AStarGreedy[i].CastlesOnTable, false, AStarGreedy[i].CastleHigh); m++)
                             {
                                 //When Depth Objects of Hourse Table is Not NULL.
                                 if (AStarGreedy[i].CastlesOnTable[m] != null)
@@ -5557,7 +5619,7 @@ namespace RefrigtzW
 
                             }
                             //For All Minsiter on table count.
-                            for (int m = MinisterOnTableCount(ref AStarGreedy[i].MinisterOnTable, true); m < MinisterOnTableCount(ref AStarGreedy[i].MinisterOnTable, false); m++)
+                            for (int m = MinisterOnTableCount(ref AStarGreedy[i].MinisterOnTable, true, AStarGreedy[i].MinisterHigh); m < MinisterOnTableCount(ref AStarGreedy[i].MinisterOnTable, false, AStarGreedy[i].MinisterHigh); m++)
                             {
                                 //When Minster of Depth is Not Null.
                                 if (AStarGreedy[i].MinisterOnTable[m] != null)
@@ -5574,7 +5636,7 @@ namespace RefrigtzW
 
                             }
                             //For All King on table Count.
-                            for (int m = KingOnTableCount(ref AStarGreedy[i].KingOnTable, true); m < KingOnTableCount(ref AStarGreedy[i].KingOnTable, false); m++)
+                            for (int m = KingOnTableCount(ref AStarGreedy[i].KingOnTable, true, AStarGreedy[i].KingHigh); m < KingOnTableCount(ref AStarGreedy[i].KingOnTable, false, AStarGreedy[i].KingHigh); m++)
                             {
                                 //When Minster of Depth is Not Null.
                                 if (AStarGreedy[i].KingOnTable[m] != null)
@@ -5869,6 +5931,8 @@ namespace RefrigtzW
             Object O = new Object();
             lock (O)
             {
+                if (i == ii && j == jj)
+                    return false;
                 //Scope of index out of range.
                 if (i < 0)
                     return false;
@@ -5919,19 +5983,24 @@ namespace RefrigtzW
                     }
 
                     if (System.Math.Abs(i - ii) <= 2 && System.Math.Abs(j - jj) <= 2)
+
                         Validity = true;
                 }
                 else
                     if (Kind == 2)//Elephant
                 {
                     if (System.Math.Abs(i - ii) == System.Math.Abs(j - jj))
+                    {
 
                         Validity = true;
+                    }
                 }
                 else
                         if (Kind == 3)//Hourse
                 {
-                    if (System.Math.Abs(i - ii) <= 2 && System.Math.Abs(j - jj) <= 2)
+                    if (System.Math.Abs(i - ii) == 1 && System.Math.Abs(j - jj) == 2)
+                        Validity = true;
+                    if (System.Math.Abs(i - ii) == 2 && System.Math.Abs(j - jj) == 1)
                         Validity = true;
                 }
                 else
@@ -5947,7 +6016,7 @@ namespace RefrigtzW
                         Validity = true;
                 }
                 else
-                                    if (Kind == 6)//King
+              if (Kind == 6)//King
                 {
                     if (System.Math.Abs(i - ii) <= 1 && System.Math.Abs(j - jj) <= 1)
                         Validity = true;
@@ -7091,6 +7160,7 @@ namespace RefrigtzW
             lock (OO)
             {
                 bool RETURN = false;
+                Object O3 = new Object();
                 ChessRules AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[ii, jj], TableS, Order, ii, jj);
                 Object O = new Object();
                 lock (O)
@@ -7100,12 +7170,59 @@ namespace RefrigtzW
                         RETURN = true;
                         AddAtList(kind, Current);
                     }
-
                     //Consideration to go to Check.  
 
                     //if (!UsePenaltyRegardMechnisamT)
-                    if (AA.Check(TableS, Order))
+                    AA.CheckMate(TableS, Order);
                     {
+                        if (AllDraw.OrderPlate == 1 && AA.CheckMateBrown)
+                        {
+                            Object A = new Object();
+                            lock (A)
+                            {
+                                FoundFirstMating++;
+                                Current.LearningAlgorithmRegard();
+                                RemoveAtList(kind);
+                                AddAtList(kind, Current);
+                                return true;
+                            }
+
+
+                        }
+                        if (AllDraw.OrderPlate == -1 && AA.CheckMateGray)
+                        {
+                            DoEnemySelf = false;
+                            Object A = new Object();
+                            lock (A)
+                            {
+                                FoundFirstMating++;
+                                RemoveAtList(kind);
+                                Current.LearningAlgorithmRegard();
+                                AddAtList(kind, Current);
+                                return true;
+                            }
+                        }
+                        if (Order == 1 && AA.CheckMateBrown)
+                        {
+                            DoEnemySelf = false;
+                            EnemyCheckMateActionsString = true;
+                        }
+                        if (Order == -1 && AA.CheckMateGray)
+                        {
+                            DoEnemySelf = false;
+                            EnemyCheckMateActionsString = true;
+                        }
+                        if (Order == 1 && AA.CheckMateGray)
+                        {
+
+                            EnemyCheckMateActionsString = false;
+                        }
+                        if (Order == -1 && AA.CheckMateBrown)
+                        {
+
+                            EnemyCheckMateActionsString = false;
+                        }
+
                         if (Order == 1 && AA.CheckGray)
                         {
                             //KishBefore = true;
@@ -7114,9 +7231,6 @@ namespace RefrigtzW
                             {
                                 NumberOfPenalties++;
                             }
-                            Current.LearningAlgorithmPenalty();
-                            AddAtList(kind, Current);
-                            return true;
                         }
                         else
                             if (Order == -1 && AA.CheckBrown)
@@ -7127,9 +7241,6 @@ namespace RefrigtzW
                             {
                                 NumberOfPenalties++;
                             }
-                            Current.LearningAlgorithmPenalty();
-                            AddAtList(kind, Current);
-                            return true;
                         }
                     }
                     if (RETURN)
@@ -7193,58 +7304,7 @@ namespace RefrigtzW
                     IsGardForCurrentMovmentsAndIsNotMova = LearningV[12];
                     IsNotSafeToMoveAenemeyToAttackMoreThanTowObj = LearningV[13];
                 }
-                Object O3 = new Object();
-                lock (O3)
-                {
-                    if (IgnoreObjectDangour == 0)
-                        IgnoreObjectDangour = 1;
-
-                    if (AA.CheckMate(TableS, Order))
-                    {
-
-                        if (AllDraw.OrderPlate == 1 && AA.CheckMateBrown)
-                        {
-                            Object A = new object();
-                            lock (A)
-                            {
-                                FoundFirstMating++;
-                            }
-
-                        }
-                        if (AllDraw.OrderPlate == -1 && AA.CheckMateGray)
-                        {
-                            DoEnemySelf = false;
-                            Object A = new object();
-                            lock (A)
-                            {
-                                FoundFirstMating++;
-                            }
-                        }
-                        if (Order == 1 && AA.CheckMateBrown)
-                        {
-                            DoEnemySelf = false;
-
-                            EnemyCheckMateActionsString = true;
-                        }
-                        if (Order == -1 && AA.CheckMateGray)
-                        {
-                            DoEnemySelf = false;
-
-                            EnemyCheckMateActionsString = true;
-                        }
-                        if (Order == 1 && AA.CheckMateGray)
-                        {
-
-                            EnemyCheckMateActionsString = false;
-                        }
-                        if (Order == -1 && AA.CheckMateBrown)
-                        {
-
-                            EnemyCheckMateActionsString = false;
-                        }
-                    }
-                }
-                //Consideration of Itterative Movments to ignore.
+                     //Consideration of Itterative Movments to ignore.
                 //Operation of Penalty Regard Mechanisam on Check and mate speciffically.
                 bool Equality = EqualitOne(Current, kind);
 
@@ -7787,8 +7847,8 @@ namespace RefrigtzW
                     Hu[9] = HeuristicKingDangour;
                     HuristicListKing.Add(Hu);
                     Castle = true;
-                    Object O7 = new Object();
-                    lock (O7)
+                Object O7 = new Object(); SetObjectNumbersInList(TableS);
+                lock (O7)
                     {
                         if (i < ii)
                         {
@@ -8705,7 +8765,7 @@ namespace RefrigtzW
             Object O = new Object();
             lock (O)
             {
-                while (!ThinkingBegin) { }// S += 2; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
+                while (!ThinkingBegin) { System.Threading.Thread.Sleep(1); }// S += 2; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
 
                 NumberOfPenalties = 0;
                 SetObjectNumbers(CloneATable(TableConst));
@@ -8721,12 +8781,14 @@ namespace RefrigtzW
                 }
                 //if (!AllDraw.Blitz)
                 {
-                    if (CheckMateOcuured || FoundFirstMating > AllDraw.MaxAStarGreedy
+                    if (//CheckMateOcuured || 
+                        FoundFirstMating > AllDraw.MaxAStarGreedy
                         )
-                    {
+                    {                        
                         Object O2 = new Object();
                         lock (O2)
                         {
+                            AllDraw.OutPut = "\r\nBoundry Condition at Thinking at " + ThinkingChess.FoundFirstMating.ToString() + " Checkmate";
                             ThinkingBegin = false;
                             ThinkingFinished = true;
                             EndThread++;
@@ -8759,9 +8821,11 @@ namespace RefrigtzW
                     || FoundFirstMating > AllDraw.MaxAStarGreedy
                     )
                 {
+                    
                     Object O2 = new Object();
                     lock (O2)
                     {
+                        AllDraw.OutPut = "\r\nBoundry Condition at Thinking at " + ThinkingChess.FoundFirstMating.ToString() + " Checkmate";
                         ThinkingFinished = true;
                         ThinkingBegin = false;
                         EndThread++;
@@ -8792,6 +8856,7 @@ namespace RefrigtzW
                         Object O2 = new Object();
                         lock (O2)
                         {
+                            AllDraw.OutPut = "\r\nBoundry Condition at Thinking at " + ThinkingChess.FoundFirstMating.ToString() + " Checkmate";
                             ThinkingFinished = true;
                             CheckMateOcuured = true;
                             EndThread++;

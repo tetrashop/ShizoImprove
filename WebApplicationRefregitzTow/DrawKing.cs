@@ -44,6 +44,12 @@ namespace RefrigtzW
             }
             catch (Exception t) { Log(t); }
         }
+        public void Dispose()
+        {
+            ValuableSelfSupported = null;
+            K = null;
+        }
+
         public double ReturnHuristic()
         {
             double a = 0;
@@ -189,16 +195,24 @@ namespace RefrigtzW
                     }
                     if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
                     { //Gray Order.
-                        if (color == Color.Gray)
+                        if(Order==1)
                         {
-                            //Draw an Instatnt Gray King Image On the Table.
-                            g.DrawImage(K[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                            Object O1 = new Object();
+                            lock (O1)
+                            {    //Draw an Instant from File of Gray Soldeirs.
+                                 //Draw an Instatnt Gray King Image On the Table.
+                                g.DrawImage(K[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                            }
 
                         }
                         else
                         {
-                            //Draw an Instatnt Brown King Image On the Table.
-                            g.DrawImage(K[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                            Object O1 = new Object();
+                            lock (O1)
+                            {    //Draw an Instant from File of Gray Soldeirs.
+                                 //Draw an Instatnt Brown King Image On the Table.
+                                g.DrawImage(K[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                            }
                         }
                     }
                 }

@@ -37,7 +37,7 @@ namespace RefrigtzDLL
         public bool AStarGreedyHuristicT = false;
 
         bool ArrangmentsChanged = false;
-        public int SodierMidle = 8;
+        /*public int SodierMidle = 8;
         public int SodierHigh = 16;
         public int ElefantMidle = 2;
         public int ElefantHigh = 4;
@@ -49,6 +49,20 @@ namespace RefrigtzDLL
         public int MinisterHigh = 2;
         public int KingMidle = 1;
         public int KingHigh = 2;
+        */
+        public int SodierMidle = 0;
+        public int SodierHigh = 0;
+        public int ElefantMidle = 0;
+        public int ElefantHigh = 0;
+        public int HourseMidle = 0;
+        public int HourseHight = 0;
+        public int CastleMidle = 0;
+        public int CastleHigh = 0;
+        public int MinisterMidle = 0;
+        public int MinisterHigh = 0;
+        public int KingMidle = 0;
+        public int KingHigh = 0;
+
         ChessPerdict APredict = null;
         int OrderDummy = 0;
         public static int SodierValue = 1;
@@ -1405,7 +1419,7 @@ namespace RefrigtzDLL
 
                     //Calculate Thinking Operation of Current Soldier.
                     for (int k = 0; k < AllDraw.SodierMovments; k++)
-                        for (j = 0; SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[k] != null && j < SolderesOnTable[i].SoldierThinking[k].TableListSolder.Count; j++)
+                        for (j = 0; SolderesOnTable !=null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[k] != null && j < SolderesOnTable[i].SoldierThinking[k].TableListSolder.Count; j++)
                         {
                             try
                             {
@@ -1571,7 +1585,7 @@ namespace RefrigtzDLL
                 for (i = 0; i < ElefantHigh; i++)
                 {
                     for (int k = 0; k < AllDraw.ElefantMovments; k++)
-                        for (j = 0; ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[k] != null && j < ElephantOnTable[i].ElefantThinking[k].TableListElefant.Count; j++)
+                        for (j = 0; ElephantOnTable  != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[k] != null && j < ElephantOnTable[i].ElefantThinking[k].TableListElefant.Count; j++)
                         {
                             try
                             {
@@ -1710,7 +1724,7 @@ namespace RefrigtzDLL
                 {
 
                     for (int k = 0; k < AllDraw.HourseMovments; k++)
-                        for (j = 0; HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[k] != null && j < HoursesOnTable[i].HourseThinking[k].TableListHourse.Count; j++)
+                        for (j = 0; HoursesOnTable  != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[k] != null && j < HoursesOnTable[i].HourseThinking[k].TableListHourse.Count; j++)
                         {
                             try
                             {
@@ -1849,7 +1863,7 @@ namespace RefrigtzDLL
                 for (i = 0; i < CastleHigh; i++)
                 {
                     for (int k = 0; k < AllDraw.CastleMovments; k++)
-                        for (j = 0; CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[k] != null && j < CastlesOnTable[i].CastleThinking[k].TableListCastle.Count; j++)
+                        for (j = 0; CastlesOnTable  != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[k] != null && j < CastlesOnTable[i].CastleThinking[k].TableListCastle.Count; j++)
                         {
                             try
                             {
@@ -1984,7 +1998,7 @@ namespace RefrigtzDLL
                 {
 
                     for (int k = 0; k < AllDraw.MinisterMovments; k++)
-                        for (j = 0; MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[k] != null && j < MinisterOnTable[i].MinisterThinking[k].TableListMinister.Count; j++)
+                        for (j = 0; MinisterOnTable  != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[k] != null && j < MinisterOnTable[i].MinisterThinking[k].TableListMinister.Count; j++)
                         {
                             try
                             {
@@ -2113,7 +2127,7 @@ namespace RefrigtzDLL
                 for (i = 0; i < KingHigh; i++)
                 {
                     for (int k = 0; k < AllDraw.KingMovments; k++)
-                        for (j = 0; KingOnTable[i] != null && KingOnTable[i].KingThinking[k] != null && j < KingOnTable[i].KingThinking[k].TableListKing.Count; j++)
+                        for (j = 0; KingOnTable  != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[k] != null && j < KingOnTable[i].KingThinking[k].TableListKing.Count; j++)
                         {
                             try
                             {
@@ -2335,7 +2349,7 @@ namespace RefrigtzDLL
 
                         In = (new System.Random()).Next(8, 16);
                     iiii++;
-                } while (SolderesOnTable[In] == null && iiii < 16);
+                } while (SolderesOnTable[In] == null || iiii < 16);
                 //For Sixteen Times Take a Look At Thinking.
                 if (iiii < 16)
                     this.InitiateForEveryKindThingHome(new AllDraw(Order, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged), (int)(int)SolderesOnTable[In].Row, (int)(int)SolderesOnTable[In].Column, a, TablInit, Order, false, In);

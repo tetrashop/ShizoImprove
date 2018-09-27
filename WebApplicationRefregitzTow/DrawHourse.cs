@@ -43,6 +43,11 @@ namespace RefrigtzW
             }
             catch (Exception t) { Log(t); }
         }
+        public void Dispose()
+        {
+            ValuableSelfSupported = null;
+            H = null;
+        }
         public bool MaxFound(ref bool MaxNotFound)
         {
             try
@@ -185,15 +190,23 @@ namespace RefrigtzW
                     }
                     if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
                     { //Gray Order.
-                        if (color == Color.Gray)
+                        if(Order==1)
                         {
-                            //Draw an Instatnt Gray Hourse on the Table.
-                            g.DrawImage(H[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                            Object O1 = new Object();
+                            lock (O1)
+                            {    //Draw an Instant from File of Gray Soldeirs.
+                                 //Draw an Instatnt Gray Hourse on the Table.
+                                g.DrawImage(H[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                            }
                         }
                         else
                         {
-                            //Draw an Instatnt Brown Hourse on the Table.
-                            g.DrawImage(H[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                            Object O1 = new Object();
+                            lock (O1)
+                            {    //Draw an Instant from File of Gray Soldeirs.
+                                 //Draw an Instatnt Brown Hourse on the Table.
+                                g.DrawImage(H[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                            }
                         }
                     }
                 }

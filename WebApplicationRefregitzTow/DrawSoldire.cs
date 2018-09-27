@@ -11,6 +11,7 @@ namespace RefrigtzW
     public class DrawSoldier : ThingsConverter
     {
         //Iniatate Global Variables.
+
         List<int[]> ValuableSelfSupported = new List<int[]>();
 
         public static Image[] S = new Image[2];
@@ -22,7 +23,7 @@ namespace RefrigtzW
         public bool OnlySelfT = false;
         public bool AStarGreedyHuristicT = false;
         public bool ArrangmentsChanged = false;
-        public static double MaxHuristicxS =Double.MinValue;
+        public static double MaxHuristicxS = Double.MinValue;
         public float RowS, ColumnS;
         public Color color;
         public ThinkingChess[] SoldierThinking = new ThinkingChess[AllDraw.SodierMovments];
@@ -42,6 +43,11 @@ namespace RefrigtzW
                 }
             }
             catch (Exception t) { Log(t); }
+        }
+        public void Dispose()
+        {
+            ValuableSelfSupported = null;
+            S = null;
         }
         public bool MaxFound(ref bool MaxNotFound)
         {
@@ -84,19 +90,19 @@ namespace RefrigtzW
             return a;
         }
         //Constructor 1.
-       /* public DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
-        {
-            CurrentAStarGredyMax = CurrentAStarGredy;
-            MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
-            IgnoreSelfObjectsT = IgnoreSelfObject;
-            UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
-            BestMovmentsT = BestMovment;
-            PredictHuristicT = PredictHurist;
-            OnlySelfT = OnlySel;
-            AStarGreedyHuristicT = AStarGreedyHuris;
-            ArrangmentsChanged = Arrangments;
-        }
-        */
+        /* public DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
+         {
+             CurrentAStarGredyMax = CurrentAStarGredy;
+             MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
+             IgnoreSelfObjectsT = IgnoreSelfObject;
+             UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
+             BestMovmentsT = BestMovment;
+             PredictHuristicT = PredictHurist;
+             OnlySelfT = OnlySel;
+             AStarGreedyHuristicT = AStarGreedyHuris;
+             ArrangmentsChanged = Arrangments;
+         }
+         */
         //Constructor 2.
         public DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. THIS
             ) :
@@ -111,7 +117,7 @@ namespace RefrigtzW
                     S[1] = Image.FromFile(AllDraw.ImagesSubRoot + "SB.png");
                 }
             }
-            
+
             CurrentAStarGredyMax = CurrentAStarGredy;
             MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
             IgnoreSelfObjectsT = IgnoreSelfObject;
@@ -128,7 +134,7 @@ namespace RefrigtzW
                     Table[ii, jj] = Tab[ii, jj];
             for (int ii = 0; ii < AllDraw.SodierMovments; ii++)
 
-                SoldierThinking[ii] = new ThinkingChess( CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 4, Ord, TB, Cur, 16, 1);
+                SoldierThinking[ii] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 4, Ord, TB, Cur, 16, 1);
             RowS = i;
             ColumnS = j;
             color = a;
@@ -145,7 +151,7 @@ namespace RefrigtzW
                     Tab[i, j] = this.Table[i, j];
             //Initiate a Object and Assignemt of a Clone to Construction of a Copy.
 
-            AA = new DrawSoldier( CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, this.Row, this.Column, this.color, Tab, this.Order, false, this.Current
+            AA = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, this.Row, this.Column, this.color, Tab, this.Order, false, this.Current
                 );
             AA.ArrangmentsChanged = ArrangmentsChanged;
             for (int i = 0; i < AllDraw.SodierMovments; i++)
@@ -193,16 +199,24 @@ namespace RefrigtzW
                     {
                         try
                         {
+
                             //If Order is Gray.
-                            if (color == Color.Gray)
+                            if (Order == 1)
                             {
-                                //Draw an Instant from File of Gray Soldeirs.
-                                g.DrawImage(S[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                Object O1 = new Object();
+                                lock (O1)
+                                {    //Draw an Instant from File of Gray Soldeirs.
+                                    g.DrawImage(S[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                }
                             }
                             else
                             {
-                                //Draw an Instatnt of Brown Soldier File On the Table.
-                                g.DrawImage(S[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                Object O1 = new Object();
+                                lock (O1)
+                                {    //Draw an Instant from File of Gray Soldeirs.
+                                     //Draw an Instatnt of Brown Soldier File On the Table.
+                                    g.DrawImage(S[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                }
                             }
                         }
                         catch (Exception t)
@@ -217,15 +231,23 @@ namespace RefrigtzW
                         try
                         {
                             //Color of Gray.
-                            if (color == Color.Gray)
+                            if (Order == 1)
                             {
-                                //Draw of Gray Minsister Image File By an Instant.
-                                g.DrawImage(DrawMinister.M[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                Object O1 = new Object();
+                                lock (O1)
+                                {    //Draw an Instant from File of Gray Soldeirs.
+                                     //Draw of Gray Minsister Image File By an Instant.
+                                    g.DrawImage(DrawMinister.M[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                }
                             }
                             else
                             {
-                                //Draw a Image File on the Table Form n Instatnt One.
-                                g.DrawImage(DrawMinister.M[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                Object O1 = new Object();
+                                lock (O1)
+                                {    //Draw an Instant from File of Gray Soldeirs.
+                                     //Draw a Image File on the Table Form n Instatnt One.
+                                    g.DrawImage(DrawMinister.M[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                }
                             }
                         }
                         catch (Exception t)
@@ -238,15 +260,23 @@ namespace RefrigtzW
                         try
                         {
                             //Color of Gray.
-                            if (color == Color.Gray)
+                            if (Order == 1)
                             {
-                                //Create on the Inststant of Gray Castles Images.
-                                g.DrawImage(DrawCastle.C[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                Object O1 = new Object();
+                                lock (O1)
+                                {    //Draw an Instant from File of Gray Soldeirs.
+                                     //Create on the Inststant of Gray Castles Images.
+                                    g.DrawImage(DrawCastle.C[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                }
                             }
                             else
                             {
-                                //Creat of an Instant of Brown Image Castles.
-                                g.DrawImage(DrawCastle.C[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                Object O1 = new Object();
+                                lock (O1)
+                                {    //Draw an Instant from File of Gray Soldeirs.
+                                     //Creat of an Instant of Brown Image Castles.
+                                    g.DrawImage(DrawCastle.C[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                }
                             }
                         }
                         catch (Exception t)
@@ -260,15 +290,21 @@ namespace RefrigtzW
                         try
                         {
                             //Color of Gray.
-                            if (color == Color.Gray)
+                            if (Order == 1)
                             {
-                                //Draw an Instatnt of Gray Hourse Image File.
-                                g.DrawImage(DrawHourse.H[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (int)CellH), CellW, CellH));
+                                Object O1 = new Object();
+                                lock (O1)
+                                {//Draw an Instatnt of Gray Hourse Image File.
+                                    g.DrawImage(DrawHourse.H[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (int)CellH), CellW, CellH));
+                                }
                             }
                             else
                             {
-                                //Creat of an Instatnt Hourse Image File.
-                                g.DrawImage(DrawHourse.H[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                Object O1 = new Object();
+                                lock (O1)
+                                {//Creat of an Instatnt Hourse Image File.
+                                    g.DrawImage(DrawHourse.H[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                }
                             }
                         }
                         catch (Exception t)
@@ -282,15 +318,21 @@ namespace RefrigtzW
                         try
                         {
                             //Color of Gray.
-                            if (color == Color.Gray)
+                            if (Order == 1)
                             {
-                                //Draw an Instatnt Image of Gray Elephant.
-                                g.DrawImage(DrawElefant.E[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                Object O1 = new Object();
+                                lock (O1)
+                                {//Draw an Instatnt Image of Gray Elephant.
+                                    g.DrawImage(DrawElefant.E[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                }
                             }
                             else
                             {
-                                //Draw of Instant Image of Brown Elephant.
-                                g.DrawImage(DrawElefant.E[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                Object O1 = new Object();
+                                lock (O1)
+                                {//Draw of Instant Image of Brown Elephant.
+                                    g.DrawImage(DrawElefant.E[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                }
                             }
 
                         }
