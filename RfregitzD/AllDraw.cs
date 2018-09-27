@@ -3423,7 +3423,7 @@ namespace RefrigtzDLL
 
                             try
                             {
-                                if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count == 0 && Kind == 1)
+                                if (SolderesOnTable[i].SoldierThinking[0].IsThereMateOfEnemy||SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count == 0 && Kind == 1)
                                 {
                                     Found = true;
                                     Leaf = this;
@@ -3685,6 +3685,276 @@ namespace RefrigtzDLL
                         }
                 }
                 return Leaf;
+            }
+        }
+        public bool IsFoundOfLeafDepenOfKindhaveVictory(int Kind, ref bool Found, int Order)
+        {
+            Object a = new Object();
+            lock (a)
+            {
+
+                //if (ThinkingChess.FoundFirstMating > MaxAStarGreedy)
+                //return Leaf
+                if (Found)
+                    return true;
+                if (Order == 1)
+                {
+
+                    for (int i = 0; i < SodierMidle; i++)
+                        for (int j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                        {
+
+                            try
+                            {
+                                if (SolderesOnTable[i].SoldierThinking[0].IsThereMateOfEnemy && SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count == 0 && Kind == 1)
+                                {
+                                    Found = true;                                    
+                                    return true;
+                                }
+                                else
+                                    for (int ii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count - 1; ii++)
+                                        SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
+
+                            }
+
+                            catch (Exception t)
+                            {
+                                Log(t);
+                            }
+                        }
+                    for (int i = 0; i < ElefantMidle; i++)
+                        for (int j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                        {
+                            try
+                            {
+                                if (ElephantOnTable[i].ElefantThinking[0].IsThereMateOfEnemy && ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count == 0 && Kind == 2)
+                                {
+                                    Found = true;                                    
+                                    return true;
+                                }
+                                else
+                                    for (int ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count - 1; ii++)
+                                        ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
+
+
+                            }
+                            catch (Exception t)
+                            {
+                                Log(t);
+                            }
+                        }
+                    for (int i = 0; i < HourseMidle; i++)
+                        for (int j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                        {
+                            try
+                            {
+                                if (HoursesOnTable[i].HourseThinking[0].IsThereMateOfEnemy && HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count == 0 && Kind == 3)
+                                {
+                                    Found = true;                                
+                                    return true;
+                                }
+                                else
+                                    for (int ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count - 1; ii++)
+                                        HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
+
+                            }
+                            catch (Exception t)
+                            {
+                                Log(t);
+                            }
+
+
+                        }
+                    for (int i = 0; i < CastleMidle; i++)
+                        for (int j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                        {
+                            try
+                            {
+                                if (CastlesOnTable[i].CastleThinking[0].IsThereMateOfEnemy && CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count == 0 && Kind == 4)
+                                {
+                                    Found = true;                                
+                                    return true;
+                                }
+                                else
+                                    for (int ii = 0; ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count - 1; ii++)
+                                        CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
+                            }
+                            catch (Exception t)
+                            {
+                                Log(t);
+                            }
+
+                        }
+                    for (int i = 0; i < MinisterMidle; i++)
+                        for (int j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                        {
+                            try
+                            {
+                                if (MinisterOnTable[i].MinisterThinking[0].IsThereMateOfEnemy && MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count == 0 && Kind == 5)
+                                {
+                                    Found = true;                                
+                                    return true;
+                                }
+                                else
+                                    for (int ii = 0; ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count - 1; ii++)
+                                        MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
+
+                            }
+                            catch (Exception t)
+                            {
+                                Log(t);
+                            }
+
+                        }
+                    for (int i = 0; i < KingMidle; i++)
+                        for (int j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                        {
+                            try
+                            {
+                                if (KingOnTable[i].KingThinking[0].IsThereMateOfEnemy && KingOnTable[i].KingThinking[0].AStarGreedy.Count == 0 && Kind == 6)
+                                {
+                                    Found = true;
+                                    return true;
+                                }
+                                else
+                                    for (int ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy.Count - 1; ii++)
+                                        KingOnTable[i].KingThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
+
+                            }
+                            catch (Exception t)
+                            {
+                                Log(t);
+                            }
+
+                        }
+                }
+                else
+                {
+                    for (int i = SodierMidle; i < SodierHigh; i++)
+                        for (int j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                        {
+                            try
+                            {
+
+                                if (SolderesOnTable[i].SoldierThinking[0].IsThereMateOfEnemy && SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count == 0 && Kind == 1)
+                                {
+                                    Found = true;
+                                    return true;
+                                }
+                                else
+                                    for (int ii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count - 1; ii++)
+                                        SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
+                            }
+                            catch (Exception t)
+                            {
+                                Log(t);
+                            }
+                        }
+                    for (int i = ElefantMidle; i < ElefantHigh; i++)
+                        for (int j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                        {
+                            try
+                            {
+
+                                if (ElephantOnTable[i].ElefantThinking[0].IsThereMateOfEnemy && ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count == 0 && Kind == 2)
+                                {
+                                    Found = true;
+                                    return true;
+                                }
+                                else
+                                    for (int ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count - 1; ii++)
+                                        ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
+                            }
+                            catch (Exception t)
+                            {
+                                Log(t);
+                            }
+                        }
+                    for (int i = HourseMidle; i < HourseHight; i++)
+                        for (int j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                        {
+                            try
+                            {
+
+                                if (HoursesOnTable[i].HourseThinking[0].IsThereMateOfEnemy && HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count == 0 && Kind == 3)
+                                {
+                                    Found = true;
+                                    return true;
+                                }
+                                else
+                                    for (int ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count - 1; ii++)
+                                        HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
+                            }
+                            catch (Exception t)
+                            {
+                                Log(t);
+                            }
+                        }
+                    for (int i = CastleMidle; i < CastleHigh; i++)
+                        for (int j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                        {
+                            try
+                            {
+
+                                if (CastlesOnTable[i].CastleThinking[0].IsThereMateOfEnemy && CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count == 0 && Kind == 4)
+                                {
+                                    Found = true;
+                                    return true;
+                                }
+                                else
+                                    for (int ii = 0; ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count - 1; ii++)
+                                        CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
+
+                            }
+                            catch (Exception t)
+                            {
+                                Log(t);
+                            }
+                        }
+                    for (int i = MinisterMidle; i < MinisterHigh; i++)
+                        for (int j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                        {
+                            try
+                            {
+                                if (MinisterOnTable[i].MinisterThinking[0].IsThereMateOfEnemy && MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count == 0 && Kind == 5)
+                                {
+                                    Found = true;
+                                    return true;
+                                }
+                                else
+                                    for (int ii = 0; ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count - 1; ii++)
+                                        MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
+
+                            }
+                            catch (Exception t)
+                            {
+                                Log(t);
+                            }
+                        }
+                    for (int i = KingMidle; i < KingHigh; i++)
+                        for (int j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                        {
+                            try
+                            {
+                                if (KingOnTable[i].KingThinking[0].IsThereMateOfEnemy && KingOnTable[i].KingThinking[0].AStarGreedy.Count == 0 && Kind == 6)
+                                {
+                                    Found = true;
+                                    return true;
+
+                                }
+                                else
+                                    for (int ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy.Count - 1; ii++)
+                                        KingOnTable[i].KingThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
+
+
+                            }
+                            catch (Exception t)
+                            {
+                                Log(t);
+                            }
+                        }
+                }
+                return Found;
             }
         }
         public void FoundOfLeafDepenOfKindFullGame(int[,] table, int Order, int iAStarGreedy, int ii, int jj, int ik, int jjj, bool FOUND, int LeafAStarGreedy)
@@ -4596,7 +4866,7 @@ namespace RefrigtzDLL
                                                     AllDraw.NextRow = SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][0];
                                                     AllDraw.NextColumn = SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][1];
 
-                                                    Less = SolderesOnTable[RW1].SoldierThinking[CL1].ReturnHuristic(RW1, Ki1, Order);
+                                                    Less = SolderesOnTable[RW1].SoldierThinking[CL1].ReturnHuristic(RW1, Ki1, Order,false);
 
 
                                                     TableHuristic = SolderesOnTable[RW1].SoldierThinking[CL1].TableListSolder[Ki1];
@@ -4874,7 +5144,7 @@ namespace RefrigtzDLL
                                                     AllDraw.NextColumn = ElephantOnTable[i].ElefantThinking[k].RowColumnElefant[j][1];
 
                                                     Act = true;
-                                                    Less = ElephantOnTable[RW2].ElefantThinking[CL2].ReturnHuristic(RW2, Ki2, Order);
+                                                    Less = ElephantOnTable[RW2].ElefantThinking[CL2].ReturnHuristic(RW2, Ki2, Order,false);
                                                     TableHuristic = ElephantOnTable[RW2].ElefantThinking[CL2].TableListElefant[Ki2];
                                                     Object O = new Object();
                                                     lock (O)
@@ -5111,7 +5381,7 @@ namespace RefrigtzDLL
                                                     AllDraw.NextColumn = HoursesOnTable[i].HourseThinking[k].RowColumnHourse[j][1];
 
                                                     Act = true;
-                                                    Less = HoursesOnTable[RW3].HourseThinking[CL3].ReturnHuristic(RW3, Ki3, Order);
+                                                    Less = HoursesOnTable[RW3].HourseThinking[CL3].ReturnHuristic(RW3, Ki3, Order,false);
                                                     TableHuristic = HoursesOnTable[RW3].HourseThinking[CL3].TableListHourse[Ki3];
                                                     Object O = new Object();
                                                     lock (O)
@@ -5349,7 +5619,7 @@ namespace RefrigtzDLL
                                                     AllDraw.NextColumn = CastlesOnTable[i].CastleThinking[k].RowColumnCastle[j][1];
 
                                                     Act = true;
-                                                    Less = CastlesOnTable[RW4].CastleThinking[CL4].ReturnHuristic(RW4, Ki4, Order);
+                                                    Less = CastlesOnTable[RW4].CastleThinking[CL4].ReturnHuristic(RW4, Ki4, Order,false);
                                                     TableHuristic = CastlesOnTable[RW4].CastleThinking[CL4].TableListCastle[Ki4];
                                                     Object O = new Object();
                                                     lock (O)
@@ -5585,7 +5855,7 @@ namespace RefrigtzDLL
                                                 AllDraw.NextColumn = MinisterOnTable[i].MinisterThinking[k].RowColumnMinister[j][1];
 
                                                 Act = true;
-                                                Less = MinisterOnTable[RW5].MinisterThinking[CL5].ReturnHuristic(RW5, Ki5, Order);
+                                                Less = MinisterOnTable[RW5].MinisterThinking[CL5].ReturnHuristic(RW5, Ki5, Order,false);
                                                 TableHuristic = MinisterOnTable[RW5].MinisterThinking[CL5].TableListMinister[Ki5];
                                                 Object O = new Object();
                                                 lock (O)
@@ -5822,7 +6092,7 @@ namespace RefrigtzDLL
                                                     AllDraw.NextColumn = KingOnTable[i].KingThinking[k].RowColumnKing[j][1];
 
                                                     Act = true;
-                                                    Less = KingOnTable[RW6].KingThinking[CL6].ReturnHuristic(RW6, Ki6, Order);
+                                                    Less = KingOnTable[RW6].KingThinking[CL6].ReturnHuristic(RW6, Ki6, Order,false);
                                                     TableHuristic = KingOnTable[RW6].KingThinking[CL6].TableListKing[Ki6];
                                                     Object O = new Object();
                                                     lock (O)
@@ -5911,16 +6181,18 @@ namespace RefrigtzDLL
                                     int COrder = Order;
                                     try
                                     {
+                                        IsFoundOfLeafDepenOfKindhaveVictory(1, ref AA, Order);
                                         ChessRules.CurrentOrder *= -1;
                                         Order *= -1;
                                         Do = 0;
+                                        
                                     }
                                     catch (Exception tt) { Log(tt); }
                                     Order = COrder;
                                     ChessRules.CurrentOrder = CDummy;
                                     if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                                         )
-                                        if (SolderesOnTable[i].SoldierThinking[0].ReturnHuristic(i, j, Order) > Less && (SolderesOnTable[i].SoldierThinking[k].PenaltyRegardListSolder[j].IsPenaltyAction() != 0 && SolderesOnTable[i].SoldierThinking[k].PenaltyRegardListSolder[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA)
+                                        if (SolderesOnTable[i].SoldierThinking[0].ReturnHuristic(i, j, Order,AA) > Less && (SolderesOnTable[i].SoldierThinking[k].PenaltyRegardListSolder[j].IsPenaltyAction() != 0 && SolderesOnTable[i].SoldierThinking[k].PenaltyRegardListSolder[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA)
                                         {
                                             Object O1 = new Object();
                                             lock (O1)
@@ -5934,7 +6206,7 @@ namespace RefrigtzDLL
                                                 AllDraw.NextRow = SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][0];
                                                 AllDraw.NextColumn = SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][1];
 
-                                                Less = SolderesOnTable[i].SoldierThinking[k].ReturnHuristic(i, j, Order);
+                                                Less = SolderesOnTable[i].SoldierThinking[k].ReturnHuristic(i, j, Order,AA);
 
 
                                                 TableHuristic = SolderesOnTable[i].SoldierThinking[k].TableListSolder[j];
@@ -5979,10 +6251,10 @@ namespace RefrigtzDLL
 
                                     //When There is No Movments in Such Order Enemy continue.
                                     if (Order != AllDraw.OrderPlate)
-                                        if (SolderesOnTable[i].SoldierThinking[0].ReturnHuristic(i, j, Order) > Less)
+                                        if (SolderesOnTable[i].SoldierThinking[0].ReturnHuristic(i, j, Order,AA) > Less)
                                             continue;
                                     //When There is greater Huristic Movments.
-                                    if (SolderesOnTable[i].SoldierThinking[0].ReturnHuristic(i, j, Order) > Less)
+                                    if (SolderesOnTable[i].SoldierThinking[0].ReturnHuristic(i, j, Order,AA) > Less)
                                     {
                                         ActionString = ThinkingChess.ActionsString; AllDraw.ActionStringReady = true;
 
@@ -6054,7 +6326,7 @@ namespace RefrigtzDLL
                                         CL6 = -1;
                                         Ki6 = -1;
                                         //Set Max of Soldier.
-                                        MaxLess1 = (SolderesOnTable[RW1].SoldierThinking[CL1].ReturnHuristic(i, j, Order)
+                                        MaxLess1 = (SolderesOnTable[RW1].SoldierThinking[CL1].ReturnHuristic(i, j, Order,AA)
                                             );
                                         //When Soldeirs is Greater than Others these Set Max.
                                         if (MaxLess1 > MaxLess2)
@@ -6091,7 +6363,7 @@ namespace RefrigtzDLL
                                             AllDraw.NextRow = SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][0];
                                             AllDraw.NextColumn = SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][1];
 
-                                            Less = SolderesOnTable[i].SoldierThinking[k].ReturnHuristic(i, j, Order);
+                                            Less = SolderesOnTable[i].SoldierThinking[k].ReturnHuristic(i, j, Order,AA);
 
 
                                             TableHuristic = SolderesOnTable[i].SoldierThinking[k].TableListSolder[j];
@@ -6239,16 +6511,18 @@ namespace RefrigtzDLL
                                     int COrder = Order;
                                     try
                                     {
+                                        IsFoundOfLeafDepenOfKindhaveVictory(2, ref AA, Order);
                                         ChessRules.CurrentOrder *= -1;
                                         Order *= -1;
                                         Do = 0;
+                                        
                                     }
                                     catch (Exception tt) { Log(tt); }
                                     Order = COrder;
                                     ChessRules.CurrentOrder = CDummy;
                                     if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                                         )
-                                        if (ElephantOnTable[i].ElefantThinking[0].ReturnHuristic(i, j, Order) > Less && (ElephantOnTable[i].ElefantThinking[k].PenaltyRegardListElefant[j].IsPenaltyAction() != 0 && ElephantOnTable[i].ElefantThinking[k].PenaltyRegardListElefant[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA)
+                                        if (ElephantOnTable[i].ElefantThinking[0].ReturnHuristic(i, j, Order,AA) > Less && (ElephantOnTable[i].ElefantThinking[k].PenaltyRegardListElefant[j].IsPenaltyAction() != 0 && ElephantOnTable[i].ElefantThinking[k].PenaltyRegardListElefant[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA)
                                         {
                                             Object O = new Object();
                                             lock (O)
@@ -6260,7 +6534,7 @@ namespace RefrigtzDLL
                                                 AllDraw.NextColumn = ElephantOnTable[i].ElefantThinking[k].RowColumnElefant[j][1];
 
                                                 Act = true;
-                                                Less = ElephantOnTable[i].ElefantThinking[k].ReturnHuristic(i, j, Order); ;
+                                                Less = ElephantOnTable[i].ElefantThinking[k].ReturnHuristic(i, j, Order,AA); ;
                                                 TableHuristic = ElephantOnTable[i].ElefantThinking[k].TableListElefant[j];
                                                 RegardOccurred = true;
                                                 //if (Do == 1 || AA)
@@ -6272,11 +6546,11 @@ namespace RefrigtzDLL
 
                                     //When There is No Movments in Such Order Enemy continue.
                                     if (Order != AllDraw.OrderPlate)
-                                        if (ElephantOnTable[i].ElefantThinking[0].ReturnHuristic(i, j, Order) > Less)
+                                        if (ElephantOnTable[i].ElefantThinking[0].ReturnHuristic(i, j, Order,AA) > Less)
                                             continue;
                                     //When There is greater Huristic Movments.
 
-                                    if (ElephantOnTable[i].ElefantThinking[0].ReturnHuristic(i, j, Order) > Less)
+                                    if (ElephantOnTable[i].ElefantThinking[0].ReturnHuristic(i, j, Order,AA) > Less)
                                     {
 
                                         Object O = new Object();
@@ -6350,7 +6624,7 @@ namespace RefrigtzDLL
                                         RW6 = -1;
                                         CL6 = -1;
                                         Ki6 = -1;
-                                        MaxLess2 = (ElephantOnTable[RW2].ElefantThinking[CL2].ReturnHuristic(RW2, Ki2, Order));
+                                        MaxLess2 = (ElephantOnTable[RW2].ElefantThinking[CL2].ReturnHuristic(RW2, Ki2, Order,false));
                                         if (MaxLess2 > MaxLess1)
                                             MaxLess1 = -1;
                                         if (MaxLess2 > MaxLess3)
@@ -6386,7 +6660,7 @@ namespace RefrigtzDLL
                                             AllDraw.NextColumn = ElephantOnTable[i].ElefantThinking[k].RowColumnElefant[j][1];
 
                                             Act = true;
-                                            Less = ElephantOnTable[i].ElefantThinking[k].ReturnHuristic(i, j, Order);
+                                            Less = ElephantOnTable[i].ElefantThinking[k].ReturnHuristic(i, j, Order,AA);
                                             TableHuristic = ElephantOnTable[i].ElefantThinking[k].TableListElefant[j];
                                         }
                                     }
@@ -6486,6 +6760,7 @@ namespace RefrigtzDLL
                                     int COrder = Order;
                                     try
                                     {
+                                        IsFoundOfLeafDepenOfKindhaveVictory(3, ref AA, Order);
                                         ChessRules.CurrentOrder *= -1;
                                         Order *= -1;
                                         Do = 0;
@@ -6495,7 +6770,7 @@ namespace RefrigtzDLL
                                     ChessRules.CurrentOrder = CDummy;
                                     if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                                         )
-                                        if (HoursesOnTable[i].HourseThinking[0].ReturnHuristic(i, j, Order) > Less && (HoursesOnTable[i].HourseThinking[k].PenaltyRegardListHourse[j].IsPenaltyAction() != 0 && HoursesOnTable[i].HourseThinking[k].PenaltyRegardListHourse[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA)
+                                        if (HoursesOnTable[i].HourseThinking[0].ReturnHuristic(i, j, Order,AA) > Less && (HoursesOnTable[i].HourseThinking[k].PenaltyRegardListHourse[j].IsPenaltyAction() != 0 && HoursesOnTable[i].HourseThinking[k].PenaltyRegardListHourse[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA)
                                         {
                                             Object O = new Object();
                                             lock (O)
@@ -6508,7 +6783,7 @@ namespace RefrigtzDLL
                                                 AllDraw.NextColumn = HoursesOnTable[i].HourseThinking[k].RowColumnHourse[j][1];
 
                                                 Act = true;
-                                                Less = HoursesOnTable[i].HourseThinking[k].ReturnHuristic(i, j, Order);
+                                                Less = HoursesOnTable[i].HourseThinking[k].ReturnHuristic(i, j, Order,AA);
                                                 TableHuristic = HoursesOnTable[i].HourseThinking[k].TableListHourse[j];
                                                 RegardOccurred = true;
                                             }
@@ -6517,10 +6792,10 @@ namespace RefrigtzDLL
                                         }
                                     //When There is No Movments in Such Order Enemy continue.
                                     if (Order != AllDraw.OrderPlate)
-                                        if (HoursesOnTable[i].HourseThinking[0].ReturnHuristic(i, j, Order) > Less)
+                                        if (HoursesOnTable[i].HourseThinking[0].ReturnHuristic(i, j, Order,AA) > Less)
                                             continue;
                                     //When There is greater Huristic Movments.
-                                    if (HoursesOnTable[i].HourseThinking[0].ReturnHuristic(i, j, Order) > Less)
+                                    if (HoursesOnTable[i].HourseThinking[0].ReturnHuristic(i, j, Order,AA) > Less)
                                     {
                                         Object O = new Object();
                                         lock (O)
@@ -6595,7 +6870,7 @@ namespace RefrigtzDLL
                                         RW6 = -1;
                                         CL6 = -1;
                                         Ki6 = -1;
-                                        MaxLess3 = (HoursesOnTable[RW3].HourseThinking[CL3].ReturnHuristic(RW3, Ki3, Order));
+                                        MaxLess3 = (HoursesOnTable[RW3].HourseThinking[CL3].ReturnHuristic(RW3, Ki3, Order,false));
                                         if (MaxLess3 > MaxLess1)
                                             MaxLess1 = -1;
                                         if (MaxLess3 > MaxLess2)
@@ -6630,7 +6905,7 @@ namespace RefrigtzDLL
                                             AllDraw.NextColumn = HoursesOnTable[i].HourseThinking[k].RowColumnHourse[j][1];
 
                                             Act = true;
-                                            Less = HoursesOnTable[i].HourseThinking[k].ReturnHuristic(i, j, Order);
+                                            Less = HoursesOnTable[i].HourseThinking[k].ReturnHuristic(i, j, Order,AA);
                                             TableHuristic = HoursesOnTable[i].HourseThinking[k].TableListHourse[j];
 
                                         }
@@ -6718,6 +6993,7 @@ namespace RefrigtzDLL
                                     int COrder = Order;
                                     try
                                     {
+                                        IsFoundOfLeafDepenOfKindhaveVictory(4, ref AA, Order);
                                         ChessRules.CurrentOrder *= -1;
                                         Order *= -1;
                                     }
@@ -6726,7 +7002,7 @@ namespace RefrigtzDLL
                                     ChessRules.CurrentOrder = CDummy;
                                     if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                                         )
-                                        if (CastlesOnTable[i].CastleThinking[0].ReturnHuristic(i, j, Order) > Less && (CastlesOnTable[i].CastleThinking[k].PenaltyRegardListCastle[j].IsPenaltyAction() != 0 && CastlesOnTable[i].CastleThinking[k].PenaltyRegardListCastle[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA)
+                                        if (CastlesOnTable[i].CastleThinking[0].ReturnHuristic(i, j, Order,AA) > Less && (CastlesOnTable[i].CastleThinking[k].PenaltyRegardListCastle[j].IsPenaltyAction() != 0 && CastlesOnTable[i].CastleThinking[k].PenaltyRegardListCastle[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA)
                                         {
                                             Object O = new Object();
                                             lock (O)
@@ -6738,7 +7014,7 @@ namespace RefrigtzDLL
                                                 AllDraw.NextColumn = CastlesOnTable[i].CastleThinking[k].RowColumnCastle[j][1];
 
                                                 Act = true;
-                                                Less = CastlesOnTable[i].CastleThinking[k].ReturnHuristic(i, j, Order);
+                                                Less = CastlesOnTable[i].CastleThinking[k].ReturnHuristic(i, j, Order,AA);
                                                 TableHuristic = CastlesOnTable[i].CastleThinking[k].TableListCastle[j];
                                                 RegardOccurred = true;
                                             }
@@ -6748,9 +7024,9 @@ namespace RefrigtzDLL
                                         }
                                     //When There is No Movments in Such Order Enemy continue.
                                     if (Order != AllDraw.OrderPlate)
-                                        if (CastlesOnTable[i].CastleThinking[0].ReturnHuristic(i, j, Order) > Less) continue;
+                                        if (CastlesOnTable[i].CastleThinking[0].ReturnHuristic(i, j, Order,AA) > Less) continue;
                                     //When There is greater Huristic Movments.
-                                    if (CastlesOnTable[i].CastleThinking[0].ReturnHuristic(i, j, Order) > Less)
+                                    if (CastlesOnTable[i].CastleThinking[0].ReturnHuristic(i, j, Order,AA) > Less)
                                     {
                                         Object O = new Object();
                                         lock (O)
@@ -6824,7 +7100,7 @@ namespace RefrigtzDLL
                                         RW6 = -1;
                                         CL6 = -1;
                                         Ki6 = -1;
-                                        MaxLess4 = (CastlesOnTable[RW4].CastleThinking[CL4].ReturnHuristic(RW4, Ki4, Order));
+                                        MaxLess4 = (CastlesOnTable[RW4].CastleThinking[CL4].ReturnHuristic(RW4, Ki4, Order,false));
                                         if (MaxLess4 > MaxLess1)
                                             MaxLess1 = -1;
                                         if (MaxLess4 > MaxLess2)
@@ -6861,7 +7137,7 @@ namespace RefrigtzDLL
                                             AllDraw.NextColumn = CastlesOnTable[i].CastleThinking[k].RowColumnCastle[j][1];
 
                                             Act = true;
-                                            Less = CastlesOnTable[i].CastleThinking[k].ReturnHuristic(i, j, Order);
+                                            Less = CastlesOnTable[i].CastleThinking[k].ReturnHuristic(i, j, Order,AA);
                                             TableHuristic = CastlesOnTable[i].CastleThinking[k].TableListCastle[j];
 
                                         }
@@ -6949,6 +7225,7 @@ namespace RefrigtzDLL
                                 int COrder = Order;
                                 try
                                 {
+                                    IsFoundOfLeafDepenOfKindhaveVictory(5, ref AA, Order);
                                     ChessRules.CurrentOrder *= -1;
                                     Order *= -1;
                                     Do = 0;
@@ -6958,7 +7235,7 @@ namespace RefrigtzDLL
                                 ChessRules.CurrentOrder = CDummy;
                                 if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                                     )
-                                    if (MinisterOnTable[i].MinisterThinking[0].ReturnHuristic(i, j, Order) > Less && (MinisterOnTable[i].MinisterThinking[k].PenaltyRegardListMinister[j].IsPenaltyAction() != 0 && MinisterOnTable[i].MinisterThinking[k].PenaltyRegardListMinister[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA)
+                                    if (MinisterOnTable[i].MinisterThinking[0].ReturnHuristic(i, j, Order,AA) > Less && (MinisterOnTable[i].MinisterThinking[k].PenaltyRegardListMinister[j].IsPenaltyAction() != 0 && MinisterOnTable[i].MinisterThinking[k].PenaltyRegardListMinister[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA)
                                     {
                                         Object O = new Object();
                                         lock (O)
@@ -6970,7 +7247,7 @@ namespace RefrigtzDLL
                                             AllDraw.NextColumn = MinisterOnTable[i].MinisterThinking[k].RowColumnMinister[j][1];
 
                                             Act = true;
-                                            Less = MinisterOnTable[i].MinisterThinking[k].ReturnHuristic(i, j, Order);
+                                            Less = MinisterOnTable[i].MinisterThinking[k].ReturnHuristic(i, j, Order,AA);
                                             TableHuristic = MinisterOnTable[i].MinisterThinking[k].TableListMinister[j];
                                             RegardOccurred = true;
                                         }
@@ -6979,9 +7256,9 @@ namespace RefrigtzDLL
                                         continue;
                                     }
                                 if (Order != AllDraw.OrderPlate)
-                                    if (MinisterOnTable[i].MinisterThinking[0].ReturnHuristic(i, j, Order) > Less)
+                                    if (MinisterOnTable[i].MinisterThinking[0].ReturnHuristic(i, j, Order,AA) > Less)
                                         continue;
-                                if (MinisterOnTable[i].MinisterThinking[0].ReturnHuristic(i, j, Order) > Less)
+                                if (MinisterOnTable[i].MinisterThinking[0].ReturnHuristic(i, j, Order,AA) > Less)
                                 {
                                     Object O = new Object();
                                     lock (O)
@@ -7057,7 +7334,7 @@ namespace RefrigtzDLL
                                     RW6 = -1;
                                     CL6 = -1;
                                     Ki6 = -1;
-                                    MaxLess5 = (MinisterOnTable[RW5].MinisterThinking[CL5].ReturnHuristic(RW5, Ki5, Order));
+                                    MaxLess5 = (MinisterOnTable[RW5].MinisterThinking[CL5].ReturnHuristic(RW5, Ki5, Order,false));
                                     if (MaxLess5 > MaxLess1)
                                         MaxLess1 = -1;
                                     if (MaxLess5 > MaxLess2)
@@ -7094,7 +7371,7 @@ namespace RefrigtzDLL
                                         AllDraw.NextColumn = MinisterOnTable[i].MinisterThinking[k].RowColumnMinister[j][1];
 
                                         Act = true;
-                                        Less = MinisterOnTable[i].MinisterThinking[k].ReturnHuristic(i, j, Order);
+                                        Less = MinisterOnTable[i].MinisterThinking[k].ReturnHuristic(i, j, Order,AA);
                                         TableHuristic = MinisterOnTable[i].MinisterThinking[k].TableListMinister[j];
 
                                     }
@@ -7178,6 +7455,7 @@ namespace RefrigtzDLL
                                     int COrder = Order;
                                     try
                                     {
+                                        IsFoundOfLeafDepenOfKindhaveVictory(6, ref AA, Order);                                        
                                         ChessRules.CurrentOrder *= -1;
                                         Order *= -1;
                                         Do = 0;
@@ -7187,7 +7465,7 @@ namespace RefrigtzDLL
                                     ChessRules.CurrentOrder = CDummy;
                                     if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                                         )
-                                        if (KingOnTable[i].KingThinking[0].ReturnHuristic(i, j, Order) > Less && (KingOnTable[i].KingThinking[k].PenaltyRegardListKing[j].IsPenaltyAction() != 0 && KingOnTable[i].KingThinking[k].PenaltyRegardListKing[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA)
+                                        
                                         {
                                             Object OO = new Object();
                                             lock (OO)
@@ -7200,7 +7478,7 @@ namespace RefrigtzDLL
                                                 AllDraw.NextColumn = KingOnTable[i].KingThinking[k].RowColumnKing[j][1];
 
                                                 Act = true;
-                                                Less = KingOnTable[i].KingThinking[k].ReturnHuristic(i, j, Order);
+                                                Less = KingOnTable[i].KingThinking[k].ReturnHuristic(i, j, Order,AA);
                                                 TableHuristic = KingOnTable[i].KingThinking[k].TableListKing[j];
                                                 RegardOccurred = true;
                                             }
@@ -7210,10 +7488,10 @@ namespace RefrigtzDLL
                                         }
                                     //When There is No Movments in Such Order Enemy continue.
                                     if (Order != AllDraw.OrderPlate)
-                                        if (KingOnTable[i].KingThinking[0].ReturnHuristic(i, j, Order) > Less)
+                                        if (KingOnTable[i].KingThinking[0].ReturnHuristic(i, j, Order,AA) > Less)
                                             continue;
                                     //When There is greater Huristic Movments.
-                                    if (KingOnTable[i].KingThinking[0].ReturnHuristic(i, j, Order) > Less)
+                                    if (KingOnTable[i].KingThinking[0].ReturnHuristic(i, j, Order,AA) > Less)
                                     {
                                         Object OO = new Object();
                                         lock (OO)
@@ -7288,7 +7566,7 @@ namespace RefrigtzDLL
                                         RW5 = -1;
                                         CL5 = -1;
                                         Ki5 = -1;
-                                        MaxLess6 = (KingOnTable[RW6].KingThinking[CL6].ReturnHuristic(RW6, Ki6, Order));
+                                        MaxLess6 = (KingOnTable[RW6].KingThinking[CL6].ReturnHuristic(RW6, Ki6, Order,false));
                                         if (MaxLess6 > MaxLess1)
                                             MaxLess1 = -1;
                                         if (MaxLess6 > MaxLess2)
@@ -7325,7 +7603,7 @@ namespace RefrigtzDLL
                                             AllDraw.NextColumn = KingOnTable[i].KingThinking[k].RowColumnKing[j][1];
 
                                             Act = true;
-                                            Less = KingOnTable[i].KingThinking[k].ReturnHuristic(i, j, Order);
+                                            Less = KingOnTable[i].KingThinking[k].ReturnHuristic(i, j, Order,AA);
                                             TableHuristic = KingOnTable[i].KingThinking[k].TableListKing[j];
                                         }
 
@@ -7687,7 +7965,7 @@ namespace RefrigtzDLL
                                                     AllDraw.NextRow = SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][0];
                                                     AllDraw.NextColumn = SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][1];
 
-                                                    Less = SolderesOnTable[RW1].SoldierThinking[CL1].ReturnHuristic(RW1, Ki1, Order);
+                                                    Less = SolderesOnTable[RW1].SoldierThinking[CL1].ReturnHuristic(RW1, Ki1, Order,false);
 
 
                                                     TableHuristic = SolderesOnTable[RW1].SoldierThinking[CL1].TableListSolder[Ki1];
@@ -7962,7 +8240,7 @@ namespace RefrigtzDLL
                                                 AllDraw.NextColumn = ElephantOnTable[i].ElefantThinking[k].RowColumnElefant[j][1];
 
                                                 Act = true;
-                                                Less = ElephantOnTable[RW2].ElefantThinking[CL2].ReturnHuristic(RW2, Ki2, Order);
+                                                Less = ElephantOnTable[RW2].ElefantThinking[CL2].ReturnHuristic(RW2, Ki2, Order,false);
                                                 TableHuristic = ElephantOnTable[RW2].ElefantThinking[CL2].TableListElefant[Ki2];
                                                 Object OO = new Object();
                                                 lock (OO)
@@ -8206,7 +8484,7 @@ namespace RefrigtzDLL
                                                 AllDraw.NextColumn = HoursesOnTable[i].HourseThinking[k].RowColumnHourse[j][1];
 
                                                 Act = true;
-                                                Less = HoursesOnTable[RW3].HourseThinking[CL3].ReturnHuristic(RW3, Ki3, Order);
+                                                Less = HoursesOnTable[RW3].HourseThinking[CL3].ReturnHuristic(RW3, Ki3, Order,false);
                                                 TableHuristic = HoursesOnTable[RW3].HourseThinking[CL3].TableListHourse[Ki3];
                                                 Object OO = new Object();
                                                 lock (OO)
@@ -8444,7 +8722,7 @@ namespace RefrigtzDLL
                                                 AllDraw.NextColumn = CastlesOnTable[i].CastleThinking[k].RowColumnCastle[j][1];
 
                                                 Act = true;
-                                                Less = CastlesOnTable[RW4].CastleThinking[CL4].ReturnHuristic(RW4, Ki4, Order);
+                                                Less = CastlesOnTable[RW4].CastleThinking[CL4].ReturnHuristic(RW4, Ki4, Order,false);
                                                 TableHuristic = CastlesOnTable[RW4].CastleThinking[CL4].TableListCastle[Ki4];
                                                 Object OO = new Object();
                                                 lock (OO)
@@ -8680,7 +8958,7 @@ namespace RefrigtzDLL
                                                 AllDraw.NextColumn = MinisterOnTable[i].MinisterThinking[k].RowColumnMinister[j][1];
 
                                                 Act = true;
-                                                Less = MinisterOnTable[RW5].MinisterThinking[CL5].ReturnHuristic(RW5, Ki5, Order);
+                                                Less = MinisterOnTable[RW5].MinisterThinking[CL5].ReturnHuristic(RW5, Ki5, Order,false);
                                                 TableHuristic = MinisterOnTable[RW5].MinisterThinking[CL5].TableListMinister[Ki5];
                                                 Object OO = new Object();
                                                 lock (OO)
@@ -8921,7 +9199,7 @@ namespace RefrigtzDLL
                                                 AllDraw.NextColumn = KingOnTable[i].KingThinking[k].RowColumnKing[j][1];
 
                                                 Act = true;
-                                                Less = KingOnTable[RW6].KingThinking[CL6].ReturnHuristic(RW6, Ki6, Order);
+                                                Less = KingOnTable[RW6].KingThinking[CL6].ReturnHuristic(RW6, Ki6, Order,false);
                                                 TableHuristic = KingOnTable[RW6].KingThinking[CL6].TableListKing[Ki6];
                                                 Object OO = new Object();
                                                 lock (OO)
@@ -9861,7 +10139,7 @@ namespace RefrigtzDLL
 
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
-                return this;//.CopyRemeiningItems(Dummy, Order);
+                return this;//.CopyRemeiningItems(Dummy, Order,false);
                             //return 
                             //>;
             }
@@ -11628,20 +11906,20 @@ namespace RefrigtzDLL
                         {
                             if (AllDraw.OrderPlate == Order)
                             {
-                                if (SolderesOnTable[ik].SoldierThinking[0].ReturnHuristic(-1, j, Order) < PreviousLessS || SolderesOnTable[ik].SoldierThinking[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0)
+                                if (SolderesOnTable[ik].SoldierThinking[0].ReturnHuristic(-1, j, Order,false) < PreviousLessS || SolderesOnTable[ik].SoldierThinking[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0)
                                 {
 
                                 }
                                 else
                                 {
-                                    PreviousLessS = SolderesOnTable[ik].SoldierThinking[0].ReturnHuristic(-1, j, Order);
+                                    PreviousLessS = SolderesOnTable[ik].SoldierThinking[0].ReturnHuristic(-1, j, Order,false);
                                     Index[0] = ik;
                                     jIndex[0] = j;
                                 }
                             }
                             else
                             {
-                                if (SolderesOnTable[ik].SoldierThinking[0].ReturnHuristic(-1, j, Order) > PreviousLessS || SolderesOnTable[ik].SoldierThinking[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0)
+                                if (SolderesOnTable[ik].SoldierThinking[0].ReturnHuristic(-1, j, Order,false) > PreviousLessS || SolderesOnTable[ik].SoldierThinking[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0)
                                 {
                                     //SolderesOnTable[ik].SoldierThinking[0].AStarGreedy = null;
                                     //SolderesOnTable[ik] = null;
@@ -11649,7 +11927,7 @@ namespace RefrigtzDLL
                                 }
                                 else
                                 {
-                                    PreviousLessS = SolderesOnTable[ik].SoldierThinking[0].ReturnHuristic(-1, j, Order);
+                                    PreviousLessS = SolderesOnTable[ik].SoldierThinking[0].ReturnHuristic(-1, j, Order,false);
                                     Index[0] = ik;
                                     jIndex[0] = j;
                                 }
@@ -11676,7 +11954,7 @@ namespace RefrigtzDLL
                         {
                             if (AllDraw.OrderPlate == Order)
                             {
-                                if (ElephantOnTable[ik].ElefantThinking[0].ReturnHuristic(-1, j, Order) < PreviousLessE || ElephantOnTable[ik].ElefantThinking[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0)
+                                if (ElephantOnTable[ik].ElefantThinking[0].ReturnHuristic(-1, j, Order,false) < PreviousLessE || ElephantOnTable[ik].ElefantThinking[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0)
                                 {
                                     //ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = null;
                                     //ElephantOnTable[ik] = null;
@@ -11684,14 +11962,14 @@ namespace RefrigtzDLL
                                 }
                                 else
                                 {
-                                    PreviousLessE = ElephantOnTable[ik].ElefantThinking[0].ReturnHuristic(-1, j, Order);
+                                    PreviousLessE = ElephantOnTable[ik].ElefantThinking[0].ReturnHuristic(-1, j, Order,false);
                                     Index[1] = ik;
                                     jIndex[1] = j;
                                 }
                             }
                             else
                             {
-                                if (ElephantOnTable[ik].ElefantThinking[0].ReturnHuristic(-1, j, Order) > PreviousLessE || ElephantOnTable[ik].ElefantThinking[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0)
+                                if (ElephantOnTable[ik].ElefantThinking[0].ReturnHuristic(-1, j, Order,false) > PreviousLessE || ElephantOnTable[ik].ElefantThinking[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0)
                                 {
                                     //ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = null;
                                     //ElephantOnTable[ik] = null;
@@ -11699,7 +11977,7 @@ namespace RefrigtzDLL
                                 }
                                 else
                                 {
-                                    PreviousLessE = ElephantOnTable[ik].ElefantThinking[0].ReturnHuristic(-1, j, Order);
+                                    PreviousLessE = ElephantOnTable[ik].ElefantThinking[0].ReturnHuristic(-1, j, Order,false);
                                     Index[1] = ik;
                                     jIndex[1] = j;
                                 }
@@ -11725,28 +12003,28 @@ namespace RefrigtzDLL
 
                             if (AllDraw.OrderPlate == Order)
                             {
-                                if (HoursesOnTable[ik].HourseThinking[0].ReturnHuristic(-1, j, Order) < PreviousLessH || HoursesOnTable[ik].HourseThinking[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0)
+                                if (HoursesOnTable[ik].HourseThinking[0].ReturnHuristic(-1, j, Order,false) < PreviousLessH || HoursesOnTable[ik].HourseThinking[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0)
                                 {
                                     //HoursesOnTable[ik].HourseThinking[0].AStarGreedy = null;
                                     //continue;
                                 }
                                 else
                                 {
-                                    PreviousLessH = HoursesOnTable[ik].HourseThinking[0].ReturnHuristic(-1, j, Order);
+                                    PreviousLessH = HoursesOnTable[ik].HourseThinking[0].ReturnHuristic(-1, j, Order,false);
                                     Index[2] = ik;
                                     jIndex[2] = j;
                                 }
                             }
                             else
                             {
-                                if (HoursesOnTable[ik].HourseThinking[0].ReturnHuristic(-1, j, Order) > PreviousLessH || HoursesOnTable[ik].HourseThinking[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0)
+                                if (HoursesOnTable[ik].HourseThinking[0].ReturnHuristic(-1, j, Order,false) > PreviousLessH || HoursesOnTable[ik].HourseThinking[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0)
                                 {
                                     //HoursesOnTable[ik].HourseThinking[0].AStarGreedy = null;
                                     //continue;
                                 }
                                 else
                                 {
-                                    PreviousLessH = HoursesOnTable[ik].HourseThinking[0].ReturnHuristic(-1, j, Order);
+                                    PreviousLessH = HoursesOnTable[ik].HourseThinking[0].ReturnHuristic(-1, j, Order,false);
                                     Index[2] = ik;
                                     jIndex[2] = j;
                                 }
@@ -11772,7 +12050,7 @@ namespace RefrigtzDLL
                         {
                             if (AllDraw.OrderPlate == Order)
                             {
-                                if (CastlesOnTable[ik].CastleThinking[0].ReturnHuristic(-1, j, Order) < PreviousLessB || CastlesOnTable[ik].CastleThinking[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0)
+                                if (CastlesOnTable[ik].CastleThinking[0].ReturnHuristic(-1, j, Order,false) < PreviousLessB || CastlesOnTable[ik].CastleThinking[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0)
                                 {
 
                                     //CastlesOnTable[ik].CastleThinking[0].AStarGreedy = null;
@@ -11782,14 +12060,14 @@ namespace RefrigtzDLL
 
                                 else
                                 {
-                                    PreviousLessB = CastlesOnTable[ik].CastleThinking[0].ReturnHuristic(-1, j, Order);
+                                    PreviousLessB = CastlesOnTable[ik].CastleThinking[0].ReturnHuristic(-1, j, Order,false);
                                     Index[3] = ik;
                                     jIndex[3] = j;
                                 }
                             }
                             else
                             {
-                                if (CastlesOnTable[ik].CastleThinking[0].ReturnHuristic(-1, j, Order) > PreviousLessB || CastlesOnTable[ik].CastleThinking[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0)
+                                if (CastlesOnTable[ik].CastleThinking[0].ReturnHuristic(-1, j, Order,false) > PreviousLessB || CastlesOnTable[ik].CastleThinking[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0)
                                 {
 
                                     //CastlesOnTable[ik].CastleThinking[0].AStarGreedy = null;
@@ -11799,7 +12077,7 @@ namespace RefrigtzDLL
 
                                 else
                                 {
-                                    PreviousLessB = CastlesOnTable[ik].CastleThinking[0].ReturnHuristic(-1, j, Order);
+                                    PreviousLessB = CastlesOnTable[ik].CastleThinking[0].ReturnHuristic(-1, j, Order,false);
                                     Index[3] = ik;
                                     jIndex[3] = j;
                                 }
@@ -11825,7 +12103,7 @@ namespace RefrigtzDLL
                         {
                             if (AllDraw.OrderPlate == Order)
                             {
-                                if (MinisterOnTable[ik].MinisterThinking[0].ReturnHuristic(-1, j, Order) < PreviousLessM || MinisterOnTable[ik].MinisterThinking[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0)
+                                if (MinisterOnTable[ik].MinisterThinking[0].ReturnHuristic(-1, j, Order,false) < PreviousLessM || MinisterOnTable[ik].MinisterThinking[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0)
                                 {
                                     //MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = null;
                                     // MinisterOnTable[ik] = null;
@@ -11836,12 +12114,12 @@ namespace RefrigtzDLL
                                 {
                                     Index[4] = ik;
                                     jIndex[4] = j;
-                                    PreviousLessM = MinisterOnTable[ik].MinisterThinking[0].ReturnHuristic(-1, j, Order);
+                                    PreviousLessM = MinisterOnTable[ik].MinisterThinking[0].ReturnHuristic(-1, j, Order,false);
                                 }
                             }
                             else
                             {
-                                if (MinisterOnTable[ik].MinisterThinking[0].ReturnHuristic(-1, j, Order) > PreviousLessM || MinisterOnTable[ik].MinisterThinking[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0)
+                                if (MinisterOnTable[ik].MinisterThinking[0].ReturnHuristic(-1, j, Order,false) > PreviousLessM || MinisterOnTable[ik].MinisterThinking[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0)
                                 {
                                     //MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = null;
                                     // MinisterOnTable[ik] = null;
@@ -11852,7 +12130,7 @@ namespace RefrigtzDLL
                                 {
                                     Index[4] = ik;
                                     jIndex[4] = j;
-                                    PreviousLessM = MinisterOnTable[ik].MinisterThinking[0].ReturnHuristic(-1, j, Order);
+                                    PreviousLessM = MinisterOnTable[ik].MinisterThinking[0].ReturnHuristic(-1, j, Order,false);
                                 }
                             }
 
@@ -11875,7 +12153,7 @@ namespace RefrigtzDLL
                         {
                             if (AllDraw.OrderPlate == Order)
                             {
-                                if (KingOnTable[ik].KingThinking[0].ReturnHuristic(-1, j, Order) < PreviousLessK || KingOnTable[ik].KingThinking[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0)
+                                if (KingOnTable[ik].KingThinking[0].ReturnHuristic(-1, j, Order,false) < PreviousLessK || KingOnTable[ik].KingThinking[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0)
                                 {
                                     //KingOnTable[ik].KingThinking[0].AStarGreedy = null;
                                     //KingOnTable[ik] = null;
@@ -11885,12 +12163,12 @@ namespace RefrigtzDLL
                                 {
                                     Index[5] = ik;
                                     jIndex[5] = j;
-                                    PreviousLessK = KingOnTable[ik].KingThinking[0].ReturnHuristic(-1, j, Order);
+                                    PreviousLessK = KingOnTable[ik].KingThinking[0].ReturnHuristic(-1, j, Order,false);
                                 }
                             }
                             else
                             {
-                                if (KingOnTable[ik].KingThinking[0].ReturnHuristic(-1, j, Order) > PreviousLessK || KingOnTable[ik].KingThinking[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0)
+                                if (KingOnTable[ik].KingThinking[0].ReturnHuristic(-1, j, Order,false) > PreviousLessK || KingOnTable[ik].KingThinking[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0)
                                 {
                                     //KingOnTable[ik].KingThinking[0].AStarGreedy = null;
                                     //KingOnTable[ik] = null;
@@ -11900,7 +12178,7 @@ namespace RefrigtzDLL
                                 {
                                     Index[5] = ik;
                                     jIndex[5] = j;
-                                    PreviousLessK = KingOnTable[ik].KingThinking[0].ReturnHuristic(-1, j, Order);
+                                    PreviousLessK = KingOnTable[ik].KingThinking[0].ReturnHuristic(-1, j, Order,false);
                                 }
                             }
 
@@ -12074,7 +12352,7 @@ namespace RefrigtzDLL
                     {
                         if (AllDraw.OrderPlate == Order)
                         {
-                            if (SolderesOnTable[ik].SoldierThinking[0].ReturnHuristic(-1, j, Order) < PreviousLessS || SolderesOnTable[ik].SoldierThinking[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0)
+                            if (SolderesOnTable[ik].SoldierThinking[0].ReturnHuristic(-1, j, Order,false) < PreviousLessS || SolderesOnTable[ik].SoldierThinking[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0)
                             {
                                 //SolderesOnTable[ik].SoldierThinking[0].AStarGreedy = null;
                                 //SolderesOnTable[ik] = null;
@@ -12084,12 +12362,12 @@ namespace RefrigtzDLL
                             {
                                 Index[0] = ik;
                                 jIndex[0] = j;
-                                PreviousLessS = SolderesOnTable[ik].SoldierThinking[0].ReturnHuristic(-1, j, Order); ;
+                                PreviousLessS = SolderesOnTable[ik].SoldierThinking[0].ReturnHuristic(-1, j, Order,false); ;
                             }
                         }
                         else
                         {
-                            if (SolderesOnTable[ik].SoldierThinking[0].ReturnHuristic(-1, j, Order) > PreviousLessS || SolderesOnTable[ik].SoldierThinking[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0)
+                            if (SolderesOnTable[ik].SoldierThinking[0].ReturnHuristic(-1, j, Order,false) > PreviousLessS || SolderesOnTable[ik].SoldierThinking[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0)
                             {
                                 //SolderesOnTable[ik].SoldierThinking[0].AStarGreedy = null;
                                 //SolderesOnTable[ik] = null;
@@ -12099,7 +12377,7 @@ namespace RefrigtzDLL
                             {
                                 Index[0] = ik;
                                 jIndex[0] = j;
-                                PreviousLessS = SolderesOnTable[ik].SoldierThinking[0].ReturnHuristic(-1, j, Order); ;
+                                PreviousLessS = SolderesOnTable[ik].SoldierThinking[0].ReturnHuristic(-1, j, Order,false); ;
                             }
                         }
                     }
@@ -12118,7 +12396,7 @@ namespace RefrigtzDLL
                     {
                         if (AllDraw.OrderPlate == Order)
                         {
-                            if (ElephantOnTable[ik].ElefantThinking[0].ReturnHuristic(-1, j, Order) < PreviousLessE || ElephantOnTable[ik].ElefantThinking[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0)
+                            if (ElephantOnTable[ik].ElefantThinking[0].ReturnHuristic(-1, j, Order,false) < PreviousLessE || ElephantOnTable[ik].ElefantThinking[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0)
                             {
                                 //ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = null;
                                 //ElephantOnTable[ik] = null;
@@ -12128,12 +12406,12 @@ namespace RefrigtzDLL
                             {
                                 Index[1] = ik;
                                 jIndex[1] = j;
-                                PreviousLessE = ElephantOnTable[ik].ElefantThinking[0].ReturnHuristic(-1, j, Order);
+                                PreviousLessE = ElephantOnTable[ik].ElefantThinking[0].ReturnHuristic(-1, j, Order,false);
                             }
                         }
                         else
                         {
-                            if (ElephantOnTable[ik].ElefantThinking[0].ReturnHuristic(-1, j, Order) > PreviousLessE || ElephantOnTable[ik].ElefantThinking[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0)
+                            if (ElephantOnTable[ik].ElefantThinking[0].ReturnHuristic(-1, j, Order,false) > PreviousLessE || ElephantOnTable[ik].ElefantThinking[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0)
                             {
                                 //ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = null;
                                 //ElephantOnTable[ik] = null;
@@ -12143,7 +12421,7 @@ namespace RefrigtzDLL
                             {
                                 Index[1] = ik;
                                 jIndex[1] = j;
-                                PreviousLessE = ElephantOnTable[ik].ElefantThinking[0].ReturnHuristic(-1, j, Order);
+                                PreviousLessE = ElephantOnTable[ik].ElefantThinking[0].ReturnHuristic(-1, j, Order,false);
                             }
                         }
 
@@ -12164,7 +12442,7 @@ namespace RefrigtzDLL
                     {
                         if (AllDraw.OrderPlate == Order)
                         {
-                            if (HoursesOnTable[ik].HourseThinking[0].ReturnHuristic(-1, j, Order) < PreviousLessH || HoursesOnTable[ik].HourseThinking[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0)
+                            if (HoursesOnTable[ik].HourseThinking[0].ReturnHuristic(-1, j, Order,false) < PreviousLessH || HoursesOnTable[ik].HourseThinking[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0)
                             {
                                 //HoursesOnTable[ik].HourseThinking[0].AStarGreedy = null;
                                 //HoursesOnTable[ik] = null;
@@ -12174,13 +12452,13 @@ namespace RefrigtzDLL
                             {
                                 Index[2] = ik;
                                 jIndex[2] = j;
-                                PreviousLessH = HoursesOnTable[ik].HourseThinking[0].ReturnHuristic(-1, j, Order); ;
+                                PreviousLessH = HoursesOnTable[ik].HourseThinking[0].ReturnHuristic(-1, j, Order,false); ;
                             }
 
                         }
                         else
                         {
-                            if (HoursesOnTable[ik].HourseThinking[0].ReturnHuristic(-1, j, Order) > PreviousLessH || HoursesOnTable[ik].HourseThinking[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0)
+                            if (HoursesOnTable[ik].HourseThinking[0].ReturnHuristic(-1, j, Order,false) > PreviousLessH || HoursesOnTable[ik].HourseThinking[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0)
                             {
                                 //HoursesOnTable[ik].HourseThinking[0].AStarGreedy = null;
                                 //HoursesOnTable[ik] = null;
@@ -12190,7 +12468,7 @@ namespace RefrigtzDLL
                             {
                                 Index[2] = ik;
                                 jIndex[2] = j;
-                                PreviousLessH = HoursesOnTable[ik].HourseThinking[0].ReturnHuristic(-1, j, Order); ;
+                                PreviousLessH = HoursesOnTable[ik].HourseThinking[0].ReturnHuristic(-1, j, Order,false); ;
                             }
                         }
 
@@ -12280,7 +12558,7 @@ namespace RefrigtzDLL
 
                         if (AllDraw.OrderPlate == Order)
                         {
-                            if (CastlesOnTable[ik].CastleThinking[0].ReturnHuristic(-1, j, Order) < PreviousLessB || CastlesOnTable[ik].CastleThinking[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0)
+                            if (CastlesOnTable[ik].CastleThinking[0].ReturnHuristic(-1, j, Order,false) < PreviousLessB || CastlesOnTable[ik].CastleThinking[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0)
                             {
 
                                 //CastlesOnTable[ik].CastleThinking[0].AStarGreedy = null;
@@ -12292,13 +12570,13 @@ namespace RefrigtzDLL
                             {
                                 Index[3] = ik;
                                 jIndex[3] = j;
-                                PreviousLessB = CastlesOnTable[ik].CastleThinking[0].ReturnHuristic(-1, j, Order); ;
+                                PreviousLessB = CastlesOnTable[ik].CastleThinking[0].ReturnHuristic(-1, j, Order,false); ;
                             }
 
                         }
                         else
                         {
-                            if (CastlesOnTable[ik].CastleThinking[0].ReturnHuristic(-1, j, Order) > PreviousLessB || CastlesOnTable[ik].CastleThinking[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0)
+                            if (CastlesOnTable[ik].CastleThinking[0].ReturnHuristic(-1, j, Order,false) > PreviousLessB || CastlesOnTable[ik].CastleThinking[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0)
                             {
 
                                 //CastlesOnTable[ik].CastleThinking[0].AStarGreedy = null;
@@ -12310,7 +12588,7 @@ namespace RefrigtzDLL
                             {
                                 Index[3] = ik;
                                 jIndex[3] = j;
-                                PreviousLessB = CastlesOnTable[ik].CastleThinking[0].ReturnHuristic(-1, j, Order); ;
+                                PreviousLessB = CastlesOnTable[ik].CastleThinking[0].ReturnHuristic(-1, j, Order,false); ;
                             }
                         }
 
@@ -12330,7 +12608,7 @@ namespace RefrigtzDLL
                     {
                         if (AllDraw.OrderPlate == Order)
                         {
-                            if (MinisterOnTable[ik].MinisterThinking[0].ReturnHuristic(-1, j, Order) < PreviousLessM || MinisterOnTable[ik].MinisterThinking[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0)
+                            if (MinisterOnTable[ik].MinisterThinking[0].ReturnHuristic(-1, j, Order,false) < PreviousLessM || MinisterOnTable[ik].MinisterThinking[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0)
                             {
                                 //MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = null;
                                 //MinisterOnTable[ik] = null;
@@ -12340,12 +12618,12 @@ namespace RefrigtzDLL
                             {
                                 Index[4] = ik;
                                 jIndex[4] = j;
-                                PreviousLessM = MinisterOnTable[ik].MinisterThinking[0].ReturnHuristic(-1, j, Order); ;
+                                PreviousLessM = MinisterOnTable[ik].MinisterThinking[0].ReturnHuristic(-1, j, Order,false); ;
                             }
                         }
                         else
                         {
-                            if (MinisterOnTable[ik].MinisterThinking[0].ReturnHuristic(-1, j, Order) > PreviousLessM || MinisterOnTable[ik].MinisterThinking[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0)
+                            if (MinisterOnTable[ik].MinisterThinking[0].ReturnHuristic(-1, j, Order,false) > PreviousLessM || MinisterOnTable[ik].MinisterThinking[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0)
                             {
                                 //MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = null;
                                 //MinisterOnTable[ik] = null;
@@ -12355,7 +12633,7 @@ namespace RefrigtzDLL
                             {
                                 Index[4] = ik;
                                 jIndex[4] = j;
-                                PreviousLessM = MinisterOnTable[ik].MinisterThinking[0].ReturnHuristic(-1, j, Order); ;
+                                PreviousLessM = MinisterOnTable[ik].MinisterThinking[0].ReturnHuristic(-1, j, Order,false); ;
                             }
                         }
 
@@ -12375,7 +12653,7 @@ namespace RefrigtzDLL
                     {
                         if (AllDraw.OrderPlate == Order)
                         {
-                            if (KingOnTable[ik].KingThinking[0].ReturnHuristic(-1, j, Order) < PreviousLessK || KingOnTable[ik].KingThinking[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0)
+                            if (KingOnTable[ik].KingThinking[0].ReturnHuristic(-1, j, Order,false) < PreviousLessK || KingOnTable[ik].KingThinking[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0)
                             {
                                 //KingOnTable[ik].KingThinking[0].AStarGreedy = null;
                                 //KingOnTable[ik] = null;
@@ -12385,12 +12663,12 @@ namespace RefrigtzDLL
                             {
                                 Index[5] = ik;
                                 jIndex[5] = j;
-                                PreviousLessK = KingOnTable[ik].KingThinking[0].ReturnHuristic(-1, j, Order); ;
+                                PreviousLessK = KingOnTable[ik].KingThinking[0].ReturnHuristic(-1, j, Order,false); ;
                             }
                         }
                         else
                         {
-                            if (KingOnTable[ik].KingThinking[0].ReturnHuristic(-1, j, Order) > PreviousLessK || KingOnTable[ik].KingThinking[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0)
+                            if (KingOnTable[ik].KingThinking[0].ReturnHuristic(-1, j, Order,false) > PreviousLessK || KingOnTable[ik].KingThinking[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0)
                             {
                                 //KingOnTable[ik].KingThinking[0].AStarGreedy = null;
                                 //KingOnTable[ik] = null;
@@ -12400,7 +12678,7 @@ namespace RefrigtzDLL
                             {
                                 Index[5] = ik;
                                 jIndex[5] = j;
-                                PreviousLessK = KingOnTable[ik].KingThinking[0].ReturnHuristic(-1, j, Order); ;
+                                PreviousLessK = KingOnTable[ik].KingThinking[0].ReturnHuristic(-1, j, Order,false); ;
                             }
                         }
 
@@ -16327,7 +16605,7 @@ namespace RefrigtzDLL
                         //Genetic Algorithm.
                         ChessGeneticAlgorithm R = (new ChessGeneticAlgorithm(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                         //Found of Table.
-                        Tab = R.GenerateTable(TableListAction, LoopHuristicIndex, Order);
+                        Tab = R.GenerateTable(TableListAction, LoopHuristicIndex, Order,false);
                         //Gray Order.
                         if (Order == 1)
                         {

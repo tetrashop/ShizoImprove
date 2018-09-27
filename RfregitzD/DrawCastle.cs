@@ -80,7 +80,7 @@ namespace RefrigtzDLL
             for (int ii = 0; ii < AllDraw.CastleMovments; ii++)
                 try
                 {
-                    a += CastleThinking[ii].ReturnHuristic(-1, -1, Order);
+                    a += CastleThinking[ii].ReturnHuristic(-1, -1, Order, false);
                 }
                 catch (Exception t)
                 {

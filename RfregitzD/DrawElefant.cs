@@ -79,7 +79,7 @@ namespace RefrigtzDLL
             for (int ii = 0; ii < AllDraw.ElefantMovments; ii++)
                 try
                 {
-                    a += ElefantThinking[ii].ReturnHuristic(-1, -1, Order);
+                    a += ElefantThinking[ii].ReturnHuristic(-1, -1, Order, false);
                 }
                 catch (Exception t)
                 {

@@ -80,7 +80,7 @@ namespace RefrigtzDLL
             for (int ii = 0; ii < AllDraw.HourseMovments; ii++)
                 try
                 {
-                    a += HourseThinking[ii].ReturnHuristic(-1, -1, Order);
+                    a += HourseThinking[ii].ReturnHuristic(-1, -1, Order,false);
                 }
                 catch (Exception t)
                 {

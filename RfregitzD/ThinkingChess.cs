@@ -5383,7 +5383,7 @@ namespace RefrigtzDLL
             }
         }
         //Return Huristic.
-        public double ReturnHuristic(int ii, int j, int Order)
+        public double ReturnHuristic(int ii, int j, int Order,bool AA)
         {
             Object O = new Object();
             lock (O)
@@ -5396,10 +5396,15 @@ namespace RefrigtzDLL
                 Object O1 = new Object();
                 lock (O1)
                 {
-                    if (ii >= 0 && UsePenaltyRegardMechnisamT)
-                        Hur = ReturnHuristicCalculartor(0, ii, j, Order) * LearniningTable.LearingValue(Row, Column);
+                    if (!AA)
+                    {
+                        if (ii >= 0 && UsePenaltyRegardMechnisamT)
+                            Hur = ReturnHuristicCalculartor(0, ii, j, Order) * LearniningTable.LearingValue(Row, Column);
+                        else
+                            Hur = ReturnHuristicCalculartor(0, ii, j, Order);
+                    }
                     else
-                        Hur = ReturnHuristicCalculartor(0, ii, j, Order);
+                        Hur = ReturnHuristicCalculartor(0, ii, j, Order) + 1000;
                 }
                 //Optimization depend of numbers of unpealties nodes quefficient.
                 return Hur * ((double)(NumbersOfAllNode - NumbersOfCurrentBranchesPenalties) / (double)(NumbersOfAllNode));

@@ -81,7 +81,7 @@ namespace RefrigtzDLL
             for (int ii = 0; ii < AllDraw.MinisterMovments; ii++)
                 try
                 {
-                    a += MinisterThinking[ii].ReturnHuristic(-1, -1, Order);
+                    a += MinisterThinking[ii].ReturnHuristic(-1, -1, Order,false);
                 }
                 catch (Exception t)
                 {

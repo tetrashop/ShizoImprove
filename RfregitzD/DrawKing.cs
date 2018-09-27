@@ -56,7 +56,7 @@ namespace RefrigtzDLL
             for (int ii = 0; ii < AllDraw.KingMovments; ii++)
                 try
                 {
-                    a += KingThinking[ii].ReturnHuristic(-1, -1, Order);
+                    a += KingThinking[ii].ReturnHuristic(-1, -1, Order,false);
                 }
                 catch (Exception t)
                 {

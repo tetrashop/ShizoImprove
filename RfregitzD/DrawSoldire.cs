@@ -81,7 +81,7 @@ namespace RefrigtzDLL
             for (int ii = 0; ii < AllDraw.SodierMovments; ii++)
                 try
                 {
-                    a += SoldierThinking[ii].ReturnHuristic(-1, -1, Order);
+                    a += SoldierThinking[ii].ReturnHuristic(-1, -1, Order,false);
                 }
                 catch (Exception t)
                 {
