@@ -68,7 +68,7 @@ function WebForm_DoCallback(eventTarget, eventArgument, eventCallback, context, 
         setRequestHeaderMethodExists = (xmlRequest && xmlRequest.setRequestHeader);
     }
     catch(e) {}
-    var callback = new Object();
+    var callback = new object();
     callback.eventCallback = eventCallback;
     callback.context = context;
     callback.errorCallback = errorCallback;
@@ -105,7 +105,7 @@ function WebForm_DoCallback(eventTarget, eventArgument, eventCallback, context, 
         xmlRequest.send(postData);
         return;
     }
-    callback.xmlRequest = new Object();
+    callback.xmlRequest = new object();
     var callbackFrameID = "__CALLBACKFRAME" + callbackIndex;
     var xmlRequestFrame = document.frames[callbackFrameID];
     if (!xmlRequestFrame) {
@@ -266,7 +266,7 @@ function WebForm_InitCallback() {
     }
 }
 function WebForm_InitCallbackAddField(name, value) {
-    var nameValue = new Object();
+    var nameValue = new object();
     nameValue.name = name;
     nameValue.value = value;
     __theFormPostCollection[__theFormPostCollection.length] = nameValue;
@@ -490,7 +490,7 @@ function WebForm_GetElementDir(element) {
     return "ltr";
 }
 function WebForm_GetElementPosition(element) {
-    var result = new Object();
+    var result = new object();
     result.x = 0;
     result.y = 0;
     result.width = 0;

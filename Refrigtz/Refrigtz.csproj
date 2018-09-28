@@ -186,6 +186,7 @@
       <DependentUpon>AboutBoxChessRefregitz.cs</DependentUpon>
     </Compile>
     <None Include="App.xaml.cs" />
+    <Compile Include="TakeRoot.cs" />
     <Compile Include="XmlSerializer.cs" />
     <Compile Include="ClassLoad.cs" />
     <Compile Include="FormKindOfGameContinue.cs">

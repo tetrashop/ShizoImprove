@@ -110,6 +110,7 @@ namespace Refrigtz
     [Serializable]
     public partial class Load : Form
     {
+        public FormRefrigtz ttt = null;
         bool exit = false;
         //Intiate  Global Variables.
         Thread tt = null;
@@ -225,7 +226,7 @@ namespace Refrigtz
         void BaseThread()
         {
             //Initiate Task.
-            FormRefrigtz ttt = new FormRefrigtz(false);
+            ttt = new FormRefrigtz(false);
             ttt.Sec.ShowDialog();
             ttt.ShowDialog();
             Process.GetCurrentProcess().Kill();

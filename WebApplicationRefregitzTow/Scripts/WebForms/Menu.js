@@ -621,7 +621,7 @@ function PopOut_Position(panel, hideScrollers) {
         panelParentCoordinates = WebForm_GetElementPosition(panel.offsetParent);
     }
     else {
-        panelParentCoordinates = new Object();
+        panelParentCoordinates = new object();
         panelParentCoordinates.x = 0;
         panelParentCoordinates.y = 0;
     }

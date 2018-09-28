@@ -32,7 +32,7 @@ function TreeView_PopulateNode(data, index, node, selectNode, selectImageNode, l
     if (!data) {
         return;
     }
-    var context = new Object();
+    var context = new object();
     context.data = data;
     context.node = node;
     context.selectNode = selectNode;

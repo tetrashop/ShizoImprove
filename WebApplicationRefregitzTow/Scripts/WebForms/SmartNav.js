@@ -2,7 +2,7 @@
 var snSrc;
 if ((typeof(window.__smartNav) == "undefined") || (window.__smartNav == null))
 {
-    window.__smartNav = new Object();
+    window.__smartNav = new object();
     window.__smartNav.update = function()
     {
         var sn = window.__smartNav;

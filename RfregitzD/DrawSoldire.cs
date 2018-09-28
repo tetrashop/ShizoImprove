@@ -11,7 +11,8 @@ namespace RefrigtzDLL
     public class DrawSoldier : ThingsConverter
     {
         //Iniatate Global Variables.
-
+        private readonly object balanceLock = new object();
+        private readonly object balanceLockS = new object();
         List<int[]> ValuableSelfSupported = new List<int[]>();
 
         public static Image[] S = new Image[2];
@@ -108,8 +109,8 @@ namespace RefrigtzDLL
             ) :
             base(Arrangments, (int)i, (int)j, a, Tab, Ord, TB, Cur)
         {
-            Object O = new Object();
-            lock (O)
+            
+            lock (balanceLock)
             {
                 if (S[0] == null && S[1] == null)
                 {
@@ -182,8 +183,8 @@ namespace RefrigtzDLL
         public void DrawSoldierOnTable(ref Graphics g, int CellW, int CellH)
         {
 
-            Object O = new Object();
-            lock (O)
+
+            lock (balanceLockS)
             {
                 if (S[0] == null || S[1] == null)
                 {

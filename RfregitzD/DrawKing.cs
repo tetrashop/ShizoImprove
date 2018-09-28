@@ -9,6 +9,8 @@ namespace RefrigtzDLL
     [Serializable]
     public class DrawKing
     {
+        private readonly object balanceLock = new object();
+        private readonly object balanceLockS = new object();
         public static Image[] K = new Image[2]; 
         //Initiate Global Variables.
         List<int[]> ValuableSelfSupported = new List<int[]>();
@@ -109,8 +111,8 @@ namespace RefrigtzDLL
         public DrawKing(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. THIS
             )
         {
-            Object O = new Object();
-            lock (O)
+            
+            lock (balanceLock)
             {
                 if (K[0] == null && K[1] == null)
                 {
@@ -185,8 +187,8 @@ namespace RefrigtzDLL
             try
             {
 
-                Object O = new Object();
-                lock (O)
+                
+                lock (balanceLockS)
                 {
                     if (K[0] == null || K[1] == null)
                     {

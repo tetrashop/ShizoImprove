@@ -78,16 +78,21 @@ namespace Refrigtz
             // IncreasingThreadPerformance();
             //Intiate  Program Load and Calling.
             Application.EnableVisualStyles();
+            Load t = null;
             try
             {
 
+                
                 Application.SetCompatibleTextRenderingDefault(false);
-
-                Application.Run(new Load());
+                t = new Load();
+                Application.Run(t);
             }
-            catch (Exception t)
+            catch (Exception tt)
             {
-                Log(t);
+                (new TakeRoot()).Save(t.ttt, ref t.ttt.LoadTree, t.ttt.MovementsAStarGreedyHuristicFound, t.ttt.IInoreSelfObjects, t.ttt.UsePenaltyRegardMechnisam, t.ttt.BestMovments, t.ttt.PredictHuristic, t.ttt.OnlySelf, t.ttt.AStarGreedyHuristic, t.ttt.ArrangmentsChanged);
+
+
+                Log(tt);
             }
 
         }
