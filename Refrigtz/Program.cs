@@ -86,6 +86,7 @@ namespace Refrigtz
                 Application.SetCompatibleTextRenderingDefault(false);
                 t = new Load();
                 Application.Run(t);
+                (new TakeRoot()).Save(t.ttt, ref t.ttt.LoadTree, t.ttt.MovementsAStarGreedyHuristicFound, t.ttt.IInoreSelfObjects, t.ttt.UsePenaltyRegardMechnisam, t.ttt.BestMovments, t.ttt.PredictHuristic, t.ttt.OnlySelf, t.ttt.AStarGreedyHuristic, t.ttt.ArrangmentsChanged);
             }
             catch (Exception tt)
             {
