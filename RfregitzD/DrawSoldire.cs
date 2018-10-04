@@ -109,7 +109,7 @@ namespace RefrigtzDLL
             ) :
             base(Arrangments, (int)i, (int)j, a, Tab, Ord, TB, Cur)
         {
-            
+
             lock (balanceLock)
             {
                 if (S[0] == null && S[1] == null)
@@ -117,30 +117,31 @@ namespace RefrigtzDLL
                     S[0] = Image.FromFile(AllDraw.ImagesSubRoot + "SG.png");
                     S[1] = Image.FromFile(AllDraw.ImagesSubRoot + "SB.png");
                 }
+
+
+                CurrentAStarGredyMax = CurrentAStarGredy;
+                MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
+                IgnoreSelfObjectsT = IgnoreSelfObject;
+                UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
+                BestMovmentsT = BestMovment;
+                PredictHuristicT = PredictHurist;
+                OnlySelfT = OnlySel;
+                AStarGreedyHuristicT = AStarGreedyHuris;
+                ArrangmentsChanged = Arrangments;
+                //Initiate Global Variables.  
+                Table = new int[8, 8];
+                for (int ii = 0; ii < 8; ii++)
+                    for (int jj = 0; jj < 8; jj++)
+                        Table[ii, jj] = Tab[ii, jj];
+                for (int ii = 0; ii < AllDraw.SodierMovments; ii++)
+
+                    SoldierThinking[ii] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 4, Ord, TB, Cur, 16, 1);
+                RowS = i;
+                ColumnS = j;
+                color = a;
+                Order = Ord;
+                Current = Cur;
             }
-
-            CurrentAStarGredyMax = CurrentAStarGredy;
-            MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
-            IgnoreSelfObjectsT = IgnoreSelfObject;
-            UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
-            BestMovmentsT = BestMovment;
-            PredictHuristicT = PredictHurist;
-            OnlySelfT = OnlySel;
-            AStarGreedyHuristicT = AStarGreedyHuris;
-            ArrangmentsChanged = Arrangments;
-            //Initiate Global Variables.  
-            Table = new int[8, 8];
-            for (int ii = 0; ii < 8; ii++)
-                for (int jj = 0; jj < 8; jj++)
-                    Table[ii, jj] = Tab[ii, jj];
-            for (int ii = 0; ii < AllDraw.SodierMovments; ii++)
-
-                SoldierThinking[ii] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 4, Ord, TB, Cur, 16, 1);
-            RowS = i;
-            ColumnS = j;
-            color = a;
-            Order = Ord;
-            Current = Cur;
         }
         //Clone a Copy Method.
         public void Clone(ref DrawSoldier AA//, ref AllDraw. THIS

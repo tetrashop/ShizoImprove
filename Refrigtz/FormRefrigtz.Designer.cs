@@ -1519,6 +1519,7 @@
             this.Name = "FormRefrigtz";
             this.Text = "Chess Refrigtz 2018";
             this.MaximumSizeChanged += new System.EventHandler(this.FormRefrigtz_MaximumSizeChanged);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormRefrigtz_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Leave += new System.EventHandler(this.FormRefrigtz_Leave);
             this.menuStripChessRefrigitz.ResumeLayout(false);

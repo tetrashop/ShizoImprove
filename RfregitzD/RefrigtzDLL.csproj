@@ -80,6 +80,7 @@
     <Compile Include="ChessGeneticAlgorithm.cs" />
     <Compile Include="ChessPerdict.cs" />
     <Compile Include="ChessRules.cs" />
+    <Compile Include="CodeClass.cs" />
     <Compile Include="DrawCastle.cs" />
     <Compile Include="DrawElefant.cs" />
     <Compile Include="DrawHourse.cs" />

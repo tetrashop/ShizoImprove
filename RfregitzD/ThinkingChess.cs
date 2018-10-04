@@ -74,13 +74,13 @@ using System.Drawing;
 using LearningMachine;
 using System.IO;
 using System.Threading.Tasks;
-
-
+using System.Diagnostics;
 namespace RefrigtzDLL
 {
     [Serializable]
     public class ThinkingChess
     {
+        StackFrame callStack = new StackFrame(1, true);
         //Initiate Global and Static Variables. 
         public bool IsThereMateOfEnemy = false;
         public static NetworkQuantumLearningKrinskyAtamata LearniningTable = null;
@@ -218,10 +218,10 @@ namespace RefrigtzDLL
                 Object a = new Object();
                 lock (a)
                 {
-                      string stackTrace = ex.ToString();
-                        //Write to File.
-                        File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); /// path of file where stack trace will be stored.
-                    
+                    string stackTrace = ex.ToString();
+                    //Write to File.
+                    File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); /// path of file where stack trace will be stored.
+
                 }
             }
             catch (Exception t) { Log(t); }
@@ -383,7 +383,7 @@ namespace RefrigtzDLL
                 */
                 //Network Quantum Atamata Book Initiate For Every Clone.
                 SetValueOfTabls(Row, Column);
-                
+
             }
         }
         void SetValueOfTabls(int Row, int Column)
@@ -392,18 +392,18 @@ namespace RefrigtzDLL
             lock (o)
             {
                 //for (int h = 0; h < 8; h++)
-                    //for (int m = 0; m < 8; m++)
+                //for (int m = 0; m < 8; m++)
+                {
+                    //if (h != Row || m != Column)
+                    //return;
+                    Value[Row, Column] = 0;
                     {
-                        //if (h != Row || m != Column)
-                            //return;
-                        Value[Row, Column] = 0;
-                        {
-                            if (TableConst == null || TableConst[Row, Column] == 0)
-                                return;
-                            if (TableConst != null)
-                                Value[Row, Column] += ObjectValueCalculator(TableConst, Order, Row, Column);
-                        }
+                        if (TableConst == null || TableConst[Row, Column] == 0)
+                            return;
+                        if (TableConst != null)
+                            Value[Row, Column] += ObjectValueCalculator(TableConst, Order, Row, Column);
                     }
+                }
             }
         }
 
@@ -858,7 +858,7 @@ namespace RefrigtzDLL
             }
         }
         ///Huristic of Attacker.
-        double HuristicAttack(bool  Before,int[,] Table, int Ord, Color aa, int i, int j, int ii, int jj)
+        double HuristicAttack(bool Before, int[,] Table, int Ord, Color aa, int i, int j, int ii, int jj)
         {
             Object O = new Object();
             lock (O)
@@ -925,31 +925,31 @@ namespace RefrigtzDLL
                                                     return;
                                                 //Ignore Of Self Objects.
                                                 if (Order == 1 && Table[g, h] >= 0)
-                                                        return;
-                                                    if (Order == -1 && Table[g, h] <= 0)
-                                                        return;
-                                                    Color aaa = new Color();
+                                                    return;
+                                                if (Order == -1 && Table[g, h] <= 0)
+                                                    return;
+                                                Color aaa = new Color();
                                                 //Assgin Enemy ints.
                                                 aaa = Color.Gray;
-                                                    if (Order * -1 == -1)
-                                                        aaa = Color.Brown;
-                                                    else
-                                                        aaa = Color.Gray;
+                                                if (Order * -1 == -1)
+                                                    aaa = Color.Brown;
+                                                else
+                                                    aaa = Color.Gray;
                                                 //When Enemy is Supported.
                                                 bool A = new bool();
-                                                    Object O2 = new Object();
-                                                    lock (O2)
-                                                    {
-                                                        A = Support(Table, g, h, ii, jj, aaa, Order * -1);
-                                                    }
+                                                Object O2 = new Object();
+                                                lock (O2)
+                                                {
+                                                    A = Support(Table, g, h, ii, jj, aaa, Order * -1);
+                                                }
                                                 //When Enemy is Supported.
                                                 if (A)
-                                                    {
+                                                {
                                                     //Assgine variable.
                                                     Supported = true;
-                                                        return;
+                                                    return;
 
-                                                    }                                                
+                                                }
 
                                             });
                                         if (Supported)
@@ -1021,30 +1021,30 @@ namespace RefrigtzDLL
                                             {
                                                 if (Supported)
                                                     return;
-                                            //Ignore Of Self Objects.
-                                            if (Order == 1 && Table[g, h] >= 0)
+                                                //Ignore Of Self Objects.
+                                                if (Order == 1 && Table[g, h] >= 0)
                                                     return;
                                                 if (Order == -1 && Table[g, h] <= 0)
                                                     return;
                                                 Color aaa = new Color();
-                                            //Assgin Enemy ints.
-                                            aaa = Color.Gray;
+                                                //Assgin Enemy ints.
+                                                aaa = Color.Gray;
                                                 if (Order * -1 == -1)
                                                     aaa = Color.Brown;
                                                 else
                                                     aaa = Color.Gray;
-                                            //When Enemy is Supported.
-                                            bool A = new bool();
+                                                //When Enemy is Supported.
+                                                bool A = new bool();
                                                 Object O1 = new Object();
                                                 lock (O1)
                                                 {
                                                     A = Support(Table, g, h, ii, jj, aaa, Order * -1);
                                                 }
-                                            //When Enemy is Supported.
-                                            if (A)
+                                                //When Enemy is Supported.
+                                                if (A)
                                                 {
-                                                //Assgine variable.
-                                                Supported = true;
+                                                    //Assgine variable.
+                                                    Supported = true;
                                                     return;
 
                                                 }
@@ -1457,7 +1457,7 @@ namespace RefrigtzDLL
                         if (Attack(Tab, i, j, ii, jj, a, Order) && EnemyNotSupported)
                         {
                             //Huristic positive.
-                            HA += AllDraw.SignKiller * (double)((GetValue(i, j) + GetValue(ii,jj)
+                            HA += AllDraw.SignKiller * (double)((GetValue(i, j) + GetValue(ii, jj)
                             ) * Sign);
                         }
                         a = colorAS;
@@ -2291,7 +2291,7 @@ namespace RefrigtzDLL
                                         Table[iiii, jjjj] = Table[ii, jj];
                                         Table[ii, jj] = 0;
                                         //Is Dangrous for King.
-                                        A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tab[iiii, jjjj], Table, Order , iiii, jjjj);
+                                        A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tab[iiii, jjjj], Table, Order, iiii, jjjj);
                                         if (A.ObjectDangourKingMove(Order, Table, false))
                                         {
                                             //Clone a Copy.
@@ -3905,7 +3905,7 @@ namespace RefrigtzDLL
                 {
                     Log(t);
                 }
-                 if (HA < 0)
+                if (HA < 0)
                     IgnoreFromCheckandMateHuristic = true;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 return HA;
@@ -4249,7 +4249,7 @@ namespace RefrigtzDLL
                 return HA * SignOrderToPlate(Order);
             }
         }
-        public double[] HuristicAll(bool Before,int Killed, int[,] Table, Color aa, int Ord, int iii, int jjj, int iiii, int jjjj)
+        public double[] HuristicAll(bool Before, int Killed, int[,] Table, Color aa, int Ord, int iii, int jjj, int iiii, int jjjj)
         {
             Object O = new Object();
             lock (O)
@@ -4408,7 +4408,7 @@ namespace RefrigtzDLL
             }
         }
         ///Huristic of Movments.
-        public double HuristicMovment(bool Before,int[,] Table, Color aa, int Ord, int i, int j, int ii, int jj)
+        public double HuristicMovment(bool Before, int[,] Table, Color aa, int Ord, int i, int j, int ii, int jj)
         {
             Object O = new Object();
             lock (O)
@@ -4474,26 +4474,26 @@ namespace RefrigtzDLL
                                         {
                                             if (Supported)
                                                 return;
-                                        //Ignore Of Self Objects.
-                                        if (Order == 1 && Table[g, h] >= 0)
+                                            //Ignore Of Self Objects.
+                                            if (Order == 1 && Table[g, h] >= 0)
                                                 return;
                                             if (Order == -1 && Table[g, h] <= 0)
                                                 return;
                                             Color aaa = new Color();
-                                        //Assgin Enemy ints.
-                                        aaa = Color.Gray;
+                                            //Assgin Enemy ints.
+                                            aaa = Color.Gray;
                                             if (Order * -1 == -1)
                                                 aaa = Color.Brown;
                                             else
                                                 aaa = Color.Gray;
-                                        //When Enemy is Supported.
-                                        bool A = new bool();
+                                            //When Enemy is Supported.
+                                            bool A = new bool();
                                             A = Support(Table, g, h, i, j, aaa, Order * -1);
-                                        //When Enemy is Supported.
-                                        if (A)
+                                            //When Enemy is Supported.
+                                            if (A)
                                             {
-                                            //Assgine variable.
-                                            Supported = true;
+                                                //Assgine variable.
+                                                Supported = true;
                                                 return;
                                             }
                                         }
@@ -4564,38 +4564,38 @@ namespace RefrigtzDLL
                                 {
                                     if (Supported)
                                         return;
-                                //for (int h = 0; h < 8; h++)
-                                Parallel.For(0, 8, h =>
-                                    {
-                                        if (Supported)
-                                            return;
-                                    //Ignore Of Self Objects.
-                                    if (Order == 1 && Table[g, h] >= 0)
-                                            return;
-                                        if (Order == -1 && Table[g, h] <= 0)
-                                            return;
-                                        Color aaa = new Color();
-                                    //Assgin Enemy ints.
-                                    aaa = Color.Gray;
-                                        if (Order * -1 == -1)
-                                            aaa = Color.Brown;
-                                        else
-                                            aaa = Color.Gray;
-                                    //When Enemy is Supported.
-                                    bool A = new bool();
-                                        Object O2 = new Object();
-                                        lock (O2)
+                                    //for (int h = 0; h < 8; h++)
+                                    Parallel.For(0, 8, h =>
                                         {
-                                            A = Support(Table, g, h, i, j, aaa, Order * -1);
-                                        }
-                                    //When Enemy is Supported.
-                                    if (A)
-                                        {
-                                        //Assgine variable.
-                                        Supported = true;
-                                            return;
-                                        }
-                                    });
+                                            if (Supported)
+                                                return;
+                                        //Ignore Of Self Objects.
+                                        if (Order == 1 && Table[g, h] >= 0)
+                                                return;
+                                            if (Order == -1 && Table[g, h] <= 0)
+                                                return;
+                                            Color aaa = new Color();
+                                        //Assgin Enemy ints.
+                                        aaa = Color.Gray;
+                                            if (Order * -1 == -1)
+                                                aaa = Color.Brown;
+                                            else
+                                                aaa = Color.Gray;
+                                        //When Enemy is Supported.
+                                        bool A = new bool();
+                                            Object O2 = new Object();
+                                            lock (O2)
+                                            {
+                                                A = Support(Table, g, h, i, j, aaa, Order * -1);
+                                            }
+                                        //When Enemy is Supported.
+                                        if (A)
+                                            {
+                                            //Assgine variable.
+                                            Supported = true;
+                                                return;
+                                            }
+                                        });
                                     if (Supported)
                                         return;
                                 });
@@ -4756,7 +4756,7 @@ namespace RefrigtzDLL
             {
 
 
-                
+
 
 
                 bool Found = false;
@@ -4769,7 +4769,7 @@ namespace RefrigtzDLL
                         {
                             if (Order == AllDraw.OrderPlate)
                             {
-                                if (Less < HuristicListSolder[i][0] +
+                                if (Less > HuristicListSolder[i][0] +
                                     HuristicListSolder[i][1] +
                                     HuristicListSolder[i][2] +
                                     HuristicListSolder[i][3] +
@@ -4796,7 +4796,7 @@ namespace RefrigtzDLL
                             }
                             else
                             {
-                                if (Less > HuristicListSolder[i][0] +
+                                if (Less < HuristicListSolder[i][0] +
                              HuristicListSolder[i][1] +
                              HuristicListSolder[i][2] +
                              HuristicListSolder[i][3] +
@@ -4836,7 +4836,7 @@ namespace RefrigtzDLL
                         {
                             if (Order == AllDraw.OrderPlate)
                             {
-                                if (Less < HuristicListElefant[i][0] +
+                                if (Less > HuristicListElefant[i][0] +
                                     HuristicListElefant[i][1] +
                                     HuristicListElefant[i][2] +
                                     HuristicListElefant[i][3] +
@@ -4863,7 +4863,7 @@ namespace RefrigtzDLL
                             }
                             else
                             {
-                                if (Less > HuristicListElefant[i][0] +
+                                if (Less < HuristicListElefant[i][0] +
                              HuristicListElefant[i][1] +
                              HuristicListElefant[i][2] +
                              HuristicListElefant[i][3] +
@@ -4901,7 +4901,7 @@ namespace RefrigtzDLL
                         {
                             if (Order == AllDraw.OrderPlate)
                             {
-                                if (Less < HuristicListHourse[i][0] +
+                                if (Less > HuristicListHourse[i][0] +
                                     HuristicListHourse[i][1] +
                                     HuristicListHourse[i][2] +
                                     HuristicListHourse[i][3] +
@@ -4928,7 +4928,7 @@ namespace RefrigtzDLL
                             }
                             else
                             {
-                                if (Less > HuristicListHourse[i][0] +
+                                if (Less < HuristicListHourse[i][0] +
                              HuristicListHourse[i][1] +
                              HuristicListHourse[i][2] +
                              HuristicListHourse[i][3] +
@@ -4966,7 +4966,7 @@ namespace RefrigtzDLL
                         {
                             if (Order == AllDraw.OrderPlate)
                             {
-                                if (Less < HuristicListCastle[i][0] +
+                                if (Less > HuristicListCastle[i][0] +
                                     HuristicListCastle[i][1] +
                                     HuristicListCastle[i][2] +
                                     HuristicListCastle[i][3] +
@@ -4993,7 +4993,7 @@ namespace RefrigtzDLL
                             }
                             else
                             {
-                                if (Less > HuristicListCastle[i][0] +
+                                if (Less < HuristicListCastle[i][0] +
                              HuristicListCastle[i][1] +
                              HuristicListCastle[i][2] +
                              HuristicListCastle[i][3] +
@@ -5030,7 +5030,7 @@ namespace RefrigtzDLL
                         {
                             if (Order == AllDraw.OrderPlate)
                             {
-                                if (Less < HuristicListMinister[i][0] +
+                                if (Less > HuristicListMinister[i][0] +
                                     HuristicListMinister[i][1] +
                                     HuristicListMinister[i][2] +
                                     HuristicListMinister[i][3] +
@@ -5058,7 +5058,7 @@ namespace RefrigtzDLL
                             }
                             else
                             {
-                                if (Less > HuristicListMinister[i][0] +
+                                if (Less < HuristicListMinister[i][0] +
                              HuristicListMinister[i][1] +
                              HuristicListMinister[i][2] +
                              HuristicListMinister[i][3] +
@@ -5096,7 +5096,7 @@ namespace RefrigtzDLL
                         {
                             if (Order == AllDraw.OrderPlate)
                             {
-                                if (Less < HuristicListKing[i][0] +
+                                if (Less > HuristicListKing[i][0] +
                                     HuristicListKing[i][1] +
                                     HuristicListKing[i][2] +
                                     HuristicListKing[i][3] +
@@ -5123,7 +5123,7 @@ namespace RefrigtzDLL
                             }
                             else
                             {
-                                if (Less > HuristicListKing[i][0] +
+                                if (Less < HuristicListKing[i][0] +
                              HuristicListKing[i][1] +
                              HuristicListKing[i][2] +
                              HuristicListKing[i][3] +
@@ -5163,30 +5163,30 @@ namespace RefrigtzDLL
             Object O = new Object();
             lock (O)
             {
-               
+
                 int Count = 0, i = 0;
                 //For Alll Solders on int Calculate Solkder Count.
-                while (i < MaxCount) 
+                while (i < MaxCount)
                 {
                     //The Index out of range exeption is not fixable.
                     try
                     {
                         if (So != null) if (So[i] != null)
                             {
-                            //When int is Gray or Brown.
-                            if (So[i].color == Color.Gray || So[i].color == Color.Brown)
-                            {
-                                if (Mi)
+                                //When int is Gray or Brown.
+                                if (So[i].color == Color.Gray || So[i].color == Color.Brown)
                                 {
-                                    if (So[i].color == Color.Gray)
+                                    if (Mi)
+                                    {
+                                        if (So[i].color == Color.Gray)
+                                            Count++;
+                                    }
+                                    else
                                         Count++;
                                 }
                                 else
-                                    Count++;
+                                    So[i] = null;
                             }
-                            else
-                                So[i] = null;
-                        }
                     }
                     catch (Exception t) { Log(t); }
                     i++;
@@ -5211,22 +5211,22 @@ namespace RefrigtzDLL
                     try
                     {
                         //The Index out of range exeption is not fixable.
-                        if (So != null)  if (So[i] != null)
-                        {
-                            //when Elaphant int is Gray or Brown.
-                            if (So[i].color == Color.Gray || So[i].color == Color.Brown)
+                        if (So != null) if (So[i] != null)
                             {
-                                if (Mi)
+                                //when Elaphant int is Gray or Brown.
+                                if (So[i].color == Color.Gray || So[i].color == Color.Brown)
                                 {
-                                    if (So[i].color == Color.Gray)
+                                    if (Mi)
+                                    {
+                                        if (So[i].color == Color.Gray)
+                                            Count++;
+                                    }
+                                    else
                                         Count++;
                                 }
                                 else
-                                    Count++;
+                                    So[i] = null;
                             }
-                            else
-                                So[i] = null;
-                        }
                     }
                     catch (Exception t) { Log(t); }
                     i++;
@@ -5248,27 +5248,27 @@ namespace RefrigtzDLL
                     //The Index out of range exeption is not fixable.
                     try
                     {
-                        if (So != null)  if (So[i] != null)
-                        {
-                            //When int is Gray or Brown.
-                            if (So[i].color == Color.Gray || So[i].color == Color.Brown)
+                        if (So != null) if (So[i] != null)
                             {
-                                if (Mi)
+                                //When int is Gray or Brown.
+                                if (So[i].color == Color.Gray || So[i].color == Color.Brown)
                                 {
-                                    if (So[i].color == Color.Gray)
+                                    if (Mi)
+                                    {
+                                        if (So[i].color == Color.Gray)
+                                            Count++;
+                                    }
+                                    else
                                         Count++;
                                 }
                                 else
-                                    Count++;
+                                    So[i] = null;
                             }
-                            else
-                                So[i] = null;
-                        }
                     }
                     catch (Exception t) { Log(t); }
                     i++;
                 };
-                
+
                 return Count;
             }
         }
@@ -5285,28 +5285,28 @@ namespace RefrigtzDLL
                     try
                     {
                         //The Index out of range exeption is not fixable.
-                        if (So != null)  if (So[i] != null)
-                        {
-                            //When Castles int is Gray or Brown.
-                            if (So[i].color == Color.Gray || So[i].color == Color.Brown)
+                        if (So != null) if (So[i] != null)
                             {
-                                if (Mi)
+                                //When Castles int is Gray or Brown.
+                                if (So[i].color == Color.Gray || So[i].color == Color.Brown)
                                 {
-                                    if (So[i].color == Color.Gray)
+                                    if (Mi)
+                                    {
+                                        if (So[i].color == Color.Gray)
+                                            Count++;
+                                    }
+                                    else
                                         Count++;
                                 }
                                 else
-                                    Count++;
+                                    So[i] = null;
                             }
-                            else
-                                So[i] = null;
-                        }
                     }
                     catch (Exception t) { Log(t); }
 
                     i++;
                 };
-                
+
                 return Count;
             }
         }
@@ -5325,20 +5325,20 @@ namespace RefrigtzDLL
                         //The Index out of range exeption is not fixable.
                         if (So != null) if (So[i] != null)
                             {
-                            //When int of items is gray or Brown.
-                            if (So[i].color == Color.Gray || So[i].color == Color.Brown)
-                            {
-                                if (Mi)
+                                //When int of items is gray or Brown.
+                                if (So[i].color == Color.Gray || So[i].color == Color.Brown)
                                 {
-                                    if (So[i].color == Color.Gray)
+                                    if (Mi)
+                                    {
+                                        if (So[i].color == Color.Gray)
+                                            Count++;
+                                    }
+                                    else
                                         Count++;
                                 }
                                 else
-                                    Count++;
+                                    So[i] = null;
                             }
-                            else
-                                So[i] = null;
-                        }
                     }
                     catch (Exception t) { Log(t); }
                     i++;
@@ -5361,20 +5361,20 @@ namespace RefrigtzDLL
                         //The Index out of range exeption is not fixable.
                         if (So != null) if (So[i] != null)
                             {
-                            //when int is Gray or Brown.
-                            if (So[i].color == Color.Gray || So[i].color == Color.Brown)
-                            {
-                                if (Mi)
+                                //when int is Gray or Brown.
+                                if (So[i].color == Color.Gray || So[i].color == Color.Brown)
                                 {
-                                    if (So[i].color == Color.Gray)
+                                    if (Mi)
+                                    {
+                                        if (So[i].color == Color.Gray)
+                                            Count++;
+                                    }
+                                    else
                                         Count++;
                                 }
                                 else
-                                    Count++;
+                                    So[i] = null;
                             }
-                            else
-                                So[i] = null;
-                        }
                     }
                     catch (Exception t) { Log(t); }
                     i++;
@@ -5383,7 +5383,7 @@ namespace RefrigtzDLL
             }
         }
         //Return Huristic.
-        public double ReturnHuristic(int ii, int j, int Order,bool AA)
+        public double ReturnHuristic(int ii, int j, int Order, bool AA)
         {
             Object O = new Object();
             lock (O)
@@ -5406,7 +5406,7 @@ namespace RefrigtzDLL
                     else
                         Hur = ReturnHuristicCalculartor(0, ii, j, Order) + 1000;
                 }
-                //Optimization depend of numbers of unpealties nodes quefficient.
+                //Optimization depend of numbers of unpealties nodes quefficient.                
                 return Hur * ((double)(NumbersOfAllNode - NumbersOfCurrentBranchesPenalties) / (double)(NumbersOfAllNode));
             }
         }
@@ -5482,7 +5482,7 @@ namespace RefrigtzDLL
             {
 
                 //if (iAstarGready > AllDraw.MaxAStarGreedy)
-                    //return 0;
+                //return 0;
                 SetObjectNumbers(TableConst);
                 //NumbersOfCurrentBranchesPenalties = 0;
                 double Huristic = 0; ;
@@ -5495,7 +5495,8 @@ namespace RefrigtzDLL
                         Less[i] = Double.MinValue;
                     }
                 }
-                else {
+                else
+                {
                     for (int i = 0; i < 6; i++)
                     {
                         Less[i] = Double.MaxValue;
@@ -5521,14 +5522,20 @@ namespace RefrigtzDLL
                                 if (AStarGreedy[i].SolderesOnTable[m] != null)
                                 {
                                     //Calculate Maximum Huristic in Branch.
-                                    if (AStarGreedy[i].SolderesOnTable[m].SoldierThinking[0].MaxHuristic(ref jIndex[0], 1, ref Less[0], Order))
+                                    if (AStarGreedy[i].SolderesOnTable[m].SoldierThinking[0].MaxHuristic(ref jIndex[0], 1, ref Less[0], Order * -1))
                                     {
                                         iIndex[0] = i;
                                         mIndex[0] = m;
                                         Kin[0] = 1;
                                         //Huristic = Less;
                                     }
+                                    else
+                                        CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
+
                                 }
+                                else
+                                    CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
+
 
                             }
                             //For All Elephant On Table Count.
@@ -5538,14 +5545,19 @@ namespace RefrigtzDLL
                                 if (AStarGreedy[i].ElephantOnTable[m] != null)
                                 {
                                     //Found of Maxmimum in Branch.
-                                    if (AStarGreedy[i].ElephantOnTable[m].ElefantThinking[0].MaxHuristic(ref jIndex[1], 2, ref Less[1], Order))
+                                    if (AStarGreedy[i].ElephantOnTable[m].ElefantThinking[0].MaxHuristic(ref jIndex[1], 2, ref Less[1], Order * -1))
                                     {
                                         iIndex[1] = i;
                                         mIndex[1] = m;
                                         Kin[1] = 2;
                                         //Huristic = Less;
                                     }
+                                    else
+                                        CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
                                 }
+                                else
+                                    CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
+
 
                             }
                             //For All Hourse on Table Count.
@@ -5555,14 +5567,20 @@ namespace RefrigtzDLL
                                 if (AStarGreedy[i].HoursesOnTable[m] != null)
                                 {
                                     //Forund of Maximum on on Branch.
-                                    if (AStarGreedy[i].ElephantOnTable[m].ElefantThinking[0].MaxHuristic(ref jIndex[1], 2, ref Less[1], Order))
+                                    if (AStarGreedy[i].ElephantOnTable[m].ElefantThinking[0].MaxHuristic(ref jIndex[1], 2, ref Less[1], Order * -1))
                                     {
                                         iIndex[2] = i;
                                         mIndex[2] = m;
                                         Kin[2] = 3;
                                         //Huristic = Less;
                                     }
+                                    else
+                                        CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
+
                                 }
+                                else
+                                    CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
+
 
                             }
                             //For All Castles on table Count.
@@ -5572,14 +5590,20 @@ namespace RefrigtzDLL
                                 if (AStarGreedy[i].CastlesOnTable[m] != null)
                                 {
                                     //Found of Maximum Castles Branch.
-                                    if (AStarGreedy[i].CastlesOnTable[m].CastleThinking[0].MaxHuristic(ref jIndex[3], 4, ref Less[3], Order))
+                                    if (AStarGreedy[i].CastlesOnTable[m].CastleThinking[0].MaxHuristic(ref jIndex[3], 4, ref Less[3], Order * -1))
                                     {
                                         iIndex[3] = i;
                                         mIndex[3] = m;
                                         Kin[3] = 4;
                                         //Huristic = Less;
                                     }
+                                    else
+                                        CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
+
                                 }
+                                else
+                                    CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
+
 
                             }
                             //For All Minsiter on table count.
@@ -5589,7 +5613,7 @@ namespace RefrigtzDLL
                                 if (AStarGreedy[i].MinisterOnTable[m] != null)
                                 {
                                     //Found of Maximum Minster on table Branches.
-                                    if (AStarGreedy[i].MinisterOnTable[m].MinisterThinking[0].MaxHuristic(ref jIndex[4], 5, ref Less[4], Order))
+                                    if (AStarGreedy[i].MinisterOnTable[m].MinisterThinking[0].MaxHuristic(ref jIndex[4], 5, ref Less[4], Order * -1))
                                     {
                                         iIndex[4] = i;
                                         mIndex[4] = m;
@@ -5606,14 +5630,19 @@ namespace RefrigtzDLL
                                 if (AStarGreedy[i].KingOnTable[m] != null)
                                 {
                                     //Found of Maximum on table Branches.
-                                    if (AStarGreedy[i].KingOnTable[m].KingThinking[0].MaxHuristic(ref jIndex[5], 1, ref Less[5], Order))
+                                    if (AStarGreedy[i].KingOnTable[m].KingThinking[0].MaxHuristic(ref jIndex[5], 1, ref Less[5], Order * -1))
                                     {
                                         iIndex[5] = i;
                                         mIndex[5] = m;
                                         Kin[5] = 6;
                                         //Huristic = Less;
                                     }
+                                    else
+                                        CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName()); ;
                                 }
+                                else
+                                    CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
+
 
                             }
                         }
@@ -5631,14 +5660,18 @@ namespace RefrigtzDLL
                                 if (AStarGreedy[i].SolderesOnTable[m] != null)
                                 {
                                     //Found of Maximum on Depth solders on table items.
-                                    if (AStarGreedy[i].SolderesOnTable[m].SoldierThinking[0].MaxHuristic(ref jIndex[0], 1, ref Less[0], Order))
+                                    if (AStarGreedy[i].SolderesOnTable[m].SoldierThinking[0].MaxHuristic(ref jIndex[0], 1, ref Less[0], Order * -1))
                                     {
                                         iIndex[0] = i;
                                         mIndex[0] = m;
                                         Kin[0] = 1;
                                         //Huristic = Less;
                                     }
+                                    else
+                                        CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
                                 }
+                                else
+                                    CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
 
                             }
                             //For All Elephant On Table Count.
@@ -5648,14 +5681,19 @@ namespace RefrigtzDLL
                                 if (AStarGreedy[i].ElephantOnTable[m] != null)
                                 {
                                     //Found of Maxmimum in Branch.
-                                    if (AStarGreedy[i].ElephantOnTable[m].ElefantThinking[0].MaxHuristic(ref jIndex[1], 2, ref Less[1], Order))
+                                    if (AStarGreedy[i].ElephantOnTable[m].ElefantThinking[0].MaxHuristic(ref jIndex[1], 2, ref Less[1], Order * -1))
                                     {
                                         iIndex[1] = i;
                                         mIndex[1] = m;
                                         Kin[1] = 2;
                                         //Huristic = Less;
                                     }
+                                    else
+                                        CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
                                 }
+                                else
+                                    CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
+
 
                             }
                             //For All Hourse on Table Count.
@@ -5665,15 +5703,18 @@ namespace RefrigtzDLL
                                 if (AStarGreedy[i].HoursesOnTable[m] != null)
                                 {
                                     //Forund of Maximum on on Branch.
-                                    if (AStarGreedy[i].HoursesOnTable[m].HourseThinking[0].MaxHuristic(ref jIndex[2], 3, ref Less[2], Order))
+                                    if (AStarGreedy[i].HoursesOnTable[m].HourseThinking[0].MaxHuristic(ref jIndex[2], 3, ref Less[2], Order * -1))
                                     {
                                         iIndex[2] = i;
                                         mIndex[2] = m;
                                         Kin[2] = 3;
                                         //Huristic = Less;
                                     }
+                                    else
+                                        CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
                                 }
-
+                                else
+                                    CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
                             }
                             //For All Castles on table Count.
                             for (int m = CastleOnTableCount(ref AStarGreedy[i].CastlesOnTable, true, AStarGreedy[i].CastleHigh); m < CastleOnTableCount(ref AStarGreedy[i].CastlesOnTable, false, AStarGreedy[i].CastleHigh); m++)
@@ -5682,14 +5723,18 @@ namespace RefrigtzDLL
                                 if (AStarGreedy[i].CastlesOnTable[m] != null)
                                 {
                                     //Found of Maximum Castles Branch.
-                                    if (AStarGreedy[i].CastlesOnTable[m].CastleThinking[0].MaxHuristic(ref jIndex[3], 4, ref Less[3], Order))
+                                    if (AStarGreedy[i].CastlesOnTable[m].CastleThinking[0].MaxHuristic(ref jIndex[3], 4, ref Less[3], Order * -1))
                                     {
                                         iIndex[3] = i;
                                         mIndex[3] = m;
                                         Kin[3] = 4;
                                         //Huristic = Less;
                                     }
+                                    else
+                                        CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
                                 }
+                                else
+                                    CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
 
                             }
                             //For All Minsiter on table count.
@@ -5699,14 +5744,18 @@ namespace RefrigtzDLL
                                 if (AStarGreedy[i].MinisterOnTable[m] != null)
                                 {
                                     //Found of Maximum Minster on table Branches.
-                                    if (AStarGreedy[i].MinisterOnTable[m].MinisterThinking[0].MaxHuristic(ref jIndex[4], 5, ref Less[4], Order))
+                                    if (AStarGreedy[i].MinisterOnTable[m].MinisterThinking[0].MaxHuristic(ref jIndex[4], 5, ref Less[4], Order * -1))
                                     {
                                         iIndex[4] = i;
                                         mIndex[4] = m;
                                         Kin[4] = 5;
                                         //Huristic = Less;
                                     }
+                                    else
+                                        CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
                                 }
+                                else
+                                    CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
 
                             }
                             //For All King on table Count.
@@ -5716,24 +5765,28 @@ namespace RefrigtzDLL
                                 if (AStarGreedy[i].KingOnTable[m] != null)
                                 {
                                     //When Depth Object of King Table is Not NULL.
-                                    if (AStarGreedy[i].KingOnTable[m].KingThinking[0].MaxHuristic(ref jIndex[5], 1, ref Less[5], Order))
+                                    if (AStarGreedy[i].KingOnTable[m].KingThinking[0].MaxHuristic(ref jIndex[5], 1, ref Less[5], Order * -1))
                                     {
                                         iIndex[5] = i;
                                         mIndex[5] = m;
                                         Kin[5] = 6;
                                         //Huristic = Less;
                                     }
+                                    else
+                                        CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
                                 }
+                                else
+                                    CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
 
                             }
                         }
 
                     }
                     int IJ = -1;
-                    if(Order==AllDraw.OrderPlate)
-                        IJ = MaxOfSixHuristic(Less) + 1;
-                    else
-                        IJ = MinOfSixHuristic(Less) + 1;
+                    //if (Order == AllDraw.OrderPlate)
+                        //IJ = MaxOfSixHuristic(Less) + 1;
+                    //else
+                        //IJ = MinOfSixHuristic(Less) + 1;
                     //Calculate Huristic of Current Node.
                     //When Sodleris Kind.
                     if (System.Math.Abs(Kind) == 1 && HuristicListSolder.Count > 0)
@@ -5882,30 +5935,30 @@ namespace RefrigtzDLL
                     }
 
                     //When Kind Found.
-                    if (IJ != -1)
+                    //if (IJ != -1)
                     {
                         //Reapeate for Solders.
-                        if (IJ == 1 &&
+                        if (//IJ == 1 &&
                             AStarGreedy.Count > 0 && iIndex[0] != -1)
                             Huristic += AStarGreedy[iIndex[0]].SolderesOnTable[mIndex[0]].SoldierThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, jIndex[0], Order * -1);
                         //Repeate for Elephant.
-                        if (IJ == 2 &&
+                        if (//IJ == 2 &&
                             AStarGreedy.Count > 0 && iIndex[1] != -1)
                             Huristic += AStarGreedy[iIndex[1]].ElephantOnTable[mIndex[1]].ElefantThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, jIndex[1], Order * -1);
                         //Repeate for Hourse.
-                        if (IJ == 3 &&
+                        if (//IJ == 3 &&
                             AStarGreedy.Count > 0 && iIndex[2] != -1)
                             Huristic += AStarGreedy[iIndex[2]].HoursesOnTable[mIndex[2]].HourseThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, jIndex[2], Order * -1);
                         //Repeate for Castles.
-                        if (IJ == 4 &&
+                        if (//IJ == 4 &&
                             AStarGreedy.Count > 0 && iIndex[3] != -1)
                             Huristic += AStarGreedy[iIndex[3]].CastlesOnTable[mIndex[3]].CastleThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, jIndex[3], Order * -1);
                         //Repeate for Minstre.
-                        if (IJ == 5 &&
+                        if (//IJ == 5 &&
                             AStarGreedy.Count > 0 && iIndex[4] != -1)
                             Huristic += AStarGreedy[iIndex[4]].MinisterOnTable[mIndex[4]].MinisterThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, jIndex[4], Order * -1);
                         //Repeate for King.
-                        if (IJ == 6 &&
+                        if (//IJ == 6 &&
                             AStarGreedy.Count > 0 && iIndex[5] != -1)
                             Huristic += AStarGreedy[iIndex[5]].KingOnTable[mIndex[5]].KingThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, jIndex[5], Order * -1);
 
@@ -6238,7 +6291,7 @@ namespace RefrigtzDLL
                         lock (A6)
                         {
                             //Caused this for Stachostic results.
-                            SetValueOfTabls(ii,jj);   CalculateHuristics(false, 0, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                            SetValueOfTabls(ii, jj); CalculateHuristics(false, 0, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                         }
 
                         Object A7 = new object();
@@ -6358,7 +6411,7 @@ namespace RefrigtzDLL
                         lock (A5)
                         {
                             //Caused this for Stachostic results.
-                            SetValueOfTabls(ii,jj);   CalculateHuristics(false, 0, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                            SetValueOfTabls(ii, jj); CalculateHuristics(false, 0, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                         }
 
                         ///Calculate Huristic and Add to List Speciifically and Cal Syntax.
@@ -6827,7 +6880,7 @@ namespace RefrigtzDLL
                     lock (A5)
                     {
                         //Caused this for Stachostic results.
-                        SetValueOfTabls(ii,jj);   CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                        SetValueOfTabls(ii, jj); CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                     }
 
 
@@ -6945,7 +6998,7 @@ namespace RefrigtzDLL
                         lock (A5)
                         {
                             //Caused this for Stachostic results.
-                            SetValueOfTabls(ii,jj);   CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                            SetValueOfTabls(ii, jj); CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                         }
 
                         //Calculate Huristic and Add to List and Cal Syntax.
@@ -7067,7 +7120,7 @@ namespace RefrigtzDLL
                         lock (A5)
                         {
                             //Caused this for Stachostic results.
-                            SetValueOfTabls(ii,jj);   CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                            SetValueOfTabls(ii, jj); CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                         }
 
 
@@ -7381,7 +7434,7 @@ namespace RefrigtzDLL
                     IsGardForCurrentMovmentsAndIsNotMova = LearningV[12];
                     IsNotSafeToMoveAenemeyToAttackMoreThanTowObj = LearningV[13];
                 }
-                     //Consideration of Itterative Movments to ignore.
+                //Consideration of Itterative Movments to ignore.
                 //Operation of Penalty Regard Mechanisam on Check and mate speciffically.
                 bool Equality = EqualitOne(Current, kind);
 
@@ -7801,7 +7854,7 @@ namespace RefrigtzDLL
                         lock (A5)
                         {
                             //Caused this for Stachostic results.
-                            SetValueOfTabls(ii,jj);   CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                            SetValueOfTabls(ii, jj); CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                         }
 
                         ///Calculate Huristic and Add to List Speciifically and Cal Syntax.
@@ -7839,120 +7892,120 @@ namespace RefrigtzDLL
                     }
                     catch (Exception t)
                     {
-                       Log(t);
+                        Log(t);
                         ThinkingAtRun = false;
                     }
                 }
             }
         }
-            void CastleThinkingBrown(int DummyOrder, int DummyCurrentOrder, int[,] TableS, int ii, int jj, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int i, int j, bool Castle)
+        void CastleThinkingBrown(int DummyOrder, int DummyCurrentOrder, int[,] TableS, int ii, int jj, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int i, int j, bool Castle)
+        {
+            Object O1 = new Object();
+            lock (O1)
             {
-                Object O1 = new Object();
-                lock (O1)
+
+                double HuristicAttackValue = new double();
+                double HuristicMovementValue = new double();
+                double HuristicSelfSupportedValue = new double();
+                double HuristicObjectDangourCheckMateValue = new double();
+                double HuristicKillerValue = new double();
+                double HuristicReducedAttackValue = new double();
+                double HeuristicDistabceOfCurrentMoveFromEnemyKingValue = new double();
+                double HeuristicKingSafe = new double();
+                double HeuristicFromCenter = new double();
+                double HeuristicKingDangour = new double();
+                QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                ThinkingAtRun = true;
+                Order = DummyOrder;
+                ChessRules.CurrentOrder = DummyCurrentOrder;
+                //When is Brown Castles King.
+
+
+                //Calcuilate Huristic Before Movment.
+                Object O = new Object();
+                lock (O)
                 {
+                    ThinkingRun = true;
+                }
+                CalculateHuristics(true, 0, TableS, ii, jj, i, j, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                Object A = new object();
+                lock (A)
+                {
+                    NumbersOfAllNode++;
+                }
 
-                    double HuristicAttackValue = new double();
-                    double HuristicMovementValue = new double();
-                    double HuristicSelfSupportedValue = new double();
-                    double HuristicObjectDangourCheckMateValue = new double();
-                    double HuristicKillerValue = new double();
-                    double HuristicReducedAttackValue = new double();
-                    double HeuristicDistabceOfCurrentMoveFromEnemyKingValue = new double();
-                    double HeuristicKingSafe = new double();
-                    double HeuristicFromCenter = new double();
-                    double HeuristicKingDangour = new double();
-                    QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                    ThinkingAtRun = true;
-                    Order = DummyOrder;
-                    ChessRules.CurrentOrder = DummyCurrentOrder;
-                    //When is Brown Castles King.
+                int Killed = 0;
+                if (i < ii)
+                {
+                    TableS[ii - 1, j] = -4;
+                    TableS[ii - 2, j] = -6;
+                    TableS[ii, jj] = 0;
+                    TableS[0, jj] = 0;
 
+                }
 
-                    //Calcuilate Huristic Before Movment.
-                    Object O = new Object();
-                    lock (O)
-                    {
-                        ThinkingRun = true;
-                    }
-                    CalculateHuristics(true, 0, TableS, ii, jj, i, j, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
-                    Object A = new object();
-                    lock (A)
-                    {
-                        NumbersOfAllNode++;
-                    }
+                else
+                {
+                    TableS[ii + 1, j] = -4;
+                    TableS[ii + 2, j] = -6;
+                    TableS[ii, jj] = 0;
+                    TableS[7, jj] = 0;
 
-                    int Killed = 0;
-                    if (i < ii)
-                    {
-                        TableS[ii - 1, j] = -4;
-                        TableS[ii - 2, j] = -6;
-                        TableS[ii, jj] = 0;
-                        TableS[0, jj] = 0;
-
-                    }
-
-                    else
-                    {
-                        TableS[ii + 1, j] = -4;
-                        TableS[ii + 2, j] = -6;
-                        TableS[ii, jj] = 0;
-                        TableS[7, jj] = 0;
-
-                    }
-                    PenaltyMechanisam(Killed, false, 6, TableS, ii, jj, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
-                    //{ ThinkingAtRun = false; return; }
-                    //Store Movments Items. 
-                    int[] AS = new int[2];
-                    AS[0] = i;
-                    AS[1] = j;
-                    RowColumnKing.Add(AS);
-                    TableListKing.Add(CloneATable(TableS)); ;
-                    IndexKing++;
-                    //Calculate Huristic Sumation and Store in Specific List.
-                    double[] Hu = new double[10]; HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
+                }
+                PenaltyMechanisam(Killed, false, 6, TableS, ii, jj, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
+                //{ ThinkingAtRun = false; return; }
+                //Store Movments Items. 
+                int[] AS = new int[2];
+                AS[0] = i;
+                AS[1] = j;
+                RowColumnKing.Add(AS);
+                TableListKing.Add(CloneATable(TableS)); ;
+                IndexKing++;
+                //Calculate Huristic Sumation and Store in Specific List.
+                double[] Hu = new double[10]; HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
                 if (IgnoreFromCheckandMateHuristic)
                     HuristicObjectDangourCheckMateValue = 0;
                 Hu[0] += HuristicAttackValue;
-                    Hu[1] += HuristicMovementValue;
-                    Hu[2] += HuristicSelfSupportedValue;
-                    Hu[3] += HuristicObjectDangourCheckMateValue;
-                    Hu[4] += HuristicKillerValue;
-                    Hu[5] += HuristicReducedAttackValue;
-                    Hu[6] += HeuristicDistabceOfCurrentMoveFromEnemyKingValue;
-                    Hu[7] += HeuristicKingSafe;
-                    Hu[8] = HeuristicFromCenter;
-                    Hu[9] = HeuristicKingDangour;
-                    HuristicListKing.Add(Hu);
-                    Castle = true;
+                Hu[1] += HuristicMovementValue;
+                Hu[2] += HuristicSelfSupportedValue;
+                Hu[3] += HuristicObjectDangourCheckMateValue;
+                Hu[4] += HuristicKillerValue;
+                Hu[5] += HuristicReducedAttackValue;
+                Hu[6] += HeuristicDistabceOfCurrentMoveFromEnemyKingValue;
+                Hu[7] += HeuristicKingSafe;
+                Hu[8] = HeuristicFromCenter;
+                Hu[9] = HeuristicKingDangour;
+                HuristicListKing.Add(Hu);
+                Castle = true;
                 Object O7 = new Object(); SetObjectNumbersInList(TableS);
                 lock (O7)
+                {
+                    if (i < ii)
                     {
-                        if (i < ii)
-                        {
-                            if (Order == 1)
-                                AllDraw.OutPut = "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + "O-O-O";
-                            else
-                                AllDraw.OutPut = "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + "O-O-O";
-                            ThinkingLevel++;
-                        }
+                        if (Order == 1)
+                            AllDraw.OutPut = "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + "O-O-O";
                         else
-                        {
-                            if (Order == 1)
-                                AllDraw.OutPut = "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + "O-O";
-                            else
-                                AllDraw.OutPut = "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + "O-O";
-                            ThinkingLevel++;
-                        }
-
-
-                        ThinkingAtRun = false;
+                            AllDraw.OutPut = "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + "O-O-O";
+                        ThinkingLevel++;
+                    }
+                    else
+                    {
+                        if (Order == 1)
+                            AllDraw.OutPut = "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + "O-O";
+                        else
+                            AllDraw.OutPut = "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + "O-O";
+                        ThinkingLevel++;
                     }
 
-                }
-            }
-        
 
-        public void CalculateHuristics(bool Before,int Killed, int[,] TableSS, int i, int j, int ii, int jj, Color color
+                    ThinkingAtRun = false;
+                }
+
+            }
+        }
+
+
+        public void CalculateHuristics(bool Before, int Killed, int[,] TableSS, int i, int j, int ii, int jj, Color color
             , ref double HuristicAttackValue
                 , ref double HuristicMovementValue
                 , ref double HuristicSelfSupportedValue
@@ -8034,13 +8087,13 @@ namespace RefrigtzDLL
                     HuristicAttackValue = Huriistic[0] * SignOrderToPlate(Order);
                     HuristicKillerValue = Huriistic[1] * SignOrderToPlate(Order);
                     HuristicMovementValue = Huriistic[2] * SignOrderToPlate(Order);
-                    HuristicObjectDangourCheckMateValue = (Huriistic[3] + HCheck) * SignOrderToPlate(Order); 
-                    HuristicReducedAttackValue = Huriistic[4] * SignOrderToPlate(Order); 
-                    HuristicSelfSupportedValue = Huriistic[5] * SignOrderToPlate(Order); 
-                    HeuristicDistabceOfCurrentMoveFromEnemyKingValue = HDistance * SignOrderToPlate(Order); 
-                    HeuristicKingSafe = HKingSafe * SignOrderToPlate(Order); 
-                    HeuristicFromCenter = HFromCenter * SignOrderToPlate(Order); 
-                    HeuristicKingDangour = HKingDangour * SignOrderToPlate(Order); 
+                    HuristicObjectDangourCheckMateValue = (Huriistic[3] + HCheck) * SignOrderToPlate(Order);
+                    HuristicReducedAttackValue = Huriistic[4] * SignOrderToPlate(Order);
+                    HuristicSelfSupportedValue = Huriistic[5] * SignOrderToPlate(Order);
+                    HeuristicDistabceOfCurrentMoveFromEnemyKingValue = HDistance * SignOrderToPlate(Order);
+                    HeuristicKingSafe = HKingSafe * SignOrderToPlate(Order);
+                    HeuristicFromCenter = HFromCenter * SignOrderToPlate(Order);
+                    HeuristicKingDangour = HKingDangour * SignOrderToPlate(Order);
                 }
             }
         }
@@ -8110,7 +8163,7 @@ namespace RefrigtzDLL
                 IndexKing++;
                 //Calculate Movment Huristic After Movments.
                 //Caused this for Stachostic results.
-                SetValueOfTabls(ii,jj);   CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                SetValueOfTabls(ii, jj); CalculateHuristics(false, Killed, TableS, i, j, ii, jj, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
 
                 double[] Hu = new double[10]; HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
                 if (IgnoreFromCheckandMateHuristic)
@@ -8234,7 +8287,7 @@ namespace RefrigtzDLL
                 if (Scop(ii, jj, i, j, 1) && System.Math.Abs(TableS[ii, jj]) == 1 && System.Math.Abs(Kind) == 1)
                 {
                     Order = ord;
-                    
+
                     SolderThinkingChess(DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
                 }
             }
@@ -8257,7 +8310,7 @@ namespace RefrigtzDLL
                                 ThinkingSoldierBase(ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
                                 while (ThinkingAtRun) { }
                             }
-                            
+
                         }
 
                     });
@@ -8315,7 +8368,7 @@ namespace RefrigtzDLL
                                 ThinkingElephantBase(ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
                                 while (ThinkingAtRun) { }
                             }
-                            
+
                         }
                     });
                     //==================
@@ -8616,14 +8669,14 @@ namespace RefrigtzDLL
                     Object O = new Object();
                     lock (O)
                     {
-                        
+
 
                         int j = jj;
 
-                    ///Initiate a Local Variables.
-                    int[,] TableS = new int[8, 8];
-                    ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
-                    QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                        ///Initiate a Local Variables.
+                        int[,] TableS = new int[8, 8];
+                        ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
+                        QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                         for (int iii = 0; iii < 8; iii++)
                             for (int jjj = 0; jjj < 8; jjj++)
                             {
@@ -8634,7 +8687,7 @@ namespace RefrigtzDLL
                             while (ThinkingAtRun) { }
                             Order = ord;
                             CastlesThinkingChess(DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
-                        }                        
+                        }
                     }
                 });
             }
@@ -8730,10 +8783,10 @@ namespace RefrigtzDLL
                     {
                         Object O = new Object();
                         lock (O)
-                        {                            
-                            
+                        {
+
                             ThinkingMinisterBase(ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
-                            
+
                         }
                     });
                 });
@@ -8861,7 +8914,7 @@ namespace RefrigtzDLL
                     if (//CheckMateOcuured || 
                         FoundFirstMating > AllDraw.MaxAStarGreedy
                         )
-                    {                        
+                    {
                         Object O2 = new Object();
                         lock (O2)
                         {
@@ -8898,7 +8951,7 @@ namespace RefrigtzDLL
                     || FoundFirstMating > AllDraw.MaxAStarGreedy
                     )
                 {
-                    
+
                     Object O2 = new Object();
                     lock (O2)
                     {

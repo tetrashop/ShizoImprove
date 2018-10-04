@@ -210,8 +210,8 @@ namespace Refrigtz
             { -4, -1, 0, 0, 0, 0, 1, 4 },
             { -3, -1, 0, 0, 0, 0, 1, 3 },
             { -2, -1, 0, 0, 0, 0, 1, 2 },
-            { -5, -1, 0, 0, 0, 0, 1, 5 },
-            { -6, -1, 0, 0, 0, 0, 1, 6 },
+            { -6, -1, 0, 0, 0, 0, 1, 5 },
+            { -5, -1, 0, 0, 0, 0, 1, 6 },
             { -2, -1, 0, 0, 0, 0, 1, 2 },
             { -3, -1, 0, 0, 0, 0, 1, 3 },
             { -4, -1, 0, 0, 0, 0, 1, 4 }
@@ -1019,8 +1019,7 @@ namespace Refrigtz
             BrownTimer.TextChanged = A;
 
             var parallelOptions = new ParallelOptions();
-            parallelOptions.MaxDegreeOfParallelism = PlatformHelper.ProcessorCount;
-
+            parallelOptions.MaxDegreeOfParallelism = Int32.MaxValue;
 
 
         }
@@ -7883,6 +7882,7 @@ namespace Refrigtz
                     // Retrieve the app's exit code
                     exitCode = proc.ExitCode;
                 }
+                
                 Application.Exit();
             }
 
@@ -9451,6 +9451,7 @@ namespace Refrigtz
                         do { i++; } while (System.IO.File.Exists(Root + "\\Database\\Games\\CurrentBank" + i.ToString() + ".accdb"));
                         System.IO.File.Copy(Root + "\\Database\\CurrentBank.accdb", Root + "\\Database\\Games\\CurrentBank" + i.ToString() + ".accdb");
                         System.IO.File.Delete(Root + "\\Database\\CurrentBank.accdb");
+                        (new TakeRoot()).Save(this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                         Application.Exit();
                         return;
                     }
@@ -9546,6 +9547,7 @@ namespace Refrigtz
                         do { i++; } while (System.IO.File.Exists(Root + "\\Database\\Games\\CurrentBank" + i.ToString() + ".accdb"));
                         System.IO.File.Copy(Root + "\\Database\\CurrentBank.accdb", Root + "\\Database\\Games\\CurrentBank" + i.ToString() + ".accdb");
                         System.IO.File.Delete(Root + "\\Database\\CurrentBank.accdb");
+                        (new TakeRoot()).Save(this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                         Application.Exit();
                         return;
                     }
@@ -10826,6 +10828,11 @@ namespace Refrigtz
         private void pictureBoxTimerGray_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void FormRefrigtz_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            (new TakeRoot()).Save(this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
         }
 
         private void toolStripMenuItem14_Click(object sender, EventArgs e)
