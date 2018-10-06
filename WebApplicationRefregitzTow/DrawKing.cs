@@ -9,6 +9,8 @@ namespace RefrigtzW
     [Serializable]
     public class DrawKing
     {
+        private readonly object balanceLock = new object();
+        private readonly object balanceLockS = new object();
         public static Image[] K = new Image[2]; 
         //Initiate Global Variables.
         List<int[]> ValuableSelfSupported = new List<int[]>();
@@ -56,7 +58,7 @@ namespace RefrigtzW
             for (int ii = 0; ii < AllDraw.KingMovments; ii++)
                 try
                 {
-                    a += KingThinking[ii].ReturnHuristic(-1, -1, Order);
+                    a += KingThinking[ii].ReturnHuristic(-1, -1, Order,false);
                 }
                 catch (Exception t)
                 {
@@ -109,39 +111,39 @@ namespace RefrigtzW
         public DrawKing(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. THIS
             )
         {
-            Object O = new Object();
-            lock (O)
+
+            lock (balanceLock)
             {
                 if (K[0] == null && K[1] == null)
                 {
                     K[0] = Image.FromFile(AllDraw.ImagesSubRoot + "KG.png");
                     K[1] = Image.FromFile(AllDraw.ImagesSubRoot + "KB.png");
                 }
+
+
+                CurrentAStarGredyMax = CurrentAStarGredy;
+                MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
+                IgnoreSelfObjectsT = IgnoreSelfObject;
+                UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
+                BestMovmentsT = BestMovment;
+                PredictHuristicT = PredictHurist;
+                OnlySelfT = OnlySel;
+                AStarGreedyHuristicT = AStarGreedyHuris;
+                ArrangmentsChanged = Arrangments;
+                //Iniatite Global Variables.
+                Table = new int[8, 8];
+                for (int ii = 0; ii < 8; ii++)
+                    for (int jj = 0; jj < 8; jj++)
+                        Table[ii, jj] = Tab[ii, jj];
+                for (int ii = 0; ii < AllDraw.KingMovments; ii++)
+                    KingThinking[ii] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 8, Ord, TB, Cur, 2, 6);
+
+                Row = i;
+                Column = j;
+                color = a;
+                Order = Ord;
+                Current = Cur;
             }
-
-            CurrentAStarGredyMax = CurrentAStarGredy;
-            MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
-            IgnoreSelfObjectsT = IgnoreSelfObject;
-            UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
-            BestMovmentsT = BestMovment;
-            PredictHuristicT = PredictHurist;
-            OnlySelfT = OnlySel;
-            AStarGreedyHuristicT = AStarGreedyHuris;
-            ArrangmentsChanged = Arrangments;
-            //Iniatite Global Variables.
-            Table = new int[8, 8];
-            for (int ii = 0; ii < 8; ii++)
-                for (int jj = 0; jj < 8; jj++)
-                    Table[ii, jj] = Tab[ii, jj];
-            for (int ii = 0; ii < AllDraw.KingMovments; ii++)
-                KingThinking[ii] = new ThinkingChess( CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 8, Ord, TB, Cur, 2, 6);
-
-            Row = i;
-            Column = j;
-            color = a;
-            Order = Ord;
-            Current = Cur;
-
         }
         //Clone a Copy.
         public void Clone(ref DrawKing AA//, ref AllDraw. THIS
@@ -185,8 +187,8 @@ namespace RefrigtzW
             try
             {
 
-                Object O = new Object();
-                lock (O)
+                
+                lock (balanceLockS)
                 {
                     if (K[0] == null || K[1] == null)
                     {

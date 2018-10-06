@@ -37,7 +37,7 @@ namespace RefrigtzW
         public bool AStarGreedyHuristicT = false;
 
         bool ArrangmentsChanged = false;
-        public int SodierMidle = 8;
+        /*public int SodierMidle = 8;
         public int SodierHigh = 16;
         public int ElefantMidle = 2;
         public int ElefantHigh = 4;
@@ -49,6 +49,20 @@ namespace RefrigtzW
         public int MinisterHigh = 2;
         public int KingMidle = 1;
         public int KingHigh = 2;
+        */
+        public int SodierMidle = 0;
+        public int SodierHigh = 0;
+        public int ElefantMidle = 0;
+        public int ElefantHigh = 0;
+        public int HourseMidle = 0;
+        public int HourseHight = 0;
+        public int CastleMidle = 0;
+        public int CastleHigh = 0;
+        public int MinisterMidle = 0;
+        public int MinisterHigh = 0;
+        public int KingMidle = 0;
+        public int KingHigh = 0;
+
         ChessPerdict APredict = null;
         int OrderDummy = 0;
         public static int SodierValue = 1;
@@ -1395,6 +1409,7 @@ namespace RefrigtzW
             int[,] Table = new int[8, 8];
             bool Act = false;
             int ii = ij;
+            bool AAAA = false;
             ChessRules AA = null;
             //If List Exist.
             if (A.Count > 0)
@@ -1405,7 +1420,7 @@ namespace RefrigtzW
 
                     //Calculate Thinking Operation of Current Soldier.
                     for (int k = 0; k < AllDraw.SodierMovments; k++)
-                        for (j = 0; SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[k] != null && j < SolderesOnTable[i].SoldierThinking[k].TableListSolder.Count; j++)
+                        for (j = 0; SolderesOnTable !=null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[k] != null && j < SolderesOnTable[i].SoldierThinking[k].TableListSolder.Count; j++)
                         {
                             try
                             {
@@ -1418,7 +1433,7 @@ namespace RefrigtzW
                                     }
                                 //For Higher Huristic Values.
                                 if (AllDraw.OrderPlate == Order)
-                                    if (SolderesOnTable[i].SoldierThinking[k].ReturnHuristic(i, j, Order) >= Less)
+                                    if (SolderesOnTable[i].SoldierThinking[k].ReturnHuristic(i, j, Order,AAAA) >= Less)
                                     {
                                         //Initiate Table of Current Object.
                                         int[,] TableS = SolderesOnTable[i].SoldierThinking[k].TableListSolder[j];
@@ -1523,7 +1538,7 @@ namespace RefrigtzW
                                         AllDraw.LastRow = SolderesOnTable[i].SoldierThinking[k].Row;
                                         AllDraw.LastColumn = SolderesOnTable[i].SoldierThinking[k].Column;
 
-                                        Less = SolderesOnTable[i].SoldierThinking[k].ReturnHuristic(i, j, Order); ;
+                                        Less = SolderesOnTable[i].SoldierThinking[k].ReturnHuristic(i, j, Order,AAAA); ;
 
 
                                         Table = SolderesOnTable[i].SoldierThinking[k].TableListSolder[j];
@@ -1571,7 +1586,7 @@ namespace RefrigtzW
                 for (i = 0; i < ElefantHigh; i++)
                 {
                     for (int k = 0; k < AllDraw.ElefantMovments; k++)
-                        for (j = 0; ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[k] != null && j < ElephantOnTable[i].ElefantThinking[k].TableListElefant.Count; j++)
+                        for (j = 0; ElephantOnTable  != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[k] != null && j < ElephantOnTable[i].ElefantThinking[k].TableListElefant.Count; j++)
                         {
                             try
                             {
@@ -1585,7 +1600,7 @@ namespace RefrigtzW
 
                                 //For Higher Huristic Values.
                                 if (AllDraw.OrderPlate == Order)
-                                    if (ElephantOnTable[i].ElefantThinking[k].ReturnHuristic(i, j, Order) >= Less)
+                                    if (ElephantOnTable[i].ElefantThinking[k].ReturnHuristic(i, j, Order,AAAA) >= Less)
                                     {
 
                                         //Initiate Table of Current Object.
@@ -1648,7 +1663,7 @@ namespace RefrigtzW
                                                     CL = k;
                                                     Ki = 1;
                                                     Act = true;
-                                                    Less = ElephantOnTable[i].ElefantThinking[k].ReturnHuristic(i, j, Order); ;
+                                                    Less = ElephantOnTable[i].ElefantThinking[k].ReturnHuristic(i, j, Order,AAAA); ;
 
                                                 }
                                             }
@@ -1693,7 +1708,7 @@ namespace RefrigtzW
                                         CL = k;
                                         Ki = 2;
                                         Act = true;
-                                        Less = ElephantOnTable[i].ElefantThinking[k].ReturnHuristic(i, j, Order); ;
+                                        Less = ElephantOnTable[i].ElefantThinking[k].ReturnHuristic(i, j, Order,AAAA); ;
                                         Table = ElephantOnTable[i].ElefantThinking[k].TableListElefant[j];
 
                                     }
@@ -1710,7 +1725,7 @@ namespace RefrigtzW
                 {
 
                     for (int k = 0; k < AllDraw.HourseMovments; k++)
-                        for (j = 0; HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[k] != null && j < HoursesOnTable[i].HourseThinking[k].TableListHourse.Count; j++)
+                        for (j = 0; HoursesOnTable  != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[k] != null && j < HoursesOnTable[i].HourseThinking[k].TableListHourse.Count; j++)
                         {
                             try
                             {
@@ -1725,7 +1740,7 @@ namespace RefrigtzW
 
                                 //For Higher Huristic Values.
                                 if (AllDraw.OrderPlate == Order)
-                                    if (HoursesOnTable[i].HourseThinking[k].ReturnHuristic(i, j, Order) >= Less)
+                                    if (HoursesOnTable[i].HourseThinking[k].ReturnHuristic(i, j, Order,AAAA) >= Less)
                                     {
                                         //Initiate Table of Current Object.
                                         int[,] TableS = HoursesOnTable[i].HourseThinking[k].TableListHourse[j];
@@ -1818,7 +1833,7 @@ namespace RefrigtzW
                                                     CL = k;
                                                     Ki = 1;
                                                     Act = true;
-                                                    Less = HoursesOnTable[i].HourseThinking[k].ReturnHuristic(i, j, Order); ;
+                                                    Less = HoursesOnTable[i].HourseThinking[k].ReturnHuristic(i, j, Order,AAAA); ;
                                                     continue;
                                                 }
 
@@ -1832,7 +1847,7 @@ namespace RefrigtzW
                                         CL = k;
                                         Ki = 3;
                                         Act = true;
-                                        Less = HoursesOnTable[i].HourseThinking[k].ReturnHuristic(i, j, Order); ;
+                                        Less = HoursesOnTable[i].HourseThinking[k].ReturnHuristic(i, j, Order,AAAA); ;
                                         Table = HoursesOnTable[i].HourseThinking[k].TableListHourse[j];
 
                                     }
@@ -1849,7 +1864,7 @@ namespace RefrigtzW
                 for (i = 0; i < CastleHigh; i++)
                 {
                     for (int k = 0; k < AllDraw.CastleMovments; k++)
-                        for (j = 0; CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[k] != null && j < CastlesOnTable[i].CastleThinking[k].TableListCastle.Count; j++)
+                        for (j = 0; CastlesOnTable  != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[k] != null && j < CastlesOnTable[i].CastleThinking[k].TableListCastle.Count; j++)
                         {
                             try
                             {
@@ -1862,7 +1877,7 @@ namespace RefrigtzW
                                     }
                                 //For Higher Huristic Values.
                                 if (AllDraw.OrderPlate == Order)
-                                    if (CastlesOnTable[i].CastleThinking[k].ReturnHuristic(i, j, Order) >= Less)
+                                    if (CastlesOnTable[i].CastleThinking[k].ReturnHuristic(i, j, Order,AAAA) >= Less)
                                     {
                                         //Initiate Table of Current Object.
                                         int[,] TableS = CastlesOnTable[i].CastleThinking[k].TableListCastle[j];
@@ -1952,7 +1967,7 @@ namespace RefrigtzW
                                                     CL = k;
                                                     Ki = 1;
                                                     Act = true;
-                                                    Less = CastlesOnTable[i].CastleThinking[k].ReturnHuristic(i, j, Order); ;
+                                                    Less = CastlesOnTable[i].CastleThinking[k].ReturnHuristic(i, j, Order,AAAA); ;
 
                                                     continue;
                                                 }
@@ -1967,7 +1982,7 @@ namespace RefrigtzW
                                         CL = k;
                                         Ki = 4;
                                         Act = true;
-                                        Less = CastlesOnTable[i].CastleThinking[k].ReturnHuristic(i, j, Order); ;
+                                        Less = CastlesOnTable[i].CastleThinking[k].ReturnHuristic(i, j, Order,AAAA); ;
                                         Table = CastlesOnTable[i].CastleThinking[k].TableListCastle[j];
 
                                     }
@@ -1984,7 +1999,7 @@ namespace RefrigtzW
                 {
 
                     for (int k = 0; k < AllDraw.MinisterMovments; k++)
-                        for (j = 0; MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[k] != null && j < MinisterOnTable[i].MinisterThinking[k].TableListMinister.Count; j++)
+                        for (j = 0; MinisterOnTable  != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[k] != null && j < MinisterOnTable[i].MinisterThinking[k].TableListMinister.Count; j++)
                         {
                             try
                             {
@@ -1997,7 +2012,7 @@ namespace RefrigtzW
                                     }
                                 //For Higher Huristic Values.
                                 if (AllDraw.OrderPlate == Order)
-                                    if (MinisterOnTable[i].MinisterThinking[k].ReturnHuristic(i, j, Order) >= Less)
+                                    if (MinisterOnTable[i].MinisterThinking[k].ReturnHuristic(i, j, Order,AAAA) >= Less)
                                     {
                                         //Initiate Table of Current Object.
                                         int[,] TableS = MinisterOnTable[i].MinisterThinking[k].TableListMinister[j];
@@ -2096,7 +2111,7 @@ namespace RefrigtzW
                                         CL = k;
                                         Ki = 5;
                                         Act = true;
-                                        Less = MinisterOnTable[i].MinisterThinking[k].ReturnHuristic(i, j, Order); ;
+                                        Less = MinisterOnTable[i].MinisterThinking[k].ReturnHuristic(i, j, Order,AAAA); ;
                                         Table = MinisterOnTable[i].MinisterThinking[k].TableListMinister[j];
 
                                     }
@@ -2113,7 +2128,7 @@ namespace RefrigtzW
                 for (i = 0; i < KingHigh; i++)
                 {
                     for (int k = 0; k < AllDraw.KingMovments; k++)
-                        for (j = 0; KingOnTable[i] != null && KingOnTable[i].KingThinking[k] != null && j < KingOnTable[i].KingThinking[k].TableListKing.Count; j++)
+                        for (j = 0; KingOnTable  != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[k] != null && j < KingOnTable[i].KingThinking[k].TableListKing.Count; j++)
                         {
                             try
                             {
@@ -2126,7 +2141,7 @@ namespace RefrigtzW
                                     }
                                 //For Higher Huristic Values.
                                 if (AllDraw.OrderPlate == Order)
-                                    if (KingOnTable[i].KingThinking[k].ReturnHuristic(i, j, Order) >= Less)
+                                    if (KingOnTable[i].KingThinking[k].ReturnHuristic(i, j, Order,AAAA) >= Less)
                                     {
                                         //Initiate Table of Current Object.
                                         int[,] TableS = KingOnTable[i].KingThinking[k].TableListKing[j];
@@ -2217,7 +2232,7 @@ namespace RefrigtzW
                                                     CL = k;
                                                     Ki = 1;
                                                     Act = true;
-                                                    Less = KingOnTable[i].KingThinking[k].ReturnHuristic(i, j, Order); ;
+                                                    Less = KingOnTable[i].KingThinking[k].ReturnHuristic(i, j, Order,AAAA); ;
                                                     continue;
                                                 }
 
@@ -2232,7 +2247,7 @@ namespace RefrigtzW
                                         CL = k;
                                         Ki = 6;
                                         Act = true;
-                                        Less = KingOnTable[i].KingThinking[k].ReturnHuristic(i, j, Order); ;
+                                        Less = KingOnTable[i].KingThinking[k].ReturnHuristic(i, j, Order,AAAA);
                                         Table = KingOnTable[i].KingThinking[k].TableListKing[j];
 
                                     }
@@ -2335,7 +2350,7 @@ namespace RefrigtzW
 
                         In = (new System.Random()).Next(8, 16);
                     iiii++;
-                } while (SolderesOnTable[In] == null && iiii < 16);
+                } while (SolderesOnTable[In] == null || iiii < 16);
                 //For Sixteen Times Take a Look At Thinking.
                 if (iiii < 16)
                     this.InitiateForEveryKindThingHome(new AllDraw(Order, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged), (int)(int)SolderesOnTable[In].Row, (int)(int)SolderesOnTable[In].Column, a, TablInit, Order, false, In);

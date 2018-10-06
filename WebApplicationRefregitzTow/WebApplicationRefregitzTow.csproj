@@ -340,6 +340,7 @@
     <Compile Include="ChessGeneticAlgorithm.cs" />
     <Compile Include="ChessPerdict.cs" />
     <Compile Include="ChessRules.cs" />
+    <Compile Include="CodeClass.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

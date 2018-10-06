@@ -822,7 +822,7 @@ namespace RefrigtzW
                 if (DoIgnore)
                     ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = true;
             }
-            
+
             //Check identification.
             Check(Tab, Order);
             bool CheckGrayDummy = CheckGray;
