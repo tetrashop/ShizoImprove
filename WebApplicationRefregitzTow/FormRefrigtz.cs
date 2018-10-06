@@ -76,6 +76,7 @@ using System.Data.OleDb;
 using System.Media;
 using System.IO;
 using Refrigtz;
+using System.Threading.Tasks;
 
 [assembly: CLSCompliant(true)]
 
@@ -180,7 +181,7 @@ namespace RefrigtzW
         float RowRealesed = -1, ColumnRealeased = -1;
         public static int[,] Table = new int[8, 8];
         FormRefrigtz THIs = null;
-        String connParam = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Root + "\\" + "Database\\CurrentBank.accdb;;Persist Security Info=False; Jet OLEDB:Database Password='!HN#BGHHN&N$G$V4'";
+        String connParam = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Root +  "Database\\CurrentBank.accdb;;Persist Security Info=False; Jet OLEDB:Database Password='!HN#BGHHN&N$G$V4'";
         //Error Handling.
         static void Log(Exception ex)
         {
@@ -463,6 +464,7 @@ namespace RefrigtzW
                     bookConn.Close();
                     bookConn.Dispose();
                     oleDbCmd.Dispose();
+
                     if (Move > 0)
                         OrderPlate *= -1;
                     if ((new ChessRules(0,MovementsAStarGreedyHuristicFound,IInoreSelfObjects,UsePenaltyRegardMechnisam,BestMovments,PredictHuristic,OnlySelf,AStarGreedyHuristic,ArrangmentsChanged,1, TableA, OrderPlate, -1, -1).CheckMate(TableA, OrderPlate)))
@@ -486,8 +488,12 @@ namespace RefrigtzW
                     {
 
 
-                        
+
+                        bookConn.Close();
+                        bookConn.Dispose();
+                        oleDbCmd.Dispose();
                         bookConn = new OleDbConnection(connParam);
+
                         bookConn.Open();
                         oleDbCmd = new OleDbCommand();
                         oleDbCmd.Connection = bookConn;
@@ -1187,11 +1193,7 @@ namespace RefrigtzW
         public void InsertTableAtDataBase(int[,] Table)
         {
             
-            bookConn = new OleDbConnection(connParam);
-            oleDbCmd = new OleDbCommand();
-            bookConn.Open();
-            oleDbCmd.Connection = bookConn;
-
+            
             //TimersSet = false;
             int[,] Tab = new int[8, 8];
             for (int i = 0; i < 8; i++)
@@ -1200,15 +1202,23 @@ namespace RefrigtzW
             String TableName = CreatTable();
              for (int i = 0; i < 8; i++)
             {
+                bookConn = new OleDbConnection(connParam);
+                oleDbCmd = new OleDbCommand();
+                bookConn.Open();
+                oleDbCmd.Connection = bookConn;
+
                 oleDbCmd.CommandText = "insert into " + TableName + "(a,b,c,d,e,f,g,h)  values (" + Tab[0, i].ToString() + "," + Tab[1, i].ToString() + "," + Tab[2, i].ToString() + "," + Tab[3, i].ToString() + "," + Tab[4, i].ToString() + "," + Tab[5, i].ToString() + "," + Tab[6, i].ToString() + "," + Tab[7, i].ToString() + ")";
                 int temp = 0;
                 temp = oleDbCmd.ExecuteNonQuery();
 
+                bookConn.Close();
+                bookConn.Dispose();
+                oleDbCmd.Dispose();
+
             }
-            bookConn.Close();
-            bookConn.Dispose();
-            oleDbCmd.Dispose();
+
             MaxCurrentMovmentsNumber++;
+
             //bookConn.Close();
             //oleDbCmd.Dispose();
             //bookConn.Dispose();
@@ -1246,6 +1256,9 @@ namespace RefrigtzW
         }
         public void Load()
         {
+            var parallelOptions = new ParallelOptions();
+            parallelOptions.MaxDegreeOfParallelism = Int32.MaxValue;
+
             MovmentsNumber = 0;
             
             ttt = new WebApplicationRefregitzTow._Default();
@@ -1259,7 +1272,7 @@ namespace RefrigtzW
             
 
             ThinkingA = true;
-            
+
             bookConn = new OleDbConnection(connParam);
             oleDbCmd = new OleDbCommand();
             bookConn.Open();
@@ -1272,6 +1285,7 @@ namespace RefrigtzW
             oleDbCmd.Dispose();
 
             Table = ReadTable(0, ref MovmentsNumber);
+
             int[,] TableA = new int[8, 8];
             for (int i = 0; i < 8; i++)
                 for (int j = 0; j < 8; j++)
@@ -1329,7 +1343,12 @@ namespace RefrigtzW
                     Draw.SetRowColumn(0);
                     RefrigtzW.AllDraw.TableListAction.Add(Tab);
                     //RefrigtzW.FormRefrigtz.MovmentsNumber++; 
+
+                    
                     InsertTableAtDataBase(Tab);
+
+
+                    
                     //ttt.AddBPOP();
                     //LoadPlaceHolder = true;
                     using (SoundPlayer soundClick = new SoundPlayer(Root + "\\Music\\Click6.wav"))
@@ -1478,11 +1497,11 @@ namespace RefrigtzW
                     Draw.SetRowColumn(0);
                     RefrigtzW.AllDraw.DepthIterative = 0;
                 }
-                Draw.Initiate(1, 4, a, Table, OrderPlate, false, false, LeafAStarGrteedy);
+                Table = Draw.Initiate(1, 4, a, Table, OrderPlate, false, false, LeafAStarGrteedy);
                 //this.//SetBoxText("\r\nThinking Finished!");
                 try
                 {
-                    Table = Draw.TableList[0];
+                    
                     if (!TableZero(Table))
                     {
                         SettingPRFALSE = true;
@@ -1520,7 +1539,7 @@ namespace RefrigtzW
                     goto Begin1;
                 }
 
-                Draw.SetRowColumn(0);
+                //Draw.SetRowColumn(0);
                 int[,] TableCon = new int[8, 8];
                 for (int i = 0; i < 8; i++)
                     for (int j = 0; j < 8; j++)
@@ -1531,9 +1550,11 @@ namespace RefrigtzW
                     for (int j = 0; j < 8; j++)
                         Tab[i, j] = Table[i, j];
                 //RefrigtzW.FormRefrigtz.MovmentsNumber++; 
+                
                 InsertTableAtDataBase(Tab);
 
                 if (AllDraw.TableListAction.Count > 1)
+
                 {
                     ChessGeneticAlgorithm R = new ChessGeneticAlgorithm(MovementsAStarGreedyHuristicFound,IInoreSelfObjects,UsePenaltyRegardMechnisam,BestMovments,PredictHuristic,OnlySelf,AStarGreedyHuristic,ArrangmentsChanged);
                     if (R.FindGenToModified(AllDraw.TableListAction[AllDraw.TableListAction.Count - 2], AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.TableListAction, 0, OrderPlate, true))
