@@ -3381,7 +3381,7 @@ namespace RefrigtzDLL
                             {
 
                                 //For Current Home
-                                Parallel.For(-7, 8, iki =>
+                                Parallel.For(0, 8, iki =>
                                     {
                                         int jki = iki + jk - ik;
                                         if (!Scop(ik, jk, iki, jki, 2))
@@ -3408,7 +3408,7 @@ namespace RefrigtzDLL
                                         }
                                     });
                                 //For Current Home
-                                Parallel.For(-7, 8, iki =>
+                                Parallel.For(0, 8, iki =>
                                     {
                                         int jki = iki * -1 + jk + ik;
                                         if (!Scop(ik, jk, iki, jki, 2))
