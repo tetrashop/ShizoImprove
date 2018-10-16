@@ -10693,7 +10693,7 @@ namespace RefrigtzDLL
                         lock (oooo)
                         {
 
-                            if (ElefantMidle >= i && ElefantHigh < i)
+                            if (ElefantMidle <= i && ElefantHigh > i)
                             {
 
                                 Object O = new Object();
@@ -10746,7 +10746,7 @@ namespace RefrigtzDLL
                         lock (oooo)
                         {
 
-                            if (HourseMidle >= i && HourseHight > i)
+                            if (HourseMidle <= i && HourseHight > i)
                             {
 
                                 Object O = new Object();
@@ -10800,7 +10800,7 @@ namespace RefrigtzDLL
                         lock (oooo)
                         {
 
-                            if (CastleMidle >= i && CastleHigh > i)
+                            if (CastleMidle <= i && CastleHigh < i)
                             {
                                 Object O = new Object();
                                 lock (O)
@@ -10908,8 +10908,6 @@ namespace RefrigtzDLL
                         {
                             if (KingMidle <= i && KingHigh > i)
                             {
-
-
                                 Object O = new Object();
                                 lock (O)
                                 {

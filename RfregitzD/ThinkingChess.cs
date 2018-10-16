@@ -7952,7 +7952,7 @@ namespace RefrigtzDLL
                     TableS[7, jj] = 0;
 
                 }
-                PenaltyMechanisam(Killed, false, 6, TableS, ii, jj, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
+                PenaltyMechanisam(Killed, false, 7, TableS, ii, jj, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
                 //{ ThinkingAtRun = false; return; }
                 //Store Movments Items. 
                 int[] AS = new int[2];
@@ -8151,7 +8151,7 @@ namespace RefrigtzDLL
                     TableS[7, jj] = 0;
 
                 }
-                PenaltyMechanisam(Killed, false, 6, TableS, ii, jj, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
+                PenaltyMechanisam(Killed, false, 7, TableS, ii, jj, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
                 //{ ThinkingAtRun = false; return; }
 
                 //Store Movments Items.
@@ -8355,7 +8355,7 @@ namespace RefrigtzDLL
                 Object O1 = new Object();
                 lock (O1)
                 {
-                    Parallel.For(-7, 8, i =>
+                    Parallel.For(0, 8, i =>
                     {
                         Object O = new Object();
                         lock (O)
@@ -8372,7 +8372,7 @@ namespace RefrigtzDLL
                         }
                     });
                     //==================
-                    Parallel.For(-7, 8, i =>
+                    Parallel.For(0, 8, i =>
                     {
                         Object O = new Object();
                         lock (O)
@@ -8989,6 +8989,8 @@ namespace RefrigtzDLL
                             AllDraw.OutPut = "\r\nBoundry Condition at Thinking at " + ThinkingChess.FoundFirstMating.ToString() + " Checkmate";
                             ThinkingFinished = true;
                             CheckMateOcuured = true;
+                            if ((AAA.CheckMateGray && Order == 1) || (AAA.CheckMateBrown && Order == -1))
+                                FoundFirstMating++;
                             EndThread++;
                         }
                         return;

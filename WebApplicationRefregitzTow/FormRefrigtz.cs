@@ -1260,7 +1260,7 @@ namespace RefrigtzW
             parallelOptions.MaxDegreeOfParallelism = Int32.MaxValue;
 
             MovmentsNumber = 0;
-            
+
             ttt = new WebApplicationRefregitzTow._Default();
             //ttt.Iniziate();
             //GC.Collect();
@@ -1409,7 +1409,8 @@ namespace RefrigtzW
                         //PlaceHolderBreak = false;
                         //tSPHT.Start();
                         //System.Web.HttpContext.Current.Response.AppendHeader("Refresh", 30 + "; URL=~/Default.aspx");   
-                        ttt.LoadPlaceHolder();
+                        //ttt.LoadPlaceHolder();
+                        ttt = new WebApplicationRefregitzTow._Default();
                     }
                 }
                 if (!File.Exists("AllDraw.asd"))
