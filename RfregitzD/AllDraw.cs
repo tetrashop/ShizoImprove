@@ -3707,13 +3707,14 @@ namespace RefrigtzDLL
 
                             try
                             {
-                                if (SolderesOnTable[i].SoldierThinking[0].IsThereMateOfEnemy && SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count == 0 && Kind == 1)
+                                if (SolderesOnTable[i].SoldierThinking[0].IsThereMateOfEnemy// && SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count == 0 
+                                    && Kind == 1)
                                 {
                                     Found = true;
                                     return true;
                                 }
                                 else
-                                    for (int ii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count - 1; ii++)
+                                    for (int ii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count ; ii++)
                                         SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
 
                             }
@@ -3728,13 +3729,14 @@ namespace RefrigtzDLL
                         {
                             try
                             {
-                                if (ElephantOnTable[i].ElefantThinking[0].IsThereMateOfEnemy && ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count == 0 && Kind == 2)
+                                if (ElephantOnTable[i].ElefantThinking[0].IsThereMateOfEnemy //&& ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count == 0 
+                            && Kind == 2)
                                 {
                                     Found = true;
                                     return true;
                                 }
                                 else
-                                    for (int ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count - 1; ii++)
+                                    for (int ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count ; ii++)
                                         ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
 
 
@@ -3749,13 +3751,14 @@ namespace RefrigtzDLL
                         {
                             try
                             {
-                                if (HoursesOnTable[i].HourseThinking[0].IsThereMateOfEnemy && HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count == 0 && Kind == 3)
+                                if (HoursesOnTable[i].HourseThinking[0].IsThereMateOfEnemy //&& HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count == 0 
+    && Kind == 3)
                                 {
                                     Found = true;
                                     return true;
                                 }
                                 else
-                                    for (int ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count - 1; ii++)
+                                    for (int ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count ; ii++)
                                         HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
 
                             }
@@ -3771,13 +3774,14 @@ namespace RefrigtzDLL
                         {
                             try
                             {
-                                if (CastlesOnTable[i].CastleThinking[0].IsThereMateOfEnemy && CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count == 0 && Kind == 4)
+                                if (CastlesOnTable[i].CastleThinking[0].IsThereMateOfEnemy //&& CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count == 0 
+                                    && Kind == 4)
                                 {
                                     Found = true;
                                     return true;
                                 }
                                 else
-                                    for (int ii = 0; ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count - 1; ii++)
+                                    for (int ii = 0; ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count ; ii++)
                                         CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
                             }
                             catch (Exception t)
@@ -3791,13 +3795,14 @@ namespace RefrigtzDLL
                         {
                             try
                             {
-                                if (MinisterOnTable[i].MinisterThinking[0].IsThereMateOfEnemy && MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count == 0 && Kind == 5)
+                                if (MinisterOnTable[i].MinisterThinking[0].IsThereMateOfEnemy //&& MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count == 0 
+                                    && Kind == 5)
                                 {
                                     Found = true;
                                     return true;
                                 }
                                 else
-                                    for (int ii = 0; ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count - 1; ii++)
+                                    for (int ii = 0; ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count ; ii++)
                                         MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
 
                             }
@@ -3812,13 +3817,14 @@ namespace RefrigtzDLL
                         {
                             try
                             {
-                                if (KingOnTable[i].KingThinking[0].IsThereMateOfEnemy && KingOnTable[i].KingThinking[0].AStarGreedy.Count == 0 && Kind == 6)
+                                if (KingOnTable[i].KingThinking[0].IsThereMateOfEnemy //&& KingOnTable[i].KingThinking[0].AStarGreedy.Count == 0 
+                                    && Kind == 6)
                                 {
                                     Found = true;
                                     return true;
                                 }
                                 else
-                                    for (int ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy.Count - 1; ii++)
+                                    for (int ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy.Count ; ii++)
                                         KingOnTable[i].KingThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
 
                             }
@@ -3837,13 +3843,14 @@ namespace RefrigtzDLL
                             try
                             {
 
-                                if (SolderesOnTable[i].SoldierThinking[0].IsThereMateOfEnemy && SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count == 0 && Kind == 1)
+                                if (SolderesOnTable[i].SoldierThinking[0].IsThereMateOfEnemy //&& SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count == 0 
+                                    && Kind == 1)
                                 {
                                     Found = true;
                                     return true;
                                 }
                                 else
-                                    for (int ii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count - 1; ii++)
+                                    for (int ii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count ; ii++)
                                         SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
                             }
                             catch (Exception t)
@@ -3857,13 +3864,14 @@ namespace RefrigtzDLL
                             try
                             {
 
-                                if (ElephantOnTable[i].ElefantThinking[0].IsThereMateOfEnemy && ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count == 0 && Kind == 2)
+                                if (ElephantOnTable[i].ElefantThinking[0].IsThereMateOfEnemy //&& ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count == 0 
+                                    && Kind == 2)
                                 {
                                     Found = true;
                                     return true;
                                 }
                                 else
-                                    for (int ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count - 1; ii++)
+                                    for (int ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count ; ii++)
                                         ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
                             }
                             catch (Exception t)
@@ -3877,13 +3885,14 @@ namespace RefrigtzDLL
                             try
                             {
 
-                                if (HoursesOnTable[i].HourseThinking[0].IsThereMateOfEnemy && HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count == 0 && Kind == 3)
+                                if (HoursesOnTable[i].HourseThinking[0].IsThereMateOfEnemy //&& HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count == 0 
+                                    && Kind == 3)
                                 {
                                     Found = true;
                                     return true;
                                 }
                                 else
-                                    for (int ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count - 1; ii++)
+                                    for (int ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count ; ii++)
                                         HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
                             }
                             catch (Exception t)
@@ -3897,13 +3906,14 @@ namespace RefrigtzDLL
                             try
                             {
 
-                                if (CastlesOnTable[i].CastleThinking[0].IsThereMateOfEnemy && CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count == 0 && Kind == 4)
+                                if (CastlesOnTable[i].CastleThinking[0].IsThereMateOfEnemy //&& CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count == 0 
+                                    && Kind == 4)
                                 {
                                     Found = true;
                                     return true;
                                 }
                                 else
-                                    for (int ii = 0; ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count - 1; ii++)
+                                    for (int ii = 0; ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count ; ii++)
                                         CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
 
                             }
@@ -3917,13 +3927,14 @@ namespace RefrigtzDLL
                         {
                             try
                             {
-                                if (MinisterOnTable[i].MinisterThinking[0].IsThereMateOfEnemy && MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count == 0 && Kind == 5)
+                                if (MinisterOnTable[i].MinisterThinking[0].IsThereMateOfEnemy //&& MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count == 0
+                                    && Kind == 5)
                                 {
                                     Found = true;
                                     return true;
                                 }
                                 else
-                                    for (int ii = 0; ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count - 1; ii++)
+                                    for (int ii = 0; ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count ; ii++)
                                         MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
 
                             }
@@ -3937,14 +3948,15 @@ namespace RefrigtzDLL
                         {
                             try
                             {
-                                if (KingOnTable[i].KingThinking[0].IsThereMateOfEnemy && KingOnTable[i].KingThinking[0].AStarGreedy.Count == 0 && Kind == 6)
+                                if (KingOnTable[i].KingThinking[0].IsThereMateOfEnemy //&& KingOnTable[i].KingThinking[0].AStarGreedy.Count == 0 
+                                    && Kind == 6)
                                 {
                                     Found = true;
                                     return true;
 
                                 }
                                 else
-                                    for (int ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy.Count - 1; ii++)
+                                    for (int ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy.Count ; ii++)
                                         KingOnTable[i].KingThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
 
 
