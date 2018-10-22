@@ -210,8 +210,8 @@ namespace Refrigtz
             { -4, -1, 0, 0, 0, 0, 1, 4 },
             { -3, -1, 0, 0, 0, 0, 1, 3 },
             { -2, -1, 0, 0, 0, 0, 1, 2 },
-            { -6, -1, 0, 0, 0, 0, 1, 5 },
-            { -5, -1, 0, 0, 0, 0, 1, 6 },
+            { -5, -1, 0, 0, 0, 0, 1, 5 },
+            { -6, -1, 0, 0, 0, 0, 1, 6 },
             { -2, -1, 0, 0, 0, 0, 1, 2 },
             { -3, -1, 0, 0, 0, 0, 1, 3 },
             { -4, -1, 0, 0, 0, 0, 1, 4 }
@@ -7485,7 +7485,7 @@ namespace Refrigtz
                 if (Tag.Contains("King"))
                     Tag = Tag.Replace("King", "<font Color=\"Silver\">" + "King" + "</font>");
                     */
-                String R = "<font Color=\"Red\">" + Tag + "</font><br/>";
+                String R = "<font Color=\"Red\">" + Tag + "</font>";
 
                 return R;
             }
@@ -7547,7 +7547,7 @@ namespace Refrigtz
                         SetTextBoxTextCallback d = new SetTextBoxTextCallback(SetBoxText);
                         this.Invoke(new Action(() => textBoxText.AppendText(state + " At Time " + A)));
                         state = CreateHtmlTag(state);
-                        Out += state + " At Time " + A + "\n\t";
+                        Out += state + " At Time " + A + "\n\t<br/>";
                     }
                     catch (Exception t) { Log(t); }
                 }
@@ -7560,7 +7560,7 @@ namespace Refrigtz
                             A = BrownTimer.ReturnTime();
                         textBoxText.AppendText(state + " At Time " + A);
                         state = CreateHtmlTag(state);
-                        Out += state + " At Time " + A + "\n\t";
+                        Out += state + " At Time " + A + "\n\t<br/>";
                     }
                     catch (Exception t) { Log(t); }
                 }

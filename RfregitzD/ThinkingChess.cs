@@ -8150,7 +8150,7 @@ namespace RefrigtzDLL
                 Object O1 = new Object();
                 lock (O1)
                 {
-
+                    /*
                     HuristicAttackValue = Huriistic[0] * SignOrderToPlate(Order);
                     HuristicKillerValue = Huriistic[1] * SignOrderToPlate(Order);
                     HuristicMovementValue = Huriistic[2] * SignOrderToPlate(Order);
@@ -8161,6 +8161,18 @@ namespace RefrigtzDLL
                     HeuristicKingSafe = HKingSafe * SignOrderToPlate(Order);
                     HeuristicFromCenter = HFromCenter * SignOrderToPlate(Order);
                     HeuristicKingDangour = HKingDangour * SignOrderToPlate(Order);
+                    */
+                    HuristicAttackValue = Huriistic[0];
+                    HuristicKillerValue = Huriistic[1];
+                    HuristicMovementValue = Huriistic[2];
+                    HuristicObjectDangourCheckMateValue = (Huriistic[3] + HCheck);
+                    HuristicReducedAttackValue = Huriistic[4];
+                    HuristicSelfSupportedValue = Huriistic[5];
+                    HeuristicDistabceOfCurrentMoveFromEnemyKingValue = HDistance;
+                    HeuristicKingSafe = HKingSafe;
+                    HeuristicFromCenter = HFromCenter;
+                    HeuristicKingDangour = HKingDangour;
+
                 }
             }
         }

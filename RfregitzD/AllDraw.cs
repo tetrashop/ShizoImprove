@@ -12809,6 +12809,16 @@ namespace RefrigtzDLL
 
             int[] jIndex = new int[6];
             double PreviousLessS = Double.MinValue, PreviousLessE = Double.MinValue, PreviousLessH = Double.MinValue, PreviousLessB = Double.MinValue, PreviousLessM = Double.MinValue, PreviousLessK = Double.MinValue;
+            if (Order != OrderPlate)
+            {
+                PreviousLessS = Double.MaxValue;
+                PreviousLessE = Double.MaxValue;
+                PreviousLessH = Double.MaxValue;
+                PreviousLessB = Double.MaxValue;
+                PreviousLessM = Double.MaxValue;
+                PreviousLessK = Double.MaxValue;             
+
+            }
             //For Gray Order calculating foreach Objects Maximum total Huristic Count Incl;usively.
             if (Order == 1)
             {
