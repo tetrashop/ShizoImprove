@@ -3707,13 +3707,14 @@ namespace RefrigtzW
 
                             try
                             {
-                                if (SolderesOnTable[i].SoldierThinking[0].IsThereMateOfEnemy && SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count == 0 && Kind == 1)
+                                if (SolderesOnTable[i].SoldierThinking[0].IsThereMateOfEnemy// && SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count == 0 
+                                    && Kind == 1)
                                 {
                                     Found = true;
                                     return true;
                                 }
                                 else
-                                    for (int ii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count - 1; ii++)
+                                    for (int ii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count ; ii++)
                                         SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
 
                             }
@@ -3728,13 +3729,14 @@ namespace RefrigtzW
                         {
                             try
                             {
-                                if (ElephantOnTable[i].ElefantThinking[0].IsThereMateOfEnemy && ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count == 0 && Kind == 2)
+                                if (ElephantOnTable[i].ElefantThinking[0].IsThereMateOfEnemy //&& ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count == 0 
+                            && Kind == 2)
                                 {
                                     Found = true;
                                     return true;
                                 }
                                 else
-                                    for (int ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count - 1; ii++)
+                                    for (int ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count ; ii++)
                                         ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
 
 
@@ -3749,13 +3751,14 @@ namespace RefrigtzW
                         {
                             try
                             {
-                                if (HoursesOnTable[i].HourseThinking[0].IsThereMateOfEnemy && HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count == 0 && Kind == 3)
+                                if (HoursesOnTable[i].HourseThinking[0].IsThereMateOfEnemy //&& HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count == 0 
+    && Kind == 3)
                                 {
                                     Found = true;
                                     return true;
                                 }
                                 else
-                                    for (int ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count - 1; ii++)
+                                    for (int ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count ; ii++)
                                         HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
 
                             }
@@ -3771,13 +3774,14 @@ namespace RefrigtzW
                         {
                             try
                             {
-                                if (CastlesOnTable[i].CastleThinking[0].IsThereMateOfEnemy && CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count == 0 && Kind == 4)
+                                if (CastlesOnTable[i].CastleThinking[0].IsThereMateOfEnemy //&& CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count == 0 
+                                    && Kind == 4)
                                 {
                                     Found = true;
                                     return true;
                                 }
                                 else
-                                    for (int ii = 0; ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count - 1; ii++)
+                                    for (int ii = 0; ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count ; ii++)
                                         CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
                             }
                             catch (Exception t)
@@ -3791,13 +3795,14 @@ namespace RefrigtzW
                         {
                             try
                             {
-                                if (MinisterOnTable[i].MinisterThinking[0].IsThereMateOfEnemy && MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count == 0 && Kind == 5)
+                                if (MinisterOnTable[i].MinisterThinking[0].IsThereMateOfEnemy //&& MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count == 0 
+                                    && Kind == 5)
                                 {
                                     Found = true;
                                     return true;
                                 }
                                 else
-                                    for (int ii = 0; ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count - 1; ii++)
+                                    for (int ii = 0; ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count ; ii++)
                                         MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
 
                             }
@@ -3812,13 +3817,14 @@ namespace RefrigtzW
                         {
                             try
                             {
-                                if (KingOnTable[i].KingThinking[0].IsThereMateOfEnemy && KingOnTable[i].KingThinking[0].AStarGreedy.Count == 0 && Kind == 6)
+                                if (KingOnTable[i].KingThinking[0].IsThereMateOfEnemy //&& KingOnTable[i].KingThinking[0].AStarGreedy.Count == 0 
+                                    && Kind == 6)
                                 {
                                     Found = true;
                                     return true;
                                 }
                                 else
-                                    for (int ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy.Count - 1; ii++)
+                                    for (int ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy.Count ; ii++)
                                         KingOnTable[i].KingThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
 
                             }
@@ -3837,13 +3843,14 @@ namespace RefrigtzW
                             try
                             {
 
-                                if (SolderesOnTable[i].SoldierThinking[0].IsThereMateOfEnemy && SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count == 0 && Kind == 1)
+                                if (SolderesOnTable[i].SoldierThinking[0].IsThereMateOfEnemy //&& SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count == 0 
+                                    && Kind == 1)
                                 {
                                     Found = true;
                                     return true;
                                 }
                                 else
-                                    for (int ii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count - 1; ii++)
+                                    for (int ii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count ; ii++)
                                         SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
                             }
                             catch (Exception t)
@@ -3857,13 +3864,14 @@ namespace RefrigtzW
                             try
                             {
 
-                                if (ElephantOnTable[i].ElefantThinking[0].IsThereMateOfEnemy && ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count == 0 && Kind == 2)
+                                if (ElephantOnTable[i].ElefantThinking[0].IsThereMateOfEnemy //&& ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count == 0 
+                                    && Kind == 2)
                                 {
                                     Found = true;
                                     return true;
                                 }
                                 else
-                                    for (int ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count - 1; ii++)
+                                    for (int ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count ; ii++)
                                         ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
                             }
                             catch (Exception t)
@@ -3877,13 +3885,14 @@ namespace RefrigtzW
                             try
                             {
 
-                                if (HoursesOnTable[i].HourseThinking[0].IsThereMateOfEnemy && HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count == 0 && Kind == 3)
+                                if (HoursesOnTable[i].HourseThinking[0].IsThereMateOfEnemy //&& HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count == 0 
+                                    && Kind == 3)
                                 {
                                     Found = true;
                                     return true;
                                 }
                                 else
-                                    for (int ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count - 1; ii++)
+                                    for (int ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count ; ii++)
                                         HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
                             }
                             catch (Exception t)
@@ -3897,13 +3906,14 @@ namespace RefrigtzW
                             try
                             {
 
-                                if (CastlesOnTable[i].CastleThinking[0].IsThereMateOfEnemy && CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count == 0 && Kind == 4)
+                                if (CastlesOnTable[i].CastleThinking[0].IsThereMateOfEnemy //&& CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count == 0 
+                                    && Kind == 4)
                                 {
                                     Found = true;
                                     return true;
                                 }
                                 else
-                                    for (int ii = 0; ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count - 1; ii++)
+                                    for (int ii = 0; ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count ; ii++)
                                         CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
 
                             }
@@ -3917,13 +3927,14 @@ namespace RefrigtzW
                         {
                             try
                             {
-                                if (MinisterOnTable[i].MinisterThinking[0].IsThereMateOfEnemy && MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count == 0 && Kind == 5)
+                                if (MinisterOnTable[i].MinisterThinking[0].IsThereMateOfEnemy //&& MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count == 0
+                                    && Kind == 5)
                                 {
                                     Found = true;
                                     return true;
                                 }
                                 else
-                                    for (int ii = 0; ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count - 1; ii++)
+                                    for (int ii = 0; ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count ; ii++)
                                         MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
 
                             }
@@ -3937,14 +3948,15 @@ namespace RefrigtzW
                         {
                             try
                             {
-                                if (KingOnTable[i].KingThinking[0].IsThereMateOfEnemy && KingOnTable[i].KingThinking[0].AStarGreedy.Count == 0 && Kind == 6)
+                                if (KingOnTable[i].KingThinking[0].IsThereMateOfEnemy //&& KingOnTable[i].KingThinking[0].AStarGreedy.Count == 0 
+                                    && Kind == 6)
                                 {
                                     Found = true;
                                     return true;
 
                                 }
                                 else
-                                    for (int ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy.Count - 1; ii++)
+                                    for (int ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy.Count ; ii++)
                                         KingOnTable[i].KingThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
 
 
@@ -10327,6 +10339,7 @@ namespace RefrigtzW
                                                         SolderesOnTable[i].SoldierThinking[0].ThinkingFinished = false;
                                                         SolderesOnTable[i].SoldierThinking[0].Kind = 1;                                                       
                                                         SolderesOnTable[i].SoldierThinking[j].t = new Task(new Action(SolderesOnTable[i].SoldierThinking[j].Thinking));
+                                                        Thread.CurrentThread.Name = i.ToString() + "th Solider Gray";
                                                         SolderesOnTable[i].SoldierThinking[j].t.Start();
 
 
@@ -10383,6 +10396,7 @@ namespace RefrigtzW
                                                         ElephantOnTable[i].ElefantThinking[0].ThinkingFinished = false;
                                                         ElephantOnTable[i].ElefantThinking[0].Kind = 2;
                                                         ElephantOnTable[i].ElefantThinking[0].t = new Task(new Action(ElephantOnTable[i].ElefantThinking[0].Thinking));
+                                                        Thread.CurrentThread.Name = i.ToString() + "th Elehpant Gray";
                                                         ElephantOnTable[i].ElefantThinking[0].t.Start();
 
 
@@ -10438,6 +10452,7 @@ namespace RefrigtzW
                                                         HoursesOnTable[i].HourseThinking[0].ThinkingFinished = false;
                                                         HoursesOnTable[i].HourseThinking[0].Kind = 3;
                                                         HoursesOnTable[i].HourseThinking[0].t = new Task(new Action(HoursesOnTable[i].HourseThinking[0].Thinking));
+                                                        Thread.CurrentThread.Name = i.ToString() + "th Hourse Gray";
                                                         HoursesOnTable[i].HourseThinking[0].t.Start();
                                                     }
                                                 }//);
@@ -10490,6 +10505,7 @@ namespace RefrigtzW
                                                         CastlesOnTable[i].CastleThinking[0].ThinkingFinished = false;
                                                         CastlesOnTable[i].CastleThinking[0].Kind = 4;
                                                         CastlesOnTable[i].CastleThinking[0].t = new Task(new Action(CastlesOnTable[i].CastleThinking[0].Thinking));
+                                                        Thread.CurrentThread.Name = i.ToString() + "th Castle Gray";
                                                         CastlesOnTable[i].CastleThinking[0].t.Start();
 
 
@@ -10546,6 +10562,7 @@ namespace RefrigtzW
                                                         MinisterOnTable[i].MinisterThinking[0].ThinkingFinished = false;
                                                         MinisterOnTable[i].MinisterThinking[0].Kind = 5;
                                                         MinisterOnTable[i].MinisterThinking[0].t = new Task(new Action(MinisterOnTable[i].MinisterThinking[0].Thinking));
+                                                        Thread.CurrentThread.Name = i.ToString() + "th Minister Gray";
                                                         MinisterOnTable[i].MinisterThinking[0].t.Start();
 
 
@@ -10605,6 +10622,7 @@ namespace RefrigtzW
                                                         KingOnTable[i].KingThinking[0].ThinkingFinished = false;
                                                         KingOnTable[i].KingThinking[0].Kind = 6;
                                                         KingOnTable[i].KingThinking[0].t = new Task(new Action(KingOnTable[i].KingThinking[0].Thinking));
+                                                        Thread.CurrentThread.Name = i.ToString() + "th King Gray";
                                                         KingOnTable[i].KingThinking[0].t.Start();
 
                                                     }
@@ -10673,6 +10691,7 @@ namespace RefrigtzW
                                                         SolderesOnTable[i].SoldierThinking[0].ThinkingFinished = false;
                                                         SolderesOnTable[i].SoldierThinking[0].Kind = 1;
                                                         SolderesOnTable[i].SoldierThinking[0].t = new Task(new Action(SolderesOnTable[i].SoldierThinking[0].Thinking));
+                                                        Thread.CurrentThread.Name = i.ToString() + "th Soldier Brown";
                                                         SolderesOnTable[i].SoldierThinking[0].t.Start();
                                                     }
                                                 }//);
@@ -10693,7 +10712,7 @@ namespace RefrigtzW
                         lock (oooo)
                         {
 
-                            if (ElefantMidle >= i && ElefantHigh < i)
+                            if (ElefantMidle <= i && ElefantHigh > i)
                             {
 
                                 Object O = new Object();
@@ -10727,6 +10746,7 @@ namespace RefrigtzW
                                                         ElephantOnTable[i].ElefantThinking[0].ThinkingFinished = false;
                                                         ElephantOnTable[i].ElefantThinking[0].Kind = 2;
                                                         ElephantOnTable[i].ElefantThinking[0].t = new Task(new Action(ElephantOnTable[i].ElefantThinking[0].Thinking));
+                                                        Thread.CurrentThread.Name = i.ToString() + "th Elephant Brown";
                                                         ElephantOnTable[i].ElefantThinking[0].t.Start();
                                                     }
                                                 }//);
@@ -10746,7 +10766,7 @@ namespace RefrigtzW
                         lock (oooo)
                         {
 
-                            if (HourseMidle >= i && HourseHight > i)
+                            if (HourseMidle <= i && HourseHight > i)
                             {
 
                                 Object O = new Object();
@@ -10780,6 +10800,7 @@ namespace RefrigtzW
                                                         HoursesOnTable[i].HourseThinking[0].ThinkingFinished = false;
                                                         HoursesOnTable[i].HourseThinking[0].Kind = 3;
                                                         HoursesOnTable[i].HourseThinking[0].t = new Task(new Action(HoursesOnTable[i].HourseThinking[0].Thinking));
+                                                        Thread.CurrentThread.Name = i.ToString() + "th Hourse Brown";
                                                         HoursesOnTable[i].HourseThinking[0].t.Start();
                                                     }
                                                 }//);
@@ -10800,7 +10821,7 @@ namespace RefrigtzW
                         lock (oooo)
                         {
 
-                            if (CastleMidle >= i && CastleHigh > i)
+                            if (CastleMidle <= i && CastleHigh < i)
                             {
                                 Object O = new Object();
                                 lock (O)
@@ -10833,6 +10854,7 @@ namespace RefrigtzW
                                                         CastlesOnTable[i].CastleThinking[0].ThinkingFinished = false;
                                                         CastlesOnTable[i].CastleThinking[0].Kind = 4;
                                                         CastlesOnTable[i].CastleThinking[0].t = new Task(new Action(HoursesOnTable[i].HourseThinking[0].Thinking));
+                                                        Thread.CurrentThread.Name = i.ToString() + "th Castle Brown";
                                                         CastlesOnTable[i].CastleThinking[0].t.Start();
                                                     }
                                                 }//);
@@ -10886,6 +10908,7 @@ namespace RefrigtzW
                                                         MinisterOnTable[i].MinisterThinking[0].ThinkingFinished = false;
                                                         MinisterOnTable[i].MinisterThinking[0].Kind = 5;
                                                         MinisterOnTable[i].MinisterThinking[0].t = new Task(new Action(MinisterOnTable[i].MinisterThinking[0].Thinking));
+                                                        Thread.CurrentThread.Name = i.ToString() + "th Minister Brown";
                                                         MinisterOnTable[i].MinisterThinking[0].t.Start();
                                                     }
                                                 }//);
@@ -10908,8 +10931,6 @@ namespace RefrigtzW
                         {
                             if (KingMidle <= i && KingHigh > i)
                             {
-
-
                                 Object O = new Object();
                                 lock (O)
                                 {
@@ -10940,6 +10961,7 @@ namespace RefrigtzW
                                                         KingOnTable[i].KingThinking[0].ThinkingFinished = false;
                                                         KingOnTable[i].KingThinking[0].Kind = 6;
                                                         KingOnTable[i].KingThinking[0].t = new Task(new Action(KingOnTable[i].KingThinking[0].Thinking));
+                                                        Thread.CurrentThread.Name = i.ToString() + "th King Brown";
                                                         KingOnTable[i].KingThinking[0].t.Start();
                                                     }
                                                 }//);
@@ -12799,6 +12821,16 @@ namespace RefrigtzW
 
             int[] jIndex = new int[6];
             double PreviousLessS = Double.MinValue, PreviousLessE = Double.MinValue, PreviousLessH = Double.MinValue, PreviousLessB = Double.MinValue, PreviousLessM = Double.MinValue, PreviousLessK = Double.MinValue;
+            if (Order != OrderPlate)
+            {
+                PreviousLessS = Double.MaxValue;
+                PreviousLessE = Double.MaxValue;
+                PreviousLessH = Double.MaxValue;
+                PreviousLessB = Double.MaxValue;
+                PreviousLessM = Double.MaxValue;
+                PreviousLessK = Double.MaxValue;             
+
+            }
             //For Gray Order calculating foreach Objects Maximum total Huristic Count Incl;usively.
             if (Order == 1)
             {
