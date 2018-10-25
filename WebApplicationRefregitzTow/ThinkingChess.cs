@@ -80,6 +80,7 @@ namespace RefrigtzW
     [Serializable]
     public class ThinkingChess
     {
+        int PenaltyNotSupport = 10;
         StackFrame callStack = new StackFrame(1, true);
         //Initiate Global and Static Variables. 
         public bool IsThereMateOfEnemy = false;
@@ -957,10 +958,10 @@ namespace RefrigtzW
                                     });
                                     if (!Supported)
                                         //When is Not Supported multyply 20.
-                                        HA *= 20;
+                                         HA *=PenaltyNotSupport;
                                     else
                                         //When is Supported Multyply -20.
-                                        HA *= -20;
+                                        HA *= (-1 * PenaltyNotSupport);
 
                                 }
                             }
@@ -1056,10 +1057,10 @@ namespace RefrigtzW
 
                                     if (!Supported)
                                         //When is Not Supported multyply 20.
-                                        HA *= 20;
+                                         HA *=PenaltyNotSupport;
                                     else
                                         //When is Supported Multyply -20.
-                                        HA *= -20;
+                                        HA *= (-1 * PenaltyNotSupport);
                                 }
                             }
                         }
@@ -1175,10 +1176,10 @@ namespace RefrigtzW
 
                                     if (Reduced)
                                         //When is Not Supported multyply 100.
-                                        HA *= 20;
+                                         HA *=PenaltyNotSupport;
                                     else
                                         //When is Supported Multyply -100.
-                                        HA *= -20;
+                                        HA *= (-1 * PenaltyNotSupport);
 
 
                                 }
@@ -1268,10 +1269,10 @@ namespace RefrigtzW
                                     });
                                     if (Reduced)
                                         //When is Not Supported multyply 100.
-                                        HA *= 20;
+                                         HA *=PenaltyNotSupport;
                                     else
                                         //When is Supported Multyply -100.
-                                        HA *= -20;
+                                        HA *= (-1 * PenaltyNotSupport);
                                 }
                             }
                         }
@@ -2553,10 +2554,10 @@ namespace RefrigtzW
                             {
                                 if (Supported)
                                     //When is Not Supported multyply 100.
-                                    HA *= 20;
+                                    HA *= PenaltyNotSupport;
                                 else
                                     //When is Supported Multyply -100.
-                                    HA *= -20;
+                                    HA *= (-1 * PenaltyNotSupport);
                             }*/
                         }
                     }
@@ -2656,10 +2657,10 @@ namespace RefrigtzW
                         
                                 if (!Supported)
                                     //When is Not Supported multyply 100.
-                                    HA *= 20;
+                                    HA *= PenaltyNotSupport;
                                 else
                                     //When is Supported Multyply -100.
-                                    HA *= -20;
+                                    HA *= (-1 * PenaltyNotSupport);
                           */
                             }
                         }
@@ -3798,8 +3799,8 @@ namespace RefrigtzW
             lock (O)
             {
                 double HA = 0;
-                //int DummyOrder = AllDraw.OrderPlate;
-                int DummyOrder = Order;
+                int DummyOrder = AllDraw.OrderPlate;
+                //int DummyOrder = Order;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
                 //double ObjectDangour = 1;
                 //double Check = 1000;
@@ -4531,10 +4532,10 @@ namespace RefrigtzW
                                 {
                                     if (!Supported)
                                         //When is Not Supported multyply 100.
-                                        HA *= 20;
+                                        HA *= PenaltyNotSupport;
                                     else
                                         //When is Supported Multyply -100.
-                                        HA *= -20;
+                                        HA *= (-1 * PenaltyNotSupport);
                                 }
                             }
                         }
@@ -4626,10 +4627,10 @@ namespace RefrigtzW
                                 });
                                 if (!Supported)
                                     //When is Not Supported multyply 100.
-                                    HA *= 20;
+                                    HA *= PenaltyNotSupport;
                                 else
                                     //When is Supported Multyply -100.
-                                    HA *= -20;
+                                    HA *= (-1 * PenaltyNotSupport);
                             }
                         }
                     }
@@ -8150,7 +8151,7 @@ namespace RefrigtzW
                 Object O1 = new Object();
                 lock (O1)
                 {
-                    /*
+                    
                     HuristicAttackValue = Huriistic[0] * SignOrderToPlate(Order);
                     HuristicKillerValue = Huriistic[1] * SignOrderToPlate(Order);
                     HuristicMovementValue = Huriistic[2] * SignOrderToPlate(Order);
@@ -8161,8 +8162,8 @@ namespace RefrigtzW
                     HeuristicKingSafe = HKingSafe * SignOrderToPlate(Order);
                     HeuristicFromCenter = HFromCenter * SignOrderToPlate(Order);
                     HeuristicKingDangour = HKingDangour * SignOrderToPlate(Order);
-                    */
-                    HuristicAttackValue = Huriistic[0];
+                    
+                    /*HuristicAttackValue = Huriistic[0];
                     HuristicKillerValue = Huriistic[1];
                     HuristicMovementValue = Huriistic[2];
                     HuristicObjectDangourCheckMateValue = (Huriistic[3] + HCheck);
@@ -8171,7 +8172,7 @@ namespace RefrigtzW
                     HeuristicDistabceOfCurrentMoveFromEnemyKingValue = HDistance;
                     HeuristicKingSafe = HKingSafe;
                     HeuristicFromCenter = HFromCenter;
-                    HeuristicKingDangour = HKingDangour;
+                    HeuristicKingDangour = HKingDangour;*/
 
                 }
             }
