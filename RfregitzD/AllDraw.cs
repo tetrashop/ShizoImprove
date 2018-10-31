@@ -11680,7 +11680,7 @@ namespace RefrigtzDLL
                 //if (AllDraw.Blitz)
                 {
                     //Fairness conditions for perposive astar greedy search.
-                    if (iAStarGreedy <= 0 && ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
+                    if (iAStarGreedy <= CurrentAStarGredyMax && ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
                         return null;
                 }
                 CurrentAStarGredyMax = AStarGreedyiLevelMax - iAStarGreedy;
