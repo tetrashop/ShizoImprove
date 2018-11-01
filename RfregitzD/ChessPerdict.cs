@@ -99,7 +99,7 @@ namespace RefrigtzDLL
             try
             {
                 Object a = new Object();
-                lock (a)
+                //lock (a)
                 {
                     string stackTrace = ex.ToString();
                     File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
@@ -1546,7 +1546,7 @@ namespace RefrigtzDLL
 
 
                                         Object O = new Object();
-                                        lock (O)
+                                        //lock (O)
                                         {
                                             ThingsConverter.ActOfClickEqualTow = true;
                                         }

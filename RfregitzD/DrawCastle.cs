@@ -37,7 +37,7 @@ namespace RefrigtzDLL
             try
             {
                 Object a = new Object();
-                lock (a)
+                //lock (a)
                 {
                     string stackTrace = ex.ToString();
                     File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
@@ -111,7 +111,7 @@ namespace RefrigtzDLL
             )
         {
 
-            lock (balanceLock)
+            //lock (balanceLock)
             {
                 if (C[0] == null && C[1] == null)
                 {
@@ -185,7 +185,7 @@ namespace RefrigtzDLL
             try
             {
 
-                lock (balanceLockS)
+                //lock (balanceLockS)
                 {
 
                     if (C[0] == null || C[1] == null)
@@ -198,7 +198,7 @@ namespace RefrigtzDLL
                         if(Order==1)
                         {
                             Object O1 = new Object();
-                            lock (O1)
+                            //lock (O1)
                             {    //Draw an Instant from File of Gray Soldeirs.
                                  //Draw a Gray Castles Instatnt Image On hte Tabe.
                                 g.DrawImage(C[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
@@ -207,7 +207,7 @@ namespace RefrigtzDLL
                         else
                         {
                             Object O1 = new Object();
-                            lock (O1)
+                            //lock (O1)
                             {    //Draw an Instant from File of Gray Soldeirs.
                                  //Draw an Instatnt of Brown Castles On the Table.
                                 g.DrawImage(C[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
