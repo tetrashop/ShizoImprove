@@ -156,7 +156,7 @@ namespace RefrigtzW
             try
             {
                 Object a = new Object();
-                lock (a)
+                //lock (a)
                 {
                     string stackTrace = ex.ToString();
                     File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
@@ -226,7 +226,7 @@ namespace RefrigtzW
             )
         {
             Object O = new Object();
-            lock (O)
+            //lock (O)
             {
                 if (!SelfHomeStatCP)
                     IgnoreSelfObject = true;
@@ -235,7 +235,7 @@ namespace RefrigtzW
             }
             //Initaite Global Varibales.
             Object O1 = new Object();
-            lock (O1)
+            //lock (O1)
             {
                 CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKingHaveSupporter = false;
                 CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKingHaveSupporterNumber = 0;
@@ -338,7 +338,7 @@ namespace RefrigtzW
                                     if (((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond - 2, ColumnSecond] == 6 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond + 1, ColumnSecond] == 4)
                                     {
                                         Object O = new Object();
-                                        lock (O)
+                                        //lock (O)
                                         {
                                             CastleActGray = true;
                                             SmallKingCastleGray = true;
@@ -362,7 +362,7 @@ namespace RefrigtzW
                                         if (((RowSecond + 2) < 8) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond + 2, ColumnSecond] == 6 && Table[RowSecond + 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond - 2, ColumnSecond] == 4)
                                         {
                                         Object O = new Object();
-                                        lock (O)
+                                        //lock (O)
                                         {
                                             CastleActGray = true;
                                             BigKingCastleGray = true;
@@ -397,7 +397,7 @@ namespace RefrigtzW
                                     {
                                         //CastleActBrown = true;
                                         Object O1 = new Object();
-                                        lock (O1)
+                                        //lock (O1)
                                         {
                                             SmallKingCastleBrown = true;
                                         }
@@ -420,7 +420,7 @@ namespace RefrigtzW
                                         {
                                         //CastleActBrown = true;
                                         Object O = new Object();
-                                        lock (O)
+                                        //lock (O)
                                         {
                                             BigKingCastleBrown = true;
                                         }
@@ -604,7 +604,7 @@ namespace RefrigtzW
             int RowG = 0, ColumnG = 0;
             int RowB = 0, ColumnB = 0;
             Object O = new Object();
-            lock (O)
+            //lock (O)
             {
                 if (DoIgnore)
                     ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = true;
@@ -761,7 +761,7 @@ namespace RefrigtzW
             }
             //Iniaiate Global Variables.
             Object O1 = new Object();
-            lock (O1)
+            //lock (O1)
             {
                 ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = false;
             }
@@ -817,7 +817,7 @@ namespace RefrigtzW
             CheckGrayObjectDangour = false;
             CheckBrownObjectDangour = false;
             Object O = new Object();
-            lock (O)
+            //lock (O)
             {
                 if (DoIgnore)
                     ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = true;
@@ -1086,177 +1086,178 @@ namespace RefrigtzW
 
             )
         {
-            if (Movments == 46)
-                Movments = 46;
-            ArrangmentsBoard = Arrange;
-
-            bool ms = false;
-            int bn = Movments;
-            if (bn % 2 == 1)
-                ms = true;
-            //Movments String Number Creation in String.
-            bn = bn / 2 + 1;
-            String SN = "";
-            String S = "";
-            if (ms)
-                SN = bn.ToString() + ".";
-
-
-
-            //Consider CheckMate Condition of Table.
-            ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, Arrange, 1, Tab, 1, Row, Column);
-            ChessRules AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, Arrange, 1, Tab, 1, Row, Column);
-            ChessRules AAA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, Arrange, 1, Tab, 1, Row, Column);
-            A.CheckMate(Tab, Order);
-            AA.ObjectDangourKingMove(Order, Tab, false);
-            Color a = Color.Gray;
-            if (Order == -1)
-                a = Color.Brown;
-            AAA.Pat(Tab, Order, a);
-            if (A.CheckGray)
+            Object OOO = new Object();
+            lock (OOO)
             {
-                Object O2 = new Object();
-                lock (O2)
+                ArrangmentsBoard = Arrange;
+
+                bool ms = false;
+                int bn = Movments;
+                if (bn % 2 == 1)
+                    ms = true;
+                //Movments String Number Creation in String.
+                bn = bn / 2 + 1;
+                String SN = "";
+                String S = "";
+                if (ms)
+                    SN = bn.ToString() + ".";
+
+
+
+                //Consider CheckMate Condition of Table.
+                ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, Arrange, 1, Tab, 1, Row, Column);
+                ChessRules AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, Arrange, 1, Tab, 1, Row, Column);
+                ChessRules AAA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, Arrange, 1, Tab, 1, Row, Column);
+                A.CheckMate(Tab, Order);
+                AA.ObjectDangourKingMove(Order, Tab, false);
+                Color a = Color.Gray;
+                if (Order == -1)
+                    a = Color.Brown;
+                AAA.Pat(Tab, Order, a);
+                if (A.CheckGray)
                 {
-                    ChessRules.CastleKingAllowedGray = false;
-                    ChessRules.CastleActGray = true;
-                    ThinkingChess.KingMaovableGray = true;
-                }
-            }
-            else if (A.CheckBrown)
-            {
-                Object O2 = new Object();
-                lock (O2)
-                {
-                    ChessRules.CastleActBrown = true;
-                    ChessRules.CastleKingAllowedBrown = false;
-                    ThinkingChess.KingMaovableBrown = true;
-                }
-            }
-            bool Castles = false;
-            if (Order == 1)
-                if (ChessRules.SmallKingCastleGray || ChessRules.BigKingCastleGray)
-                    Castles = true;
-            if (Order == -1)
-                if (ChessRules.SmallKingCastleBrown || ChessRules.BigKingCastleBrown)
-                    Castles = true;
-            //When Solder Converted or Castles King Acts.
-            if (SodierConvert || (CastleKing && Castles))
-            {
-                //When Castles Acts.
-                if (CastleKing)
-                {
-                    //Castles Brown King.
-                    if (ChessRules.SmallKingCastleGray)
+                    Object O2 = new Object();
+                    lock (O2)
                     {
-                        Object O2 = new Object();
-                        lock (O2)
-                        {
-                            ThinkingChess.KingMaovableGray = true;
-                            S += "Gray-BK-S";
-                            if (!AllDraw.Stockfish)
-                            {
-                                Object O = new Object();
-                                lock (O)
-                                {
-                                    ChessRules.SmallKingCastleGray = false;
-                                    ChessRules.CastleKingAllowedGray = false;
-                                }
-                            }
-                        }
+                        ChessRules.CastleKingAllowedGray = false;
+                        ChessRules.CastleActGray = true;
+                        ThinkingChess.KingMaovableGray = true;
                     }
-                    else
-                        if (ChessRules.BigKingCastleGray)
-                        //Castles Brown King.                    
+                }
+                else if (A.CheckBrown)
+                {
+                    Object O2 = new Object();
+                    lock (O2)
+                    {
+                        ChessRules.CastleActBrown = true;
+                        ChessRules.CastleKingAllowedBrown = false;
+                        ThinkingChess.KingMaovableBrown = true;
+                    }
+                }
+                bool Castles = false;
+                if (Order == 1)
+                    if (ChessRules.SmallKingCastleGray || ChessRules.BigKingCastleGray)
+                        Castles = true;
+                if (Order == -1)
+                    if (ChessRules.SmallKingCastleBrown || ChessRules.BigKingCastleBrown)
+                        Castles = true;
+                //When Solder Converted or Castles King Acts.
+                if (SodierConvert || (CastleKing && Castles))
+                {
+                    //When Castles Acts.
+                    if (CastleKing)
+                    {
+                        //Castles Brown King.
+                        if (ChessRules.SmallKingCastleGray)
                         {
-                        Object O2 = new Object();
-                        lock (O2)
-                        {
-                            S += "Gray-BK-B";
-                            ThinkingChess.KingMaovableGray = true;
-                            if (!AllDraw.Stockfish)
+                            Object O2 = new Object();
+                            lock (O2)
                             {
+                                ThinkingChess.KingMaovableGray = true;
+                                S += "Gray-BK-S";
                                 Object O = new Object();
                                 lock (O)
                                 {
-                                    ChessRules.BigKingCastleGray = false;
-                                    ChessRules.CastleKingAllowedGray = false;
+                                    if (!AllDraw.Stockfish)
+                                    {
+                                        ChessRules.SmallKingCastleGray = false;
+                                        ChessRules.CastleKingAllowedGray = false;
+                                    }
                                 }
                             }
-                        }
                         }
                         else
-                            if (ChessRules.SmallKingCastleBrown)
-                            //Castles Brown King.                    
-                            {
-                        Object O2 = new Object();
-                        lock (O2)
+                            if (ChessRules.BigKingCastleGray)
+                        //Castles Brown King.                    
                         {
-                            S += "Brown-BK-S";
-                            ThinkingChess.KingMaovableBrown = true;
-                            if (!AllDraw.Stockfish)
+                            Object O2 = new Object();
+                            lock (O2)
                             {
+                                S += "Gray-BK-B";
+                                ThinkingChess.KingMaovableGray = true;
                                 Object O = new Object();
                                 lock (O)
                                 {
-                                    ChessRules.SmallKingCastleBrown = false;
-                                    ChessRules.CastleKingAllowedBrown = false;
+                                    if (!AllDraw.Stockfish)
+                                    {
+                                        ChessRules.BigKingCastleGray = false;
+                                        ChessRules.CastleKingAllowedGray = false;
+                                    }
                                 }
                             }
                         }
-                            }
-                            else
-                                if (ChessRules.BigKingCastleBrown)
-                                //Castles Brown King.                    
-                                {
-
-                        Object O2 = new Object();
-                        lock (O2)
+                        else
+                                if (ChessRules.SmallKingCastleBrown)
+                        //Castles Brown King.                    
                         {
-                            S += "Brown-BK-B";
-                            ThinkingChess.KingMaovableBrown = true;
-                            if (!AllDraw.Stockfish)
+                            Object O2 = new Object();
+                            lock (O2)
                             {
+                                S += "Brown-BK-S";
+                                ThinkingChess.KingMaovableBrown = true;
                                 Object O = new Object();
                                 lock (O)
                                 {
-                                    ChessRules.BigKingCastleBrown = false;
-                                    ChessRules.CastleKingAllowedBrown = false;
+                                    if (!AllDraw.Stockfish)
+                                    {
+                                        ChessRules.SmallKingCastleBrown = false;
+                                        ChessRules.CastleKingAllowedBrown = false;
+                                    }
                                 }
                             }
                         }
-                                }
-                    //Castles Brown King.                    
-
-                    //Great Castles Gray King.
-
-                }
-                //Soldier Converted.
-                if (SodierConvert)
-                {
-                    //Object Kind String Addition.
-                    S += ThingsAlphabet(SourceThings);
-                    //If Hit Acts.
-                    if (Hit)
-                    {
-                        Object O = new Object();
-                        lock (O)
+                        else
+                                    if (ChessRules.BigKingCastleBrown)
+                        //Castles Brown King.                    
                         {
-                            ObjectHittedRow = Row;
-                            ObjectHittedColumn = Column;
-                        }
-                        //THIS.SetObjectInPictureBox(Row, Column);
 
-                        S += "x";
+                            Object O2 = new Object();
+                            lock (O2)
+                            {
+                                S += "Brown-BK-B";
+                                ThinkingChess.KingMaovableBrown = true;
+                                Object O = new Object();
+                                lock (O)
+                                {
+                                    if (!AllDraw.Stockfish)
+                                    {
+                                        ChessRules.BigKingCastleBrown = false;
+                                        ChessRules.CastleKingAllowedBrown = false;
+                                    }
+                                }
+                            }
+                        }
+                        //Castles Brown King.                    
+
+                        //Great Castles Gray King.
+
                     }
-                    S += Column.ToString();
-                    //CheckMate of Gray Or Brown
-                    if (AAA.PatkGray || AAA.PatBrown)
+                    //Soldier Converted.
+                    if (SodierConvert)
                     {
-                        S += "-O-";
-                    }
-                    else
-                        if (A.CheckMateGray || A.CheckMateBrown)
+                        //Object Kind String Addition.
+                        S += ThingsAlphabet(SourceThings);
+                        //If Hit Acts.
+                        if (Hit)
+                        {
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                ObjectHittedRow = Row;
+                                ObjectHittedColumn = Column;
+                            }
+                            //THIS.SetObjectInPictureBox(Row, Column);
+
+                            S += "x";
+                        }
+                        S += Column.ToString();
+                        //CheckMate of Gray Or Brown
+                        if (AAA.PatkGray || AAA.PatBrown)
+                        {
+                            S += "-O-";
+                        }
+                        else
+                            if (A.CheckMateGray || A.CheckMateBrown)
                         {
                             S += "++";
                         }
@@ -1267,73 +1268,77 @@ namespace RefrigtzW
                             S += "+";
                             if (A.CheckBrown && Order == -1)
                             {
-                            Object O2 = new Object();
-                            lock (O2)
-                            {
-                                ThinkingChess.KingMaovableBrown = true;
-                                ChessRules.BigKingCastleBrown = false;
-                                ChessRules.CastleKingAllowedBrown = false;
-                            }  }
+                                Object O2 = new Object();
+                                lock (O2)
+                                {
+                                    ThinkingChess.KingMaovableBrown = true;
+                                    ChessRules.BigKingCastleBrown = false;
+                                    ChessRules.CastleKingAllowedBrown = false;
+                                }
+                            }
                             if (A.CheckGray && Order == 1)
                             {
-                            Object O2 = new Object();
-                            lock (O2)
-                            {
-                                ThinkingChess.KingMaovableGray = true;
-                                ChessRules.BigKingCastleGray = false;
-                                ChessRules.CastleKingAllowedGray = false;
-                            }        }
+                                Object O2 = new Object();
+                                lock (O2)
+                                {
+                                    ThinkingChess.KingMaovableGray = true;
+                                    ChessRules.BigKingCastleGray = false;
+                                    ChessRules.CastleKingAllowedGray = false;
+                                }
+                            }
                         }
                         else if (AA.CheckGrayObjectDangour || AA.CheckBrownObjectDangour)
                         {
 
                             if (AA.CheckGrayObjectDangour && Order == -1)
                             {
-                            Object O2 = new Object();
-                            lock (O2)
-                            {
-                                ThinkingChess.KingMaovableBrown = true;
+                                Object O2 = new Object();
+                                lock (O2)
+                                {
+                                    ThinkingChess.KingMaovableBrown = true;
 
-                            } }
+                                }
+                            }
                             if (AA.CheckBrownObjectDangour && Order == 1)
                             {
-                            Object O2 = new Object();
-                            lock (O2)
-                            {
-                                ThinkingChess.KingMaovableGray = true;
+                                Object O2 = new Object();
+                                lock (O2)
+                                {
+                                    ThinkingChess.KingMaovableGray = true;
 
-                            }  }
+                                }
+                            }
                         }
 
-                }
-            }
-            else//Brown Order.
-            {
-                //Object of Kind.
-                S += ThingsAlphabet(SourceThings);
-                //Hit Consideration.
-                if (Hit)
-                {
-                    Object O = new Object();
-                    lock (O)
-                    {
-                        ObjectHittedRow = Row;
-                        ObjectHittedColumn = Column;
                     }
-                    //THIS.SetObjectInPictureBox(Row, Column);
-                    S += "x";
                 }
-                //Row Column Consideration.
-                S += RowAlphabet(Row);
-                S += Column.ToString();
-                //CheckMate Consideration.
-                if (AAA.PatkGray || AAA.PatBrown)
+                else//Brown Order.
                 {
-                    S += "-O-";
-                }
-                else
+                    //Object of Kind.
+                    S += ThingsAlphabet(SourceThings);
+                    //Hit Consideration.
+                    if (Hit)
+                    {
+                        Object O = new Object();
+                        lock (O)
+                        {
+                            ObjectHittedRow = Row;
+                            ObjectHittedColumn = Column;
+                        }
+                        //THIS.SetObjectInPictureBox(Row, Column);
+                        S += "x";
+                    }
+                    //Row Column Consideration.
+                    S += RowAlphabet(Row);
+                    S += Column.ToString();
+                    //CheckMate Consideration.
+                    if (AAA.PatkGray || AAA.PatBrown)
+                    {
+                        S += "-O-";
+                    }
+                    else
 
-                    if (A.CheckMateGray || A.CheckMateBrown)
+                        if (A.CheckMateGray || A.CheckMateBrown)
                     {
                         S += "++";
                     }
@@ -1343,56 +1348,60 @@ namespace RefrigtzW
                         S += "+";
                         if (A.CheckBrown && Order == -1)
                         {
-                        Object O2 = new Object();
-                        lock (O2)
-                        {
-                            ChessRules.BigKingCastleBrown = false;
-                            ChessRules.CastleKingAllowedBrown = false;
-                            ThinkingChess.KingMaovableGray = true;
+                            Object O2 = new Object();
+                            lock (O2)
+                            {
+                                ChessRules.BigKingCastleBrown = false;
+                                ChessRules.CastleKingAllowedBrown = false;
+                                ThinkingChess.KingMaovableGray = true;
 
+                            }
                         }
-                    }
                         if (A.CheckGray && Order == 1)
                         {
-                        Object O2 = new Object();
-                        lock (O2)
-                        {
-                            ChessRules.BigKingCastleGray = false;
-                            ChessRules.CastleKingAllowedGray = false;
-                            ThinkingChess.KingMaovableGray = true;
+                            Object O2 = new Object();
+                            lock (O2)
+                            {
+                                ChessRules.BigKingCastleGray = false;
+                                ChessRules.CastleKingAllowedGray = false;
+                                ThinkingChess.KingMaovableGray = true;
 
-                        }  }
+                            }
+                        }
                     }
                     else if (AA.CheckGrayObjectDangour || AA.CheckBrownObjectDangour)
                     {
 
                         if (AA.CheckGrayObjectDangour && Order == -1)
                         {
-                        Object O2 = new Object();
-                        lock (O2)
-                        {
-                            ThinkingChess.KingMaovableBrown = true;
+                            Object O2 = new Object();
+                            lock (O2)
+                            {
+                                ThinkingChess.KingMaovableBrown = true;
 
-                        }  }
+                            }
+                        }
                         if (AA.CheckBrownObjectDangour && Order == 1)
                         {
-                        Object O2 = new Object();
-                        lock (O2)
-                        {
-                            ThinkingChess.KingMaovableGray = true;
+                            Object O2 = new Object();
+                            lock (O2)
+                            {
+                                ThinkingChess.KingMaovableGray = true;
 
-                        }    }
+                            }
+                        }
                     }
 
 
+                }
+                //Separate.
+                if (AllDraw.Less != Double.MinValue)
+                    S += " With Huristic (" + AllDraw.Less.ToString() + ")--";
+                else
+                    S += " --";
+                //Return String Sysntax.
+                return SN + S;
             }
-            //Separate.
-            if (AllDraw.Less != Double.MinValue)
-                S += " With Huristic (" + AllDraw.Less.ToString() + ")--";
-            else
-                S += " --";
-            //Return String Sysntax.
-            return SN + S;
         }
         //Consideration of Existing Table in List.
         bool ArrayInList(List<int[]> List, int[] A)
@@ -1497,7 +1506,7 @@ namespace RefrigtzW
                     Tabl[i, j] = Table[i, j];
             //Initiate Global Variables.
             Object O = new Object();
-            lock (O)
+            //lock (O)
             {
                 CheckGrayRemovable = true;
 
@@ -1555,7 +1564,7 @@ namespace RefrigtzW
                                                         Tab[i, j] = Table[ii, jj];
                                                         Tab[ii, jj] = 0;
                                                         Object O1 = new Object();
-                                                        lock (O1)
+                                                        //lock (O1)
                                                         {
                                                             CheckBrownRemovableValueRowi = i;
                                                             CheckGrayRemovableValueColumni = j;
@@ -1624,7 +1633,7 @@ namespace RefrigtzW
                                                         Tab[i, j] = Table[ii, jj];
                                                         Tab[ii, jj] = 0;
                                                         Object O1 = new Object();
-                                                        lock (O1)
+                                                        //lock (O1)
                                                         {
                                                             CheckBrownRemovableValueRowi = i;
                                                             CheckBrownRemovableValueColumnj = j;
@@ -1708,7 +1717,7 @@ namespace RefrigtzW
                     Table[i, j] = Tab[i, j];
             bool Pat = false;
             Object O = new Object();
-            lock (O)
+            //lock (O)
             {
                 PatCheckedInKingRule = true;
             }
@@ -1744,8 +1753,12 @@ namespace RefrigtzW
                 Pat = !Pat;
                 if (Pat || NumbersofKingMovesToPatGray > 16)
                 {
-                    AllDraw.EndOfGame = true;
-                    PatkGray = true;
+                    Object On = new Object();
+                    lock (On)
+                    {
+                        AllDraw.EndOfGame = true;
+                        PatkGray = true;
+                    }
                 }
                 TableS = new bool[8, 8];
 
@@ -1775,8 +1788,12 @@ namespace RefrigtzW
                 Pat = !Pat;
                 if (Pat || NumbersofKingMovesToPatBrown >= 16)
                 {
-                    AllDraw.EndOfGame = true;
-                    PatBrown = true;
+                    Object On = new Object();
+                    lock (On)
+                    {
+                        AllDraw.EndOfGame = true;
+                        PatBrown = true;
+                    }
                 }
                 if (PatkGray || PatBrown)
                     Pat = true;
@@ -1791,7 +1808,7 @@ namespace RefrigtzW
 
             }
             Object O1 = new Object();
-            lock (O1)
+            //lock (O1)
             {
                 PatCheckedInKingRule = false;
             }
@@ -1867,7 +1884,7 @@ namespace RefrigtzW
             //Initiate Local and Global Briables.
             bool Store = ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing;
             Object O = new Object();
-            lock (O)
+            //lock (O)
             {
                 ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = false;
             }
@@ -2207,8 +2224,12 @@ namespace RefrigtzW
                 //Initiate Global Variable and Return CheckMate.
                 CheckGray = CheckGrayDummy;
                 CheckBrown = CheckBrownDummy;
-                AllDraw.EndOfGame = true;
-                return true;
+                Object On = new Object();
+                lock (On)
+                {
+                    AllDraw.EndOfGame = true;
+                    return true;
+                }
             }
             //Initiate Global Variables.
             CheckGray = CheckGrayDummy;
@@ -2240,7 +2261,7 @@ namespace RefrigtzW
                 return false;
             //Initiate Global Variable.
             Object O = new Object();
-            lock (O)
+            //lock (O)
             {
                 KingAttacker = false;
             }
