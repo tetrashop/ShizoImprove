@@ -92,8 +92,6 @@ namespace Refrigtz
         //Variables That to be Included at RefregitzDLL
 
         //Initiate Variables.
-        Process proc = new Process();
-        bool ActAllOperation = false;
         String Out = "";
         bool LoadConvertedTable = false;
         bool LoadedDLL = false;
@@ -187,7 +185,7 @@ namespace Refrigtz
         public static int MovmentsNumberMax = 0;
         public static bool EndOfGame = false;
         bool Maximize = false;
-        static int RowP = 0, ColP = 0, RowS = 0, ColS = 0;
+        static int RowP = 0, ColP = 0, RowSource = 0, ColumnSource = 0;
         bool BobSection = false;
         bool AliceSection = false;
         public static bool Person = false;
@@ -212,8 +210,8 @@ namespace Refrigtz
             { -4, -1, 0, 0, 0, 0, 1, 4 },
             { -3, -1, 0, 0, 0, 0, 1, 3 },
             { -2, -1, 0, 0, 0, 0, 1, 2 },
-            { -5, -1, 0, 0, 0, 0, 1, 5 },
-            { -6, -1, 0, 0, 0, 0, 1, 6 },
+            { -6, -1, 0, 0, 0, 0, 1, 5 },
+            { -5, -1, 0, 0, 0, 0, 1, 6 },
             { -2, -1, 0, 0, 0, 0, 1, 2 },
             { -3, -1, 0, 0, 0, 0, 1, 3 },
             { -4, -1, 0, 0, 0, 0, 1, 4 }
@@ -308,6 +306,7 @@ namespace Refrigtz
                     Refrigtz.Timer.UseDoubleTime = RefrigtzDLL.AllDraw.UseDoubleTime;
                     Refrigtz.Timer.StoreAllDrawCount = RefrigtzDLL.AllDraw.StoreADraw.Count;
                 }
+                System.Threading.Thread.Sleep(10);
             }
             while (true);
 
@@ -317,16 +316,20 @@ namespace Refrigtz
         {
             try
             {
-                if (Refregitz.InvokeRequired)
+                Object O = new Object();
+                lock (O)
                 {
-                    SetlableRefregitzMaxValueCalBack d = new SetlableRefregitzMaxValueCalBack(SetlableRefregitzMaxValue);
-                    Refregitz.Invoke(new Action(() => Refregitz.Text = value));
-                    Refregitz.Refresh();
-                }
-                else
-                {
-                    Refregitz.Text = value;
-                    Refregitz.Refresh();
+                    if (Refregitz.InvokeRequired)
+                    {
+                        SetlableRefregitzMaxValueCalBack d = new SetlableRefregitzMaxValueCalBack(SetlableRefregitzMaxValue);
+                        Refregitz.Invoke(new Action(() => Refregitz.Text = value));
+                        Refregitz.Refresh();
+                    }
+                    else
+                    {
+                        Refregitz.Text = value;
+                        Refregitz.Refresh();
+                    }
                 }
             }
             catch (Exception t)
@@ -613,15 +616,7 @@ namespace Refrigtz
 
 
         }
-        void SetArragngmen()
-        {
-            /*  do
-              {
-                  Thread.Sleep(1000);
-                  ArrangmentsChanged = true;
-              } while (true);
-             */
-        }
+        
         void SetNodesCount()
         {
             Double Store = 0;
@@ -646,7 +641,7 @@ namespace Refrigtz
                     else
                         SetlableRefregitzMaxValue(labelNodesCount, RefrigtzDLL.ThinkingChess.NumbersOfAllNode.ToString() + " at time " + ((int)(Store)).ToString() + "N/s and by Elapsed time " + ((int)((EndTime - TimeElapsed) / 1000)).ToString() + " s" + " By CheckMate Count " + RefrigtzDLL.ThinkingChess.FoundFirstMating.ToString() + " For Order  " + RefrigtzDLL.AllDraw.OrderPlate.ToString());
                     //labelNodesCount.Refresh();
-
+                    Thread.Sleep(10);
                 }
             } while (true);
 
@@ -659,6 +654,7 @@ namespace Refrigtz
                 Object o = new Object();
                 lock (o)
                 {
+                    System.Threading.Thread.Sleep(10);
                     RefrigtzDLL.AllDraw.Root = Root;
                     RefrigtzDLL.AllDraw.OrderPlate = OrderPlate;
                     RefrigtzDLL.AllDraw.Blitz = Blitz;
@@ -747,106 +743,22 @@ namespace Refrigtz
                             NextColumn = RefrigtzDLL.AllDraw.NextRow;
                         }
                     }
-                    //System.Threading.Thread.Sleep(1);
+                    System.Threading.Thread.Sleep(10);
                 }
 
             } while (true);
         }
-        void AllOperationInit()
-        {
-            while (!AllDrawLoad || RefrigtzDLL.AllDraw.TableListAction.Count == 0) { Thread.Sleep(100); }
 
-            //Fen();
-            String FolderLocation = Root;
-            sortOutput = new StringBuilder("");
-
-            ProcessStartInfo start = new ProcessStartInfo();
-
-            start.FileName = FolderLocation + "\\" + "stockfish8.exe";
-            start.UseShellExecute = false;
-            start.RedirectStandardOutput = true;
-            start.RedirectStandardInput = true;
-            start.RedirectStandardError = true;
-            start.CreateNoWindow = true;
-            start.ErrorDialog = false;  // Run the external process & wait for it to finish
-            //proc.StartInfo = start;
-            //proc.StartInfo.RedirectStandardOutput = true;
-            //proc.StartInfo.RedirectStandardInput = true;
-            //proc.StartInfo.RedirectStandardError = true;
-            proc.OutputDataReceived += new DataReceivedEventHandler(SortOutputHandler);
-            proc.ErrorDataReceived += new DataReceivedEventHandler(SortOutputHandler);
-            proc = Process.Start(start);
-            proc.BeginOutputReadLine();
-            proc.BeginErrorReadLine();
-            if (File.Exists("output.txt"))
-                File.Delete("output.txt");
-
-            if ((MovmentsNumber > 0) && Stockfish)
-            {
-                /*
-                 SetRowColumnReleasedAndClickP();
-                 String fens = Fen();
-                 if (RefrigtzDLL.ChessRules.BigKingCastleGray)
-                 {
-                     RefrigtzDLL.ChessRules.BigKingCastleGray = false;
-                 }
-                 else
-                     if (RefrigtzDLL.ChessRules.SmallKingCastleGray)
-                     {
-                         RefrigtzDLL.ChessRules.SmallKingCastleGray = false;
-                     }
-                 StreamWriter sw = proc.StandardInput;
-                 string input = fens + "\r\n";
-                 sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
-                 sw.Flush();
-                 RowClickP = -1;
-                 ColumnClickP = -1;
-                 RowRealesed = -1;
-                 ColumnRealeased = -1;
-                 Thread.Sleep(1500);
-                 BobSection = false;
-                 MovmentsNumber++;
-                 
-                 
-                 
-            
-                 */
-                if (OrderPlate == -1)
-                {
-
-                    /*RowClickP = -1;
-                    ColumnClickP = -1;
-                    RowRealesed = -1;
-                    ColumnRealeased = -1;
-                    String fens = Fen();
-                    StreamWriter sw = proc.StandardInput;
-                    sw = proc.StandardInput;
-                    String input = fens + "\r\n";
-                    sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
-                    sw.Flush();
-                     */
-                    (new TakeRoot()).Save(this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-                    MessageBox.Show("No Konwledgs to begin with stockfish! Please delete one node of last table and continue");
-                    Application.ExitThread();
-                    Application.Exit();
-                }
-
-            }
-            if (OrderPlate == 1)
-                BobSection = true;
-            else
-                BobSection = false;
-
-        }
         //Load Refregitz Form.
         private void Form1_Load(object sender, EventArgs e)
         {
+
             bool DrawDrawen = false;
 
             //Set and syncronization with dynamic refregitzdll.   
             tttt = new Thread(new ThreadStart(SetRefregitzDLL));
             ttt = new Thread(new ThreadStart(SetNodesCount));
-            //AllOperate = new Thread(new ThreadStart(AllOperations));
+            AllOperate = new Thread(new ThreadStart(AllOperations));
             BrownTimer = new Refrigtz.Timer(false);
             GrayTimer = new Refrigtz.Timer(false);
             TimerText = new Refrigtz.Timer(true);
@@ -1075,7 +987,7 @@ namespace Refrigtz
 
             tttt.Start();
             ttt.Start();
-            //AllOperate.Start();
+            AllOperate.Start();
 
             if (!DrawDrawen)
             {
@@ -1107,11 +1019,7 @@ namespace Refrigtz
             var parallelOptions = new ParallelOptions();
             parallelOptions.MaxDegreeOfParallelism = Int32.MaxValue;
 
-            AllOperate = new Thread(new ThreadStart(AllOperationInit));
-            AllOperate.Start();
-            ActAllOperation = true;
-            //timerAllOperation.Start();
-            //timerMovments.Start();
+
         }
         //Reading Table Database.
         int[,] ReadTable(int Movment, ref int MoveNumber)
@@ -1516,6 +1424,7 @@ namespace Refrigtz
                             Log(tt);
                             return false;
                         }
+                        System.Threading.Thread.Sleep(10);
                     } while (true);
                 }
                 if (Move > 1)
@@ -1524,7 +1433,7 @@ namespace Refrigtz
                     RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                 }
 
-
+                System.Threading.Thread.Sleep(10);
             } while (true);
 
             return true;
@@ -2219,7 +2128,7 @@ namespace Refrigtz
         {
 
         }
-        double CalculateMoveMentHueuristicUser(int[,] Table, int Order, int Row, int Column, int RowS, int ColumnS, Color color)
+        double CalculateMoveMentHueuristicUser(int[,] Table, int Order, int Row, int Column, int RowSource, int ColumnS, Color color)
         {
             RefrigtzDLL.ThinkingChess th = new RefrigtzDLL.ThinkingChess(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, Row, Column);
             double HuristicAttackValue = new double();
@@ -2233,7 +2142,7 @@ namespace Refrigtz
             double HeuristicFromCenter = new double();
             double HeuristicKingDangour = new double();
 
-            th.CalculateHuristics(true, 0, Table, Row, Column, RowS, ColumnS, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicHittingValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+            th.CalculateHuristics(true, 0, Table, Row, Column, RowSource, ColumnS, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicHittingValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
             double[] Hu = new double[4];
 
             return HuristicAttackValue + HuristicMovementValue +
@@ -4100,7 +4009,7 @@ namespace Refrigtz
                     }
                     RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
 
-
+                    System.Threading.Thread.Sleep(10);
                 }
 
                 while (true);
@@ -6023,8 +5932,92 @@ namespace Refrigtz
         //All Operation of Thinking Handling.
         void AllOperations()
         {
-            ActAllOperation = false;
-                      //do
+
+            while (!AllDrawLoad || RefrigtzDLL.AllDraw.TableListAction.Count == 0) { Thread.Sleep(100); }
+
+            //Fen();
+            String FolderLocation = Root;
+            sortOutput = new StringBuilder("");
+
+            ProcessStartInfo start = new ProcessStartInfo();
+
+            start.FileName = FolderLocation + "\\" + "stockfish8.exe";
+            start.UseShellExecute = false;
+            start.RedirectStandardOutput = true;
+            start.RedirectStandardInput = true;
+            start.RedirectStandardError = true;
+            start.CreateNoWindow = true;
+            start.ErrorDialog = false;  // Run the external process & wait for it to finish
+            Process proc = new Process();
+            //proc.StartInfo = start;
+            //proc.StartInfo.RedirectStandardOutput = true;
+            //proc.StartInfo.RedirectStandardInput = true;
+            //proc.StartInfo.RedirectStandardError = true;
+            proc.OutputDataReceived += new DataReceivedEventHandler(SortOutputHandler);
+            proc.ErrorDataReceived += new DataReceivedEventHandler(SortOutputHandler);
+            proc = Process.Start(start);
+            proc.BeginOutputReadLine();
+            proc.BeginErrorReadLine();
+            if (File.Exists("output.txt"))
+                File.Delete("output.txt");
+
+            if ((MovmentsNumber > 0) && Stockfish)
+            {
+                /*
+                 SetRowColumnReleasedAndClickP();
+                 String fens = Fen();
+                 if (RefrigtzDLL.ChessRules.BigKingCastleGray)
+                 {
+                     RefrigtzDLL.ChessRules.BigKingCastleGray = false;
+                 }
+                 else
+                     if (RefrigtzDLL.ChessRules.SmallKingCastleGray)
+                     {
+                         RefrigtzDLL.ChessRules.SmallKingCastleGray = false;
+                     }
+                 StreamWriter sw = proc.StandardInput;
+                 string input = fens + "\r\n";
+                 sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
+                 sw.Flush();
+                 RowClickP = -1;
+                 ColumnClickP = -1;
+                 RowRealesed = -1;
+                 ColumnRealeased = -1;
+                 Thread.Sleep(1500);
+                 BobSection = false;
+                 MovmentsNumber++;
+                 
+                 
+                 
+            
+                 */
+                if (OrderPlate == -1)
+                {
+
+                    /*RowClickP = -1;
+                    ColumnClickP = -1;
+                    RowRealesed = -1;
+                    ColumnRealeased = -1;
+                    String fens = Fen();
+                    StreamWriter sw = proc.StandardInput;
+                    sw = proc.StandardInput;
+                    String input = fens + "\r\n";
+                    sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
+                    sw.Flush();
+                     */
+                    (new TakeRoot()).Save(this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                    MessageBox.Show("No Konwledgs to begin with stockfish! Please delete one node of last table and continue");
+                    Application.ExitThread();
+                    Application.Exit();
+                }
+
+            }
+            if (OrderPlate == 1)
+                BobSection = true;
+            else
+                BobSection = false;
+
+            do
             {
                 //if (RefrigtzDLL.AllDraw.THISDummy != null)
                 // RefrigtzDLL.AllDraw.THISDummy.Clone(Draw);
@@ -6227,12 +6220,12 @@ namespace Refrigtz
                                         Clicked = true;
                                         GrayTimer.StartTime();
                                         BrownTimer.StopTime();
-                                        /*if (tM == null)
+                                        if (tM == null)
                                             tM = new Thread(new ThreadStart(Movements));
                                         if (!tM.IsAlive)
                                         {
                                             tM.Start();
-                                        }*/
+                                        }
                                         Wait();
                                         Clicked = false;
                                         //
@@ -7413,9 +7406,9 @@ namespace Refrigtz
                     Log(t);
                 }
 
-                //Thread.Sleep(100);
-            } //while (true);
-            ActAllOperation = true;
+                Thread.Sleep(100);
+            } while (true);
+
         }
         List<int[]> WhereNumbers(String Tag)
         {
@@ -7491,7 +7484,7 @@ namespace Refrigtz
                 if (Tag.Contains("King"))
                     Tag = Tag.Replace("King", "<font Color=\"Silver\">" + "King" + "</font>");
                     */
-                String R = "<font Color=\"Red\">" + Tag + "</font>";
+                String R = "<font Color=\"Red\">" + Tag + "</font><br/>";
 
                 return R;
             }
@@ -7553,7 +7546,7 @@ namespace Refrigtz
                         SetTextBoxTextCallback d = new SetTextBoxTextCallback(SetBoxText);
                         this.Invoke(new Action(() => textBoxText.AppendText(state + " At Time " + A)));
                         state = CreateHtmlTag(state);
-                        Out += state + " At Time " + A + "\n\t<br/>";
+                        Out += state + " At Time " + A + "\n\t";
                     }
                     catch (Exception t) { Log(t); }
                 }
@@ -7566,7 +7559,7 @@ namespace Refrigtz
                             A = BrownTimer.ReturnTime();
                         textBoxText.AppendText(state + " At Time " + A);
                         state = CreateHtmlTag(state);
-                        Out += state + " At Time " + A + "\n\t<br/>";
+                        Out += state + " At Time " + A + "\n\t";
                     }
                     catch (Exception t) { Log(t); }
                 }
@@ -9345,8 +9338,8 @@ namespace Refrigtz
             {
                 RowP = pictureBoxRefrigtz.Width;
                 ColP = pictureBoxRefrigtz.Height;
-                RowS = this.Width;
-                ColS = this.Height;
+                RowSource = this.Width;
+                ColumnSource = this.Height;
                 this.MaximumSize = new Size(1000, 700);
                 pictureBoxRefrigtz.MaximumSize = new Size(900, 600);
 
@@ -9354,13 +9347,13 @@ namespace Refrigtz
             }
             else
             {
-                this.MaximumSize = new Size(RowS, ColS);
+                this.MaximumSize = new Size(RowSource, ColumnSource);
                 pictureBoxRefrigtz.MaximumSize = new Size(RowP, ColP);
 
                 RowP = pictureBoxRefrigtz.Width;
                 ColP = pictureBoxRefrigtz.Height;
-                RowS = this.Width;
-                ColS = this.Height;
+                RowSource = this.Width;
+                ColumnSource = this.Height;
 
                 Maximize = false;
             }
@@ -10839,21 +10832,6 @@ namespace Refrigtz
         private void FormRefrigtz_FormClosing(object sender, FormClosingEventArgs e)
         {
             (new TakeRoot()).Save(this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-        }
-
-        private void timerAllOperation_Tick(object sender, EventArgs e)
-        {
-            try
-            {  //if (ActAllOperation)
-                AllOperations();
-            }
-            catch (Exception t) { Log(t); }
-        }
-
-        private void timerMovments_Tick(object sender, EventArgs e)
-        {
-            if (Clicked)
-                Movements();
         }
 
         private void toolStripMenuItem14_Click(object sender, EventArgs e)

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.menuStripChessRefrigitz = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemNewGame = new System.Windows.Forms.ToolStripMenuItem();
@@ -146,8 +145,6 @@
             this.pictureBoxTimerBrown = new System.Windows.Forms.PictureBox();
             this.pictureBoxTimerGray = new System.Windows.Forms.PictureBox();
             this.pictureBoxRefrigtz = new System.Windows.Forms.PictureBox();
-            this.timerAllOperation = new System.Windows.Forms.Timer(this.components);
-            this.timerMovments = new System.Windows.Forms.Timer(this.components);
             this.menuStripChessRefrigitz.SuspendLayout();
             this.groupBoxGroupOfPowerity.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).BeginInit();
@@ -1445,18 +1442,6 @@
             this.pictureBoxRefrigtz.MouseLeave += new System.EventHandler(this.pictureBoxRefrigtz_MouseLeave);
             this.pictureBoxRefrigtz.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBoxRefrigtz_MouseMove);
             // 
-            // timerAllOperation
-            // 
-            this.timerAllOperation.Enabled = true;
-            this.timerAllOperation.Interval = 1000000000;
-            this.timerAllOperation.Tick += new System.EventHandler(this.timerAllOperation_Tick);
-            // 
-            // timerMovments
-            // 
-            this.timerMovments.Enabled = true;
-            this.timerMovments.Interval = 1000000000;
-            this.timerMovments.Tick += new System.EventHandler(this.timerMovments_Tick);
-            // 
             // FormRefrigtz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1700,8 +1685,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem20;
         private System.Windows.Forms.Label labelNodesCount;
         private System.Windows.Forms.Label labelNodesCountText;
-        private System.Windows.Forms.Timer timerAllOperation;
-        private System.Windows.Forms.Timer timerMovments;
     }
 }
 

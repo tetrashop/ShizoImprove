@@ -13430,9 +13430,12 @@ namespace RefrigtzDLL
                 {
                     TaskBegin++;
                 }
-                while (SolderesOnTable[ik].SoldierThinking[0].ThinkingBegin && (!SolderesOnTable[ik].SoldierThinking[0].ThinkingFinished))
+                while (true)
                 {
-                    System.Threading.Thread.Sleep(1);
+                    //System.Threading.Thread.Sleep(5);
+                    if (!(SolderesOnTable[ik].SoldierThinking[0].ThinkingBegin && (!SolderesOnTable[ik].SoldierThinking[0].ThinkingFinished)))
+                        break;
+
                 }// S += 100; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
 
 
@@ -13725,10 +13728,12 @@ namespace RefrigtzDLL
                 {
                     TaskBegin++;
                 }
-                while (ElephantOnTable[ik].ElefantThinking[0].ThinkingBegin && (!ElephantOnTable[ik].ElefantThinking[0].ThinkingFinished))
+                while (true)
 
                 {
-                    System.Threading.Thread.Sleep(1);
+                    if (!(ElephantOnTable[ik].ElefantThinking[0].ThinkingBegin && (!ElephantOnTable[ik].ElefantThinking[0].ThinkingFinished)))
+                        break;
+                        System.Threading.Thread.Sleep(5);
                 }// S += 100; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
 
                 //List<Task> tHA = new List<Task>();
@@ -14013,9 +14018,11 @@ namespace RefrigtzDLL
                 {
                     TaskBegin++;
                 }
-                while (HoursesOnTable[ik].HourseThinking[0].ThinkingBegin && (!HoursesOnTable[ik].HourseThinking[0].ThinkingFinished))
+                while (true)
                 {
-                    System.Threading.Thread.Sleep(1);
+                    if (!(HoursesOnTable[ik].HourseThinking[0].ThinkingBegin && (!HoursesOnTable[ik].HourseThinking[0].ThinkingFinished)))
+                        break;
+                        System.Threading.Thread.Sleep(5);
                 }// S += 100; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
 
                 //List<Task> tHA = new List<Task>();
@@ -14303,9 +14310,11 @@ namespace RefrigtzDLL
                 {
                     TaskBegin++;
                 }
-                while (CastlesOnTable[ik].CastleThinking[0].ThinkingBegin && (!CastlesOnTable[ik].CastleThinking[0].ThinkingFinished))
+                while (true)
                 {
-                    System.Threading.Thread.Sleep(1);
+                    if (!(CastlesOnTable[ik].CastleThinking[0].ThinkingBegin && (!CastlesOnTable[ik].CastleThinking[0].ThinkingFinished)))
+                        break;
+                    System.Threading.Thread.Sleep(5);
                 }// S += 100; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
 
                 //List<Task> tHA = new List<Task>();
@@ -14585,9 +14594,11 @@ namespace RefrigtzDLL
                 {
                     TaskBegin++;
                 }
-                while (MinisterOnTable[ik].MinisterThinking[0].ThinkingBegin && (!MinisterOnTable[ik].MinisterThinking[0].ThinkingFinished))
+                while (true)
                 {
-                    System.Threading.Thread.Sleep(1);
+                    if (!(MinisterOnTable[ik].MinisterThinking[0].ThinkingBegin && (!MinisterOnTable[ik].MinisterThinking[0].ThinkingFinished)))
+                        break;
+                    System.Threading.Thread.Sleep(5);
                 }// S += 100; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
 
                 //List<Task> tHA = new List<Task>();
@@ -14870,9 +14881,11 @@ namespace RefrigtzDLL
                 {
                     TaskBegin++;
                 }
-                while (KingOnTable[ik].KingThinking[0].ThinkingBegin && (!KingOnTable[ik].KingThinking[0].ThinkingFinished))
+                while (true)
                 {
-                    System.Threading.Thread.Sleep(1);
+                    if (!(KingOnTable[ik].KingThinking[0].ThinkingBegin && (!KingOnTable[ik].KingThinking[0].ThinkingFinished)))
+                        break;
+                    System.Threading.Thread.Sleep(5);
                 }// S += 100; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
 
                 //List<Task> tHA = new List<Task>();
