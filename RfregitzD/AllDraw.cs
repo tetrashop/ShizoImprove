@@ -12326,7 +12326,7 @@ namespace RefrigtzDLL
                         Object O = new Object();
                         //lock (O)
                         {
-                            if (AllDraw.OrderPlate == Order)
+                            if (AllDraw.OrderPlate != Order)
                             {
                                 if (SolderesOnTable[ik].SoldierThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessS || SolderesOnTable[ik].SoldierThinking[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0)
                                 {
@@ -12374,7 +12374,7 @@ namespace RefrigtzDLL
                         Object O = new Object();
                         //lock (O)
                         {
-                            if (AllDraw.OrderPlate == Order)
+                            if (AllDraw.OrderPlate != Order)
                             {
                                 if (ElephantOnTable[ik].ElefantThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessE || ElephantOnTable[ik].ElefantThinking[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0)
                                 {
@@ -12423,7 +12423,7 @@ namespace RefrigtzDLL
                         //lock (O)
                         {
 
-                            if (AllDraw.OrderPlate == Order)
+                            if (AllDraw.OrderPlate != Order)
                             {
                                 if (HoursesOnTable[ik].HourseThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessH || HoursesOnTable[ik].HourseThinking[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0)
                                 {
@@ -12470,7 +12470,7 @@ namespace RefrigtzDLL
                         Object O = new Object();
                         //lock (O)
                         {
-                            if (AllDraw.OrderPlate == Order)
+                            if (AllDraw.OrderPlate != Order)
                             {
                                 if (CastlesOnTable[ik].CastleThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessB || CastlesOnTable[ik].CastleThinking[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0)
                                 {
@@ -12523,7 +12523,7 @@ namespace RefrigtzDLL
                         Object O = new Object();
                         //lock (O)
                         {
-                            if (AllDraw.OrderPlate == Order)
+                            if (AllDraw.OrderPlate != Order)
                             {
                                 if (MinisterOnTable[ik].MinisterThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessM || MinisterOnTable[ik].MinisterThinking[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0)
                                 {
@@ -12573,7 +12573,7 @@ namespace RefrigtzDLL
                         Object O = new Object();
                         //lock (O)
                         {
-                            if (AllDraw.OrderPlate == Order)
+                            if (AllDraw.OrderPlate != Order)
                             {
                                 if (KingOnTable[ik].KingThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessK || KingOnTable[ik].KingThinking[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0)
                                 {
@@ -12772,7 +12772,7 @@ namespace RefrigtzDLL
                     //Soldier.
                     for (j = 0; j < SolderesOnTable[ik].SoldierThinking[0].HuristicListSolder.Count; j++)
                     {
-                        if (AllDraw.OrderPlate == Order)
+                        if (AllDraw.OrderPlate != Order)
                         {
                             if (SolderesOnTable[ik].SoldierThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessS || SolderesOnTable[ik].SoldierThinking[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0)
                             {
@@ -12816,7 +12816,7 @@ namespace RefrigtzDLL
                         continue;
                     for (j = 0; j < ElephantOnTable[ik].ElefantThinking[0].HuristicListElefant.Count; j++)
                     {
-                        if (AllDraw.OrderPlate == Order)
+                        if (AllDraw.OrderPlate != Order)
                         {
                             if (ElephantOnTable[ik].ElefantThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessE || ElephantOnTable[ik].ElefantThinking[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0)
                             {
@@ -12862,7 +12862,7 @@ namespace RefrigtzDLL
                         continue;
                     for (j = 0; j < HoursesOnTable[ik].HourseThinking[0].HuristicListHourse.Count; j++)
                     {
-                        if (AllDraw.OrderPlate == Order)
+                        if (AllDraw.OrderPlate != Order)
                         {
                             if (HoursesOnTable[ik].HourseThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessH || HoursesOnTable[ik].HourseThinking[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0)
                             {
@@ -12903,7 +12903,7 @@ namespace RefrigtzDLL
         {
             int Kind = -1;
             double PS = Double.MinValue, PE = Double.MinValue, PH = Double.MinValue, PB = Double.MinValue, PM = Double.MinValue, PK = Double.MinValue;
-            if (Order == AllDraw.OrderPlate)
+            if (Order != AllDraw.OrderPlate)
             {
                 PS = Double.MaxValue;
                 PE = Double.MaxValue;
@@ -12921,12 +12921,12 @@ namespace RefrigtzDLL
                 Object O = new Object();
                 //lock (O)
                 {
-                    BlitzGameThinkingTreeSolderGray(ref PS, ref index, ref jindex, Order * -1, 0, 0, 0, false, LeafAStarGreedy);
-                    BlitzGameThinkingTreeElephantGray(ref PE, ref index, ref jindex, Order * -1, 0, 0, 0, false, LeafAStarGreedy);
-                    BlitzGameThinkingTreeHourseGray(ref PH, ref index, ref jindex, Order * -1, 0, 0, 0, false, LeafAStarGreedy);
-                    BlitzGameThinkingTreeCastleGray(ref PB, ref index, ref jindex, Order * -1, 0, 0, 0, false, LeafAStarGreedy);
-                    BlitzGameThinkingTreeMinisterGray(ref PM, ref index, ref jindex, Order * -1, 0, 0, 0, false, LeafAStarGreedy);
-                    BlitzGameThinkingTreeKingGray(ref PK, ref index, ref jindex, Order * -1, 0, 0, 0, false, LeafAStarGreedy);
+                    BlitzGameThinkingTreeSolderGray(ref PS, ref index, ref jindex, Order, 0, 0, 0, false, LeafAStarGreedy);
+                    BlitzGameThinkingTreeElephantGray(ref PE, ref index, ref jindex, Order ,0, 0, 0, false, LeafAStarGreedy);
+                    BlitzGameThinkingTreeHourseGray(ref PH, ref index, ref jindex, Order , 0, 0, 0, false, LeafAStarGreedy);
+                    BlitzGameThinkingTreeCastleGray(ref PB, ref index, ref jindex, Order, 0, 0, 0, false, LeafAStarGreedy);
+                    BlitzGameThinkingTreeMinisterGray(ref PM, ref index, ref jindex, Order, 0, 0, 0, false, LeafAStarGreedy);
+                    BlitzGameThinkingTreeKingGray(ref PK, ref index, ref jindex, Order , 0, 0, 0, false, LeafAStarGreedy);
                 }
 
             }
@@ -12935,12 +12935,12 @@ namespace RefrigtzDLL
                 Object O = new Object();
                 //lock (O)
                 {
-                    BlitzGameThinkingTreeSolderBrown(ref PS, ref index, ref jindex, Order * -1, 0, 0, 0, false, LeafAStarGreedy);
-                    BlitzGameThinkingTreeElephantBrown(ref PE, ref index, ref jindex, Order * -1, 0, 0, 0, false, LeafAStarGreedy);
-                    BlitzGameThinkingTreeHourseBrown(ref PH, ref index, ref jindex, Order * -1, 0, 0, 0, false, LeafAStarGreedy);
-                    BlitzGameThinkingTreeCastleBrown(ref PB, ref index, ref jindex, Order * -1, 0, 0, 0, false, LeafAStarGreedy);
-                    BlitzGameThinkingTreeMinisterBrown(ref PM, ref index, ref jindex, Order * -1, 0, 0, 0, false, LeafAStarGreedy);
-                    BlitzGameThinkingTreeKingBrown(ref PK, ref index, ref jindex, Order * -1, 0, 0, 0, false, LeafAStarGreedy);
+                    BlitzGameThinkingTreeSolderBrown(ref PS, ref index, ref jindex, Order, 0, 0, 0, false, LeafAStarGreedy);
+                    BlitzGameThinkingTreeElephantBrown(ref PE, ref index, ref jindex, Order, 0, 0, 0, false, LeafAStarGreedy);
+                    BlitzGameThinkingTreeHourseBrown(ref PH, ref index, ref jindex, Order , 0, 0, 0, false, LeafAStarGreedy);
+                    BlitzGameThinkingTreeCastleBrown(ref PB, ref index, ref jindex, Order , 0, 0, 0, false, LeafAStarGreedy);
+                    BlitzGameThinkingTreeMinisterBrown(ref PM, ref index, ref jindex, Order , 0, 0, 0, false, LeafAStarGreedy);
+                    BlitzGameThinkingTreeKingBrown(ref PK, ref index, ref jindex, Order, 0, 0, 0, false, LeafAStarGreedy);
                 }
             }
             int JI = -1;
@@ -12948,7 +12948,10 @@ namespace RefrigtzDLL
             //lock (O1)
             {
 
-                JI = MaxOfThreeHuristic(PS, PE, PH, PB, PM, PK);
+                if (Order == OrderPlate)
+                    JI = MaxOfSixHuristic(PS, PE, PH, PB, PM, PK);
+                else
+                    JI = MinOfSixHuristic(PS, PE, PH, PB, PM, PK);
             }
             if (JI != -1)
             {
@@ -12978,7 +12981,7 @@ namespace RefrigtzDLL
                     for (j = 0; j < CastlesOnTable[ik].CastleThinking[0].HuristicListCastle.Count; j++)
                     {
 
-                        if (AllDraw.OrderPlate == Order)
+                        if (AllDraw.OrderPlate != Order)
                         {
                             if (CastlesOnTable[ik].CastleThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessB || CastlesOnTable[ik].CastleThinking[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0)
                             {
@@ -13028,7 +13031,7 @@ namespace RefrigtzDLL
                         continue;
                     for (j = 0; j < MinisterOnTable[ik].MinisterThinking[0].HuristicListMinister.Count; j++)
                     {
-                        if (AllDraw.OrderPlate == Order)
+                        if (AllDraw.OrderPlate != Order)
                         {
                             if (MinisterOnTable[ik].MinisterThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessM || MinisterOnTable[ik].MinisterThinking[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0)
                             {
@@ -13073,7 +13076,7 @@ namespace RefrigtzDLL
                         continue;
                     for (j = 0; j < KingOnTable[ik].KingThinking[0].HuristicListKing.Count; j++)
                     {
-                        if (AllDraw.OrderPlate == Order)
+                        if (AllDraw.OrderPlate != Order)
                         {
                             if (KingOnTable[ik].KingThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessK || KingOnTable[ik].KingThinking[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0)
                             {
@@ -13160,7 +13163,7 @@ namespace RefrigtzDLL
                 //lock (O2)
                 {
 
-                    JI = MaxOfThreeHuristic(PreviousLessS, PreviousLessE, PreviousLessH, PreviousLessB, PreviousLessM, PreviousLessK);
+                    JI = MaxOfSixHuristic(PreviousLessS, PreviousLessE, PreviousLessH, PreviousLessB, PreviousLessM, PreviousLessK);
                 }
 
                 Object O3 = new Object();
@@ -13269,7 +13272,7 @@ namespace RefrigtzDLL
                 Object O2 = new Object();
                 //lock (O2)
                 {
-                    JI = MaxOfThreeHuristic(PreviousLessS, PreviousLessE, PreviousLessH, PreviousLessB, PreviousLessM, PreviousLessK);
+                    JI = MaxOfSixHuristic(PreviousLessS, PreviousLessE, PreviousLessH, PreviousLessB, PreviousLessM, PreviousLessK);
                 }
                 Object O3 = new Object();
                 //lock (O3)
@@ -16233,7 +16236,7 @@ namespace RefrigtzDLL
                     Table[i, j] = Tab[i, j];
             return Table;
         }
-        int MaxOfThreeHuristic(double _1, double _2, double _3, double _4, double _5, double _6)
+        int MaxOfSixHuristic(double _1, double _2, double _3, double _4, double _5, double _6)
         {
             double[] Less = new double[6];
             Less[0] = _1;
@@ -16248,6 +16251,28 @@ namespace RefrigtzDLL
             for (int i = 0; i < 6; i++)
             {
                 if (Less[i] > Les)
+                {
+                    Les = Less[i];
+                    Value = i;
+                }
+            }
+            return Value;
+        }
+        int MinOfSixHuristic(double _1, double _2, double _3, double _4, double _5, double _6)
+        {
+            double[] Less = new double[6];
+            Less[0] = _1;
+            Less[1] = _2;
+            Less[2] = _3;
+            Less[3] = _4;
+            Less[4] = _5;
+            Less[5] = _6;
+
+            int Value = -1;
+            double Les = Double.MaxValue;
+            for (int i = 0; i < 6; i++)
+            {
+                if (Less[i] < Les)
                 {
                     Les = Less[i];
                     Value = i;

@@ -4804,7 +4804,7 @@ namespace RefrigtzDLL
                     {
                         if (PenaltyRegardListSolder[i].IsPenaltyAction() != 0)
                         {
-                            if (Order == AllDraw.OrderPlate)
+                            if (Order != AllDraw.OrderPlate)
                             {
                                 if (Less > HuristicListSolder[i][0] +
                                     HuristicListSolder[i][1] +
@@ -4871,7 +4871,7 @@ namespace RefrigtzDLL
                     {
                         if (PenaltyRegardListElefant[i].IsPenaltyAction() != 0)
                         {
-                            if (Order == AllDraw.OrderPlate)
+                            if (Order != AllDraw.OrderPlate)
                             {
                                 if (Less > HuristicListElefant[i][0] +
                                     HuristicListElefant[i][1] +
@@ -4936,7 +4936,7 @@ namespace RefrigtzDLL
                     {
                         if (PenaltyRegardListHourse[i].IsPenaltyAction() != 0)
                         {
-                            if (Order == AllDraw.OrderPlate)
+                            if (Order != AllDraw.OrderPlate)
                             {
                                 if (Less > HuristicListHourse[i][0] +
                                     HuristicListHourse[i][1] +
@@ -5001,7 +5001,7 @@ namespace RefrigtzDLL
                     {
                         if (PenaltyRegardListCastle[i].IsPenaltyAction() != 0)
                         {
-                            if (Order == AllDraw.OrderPlate)
+                            if (Order != AllDraw.OrderPlate)
                             {
                                 if (Less > HuristicListCastle[i][0] +
                                     HuristicListCastle[i][1] +
@@ -5065,7 +5065,7 @@ namespace RefrigtzDLL
                     {
                         if (PenaltyRegardListMinister[i].IsPenaltyAction() != 0)
                         {
-                            if (Order == AllDraw.OrderPlate)
+                            if (Order != AllDraw.OrderPlate)
                             {
                                 if (Less > HuristicListMinister[i][0] +
                                     HuristicListMinister[i][1] +
@@ -5131,7 +5131,7 @@ namespace RefrigtzDLL
                     {
                         if (PenaltyRegardListKing[i].IsPenaltyAction() != 0)
                         {
-                            if (Order == AllDraw.OrderPlate)
+                            if (Order != AllDraw.OrderPlate)
                             {
                                 if (Less > HuristicListKing[i][0] +
                                     HuristicListKing[i][1] +
@@ -6347,7 +6347,7 @@ namespace RefrigtzDLL
                             Hu[6] += HeuristicDistabceOfCurrentMoveFromEnemyKingValue;
                             Hu[7] += HeuristicKingSafe;
                             Hu[8] = HeuristicFromCenter;
-                            Hu[9] = HeuristicKingDangour; H = ((int)((Hu[0] + Hu[1] + Hu[2] + Hu[3] + Hu[4] + Hu[5] + Hu[6] + Hu[7] + Hu[8] + Hu[9]))).ToString();
+                            Hu[9] = HeuristicKingDangour; H = " HAttack:" + ((int)(Hu[0])).ToString() + " HMove:" + ((int)(Hu[1])).ToString() + " HSelSup:" + ((int)(Hu[2])).ToString() + " HCheckedMateDang:" + ((int)(Hu[3])).ToString() + " HKiller:" + ((int)(Hu[4])).ToString() + " HReduAttack:" + ((int)(Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((int)(Hu[6])).ToString() + " HKingSafe:" + ((int)(Hu[7])).ToString() + " HObjFromCeneter:" + ((int)(Hu[8])).ToString() + " HKingDang:" + ((int)(Hu[9])).ToString();
                             HuristicListKing.Add(Hu);
                         }
                         Object O2 = new Object();
@@ -6491,7 +6491,7 @@ namespace RefrigtzDLL
                             Hu[6] += HeuristicDistabceOfCurrentMoveFromEnemyKingValue;
                             Hu[7] += HeuristicKingSafe;
                             Hu[8] = HeuristicFromCenter;
-                            Hu[9] = HeuristicKingDangour; H = ((int)((Hu[0] + Hu[1] + Hu[2] + Hu[3] + Hu[4] + Hu[5] + Hu[6] + Hu[7] + Hu[8] + Hu[9]))).ToString();
+                            Hu[9] = HeuristicKingDangour; H = " HAttack:" + ((int)(Hu[0])).ToString() + " HMove:" + ((int)(Hu[1])).ToString() + " HSelSup:" + ((int)(Hu[2])).ToString() + " HCheckedMateDang:" + ((int)(Hu[3])).ToString() + " HKiller:" + ((int)(Hu[4])).ToString() + " HReduAttack:" + ((int)(Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((int)(Hu[6])).ToString() + " HKingSafe:" + ((int)(Hu[7])).ToString() + " HObjFromCeneter:" + ((int)(Hu[8])).ToString() + " HKingDang:" + ((int)(Hu[9])).ToString();
                             
                             HuristicListMinister.Add(Hu);
                         }
@@ -6963,7 +6963,7 @@ namespace RefrigtzDLL
                         Hu[6] += HeuristicDistabceOfCurrentMoveFromEnemyKingValue;
                         Hu[7] += HeuristicKingSafe;
                         Hu[8] = HeuristicFromCenter;
-                        Hu[9] = HeuristicKingDangour; H = ((int)((Hu[0] + Hu[1] + Hu[2] + Hu[3] + Hu[4] + Hu[5] + Hu[6] + Hu[7] + Hu[8] + Hu[9]))).ToString();
+                        Hu[9] = HeuristicKingDangour; H = " HAttack:" + ((int)(Hu[0])).ToString() + " HMove:" + ((int)(Hu[1])).ToString() + " HSelSup:" + ((int)(Hu[2])).ToString() + " HCheckedMateDang:" + ((int)(Hu[3])).ToString() + " HKiller:" + ((int)(Hu[4])).ToString() + " HReduAttack:" + ((int)(Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((int)(Hu[6])).ToString() + " HKingSafe:" + ((int)(Hu[7])).ToString() + " HObjFromCeneter:" + ((int)(Hu[8])).ToString() + " HKingDang:" + ((int)(Hu[9])).ToString();
                         HuristicListCastle.Add(Hu);
                     }
                     Object O3 = new Object();
@@ -7081,7 +7081,7 @@ namespace RefrigtzDLL
                             Hu[6] += HeuristicDistabceOfCurrentMoveFromEnemyKingValue;
                             Hu[7] += HeuristicKingSafe;
                             Hu[8] = HeuristicFromCenter;
-                            Hu[9] = HeuristicKingDangour; H = ((int)((Hu[0] + Hu[1] + Hu[2] + Hu[3] + Hu[4] + Hu[5] + Hu[6] + Hu[7] + Hu[8] + Hu[9]))).ToString();
+                            Hu[9] = HeuristicKingDangour; H = " HAttack:" + ((int)(Hu[0])).ToString() + " HMove:" + ((int)(Hu[1])).ToString() + " HSelSup:" + ((int)(Hu[2])).ToString() + " HCheckedMateDang:" + ((int)(Hu[3])).ToString() + " HKiller:" + ((int)(Hu[4])).ToString() + " HReduAttack:" + ((int)(Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((int)(Hu[6])).ToString() + " HKingSafe:" + ((int)(Hu[7])).ToString() + " HObjFromCeneter:" + ((int)(Hu[8])).ToString() + " HKingDang:" + ((int)(Hu[9])).ToString();
                             HuristicListHourse.Add(Hu);
                         }
                         Object O4 = new Object();
@@ -7204,7 +7204,7 @@ namespace RefrigtzDLL
                             Hu[6] += HeuristicDistabceOfCurrentMoveFromEnemyKingValue;
                             Hu[7] += HeuristicKingSafe;
                             Hu[8] = HeuristicFromCenter;
-                            Hu[9] = HeuristicKingDangour; H = ((int)((Hu[0] + Hu[1] + Hu[2] + Hu[3] + Hu[4] + Hu[5] + Hu[6] + Hu[7] + Hu[8] + Hu[9]))).ToString();
+                            Hu[9] = HeuristicKingDangour; H = " HAttack:" + ((int)(Hu[0])).ToString() + " HMove:" + ((int)(Hu[1])).ToString() + " HSelSup:" + ((int)(Hu[2])).ToString() + " HCheckedMateDang:" + ((int)(Hu[3])).ToString() + " HKiller:" + ((int)(Hu[4])).ToString() + " HReduAttack:" + ((int)(Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((int)(Hu[6])).ToString() + " HKingSafe:" + ((int)(Hu[7])).ToString() + " HObjFromCeneter:" + ((int)(Hu[8])).ToString() + " HKingDang:" + ((int)(Hu[9])).ToString();
                             HuristicListElefant.Add(Hu);
                         }
                         Object O5 = new Object();
@@ -7947,7 +7947,7 @@ namespace RefrigtzDLL
                             Hu[6] += HeuristicDistabceOfCurrentMoveFromEnemyKingValue;
                             Hu[7] += HeuristicKingSafe;
                             Hu[8] = HeuristicFromCenter;
-                            Hu[9] = HeuristicKingDangour; H = ((int)((Hu[0] + Hu[1] + Hu[2] + Hu[3] + Hu[4] + Hu[5] + Hu[6] + Hu[7] + Hu[8] + Hu[9]))).ToString();
+                            Hu[9] = HeuristicKingDangour; H = " HAttack:" + ((int)(Hu[0])).ToString() + " HMove:" + ((int)(Hu[1])).ToString() + " HSelSup:" + ((int)(Hu[2])).ToString() + " HCheckedMateDang:" + ((int)(Hu[3])).ToString() + " HKiller:" + ((int)(Hu[4])).ToString() + " HReduAttack:" + ((int)(Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((int)(Hu[6])).ToString() + " HKingSafe:" + ((int)(Hu[7])).ToString() + " HObjFromCeneter:" + ((int)(Hu[8])).ToString() + " HKingDang:" + ((int)(Hu[9])).ToString();
                             HuristicListSolder.Add(Hu);
                         }
                         Object O8 = new Object();
@@ -8052,7 +8052,7 @@ namespace RefrigtzDLL
                     Hu[6] += HeuristicDistabceOfCurrentMoveFromEnemyKingValue;
                     Hu[7] += HeuristicKingSafe;
                     Hu[8] = HeuristicFromCenter;
-                    Hu[9] = HeuristicKingDangour; H = ((int)((Hu[0] + Hu[1] + Hu[2] + Hu[3] + Hu[4] + Hu[5] + Hu[6] + Hu[7] + Hu[8] + Hu[9]))).ToString();
+                    Hu[9] = HeuristicKingDangour; H = " HAttack:" + ((int)(Hu[0])).ToString() + " HMove:" + ((int)(Hu[1])).ToString() + " HSelSup:" + ((int)(Hu[2])).ToString() + " HCheckedMateDang:" + ((int)(Hu[3])).ToString() + " HKiller:" + ((int)(Hu[4])).ToString() + " HReduAttack:" + ((int)(Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((int)(Hu[6])).ToString() + " HKingSafe:" + ((int)(Hu[7])).ToString() + " HObjFromCeneter:" + ((int)(Hu[8])).ToString() + " HKingDang:" + ((int)(Hu[9])).ToString();
                     HuristicListKing.Add(Hu);
 
                 }
@@ -8170,7 +8170,7 @@ namespace RefrigtzDLL
                 //lock (O1)
                 {
                     
-
+                    /*
                     HuristicAttackValue = Huriistic[0] * SignOrderToPlate(Order);
                     HuristicKillerValue = Huriistic[1] * SignOrderToPlate(Order);
                     HuristicMovementValue = Huriistic[2] * SignOrderToPlate(Order);
@@ -8181,8 +8181,8 @@ namespace RefrigtzDLL
                     HeuristicKingSafe = HKingSafe * SignOrderToPlate(Order);
                     HeuristicFromCenter = HFromCenter * SignOrderToPlate(Order);
                     HeuristicKingDangour = HKingDangour * SignOrderToPlate(Order);
-                    
-                    /*HuristicAttackValue = Huriistic[0];
+                    */
+                    HuristicAttackValue = Huriistic[0];
                     HuristicKillerValue = Huriistic[1];
                     HuristicMovementValue = Huriistic[2];
                     HuristicObjectDangourCheckMateValue = (Huriistic[3] + HCheck);
@@ -8191,7 +8191,7 @@ namespace RefrigtzDLL
                     HeuristicDistabceOfCurrentMoveFromEnemyKingValue = HDistance;
                     HeuristicKingSafe = HKingSafe;
                     HeuristicFromCenter = HFromCenter;
-                    HeuristicKingDangour = HKingDangour;*/
+                    HeuristicKingDangour = HKingDangour;
 
                 }
             }
@@ -8280,7 +8280,7 @@ namespace RefrigtzDLL
                     Hu[6] += HeuristicDistabceOfCurrentMoveFromEnemyKingValue;
                     Hu[7] += HeuristicKingSafe;
                     Hu[8] = HeuristicFromCenter;
-                    Hu[9] = HeuristicKingDangour; H = ((int)((Hu[0] + Hu[1] + Hu[2] + Hu[3] + Hu[4] + Hu[5] + Hu[6] + Hu[7] + Hu[8] + Hu[9]))).ToString();
+                    Hu[9] = HeuristicKingDangour; H = " HAttack:" + ((int)(Hu[0])).ToString() + " HMove:" + ((int)(Hu[1])).ToString() + " HSelSup:" + ((int)(Hu[2])).ToString() + " HCheckedMateDang:" + ((int)(Hu[3])).ToString() + " HKiller:" + ((int)(Hu[4])).ToString() + " HReduAttack:" + ((int)(Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((int)(Hu[6])).ToString() + " HKingSafe:" + ((int)(Hu[7])).ToString() + " HObjFromCeneter:" + ((int)(Hu[8])).ToString() + " HKingDang:" + ((int)(Hu[9])).ToString();
 
                 }
                 Object O7 = new Object(); SetObjectNumbersInList(TableS);
