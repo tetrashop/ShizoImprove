@@ -8170,8 +8170,8 @@ namespace RefrigtzDLL
                 //lock (O1)
                 {
                     
-                    /*
-                    HuristicAttackValue = Huriistic[0] * SignOrderToPlate(Order);
+                    
+                    /*HuristicAttackValue = Huriistic[0] * SignOrderToPlate(Order);
                     HuristicKillerValue = Huriistic[1] * SignOrderToPlate(Order);
                     HuristicMovementValue = Huriistic[2] * SignOrderToPlate(Order);
                     HuristicObjectDangourCheckMateValue = (Huriistic[3] + HCheck) * SignOrderToPlate(Order);
@@ -8180,8 +8180,9 @@ namespace RefrigtzDLL
                     HeuristicDistabceOfCurrentMoveFromEnemyKingValue = HDistance * SignOrderToPlate(Order);
                     HeuristicKingSafe = HKingSafe * SignOrderToPlate(Order);
                     HeuristicFromCenter = HFromCenter * SignOrderToPlate(Order);
-                    HeuristicKingDangour = HKingDangour * SignOrderToPlate(Order);
-                    */
+                    HeuristicKingDangour = HKingDangour * SignOrderToPlate(Order);*/
+                    
+                      
                     HuristicAttackValue = Huriistic[0];
                     HuristicKillerValue = Huriistic[1];
                     HuristicMovementValue = Huriistic[2];
@@ -8192,7 +8193,7 @@ namespace RefrigtzDLL
                     HeuristicKingSafe = HKingSafe;
                     HeuristicFromCenter = HFromCenter;
                     HeuristicKingDangour = HKingDangour;
-
+                    
                 }
             }
         }
