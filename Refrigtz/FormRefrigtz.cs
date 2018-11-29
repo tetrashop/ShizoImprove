@@ -226,16 +226,16 @@ namespace Refrigtz
         //FormRefrigtz THIs = null;
         String connParam = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Root + "\\" + "Database\\CurrentBank.accdb;;Persist Security Info=False; Jet OLEDB:Database Password='!HN#BGHHN&N$G$V4'";
         public bool LoadTree = false;
-        //Thread tttt = null;
-        //Thread ttt = null;
+        Thread tttt = null;
+        Thread ttt = null;
 
         Process proc = new Process();
 
-        private System.Timers.Timer queueManagementTimer;
-        private System.Timers.Timer queueManagementTimerMove;
-        private System.Timers.Timer queueManagementTimerSetRefrigitDLL;
-        private System.Timers.Timer queueManagementTimerSetNodesCount;
-        private System.Timers.Timer queueManagementTimerSetTimer;
+        //private System.Timers.Timer queueManagementTimer;
+        //private System.Timers.Timer queueManagementTimerMove;
+        //private System.Timers.Timer queueManagementTimerSetRefrigitDLL;
+        //private System.Timers.Timer queueManagementTimerSetNodesCount;
+        //private System.Timers.Timer queueManagementTimerSetTimer;
         
 
         bool AllDo = false;
@@ -244,9 +244,9 @@ namespace Refrigtz
         bool SetNode = false;
         bool SetTimer = false;
 
-        private void worker_DoWork()
+        /*private void worker_DoWork()
         {
-            queueManagementTimer = new System.Timers.Timer(500); /* timeout, 500ms = 0.5s*/
+            queueManagementTimer = new System.Timers.Timer(500); 
             queueManagementTimer.Elapsed += OnQueueManagementTimerElapsed;
             queueManagementTimer.Enabled = true;
             queueManagementTimer.AutoReset = true;
@@ -254,7 +254,7 @@ namespace Refrigtz
         }
         private void worker_DoWorkMove()
         {
-            queueManagementTimerMove = new System.Timers.Timer(500); /* timeout, 500ms = 0.5s*/
+            queueManagementTimerMove = new System.Timers.Timer(500); 
             queueManagementTimerMove.Elapsed += OnQueueManagementTimerElapsedMove;
             queueManagementTimerMove.Enabled = true;
             queueManagementTimerMove.AutoReset = true;
@@ -262,7 +262,7 @@ namespace Refrigtz
         }
         private void worker_DoWorkDLL()
         {
-            queueManagementTimerSetRefrigitDLL = new System.Timers.Timer(1); /* timeout, 500ms = 0.5s*/
+            queueManagementTimerSetRefrigitDLL = new System.Timers.Timer(1); 
             queueManagementTimerSetRefrigitDLL.Elapsed += OnQueueManagementTimerElapsedSetRefrigitDLL;
             queueManagementTimerSetRefrigitDLL.Enabled = true;
             queueManagementTimerSetRefrigitDLL.AutoReset = true;
@@ -270,22 +270,23 @@ namespace Refrigtz
         }
         private void worker_DoWorkNodesCount()
         {
-            queueManagementTimerSetNodesCount = new System.Timers.Timer(1); /* timeout, 500ms = 0.5s*/
+            queueManagementTimerSetNodesCount = new System.Timers.Timer(1); 
             queueManagementTimerSetNodesCount.Elapsed += OnQueueManagementTimerElapsedSetNodesCount;
             queueManagementTimerSetNodesCount.Enabled = true;
             queueManagementTimerSetNodesCount.AutoReset = true;
 
         }
+        
         private void worker_DoWorkTimer()
         {
-            queueManagementTimerSetTimer = new System.Timers.Timer(1); /* timeout, 500ms = 0.5s*/
+            queueManagementTimerSetTimer = new System.Timers.Timer(1); 
             queueManagementTimerSetTimer.Elapsed += OnQueueManagementTimerElapsedSetTimer;
             queueManagementTimerSetTimer.Enabled = true;
             queueManagementTimerSetTimer.AutoReset = true;
 
         }
-        
-        private void OnQueueManagementTimerElapsed(Object source, System.Timers.ElapsedEventArgs e)
+        */
+      /*  private void OnQueueManagementTimerElapsed(Object source, System.Timers.ElapsedEventArgs e)
         {
             if (!AllDo)
             {
@@ -341,7 +342,7 @@ namespace Refrigtz
 
 
         }
-    
+    */
         void AllOp()
         {
             
@@ -1808,8 +1809,8 @@ namespace Refrigtz
                 t2 = new Thread(new ThreadStart(BobAction));
                 t3 = new Thread(new ThreadStart(AliceAction));
                 t4 = new Thread(new ThreadStart(GeneticAction));
-                //tttt = new Thread(new ThreadStart(SetRefregitzDLL));
-                //ttt = new Thread(new ThreadStart(SetNodesCount));
+                tttt = new Thread(new ThreadStart(SetRefregitzDLL));
+                ttt = new Thread(new ThreadStart(SetNodesCount));
             }
 
 
@@ -1846,7 +1847,7 @@ namespace Refrigtz
         private void SetTimerDLL()
         {
             SetTimer = true;
-        //    do
+            do
             {
                 //Thread.Sleep(1);
                 Object O = new Object();
@@ -1860,7 +1861,7 @@ namespace Refrigtz
                 }
                 //System.Threading.Thread.Sleep(10);
             }
-            //  while (true);
+             while (true);
             SetTimer = false;
 
         }
@@ -2198,8 +2199,8 @@ namespace Refrigtz
         void SetNodesCount()
         {
             SetNode = true;
-            //    do
-            //{
+              do
+            {
             Object O = new Object();
             lock (O)
             {
@@ -2215,9 +2216,9 @@ namespace Refrigtz
                 else
                     SetlableRefregitzMaxValue(labelNodesCount, RefrigtzDLL.ThinkingChess.NumbersOfAllNode.ToString() + " at time " + ((int)(Store)).ToString() + "N/s and by Elapsed time " + ((int)((EndTime - TimeElapsed) / 1000)).ToString() + " s" + " By CheckMate Count " + RefrigtzDLL.ThinkingChess.FoundFirstMating.ToString() + " For Order  " + RefrigtzDLL.AllDraw.OrderPlate.ToString());
                 //labelNodesCount.Refresh();
-                //Thread.Sleep(10);
+                Thread.Sleep(1);
             }
-            //  } while (true);
+              } while (true);
             SetNode = false;
         }
 
@@ -2225,7 +2226,7 @@ namespace Refrigtz
         {
             bool Set = false;
             SetDLL = true;
-            //   do{
+               do{
             Object o = new Object();
             lock (o)
             {
@@ -2321,17 +2322,17 @@ namespace Refrigtz
                // System.Threading.Thread.Sleep(10);
             }
 
-            //    } while (true);
+                } while (true);
             SetDLL = false;
         }
         void Timerstart()
         {
             while (true)
             {
-                queueManagementTimer.Start();
-                queueManagementTimerMove.Start();
-                queueManagementTimerSetNodesCount.Start();
-                queueManagementTimerSetRefrigitDLL.Start();
+                //queueManagementTimer.Start();
+                //queueManagementTimerMove.Start();
+                //queueManagementTimerSetNodesCount.Start();
+                //queueManagementTimerSetRefrigitDLL.Start();
 
             }
         }
@@ -2344,8 +2345,8 @@ namespace Refrigtz
             bool DrawDrawen = false;
 
             //Set and syncronization with dynamic refregitzdll.   
-            //tttt = new Thread(new ThreadStart(SetRefregitzDLL));
-            //ttt = new Thread(new ThreadStart(SetNodesCount));
+            tttt = new Thread(new ThreadStart(SetRefregitzDLL));
+            ttt = new Thread(new ThreadStart(SetNodesCount));
             AllOperate = new Thread(new ThreadStart(AllOperations));
             BrownTimer = new Refrigtz.Timer(false);
             GrayTimer = new Refrigtz.Timer(false);
@@ -2573,9 +2574,9 @@ namespace Refrigtz
                 Person = true;
 
 
-            //tttt.Start();
-            //ttt.Start();
-           // AllOperate.Start();
+            tttt.Start();
+            ttt.Start();
+            AllOperate.Start();
 
             if (!DrawDrawen)
             {
@@ -2605,12 +2606,13 @@ namespace Refrigtz
             BrownTimer.TextChanged = A;
 
             var parallelOptions = new ParallelOptions();
-            parallelOptions.MaxDegreeOfParallelism = Int32.MaxValue;
+            //parallelOptions.MaxDegreeOfParallelism = Int32.MaxValue;
+            parallelOptions.MaxDegreeOfParallelism = PlatformHelper.ProcessorCount;
 
-            worker_DoWork();
-            worker_DoWorkMove();
-            worker_DoWorkDLL();
-            worker_DoWorkNodesCount();
+            //worker_DoWork();
+            //worker_DoWorkMove();
+            //worker_DoWorkDLL();
+            //worker_DoWorkNodesCount();
 
         }
         //Reading Table Database.
@@ -3934,7 +3936,7 @@ namespace Refrigtz
             lock (O)
             {
                 RefrigtzDLL.ChessRules AA = null;
-            //    do
+                do
                 {
                     if (RefrigtzDLL.AllDraw.MouseClick == 1 //|| RefrigtzDLL.AllDraw.MouseClick == 2
                         )
@@ -5605,7 +5607,7 @@ namespace Refrigtz
                     System.Threading.Thread.Sleep(10);
                 }
 
-              //  while (true);
+                while (true);
             }
             AllMove = false;
         }
@@ -7609,7 +7611,7 @@ namespace Refrigtz
                 BobSection = true;
             else
                 BobSection = false;
-
+            do { AllOp(); } while (true);
         
         }
         List<int[]> WhereNumbers(String Tag)
@@ -9627,12 +9629,12 @@ namespace Refrigtz
                                 t3.Abort();
                             if (t4 != null)
                                 t4.Abort();
-                            //if (AllOperate != null)
+                            if (AllOperate != null)
                                 AllOperate.Abort();
-                            //if (tttt != null)
-                                //tttt.Abort();
-                            //if (ttt != null)
-                                //ttt.Abort();
+                            if (tttt != null)
+                                tttt.Abort();
+                            if (ttt != null)
+                                ttt.Abort();
                             GrayTimer.StopTime();
                             BrownTimer.StopTime();
                             TimerText.StopTime();
@@ -9723,12 +9725,12 @@ namespace Refrigtz
                                 t3.Abort();
                             if (t4 != null)
                                 t4.Abort();
-                            //if (AllOperate != null)
+                            if (AllOperate != null)
                                 AllOperate.Abort();
-                            //if (tttt != null)
-                                //tttt.Abort();
-                            //if (ttt != null)
-                                //ttt.Abort();
+                            if (tttt != null)
+                                tttt.Abort();
+                            if (ttt != null)
+                                ttt.Abort();
                             GrayTimer.StopTime();
                             BrownTimer.StopTime();
                             TimerText.StopTime();

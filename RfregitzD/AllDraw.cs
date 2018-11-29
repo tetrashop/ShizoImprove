@@ -13432,14 +13432,16 @@ namespace RefrigtzDLL
                 lock (OO1)
                 {
                     TaskBegin++;
-
+                    int S = 0;
                     while (true)
                     {
                         //System.Threading.Thread.Sleep(5);
                         if (!(SolderesOnTable[ik].SoldierThinking[0].ThinkingBegin && (!SolderesOnTable[ik].SoldierThinking[0].ThinkingFinished)))
                             break;
-
-                    }// S += 100; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
+                        Thread.Sleep(1);
+                        S += 1;//if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } 
+                        SemaphoreExxedTime(S, 1);
+                    }
 
                 }
                 //List<Task> tHA = new List<Task>();
@@ -13730,13 +13732,15 @@ namespace RefrigtzDLL
                 lock (OO1)
                 {
                     TaskBegin++;
-
+                    int S = 0;
                     while (true)
 
                     {
                         if (!(ElephantOnTable[ik].ElefantThinking[0].ThinkingBegin && (!ElephantOnTable[ik].ElefantThinking[0].ThinkingFinished)))
                             break;
-                        System.Threading.Thread.Sleep(5);
+                        Thread.Sleep(1);
+                        S += 1;//if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } 
+                        SemaphoreExxedTime(S, 2);
                     }// S += 100; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
                 }
                 //List<Task> tHA = new List<Task>();
@@ -14020,13 +14024,16 @@ namespace RefrigtzDLL
                 lock (OO1)
                 {
                     TaskBegin++;
-
+                    int S = 0;
                     while (true)
                     {
                         if (!(HoursesOnTable[ik].HourseThinking[0].ThinkingBegin && (!HoursesOnTable[ik].HourseThinking[0].ThinkingFinished)))
                             break;
-                        System.Threading.Thread.Sleep(5);
-                    }// S += 100; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
+                        Thread.Sleep(1);
+                        S += 1;//if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } 
+                        SemaphoreExxedTime(S, 3);
+                    }
+                    //S += 100; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
                 }
                 //List<Task> tHA = new List<Task>();
 
@@ -14312,13 +14319,16 @@ namespace RefrigtzDLL
                 lock (OO1)
                 {
                     TaskBegin++;
-
+                    int S = 0;
                     while (true)
                     {
                         if (!(CastlesOnTable[ik].CastleThinking[0].ThinkingBegin && (!CastlesOnTable[ik].CastleThinking[0].ThinkingFinished)))
                             break;
-                        System.Threading.Thread.Sleep(5);
-                    }// S += 100; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
+                        Thread.Sleep(1);
+                        S += 1;//if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } 
+                        SemaphoreExxedTime(S, 4);
+                    }
+                    //S += 100; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
                 }
                 //List<Task> tHA = new List<Task>();
                 //if (CastlesOnTable[ik].CastleThinking[0].TableListCastle.Count == 0)
@@ -14596,12 +14606,14 @@ namespace RefrigtzDLL
                 lock (OO1)
                 {
                     TaskBegin++;
-
+                    int S = 0;
                     while (true)
                     {
                         if (!(MinisterOnTable[ik].MinisterThinking[0].ThinkingBegin && (!MinisterOnTable[ik].MinisterThinking[0].ThinkingFinished)))
                             break;
-                        System.Threading.Thread.Sleep(5);
+                        Thread.Sleep(1);
+                        S += 1;//if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } 
+                        SemaphoreExxedTime(S, 5);
                     }// S += 100; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
                 }
                 //List<Task> tHA = new List<Task>();
@@ -14883,12 +14895,14 @@ namespace RefrigtzDLL
                 lock (OO1)
                 {
                     TaskBegin++;
-
+                    int S = 0;
                     while (true)
                     {
                         if (!(KingOnTable[ik].KingThinking[0].ThinkingBegin && (!KingOnTable[ik].KingThinking[0].ThinkingFinished)))
                             break;
-                        System.Threading.Thread.Sleep(5);
+                        Thread.Sleep(1);
+                        S += 1;//if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } 
+                        SemaphoreExxedTime(S, 5);
                     }// S += 100; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
                 }
                 //List<Task> tHA = new List<Task>();
@@ -16978,6 +16992,30 @@ namespace RefrigtzDLL
                 }
             }           
 
+        }
+        void SemaphoreExxedTime(int time, int Kind)
+        {
+
+            if (time > 10000)
+            {
+                if (Kind == 1)
+                    AllDraw.ActionString = "Solder Semaphre Full Game Exeede time";
+                else
+if (Kind == 2)
+                    AllDraw.ActionString = "elephant Semaphre Full Game Exeede time";
+                else
+if (Kind == 3)
+                    AllDraw.ActionString = "Hourse Semaphre Full Game Exeede time";
+                else
+if (Kind == 4)
+                    AllDraw.ActionString = "Castle Semaphre Full Game Exeede time";
+                else
+if (Kind == 5)
+                    AllDraw.ActionString = "Minister Semaphre Full Game Exeede time";
+                else if (Kind == 6)
+                    AllDraw.ActionString = "King Semaphre Full Game Exeede time";
+
+            }
         }
         //Main Initiate Thinking Method.
         public int[,] Initiate(int ii, int jj, Color a, int[,] Table, int Order, bool TB, bool FOUND, int LeafAStarGreedy)
