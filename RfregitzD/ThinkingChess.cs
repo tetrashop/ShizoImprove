@@ -2836,7 +2836,7 @@ namespace RefrigtzDLL
                     Sign = 1.0;
                 else
                     //When Order is Opposite Sign Negative.
-                    if (Order != AllDraw.OrderPlate)
+                    if (Order == AllDraw.OrderPlate)
                     Sign = -1.0;
 
                 return Sign;
@@ -4804,7 +4804,7 @@ namespace RefrigtzDLL
                     {
                         if (PenaltyRegardListSolder[i].IsPenaltyAction() != 0)
                         {
-                            if (Order != AllDraw.OrderPlate)
+                            if (Order == AllDraw.OrderPlate)
                             {
                                 if (Less > HuristicListSolder[i][0] +
                                     HuristicListSolder[i][1] +
@@ -4871,7 +4871,7 @@ namespace RefrigtzDLL
                     {
                         if (PenaltyRegardListElefant[i].IsPenaltyAction() != 0)
                         {
-                            if (Order != AllDraw.OrderPlate)
+                            if (Order == AllDraw.OrderPlate)
                             {
                                 if (Less > HuristicListElefant[i][0] +
                                     HuristicListElefant[i][1] +
@@ -4936,7 +4936,7 @@ namespace RefrigtzDLL
                     {
                         if (PenaltyRegardListHourse[i].IsPenaltyAction() != 0)
                         {
-                            if (Order != AllDraw.OrderPlate)
+                            if (Order == AllDraw.OrderPlate)
                             {
                                 if (Less > HuristicListHourse[i][0] +
                                     HuristicListHourse[i][1] +
@@ -5001,7 +5001,7 @@ namespace RefrigtzDLL
                     {
                         if (PenaltyRegardListCastle[i].IsPenaltyAction() != 0)
                         {
-                            if (Order != AllDraw.OrderPlate)
+                            if (Order == AllDraw.OrderPlate)
                             {
                                 if (Less > HuristicListCastle[i][0] +
                                     HuristicListCastle[i][1] +
@@ -5065,7 +5065,7 @@ namespace RefrigtzDLL
                     {
                         if (PenaltyRegardListMinister[i].IsPenaltyAction() != 0)
                         {
-                            if (Order != AllDraw.OrderPlate)
+                            if (Order == AllDraw.OrderPlate)
                             {
                                 if (Less > HuristicListMinister[i][0] +
                                     HuristicListMinister[i][1] +
@@ -5131,7 +5131,7 @@ namespace RefrigtzDLL
                     {
                         if (PenaltyRegardListKing[i].IsPenaltyAction() != 0)
                         {
-                            if (Order != AllDraw.OrderPlate)
+                            if (Order == AllDraw.OrderPlate)
                             {
                                 if (Less > HuristicListKing[i][0] +
                                     HuristicListKing[i][1] +
@@ -5548,7 +5548,7 @@ namespace RefrigtzDLL
                 {
 
                     //When is Gray.
-                    if (Order == -1)
+                    if (Order == 1)
                     {
                         //For All Depth Count.
                         for (int i = 0; i < AStarGreedy.Count; i++)
@@ -9001,7 +9001,7 @@ namespace RefrigtzDLL
                 NumberOfPenalties = 0;
                 SetObjectNumbers(CloneATable(TableConst));
                 bool PenRegStrore = true;
-                // if (Order != AllDraw.OrderPlate)
+                // if (Order == AllDraw.OrderPlate)
                 //  PenRegStrore = false;
 
                 //Thread.Sleep(500);
@@ -9382,7 +9382,7 @@ namespace RefrigtzDLL
             //lock (O)
             {
                 bool Is = false;
-                if (Order != AllDraw.OrderPlate)
+                if (Order == AllDraw.OrderPlate)
                 {
 
 
