@@ -12378,12 +12378,12 @@ namespace RefrigtzDLL
                         {
                             Order = DummyOrder;
                             ChessRules.CurrentOrder = DummyCurrentOrder;
-                            int Ord = Order * -1, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
+                            int Ord = Order, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
                             //System.Threading.Thread.Sleep(100);
-                            Parallel.Invoke(() =>
+                            //Parallel.Invoke(() =>
                             {
                                 Do = this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
-                            });
+                            }//);
                         }
 
 
@@ -13122,8 +13122,8 @@ namespace RefrigtzDLL
 
             }
 
-            int[] index = new int[6];
-            int[] jindex = new int[6];
+            int[] index = { -1, -1, -1, -1, -1, -1};
+            int[] jindex = { -1, -1, -1, -1, -1, -1};
             if (Order == 1)
             {
                 //Object O = new Object();

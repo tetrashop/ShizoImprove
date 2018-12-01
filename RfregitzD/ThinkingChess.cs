@@ -2316,7 +2316,7 @@ namespace RefrigtzDLL
                                 */
                                 for (int ij = 0; ij < 8; ij++)
                                 {
-                                    for (int ji = 0; ji < 8; jj++)
+                                    for (int ji = 0; ji < 8; ji++)
                                     {
                                         ////Object O2 = new Object();
                                         //lock (O2)
@@ -2354,7 +2354,7 @@ namespace RefrigtzDLL
                                             */
                                             for (int ij = 0; ij < 8; ij++)
                                             {
-                                                for (int ji = 0; ji < 8; jj++)
+                                                for (int ji = 0; ji < 8; ji++)
                                                 {
                                                     ////Object O2 = new Object();
                                                     //lock (O2)
@@ -2441,7 +2441,7 @@ namespace RefrigtzDLL
                                     */
                                 for (int ij = 0; ij < 8; ij++)
                                 {
-                                    for (int ji = 0; ji < 8; jj++)
+                                    for (int ji = 0; ji < 8; ji++)
                                     {
                                         ////Object O2 = new Object();
                                         //lock (O2)
@@ -2487,7 +2487,7 @@ namespace RefrigtzDLL
 */
                                             for (int ij = 0; ij < 8; ij++)
                                             {
-                                                for (int ji = 0; ji < 8; jj++)
+                                                for (int ji = 0; ji < 8; ji++)
                                                 {
                                                     ////Object O2 = new Object();
                                                     //lock (O2)
@@ -9084,7 +9084,7 @@ namespace RefrigtzDLL
                     for (int i = ii - 1; i < ii + 2; i++)
                     {
                         //Parallel.For(jj - 1, jj + 2, j =>
-                        for (int j = jj - 1; i < jj + 2; j++)
+                        for (int j = jj - 1; j < jj + 2; j++)
                         {
 
 
