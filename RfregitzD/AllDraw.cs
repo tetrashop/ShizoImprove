@@ -221,12 +221,12 @@ namespace RefrigtzDLL
         public static double CurrentHuristic = Double.MinValue;
         public static double SignAttack = 1;
         public static double SignObjectDangour = 1;
-        public static double SignReducedAttacked = -1;
+        public static double SignReducedAttacked = 1;//;-1;
         public static double SignSupport = 1;
         public static double SignKiller = 1;
         public static double SignMovments = 1;
-        public static double SignDistance = -1;
-        public static double SignKingSafe = -1;
+        public static double SignDistance = 1;//-1;
+        public static double SignKingSafe = 1;//-1;
         public static double SignKingDangour = 1;
         public static bool DrawTable = true;
         public static int[,] TableVeryfy = new int[8, 8];
@@ -17255,8 +17255,8 @@ if (Kind == 5)
                 //Object On = new Object();
                 //lock (On)
                 {
-                    String state1 = "\n\t=====================================================================================================================================================================";
-                    String state2 = "\n\tMovment Number:" + AllDraw.MovmentsNumber;
+                    String state1 = "\n\t=====================================================================================================================================================================<br/>";
+                    String state2 = "\n\tMovment Number:" + AllDraw.MovmentsNumber + "<br/>";
 
 
                     //String R = File.ReadAllText(Root + "\\Database\\Monitor.html");
