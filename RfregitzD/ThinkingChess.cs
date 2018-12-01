@@ -2305,6 +2305,7 @@ namespace RefrigtzDLL
                                     continue;
                                 int[,] Table = new int[8, 8];
                                 //Clone a Copy.
+                                /*
                                 Parallel.For(0, 8, ij =>
                                 {
                                     Parallel.For(0, 8, ji =>
@@ -2312,7 +2313,18 @@ namespace RefrigtzDLL
                                     Table[ij, ji] = Tab[ij, ji];
                                 });
                                 });
-
+                                */
+                                for (int ij = 0; ij < 8; ij++)
+                                {
+                                    for (int ji = 0; ji < 8; jj++)
+                                    {
+                                        ////Object O2 = new Object();
+                                        //lock (O2)
+                                        {
+                                            Table[ij, ji] = Tab[ij, ji];
+                                        }
+                                    }
+                                }
                                 Color AA = Color.Gray;
                                 if (Order * -1 == -1)
                                     AA = Color.Brown;
@@ -2331,6 +2343,7 @@ namespace RefrigtzDLL
                                         A.CheckMate(Table, Order);
                                         {
                                             //Clone a Copy.
+                                            /*
                                             Parallel.For(0, 8, ij =>
                                             {
                                                 Parallel.For(0, 8, ji =>
@@ -2338,13 +2351,25 @@ namespace RefrigtzDLL
                                                     Table[ij, ji] = Tab[ij, ji];
                                                 });
                                             });
-                                        //When Before Move such situation is observed calculate huristic count.
-                                        /*if (Order == 1 && A.CheckGrayObjectDangour)
-                                            HA += AllDraw.SignKingSafe * (GetObjectValue(Table, ii, jj, Order * -1) + GetObjectValue(Table, RowD, ColD, Order));
-                                        else
-                                            if (Order == -1 && A.CheckBrownObjectDangour)
-                                            HA += AllDraw.SignKingSafe * (GetObjectValue(Table, ii, jj, Order * -1) + GetObjectValue(Table, RowD, ColD, Order));
                                             */
+                                            for (int ij = 0; ij < 8; ij++)
+                                            {
+                                                for (int ji = 0; ji < 8; jj++)
+                                                {
+                                                    ////Object O2 = new Object();
+                                                    //lock (O2)
+                                                    {
+                                                        Table[ij, ji] = Tab[ij, ji];
+                                                    }
+                                                }
+                                            }
+                                            //When Before Move such situation is observed calculate huristic count.
+                                            /*if (Order == 1 && A.CheckGrayObjectDangour)
+                                                HA += AllDraw.SignKingSafe * (GetObjectValue(Table, ii, jj, Order * -1) + GetObjectValue(Table, RowD, ColD, Order));
+                                            else
+                                                if (Order == -1 && A.CheckBrownObjectDangour)
+                                                HA += AllDraw.SignKingSafe * (GetObjectValue(Table, ii, jj, Order * -1) + GetObjectValue(Table, RowD, ColD, Order));
+                                                */
                                             Object ol = new Object();
                                             lock (ol)
                                             {
@@ -2400,20 +2425,32 @@ namespace RefrigtzDLL
                                     if (Order == -1 && Tab[RowD, ColD] < 0)
                                         continue;
                                     int[,] Table = new int[8, 8];
-                                    //Clone a Copy.
-                                    Parallel.For(0, 8, ij =>
+                                //Clone a Copy.
+                                /*Parallel.For(0, 8, ij =>
+                                    {
+                                        Parallel.For(0, 8, ji =>
                                         {
-                                            Parallel.For(0, 8, ji =>
+                                            ////Object O2 = new Object();
+                                            //lock (O2)
                                             {
-                                                ////Object O2 = new Object();
-                                                //lock (O2)
-                                                {
-                                                    Table[ij, ji] = Tab[ij, ji];
-                                                }
-                                            });
+                                                Table[ij, ji] = Tab[ij, ji];
+                                            }
                                         });
 
-                                    Color AA = Color.Gray;
+                                    });
+                                    */
+                                for (int ij = 0; ij < 8; ij++)
+                                {
+                                    for (int ji = 0; ji < 8; jj++)
+                                    {
+                                        ////Object O2 = new Object();
+                                        //lock (O2)
+                                        {
+                                            Table[ij, ji] = Tab[ij, ji];
+                                        }
+                                    }
+                                }
+                                Color AA = Color.Gray;
                                     if (Order == -1)
                                         AA = Color.Brown;
                                     //When Self Move
@@ -2434,22 +2471,35 @@ namespace RefrigtzDLL
                                             A.CheckMate(Table,Order);
                                             {
                                                 int[,] Table1 = new int[8, 8];
-                                                //Clone a Copy.
-                                                Parallel.For(0, 8, ij =>
+                                            //Clone a Copy.
+                                            /*
+                                            Parallel.For(0, 8, ij =>
+                                                    {
+                                                        Parallel.For(0, 8, ji =>
                                                         {
-                                                            Parallel.For(0, 8, ji =>
+                                                            ////Object O1 = new Object();
+                                                            //lock (O1)
                                                             {
-                                                                ////Object O1 = new Object();
-                                                                //lock (O1)
-                                                                {
-                                                                    Table1[ij, ji] = Tab[ij, ji];
-                                                                }
-                                                            });
+                                                                Table1[ij, ji] = Tab[ij, ji];
+                                                            }
                                                         });
-                                                //When Situation Observed Take Situation calcualte Huristic.
-                                                ////Object O4 = new Object();
-                                                //lock (O4)
+                                                    });
+*/
+                                            for (int ij = 0; ij < 8; ij++)
+                                            {
+                                                for (int ji = 0; ji < 8; jj++)
                                                 {
+                                                    ////Object O2 = new Object();
+                                                    //lock (O2)
+                                                    {
+                                                        Table[ij, ji] = Tab[ij, ji];
+                                                    }
+                                                }
+                                            }
+                                            //When Situation Observed Take Situation calcualte Huristic.
+                                            ////Object O4 = new Object();
+                                            //lock (O4)
+                                            {
                                                 /*if (Order == -1 && A.CheckGrayObjectDangour)
                                                     HA += AllDraw.SignKingDangour * (GetObjectValue(Table1, ii, jj, Order * -1) + GetObjectValue(Table1, RowD, ColD, Order));
                                                 else
@@ -8161,7 +8211,7 @@ namespace RefrigtzDLL
                 double HKingSafe = new double();
                 double HKingDangour = new double();
                 double HFromCenter = 0;
-                Parallel.Invoke(() =>
+                //Parallel.Invoke(() =>
                 {
                     ////Object O = new Object();
                     //lock (O)
@@ -8170,7 +8220,7 @@ namespace RefrigtzDLL
                         Huriistic = HuristicAll(Before, Killed, TableSS, color, Order, RowS, ColS, RowD, ColD);
                     }
                 }
-                 , () =>
+                // , () =>
                  {
                      ////Object O = new Object();
                      //lock (O)
@@ -8180,7 +8230,7 @@ namespace RefrigtzDLL
                              );
                      }
                  }
-                 , () =>
+                /// , () =>
                  {
                      ////Object O = new Object();
                      //lock (O)
@@ -8190,7 +8240,7 @@ namespace RefrigtzDLL
                               );
                      }
                  }
-                 , () =>
+                // , () =>
                  {
                      ////Object O = new Object();
                      //lock (O)
@@ -8200,7 +8250,7 @@ namespace RefrigtzDLL
                               , CurrentAStarGredyMax);
                      }
                  }
-                   , () =>
+                  // , () =>
                    {
                        ////Object O = new Object();
                        //lock (O)
@@ -8210,7 +8260,7 @@ namespace RefrigtzDLL
                            , CurrentAStarGredyMax);
                        }
                    }
-                   , () =>
+                  // , () =>
                    {
                        ////Object O = new Object();
                        //lock (O)
@@ -8219,7 +8269,7 @@ namespace RefrigtzDLL
                            HFromCenter = HuristicSoldierFromCenter(TableSS, color, Order, RowS, ColS, RowD, ColD);
                        }
                    }
-                );
+               //)/;
                 ////Object O1 = new Object();
                 //lock (O1)
                 {
@@ -9034,7 +9084,7 @@ namespace RefrigtzDLL
                     for (int i = ii - 1; i < ii + 2; i++)
                     {
                         //Parallel.For(jj - 1, jj + 2, j =>
-                        for (int j = jj - 1; i < jj + 2; jj++)
+                        for (int j = jj - 1; i < jj + 2; j++)
                         {
 
 

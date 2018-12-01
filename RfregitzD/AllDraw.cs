@@ -11351,6 +11351,7 @@ namespace RefrigtzDLL
                                             SolderesOnTable[i].SoldierThinking[0].ThinkingBegin = true;
                                             SolderesOnTable[i].SoldierThinking[0].ThinkingFinished = false;
                                             SolderesOnTable[i].SoldierThinking[0].Thinking();
+
                                         }
 
                                     }//);
@@ -11465,7 +11466,8 @@ namespace RefrigtzDLL
                                       {
                                           HoursesOnTable[i].HourseThinking[0].ThinkingBegin = true;
                                           HoursesOnTable[i].HourseThinking[0].ThinkingFinished = false;
-                                          HoursesOnTable[i].HourseThinking[0].Thinking();
+                                            HoursesOnTable[i].HourseThinking[0].Thinking();
+
 
 
 
