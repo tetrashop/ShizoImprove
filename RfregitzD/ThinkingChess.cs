@@ -53,7 +53,7 @@
  * Rating of Alice as Computer Game is very weak as compatitor of users.**************.RC**0.88**1**Risk Control************************************<*>QC_BAD.
  * Thinking gone to take some part of stones.*****************************************.RC**0.88**1**Risk Control************************************<*>QC_BAD.
  * Thinking failed becuase of all possible movment penalties of first level**.********.RC**0.88**1**Risk Control************************************<*>QC_OK.
- * Object Dangour and Check is aditive of HeuristicCheckedand checked mated.**********.RC**0.88**1**Risk Control************************************<*>QC_OK.
+ * ////Object Dangour and Check is aditive of HeuristicCheckedand checked mated.**********.RC**0.88**1**Risk Control************************************<*>QC_OK.
  * Heuristics take some part of stone.************************************************.RC**0.88**1**Risk Control************************************<*>QC_OK.
  * Branch Dept at Thinking Tree is low becuse of harware constraints and speed.*******.RC**0.88**1**Risk Control************************************<*>QC_BAD.
  * Thinking falied becuase of All Possible of Penalties movments.*********************.RC**0.88**1**Risk Control************************************<*>QC_OK.
@@ -206,7 +206,7 @@ namespace RefrigtzDLL
         public int Order;
         [NonSerialized()] public Task t = null;
         public List<AllDraw> AStarGreedy = new List<AllDraw>();
-        int[,] Value = new int[8, 8];
+        double[,] Value = new double[8, 8];
         bool IgnoreFromCheckandMateHuristic = false;
         int CurrentAStarGredyMax = -1;
         List<int[,]> ObjectNumbers = new List<int[,]>();
@@ -215,7 +215,7 @@ namespace RefrigtzDLL
         {
             try
             {
-                Object a = new Object();
+                ////Object a = new Object();
                 //lock (a)
                 {
                     string stackTrace = ex.ToString();
@@ -257,7 +257,7 @@ namespace RefrigtzDLL
         }
         public void SetObjectNumbers(int[,] TabS)
         {
-            Object a = new Object();
+            ////Object a = new Object();
             //lock (a)
             {
 
@@ -338,7 +338,7 @@ namespace RefrigtzDLL
         //Constructor
         public ThinkingChess(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, int i, int j)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 //Initiate Variables.
@@ -388,7 +388,7 @@ namespace RefrigtzDLL
         }
         void SetValueOfTabls(int Row, int Column)
         {
-            Object o = new Object();
+            ////Object o = new Object();
             //lock (o)
             {
                 //for (int h = 0; h < 8; h++)
@@ -410,7 +410,7 @@ namespace RefrigtzDLL
         //determine When Arrangment of Table Objects is Validated at Begin.
         bool BeginArragmentsOfOrderFinished(int[,] Table, int Order)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 int CH = 0;
@@ -462,7 +462,7 @@ namespace RefrigtzDLL
         //Constructor
         public ThinkingChess(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, int i, int j, Color a, int[,] Tab, int Ma, int Ord, bool ThinkingBeg, int CurA, int ThingN, int Kin)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 CurrentAStarGredyMax = CurrentAStarGredy;
@@ -528,7 +528,7 @@ namespace RefrigtzDLL
                 Order = Ord;
                 ThinkingBegin = ThinkingBeg;
                 //AStarGreedy = new List<AllDraw>();
-                /*Object o = new Object();
+                /*////Object o = new Object();
                 //lock (o)
                 {
                     for (int h = 0; h < 8; h++)
@@ -551,7 +551,7 @@ namespace RefrigtzDLL
         //Clone A Table
         int[,] CloneATable(int[,] Tab)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 //Create and new an Object.
@@ -567,7 +567,7 @@ namespace RefrigtzDLL
         //Clone A List.  
         int[] CloneAList(int[] Tab, int Count)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 //Initiate new Objects.
@@ -582,7 +582,7 @@ namespace RefrigtzDLL
         //Clone a copy of an array.
         double[] CloneAList(double[] Tab, int Count)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 //Initiate New Object.
@@ -595,9 +595,9 @@ namespace RefrigtzDLL
             }
         }
         //Gwt Value of Book Netwrok Quantum Atamtat at Every Need time form parameters index.
-        int GetValue(int i, int j)
+        double GetValue(int i, int j)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
 
@@ -608,7 +608,7 @@ namespace RefrigtzDLL
         ///Clone a Copy.
         public void Clone(ref ThinkingChess AA)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 //Assignment Content to New Content Object.
@@ -616,7 +616,7 @@ namespace RefrigtzDLL
                 if (AA == null)
                     AA = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column);
                 AA.ArrangmentsChanged = ArrangmentsChanged;
-                //When Depth Object is not NULL.
+                //When Depth ////Object is not NULL.
                 if (AStarGreedy.Count != 0)
                 {
                     AA.AStarGreedy = new System.Collections.Generic.List<AllDraw>();
@@ -643,7 +643,7 @@ namespace RefrigtzDLL
 
                 //For All Elephant index List Count.
                 for (int j = 0; j < RowColumnElefant.Count; j++)
-                    //Add a Clone to New Elephant Object List.
+                    //Add a Clone to New Elephant ////Object List.
                     AA.RowColumnElefant.Add(CloneAList(RowColumnElefant[j], 2));
                 //For All Hourse index List Count.
                 for (int j = 0; j < RowColumnHourse.Count; j++)
@@ -651,7 +651,7 @@ namespace RefrigtzDLL
                     AA.RowColumnHourse.Add(CloneAList(RowColumnHourse[j], 2));
                 //For All King index List Count.
                 for (int j = 0; j < RowColumnKing.Count; j++)
-                    //Add a Clone To New King Object List.
+                    //Add a Clone To New King ////Object List.
                     AA.RowColumnKing.Add(CloneAList(RowColumnKing[j], 2));
                 //For All Minister index Count.
                 for (int j = 0; j < RowColumnMinister.Count; j++)
@@ -736,7 +736,7 @@ namespace RefrigtzDLL
                     {
                         //Initiate a new Quantum Atamata Object
                         //QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                        //Add New Object Create to New Penalty Solder List.
+                        //Add New ////Object Create to New Penalty Solder List.
                         AA.PenaltyRegardListSolder.Add(PenaltyRegardListSolder[i]);
                     }
                 }
@@ -752,7 +752,7 @@ namespace RefrigtzDLL
                         //QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                         //Clone a Copy Of Penalty Elephant.
                         AA.PenaltyRegardListElefant.Add(PenaltyRegardListElefant[i]);
-                        //Add New Object Create to New Penalty Elephant List.
+                        //Add New ////Object Create to New Penalty Elephant List.
                         //AA.PenaltyRegardListElefant.Add(Current);
                     }
 
@@ -770,7 +770,7 @@ namespace RefrigtzDLL
                         QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                         //Clone a Copy Of Penalty Hourse.
                         //PenaltyRegardListHourse[i].Clone(ref Current);
-                        //Add New Object Create to New Penalty Hourse List.
+                        //Add New ////Object Create to New Penalty Hourse List.
                         AA.PenaltyRegardListHourse.Add(PenaltyRegardListHourse[i]);
                     }
 
@@ -788,7 +788,7 @@ namespace RefrigtzDLL
                         //QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                         //Clone a Copy Of Penalty Castles.
                         //PenaltyRegardListCastle[i].Clone(ref Current);
-                        //Add New Object Create to New Penalty Castles List.
+                        //Add New ////Object Create to New Penalty Castles List.
                         AA.PenaltyRegardListCastle.Add(PenaltyRegardListCastle[i]);
                     }
                 }
@@ -805,7 +805,7 @@ namespace RefrigtzDLL
                         //QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                         //Clone a Copy Of Penalty Minsiter.
                         //PenaltyRegardListMinister[i].Clone(ref Current);
-                        //Add New Object Create to New Penalty Minsietr List.
+                        //Add New ////Object Create to New Penalty Minsietr List.
                         AA.PenaltyRegardListMinister.Add(PenaltyRegardListMinister[i]);
                     }
                 }
@@ -822,7 +822,7 @@ namespace RefrigtzDLL
                         //QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                         //Clone a Copy Of Penalty King.
                         //PenaltyRegardListKing[i].Clone(ref Current);
-                        //Add New Object Create to New Penalty King List.
+                        //Add New ////Object Create to New Penalty King List.
                         AA.PenaltyRegardListKing.Add(PenaltyRegardListKing[i]);
                     }
                 }
@@ -885,7 +885,7 @@ namespace RefrigtzDLL
                         Order = DummyOrder;
                         ///When Attack is true. means [RowD,ColD] is in Attacked  [RowS,ColS].
                         ///What is Attack!
-                        ///Ans:When [RowD,ColD] is Attacked [RowS,ColS] return true when enemy is located in [RowD,ColD].
+                        ///Ans:When [RowD,ColD] is Attacked [RowS,ColS] continue true when enemy is located in [RowD,ColD].
                         if (Table[RowD, ColD] > 0 && DummyOrder == -1 && Table[RowS, ColS] < 0)
                         {
                             Order = -1;
@@ -903,7 +903,7 @@ namespace RefrigtzDLL
                         else
                             return HuristicAttackValue;
                         //For Attack Movments.- GetObjectValueHuristic
-                        Object O1 = new Object();
+                        ////Object O1 = new Object();
                         //lock (O1)
                         {
                             if (Before)
@@ -917,19 +917,21 @@ namespace RefrigtzDLL
                                     bool Supported = new bool();
                                     Supported = false;
                                     //For All Enemy Obejcts.                                             
-                                    Parallel.For(0, 8, g =>
+                                    //Parallel.For(0, 8, g =>
+                                    for (int g = 0; g < 8; g++)
                                     {
                                         if (Supported)
-                                            return;
-                                        Parallel.For(0, 8, h =>
-                                            {
+                                            continue;
+                                        //Parallel.For(0, 8, h =>
+                                        for (int h = 0; h < 8; h++)
+                                        {
                                                 if (Supported)
-                                                    return;
+                                                    continue;
                                                 //Ignore Of Self Objects.
                                                 if (Order == 1 && Table[g, h] >= 0)
-                                                    return;
+                                                    continue;
                                                 if (Order == -1 && Table[g, h] <= 0)
-                                                    return;
+                                                    continue;
                                                 Color aaa = new Color();
                                                 //Assgin Enemy ints.
                                                 aaa = Color.Gray;
@@ -939,7 +941,7 @@ namespace RefrigtzDLL
                                                     aaa = Color.Gray;
                                                 //When Enemy is Supported.
                                                 bool A = new bool();
-                                                Object O2 = new Object();
+                                                ////Object O2 = new Object();
                                                 //lock (O2)
                                                 {
                                                     A = Support(Table, g, h, RowD, ColD, aaa, Order * -1);
@@ -949,20 +951,20 @@ namespace RefrigtzDLL
                                                 {
                                                     //Assgine variable.
                                                     Supported = true;
-                                                    return;
+                                                    continue;
 
                                                 }
 
-                                            });
+                                            }//);
                                         if (Supported)
-                                            return;
-                                    });
+                                            continue;
+                                    }//);
                                     if (!Supported)
                                         //When is Not Supported multyply 20.
-                                        HA *= 20;
+                                        HA *=2;
                                     else
                                         //When is Supported Multyply -20.
-                                        HA *= -20;
+                                        HA *=-2;
 
                                 }
                             }
@@ -982,7 +984,7 @@ namespace RefrigtzDLL
                         double Sign = 1;
                         ///When Attack is true. means [RowD,ColD] is in Attacked  [RowS,ColS].
                         ///What is Attack!
-                        ///Ans:When [RowD,ColD] is Attacked [RowS,ColS] return true when enemy is located in [RowD,ColD].
+                        ///Ans:When [RowD,ColD] is Attacked [RowS,ColS] continue true when enemy is located in [RowD,ColD].
                         if (Table[RowD, ColD] > 0 && DummyOrder == -1 && Table[RowS, ColS] < 0)
                         {
                             Order = -1;
@@ -1002,7 +1004,7 @@ namespace RefrigtzDLL
                         bool Supported = new bool();
                         Supported = false;
                         //For Attack Movments.
-                        Object O2 = new Object();
+                        ////Object O2 = new Object();
                         //lock (O2)
                         {
                             if (Before)
@@ -1015,19 +1017,21 @@ namespace RefrigtzDLL
 
                                     //When there is supporter of attacked Objects take huristic negative else take muliply sign and muliply huristic.
                                     //For All Enemy Obejcts.                                             
-                                    Parallel.For(0, 8, g =>
+                                    //Parallel.For(0, 8, g =>
+                                    for (int g = 0; g < 8; g++)
                                     {
                                         if (Supported)
-                                            return;
-                                        Parallel.For(0, 8, h =>
+                                            continue;
+                                        for (int h = 0; h < 8; h++)
+                                            //Parallel.For(0, 8, h =>
                                             {
                                                 if (Supported)
-                                                    return;
+                                                    continue;
                                                 //Ignore Of Self Objects.
                                                 if (Order == 1 && Table[g, h] >= 0)
-                                                    return;
+                                                    continue;
                                                 if (Order == -1 && Table[g, h] <= 0)
-                                                    return;
+                                                    continue;
                                                 Color aaa = new Color();
                                                 //Assgin Enemy ints.
                                                 aaa = Color.Gray;
@@ -1037,7 +1041,7 @@ namespace RefrigtzDLL
                                                     aaa = Color.Gray;
                                                 //When Enemy is Supported.
                                                 bool A = new bool();
-                                                Object O1 = new Object();
+                                                ////Object O1 = new Object();
                                                 //lock (O1)
                                                 {
                                                     A = Support(Table, g, h, RowD, ColD, aaa, Order * -1);
@@ -1047,21 +1051,21 @@ namespace RefrigtzDLL
                                                 {
                                                     //Assgine variable.
                                                     Supported = true;
-                                                    return;
+                                                    continue;
 
                                                 }
-                                            });
+                                            }//);
                                         if (Supported)
-                                            return;
-                                    });
+                                            continue;
+                                    }//);
                                     //When there is supported take positive multiply else take negative multiply.                               
 
                                     if (!Supported)
                                         //When is Not Supported multyply 20.
-                                        HA *= 20;
+                                        HA *=2;
                                     else
                                         //When is Supported Multyply -20.
-                                        HA *= -20;
+                                        HA *=-2;
                                 }
                             }
                         }
@@ -1106,7 +1110,7 @@ namespace RefrigtzDLL
                         Order = DummyOrder;
                         ///When Attack is true. means [RowD,ColD] is in Attacked  [RowS,ColS].
                         ///What is Attack!
-                        ///Ans:When [RowD,ColD] is Attacked [RowS,ColS] return true when enemy is located in [RowD,ColD].
+                        ///Ans:When [RowD,ColD] is Attacked [RowS,ColS] continue true when enemy is located in [RowD,ColD].
                         if (Table[RowD, ColD] > 0 && DummyOrder == -1 && Table[RowS, ColS] < 0)
                         {
                             Order = 1;
@@ -1125,7 +1129,7 @@ namespace RefrigtzDLL
                             return HuristicReducedAttackValue;
 
                         //For Attack Movments.
-                        Object O1 = new Object();
+                        ////Object O1 = new Object();
                         //lock (O1)
                         {
                             if (Before)
@@ -1136,20 +1140,23 @@ namespace RefrigtzDLL
                                     HA += (Sign * (System.Math.Abs(GetValue(RowS, ColS) + GetValue(RowD, ColD))));
                                     bool Reduced = new bool();
                                     Reduced = false;
-                                    Parallel.For(0, 8, g =>
+
+                                    //Parallel.For(0, 8, g =>
+                                    for (int g = 0; g < 8; g++)
                                     {
                                         if (Reduced)
-                                            return;
-                                        Parallel.For(0, 8, h =>
+                                            continue;
+                                        //Parallel.For(0, 8, h =>
+                                        for (int h = 0; h < 8; h++)
 
                                         {
                                             if (Reduced)
-                                                return;
+                                                continue;
                                             //Ignore Of Enemy Objects.
                                             if (Order == 1 && Table[g, h] <= 0)
-                                                return;
+                                                continue;
                                             if (Order == -1 && Table[g, h] >= 0)
-                                                return;
+                                                continue;
                                             Color aaa = new Color();
                                             //Assgin Enemy ints.
                                             if (Order * -1 == -1)
@@ -1157,7 +1164,7 @@ namespace RefrigtzDLL
                                             else
                                                 aaa = Color.Gray;
                                             bool A = new bool();
-                                            Object O2 = new Object();
+                                            ////Object O2 = new Object();
                                             //lock (O2)
                                             {
                                                 A = Support(Table, g, h, RowD, ColD, aaa, Order * 1);
@@ -1167,20 +1174,20 @@ namespace RefrigtzDLL
                                             {
                                                 //Assgine variable.
                                                 Reduced = true;
-                                                return;
+                                                continue;
                                             }
-                                        });
+                                        }//);
                                         if (Reduced)
-                                            return;
-                                    });
+                                            continue;
+                                    }//);
 
 
                                     if (Reduced)
                                         //When is Not Supported multyply 100.
-                                        HA *= 20;
+                                        HA *=2;
                                     else
                                         //When is Supported Multyply -100.
-                                        HA *= -20;
+                                        HA *=-2;
 
 
                                 }
@@ -1199,7 +1206,7 @@ namespace RefrigtzDLL
                         double Sign = 1;
                         ///When Attack is true. means [RowD,ColD] is in Attacked  [RowS,ColS].
                         ///What is Attack!
-                        ///Ans:When [RowD,ColD] is Attacked [RowS,ColS] return true when enemy is located in [RowD,ColD].
+                        ///Ans:When [RowD,ColD] is Attacked [RowS,ColS] continue true when enemy is located in [RowD,ColD].
                         if (Table[RowD, ColD] > 0 && DummyOrder == -1 && Table[RowS, ColS] < 0)
                         {
                             Order = 1;
@@ -1217,7 +1224,7 @@ namespace RefrigtzDLL
                         else
                             return HuristicReducedAttackValue;
                         //For Attack Movments.
-                        Object O1 = new Object();
+                        ////Object O1 = new Object();
                         //lock (O1)
                         {
                             if (Before)
@@ -1229,20 +1236,23 @@ namespace RefrigtzDLL
                                     bool Reduced = new bool();
                                     Reduced = false;
                                     //For All Self Obejcts.                                             
-                                    Parallel.For(0, 8, g =>
+                                    //Parallel.For(0, 8, g =>
+                                    for (int g = 0; g < 8; g++)
                                     {
                                         if (Reduced)
-                                            return;
-                                        Parallel.For(0, 8, h =>
+                                            continue;
+                                        //Parallel.For(0, 8, h =>
+                                        for (int h = 0; h < 8; h++)
+
 
                                         {
                                             if (Reduced)
-                                                return;
+                                                continue;
                                             //Ignore Of Enemy Objects.
                                             if (Order == 1 && Table[g, h] <= 0)
-                                                return;
+                                                continue;
                                             if (Order == -1 && Table[g, h] >= 0)
-                                                return;
+                                                continue;
                                             Color aaa = new Color();
                                             //Assgin Enemy ints.
                                             if (Order * -1 == -1)
@@ -1250,7 +1260,7 @@ namespace RefrigtzDLL
                                             else
                                                 aaa = Color.Gray;
                                             bool A = new bool();
-                                            Object O2 = new Object();
+                                            ////Object O2 = new Object();
                                             //lock (O2)
                                             {
                                                 A = Support(Table, g, h, RowD, ColD, aaa, Order * 1);
@@ -1260,20 +1270,20 @@ namespace RefrigtzDLL
                                             {
                                                 //Assgine variable.
                                                 Reduced = true;
-                                                return;
+                                                continue;
 
                                             }
 
-                                        });
+                                        }//);
                                         if (Reduced)
-                                            return;
-                                    });
+                                            continue;
+                                    }//);
                                     if (Reduced)
                                         //When is Not Supported multyply 100.
-                                        HA *= 20;
+                                        HA *=2;
                                     else
                                         //When is Supported Multyply -100.
-                                        HA *= -20;
+                                        HA *=-2;
                                 }
                             }
                         }
@@ -1291,10 +1301,10 @@ namespace RefrigtzDLL
                 return HA;
             }
         }
-        ///Value of Object method.
+        ///Value of //Object method.
         int GetObjectValue(int[,] Tabl, int ii, int jj, int Order)
         {
-            Object O = new Object();
+            //Object O = new Object();
             //lock (O)
             {
                 return System.Math.Abs(Tabl[ii, jj]);
@@ -1315,7 +1325,7 @@ namespace RefrigtzDLL
                 {
                     if (!AStarGreedyHuristicT)
                     {
-                        ///For All Object in Current Table.
+                        ///For All //Object in Current Table.
                         if (RowS == RowD && ColS == ColD)
                             return HuristicObjectDangourCheckMateValue;
                         Order = DummyOrder;
@@ -1326,7 +1336,7 @@ namespace RefrigtzDLL
                         if (Table[RowD, ColD] > 0 && DummyOrder == -1 && Table[RowS, ColS] < 0)
                         {
                             Order = 1;
-                            Object O1 = new Object();
+                            //Object O1 = new Object();
                             //lock (O1)
                             {
                                 Sign = -1 * AllDraw.SignAttack;
@@ -1337,7 +1347,7 @@ namespace RefrigtzDLL
                         else if (Table[RowD, ColD] < 0 && DummyOrder == 1 && Table[RowS, ColS] > 0)
                         {
                             Order = -1;
-                            Object O1 = new Object();
+                            //Object O1 = new Object();
                             //lock (O1)
                             {
                                 Sign = -1 * AllDraw.SignAttack;
@@ -1366,7 +1376,7 @@ namespace RefrigtzDLL
                         if (Table[RowD, ColD] > 0 && DummyOrder == -1 && Table[RowS, ColS] < 0)
                         {
                             Order = 1;
-                            Object O2 = new Object();
+                            //Object O2 = new Object();
                             //lock (O2)
                             {
                                 Sign = -1 * AllDraw.SignAttack;
@@ -1377,7 +1387,7 @@ namespace RefrigtzDLL
                         else if (Table[RowD, ColD] < 0 && DummyOrder == 1 && Table[RowS, ColS] > 0)
                         {
                             Order = -1;
-                            Object O3 = new Object();
+                            //Object O3 = new Object();
                             //lock (O3)
                             {
                                 Sign = -1 * AllDraw.SignAttack;
@@ -1388,7 +1398,7 @@ namespace RefrigtzDLL
                         else
                             return HuristicObjectDangourCheckMateValue;
                         //For ObjectDanger Movments.
-                        Object O1 = new Object();
+                        //Object O1 = new Object();
                         //lock (O1)
                         {
                             if (ObjectDanger(Table, RowD, ColD, RowS, ColS, a, Order))
@@ -1451,7 +1461,7 @@ namespace RefrigtzDLL
                     if (Order == -1)
                         a = Color.Brown;
                     //Wehn Curfrent Movemnet is on attack.
-                    Object O1 = new Object();
+                    //Object O1 = new Object();
                     //lock (O1)
                     {
                         EnemyNotSupported = InAttackEnemyThatIsNotSupported(Killed, Tab, Order, aa, RowS, ColS, RowD, jj);
@@ -1488,7 +1498,7 @@ namespace RefrigtzDLL
         bool InAttackEnemyThatIsNotSupported(int Kilded, int[,] Table, int Order, Color a, int i, int j, int ii, int jj)
         {
 
-            Object O = new Object();
+            //Object O = new Object();
             //lock (O)
             {
                 //Initiate Global Variables.                
@@ -1500,29 +1510,34 @@ namespace RefrigtzDLL
                 {
                     EnemyNotSupported = true;
                     //Enemy
-                    Parallel.For(0, 8, RowS =>
+                    //Parallel.For(0, 8, RowS =>
+                    for (int RowS = 0; RowS < 8; RowS++)
+
                     {
-                        Parallel.For(0, 8, ColS =>
+                        //Parallel.For(0, 8, ColS =>
+                        for (int ColS = 0; ColS < 8; ColS++)
                         {
                             if (!EnemyNotSupported)
-                                return;
+                                continue;
                             int Order1 = new int();
                             Order1 = Ord;
                             int[,] Tab = new int[8, 8];
-                            Parallel.For(0, 8, ik =>
+                            //Parallel.For(0, 8, ik =>
+                            for (int ik = 0; ik < 8; ik++)
                             {
                                 if (!EnemyNotSupported)
-                                    return;
-                                Parallel.For(0, 8, jk =>
+                                    continue;
+                                for (int jk = 0; jk < 8; jk++)
+                                    //Parallel.For(0, 8, jk =>
                                 {
-                                    Object O3 = new Object();
+                                    //Object O3 = new Object();
                                     //lock (O3)
                                     {
                                         Tab[ik, jk] = Table[ik, jk];
                                     }
-                                });
-                            });
-                            Object O2 = new Object();
+                                }//);
+                            }//);
+                            //Object O2 = new Object();
                             //lock (O2)
                             {
                                 Tab[i, j] = Tab[ii, jj];
@@ -1530,15 +1545,15 @@ namespace RefrigtzDLL
                             }
                             //Ignore of Current
                             if (Order1 == 1 && Tab[RowS, ColS] >= 0)
-                                return;
+                                continue;
                             else
                                     if (Order1 == -1 && Tab[RowS, ColS] <= 0)
-                                return;
+                                continue;
                             a = Color.Gray;
                             if (Order1 * -1 == -1)
                                 a = Color.Brown;
                             //When Enemy is Supported.
-                            Object O1 = new Object();
+                            //Object O1 = new Object();
                             //lock (O1)
                             {
                                 if (Support(Tab, RowS, ColS, ii, jj, a, Order1 * -1)
@@ -1546,18 +1561,18 @@ namespace RefrigtzDLL
                                         )
 
                                 //Wehn [i,j] (Current) is less or equal than [ii,jj] (Enemy) 
-                                //EnemyNotSupported method Should return [valid]
-                                //By this situation return not valid
+                                //EnemyNotSupported method Should continue [valid]
+                                //By this situation continue not valid
                                 {
 
                                     EnemyNotSupported = false;
-                                    return;
+                                    continue;
                                 }
                             }
-                        });
+                        }//);
                         if (!EnemyNotSupported)
-                            return;
-                    });
+                            continue;
+                    }//);
 
                     if (EnemyNotSupported)
                         S = false;
@@ -1575,15 +1590,15 @@ namespace RefrigtzDLL
                 return false;
             }
         }
-        //When at least one Attacked Self Object return true.
+        //When at least one Attacked Self //Object return true.
         bool InAttackEnemyThatIsNotSupportedAll(bool EnemyIsValuable, int[,] Table, int Order, Color a, int ij, int ji, int iij, int jji, ref List<int[]> ValuableEnemyNotSupported)
         {
-            Object O = new Object();
+            //Object O = new Object();
             //lock (O)
             {
                 //Initiate Global Variables.
                 int Ord = Order;
-                Object O4 = new Object();
+                //Object O4 = new Object();
                 //lock (O4)
                 {
                     int[,] Tab = new int[8, 8];
@@ -1616,7 +1631,7 @@ namespace RefrigtzDLL
                                     else
                                         if (Order == -1 && Tab[ii, jj] <= 0)
                                         continue;
-                                    Object O1 = new Object();
+                                    //Object O1 = new Object();
                                     //lock (O1)
                                     {
                                         if (EnemyIsValuable && (!IsObjectValaubleObjectEnemy(ii, jj, Tab[ii, jj], ref ValuableEnemyNotSupported)))
@@ -1700,7 +1715,7 @@ namespace RefrigtzDLL
         {
 
             //For All Enemie
-            Object O1 = new Object();
+            //Object O1 = new Object();
             //lock (O1)
             {
 
@@ -1720,7 +1735,7 @@ namespace RefrigtzDLL
                 if (Order * -1 == -1)
                     a = Color.Brown;
                 int[,] Tab = new int[8, 8];
-                Object O = new Object();
+                //Object O = new Object();
                 //lock (O)
                 {
                     for (int ik = 0; ik < 8; ik++)
@@ -1728,7 +1743,7 @@ namespace RefrigtzDLL
                             Tab[ik, jk] = Table[ik, jk];
                 }
                 //When there is attack to some self node.
-                Object OO = new Object();
+                //Object OO = new Object();
                 //lock (OO)
                 {
                     if (A.Rules(i, j, ii, jj, a, Tab[i, j]))
@@ -1738,20 +1753,22 @@ namespace RefrigtzDLL
                         Tab[i, j] = 0;
                         AttackCount = 0;
                         //For All Self
-                        Parallel.For(0, 8, RowS =>
+                        for (int RowS = 0; RowS < 8; RowS++)
+                        //Parallel.For(0, 8, RowS =>
                         {
                             //if (AttackCount > 1)
-                            //return;
-                            Parallel.For(0, 8, ColS =>
+                            //continue;
+                            for (int ColS = 0; ColS < 8; ColS++)
+                                //Parallel.For(0, 8, ColS =>
                     {
                         if (AttackCount > 1)
-                            return;
+                            continue;
 
                         //Ignore of Enemy.
                         if (Order == 1 && Tab[RowS, ColS] <= 0)
-                            return;
+                            continue;
                         if (Order == -1 && Tab[RowS, ColS] >= 0)
-                            return;
+                            continue;
                         a = Color.Gray;
                         if (Order * -1 == -1)
                             a = Color.Brown;
@@ -1759,21 +1776,23 @@ namespace RefrigtzDLL
                         if (Attack(Tab, ii, jj, RowS, ColS, a, Order * -1))
                         {
                             bool Supporte = false;
-                            //For All Self
-                            Parallel.For(0, 8, RowD =>
-                                {
+                                    //For All Self
+                                    //Parallel.For(0, 8, RowD =>
+                                    for (int RowD = 0; RowD < 8; RowD++)
+                                    {
                                     if (AttackCount > 1)
-                                        return;
-                                    Parallel.For(0, 8, ColD =>
-                                                {
+                                        continue;
+                                        //Parallel.For(0, 8, ColD =>
+                                        for (int ColD = 0; ColD < 8; ColD++)
+                                        {
                                                     if (AttackCount > 1)
-                                                        return;
+                                                        continue;
 
                                                     //Ignore of Enemy.
                                                     if (Order == 1 && Tab[RowD, ColD] <= 0)
-                                                        return;
+                                                        continue;
                                                     if (Order == -1 && Tab[RowD, ColD] >= 0)
-                                                        return;
+                                                        continue;
                                                     a = Color.Gray;
                                                     if (Order == -1)
                                                         a = Color.Brown;
@@ -1782,21 +1801,21 @@ namespace RefrigtzDLL
                                                     {
 
                                                         Supporte = true;
-                                                        return;
+                                                        continue;
                                                     }
-                                                });
-                                });
+                                                }//);
+                                }//);
                             if (!Supporte)
                                 AttackCount++;
                         }
                         else
-                            return;
+                            continue;
                         if (AttackCount > 1)
-                            return;
-                    });
+                            continue;
+                    }//);
                             if (AttackCount > 1)
-                                return;
-                        });
+                                continue;
+                        }//);
                     }
                     else
                         return 0;
@@ -1808,12 +1827,12 @@ namespace RefrigtzDLL
         //Supported of Self that is Not Attacks.QC_BAD
         bool InAttackSelfThatNotSupported(int[,] TableS, int Order, Color a, int ij, int ji, int ii, int jj)
         {
-            Object O = new Object();
+            //Object O = new Object();
             //lock (O)
             {
                 //Initiate Variables.
                 int[,] Tab = new int[8, 8];
-                Object O1 = new Object();
+                //Object O1 = new Object();
                 //lock (O1)
                 {
                     for (int ik = 0; ik < 8; ik++)
@@ -1846,7 +1865,7 @@ namespace RefrigtzDLL
                                     Tab[ik, jk] = TableS[ik, jk];
                             InAttackedNotSelfSupported = false;
                             SelfSupported = false;
-                            Object OO = new Object();
+                            //Object OO = new Object();
                             //lock (OO)
                             {
                                 if (Attack(Tab, RowS, ColS, i, j, a, Order * -1))
@@ -1931,14 +1950,14 @@ namespace RefrigtzDLL
         //When there is at least on self object that is not safty.
         bool InAttackSelfThatNotSupportedAll(int[,] TableS, int Order, Color a, int i, int j, int RowS, int ColS, int ikk, int jkk, int iik, int jjk)
         {
-            Object O = new Object();
+            //Object O = new Object();
             //lock (O)
             {
                 bool S = true;
                 int Ord = Order;
                 List<int[]> ValuableSelfSupported = new List<int[]>();
                 bool IsTowValuableObject = false;
-                Object O1 = new Object();
+                //Object O1 = new Object();
                 //lock (O1)
                 {
                     IsTowValuableObject = InAttackSelfThatNotSupportedCalculateValuableAll(TableS, Order, color, ikk, jkk, iik, jjk, ref ValuableSelfSupported);
@@ -1984,7 +2003,7 @@ namespace RefrigtzDLL
                     for (int ik = 0; ik < 8; ik++)
                         for (int jk = 0; jk < 8; jk++)
                             Tab[ik, jk] = TableS[ik, jk];
-                    Object O2 = new Object();
+                    ////Object O2 = new Object();
                     //lock (O2)
                     {
                         if (Attack(Tab, RowS, ColS, i, j, a, Order * -1))
@@ -2046,7 +2065,7 @@ namespace RefrigtzDLL
         //Creation A Complete List of Attacked Self Object(s).
         bool InAttackSelfThatNotSupportedCalculateValuableAll(int[,] TableS, int Order, Color a, int ij, int ji, int ii, int jj, ref List<int[]> ValuableSelfSupported)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 //Initiate Variables.
@@ -2093,8 +2112,8 @@ namespace RefrigtzDLL
                                 InAttackedNotSelfSupported = false;
                                 SelfSupported = false;
                                 S = true;
-                                //Wehn an Object of Enemy Attack Self Object
-                                Object O1 = new Object();
+                                //Wehn an //Object of Enemy Attack Self Object
+                                ////Object O1 = new Object();
                                 //lock (O1)
                                 {
                                     if (Attack(Tab, RowS, ColS, i, j, a, Order * -1))
@@ -2121,7 +2140,7 @@ namespace RefrigtzDLL
                                                 for (int ik = 0; ik < 8; ik++)
                                                     for (int jk = 0; jk < 8; jk++)
                                                         Tab[ik, jk] = TableS[ik, jk];
-                                                //When There is Supporter For Attacked Self Object and Is Greater than Attacking Object.
+                                                //When There is Supporter For Attacked Self //Object and Is Greater than Attacking Object.
                                                 if (Support(Tab, RowD, ColD, i, j, a, Order) && (GetObjectValue(Tab, i, j, Order) <= GetObjectValue(Tab, RowS, ColS, Order * -1)))
                                                 {
                                                     SelfSupported = true;
@@ -2139,8 +2158,8 @@ namespace RefrigtzDLL
                                         //a source object is less than or equal  than another source object.Is = 1 Is not another object valuable.                                        
                                     }
                                 }
-                                //When Attacked Current Object is not supported and there is another object valuable
-                                Object O2 = new Object();
+                                //When Attacked Current //Object is not supported and there is another object valuable
+                                ////Object O2 = new Object();
                                 //lock (O2)
                                 {
                                     if ((!SelfSupported && InAttackedNotSelfSupported))
@@ -2172,7 +2191,7 @@ namespace RefrigtzDLL
         }
         bool ExistValuble(int[] Table, ref List<int[]> ValuableSelfSupported)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 bool Is = false;
@@ -2187,7 +2206,7 @@ namespace RefrigtzDLL
         }
         bool MaxObjecvts(List<int> Obj, int Max)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 bool MaxO = true;
@@ -2218,7 +2237,7 @@ namespace RefrigtzDLL
         //When Current Movment Take Supporte.QC_OK
         bool IsCurrentMoveTakeSupporte(int[,] Table, int Order, Color a, int i, int j, int ii, int jj)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 //Initiate Variables.
@@ -2253,32 +2272,37 @@ namespace RefrigtzDLL
         ///Huristic of King safty.
         double HeuristicKingSafety(int[,] Tab, int Order, Color a, int i, int j, int RowS, int ColS, int CurrentAStarGredy)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 double HeuristicKingSafe = 0;
                 double HA = 0;
 
                 //For Enemies.
-                Parallel.For(0, 8, ii =>
+
+                //Parallel.For(0, 8, ii =>
+                for (int ii = 0; ii < 8; ii++)
                 {
-                    Parallel.For(0, 8, jj =>
+                    //Parallel.For(0, 8, jj =>
+                    for (int jj = 0; jj < 8; jj++)
                     {
                         if (Order == 1 && Tab[ii, jj] >= 0)
-                            return;
+                            continue;
                         if (Order == -1 && Tab[ii, jj] <= 0)
-                            return;
+                            continue;
                         ChessRules A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tab[ii, jj], Tab, Order * -1, ii, jj);
                         //For Current and Empty
-                        Parallel.For(0, 8, RowD =>
+                        //Parallel.For(0, 8, RowD =>
+                        for (int RowD = 0; RowD < 8; RowD++)
                         {
-                            Parallel.For(0, 8, ColD =>
+                            //Parallel.For(0, 8, ColD =>
+                            for (int ColD = 0; ColD < 8; ColD++)
                             {
                                 //Ignore of Enemy.
                                 if (Order == 1 && Tab[RowD, ColD] < 0)
-                                    return;
+                                    continue;
                                 if (Order == -1 && Tab[RowD, ColD] > 0)
-                                    return;
+                                    continue;
                                 int[,] Table = new int[8, 8];
                                 //Clone a Copy.
                                 Parallel.For(0, 8, ij =>
@@ -2293,7 +2317,7 @@ namespace RefrigtzDLL
                                 if (Order * -1 == -1)
                                     AA = Color.Brown;
                                 //When Enemy can Move
-                                Object O1 = new Object();
+                                ////Object O1 = new Object();
                                 //lock (O1)
                                 {
                                     if (A.Rules(ii, jj, RowD, ColD, AA, Table[ii, jj]))
@@ -2321,7 +2345,7 @@ namespace RefrigtzDLL
                                             if (Order == -1 && A.CheckBrownObjectDangour)
                                             HA += AllDraw.SignKingSafe * (GetObjectValue(Table, ii, jj, Order * -1) + GetObjectValue(Table, RowD, ColD, Order));
                                             */
-                                        Object ol = new Object();
+                                            Object ol = new Object();
                                             lock (ol)
                                             {
 
@@ -2334,10 +2358,10 @@ namespace RefrigtzDLL
                                         }
                                     }
                                 }
-                            });
-                        });
-                    });
-                });
+                            }//);
+                        }//);
+                    }//);
+                }//);
                 //For Enemy and Self Sign.
                 HeuristicKingSafe += HA;
                 return HeuristicKingSafe;
@@ -2345,39 +2369,43 @@ namespace RefrigtzDLL
         }
         double HeuristicKingDangourous(int[,] Tab, int Order, Color a, int i, int j, int RowS, int ColS, int CurrentAStarGredy)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 double HeuristicKingDangour = 0;
                 double HA = 0;
                 //For Self.
-                Parallel.For(0, 8, ii =>
+                for (int ii = 0; ii < 8; ii++)
+                //Parallel.For(0, 8, ii =>
                 {
-                    Parallel.For(0, 8, jj =>
+                    //Parallel.For(0, 8, jj =>
+                    for (int jj = 0; jj < 8; jj++)
                     {
                         //Ignore of Enemy and Empty.
                         if (Order == 1 && Tab[ii, jj] <= 0)
-                            return;
+                            continue;
                         if (Order == -1 && Tab[ii, jj] >= 0)
-                            return;
+                            continue;
                         ChessRules A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tab[ii, jj], Tab, Order, ii, jj);
                         //For Enemy and Empty.
-                        Parallel.For(0, 8, RowD =>
+                        //Parallel.For(0, 8, RowD =>
+                        for (int RowD = 0; RowD < 8; RowD++)
+                        {
+                            //Parallel.For(0, 8, ColD =>
+                            for (int ColD = 0; ColD < 8; ColD++)
                             {
-                                Parallel.For(0, 8, ColD =>
-                                {
                                     //Ignore of Self.
                                     if (Order == 1 && Tab[RowD, ColD] > 0)
-                                        return;
+                                        continue;
                                     if (Order == -1 && Tab[RowD, ColD] < 0)
-                                        return;
+                                        continue;
                                     int[,] Table = new int[8, 8];
                                     //Clone a Copy.
                                     Parallel.For(0, 8, ij =>
                                         {
                                             Parallel.For(0, 8, ji =>
                                             {
-                                                Object O2 = new Object();
+                                                ////Object O2 = new Object();
                                                 //lock (O2)
                                                 {
                                                     Table[ij, ji] = Tab[ij, ji];
@@ -2392,14 +2420,14 @@ namespace RefrigtzDLL
                                     if (A.Rules(ii, jj, RowD, ColD, AA, Table[ii, jj]))
                                     {
                                         //Take Mo0vment
-                                        Object O2 = new Object();
+                                        ////Object O2 = new Object();
                                         //lock (O2)
                                         {
                                             Table[RowD, ColD] = Table[ii, jj];
                                             Table[ii, jj] = 0;
                                         }
                                         //The Move is Dqangrous.
-                                        Object O3 = new Object();
+                                        ////Object O3 = new Object();
                                         //lock (O3)
                                         {
                                             //if (A.ObjectDangourKingMove(Order, Table, false))
@@ -2411,7 +2439,7 @@ namespace RefrigtzDLL
                                                         {
                                                             Parallel.For(0, 8, ji =>
                                                             {
-                                                                Object O1 = new Object();
+                                                                ////Object O1 = new Object();
                                                                 //lock (O1)
                                                                 {
                                                                     Table1[ij, ji] = Tab[ij, ji];
@@ -2419,7 +2447,7 @@ namespace RefrigtzDLL
                                                             });
                                                         });
                                                 //When Situation Observed Take Situation calcualte Huristic.
-                                                Object O4 = new Object();
+                                                ////Object O4 = new Object();
                                                 //lock (O4)
                                                 {
                                                 /*if (Order == -1 && A.CheckGrayObjectDangour)
@@ -2443,10 +2471,10 @@ namespace RefrigtzDLL
                                             }
                                         }
                                     }
-                                });
-                            });
-                    });
-                });
+                                }//);
+                            }//);
+                    }//);
+                }//);
                 //For Order Sign.
                 HeuristicKingDangour += HA * SignOrderToPlate(Order);
                 return HeuristicKingDangour;
@@ -2455,7 +2483,7 @@ namespace RefrigtzDLL
         //Huristic of Supportation.
         double HuristicSelfSupported(int[,] Tab, int Ord, Color aa, int RowS, int ColS, int RowD, int ColD)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 double HuristicSelfSupportedValue = 0;
@@ -2470,7 +2498,7 @@ namespace RefrigtzDLL
                 {
                     if (!AStarGreedyHuristicT)
                     {
-                        //For Current Object Lcation.
+                        //For Current //Object Lcation.
                         int Order = new int();
                         Order = DumOrder;
                         Color a = new Color();
@@ -2524,7 +2552,7 @@ namespace RefrigtzDLL
                                     return;
                                 Parallel.For(0, 8, h =>
                                 {
-                                    Object O2 = new Object();
+                                    ////Object O2 = new Object();
                                     //lock (O2)
                                     {
                                         if (Supported)
@@ -2559,15 +2587,15 @@ namespace RefrigtzDLL
                                     return;
                             });
                         
-                            Object O1 = new Object();
+                            ////Object O1 = new Object();
                             //lock (O1)
                             {
                                 if (Supported)
                                     //When is Not Supported multyply 100.
-                                    HA *= 20;
+                                    HA *=2;
                                 else
                                     //When is Supported Multyply -100.
-                                    HA *= -20;
+                                    HA *=-2;
                             }*/
                         }
                     }
@@ -2636,7 +2664,7 @@ namespace RefrigtzDLL
                                                 return;
                                             Color aaa = new Color();
                                             //Assgin Enemy ints.
-                                            Object O2 = new Object();
+                                            //Object O2 = new Object();
                                             //lock (O2)
                                             {
                                                 aaa = Color.Gray;
@@ -2647,7 +2675,7 @@ namespace RefrigtzDLL
                                             }
                                             //When Enemy is Supported.
                                             bool A = new bool();
-                                            Object O1 = new Object();
+                                            //Object O1 = new Object();
                                             //lock (O1)
                                             {
                                                 A = Support(Tab, g, h, RowD, ColD, aaa, Order);
@@ -2667,10 +2695,10 @@ namespace RefrigtzDLL
                         
                                 if (!Supported)
                                     //When is Not Supported multyply 100.
-                                    HA *= 20;
+                                    HA *=2;
                                 else
                                     //When is Supported Multyply -100.
-                                    HA *= -20;
+                                    HA *=-2;
                           */
                             }
                         }
@@ -2691,7 +2719,7 @@ namespace RefrigtzDLL
         ///Identification of Equality
         public static bool TableEqual(int[,] Tab1, int[,] Tab2)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 try
@@ -2717,7 +2745,7 @@ namespace RefrigtzDLL
         //If tow int Objects is equal.
         public static bool TableEqual(int Tab1, int Tab2)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 try
@@ -2764,7 +2792,7 @@ namespace RefrigtzDLL
         ///Move Determination.
         public bool Movable(int[,] Tab, int i, int j, int ii, int jj, Color a, int Order)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 int[,] Table = new int[8, 8];
@@ -2827,7 +2855,7 @@ namespace RefrigtzDLL
         //When Oredrs of OrderPalte and Calculation Order is not equal return negative one and else return one.
         double SignOrderToPlate(int Order)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 double Sign = 1.0;
@@ -2846,7 +2874,7 @@ namespace RefrigtzDLL
         //Remove Penalties of Unnesserily Nodes.
         public bool RemovePenalty(int[,] Tab, int Order, int i, int j)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 bool Remove = false;
@@ -2887,7 +2915,7 @@ namespace RefrigtzDLL
                         {
                             //Number of Attacks and take move.
                             int Count = AttackerCount(Table, Order * -1, a, ii, jj);
-                            //When there is Object Danger.
+                            //When there is //Object Danger.
                             //Clone a Copy.
                             for (int RowS = 0; RowS < 8; RowS++)
                                 for (int ColS = 0; ColS < 8; ColS++)
@@ -2967,7 +2995,7 @@ namespace RefrigtzDLL
         //Dangouring of current movment fo current Order.
         bool IsCurrentStateIsDangreousForCurrentOrder(int[,] Tabl, int Order, Color a, int ii, int jj)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 //Initiate Object.
@@ -3144,11 +3172,11 @@ namespace RefrigtzDLL
         //When Next Movements is Checked.QC_OK.
         int[] IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(int Order, int[,] Tabl, int ik, int jk, int iki, int jki, int OrderPalte, int OrderPalteMulMinuse, int Depth, bool KindCheckedSelf)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 int[] Is = new int[4];
-                Object O3 = new Object();
+                ////Object O3 = new Object();
                 //lock (O3)
                 {
                     Is[0] = 0;
@@ -3252,7 +3280,7 @@ namespace RefrigtzDLL
                             a = Color.Brown;
                         int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMulMinuse, Depth1 = Depth + 1;
                         bool KindCheckedSelf1 = KindCheckedSelf;
-                        Object O1 = new Object();
+                        ////Object O1 = new Object();
                         int[] IS = null;
                         //lock (O1)
                         {
@@ -3271,7 +3299,7 @@ namespace RefrigtzDLL
         //When Next Movements is Checked.QC_OK.
         bool IsNextMovmentIsCheckOrCheckMateForCurrentMovmentOnCurrentMovemnet(int Order, int[,] Tabl, int ik, int jk, int iki, int jki, int OrderPalte)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 bool Is = false;
@@ -3346,11 +3374,11 @@ namespace RefrigtzDLL
         }
         int[] IsNextMovmentIsCheckOrCheckMateForCurrentMovment(int[,] Tabl, int Order, Color a, int Depth, int OrderPalte, int OrderPalteMinusPluse, bool KindCheckedSelf)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 int[] Is = new int[4];
-                Object O3 = new Object();
+                ////Object O3 = new Object();
                 //lock (O3)
                 {
                     Is[0] = 0;
@@ -3362,257 +3390,274 @@ namespace RefrigtzDLL
                     if (Depth >= AllDraw.MaxAStarGreedy)
                         return Is;
                     //For All Enemies.
-                    Parallel.For(0, 8, ik =>
-                        Parallel.For(0, 8, jk =>
+                    for (int ik = 0; ik < 8; ik++)
+                        for (int jk = 0; jk < 8; jk++)
+                        //Parallel.For(0, 8, ik =>
+                        //Parallel.For(0, 8, jk =>
                         {
                             //Ignore of Current
                             if (Order == 1 && Tabl[ik, jk] >= 0)
-                                return;
+                                continue;
                             if (Order == -1 && Tabl[ik, jk] <= 0)
-                                return;
+                                continue;
                             if (System.Math.Abs(Tabl[ik, jk]) == 1)
                             {
                                 //For Current Home
-                                Parallel.For(ik - 2, ik + 3, iki =>
-                                       Parallel.For(jk - 2, jk + 3, jki =>
-                                       // init subtotal
-                                       {
-                                           if (!Scop(ik, jk, iki, jki, 1))
-                                               return;
-                                           //Ignore of Enemy
-                                           if (Order == 1 && Tabl[iki, jki] < 0)
-                                               return;
-                                           if (Order == -1 && Tabl[iki, jki] > 0)
-                                               return;
-                                           if (Is[0] == 1)
-                                               return;
-                                           int Ord = Order;
-                                           int[,] Tab = CloneATable(Tabl);
-                                           int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
-                                           bool KindCheckedSelf1 = KindCheckedSelf;
-                                           int[] IS = null;
-                                           Object O1 = new Object();
-                                           //lock (O1)
-                                           {
-                                               IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
-                                               if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
-                                               Is[1] = IS[1]; Is[3] = IS[3];
-                                           }
+                                for (int iki = ik - 2; iki < ik + 3; iki++)
+                                    for (int jki = jk - 2; jki < jk + 3; jki++)
 
-                                       }
-                                      ));
+                                    //Parallel.For(ik - 2, ik + 3, iki =>
+                                    //Parallel.For(jk - 2, jk + 3, jki =>
+                                    // init subtotal
+                                    {
+                                        if (!Scop(ik, jk, iki, jki, 1))
+                                            continue;
+                                        //Ignore of Enemy
+                                        if (Order == 1 && Tabl[iki, jki] < 0)
+                                            continue;
+                                        if (Order == -1 && Tabl[iki, jki] > 0)
+                                            continue;
+                                        if (Is[0] == 1)
+                                            continue;
+                                        int Ord = Order;
+                                        int[,] Tab = CloneATable(Tabl);
+                                        int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
+                                        bool KindCheckedSelf1 = KindCheckedSelf;
+                                        int[] IS = null;
+                                        ////Object O1 = new Object();
+                                        //lock (O1)
+                                        {
+                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                            if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
+                                            Is[1] = IS[1]; Is[3] = IS[3];
+                                        }
+
+                                    }
+                                //));
                             }
                             else
                             if (System.Math.Abs(Tabl[ik, jk]) == 2)
                             {
 
                                 //For Current Home
-                                Parallel.For(0, 8, iki =>
-                                    {
-                                        int jki = iki + jk - ik;
-                                        if (!Scop(ik, jk, iki, jki, 2))
-                                            return;
-                                        //Ignore of Enemy
-                                        if (Order == 1 && Tabl[iki, jki] < 0)
-                                            return;
-                                        if (Order == -1 && Tabl[iki, jki] > 0)
-                                            return;
+                                //Parallel.For(0, 8, iki =>
+                                for (int iki = 0; iki < 8; iki++)
+                                {
+                                    int jki = iki + jk - ik;
+                                    if (!Scop(ik, jk, iki, jki, 2))
+                                        continue;
+                                    //Ignore of Enemy
+                                    if (Order == 1 && Tabl[iki, jki] < 0)
+                                        continue;
+                                    if (Order == -1 && Tabl[iki, jki] > 0)
+                                        continue;
 
-                                        if (Is[0] == 1)
-                                            return;
-                                        int Ord = Order;
-                                        int[,] Tab = CloneATable(Tabl);
-                                        int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
-                                        bool KindCheckedSelf1 = KindCheckedSelf;
-                                        int[] IS = null;
-                                        Object O1 = new Object();
-                                        //lock (O1)
-                                        {
-                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
-                                            if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
-                                            Is[1] = IS[1]; Is[3] = IS[3];
-                                        }
-                                    });
-                                //For Current Home
-                                Parallel.For(0, 8, iki =>
+                                    if (Is[0] == 1)
+                                        continue;
+                                    int Ord = Order;
+                                    int[,] Tab = CloneATable(Tabl);
+                                    int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
+                                    bool KindCheckedSelf1 = KindCheckedSelf;
+                                    int[] IS = null;
+                                    ////Object O1 = new Object();
+                                    //lock (O1)
                                     {
-                                        int jki = iki * -1 + jk + ik;
-                                        if (!Scop(ik, jk, iki, jki, 2))
-                                            return;
-                                        //Ignore of Enemy
-                                        if (Order == 1 && Tabl[iki, jki] < 0)
-                                            return;
-                                        if (Order == -1 && Tabl[iki, jki] > 0)
-                                            return;
+                                        IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                        if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
+                                        Is[1] = IS[1]; Is[3] = IS[3];
+                                    }
 
-                                        if (Is[0] == 1)
-                                            return;
-                                        int Ord = Order;
-                                        int[,] Tab = CloneATable(Tabl);
-                                        int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
-                                        bool KindCheckedSelf1 = KindCheckedSelf;
-                                        int[] IS = null;
-                                        Object O1 = new Object();
-                                        //lock (O1)
-                                        {
-                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
-                                            if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
-                                            Is[1] = IS[1]; Is[3] = IS[3];
-                                        }
-                                    });
+                                }//);
+                                 //For Current Home
+                                 //Parallel.For(0, 8, iki =>
+                                for (int iki = 0; iki < 8; iki++)
+                                {
+                                    int jki = iki * -1 + jk + ik;
+                                    if (!Scop(ik, jk, iki, jki, 2))
+                                        continue;
+                                    //Ignore of Enemy
+                                    if (Order == 1 && Tabl[iki, jki] < 0)
+                                        continue;
+                                    if (Order == -1 && Tabl[iki, jki] > 0)
+                                        continue;
+
+                                    if (Is[0] == 1)
+                                        continue;
+                                    int Ord = Order;
+                                    int[,] Tab = CloneATable(Tabl);
+                                    int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
+                                    bool KindCheckedSelf1 = KindCheckedSelf;
+                                    int[] IS = null;
+                                    ////Object O1 = new Object();
+                                    //lock (O1)
+                                    {
+                                        IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                        if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
+                                        Is[1] = IS[1]; Is[3] = IS[3];
+                                    }
+                                }//);
                             }
                             else
                             if (System.Math.Abs(Tabl[ik, jk]) == 3)
                             {
                                 //For Current Home
-                                Parallel.For(ik - 2, ik + 3, iki =>
-                                       Parallel.For(jk - 2, jk + 3, jki =>
-                                       {
-                                           if (!Scop(ik, jk, iki, jki, 3))
-                                               return;
-                                           //Ignore of Enemy
-                                           if (Order == 1 && Tabl[iki, jki] < 0)
-                                               return;
-                                           if (Order == -1 && Tabl[iki, jki] > 0)
-                                               return;
+                                //Parallel.For(ik - 2, ik + 3, iki =>
+                                //Parallel.For(jk - 2, jk + 3, jki =>
+                                for (int iki = ik - 2; iki < ik + 3; iki++)
+                                    for (int jki = jk - 2; jki < jk + 3; jki++)
 
-                                           int Ord = Order;
-                                           int[,] Tab = CloneATable(Tabl);
-                                           int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
-                                           bool KindCheckedSelf1 = KindCheckedSelf;
-                                           int[] IS = null;
-                                           Object O1 = new Object();
-                                           //lock (O1)
-                                           {
-                                               IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
-                                               if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
-                                               Is[1] = IS[1]; Is[3] = IS[3];
-                                           }
-                                       }));
+                                    {
+                                        if (!Scop(ik, jk, iki, jki, 3))
+                                            continue;
+                                        //Ignore of Enemy
+                                        if (Order == 1 && Tabl[iki, jki] < 0)
+                                            continue;
+                                        if (Order == -1 && Tabl[iki, jki] > 0)
+                                            continue;
+
+                                        int Ord = Order;
+                                        int[,] Tab = CloneATable(Tabl);
+                                        int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
+                                        bool KindCheckedSelf1 = KindCheckedSelf;
+                                        int[] IS = null;
+                                        ////Object O1 = new Object();
+                                        //lock (O1)
+                                        {
+                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                            if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
+                                            Is[1] = IS[1]; Is[3] = IS[3];
+                                        }
+                                    }//));
                             }
                             else
                             if (System.Math.Abs(Tabl[ik, jk]) == 4)
                             {
                                 //For Current Home
-                                Parallel.For(0, 8, iki =>
+                                //Parallel.For(0, 8, iki =>
+                                for (int iki = 0; iki < 8; iki++)
+                                {
+                                    int jki = jk;
+                                    if (!Scop(ik, jk, iki, jki, 4))
+                                        continue;
+                                    //Ignore of Enemy
+                                    if (Order == 1 && Tabl[iki, jki] < 0)
+                                        continue;
+                                    if (Order == -1 && Tabl[iki, jki] > 0)
+                                        continue;
+
+                                    if (Is[0] == 1)
+                                        continue;
+                                    int Ord = Order;
+                                    int[,] Tab = CloneATable(Tabl);
+                                    int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
+                                    bool KindCheckedSelf1 = KindCheckedSelf;
+                                    int[] IS = null;
+                                    ////Object O1 = new Object();
+                                    //lock (O1)
                                     {
-                                        int jki = jk;
-                                        if (!Scop(ik, jk, iki, jki, 4))
-                                            return;
-                                        //Ignore of Enemy
-                                        if (Order == 1 && Tabl[iki, jki] < 0)
-                                            return;
-                                        if (Order == -1 && Tabl[iki, jki] > 0)
-                                            return;
+                                        IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                        if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
+                                        Is[1] = IS[1]; Is[3] = IS[3];
+                                    }
+                                }//);
+                                 //For Current Home
+                                 //Parallel.For(0, 8, jki =>
+                                for (int jki = 0; jki < 8; jki++)
+                                {
+                                    int iki = ik;
+                                    if (!Scop(ik, jk, iki, jki, 4))
+                                        continue;
+                                    //Ignore of Enemy
+                                    if (Order == 1 && Tabl[iki, jki] < 0)
+                                        continue;
+                                    if (Order == -1 && Tabl[iki, jki] > 0)
+                                        continue;
 
-                                        if (Is[0] == 1)
-                                            return;
-                                        int Ord = Order;
-                                        int[,] Tab = CloneATable(Tabl);
-                                        int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
-                                        bool KindCheckedSelf1 = KindCheckedSelf;
-                                        int[] IS = null;
-                                        Object O1 = new Object();
-                                        //lock (O1)
-                                        {
-                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
-                                            if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
-                                            Is[1] = IS[1]; Is[3] = IS[3];
-                                        }
-                                    });
-                                //For Current Home
-                                Parallel.For(0, 8, jki =>
+                                    if (Is[0] == 1)
+                                        continue;
+                                    int Ord = Order;
+                                    int[,] Tab = CloneATable(Tabl);
+                                    int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
+                                    bool KindCheckedSelf1 = KindCheckedSelf;
+                                    int[] IS = null;
+                                    ////Object O1 = new Object();
+                                    //lock (O1)
                                     {
-                                        int iki = ik;
-                                        if (!Scop(ik, jk, iki, jki, 4))
-                                            return;
-                                        //Ignore of Enemy
-                                        if (Order == 1 && Tabl[iki, jki] < 0)
-                                            return;
-                                        if (Order == -1 && Tabl[iki, jki] > 0)
-                                            return;
-
-                                        if (Is[0] == 1)
-                                            return;
-                                        int Ord = Order;
-                                        int[,] Tab = CloneATable(Tabl);
-                                        int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
-                                        bool KindCheckedSelf1 = KindCheckedSelf;
-                                        int[] IS = null;
-                                        Object O1 = new Object();
-                                        //lock (O1)
-                                        {
-                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
-                                            if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
-                                            Is[1] = IS[1]; Is[3] = IS[3];
-                                        }
-                                    });
-
+                                        IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                        if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
+                                        Is[1] = IS[1]; Is[3] = IS[3];
+                                    }
+                                }//);
                             }
                             else
                             if (System.Math.Abs(Tabl[ik, jk]) == 5)
                             {
 
                                 //For Current Home
-                                Parallel.For(0, 8, iki =>
-                                       Parallel.For(0, 8, jki =>
-                                       {
-                                           //Ignore of Enemy
-                                           if (Order == 1 && Tabl[iki, jki] < 0)
-                                               return;
-                                           if (Order == -1 && Tabl[iki, jki] > 0)
-                                               return;
-                                           if (!Scop(ik, jk, iki, jki, 5))
-                                               return;
+                                //Parallel.For(0, 8, iki =>
+                                //Parallel.For(0, 8, jki =>
+                                for (int iki = 0; iki < 8; iki++)
+                                    for (int jki = 0; jki < 8; jki++)
+                                    {
+                                        //Ignore of Enemy
+                                        if (Order == 1 && Tabl[iki, jki] < 0)
+                                            continue;
+                                        if (Order == -1 && Tabl[iki, jki] > 0)
+                                            continue;
+                                        if (!Scop(ik, jk, iki, jki, 5))
+                                            continue;
 
-                                           if (Is[0] == 1)
-                                               return;
-                                           int Ord = Order;
-                                           int[,] Tab = CloneATable(Tabl);
-                                           int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
-                                           bool KindCheckedSelf1 = KindCheckedSelf;
-                                           int[] IS = null;
-                                           Object O1 = new Object();
-                                           //lock (O1)
-                                           {
-                                               IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
-                                               if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
-                                               Is[1] = IS[1]; Is[3] = IS[3];
-                                           }
-                                       }));
+                                        if (Is[0] == 1)
+                                            continue;
+                                        int Ord = Order;
+                                        int[,] Tab = CloneATable(Tabl);
+                                        int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
+                                        bool KindCheckedSelf1 = KindCheckedSelf;
+                                        int[] IS = null;
+                                        ////Object O1 = new Object();
+                                        //lock (O1)
+                                        {
+                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                            if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
+                                            Is[1] = IS[1]; Is[3] = IS[3];
+                                        }
+                                    }//));
                             }
                             else
                             if (System.Math.Abs(Tabl[ik, jk]) == 6)
                             {
                                 //For Current Home
-                                Parallel.For(ik - 1, ik + 2, iki =>
-                                        Parallel.For(jk - 1, jk + 2, jki =>
-                                        {
-                                            if (!Scop(ik, jk, iki, jki, 6))
-                                                return;
-                                            //Ignore of Enemy
-                                            if (Order == 1 && Tabl[iki, jki] < 0)
-                                                return;
-                                            if (Order == -1 && Tabl[iki, jki] > 0)
-                                                return;
+                                //Parallel.For(ik - 1, ik + 2, iki =>
+                                //Parallel.For(jk - 1, jk + 2, jki =>
+                                for (int iki = ik - 1; iki < ik + 2; iki++)
+                                    for (int jki = jk - 1; jki < jk + 2; jki++)
 
-                                            if (Is[0] == 1)
-                                                return;
-                                            int Ord = Order;
-                                            int[,] Tab = CloneATable(Tabl);
-                                            int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
-                                            bool KindCheckedSelf1 = KindCheckedSelf;
-                                            int[] IS = null;
-                                            Object O1 = new Object();
-                                            //lock (O1)
-                                            {
-                                                IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
-                                                if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
-                                                Is[1] = IS[1]; Is[3] = IS[3];
-                                            }
-                                        }));
+                                    {
+                                        if (!Scop(ik, jk, iki, jki, 6))
+                                            continue;
+                                        //Ignore of Enemy
+                                        if (Order == 1 && Tabl[iki, jki] < 0)
+                                            continue;
+                                        if (Order == -1 && Tabl[iki, jki] > 0)
+                                            continue;
+
+                                        if (Is[0] == 1)
+                                            continue;
+                                        int Ord = Order;
+                                        int[,] Tab = CloneATable(Tabl);
+                                        int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
+                                        bool KindCheckedSelf1 = KindCheckedSelf;
+                                        int[] IS = null;
+                                        ////Object O1 = new Object();
+                                        //lock (O1)
+                                        {
+                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                            if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
+                                            Is[1] = IS[1]; Is[3] = IS[3];
+                                        }
+                                    }//));
                             }
-                        }));
+                        }//));
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
                 }
@@ -3622,7 +3667,7 @@ namespace RefrigtzDLL
         //When Current Movements is in dangrous and is not movable.
         bool IsGardForCurrentMovmentsAndIsNotMovable(int[,] Tab, int Order, Color a, int ii, int jj, int RowS, int ColS)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 //Setting false.
@@ -3631,7 +3676,7 @@ namespace RefrigtzDLL
                 int DummyOrder = Order;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
                 //For Enemy Order.
-                Object O1 = new Object();
+                ////Object O1 = new Object();
                 //lock (O1)
                 {
                     //Ignore of Self Objects.
@@ -3672,52 +3717,58 @@ namespace RefrigtzDLL
                         TabS[ii, jj] = 0;
 
                         //For Self Objects.
-                        Parallel.For(0, 8, RowD =>
+                        //Parallel.For(0, 8, RowD =>
+                        for (int RowD = 0; RowD < 8; RowD++)
+
                         {
-                            if (!Attacked || NumberOfCurrentEnemyAttackSuchObject > 1)
-                                return;
-                            Parallel.For(0, 8, ColD =>
+                                if (!Attacked || NumberOfCurrentEnemyAttackSuchObject > 1)
+                                continue;
+
+                            //Parallel.For(0, 8, ColD =>
+                            for (int ColD = 0; ColD < 8; ColD++)
                             {
                                 if (!Attacked || NumberOfCurrentEnemyAttackSuchObject > 1)
-                                    //return;//Ignore Enmy Objects.
+                                    //continue;//Ignore Enmy Objects.
                                     if (Order == 1 && Tab[RowD, ColD] <= 0)
-                                        return;
+                                        continue;
                                     else
                                             if (Order == -1 && Tab[RowD, ColD] >= 0)
-                                        return;
+                                        continue;
                                 //Show the Attacked.
                                 Attacked = true;
                                 //For Self Objects and Empty.
-                                Parallel.For(0, 8, iiiii =>
+                                //Parallel.For(0, 8, iiiii =>
+                                for (int iiiii = 0; iiiii < 8; iiiii++)
+                                {
+                                    //Parallel.For(0, 8, jjjjj =>
+                                    for (int jjjjj = 0; jjjjj < 8; jjjjj++)
                                     {
-                                        Parallel.For(0, 8, jjjjj =>
-                                                    {
                                                         //Ignore of Enemy Objects.
                                                         if (Order == 1 && Tab[iiiii, jjjjj] < 0)
-                                                            return;
+                                                            continue;
                                                         else
                                                                if (Order == -1 && Tab[iiiii, jjjjj] > 0)
-                                                            return;
+                                                            continue;
                                                         //When Current Objects Movable not need to consideration mor going to next Current object.
-                                                        Object O2 = new Object();
+                                                        ////Object O2 = new Object();
                                                         //lock (O2)
                                                         {
                                                             if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TabS[RowD, ColD], TabS, Order, RowD, ColD)).Rules(RowD, ColD, iiiii, jjjjj, a, TabS[RowD, ColD]))
                                                             {
                                                                 Attacked = Attacked && false;
-                                                                return;
+                                                                continue;
                                                             }
                                                         }
-                                                    });
+                                                    }//);
                                         if (!Attacked || NumberOfCurrentEnemyAttackSuchObject > 1)
-                                            return;
-                                    });
+                                            continue;
+                                    }//);
                                 if (Attacked || NumberOfCurrentEnemyAttackSuchObject > 1)
-                                    return;
-                            });
+                                    continue;
+                            }//);
                             if (Attacked || NumberOfCurrentEnemyAttackSuchObject > 1)
-                                return;
-                        });
+                                continue;
+                        }//);
                     }
                     else
                         return false;
@@ -3728,7 +3779,7 @@ namespace RefrigtzDLL
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
 
-                //Return Variable when true show an object is not movable or one enemy object attack more than one current Object.
+                //continue Variable when true show an object is not movable or one enemy object attack more than one current Object.
                 return Attacked || NumberOfCurrentEnemyAttackSuchObject > 1;
             }
         }
@@ -3736,12 +3787,12 @@ namespace RefrigtzDLL
         ///when current movments gards enemy with higer priority at movment.QC_OK
         bool IsCurrentCanGardHighPriorityEnemy(int Depth, int[,] Table, int Order, Color a, int ij, int ji, int iij, int jji, int OrderPlate)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 if (Depth >= CurrentAStarGredyMax)
                     return false;
-                Object O4 = new Object();
+                ////Object O4 = new Object();
                 //lock (O4)
                 {
                     Depth++;
@@ -3805,7 +3856,7 @@ namespace RefrigtzDLL
         ///Huristic of Check and CheckMate.
         public double HuristicCheckAndCheckMate(int[,] Table, Color a)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 double HA = 0;
@@ -3827,7 +3878,7 @@ namespace RefrigtzDLL
                 }*/
                 try
                 {
-                    Object O1 = new Object();
+                    ////Object O1 = new Object();
                     //lock (O1)
                     {
                         //Consider Global Check CheckMate ObjectDanger Variables Orderly.
@@ -3913,7 +3964,7 @@ namespace RefrigtzDLL
                                     HA -= Check;
                                 }
                             }
-                            //When is Object Dangoure.
+                            //When is //Object Dangoure.
                             if (AA.CheckBrownObjectDangour || AA.CheckGrayObjectDangour)
                             {
                                 //When is Gray Object.
@@ -3921,7 +3972,7 @@ namespace RefrigtzDLL
                                 {
                                     HA -= ObjectDangour;
                                 }
-                                //When is Brown Object Dangoure.
+                                //When is Brown //Object Dangoure.
                                 if (DummyOrder == -1 && AA.CheckBrownObjectDangour)
                                 {
                                     HA -= ObjectDangour;
@@ -3940,14 +3991,14 @@ namespace RefrigtzDLL
                 return HA;
             }
         }
-        //Veryfy and detect Object Value.
+        //Veryfy and detect //Object Value.
         int VeryFye(int[,] Table, int Order, Color a)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 int HA = 0;
-                int Object = Table[Row, Column];
+                int Object= Table[Row, Column];
                 //Wehn Solider.
                 if (System.Math.Abs(Object) == 1)
                     HA = 1;
@@ -3973,7 +4024,7 @@ namespace RefrigtzDLL
         //Numbers of Supporting Current Objects method.
         int SupporterCount(int[,] Table, int Order, Color a, int ii, int jj)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 int Count = 0;
@@ -4006,7 +4057,7 @@ namespace RefrigtzDLL
         //Attacks on Enemies.
         int AttackerCount(int[,] Table, int Order, Color a, int i, int j)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 int Count = 0;
@@ -4041,7 +4092,7 @@ namespace RefrigtzDLL
         //Attackers of Enemies.QC_OK.
         int EnemyAttackerCount(int[,] Table, int Order, Color a, int ii, int jj)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 int Count = 0;
@@ -4156,7 +4207,7 @@ namespace RefrigtzDLL
             lock (O)
             {
                 double HA = 0;
-                Object O1 = new Object();
+                //Object O1 = new Object();
                 //lock (O1)
                 {
                     if (Table[ii, jj] == 0)
@@ -4280,7 +4331,7 @@ namespace RefrigtzDLL
         }
         public double[] HuristicAll(bool Before, int Killed, int[,] Table, Color aa, int Ord, int RowS, int ColS, int RowD, int ColD)
         {
-            Object O = new Object();
+            //Object O = new Object();
             //lock (O)
             {
                 double[] Huristic = new double[6];
@@ -4299,7 +4350,7 @@ namespace RefrigtzDLL
                         {
                             //Parallel.For(0, 8, ColS =>
                             {
-                                Object O1 = new Object();
+                                ////Object O1 = new Object();
                                 //lock (O1)
                                 {
                                     int i1 = RowS, j1 = ColS, iiii1 = RowD, jjjj1 = ColD;
@@ -4366,7 +4417,7 @@ namespace RefrigtzDLL
                                 {
                                     Parallel.For(0, 8, jj =>
                                     {
-                                        Object O1 = new Object();
+                                        ////Object O1 = new Object();
                                         //lock (O1)
                                         {
                                             int i1 = RowS, j1 = ColS, iiii1 = RowD, jjjj1 = ColD;
@@ -4440,7 +4491,7 @@ namespace RefrigtzDLL
         ///Huristic of Movments.
         public double HuristicMovment(bool Before, int[,] Table, Color aa, int Ord, int RowS, int ColS, int RowD, int ColD)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 double HuristicMovementValue = 0;
@@ -4460,7 +4511,7 @@ namespace RefrigtzDLL
                         double Sign = new double();
                         ///When Moveble is true. means [RowS,ColS] is in Movmebale to [RowD,ColD].
                         ///What is Moveable!
-                        ///Ans:When [RowS,ColS] is Movebale to [RowD,ColD] return true when Empty or Enemy is located in [RowS,ColS].
+                        ///Ans:When [RowS,ColS] is Movebale to [RowD,ColD] continue true when Empty or Enemy is located in [RowS,ColS].
                         if (Table[RowD, ColD] == 0 && DummyOrder == -1 && Table[RowS, ColS] < 0)
                         {
                             Order = -1;
@@ -4500,22 +4551,24 @@ namespace RefrigtzDLL
                                 HA += (Sign * (System.Math.Abs(GetValue(RowS, ColS) + GetValue(RowD, ColD))));
                                 bool Supported = false;
                                 //For All Enemy Obejcts.                                             
-                                Parallel.For(0, 8, g =>
+                                for (int g = 0; g < 8; g++)
+                                //Parallel.For(0, 8, g =>
                                 {
                                     if (Supported)
-                                        return;
-                                    Parallel.For(0, 8, h =>
+                                        continue;
+                                    //Parallel.For(0, 8, h =>
+                                    for (int h = 0; h < 8; h++)
                                     {
-                                        Object O2 = new Object();
+                                        ////Object O2 = new Object();
                                         //lock (O2)
                                         {
                                             if (Supported)
-                                                return;
+                                                continue;
                                             //Ignore Of Self Objects.
                                             if (Order == 1 && Table[g, h] >= 0)
-                                                return;
+                                                continue;
                                             if (Order == -1 && Table[g, h] <= 0)
-                                                return;
+                                                continue;
                                             Color aaa = new Color();
                                             //Assgin Enemy ints.
                                             aaa = Color.Gray;
@@ -4531,22 +4584,22 @@ namespace RefrigtzDLL
                                             {
                                                 //Assgine variable.
                                                 Supported = true;
-                                                return;
+                                                continue;
                                             }
                                         }
-                                    });
+                                    }//);
                                     if (Supported)
-                                        return;
-                                });
-                                Object O1 = new Object();
+                                        continue;
+                                }//);
+                                ////Object O1 = new Object();
                                 //lock (O1)
                                 {
                                     if (!Supported)
                                         //When is Not Supported multyply 100.
-                                        HA *= 20;
+                                        HA *=2;
                                     else
                                         //When is Supported Multyply -100.
-                                        HA *= -20;
+                                        HA *=-2;
                                 }
                             }
                         }
@@ -4564,7 +4617,7 @@ namespace RefrigtzDLL
                         Order = DummyOrder;
                         ///When Moveble is true. means [RowS,ColS] is in Movmebale to [RowD,ColD].
                         ///What is Moveable!
-                        ///Ans:When [RowS,ColS] is Movebale to [RowD,ColD] return true when Empty or Enemy is located in [RowS,ColS].
+                        ///Ans:When [RowS,ColS] is Movebale to [RowD,ColD] continue true when Empty or Enemy is located in [RowS,ColS].
                         if (Table[RowD, ColD] == 0 && DummyOrder == -1 && Table[RowS, ColS] < 0)
                         {
                             Order = -1;
@@ -4597,20 +4650,21 @@ namespace RefrigtzDLL
                                 HA += (Sign * (System.Math.Abs(GetValue(RowS, ColS) + GetValue(RowD, ColD))));
                                 bool Supported = false;
                                 //For All Enemy Obejcts.                                             
-                                Parallel.For(0, 8, g =>
+                                for (int g = 0; g < 8; g++)
+                                //Parallel.For(0, 8, g =>
                                 {
-                                    if (Supported)
-                                        return;
-                                    //for (int h = 0; h < 8; h++)
-                                    Parallel.For(0, 8, h =>
+                                            if (Supported)
+                                        continue;
+                                    for (int h = 0; h < 8; h++)
+                                    //Parallel.For(0, 8, h =>
                                         {
                                             if (Supported)
-                                                return;
+                                                continue;
                                         //Ignore Of Self Objects.
                                         if (Order == 1 && Table[g, h] >= 0)
-                                                return;
+                                                continue;
                                             if (Order == -1 && Table[g, h] <= 0)
-                                                return;
+                                                continue;
                                             Color aaa = new Color();
                                         //Assgin Enemy ints.
                                         aaa = Color.Gray;
@@ -4620,7 +4674,7 @@ namespace RefrigtzDLL
                                                 aaa = Color.Gray;
                                         //When Enemy is Supported.
                                         bool A = new bool();
-                                            Object O2 = new Object();
+                                            ////Object O2 = new Object();
                                             //lock (O2)
                                             {
                                                 A = Support(Table, g, h, RowD, ColD, aaa, Order * -1);
@@ -4630,18 +4684,18 @@ namespace RefrigtzDLL
                                             {
                                             //Assgine variable.
                                             Supported = true;
-                                                return;
+                                                continue;
                                             }
-                                        });
+                                        }//);
                                     if (Supported)
-                                        return;
-                                });
+                                        continue;
+                                }//);
                                 if (!Supported)
                                     //When is Not Supported multyply 100.
-                                    HA *= 20;
+                                    HA *=2;
                                 else
                                     //When is Supported Multyply -100.
-                                    HA *= -20;
+                                    HA *=-2;
                             }
                         }
                     }
@@ -4682,10 +4736,10 @@ namespace RefrigtzDLL
                 return false;
             }
         }
-        ///ObjectDanger Determination.
+        //Object Danger Determination.
         public bool ObjectDanger(int[,] Tab, int i, int j, int ii, int jj, Color a, int Order)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 int CCurrentOrder = ChessRules.CurrentOrder;
@@ -4747,7 +4801,7 @@ namespace RefrigtzDLL
         ///Supportation Determination.QC_OK
         public bool Support(int[,] Tab, int i, int j, int ii, int jj, Color a, int Order)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
 
@@ -4788,7 +4842,7 @@ namespace RefrigtzDLL
         //Return Msx Huiristic of Child Level.
         public bool MaxHuristic(ref int j, int Kin, ref double Less, int Order)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
 
@@ -5197,7 +5251,7 @@ namespace RefrigtzDLL
         //Count of Solders on Table.
         int SolderOnTableCount(ref DrawSoldier[] So, bool Mi, int MaxCount)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
 
@@ -5236,7 +5290,7 @@ namespace RefrigtzDLL
         //Elepahnt On Table Count.
         int ElefantOnTableCount(ref DrawElefant[] So, bool Mi, int MaxCount)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
 
@@ -5274,7 +5328,7 @@ namespace RefrigtzDLL
         //Calculate Hourse on table.
         int HourseOnTableCount(ref DrawHourse[] So, bool Mi, int MaxCount)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
 
@@ -5312,7 +5366,7 @@ namespace RefrigtzDLL
         //Calculate Castles Count.
         int CastleOnTableCount(ref DrawCastle[] So, bool Mi, int MaxCount)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
 
@@ -5350,7 +5404,7 @@ namespace RefrigtzDLL
         //Calculate Minsiter Count.
         int MinisterOnTableCount(ref DrawMinister[] So, bool Mi, int MaxCount)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
 
@@ -5386,7 +5440,7 @@ namespace RefrigtzDLL
         //Calculate King on Table.
         int KingOnTableCount(ref DrawKing[] So, bool Mi, int MaxCount)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
 
@@ -5422,7 +5476,7 @@ namespace RefrigtzDLL
         //Return Huristic.
         public double ReturnHuristic(int ii, int j, int Order, bool AA)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 ActionsString = "";
@@ -5450,7 +5504,7 @@ namespace RefrigtzDLL
         }
         String Alphabet(int RowRealesed)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 String A = "";
@@ -5482,7 +5536,7 @@ namespace RefrigtzDLL
         }
         String Number(int ColumnRealeased)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
 
@@ -5515,7 +5569,7 @@ namespace RefrigtzDLL
         }
         public double ReturnHuristicCalculartor(int iAstarGready, int ii, int j, int Order)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
 
@@ -5601,7 +5655,7 @@ namespace RefrigtzDLL
                             //For All Hourse on Table Count.
                             for (int m = 0; m < HourseOnTableCount(ref AStarGreedy[i].HoursesOnTable, true, AStarGreedy[i].HourseHight); m++)
                             {
-                                //When is HourseOn Table Depth Object is Not NULL.
+                                //When is HourseOn Table Depth //Object is Not NULL.
                                 if (AStarGreedy[i].HoursesOnTable[m] != null)
                                 {
                                     //Forund of Maximum on on Branch.
@@ -5664,7 +5718,7 @@ namespace RefrigtzDLL
                             //For All King on table Count.
                             for (int m = 0; m < KingOnTableCount(ref AStarGreedy[i].KingOnTable, true, AStarGreedy[i].KingHigh); m++)
                             {
-                                //When Depth Object of King Table is Not NULL.
+                                //When Depth //Object of King Table is Not NULL.
                                 if (AStarGreedy[i].KingOnTable[m] != null)
                                 {
                                     //Found of Maximum on table Branches.
@@ -5737,7 +5791,7 @@ namespace RefrigtzDLL
                             //For All Hourse on Table Count.
                             for (int m = HourseOnTableCount(ref AStarGreedy[i].HoursesOnTable, true, AStarGreedy[i].HourseHight); m < HourseOnTableCount(ref AStarGreedy[i].HoursesOnTable, false, AStarGreedy[i].HourseHight); m++)
                             {
-                                //When is HourseOn Table Depth Object is Not NULL.
+                                //When is HourseOn Table Depth //Object is Not NULL.
                                 if (AStarGreedy[i].HoursesOnTable[m] != null)
                                 {
                                     //Forund of Maximum on on Branch.
@@ -5802,7 +5856,7 @@ namespace RefrigtzDLL
                                 //When Minster of Depth is Not Null.
                                 if (AStarGreedy[i].KingOnTable[m] != null)
                                 {
-                                    //When Depth Object of King Table is Not NULL.
+                                    //When Depth //Object of King Table is Not NULL.
                                     if (AStarGreedy[i].KingOnTable[m].KingThinking[0].MaxHuristic(ref jIndex[5], 1, ref Less[5], Order * -1))
                                     {
                                         iIndex[5] = i;
@@ -5839,7 +5893,7 @@ namespace RefrigtzDLL
                         HuristicListSolder[j][7] +
                         HuristicListSolder[j][8] +
                         HuristicListSolder[j][9];
-                        Object O1 = new Object();
+                        ////Object O1 = new Object();
                         //lock (O1)
                         {
                             ActionsString += " " + Alphabet(Row) + Number(Column) + Alphabet(RowColumnSoldier[j][0]) + Number(RowColumnSoldier[j][1]);
@@ -5864,7 +5918,7 @@ namespace RefrigtzDLL
                             HuristicListElefant[j][7] +
                             HuristicListElefant[j][8] +
                             HuristicListElefant[j][9];
-                        Object O1 = new Object();
+                        ////Object O1 = new Object();
                         //lock (O1)
                         {
                             ActionsString += " " + Alphabet(Row) + Number(Column) + Alphabet(RowColumnElefant[j][0]) + Number(RowColumnElefant[j][1]);
@@ -5889,7 +5943,7 @@ namespace RefrigtzDLL
                             HuristicListHourse[j][7] +
                             HuristicListHourse[j][8] +
                             HuristicListHourse[j][9];
-                        Object O1 = new Object();
+                        ////Object O1 = new Object();
                         //lock (O1)
                         {
                             ActionsString += " " + Alphabet(Row) + Number(Column) + Alphabet(RowColumnHourse[j][0]) + Number(RowColumnHourse[j][1]);
@@ -5913,7 +5967,7 @@ namespace RefrigtzDLL
                             HuristicListCastle[j][7] +
                             HuristicListCastle[j][8] +
                             HuristicListCastle[j][9];
-                        Object O1 = new Object();
+                        ////Object O1 = new Object();
                         //lock (O1)
                         {
                             ActionsString += " " + Alphabet(Row) + Number(Column) + Alphabet(RowColumnCastle[j][0]) + Number(RowColumnCastle[j][1]);
@@ -5937,7 +5991,7 @@ namespace RefrigtzDLL
                             HuristicListMinister[j][7] +
                             HuristicListMinister[j][8] +
                             HuristicListMinister[j][9];
-                        Object O1 = new Object();
+                        ////Object O1 = new Object();
                         //lock (O1)
                         {
                             ActionsString += " " + Alphabet(Row) + Number(Column) + Alphabet(RowColumnMinister[j][0]) + Number(RowColumnMinister[j][1]);
@@ -5961,7 +6015,7 @@ namespace RefrigtzDLL
                             HuristicListKing[j][7] +
                             HuristicListKing[j][8] +
                             HuristicListKing[j][9];
-                        Object O1 = new Object();
+                        ////Object O1 = new Object();
                         //lock (O1)
                         {
                             ActionsString += " " + Alphabet(Row) + Number(Column) + Alphabet(RowColumnKing[j][0]) + Number(RowColumnKing[j][1]);
@@ -6093,7 +6147,7 @@ namespace RefrigtzDLL
         //Scope of Every Objects Movments.
         bool Scop(int i, int j, int ii, int jj, int Kind)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 if (i == ii && j == jj)
@@ -6192,7 +6246,7 @@ namespace RefrigtzDLL
         //Calculate Maximum of Six Max Huristic of Six Kind Objects.
         int MaxOfSixHuristic(double[] Less)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 int Value = -1;
@@ -6211,7 +6265,7 @@ namespace RefrigtzDLL
         //Calculate Minimum of Six Min Huristic of Six Kind Objects.note the enemy Huristic are negative.
         int MinOfSixHuristic(double[] Less)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 int Value = -1;
@@ -6231,7 +6285,7 @@ namespace RefrigtzDLL
 
         void KingThinkingChess(int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
 
@@ -6264,7 +6318,7 @@ namespace RefrigtzDLL
                             ThinkingRun = true;
                         }
                         ///Predict Huristic.
-                        Object A = new object();
+                        //////Object A = new object();
                         //lock (A)
                         {
                             CalculateHuristics(true, 0, TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
@@ -6277,7 +6331,7 @@ namespace RefrigtzDLL
                         ///Calculate Huristic and Add to List Speciifically and Cal Syntax.
                         ///ActionsString of Movements.
                         int Killed = 0;
-                        Object A2 = new object();
+                        ////Object A2 = new object();
                         //lock (A2)
                         {
                             Killed = TableS[RowDestination, ColumnDestination];
@@ -6287,14 +6341,14 @@ namespace RefrigtzDLL
 
                         //RemoveAtList(Kind);
                         //Learning Autamata
-                        Object A3 = new object();
+                        ////Object A3 = new object();
                         //lock (A3)
                         {
                                PenaltyMechanisam(ref CheckedM,Killed, false, 6, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
                             //{ ThinkingAtRun = false; return; }
                         }
 
-                        Object A4 = new object();
+                        ////Object A4 = new object();
                         //lock (A4)
                         {
                             int RowB = 0, ColumnB = 0;
@@ -6314,25 +6368,25 @@ namespace RefrigtzDLL
 
                         //Consideration of Prevention from going Check State by self order.
                         ///Store of Indexes Changes and Table in specific List.
-                        Object A5 = new object();
+                        ////Object A5 = new object();
                         //lock (A5)
                         {
                             int[] AS = new int[2];
                             AS[0] = RowDestination;
                             AS[1] = ColumnDestination;
                             RowColumnKing.Add(AS);
-                            //Index++;
+                            //Index+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                             TableListKing.Add(CloneATable(TableS)); ;
                             IndexKing++;
                         }
-                        Object A6 = new object();
+                        ////Object A6 = new object();
                         //lock (A6)
                         {
                             //Caused this for Stachostic results.
                             //SetValueOfTabls(RowSource, ColumnSource); CalculateHuristics(false, 0, TableS, RowDestination, ColumnDestination, RowSource, ColumnSource, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                         }
                         String H = "";
-                        Object A7 = new object();
+                        ////Object A7 = new object();
                         //lock (A7)
                         {
                             double[] Hu = new double[10]; HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
@@ -6347,10 +6401,10 @@ namespace RefrigtzDLL
                             Hu[6] += HeuristicDistabceOfCurrentMoveFromEnemyKingValue;
                             Hu[7] += HeuristicKingSafe;
                             Hu[8] = HeuristicFromCenter;
-                            Hu[9] = HeuristicKingDangour; H = " HAttack:" + ((int)(Hu[0])).ToString() + " HMove:" + ((int)(Hu[1])).ToString() + " HSelSup:" + ((int)(Hu[2])).ToString() + " HCheckedMateDang:" + ((int)(Hu[3])).ToString() + " HKiller:" + ((int)(Hu[4])).ToString() + " HReduAttack:" + ((int)(Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((int)(Hu[6])).ToString() + " HKingSafe:" + ((int)(Hu[7])).ToString() + " HObjFromCeneter:" + ((int)(Hu[8])).ToString() + " HKingDang:" + ((int)(Hu[9])).ToString();
+                            Hu[9] = HeuristicKingDangour; H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
                             HuristicListKing.Add(Hu);
                         }
-                        Object O2 = new Object();
+                        ////Object O2 = new Object();
                         //lock (O2)
                         {
                             OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
@@ -6398,7 +6452,7 @@ namespace RefrigtzDLL
         
         void MinisterThinkingChess(int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
-            Object O11 = new Object();
+            ////Object O11 = new Object();
             //lock (O11)
             {
 
@@ -6429,7 +6483,7 @@ namespace RefrigtzDLL
                             ThinkingRun = true;
                         }
                         ///Predict Huristic.
-                        Object A = new object();
+                        ////Object A = new object();
                         //lock (A)
                         {
                             CalculateHuristics(true, 0, TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
@@ -6440,21 +6494,21 @@ namespace RefrigtzDLL
                             NumbersOfAllNode++;
                         }
                         int Killed = 0;
-                        Object A2 = new object();
+                        ////Object A2 = new object();
                         //lock (A2)
                         {
                             Killed = TableS[RowDestination, ColumnDestination];
                             TableS[RowDestination, ColumnDestination] = TableS[RowSource, ColumnSource];
                             TableS[RowSource, ColumnSource] = 0;
                         }
-                        Object A3 = new object();
+                        ////Object A3 = new object();
                         //lock (A3)
                         {
                                PenaltyMechanisam(ref CheckedM,Killed, false, 5, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
                             //{ ThinkingAtRun = false; return; }
                         }
                         ///Store of Indexes Changes and Table in specific List.
-                        Object A4 = new object();
+                        ////Object A4 = new object();
                         //lock (A4)
                         {
                             int[] AS = new int[2];
@@ -6463,11 +6517,11 @@ namespace RefrigtzDLL
                             RowColumnMinister.Add(AS);
                             //RowColumn[Index, 0] = RowDestination;
                             //RowColumn[Index, 1] = ColumnDestination;
-                            //Index++;
+                            //Index+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                             TableListMinister.Add(CloneATable(TableS)); ;
                             IndexMinister++;
                         }
-                        Object A5 = new object();
+                        ////Object A5 = new object();
                         //lock (A5)
                         {
                             //Caused this for Stachostic results.
@@ -6476,7 +6530,7 @@ namespace RefrigtzDLL
 
                         ///Calculate Huristic and Add to List Speciifically and Cal Syntax.
                         String H = "";
-                        Object A6 = new object();
+                        ////Object A6 = new object();
                         //lock (A6)
                         {
                             double[] Hu = new double[10]; HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
@@ -6491,11 +6545,11 @@ namespace RefrigtzDLL
                             Hu[6] += HeuristicDistabceOfCurrentMoveFromEnemyKingValue;
                             Hu[7] += HeuristicKingSafe;
                             Hu[8] = HeuristicFromCenter;
-                            Hu[9] = HeuristicKingDangour; H = " HAttack:" + ((int)(Hu[0])).ToString() + " HMove:" + ((int)(Hu[1])).ToString() + " HSelSup:" + ((int)(Hu[2])).ToString() + " HCheckedMateDang:" + ((int)(Hu[3])).ToString() + " HKiller:" + ((int)(Hu[4])).ToString() + " HReduAttack:" + ((int)(Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((int)(Hu[6])).ToString() + " HKingSafe:" + ((int)(Hu[7])).ToString() + " HObjFromCeneter:" + ((int)(Hu[8])).ToString() + " HKingDang:" + ((int)(Hu[9])).ToString();
+                            Hu[9] = HeuristicKingDangour; H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
                             
                             HuristicListMinister.Add(Hu);
                         }
-                        Object O1 = new Object();
+                        ////Object O1 = new Object();
                         //lock (O1)
                         {
                             OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
@@ -6518,12 +6572,12 @@ namespace RefrigtzDLL
         }
         bool IsPrviousMovemntIsDangrousForCurrent(int[,] TableS, int Order)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 bool Dang = false;
                 int BREAK = 0;
-                Object O1 = new Object();
+                ////Object O1 = new Object();
                 //lock (O1)
                 {
                     //.Current
@@ -6600,22 +6654,22 @@ namespace RefrigtzDLL
                 return Dang;
             }
         }
-        //When There is not valuable Object in List Greater than Target Self Object return true.        
+        //When There is not valuable //Object in List Greater than Target Self //Object return true.        
         bool IsObjectValaubleObjectSelf(int i, int j, int Object, ref List<int[]> ValuableSelfSupported)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 bool Is = true;
                 for (int k = 0; k < ValuableSelfSupported.Count; k++)
                 {
-                    if (ValuableSelfSupported[k][0] > 0 && Object > 0)
+                    if (ValuableSelfSupported[k][0] > 0 &&Object> 0)
                     {
                         if (System.Math.Abs(ValuableSelfSupported[k][0]) > System.Math.Abs(Object))
                             Is = false;
                     }
                     else
-                       if (ValuableSelfSupported[k][0] < 0 && Object < 0)
+                       if (ValuableSelfSupported[k][0] < 0 && Object< 0)
                     {
                         if (System.Math.Abs(ValuableSelfSupported[k][0]) > System.Math.Abs(Object))
                             Is = false;
@@ -6628,7 +6682,7 @@ namespace RefrigtzDLL
         }
         bool IsObjectValaubleObjectEnemy(int i, int j, int Object, ref List<int[]> ValuableEnemyNotSupported)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
 
@@ -6644,14 +6698,14 @@ namespace RefrigtzDLL
         }
         bool[] SomeLearningVarsCalculator(int[,] TableS, int ik, int jk, int iik, int jjk)
         {
-            Object O22 = new Object();
+            ////Object O22 = new Object();
             //lock (O22)
             {
 
                 int AttackCount = 0;
 
                 bool[] LearningV = new bool[3];
-                Object O = new Object();
+                ////Object O = new Object();
                 //lock (O)
                 {
                     Parallel.For(0, 8, i =>
@@ -6675,7 +6729,7 @@ namespace RefrigtzDLL
                                     Parallel.Invoke(() =>
                                     {
 
-                                        Object O1 = new Object();
+                                        ////Object O1 = new Object();
                                         //lock (O1)
                                         {
                                             if (!(LearningV[0] || LearningV[1] || LearningV[2]))
@@ -6684,7 +6738,7 @@ namespace RefrigtzDLL
                                     }, () =>
                                     {
 
-                                        Object O1 = new Object();
+                                        ////Object O1 = new Object();
                                         //lock (O1)
                                         {
                                             if ((LearningV[0] || LearningV[1] || LearningV[2]))
@@ -6699,7 +6753,7 @@ namespace RefrigtzDLL
                                         }
                                     }, () =>
                                      {
-                                         Object O1 = new Object();
+                                         ////Object O1 = new Object();
                                          //lock (O1)
                                          {
                                              if (!(LearningV[0] || LearningV[1] || LearningV[2]))
@@ -6718,7 +6772,7 @@ namespace RefrigtzDLL
         }
         bool[] CalculateLearningVars(int Killed, int[,] TableS, int i, int j, int ii, int jj)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 bool[] LearningV = new bool[14];
@@ -6745,7 +6799,7 @@ namespace RefrigtzDLL
                 List<int[]> ValuableSelfSupported = new List<int[]>();
 
                 //When true must penalty
-                Object O11 = new Object();
+                ////Object O11 = new Object();
                 //lock (O11)
                 {
                     IsPrviousMovemntIsDangrousForCurr = IsPrviousMovemntIsDangrousForCurrent(TableS, Order);
@@ -6761,7 +6815,7 @@ namespace RefrigtzDLL
                     IsDangerous = false;//No Needed.
                                         //For All Current
                     bool[] LearningVars = SomeLearningVarsCalculator(TableS, ii, jj, i, j);
-                    Object O4 = new Object();
+                    ////Object O4 = new Object();
                     //lock (O4)
                     {
                         SelfNotSupported = LearningVars[0];
@@ -6790,7 +6844,7 @@ namespace RefrigtzDLL
                             //A
 
                         }
-                        Object OO1 = new Object();
+                        ////Object OO1 = new Object();
                         //lock (OO1)
                         {
                             if (Is[0] >= 1)
@@ -6809,7 +6863,7 @@ namespace RefrigtzDLL
                     //Order Depth Consideration Constraint.
                     if (IsNextMovemntIsCheckOrCheckMateForCurrent && IsNextMovemntIsCheckOrCheckMateForEnemy)
                     {
-                        Object OO2 = new Object();
+                        ////Object OO2 = new Object();
                         //lock (OO2)
                         {
                             if (SelfChackedMateDepth < EnemyCheckedMateDepth)
@@ -6840,7 +6894,7 @@ namespace RefrigtzDLL
                         EnemyNotSupported = false;
                         IsNextMovemntIsCheckOrCheckMateForEnemy = false;
                     }
-                    Object OO = new Object();
+                    ////Object OO = new Object();
                     //lock (OO)
                     {
                         LearningV[0] = IsCurrentCanGardHighPriorityEne;
@@ -6874,7 +6928,7 @@ namespace RefrigtzDLL
         void CastlesThinkingChess(int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle
         )
         {
-            Object O22 = new Object();
+            ////Object O22 = new Object();
             //lock (O22)
             {
 
@@ -6903,7 +6957,7 @@ namespace RefrigtzDLL
                         ThinkingRun = true;
                     }
                     ///Predict Huristic.
-                    Object A = new object();
+                    ////Object A = new object();
                     //lock (A)
                     {
                         CalculateHuristics(true, 0, TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
@@ -6914,21 +6968,21 @@ namespace RefrigtzDLL
                         NumbersOfAllNode++;
                     }
                     int Killed = 0;
-                    Object A2 = new object();
+                    ////Object A2 = new object();
                     //lock (A2)
                     {
                         Killed = TableS[RowDestination, ColumnDestination];
                         TableS[RowDestination, ColumnDestination] = TableS[RowSource, ColumnSource];
                         TableS[RowSource, ColumnSource] = 0;
                     }
-                    Object A3 = new object();
+                    ////Object A3 = new object();
                     //lock (A3)
                     {
                            PenaltyMechanisam(ref CheckedM,Killed, false, 4, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
                         //{ ThinkingAtRun = false; return; }
                     }
                     ///Store of Indexes Changes and Table in specific List.
-                    Object A4 = new object();
+                    ////Object A4 = new object();
                     //lock (A4)
                     {
                         int[] AS = new int[2];
@@ -6938,7 +6992,7 @@ namespace RefrigtzDLL
                         TableListCastle.Add(CloneATable(TableS)); ;
                         IndexCastle++;
                     }
-                    Object A5 = new object();
+                    ////Object A5 = new object();
                     //lock (A5)
                     {
                         //Caused this for Stachostic results.
@@ -6948,7 +7002,7 @@ namespace RefrigtzDLL
 
                     ///Calculate Huristic and Add to List Speciifically and Cal Syntax.
                     String H = "";
-                    Object A6 = new object();
+                    ////Object A6 = new object();
                     //lock (A6)
                     {
                         double[] Hu = new double[10]; HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
@@ -6963,10 +7017,10 @@ namespace RefrigtzDLL
                         Hu[6] += HeuristicDistabceOfCurrentMoveFromEnemyKingValue;
                         Hu[7] += HeuristicKingSafe;
                         Hu[8] = HeuristicFromCenter;
-                        Hu[9] = HeuristicKingDangour; H = " HAttack:" + ((int)(Hu[0])).ToString() + " HMove:" + ((int)(Hu[1])).ToString() + " HSelSup:" + ((int)(Hu[2])).ToString() + " HCheckedMateDang:" + ((int)(Hu[3])).ToString() + " HKiller:" + ((int)(Hu[4])).ToString() + " HReduAttack:" + ((int)(Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((int)(Hu[6])).ToString() + " HKingSafe:" + ((int)(Hu[7])).ToString() + " HObjFromCeneter:" + ((int)(Hu[8])).ToString() + " HKingDang:" + ((int)(Hu[9])).ToString();
+                        Hu[9] = HeuristicKingDangour; H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
                         HuristicListCastle.Add(Hu);
                     }
-                    Object O3 = new Object();
+                    ////Object O3 = new Object();
                     //lock (O3)
                     {
                         OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
@@ -6983,7 +7037,7 @@ namespace RefrigtzDLL
         }
         void HourseThinkingChess(int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
-            Object OO = new Object();
+            ////Object OO = new Object();
             //lock (OO)
             {
 
@@ -7016,7 +7070,7 @@ namespace RefrigtzDLL
                             ThinkingRun = true;
                         }
                         ///Predict Huristic.
-                        Object A = new object();
+                        ////Object A = new object();
                         //lock (A)
                         {
                             CalculateHuristics(true, 0, TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
@@ -7027,7 +7081,7 @@ namespace RefrigtzDLL
                             NumbersOfAllNode++;
                         }
                         int Killed = 0;
-                        Object A2 = new object();
+                        ////Object A2 = new object();
                         //lock (A2)
                         {
                             Killed = TableS[RowDestination, ColumnDestination];
@@ -7035,7 +7089,7 @@ namespace RefrigtzDLL
                             TableS[RowSource, ColumnSource] = 0;
                         }
 
-                        Object A3 = new object();
+                        ////Object A3 = new object();
                         //lock (A3)
                         {
                                PenaltyMechanisam(ref CheckedM,Killed, false, 3, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
@@ -7043,7 +7097,7 @@ namespace RefrigtzDLL
                         }
 
                         ///Store of Indexes Changes and Table in specific List.
-                        Object A4 = new object();
+                        ////Object A4 = new object();
                         //lock (A4)
                         {
                             int[] AS = new int[2];
@@ -7052,12 +7106,12 @@ namespace RefrigtzDLL
                             RowColumnHourse.Add(AS);
                             //RowColumn[Index, 0] = RowDestination;
                             //RowColumn[Index, 1] = ColumnDestination;
-                            //Index++;
+                            //Index+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                             TableListHourse.Add(CloneATable(TableS)); ;
                             IndexHourse++;
                         }
                         ///Wehn Predict of Operation Do operate a Predict of this movments.
-                        Object A5 = new object();
+                        ////Object A5 = new object();
                         //lock (A5)
                         {
                             //Caused this for Stachostic results.
@@ -7066,7 +7120,7 @@ namespace RefrigtzDLL
 
                         //Calculate Huristic and Add to List and Cal Syntax.
                         String H = "";
-                        Object A6 = new object();
+                        ////Object A6 = new object();
                         //lock (A6)
                         {
                             double[] Hu = new double[10]; HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
@@ -7081,10 +7135,10 @@ namespace RefrigtzDLL
                             Hu[6] += HeuristicDistabceOfCurrentMoveFromEnemyKingValue;
                             Hu[7] += HeuristicKingSafe;
                             Hu[8] = HeuristicFromCenter;
-                            Hu[9] = HeuristicKingDangour; H = " HAttack:" + ((int)(Hu[0])).ToString() + " HMove:" + ((int)(Hu[1])).ToString() + " HSelSup:" + ((int)(Hu[2])).ToString() + " HCheckedMateDang:" + ((int)(Hu[3])).ToString() + " HKiller:" + ((int)(Hu[4])).ToString() + " HReduAttack:" + ((int)(Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((int)(Hu[6])).ToString() + " HKingSafe:" + ((int)(Hu[7])).ToString() + " HObjFromCeneter:" + ((int)(Hu[8])).ToString() + " HKingDang:" + ((int)(Hu[9])).ToString();
+                            Hu[9] = HeuristicKingDangour; H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
                             HuristicListHourse.Add(Hu);
                         }
-                        Object O4 = new Object();
+                        ////Object O4 = new Object();
                         //lock (O4)
                         {
                             OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
@@ -7108,7 +7162,7 @@ namespace RefrigtzDLL
         }
         void ElephantThinkingChess(int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
-            Object OO = new Object();
+            ////Object OO = new Object();
             //lock (OO)
             {
                 double HuristicAttackValue = new double();
@@ -7139,7 +7193,7 @@ namespace RefrigtzDLL
                             ThinkingRun = true;
                         }
 
-                        Object A = new object();
+                        ////Object A = new object();
                         //lock (A)
                         {
                             CalculateHuristics(true, 0, TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
@@ -7150,7 +7204,7 @@ namespace RefrigtzDLL
                             NumbersOfAllNode++;
                         }
 
-                        Object A2 = new object();
+                        ////Object A2 = new object();
                         int Killed = 0;
                         //lock (A2)
                         {
@@ -7159,7 +7213,7 @@ namespace RefrigtzDLL
                             TableS[RowSource, ColumnSource] = 0;
                         }
 
-                        Object A3 = new object();
+                        ////Object A3 = new object();
                         //lock (A3)
                         {
                                PenaltyMechanisam(ref CheckedM,Killed, false, 2, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
@@ -7168,7 +7222,7 @@ namespace RefrigtzDLL
 
 
                         ///Store of Indexes Changes and Table in specific List.
-                        Object A4 = new object();
+                        ////Object A4 = new object();
                         //lock (A4)
                         {
                             int[] AS = new int[2];
@@ -7180,7 +7234,7 @@ namespace RefrigtzDLL
                             IndexElefant++;
                         }
 
-                        Object A5 = new object();
+                        ////Object A5 = new object();
                         //lock (A5)
                         {
                             //Caused this for Stachostic results.
@@ -7189,7 +7243,7 @@ namespace RefrigtzDLL
 
 
                         String H = "";
-                        Object A6 = new Object();
+                        ////Object A6 = new Object();
                         //lock (A6)
                         {
                             double[] Hu = new double[10]; HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
@@ -7204,10 +7258,10 @@ namespace RefrigtzDLL
                             Hu[6] += HeuristicDistabceOfCurrentMoveFromEnemyKingValue;
                             Hu[7] += HeuristicKingSafe;
                             Hu[8] = HeuristicFromCenter;
-                            Hu[9] = HeuristicKingDangour; H = " HAttack:" + ((int)(Hu[0])).ToString() + " HMove:" + ((int)(Hu[1])).ToString() + " HSelSup:" + ((int)(Hu[2])).ToString() + " HCheckedMateDang:" + ((int)(Hu[3])).ToString() + " HKiller:" + ((int)(Hu[4])).ToString() + " HReduAttack:" + ((int)(Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((int)(Hu[6])).ToString() + " HKingSafe:" + ((int)(Hu[7])).ToString() + " HObjFromCeneter:" + ((int)(Hu[8])).ToString() + " HKingDang:" + ((int)(Hu[9])).ToString();
+                            Hu[9] = HeuristicKingDangour; H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
                             HuristicListElefant.Add(Hu);
                         }
-                        Object O5 = new Object();
+                        ////Object O5 = new Object();
                         //lock (O5)
                         {
                             OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
@@ -7230,7 +7284,7 @@ namespace RefrigtzDLL
         }
         bool EqualitTow(bool PenRegStrore, int kind)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 bool Equality = false;
@@ -7256,7 +7310,7 @@ namespace RefrigtzDLL
         }
         bool EqualitOne(QuantumAtamata Current, int kind)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
 
@@ -7284,11 +7338,11 @@ namespace RefrigtzDLL
         }
         void AddAtList(int kind, QuantumAtamata Current)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
 
-                //Adding QuantumAutamata Object to Specified List.
+                //Adding QuantumAutamata //Object to Specified List.
                 if (kind == 1)
                     //Soldier
                     PenaltyRegardListSolder.Add(Current);
@@ -7316,7 +7370,7 @@ namespace RefrigtzDLL
         }
         void RemoveAtList(int kind)
         {
-            Object O = new Object();
+            //Object O = new Object();
             //lock (O)
             {
 
@@ -7348,13 +7402,13 @@ namespace RefrigtzDLL
         }
         bool PenaltyMechanisam(ref int CheckedM,int Killed, bool Before, int kind, int[,] TableS, int ii, int jj, ref QuantumAtamata Current, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int i, int j, bool Castle)
         {
-            Object OO = new Object();
+            ////Object OO = new Object();
             //lock (OO)
             {
                 bool RETURN = false;
-                Object O3 = new Object();
+                ////Object O3 = new Object();
                 ChessRules AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[ii, jj], TableS, Order, ii, jj);
-                Object O = new Object();
+                ////Object O = new Object();
                 //lock (O)
                 {
                     if (!UsePenaltyRegardMechnisamT)
@@ -7369,7 +7423,7 @@ namespace RefrigtzDLL
                     {
                         if (AllDraw.OrderPlate == 1 && AA.CheckMateBrown)
                         {
-                            Object A = new Object();
+                            ////Object A = new Object();
                             //lock (A)
                             {
                                 IsThereMateOfEnemy = true;
@@ -7386,7 +7440,7 @@ namespace RefrigtzDLL
                         if (AllDraw.OrderPlate == -1 && AA.CheckMateGray)
                         {
                             DoEnemySelf = false;
-                            Object A = new Object();
+                            ////Object A = new Object();
                             //lock (A)
                             {
                                 IsThereMateOfEnemy = true;
@@ -7427,7 +7481,7 @@ namespace RefrigtzDLL
                         if (Order == 1 && AA.CheckGray)
                         {
                             //KishBefore = true;
-                            Object A = new object();
+                            ////Object A = new object();
                             //lock (A)
                             {
                                 NumberOfPenalties++;
@@ -7438,7 +7492,7 @@ namespace RefrigtzDLL
                             if (Order == -1 && AA.CheckBrown)
                         {
                             //KishBefore = true;
-                            Object A = new object();
+                            ////Object A = new object();
                             //lock (A)
                             {
                                 NumberOfPenalties++;
@@ -7467,7 +7521,7 @@ namespace RefrigtzDLL
 
                 bool[] LearningV = null;
                 //Mechanisam of Regrad.  
-                Object O1 = new Object();
+                ////Object O1 = new Object();
                 //lock (O1)
                 {
                     if (kind == 1 && PenRegStrore && UsePenaltyRegardMechnisamT && PenaltyRegardListSolder.Count == TableListSolder.Count)
@@ -7488,7 +7542,7 @@ namespace RefrigtzDLL
                                     if (kind == 6 && PenRegStrore && UsePenaltyRegardMechnisamT && PenaltyRegardListSolder.Count == TableListSolder.Count)
                         LearningV = CalculateLearningVars(Killed, TableS, ii, jj, i, j);
                 }
-                Object O2 = new Object();
+                ////Object O2 = new Object();
                 //lock (O2)
                 {
 
@@ -7511,7 +7565,7 @@ namespace RefrigtzDLL
                 //Operation of Penalty Regard Mechanisam on Check and mate speciffically.
                 bool Equality = EqualitOne(Current, kind);
 
-                Object O4 = new Object();
+                ////Object O4 = new Object();
                 //lock (O4)
                 {
                     if (Equality)
@@ -7851,7 +7905,7 @@ namespace RefrigtzDLL
         }
         void SolderThinkingChess(int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
-            Object O1 = new Object();
+            ////Object O1 = new Object();
             //lock (O1)
             {
                 double HuristicAttackValue = new double();
@@ -7880,12 +7934,12 @@ namespace RefrigtzDLL
                         {
                             ThinkingRun = true;
                         }
-                        Object A = new object();
+                        ////Object A = new object();
                         //lock (A)
                         {
                             CalculateHuristics(true, 0, TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                         }
-                        Object A1 = new object();
+                       Object A1 = new object();
                         lock (A1)
                         {
                             NumbersOfAllNode++;
@@ -7895,7 +7949,7 @@ namespace RefrigtzDLL
                         ///ActionsString of Movements.
 
                         int Killed = 0;
-                        Object A2 = new object();
+                        //Object A2 = new object();
 
                         //lock (A2)
                         {
@@ -7904,7 +7958,7 @@ namespace RefrigtzDLL
                             TableS[RowSource, ColumnSource] = 0;
                         }
 
-                        Object A3 = new object();
+                        ////Object A3 = new object();
                         //lock (A3)
                         {
                                PenaltyMechanisam(ref CheckedM,Killed, false, 1, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
@@ -7913,7 +7967,7 @@ namespace RefrigtzDLL
                         //}
 
                         ///Store of Indexes Changes and Table in specific List.
-                        Object A4 = new object();
+                        ////Object A4 = new object();
                         //lock (A4)
                         {
                             int[] AS = new int[2];
@@ -7923,7 +7977,7 @@ namespace RefrigtzDLL
                             TableListSolder.Add(CloneATable(TableS)); ;
                             IndexSoldier++;
                         }
-                        Object A5 = new object();
+                        ////Object A5 = new object();
                         //lock (A5)
                         {
                             //Caused this for Stachostic results.
@@ -7932,7 +7986,7 @@ namespace RefrigtzDLL
 
                         ///Calculate Huristic and Add to List Speciifically and Cal Syntax.
                         String H = "";
-                        Object A6 = new object();
+                        ////Object A6 = new object();
                         //lock (A6)
                         {
                             double[] Hu = new double[10]; HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
@@ -7947,10 +8001,10 @@ namespace RefrigtzDLL
                             Hu[6] += HeuristicDistabceOfCurrentMoveFromEnemyKingValue;
                             Hu[7] += HeuristicKingSafe;
                             Hu[8] = HeuristicFromCenter;
-                            Hu[9] = HeuristicKingDangour; H = " HAttack:" + ((int)(Hu[0])).ToString() + " HMove:" + ((int)(Hu[1])).ToString() + " HSelSup:" + ((int)(Hu[2])).ToString() + " HCheckedMateDang:" + ((int)(Hu[3])).ToString() + " HKiller:" + ((int)(Hu[4])).ToString() + " HReduAttack:" + ((int)(Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((int)(Hu[6])).ToString() + " HKingSafe:" + ((int)(Hu[7])).ToString() + " HObjFromCeneter:" + ((int)(Hu[8])).ToString() + " HKingDang:" + ((int)(Hu[9])).ToString();
+                            Hu[9] = HeuristicKingDangour; H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
                             HuristicListSolder.Add(Hu);
                         }
-                        Object O8 = new Object();
+                        ////Object O8 = new Object();
                         //lock (O8)
                         {
                             OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
@@ -7974,7 +8028,7 @@ namespace RefrigtzDLL
         }
         void CastleThinkingBrown(int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
-            Object O1 = new Object();
+            ////Object O1 = new Object();
             //lock (O1)
             {
 
@@ -8037,7 +8091,7 @@ namespace RefrigtzDLL
                 IndexKing++;
                 //Calculate Huristic Sumation and Store in Specific List.
                 double[] Hu = new double[10]; String H = "";
-                Object A6 = new Object();
+                //Object A6 = new Object();
                 //lock (A6)
                 {
                     HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
@@ -8052,12 +8106,12 @@ namespace RefrigtzDLL
                     Hu[6] += HeuristicDistabceOfCurrentMoveFromEnemyKingValue;
                     Hu[7] += HeuristicKingSafe;
                     Hu[8] = HeuristicFromCenter;
-                    Hu[9] = HeuristicKingDangour; H = " HAttack:" + ((int)(Hu[0])).ToString() + " HMove:" + ((int)(Hu[1])).ToString() + " HSelSup:" + ((int)(Hu[2])).ToString() + " HCheckedMateDang:" + ((int)(Hu[3])).ToString() + " HKiller:" + ((int)(Hu[4])).ToString() + " HReduAttack:" + ((int)(Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((int)(Hu[6])).ToString() + " HKingSafe:" + ((int)(Hu[7])).ToString() + " HObjFromCeneter:" + ((int)(Hu[8])).ToString() + " HKingDang:" + ((int)(Hu[9])).ToString();
+                    Hu[9] = HeuristicKingDangour; H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
                     HuristicListKing.Add(Hu);
 
                 }
                 Castle = true;
-                Object O7 = new Object(); SetObjectNumbersInList(TableS);
+                ////Object O7 = new Object(); SetObjectNumbersInList(TableS);
                 //lock (O7)
                 {
                     if (RowDestination < RowSource)
@@ -8097,7 +8151,7 @@ namespace RefrigtzDLL
             , ref double HeuristicFromCenter
             , ref double HeuristicKingDangour)
         {
-            Object OO = new Object();
+            ////Object OO = new Object();
             //lock (OO)
             {
 
@@ -8109,7 +8163,7 @@ namespace RefrigtzDLL
                 double HFromCenter = 0;
                 Parallel.Invoke(() =>
                 {
-                    Object O = new Object();
+                    ////Object O = new Object();
                     //lock (O)
                     {
                         int[,] TableSS = CloneATable(TableS);
@@ -8118,7 +8172,7 @@ namespace RefrigtzDLL
                 }
                  , () =>
                  {
-                     Object O = new Object();
+                     ////Object O = new Object();
                      //lock (O)
                      {
                          int[,] TableSS = CloneATable(TableS);
@@ -8128,7 +8182,7 @@ namespace RefrigtzDLL
                  }
                  , () =>
                  {
-                     Object O = new Object();
+                     ////Object O = new Object();
                      //lock (O)
                      {
                          int[,] TableSS = CloneATable(TableS);
@@ -8138,7 +8192,7 @@ namespace RefrigtzDLL
                  }
                  , () =>
                  {
-                     Object O = new Object();
+                     ////Object O = new Object();
                      //lock (O)
                      {
                          int[,] TableSS = CloneATable(TableS);
@@ -8148,7 +8202,7 @@ namespace RefrigtzDLL
                  }
                    , () =>
                    {
-                       Object O = new Object();
+                       ////Object O = new Object();
                        //lock (O)
                        {
                            int[,] TableSS = CloneATable(TableS);
@@ -8158,7 +8212,7 @@ namespace RefrigtzDLL
                    }
                    , () =>
                    {
-                       Object O = new Object();
+                       ////Object O = new Object();
                        //lock (O)
                        {
                            int[,] TableSS = CloneATable(TableS);
@@ -8166,7 +8220,7 @@ namespace RefrigtzDLL
                        }
                    }
                 );
-                Object O1 = new Object();
+                ////Object O1 = new Object();
                 //lock (O1)
                 {
                     
@@ -8199,7 +8253,7 @@ namespace RefrigtzDLL
         }
         void CastleThinkingGray(int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
-            Object O1 = new Object();
+            ////Object O1 = new Object();
             //lock (O1)
             {
 
@@ -8266,7 +8320,7 @@ namespace RefrigtzDLL
                 //SetValueOfTabls(RowSource, ColumnSource); CalculateHuristics(false, Killed, TableS, RowDestination, ColumnDestination, RowSource, ColumnSource, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                 String H = "";
                 double[] Hu = new double[10];
-                Object A6 = new Object();
+                ////Object A6 = new Object();
                 //lock (A6)
                 {
                     HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
@@ -8281,10 +8335,10 @@ namespace RefrigtzDLL
                     Hu[6] += HeuristicDistabceOfCurrentMoveFromEnemyKingValue;
                     Hu[7] += HeuristicKingSafe;
                     Hu[8] = HeuristicFromCenter;
-                    Hu[9] = HeuristicKingDangour; H = " HAttack:" + ((int)(Hu[0])).ToString() + " HMove:" + ((int)(Hu[1])).ToString() + " HSelSup:" + ((int)(Hu[2])).ToString() + " HCheckedMateDang:" + ((int)(Hu[3])).ToString() + " HKiller:" + ((int)(Hu[4])).ToString() + " HReduAttack:" + ((int)(Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((int)(Hu[6])).ToString() + " HKingSafe:" + ((int)(Hu[7])).ToString() + " HObjFromCeneter:" + ((int)(Hu[8])).ToString() + " HKingDang:" + ((int)(Hu[9])).ToString();
+                    Hu[9] = HeuristicKingDangour; H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
 
                 }
-                Object O7 = new Object(); SetObjectNumbersInList(TableS);
+                ////Object O7 = new Object(); SetObjectNumbersInList(TableS);
                 //lock (O7)
                 {
                     if (RowDestination < RowSource)
@@ -8312,7 +8366,7 @@ namespace RefrigtzDLL
         public void HuristicPenaltyValuePerform(QuantumAtamata Current, int Order, ref double HuristicAttackValue, bool AllDrawClass = false)
         {
 
-            Object O1 = new Object();
+            ////Object O1 = new Object();
             //lock (O1)
             {
                 if (LearningVarsObject.Count == 0 || AllDrawClass)
@@ -8320,24 +8374,28 @@ namespace RefrigtzDLL
                     if (AllDraw.OrderPlate == Order)
                     {
                         if (Current.IsPenaltyAction() == 0)
-                            HuristicAttackValue += (-300 / DivisionPenaltyRegardHeuristicQueficient);
+                            //HuristicAttackValue += (-300 / DivisionPenaltyRegardHeuristicQueficient);
+                            HuristicAttackValue--;
                     }
                     else
                         if (AllDraw.OrderPlate != Order)
                     {
                         if (Current.IsPenaltyAction() == 0)
-                            HuristicAttackValue += (300 / DivisionPenaltyRegardHeuristicQueficient);
+                            //HuristicAttackValue += (300 / DivisionPenaltyRegardHeuristicQueficient);
+                            HuristicAttackValue++;
                     }
                     if (AllDraw.OrderPlate == Order)
                     {
                         if (Current.IsRewardAction() == 1)
-                            HuristicAttackValue += (300 / DivisionPenaltyRegardHeuristicQueficient);
+                            //HuristicAttackValue += (300 / DivisionPenaltyRegardHeuristicQueficient);
+                            HuristicAttackValue++;
                     }
                     else
                         if (AllDraw.OrderPlate != Order)
                     {
                         if (Current.IsRewardAction() == 1)
-                            HuristicAttackValue += (-300 / DivisionPenaltyRegardHeuristicQueficient);
+                            //HuristicAttackValue += (-300 / DivisionPenaltyRegardHeuristicQueficient);
+                            HuristicAttackValue++;
                     }
                 }
                 else
@@ -8347,24 +8405,28 @@ namespace RefrigtzDLL
                         if (AllDraw.OrderPlate == Order)
                         {
                             if (Current.IsPenaltyAction() == 0)
-                                HuristicAttackValue += (-1000000 / DivisionPenaltyRegardHeuristicQueficient);
+                                //HuristicAttackValue += (-1000000 / DivisionPenaltyRegardHeuristicQueficient);
+                            HuristicAttackValue-=2;
                         }
                         else
                           if (AllDraw.OrderPlate != Order)
                         {
                             if (Current.IsPenaltyAction() == 0)
-                                HuristicAttackValue += (1000000 / DivisionPenaltyRegardHeuristicQueficient);
+                                //HuristicAttackValue += (1000000 / DivisionPenaltyRegardHeuristicQueficient);
+                                HuristicAttackValue += 2;
                         }
                         if (AllDraw.OrderPlate == Order)
                         {
                             if (Current.IsRewardAction() == 1)
-                                HuristicAttackValue += (1000000 / DivisionPenaltyRegardHeuristicQueficient);
+                                //HuristicAttackValue += (1000000 / DivisionPenaltyRegardHeuristicQueficient);
+                                HuristicAttackValue += 2;
                         }
                         else
                             if (AllDraw.OrderPlate != Order)
                         {
                             if (Current.IsRewardAction() == 1)
-                                HuristicAttackValue += (-1000000 / DivisionPenaltyRegardHeuristicQueficient);
+                                //    HuristicAttackValue += (-1000000 / DivisionPenaltyRegardHeuristicQueficient);
+                                HuristicAttackValue -= 2;
                         }
                     }
                 }
@@ -8372,7 +8434,7 @@ namespace RefrigtzDLL
         }
         public void ThinkingSoldierBase(int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 int[,] TableS = new int[8, 8];
@@ -8395,14 +8457,16 @@ namespace RefrigtzDLL
         }
         public void ThinkingSoldier(int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
-            Object O1 = new Object();
+            ////Object O1 = new Object();
             //lock (O1)
             {
-                Parallel.For(ii - 2, ii + 3, i =>
+                //Parallel.For(ii - 2, ii + 3, i =>
+                for (int i = ii - 2; i < ii + 3; i++)
                 {
-                    Parallel.For(jj - 2, jj + 3, j =>
+                    //Parallel.For(jj - 2, jj + 3, j =>
+                    for (int j = jj - 2; j < jj + 3; j++)
                     {
-                        Object O = new Object();
+                        ////Object O = new Object();
                         //lock (O)
                         {
 
@@ -8414,13 +8478,13 @@ namespace RefrigtzDLL
 
                         }
 
-                    });
-                });
+                    }//);
+                }//);
             }
         }
         public void ThinkingElephantBase(int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
-            Object O1 = new Object();
+            ////Object O1 = new Object();
             //lock (O1)
             {
                 int[,] TableS = new int[8, 8];
@@ -8429,7 +8493,7 @@ namespace RefrigtzDLL
 
                 ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                 QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                Object O = new Object();
+                ////Object O = new Object();
                 //lock (O)
                 {
                     for (int RowS = 0; RowS < 8; RowS++)
@@ -8449,16 +8513,17 @@ namespace RefrigtzDLL
 
         public void ThinkingElephant(int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
-            Object O2 = new Object();
+            ////Object O2 = new Object();
             //lock (O2)
             {
 
-                Object O1 = new Object();
+                ////Object O1 = new Object();
                 //lock (O1)
                 {
-                    Parallel.For(0, 8, i =>
+                    //Parallel.For(0, 8, i =>
+                    for (int i = 0; i < 8; i++)
                     {
-                        Object O = new Object();
+                        ////Object O = new Object();
                         //lock (O)
                         {
 
@@ -8471,11 +8536,12 @@ namespace RefrigtzDLL
                             }
 
                         }
-                    });
+                    }//);
                     //==================
-                    Parallel.For(0, 8, i =>
+                    //Parallel.For(0, 8, i =>
+                    for (int i = 0; i < 8; i++)
                     {
-                        Object O = new Object();
+                        ////Object O = new Object();
                         //lock (O)
                         {
                             while (ThinkingAtRun) { }
@@ -8484,13 +8550,13 @@ namespace RefrigtzDLL
                                 ThinkingElephantBase(ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
                             ThinkingAtRun = false;
                         }
-                    });
+                    }//);
                 }
             }
         }
         public void ThinkingHourseOne(int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
-            Object O1 = new Object();
+            ////Object O1 = new Object();
             //lock (O1)
             {
 
@@ -8501,7 +8567,7 @@ namespace RefrigtzDLL
 
                 ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                 QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                Object O = new Object();
+                ////Object O = new Object();
                 //lock (O)
                 {
                     for (int RowS = 0; RowS < 8; RowS++)
@@ -8517,7 +8583,7 @@ namespace RefrigtzDLL
         }
         public void ThinkingHourseTwo(int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
-            Object O1 = new Object();
+            ////Object O1 = new Object();
             //lock (O1)
             {
                 int[,] TableS = new int[8, 8];
@@ -8542,7 +8608,7 @@ namespace RefrigtzDLL
         }
         public void ThinkingHourseThree(int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
-            Object O1 = new Object();
+            ////Object O1 = new Object();
             //lock (O1)
             {
                 int[,] TableS = new int[8, 8];
@@ -8552,7 +8618,7 @@ namespace RefrigtzDLL
 
                 ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                 QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                Object O = new Object();
+                ////Object O = new Object();
                 //lock (O)
                 {
                     for (int RowS = 0; RowS < 8; RowS++)
@@ -8568,7 +8634,7 @@ namespace RefrigtzDLL
         }
         public void ThinkingHourseFour(int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
-            Object O1 = new Object();
+            ////Object O1 = new Object();
             //lock (O1)
             {
                 int[,] TableS = new int[8, 8];
@@ -8591,7 +8657,7 @@ namespace RefrigtzDLL
         }
         public void ThinkingHourseFive(int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
-            Object O1 = new Object();
+            ////Object O1 = new Object();
             //lock (O1)
             {
                 int[,] TableS = new int[8, 8];
@@ -8602,7 +8668,7 @@ namespace RefrigtzDLL
 
                 ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                 QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                Object O = new Object();
+                ////Object O = new Object();
                 //lock (O)
                 {
                     for (int RowS = 0; RowS < 8; RowS++)
@@ -8619,7 +8685,7 @@ namespace RefrigtzDLL
         }
         public void ThinkingHourseSix(int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
-            Object O1 = new Object();
+            ////Object O1 = new Object();
             //lock (O1)
             {
                 int[,] TableS = new int[8, 8];
@@ -8630,7 +8696,7 @@ namespace RefrigtzDLL
 
                 ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                 QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                Object O = new Object();
+                ////Object O = new Object();
                 //lock (O)
                 {
                     for (int RowS = 0; RowS < 8; RowS++)
@@ -8646,7 +8712,7 @@ namespace RefrigtzDLL
         }
         public void ThinkingHourseSeven(int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 int[,] TableS = new int[8, 8];
@@ -8658,7 +8724,7 @@ namespace RefrigtzDLL
 
                 ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                 QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                Object O111 = new Object();
+                ////Object O111 = new Object();
                 //lock (O111)
                 {
                     for (int RowS = 0; RowS < 8; RowS++)
@@ -8674,7 +8740,7 @@ namespace RefrigtzDLL
         }
         public void ThinkingHourseEight(int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
-            Object O111 = new Object();
+            ////Object O111 = new Object();
             //lock (O111)
             {
                 int[,] TableS = new int[8, 8];
@@ -8684,7 +8750,7 @@ namespace RefrigtzDLL
 
                 ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                 QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                Object O = new Object();
+                ////Object O = new Object();
                 //lock (O)
                 {
                     for (int RowS = 0; RowS < 8; RowS++)
@@ -8702,56 +8768,56 @@ namespace RefrigtzDLL
 
         public void ThinkingHourse(int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
 
                 ThinkingHourseOne(ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
                 while (ThinkingAtRun) { }
             }
-            Object O1 = new Object();
+            ////Object O1 = new Object();
             //lock (O1)
             {
 
                 ThinkingHourseTwo(ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
                 while (ThinkingAtRun) { }
             }
-            Object O2 = new Object();
+            ////Object O2 = new Object();
             //lock (O2)
             {
 
                 ThinkingHourseThree(ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
                 while (ThinkingAtRun) { }
             }
-            Object O3 = new Object();
+            ////Object O3 = new Object();
             //lock (O3)
             {
 
                 ThinkingHourseFour(ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
                 while (ThinkingAtRun) { }
             }
-            Object O4 = new Object();
+            ////Object O4 = new Object();
             //lock (O4)
             {
 
                 ThinkingHourseFive(ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
                 while (ThinkingAtRun) { }
             }
-            Object O5 = new Object();
+            ////Object O5 = new Object();
             //lock (O5)
             {
 
                 ThinkingHourseSix(ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
                 while (ThinkingAtRun) { }
             }
-            Object O6 = new Object();
+            ////Object O6 = new Object();
             //lock (O6)
             {
 
                 ThinkingHourseSeven(ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
                 while (ThinkingAtRun) { }
             }
-            Object O7 = new Object();
+            ////Object O7 = new Object();
             //lock (O7)
             {
 
@@ -8762,12 +8828,13 @@ namespace RefrigtzDLL
         public void ThinkingCastleOne(int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
 
-            Object O1 = new Object();
+            ////Object O1 = new Object();
             //lock (O1)
             {
-                Parallel.For(0, 8, i =>
+                //Parallel.For(0, 8, i =>
+                for (int i = 0; i < 8; i++)
                 {
-                    Object O = new Object();
+                    ////Object O = new Object();
                     //lock (O)
                     {
 
@@ -8790,17 +8857,18 @@ namespace RefrigtzDLL
                             CastlesThinkingChess(DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
                         }
                     }
-                });
+                }//);
             }
         }
         public void ThinkingCastleTow(int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {  //==================
-            Object O1 = new Object();
+            ////Object O1 = new Object();
             //lock (O1)
             {
-                Parallel.For(0, 8, j =>
+                //Parallel.For(0, 8, j =>
+                for (int j = 0; j < 8; j++)
                 {
-                    Object O = new Object();
+                    ////Object O = new Object();
                     //lock (O)
                     {
 
@@ -8826,13 +8894,13 @@ namespace RefrigtzDLL
 
                     }
 
-                });
+                }//);
             }
         }
         public void ThinkingCastle(int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
 
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 ThinkingCastleOne(ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
@@ -8842,7 +8910,7 @@ namespace RefrigtzDLL
         }
         public void ThinkingMinisterBase(int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
-            Object O1 = new Object();
+            ////Object O1 = new Object();
             //lock (O1)
             {
 
@@ -8852,7 +8920,7 @@ namespace RefrigtzDLL
                 int[,] TableS = new int[8, 8];
                 ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                 QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                Object O = new Object();
+                ////Object O = new Object();
                 //lock (O)
                 {
                     while (ThinkingAtRun) { }
@@ -8874,28 +8942,30 @@ namespace RefrigtzDLL
         }
         public void ThinkingMinister(int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
-            Object O1 = new Object();
+            ////Object O1 = new Object();
             //lock (O1)
             {
 
-                Parallel.For(0, 8, i =>
+                //Parallel.For(0, 8, i =>
+                for (int i = 0; i < 8; i++)
                 {
-                    Parallel.For(0, 8, j =>
+                    //Parallel.For(0, 8, j =>
+                    for (int j = 0; j <8; j++)
                     {
-                        Object O = new Object();
+                        ////Object O = new Object();
                         //lock (O)
                         {
 
                             ThinkingMinisterBase(ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
 
                         }
-                    });
-                });
+                    }//);
+                }//);
             }
         }
         public void ThinkingCastleGray(int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 for (int i = ii - 2; i < ii + 2; i++)
@@ -8925,7 +8995,7 @@ namespace RefrigtzDLL
         }
         public void ThinkingCastleBrown(int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 for (int i = ii - 2; i < ii + 2; i++)
@@ -8953,17 +9023,19 @@ namespace RefrigtzDLL
         }
         public void ThinkingKing(int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
-            Object O1 = new Object();
+            ////Object O1 = new Object();
             //lock (O1)
             {
                 int[,] TableS = new int[8, 8];
-                Object O = new Object();
+                ////Object O = new Object();
                 //lock (O)
                 {
-                    Parallel.For(ii - 1, ii + 2, i =>
+                    //Parallel.For(ii - 1, ii + 2, i =>
+                    for (int i = ii - 1; i < ii + 2; i++)
                     {
-                        Parallel.For(jj - 1, jj + 2, j =>
-                      {
+                        //Parallel.For(jj - 1, jj + 2, j =>
+                        for (int j = jj - 1; i < jj + 2; jj++)
+                        {
 
 
                           if (i == ii && j == jj)
@@ -8983,8 +9055,8 @@ namespace RefrigtzDLL
                               Order = ord;
                               KingThinkingChess(DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
                           }
-                      });
-                    });
+                      }//);
+                    }//);
                 }
             }
         }
@@ -8993,7 +9065,7 @@ namespace RefrigtzDLL
         {
 
             int ord = Order;
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 while (!ThinkingBegin) { System.Threading.Thread.Sleep(1); }// S += 2; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
@@ -9010,13 +9082,13 @@ namespace RefrigtzDLL
                 {
                     BeginThread++;
                 }
-                //bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
+                //bool ASS = false; ////Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
                 {
                     if (//CheckMateOcuured || 
                         FoundFirstMating > AllDraw.MaxAStarGreedy
                         )
                     {
-                        Object O2 = new Object();
+                       Object O2 = new Object();
                         lock (O2)
                         {
                             AllDraw.OutPut = "\r\nBoundry Condition at Thinking at " + ThinkingChess.FoundFirstMating.ToString() + " Checkmate";
@@ -9039,7 +9111,7 @@ namespace RefrigtzDLL
                 int[,] TableS = new int[8, 8];
                 ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                 ///Most Dot Net FrameWork Hot Path
-                ///Create A Clone of Current Table Constant in ThinkingChess Object Tasble.
+                ///Create A Clone of Current Table Constant in ThinkingChess ////Object Tasble.
                 for (int RowS = 0; RowS < 8; RowS++)
                     for (int ColS = 0; ColS < 8; ColS++)
                     {
@@ -9069,7 +9141,7 @@ namespace RefrigtzDLL
                 ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                 QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                 ///Most Dot Net FrameWork Hot Path
-                ///Create A Clone of Current Table Constant in ThinkingChess Object Tasble.
+                ///Create A Clone of Current Table Constant in ThinkingChess ////Object Tasble.
                 for (int RowS = 0; RowS < 8; RowS++)
                     for (int ColS = 0; ColS < 8; ColS++)
                     {
@@ -9079,7 +9151,7 @@ namespace RefrigtzDLL
                 bool Castle = false;
                 //ExistInDestinationEnemy = false;
                 bool DoEnemySelf = true;
-                ChessRules AAA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[ii, jj], TableS, Order, Row, Column);
+                ChessRules AAA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[ii, jj], TableS, Order, ii, jj);
                 if (AAA.CheckMate(TableS, Order))
                 {
                     if (AAA.CheckMateGray || AAA.CheckMateBrown)
@@ -9188,12 +9260,12 @@ namespace RefrigtzDLL
             }
             return;
         }
-        int ObjectValueCalculator(int[,] Table, int Order, int ii, int jj)
+        double ObjectValueCalculator(int[,] Table, int Order, int ii, int jj)
         {
-            Object O1 = new Object();
+            ////Object O1 = new Object();
             //lock (O1)
             {
-                int Val = 0;
+                double Val = 0;
                 //if (BeginArragmentsOfOrderFinished(Tabl, Order))
                 {
 
@@ -9204,120 +9276,125 @@ namespace RefrigtzDLL
                         a = Color.Brown;
                     if (Order * -1 == -1)
                         aa = Color.Brown;
-                    Parallel.For(0, 8, Row =>
-                  Parallel.For(0, 8, Column =>
-                  {
-                      Parallel.For(0, 8, RowS =>
-                      {
-                          Parallel.For(0, 8, ColS =>
-                          {
-                              Object O = new Object();
+                    //Parallel.For(0, 8, RowO =>
+                    for (int RowO = 0; RowO < 8; RowO++)
+
+                        //Parallel.For(0, 8, ColumnO =>
+                        for (int ColumnO = 0; ColumnO < 8; ColumnO++)
+                        {
+                            for (int RowS = 0; RowS < 8; RowS++)
+                            //Parallel.For(0, 8, RowS =>
+                            {
+                                //Parallel.For(0, 8, ColS =>
+                                for (int ColS = 0; ColS < 8; ColS++)
+                                {
+                              ////Object O = new Object();
                               //lock (O)
                               {
-                                  if (Scop(Row, Column, RowS, ColS, System.Math.Abs(Table[Row, Column])) && (Table[Row, Column] != 0) && (Table[RowS, ColS] == 0))
+                                  if (Scop(RowO, ColumnO, RowS, ColS, System.Math.Abs(Table[RowO, ColumnO])) && (Table[RowO, ColumnO] != 0) && (Table[RowS, ColS] == 0))
                                   {
-                                      if (SignEqualOrEmptySelf(Table[Row, Column], Table[RowS, ColS], Order))
+                                      if (SignEqualOrEmptySelf(Table[RowO, ColumnO], Table[RowS, ColS], Order))
                                       {
-                                          A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[Row, Column], Table, Order, Row, Column);
-                                          if (A.Rules(Row, Column, RowS, ColS, a, Order))
-                                              Val++;
+                                          A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[RowO, ColumnO], Table, Order, RowO, ColumnO);
+                                          if (A.Rules(RowO, ColumnO, RowS, ColS, a, Order))
+                                              Val+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                       }
                                       else
-                                      if (SignEqualOrEmptyEnemy(Table[Row, Column], Table[RowS, ColS], Order))
+                                      if (SignEqualOrEmptyEnemy(Table[RowO, ColumnO], Table[RowS, ColS], Order))
                                       {
-                                          A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[Row, Column], Table, Order, Row, Column);
-                                          if (A.Rules(Row, Column, RowS, ColS, a, Order))
-                                              Val--;
+                                          A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[RowO, ColumnO], Table, Order, RowO, ColumnO);
+                                          if (A.Rules(RowO, ColumnO, RowS, ColS, a, Order))
+                                              Val -= 0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                       }
                                       else
-                                          return;
+                                          continue;
                                   }
                                   else
-                                  if (Scop(Row, Column, RowS, ColS, System.Math.Abs(Table[Row, Column])) && (Table[Row, Column] != 0) && (Table[RowS, ColS] != 0))
+                                  if (Scop(RowO, ColumnO, RowS, ColS, System.Math.Abs(Table[RowO, ColumnO])) && (Table[RowO, ColumnO] != 0) && (Table[RowS, ColS] != 0))
                                   {
                                       //When is self level
                                       if (Order == AllDraw.OrderPlate)
                                       {
-                                          if (SignNotEqual(Table[Row, Column], Table[RowS, ColS]))
+                                          if (SignNotEqual(Table[RowO, ColumnO], Table[RowS, ColS]))
                                           {
                                               //When there is enemy attack dec.
-                                              if (Attack(Table, Row, Column, RowS, ColS, aa, Order * -1))
-                                                  Val -= 999999999;
+                                              if (Attack(Table, RowO, ColumnO, RowS, ColS, aa, Order * -1))
+                                                  Val -= 0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                           }
                                           else
-                                          if (SignEqual(Table[Row, Column], Table[RowS, ColS]))
+                                          if (SignEqual(Table[RowO, ColumnO], Table[RowS, ColS]))
                                           {
                                               //when there is self support inc.
-                                              if (Support(Table, Row, Column, RowS, ColS, a, Order))
-                                                  Val++;
+                                              if (Support(Table, RowO, ColumnO, RowS, ColS, a, Order))
+                                                  Val+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                           }
                                           else
-                                          if (SignNotEqual(Table[Row, Column], Table[RowS, ColS]))
+                                          if (SignNotEqual(Table[RowO, ColumnO], Table[RowS, ColS]))
                                           {
                                               //When there is self attack inc.
-                                              if (Attack(Table, Row, Column, RowS, ColS, a, Order))
-                                                  Val++;
+                                              if (Attack(Table, RowO, ColumnO, RowS, ColS, a, Order))
+                                                  Val+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                           }
                                           else
                                           //when there is enemy support dec..
-                                          if (SignEqual(Table[Row, Column], Table[RowS, ColS]))
+                                          if (SignEqual(Table[RowO, ColumnO], Table[RowS, ColS]))
                                           {
-                                              if (Support(Table, Row, Column, RowS, ColS, aa, Order * -1))
-                                                  Val--;
+                                              if (Support(Table, RowO, ColumnO, RowS, ColS, aa, Order * -1))
+                                                  Val-=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                           }
                                           else
-                                              return;
+                                              continue;
                                       }
                                       //When is enemy level.
                                       else
                                       {
-                                          if (SignNotEqual(Table[Row, Column], Table[RowS, ColS]))
+                                          if (SignNotEqual(Table[RowO, ColumnO], Table[RowS, ColS]))
                                           {
                                               //When there is enemy attack inc.
-                                              if (Attack(Table, Row, Column, RowS, ColS, aa, Order * -1))
-                                                  Val += 9999;
+                                              if (Attack(Table, RowO, ColumnO, RowS, ColS, aa, Order * -1))
+                                                  Val +=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                           }
                                           else
-                                          if (SignEqual(Table[Row, Column], Table[RowS, ColS]))
+                                          if (SignEqual(Table[RowO, ColumnO], Table[RowS, ColS]))
                                           {
                                               //when there is self support dec.
-                                              if (Support(Table, Row, Column, RowS, ColS, a, Order))
-                                                  Val--;
+                                              if (Support(Table, RowO, ColumnO, RowS, ColS, a, Order))
+                                                  Val-=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                           }
                                           else
                                           //When there is self attack dec.
-                                          if (SignNotEqual(Table[Row, Column], Table[RowS, ColS]))
+                                          if (SignNotEqual(Table[RowO, ColumnO], Table[RowS, ColS]))
                                           {
-                                              if (Attack(Table, Row, Column, RowS, ColS, a, Order))
-                                                  Val--;
+                                              if (Attack(Table, RowO, ColumnO, RowS, ColS, a, Order))
+                                                  Val-=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                           }
                                           else
-                                          if (SignEqual(Table[Row, Column], Table[RowS, ColS]))
+                                          if (SignEqual(Table[RowO, ColumnO], Table[RowS, ColS]))
                                           {
                                               //when there is enemy support inc.
-                                              if (Support(Table, Row, Column, RowS, ColS, aa, Order * -1))
-                                                  Val++;
+                                              if (Support(Table, RowO, ColumnO, RowS, ColS, aa, Order * -1))
+                                                  Val+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                           }
                                           else
-                                              return;
+                                              continue;
                                       }
                                   }
 
                               }
-                          });
-                      });
-                  }));
+                          }//);
+                      }//)/\;
+                  }//));
                     A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[ii, jj], Table, Order, ii, jj);
                     if (A.ObjectDangourKingMove(Order, Table, false))
                     {
                         if (Order == 1 && A.CheckGrayObjectDangour)
-                            Val -= 5;
+                            Val -= 0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                         if (Order == -1 && A.CheckBrownObjectDangour)
-                            Val -= 5;
+                            Val -= 0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                         if (Order == -1 && A.CheckGrayObjectDangour)
-                            Val += 5;
+                            Val += 0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                         if (Order == 1 && A.CheckBrownObjectDangour)
-                            Val += 5;
+                            Val += 0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                     }
 
                     if (System.Math.Abs(Table[ii, jj]) == 2)
@@ -9354,7 +9431,7 @@ namespace RefrigtzDLL
         }
         bool SignEqualOrEmptySelf(int Obj1, int Obj2, int Order)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 bool Is = false;
@@ -9378,7 +9455,7 @@ namespace RefrigtzDLL
         }
         bool SignEqualOrEmptyEnemy(int Obj1, int Obj2, int Order)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 bool Is = false;
@@ -9402,7 +9479,7 @@ namespace RefrigtzDLL
         }
         bool SignEqual(int Obj1, int Obj2)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 bool Is = false;
@@ -9415,7 +9492,7 @@ namespace RefrigtzDLL
         }
         bool SignNotEqual(int Obj1, int Obj2)
         {
-            Object O = new Object();
+            ////Object O = new Object();
             //lock (O)
             {
                 bool Is = false;

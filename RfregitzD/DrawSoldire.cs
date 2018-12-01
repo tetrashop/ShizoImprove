@@ -133,6 +133,8 @@ namespace RefrigtzDLL
                 for (int ii = 0; ii < 8; ii++)
                     for (int jj = 0; jj < 8; jj++)
                         Table[ii, jj] = Tab[ii, jj];
+                if (i >= 8 || j >= 8)
+                    i = 7;
                 for (int ii = 0; ii < AllDraw.SodierMovments; ii++)
 
                     SoldierThinking[ii] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 4, Ord, TB, Cur, 16, 1);
