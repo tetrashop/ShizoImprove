@@ -38,7 +38,7 @@ namespace RefrigtzW
             try
             {
                 Object a = new Object();
-                //lock (a)
+                lock (a)
                 {
                     string stackTrace = ex.ToString();
                     File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
@@ -112,7 +112,7 @@ namespace RefrigtzW
             )
         {
 
-            //lock (balanceLock)
+            lock (balanceLock)
             {
                 if (K[0] == null && K[1] == null)
                 {
@@ -188,7 +188,7 @@ namespace RefrigtzW
             {
 
                 
-                //lock (balanceLockS)
+                lock (balanceLockS)
                 {
                     if (K[0] == null || K[1] == null)
                     {
@@ -200,7 +200,7 @@ namespace RefrigtzW
                         if(Order==1)
                         {
                             Object O1 = new Object();
-                            //lock (O1)
+                            lock (O1)
                             {    //Draw an Instant from File of Gray Soldeirs.
                                  //Draw an Instatnt Gray King Image On the Table.
                                 g.DrawImage(K[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
@@ -210,7 +210,7 @@ namespace RefrigtzW
                         else
                         {
                             Object O1 = new Object();
-                            //lock (O1)
+                            lock (O1)
                             {    //Draw an Instant from File of Gray Soldeirs.
                                  //Draw an Instatnt Brown King Image On the Table.
                                 g.DrawImage(K[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));

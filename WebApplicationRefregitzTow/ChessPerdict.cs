@@ -158,28 +158,28 @@ namespace RefrigtzW
                         if (TabS[h, s] == -1)
                         {
                             SodierHigh++;
-                        }
+                    }
                         else if (TabS[h, s] == -2)
                         {
                             ElefantHigh++;
-                        }
+                    }
                         else if (TabS[h, s] == -3)
                         {
                             HourseHight++;
-                        }
+                    }
                         else if (TabS[h, s] == -4)
                         {
                             CastleHigh++;
-                        }
+                    }
                         else if (TabS[h, s] == -5)
                         {
 
                             MinisterHigh++;
-                        }
+                    }
                         else if (TabS[h, s] == -6)
                         {
                             KingHigh++;
-                        }
+                    }
                 }
         }
         float[] FoundLocationOfObject(ref int[,] Tabl, int Kind, bool IsGray)
@@ -804,7 +804,7 @@ namespace RefrigtzW
 
         }
          
-        //Rearrange AllDraw Object Content.
+        //Rearrange AllDraw ObjectContent.
         public void SetRowColumn(int index)
         {
             try
@@ -1040,18 +1040,18 @@ namespace RefrigtzW
                                                 if (ElephantOnTable[El1].Row != Row ||
                                                     ElephantOnTable[El1].Column != Column)
                                                     Move++;
-                                            }
+                                        }
                                             catch (Exception t) { Log(t); }
                                             //Construction of Draw Object.
                                             ElephantOnTable[El1] = new DrawElefant( CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, this.TableList[index], 1, false, El1);
                                             //Increament of Gray Index.
                                             El1++;
-                                            //If New Object Increament Gray Objects.
-                                            if (El1 > ElefantMidle)
+                                        //If New ObjectIncreament Gray Objects.
+                                        if (El1 > ElefantMidle)
                                             {
                                                 ElefantMidle++;
-                                                ElefantHigh++;
-                                            }
+                                            ElefantHigh++;
+                                        }
                                         }
                                         catch (Exception t)
                                         {
@@ -1068,17 +1068,17 @@ namespace RefrigtzW
                                                 if (ElephantOnTable[El2].Row != Row ||
                                                     ElephantOnTable[El2].Column != Column)
                                                     Move++;
-                                            }
+                                        }
                                             catch (Exception t) { Log(t); }
                                             //Construction of Draw Brown Elephant Object. 
                                             ElephantOnTable[El2] = new DrawElefant( CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, this.TableList[index], -1, false, El2);
                                             //Increament of Index.
                                             El2++;
-                                            //When New Brown Elephant Object Increament of Index.
-                                            if (El2 > ElefantHigh)
+                                        //When New Brown Elephant ObjectIncreament of Index.
+                                        if (El2 > ElefantHigh)
                                                 ElefantHigh++;
 
-                                        }
+                                    }
                                         catch (Exception t)
                                         {
                                             Log(t);
@@ -1107,18 +1107,18 @@ namespace RefrigtzW
                                                     if (HoursesOnTable[Ho1].Row != Row ||
                                                         HoursesOnTable[Ho1].Column != Column)
                                                         Move++;
-                                                }
+                                        }
                                                 catch (Exception t) { Log(t); }
                                                 //Construction of Draw Brown Hourse.
                                                 HoursesOnTable[Ho1] = new DrawHourse( CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, this.TableList[index], 1, false, Ho1);
                                                 //Increament of Index.
                                                 Ho1++;
-                                                //when There is New Gray Hourse Increase.
-                                                if (Ho1 > HourseMidle)
+                                        //when There is New Gray Hourse Increase.
+                                        if (Ho1 > HourseMidle)
                                                 {
                                                     HourseMidle++;
-                                                    HourseHight++;
-                                                }
+                                            HourseHight++;
+                                        }
                                             }
                                             catch (Exception t)
                                             {
@@ -1135,16 +1135,16 @@ namespace RefrigtzW
                                                     if (HoursesOnTable[Ho2].Row != Row |
                                                         HoursesOnTable[Ho2].Column != Column)
                                                         Move++;
-                                                }
+                                        }
                                                 catch (Exception t) { Log(t); }
                                                 //Construction of Draw Brown Hourse.
                                                 HoursesOnTable[Ho2] = new DrawHourse( CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, this.TableList[index], -1, false, Ho2);
                                                 //Increament of Index.
                                                 Ho2++;
-                                                //When New Brown Hourse Exist Exist Index.
-                                                if (Ho2 > HourseHight)
+                                        //When New Brown Hourse Exist Exist Index.
+                                        if (Ho2 > HourseHight)
                                                     HourseHight++;
-                                            }
+                                    }
                                             catch (Exception t)
                                             {
                                                 Log(t);
@@ -1172,18 +1172,18 @@ namespace RefrigtzW
                                                         if (CastlesOnTable[Br1].Row != Row ||
                                                             CastlesOnTable[Br1].Column != Column)
                                                             Move++;
-                                                    }
+                                        }
                                                     catch (Exception t) { Log(t); }
                                                     //Construction of New Draw Gray Castles.
                                                     CastlesOnTable[Br1] = new DrawCastle( CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, this.TableList[index], 1, false, Br1);
                                                     //Increamnt of Index.
                                                     Br1++;
-                                                    //When New Gray Briges Increamnt Max Index.
-                                                    if (Br1 > CastleMidle)
+                                        //When New Gray Briges Increamnt Max Index.
+                                        if (Br1 > CastleMidle)
                                                     {
                                                         CastleMidle++;
-                                                        CastleHigh++;
-                                                    }
+                                            CastleHigh++;
+                                        }
 
                                                 }
                                                 catch (Exception t)
@@ -1201,17 +1201,17 @@ namespace RefrigtzW
                                                         if (CastlesOnTable[Br2].Row != Row ||
                                                             CastlesOnTable[Br2].Column != Column)
                                                             Move++;
-                                                    }
+                                        }
                                                     catch (Exception t) { Log(t); }
                                                     //Construction Draw of New Brown Castles.
                                                     CastlesOnTable[Br2] = new DrawCastle( CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, this.TableList[index], -1, false, Br2);
                                                     //Increament of Index.
                                                     Br2++;
-                                                    //wehn Brown New Castles Detected Increament Max Index.
-                                                    if (Br2 > CastleHigh)
+                                        //wehn Brown New Castles Detected Increament Max Index.
+                                        if (Br2 > CastleHigh)
                                                         CastleHigh++;
 
-                                                }
+                                    }
                                                 catch (Exception t)
                                                 {
                                                     Log(t);
@@ -1239,18 +1239,18 @@ namespace RefrigtzW
                                                             if (MinisterOnTable[Mi1].Row != Row ||
                                                                 MinisterOnTable[Mi1].Column != Column)
                                                                 Move++;
-                                                        }
+                                        }
                                                         catch (Exception t) { Log(t); }
                                                         //construction of new draw Gray Minster.
                                                         MinisterOnTable[Mi1] = new DrawMinister( CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, this.TableList[index], 1, false, Mi1);
                                                         //Increament of Index.
                                                         Mi1++;
-                                                        //Wehn New Gray Minster Detected Increament Max Indexes.
-                                                        if (Mi1 > MinisterMidle)
+                                        //Wehn New Gray Minster Detected Increament Max Indexes.
+                                        if (Mi1 > MinisterMidle)
                                                         {
                                                             MinisterMidle++;
-                                                            MinisterHigh++;
-                                                        }
+                                            MinisterHigh++;
+                                        }
                                                     }
                                                     catch (Exception t)
                                                     {
@@ -1268,17 +1268,17 @@ namespace RefrigtzW
                                                             if (MinisterOnTable[Mi2].Row != Row ||
                                                                 MinisterOnTable[Mi2].Column != Column)
                                                                 Move++;
-                                                        }
+                                        }
                                                         catch (Exception t) { Log(t); }
                                                         //Construction of New Draw Brown Minster.
                                                         MinisterOnTable[Mi2] = new DrawMinister( CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, this.TableList[index], -1, false, Mi2);
                                                         //Increament Index.
                                                         Mi2++;
-                                                        //When New Brown Minister Detected Increament Max Index.
-                                                        if (Mi2 > MinisterHigh)
+                                        //When New Brown Minister Detected Increament Max Index.
+                                        if (Mi2 > MinisterHigh)
                                                             MinisterHigh++;
 
-                                                    }
+                                    }
                                                     catch (Exception t)
                                                     {
                                                         Log(t);
@@ -1307,19 +1307,19 @@ namespace RefrigtzW
                                                                     KingOnTable[Ki1].Column != Column)
                                                                     Move++;
 
-                                                            }
+                                        }
                                                             catch (Exception t) { Log(t); }
                                                             //Construction of New Draw Gray King.
                                                             KingOnTable[Ki1] = new DrawKing( CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, this.TableList[index], 1, false, Ki1);
                                                             //Increament of Index.
                                                             Ki1++;
-                                                            //when New Draw  Object Detected Increament Max Index.
-                                                            if (Ki1 > KingMidle)
+                                        //when New Draw  ObjectDetected Increament Max Index.
+                                        if (Ki1 > KingMidle)
                                                             {
                                                                 KingMidle++;
-                                                                KingHigh++;
+                                            KingHigh++;
 
-                                                            }
+                                        }
 
                                                         }
                                                         catch (Exception t)
@@ -1337,16 +1337,16 @@ namespace RefrigtzW
                                                                 if (KingOnTable[Ki2].Row != Row ||
                                                                     KingOnTable[Ki2].Column != Column)
                                                                     Move++;
-                                                            }
+                                        }
                                                             catch (Exception t) { Log(t); }
                                                             //Construction of New Draw King Brown Object.
                                                             KingOnTable[Ki2] = new DrawKing( CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, this.TableList[index], -1, false, Ki2);
                                                             //Increament of Index.
                                                             Ki2++;
-                                                            //When New Object Detected Increament Of Brown King Max Index.
-                                                            if (Ki2 > KingHigh)
+                                        //When New ObjectDetected Increament Of Brown King Max Index.
+                                        if (Ki2 > KingHigh)
                                                                 KingHigh++;
-                                                        }
+                                    }
                                                         catch (Exception t)
                                                         {
                                                             Log(t);

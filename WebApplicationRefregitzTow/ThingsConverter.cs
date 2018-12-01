@@ -132,13 +132,13 @@ namespace RefrigtzW
                             {
                                 if (Order == 1)
                                 {
-                                    // MinisterMidle++;
-                                    //MinisterHigh++;
+                                    // MinisterMidle+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
+                                    //MinisterHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                     Tab[Row, Column] = 5;
                                 }
                                 else if (Order == -1)
                                 {
-                                    //MinisterHigh++;
+                                    //MinisterHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                     Tab[Row, Column] = -5;
                                 }
                                 ConvertedToMinister = true;
@@ -147,13 +147,13 @@ namespace RefrigtzW
                             {
                                 if (Order == 1)
                                 {
-                                    //CastleMidle++;
-                                    //CastleHigh++;
+                                    //CastleMidle+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
+                                    //CastleHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                     Tab[Row, Column] = 4;
                                 }
                                 else if (Order == -1)
                                 {
-                                    //CastleHigh++;
+                                    //CastleHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                     Tab[Row, Column] = -4;
                                 }
                                 ConvertedToCastle = true;
@@ -162,13 +162,13 @@ namespace RefrigtzW
                             {
                                 if (Order == 1)
                                 {
-                                    //HourseMidle++;
-                                    //HourseHight++;
+                                    //HourseMidle+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
+                                    //HourseHight+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                     Tab[Row, Column] = 3;
                                 }
                                 else if (Order == -1)
                                 {
-                                    //HourseHight++;
+                                    //HourseHight+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                     Tab[Row, Column] = -3;
 
                                 }
@@ -178,13 +178,13 @@ namespace RefrigtzW
                             {
                                 if (Order == 1)
                                 {
-                                    //ElefantMidle++;
-                                    //ElefantHigh++;
+                                    //ElefantMidle+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
+                                    //ElefantHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                     Tab[Row, Column] = 2;
                                 }
                                 else if (Order == -1)
                                 {
-                                    //ElefantHigh++;
+                                    //ElefantHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                     Tab[Row, Column] = -2;
                                 }
                                 ConvertedToElefant = true;
@@ -228,13 +228,13 @@ namespace RefrigtzW
                                 {
                                     if (Order == 1)
                                     {
-                                        //  MinisterMidle++;
-                                        //MinisterHigh++;
+                                        //  MinisterMidle+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
+                                        //MinisterHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                         Tab[Row, Column] = 5;
                                     }
                                     else if (Order == -1)
                                     {
-                                        //MinisterHigh++;
+                                        //MinisterHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                         Tab[Row, Column] = -5;
                                     }
                                     ConvertedToMinister = true;
@@ -243,13 +243,13 @@ namespace RefrigtzW
                                 {
                                     if (Order == 1)
                                     {
-                                        //CastleMidle++;
-                                        //CastleHigh++;
+                                        //CastleMidle+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
+                                        //CastleHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                         Tab[Row, Column] = 4;
                                     }
                                     else if (Order == -1)
                                     {
-                                        //CastleHigh++;
+                                        //CastleHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                         Tab[Row, Column] = -4;
                                     }
                                     ConvertedToCastle = true;
@@ -258,13 +258,13 @@ namespace RefrigtzW
                                 {
                                     if (Order == 1)
                                     {
-                                        //HourseMidle++;
-                                        //HourseHight++;
+                                        //HourseMidle+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
+                                        //HourseHight+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                         Tab[Row, Column] = 3;
                                     }
                                     else if (Order == -1)
                                     {
-                                        //HourseHight++;
+                                        //HourseHight+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                         Tab[Row, Column] = -3;
 
                                     }
@@ -274,13 +274,13 @@ namespace RefrigtzW
                                 {
                                     if (Order == 1)
                                     {
-                                        //ElefantMidle++;
-                                        //ElefantHigh++;
+                                        //ElefantMidle+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
+                                        //ElefantHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                         Tab[Row, Column] = 2;
                                     }
                                     else if (Order == -1)
                                     {
-                                        //ElefantHigh++;
+                                        //ElefantHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                         Tab[Row, Column] = -2;
                                     }
                                     ConvertedToElefant = true;
@@ -327,13 +327,13 @@ namespace RefrigtzW
                                 {
                                     if (Order == 1)
                                     {
-                                        //MinisterMidle++;
-                                        //MinisterHigh++;
+                                        //MinisterMidle+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
+                                        //MinisterHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                         Tab[Row, Column] = 5;
                                     }
                                     else if (Order == -1)
                                     {
-                                        //MinisterHigh++;
+                                        //MinisterHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                         Tab[Row, Column] = -5;
                                     }
                                     ConvertedToMinister = true;
@@ -342,13 +342,13 @@ namespace RefrigtzW
                                 {
                                     if (Order == 1)
                                     {
-                                        //CastleMidle++;
-                                        //CastleHigh++;
+                                        //CastleMidle+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
+                                        //CastleHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                         Tab[Row, Column] = 4;
                                     }
                                     else if (Order == -1)
                                     {
-                                        //CastleHigh++;
+                                        //CastleHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                         Tab[Row, Column] = -4;
                                     }
                                     ConvertedToCastle = true;
@@ -357,13 +357,13 @@ namespace RefrigtzW
                                 {
                                     if (Order == 1)
                                     {
-                                        //HourseMidle++;
-                                        //HourseHight++;
+                                        //HourseMidle+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
+                                        //HourseHight+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                         Tab[Row, Column] = 3;
                                     }
                                     else if (Order == -1)
                                     {
-                                        //HourseHight++;
+                                        //HourseHight+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                         Tab[Row, Column] = -3;
 
                                     }
@@ -373,13 +373,13 @@ namespace RefrigtzW
                                 {
                                     if (Order == 1)
                                     {
-                                        //ElefantMidle++;
-                                        //ElefantHigh++;
+                                        //ElefantMidle+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
+                                        //ElefantHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                         Tab[Row, Column] = 2;
                                     }
                                     else if (Order == -1)
                                     {
-                                        //ElefantHigh++;
+                                        //ElefantHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                         Tab[Row, Column] = -2;
                                     }
                                     ConvertedToElefant = true;

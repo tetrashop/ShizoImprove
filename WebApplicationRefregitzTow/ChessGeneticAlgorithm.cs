@@ -328,7 +328,7 @@ namespace RefrigtzW
                         //Situation 11.
                         if (and)
                         {
-                            //All The Brown Object Ignored.
+                            //All The Brown ObjectIgnored.
                             if (Cromosom1[i, j] < 0 && Cromosom2[i, j] < 0)
                                 continue;
                         }
