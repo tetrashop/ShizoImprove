@@ -889,14 +889,14 @@ namespace RefrigtzDLL
                         if (Table[RowD, ColD] > 0 && DummyOrder == -1 && Table[RowS, ColS] < 0)
                         {
                             Order = -1;
-                            Sign = 1 * AllDraw.SignAttack;
+                            Sign = AllDraw.SignAttack;
                             ChessRules.CurrentOrder = -1;
                             a = Color.Brown;
                         }
                         else if (Table[RowD, ColD] < 0 && DummyOrder == 1 && Table[RowS, ColS] > 0)
                         {
                             Order = 1;
-                            Sign = 1 * AllDraw.SignAttack;
+                            Sign = AllDraw.SignAttack;
                             ChessRules.CurrentOrder = -1;
                             a = Color.Gray;
                         }
@@ -953,7 +953,7 @@ namespace RefrigtzDLL
 
                                             }//);
                                         }//);
-                                    if (Supported > 0)
+                                    if (Supported == 0)
                                         //When is Not Supported multyply 20.
                                         HA *= System.Math.Pow(2, Supported);
 
@@ -983,14 +983,14 @@ namespace RefrigtzDLL
                         if (Table[RowD, ColD] > 0 && DummyOrder == -1 && Table[RowS, ColS] < 0)
                         {
                             Order = -1;
-                            Sign = 1 * AllDraw.SignAttack;
+                            Sign = AllDraw.SignAttack;
                             ChessRules.CurrentOrder = -1;
                             a = Color.Brown;
                         }
                         else if (Table[RowD, ColD] < 0 && DummyOrder == 1 && Table[RowS, ColS] > 0)
                         {
                             Order = 1;
-                            Sign = 1 * AllDraw.SignAttack;
+                            Sign = AllDraw.SignAttack;
                             ChessRules.CurrentOrder = -1;
                             a = Color.Gray;
                         }
@@ -1050,7 +1050,7 @@ namespace RefrigtzDLL
                                     }//);
                                      //When there is supported take positive multiply else take negative multiply.                               
 
-                                    if (Supported > 0)
+                                    if (Supported == 0)
                                         //When is Not Supported multyply 20.
                                         HA *= System.Math.Pow(2, Supported);
 
@@ -1168,7 +1168,7 @@ namespace RefrigtzDLL
                                     }//);
 
 
-                                    if (Reduced > 0)
+                                    if (Reduced == 0)
                                         //When is Not Supported multyply 100.
                                         HA *= System.Math.Pow(2, Reduced);
                                     else
@@ -1258,7 +1258,7 @@ namespace RefrigtzDLL
                                         }//);
                                         
                                     }//);
-                                    if (Reduced > 0)
+                                    if (Reduced == 0)
                                         //When is Not Supported multyply 100.
                                         HA *= System.Math.Pow(2, Reduced);
                                     else
@@ -2354,9 +2354,9 @@ namespace RefrigtzDLL
                                             lock (ol)
                                             {
 
-                                                if (Order == 1 && A.CheckMateGray)
+                                                if (Order == 1 && A.CheckGray)
                                                     HA += AllDraw.SignKingSafe * (GetObjectValue(Table, ii, jj, Order * -1) + GetObjectValue(Table, RowD, ColD, Order));
-                                                if (Order == -1 && A.CheckMateBrown)
+                                                if (Order == -1 && A.CheckBrown)
                                                     HA += AllDraw.SignKingSafe * (GetObjectValue(Table, ii, jj, Order * -1) + GetObjectValue(Table, RowD, ColD, Order));
                                             }
                                  
@@ -2489,10 +2489,10 @@ namespace RefrigtzDLL
                                                 Object ol = new Object();
                                                     lock (ol)
                                                     {
-                                                        if (Order == -1 && A.CheckMateGray)
+                                                        if (Order == -1 && A.CheckGray)
                                                             HA += (GetObjectValue(Table1, ii, jj, Order * -1) + GetObjectValue(Table1, RowD, ColD, Order));
                                                         else
-                                                        if (Order == 1 && A.CheckMateBrown)
+                                                        if (Order == 1 && A.CheckBrown)
                                                             HA += (GetObjectValue(Table1, ii, jj, Order * -1) + GetObjectValue(Table1, RowD, ColD, Order));
                                                     }
 
@@ -4228,7 +4228,7 @@ namespace RefrigtzDLL
                     //Dis = -1000.0;
 
                 }
-                return HeuristicDistabceOfCurrentMoveFromEnemyKingValue;
+                return Dis;
             }
         }
         public double HuristicSoldierFromCenter(int[,] Table, Color aa, int Ord, int ii, int jj, int i, int j)
@@ -4240,7 +4240,7 @@ namespace RefrigtzDLL
                 //Object O1 = new Object();
                 //lock (O1)
                 {
-                    if (Table[ii, jj] == 0)
+                    if (Table[ii, jj] != 0)
                     {
                         if (!ArrangmentsChanged)
                         {
@@ -4298,7 +4298,7 @@ namespace RefrigtzDLL
 
 
                     }
-                    else if (Table[i, j] == 0)
+                    else if (Table[i, j] != 0)
                     {
                         if (!ArrangmentsChanged)
                         {
@@ -4619,7 +4619,7 @@ namespace RefrigtzDLL
                                 ////Object O1 = new Object();
                                 //lock (O1)
                                 {
-                                    if (Supported > 0)
+                                    if (Supported == 0)
                                         //When is Not Supported multyply 100.
                                         HA *= System.Math.Pow(2, Supported);
                                     else
@@ -4711,7 +4711,7 @@ namespace RefrigtzDLL
                                         }
                                     }//);
                                 }//);
-                                if (Supported > 0)
+                                if (Supported == 0)
                                     //When is Not Supported multyply 100.
                                     HA *= System.Math.Pow(2, Supported);
                                 else
