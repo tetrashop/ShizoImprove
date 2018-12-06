@@ -3958,9 +3958,9 @@ namespace Refrigtz
                     }
                     //For Iterative Movewmnt
                     if (SetMovement((int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased))
-                        return;
+                        continue;
                     if (RowClickP == -1 && ColumnClickP == -1)
-                        return;
+                        continue;
                     try
                     {
                         if (((!StateCC && StateCP) || Blitz) && Person)
@@ -3979,7 +3979,7 @@ namespace Refrigtz
                                         if ((new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, 7, Table, 1, (int)RowClickP, (int)ColumnClickP)).Rules((int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, 7))
                                         {
                                             if (CheckMovment(Table, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, 1))
-                                                return;
+                                                continue;
                                             
                                             MovmentsCastleKing(7);
 
@@ -3997,7 +3997,7 @@ namespace Refrigtz
                                                         {
                                                             Draw.CastlesOnTable[i] = new RefrigtzDLL.DrawCastle(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowRealesed + 1, ColumnRealeased, Color.Gray, Table, OrderPlate, false, King);
                                                             Castles = i;
-                                                            return;
+                                                            continue;
                                                         }
                                                     }
                                                     if (Castles != -1)
@@ -4018,7 +4018,7 @@ namespace Refrigtz
                                                         {
                                                             Draw.CastlesOnTable[i] = new RefrigtzDLL.DrawCastle(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowRealesed - 1, ColumnRealeased, Color.Gray, Table, OrderPlate, false, King);
                                                             Castles = i;
-                                                            return;
+                                                            continue;
 
                                                         }
 
@@ -4044,7 +4044,7 @@ namespace Refrigtz
                                                             Draw.CastlesOnTable[i] = new RefrigtzDLL.DrawCastle(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowRealesed + 1, ColumnRealeased, Color.Gray, Table, OrderPlate, false, King);
                                                             Castles = i;
 
-                                                            return;
+                                                            continue;
 
                                                         }
 
@@ -4067,7 +4067,7 @@ namespace Refrigtz
                                                         {
                                                             Draw.CastlesOnTable[i] = new RefrigtzDLL.DrawCastle(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowRealesed - 1, ColumnRealeased, Color.Gray, Table, OrderPlate, false, King);
                                                             Castles = i;
-                                                            return;
+                                                            continue;
 
                                                         }
 
@@ -4086,14 +4086,14 @@ namespace Refrigtz
                                                 if (AA.CheckGray && OrderPlate == 1)
                                                 {
                                                     // Table = TabStor;
-                                                    // return;
+                                                    // continue;
                                                 }
 
                                                 else
                                                     if (AA.CheckBrown && OrderPlate == -1)
                                                 {
                                                     //  Table = TabStor;
-                                                    //  return;
+                                                    //  continue;
                                                 }
                                             }
                                             Draw.KingOnTable[King].DrawKingOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
@@ -4191,7 +4191,7 @@ namespace Refrigtz
                                         if ((new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, 1, Table, 1, (int)RowClickP, (int)ColumnClickP)).Rules((int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, 1))
                                         {
                                             if (CheckMovment(Table, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, 1))
-                                                return;
+                                                continue;
                                             RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                                             RefrigtzDLL.ThingsConverter.ActOfClickEqualTow = true;
                                             LastRow = (int)RowRealesed;
@@ -4261,14 +4261,14 @@ namespace Refrigtz
                                                 if (AA.CheckGray && OrderPlate == 1)
                                                 {
                                                     // Table = TabStor;
-                                                    //return;
+                                                    //continue;
                                                 }
 
                                                 else
                                                     if (AA.CheckBrown && OrderPlate == -1)
                                                 {
                                                     // Table = TabStor;
-                                                    //return;
+                                                    //continue;
                                                 }
                                             }
                                             Person = false;
@@ -4301,7 +4301,7 @@ namespace Refrigtz
                                             RefreshBoxText();
                                             //if (!FirstMovmentOnLoad && System.Convert.ToInt32(comboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, Table, OrderPlate * -1, Soldier, 1);
                                             Clicked = false;
-                                            return;
+                                            continue;
                                         }
                                         else
                                         {
@@ -4330,7 +4330,7 @@ namespace Refrigtz
                                         if ((new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, 2, Table, 1, (int)RowClickP, (int)ColumnClickP)).Rules((int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, 2))
                                         {
                                             if (CheckMovment(Table, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, 1))
-                                                return;
+                                                continue;
                                             RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                                             int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
                                             bool HitVal = false;
@@ -4348,14 +4348,14 @@ namespace Refrigtz
                                                 if (AA.CheckGray && OrderPlate == 1)
                                                 {
                                                     //Table = TabStor;
-                                                    // return;
+                                                    // continue;
                                                 }
 
                                                 else
                                                     if (AA.CheckBrown && OrderPlate == -1)
                                                 {
                                                     //Table = TabStor;
-                                                    // return;
+                                                    // continue;
                                                 }
                                             }
                                             Draw.ElephantOnTable[Elefant].DrawElefantOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
@@ -4391,7 +4391,7 @@ namespace Refrigtz
                                             RefreshBoxText();
                                             //if (!FirstMovmentOnLoad && System.Convert.ToInt32(comboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, Table, OrderPlate * -1, Elefant, 2);
                                             Clicked = false;
-                                            return;
+                                            continue;
                                         }
                                         else
                                         {
@@ -4420,7 +4420,7 @@ namespace Refrigtz
                                         if ((new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, 3, Table, 1, (int)RowClickP, (int)ColumnClickP)).Rules((int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, 3))
                                         {
                                             if (CheckMovment(Table, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, 1))
-                                                return;
+                                                continue;
                                             RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                                             int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
                                             bool HitVal = false;
@@ -4438,14 +4438,14 @@ namespace Refrigtz
                                                 if (AA.CheckGray && OrderPlate == 1)
                                                 {
                                                     // Table = TabStor;
-                                                    //return;
+                                                    //continue;
                                                 }
 
                                                 else
                                                     if (AA.CheckBrown && OrderPlate == -1)
                                                 {
                                                     // Table = TabStor;
-                                                    //return;
+                                                    //continue;
                                                 }
                                             }
                                             Draw.HoursesOnTable[Hourse].DrawHourseOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
@@ -4481,7 +4481,7 @@ namespace Refrigtz
                                             RefreshBoxText();
                                             //if (!FirstMovmentOnLoad && System.Convert.ToInt32(comboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, Table, OrderPlate * -1, Hourse, 3);
                                             Clicked = false;
-                                            return;
+                                            continue;
                                         }
                                         else
                                         {
@@ -4512,7 +4512,7 @@ namespace Refrigtz
                                         if ((new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, 4, Table, 1, (int)RowClickP, (int)ColumnClickP)).Rules((int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, 4))
                                         {
                                             if (CheckMovment(Table, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, 1))
-                                                return;
+                                                continue;
                                             RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                                             int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
                                             bool HitVal = false;
@@ -4530,14 +4530,14 @@ namespace Refrigtz
                                                 if (AA.CheckGray && OrderPlate == 1)
                                                 {
                                                     // Table = TabStor;
-                                                    //return;
+                                                    //continue;
                                                 }
 
                                                 else
                                                     if (AA.CheckBrown && OrderPlate == -1)
                                                 {
                                                     //Table = TabStor;
-                                                    //return;
+                                                    //continue;
                                                 }
                                             }
                                             Draw.CastlesOnTable[Castle].DrawCastleOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
@@ -4573,7 +4573,7 @@ namespace Refrigtz
                                             RefreshBoxText();
                                             //if (!FirstMovmentOnLoad && System.Convert.ToInt32(comboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, Table, OrderPlate * -1, Castle, 4);
                                             Clicked = false;
-                                            return;
+                                            continue;
                                         }
                                         else
                                         {
@@ -4604,7 +4604,7 @@ namespace Refrigtz
                                         if ((new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, 5, Table, 1, (int)RowClickP, (int)ColumnClickP)).Rules((int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, 5))
                                         {
                                             if (CheckMovment(Table, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, 1))
-                                                return;
+                                                continue;
                                             RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                                             int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
                                             bool HitVal = false;
@@ -4622,14 +4622,14 @@ namespace Refrigtz
                                                 if (AA.CheckGray && OrderPlate == 1)
                                                 {
                                                     //Table = TabStor;
-                                                    //return;
+                                                    //continue;
                                                 }
 
                                                 else
                                                     if (AA.CheckBrown && OrderPlate == -1)
                                                 {
                                                     //Table = TabStor;
-                                                    //return;
+                                                    //continue;
                                                 }
                                             }
                                             Draw.MinisterOnTable[Minister].DrawMinisterOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
@@ -4667,7 +4667,7 @@ namespace Refrigtz
                                             RefreshBoxText();
                                             //if (!FirstMovmentOnLoad && System.Convert.ToInt32(comboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, Table, OrderPlate * -1, Minister, 5);
                                             Clicked = false;
-                                            return;
+                                            continue;
                                         }
                                         else
                                         {
@@ -4697,7 +4697,7 @@ namespace Refrigtz
                                         if ((new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, 6, Table, 1, (int)RowClickP, (int)ColumnClickP)).Rules((int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, 6))
                                         {
                                             if (CheckMovment(Table, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, 1))
-                                                return;
+                                                continue;
                                             RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                                             int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
                                             bool HitVal = false;
@@ -4715,14 +4715,14 @@ namespace Refrigtz
                                                 if (AA.CheckGray && OrderPlate == 1)
                                                 {
                                                     //Table = TabStor;
-                                                    //return;
+                                                    //continue;
                                                 }
 
                                                 else
                                                     if (AA.CheckBrown && OrderPlate == -1)
                                                 {
                                                     //Table = TabStor;
-                                                    //return;
+                                                    //continue;
                                                 }
                                             }
                                             Draw.KingOnTable[King].DrawKingOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
@@ -4758,7 +4758,7 @@ namespace Refrigtz
                                             RefreshBoxText();
                                             //if (!FirstMovmentOnLoad && System.Convert.ToInt32(comboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, Table, OrderPlate * -1, King, 6);
                                             Clicked = false;
-                                            return;
+                                            continue;
                                         }
 
                                         else
@@ -4793,7 +4793,7 @@ namespace Refrigtz
                                         if ((new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, -7, Table, -1, (int)RowClickP, (int)ColumnClickP)).Rules((int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, -7))
                                         {
                                             if (CheckMovment(Table, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, -1))
-                                                return;
+                                                continue;
 
                                             MovmentsCastleKing(-7);
                                                 
@@ -4811,7 +4811,7 @@ namespace Refrigtz
                                                             Draw.CastlesOnTable[i] = new RefrigtzDLL.DrawCastle(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowRealesed + 1, ColumnRealeased, Color.Brown, Table, OrderPlate, false, King);
                                                             Castles = i;
 
-                                                            return;
+                                                            continue;
 
                                                         }
 
@@ -4834,7 +4834,7 @@ namespace Refrigtz
                                                         {
                                                             Draw.CastlesOnTable[i] = new RefrigtzDLL.DrawCastle(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowRealesed - 1, ColumnRealeased, Color.Brown, Table, OrderPlate, false, King);
                                                             Castles = i;
-                                                            return;
+                                                            continue;
 
                                                         }
 
@@ -4859,7 +4859,7 @@ namespace Refrigtz
                                                         {
                                                             Draw.CastlesOnTable[i] = new RefrigtzDLL.DrawCastle(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowRealesed + 1, ColumnRealeased, Color.Brown, Table, OrderPlate, false, King);
                                                             Castles = i;
-                                                            return;
+                                                            continue;
 
                                                         }
 
@@ -4882,7 +4882,7 @@ namespace Refrigtz
                                                         {
                                                             Draw.CastlesOnTable[i] = new RefrigtzDLL.DrawCastle(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowRealesed - 1, ColumnRealeased, Color.Brown, Table, OrderPlate, false, King);
                                                             Castles = i;
-                                                            return;
+                                                            continue;
 
                                                         }
 
@@ -4901,14 +4901,14 @@ namespace Refrigtz
                                                 if (AA.CheckGray && OrderPlate == 1)
                                                 {
                                                     //Table = TabStor;
-                                                    //return;
+                                                    //continue;
                                                 }
 
                                                 else
                                                     if (AA.CheckBrown && OrderPlate == -1)
                                                 {
                                                     //Table = TabStor;
-                                                    //return;
+                                                    //continue;
                                                 }
                                             }
                                             Draw.KingOnTable[King].DrawKingOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
@@ -4956,7 +4956,7 @@ namespace Refrigtz
                                             Clicked = false;
                                             //RefrigtzDLL.ChessRules.CastleActBrown = true;
                                             //TakeRoot.CalculateRootGray(Draw);
-                                            return;
+                                            continue;
                                         }
 
                                         else
@@ -5001,7 +5001,7 @@ namespace Refrigtz
                                         if ((new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, -1, Table, -1, (int)RowClickP, (int)ColumnClickP)).Rules((int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, -1))
                                         {
                                             if (CheckMovment(Table, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, -1))
-                                                return;
+                                                continue;
                                             RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                                             RefrigtzDLL.ThingsConverter.ActOfClickEqualTow = true;
                                             LastRow = (int)RowRealesed;
@@ -5066,14 +5066,14 @@ namespace Refrigtz
                                                 if (AA.CheckGray && OrderPlate == 1)
                                                 {
                                                     //Table = TabStor;
-                                                    //return;
+                                                    //continue;
                                                 }
 
                                                 else
                                                     if (AA.CheckBrown && OrderPlate == -1)
                                                 {
                                                     /// Table = TabStor;
-                                                    // return;
+                                                    // continue;
                                                 }
                                             }
                                             Draw.SolderesOnTable[Soldier].DrawSoldierOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
@@ -5136,7 +5136,7 @@ namespace Refrigtz
                                         if ((new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, -2, Table, -1, (int)RowClickP, (int)ColumnClickP)).Rules((int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, -2))
                                         {
                                             if (CheckMovment(Table, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, -1))
-                                                return;
+                                                continue;
                                             RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                                             int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
                                             bool HitVal = false;
@@ -5154,14 +5154,14 @@ namespace Refrigtz
                                                 if (AA.CheckGray && OrderPlate == 1)
                                                 {
                                                     //Table = TabStor;
-                                                    //return;
+                                                    //continue;
                                                 }
 
                                                 else
                                                     if (AA.CheckBrown && OrderPlate == -1)
                                                 {
                                                     //Table = TabStor;
-                                                    //return;
+                                                    //continue;
                                                 }
                                             }
                                             Draw.ElephantOnTable[Elefant].DrawElefantOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
@@ -5197,7 +5197,7 @@ namespace Refrigtz
                                             RefreshBoxText();
                                             //if (!FirstMovmentOnLoad && System.Convert.ToInt32(comboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, Table, OrderPlate * -1, Elefant, -2);
                                             Clicked = false;
-                                            return;
+                                            continue;
                                         }
                                         else
                                         {
@@ -5227,7 +5227,7 @@ namespace Refrigtz
                                         if ((new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, -3, Table, -1, (int)RowClickP, (int)ColumnClickP)).Rules((int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, -3))
                                         {
                                             if (CheckMovment(Table, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, -1))
-                                                return;
+                                                continue;
                                             RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                                             int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
                                             bool HitVal = false;
@@ -5245,14 +5245,14 @@ namespace Refrigtz
                                                 if (AA.CheckGray && OrderPlate == 1)
                                                 {
                                                     //Table = TabStor;
-                                                    ///return;
+                                                    ///continue;
                                                 }
 
                                                 else
                                                     if (AA.CheckBrown && OrderPlate == -1)
                                                 {
                                                     // Table = TabStor;
-                                                    // return;
+                                                    // continue;
                                                 }
                                             }
                                             Draw.HoursesOnTable[Hourse].DrawHourseOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
@@ -5288,7 +5288,7 @@ namespace Refrigtz
                                             RefreshBoxText();
                                             //if (!FirstMovmentOnLoad && System.Convert.ToInt32(comboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, Table, OrderPlate * -1, Hourse, -3);
                                             Clicked = false;
-                                            return;
+                                            continue;
                                         }
                                         else
                                         {
@@ -5318,7 +5318,7 @@ namespace Refrigtz
                                         if ((new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, -4, Table, -1, (int)RowClickP, (int)ColumnClickP)).Rules((int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, -4))
                                         {
                                             if (CheckMovment(Table, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, -1))
-                                                return;
+                                                continue;
                                             RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                                             int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
                                             bool HitVal = false;
@@ -5336,14 +5336,14 @@ namespace Refrigtz
                                                 if (AA.CheckGray && OrderPlate == 1)
                                                 {
                                                     // Table = TabStor;
-                                                    // return;
+                                                    // continue;
                                                 }
 
                                                 else
                                                     if (AA.CheckBrown && OrderPlate == -1)
                                                 {
                                                     // Table = TabStor;
-                                                    //return;
+                                                    //continue;
                                                 }
                                             }
                                             Draw.CastlesOnTable[Castle].DrawCastleOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
@@ -5379,7 +5379,7 @@ namespace Refrigtz
                                             RefreshBoxText();
                                             //if (!FirstMovmentOnLoad && System.Convert.ToInt32(comboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, Table, OrderPlate * -1, Castle, -4);
                                             Clicked = false;
-                                            return;
+                                            continue;
                                         }
                                         else
                                         {
@@ -5409,7 +5409,7 @@ namespace Refrigtz
                                         if ((new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, -5, Table, -1, (int)RowClickP, (int)ColumnClickP)).Rules((int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, -5))
                                         {
                                             if (CheckMovment(Table, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, -1))
-                                                return;
+                                                continue;
                                             RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                                             int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
                                             bool HitVal = false;
@@ -5427,14 +5427,14 @@ namespace Refrigtz
                                                 if (AA.CheckGray && OrderPlate == 1)
                                                 {
                                                     //Table = TabStor;
-                                                    // return;
+                                                    // continue;
                                                 }
 
                                                 else
                                                     if (AA.CheckBrown && OrderPlate == -1)
                                                 {
                                                     // Table = TabStor;
-                                                    // return;
+                                                    // continue;
                                                 }
                                             }
                                             Draw.MinisterOnTable[Minister].DrawMinisterOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
@@ -5472,7 +5472,7 @@ namespace Refrigtz
                                             //if (!FirstMovmentOnLoad && System.Convert.ToInt32(comboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, Table, OrderPlate * -1, Minister, -5);
                                             Clicked = false;
 
-                                            return;
+                                            continue;
                                         }
                                         else
                                         {
@@ -5504,7 +5504,7 @@ namespace Refrigtz
                                         if ((new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, -6, Table, -1, (int)RowClickP, (int)ColumnClickP)).Rules((int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, -6))
                                         {
                                             if (CheckMovment(Table, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, -1))
-                                                return;
+                                                continue;
                                             RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                                             int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
                                             bool HitVal = false;
@@ -5522,14 +5522,14 @@ namespace Refrigtz
                                                 if (AA.CheckGray && OrderPlate == 1)
                                                 {
                                                     //  Table = TabStor;
-                                                    // return;
+                                                    // continue;
                                                 }
 
                                                 else
                                                     if (AA.CheckBrown && OrderPlate == -1)
                                                 {
                                                     //Table = TabStor;
-                                                    // return;
+                                                    // continue;
                                                 }
                                             }
                                             Draw.KingOnTable[King].DrawKingOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
@@ -5567,7 +5567,7 @@ namespace Refrigtz
                                             RefreshBoxText();
                                             //if (!FirstMovmentOnLoad && System.Convert.ToInt32(comboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, Table, OrderPlate * -1, King, -6);
                                             Clicked = false;
-                                            return;
+                                            continue;
                                         }
 
                                         else
@@ -5600,7 +5600,7 @@ namespace Refrigtz
                         //Clicked = true;
                         //StateCC = false;
                         //StateCP = true;
-                        return;
+                        continue;
                     }
                     RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
 
