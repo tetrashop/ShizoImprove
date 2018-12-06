@@ -12039,15 +12039,20 @@ namespace RefrigtzDLL
                     a = Color.Brown;
                 int j = 0;
                 //if (AllDraw.Blitz)
-                
-                    //Fairness conditions for perposive astar greedy search.
-                    //Object Omm = new Object();
-                //lock (Omm)
+
+                //Fairness conditions for perposive astar greedy search.
+                Object Omm = new Object();
+                lock (Omm)
                 {
-                    if (iAStarGreedy <= CurrentAStarGredyMax && ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
-                        return null;
-
-
+                    Object OOOO = new Object();
+                    lock (OOOO)
+                    {
+                        if (iAStarGreedy <= CurrentAStarGredyMax && ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
+                        {
+                            OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
+                            return null;
+                        }
+                    }
                     CurrentAStarGredyMax = AStarGreedyiLevelMax - iAStarGreedy;
                     iAStarGreedy--;
                 }
@@ -12444,8 +12449,8 @@ namespace RefrigtzDLL
                 int j = 0;
                 //if (iAStarGreedy <= 0)
                 //return null;
-                //Object OOOO = new Object();
-                //lock (OOOO)
+                Object OOOO = new Object();
+                lock (OOOO)
                 {
                     if (ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
                     {
