@@ -210,6 +210,7 @@ namespace RefrigtzDLL
         bool IgnoreFromCheckandMateHuristic = false;
         int CurrentAStarGredyMax = -1;
         List<int[,]> ObjectNumbers = new List<int[,]>();
+        int WinOcuuredatChiled = -1;
         ///Log of Errors.
         static void Log(Exception ex)
         {
@@ -342,6 +343,7 @@ namespace RefrigtzDLL
             //lock (O)
             {
                 //Initiate Variables.
+                
                 CurrentAStarGredyMax = CurrentAStarGredy;
                 MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
                 IgnoreSelfObjectsT = IgnoreSelfObject;
@@ -7456,6 +7458,7 @@ namespace RefrigtzDLL
                             {
                                 IsThereMateOfEnemy = true;
                                 FoundFirstMating++;
+                                WinOcuuredatChiled = 2;
                                 Current.LearningAlgorithmRegard();
                                 RemoveAtList(kind);
                                 AddAtList(kind, Current);
@@ -9089,7 +9092,7 @@ namespace RefrigtzDLL
             }
         }
         ///Kernel of Thinking
-        public void Thinking()
+        public void Thinking(ref int WinOcuuredatChiled)
         {
 
             int ord = Order;
@@ -9191,7 +9194,10 @@ namespace RefrigtzDLL
                             ThinkingFinished = true;
                             CheckMateOcuured = true;
                             if ((AAA.CheckMateGray && AllDraw.OrderPlate == 1) || (AAA.CheckMateBrown && AllDraw.OrderPlate == -1))
+                            {
+                                WinOcuuredatChiled = 0;
                                 FoundFirstMating++;
+                            }
                             EndThread++;
                         }
                         return;

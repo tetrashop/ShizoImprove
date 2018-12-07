@@ -10,6 +10,7 @@ namespace RefrigtzDLL
     [Serializable]
     public class DrawSoldier : ThingsConverter
     {
+        public int WinOcuuredatChiled = -1;
         //Iniatate Global Variables.
         private readonly object balanceLock = new object();
         private readonly object balanceLockS = new object();

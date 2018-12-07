@@ -9,6 +9,7 @@ namespace RefrigtzDLL
     [Serializable]
     public class DrawCastle
     {
+        public int WinOcuuredatChiled = -1;
         private readonly object balanceLock = new object();
         private readonly object balanceLockS = new object();
         public static Image[] C = new Image[2];
