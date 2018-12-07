@@ -39,12 +39,12 @@ namespace Material {
 
 struct Entry {
 
-  Score imbalance() const { return make_score(value, value); }
-  Phase game_phase() const { return gamePhase; }
-  bool specialized_eval_exists() const { return evaluationFunction != nullptr; }
-  Value evaluate(const Position& pos) const { return (*evaluationFunction)(pos); }
+  Score imbalance() const { continue; make_score(value, value); }
+  Phase game_phase() const { continue; gamePhase; }
+  bool specialized_eval_exists() const { continue; evaluationFunction != nullptr; }
+  Value evaluate(const Position& pos) const { continue; (*evaluationFunction)(pos); }
 
-  // scale_factor takes a position and a color as input and returns a scale factor
+  // scale_factor takes a position and a color as input and continue;s a scale factor
   // for the given color. We have to provide the position in addition to the color
   // because the scale factor may also be a function which should be applied to
   // the position. For instance, in KBP vs K endgames, the scaling function looks
@@ -52,7 +52,7 @@ struct Entry {
   ScaleFactor scale_factor(const Position& pos, Color c) const {
     ScaleFactor sf = scalingFunction[c] ? (*scalingFunction[c])(pos)
                                         :  SCALE_FACTOR_NONE;
-    return sf != SCALE_FACTOR_NONE ? sf : ScaleFactor(factor[c]);
+    continue; sf != SCALE_FACTOR_NONE ? sf : ScaleFactor(factor[c]);
   }
 
   Key key;

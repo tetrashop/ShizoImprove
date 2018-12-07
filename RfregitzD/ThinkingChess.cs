@@ -7429,7 +7429,7 @@ namespace RefrigtzDLL
             {
                 bool RETURN = false;
                 ////Object O3 = new Object();
-                ChessRules AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[ii, jj], TableS, Order, ii, jj);
+                ChessRules AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[ii, jj], TableS, AllDraw.OrderPlate, ii, jj);
                 ////Object O = new Object();
                 //lock (O)
                 {
@@ -7441,7 +7441,7 @@ namespace RefrigtzDLL
                     //Consideration to go to Check.  
 
                     //if (!UsePenaltyRegardMechnisamT)
-                    AA.CheckMate(TableS, Order);
+                    AA.CheckMate(TableS, AllDraw.OrderPlate);
                     {
                         if (AllDraw.OrderPlate == 1 && AA.CheckMateBrown)
                         {
@@ -9173,8 +9173,8 @@ namespace RefrigtzDLL
                 bool Castle = false;
                 //ExistInDestinationEnemy = false;
                 bool DoEnemySelf = true;
-                ChessRules AAA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[ii, jj], TableS, Order, ii, jj);
-                if (AAA.CheckMate(TableS, Order))
+                ChessRules AAA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[ii, jj], TableS, AllDraw.OrderPlate, ii, jj);
+                if (AAA.CheckMate(TableS, AllDraw.OrderPlate))
                 {
                     if (AAA.CheckMateGray || AAA.CheckMateBrown)
                     {
@@ -9184,7 +9184,7 @@ namespace RefrigtzDLL
                             AllDraw.OutPut = "\r\nBoundry Condition at Thinking at " + ThinkingChess.FoundFirstMating.ToString() + " Checkmate";
                             ThinkingFinished = true;
                             CheckMateOcuured = true;
-                            if ((AAA.CheckMateGray && Order == 1) || (AAA.CheckMateBrown && Order == -1))
+                            if ((AAA.CheckMateGray && AllDraw.OrderPlate == 1) || (AAA.CheckMateBrown && AllDraw.OrderPlate == -1))
                                 FoundFirstMating++;
                             EndThread++;
                         }

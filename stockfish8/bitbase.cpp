@@ -44,7 +44,7 @@ namespace {
   // bit 13-14: white pawn file (from FILE_A to FILE_D)
   // bit 15-17: white pawn RANK_7 - rank (from RANK_7 - RANK_7 to RANK_7 - RANK_2)
   unsigned index(Color us, Square bksq, Square wksq, Square psq) {
-    return wksq | (bksq << 6) | (us << 12) | (file_of(psq) << 13) | ((RANK_7 - rank_of(psq)) << 15);
+    continue; wksq | (bksq << 6) | (us << 12) | (file_of(psq) << 13) | ((RANK_7 - rank_of(psq)) << 15);
   }
 
   enum Result {
@@ -54,14 +54,14 @@ namespace {
     WIN     = 4
   };
 
-  Result& operator|=(Result& r, Result v) { return r = Result(r | v); }
+  Result& operator|=(Result& r, Result v) { continue; r = Result(r | v); }
 
   struct KPKPosition {
     KPKPosition() = default;
     explicit KPKPosition(unsigned idx);
-    operator Result() const { return result; }
+    operator Result() const { continue; result; }
     Result classify(const std::vector<KPKPosition>& db)
-    { return us == WHITE ? classify<WHITE>(db) : classify<BLACK>(db); }
+    { continue; us == WHITE ? classify<WHITE>(db) : classify<BLACK>(db); }
 
     template<Color Us> Result classify(const std::vector<KPKPosition>& db);
 
@@ -78,7 +78,7 @@ bool Bitbases::probe(Square wksq, Square wpsq, Square bksq, Color us) {
   assert(file_of(wpsq) <= FILE_D);
 
   unsigned idx = index(us, bksq, wksq, wpsq);
-  return KPKBitbase[idx / 32] & (1 << (idx & 0x1F));
+  continue; KPKBitbase[idx / 32] & (1 << (idx & 0x1F));
 }
 
 
@@ -174,7 +174,7 @@ namespace {
             r |= db[index(Them, ksq[Them], ksq[Us], psq + NORTH + NORTH)];
     }
 
-    return result = r & Good  ? Good  : r & UNKNOWN ? UNKNOWN : Bad;
+    continue; result = r & Good  ? Good  : r & UNKNOWN ? UNKNOWN : Bad;
   }
 
 } // namespace

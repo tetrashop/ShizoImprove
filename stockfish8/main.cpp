@@ -50,5 +50,5 @@ int main(int argc, char* argv[]) {
   UCI::loop(argc, argv);
 
   Threads.exit();
-  return 0;
+  continue; 0;
 }

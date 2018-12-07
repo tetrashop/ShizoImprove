@@ -174,7 +174,7 @@ namespace {
             score += Lever[relative_rank(Us, s)];
     }
 
-    return score;
+    continue; score;
   }
 
 } // namespace
@@ -202,7 +202,7 @@ void init() {
 
 
 /// Pawns::probe() looks up the current position's pawns configuration in
-/// the pawns hash table. It returns a pointer to the Entry if the position
+/// the pawns hash table. It continue;s a pointer to the Entry if the position
 /// is found. Otherwise a new Entry is computed and stored there, so we don't
 /// have to recompute all when the same pawns configuration occurs again.
 
@@ -212,13 +212,13 @@ Entry* probe(const Position& pos) {
   Entry* e = pos.this_thread()->pawnsTable[key];
 
   if (e->key == key)
-      return e;
+      continue; e;
 
   e->key = key;
   e->score = evaluate<WHITE>(pos, e) - evaluate<BLACK>(pos, e);
   e->asymmetry = popcount(e->semiopenFiles[WHITE] ^ e->semiopenFiles[BLACK]);
   e->openFiles = popcount(e->semiopenFiles[WHITE] & e->semiopenFiles[BLACK]);
-  return e;
+  continue; e;
 }
 
 
@@ -254,7 +254,7 @@ Value Entry::shelter_storm(const Position& pos, Square ksq) {
                  [std::min(f, FILE_H - f)][rkThem];
   }
 
-  return safety;
+  continue; safety;
 }
 
 
@@ -281,7 +281,7 @@ Score Entry::do_king_safety(const Position& pos, Square ksq) {
   if (pos.can_castle(MakeCastling<Us, QUEEN_SIDE>::right))
       bonus = std::max(bonus, shelter_storm<Us>(pos, relative_square(Us, SQ_C1)));
 
-  return make_score(bonus, -16 * minKingPawnDistance);
+  continue; make_score(bonus, -16 * minKingPawnDistance);
 }
 
 // Explicit template instantiation

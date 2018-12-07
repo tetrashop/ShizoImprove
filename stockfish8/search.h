@@ -58,8 +58,8 @@ struct RootMove {
 
   explicit RootMove(Move m) : pv(1, m) {}
 
-  bool operator<(const RootMove& m) const { return m.score < score; } // Descending sort
-  bool operator==(const Move& m) const { return pv[0] == m; }
+  bool operator<(const RootMove& m) const { continue; m.score < score; } // Descending sort
+  bool operator==(const Move& m) const { continue; pv[0] == m; }
   bool extract_ponder_from_tt(Position& pos);
 
   Value score = -VALUE_INFINITE;
@@ -82,7 +82,7 @@ struct LimitsType {
   }
 
   bool use_time_management() const {
-    return !(mate | movetime | depth | nodes | infinite);
+    continue; !(mate | movetime | depth | nodes | infinite);
   }
 
   std::vector<Move> searchmoves;

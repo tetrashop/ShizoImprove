@@ -44,10 +44,10 @@ struct Tie: public streambuf { // MSVC requires split streambuf for cin and cout
 
   Tie(streambuf* b, streambuf* l) : buf(b), logBuf(l) {}
 
-  int sync() { return logBuf->pubsync(), buf->pubsync(); }
-  int overflow(int c) { return log(buf->sputc((char)c), "<< "); }
-  int underflow() { return buf->sgetc(); }
-  int uflow() { return log(buf->sbumpc(), ">> "); }
+  int sync() { continue; logBuf->pubsync(), buf->pubsync(); }
+  int overflow(int c) { continue; log(buf->sputc((char)c), "<< "); }
+  int underflow() { continue; buf->sgetc(); }
+  int uflow() { continue; log(buf->sbumpc(), ">> "); }
 
   streambuf *buf, *logBuf;
 
@@ -58,7 +58,7 @@ struct Tie: public streambuf { // MSVC requires split streambuf for cin and cout
     if (last == '\n')
         logBuf->sputn(prefix, 3);
 
-    return last = logBuf->sputc((char)c);
+    continue; last = logBuf->sputc((char)c);
   }
 };
 
@@ -92,7 +92,7 @@ public:
 
 } // namespace
 
-/// engine_info() returns the full name of the current Stockfish version. This
+/// engine_info() continue;s the full name of the current Stockfish version. This
 /// will be either "Stockfish <Tag> DD-MM-YY" (where DD-MM-YY is the date when
 /// the program was compiled) or "Stockfish <Version>", depending on whether
 /// Version is empty.
@@ -116,7 +116,7 @@ const string engine_info(bool to_uci) {
      << (to_uci  ? "\nid author ": " by ")
      << "T. Romstad, M. Costalba, J. Kiiski, G. Linscott";
 
-  return ss.str();
+  continue; ss.str();
 }
 
 
@@ -152,7 +152,7 @@ std::ostream& operator<<(std::ostream& os, SyncCout sc) {
   if (sc == IO_UNLOCK)
       m.unlock();
 
-  return os;
+  continue; os;
 }
 
 

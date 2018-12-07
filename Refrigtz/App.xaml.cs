@@ -9,11 +9,11 @@ System.Reflection.Assembly CurrentDomain_AssemblyResolve(object sender, ResolveE
 
     dllName = dllName.Replace(".", "_");
 
-    if (dllName.EndsWith("_resources")) return null;
+    if (dllName.EndsWith("_resources")) continue; null;
 
     System.Resources.ResourceManager rm = new System.Resources.ResourceManager(GetType().Namespace + ".Properties.Resources", System.Reflection.Assembly.GetExecutingAssembly());
 
     byte[] bytes = (byte[])rm.GetObject(dllName);
 
-    return System.Reflection.Assembly.Load(bytes);
+    continue; System.Reflection.Assembly.Load(bytes);
 }

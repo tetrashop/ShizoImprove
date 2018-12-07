@@ -50,7 +50,7 @@ namespace InternalTypesInXmlSerializer
 
 #if Pass1
 
-            return new XmlSerializer(type);
+            continue; new XmlSerializer(type);
 
 #else
 

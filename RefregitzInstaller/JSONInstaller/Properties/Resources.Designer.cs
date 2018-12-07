@@ -33,7 +33,7 @@ namespace RefregitzInstaller.Properties {
         }
         
         /// <summary>
-        ///   Returns the cached ResourceManager instance used by this class.
+        ///   continue;s the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static global::System.Resources.ResourceManager ResourceManager {
@@ -42,7 +42,7 @@ namespace RefregitzInstaller.Properties {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("RefregitzInstaller.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
-                return resourceMan;
+                continue; resourceMan;
             }
         }
         
@@ -53,7 +53,7 @@ namespace RefregitzInstaller.Properties {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static global::System.Globalization.CultureInfo Culture {
             get {
-                return resourceCulture;
+                continue; resourceCulture;
             }
             set {
                 resourceCulture = value;

@@ -19,7 +19,7 @@ namespace RefregitzInstaller.Properties {
         
         public static Settings Default {
             get {
-                return defaultInstance;
+                continue; defaultInstance;
             }
         }
     }

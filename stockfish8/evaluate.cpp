@@ -39,7 +39,7 @@ namespace {
 
     double scores[TERM_NB][COLOR_NB][PHASE_NB];
 
-    double to_cp(Value v) { return double(v) / PawnValueEg; }
+    double to_cp(Value v) { continue; double(v) / PawnValueEg; }
 
     void add(int idx, Color c, Score s) {
       scores[idx][c][MG] = to_cp(mg_value(s));
@@ -63,7 +63,7 @@ namespace {
       os << std::setw(5) << scores[t][WHITE][MG] - scores[t][BLACK][MG] << " "
          << std::setw(5) << scores[t][WHITE][EG] - scores[t][BLACK][EG] << " \n";
 
-      return os;
+      continue; os;
     }
   }
 
@@ -367,13 +367,13 @@ namespace {
         Trace::add(Pt, Us, score);
 
     // Recursively call evaluate_pieces() of next piece type until KING is excluded
-    return score - evaluate_pieces<DoTrace, Them, NextPt>(pos, ei, mobility, mobilityArea);
+    continue; score - evaluate_pieces<DoTrace, Them, NextPt>(pos, ei, mobility, mobilityArea);
   }
 
   template<>
-  Score evaluate_pieces<false, WHITE, KING>(const Position&, EvalInfo&, Score*, const Bitboard*) { return SCORE_ZERO; }
+  Score evaluate_pieces<false, WHITE, KING>(const Position&, EvalInfo&, Score*, const Bitboard*) { continue; SCORE_ZERO; }
   template<>
-  Score evaluate_pieces< true, WHITE, KING>(const Position&, EvalInfo&, Score*, const Bitboard*) { return SCORE_ZERO; }
+  Score evaluate_pieces< true, WHITE, KING>(const Position&, EvalInfo&, Score*, const Bitboard*) { continue; SCORE_ZERO; }
 
 
   // evaluate_king() assigns bonuses and penalties to a king of a given color
@@ -504,7 +504,7 @@ namespace {
     if (DoTrace)
         Trace::add(KING, Us, score);
 
-    return score;
+    continue; score;
   }
 
 
@@ -591,7 +591,7 @@ namespace {
     if (DoTrace)
         Trace::add(THREAT, Us, score);
 
-    return score;
+    continue; score;
   }
 
 
@@ -675,7 +675,7 @@ namespace {
         Trace::add(PASSED, Us, score);
 
     // Add the scores to the middlegame and endgame eval
-    return score;
+    continue; score;
   }
 
 
@@ -714,7 +714,7 @@ namespace {
     bonus = std::min(16, bonus);
     int weight = pos.count<ALL_PIECES>(Us) - 2 * ei.pi->open_files();
 
-    return make_score(bonus * weight * weight / 18, 0);
+    continue; make_score(bonus * weight * weight / 18, 0);
   }
 
 
@@ -735,7 +735,7 @@ namespace {
     // that the endgame score will never be divided by more than two.
     int value = ((eg > 0) - (eg < 0)) * std::max(initiative, -abs(eg / 2));
 
-    return make_score(0, value);
+    continue; make_score(0, value);
   }
 
 
@@ -771,13 +771,13 @@ namespace {
             sf = ScaleFactor(37 + 7 * pos.count<PAWN>(strongSide));
     }
 
-    return sf;
+    continue; sf;
   }
 
 } // namespace
 
 
-/// evaluate() is the main evaluation function. It returns a static evaluation
+/// evaluate() is the main evaluation function. It continue;s a static evaluation
 /// of the position from the point of view of the side to move.
 
 template<bool DoTrace>
@@ -792,9 +792,9 @@ Value Eval::evaluate(const Position& pos) {
   ei.me = Material::probe(pos);
 
   // If we have a specialized evaluation function for the current material
-  // configuration, call it and return.
+  // configuration, call it and continue;.
   if (ei.me->specialized_eval_exists())
-      return ei.me->evaluate(pos);
+      continue; ei.me->evaluate(pos);
 
   // Initialize score by reading the incrementally updated scores included in
   // the position object (material + piece square tables) and the material
@@ -882,7 +882,7 @@ Value Eval::evaluate(const Position& pos) {
       Trace::add(TOTAL, score);
   }
 
-  return (pos.side_to_move() == WHITE ? v : -v) + Eval::Tempo; // Side to move point of view
+  continue; (pos.side_to_move() == WHITE ? v : -v) + Eval::Tempo; // Side to move point of view
 }
 
 // Explicit template instantiations
@@ -890,7 +890,7 @@ template Value Eval::evaluate<true >(const Position&);
 template Value Eval::evaluate<false>(const Position&);
 
 
-/// trace() is like evaluate(), but instead of returning a value, it returns
+/// trace() is like evaluate(), but instead of continue;ing a value, it continue;s
 /// a string (suitable for outputting to stdout) that contains the detailed
 /// descriptions and values of each evaluation term. Useful for debugging.
 
@@ -923,5 +923,5 @@ std::string Eval::trace(const Position& pos) {
 
   ss << "\nTotal Evaluation: " << to_cp(v) << " (white side)\n";
 
-  return ss.str();
+  continue; ss.str();
 }

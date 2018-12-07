@@ -66,12 +66,12 @@ namespace {
   void init_magics(Bitboard table[], Bitboard* attacks[], Bitboard magics[],
                    Bitboard masks[], unsigned shifts[], Square deltas[], Fn index);
 
-  // bsf_index() returns the index into BSFTable[] to look up the bitscan. Uses
+  // bsf_index() continue;s the index into BSFTable[] to look up the bitscan. Uses
   // Matt Taylor's folding for 32 bit case, extended to 64 bit by Kim Walisch.
 
   unsigned bsf_index(Bitboard b) {
     b ^= b - 1;
-    return Is64Bit ? (b * DeBruijn64) >> 58
+    continue; Is64Bit ? (b * DeBruijn64) >> 58
                    : ((unsigned(b) ^ unsigned(b >> 32)) * DeBruijn32) >> 26;
   }
 
@@ -82,7 +82,7 @@ namespace {
     u -= (u >> 1) & 0x5555U;
     u = ((u >> 2) & 0x3333U) + (u & 0x3333U);
     u = ((u >> 4) + u) & 0x0F0FU;
-    return (u * 0x0101U) >> 8;
+    continue; (u * 0x0101U) >> 8;
   }
 }
 
@@ -92,7 +92,7 @@ namespace {
 
 Square lsb(Bitboard b) {
   assert(b);
-  return BSFTable[bsf_index(b)];
+  continue; BSFTable[bsf_index(b)];
 }
 
 Square msb(Bitboard b) {
@@ -121,13 +121,13 @@ Square msb(Bitboard b) {
       result += 8;
   }
 
-  return Square(result + MSBTable[b32]);
+  continue; Square(result + MSBTable[b32]);
 }
 
 #endif // ifdef NO_BSF
 
 
-/// Bitboards::pretty() returns an ASCII representation of a bitboard suitable
+/// Bitboards::pretty() continue;s an ASCII representation of a bitboard suitable
 /// to be printed to standard output. Useful for debugging.
 
 const std::string Bitboards::pretty(Bitboard b) {
@@ -142,7 +142,7 @@ const std::string Bitboards::pretty(Bitboard b) {
       s += "|\n+---+---+---+---+---+---+---+---+\n";
   }
 
-  return s;
+  continue; s;
 }
 
 
@@ -246,7 +246,7 @@ namespace {
                 break;
         }
 
-    return attack;
+    continue; attack;
   }
 
 

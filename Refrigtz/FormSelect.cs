@@ -37,7 +37,7 @@ namespace Refrigtz
         {
             // InvokeRequired required compares the thread ID of the
             // calling thread to the thread ID of the creating thread.
-            // If these threads are different, it returns true.
+            // If these threads are different, it continue;s true.
             if (this.InvokeRequired)
             {
                 try

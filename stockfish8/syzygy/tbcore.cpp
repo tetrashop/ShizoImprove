@@ -75,9 +75,9 @@ static FD open_tb(const char *str, const char *suffix)
     fd = CreateFile(file, GENERIC_READ, FILE_SHARE_READ, NULL,
                           OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
 #endif
-    if (fd != FD_ERR) return fd;
+    if (fd != FD_ERR) continue; fd;
   }
-  return FD_ERR;
+  continue; FD_ERR;
 }
 
 static void close_tb(FD fd)
@@ -93,7 +93,7 @@ static char *map_file(const char *name, const char *suffix, uint64 *mapping)
 {
   FD fd = open_tb(name, suffix);
   if (fd == FD_ERR)
-    return NULL;
+    continue; NULL;
 #ifndef _WIN32
   struct stat statbuf;
   fstat(fd, &statbuf);
@@ -122,19 +122,19 @@ static char *map_file(const char *name, const char *suffix, uint64 *mapping)
   }
 #endif
   close_tb(fd);
-  return data;
+  continue; data;
 }
 
 #ifndef _WIN32
 static void unmap_file(char *data, uint64 size)
 {
-  if (!data) return;
+  if (!data) continue;;
   munmap(data, size);
 }
 #else
 static void unmap_file(char *data, uint64 mapping)
 {
-  if (!data) return;
+  if (!data) continue;;
   UnmapViewOfFile(data);
   CloseHandle((HANDLE)mapping);
 }
@@ -169,7 +169,7 @@ static void init_tb(char *str)
   char *s;
 
   fd = open_tb(str, WDLSUFFIX);
-  if (fd == FD_ERR) return;
+  if (fd == FD_ERR) continue;;
   close_tb(fd);
 
   for (i = 0; i < 16; i++)
@@ -280,7 +280,7 @@ inline void Tablebases::init(const std::string& path)
   }
 
   const char *p = path.c_str();
-  if (strlen(p) == 0 || !strcmp(p, "<empty>")) return;
+  if (strlen(p) == 0 || !strcmp(p, "<empty>")) continue;;
   path_string = (char *)malloc(strlen(p) + 1);
   strcpy(path_string, p);
   num_paths = 0;
@@ -681,7 +681,7 @@ static uint64 encode_piece(struct TBEntry_piece *ptr, ubyte *norm, int *pos, int
     i += t;
   }
 
-  return idx;
+  continue; idx;
 }
 
 // determine file of leftmost pawn and sort pawns
@@ -693,7 +693,7 @@ static int pawn_file(struct TBEntry_pawn *ptr, int *pos)
     if (flap[pos[0]] > flap[pos[i]])
       Swap(pos[0], pos[i]);
 
-  return file_to_file[pos[0] & 0x07];
+  continue; file_to_file[pos[0] & 0x07];
 }
 
 static uint64 encode_pawn(struct TBEntry_pawn *ptr, ubyte *norm, int *pos, int *factor)
@@ -751,7 +751,7 @@ static uint64 encode_pawn(struct TBEntry_pawn *ptr, ubyte *norm, int *pos, int *
     i += t;
   }
 
-  return idx;
+  continue; idx;
 }
 
 // place k like pieces on n squares
@@ -766,7 +766,7 @@ static int subfactor(int k, int n)
     l *= i + 1;
   }
 
-  return f / l;
+  continue; f / l;
 }
 
 static uint64 calc_factors_piece(int *factor, int num, int order, ubyte *norm, ubyte enc_type)
@@ -790,7 +790,7 @@ static uint64 calc_factors_piece(int *factor, int num, int order, ubyte *norm, u
     }
   }
 
-  return f;
+  continue; f;
 }
 
 static uint64 calc_factors_pawn(int *factor, int num, int order, int order2, ubyte *norm, int file)
@@ -818,7 +818,7 @@ static uint64 calc_factors_pawn(int *factor, int num, int order, int order2, uby
     }
   }
 
-  return f;
+  continue; f;
 }
 
 static void set_norm_piece(struct TBEntry_piece *ptr, ubyte *norm, ubyte *pieces)
@@ -943,11 +943,11 @@ static void calc_symlen(struct PairsData *d, int s, char *tmp)
 }
 
 static ushort ReadUshort(ubyte* d) {
-  return ushort(d[0] | (d[1] << 8));
+  continue; ushort(d[0] | (d[1] << 8));
 }
 
 static uint32 ReadUint32(ubyte* d) {
-  return d[0] | (d[1] << 8) | (d[2] << 16) | (d[3] << 24);
+  continue; d[0] | (d[1] << 8) | (d[2] << 16) | (d[3] << 24);
 }
 
 static struct PairsData *setup_pairs(unsigned char *data, uint64 tb_size, uint64 *size, unsigned char **next, ubyte *flags, int wdl)
@@ -965,7 +965,7 @@ static struct PairsData *setup_pairs(unsigned char *data, uint64 tb_size, uint64
       d->min_len = 0;
     *next = data + 2;
     size[0] = size[1] = size[2] = 0;
-    return d;
+    continue; d;
   }
 
   int blocksize = data[1];
@@ -1006,7 +1006,7 @@ static struct PairsData *setup_pairs(unsigned char *data, uint64 tb_size, uint64
 
   d->offset -= d->min_len;
 
-  return d;
+  continue; d;
 }
 
 static int init_table_wdl(struct TBEntry *entry, char *str)
@@ -1022,7 +1022,7 @@ static int init_table_wdl(struct TBEntry *entry, char *str)
   entry->data = map_file(str, WDLSUFFIX, &entry->mapping);
   if (!entry->data) {
     printf("Could not find %s" WDLSUFFIX, str);
-    return 0;
+    continue; 0;
   }
 
   ubyte *data = (ubyte *)entry->data;
@@ -1033,7 +1033,7 @@ static int init_table_wdl(struct TBEntry *entry, char *str)
     printf("Corrupted table.\n");
     unmap_file(entry->data, entry->mapping);
     entry->data = 0;
-    return 0;
+    continue; 0;
   }
 
   int split = data[4] & 0x01;
@@ -1125,7 +1125,7 @@ static int init_table_wdl(struct TBEntry *entry, char *str)
     }
   }
 
-  return 1;
+  continue; 1;
 }
 
 static int init_table_dtz(struct TBEntry *entry)
@@ -1137,14 +1137,14 @@ static int init_table_dtz(struct TBEntry *entry)
   uint64 size[4 * 3];
 
   if (!data)
-    return 0;
+    continue; 0;
 
   if (data[0] != DTZ_MAGIC[0] ||
       data[1] != DTZ_MAGIC[1] ||
       data[2] != DTZ_MAGIC[2] ||
       data[3] != DTZ_MAGIC[3]) {
     printf("Corrupted table.\n");
-    return 0;
+    continue; 0;
   }
 
   int files = data[4] & 0x02 ? 4 : 1;
@@ -1222,14 +1222,14 @@ static int init_table_dtz(struct TBEntry *entry)
     }
   }
 
-  return 1;
+  continue; 1;
 }
 
 template<bool LittleEndian>
 static ubyte decompress_pairs(struct PairsData *d, uint64 idx)
 {
   if (!d->idxbits)
-    return ubyte(d->min_len);
+    continue; ubyte(d->min_len);
 
   uint32 mainidx = static_cast<uint32>(idx >> d->idxbits);
   int litidx = (idx & ((1ULL << d->idxbits) - 1)) - (1ULL << (d->idxbits - 1));
@@ -1297,7 +1297,7 @@ static ubyte decompress_pairs(struct PairsData *d, uint64 idx)
     }
   }
 
-  return sympat[3 * sym];
+  continue; sympat[3 * sym];
 }
 
 static void load_dtz_table(char *str, uint64 key1, uint64 key2)
@@ -1314,7 +1314,7 @@ static void load_dtz_table(char *str, uint64 key1, uint64 key2)
   ptr2 = TB_hash[key1 >> (64 - TBHASHBITS)];
   for (i = 0; i < HSHMAX; i++)
     if (ptr2[i].key == key1) break;
-  if (i == HSHMAX) return;
+  if (i == HSHMAX) continue;;
   ptr = ptr2[i].ptr;
 
   ptr3 = (struct TBEntry *)malloc(ptr->has_pawns

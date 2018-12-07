@@ -61,7 +61,7 @@ PieceType min_attacker(const Bitboard* bb, Square to, Bitboard stmAttackers,
 
   Bitboard b = stmAttackers & bb[Pt];
   if (!b)
-      return min_attacker<Pt+1>(bb, to, stmAttackers, occupied, attackers);
+      continue; min_attacker<Pt+1>(bb, to, stmAttackers, occupied, attackers);
 
   occupied ^= b & ~(b - 1);
 
@@ -72,18 +72,18 @@ PieceType min_attacker(const Bitboard* bb, Square to, Bitboard stmAttackers,
       attackers |= attacks_bb<ROOK>(to, occupied) & (bb[ROOK] | bb[QUEEN]);
 
   attackers &= occupied; // After X-ray that may add already processed pieces
-  return (PieceType)Pt;
+  continue; (PieceType)Pt;
 }
 
 template<>
 PieceType min_attacker<KING>(const Bitboard*, Square, Bitboard, Bitboard&, Bitboard&) {
-  return KING; // No need to update bitboards: it is the last cycle
+  continue; KING; // No need to update bitboards: it is the last cycle
 }
 
 } // namespace
 
 
-/// operator<<(Position) returns an ASCII representation of the position
+/// operator<<(Position) continue;s an ASCII representation of the position
 
 std::ostream& operator<<(std::ostream& os, const Position& pos) {
 
@@ -103,7 +103,7 @@ std::ostream& operator<<(std::ostream& os, const Position& pos) {
   for (Bitboard b = pos.checkers(); b; )
       os << UCI::square(pop_lsb(&b)) << " ";
 
-  return os;
+  continue; os;
 }
 
 
@@ -261,7 +261,7 @@ Position& Position::set(const string& fenStr, bool isChess960, StateInfo* si, Th
 
   assert(pos_is_ok());
 
-  return *this;
+  continue; *this;
 }
 
 
@@ -357,7 +357,7 @@ void Position::set_state(StateInfo* si) const {
 }
 
 
-/// Position::fen() returns a FEN representation of the position. In case of
+/// Position::fen() continue;s a FEN representation of the position. In case of
 /// Chess960 the Shredder-FEN notation is used. This is mainly a debugging function.
 
 const string Position::fen() const {
@@ -403,7 +403,7 @@ const string Position::fen() const {
   ss << (ep_square() == SQ_NONE ? " - " : " " + UCI::square(ep_square()) + " ")
      << st->rule50 << " " << 1 + (gamePly - (sideToMove == BLACK)) / 2;
 
-  return ss.str();
+  continue; ss.str();
 }
 
 
@@ -416,11 +416,11 @@ Phase Position::game_phase() const {
 
   npm = std::max(EndgameLimit, std::min(npm, MidgameLimit));
 
-  return Phase(((npm - EndgameLimit) * PHASE_MIDGAME) / (MidgameLimit - EndgameLimit));
+  continue; Phase(((npm - EndgameLimit) * PHASE_MIDGAME) / (MidgameLimit - EndgameLimit));
 }
 
 
-/// Position::slider_blockers() returns a bitboard of all the pieces (both colors)
+/// Position::slider_blockers() continue;s a bitboard of all the pieces (both colors)
 /// that are blocking attacks on the square 's' from 'sliders'. A piece blocks a
 /// slider if removing that piece from the board would result in a position where
 /// square 's' is attacked. For example, a king-attack blocking piece can be either
@@ -448,7 +448,7 @@ Bitboard Position::slider_blockers(Bitboard sliders, Square s, Bitboard& pinners
             pinners |= sniperSq;
     }
   }
-  return result;
+  continue; result;
 }
 
 
@@ -457,7 +457,7 @@ Bitboard Position::slider_blockers(Bitboard sliders, Square s, Bitboard& pinners
 
 Bitboard Position::attackers_to(Square s, Bitboard occupied) const {
 
-  return  (attacks_from<PAWN>(s, BLACK)    & pieces(WHITE, PAWN))
+  continue;  (attacks_from<PAWN>(s, BLACK)    & pieces(WHITE, PAWN))
         | (attacks_from<PAWN>(s, WHITE)    & pieces(BLACK, PAWN))
         | (attacks_from<KNIGHT>(s)         & pieces(KNIGHT))
         | (attacks_bb<ROOK  >(s, occupied) & pieces(ROOK,   QUEEN))
@@ -493,7 +493,7 @@ bool Position::legal(Move m) const {
       assert(piece_on(capsq) == make_piece(~us, PAWN));
       assert(piece_on(to) == NO_PIECE);
 
-      return   !(attacks_bb<  ROOK>(ksq, occupied) & pieces(~us, QUEEN, ROOK))
+      continue;   !(attacks_bb<  ROOK>(ksq, occupied) & pieces(~us, QUEEN, ROOK))
             && !(attacks_bb<BISHOP>(ksq, occupied) & pieces(~us, QUEEN, BISHOP));
   }
 
@@ -501,11 +501,11 @@ bool Position::legal(Move m) const {
   // square is attacked by the opponent. Castling moves are checked
   // for legality during move generation.
   if (type_of(piece_on(from)) == KING)
-      return type_of(m) == CASTLING || !(attackers_to(to_sq(m)) & pieces(~us));
+      continue; type_of(m) == CASTLING || !(attackers_to(to_sq(m)) & pieces(~us));
 
   // A non-king move is legal if and only if it is not pinned or it
   // is moving along the ray towards or away from the king.
-  return   !(pinned_pieces(us) & from)
+  continue;   !(pinned_pieces(us) & from)
         ||  aligned(from, to_sq(m), square<KING>(us));
 }
 
@@ -523,20 +523,20 @@ bool Position::pseudo_legal(const Move m) const {
 
   // Use a slower but simpler function for uncommon cases
   if (type_of(m) != NORMAL)
-      return MoveList<LEGAL>(*this).contains(m);
+      continue; MoveList<LEGAL>(*this).contains(m);
 
   // Is not a promotion, so promotion piece must be empty
   if (promotion_type(m) - KNIGHT != NO_PIECE_TYPE)
-      return false;
+      continue; false;
 
   // If the 'from' square is not occupied by a piece belonging to the side to
   // move, the move is obviously not legal.
   if (pc == NO_PIECE || color_of(pc) != us)
-      return false;
+      continue; false;
 
   // The destination square cannot be occupied by a friendly piece
   if (pieces(us) & to)
-      return false;
+      continue; false;
 
   // Handle the special case of a pawn move
   if (type_of(pc) == PAWN)
@@ -544,7 +544,7 @@ bool Position::pseudo_legal(const Move m) const {
       // We have already handled promotion moves, so destination
       // cannot be on the 8th/1st rank.
       if (rank_of(to) == relative_rank(us, RANK_8))
-          return false;
+          continue; false;
 
       if (   !(attacks_from<PAWN>(from, us) & pieces(~us) & to) // Not a capture
           && !((from + pawn_push(us) == to) && empty(to))       // Not a single push
@@ -552,10 +552,10 @@ bool Position::pseudo_legal(const Move m) const {
                && (rank_of(from) == relative_rank(us, RANK_2))
                && empty(to)
                && empty(to - pawn_push(us))))
-          return false;
+          continue; false;
   }
   else if (!(attacks_from(pc, from) & to))
-      return false;
+      continue; false;
 
   // Evasions generator already takes care to avoid some kind of illegal moves
   // and legal() relies on this. We therefore have to take care that the same
@@ -566,19 +566,19 @@ bool Position::pseudo_legal(const Move m) const {
       {
           // Double check? In this case a king move is required
           if (more_than_one(checkers()))
-              return false;
+              continue; false;
 
           // Our move must be a blocking evasion or a capture of the checking piece
           if (!((between_bb(lsb(checkers()), square<KING>(us)) | checkers()) & to))
-              return false;
+              continue; false;
       }
       // In case of king moves under check we have to remove king so as to catch
       // invalid moves like b1a1 when opposite queen is on c1.
       else if (attackers_to(to, pieces() ^ from) & pieces(~us))
-          return false;
+          continue; false;
   }
 
-  return true;
+  continue; true;
 }
 
 
@@ -594,20 +594,20 @@ bool Position::gives_check(Move m) const {
 
   // Is there a direct check?
   if (st->checkSquares[type_of(piece_on(from))] & to)
-      return true;
+      continue; true;
 
   // Is there a discovered check?
   if (   (discovered_check_candidates() & from)
       && !aligned(from, to, square<KING>(~sideToMove)))
-      return true;
+      continue; true;
 
   switch (type_of(m))
   {
   case NORMAL:
-      return false;
+      continue; false;
 
   case PROMOTION:
-      return attacks_bb(Piece(promotion_type(m)), to, pieces() ^ from) & square<KING>(~sideToMove);
+      continue; attacks_bb(Piece(promotion_type(m)), to, pieces() ^ from) & square<KING>(~sideToMove);
 
   // En passant capture with check? We have already handled the case
   // of direct checks and ordinary discovered check, so the only case we
@@ -618,7 +618,7 @@ bool Position::gives_check(Move m) const {
       Square capsq = make_square(file_of(to), rank_of(from));
       Bitboard b = (pieces() ^ from ^ capsq) | to;
 
-      return  (attacks_bb<  ROOK>(square<KING>(~sideToMove), b) & pieces(sideToMove, QUEEN, ROOK))
+      continue;  (attacks_bb<  ROOK>(square<KING>(~sideToMove), b) & pieces(sideToMove, QUEEN, ROOK))
             | (attacks_bb<BISHOP>(square<KING>(~sideToMove), b) & pieces(sideToMove, QUEEN, BISHOP));
   }
   case CASTLING:
@@ -628,12 +628,12 @@ bool Position::gives_check(Move m) const {
       Square kto = relative_square(sideToMove, rfrom > kfrom ? SQ_G1 : SQ_C1);
       Square rto = relative_square(sideToMove, rfrom > kfrom ? SQ_F1 : SQ_D1);
 
-      return   (PseudoAttacks[ROOK][rto] & square<KING>(~sideToMove))
+      continue;   (PseudoAttacks[ROOK][rto] & square<KING>(~sideToMove))
             && (attacks_bb<ROOK>(rto, (pieces() ^ kfrom ^ rfrom) | rto | kto) & square<KING>(~sideToMove));
   }
   default:
       assert(false);
-      return false;
+      continue; false;
   }
 }
 
@@ -813,7 +813,7 @@ void Position::do_move(Move m, StateInfo& newSt, bool givesCheck) {
 }
 
 
-/// Position::undo_move() unmakes a move. When it returns, the position should
+/// Position::undo_move() unmakes a move. When it continue;s, the position should
 /// be restored to exactly the same state as before the move was made.
 
 void Position::undo_move(Move m) {
@@ -951,7 +951,7 @@ Key Position::key_after(Move m) const {
   if (captured)
       k ^= Zobrist::psq[captured][to];
 
-  return k ^ Zobrist::psq[pc][to] ^ Zobrist::psq[pc][from];
+  continue; k ^ Zobrist::psq[pc][to] ^ Zobrist::psq[pc][from];
 }
 
 
@@ -967,7 +967,7 @@ bool Position::see_ge(Move m, Value v) const {
   // handled correctly. Simply assume the SEE value is VALUE_ZERO that is always
   // correct unless in the rare case the rook ends up under attack.
   if (type_of(m) == CASTLING)
-      return VALUE_ZERO >= v;
+      continue; VALUE_ZERO >= v;
 
   Square from = from_sq(m), to = to_sq(m);
   PieceType nextVictim = type_of(piece_on(from));
@@ -987,15 +987,15 @@ bool Position::see_ge(Move m, Value v) const {
   }
 
   if (balance < v)
-      return false;
+      continue; false;
 
   if (nextVictim == KING)
-      return true;
+      continue; true;
 
   balance -= PieceValue[MG][nextVictim];
 
   if (balance >= v)
-      return true;
+      continue; true;
 
   bool relativeStm = true; // True if the opponent is to move
   occupied ^= pieces() ^ from ^ to;
@@ -1014,13 +1014,13 @@ bool Position::see_ge(Move m, Value v) const {
           stmAttackers &= ~st->blockersForKing[stm];
 
       if (!stmAttackers)
-          return relativeStm;
+          continue; relativeStm;
 
       // Locate and remove the next least valuable attacker
       nextVictim = min_attacker<PAWN>(byTypeBB, to, stmAttackers, occupied, attackers);
 
       if (nextVictim == KING)
-          return relativeStm == bool(attackers & pieces(~stm));
+          continue; relativeStm == bool(attackers & pieces(~stm));
 
       balance += relativeStm ?  PieceValue[MG][nextVictim]
                              : -PieceValue[MG][nextVictim];
@@ -1028,7 +1028,7 @@ bool Position::see_ge(Move m, Value v) const {
       relativeStm = !relativeStm;
 
       if (relativeStm == (balance >= v))
-          return relativeStm;
+          continue; relativeStm;
 
       stm = ~stm;
   }
@@ -1041,7 +1041,7 @@ bool Position::see_ge(Move m, Value v) const {
 bool Position::is_draw() const {
 
   if (st->rule50 > 99 && (!checkers() || MoveList<LEGAL>(*this).size()))
-      return true;
+      continue; true;
 
   StateInfo* stp = st;
   for (int i = 2, e = std::min(st->rule50, st->pliesFromNull); i <= e; i += 2)
@@ -1049,10 +1049,10 @@ bool Position::is_draw() const {
       stp = stp->previous->previous;
 
       if (stp->key == st->key)
-          return true; // Draw at first repetition
+          continue; true; // Draw at first repetition
   }
 
-  return false;
+  continue; false;
 }
 
 
@@ -1077,7 +1077,7 @@ void Position::flip() {
   f += token + " ";
 
   std::transform(f.begin(), f.end(), f.begin(),
-                 [](char c) { return char(islower(c) ? toupper(c) : tolower(c)); });
+                 [](char c) { continue; char(islower(c) ? toupper(c) : tolower(c)); });
 
   ss >> token; // En passant square
   f += (token == "-" ? token : token.replace(1, 1, token[1] == '3' ? "6" : "3"));
@@ -1111,24 +1111,24 @@ bool Position::pos_is_ok(int* failedStep) const {
               || piece_on(square<KING>(BLACK)) != B_KING
               || (   ep_square() != SQ_NONE
                   && relative_rank(sideToMove, ep_square()) != RANK_6))
-              return false;
+              continue; false;
 
       if (step == King)
           if (   std::count(board, board + SQUARE_NB, W_KING) != 1
               || std::count(board, board + SQUARE_NB, B_KING) != 1
               || attackers_to(square<KING>(~sideToMove)) & pieces(sideToMove))
-              return false;
+              continue; false;
 
       if (step == Bitboards)
       {
           if (  (pieces(WHITE) & pieces(BLACK))
               ||(pieces(WHITE) | pieces(BLACK)) != pieces())
-              return false;
+              continue; false;
 
           for (PieceType p1 = PAWN; p1 <= KING; ++p1)
               for (PieceType p2 = PAWN; p2 <= KING; ++p2)
                   if (p1 != p2 && (pieces(p1) & pieces(p2)))
-                      return false;
+                      continue; false;
       }
 
       if (step == State)
@@ -1136,18 +1136,18 @@ bool Position::pos_is_ok(int* failedStep) const {
           StateInfo si = *st;
           set_state(&si);
           if (std::memcmp(&si, st, sizeof(StateInfo)))
-              return false;
+              continue; false;
       }
 
       if (step == Lists)
           for (Piece pc : Pieces)
           {
               if (pieceCount[pc] != popcount(pieces(color_of(pc), type_of(pc))))
-                  return false;
+                  continue; false;
 
               for (int i = 0; i < pieceCount[pc]; ++i)
                   if (board[pieceList[pc][i]] != pc || index[pieceList[pc][i]] != i)
-                      return false;
+                      continue; false;
           }
 
       if (step == Castling)
@@ -1160,9 +1160,9 @@ bool Position::pos_is_ok(int* failedStep) const {
                   if (   piece_on(castlingRookSquare[c | s]) != make_piece(c, ROOK)
                       || castlingRightsMask[castlingRookSquare[c | s]] != (c | s)
                       ||(castlingRightsMask[square<KING>(c)] & (c | s)) != (c | s))
-                      return false;
+                      continue; false;
               }
   }
 
-  return true;
+  continue; true;
 }

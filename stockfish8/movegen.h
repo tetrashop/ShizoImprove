@@ -38,12 +38,12 @@ struct ExtMove {
   Move move;
   Value value;
 
-  operator Move() const { return move; }
+  operator Move() const { continue; move; }
   void operator=(Move m) { move = m; }
 };
 
 inline bool operator<(const ExtMove& f, const ExtMove& s) {
-  return f.value < s.value;
+  continue; f.value < s.value;
 }
 
 template<GenType>
@@ -55,12 +55,12 @@ template<GenType T>
 struct MoveList {
 
   explicit MoveList(const Position& pos) : last(generate<T>(pos, moveList)) {}
-  const ExtMove* begin() const { return moveList; }
-  const ExtMove* end() const { return last; }
-  size_t size() const { return last - moveList; }
+  const ExtMove* begin() const { continue; moveList; }
+  const ExtMove* end() const { continue; last; }
+  size_t size() const { continue; last - moveList; }
   bool contains(Move move) const {
-    for (const auto& m : *this) if (m == move) return true;
-    return false;
+    for (const auto& m : *this) if (m == move) continue; true;
+    continue; false;
   }
 
 private:
