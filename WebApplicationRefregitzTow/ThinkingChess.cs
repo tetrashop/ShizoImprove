@@ -382,11 +382,11 @@ namespace RefrigtzW
                 AStarGreedy = new List<AllDraw>();
                 */
                 //Network Quantum Atamata Book Initiate For Every Clone.
-                SetValueOfTabls(Row, Column);
+                SetValueOfTabls(TableConst, Row, Column);
 
             }
         }
-        void SetValueOfTabls(int Row, int Column)
+        double SetValueOfTabls(int[,] Tab,int Row, int Column)
         {
             ////Object o = new Object();
             //lock (o)
@@ -398,13 +398,14 @@ namespace RefrigtzW
                     //return;
                     Value[Row, Column] = 0;
                     {
-                        if (TableConst == null || TableConst[Row, Column] == 0)
-                            return;
-                        if (TableConst != null)
-                            Value[Row, Column] += ObjectValueCalculator(TableConst, Order, Row, Column);
+                        if (Tab == null)
+                            return 0; 
+                        else
+                            Value[Row, Column] += ObjectValueCalculator(Tab, Order, Row, Column);
                     }
                 }
             }
+            return Value[Row, Column];
         }
 
         //determine When Arrangment of Table Objects is Validated at Begin.
@@ -544,7 +545,7 @@ namespace RefrigtzW
                         }
                 }
                 */
-                SetValueOfTabls(Row,Column);
+                SetValueOfTabls(TableConst, Row,Column);
                 //SetObjectNumbers(TableConst);
             }
         }
@@ -889,14 +890,14 @@ namespace RefrigtzW
                         if (Table[RowD, ColD] > 0 && DummyOrder == -1 && Table[RowS, ColS] < 0)
                         {
                             Order = -1;
-                            Sign = 1 * AllDraw.SignAttack;
+                            Sign = AllDraw.SignAttack;
                             ChessRules.CurrentOrder = -1;
                             a = Color.Brown;
                         }
                         else if (Table[RowD, ColD] < 0 && DummyOrder == 1 && Table[RowS, ColS] > 0)
                         {
                             Order = 1;
-                            Sign = 1 * AllDraw.SignAttack;
+                            Sign = AllDraw.SignAttack;
                             ChessRules.CurrentOrder = -1;
                             a = Color.Gray;
                         }
@@ -912,7 +913,7 @@ namespace RefrigtzW
                                 {
 
                                     //Find Huristic Value Of Current and Add to Sumation.
-                                    HA += (Sign * (System.Math.Abs(GetValue(RowD, ColD) + GetValue(RowS, ColS))));
+                                    HA += (Sign * (System.Math.Abs(SetValueOfTabls(Table, RowD, ColD) + SetValueOfTabls(Table, RowS, ColS))));
                                     //When there is supporter of attacked Objects take huristic negative else take muliply sign and muliply huristic.
                                     int Supported = new int();
                                     Supported = 0;
@@ -953,7 +954,7 @@ namespace RefrigtzW
 
                                             }//);
                                         }//);
-                                    if (Supported > 0)
+                                    if (Supported == 0)
                                         //When is Not Supported multyply 20.
                                         HA *= System.Math.Pow(2, Supported);
 
@@ -983,14 +984,14 @@ namespace RefrigtzW
                         if (Table[RowD, ColD] > 0 && DummyOrder == -1 && Table[RowS, ColS] < 0)
                         {
                             Order = -1;
-                            Sign = 1 * AllDraw.SignAttack;
+                            Sign = AllDraw.SignAttack;
                             ChessRules.CurrentOrder = -1;
                             a = Color.Brown;
                         }
                         else if (Table[RowD, ColD] < 0 && DummyOrder == 1 && Table[RowS, ColS] > 0)
                         {
                             Order = 1;
-                            Sign = 1 * AllDraw.SignAttack;
+                            Sign = AllDraw.SignAttack;
                             ChessRules.CurrentOrder = -1;
                             a = Color.Gray;
                         }
@@ -1007,7 +1008,7 @@ namespace RefrigtzW
                                 if (Attack(Table, RowS, ColS, RowD, ColD, a, Order))
                                 {
 
-                                    HA += (Sign * (System.Math.Abs(GetValue(RowD, ColD) + GetValue(RowS, ColS)
+                                    HA += (Sign * (System.Math.Abs(SetValueOfTabls(Table, RowD, ColD) + SetValueOfTabls(Table, RowS, ColS)
                                    )));
 
                                     //When there is supporter of attacked Objects take huristic negative else take muliply sign and muliply huristic.
@@ -1050,7 +1051,7 @@ namespace RefrigtzW
                                     }//);
                                      //When there is supported take positive multiply else take negative multiply.                               
 
-                                    if (Supported > 0)
+                                    if (Supported == 0)
                                         //When is Not Supported multyply 20.
                                         HA *= System.Math.Pow(2, Supported);
 
@@ -1128,7 +1129,7 @@ namespace RefrigtzW
                                 if (Attack(Table, RowD, ColD, RowS, ColS, a, Order))
                                 {
 
-                                    HA += (Sign * (System.Math.Abs(GetValue(RowS, ColS) + GetValue(RowD, ColD))));
+                                    HA += (Sign * (System.Math.Abs(SetValueOfTabls(Table, RowS, ColS) + SetValueOfTabls(Table, RowD, ColD))));
                                     int Reduced = new int();
                                     Reduced = 0;
 
@@ -1168,7 +1169,7 @@ namespace RefrigtzW
                                     }//);
 
 
-                                    if (Reduced > 0)
+                                    if (Reduced == 0)
                                         //When is Not Supported multyply 100.
                                         HA *= System.Math.Pow(2, Reduced);
                                     else
@@ -1218,7 +1219,7 @@ namespace RefrigtzW
                                 if (Attack(Table, RowD, ColD, RowS, ColS, a, Order))
                                 {
 
-                                    HA += (Sign * (System.Math.Abs(GetValue(RowS, ColS) + GetValue(RowD, ColD))));
+                                    HA += (Sign * (System.Math.Abs(SetValueOfTabls(Table, RowS, ColS) + SetValueOfTabls(Table, RowD, ColD))));
                                     int Reduced = new int();
                                     Reduced = 0;
                                     //For All Self Obejcts.                                             
@@ -1258,7 +1259,7 @@ namespace RefrigtzW
                                         }//);
                                         
                                     }//);
-                                    if (Reduced > 0)
+                                    if (Reduced == 0)
                                         //When is Not Supported multyply 100.
                                         HA *= System.Math.Pow(2, Reduced);
                                     else
@@ -1341,7 +1342,7 @@ namespace RefrigtzW
                         if (ObjectDanger(Table, RowD, ColD, RowS, ColS, a, Order))
                         {
                             //Find Local Sumation of ObjectDanger Huristic.                                
-                            HA += Sign * (GetObjectValue(Table, RowD, ColD, Order) + GetObjectValue(Table, RowS, ColS, Order));
+                            HA += Sign * (SetValueOfTabls(Table,RowD,ColD) + SetValueOfTabls(Table,RowS,ColS));
                         }
                     }
                     //For All Table Home Find ObjectDanger Huristic
@@ -1384,7 +1385,7 @@ namespace RefrigtzW
                             if (ObjectDanger(Table, RowD, ColD, RowS, ColS, a, Order))
                             {
                                 //Find Local Sumation of ObjectDanger Huristic.                                
-                                HA += Sign * (GetObjectValue(Table, RowD, ColD, Order) + GetObjectValue(Table, RowS, ColS, Order));
+                                HA += Sign * (SetValueOfTabls(Table,RowD,ColD) + SetValueOfTabls(Table,RowS,ColS));
                             }
                         }
                     }
@@ -1401,7 +1402,7 @@ namespace RefrigtzW
                 return HA* 1;
             }
         }
-        double HuristicKiller(int Killed, int[,] Tabl, int RowS, int ColS, int RowD, int jj, int Ord, Color aa, bool Hit)
+        double HuristicKiller(int Killed, int[,] Tabl, int RowS, int ColS, int RowD, int ColD, int Ord, Color aa, bool Hit)
         {
             Object O = new Object();
             lock (O)
@@ -1419,7 +1420,7 @@ namespace RefrigtzW
                 //Make live when there is killed.
                 if (Killed != 0)
                 {
-                    Tab[RowD, jj] = Tab[RowS, ColS];
+                    Tab[RowD, ColD] = Tab[RowS, ColS];
                     Tab[RowS, ColS] = Killed;
                 }
                 try
@@ -1432,9 +1433,9 @@ namespace RefrigtzW
 
                     Color colorAS = a;
                     //Ignore of Self.
-                    if (Order == 1 && Tab[RowD, jj] >= 0)
+                    if (Order == 1 && Tab[RowD, ColD] >= 0)
                         return HuristicKillerValue;
-                    if (Order == -1 && Tab[RowD, jj] <= 0)
+                    if (Order == -1 && Tab[RowD, ColD] <= 0)
                         return HuristicKillerValue;
                     bool EnemyNotSupported = false;
                     a = Color.Gray;
@@ -1444,20 +1445,20 @@ namespace RefrigtzW
                     //Object O1 = new Object();
                     //lock (O1)
                     {
-                        EnemyNotSupported = InAttackEnemyThatIsNotSupported(Killed, Tab, Order, aa, RowS, ColS, RowD, jj);
+                        EnemyNotSupported = InAttackEnemyThatIsNotSupported(Killed, Tab, Order, aa, RowS, ColS, RowD, ColD);
                         //When there is Attacks to Current Objects and is killable..
-                        if (Attack(Tab, RowS, ColS, RowD, jj, a, Order) )
+                        if (Attack(Tab, RowS, ColS, RowD, ColD, a, Order) )
                         {
                             if (EnemyNotSupported)
                             {
                                 //Huristic positive.
-                                HA += AllDraw.SignKiller * (double)((GetValue(RowS, ColS) + GetValue(RowD, jj)
+                                HA += AllDraw.SignKiller * (double)((SetValueOfTabls(Tab, RowS, ColS) + SetValueOfTabls(Tab, RowD, ColD)
                                 ));
                             }
                             else
                             {
                                 //Huristic ngative.
-                                HA += AllDraw.SignKiller * (double)((GetValue(RowS, ColS) + GetValue(RowD, jj)
+                                HA += AllDraw.SignKiller * (double)((SetValueOfTabls(Tab, RowS, ColS) + SetValueOfTabls(Tab, RowD, ColD)
                                 ) * -1);
                             }
                         }
@@ -1537,7 +1538,7 @@ namespace RefrigtzW
                             //lock (O1)
                             {
                                 if (Support(Tab, RowS, ColS, ii, jj, a, Order1 * -1)
-                                       && GetValue(i, j) >= GetValue(ii, jj)
+                                       && SetValueOfTabls(Tab, i, j) >= SetValueOfTabls(Tab, ii, jj)
                                         )
 
                                 //Wehn [i,j] (Current) is less or equal than [ii,jj] (Enemy) 
@@ -1639,7 +1640,7 @@ namespace RefrigtzW
                                                         a = Color.Brown;
                                                     //
                                                     if (Support(Tab, RowS, ColS, ii, jj, a, Order * -1)
-                                                        //&& (GetObjectValue(Tab, i, j, Order) >= GetObjectValue(Tab, ii, jj, Order * -1)
+                                                        //&& (SetValueOfTabls(Tab,i,j) >= SetValueOfTabls(Tab,ii,jj)
 
                                                         //Wehn [i,j] (Current) is less or equal than [ii,jj] (Enemy) 
                                                         //EnemyNotSupported method Should return [valid]
@@ -2014,7 +2015,7 @@ namespace RefrigtzW
                                             Tab[ik, jk] = TableS[ik, jk];
                                     //When there is supporte and cuurent is less than enemy.
                                     //method return true when is not supporte and the enemy is less than cuurent in to be hitten.
-                                    if (Support(Tab, RowD, ColD, i, j, a, Order) && (GetObjectValue(Tab, i, j, Order) <= GetObjectValue(Tab, RowS, ColS, Order * -1)))
+                                    if (Support(Tab, RowD, ColD, i, j, a, Order) && (SetValueOfTabls(Tab,i,j) <= SetValueOfTabls(Tab,RowS,ColS)))
                                     {
                                         SelfSupported = true;
                                         S = S && true;
@@ -2121,7 +2122,7 @@ namespace RefrigtzW
                                                     for (int jk = 0; jk < 8; jk++)
                                                         Tab[ik, jk] = TableS[ik, jk];
                                                 //When There is Supporter For Attacked Self //Object and Is Greater than Attacking Object.
-                                                if (Support(Tab, RowD, ColD, i, j, a, Order) && (GetObjectValue(Tab, i, j, Order) <= GetObjectValue(Tab, RowS, ColS, Order * -1)))
+                                                if (Support(Tab, RowD, ColD, i, j, a, Order) && (SetValueOfTabls(Tab,i,j) <= SetValueOfTabls(Tab,RowS,ColS)))
                                                 {
                                                     SelfSupported = true;
                                                     S = S && true;
@@ -2250,7 +2251,7 @@ namespace RefrigtzW
             }
         }
         ///Huristic of King safty.
-        double HeuristicKingSafety(int[,] Tab, int Order, Color a, int i, int j, int RowS, int ColS, int CurrentAStarGredy)
+        double HeuristicKingSafety(int[,] Tab, int Order, Color a, int CurrentAStarGredy)
         {
             ////Object O = new Object();
             //lock (O)
@@ -2260,17 +2261,17 @@ namespace RefrigtzW
 
                 //For Enemies.
 
-                //Parallel.For(0, 8, ii =>
-                for (int ii = 0; ii < 8; ii++)
+                //Parallel.For(0, 8, RowS =>
+                for (int RowS = 0; RowS < 8; RowS++)
                 {
-                    //Parallel.For(0, 8, jj =>
-                    for (int jj = 0; jj < 8; jj++)
+                    //Parallel.For(0, 8, ColS =>
+                    for (int ColS = 0; ColS < 8; ColS++)
                     {
-                        if (Order == 1 && Tab[ii, jj] >= 0)
+                        if (Order == 1 && Tab[RowS, ColS] >= 0)
                             continue;
-                        if (Order == -1 && Tab[ii, jj] <= 0)
+                        if (Order == -1 && Tab[RowS, ColS] <= 0)
                             continue;
-                        ChessRules A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tab[ii, jj], Tab, Order * -1, ii, jj);
+                        ChessRules A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tab[RowS, ColS], Tab, Order * -1, RowS, ColS);
                         //For Current and Empty
                         //Parallel.For(0, 8, RowD =>
                         for (int RowD = 0; RowD < 8; RowD++)
@@ -2312,15 +2313,15 @@ namespace RefrigtzW
                                 ////Object O1 = new Object();
                                 //lock (O1)
                                 {
-                                    if (A.Rules(ii, jj, RowD, ColD, AA, Table[ii, jj]))
+                                    if (A.Rules(RowS, ColS, RowD, ColD, AA, Table[RowS, ColS]))
                                     {
                                         //Take Movment.
-                                        Table[RowD, ColD] = Table[ii, jj];
-                                        Table[ii, jj] = 0;
+                                        Table[RowD, ColD] = Table[RowS, ColS];
+                                        Table[RowS, ColS] = 0;
                                         //Is Dangrous for King.
-                                        A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tab[RowD, ColD], Table, Order, RowD, ColD);
+                                        A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tab[RowD, ColD], Table, Order * -1, RowD, ColD);
                                         //if (A.ObjectDangourKingMove(Order, Table, false))
-                                        A.CheckMate(Table, Order);
+                                        A.Check(Table, Order);
                                         {
                                             //Clone a Copy.
                                             /*
@@ -2345,19 +2346,19 @@ namespace RefrigtzW
                                             }
                                             //When Before Move such situation is observed calculate huristic count.
                                             /*if (Order == 1 && A.CheckGrayObjectDangour)
-                                                HA += AllDraw.SignKingSafe * (GetObjectValue(Table, ii, jj, Order * -1) + GetObjectValue(Table, RowD, ColD, Order));
+                                                HA += AllDraw.SignKingSafe * (SetValueOfTabls(Table,RowS,ColS) + SetValueOfTabls(Table,RowD,ColD));
                                             else
                                                 if (Order == -1 && A.CheckBrownObjectDangour)
-                                                HA += AllDraw.SignKingSafe * (GetObjectValue(Table, ii, jj, Order * -1) + GetObjectValue(Table, RowD, ColD, Order));
+                                                HA += AllDraw.SignKingSafe * (SetValueOfTabls(Table,RowS,ColS) + SetValueOfTabls(Table,RowD,ColD));
                                                 */
                                             Object ol = new Object();
                                             lock (ol)
                                             {
 
-                                                if (Order == 1 && A.CheckMateGray)
-                                                    HA += AllDraw.SignKingSafe * (GetObjectValue(Table, ii, jj, Order * -1) + GetObjectValue(Table, RowD, ColD, Order));
-                                                if (Order == -1 && A.CheckMateBrown)
-                                                    HA += AllDraw.SignKingSafe * (GetObjectValue(Table, ii, jj, Order * -1) + GetObjectValue(Table, RowD, ColD, Order));
+                                                if (Order == 1 && A.CheckGray)
+                                                    HA += AllDraw.SignKingSafe * (SetValueOfTabls(Table,RowS,ColS) + SetValueOfTabls(Table,RowD,ColD));
+                                                if (Order == -1 && A.CheckBrown)
+                                                    HA += AllDraw.SignKingSafe * (SetValueOfTabls(Table,RowS,ColS) + SetValueOfTabls(Table,RowD,ColD));
                                             }
                                  
                                         }
@@ -2372,7 +2373,7 @@ namespace RefrigtzW
                 return HeuristicKingSafe;
             }
         }
-        double HeuristicKingDangourous(int[,] Tab, int Order, Color a, int i, int j, int RowS, int ColS, int CurrentAStarGredy)
+        double HeuristicKingDangourous(int[,] Tab, int Order, Color a, int CurrentAStarGredy)
         {
             ////Object O = new Object();
             //lock (O)
@@ -2380,18 +2381,18 @@ namespace RefrigtzW
                 double HeuristicKingDangour = 0;
                 double HA = 0;
                 //For Self.
-                for (int ii = 0; ii < 8; ii++)
-                //Parallel.For(0, 8, ii =>
+                for (int RowS = 0; RowS < 8; RowS++)
+                //Parallel.For(0, 8, RowS =>
                 {
-                    //Parallel.For(0, 8, jj =>
-                    for (int jj = 0; jj < 8; jj++)
+                    //Parallel.For(0, 8, ColS =>
+                    for (int ColS = 0; ColS < 8; ColS++)
                     {
                         //Ignore of Enemy and Empty.
-                        if (Order == 1 && Tab[ii, jj] <= 0)
+                        if (Order == 1 && Tab[RowS, ColS] <= 0)
                             continue;
-                        if (Order == -1 && Tab[ii, jj] >= 0)
+                        if (Order == -1 && Tab[RowS, ColS] >= 0)
                             continue;
-                        ChessRules A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tab[ii, jj], Tab, Order, ii, jj);
+                        ChessRules A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tab[RowS, ColS], Tab, Order, RowS, ColS);
                         //For Enemy and Empty.
                         //Parallel.For(0, 8, RowD =>
                         for (int RowD = 0; RowD < 8; RowD++)
@@ -2434,21 +2435,21 @@ namespace RefrigtzW
                                     if (Order == -1)
                                         AA = Color.Brown;
                                     //When Self Move
-                                    if (A.Rules(ii, jj, RowD, ColD, AA, Table[ii, jj]))
+                                    if (A.Rules(RowS, ColS, RowD, ColD, AA, Table[RowS, ColS]))
                                     {
                                         //Take Mo0vment
                                         ////Object O2 = new Object();
                                         //lock (O2)
                                         {
-                                            Table[RowD, ColD] = Table[ii, jj];
-                                            Table[ii, jj] = 0;
+                                            Table[RowD, ColD] = Table[RowS, ColS];
+                                            Table[RowS, ColS] = 0;
                                         }
                                         //The Move is Dqangrous.
                                         ////Object O3 = new Object();
                                         //lock (O3)
                                         {
                                             //if (A.ObjectDangourKingMove(Order, Table, false))
-                                            A.CheckMate(Table,Order);
+                                            A.Check(Table,Order);
                                             {
                                                 int[,] Table1 = new int[8, 8];
                                             //Clone a Copy.
@@ -2481,19 +2482,19 @@ namespace RefrigtzW
                                             //lock (O4)
                                             {
                                                 /*if (Order == -1 && A.CheckGrayObjectDangour)
-                                                    HA += AllDraw.SignKingDangour * (GetObjectValue(Table1, ii, jj, Order * -1) + GetObjectValue(Table1, RowD, ColD, Order));
+                                                    HA += AllDraw.SignKingDangour * (SetValueOfTabls(Table1,RowS,ColS) + SetValueOfTabls(Table1,RowD,ColD));
                                                 else
                                                     if (Order == 1 && A.CheckBrownObjectDangour)
-                                                    HA += AllDraw.SignKingDangour * (GetObjectValue(Table1, ii, jj, Order * -1) + GetObjectValue(Table1, RowD, ColD, Order));
+                                                    HA += AllDraw.SignKingDangour * (SetValueOfTabls(Table1,RowS,ColS) + SetValueOfTabls(Table1,RowD,ColD));
                                                     */
                                                 Object ol = new Object();
                                                     lock (ol)
                                                     {
-                                                        if (Order == -1 && A.CheckMateGray)
-                                                            HA += (GetObjectValue(Table1, ii, jj, Order * -1) + GetObjectValue(Table1, RowD, ColD, Order));
+                                                        if (Order == -1 && A.CheckGray)
+                                                            HA += (SetValueOfTabls(Table1,RowS,ColS) + SetValueOfTabls(Table1,RowD,ColD));
                                                         else
-                                                        if (Order == 1 && A.CheckMateBrown)
-                                                            HA += (GetObjectValue(Table1, ii, jj, Order * -1) + GetObjectValue(Table1, RowD, ColD, Order));
+                                                        if (Order == 1 && A.CheckBrown)
+                                                            HA += (SetValueOfTabls(Table1,RowS,ColS) + SetValueOfTabls(Table1,RowD,ColD));
                                                     }
 
                                                 }
@@ -2571,7 +2572,7 @@ namespace RefrigtzW
                         if (Support(Tab, RowS, ColS, RowD, ColD, a, Order))
                         {
                             //Calculate Local Support Huristic.
-                            HA += (Sign * (System.Math.Abs((GetValue(RowD, ColD) + GetValue(RowS, ColS)
+                            HA += (Sign * (System.Math.Abs((SetValueOfTabls(Tab, RowD, ColD) + SetValueOfTabls(Tab, RowS, ColS)
                             ))));
                             /*bool Supported = new bool();
                             Supported = false;
@@ -2673,7 +2674,7 @@ namespace RefrigtzW
                             if (Support(Tab, RowS, ColS, RowD, ColD, a, Order))
                             {
                                 //Calculate Local Support Huristic.
-                                HA += (Sign * (System.Math.Abs((GetValue(RowD, ColD) + GetValue(RowS, ColS)
+                                HA += (Sign * (System.Math.Abs((SetValueOfTabls(Tab, RowD, ColD) + SetValueOfTabls(Tab, RowS, ColS)
                                 ))));
                             /*
                                 bool Supported = new bool();
@@ -2969,7 +2970,7 @@ namespace RefrigtzW
                                         if (Order == -1 && Tab[RowS, ColS] >= 0)
                                             continue;
                                         //Whn Value Of Current is Less That Enemy.
-                                        if (GetObjectValue(Table, i, j, Order) < GetObjectValue(Table, ii, jj, Order))
+                                        if (SetValueOfTabls(Table,i,j) < SetValueOfTabls(Table,ii,jj))
                                         {
                                             //Take Move.
                                             Table[ii, jj] = Table[i, j];
@@ -2996,7 +2997,7 @@ namespace RefrigtzW
                                                         if (Support(Table, RowD, ColD, i, j, a, Order))
                                                         {
                                                             //If V alue of Enemy is Greater Than Current and Value of Enemy is Greater than Supporter.
-                                                            if (GetObjectValue(Table, RowS, ColS, Order) < GetObjectValue(Table, ii, jj, Order) && GetObjectValue(Table, RowS, ColS, Order) > GetObjectValue(Table, RowD, ColD, Order))
+                                                            if (SetValueOfTabls(Table,RowS,ColS) < SetValueOfTabls(Table,ii,jj) && SetValueOfTabls(Table,RowS,ColS) > SetValueOfTabls(Table,Row,ColS))
                                                             {
                                                                 Remove = true;
                                                                 return Remove;
@@ -3735,7 +3736,7 @@ namespace RefrigtzW
                     if (Order * -1 == -1)
                         aa = Color.Brown;
                     //When Enemy Attacked Current Movements.
-                    if (Attack(Tab, ii, jj, RowS, ColS, aa, Order * -1) && (GetObjectValue(Tab, ii, jj, Order * -1) < GetObjectValue(Tab, RowS, ColS, Order)))
+                    if (Attack(Tab, ii, jj, RowS, ColS, aa, Order * -1) && (SetValueOfTabls(Tab,ii,jj) < SetValueOfTabls(Tab,RowS,ColS)))
                     {
                         NumberOfCurrentEnemyAttackSuchObject++;
                         //Clone a Table.
@@ -3860,7 +3861,7 @@ namespace RefrigtzW
                                     if (Attack(Tabl1, i, j, ii, jj, a, Order * -1))
                                     {
                                         //When Current Movments is
-                                        if (GetObjectValue(Tabl1, i, j, Order * -1) <= GetObjectValue(Tabl1, ii, jj, Order * -1))
+                                        if (SetValueOfTabls(Tabl1,i,j) <= SetValueOfTabls(Tabl1, ii, jj))
                                         {
                                             if (Order == OrderPlate)
                                                 IsGardHighPriority = true;
@@ -4156,7 +4157,7 @@ namespace RefrigtzW
             }
         }
         //Distance of Enemy Kings from Current Object.
-        public double HeuristicDistabceOfCurrentMoveFromEnemyKing(int[,] Tab, int Order, int ii, int jj)
+        public double HeuristicDistabceOfCurrentMoveFromEnemyKing(int[,] Tab, int Order, int RowS, int ColS)
         {
             Object O = new Object();
             lock (O)
@@ -4165,7 +4166,7 @@ namespace RefrigtzW
                 //Initiate.
                 int RowG = -1, ColumnG = -1, RowB = -1, ColumnB = -1;
                 //Create ChessRules Objects.
-                ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tab[ii, jj], Tab, Order, ii, jj);
+                ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tab[RowS, ColS], Tab, Order, RowS, ColS);
                 double Dis = 0;
                 //Order is  Gray.
                 if (Order == -1)
@@ -4174,28 +4175,28 @@ namespace RefrigtzW
                     A.FindGrayKing(Tab, ref RowG, ref ColumnG);
 
                     //When Soldier.
-                    if (System.Math.Abs(Tab[ii, jj]) == 1)
-                        Dis = AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(ii - RowG, 2) + System.Math.Pow(jj - ColumnG, 2));
+                    if (System.Math.Abs(Tab[RowS, ColS]) == 1)
+                        Dis = AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(RowS - RowG, 2) + System.Math.Pow(ColS - ColumnG, 2));
                     else
                         //When Elephant.
-                        if (System.Math.Abs(Tab[ii, jj]) == 2)
-                        Dis = AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(ii - RowG, 2) + System.Math.Pow(jj - ColumnG, 2));
+                        if (System.Math.Abs(Tab[RowS, ColS]) == 2)
+                        Dis = AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(RowS - RowG, 2) + System.Math.Pow(ColS - ColumnG, 2));
                     else
                             //When Hourse.
-                            if (System.Math.Abs(Tab[ii, jj]) == 3)
-                        Dis = AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(ii - RowG, 2) + System.Math.Pow(jj - ColumnG, 2));
+                            if (System.Math.Abs(Tab[RowS, ColS]) == 3)
+                        Dis = AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(RowS - RowG, 2) + System.Math.Pow(ColS - ColumnG, 2));
                     else
                                 //When Castles.
-                                if (System.Math.Abs(Tab[ii, jj]) == 4)
-                        Dis = AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(ii - RowG, 2) + System.Math.Pow(jj - ColumnG, 2));
+                                if (System.Math.Abs(Tab[RowS, ColS]) == 4)
+                        Dis = AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(RowS - RowG, 2) + System.Math.Pow(ColS - ColumnG, 2));
                     else
                                     //When minister.
-                                    if (System.Math.Abs(Tab[ii, jj]) == 5)
-                        Dis = AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(ii - RowG, 2) + System.Math.Pow(jj - ColumnG, 2));
+                                    if (System.Math.Abs(Tab[RowS, ColS]) == 5)
+                        Dis = AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(RowS - RowG, 2) + System.Math.Pow(ColS - ColumnG, 2));
                     else
                                         //When King.
-                                        if (System.Math.Abs(Tab[ii, jj]) == 6)
-                        Dis = AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(ii - RowG, 2) + System.Math.Pow(jj - ColumnG, 2));
+                                        if (System.Math.Abs(Tab[RowS, ColS]) == 6)
+                        Dis = AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(RowS - RowG, 2) + System.Math.Pow(ColS - ColumnG, 2));
 
                 }
                 //Brown Order.
@@ -4204,31 +4205,31 @@ namespace RefrigtzW
                     //Found of Brown King Location.
                     A.FindBrownKing(Tab, ref RowB, ref ColumnB);
                     //When Soldier.
-                    if (System.Math.Abs(Tab[ii, jj]) == 1)
-                        Dis = AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(ii - RowB, 2) + System.Math.Pow(jj - ColumnB, 2));
+                    if (System.Math.Abs(Tab[RowS, ColS]) == 1)
+                        Dis = AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(RowS - RowB, 2) + System.Math.Pow(ColS - ColumnB, 2));
                     else
                         //When Elephant.
-                        if (System.Math.Abs(Tab[ii, jj]) == 2)
-                        Dis = AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(ii - RowB, 2) + System.Math.Pow(jj - ColumnB, 2));
+                        if (System.Math.Abs(Tab[RowS, ColS]) == 2)
+                        Dis = AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(RowS - RowB, 2) + System.Math.Pow(ColS - ColumnB, 2));
                     else
                             //When Hourse.
-                            if (System.Math.Abs(Tab[ii, jj]) == 3)
-                        Dis = AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(ii - RowB, 2) + System.Math.Pow(jj - ColumnB, 2));
+                            if (System.Math.Abs(Tab[RowS, ColS]) == 3)
+                        Dis = AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(RowS - RowB, 2) + System.Math.Pow(ColS - ColumnB, 2));
                     else
                                 //When Castles.
-                                if (System.Math.Abs(Tab[ii, jj]) == 4)
-                        Dis = AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(ii - RowB, 2) + System.Math.Pow(jj - ColumnB, 2));
+                                if (System.Math.Abs(Tab[RowS, ColS]) == 4)
+                        Dis = AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(RowS - RowB, 2) + System.Math.Pow(ColS - ColumnB, 2));
                     else
                                     //When Minister.
-                                    if (System.Math.Abs(Tab[ii, jj]) == 5)
-                        Dis = AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(ii - RowB, 2) + System.Math.Pow(jj - ColumnB, 2));
+                                    if (System.Math.Abs(Tab[RowS, ColS]) == 5)
+                        Dis = AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(RowS - RowB, 2) + System.Math.Pow(ColS - ColumnB, 2));
                     else
                         //When King.
-                        Dis = AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(ii - RowB, 2) + System.Math.Pow(jj - ColumnB, 2));
+                        Dis = AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(RowS - RowB, 2) + System.Math.Pow(ColS - ColumnB, 2));
                     //Dis = -1000.0;
 
                 }
-                return HeuristicDistabceOfCurrentMoveFromEnemyKingValue;
+                return Dis;
             }
         }
         public double HuristicSoldierFromCenter(int[,] Table, Color aa, int Ord, int ii, int jj, int i, int j)
@@ -4240,7 +4241,7 @@ namespace RefrigtzW
                 //Object O1 = new Object();
                 //lock (O1)
                 {
-                    if (Table[ii, jj] == 0)
+                    if (Table[ii, jj] != 0)
                     {
                         if (!ArrangmentsChanged)
                         {
@@ -4298,7 +4299,7 @@ namespace RefrigtzW
 
 
                     }
-                    else if (Table[i, j] == 0)
+                    else if (Table[i, j] != 0)
                     {
                         if (!ArrangmentsChanged)
                         {
@@ -4578,7 +4579,7 @@ namespace RefrigtzW
                                         Tab[ik, jk] = Table[ik, jk];
                                 Tab[RowD, ColD] = Tab[RowS, ColS];
                                 Tab[RowS, ColS] = 0;
-                                HA += (Sign * (System.Math.Abs(GetValue(RowS, ColS) + GetValue(RowD, ColD))));
+                                HA += (Sign * (System.Math.Abs(SetValueOfTabls(Table, RowS, ColS) + SetValueOfTabls(Table, RowD, ColD))));
                                 int Supported = 0;
                                 //For All Enemy Obejcts.                                             
                                 for (int g = 0; g < 8; g++)
@@ -4619,7 +4620,7 @@ namespace RefrigtzW
                                 ////Object O1 = new Object();
                                 //lock (O1)
                                 {
-                                    if (Supported > 0)
+                                    if (Supported == 0)
                                         //When is Not Supported multyply 100.
                                         HA *= System.Math.Pow(2, Supported);
                                     else
@@ -4672,7 +4673,7 @@ namespace RefrigtzW
                             //When is Movable Movement inCurrent.
                             if (Movable(Table, RowS, ColS, RowD, ColD, a, Order))
                             {
-                                HA += (Sign * (System.Math.Abs(GetValue(RowS, ColS) + GetValue(RowD, ColD))));
+                                HA += (Sign * (System.Math.Abs(SetValueOfTabls(Table, RowS, ColS) + SetValueOfTabls(Table, RowD, ColD))));
                                 int Supported = 0;
                                 //For All Enemy Obejcts.                                             
                                 for (int g = 0; g < 8; g++)
@@ -4711,7 +4712,7 @@ namespace RefrigtzW
                                         }
                                     }//);
                                 }//);
-                                if (Supported > 0)
+                                if (Supported == 0)
                                     //When is Not Supported multyply 100.
                                     HA *= System.Math.Pow(2, Supported);
                                 else
@@ -7428,7 +7429,7 @@ namespace RefrigtzW
             {
                 bool RETURN = false;
                 ////Object O3 = new Object();
-                ChessRules AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[ii, jj], TableS, Order, ii, jj);
+                ChessRules AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[ii, jj], TableS, AllDraw.OrderPlate, ii, jj);
                 ////Object O = new Object();
                 //lock (O)
                 {
@@ -7440,12 +7441,12 @@ namespace RefrigtzW
                     //Consideration to go to Check.  
 
                     //if (!UsePenaltyRegardMechnisamT)
-                    AA.CheckMate(TableS, Order);
+                    AA.CheckMate(TableS, AllDraw.OrderPlate);
                     {
                         if (AllDraw.OrderPlate == 1 && AA.CheckMateBrown)
                         {
-                            ////Object A = new Object();
-                            //lock (A)
+                            Object A = new Object();
+                            lock (A)
                             {
                                 IsThereMateOfEnemy = true;
                                 FoundFirstMating++;
@@ -8217,7 +8218,7 @@ namespace RefrigtzW
                      //lock (O)
                      {
                          int[,] TableSS = CloneATable(TableS);
-                         HKingSafe = HeuristicKingSafety(TableSS, Order, color, RowS, ColS, RowD, ColD//, ref HeuristicKingSafe
+                         HKingSafe = HeuristicKingSafety(TableSS, Order, color//, RowS, ColS, RowD, ColD, ref HeuristicKingSafe
                               , CurrentAStarGredyMax);
                      }
                  }
@@ -8227,7 +8228,7 @@ namespace RefrigtzW
                        //lock (O)
                        {
                            int[,] TableSS = CloneATable(TableS);
-                           HKingDangour = HeuristicKingDangourous(TableSS, Order, color, RowS, ColS, RowD, ColD//, ref HeuristicKingSafe
+                           HKingDangour = HeuristicKingDangourous(TableSS, Order, color//, RowS, ColS, RowD, ColD//, ref HeuristicKingSafe
                            , CurrentAStarGredyMax);
                        }
                    }
@@ -9172,8 +9173,8 @@ namespace RefrigtzW
                 bool Castle = false;
                 //ExistInDestinationEnemy = false;
                 bool DoEnemySelf = true;
-                ChessRules AAA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[ii, jj], TableS, Order, ii, jj);
-                if (AAA.CheckMate(TableS, Order))
+                ChessRules AAA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[ii, jj], TableS, AllDraw.OrderPlate, ii, jj);
+                if (AAA.CheckMate(TableS, AllDraw.OrderPlate))
                 {
                     if (AAA.CheckMateGray || AAA.CheckMateBrown)
                     {
@@ -9183,7 +9184,7 @@ namespace RefrigtzW
                             AllDraw.OutPut = "\r\nBoundry Condition at Thinking at " + ThinkingChess.FoundFirstMating.ToString() + " Checkmate";
                             ThinkingFinished = true;
                             CheckMateOcuured = true;
-                            if ((AAA.CheckMateGray && Order == 1) || (AAA.CheckMateBrown && Order == -1))
+                            if ((AAA.CheckMateGray && AllDraw.OrderPlate == 1) || (AAA.CheckMateBrown && AllDraw.OrderPlate == -1))
                                 FoundFirstMating++;
                             EndThread++;
                         }
@@ -9281,7 +9282,7 @@ namespace RefrigtzW
             }
             return;
         }
-        double ObjectValueCalculator(int[,] Table, int Order, int ii, int jj)
+        double ObjectValueCalculator(int[,] Table, int Order, int RowS, int ColS)
         {
             ////Object O1 = new Object();
             //lock (O1)
@@ -9290,7 +9291,7 @@ namespace RefrigtzW
                 //if (BeginArragmentsOfOrderFinished(Tabl, Order))
                 {
 
-                    ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[ii, jj], Table, Order, ii, jj);
+                    ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[RowS, ColS], Table, Order,RowS, ColS);
                     Color a = Color.Gray;
                     Color aa = Color.Gray;
                     if (Order == -1)
@@ -9303,11 +9304,11 @@ namespace RefrigtzW
                         //Parallel.For(0, 8, ColumnO =>
                         for (int ColumnO = 0; ColumnO < 8; ColumnO++)
                         {
-                            for (int RowS = 0; RowS < 8; RowS++)
+                            //for (int RowS = 0; RowS < 8; RowS++)
                             //Parallel.For(0, 8, RowS =>
                             {
                                 //Parallel.For(0, 8, ColS =>
-                                for (int ColS = 0; ColS < 8; ColS++)
+                                //for (int ColS = 0; ColS < 8; ColS++)
                                 {
                               ////Object O = new Object();
                               //lock (O)
@@ -9320,7 +9321,7 @@ namespace RefrigtzW
                                           if (A.Rules(RowO, ColumnO, RowS, ColS, a, Order))
                                               Val++;
                                       }
-                                      else
+                                      
                                       if (SignEqualOrEmptyEnemy(Table[RowO, ColumnO], Table[RowS, ColS], Order))
                                       {
                                           A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[RowO, ColumnO], Table, Order, RowO, ColumnO);
@@ -9342,21 +9343,21 @@ namespace RefrigtzW
                                               if (Attack(Table, RowO, ColumnO, RowS, ColS, aa, Order * -1))
                                                   Val --;
                                           }
-                                          else
+                                          
                                           if (SignEqual(Table[RowO, ColumnO], Table[RowS, ColS]))
                                           {
                                               //when there is self support inc.
                                               if (Support(Table, RowO, ColumnO, RowS, ColS, a, Order))
                                                   Val++;
                                           }
-                                          else
+                                          
                                           if (SignNotEqual(Table[RowO, ColumnO], Table[RowS, ColS]))
                                           {
                                               //When there is self attack inc.
                                               if (Attack(Table, RowO, ColumnO, RowS, ColS, a, Order))
                                                   Val++;
                                           }
-                                          else
+                                          
                                           //when there is enemy support dec..
                                           if (SignEqual(Table[RowO, ColumnO], Table[RowS, ColS]))
                                           {
@@ -9405,42 +9406,42 @@ namespace RefrigtzW
                           }//);
                       }//)/\;
                   }//));
-                    A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[ii, jj], Table, Order, ii, jj);
+                    A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[RowS, ColS], Table, Order, RowS, ColS);
                     if (A.ObjectDangourKingMove(Order, Table, false))
                     {
                         if (Order == 1 && A.CheckGrayObjectDangour)
-                            Val --;
+                            Val *= -1;
                         if (Order == -1 && A.CheckBrownObjectDangour)
-                            Val --;
+                            Val *= -1;
                         if (Order == -1 && A.CheckGrayObjectDangour)
                             Val ++;
                         if (Order == 1 && A.CheckBrownObjectDangour)
                             Val ++;
                     }
 
-                    if (System.Math.Abs(Table[ii, jj]) == 2)
+                    if (System.Math.Abs(Table[RowS, ColS]) == 2)
                     {
                         Val = Val * 3;
                     }
                     else
-                            if (System.Math.Abs(Table[ii, jj]) == 3)
+                            if (System.Math.Abs(Table[RowS, ColS]) == 3)
                     {
                         Val = Val * 3;
                     }
                     else
-                                if (System.Math.Abs(Table[ii, jj]) == 4)
+                                if (System.Math.Abs(Table[RowS, ColS]) == 4)
                     {
                         Val = Val * 5;
                     }
                     else
-                                    if (System.Math.Abs(Table[ii, jj]) == 5)
+                                    if (System.Math.Abs(Table[RowS, ColS]) == 5)
                     {
                         Val = Val * 9;
                     }
                     else
-                                    if (System.Math.Abs(Table[ii, jj]) == 6)
+                                    if (System.Math.Abs(Table[RowS, ColS]) == 6)
                     {
-                        Val = Int32.MaxValue;
+                        Val = Val * 10;
                     }
 
                 }

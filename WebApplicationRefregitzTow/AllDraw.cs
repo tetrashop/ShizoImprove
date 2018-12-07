@@ -221,12 +221,12 @@ namespace RefrigtzW
         public static double CurrentHuristic = Double.MinValue;
         public static double SignAttack = 1;
         public static double SignObjectDangour = 1;
-        public static double SignReducedAttacked = 1;//;-1;
+        public static double SignReducedAttacked = -1;
         public static double SignSupport = 1;
         public static double SignKiller = 1;
         public static double SignMovments = 1;
-        public static double SignDistance = 1;//-1;
-        public static double SignKingSafe = 1;//-1;
+        public static double SignDistance = -1;
+        public static double SignKingSafe = -1;
         public static double SignKingDangour = 1;
         public static bool DrawTable = true;
         public static int[,] TableVeryfy = new int[8, 8];
@@ -12039,15 +12039,20 @@ namespace RefrigtzW
                     a = Color.Brown;
                 int j = 0;
                 //if (AllDraw.Blitz)
-                
-                    //Fairness conditions for perposive astar greedy search.
-                    //Object Omm = new Object();
-                //lock (Omm)
+
+                //Fairness conditions for perposive astar greedy search.
+                Object Omm = new Object();
+                lock (Omm)
                 {
-                    if (iAStarGreedy <= CurrentAStarGredyMax && ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
-                        return null;
-
-
+                    Object OOOO = new Object();
+                    lock (OOOO)
+                    {
+                        if (iAStarGreedy <= CurrentAStarGredyMax && ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
+                        {
+                            OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
+                            return null;
+                        }
+                    }
                     CurrentAStarGredyMax = AStarGreedyiLevelMax - iAStarGreedy;
                     iAStarGreedy--;
                 }
@@ -12444,8 +12449,8 @@ namespace RefrigtzW
                 int j = 0;
                 //if (iAStarGreedy <= 0)
                 //return null;
-                //Object OOOO = new Object();
-                //lock (OOOO)
+                Object OOOO = new Object();
+                lock (OOOO)
                 {
                     if (ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
                     {
@@ -13653,13 +13658,23 @@ namespace RefrigtzW
                     }
 
                 }
+                Object OOOO = new Object();
+                lock (OOOO)
+                {
+                    if (iAStarGreedy <= CurrentAStarGredyMax && ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
+                    {
+                        OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
+                        return true;
+                    }
+                }
                 //List<Task> tHA = new List<Task>();
 
                 //int j = new int();
                 //if (SolderesOnTable[ik].SoldierThinking[0].TableListSolder.Count == 0)
-                //    return Do;
+                //    continue; Do;
 
-                Parallel.For(0, SolderesOnTable[ik].SoldierThinking[0].TableListSolder.Count, j =>
+                //Parallel.For(0, SolderesOnTable[ik].SoldierThinking[0].TableListSolder.Count, j =>
+                for(int j=0;j< SolderesOnTable[ik].SoldierThinking[0].TableListSolder.Count; j++)
                 {
                     //Object ooo = new Object();
                     ////lock (ooo)
@@ -13699,7 +13714,7 @@ namespace RefrigtzW
                                                         SolderesOnTable[ik].SoldierThinking[0].AStarGreedy = new List<AllDraw>();
                                                     SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                     SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                    return;
+                                                    continue;;
                                                 }
                                                 else
 
@@ -13709,7 +13724,7 @@ namespace RefrigtzW
                                                         SolderesOnTable[ik].SoldierThinking[0].AStarGreedy = new List<AllDraw>();
                                                     SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                     SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                    return;
+                                                    continue;;
                                                 }
                                             }
                                             else
@@ -13718,7 +13733,7 @@ namespace RefrigtzW
                                                     SolderesOnTable[ik].SoldierThinking[0].AStarGreedy = new List<AllDraw>();
                                                 SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                 SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                return;
+                                                continue;;
                                             }
 
                                         }
@@ -13809,7 +13824,7 @@ namespace RefrigtzW
                                                         SolderesOnTable[ik].SoldierThinking[0].AStarGreedy = new List<AllDraw>();
                                                     SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                     SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                    return;
+                                                    continue;;
                                                 }
                                                 else
 
@@ -13819,7 +13834,7 @@ namespace RefrigtzW
                                                         SolderesOnTable[ik].SoldierThinking[0].AStarGreedy = new List<AllDraw>();
                                                     SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                     SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                    return;
+                                                    continue;;
                                                 }
                                             }
                                             else
@@ -13828,7 +13843,7 @@ namespace RefrigtzW
                                                     SolderesOnTable[ik].SoldierThinking[0].AStarGreedy = new List<AllDraw>();
                                                 SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                 SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                return;
+                                                continue;;
                                             }
                                         }
                                         //Object O3 = new Object();
@@ -13890,7 +13905,7 @@ namespace RefrigtzW
                             Log(t);
                         }
                     }
-                });
+                }//);
                 /*if (tHA.Count > 1)
                 {
                     Task array = Task.Factory.StartNew(() => Parallel.ForEach(tHA, items => Task.WaitAny(items)));
@@ -13948,11 +13963,21 @@ namespace RefrigtzW
                         SemaphoreExxedTime(S, 2);
                     }// S += 100; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
                 }
+                Object OOOO = new Object();
+                lock (OOOO)
+                {
+                    if (iAStarGreedy <= CurrentAStarGredyMax && ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
+                    {
+                        OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
+                        return true;
+                    }
+                }
                 //List<Task> tHA = new List<Task>();
 
                 //if (ElephantOnTable[ik].ElefantThinking[0].TableListElefant.Count == 0)
-                //     return Do;
-                Parallel.For(0, ElephantOnTable[ik].ElefantThinking[0].TableListElefant.Count, j =>
+                //     continue; Do;
+                //Parallel.For(0, ElephantOnTable[ik].ElefantThinking[0].TableListElefant.Count, j =>
+                for(int j=0;j< ElephantOnTable[ik].ElefantThinking[0].TableListElefant.Count; j++)
                 {
                     //Object ooo = new Object();
                     ////lock (ooo)
@@ -13992,7 +14017,7 @@ namespace RefrigtzW
                                                         ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = new List<AllDraw>();
                                                     ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                     ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                    return;
+                                                    continue;;
                                                 }
                                                 else
                                                     if (j != jindex[1])
@@ -14001,7 +14026,7 @@ namespace RefrigtzW
                                                         ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = new List<AllDraw>();
                                                     ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                     ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                    return;
+                                                    continue;;
                                                 }
                                             }
                                             else
@@ -14010,7 +14035,7 @@ namespace RefrigtzW
                                                     ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = new List<AllDraw>();
                                                 ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                 ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                return;
+                                                continue;;
                                             }
 
                                         }
@@ -14098,7 +14123,7 @@ namespace RefrigtzW
                                                         ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = new List<AllDraw>();
                                                     ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                     ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                    return;
+                                                    continue;;
                                                 }
                                                 else
                                                     if (j != jindex[1])
@@ -14107,7 +14132,7 @@ namespace RefrigtzW
                                                         ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = new List<AllDraw>();
                                                     ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                     ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                    return;
+                                                    continue;;
                                                 }
                                             }
                                             else
@@ -14116,7 +14141,7 @@ namespace RefrigtzW
                                                     ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = new List<AllDraw>();
                                                 ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                 ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                return;
+                                                continue;;
                                             }
                                         }
                                         //Object O3 = new Object();
@@ -14176,7 +14201,7 @@ namespace RefrigtzW
                             Log(t);
                         }
                     }
-                });
+                }//);
                 /*if (tHA.Count > 1)
                 {
                     Task array = Task.Factory.StartNew(() => Parallel.ForEach(tHA, items => Task.WaitAny(items)));
@@ -14238,15 +14263,25 @@ namespace RefrigtzW
                     }
                     //S += 100; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
                 }
+                Object OOOO = new Object();
+                lock (OOOO)
+                {
+                    if (iAStarGreedy <= CurrentAStarGredyMax && ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
+                    {
+                        OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
+                        return true;
+                    }
+                }
                 //List<Task> tHA = new List<Task>();
 
                 //if (HoursesOnTable[ik].HourseThinking[0].TableListHourse.Count == 0)
                 //    return Do;
-                Parallel.For(0, HoursesOnTable[ik].HourseThinking[0].TableListHourse.Count, j =>
-               {
-                   //Object ooo = new Object();
-                   ////lock (ooo)
-                   {
+                //Parallel.For(0, HoursesOnTable[ik].HourseThinking[0].TableListHourse.Count, j =>
+                for(int j=0;j< HoursesOnTable[ik].HourseThinking[0].TableListHourse.Count; j++)
+                {
+                    //Object ooo = new Object();
+                    ////lock (ooo)
+                    {
                        try
                        {
                            if (AllDraw.OrderPlate == Order)
@@ -14281,7 +14316,7 @@ namespace RefrigtzW
                                                        HoursesOnTable[ik].HourseThinking[0].AStarGreedy = new List<AllDraw>();
                                                    HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                    HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                   return;
+                                                   continue;
                                                }
                                                else
                                                    if (j != jindex[2])
@@ -14290,7 +14325,7 @@ namespace RefrigtzW
                                                        HoursesOnTable[ik].HourseThinking[0].AStarGreedy = new List<AllDraw>();
                                                    HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                    HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                   return;
+                                                   continue;
                                                }
                                            }
                                            else
@@ -14299,7 +14334,7 @@ namespace RefrigtzW
                                                    HoursesOnTable[ik].HourseThinking[0].AStarGreedy = new List<AllDraw>();
                                                HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                               return;
+                                               continue;
                                            }
 
 
@@ -14388,7 +14423,7 @@ namespace RefrigtzW
                                                            HoursesOnTable[ik].HourseThinking[0].AStarGreedy = new List<AllDraw>();
                                                        HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                        HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                       return;
+                                                       continue;
                                                    }
                                                    else
                                                        if (j != jindex[2])
@@ -14397,7 +14432,7 @@ namespace RefrigtzW
                                                            HoursesOnTable[ik].HourseThinking[0].AStarGreedy = new List<AllDraw>();
                                                        HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                        HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                       return;
+                                                       continue;
                                                    }
                                                }
                                                else
@@ -14406,7 +14441,7 @@ namespace RefrigtzW
                                                        HoursesOnTable[ik].HourseThinking[0].AStarGreedy = new List<AllDraw>();
                                                    HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                    HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                   return;
+                                                   continue;
                                                }
 
                                            }
@@ -14469,7 +14504,7 @@ namespace RefrigtzW
                            Log(t);
                        }
                    }
-               });
+               }//);
                 /*if (tHA.Count > 1)
                 {
                     Task array = Task.Factory.StartNew(() => Parallel.ForEach(tHA, items => Task.WaitAny(items)));
@@ -14531,10 +14566,20 @@ namespace RefrigtzW
                     }
                     //S += 100; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
                 }
+                Object OOOO = new Object();
+                lock (OOOO)
+                {
+                    if (iAStarGreedy <= CurrentAStarGredyMax && ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
+                    {
+                        OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
+                        return true;
+                    }
+                }
                 //List<Task> tHA = new List<Task>();
                 //if (CastlesOnTable[ik].CastleThinking[0].TableListCastle.Count == 0)
                 //    return Do;
-                Parallel.For(0, CastlesOnTable[ik].CastleThinking[0].TableListCastle.Count, j =>
+                //Parallel.For(0, CastlesOnTable[ik].CastleThinking[0].TableListCastle.Count, j =>
+                for(int j=0;j< CastlesOnTable[ik].CastleThinking[0].TableListCastle.Count; j++)
                 {
                     //Object ooo = new Object();
                     ////lock (ooo)
@@ -14573,7 +14618,7 @@ namespace RefrigtzW
                                                         CastlesOnTable[ik].CastleThinking[0].AStarGreedy = new List<AllDraw>();
                                                     CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                     CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                    return;
+                                                    continue;
                                                 }
                                                 else
                                                     if (j != jindex[0])
@@ -14582,7 +14627,7 @@ namespace RefrigtzW
                                                         CastlesOnTable[ik].CastleThinking[0].AStarGreedy = new List<AllDraw>();
                                                     CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                     CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                    return;
+                                                    continue;
                                                 }
                                             }
                                             else
@@ -14591,7 +14636,7 @@ namespace RefrigtzW
                                                     CastlesOnTable[ik].CastleThinking[0].AStarGreedy = new List<AllDraw>();
                                                 CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                 CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                return;
+                                                continue;
                                             }
                                         }
                                         //Object O3 = new Object();
@@ -14678,7 +14723,7 @@ namespace RefrigtzW
                                                         CastlesOnTable[ik].CastleThinking[0].AStarGreedy = new List<AllDraw>();
                                                     CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                     CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                    return;
+                                                    continue;
                                                 }
                                                 else
                                                     if (j != jindex[0])
@@ -14687,7 +14732,7 @@ namespace RefrigtzW
                                                         CastlesOnTable[ik].CastleThinking[0].AStarGreedy = new List<AllDraw>();
                                                     CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                     CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                    return;
+                                                    continue;
                                                 }
                                             }
                                             else
@@ -14696,7 +14741,7 @@ namespace RefrigtzW
                                                     CastlesOnTable[ik].CastleThinking[0].AStarGreedy = new List<AllDraw>();
                                                 CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                 CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                return;
+                                                continue;
                                             }
                                         }
                                         //Object O3 = new Object();
@@ -14756,7 +14801,7 @@ namespace RefrigtzW
                             Log(t);
                         }
                     }
-                });
+                }//);
                 /*if (tHA.Count > 1)
                 {
                     Task array = Task.Factory.StartNew(() => Parallel.ForEach(tHA, items => Task.WaitAny(items)));
@@ -14815,15 +14860,25 @@ namespace RefrigtzW
                         SemaphoreExxedTime(S, 5);
                     }// S += 100; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
                 }
+                Object OOOO = new Object();
+                lock (OOOO)
+                {
+                    if (iAStarGreedy <= CurrentAStarGredyMax && ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
+                    {
+                        OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
+                        return true;
+                    }
+                }
                 //List<Task> tHA = new List<Task>();
 
                 // if (MinisterOnTable[ik].MinisterThinking[0].TableListMinister.Count == 0)
                 //   return Do;
-                Parallel.For(0, MinisterOnTable[ik].MinisterThinking[0].TableListMinister.Count, j =>
-               {
-                   //Object ooo = new Object();
-                   ////lock (ooo)
-                   {
+                //Parallel.For(0, MinisterOnTable[ik].MinisterThinking[0].TableListMinister.Count, j =>
+                for(int j=0;j< MinisterOnTable[ik].MinisterThinking[0].TableListMinister.Count; j++)
+                {
+                    //Object ooo = new Object();
+                    ////lock (ooo)
+                    {
 
                        try
                        {
@@ -14858,7 +14913,7 @@ namespace RefrigtzW
                                                        MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = new List<AllDraw>();
                                                    MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                    MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                   return;
+                                                   continue;
                                                }
                                                else
                                                     if (j != jindex[4])
@@ -14868,7 +14923,7 @@ namespace RefrigtzW
                                                        MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = new List<AllDraw>();
                                                    MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                    MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                   return;
+                                                   continue;
                                                }
                                            }
                                            else
@@ -14877,7 +14932,7 @@ namespace RefrigtzW
                                                    MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = new List<AllDraw>();
                                                MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                               return;
+                                               continue;
                                            }
 
                                        }
@@ -14963,7 +15018,7 @@ namespace RefrigtzW
                                                        MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = new List<AllDraw>();
                                                    MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                    MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                   return;
+                                                   continue;
                                                }
                                                else
                                                     if (j != jindex[4])
@@ -14973,7 +15028,7 @@ namespace RefrigtzW
                                                        MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = new List<AllDraw>();
                                                    MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                    MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                   return;
+                                                   continue;
                                                }
                                            }
                                            else
@@ -14982,7 +15037,7 @@ namespace RefrigtzW
                                                    MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = new List<AllDraw>();
                                                MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                               return;
+                                               continue;
                                            }
                                        }
                                        //Object O3 = new Object();
@@ -15042,7 +15097,7 @@ namespace RefrigtzW
                            Log(t);
                        }
                    }
-               });
+               }//);
                 /*if (tHA.Count > 1)
                 {
                     Task array = Task.Factory.StartNew(() => Parallel.ForEach(tHA, items => Task.WaitAny(items)));
@@ -15102,15 +15157,25 @@ namespace RefrigtzW
                         SemaphoreExxedTime(S, 5);
                     }// S += 100; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
                 }
+                Object OOOO = new Object();
+                lock (OOOO)
+                {
+                    if (iAStarGreedy <= CurrentAStarGredyMax && ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
+                    {
+                        OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
+                        return true;
+                    }
+                }
                 //List<Task> tHA = new List<Task>();
 
                 if (KingOnTable[ik].KingThinking[0].TableListKing.Count == 0)
                     return Do;
-                Parallel.For(0, KingOnTable[ik].KingThinking[0].TableListKing.Count, j =>
-               {
-                   //Object ooo = new Object();
-                   ////lock (ooo)
-                   {
+                // Parallel.For(0, KingOnTable[ik].KingThinking[0].TableListKing.Count, j =>
+                for(int j=0;j< KingOnTable[ik].KingThinking[0].TableListKing.Count; j++)
+                {
+                    //Object ooo = new Object();
+                    ////lock (ooo)
+                    {
 
                        try
                        {
@@ -15143,7 +15208,7 @@ namespace RefrigtzW
                                                    KingOnTable[ik].KingThinking[0].AStarGreedy = new List<AllDraw>();
                                                KingOnTable[ik].KingThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                               return;
+                                               continue;
                                            }
                                            else
                                                 if (j != jindex[5])
@@ -15152,7 +15217,7 @@ namespace RefrigtzW
                                                    KingOnTable[ik].KingThinking[0].AStarGreedy = new List<AllDraw>();
                                                KingOnTable[ik].KingThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                               return;
+                                               continue;
                                            }
                                        }
                                        else
@@ -15161,7 +15226,7 @@ namespace RefrigtzW
                                                KingOnTable[ik].KingThinking[0].AStarGreedy = new List<AllDraw>();
                                            KingOnTable[ik].KingThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                            KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                           return;
+                                           continue;
                                        }
 
                                    }
@@ -15242,7 +15307,7 @@ namespace RefrigtzW
                                                KingOnTable[ik].KingThinking[0].AStarGreedy = new List<AllDraw>();
                                            KingOnTable[ik].KingThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                            KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                           return;
+                                           continue;
                                        }
                                        else
 
@@ -15252,7 +15317,7 @@ namespace RefrigtzW
                                                KingOnTable[ik].KingThinking[0].AStarGreedy = new List<AllDraw>();
                                            KingOnTable[ik].KingThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                            KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                           return;
+                                           continue;
                                        }
                                    }
                                    else
@@ -15261,7 +15326,7 @@ namespace RefrigtzW
                                            KingOnTable[ik].KingThinking[0].AStarGreedy = new List<AllDraw>();
                                        KingOnTable[ik].KingThinking[0].AStarGreedy.Add(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                        KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                       return;
+                                       continue;
                                    }
 
                                    //Object O3 = new Object();
@@ -15319,7 +15384,7 @@ namespace RefrigtzW
                            Log(t);
                        }
                    }
-               });
+               }//);
                 /*if (tHA.Count > 1)
                 {
                     Task array = Task.Factory.StartNew(() => Parallel.ForEach(tHA, items => Task.WaitAny(items)));
