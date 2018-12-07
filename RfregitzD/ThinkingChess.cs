@@ -4444,9 +4444,11 @@ namespace RefrigtzDLL
                         {
                             //Parallel.For(0, 8, ColS =>
                             {
-                                Parallel.For(0, 8, ii =>
+                                //Parallel.For(0, 8, ii =>
+                                for (int ii = 0; ii < 8; ii++)
                                 {
-                                    Parallel.For(0, 8, jj =>
+                                    //Parallel.For(0, 8, jj =>
+                                    for (int jj = 0; jj < 8; jj++)
                                     {
                                         ////Object O1 = new Object();
                                         //lock (O1)
@@ -4494,8 +4496,8 @@ namespace RefrigtzDLL
                                             double HAA6 = HuristicSelfSupported(Table6, Ord6, aa6, i6, j6, iiii6, jjjj6);
                                             Huristic[5] += HAA6;
                                         }
-                                    });
-                                });
+                                    }//);
+                                }//);
                             }//);
                         }//);
                     }
@@ -6730,25 +6732,29 @@ namespace RefrigtzDLL
                 ////Object O = new Object();
                 //lock (O)
                 {
-                    Parallel.For(0, 8, i =>
+                    //Parallel.For(0, 8, i =>
+                    for (int i = 0; i < 8; i++)
                     {
                         if ((LearningV[0] || LearningV[1] || LearningV[2]))
-                            return;
-                        Parallel.For(0, 8, j =>
+                            continue;
+                        //Parallel.For(0, 8, j =>
+                        for (int j = 0; j < 8; j++)
                         {
                             if ((LearningV[0] || LearningV[1] || LearningV[2]))
-                                return;
-                            Parallel.For(0, 8, RowS =>
+                                continue;
+                            //Parallel.For(0, 8, RowS =>
+                            for (int RowS = 0; RowS < 8; RowS++)
                             {
                                 if ((LearningV[0] || LearningV[1] || LearningV[2]))
-                                    return;
+                                    continue;
 
-                                Parallel.For(0, 8, ColS =>
+                                //Parallel.For(0, 8, ColS =>
+                                for (int ColS = 0; ColS < 8; ColS++)
                                 {
                                     if ((LearningV[0] || LearningV[1] || LearningV[2]))
-                                        return;
+                                        continue;
 
-                                    Parallel.Invoke(() =>
+                                    //Parallel.Invoke(() =>
                                     {
 
                                         ////Object O1 = new Object();
@@ -6757,14 +6763,14 @@ namespace RefrigtzDLL
                                             if (!(LearningV[0] || LearningV[1] || LearningV[2]))
                                                 LearningV[0] = LearningV[0] || InAttackSelfThatNotSupportedAll(TableS, Order, color, i, j, RowS, ColS, ik, jk, iik, jjk);
                                         }
-                                    }, () =>
+                                    }//, () =>
                                     {
 
                                         ////Object O1 = new Object();
                                         //lock (O1)
                                         {
                                             if ((LearningV[0] || LearningV[1] || LearningV[2]))
-                                                return;
+                                                continue;
 
                                             if (AttackCount <= 1 && (!(LearningV[0] || LearningV[1] || LearningV[2])))
                                                 AttackCount = AttackCount + IsNotSafeToMoveAenemeyToAttackMoreThanTowObject(AttackCount, TableS, Order, i, j, RowS, ColS//, ii, jj, RowD, ColD
@@ -6773,7 +6779,7 @@ namespace RefrigtzDLL
                                             if (!(LearningV[0] || LearningV[1] || LearningV[2]))
                                                 LearningV[1] = true;
                                         }
-                                    }, () =>
+                                    }//, () =>
                                      {
                                          ////Object O1 = new Object();
                                          //lock (O1)
@@ -6782,12 +6788,12 @@ namespace RefrigtzDLL
                                                  LearningV[2] = LearningV[2] || IsGardForCurrentMovmentsAndIsNotMovable(TableS, Order, color, i, j, RowS, ColS//, ii, jj, RowD, ColD
                                                      );
                                          }
-                                     });
-                                });
+                                     }//);
+                                }//);
 
-                            });
-                        });
-                    });
+                            }//);
+                        }//);
+                    }//);
                 }
                 return LearningV;
             }

@@ -10139,6 +10139,7 @@ namespace Refrigtz
                 GrayTimer.TimerInitiate();
                 BrownTimer.TimerInitiate();
             }
+            TimerIniataite = true;
             //BobSection = false;
             //AliceSection = false;
             StateCP = true;
@@ -10149,6 +10150,7 @@ namespace Refrigtz
             if (OrderPlate == 1)
             {
                 GrayTimer.StartTime();
+
                 Blitz = true;
             }
             else if (OrderPlate == -1)
