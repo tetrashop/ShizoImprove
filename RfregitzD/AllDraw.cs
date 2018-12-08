@@ -6327,7 +6327,7 @@ namespace RefrigtzDLL
                                     //For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
                                     //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                                         //)
-                                        if (SolderesOnTable[i].SoldierThinking[k].PenaltyRegardListSolder[j].IsPenaltyAction() == 0)
+                                          if (SolderesOnTable[i].SoldierThinking[k].PenaltyRegardListSolder[j].IsPenaltyAction() == 0)
                                             continue;
                                     int CDummy = ChessRules.CurrentOrder;
                                     int COrder = Order;
@@ -13694,8 +13694,6 @@ namespace RefrigtzDLL
                     if (A.KingOnTable[i] != null)
                         Sum += A.KingOnTable[i].WinOcuuredatChiled;
             }
-            if (Sum > 0)
-                Sum = Sum;
             return Sum;
         }
         bool FullGameThinkingTreeSoldier(int ik, Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
@@ -14000,7 +13998,8 @@ namespace RefrigtzDLL
             {
                 try
                 {
-                    Parallel.For(0, SodierMidle, ik =>
+                    //Parallel.For(0, SodierMidle, ik =>
+                    for(int ik=0;ik< SodierMidle; ik++)
                     {
                         if (SolderesOnTable != null && SolderesOnTable[ik] != null)
                         {
@@ -14010,7 +14009,7 @@ namespace RefrigtzDLL
                                 Do = FullGameThinkingTreeSoldier(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
                             }
                         }
-                    });
+                    }//);
                 }
                 catch (Exception t) { Log(t); }
             }
@@ -14303,9 +14302,10 @@ namespace RefrigtzDLL
                 //Elephant
                 try
                 {
-                    Parallel.For(0, ElefantMidle, ik =>
-                  {
-                      if (ElephantOnTable != null && ElephantOnTable[ik] != null)
+                    //Parallel.For(0, ElefantMidle, ik =>
+                    for(int ik=0;ik< ElefantMidle; ik++)
+                    {
+                        if (ElephantOnTable != null && ElephantOnTable[ik] != null)
                       {
                           //Object O = new Object();
                           ////lock (O)
@@ -14313,7 +14313,7 @@ namespace RefrigtzDLL
                               Do = FullGameThinkingTreeElephant(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
                           }
                       }
-                  });
+                  }//);
                 }
                 catch (Exception t) { Log(t); }
             }
@@ -14612,9 +14612,10 @@ namespace RefrigtzDLL
                 //Hourse.
                 try
                 {
-                    Parallel.For(0, HourseMidle, ik =>
-                   {
-                       if (HoursesOnTable != null && HoursesOnTable[ik] != null)
+                    //Parallel.For(0, HourseMidle, ik =>
+                    for(int ik=0;ik< HourseMidle; ik++)
+                    {
+                        if (HoursesOnTable != null && HoursesOnTable[ik] != null)
                        {
                            //Object O = new Object();
                            ////lock (O)
@@ -14622,7 +14623,7 @@ namespace RefrigtzDLL
                                Do = FullGameThinkingTreeHourse(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
                            }
                        }
-                   });
+                   }//);
                 }
                 catch (Exception t) { Log(t); }
             }
@@ -14914,9 +14915,10 @@ namespace RefrigtzDLL
                 //Castle.
                 try
                 {
-                    Parallel.For(0, CastleMidle, ik =>
-                   {
-                       if (CastlesOnTable != null && CastlesOnTable[ik] != null)
+                    //Parallel.For(0, CastleMidle, ik =>
+                    for(int ik=0;ik< CastleMidle; ik++)
+                    {
+                        if (CastlesOnTable != null && CastlesOnTable[ik] != null)
                        {
                            //Object O = new Object();
                            ////lock (O)
@@ -14924,7 +14926,7 @@ namespace RefrigtzDLL
                                Do = FullGameThinkingTreeCastle(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
                            }
                        }
-                   });
+                   }//);
                 }
                 catch (Exception t) { Log(t); }
             }
@@ -15217,17 +15219,18 @@ namespace RefrigtzDLL
                 //Minister.
                 try
                 {
-                    Parallel.For(0, MinisterMidle, ik =>
-                  {
-                      if (MinisterOnTable != null && MinisterOnTable[ik] != null)
-                      {
-                          //Object O = new Object();
-                          ////lock (O)
-                          {
-                              Do = FullGameThinkingTreeMinister(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
-                          }
-                      }
-                  });
+                    //Parallel.For(0, MinisterMidle, ik =>
+                    for (int ik = 0; ik < MinisterMidle; ik++)
+                    {
+                        if (MinisterOnTable != null && MinisterOnTable[ik] != null)
+                        {
+                            //Object O = new Object();
+                            ////lock (O)
+                            {
+                                Do = FullGameThinkingTreeMinister(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
+                            }
+                        }
+                    }//);
                 }
                 catch (Exception t) { Log(t); }
             }
@@ -15508,17 +15511,18 @@ namespace RefrigtzDLL
                 //King.
                 try
                 {
-                    Parallel.For(0, KingMidle, ik =>
-                  {
-                      if (KingOnTable != null && KingOnTable[ik] != null)
-                      {
-                          //Object O = new Object();
-                          ////lock (O)
-                          {
-                              Do = FullGameThinkingTreeKing(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
-                          }
-                      }
-                  });
+                    //Parallel.For(0, KingMidle, ik =>
+                    for (int ik = 0; ik < KingMidle; ik++)
+                    {
+                        if (KingOnTable != null && KingOnTable[ik] != null)
+                        {
+                            //Object O = new Object();
+                            ////lock (O)
+                            {
+                                Do = FullGameThinkingTreeKing(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
+                            }
+                        }
+                    }//);
                 }
                 catch (Exception t) { Log(t); }
             }
@@ -15533,18 +15537,19 @@ namespace RefrigtzDLL
 
                 try
                 {
-                    Parallel.For(SodierMidle, SodierHigh, ik =>
-                  {
-                      if (SolderesOnTable != null && SolderesOnTable[ik] != null)
-                      {
-                          //Soldier.
-                          //Object O = new Object();
-                          ////lock (O)
-                          {
-                              Do = FullGameThinkingTreeSoldier(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
-                          }
-                      }
-                  });
+                    //Parallel.For(SodierMidle, SodierHigh, ik =>
+                    for (int ik = SodierMidle; ik < SodierHigh; ik++)
+                    {
+                        if (SolderesOnTable != null && SolderesOnTable[ik] != null)
+                        {
+                            //Soldier.
+                            //Object O = new Object();
+                            ////lock (O)
+                            {
+                                Do = FullGameThinkingTreeSoldier(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
+                            }
+                        }
+                    }//);
                 }
                 catch (Exception t) { Log(t); }
             }
@@ -15560,17 +15565,18 @@ namespace RefrigtzDLL
                 //Elephant
                 try
                 {
-                    Parallel.For(ElefantMidle, ElefantHigh, ik =>
-                  {
-                      if (ElephantOnTable != null && ElephantOnTable[ik] != null)
-                      {
-                          //Object O = new Object();
-                          ////lock (O)
-                          {
-                              Do = FullGameThinkingTreeElephant(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
-                          }
-                      }
-                  });
+                    //Parallel.For(ElefantMidle, ElefantHigh, ik =>
+                    for (int ik = ElefantMidle; ik < ElefantHigh; ik++)
+                    {
+                        if (ElephantOnTable != null && ElephantOnTable[ik] != null)
+                        {
+                            //Object O = new Object();
+                            ////lock (O)
+                            {
+                                Do = FullGameThinkingTreeElephant(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
+                            }
+                        }
+                    }//);
                 }
                 catch (Exception t) { Log(t); }
             }
@@ -15585,17 +15591,18 @@ namespace RefrigtzDLL
                 //Hourse.
                 try
                 {
-                    Parallel.For(HourseMidle, HourseHight, ik =>
-                   {
-                       if (HoursesOnTable != null && HoursesOnTable[ik] != null)
-                       {
-                           //Object O = new Object();
-                           ////lock (O)
-                           {
-                               Do = FullGameThinkingTreeHourse(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
-                           }
-                       }
-                   });
+                    //Parallel.For(HourseMidle, HourseHight, ik =>
+                    for (int ik = HourseMidle; ik < HourseHight; ik++)
+                    {
+                        if (HoursesOnTable != null && HoursesOnTable[ik] != null)
+                        {
+                            //Object O = new Object();
+                            ////lock (O)
+                            {
+                                Do = FullGameThinkingTreeHourse(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
+                            }
+                        }
+                    }//);
                 }
                 catch (Exception t) { Log(t); }
             }
@@ -15610,17 +15617,18 @@ namespace RefrigtzDLL
                 //Castles.
                 try
                 {
-                    Parallel.For(CastleMidle, CastleHigh, ik =>
-                   {
-                       if (CastlesOnTable != null && CastlesOnTable[ik] != null)
-                       {
-                           //Object O = new Object();
-                           ////lock (O)
-                           {
-                               Do = FullGameThinkingTreeCastle(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
-                           }
-                       }
-                   });
+                    //Parallel.For(CastleMidle, CastleHigh, ik =>
+                    for (int ik = CastleMidle; ik < CastleHigh; ik++)
+                    {
+                        if (CastlesOnTable != null && CastlesOnTable[ik] != null)
+                        {
+                            //Object O = new Object();
+                            ////lock (O)
+                            {
+                                Do = FullGameThinkingTreeCastle(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
+                            }
+                        }
+                    }//);
                 }
                 catch (Exception t) { Log(t); }
             }
@@ -15636,17 +15644,18 @@ namespace RefrigtzDLL
                 //Minister.
                 try
                 {
-                    Parallel.For(MinisterMidle, MinisterHigh, ik =>
-                  {
-                      if (MinisterOnTable != null && MinisterOnTable[ik] != null)
-                      {
-                          //Object O = new Object();
-                          ////lock (O)
-                          {
-                              Do = FullGameThinkingTreeMinister(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
-                          }
-                      }
-                  });
+                    //Parallel.For(MinisterMidle, MinisterHigh, ik =>
+                    for (int ik = MinisterMidle; ik < MinisterHigh; ik++)
+                    {
+                        if (MinisterOnTable != null && MinisterOnTable[ik] != null)
+                        {
+                            //Object O = new Object();
+                            ////lock (O)
+                            {
+                                Do = FullGameThinkingTreeMinister(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
+                            }
+                        }
+                    }//);
                 }
                 catch (Exception t) { Log(t); }
             }
@@ -15661,19 +15670,20 @@ namespace RefrigtzDLL
                 //King.
                 try
                 {
-                    Parallel.For(KingMidle, KingHigh, ik =>
-                  {
+                    //Parallel.For(KingMidle, KingHigh, ik =>
+                    for (int ik = KingMidle; ik < KingHigh; ik++)
+                    {
 
-                      if (KingOnTable != null && KingOnTable[ik] != null)
-                      {
-                          //Object O = new Object();
-                          ////lock (O)
-                          {
-                              Do = FullGameThinkingTreeKing(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
-                          }
-                      }
+                        if (KingOnTable != null && KingOnTable[ik] != null)
+                        {
+                            //Object O = new Object();
+                            ////lock (O)
+                            {
+                                Do = FullGameThinkingTreeKing(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
+                            }
+                        }
 
-                  });
+                    }//);
                 }
                 catch (Exception t) { Log(t); }
                 {
