@@ -13660,19 +13660,19 @@ namespace RefrigtzDLL
                 for (int i = 0; i < A.ElefantMidle; i++)
                     if (A.ElephantOnTable[i] != null)
                         Sum += A.ElephantOnTable[i].WinOcuuredatChiled;
-                for (int i = 0; i < A.HourseMidle; i++)
+                 for (int i = 0; i < A.HourseMidle; i++)
                     if (A.HoursesOnTable[i] != null)
                         Sum += A.HoursesOnTable[i].WinOcuuredatChiled;
-                for (int i = 0; i < A.CastleMidle; i++)
+                 for (int i = 0; i < A.CastleMidle; i++)
                     if (A.CastlesOnTable[i] != null)
                         Sum += A.CastlesOnTable[i].WinOcuuredatChiled;
-                for (int i = 0; i < A.MinisterMidle; i++)
+                  for (int i = 0; i < A.MinisterMidle; i++)
                     if (A.MinisterOnTable[i] != null)
                         Sum += A.MinisterOnTable[i].WinOcuuredatChiled;
-                for (int i = 0; i < A.KingMidle; i++)
+                 for (int i = 0; i < A.KingMidle; i++)
                     if (A.KingOnTable[i] != null)
                         Sum += A.KingOnTable[i].WinOcuuredatChiled;
-
+            
             }
             else {
                 for (int i = A.SodierMidle; i < A.SodierHigh; i++)
@@ -13690,11 +13690,11 @@ namespace RefrigtzDLL
                 for (int i = A.MinisterMidle; i < A.MinisterHigh; i++)
                     if (A.MinisterOnTable[i] != null)
                         Sum += A.MinisterOnTable[i].WinOcuuredatChiled;
-                for (int i = A.KingMidle; i < A.KingHigh; i++)
+               for (int i = A.KingMidle; i < A.KingHigh; i++)
                     if (A.KingOnTable[i] != null)
                         Sum += A.KingOnTable[i].WinOcuuredatChiled;
             }
-            return Sum;
+             return Sum;
         }
         bool FullGameThinkingTreeSoldier(int ik, Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
@@ -15952,7 +15952,7 @@ namespace RefrigtzDLL
                 //Soldeir
                 //Initiatye Variables.               
 
-                Parallel.Invoke(() =>
+               // Parallel.Invoke(() =>
 
                                     {
                                         //Object O1 = new Object();
@@ -15974,7 +15974,7 @@ namespace RefrigtzDLL
                                             Order = DummyOrder;
                                             ChessRules.CurrentOrder = DummyCurrentOrder;
                                         }
-                                    }, () =>
+                                    }//, () =>
                                     {
                                         //Object O1 = new Object();
                                         ////lock (O1)
@@ -16000,7 +16000,7 @@ namespace RefrigtzDLL
                                             ChessRules.CurrentOrder = DummyCurrentOrder;
                                         }
 
-                                    }, () =>
+                                    }//, () =>
                                     {
                                         //Object O1 = new Object();
                                         ////lock (O1)
@@ -16025,7 +16025,7 @@ namespace RefrigtzDLL
                                             Order = DummyOrder;
                                             ChessRules.CurrentOrder = DummyCurrentOrder;
                                         }
-                                    }, () =>
+                                    }//, () =>
                                     {
                                         //Object O1 = new Object();
                                         ////lock (O1)
@@ -16050,7 +16050,7 @@ namespace RefrigtzDLL
                                             Order = DummyOrder;
                                             ChessRules.CurrentOrder = DummyCurrentOrder;
                                         }
-                                    }, () =>
+                                    }//, () =>
                                     {
                                         //Object O1 = new Object();
                                         ////lock (O1)
@@ -16074,7 +16074,7 @@ namespace RefrigtzDLL
                                             Order = DummyOrder;
                                             ChessRules.CurrentOrder = DummyCurrentOrder;
                                         }
-                                    }, () =>
+                                    }//, () =>
                                     {
                                         //Object O1 = new Object();
                                         ////lock (O1)
@@ -16096,12 +16096,12 @@ namespace RefrigtzDLL
                                             Order = DummyOrder;
                                             ChessRules.CurrentOrder = DummyCurrentOrder;
                                         }
-                                    });
+                                    }//);
             }
             //For Brown Order Blitz Game Calculate Maximum Table Inclusive AStarGreedy First Game Search.
             else
             {
-                Parallel.Invoke(() =>
+                //Parallel.Invoke(() =>
                 {
                     //Object O1 = new Object();
                     ////lock (O1)
@@ -16122,7 +16122,7 @@ namespace RefrigtzDLL
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
-                }, () =>
+                }//, () =>
                 {
                     //Object O1 = new Object();
                     ////lock (O1)
@@ -16147,7 +16147,7 @@ namespace RefrigtzDLL
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
-                }, () =>
+                }//, () =>
                 {
                     //Object O1 = new Object();
                     ////lock (O1)
@@ -16172,7 +16172,7 @@ namespace RefrigtzDLL
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
-                }, () =>
+                }//, () =>
                 {
                     //Object O1 = new Object();
                     ////lock (O1)
@@ -16197,7 +16197,7 @@ namespace RefrigtzDLL
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
-                }, () =>
+                }//, () =>
                 {
                     //Object O1 = new Object();
                     ////lock (O1)
@@ -16221,7 +16221,7 @@ namespace RefrigtzDLL
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
-                }, () =>
+                }//, () =>
                 {
                     //Object O1 = new Object();
                     ////lock (O1)
@@ -16247,7 +16247,7 @@ namespace RefrigtzDLL
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
-                });
+                }//);
             }
 
             return Do;
