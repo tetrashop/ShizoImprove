@@ -12047,7 +12047,7 @@ namespace RefrigtzW
                     Object OOOO = new Object();
                     lock (OOOO)
                     {
-                        if (iAStarGreedy >= CurrentAStarGredyMax && ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
+                        if (iAStarGreedy >=  MaxAStarGreedy && ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
                         {
                             OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
                             return null;
@@ -13661,7 +13661,7 @@ namespace RefrigtzW
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
-                    if (iAStarGreedy >= CurrentAStarGredyMax && ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
+                    if (iAStarGreedy >=  MaxAStarGreedy && ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
                     {
                         OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
                         return true;
@@ -13966,7 +13966,7 @@ namespace RefrigtzW
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
-                    if (iAStarGreedy >= CurrentAStarGredyMax && ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
+                    if (iAStarGreedy >=  MaxAStarGreedy && ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
                     {
                         OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
                         return true;
@@ -14266,7 +14266,7 @@ namespace RefrigtzW
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
-                    if (iAStarGreedy >= CurrentAStarGredyMax && ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
+                    if (iAStarGreedy >=  MaxAStarGreedy && ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
                     {
                         OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
                         return true;
@@ -14569,7 +14569,7 @@ namespace RefrigtzW
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
-                    if (iAStarGreedy >= CurrentAStarGredyMax && ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
+                    if (iAStarGreedy >=  MaxAStarGreedy && ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
                     {
                         OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
                         return true;
@@ -14863,7 +14863,7 @@ namespace RefrigtzW
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
-                    if (iAStarGreedy >= CurrentAStarGredyMax && ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
+                    if (iAStarGreedy >=  MaxAStarGreedy && ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
                     {
                         OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
                         return true;
