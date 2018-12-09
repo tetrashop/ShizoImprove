@@ -2341,6 +2341,7 @@ namespace Refrigtz
         //Load Refregitz Form.
         private void Form1_Load(object sender, EventArgs e)
         {
+            
 
             //Thread tr = new Thread(new ThreadStart(Timerstart));
             //tr.Start();
@@ -2363,85 +2364,6 @@ namespace Refrigtz
 
             TimerText.StartTime();
 
-            if (Blitz)
-            {
-                BrownTimer = new Refrigtz.Timer(true);
-                GrayTimer = new Refrigtz.Timer(true);
-
-                if (OrderPlate == 1)
-                {
-                    GrayTimer.StartTime();
-                    BrownTimer.StopTime();
-                }
-                else
-                {
-                    GrayTimer.StopTime();
-                    BrownTimer.StartTime();
-                }
-            }
-            else if (FullGame)
-            {
-
-                BrownTimer = new Refrigtz.Timer(true);
-                GrayTimer = new Refrigtz.Timer(true);
-
-                if (OrderPlate == 1)
-                {
-                    GrayTimer.StartTime();
-                    BrownTimer.StopTime();
-                }
-                else
-                {
-                    GrayTimer.StopTime();
-                    BrownTimer.StartTime();
-                }
-            }
-            else if (StateCC)
-            {
-                GrayTimer = new Refrigtz.Timer(true);
-                BrownTimer = new Refrigtz.Timer(true);
-                GrayTimer.TimerInitiate();
-                BrownTimer.TimerInitiate();
-                if (OrderPlate == 1)
-                {
-                    BobSection = true;
-                    AliceSection = false;
-                    GrayTimer.StartTime();
-                }
-                else
-                {
-                    BobSection = false;
-                    AliceSection = true;
-                    BrownTimer.StartTime();
-                }
-                UpdateConfigurationTableVal = true;
-            }
-            else if (Stockfish)
-            {
-                BrownTimer = new Refrigtz.Timer(true);
-                GrayTimer = new Refrigtz.Timer(true);
-
-                if (OrderPlate == 1)
-                {
-                    GrayTimer.StartTime();
-                    BrownTimer.StopTime();
-                    BobSection = true;
-                    AliceSection = false;
-                    GrayTimer.StartTime();
-                }
-                else
-                {
-                    BrownTimer.StartTime();
-                    GrayTimer.StopTime();
-                    BobSection = false;
-                    AliceSection = true;
-                    BrownTimer.StartTime();
-                }
-
-                //
-                // 
-
-            }
             //Wehn no need to load.
             if (File.Exists(Root + "\\Run.txt"))
             {
@@ -2589,6 +2511,85 @@ namespace Refrigtz
                 RefrigtzDLL.AllDraw.DepthIterative = 0;
 
                 //MessageBox.Show("Draw Not Found.");
+            }
+            if (Blitz)
+            {
+                BrownTimer = new Refrigtz.Timer(true);
+                GrayTimer = new Refrigtz.Timer(true);
+
+                if (OrderPlate == 1)
+                {
+                    GrayTimer.StartTime();
+                    BrownTimer.StopTime();
+                }
+                else
+                {
+                    GrayTimer.StopTime();
+                    BrownTimer.StartTime();
+                }
+            }
+            else if (FullGame)
+            {
+
+                BrownTimer = new Refrigtz.Timer(true);
+                GrayTimer = new Refrigtz.Timer(true);
+
+                if (OrderPlate == 1)
+                {
+                    GrayTimer.StartTime();
+                    BrownTimer.StopTime();
+                }
+                else
+                {
+                    GrayTimer.StopTime();
+                    BrownTimer.StartTime();
+                }
+            }
+            else if (StateCC)
+            {
+                GrayTimer = new Refrigtz.Timer(true);
+                BrownTimer = new Refrigtz.Timer(true);
+                GrayTimer.TimerInitiate();
+                BrownTimer.TimerInitiate();
+                if (OrderPlate == 1)
+                {
+                    BobSection = true;
+                    AliceSection = false;
+                    GrayTimer.StartTime();
+                }
+                else
+                {
+                    BobSection = false;
+                    AliceSection = true;
+                    BrownTimer.StartTime();
+                }
+                UpdateConfigurationTableVal = true;
+            }
+            else if (Stockfish)
+            {
+                BrownTimer = new Refrigtz.Timer(true);
+                GrayTimer = new Refrigtz.Timer(true);
+
+                if (OrderPlate == 1)
+                {
+                    GrayTimer.StartTime();
+                    BrownTimer.StopTime();
+                    BobSection = true;
+                    AliceSection = false;
+                    GrayTimer.StartTime();
+                }
+                else
+                {
+                    BrownTimer.StartTime();
+                    GrayTimer.StopTime();
+                    BobSection = false;
+                    AliceSection = true;
+                    BrownTimer.StartTime();
+                }
+
+                //
+                // 
+
             }
             if (RefrigtzDLL.AllDraw.TableListAction.Count == 0)
                 RefrigtzDLL.AllDraw.TableListAction.Add(Table);
@@ -7500,7 +7501,10 @@ namespace Refrigtz
                 //if (First)
                 //Draw.FoundOfCurrentTableNode(Table, OrderPlate * -1, ref THIS, ref FOUND);
                 //else
-                Draw.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
+                int Ord = 1;
+                if (Sec.radioButtonBrownOrder.Checked)
+                    Ord = -1;
+                Draw.FoundOfCurrentTableNode(Table, Ord, ref THIS, ref FOUND);
                 if (FOUND)
                 {
 
@@ -11043,6 +11047,11 @@ namespace Refrigtz
         private void FormRefrigtz_FormClosing(object sender, FormClosingEventArgs e)
         {
             (new TakeRoot()).Save(this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+        }
+
+        private void backgroundWorkerRefregitz_DoWork(object sender, DoWorkEventArgs e)
+        {
+            AllOp();
         }
 
         private void toolStripMenuItem14_Click(object sender, EventArgs e)

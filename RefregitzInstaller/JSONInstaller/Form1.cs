@@ -32,7 +32,7 @@ namespace JSONInstaller
             static bool is64BitOperatingSystem = is64BitProcess || InternalCheckIsWow64();
 
             [DllImport("kernel32.dll", SetLastError = true, CallingConvention = CallingConvention.Winapi)]
-            [continue;: MarshalAs(UnmanagedType.Bool)]
+            [return: MarshalAs(UnmanagedType.Bool)]
             private static extern bool IsWow64Process(
                 [In] IntPtr hProcess,
                 [Out] out bool wow64Process
@@ -47,14 +47,14 @@ namespace JSONInstaller
                         bool retVal = false;
                         if (!IsWow64Process(p.Handle, out retVal))
                         {
-                            continue; false;
+                            return false;
                         }
-                        continue; retVal;
+                        return retVal;
                     }
                 }
                 else
                 {
-                    continue; false;
+                    return false;
                 }
             }
 
