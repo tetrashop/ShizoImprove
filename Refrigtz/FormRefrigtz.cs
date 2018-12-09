@@ -1877,12 +1877,14 @@ namespace Refrigtz
                     {
                         SetlableRefregitzMaxValueCalBack d = new SetlableRefregitzMaxValueCalBack(SetlableRefregitzMaxValue);
                         Refregitz.Invoke(new Action(() => Refregitz.Text = value));
-                        SetlableRefregitzRefresh(Refregitz);
+                        //SetlableRefregitzRefresh(Refregitz);
+                        Refregitz.Refresh();
                     }
                     else
                     {
                         Refregitz.Text = value;
-                        SetlableRefregitzRefresh(Refregitz);
+                        // SetlableRefregitzRefresh(Refregitz);
+                        Refregitz.Refresh();
                     }
                 }
             }
