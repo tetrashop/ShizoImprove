@@ -91,7 +91,7 @@ using System.IO;
 namespace QuantumRefrigiz
 {
     [Serializable]
-    public class ChessRules
+    public class ChessRules:RulesQuantum
     {
         public bool IgnoreSelfObject = false;
         public static int ObjectHittedRow = -1;
@@ -192,6 +192,7 @@ namespace QuantumRefrigiz
         }
         //Constructor 
         public ChessRules(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged, int Ki, int[,] A, int Ord, int i, int j)
+            :base(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel,  AStarGreedyHuris,  ArrangmentsChanged, Ki,  A,  Ord, i,  j)
         {
 
             CurrentAStarGredyMax = CurrentAStarGredy;
