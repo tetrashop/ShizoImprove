@@ -4,17 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 using System.IO;
-namespace RefrigtzDLL
+namespace QuantumRefrigiz
 {
     [Serializable]
     public class DrawKing
     {
-        
-        
-        
+        //A quantum move cannot be used to take a piece.
+        public bool IsQuntumMove = false;
+        //Pieces have rings around them, filled in with colour. These rings show the probability that the piece is in that square.
         public static bool KingGrayNotCheckedByQuantumMove = false;
         public static bool KingBrownNotCheckedByQuantumMove = false;
-        
+        public bool RingHalf = false;
         public int WinOcuuredatChiled = 0;
         private readonly object balanceLock = new object();
         private readonly object balanceLockS = new object();
@@ -119,7 +119,9 @@ namespace RefrigtzDLL
             )
         {
 
-              lock (balanceLock)
+            if (IsQuntumMove)
+                RingHalf = true;
+            lock (balanceLock)
             {
                 if (K[0] == null && K[1] == null)
                 {
@@ -211,7 +213,22 @@ namespace RefrigtzDLL
                             {    //Draw an Instant from File of Gray Soldeirs.
                                  //Draw an Instatnt Gray King Image On the Table.
                                 g.DrawImage(K[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-
+                                if (RingHalf)
+                                {
+                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
+                                    if (AllDraw.OrderPlate == 1)
+                                        KingGrayNotCheckedByQuantumMove = true;
+                                    else
+                                        KingBrownNotCheckedByQuantumMove = true;
+                                }
+                                else
+                                {
+                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                                    if (AllDraw.OrderPlate == 1)
+                                        KingGrayNotCheckedByQuantumMove = true;
+                                    else
+                                        KingBrownNotCheckedByQuantumMove = true;
+                                }
                             }
 
                         }
@@ -222,7 +239,22 @@ namespace RefrigtzDLL
                             {    //Draw an Instant from File of Gray Soldeirs.
                                  //Draw an Instatnt Brown King Image On the Table.
                                 g.DrawImage(K[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-
+                                if (RingHalf)
+                                {
+                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                                    if (AllDraw.OrderPlate == 1)
+                                        KingGrayNotCheckedByQuantumMove = true;
+                                    else
+                                        KingBrownNotCheckedByQuantumMove = true;
+                                }
+                                else
+                                {
+                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                                    if (AllDraw.OrderPlate == 1)
+                                        KingGrayNotCheckedByQuantumMove = true;
+                                    else
+                                        KingBrownNotCheckedByQuantumMove = true;
+                                }
                             }
                             }
                     }

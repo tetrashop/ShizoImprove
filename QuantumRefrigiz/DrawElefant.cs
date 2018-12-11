@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 using System.IO;
-namespace RefrigtzDLL
+namespace QuantumRefrigiz
 {
     [Serializable]
     public class DrawElefant
 
     {
-        
-        
-        
-        
+        //A quantum move cannot be used to take a piece.
+        public bool IsQuntumMove = false;
+        //Pieces have rings around them, filled in with colour. These rings show the probability that the piece is in that square.
+        public bool RingHalf = false;
         public int WinOcuuredatChiled = 0;
         private readonly object balanceLock = new object();
         private readonly object balanceLockS = new object();
@@ -210,7 +210,11 @@ namespace RefrigtzDLL
                             {    //Draw an Instant from File of Gray Soldeirs.
                                  //Draw an Instatnt Gray Elephant On the Table.
                                 g.DrawImage(E[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                               }
+                                if (RingHalf)
+                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW) ), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
+                                else
+                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW) ), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                            }
                         }
                         else
                         {
@@ -219,6 +223,10 @@ namespace RefrigtzDLL
                             {    //Draw an Instant from File of Gray Soldeirs.
                                  //Draw an Instatnt Brown Elepehnt On the Table.
                                 g.DrawImage(E[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                if (RingHalf)
+                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW) ), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
+                                else
+                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW) ), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
                             }
                         }
                     }

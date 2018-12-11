@@ -9,6 +9,10 @@ namespace RefrigtzDLL
     [Serializable]
     public class DrawCastle
     {
+        
+        
+        
+        
         public int WinOcuuredatChiled = 0;
         private readonly object balanceLock = new object();
         private readonly object balanceLockS = new object();
@@ -203,7 +207,7 @@ namespace RefrigtzDLL
                             {    //Draw an Instant from File of Gray Soldeirs.
                                  //Draw a Gray Castles Instatnt Image On hte Tabe.
                                 g.DrawImage(C[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                            }
+                              }
                         }
                         else
                         {
@@ -212,7 +216,7 @@ namespace RefrigtzDLL
                             {    //Draw an Instant from File of Gray Soldeirs.
                                  //Draw an Instatnt of Brown Castles On the Table.
                                 g.DrawImage(C[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                            }
+                              }
                         }
                     }
                 }

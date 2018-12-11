@@ -40,6 +40,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AllDraw", "AllDraw\AllDraw.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RewriteRefrigitz", "RewriteRefrigitz\RewriteRefrigitz.csproj", "{D6A224D4-048C-4DEE-8090-81A7D7FF5B5B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantumRefrigiz", "QuantumRefrigiz\QuantumRefrigiz.csproj", "{56D82E52-1FC9-4BC2-B57C-4D23EE44CE23}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -335,6 +337,26 @@ Global
 		{D6A224D4-048C-4DEE-8090-81A7D7FF5B5B}.Release|x64.Build.0 = Release|Any CPU
 		{D6A224D4-048C-4DEE-8090-81A7D7FF5B5B}.Release|x86.ActiveCfg = Release|Any CPU
 		{D6A224D4-048C-4DEE-8090-81A7D7FF5B5B}.Release|x86.Build.0 = Release|Any CPU
+		{56D82E52-1FC9-4BC2-B57C-4D23EE44CE23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56D82E52-1FC9-4BC2-B57C-4D23EE44CE23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56D82E52-1FC9-4BC2-B57C-4D23EE44CE23}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{56D82E52-1FC9-4BC2-B57C-4D23EE44CE23}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{56D82E52-1FC9-4BC2-B57C-4D23EE44CE23}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{56D82E52-1FC9-4BC2-B57C-4D23EE44CE23}.Debug|Win32.Build.0 = Debug|Any CPU
+		{56D82E52-1FC9-4BC2-B57C-4D23EE44CE23}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{56D82E52-1FC9-4BC2-B57C-4D23EE44CE23}.Debug|x64.Build.0 = Debug|Any CPU
+		{56D82E52-1FC9-4BC2-B57C-4D23EE44CE23}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{56D82E52-1FC9-4BC2-B57C-4D23EE44CE23}.Debug|x86.Build.0 = Debug|Any CPU
+		{56D82E52-1FC9-4BC2-B57C-4D23EE44CE23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56D82E52-1FC9-4BC2-B57C-4D23EE44CE23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56D82E52-1FC9-4BC2-B57C-4D23EE44CE23}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{56D82E52-1FC9-4BC2-B57C-4D23EE44CE23}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{56D82E52-1FC9-4BC2-B57C-4D23EE44CE23}.Release|Win32.ActiveCfg = Release|Any CPU
+		{56D82E52-1FC9-4BC2-B57C-4D23EE44CE23}.Release|Win32.Build.0 = Release|Any CPU
+		{56D82E52-1FC9-4BC2-B57C-4D23EE44CE23}.Release|x64.ActiveCfg = Release|Any CPU
+		{56D82E52-1FC9-4BC2-B57C-4D23EE44CE23}.Release|x64.Build.0 = Release|Any CPU
+		{56D82E52-1FC9-4BC2-B57C-4D23EE44CE23}.Release|x86.ActiveCfg = Release|Any CPU
+		{56D82E52-1FC9-4BC2-B57C-4D23EE44CE23}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

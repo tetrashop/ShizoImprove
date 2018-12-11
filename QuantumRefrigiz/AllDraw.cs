@@ -152,7 +152,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.IO;
 using System.Diagnostics;
-namespace RefrigtzDLL
+namespace QuantumRefrigiz
 {
 
     [Serializable]
@@ -1086,7 +1086,24 @@ if (Kind == 2)
                                                 ElefantMidle++;
                                                 ElefantHigh++;
                                             }
-                                              }
+                                            //When any quantum move is made, that piece exists in multiple places simultaneously. This is represented by multiple copies of the piece displayed, with appropriate meters to show the probability of finding the piece in that square. There is only one piece, but it can exist in one of multiple places.
+                                            /*bool IsQuantumMoves = IsAQuantumeMoveOccured(ElephantOnTable[El1].IsQuntumMove);
+                                            ElephantOnTable[El1 - 1].RingHalf = true;
+                                            if (IsQuantumMoves)
+                                            {
+                                                ElephantOnTable[El1] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, El1);
+                                                ElephantOnTable[El1].IsQuntumMove = true;
+                                                ElephantOnTable[El1].RingHalf = true;
+                                                //Increament of Gray Index.
+                                                El1++;
+                                                //If New //Object Increament Gray Objects.
+                                                if (El1 > ElefantMidle)
+                                                {
+                                                    ElefantMidle++;
+                                                    ElefantHigh++;
+                                                }
+                                            }*/
+                                        }
                                         catch (Exception t)
                                         {
                                             Log(t);
@@ -1106,7 +1123,21 @@ if (Kind == 2)
                                             //When New Brown Elephant //Object Increament of Index.
                                             if (El2 > ElefantHigh)
                                                 ElefantHigh++;
-                                              }
+                                            //When any quantum move is made, that piece exists in multiple places simultaneously. This is represented by multiple copies of the piece displayed, with appropriate meters to show the probability of finding the piece in that square. There is only one piece, but it can exist in one of multiple places.
+                                            /*bool IsQuantumMoves = IsAQuantumeMoveOccured(ElephantOnTable[El2].IsQuntumMove);
+                                            ElephantOnTable[El2 - 1].RingHalf = true;
+                                            if (IsQuantumMoves)
+                                            {
+                                                ElephantOnTable[El2] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, El2);
+                                                ElephantOnTable[El2].IsQuntumMove = true;
+                                                ElephantOnTable[El2].RingHalf = true;
+                                                //Increament of Gray Index.
+                                                El2++;
+                                                //If New //Object Increament Gray Objects.
+                                                if (El2 > ElefantMidle)
+                                                    ElefantHigh++;
+                                            }*/
+                                        }
                                         catch (Exception t)
                                         {
                                             Log(t);
@@ -1142,7 +1173,24 @@ if (Kind == 2)
                                                 HourseMidle++;
                                                 HourseHight++;
                                             }
-                                                   }
+                                            //When any quantum move is made, that piece exists in multiple places simultaneously. This is represented by multiple copies of the piece displayed, with appropriate meters to show the probability of finding the piece in that square. There is only one piece, but it can exist in one of multiple places.
+                                            /*bool IsQuantumMoves = IsAQuantumeMoveOccured(HoursesOnTable[Ho1].IsQuntumMove);
+                                            HoursesOnTable[Ho1 - 1].RingHalf = true;
+                                            if (IsQuantumMoves)
+                                            {
+                                                HoursesOnTable[Ho1] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, Ho1);
+                                                HoursesOnTable[Ho1].IsQuntumMove = true;
+                                                HoursesOnTable[Ho1].RingHalf = true;
+                                                //Increament of Gray Index.
+                                                Ho1++;
+                                                //when There is New Gray Hourse Increase.
+                                                if (Ho1 > HourseMidle)
+                                                {
+                                                    HourseMidle++;
+                                                    HourseHight++;
+                                                }
+                                            }*/
+                                        }
                                         catch (Exception t)
                                         {
                                             Log(t);
@@ -1162,7 +1210,21 @@ if (Kind == 2)
                                             //When New Brown Hourse Exist Exist Index.
                                             if (Ho2 > HourseHight)
                                                 HourseHight++;
-                                              }
+                                            //When any quantum move is made, that piece exists in multiple places simultaneously. This is represented by multiple copies of the piece displayed, with appropriate meters to show the probability of finding the piece in that square. There is only one piece, but it can exist in one of multiple places.
+                                            /*bool IsQuantumMoves = IsAQuantumeMoveOccured(HoursesOnTable[Ho2].IsQuntumMove);
+                                            HoursesOnTable[Ho1 - 1].RingHalf = true;
+                                            if (IsQuantumMoves)
+                                            {
+                                                HoursesOnTable[Ho2] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, Ho2);
+                                                HoursesOnTable[Ho2].IsQuntumMove = true;
+                                                HoursesOnTable[Ho2].RingHalf = true;
+                                                //Increament of Gray Index.
+                                                Ho2++;
+                                                //When New Brown Hourse Exist Exist Index.
+                                                if (Ho2 > HourseHight)
+                                                    HourseHight++;
+                                            }*/
+                                        }
                                         catch (Exception t)
                                         {
                                             Log(t);
@@ -1197,7 +1259,24 @@ if (Kind == 2)
                                                 CastleMidle++;
                                                 CastleHigh++;
                                             }
-                                                   }
+                                            //When any quantum move is made, that piece exists in multiple places simultaneously. This is represented by multiple copies of the piece displayed, with appropriate meters to show the probability of finding the piece in that square. There is only one piece, but it can exist in one of multiple places.
+                                            /*bool IsQuantumMoves = IsAQuantumeMoveOccured(CastlesOnTable[Br1].IsQuntumMove);
+                                            CastlesOnTable[Br1 - 1].RingHalf = true;
+                                            if (IsQuantumMoves)
+                                            {
+                                                CastlesOnTable[Br1] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, Br1);
+                                                CastlesOnTable[Br1].IsQuntumMove = true;
+                                                CastlesOnTable[Br1].RingHalf = true;
+                                                //Increament of Gray Index.
+                                                Br1++;
+                                                //When New Gray Briges Increamnt Max Index.
+                                                if (Br1 > CastleMidle)
+                                                {
+                                                    CastleMidle++;
+                                                    CastleHigh++;
+                                                }
+                                            }*/
+                                        }
                                         catch (Exception t)
                                         {
                                             Log(t);
@@ -1217,7 +1296,21 @@ if (Kind == 2)
                                             //wehn Brown New Castles Detected Increament Max Index.
                                             if (Br2 > CastleHigh)
                                                 CastleHigh++;
-                                              }
+                                            //When any quantum move is made, that piece exists in multiple places simultaneously. This is represented by multiple copies of the piece displayed, with appropriate meters to show the probability of finding the piece in that square. There is only one piece, but it can exist in one of multiple places.
+                                           /* bool IsQuantumMoves = IsAQuantumeMoveOccured(CastlesOnTable[Br2].IsQuntumMove);
+                                            CastlesOnTable[Br2 - 1].RingHalf = true;
+                                            if (IsQuantumMoves)
+                                            {
+                                                CastlesOnTable[Br2] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, Br2);
+                                                CastlesOnTable[Br2].IsQuntumMove = true;
+                                                CastlesOnTable[Br2].RingHalf = true;
+                                                //Increament of Gray Index.
+                                                Ho2++;
+                                                //When New Brown Hourse Exist Exist Index.
+                                                if (Ho2 > HourseHight)
+                                                    HourseHight++;
+                                            }*/
+                                        }
                                         catch (Exception t)
                                         {
                                             Log(t);
@@ -1253,7 +1346,24 @@ if (Kind == 2)
                                                 MinisterMidle++;
                                                 MinisterHigh++;
                                             }
+                                            //When any quantum move is made, that piece exists in multiple places simultaneously. This is represented by multiple copies of the piece displayed, with appropriate meters to show the probability of finding the piece in that square. There is only one piece, but it can exist in one of multiple places.
+                                            /*bool IsQuantumMoves = IsAQuantumeMoveOccured(MinisterOnTable[Mi1].IsQuntumMove);
+                                            MinisterOnTable[Mi1 - 1].RingHalf = true;
+                                            if (IsQuantumMoves)
+                                            {
+                                                MinisterOnTable[Mi1] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, Mi1);
+                                                MinisterOnTable[Mi1].IsQuntumMove = true;
+                                                MinisterOnTable[Mi1].RingHalf = true;
+                                                //Increament of Gray Index.
+                                                Mi1++;
+                                                //Wehn New Gray Minster Detected Increament Max Indexes.
+                                                if (Mi1 > MinisterMidle)
+                                                {
+                                                    MinisterMidle++;
+                                                    MinisterHigh++;
                                                 }
+                                            }*/
+                                        }
                                         catch (Exception t)
                                         {
                                             Log(t);
@@ -1274,7 +1384,21 @@ if (Kind == 2)
                                             //When New Brown Minister Detected Increament Max Index.
                                             if (Mi2 > MinisterHigh)
                                                 MinisterHigh++;
-                                           }
+                                            //When any quantum move is made, that piece exists in multiple places simultaneously. This is represented by multiple copies of the piece displayed, with appropriate meters to show the probability of finding the piece in that square. There is only one piece, but it can exist in one of multiple places.
+                                            /*bool IsQuantumMoves = IsAQuantumeMoveOccured(MinisterOnTable[Mi2].IsQuntumMove);
+                                            MinisterOnTable[Mi2 - 1].RingHalf = true;
+                                            if (IsQuantumMoves)
+                                            {
+                                                MinisterOnTable[Mi2] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, Mi2);
+                                                MinisterOnTable[Mi2].IsQuntumMove = true;
+                                                MinisterOnTable[Mi2 - 1].RingHalf = true;
+                                                //Increament of Gray Index.
+                                                Mi2++;
+                                                //When New Brown Minister Detected Increament Max Index.
+                                                if (Mi2 > MinisterHigh)
+                                                    MinisterHigh++;
+                                            }*/
+                                        }
                                         catch (Exception t)
                                         {
                                             Log(t);
@@ -1310,7 +1434,25 @@ if (Kind == 2)
                                                 KingHigh++;
 
                                             }
-                                             }
+                                            //When any quantum move is made, that piece exists in multiple places simultaneously. This is represented by multiple copies of the piece displayed, with appropriate meters to show the probability of finding the piece in that square. There is only one piece, but it can exist in one of multiple places.
+                                            /*bool IsQuantumMoves = IsAQuantumeMoveOccured(KingOnTable[Ki1].IsQuntumMove);
+                                            KingOnTable[Ki1 - 1].RingHalf = true;
+                                            if (IsQuantumMoves)
+                                            {
+                                                KingOnTable[Ki1] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, Ki1);
+                                                KingOnTable[Ki1].IsQuntumMove = true;
+                                                KingOnTable[Ki1].RingHalf = true;
+                                                //Increament of Gray Index.
+                                                Ki1++;
+                                                //when New Draw  //Object Detected Increament Max Index.
+                                                if (Ki1 > KingMidle)
+                                                {
+                                                    KingMidle++;
+                                                    KingHigh++;
+
+                                                }
+                                            }*/
+                                        }
                                         catch (Exception t)
                                         {
                                             Log(t);
@@ -1330,7 +1472,22 @@ if (Kind == 2)
                                             //When New //Object Detected Increament Of Brown King Max Index.
                                             if (Ki2 > KingHigh)
                                                 KingHigh++;
-                                             }
+                                            //When any quantum move is made, that piece exists in multiple places simultaneously. This is represented by multiple copies of the piece displayed, with appropriate meters to show the probability of finding the piece in that square. There is only one piece, but it can exist in one of multiple places.
+                                            /*bool IsQuantumMoves = IsAQuantumeMoveOccured(KingOnTable[Ki2].IsQuntumMove);
+                                            KingOnTable[Ki2 - 1].RingHalf = true;
+                                            if (IsQuantumMoves)
+                                            {
+                                                KingOnTable[Ki2] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, Ki2);
+                                                KingOnTable[Ki2].IsQuntumMove = true;
+                                                KingOnTable[Ki2].RingHalf = true;
+                                                //Increament of Gray Index.
+                                                //Increament of Index.
+                                                Ki2++;
+                                                //When New //Object Detected Increament Of Brown King Max Index.
+                                                if (Ki2 > KingHigh)
+                                                    KingHigh++;
+                                            }*/
+                                        }
                                         catch (Exception t)
                                         {
                                             Log(t);
@@ -18161,7 +18318,7 @@ if (Kind == 5)
                 {
                     if (i + 1 < Tag.Length)
                     {
-                        for (int j = i + 1; j < i + RefrigtzDLL.AllDraw.MaxAStarGreedy.ToString().Length + 1; j++)
+                        for (int j = i + 1; j < i + QuantumRefrigiz.AllDraw.MaxAStarGreedy.ToString().Length + 1; j++)
                         {
                             try
                             {

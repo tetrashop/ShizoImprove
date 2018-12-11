@@ -5,14 +5,16 @@ using System.Text;
 using System.Drawing;
 using System.IO;
 
-namespace RefrigtzDLL
+namespace QuantumRefrigiz
 {
     [Serializable]
     public class DrawSoldier : ThingsConverter
     {
-        
-        
-        
+        //Pawns cannot make quantum moves.
+        //A quantum move cannot be used to take a piece.
+        const bool IsQuntumMove = false;
+        //Pieces have rings around them, filled in with colour. These rings show the probability that the piece is in that square.
+        const bool RingHalf = false;
         public int WinOcuuredatChiled = 0;
         //Iniatate Global Variables.
         private readonly object balanceLock = new object();
@@ -49,7 +51,10 @@ namespace RefrigtzDLL
             }
             catch (Exception t) { Log(t); }
         }
-        
+        public bool AccessIsQuntumMove
+        {
+            get { return IsQuntumMove; }
+        }
         public void Dispose()
         {
             ValuableSelfSupported = null;
@@ -215,6 +220,10 @@ namespace RefrigtzDLL
                                 lock (O1)
                                 {    //Draw an Instant from File of Gray Soldeirs.
                                     g.DrawImage(S[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                    if (RingHalf)
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
+                                    else
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
                                         
                                 }
                             }
@@ -225,7 +234,11 @@ namespace RefrigtzDLL
                                 {    //Draw an Instant from File of Gray Soldeirs.
                                      //Draw an Instatnt of Brown Soldier File On the Table.
                                     g.DrawImage(S[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                                 }
+                                    if (RingHalf)
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
+                                    else
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                                }
                             }
                         }
                         catch (Exception t)
@@ -247,7 +260,11 @@ namespace RefrigtzDLL
                                 {    //Draw an Instant from File of Gray Soldeirs.
                                      //Draw of Gray Minsister Image File By an Instant.
                                     g.DrawImage(DrawMinister.M[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                                 }
+                                    if (RingHalf)
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
+                                    else
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                                }
                             }
                             else
                             {
@@ -256,7 +273,11 @@ namespace RefrigtzDLL
                                 {    //Draw an Instant from File of Gray Soldeirs.
                                      //Draw a Image File on the Table Form n Instatnt One.
                                     g.DrawImage(DrawMinister.M[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                                 }
+                                    if (RingHalf)
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
+                                    else
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                                }
                             }
                         }
                         catch (Exception t)
@@ -276,7 +297,11 @@ namespace RefrigtzDLL
                                 {    //Draw an Instant from File of Gray Soldeirs.
                                      //Create on the Inststant of Gray Castles Images.
                                     g.DrawImage(DrawCastle.C[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                                  }
+                                    if (RingHalf)
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
+                                    else
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                                }
                             }
                             else
                             {
@@ -285,6 +310,10 @@ namespace RefrigtzDLL
                                 {    //Draw an Instant from File of Gray Soldeirs.
                                      //Creat of an Instant of Brown Image Castles.
                                     g.DrawImage(DrawCastle.C[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                    if (RingHalf)
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
+                                    else
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
                                 }
                             }
                         }
@@ -305,7 +334,11 @@ namespace RefrigtzDLL
                                 lock (O1)
                                 {//Draw an Instatnt of Gray Hourse Image File.
                                     g.DrawImage(DrawHourse.H[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (int)CellH), CellW, CellH));
-                                  }
+                                    if (RingHalf)
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
+                                    else
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                                }
                             }
                             else
                             {
@@ -313,7 +346,11 @@ namespace RefrigtzDLL
                                 lock (O1)
                                 {//Creat of an Instatnt Hourse Image File.
                                     g.DrawImage(DrawHourse.H[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                                  }
+                                    if (RingHalf)
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
+                                    else
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                                }
                             }
                         }
                         catch (Exception t)
@@ -333,7 +370,11 @@ namespace RefrigtzDLL
                                 lock (O1)
                                 {//Draw an Instatnt Image of Gray Elephant.
                                     g.DrawImage(DrawElefant.E[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                                   }
+                                    if (RingHalf)
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
+                                    else
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                                }
                             }
                             else
                             {
@@ -341,7 +382,11 @@ namespace RefrigtzDLL
                                 lock (O1)
                                 {//Draw of Instant Image of Brown Elephant.
                                     g.DrawImage(DrawElefant.E[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                                  }
+                                    if (RingHalf)
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
+                                    else
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                                }
                             }
 
                         }

@@ -4,21 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 using System.IO;
-namespace RefrigtzDLL
+namespace QuantumRefrigiz
 {
     [Serializable]
-    public class DrawElefant
-
+    public class DrawMinister//:DrawKing
     {
-        
-        
-        
-        
+        //A quantum move cannot be used to take a piece.
+        public bool IsQuntumMove = false;
+        //Pieces have rings around them, filled in with colour. These rings show the probability that the piece is in that square.
+        public bool RingHalf = false;
         public int WinOcuuredatChiled = 0;
         private readonly object balanceLock = new object();
         private readonly object balanceLockS = new object();
-        public static Image[] E = new Image[2];
-        //Initiate Global Variables.
+        public static Image[] M = new Image[2];
+        //Initiate Global Variable.
         List<int[]> ValuableSelfSupported = new List<int[]>();
       
         public bool MovementsAStarGreedyHuristicFoundT = false;
@@ -28,14 +27,15 @@ namespace RefrigtzDLL
         public bool PredictHuristicT = true;
         public bool OnlySelfT = false;
         public bool AStarGreedyHuristicT = false;
+
         public bool ArrangmentsChanged = false;
-        public static double MaxHuristicxE = -20000000000000000;
+        public static double MaxHuristicxM = -20000000000000000;
         public float Row, Column;
-        public ThinkingChess[] ElefantThinking = new ThinkingChess[AllDraw.ElefantMovments];
-        public int[,] Table = null;
         public Color color;
+        public int[,] Table = null;
         public int Current = 0;
         public int Order;
+        public ThinkingChess[] MinisterThinking = new ThinkingChess[AllDraw.MinisterMovments];
         int CurrentAStarGredyMax = -1;
         static void Log(Exception ex)
         {
@@ -53,22 +53,23 @@ namespace RefrigtzDLL
         public void Dispose()
         {
             ValuableSelfSupported = null;
-            E = null;
+            M = null;
         }
+
         public bool MaxFound(ref bool MaxNotFound)
         {
             try
             {
                 double a = ReturnHuristic();
-                if (MaxHuristicxE < a)
+                if (MaxHuristicxM < a)
                 {
                     Object O2 = new Object();
                     lock (O2)
                     {
                         MaxNotFound = false;
-                        if (ThinkingChess.MaxHuristicx < MaxHuristicxE)
+                        if (ThinkingChess.MaxHuristicx < MaxHuristicxM)
                             ThinkingChess.MaxHuristicx = a;
-                        MaxHuristicxE = a;
+                        MaxHuristicxM = a;
                     }
                     return true;
                 }
@@ -84,21 +85,19 @@ namespace RefrigtzDLL
         public double ReturnHuristic()
         {
             double a = 0;
-            for (int ii = 0; ii < AllDraw.ElefantMovments; ii++)
+            for (int ii = 0; ii < AllDraw.MinisterMovments; ii++)
                 try
                 {
-                    a += ElefantThinking[ii].ReturnHuristic(-1, -1, Order, false);
+                    a += MinisterThinking[ii].ReturnHuristic(-1, -1, Order,false);
                 }
                 catch (Exception t)
                 {
                     Log(t);
                 }
-
             return a;
         }
-
-        //Constructor 1.
-        /*public DrawElefant(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
+        //constructor 1.
+        /*public DrawMinister(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
         {
             CurrentAStarGredyMax = CurrentAStarGredy;
             MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
@@ -109,21 +108,20 @@ namespace RefrigtzDLL
             OnlySelfT = OnlySel;
             AStarGreedyHuristicT = AStarGreedyHuris;
             ArrangmentsChanged = Arrangments;
-        }*/
+        }
+        */
         //Constructor 2.
-        public DrawElefant(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//,ref AllDraw. THIS
+        public DrawMinister(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. THIS
             )
         {
 
             lock (balanceLock)
             {
-                if (E[0] == null && E[1] == null)
+                if (M[0] == null && M[1] == null)
                 {
-                    E[0] = Image.FromFile(AllDraw.ImagesSubRoot + "EG.png");
-                    E[1] = Image.FromFile(AllDraw.ImagesSubRoot + "EB.png");
+                    M[0] = Image.FromFile(AllDraw.ImagesSubRoot + "MG.png");
+                    M[1] = Image.FromFile(AllDraw.ImagesSubRoot + "MB.png");
                 }
-
-
 
                 CurrentAStarGredyMax = CurrentAStarGredy;
                 MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
@@ -134,45 +132,45 @@ namespace RefrigtzDLL
                 OnlySelfT = OnlySel;
                 AStarGreedyHuristicT = AStarGreedyHuris;
                 ArrangmentsChanged = Arrangments;
-                //Initiate Global Variables By Local Parameters.
+                //Initiate Global Variables.
                 Table = new int[8, 8];
                 for (int ii = 0; ii < 8; ii++)
                     for (int jj = 0; jj < 8; jj++)
                         Table[ii, jj] = Tab[ii, jj];
-                for (int ii = 0; ii < AllDraw.ElefantMovments; ii++)
-                    ElefantThinking[ii] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 16, Ord, TB, Cur, 4, 2);
+                for (int ii = 0; ii < AllDraw.MinisterMovments; ii++)
+                    MinisterThinking[ii] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 32, Ord, TB, Cur, 2, 5);
 
                 Row = i;
                 Column = j;
                 color = a;
-                Order = Ord;
                 Current = Cur;
+                Order = Ord;
             }
-
         }
         //Clone a Copy.
-        public void Clone(ref DrawElefant AA//, ref AllDraw. THIS
+        public void Clone(ref DrawMinister AA//, ref AllDraw. THIS
             )
         {
             int[,] Tab = new int[8, 8];
             for (int i = 0; i < 8; i++)
                 for (int j = 0; j < 8; j++)
                     Tab[i, j] = this.Table[i, j];
-            //Initiate a Constructed Object an Clone a Copy.
-            AA = new DrawElefant( CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, this.Row, this.Column, this.color, this.Table, this.Order, false, this.Current);
+            //Initiate an Object and Clone a Construction Objectve.
+            AA = new DrawMinister( CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, this.color, this.Table, this.Order, false, this.Current);
             AA.ArrangmentsChanged = ArrangmentsChanged;
-            for (int i = 0; i < AllDraw.ElefantMovments; i++)
+            for (int i = 0; i < AllDraw.MinisterMovments; i++)
             {
                 try
                 {
-                    AA.ElefantThinking[i] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
-                    this.ElefantThinking[i].Clone(ref AA.ElefantThinking[i]);
+                    AA.MinisterThinking[i] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
+                    this.MinisterThinking[i].Clone(ref AA.MinisterThinking[i]);
                 }
                 catch (Exception t)
                 {
                     Log(t);
-                    AA.ElefantThinking[i] = null;
+                    AA.MinisterThinking[i] = null;
                 }
+
             }
             AA.Table = new int[8, 8];
             for (int ii = 0; ii < 8; ii++)
@@ -185,8 +183,8 @@ namespace RefrigtzDLL
             AA.color = color;
 
         }
-        //Draw an Instatnt Elephant On the Table.
-        public void DrawElefantOnTable(ref Graphics g, int CellW, int CellH)
+        //Draw an Mnister on the Table.
+        public void DrawMinisterOnTable(ref Graphics g, int CellW, int CellH)
         {
             try
             {
@@ -194,31 +192,38 @@ namespace RefrigtzDLL
                 
                 lock (balanceLockS)
                 {
-                    if (E[0] == null || E[1] == null)
+                    if (M[0] == null || M[1] == null)
                     {
-                        E[0] = Image.FromFile(AllDraw.ImagesSubRoot + "EG.png");
-                        E[1] = Image.FromFile(AllDraw.ImagesSubRoot + "EB.png");
-                    }
-
-                    //Gray Color.
+                        M[0] = Image.FromFile(AllDraw.ImagesSubRoot + "MG.png");
+                        M[1] = Image.FromFile(AllDraw.ImagesSubRoot + "MB.png");
+                    }     //Gray Color.
                     if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
                     {
+                        //Gray Order.
                         if(Order==1)
                         {
                             Object O1 = new Object();
                             lock (O1)
                             {    //Draw an Instant from File of Gray Soldeirs.
-                                 //Draw an Instatnt Gray Elephant On the Table.
-                                g.DrawImage(E[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                               }
+                                 //Draw a Gray Instatnt Minister Image on the Table.
+                                g.DrawImage(M[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                if (RingHalf)
+                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
+                                else
+                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                            }
                         }
                         else
                         {
                             Object O1 = new Object();
                             lock (O1)
                             {    //Draw an Instant from File of Gray Soldeirs.
-                                 //Draw an Instatnt Brown Elepehnt On the Table.
-                                g.DrawImage(E[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                 //Draw a Brown Instatnt Minister Image on the Table.
+                                g.DrawImage(M[1], new Rectangle((int)(Row * CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                if (RingHalf)
+                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW) ), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                                else
+                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
                             }
                         }
                     }
@@ -231,4 +236,5 @@ namespace RefrigtzDLL
         }
     }
 }
+
 //End of Documentation.

@@ -3769,101 +3769,173 @@ namespace Refrigtz
                 Check = true;
             return Check;
         }
-        void MovmentneDraw(int Kind)
+        //A quantum move cannot be used to take a piece.
+        bool MovmentneDraw(int Kind)
         {
-
+            bool CanHit = true;
             DrawImageOfMain();
             g = Graphics.FromImage(ChessTable);
 
             if (Kind == 7)
             {
-                Draw.KingOnTable[King].Row = RowRealesed;
-                Draw.KingOnTable[King].Column = ColumnRealeased;
-                Draw.KingOnTable[King].DrawKingOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                if (Draw.KingOnTable[King].IsQuntumMove)
+                {
+                    Draw.KingOnTable[King].Row = RowRealesed;
+                    Draw.KingOnTable[King].Column = ColumnRealeased;
+                    Draw.KingOnTable[King].DrawKingOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                }
+                else
+                    CanHit = false;
             }
             else
                 if (Kind == 1)
             {
-                Draw.SolderesOnTable[Soldier].Row = (int)RowRealesed;
-                Draw.SolderesOnTable[Soldier].Column = (int)ColumnRealeased;
-                Draw.SolderesOnTable[Soldier].DrawSoldierOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                if (Draw.SolderesOnTable[Soldier].AccessIsQuntumMove)
+                {
+                    Draw.SolderesOnTable[Soldier].Row = (int)RowRealesed;
+                    Draw.SolderesOnTable[Soldier].Column = (int)ColumnRealeased;
+                    Draw.SolderesOnTable[Soldier].DrawSoldierOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
 
+                }
+                else
+                    CanHit = false;
             }
             else
                 if (Kind == 2)
             {
-                Draw.ElephantOnTable[Elefant].Row = RowRealesed;
-                Draw.ElephantOnTable[Elefant].Column = ColumnRealeased;
-                Draw.ElephantOnTable[Elefant].DrawElefantOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                if (Draw.ElephantOnTable[Elefant].RingHalf)
+                {
+                    Draw.ElephantOnTable[Elefant].Row = RowRealesed;
+                    Draw.ElephantOnTable[Elefant].Column = ColumnRealeased;
+                    Draw.ElephantOnTable[Elefant].DrawElefantOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                }
+                else
+                    CanHit = false;
             }
             else if (Kind == 3)
             {
-                Draw.HoursesOnTable[Hourse].Row = RowRealesed;
-                Draw.HoursesOnTable[Hourse].Column = ColumnRealeased;
-                Draw.HoursesOnTable[Hourse].DrawHourseOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                if (Draw.HoursesOnTable[Hourse].RingHalf)
+                {
+                    Draw.HoursesOnTable[Hourse].Row = RowRealesed;
+                    Draw.HoursesOnTable[Hourse].Column = ColumnRealeased;
+                    Draw.HoursesOnTable[Hourse].DrawHourseOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                }
+                else
+                    CanHit = false;
             }
             else if (Kind == 4)
             {
-                Draw.CastlesOnTable[Castle].Row = RowRealesed;
-                Draw.CastlesOnTable[Castle].Column = ColumnRealeased;
-                Draw.CastlesOnTable[Castle].DrawCastleOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                if (Draw.CastlesOnTable[Castle].RingHalf)
+                {
+                    Draw.CastlesOnTable[Castle].Row = RowRealesed;
+                    Draw.CastlesOnTable[Castle].Column = ColumnRealeased;
+                    Draw.CastlesOnTable[Castle].DrawCastleOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                }
+                else
+                    CanHit = false;
             }
             else if (Kind == 5)
             {
-                Draw.MinisterOnTable[Minister].Row = RowRealesed;
-                Draw.MinisterOnTable[Minister].Column = ColumnRealeased;
-                Draw.MinisterOnTable[Minister].DrawMinisterOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                if (Draw.MinisterOnTable[Minister].RingHalf)
+                {
+                    Draw.MinisterOnTable[Minister].Row = RowRealesed;
+                    Draw.MinisterOnTable[Minister].Column = ColumnRealeased;
+                    Draw.MinisterOnTable[Minister].DrawMinisterOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                }
+                else
+                    CanHit = false;
             }
             else if (Kind == 6)
             {
-                Draw.KingOnTable[King].Row = RowRealesed;
-                Draw.KingOnTable[King].Column = ColumnRealeased;
-                Draw.KingOnTable[King].DrawKingOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                if (Draw.KingOnTable[King].RingHalf)
+                {
+                    Draw.KingOnTable[King].Row = RowRealesed;
+                    Draw.KingOnTable[King].Column = ColumnRealeased;
+                    Draw.KingOnTable[King].DrawKingOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                }
+                else
+                    CanHit = false;
             }
             else if (Kind == -7)
             {
-                Draw.KingOnTable[King].Row = RowRealesed;
-                Draw.KingOnTable[King].Column = ColumnRealeased;
-                Draw.KingOnTable[King].DrawKingOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                if (Draw.KingOnTable[King].RingHalf)
+                {
+                    Draw.KingOnTable[King].Row = RowRealesed;
+                    Draw.KingOnTable[King].Column = ColumnRealeased;
+                    Draw.KingOnTable[King].DrawKingOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                }
+                else
+                    CanHit = false;
             }
             else if (Kind == -1)
             {
-                Draw.SolderesOnTable[Soldier].Row = (int)RowRealesed;
-                Draw.SolderesOnTable[Soldier].Column = (int)ColumnRealeased;
-                Draw.SolderesOnTable[Soldier].DrawSoldierOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                if (Draw.SolderesOnTable[Soldier].AccessIsQuntumMove)
+                {
+                    Draw.SolderesOnTable[Soldier].Row = (int)RowRealesed;
+                    Draw.SolderesOnTable[Soldier].Column = (int)ColumnRealeased;
+                    Draw.SolderesOnTable[Soldier].DrawSoldierOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                }
+                else
+                    CanHit = false;
             }
             else if (Kind == -2)
             {
-                Draw.ElephantOnTable[Elefant].Row = RowRealesed;
-                Draw.ElephantOnTable[Elefant].Column = ColumnRealeased;
-                Draw.ElephantOnTable[Elefant].DrawElefantOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                if (Draw.ElephantOnTable[Elefant].RingHalf)
+                {
+                    Draw.ElephantOnTable[Elefant].Row = RowRealesed;
+                    Draw.ElephantOnTable[Elefant].Column = ColumnRealeased;
+                    Draw.ElephantOnTable[Elefant].DrawElefantOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                }
+                else
+                    CanHit = false;
             }
             else if (Kind == -3)
             {
-                Draw.HoursesOnTable[Hourse].Row = RowRealesed;
-                Draw.HoursesOnTable[Hourse].Column = ColumnRealeased;
-                Draw.HoursesOnTable[Hourse].DrawHourseOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                if (Draw.HoursesOnTable[Hourse].RingHalf)
+                {
+                    Draw.HoursesOnTable[Hourse].Row = RowRealesed;
+                    Draw.HoursesOnTable[Hourse].Column = ColumnRealeased;
+                    Draw.HoursesOnTable[Hourse].DrawHourseOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                }
+                else
+                    CanHit = false;
             }
             else if (Kind == -4)
             {
-                Draw.CastlesOnTable[Castle].Row = RowRealesed;
-                Draw.CastlesOnTable[Castle].Column = ColumnRealeased;
-                Draw.CastlesOnTable[Castle].DrawCastleOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                if (Draw.CastlesOnTable[Castle].RingHalf)
+                {
+                    Draw.CastlesOnTable[Castle].Row = RowRealesed;
+                    Draw.CastlesOnTable[Castle].Column = ColumnRealeased;
+                    Draw.CastlesOnTable[Castle].DrawCastleOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                }
+                else
+                    CanHit = false;
             }
             else if (Kind == -5)
             {
-                Draw.MinisterOnTable[Minister].Row = RowRealesed;
-                Draw.MinisterOnTable[Minister].Column = ColumnRealeased;
-                Draw.MinisterOnTable[Minister].DrawMinisterOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                if (Draw.MinisterOnTable[Minister].RingHalf)
+                {
+                    Draw.MinisterOnTable[Minister].Row = RowRealesed;
+                    Draw.MinisterOnTable[Minister].Column = ColumnRealeased;
+                    Draw.MinisterOnTable[Minister].DrawMinisterOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                }
+                else
+                    CanHit = false;
             }
             else if (Kind == -6)
             {
-                Draw.KingOnTable[King].Row = RowRealesed;
-                Draw.KingOnTable[King].Column = ColumnRealeased;
-                Draw.KingOnTable[King].DrawKingOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                if (Draw.KingOnTable[King].RingHalf)
+                {
+                    Draw.KingOnTable[King].Row = RowRealesed;
+                    Draw.KingOnTable[King].Column = ColumnRealeased;
+                    Draw.KingOnTable[King].DrawKingOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                }
+                else
+                    CanHit = false;
             }
             //pictureBoxRefrigtz.Image = ChessTable;
             g.Dispose();
+            return CanHit;
         }
         void MovmentsCastleKing(int Kind)
         {
@@ -3974,7 +4046,9 @@ namespace Refrigtz
                                 {
                                     if (RefrigtzDLL.AllDraw.MouseClick == 1)
                                     {
-                                        MovmentneDraw(7);
+                                        bool CanHit=MovmentneDraw(7);
+                                        if (CanHit)
+                                            return;
                                     }
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
@@ -4185,7 +4259,9 @@ namespace Refrigtz
                                 {
                                     if (RefrigtzDLL.AllDraw.MouseClick == 1)
                                     {
-                                        MovmentneDraw(1);
+                                        bool CanHit=MovmentneDraw(1);
+                                        if (CanHit)
+                                            return;
                                     }
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
@@ -4325,7 +4401,9 @@ namespace Refrigtz
                                 {
                                     if (RefrigtzDLL.AllDraw.MouseClick == 1)
                                     {
-                                        MovmentneDraw(2);
+                                        bool CanHit=MovmentneDraw(2);
+                                        if (CanHit)
+                                            return;
                                     }
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
@@ -4415,7 +4493,9 @@ namespace Refrigtz
 
                                     if (RefrigtzDLL.AllDraw.MouseClick == 1)
                                     {
-                                        MovmentneDraw(3);
+                                        bool CanHit=MovmentneDraw(3);
+                                        if (CanHit)
+                                            return;
                                     }
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
@@ -4507,7 +4587,9 @@ namespace Refrigtz
 
                                     if (RefrigtzDLL.AllDraw.MouseClick == 1)
                                     {
-                                        MovmentneDraw(4);
+                                        bool CanHit=MovmentneDraw(4);
+                                        if (CanHit)
+                                            return;
                                     }
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
@@ -4598,7 +4680,9 @@ namespace Refrigtz
 
                                     if (RefrigtzDLL.AllDraw.MouseClick == 1)
                                     {
-                                        MovmentneDraw(5);
+                                        bool CanHit=MovmentneDraw(5);
+                                        if (CanHit)
+                                            return;
                                     }
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
@@ -4692,7 +4776,9 @@ namespace Refrigtz
 
                                     if (RefrigtzDLL.AllDraw.MouseClick == 1)
                                     {
-                                        MovmentneDraw(6);
+                                        bool CanHit=MovmentneDraw(6);
+                                        if (CanHit)
+                                            return;
                                     }
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
@@ -4788,7 +4874,9 @@ namespace Refrigtz
 
                                     if (RefrigtzDLL.AllDraw.MouseClick == 1)
                                     {
-                                        MovmentneDraw(-7);
+                                        bool CanHit=MovmentneDraw(-7);
+                                        if (CanHit)
+                                            return;
                                     }
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
@@ -4996,7 +5084,9 @@ namespace Refrigtz
 
                                     if (RefrigtzDLL.AllDraw.MouseClick == 1)
                                     {
-                                        MovmentneDraw(-1);
+                                        bool CanHit=MovmentneDraw(-1);
+                                        if (CanHit)
+                                            return;
                                     }
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
@@ -5131,7 +5221,9 @@ namespace Refrigtz
                                 {
                                     if (RefrigtzDLL.AllDraw.MouseClick == 1)
                                     {
-                                        MovmentneDraw(-2);
+                                        bool CanHit=MovmentneDraw(-2);
+                                        if (CanHit)
+                                            return;
                                     }
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
@@ -5222,7 +5314,9 @@ namespace Refrigtz
 
                                     if (RefrigtzDLL.AllDraw.MouseClick == 1)
                                     {
-                                        MovmentneDraw(-3);
+                                        bool CanHit=MovmentneDraw(-3);
+                                        if (CanHit)
+                                            return;
                                     }
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
@@ -5313,7 +5407,9 @@ namespace Refrigtz
 
                                     if (RefrigtzDLL.AllDraw.MouseClick == 1)
                                     {
-                                        MovmentneDraw(-4);
+                                        bool CanHit=MovmentneDraw(-4);
+                                        if (CanHit)
+                                            return;
                                     }
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
@@ -5404,7 +5500,9 @@ namespace Refrigtz
 
                                     if (RefrigtzDLL.AllDraw.MouseClick == 1)
                                     {
-                                        MovmentneDraw(-5);
+                                        bool CanHit=MovmentneDraw(-5);
+                                        if (CanHit)
+                                            return;
                                     }
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
@@ -5499,7 +5597,9 @@ namespace Refrigtz
 
                                     if (RefrigtzDLL.AllDraw.MouseClick == 1)
                                     {
-                                        MovmentneDraw(-6);
+                                        bool CanHit=MovmentneDraw(-6);
+                                        if (CanHit)
+                                            return;
                                     }
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)

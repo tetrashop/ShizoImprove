@@ -88,7 +88,7 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 using System.IO;
-namespace RefrigtzDLL
+namespace QuantumRefrigiz
 {
     [Serializable]
     public class ChessRules
