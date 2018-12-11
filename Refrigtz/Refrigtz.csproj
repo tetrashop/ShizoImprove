@@ -372,6 +372,10 @@
       <Project>{257fbd67-c2d8-4e20-8d14-9a4e27341e1a}</Project>
       <Name>GalleryStudio</Name>
     </ProjectReference>
+    <ProjectReference Include="..\QuantumRefrigiz\QuantumRefrigiz.csproj">
+      <Project>{56d82e52-1fc9-4bc2-b57c-4d23ee44ce23}</Project>
+      <Name>QuantumRefrigiz</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

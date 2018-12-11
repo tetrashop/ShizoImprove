@@ -165,6 +165,7 @@ namespace QuantumRefrigiz
             catch (Exception t) { Log(t); }
         }
         public ChessRules(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged, int oRDER)
+            : base(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, ArrangmentsChanged, oRDER)
         {
             CurrentAStarGredyMax = CurrentAStarGredy;
             MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
@@ -178,6 +179,7 @@ namespace QuantumRefrigiz
             ArrangmentsBoard = ArrangmentsChanged;
         }
         public ChessRules(int CurrentAStarGredy, int oRDER, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged)
+            : base(CurrentAStarGredy, oRDER, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject,  UsePenaltyRegardMechnisa,  BestMovment,  PredictHurist,  OnlySel,  AStarGreedyHuris,  ArrangmentsChanged)
         {
             CurrentAStarGredyMax = CurrentAStarGredy;
             Order = oRDER;

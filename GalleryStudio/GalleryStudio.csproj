@@ -137,6 +137,12 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QuantumRefrigiz\QuantumRefrigiz.csproj">
+      <Project>{56d82e52-1fc9-4bc2-b57c-4d23ee44ce23}</Project>
+      <Name>QuantumRefrigiz</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
