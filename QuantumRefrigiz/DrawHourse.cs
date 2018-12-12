@@ -12,7 +12,7 @@ namespace QuantumRefrigiz
         //A quantum move cannot be used to take a piece.
         public bool IsQuntumMove = false;
         //Pieces have rings around them, filled in with colour. These rings show the probability that the piece is in that square.
-        public bool RingHalf = false;
+        public bool RingHalf = true;
         public int WinOcuuredatChiled = 0;
         private readonly object balanceLock = new object();
         private readonly object balanceLockS = new object();
@@ -32,7 +32,7 @@ namespace QuantumRefrigiz
         public float Row, Column;
         public Color color;
         public int[,] Table = null;
-        public ThinkingChess[] HourseThinking = new ThinkingChess[AllDraw.HourseMovments];
+        public ThinkingQuantumChess[] HourseThinkingQuantum = new ThinkingQuantumChess[AllDraw.HourseMovments];
         public int Current = 0;
         public int Order;
         int CurrentAStarGredyMax = -1;
@@ -66,8 +66,8 @@ namespace QuantumRefrigiz
                     lock (O2)
                     {
                         MaxNotFound = false;
-                        if (ThinkingChess.MaxHuristicx < MaxHuristicxH)
-                            ThinkingChess.MaxHuristicx = a;
+                        if (ThinkingQuantumChess.MaxHuristicx < MaxHuristicxH)
+                            ThinkingQuantumChess.MaxHuristicx = a;
                         MaxHuristicxH = a;
                     }
                     return true;
@@ -87,7 +87,7 @@ namespace QuantumRefrigiz
             for (int ii = 0; ii < AllDraw.HourseMovments; ii++)
                 try
                 {
-                    a += HourseThinking[ii].ReturnHuristic(-1, -1, Order,false);
+                    a += HourseThinkingQuantum[ii].ReturnHuristic(-1, -1, Order,false);
                 }
                 catch (Exception t)
                 {
@@ -138,7 +138,7 @@ namespace QuantumRefrigiz
                     for (int jj = 0; jj < 8; jj++)
                         Table[ii, jj] = Tab[ii, jj];
                 for (int ii = 0; ii < AllDraw.HourseMovments; ii++)
-                    HourseThinking[ii] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 8, Ord, TB, Cur, 4, 3);
+                    HourseThinkingQuantum[ii] = new ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 8, Ord, TB, Cur, 4, 3);
 
                 Row = i;
                 Column = j;
@@ -162,13 +162,13 @@ namespace QuantumRefrigiz
             {
                 try
                 {
-                    AA.HourseThinking[i] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
-                    this.HourseThinking[i].Clone(ref AA.HourseThinking[i]);
+                    AA.HourseThinkingQuantum[i] = new ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
+                    this.HourseThinkingQuantum[i].Clone(ref AA.HourseThinkingQuantum[i]);
                 }
                 catch (Exception t)
                 {
                     Log(t);
-                    AA.HourseThinking[i] = null;
+                    AA.HourseThinkingQuantum[i] = null;
                 }
             }
             AA.Table = new int[8, 8];
@@ -206,9 +206,16 @@ namespace QuantumRefrigiz
                                  //Draw an Instatnt Gray Hourse on the Table.
                                 g.DrawImage(H[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                 if (RingHalf)
-                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW) ), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
+                                {
+                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
+                                    if (this.HourseThinkingQuantum[0].TableConst[HourseThinkingQuantum[0].Row, HourseThinkingQuantum[0].Column] != 0)
+                                    {
+                                        g.DrawImage(H[0], new Rectangle((int)(this.HourseThinkingQuantum[0].Row * (float)CellW), (int)(this.HourseThinkingQuantum[0].Column * (float)CellH), CellW, CellH));
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((this.HourseThinkingQuantum[0].Row * (float)CellW)), (int)(this.HourseThinkingQuantum[0].Column * (float)CellH), CellW, CellH), -45, 180);
+                                    }
+                                }
                                 else
-                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW) ), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
                             }
                         }
                         else
@@ -219,9 +226,16 @@ namespace QuantumRefrigiz
                                  //Draw an Instatnt Brown Hourse on the Table.
                                 g.DrawImage(H[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                 if (RingHalf)
-                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW) ), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                                {
+                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
+                                    if (this.HourseThinkingQuantum[0].TableConst[HourseThinkingQuantum[0].Row, HourseThinkingQuantum[0].Column] != 0)
+                                    {
+                                        g.DrawImage(H[0], new Rectangle((int)(this.HourseThinkingQuantum[0].Row * (float)CellW), (int)(this.HourseThinkingQuantum[0].Column * (float)CellH), CellW, CellH));
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((this.HourseThinkingQuantum[0].Row * (float)CellW)), (int)(this.HourseThinkingQuantum[0].Column * (float)CellH), CellW, CellH), -45, 180);
+                                    }
+                                }
                                 else
-                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW) ), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
                             }
                         }
                     }

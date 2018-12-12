@@ -26,7 +26,7 @@
  * No Logical Reason for Malfunction of Bob Soldier Attack Movements to go non enemy.**********************RS*****0.12**4**Managements and Cuation Programing**(+)
  * 1395/1/3************************************************************************************************RS*****0.12**4**Managements and Cuation Programing**(+:Sum(22))
  * Metric After Retrieve to Customer.*********************************************************************************************************
- * 530 Error To Attempt Convert Chess rules and Thinking Chess to dll.************************************************************************
+ * 530 Error To Attempt Convert Chess rules and ThinkingQuantum Chess to dll.************************************************************************
  * DRE=E/(E+D)=155[163]/(155[163]+530)=155[163]/685[693]=0.226[0.23]**************************************************************************
  * DRE2=E1/(E1+E2)=155[163]/(155[163]+4[6])=0.97[0.96]****************************************************************************************
  * S'1=1.19***********************************************************************************************************************************
@@ -743,7 +743,7 @@ namespace QuantumRefrigiz
                             GeneticTable[Gen1, Gen2] = GeneticTable[CromosomRow, CromosomColumn];
                             GeneticTable[CromosomRow, CromosomColumn] = 0;
                             //Table Repeatative Consideration.
-                            if (ThinkingChess.ExistTableInList(GeneticTable, List, 0))
+                            if (ThinkingQuantumChess.ExistTableInList(GeneticTable, List, 0))
                             {
                                 GeneticTable[CromosomRow, CromosomColumn] = GeneticTable[Gen1, Gen2];
                                 GeneticTable[Gen1, Gen2] = 0;

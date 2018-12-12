@@ -12,7 +12,7 @@ namespace QuantumRefrigiz
         //A quantum move cannot be used to take a piece.
         public bool IsQuntumMove = false;
         //Pieces have rings around them, filled in with colour. These rings show the probability that the piece is in that square.
-        public bool RingHalf = false;
+        public bool RingHalf = true;
         public int WinOcuuredatChiled = 0;
         private readonly object balanceLock = new object();
         private readonly object balanceLockS = new object();
@@ -35,7 +35,7 @@ namespace QuantumRefrigiz
         public int[,] Table = null;
         public int Current = 0;
         public int Order;
-        public ThinkingChess[] MinisterThinking = new ThinkingChess[AllDraw.MinisterMovments];
+        public ThinkingQuantumChess[] MinisterThinkingQuantum = new ThinkingQuantumChess[AllDraw.MinisterMovments];
         int CurrentAStarGredyMax = -1;
         static void Log(Exception ex)
         {
@@ -67,8 +67,8 @@ namespace QuantumRefrigiz
                     lock (O2)
                     {
                         MaxNotFound = false;
-                        if (ThinkingChess.MaxHuristicx < MaxHuristicxM)
-                            ThinkingChess.MaxHuristicx = a;
+                        if (ThinkingQuantumChess.MaxHuristicx < MaxHuristicxM)
+                            ThinkingQuantumChess.MaxHuristicx = a;
                         MaxHuristicxM = a;
                     }
                     return true;
@@ -88,7 +88,7 @@ namespace QuantumRefrigiz
             for (int ii = 0; ii < AllDraw.MinisterMovments; ii++)
                 try
                 {
-                    a += MinisterThinking[ii].ReturnHuristic(-1, -1, Order,false);
+                    a += MinisterThinkingQuantum[ii].ReturnHuristic(-1, -1, Order,false);
                 }
                 catch (Exception t)
                 {
@@ -138,7 +138,7 @@ namespace QuantumRefrigiz
                     for (int jj = 0; jj < 8; jj++)
                         Table[ii, jj] = Tab[ii, jj];
                 for (int ii = 0; ii < AllDraw.MinisterMovments; ii++)
-                    MinisterThinking[ii] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 32, Ord, TB, Cur, 2, 5);
+                    MinisterThinkingQuantum[ii] = new ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 32, Ord, TB, Cur, 2, 5);
 
                 Row = i;
                 Column = j;
@@ -162,13 +162,13 @@ namespace QuantumRefrigiz
             {
                 try
                 {
-                    AA.MinisterThinking[i] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
-                    this.MinisterThinking[i].Clone(ref AA.MinisterThinking[i]);
+                    AA.MinisterThinkingQuantum[i] = new ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
+                    this.MinisterThinkingQuantum[i].Clone(ref AA.MinisterThinkingQuantum[i]);
                 }
                 catch (Exception t)
                 {
                     Log(t);
-                    AA.MinisterThinking[i] = null;
+                    AA.MinisterThinkingQuantum[i] = null;
                 }
 
             }
@@ -208,7 +208,14 @@ namespace QuantumRefrigiz
                                  //Draw a Gray Instatnt Minister Image on the Table.
                                 g.DrawImage(M[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                 if (RingHalf)
-                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
+                                {
+                                    if (this.MinisterThinkingQuantum[0].TableConst[MinisterThinkingQuantum[0].Row, MinisterThinkingQuantum[0].Column] != 0)
+                                    {
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
+                                        g.DrawImage(M[0], new Rectangle((int)(this.MinisterThinkingQuantum[0].Row * (float)CellW), (int)(this.MinisterThinkingQuantum[0].Column * (float)CellH), CellW, CellH));
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((this.MinisterThinkingQuantum[0].Row * (float)CellW)), (int)(this.MinisterThinkingQuantum[0].Column * (float)CellH), CellW, CellH), -45, 180);
+                                    }
+                                }
                                 else
                                     g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
                             }
@@ -221,7 +228,14 @@ namespace QuantumRefrigiz
                                  //Draw a Brown Instatnt Minister Image on the Table.
                                 g.DrawImage(M[1], new Rectangle((int)(Row * CellW), (int)(Column * (float)CellH), CellW, CellH));
                                 if (RingHalf)
-                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW) ), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                                {
+                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
+                                    if (this.MinisterThinkingQuantum[0].TableConst[MinisterThinkingQuantum[0].Row, MinisterThinkingQuantum[0].Column] != 0)
+                                    {
+                                        g.DrawImage(M[0], new Rectangle((int)(this.MinisterThinkingQuantum[0].Row * (float)CellW), (int)(this.MinisterThinkingQuantum[0].Column * (float)CellH), CellW, CellH));
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((this.MinisterThinkingQuantum[0].Row * (float)CellW)), (int)(this.MinisterThinkingQuantum[0].Column * (float)CellH), CellW, CellH), -45, 180);
+                                    }
+                                }
                                 else
                                     g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
                             }

@@ -14,7 +14,7 @@ namespace QuantumRefrigiz
         //Pieces have rings around them, filled in with colour. These rings show the probability that the piece is in that square.
         public static bool KingGrayNotCheckedByQuantumMove = false;
         public static bool KingBrownNotCheckedByQuantumMove = false;
-        public bool RingHalf = false;
+        public bool RingHalf = true;
         public int WinOcuuredatChiled = 0;
         private readonly object balanceLock = new object();
         private readonly object balanceLockS = new object();
@@ -35,7 +35,7 @@ namespace QuantumRefrigiz
         public float Row, Column;
         public Color color;
         public int[,] Table = null;
-        public ThinkingChess[] KingThinking = new ThinkingChess[AllDraw.KingMovments];
+        public ThinkingQuantumChess[] KingThinkingQuantum = new ThinkingQuantumChess[AllDraw.KingMovments];
         public int Current = 0;
         public int Order;
         int CurrentAStarGredyMax = -1;
@@ -65,7 +65,7 @@ namespace QuantumRefrigiz
             for (int ii = 0; ii < AllDraw.KingMovments; ii++)
                 try
                 {
-                    a += KingThinking[ii].ReturnHuristic(-1, -1, Order,false);
+                    a += KingThinkingQuantum[ii].ReturnHuristic(-1, -1, Order,false);
                 }
                 catch (Exception t)
                 {
@@ -85,8 +85,8 @@ namespace QuantumRefrigiz
                     lock (O2)
                     {
                         MaxNotFound = false;
-                        if (ThinkingChess.MaxHuristicx < MaxHuristicxK)
-                            ThinkingChess.MaxHuristicx = a;
+                        if (ThinkingQuantumChess.MaxHuristicx < MaxHuristicxK)
+                            ThinkingQuantumChess.MaxHuristicx = a;
                         MaxHuristicxK = a;
                     }
                     return true;
@@ -145,7 +145,7 @@ namespace QuantumRefrigiz
                     for (int jj = 0; jj < 8; jj++)
                         Table[ii, jj] = Tab[ii, jj];
                 for (int ii = 0; ii < AllDraw.KingMovments; ii++)
-                    KingThinking[ii] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 8, Ord, TB, Cur, 2, 6);
+                    KingThinkingQuantum[ii] = new ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 8, Ord, TB, Cur, 2, 6);
 
                 Row = i;
                 Column = j;
@@ -169,13 +169,13 @@ namespace QuantumRefrigiz
             {
                 try
                 {
-                    AA.KingThinking[i] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
-                    this.KingThinking[i].Clone(ref AA.KingThinking[i]);
+                    AA.KingThinkingQuantum[i] = new ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
+                    this.KingThinkingQuantum[i].Clone(ref AA.KingThinkingQuantum[i]);
                 }
                 catch (Exception t)
                 {
                     Log(t);
-                    AA.KingThinking[i] = null;
+                    AA.KingThinkingQuantum[i] = null;
                 }
             }
             AA.Table = new int[8, 8];
@@ -216,14 +216,31 @@ namespace QuantumRefrigiz
                                 if (RingHalf)
                                 {
                                     g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
-                                    if (AllDraw.OrderPlate == 1)
-                                        KingGrayNotCheckedByQuantumMove = true;
-                                    else
-                                        KingBrownNotCheckedByQuantumMove = true;
+                                    if (this.KingThinkingQuantum[0].TableConst[KingThinkingQuantum[0].Row, KingThinkingQuantum[0].Column] != 0)
+                                    {
+                                        if (this.KingThinkingQuantum[0].TableConst[KingThinkingQuantum[0].Row, KingThinkingQuantum[0].Column] != 0)
+                                        {
+                                            g.DrawImage(K[0], new Rectangle((int)(this.KingThinkingQuantum[0].Row * (float)CellW), (int)(this.KingThinkingQuantum[0].Column * (float)CellH), CellW, CellH));
+                                            g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((this.KingThinkingQuantum[0].Row * (float)CellW)), (int)(this.KingThinkingQuantum[0].Column * (float)CellH), CellW, CellH), -45, 180);
+                                            if (AllDraw.OrderPlate == 1)
+                                                KingGrayNotCheckedByQuantumMove = true;
+                                            else
+                                                KingBrownNotCheckedByQuantumMove = true;
+                                        }
+                                    }
                                 }
                                 else
                                 {
-                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                                    
+                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
+                                    if (this.KingThinkingQuantum[0].TableConst[KingThinkingQuantum[0].Row, KingThinkingQuantum[0].Column] != 0)
+                                    {
+                                        if (this.KingThinkingQuantum[0].TableConst[KingThinkingQuantum[0].Row, KingThinkingQuantum[0].Column] != 0)
+                                        {
+                                            g.DrawImage(K[0], new Rectangle((int)(this.KingThinkingQuantum[0].Row * (float)CellW), (int)(this.KingThinkingQuantum[0].Column * (float)CellH), CellW, CellH));
+                                            g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((this.KingThinkingQuantum[0].Row * (float)CellW)), (int)(this.KingThinkingQuantum[0].Column * (float)CellH), CellW, CellH), -45, 180);
+                                        }
+                                    }
                                     if (AllDraw.OrderPlate == 1)
                                         KingGrayNotCheckedByQuantumMove = true;
                                     else

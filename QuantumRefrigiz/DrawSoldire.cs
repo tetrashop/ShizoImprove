@@ -33,7 +33,7 @@ namespace QuantumRefrigiz
         public static double MaxHuristicxS = Double.MinValue;
         public float RowS, ColumnS;
         public Color color;
-        public ThinkingChess[] SoldierThinking = new ThinkingChess[AllDraw.SodierMovments];
+        public ThinkingQuantumChess[] SoldierThinkingQuantum = new ThinkingQuantumChess[AllDraw.SodierMovments];
         public int[,] Table = null;
         public int Order = 0;
         public int Current = 0;
@@ -71,8 +71,8 @@ namespace QuantumRefrigiz
                     lock (O2)
                     {
                         MaxNotFound = false;
-                        if (ThinkingChess.MaxHuristicx < MaxHuristicxS)
-                            ThinkingChess.MaxHuristicx = a;
+                        if (ThinkingQuantumChess.MaxHuristicx < MaxHuristicxS)
+                            ThinkingQuantumChess.MaxHuristicx = a;
                         MaxHuristicxS = a;
                     }
                     return true;
@@ -92,7 +92,7 @@ namespace QuantumRefrigiz
             for (int ii = 0; ii < AllDraw.SodierMovments; ii++)
                 try
                 {
-                    a += SoldierThinking[ii].ReturnHuristic(-1, -1, Order,false);
+                    a += SoldierThinkingQuantum[ii].ReturnHuristic(-1, -1, Order,false);
                 }
                 catch (Exception t)
                 {
@@ -147,7 +147,7 @@ namespace QuantumRefrigiz
                     i = 7;
                 for (int ii = 0; ii < AllDraw.SodierMovments; ii++)
 
-                    SoldierThinking[ii] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 4, Ord, TB, Cur, 16, 1);
+                    SoldierThinkingQuantum[ii] = new ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 4, Ord, TB, Cur, 16, 1);
                 RowS = i;
                 ColumnS = j;
                 color = a;
@@ -172,13 +172,13 @@ namespace QuantumRefrigiz
             {
                 try
                 {
-                    AA.SoldierThinking[i] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
-                    this.SoldierThinking[i].Clone(ref AA.SoldierThinking[i]);
+                    AA.SoldierThinkingQuantum[i] = new ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
+                    this.SoldierThinkingQuantum[i].Clone(ref AA.SoldierThinkingQuantum[i]);
                 }
                 catch (Exception t)
                 {
                     Log(t);
-                    AA.SoldierThinking[i] = null;
+                    AA.SoldierThinkingQuantum[i] = null;
                 }
             }
             AA.Table = new int[8, 8];
@@ -220,8 +220,8 @@ namespace QuantumRefrigiz
                                 lock (O1)
                                 {    //Draw an Instant from File of Gray Soldeirs.
                                     g.DrawImage(S[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                                    if (RingHalf)
-                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
+                                    if (RingHalf)                                    
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);                                   
                                     else
                                         g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
                                         

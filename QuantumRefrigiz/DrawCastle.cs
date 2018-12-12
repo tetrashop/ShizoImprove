@@ -12,7 +12,7 @@ namespace QuantumRefrigiz
         //A quantum move cannot be used to take a piece.
         public bool IsQuntumMove = false;
         //Pieces have rings around them, filled in with colour. These rings show the probability that the piece is in that square.
-        public bool RingHalf = false;
+        public bool RingHalf = true;
         public int WinOcuuredatChiled = 0;
         private readonly object balanceLock = new object();
         private readonly object balanceLockS = new object();
@@ -31,7 +31,7 @@ namespace QuantumRefrigiz
         public static double MaxHuristicxB = -20000000000000000;
         public float Row, Column;
         public Color color;
-        public ThinkingChess[] CastleThinking = new ThinkingChess[AllDraw.CastleMovments];
+        public ThinkingQuantumChess[] CastleThinkingQuantum = new ThinkingQuantumChess[AllDraw.CastleMovments];
         public int[,] Table = null;
         public int Current = 0;
         public int Order;
@@ -66,8 +66,8 @@ namespace QuantumRefrigiz
                     Object O = new Object();
                     lock (O)
                     {
-                        if (ThinkingChess.MaxHuristicx < MaxHuristicxB)
-                            ThinkingChess.MaxHuristicx = a;
+                        if (ThinkingQuantumChess.MaxHuristicx < MaxHuristicxB)
+                            ThinkingQuantumChess.MaxHuristicx = a;
                         MaxHuristicxB = a;
                     }
                     return true;
@@ -87,7 +87,7 @@ namespace QuantumRefrigiz
             for (int ii = 0; ii < AllDraw.CastleMovments; ii++)
                 try
                 {
-                    a += CastleThinking[ii].ReturnHuristic(-1, -1, Order, false);
+                    a += CastleThinkingQuantum[ii].ReturnHuristic(-1, -1, Order, false);
                 }
                 catch (Exception t)
                 {
@@ -139,7 +139,7 @@ namespace QuantumRefrigiz
                     for (int jj = 0; jj < 8; jj++)
                         Table[ii, jj] = Tab[ii, jj];
                 for (int ii = 0; ii < AllDraw.CastleMovments; ii++)
-                    CastleThinking[ii] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 16, Ord, TB, Cur, 4, 4);
+                    CastleThinkingQuantum[ii] = new ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 16, Ord, TB, Cur, 4, 4);
 
                 Row = i;
                 Column = j;
@@ -164,13 +164,13 @@ namespace QuantumRefrigiz
             {
                 try
                 {
-                    AA.CastleThinking[i] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
-                    this.CastleThinking[i].Clone(ref AA.CastleThinking[i]);
+                    AA.CastleThinkingQuantum[i] = new ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
+                    this.CastleThinkingQuantum[i].Clone(ref AA.CastleThinkingQuantum[i]);
                 }
                 catch (Exception t)
                 {
                     Log(t);
-                    AA.CastleThinking[i] = null;
+                    AA.CastleThinkingQuantum[i] = null;
                 }
             }
             AA.Table = new int[8, 8];
@@ -208,7 +208,14 @@ namespace QuantumRefrigiz
                                  //Draw a Gray Castles Instatnt Image On hte Tabe.
                                 g.DrawImage(C[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                 if (RingHalf)
+                                {
                                     g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
+                                    if (this.CastleThinkingQuantum[0].TableConst[CastleThinkingQuantum[0].Row, CastleThinkingQuantum[0].Column] != 0)
+                                    {
+                                        g.DrawImage(C[0], new Rectangle((int)(this.CastleThinkingQuantum[0].Row * (float)CellW), (int)(this.CastleThinkingQuantum[0].Column * (float)CellH), CellW, CellH));
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((this.CastleThinkingQuantum[0].Row * (float)CellW)), (int)(this.CastleThinkingQuantum[0].Column * (float)CellH), CellW, CellH), -45, 180);
+                                    }
+                                }
                                 else
                                     g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
                             }
@@ -221,7 +228,14 @@ namespace QuantumRefrigiz
                                  //Draw an Instatnt of Brown Castles On the Table.
                                 g.DrawImage(C[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                 if (RingHalf)
+                                {
                                     g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
+                                    if (this.CastleThinkingQuantum[0].TableConst[CastleThinkingQuantum[0].Row, CastleThinkingQuantum[0].Column] != 0)
+                                    {
+                                        g.DrawImage(C[0], new Rectangle((int)(this.CastleThinkingQuantum[0].Row * (float)CellW), (int)(this.CastleThinkingQuantum[0].Column * (float)CellH), CellW, CellH));
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((this.CastleThinkingQuantum[0].Row * (float)CellW)), (int)(this.CastleThinkingQuantum[0].Column * (float)CellH), CellW, CellH), -45, 180);
+                                    }
+                                }
                                 else
                                     g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
                             }

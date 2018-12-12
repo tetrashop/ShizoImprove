@@ -15160,7 +15160,7 @@ namespace RefrigtzW
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
-                    if (AStarGreedy[h], Order); && ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
+                    if (AStarGreedy[h], Order) && ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
                     {
                         OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
                         return true;

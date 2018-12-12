@@ -13,7 +13,7 @@ namespace QuantumRefrigiz
         //A quantum move cannot be used to take a piece.
         public bool IsQuntumMove = false;
         //Pieces have rings around them, filled in with colour. These rings show the probability that the piece is in that square.
-        public bool RingHalf = false;
+        public bool RingHalf = true;
         public int WinOcuuredatChiled = 0;
         private readonly object balanceLock = new object();
         private readonly object balanceLockS = new object();
@@ -31,7 +31,7 @@ namespace QuantumRefrigiz
         public bool ArrangmentsChanged = false;
         public static double MaxHuristicxE = -20000000000000000;
         public float Row, Column;
-        public ThinkingChess[] ElefantThinking = new ThinkingChess[AllDraw.ElefantMovments];
+        public ThinkingQuantumChess[] ElefantThinkingQuantum = new ThinkingQuantumChess[AllDraw.ElefantMovments];
         public int[,] Table = null;
         public Color color;
         public int Current = 0;
@@ -66,8 +66,8 @@ namespace QuantumRefrigiz
                     lock (O2)
                     {
                         MaxNotFound = false;
-                        if (ThinkingChess.MaxHuristicx < MaxHuristicxE)
-                            ThinkingChess.MaxHuristicx = a;
+                        if (ThinkingQuantumChess.MaxHuristicx < MaxHuristicxE)
+                            ThinkingQuantumChess.MaxHuristicx = a;
                         MaxHuristicxE = a;
                     }
                     return true;
@@ -87,7 +87,7 @@ namespace QuantumRefrigiz
             for (int ii = 0; ii < AllDraw.ElefantMovments; ii++)
                 try
                 {
-                    a += ElefantThinking[ii].ReturnHuristic(-1, -1, Order, false);
+                    a += ElefantThinkingQuantum[ii].ReturnHuristic(-1, -1, Order, false);
                 }
                 catch (Exception t)
                 {
@@ -140,7 +140,7 @@ namespace QuantumRefrigiz
                     for (int jj = 0; jj < 8; jj++)
                         Table[ii, jj] = Tab[ii, jj];
                 for (int ii = 0; ii < AllDraw.ElefantMovments; ii++)
-                    ElefantThinking[ii] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 16, Ord, TB, Cur, 4, 2);
+                    ElefantThinkingQuantum[ii] = new ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 16, Ord, TB, Cur, 4, 2);
 
                 Row = i;
                 Column = j;
@@ -165,13 +165,13 @@ namespace QuantumRefrigiz
             {
                 try
                 {
-                    AA.ElefantThinking[i] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
-                    this.ElefantThinking[i].Clone(ref AA.ElefantThinking[i]);
+                    AA.ElefantThinkingQuantum[i] = new ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
+                    this.ElefantThinkingQuantum[i].Clone(ref AA.ElefantThinkingQuantum[i]);
                 }
                 catch (Exception t)
                 {
                     Log(t);
-                    AA.ElefantThinking[i] = null;
+                    AA.ElefantThinkingQuantum[i] = null;
                 }
             }
             AA.Table = new int[8, 8];
@@ -203,7 +203,7 @@ namespace QuantumRefrigiz
                     //Gray Color.
                     if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
                     {
-                        if(Order==1)
+                        if (Order == 1)
                         {
                             Object O1 = new Object();
                             lock (O1)
@@ -211,9 +211,16 @@ namespace QuantumRefrigiz
                                  //Draw an Instatnt Gray Elephant On the Table.
                                 g.DrawImage(E[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                 if (RingHalf)
-                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW) ), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
+                                {
+                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
+                                    if (this.ElefantThinkingQuantum[0].TableConst[ElefantThinkingQuantum[0].Row, ElefantThinkingQuantum[0].Column] != 0)
+                                    {
+                                        g.DrawImage(E[0], new Rectangle((int)(this.ElefantThinkingQuantum[0].Row * (float)CellW), (int)(this.ElefantThinkingQuantum[0].Column * (float)CellH), CellW, CellH));
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((this.ElefantThinkingQuantum[0].Row * (float)CellW)), (int)(this.ElefantThinkingQuantum[0].Column * (float)CellH), CellW, CellH), -45, 180);
+                                    }
+                                }
                                 else
-                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW) ), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
                             }
                         }
                         else
@@ -224,9 +231,16 @@ namespace QuantumRefrigiz
                                  //Draw an Instatnt Brown Elepehnt On the Table.
                                 g.DrawImage(E[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                 if (RingHalf)
-                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW) ), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
+                                {
+                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
+                                    if (this.ElefantThinkingQuantum[0].TableConst[ElefantThinkingQuantum[0].Row, ElefantThinkingQuantum[0].Column] != 0)
+                                    {
+                                        g.DrawImage(E[0], new Rectangle((int)(this.ElefantThinkingQuantum[0].Row * (float)CellW), (int)(this.ElefantThinkingQuantum[0].Column * (float)CellH), CellW, CellH));
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((this.ElefantThinkingQuantum[0].Row * (float)CellW)), (int)(this.ElefantThinkingQuantum[0].Column * (float)CellH), CellW, CellH), -45, 180);
+                                    }
+                                }
                                 else
-                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW) ), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
                             }
                         }
                     }

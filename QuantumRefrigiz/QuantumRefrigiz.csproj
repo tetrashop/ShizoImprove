@@ -61,7 +61,7 @@
     <Compile Include="RulesQuantum.cs" />
     <Compile Include="TakeRoot.cs" />
     <Compile Include="ThingsConverter.cs" />
-    <Compile Include="ThinkingChess.cs" />
+    <Compile Include="ThinkingQuantumChess.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Refrigtz\bin\Debug\All\All\chtc.csproj">
