@@ -91,7 +91,7 @@ using System.IO;
 namespace QuantumRefrigiz
 {
     [Serializable]
-    public class ChessRules:RulesQuantum
+    public class ChessRules
     {
         public bool IgnoreSelfObject = false;
         public static int ObjectHittedRow = -1;
@@ -143,14 +143,14 @@ namespace QuantumRefrigiz
         public static int CheckBrownRemovableValueColumnj = 0;
         public static int CheckBrownRemovableValueRowii = 0;
         public static int CheckBrownRemovableValueColumnjj = 0;
-        int Kind;
-        int KindNA;
-        int Row, Column;
-        int[,] Table = new int[8, 8];
-        static int Order = 0;
+        public int Kind;
+        public int KindNA;
+        public int Row, Column;
+        public int[,] Table = new int[8, 8];
+        public int Order = 0;
         //public bool ExistInDestinationEnemy = false;
-        bool ArrangmentsBoard = false;
-        int CurrentAStarGredyMax = -1;
+        public bool ArrangmentsBoard = false;
+        public int CurrentAStarGredyMax = -1;
         static void Log(Exception ex)
         {
             try
@@ -165,7 +165,7 @@ namespace QuantumRefrigiz
             catch (Exception t) { Log(t); }
         }
         public ChessRules(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged, int oRDER)
-            : base(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, ArrangmentsChanged, oRDER)
+            
         {
             CurrentAStarGredyMax = CurrentAStarGredy;
             MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
@@ -179,7 +179,7 @@ namespace QuantumRefrigiz
             ArrangmentsBoard = ArrangmentsChanged;
         }
         public ChessRules(int CurrentAStarGredy, int oRDER, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged)
-            : base(CurrentAStarGredy, oRDER, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject,  UsePenaltyRegardMechnisa,  BestMovment,  PredictHurist,  OnlySel,  AStarGreedyHuris,  ArrangmentsChanged)
+            
         {
             CurrentAStarGredyMax = CurrentAStarGredy;
             Order = oRDER;
@@ -194,7 +194,7 @@ namespace QuantumRefrigiz
         }
         //Constructor 
         public ChessRules(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged, int Ki, int[,] A, int Ord, int i, int j)
-            :base(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel,  AStarGreedyHuris,  ArrangmentsChanged, Ki,  A,  Ord, i,  j)
+            
         {
 
             CurrentAStarGredyMax = CurrentAStarGredy;
@@ -2247,7 +2247,7 @@ namespace QuantumRefrigiz
             return false;
         }
         //Internal Rule of Chess Method.
-        private bool Rule(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool ExistInDestinationEnemy, int Ki, bool SelfHomeStatCP)
+        public  bool Rule(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool ExistInDestinationEnemy, int Ki, bool SelfHomeStatCP)
         {
             //When is Not Castles King State.
             if (Kind != 7)

@@ -147,7 +147,7 @@ namespace RefrigtzDLL
         int KindNA;
         int Row, Column;
         int[,] Table = new int[8, 8];
-        static int Order = 0;
+        int Order = 0;
         //public bool ExistInDestinationEnemy = false;
         bool ArrangmentsBoard = false;
         int CurrentAStarGredyMax = -1;
