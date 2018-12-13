@@ -33,7 +33,7 @@ namespace GalleryStudio.Properties {
         }
         
         /// <summary>
-        ///   returns the cached ResourceManager instance used by this class.
+        ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static global::System.Resources.ResourceManager ResourceManager {
@@ -72,9 +72,9 @@ namespace GalleryStudio.Properties {
         ///
         ///    dllName = dllName.Replace(&quot;.&quot;, &quot;_&quot;);
         ///
-        ///    if (dllName.EndsWith(&quot;_resources&quot;)) return null;
+        ///    if (dllName.EndsWith(&quot;_resources&quot;)) continue; null;
         ///
-        ///    System.Resources.ResourceManager rm = new System.Resour [rest of string was truncated]&quot;;.
+        ///    System.Resources.ResourceManager rm = new System.Res [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string App_xaml {
             get {

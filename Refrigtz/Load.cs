@@ -152,7 +152,7 @@ namespace Refrigtz
             }
             else
             {
-                (new TakeRoot()).Save(ttt, ref ttt.LoadTree, ttt.MovementsAStarGreedyHuristicFound, ttt.IInoreSelfObjects, ttt.UsePenaltyRegardMechnisam, ttt.BestMovments, ttt.PredictHuristic, ttt.OnlySelf, ttt.AStarGreedyHuristic, ttt.ArrangmentsChanged);
+                (new TakeRoot()).Save(ttt.Quantum, ttt, ref ttt.LoadTree, ttt.MovementsAStarGreedyHuristicFound, ttt.IInoreSelfObjects, ttt.UsePenaltyRegardMechnisam, ttt.BestMovments, ttt.PredictHuristic, ttt.OnlySelf, ttt.AStarGreedyHuristic, ttt.ArrangmentsChanged);
                 Application.Exit();
             }
         }
