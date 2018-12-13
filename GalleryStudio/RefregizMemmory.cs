@@ -30,6 +30,7 @@ namespace GalleryStudio
         public int Kind = 0;
         static GalleryStudio.RefregizMemmory Node;
         RefrigtzDLL.AllDraw Current = null;
+        QuantumRefrigiz.AllDraw CurrentQ = null;
         public List<GalleryStudio.RefregizMemmory> NextS = null;
         public List<GalleryStudio.RefregizMemmory> NextE = null;
         public List<GalleryStudio.RefregizMemmory> NextH = null;
@@ -795,12 +796,26 @@ public RefregizMemmory AllDrawNodeAccess
             set
             { Current = value; }
         }
+        public QuantumRefrigiz.AllDraw AllDrawCurrentAccessQ
+        {
+            get
+            { return CurrentQ; }
+            set
+            { CurrentQ = value; }
+        }
         public int OrderPlateCurrentAccess
         {
             get
             { return Current.OrderP; }
             set
             { Current.OrderP = value; }
+        }
+        public int OrderPlateCurrentAccessQ
+        {
+            get
+            { return CurrentQ.OrderP; }
+            set
+            { CurrentQ.OrderP = value; }
         }
         public RefregizMemmory ReterunAstrarGreedysolder(int i, int j, RefregizMemmory t)
         {

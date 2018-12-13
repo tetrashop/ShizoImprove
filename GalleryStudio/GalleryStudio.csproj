@@ -67,6 +67,9 @@
     <Reference Include="All">
       <HintPath>..\Refrigtz\bin\Debug\All\All\bin\Debug\All.dll</HintPath>
     </Reference>
+    <Reference Include="All.2.0.0.0.Fakes">
+      <HintPath>FakesAssemblies\All.2.0.0.0.Fakes.dll</HintPath>
+    </Reference>
     <Reference Include="DotNetOpenAuth.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
       <HintPath>..\packages\DotNetOpenAuth.Core.4.3.4.13329\lib\net45-full\DotNetOpenAuth.Core.dll</HintPath>
     </Reference>
@@ -116,6 +119,7 @@
     <Compile Include="RefregitzOperator.cs" />
     <Compile Include="RefregizMemmory.cs" />
     <None Include="App.config" />
+    <Fakes Include="Fakes\QuantumRefrigiz.fakes" />
     <None Include="packages.config" />
     <None Include="Resources\App.xaml.cs" />
   </ItemGroup>
