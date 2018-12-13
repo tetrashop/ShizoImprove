@@ -346,582 +346,663 @@ namespace Refrigtz
     */
         void AllOp()
         {
-            
+
             //if (RefrigtzDLL.AllDraw.THISDummy != null)
             // RefrigtzDLL.AllDraw.THISDummy.Clone(Draw);
-
-            if (MovmentsNumber == 0)
+            if (!Quantum)
             {
-                MovmentsNumberMax = MovmentsNumber;
-                if (Stockfish)
+                if (MovmentsNumber == 0)
                 {
-                    GrayTimer.Sign = 1;
-                    BrownTimer.Sign = 1;
-                    if (OrderPlate == 1)
+                    MovmentsNumberMax = MovmentsNumber;
+                    if (Stockfish)
                     {
-                        GrayTimer.StartTime();
-                        BrownTimer.StopTime();
-                        BobSection = true;
-                        AliceSection = false;
-                        GrayTimer.StartTime();
-                    }
-                    else
-                    {
-                        BrownTimer.StartTime();
-                        GrayTimer.StopTime();
-                        BobSection = false;
-                        AliceSection = true;
-                        BrownTimer.StartTime();
-                    }
-
-
-
-
-                }
-            }
-
-            RefrigtzDLL.AllDraw.SyntaxToWrite = "";
-            try
-            {
-
-
-                if (RefrigtzDLL.ChessGeneticAlgorithm.NoGameFounf)
-                {
-                    SetBoxText("No Game Could be continued!");
-                    RefreshBoxText();
-
-                }
-                if (RefrigtzDLL.AllDraw.MouseClick == 0 && !RefrigtzDLL.ThinkingChess.ThinkingRun)
-                {
-                    RefrigtzDLL.ChessRules A = new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, 1, Table, OrderPlate, -1, -1);
-                    Color a = Color.Gray;
-                    if (OrderPlate == -1)
-                        a = Color.Brown;
-                    RefrigtzDLL.ChessRules AA = new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, OrderPlate);
-
-                    //if (!UsePenaltyRegardMechnisamT)
-                    if (AA.CheckMate(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1], OrderPlate))
-                    {
-                        if (OrderPlate == 1 && AA.CheckMateGray)
+                        GrayTimer.Sign = 1;
+                        BrownTimer.Sign = 1;
+                        if (OrderPlate == 1)
                         {
-                            EndOfGame = true;
-                            return;
+                            GrayTimer.StartTime();
+                            BrownTimer.StopTime();
+                            BobSection = true;
+                            AliceSection = false;
+                            GrayTimer.StartTime();
                         }
                         else
-                            if (OrderPlate == -1 && AA.CheckMateBrown)
                         {
-                            EndOfGame = true;
-                            return;
+                            BrownTimer.StartTime();
+                            GrayTimer.StopTime();
+                            BobSection = false;
+                            AliceSection = true;
+                            BrownTimer.StartTime();
                         }
-                    }
 
-                    if (A.CheckMate(Table, OrderPlate) || A.Pat(Table, OrderPlate, a))
+
+
+
+                    }
+                }
+
+                RefrigtzDLL.AllDraw.SyntaxToWrite = "";
+                try
+                {
+
+
+                    if (RefrigtzDLL.ChessGeneticAlgorithm.NoGameFounf)
                     {
-                        if (A.CheckMateGray || A.CheckMateBrown || EndOfGame || A.PatkGray || A.PatBrown)
+                        SetBoxText("No Game Could be continued!");
+                        RefreshBoxText();
+
+                    }
+                    if (RefrigtzDLL.AllDraw.MouseClick == 0 && !RefrigtzDLL.ThinkingChess.ThinkingRun)
+                    {
+                        RefrigtzDLL.ChessRules A = new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, 1, Table, OrderPlate, -1, -1);
+                        Color a = Color.Gray;
+                        if (OrderPlate == -1)
+                            a = Color.Brown;
+                        RefrigtzDLL.ChessRules AA = new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, OrderPlate);
+
+                        //if (!UsePenaltyRegardMechnisamT)
+                        if (AA.CheckMate(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1], OrderPlate))
                         {
-                            StateCC = false;
-                            StateCP = false;
-                            Person = false;
-                            if (A.CheckMateGray || A.CheckMateBrown)
-                                SetBoxText("\r\nCheckMate!");
-                            else if (A.PatkGray || A.PatBrown)
-                                SetBoxText("\r\nPat!");
-                            RefreshBoxText();
-                            //if (AllOperate.IsAlive)
+                            if (OrderPlate == 1 && AA.CheckMateGray)
+                            {
+                                EndOfGame = true;
+                                return;
+                            }
+                            else
+                                if (OrderPlate == -1 && AA.CheckMateBrown)
+                            {
+                                EndOfGame = true;
+                                return;
+                            }
+                        }
+
+                        if (A.CheckMate(Table, OrderPlate) || A.Pat(Table, OrderPlate, a))
+                        {
+                            if (A.CheckMateGray || A.CheckMateBrown || EndOfGame || A.PatkGray || A.PatBrown)
+                            {
+                                StateCC = false;
+                                StateCP = false;
+                                Person = false;
+                                if (A.CheckMateGray || A.CheckMateBrown)
+                                    SetBoxText("\r\nCheckMate!");
+                                else if (A.PatkGray || A.PatBrown)
+                                    SetBoxText("\r\nPat!");
+                                RefreshBoxText();
+                                //if (AllOperate.IsAlive)
                                 //new Syncronization(AllOperate, 1);
 
 
 
 
-                        }
-                        else
-                        {
-                            if (A.CheckMateGray && OrderPlate == 1)
+                            }
+                            else
+                            {
+                                if (A.CheckMateGray && OrderPlate == 1)
 
 
-                                if (A.CheckGray || A.CheckBrown)
-                                {
-                                    if (OrderPlate == 1)
+                                    if (A.CheckGray || A.CheckBrown)
+                                    {
+                                        if (OrderPlate == 1)
 
-                                        SetBoxText("\r\nGray OrderPlate!Check!");
-                                    else
-                                        SetBoxText("\r\nBrown OrderPlate!Check!");
+                                            SetBoxText("\r\nGray OrderPlate!Check!");
+                                        else
+                                            SetBoxText("\r\nBrown OrderPlate!Check!");
 
-                                }
+                                    }
+                            }
                         }
                     }
-                }
-                if (Sec.radioButtonGrayOrder.Checked)
-                {
-                    if (StateCC)
+                    if (Sec.radioButtonGrayOrder.Checked)
                     {
-
-                        if (Stockfish)
+                        if (StateCC)
                         {
-                            if (ArrangmentsChanged)
+
+                            if (Stockfish)
+                            {
+                                if (ArrangmentsChanged)
+                                {
+                                    if (Blitz)
+                                    {
+                                        if (BobSection && OrderPlate == 1)//Gray is Refregitz.                                        
+                                        {
+                                            ComputerByComputerBobAsRefregitz(ref proc);
+                                            AllDo = false;
+                                        }
+                                        else
+                                            if (!BobSection && OrderPlate == -1)//Brow is Stockfish.                                            
+                                        {
+                                            ComputerByComputerAliceAsStockFish(ref proc);
+                                            AllDo = false;
+                                        }
+                                    }
+                                    else
+                                        if (FullGame)
+                                    {
+                                        if (BobSection && OrderPlate == 1)//Gray is Refregitz.                                        
+                                        {
+                                            ComputerByComputerBobAsRefregitz(ref proc);
+                                            AllDo = false;
+                                        }
+                                        else
+                                            if (!BobSection && OrderPlate == -1)//Brow is Stockfish.                                            
+                                        {
+                                            ComputerByComputerAliceAsStockFish(ref proc);
+                                            AllDo = false;
+                                        }
+                                    }
+                                }
+                                else
+                                    MessageBox.Show("Mirror Objects Please!");
+                            }
+                            else//Not Stockfish
                             {
                                 if (Blitz)
                                 {
-                                    if (BobSection && OrderPlate == 1)//Gray is Refregitz.                                        
+                                    if (BobSection && OrderPlate == 1)
                                     {
-                                        ComputerByComputerBobAsRefregitz(ref proc);
+                                        AliceSection = true;
+                                        BobSection = false;
+                                        BobAction();
                                         AllDo = false;
+
+
                                     }
                                     else
-                                        if (!BobSection && OrderPlate == -1)//Brow is Stockfish.                                            
                                     {
-                                        ComputerByComputerAliceAsStockFish(ref proc);
-                                        AllDo = false;
+                                        Clicked = true;
+                                        if (AliceSection && OrderPlate == -1)
+                                        {
+                                            AliceSection = false;
+                                            BobSection = true;
+                                            AliceAction();
+                                            AllDo = false;
+
+                                        }
                                     }
-                                    }
+                                }
                                 else
                                     if (FullGame)
                                 {
-                                    if (BobSection && OrderPlate == 1)//Gray is Refregitz.                                        
+                                    if (BobSection && OrderPlate == 1)
                                     {
-                                        ComputerByComputerBobAsRefregitz(ref proc);
+                                        AliceSection = true;
+                                        BobSection = false;
+                                        BobAction();
                                         AllDo = false;
+
+
                                     }
                                     else
-                                        if (!BobSection && OrderPlate == -1)//Brow is Stockfish.                                            
                                     {
-                                        ComputerByComputerAliceAsStockFish(ref proc);
-                                        AllDo = false;
-                                    }
-                                    }
-                            }
-                            else
-                                MessageBox.Show("Mirror Objects Please!");
-                        }
-                        else//Not Stockfish
-                        {
-                            if (Blitz)
-                            {
-                                if (BobSection && OrderPlate == 1)
-                                {
-                                    AliceSection = true;
-                                    BobSection = false;
-                                    BobAction();
-                                    AllDo = false;
+                                        Clicked = true;
+                                        if (AliceSection && OrderPlate == -1)
+                                        {
+                                            AliceSection = false;
+                                            BobSection = true;
+                                            AliceAction();
+                                            AllDo = false;
 
-
-                                }
-                                else
-                                {
-                                    Clicked = true;
-                                    if (AliceSection && OrderPlate == -1)
-                                    {
-                                        AliceSection = false;
-                                        BobSection = true;
-                                        AliceAction();
-                                        AllDo = false;
-
-                                    }
-                                }
-                            }
-                            else
-                                if (FullGame)
-                            {
-                                if (BobSection && OrderPlate == 1)
-                                {
-                                    AliceSection = true;
-                                    BobSection = false;
-                                    BobAction();
-                                    AllDo = false;
-
-
-                                }
-                                else
-                                {
-                                    Clicked = true;
-                                    if (AliceSection && OrderPlate == -1)
-                                    {
-                                        AliceSection = false;
-                                        BobSection = true;
-                                        AliceAction();
-                                        AllDo = false;
-
+                                        }
                                     }
                                 }
                             }
                         }
-                    }
 
-                    else
-                        if (StateCP)
-                    {
-                        if (Stockfish)
+                        else
+                            if (StateCP)
                         {
-
-                            if (ArrangmentsChanged)
+                            if (Stockfish)
                             {
-                                if (BobSection && OrderPlate == 1)
+
+                                if (ArrangmentsChanged)
                                 {
-                                    Clicked = true;
-                                    GrayTimer.StartTime();
-                                    BrownTimer.StopTime();
-                                    if (tM == null)
-                                        tM = new Thread(new ThreadStart(Movements));
-                                    if (!tM.IsAlive)
+                                    if (BobSection && OrderPlate == 1)
                                     {
-                                        tM.Start();
-                                    }
-                                    Wait();
-                                    Clicked = false;
-                                    //
-                                    //
-                                    //                                        
-                                    RefrigtzDLL.AllDraw.MouseClick = 0;
-                                    SetBoxText("\r\nObject Cleared.");
-                                    RefreshBoxText();
-                                    SetBoxText("\r\nYour Ready!");
-                                    RefreshBoxText();
-                                    Color a = Color.Brown;
+                                        Clicked = true;
+                                        GrayTimer.StartTime();
+                                        BrownTimer.StopTime();
+                                        if (tM == null)
+                                            tM = new Thread(new ThreadStart(Movements));
+                                        if (!tM.IsAlive)
+                                        {
+                                            tM.Start();
+                                        }
+                                        Wait();
+                                        Clicked = false;
+                                        //
+                                        //
+                                        //                                        
+                                        RefrigtzDLL.AllDraw.MouseClick = 0;
+                                        SetBoxText("\r\nObject Cleared.");
+                                        RefreshBoxText();
+                                        SetBoxText("\r\nYour Ready!");
+                                        RefreshBoxText();
+                                        Color a = Color.Brown;
 
-                                    bool FOUND = false;
-                                    RefrigtzDLL.AllDraw THIS = null;
+                                        bool FOUND = false;
+                                        RefrigtzDLL.AllDraw THIS = null;
 
-                                    SetDrawFounding(ref FOUND, ref THIS, false);
+                                        SetDrawFounding(ref FOUND, ref THIS, false);
 
-                                    if (RefrigtzDLL.ChessRules.BigKingCastleGray)
-                                    {
-                                        FenCastling = 1;
-                                    }
-                                    else
+                                        if (RefrigtzDLL.ChessRules.BigKingCastleGray)
+                                        {
+                                            FenCastling = 1;
+                                        }
+                                        else
+                                                if (RefrigtzDLL.ChessRules.SmallKingCastleGray)
+                                        {
+                                            FenCastling = 0;
+                                        }
+                                        else
+                                            FenCastling = -1;
+
+                                        String fens = Fen();
+                                        if (RefrigtzDLL.ChessRules.BigKingCastleGray)
+                                        {
+                                            RefrigtzDLL.ChessRules.BigKingCastleGray = false;
+                                        }
+                                        else
                                             if (RefrigtzDLL.ChessRules.SmallKingCastleGray)
-                                    {
-                                        FenCastling = 0;
+                                        {
+                                            RefrigtzDLL.ChessRules.SmallKingCastleGray = false;
+                                        }
+                                        StreamWriter sw = proc.StandardInput;
+                                        string input = fens + "\r\n";
+                                        sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
+                                        sw.Flush();
+                                        RowClickP = -1;
+                                        ColumnClickP = -1;
+                                        RowRealesed = -1;
+                                        ColumnRealeased = -1;
+                                        //Thread.Sleep(1500);
+                                        BobSection = false;
+                                        MovmentsNumber++;
+                                        GrayTimer.StopTime();
+                                        BrownTimer.StartTime();
+                                        AllDo = false;
+
+
                                     }
                                     else
-                                        FenCastling = -1;
-
-                                    String fens = Fen();
-                                    if (RefrigtzDLL.ChessRules.BigKingCastleGray)
-                                    {
-                                        RefrigtzDLL.ChessRules.BigKingCastleGray = false;
-                                    }
-                                    else
-                                        if (RefrigtzDLL.ChessRules.SmallKingCastleGray)
-                                    {
-                                        RefrigtzDLL.ChessRules.SmallKingCastleGray = false;
-                                    }
-                                    StreamWriter sw = proc.StandardInput;
-                                    string input = fens + "\r\n";
-                                    sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
-                                    sw.Flush();
-                                    RowClickP = -1;
-                                    ColumnClickP = -1;
-                                    RowRealesed = -1;
-                                    ColumnRealeased = -1;
-                                    //Thread.Sleep(1500);
-                                    BobSection = false;
-                                    MovmentsNumber++;
-                                    GrayTimer.StopTime();
-                                    BrownTimer.StartTime();
-                                    AllDo = false;
-
-
+                                        if (!BobSection && OrderPlate == -1)
+                                        MessageBox.Show("No Knowledge!");
                                 }
                                 else
-                                    if (!BobSection && OrderPlate == -1)
-                                    MessageBox.Show("No Knowledge!");
+                                    MessageBox.Show("Mirror the Objects please!");
                             }
                             else
-                                MessageBox.Show("Mirror the Objects please!");
-                        }
-                        else
-                        {
-                            if (Blitz)
-                            {
-                                if (BobSection && OrderPlate == 1)
-                                {
-
-
-                                    bool SCC = StateCC;
-                                    bool SCP = StateCP;
-                                    bool SCG = StateGe;
-
-                                    RefrigtzDLL.AllDraw.FoundATable = false;
-                                    Clicked = true;
-                                    RefrigtzDLL.AllDraw.MouseClick = 0;
-                                    RowClick = -1;
-                                    ColumnClick = -1;
-                                    RowClickP = -1;
-                                    ColumnClickP = -1;
-                                    RowRealesed = -1;
-                                    ColumnRealeased = -1;
-
-                                    if (tM == null)
-                                        tM = new Thread(new ThreadStart(Movements));
-                                    if (!tM.IsAlive)
-                                    {
-                                        tM.Start();
-                                    }
-                                    Wait();
-                                    Clicked = false;
-                                    //
-                                    //
-                                    //                                        
-                                    RefrigtzDLL.AllDraw.MouseClick = 0;
-                                    RowClick = -1;
-                                    ColumnClick = -1;
-                                    RowClickP = -1;
-                                    ColumnClickP = -1;
-                                    RowRealesed = -1;
-                                    ColumnRealeased = -1;
-                                    SetBoxText("\r\nObject Cleared.");
-                                    RefreshBoxText();
-                                    SetBoxText("\r\nYour Ready!");
-                                    RefreshBoxText();
-                                    Color a = Color.Brown;
-                                    bool FOUND = false;
-                                    RefrigtzDLL.AllDraw THIS = null;
-
-
-                                    //SetDrawFounding(ref FOUND, ref THIS, true);
-
-                                    BobSection = false;
-                                    StateCC = SCC;
-                                    StateCP = SCP;
-                                    StateGe = SCG;
-                                    AllDo = false;
-                                }
-                                else
-                                    if (!BobSection && OrderPlate == -1)
-                                {
-                                    if (tM != null)
-                                    {
-                                        try
-                                        {
-                                            tM.Abort();
-                                            tM.Join();
-                                            tM = null;
-                                        }
-                                        catch (Exception t)
-                                        {
-                                            Log(t);
-                                        }
-                                    }
-                                    Person = true;
-
-                                    AliceWithPerson();
-
-                                    BobSection = true;
-
-                                    AllDo = false;
-                                }
-                            }
-                            else
-                                if (FullGame)
-                            {
-                                if (BobSection && OrderPlate == 1)
-                                {
-
-
-
-                                    RefrigtzDLL.AllDraw.FoundATable = false;
-                                    Clicked = true;
-                                    RefrigtzDLL.AllDraw.MouseClick = 0;
-                                    RowClick = -1;
-                                    ColumnClick = -1;
-                                    RowClickP = -1;
-                                    ColumnClickP = -1;
-                                    RowRealesed = -1;
-                                    ColumnRealeased = -1;
-
-                                    if (tM == null)
-                                        tM = new Thread(new ThreadStart(Movements));
-                                    if (!tM.IsAlive)
-                                    {
-                                        tM.Start();
-                                    }
-                                    Wait();
-                                    Clicked = false;
-                                    //
-                                    //
-                                    //
-
-                                    RefrigtzDLL.AllDraw.MouseClick = 0;
-                                    RowClick = -1;
-                                    ColumnClick = -1;
-                                    RowClickP = -1;
-                                    ColumnClickP = -1;
-                                    RowRealesed = -1;
-                                    ColumnRealeased = -1;
-                                    SetBoxText("\r\nObject Cleared.");
-                                    RefreshBoxText();
-                                    SetBoxText("\r\nYour Ready!");
-                                    RefreshBoxText();
-                                    Draw = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-                                    Draw.TableList.Clear();
-                                    Draw.TableList.Add(Table);
-                                    Draw.SetRowColumn(0);
-                                    BobSection = false;
-                                    AllDo = false;
-                                }
-                                else
-                                    if (!BobSection && OrderPlate == -1)
-                                {
-                                    if (tM != null)
-                                    {
-                                        try
-                                        {
-                                            tM.Abort();
-                                            tM.Join();
-                                            tM = null;
-                                        }
-                                        catch (Exception t)
-                                        {
-                                            Log(t);
-                                        }
-                                    }
-                                    Person = true;
-
-                                    AliceWithPerson();
-
-                                    BobSection = true;
-
-                                    AllDo = false;
-                                }
-                            }
-                        }
-
-                    }
-                    else
-                            if (StateGe)
-                    {
-                        if (Blitz)
-                        {
-                            GeneticAction();
-
-                            AllDo = false;
-                        }
-                        else
-                            if (FullGame)
-                        {
-                            GeneticAction();
-
-                            AllDo = false;
-
-                        }
-                    }
-                }
-                else
-                    if (Sec.radioButtonBrownOrder.Checked)
-                {
-
-                    if (StateCC)
-                    {
-                        if (Stockfish)
-                        {
-                            if (ArrangmentsChanged)
                             {
                                 if (Blitz)
                                 {
-                                    if (BobSection && OrderPlate == 1)//Gray is Refregitz.                                        
+                                    if (BobSection && OrderPlate == 1)
                                     {
-                                        ComputerByComputerBobAsRefregitz(ref proc);
+
+
+                                        bool SCC = StateCC;
+                                        bool SCP = StateCP;
+                                        bool SCG = StateGe;
+
+                                        RefrigtzDLL.AllDraw.FoundATable = false;
+                                        Clicked = true;
+                                        RefrigtzDLL.AllDraw.MouseClick = 0;
+                                        RowClick = -1;
+                                        ColumnClick = -1;
+                                        RowClickP = -1;
+                                        ColumnClickP = -1;
+                                        RowRealesed = -1;
+                                        ColumnRealeased = -1;
+
+                                        if (tM == null)
+                                            tM = new Thread(new ThreadStart(Movements));
+                                        if (!tM.IsAlive)
+                                        {
+                                            tM.Start();
+                                        }
+                                        Wait();
+                                        Clicked = false;
+                                        //
+                                        //
+                                        //                                        
+                                        RefrigtzDLL.AllDraw.MouseClick = 0;
+                                        RowClick = -1;
+                                        ColumnClick = -1;
+                                        RowClickP = -1;
+                                        ColumnClickP = -1;
+                                        RowRealesed = -1;
+                                        ColumnRealeased = -1;
+                                        SetBoxText("\r\nObject Cleared.");
+                                        RefreshBoxText();
+                                        SetBoxText("\r\nYour Ready!");
+                                        RefreshBoxText();
+                                        Color a = Color.Brown;
+                                        bool FOUND = false;
+                                        RefrigtzDLL.AllDraw THIS = null;
+
+
+                                        //SetDrawFounding(ref FOUND, ref THIS, true);
+
+                                        BobSection = false;
+                                        StateCC = SCC;
+                                        StateCP = SCP;
+                                        StateGe = SCG;
                                         AllDo = false;
                                     }
                                     else
-                                        if (!BobSection && OrderPlate == -1)//Brow is Stockfish.                                            
+                                        if (!BobSection && OrderPlate == -1)
                                     {
-                                        ComputerByComputerAliceAsStockFish(ref proc);
+                                        if (tM != null)
+                                        {
+                                            try
+                                            {
+                                                tM.Abort();
+                                                tM.Join();
+                                                tM = null;
+                                            }
+                                            catch (Exception t)
+                                            {
+                                                Log(t);
+                                            }
+                                        }
+                                        Person = true;
+
+                                        AliceWithPerson();
+
+                                        BobSection = true;
+
                                         AllDo = false;
                                     }
-                                    }
+                                }
                                 else
                                     if (FullGame)
                                 {
-                                    if (BobSection && OrderPlate == 1)//Gray is Refregitz.                                        
+                                    if (BobSection && OrderPlate == 1)
                                     {
 
 
-                                        ComputerByComputerBobAsRefregitz(ref proc);
+
+                                        RefrigtzDLL.AllDraw.FoundATable = false;
+                                        Clicked = true;
+                                        RefrigtzDLL.AllDraw.MouseClick = 0;
+                                        RowClick = -1;
+                                        ColumnClick = -1;
+                                        RowClickP = -1;
+                                        ColumnClickP = -1;
+                                        RowRealesed = -1;
+                                        ColumnRealeased = -1;
+
+                                        if (tM == null)
+                                            tM = new Thread(new ThreadStart(Movements));
+                                        if (!tM.IsAlive)
+                                        {
+                                            tM.Start();
+                                        }
+                                        Wait();
+                                        Clicked = false;
+                                        //
+                                        //
+                                        //
+
+                                        RefrigtzDLL.AllDraw.MouseClick = 0;
+                                        RowClick = -1;
+                                        ColumnClick = -1;
+                                        RowClickP = -1;
+                                        ColumnClickP = -1;
+                                        RowRealesed = -1;
+                                        ColumnRealeased = -1;
+                                        SetBoxText("\r\nObject Cleared.");
+                                        RefreshBoxText();
+                                        SetBoxText("\r\nYour Ready!");
+                                        RefreshBoxText();
+                                        Draw = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                                        Draw.TableList.Clear();
+                                        Draw.TableList.Add(Table);
+                                        Draw.SetRowColumn(0);
+                                        BobSection = false;
                                         AllDo = false;
                                     }
                                     else
-                                        if (!BobSection && OrderPlate == -1)//Brow is Stockfish.                                            
-
+                                        if (!BobSection && OrderPlate == -1)
                                     {
+                                        if (tM != null)
+                                        {
+                                            try
+                                            {
+                                                tM.Abort();
+                                                tM.Join();
+                                                tM = null;
+                                            }
+                                            catch (Exception t)
+                                            {
+                                                Log(t);
+                                            }
+                                        }
+                                        Person = true;
 
-                                        ComputerByComputerAliceAsStockFish(ref proc);
+                                        AliceWithPerson();
+
+                                        BobSection = true;
+
                                         AllDo = false;
                                     }
-
                                 }
                             }
-                            else
-                                MessageBox.Show("Mirror Objects Please!");
+
                         }
-                        else//Not Stockfish
+                        else
+                                if (StateGe)
                         {
                             if (Blitz)
                             {
-                                if (BobSection && OrderPlate == 1)
-                                {
-                                    AliceSection = true;
-                                    BobSection = false;
-                                    BobAction();
+                                GeneticAction();
 
-                                    AllDo = false;
-
-                                }
-                                else
-                                {
-                                    Clicked = true;
-                                    if (AliceSection && OrderPlate == -1)
-                                    {
-                                        AliceSection = false;
-                                        BobSection = true;
-                                        AliceAction();
-
-                                        AllDo = false;
-                                    }
-                                }
+                                AllDo = false;
                             }
                             else
                                 if (FullGame)
                             {
-                                if (BobSection && OrderPlate == 1)
+                                GeneticAction();
+
+                                AllDo = false;
+
+                            }
+                        }
+                    }
+                    else
+                        if (Sec.radioButtonBrownOrder.Checked)
+                    {
+
+                        if (StateCC)
+                        {
+                            if (Stockfish)
+                            {
+                                if (ArrangmentsChanged)
                                 {
-                                    AliceSection = true;
-                                    BobSection = false;
-                                    BobAction();
+                                    if (Blitz)
+                                    {
+                                        if (BobSection && OrderPlate == 1)//Gray is Refregitz.                                        
+                                        {
+                                            ComputerByComputerBobAsRefregitz(ref proc);
+                                            AllDo = false;
+                                        }
+                                        else
+                                            if (!BobSection && OrderPlate == -1)//Brow is Stockfish.                                            
+                                        {
+                                            ComputerByComputerAliceAsStockFish(ref proc);
+                                            AllDo = false;
+                                        }
+                                    }
+                                    else
+                                        if (FullGame)
+                                    {
+                                        if (BobSection && OrderPlate == 1)//Gray is Refregitz.                                        
+                                        {
 
-                                    AllDo = false;
 
+                                            ComputerByComputerBobAsRefregitz(ref proc);
+                                            AllDo = false;
+                                        }
+                                        else
+                                            if (!BobSection && OrderPlate == -1)//Brow is Stockfish.                                            
 
+                                        {
+
+                                            ComputerByComputerAliceAsStockFish(ref proc);
+                                            AllDo = false;
+                                        }
+
+                                    }
                                 }
                                 else
+                                    MessageBox.Show("Mirror Objects Please!");
+                            }
+                            else//Not Stockfish
+                            {
+                                if (Blitz)
                                 {
-                                    Clicked = true;
-                                    if (AliceSection && OrderPlate == -1)
+                                    if (BobSection && OrderPlate == 1)
                                     {
-                                        AliceSection = false;
-                                        BobSection = true;
-                                        AliceAction();
+                                        AliceSection = true;
+                                        BobSection = false;
+                                        BobAction();
 
                                         AllDo = false;
+
+                                    }
+                                    else
+                                    {
+                                        Clicked = true;
+                                        if (AliceSection && OrderPlate == -1)
+                                        {
+                                            AliceSection = false;
+                                            BobSection = true;
+                                            AliceAction();
+
+                                            AllDo = false;
+                                        }
+                                    }
+                                }
+                                else
+                                    if (FullGame)
+                                {
+                                    if (BobSection && OrderPlate == 1)
+                                    {
+                                        AliceSection = true;
+                                        BobSection = false;
+                                        BobAction();
+
+                                        AllDo = false;
+
+
+                                    }
+                                    else
+                                    {
+                                        Clicked = true;
+                                        if (AliceSection && OrderPlate == -1)
+                                        {
+                                            AliceSection = false;
+                                            BobSection = true;
+                                            AliceAction();
+
+                                            AllDo = false;
+                                        }
                                     }
                                 }
                             }
                         }
-                    }
 
-                    else
-                        if (StateCP)
-                    {
-                        if (Stockfish)
+                        else
+                            if (StateCP)
                         {
-
-                            if (ArrangmentsChanged)
+                            if (Stockfish)
                             {
-                                if (BobSection && OrderPlate == 1)
+
+                                if (ArrangmentsChanged)
                                 {
+                                    if (BobSection && OrderPlate == 1)
+                                    {
+                                        Clicked = true;
+                                        GrayTimer.StartTime();
+                                        BrownTimer.StopTime();
+                                        if (tM == null)
+                                            tM = new Thread(new ThreadStart(Movements));
+                                        if (!tM.IsAlive)
+                                        {
+                                            tM.Start();
+                                        }
+                                        Wait();
+                                        Clicked = false;
+
+
+                                        RefrigtzDLL.AllDraw.MouseClick = 0;
+                                        SetBoxText("\r\nObject Cleared.");
+                                        RefreshBoxText();
+                                        SetBoxText("\r\nYour Ready!");
+                                        RefreshBoxText();
+                                        Draw = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                                        Draw.TableList.Clear();
+                                        Draw.TableList.Add(Table);
+                                        Draw.SetRowColumn(0);
+                                        if (RefrigtzDLL.ChessRules.BigKingCastleGray)
+                                        {
+                                            FenCastling = 1;
+                                        }
+                                        else
+                                            if (RefrigtzDLL.ChessRules.SmallKingCastleGray)
+                                        {
+                                            FenCastling = 0;
+                                        }
+                                        else
+                                            FenCastling = -1;
+
+                                        String fens = Fen();
+                                        if (RefrigtzDLL.ChessRules.BigKingCastleGray)
+                                        {
+                                            RefrigtzDLL.ChessRules.BigKingCastleGray = false;
+                                        }
+                                        else
+                                            if (RefrigtzDLL.ChessRules.SmallKingCastleGray)
+                                        {
+                                            RefrigtzDLL.ChessRules.SmallKingCastleGray = false;
+                                        }
+                                        StreamWriter sw = proc.StandardInput;
+                                        string input = fens + "\r\n";
+                                        sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
+                                        sw.Flush();
+                                        RowClickP = -1;
+                                        ColumnClickP = -1;
+                                        RowRealesed = -1;
+                                        ColumnRealeased = -1;
+                                        //Thread.Sleep(1500);
+                                        BobSection = false;
+                                        MovmentsNumber++;
+                                        GrayTimer.StopTime();
+                                        BrownTimer.StartTime();
+
+                                        AllDo = false;
+
+                                    }
+                                    else
+                                        if (!BobSection && OrderPlate == -1)
+                                        MessageBox.Show("No Knowledge!");
+                                }
+                                else
+                                    MessageBox.Show("Mirror the Objects please!");
+                            }
+                            else
+                                if (Blitz)
+                            {
+                                if (!BobSection && OrderPlate == -1)
+                                {
+                                    RefrigtzDLL.AllDraw.FoundATable = false;
                                     Clicked = true;
-                                    GrayTimer.StartTime();
-                                    BrownTimer.StopTime();
+                                    RefrigtzDLL.AllDraw.MouseClick = 0;
+                                    RowClick = -1;
+                                    ColumnClick = -1;
+                                    RowClickP = -1;
+                                    ColumnClickP = -1;
+                                    RowRealesed = -1;
+                                    ColumnRealeased = -1;
+
                                     if (tM == null)
                                         tM = new Thread(new ThreadStart(Movements));
                                     if (!tM.IsAlive)
@@ -933,6 +1014,84 @@ namespace Refrigtz
 
 
                                     RefrigtzDLL.AllDraw.MouseClick = 0;
+                                    RowClick = -1;
+                                    ColumnClick = -1;
+                                    RowClickP = -1;
+                                    ColumnClickP = -1;
+                                    RowRealesed = -1;
+                                    ColumnRealeased = -1;
+                                    SetBoxText("\r\nObject Cleared.");
+                                    RefreshBoxText();
+                                    SetBoxText("\r\nYour Ready!");
+                                    RefreshBoxText();
+                                    //Draw = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound,IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                                    //Draw.TableList.Clear();
+                                    //Draw.TableList.Add(Table);
+                                    //Draw.SetRowColumn(0);
+                                    BobSection = true;
+
+                                    AllDo = false;
+                                }
+                                else
+                                    if (BobSection && OrderPlate == 1)
+                                {
+
+                                    if (tM != null)
+                                    {
+                                        try
+                                        {
+                                            tM.Abort();
+                                            tM.Join();
+                                            tM = null;
+                                        }
+                                        catch (Exception t)
+                                        {
+                                            Log(t);
+                                        }
+                                    }
+                                    Person = true;
+
+                                    BobWithPerson();
+
+                                    BobSection = false;
+
+                                    AllDo = false;
+
+                                }
+
+                            }
+                            else
+                                    if (FullGame)
+                            {
+                                if (!BobSection && OrderPlate == -1)
+                                {
+                                    RefrigtzDLL.AllDraw.FoundATable = false;
+                                    Clicked = true;
+                                    RefrigtzDLL.AllDraw.MouseClick = 0;
+                                    RowClick = -1;
+                                    ColumnClick = -1;
+                                    RowClickP = -1;
+                                    ColumnClickP = -1;
+                                    RowRealesed = -1;
+                                    ColumnRealeased = -1;
+
+                                    if (tM == null)
+                                        tM = new Thread(new ThreadStart(Movements));
+                                    if (!tM.IsAlive)
+                                    {
+                                        tM.Start();
+                                    }
+                                    Wait();
+                                    Clicked = false;
+
+
+                                    RefrigtzDLL.AllDraw.MouseClick = 0;
+                                    RowClick = -1;
+                                    ColumnClick = -1;
+                                    RowClickP = -1;
+                                    ColumnClickP = -1;
+                                    RowRealesed = -1;
+                                    ColumnRealeased = -1;
                                     SetBoxText("\r\nObject Cleared.");
                                     RefreshBoxText();
                                     SetBoxText("\r\nYour Ready!");
@@ -941,253 +1100,254 @@ namespace Refrigtz
                                     Draw.TableList.Clear();
                                     Draw.TableList.Add(Table);
                                     Draw.SetRowColumn(0);
-                                    if (RefrigtzDLL.ChessRules.BigKingCastleGray)
-                                    {
-                                        FenCastling = 1;
-                                    }
-                                    else
-                                        if (RefrigtzDLL.ChessRules.SmallKingCastleGray)
-                                    {
-                                        FenCastling = 0;
-                                    }
-                                    else
-                                        FenCastling = -1;
+                                    BobSection = true;
+                                    AllDo = false;
+                                }
+                                else
+                                    if (BobSection && OrderPlate == 1)
+                                {
 
-                                    String fens = Fen();
-                                    if (RefrigtzDLL.ChessRules.BigKingCastleGray)
+                                    if (tM != null)
                                     {
-                                        RefrigtzDLL.ChessRules.BigKingCastleGray = false;
+                                        try
+                                        {
+                                            tM.Abort();
+                                            tM.Join();
+                                            tM = null;
+                                        }
+                                        catch (Exception t)
+                                        {
+                                            Log(t);
+                                        }
                                     }
-                                    else
-                                        if (RefrigtzDLL.ChessRules.SmallKingCastleGray)
-                                    {
-                                        RefrigtzDLL.ChessRules.SmallKingCastleGray = false;
-                                    }
-                                    StreamWriter sw = proc.StandardInput;
-                                    string input = fens + "\r\n";
-                                    sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
-                                    sw.Flush();
-                                    RowClickP = -1;
-                                    ColumnClickP = -1;
-                                    RowRealesed = -1;
-                                    ColumnRealeased = -1;
-                                    //Thread.Sleep(1500);
+                                    Person = true;
+
+                                    AliceWithPerson();
+
                                     BobSection = false;
-                                    MovmentsNumber++;
-                                    GrayTimer.StopTime();
-                                    BrownTimer.StartTime();
 
                                     AllDo = false;
 
                                 }
-                                else
-                                    if (!BobSection && OrderPlate == -1)
-                                    MessageBox.Show("No Knowledge!");
                             }
-                            else
-                                MessageBox.Show("Mirror the Objects please!");
+
                         }
                         else
+                                if (StateGe)
+                        {
                             if (Blitz)
-                        {
-                            if (!BobSection && OrderPlate == -1)
                             {
-                                RefrigtzDLL.AllDraw.FoundATable = false;
-                                Clicked = true;
-                                RefrigtzDLL.AllDraw.MouseClick = 0;
-                                RowClick = -1;
-                                ColumnClick = -1;
-                                RowClickP = -1;
-                                ColumnClickP = -1;
-                                RowRealesed = -1;
-                                ColumnRealeased = -1;
-
-                                if (tM == null)
-                                    tM = new Thread(new ThreadStart(Movements));
-                                if (!tM.IsAlive)
-                                {
-                                    tM.Start();
-                                }
-                                Wait();
-                                Clicked = false;
-
-
-                                RefrigtzDLL.AllDraw.MouseClick = 0;
-                                RowClick = -1;
-                                ColumnClick = -1;
-                                RowClickP = -1;
-                                ColumnClickP = -1;
-                                RowRealesed = -1;
-                                ColumnRealeased = -1;
-                                SetBoxText("\r\nObject Cleared.");
-                                RefreshBoxText();
-                                SetBoxText("\r\nYour Ready!");
-                                RefreshBoxText();
-                                //Draw = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound,IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-                                //Draw.TableList.Clear();
-                                //Draw.TableList.Add(Table);
-                                //Draw.SetRowColumn(0);
-                                BobSection = true;
-
+                                GeneticAction();
                                 AllDo = false;
+
                             }
                             else
-                                if (BobSection && OrderPlate == 1)
-                            {
-
-                                if (tM != null)
-                                {
-                                    try
-                                    {
-                                        tM.Abort();
-                                        tM.Join();
-                                        tM = null;
-                                    }
-                                    catch (Exception t)
-                                    {
-                                        Log(t);
-                                    }
-                                }
-                                Person = true;
-
-                                BobWithPerson();
-
-                                BobSection = false;
-
-                                AllDo = false;
-
-                            }
-
-                        }
-                        else
                                 if (FullGame)
-                        {
-                            if (!BobSection && OrderPlate == -1)
                             {
-                                RefrigtzDLL.AllDraw.FoundATable = false;
-                                Clicked = true;
-                                RefrigtzDLL.AllDraw.MouseClick = 0;
-                                RowClick = -1;
-                                ColumnClick = -1;
-                                RowClickP = -1;
-                                ColumnClickP = -1;
-                                RowRealesed = -1;
-                                ColumnRealeased = -1;
+                                GeneticAction();
 
-                                if (tM == null)
-                                    tM = new Thread(new ThreadStart(Movements));
-                                if (!tM.IsAlive)
-                                {
-                                    tM.Start();
-                                }
-                                Wait();
-                                Clicked = false;
-
-
-                                RefrigtzDLL.AllDraw.MouseClick = 0;
-                                RowClick = -1;
-                                ColumnClick = -1;
-                                RowClickP = -1;
-                                ColumnClickP = -1;
-                                RowRealesed = -1;
-                                ColumnRealeased = -1;
-                                SetBoxText("\r\nObject Cleared.");
-                                RefreshBoxText();
-                                SetBoxText("\r\nYour Ready!");
-                                RefreshBoxText();
-                                Draw = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-                                Draw.TableList.Clear();
-                                Draw.TableList.Add(Table);
-                                Draw.SetRowColumn(0);
-                                BobSection = true;
                                 AllDo = false;
                             }
-                            else
-                                if (BobSection && OrderPlate == 1)
-                            {
-
-                                if (tM != null)
-                                {
-                                    try
-                                    {
-                                        tM.Abort();
-                                        tM.Join();
-                                        tM = null;
-                                    }
-                                    catch (Exception t)
-                                    {
-                                        Log(t);
-                                    }
-                                }
-                                Person = true;
-
-                                AliceWithPerson();
-
-                                BobSection = false;
-
-                                AllDo = false;
-
-                            }
-                        }
-
-                    }
-                    else
-                            if (StateGe)
-                    {
-                        if (Blitz)
-                        {
-                            GeneticAction();
-                            AllDo = false;
-
-                        }
-                        else
-                            if (FullGame)
-                        {
-                            GeneticAction();
-
-                            AllDo = false;
                         }
                     }
-                }
 
 
-                /* if (((StateCP) || Person || Blitz) && (!StateCC))
-                 {
-
-
-                     try
+                    /* if (((StateCP) || Person || Blitz) && (!StateCC))
                      {
-                         Color a = Color.Gray;
-                         if (OrderPlate == -1)
-                             a = Color.Brown;
-                         bool[,] Tab = new bool[8, 8];
-                         if (RowClickP != -1 && ColumnClickP != -1)
-                             Tab = VeryFye(Table, OrderPlate, a);
-                         if ((RowRealesed >= 0) && (RowRealesed < 8) && (ColumnRealeased >= 0) && (ColumnRealeased < 8) && ((int)(this.pictureBoxRefrigtz.Width / 8) >= 0) && ((int)(this.pictureBoxRefrigtz.Width / 8) < 8) && ((int)(this.pictureBoxRefrigtz.Height / 8) >= 0) && ((int)(this.pictureBoxRefrigtz.Height / 8) < 8))
+
+
+                         try
                          {
-                             if ((RowRealesed + ColumnRealeased) % 2 == 0)
-                                 g.DrawImage(Image.FromFile(Root + "\\Images\\Program\\Black.jpg"), new Rectangle((int)RowRealesed, (int)ColumnRealeased, (int)(this.pictureBoxRefrigtz.Width / 8), (int)(this.pictureBoxRefrigtz.Height / 8)));
-                             else
-                                 g.DrawImage(Image.FromFile(Root + "\\Images\\Program\\White.jpg"), new Rectangle((int)RowRealesed, (int)ColumnRealeased, (int)(this.pictureBoxRefrigtz.Width / 8), (int)(this.pictureBoxRefrigtz.Height / 8)));
+                             Color a = Color.Gray;
+                             if (OrderPlate == -1)
+                                 a = Color.Brown;
+                             bool[,] Tab = new bool[8, 8];
+                             if (RowClickP != -1 && ColumnClickP != -1)
+                                 Tab = VeryFye(Table, OrderPlate, a);
+                             if ((RowRealesed >= 0) && (RowRealesed < 8) && (ColumnRealeased >= 0) && (ColumnRealeased < 8) && ((int)(this.pictureBoxRefrigtz.Width / 8) >= 0) && ((int)(this.pictureBoxRefrigtz.Width / 8) < 8) && ((int)(this.pictureBoxRefrigtz.Height / 8) >= 0) && ((int)(this.pictureBoxRefrigtz.Height / 8) < 8))
+                             {
+                                 if ((RowRealesed + ColumnRealeased) % 2 == 0)
+                                     g.DrawImage(Image.FromFile(Root + "\\Images\\Program\\Black.jpg"), new Rectangle((int)RowRealesed, (int)ColumnRealeased, (int)(this.pictureBoxRefrigtz.Width / 8), (int)(this.pictureBoxRefrigtz.Height / 8)));
+                                 else
+                                     g.DrawImage(Image.FromFile(Root + "\\Images\\Program\\White.jpg"), new Rectangle((int)RowRealesed, (int)ColumnRealeased, (int)(this.pictureBoxRefrigtz.Width / 8), (int)(this.pictureBoxRefrigtz.Height / 8)));
+                             }
+
+                         }
+                         catch (Exception t)
+                         { //RunInFront();
+                             Log(t);
                          }
 
-                     }
-                     catch (Exception t)
-                     { //RunInFront();
-                         Log(t);
-                     }
-
-                     int Or = 1;
-                     if (Sec.radioButtonBrownOrder.Checked)
-                         Or = -1;
-                     if (Sec.radioButtonGrayOrder.Checked)
-                     {
-                         if (!Stockfish)
+                         int Or = 1;
+                         if (Sec.radioButtonBrownOrder.Checked)
+                             Or = -1;
+                         if (Sec.radioButtonGrayOrder.Checked)
                          {
+                             if (!Stockfish)
+                             {
+                                 if ((StateCP || Blitz) && (OrderPlate == Or))
+                                 {
+
+
+                                     RefrigtzDLL.AllDraw.FoundATable = false;
+                                     Clicked = true;
+                                     RefrigtzDLL.AllDraw.MouseClick = 0;
+                                     RowClick = -1;
+                                     ColumnClick = -1;
+                                     RowClickP = -1;
+                                     ColumnClickP = -1;
+                                     RowRealesed = -1;
+                                     ColumnRealeased = -1;
+
+                                     {
+                                         if (tM == null)
+                                             tM = new Thread(new ThreadStart(Movements));
+                                         if (!tM.IsAlive)
+                                         {
+                                             tM.Start();
+                                         }
+                                         Wait();
+                                         Clicked = false;
+
+
+                                         RefrigtzDLL.AllDraw.MouseClick = 0;
+                                         RowClick = -1;
+                                         ColumnClick = -1;
+                                         RowClickP = -1;
+                                         ColumnClickP = -1;
+                                         RowRealesed = -1;
+                                         ColumnRealeased = -1;
+                                         SetBoxText("\r\nObject Cleared.");
+                                         RefreshBoxText();
+                                         SetBoxText("\r\nYour Ready!");
+                                         RefreshBoxText();
+                                         Draw = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound,IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                                         Draw.TableList.Clear();
+                                         Draw.TableList.Add(Table);
+                                         Draw.SetRowColumn(0);
+
+
+                                     }
+                                 }
+                                 else
+                                 {
+
+                                     if (tM != null)
+                                     {
+                                         try
+                                         {
+                                             tM.Abort();
+                                             tM.Join();
+                                             tM = null;
+                                         }
+                                         catch (Exception t)
+                                         {
+                                             Log(t);
+                                         }
+                                     }
+                                     if ((StateCP) || Blitz)
+                                     {
+                                         if (Sec.radioButtonGrayOrder.Checked && OrderPlate == -1)
+                                         {
+                                             Person = true;
+
+                                             AliceWithPerson();
+                                         }
+                                     }
+                                 }
+                             }
+                             else//Stockfish with Person 
+                             {
+                                 if (ArrangmentsChanged)
+                                 {
+                                     if (BobSection)
+                                     {
+                                         Clicked = true;
+                                         GrayTimer.StartTime();
+                                         BrownTimer.StopTime();
+                                         if (tM == null)
+                                             tM = new Thread(new ThreadStart(Movements));
+                                         if (!tM.IsAlive)
+                                         {
+                                             tM.Start();
+                                         }
+                                         Wait();
+                                         Clicked = false;
+
+
+                                         RefrigtzDLL.AllDraw.MouseClick = 0;
+                                         SetBoxText("\r\nObject Cleared.");
+                                         RefreshBoxText();
+                                         SetBoxText("\r\nYour Ready!");
+                                         RefreshBoxText();
+                                         Draw = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound,IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                                         Draw.TableList.Clear();
+                                         Draw.TableList.Add(Table);
+                                         Draw.SetRowColumn(0);
+                                         if (RefrigtzDLL.ChessRules.BigKingCastleGray)
+                                         {
+                                             FenCastling = 1;
+                                         }
+                                         else
+                                             if (RefrigtzDLL.ChessRules.SmallKingCastleGray)
+                                             {
+                                                 FenCastling = 0;
+                                             }
+                                             else
+                                                 FenCastling = -1;
+
+                                         String fens = Fen();
+                                         if (RefrigtzDLL.ChessRules.BigKingCastleGray)
+                                         {
+                                             RefrigtzDLL.ChessRules.BigKingCastleGray = false;
+                                         }
+                                         else
+                                             if (RefrigtzDLL.ChessRules.SmallKingCastleGray)
+                                             {
+                                                 RefrigtzDLL.ChessRules.SmallKingCastleGray = false;
+                                             }
+                                         StreamWriter sw = proc.StandardInput;
+                                         string input = fens + "\r\n";
+                                         sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
+                                         sw.Flush();
+                                         RowClickP = -1;
+                                         ColumnClickP = -1;
+                                         RowRealesed = -1;
+                                         ColumnRealeased = -1;
+                                         //Thread.Sleep(1500);
+                                         BobSection = false;
+                                         MovmentsNumber++;
+                                         GrayTimer.StopTime();
+                                         BrownTimer.StartTime();
+
+
+
+
+                                     }
+                                     else
+                                         if (!BobSection)
+                                         {
+                                         }
+
+                                 }
+                                 else
+                                 {
+                                     Stockfish = false;
+                                     StateCC = false;
+                                     StateCP = false;
+                                     MessageBox.Show("Mirror Objects please!");
+                                 }
+
+                             }
+                         }
+                         else if (Sec.radioButtonBrownOrder.Checked)
+                         {
+
+
                              if ((StateCP || Blitz) && (OrderPlate == Or))
                              {
 
-
+                                 Person = false;
                                  RefrigtzDLL.AllDraw.FoundATable = false;
                                  Clicked = true;
                                  RefrigtzDLL.AllDraw.MouseClick = 0;
@@ -1220,10 +1380,6 @@ namespace Refrigtz
                                      RefreshBoxText();
                                      SetBoxText("\r\nYour Ready!");
                                      RefreshBoxText();
-                                     Draw = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound,IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-                                     Draw.TableList.Clear();
-                                     Draw.TableList.Add(Table);
-                                     Draw.SetRowColumn(0);
 
 
                                  }
@@ -1246,264 +1402,1337 @@ namespace Refrigtz
                                  }
                                  if ((StateCP) || Blitz)
                                  {
-                                     if (Sec.radioButtonGrayOrder.Checked && OrderPlate == -1)
+                                     if (Sec.radioButtonBrownOrder.Checked && OrderPlate == 1)
                                      {
                                          Person = true;
+                                         BobWithPerson();
 
-                                         AliceWithPerson();
+
+
                                      }
                                  }
                              }
+
                          }
-                         else//Stockfish with Person 
+                     }
+                     else
+                         if (StateCC)
                          {
-                             if (ArrangmentsChanged)
+                             if (!Stockfish)
                              {
-                                 if (BobSection)
+                                 if (Sec.radioButtonGrayOrder.Checked)
                                  {
-                                     Clicked = true;
-                                     GrayTimer.StartTime();
-                                     BrownTimer.StopTime();
-                                     if (tM == null)
-                                         tM = new Thread(new ThreadStart(Movements));
-                                     if (!tM.IsAlive)
+                                     if (BobSection)
                                      {
-                                         tM.Start();
-                                     }
-                                     Wait();
-                                     Clicked = false;
+                                         Clicked = true;
+                                              BobAction();
 
 
-                                     RefrigtzDLL.AllDraw.MouseClick = 0;
-                                     SetBoxText("\r\nObject Cleared.");
-                                     RefreshBoxText();
-                                     SetBoxText("\r\nYour Ready!");
-                                     RefreshBoxText();
-                                     Draw = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound,IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-                                     Draw.TableList.Clear();
-                                     Draw.TableList.Add(Table);
-                                     Draw.SetRowColumn(0);
-                                     if (RefrigtzDLL.ChessRules.BigKingCastleGray)
-                                     {
-                                         FenCastling = 1;
+
                                      }
                                      else
-                                         if (RefrigtzDLL.ChessRules.SmallKingCastleGray)
+                                     {
+                                         Clicked = true;
+                                         if (AliceSection)
                                          {
-                                             FenCastling = 0;
+                                             if (t2.IsAlive) new Syncronization(t2, 1); ;
+                                             AliceSection = false;
+                                             BobSection = true;
+                                                   AliceAction();
+
+
+                                         }
+                                     }
+                                 }
+                                 else
+                                     if (Sec.radioButtonBrownOrder.Checked)
+                                     {
+                                         if (AliceSection)
+                                         {
+                                             Clicked = true;
+                                                 AliceAction();
+                                             AliceSection = false;
+                                             BobSection = true;
+
+
+
                                          }
                                          else
-                                             FenCastling = -1;
+                                             if (BobSection)
+                                             {
+                                                 AliceSection = true;
+                                                 BobSection = false;
+                                                     BobAction();
 
-                                     String fens = Fen();
-                                     if (RefrigtzDLL.ChessRules.BigKingCastleGray)
-                                     {
-                                         RefrigtzDLL.ChessRules.BigKingCastleGray = false;
+
+                                             }
                                      }
-                                     else
-                                         if (RefrigtzDLL.ChessRules.SmallKingCastleGray)
+                             }
+                             else
+                             {
+                                 if (ArrangmentsChanged)
+                                 {
+                                     if (Sec.radioButtonGrayOrder.Checked)
+                                     {
+                                         if (RefregitzisCurrent && BobSection)
                                          {
-                                             RefrigtzDLL.ChessRules.SmallKingCastleGray = false;
+                                             if (t3.IsAlive) new Syncronization(t3, 1); ;
+
+                                             BobAction();
+
+                                             if (RefrigtzDLL.ChessRules.BigKingCastleGray)
+                                             {
+                                                 FenCastling = 1;
+                                             }
+                                             else
+                                                 if (RefrigtzDLL.ChessRules.SmallKingCastleGray)
+                                                 {
+                                                     FenCastling = 0;
+                                                 }
+                                                 else
+                                                     FenCastling = -1;
+
+                                             RowClickP = FormRefrigtz.LastRow;
+                                             ColumnClickP = FormRefrigtz.LastColumn;
+                                             RowRealesed = FormRefrigtz.NextRow;
+                                             ColumnRealeased = FormRefrigtz.NextColumn;
+                                             String fens = Fen();
+                                             if (RefrigtzDLL.ChessRules.BigKingCastleGray)
+                                             {
+                                                 RefrigtzDLL.ChessRules.BigKingCastleGray = false;
+                                             }
+                                             else
+                                                 if (RefrigtzDLL.ChessRules.SmallKingCastleGray)
+                                                 {
+                                                     RefrigtzDLL.ChessRules.SmallKingCastleGray = false;
+                                                 }
+                                             StreamWriter sw = proc.StandardInput;
+                                             string input = fens + "\r\n";
+                                             sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
+                                             sw.Flush();
+                                             RowClickP = -1;
+                                             ColumnClickP = -1;
+                                             RowRealesed = -1;
+                                             ColumnRealeased = -1;
+                                             //Thread.Sleep(1500);
+                                             BobSection = false;
+                                             MovmentsNumber++;
+                                             GrayTimer.StopTime();
+                                             BrownTimer.StartTime();
+
+
+
+
+
                                          }
-                                     StreamWriter sw = proc.StandardInput;
-                                     string input = fens + "\r\n";
-                                     sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
-                                     sw.Flush();
+                                         else if (!BobSection)
+                                         {
+
+
+                                             if (OrderPlate == 1)
+                                             {
+                                                 SetBoxText("\r\nStockfish Number " + MovmentsNumber + " By Bob!");
+                                                 RefreshBoxText();
+                                             }
+                                             else
+                                             {
+                                                 SetBoxText("\r\nStockfish Number " + MovmentsNumber + " By Alice!");
+                                                 RefreshBoxText();
+                                             }
+
+                                             // RefregitzisCurrent = false;
+
+                                             String Pre = "";
+                                             if (File.Exists("output.txt"))
+                                                 Pre = File.ReadAllText("output.txt");
+                                             StreamWriter sw = proc.StandardInput;
+                                             string input = "go depth " + comboBoxMaxLevelText + "\r\n";
+                                             sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
+                                             sw.Flush();
+                                             WaitOn = true;
+                                             do
+                                             {
+                                                 try
+                                                 {
+                                                     Thread.Sleep(1000);
+                                                     input = "wr" + "\r\n";
+                                                     sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
+                                                     sw.Flush();
+                                                     WaitOn = WaitOnMovmentOccured(Pre);
+                                                 }
+                                                 catch (Exception t)
+                                                 {
+                                                     Log(t);
+                                                 }
+                                             } while (WaitOn);
+
+                                             while (WaitOn) { Thread.Sleep(100); }
+
+                                             String wr = File.ReadAllText("output.txt");
+                                             if (wr == "e8c8")
+                                             {
+                                                 FenCastling = 1;
+                                                 RefrigtzDLL.ChessRules.BigKingCastleBrown = true;
+                                             }
+                                             else
+                                                 if (wr == "e8g8")
+                                                 {
+                                                     RefrigtzDLL.ChessRules.SmallKingCastleBrown = true;
+                                                     FenCastling = 0;
+                                                 }
+                                                 else
+                                                     FenCastling = -1;
+                                             int Pro = 0;
+                                             if (FenCastling == -1)
+                                             {
+                                                 Pro = SetRowColumn(wr);
+                                                 if (Pro == 0)
+                                                 {
+                                                     Table[(int)RowRealesed, (int)ColumnRealeased] = Table[(int)RowClickP, (int)ColumnClickP];
+                                                     Table[(int)RowClickP, (int)ColumnClickP] = 0;
+                                                 }
+                                                 else
+                                                 {
+                                                     Table[(int)RowRealesed, (int)ColumnRealeased] = Pro;
+                                                     Table[(int)RowClickP, (int)ColumnClickP] = 0;
+
+                                                 }
+                                             }
+                                             else
+                                                 if (FenCastling == 1)
+                                                 {
+                                                     Table[0, 0] = 0;
+                                                     Table[4, 0] = 0;
+                                                     Table[3, 0] = -6;
+                                                     Table[4, 0] = -4;
+                                                 }
+                                                 else
+                                                     if (FenCastling == 0)
+                                                     {
+                                                         Table[7, 0] = 0;
+                                                         Table[4, 0] = 0;
+                                                         Table[6, 0] = -6;
+                                                         Table[5, 0] = -4;
+                                                     }
+                                             if (RefrigtzDLL.ChessRules.BigKingCastleGray)
+                                             {
+                                                 RefrigtzDLL.ChessRules.BigKingCastleGray = false;
+                                             }
+                                             else
+                                                 if (RefrigtzDLL.ChessRules.SmallKingCastleGray)
+                                                 {
+                                                     RefrigtzDLL.ChessRules.SmallKingCastleGray = false;
+                                                 }
+                                             String fens = Fen();
+                                             if (FenCastling != -1)
+                                             {
+                                                 RefrigtzDLL.ChessRules.BigKingCastleBrown = false;
+                                                 RefrigtzDLL.ChessRules.SmallKingCastleBrown = false;
+
+                                             }
+                                             RowClickP = -1;
+                                             ColumnClickP = -1;
+                                             RowRealesed = -1;
+                                             ColumnRealeased = -1;
+                                             sw = proc.StandardInput;
+                                             input = fens + "\r\n";
+                                             sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
+                                             sw.Flush();
+                                             RefrigtzDLL.AllDraw.TableListAction.Add(Table);
+                                             Draw = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound,IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                                             Draw.TableList.Clear();
+                                             Draw.TableList.Add(Table);
+                                             Draw.SetRowColumn(0);
+                                             this.SetBoxText("\r\nThinking Finished by Bob!");
+                                             RefreshBoxText();
+
+                                             if (RefrigtzDLL.AllDraw.TableListAction.Count >= 1)
+                                             {
+                                                 RefrigtzDLL.ChessGeneticAlgorithm R = new RefrigtzDLL.ChessGeneticAlgorithm(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                                                 if (R.FindGenToModified(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2], RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1], RefrigtzDLL.AllDraw.TableListAction, 0, OrderPlate, true))
+                                                 {
+                                                     bool HitVal = false;
+                                                     int Hit = RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2][R.CromosomRow, R.CromosomColumn];
+                                                     if (Hit != 0)
+                                                         HitVal = true;
+                                                     bool Convert = false;
+                                                     if (OrderPlate == 1)
+                                                     {
+                                                         if (RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1][R.CromosomRow, R.CromosomColumn] == 1)
+                                                         {
+                                                             if (R.CromosomColumn == 7)
+                                                                 Convert = true;
+                                                         }
+                                                         if ((RefrigtzDLL.ChessRules.SmallKingCastleGray || RefrigtzDLL.ChessRules.BigKingCastleGray) && (!RefrigtzDLL.ChessRules.CastleActGray))
+                                                             RefrigtzDLL.ChessRules.CastleActGray = true;
+                                                         RefrigtzDLL.AllDraw.SyntaxToWrite = (new RefrigtzDLL.ChessRules(0,OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, Table, MovmentsNumber + 1, RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2][R.CromosomRowFirst, R.CromosomColumnFirst], R.CromosomColumn, R.CromosomRow, HitVal, Hit, RefrigtzDLL.ChessRules.CastleActGray, Convert);
+                                                     }
+                                                     else
+                                                     {
+                                                         if (RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1][R.CromosomRow, R.CromosomColumn] == -1)
+                                                         {
+                                                             if (R.CromosomColumn == 0)
+                                                                 Convert = true;
+                                                         }
+                                                         if ((RefrigtzDLL.ChessRules.SmallKingCastleBrown || RefrigtzDLL.ChessRules.BigKingCastleBrown) && (!RefrigtzDLL.ChessRules.CastleActBrown))
+                                                             RefrigtzDLL.ChessRules.CastleActBrown = true;
+
+                                                         RefrigtzDLL.AllDraw.SyntaxToWrite = (new RefrigtzDLL.ChessRules(0,OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, Table, MovmentsNumber + 1, RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2][R.CromosomRowFirst, R.CromosomColumnFirst], R.CromosomColumn, R.CromosomRow, HitVal, Hit, RefrigtzDLL.ChessRules.CastleActBrown, Convert);
+                                                     }
+                                                     SetBoxStatistic(RefrigtzDLL.AllDraw.SyntaxToWrite);
+                                                     RefreshBoxStatistic();
+                                                 }
+                                             }
+                                             using (SoundPlayer soundClick = new SoundPlayer(Root + "\\Music\\Click6.wav"))
+                                             {
+                                                 soundClick.Play();
+                                                 soundClick.Dispose();
+                                             }
+
+
+                                             OrderPlate *= -1;
+                                             BobSection = true;
+                                             Draw.TableList.Clear();
+                                             Draw.TableList.Add(Table);
+                                             Draw.SetRowColumn(0);
+                                             InsertTableAtDataBase(Table);
+                                             GrayTimer.StartTime();
+                                             BrownTimer.StopTime();
+
+
+
+
+
+
+                                         }
+
+                                     }
+                                 }
+                                 else
+                                 {
+                                     Stockfish = false;
+                                     StateCC = false;
+                                     StateCP = false;
+                                     MessageBox.Show("Mirror Objects please!");
+                                 }
+                             }
+                         }
+                         else
+                             if (StateGe)
+                             {
+                                    GeneticAction();
+
+
+
+                             }
+
+
+                     */
+
+                    //while ((!StateCP && !StateCC && !StateGe && !Blitz))
+                    //Thread.Sleep(1000);
+
+                    {
+
+
+                        if (RefrigtzDLL.AllDraw.MouseClick == 0 && RowClickP != -1)
+                        {
+
+                            //HitRecustruct();
+                            RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
+                            RowClick = -1;
+                            ColumnClick = -1;
+                            RowClickP = -1;
+                            ColumnClickP = -1;
+                            RowRealesed = -1;
+                            ColumnRealeased = -1;
+                            RowRealesedP = -1;
+                            ColumnClickP = -1;
+
+                        }
+                        else
+                        {
+                            if (RefrigtzDLL.AllDraw.MouseClick >= 2)
+                            {
+
+                                using (SoundPlayer soundClick = new SoundPlayer(Root + "\\Music\\Click6.wav"))
+                                {
+                                    soundClick.Play();
+                                    soundClick.Dispose();
+                                }
+
+
+
+                            }
+                        }
+
+
+                        RefrigtzDLL.AllDraw.RedrawTable = false;
+                    }
+
+                }
+                catch (Exception t)
+                {
+                    Log(t);
+                }
+
+            }
+            else
+            {
+                if (MovmentsNumber == 0)
+                {
+                    MovmentsNumberMax = MovmentsNumber;
+                    if (Stockfish)
+                    {
+                        GrayTimer.Sign = 1;
+                        BrownTimer.Sign = 1;
+                        if (OrderPlate == 1)
+                        {
+                            GrayTimer.StartTime();
+                            BrownTimer.StopTime();
+                            BobSection = true;
+                            AliceSection = false;
+                            GrayTimer.StartTime();
+                        }
+                        else
+                        {
+                            BrownTimer.StartTime();
+                            GrayTimer.StopTime();
+                            BobSection = false;
+                            AliceSection = true;
+                            BrownTimer.StartTime();
+                        }
+
+
+
+
+                    }
+                }
+
+                QuantumRefrigiz.AllDraw.SyntaxToWrite = "";
+                try
+                {
+
+
+                    if (QuantumRefrigiz.ChessGeneticAlgorithm.NoGameFounf)
+                    {
+                        SetBoxText("No Game Could be continued!");
+                        RefreshBoxText();
+
+                    }
+                    if (QuantumRefrigiz.AllDraw.MouseClick == 0 && !QuantumRefrigiz.ThinkingQuantumChess.ThinkingQuantumRun)
+                    {
+                        QuantumRefrigiz.ChessRules A = new QuantumRefrigiz.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, 1, Table, OrderPlate, -1, -1);
+                        Color a = Color.Gray;
+                        if (OrderPlate == -1)
+                            a = Color.Brown;
+                        QuantumRefrigiz.ChessRules AA = new QuantumRefrigiz.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, OrderPlate);
+
+                        //if (!UsePenaltyRegardMechnisamT)
+                        if (AA.CheckMate(QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 1], OrderPlate))
+                        {
+                            if (OrderPlate == 1 && AA.CheckMateGray)
+                            {
+                                EndOfGame = true;
+                                return;
+                            }
+                            else
+                                if (OrderPlate == -1 && AA.CheckMateBrown)
+                            {
+                                EndOfGame = true;
+                                return;
+                            }
+                        }
+
+                        if (A.CheckMate(Table, OrderPlate) || A.Pat(Table, OrderPlate, a))
+                        {
+                            if (A.CheckMateGray || A.CheckMateBrown || EndOfGame || A.PatkGray || A.PatBrown)
+                            {
+                                StateCC = false;
+                                StateCP = false;
+                                Person = false;
+                                if (A.CheckMateGray || A.CheckMateBrown)
+                                    SetBoxText("\r\nCheckMate!");
+                                else if (A.PatkGray || A.PatBrown)
+                                    SetBoxText("\r\nPat!");
+                                RefreshBoxText();
+                                //if (AllOperate.IsAlive)
+                                //new Syncronization(AllOperate, 1);
+
+
+
+
+                            }
+                            else
+                            {
+                                if (A.CheckMateGray && OrderPlate == 1)
+
+
+                                    if (A.CheckGray || A.CheckBrown)
+                                    {
+                                        if (OrderPlate == 1)
+
+                                            SetBoxText("\r\nGray OrderPlate!Check!");
+                                        else
+                                            SetBoxText("\r\nBrown OrderPlate!Check!");
+
+                                    }
+                            }
+                        }
+                    }
+                    if (Sec.radioButtonGrayOrder.Checked)
+                    {
+                        if (StateCC)
+                        {
+
+                            if (Stockfish)
+                            {
+                                if (ArrangmentsChanged)
+                                {
+                                    if (Blitz)
+                                    {
+                                        if (BobSection && OrderPlate == 1)//Gray is Refregitz.                                        
+                                        {
+                                            ComputerByComputerBobAsRefregitz(ref proc);
+                                            AllDo = false;
+                                        }
+                                        else
+                                            if (!BobSection && OrderPlate == -1)//Brow is Stockfish.                                            
+                                        {
+                                            ComputerByComputerAliceAsStockFish(ref proc);
+                                            AllDo = false;
+                                        }
+                                    }
+                                    else
+                                        if (FullGame)
+                                    {
+                                        if (BobSection && OrderPlate == 1)//Gray is Refregitz.                                        
+                                        {
+                                            ComputerByComputerBobAsRefregitz(ref proc);
+                                            AllDo = false;
+                                        }
+                                        else
+                                            if (!BobSection && OrderPlate == -1)//Brow is Stockfish.                                            
+                                        {
+                                            ComputerByComputerAliceAsStockFish(ref proc);
+                                            AllDo = false;
+                                        }
+                                    }
+                                }
+                                else
+                                    MessageBox.Show("Mirror Objects Please!");
+                            }
+                            else//Not Stockfish
+                            {
+                                if (Blitz)
+                                {
+                                    if (BobSection && OrderPlate == 1)
+                                    {
+                                        AliceSection = true;
+                                        BobSection = false;
+                                        BobAction();
+                                        AllDo = false;
+
+
+                                    }
+                                    else
+                                    {
+                                        Clicked = true;
+                                        if (AliceSection && OrderPlate == -1)
+                                        {
+                                            AliceSection = false;
+                                            BobSection = true;
+                                            AliceAction();
+                                            AllDo = false;
+
+                                        }
+                                    }
+                                }
+                                else
+                                    if (FullGame)
+                                {
+                                    if (BobSection && OrderPlate == 1)
+                                    {
+                                        AliceSection = true;
+                                        BobSection = false;
+                                        BobAction();
+                                        AllDo = false;
+
+
+                                    }
+                                    else
+                                    {
+                                        Clicked = true;
+                                        if (AliceSection && OrderPlate == -1)
+                                        {
+                                            AliceSection = false;
+                                            BobSection = true;
+                                            AliceAction();
+                                            AllDo = false;
+
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        else
+                            if (StateCP)
+                        {
+                            if (Stockfish)
+                            {
+
+                                if (ArrangmentsChanged)
+                                {
+                                    if (BobSection && OrderPlate == 1)
+                                    {
+                                        Clicked = true;
+                                        GrayTimer.StartTime();
+                                        BrownTimer.StopTime();
+                                        if (tM == null)
+                                            tM = new Thread(new ThreadStart(Movements));
+                                        if (!tM.IsAlive)
+                                        {
+                                            tM.Start();
+                                        }
+                                        Wait();
+                                        Clicked = false;
+                                        //
+                                        //
+                                        //                                        
+                                        QuantumRefrigiz.AllDraw.MouseClick = 0;
+                                        SetBoxText("\r\nObject Cleared.");
+                                        RefreshBoxText();
+                                        SetBoxText("\r\nYour Ready!");
+                                        RefreshBoxText();
+                                        Color a = Color.Brown;
+
+                                        bool FOUND = false;
+                                        QuantumRefrigiz.AllDraw THIS = null;
+
+                                        SetDrawFounding(ref FOUND, ref THIS, false);
+
+                                        if (QuantumRefrigiz.ChessRules.BigKingCastleGray)
+                                        {
+                                            FenCastling = 1;
+                                        }
+                                        else
+                                                if (QuantumRefrigiz.ChessRules.SmallKingCastleGray)
+                                        {
+                                            FenCastling = 0;
+                                        }
+                                        else
+                                            FenCastling = -1;
+
+                                        String fens = Fen();
+                                        if (QuantumRefrigiz.ChessRules.BigKingCastleGray)
+                                        {
+                                            QuantumRefrigiz.ChessRules.BigKingCastleGray = false;
+                                        }
+                                        else
+                                            if (QuantumRefrigiz.ChessRules.SmallKingCastleGray)
+                                        {
+                                            QuantumRefrigiz.ChessRules.SmallKingCastleGray = false;
+                                        }
+                                        StreamWriter sw = proc.StandardInput;
+                                        string input = fens + "\r\n";
+                                        sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
+                                        sw.Flush();
+                                        RowClickP = -1;
+                                        ColumnClickP = -1;
+                                        RowRealesed = -1;
+                                        ColumnRealeased = -1;
+                                        //Thread.Sleep(1500);
+                                        BobSection = false;
+                                        MovmentsNumber++;
+                                        GrayTimer.StopTime();
+                                        BrownTimer.StartTime();
+                                        AllDo = false;
+
+
+                                    }
+                                    else
+                                        if (!BobSection && OrderPlate == -1)
+                                        MessageBox.Show("No Knowledge!");
+                                }
+                                else
+                                    MessageBox.Show("Mirror the Objects please!");
+                            }
+                            else
+                            {
+                                if (Blitz)
+                                {
+                                    if (BobSection && OrderPlate == 1)
+                                    {
+
+
+                                        bool SCC = StateCC;
+                                        bool SCP = StateCP;
+                                        bool SCG = StateGe;
+
+                                        QuantumRefrigiz.AllDraw.FoundATable = false;
+                                        Clicked = true;
+                                        QuantumRefrigiz.AllDraw.MouseClick = 0;
+                                        RowClick = -1;
+                                        ColumnClick = -1;
+                                        RowClickP = -1;
+                                        ColumnClickP = -1;
+                                        RowRealesed = -1;
+                                        ColumnRealeased = -1;
+
+                                        if (tM == null)
+                                            tM = new Thread(new ThreadStart(Movements));
+                                        if (!tM.IsAlive)
+                                        {
+                                            tM.Start();
+                                        }
+                                        Wait();
+                                        Clicked = false;
+                                        //
+                                        //
+                                        //                                        
+                                        QuantumRefrigiz.AllDraw.MouseClick = 0;
+                                        RowClick = -1;
+                                        ColumnClick = -1;
+                                        RowClickP = -1;
+                                        ColumnClickP = -1;
+                                        RowRealesed = -1;
+                                        ColumnRealeased = -1;
+                                        SetBoxText("\r\nObject Cleared.");
+                                        RefreshBoxText();
+                                        SetBoxText("\r\nYour Ready!");
+                                        RefreshBoxText();
+                                        Color a = Color.Brown;
+                                        bool FOUND = false;
+                                        QuantumRefrigiz.AllDraw THIS = null;
+
+
+                                        //SetDrawFounding(ref FOUND, ref THIS, true);
+
+                                        BobSection = false;
+                                        StateCC = SCC;
+                                        StateCP = SCP;
+                                        StateGe = SCG;
+                                        AllDo = false;
+                                    }
+                                    else
+                                        if (!BobSection && OrderPlate == -1)
+                                    {
+                                        if (tM != null)
+                                        {
+                                            try
+                                            {
+                                                tM.Abort();
+                                                tM.Join();
+                                                tM = null;
+                                            }
+                                            catch (Exception t)
+                                            {
+                                                Log(t);
+                                            }
+                                        }
+                                        Person = true;
+
+                                        AliceWithPerson();
+
+                                        BobSection = true;
+
+                                        AllDo = false;
+                                    }
+                                }
+                                else
+                                    if (FullGame)
+                                {
+                                    if (BobSection && OrderPlate == 1)
+                                    {
+
+
+
+                                        QuantumRefrigiz.AllDraw.FoundATable = false;
+                                        Clicked = true;
+                                        QuantumRefrigiz.AllDraw.MouseClick = 0;
+                                        RowClick = -1;
+                                        ColumnClick = -1;
+                                        RowClickP = -1;
+                                        ColumnClickP = -1;
+                                        RowRealesed = -1;
+                                        ColumnRealeased = -1;
+
+                                        if (tM == null)
+                                            tM = new Thread(new ThreadStart(Movements));
+                                        if (!tM.IsAlive)
+                                        {
+                                            tM.Start();
+                                        }
+                                        Wait();
+                                        Clicked = false;
+                                        //
+                                        //
+                                        //
+
+                                        QuantumRefrigiz.AllDraw.MouseClick = 0;
+                                        RowClick = -1;
+                                        ColumnClick = -1;
+                                        RowClickP = -1;
+                                        ColumnClickP = -1;
+                                        RowRealesed = -1;
+                                        ColumnRealeased = -1;
+                                        SetBoxText("\r\nObject Cleared.");
+                                        RefreshBoxText();
+                                        SetBoxText("\r\nYour Ready!");
+                                        RefreshBoxText();
+                                        DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                                        DrawQ.TableList.Clear();
+                                        DrawQ.TableList.Add(Table);
+                                        DrawQ.SetRowColumn(0);
+                                        BobSection = false;
+                                        AllDo = false;
+                                    }
+                                    else
+                                        if (!BobSection && OrderPlate == -1)
+                                    {
+                                        if (tM != null)
+                                        {
+                                            try
+                                            {
+                                                tM.Abort();
+                                                tM.Join();
+                                                tM = null;
+                                            }
+                                            catch (Exception t)
+                                            {
+                                                Log(t);
+                                            }
+                                        }
+                                        Person = true;
+
+                                        AliceWithPerson();
+
+                                        BobSection = true;
+
+                                        AllDo = false;
+                                    }
+                                }
+                            }
+
+                        }
+                        else
+                                if (StateGe)
+                        {
+                            if (Blitz)
+                            {
+                                GeneticAction();
+
+                                AllDo = false;
+                            }
+                            else
+                                if (FullGame)
+                            {
+                                GeneticAction();
+
+                                AllDo = false;
+
+                            }
+                        }
+                    }
+                    else
+                        if (Sec.radioButtonBrownOrder.Checked)
+                    {
+
+                        if (StateCC)
+                        {
+                            if (Stockfish)
+                            {
+                                if (ArrangmentsChanged)
+                                {
+                                    if (Blitz)
+                                    {
+                                        if (BobSection && OrderPlate == 1)//Gray is Refregitz.                                        
+                                        {
+                                            ComputerByComputerBobAsRefregitz(ref proc);
+                                            AllDo = false;
+                                        }
+                                        else
+                                            if (!BobSection && OrderPlate == -1)//Brow is Stockfish.                                            
+                                        {
+                                            ComputerByComputerAliceAsStockFish(ref proc);
+                                            AllDo = false;
+                                        }
+                                    }
+                                    else
+                                        if (FullGame)
+                                    {
+                                        if (BobSection && OrderPlate == 1)//Gray is Refregitz.                                        
+                                        {
+
+
+                                            ComputerByComputerBobAsRefregitz(ref proc);
+                                            AllDo = false;
+                                        }
+                                        else
+                                            if (!BobSection && OrderPlate == -1)//Brow is Stockfish.                                            
+
+                                        {
+
+                                            ComputerByComputerAliceAsStockFish(ref proc);
+                                            AllDo = false;
+                                        }
+
+                                    }
+                                }
+                                else
+                                    MessageBox.Show("Mirror Objects Please!");
+                            }
+                            else//Not Stockfish
+                            {
+                                if (Blitz)
+                                {
+                                    if (BobSection && OrderPlate == 1)
+                                    {
+                                        AliceSection = true;
+                                        BobSection = false;
+                                        BobAction();
+
+                                        AllDo = false;
+
+                                    }
+                                    else
+                                    {
+                                        Clicked = true;
+                                        if (AliceSection && OrderPlate == -1)
+                                        {
+                                            AliceSection = false;
+                                            BobSection = true;
+                                            AliceAction();
+
+                                            AllDo = false;
+                                        }
+                                    }
+                                }
+                                else
+                                    if (FullGame)
+                                {
+                                    if (BobSection && OrderPlate == 1)
+                                    {
+                                        AliceSection = true;
+                                        BobSection = false;
+                                        BobAction();
+
+                                        AllDo = false;
+
+
+                                    }
+                                    else
+                                    {
+                                        Clicked = true;
+                                        if (AliceSection && OrderPlate == -1)
+                                        {
+                                            AliceSection = false;
+                                            BobSection = true;
+                                            AliceAction();
+
+                                            AllDo = false;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        else
+                            if (StateCP)
+                        {
+                            if (Stockfish)
+                            {
+
+                                if (ArrangmentsChanged)
+                                {
+                                    if (BobSection && OrderPlate == 1)
+                                    {
+                                        Clicked = true;
+                                        GrayTimer.StartTime();
+                                        BrownTimer.StopTime();
+                                        if (tM == null)
+                                            tM = new Thread(new ThreadStart(Movements));
+                                        if (!tM.IsAlive)
+                                        {
+                                            tM.Start();
+                                        }
+                                        Wait();
+                                        Clicked = false;
+
+
+                                        QuantumRefrigiz.AllDraw.MouseClick = 0;
+                                        SetBoxText("\r\nObject Cleared.");
+                                        RefreshBoxText();
+                                        SetBoxText("\r\nYour Ready!");
+                                        RefreshBoxText();
+                                        DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                                        DrawQ.TableList.Clear();
+                                        DrawQ.TableList.Add(Table);
+                                        DrawQ.SetRowColumn(0);
+                                        if (QuantumRefrigiz.ChessRules.BigKingCastleGray)
+                                        {
+                                            FenCastling = 1;
+                                        }
+                                        else
+                                            if (QuantumRefrigiz.ChessRules.SmallKingCastleGray)
+                                        {
+                                            FenCastling = 0;
+                                        }
+                                        else
+                                            FenCastling = -1;
+
+                                        String fens = Fen();
+                                        if (QuantumRefrigiz.ChessRules.BigKingCastleGray)
+                                        {
+                                            QuantumRefrigiz.ChessRules.BigKingCastleGray = false;
+                                        }
+                                        else
+                                            if (QuantumRefrigiz.ChessRules.SmallKingCastleGray)
+                                        {
+                                            QuantumRefrigiz.ChessRules.SmallKingCastleGray = false;
+                                        }
+                                        StreamWriter sw = proc.StandardInput;
+                                        string input = fens + "\r\n";
+                                        sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
+                                        sw.Flush();
+                                        RowClickP = -1;
+                                        ColumnClickP = -1;
+                                        RowRealesed = -1;
+                                        ColumnRealeased = -1;
+                                        //Thread.Sleep(1500);
+                                        BobSection = false;
+                                        MovmentsNumber++;
+                                        GrayTimer.StopTime();
+                                        BrownTimer.StartTime();
+
+                                        AllDo = false;
+
+                                    }
+                                    else
+                                        if (!BobSection && OrderPlate == -1)
+                                        MessageBox.Show("No Knowledge!");
+                                }
+                                else
+                                    MessageBox.Show("Mirror the Objects please!");
+                            }
+                            else
+                                if (Blitz)
+                            {
+                                if (!BobSection && OrderPlate == -1)
+                                {
+                                    QuantumRefrigiz.AllDraw.FoundATable = false;
+                                    Clicked = true;
+                                    QuantumRefrigiz.AllDraw.MouseClick = 0;
+                                    RowClick = -1;
+                                    ColumnClick = -1;
+                                    RowClickP = -1;
+                                    ColumnClickP = -1;
+                                    RowRealesed = -1;
+                                    ColumnRealeased = -1;
+
+                                    if (tM == null)
+                                        tM = new Thread(new ThreadStart(Movements));
+                                    if (!tM.IsAlive)
+                                    {
+                                        tM.Start();
+                                    }
+                                    Wait();
+                                    Clicked = false;
+
+
+                                    QuantumRefrigiz.AllDraw.MouseClick = 0;
+                                    RowClick = -1;
+                                    ColumnClick = -1;
+                                    RowClickP = -1;
+                                    ColumnClickP = -1;
+                                    RowRealesed = -1;
+                                    ColumnRealeased = -1;
+                                    SetBoxText("\r\nObject Cleared.");
+                                    RefreshBoxText();
+                                    SetBoxText("\r\nYour Ready!");
+                                    RefreshBoxText();
+                                    //DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound,IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                                    //DrawQ.TableList.Clear();
+                                    //DrawQ.TableList.Add(Table);
+                                    //DrawQ.SetRowColumn(0);
+                                    BobSection = true;
+
+                                    AllDo = false;
+                                }
+                                else
+                                    if (BobSection && OrderPlate == 1)
+                                {
+
+                                    if (tM != null)
+                                    {
+                                        try
+                                        {
+                                            tM.Abort();
+                                            tM.Join();
+                                            tM = null;
+                                        }
+                                        catch (Exception t)
+                                        {
+                                            Log(t);
+                                        }
+                                    }
+                                    Person = true;
+
+                                    BobWithPerson();
+
+                                    BobSection = false;
+
+                                    AllDo = false;
+
+                                }
+
+                            }
+                            else
+                                    if (FullGame)
+                            {
+                                if (!BobSection && OrderPlate == -1)
+                                {
+                                    QuantumRefrigiz.AllDraw.FoundATable = false;
+                                    Clicked = true;
+                                    QuantumRefrigiz.AllDraw.MouseClick = 0;
+                                    RowClick = -1;
+                                    ColumnClick = -1;
+                                    RowClickP = -1;
+                                    ColumnClickP = -1;
+                                    RowRealesed = -1;
+                                    ColumnRealeased = -1;
+
+                                    if (tM == null)
+                                        tM = new Thread(new ThreadStart(Movements));
+                                    if (!tM.IsAlive)
+                                    {
+                                        tM.Start();
+                                    }
+                                    Wait();
+                                    Clicked = false;
+
+
+                                    QuantumRefrigiz.AllDraw.MouseClick = 0;
+                                    RowClick = -1;
+                                    ColumnClick = -1;
+                                    RowClickP = -1;
+                                    ColumnClickP = -1;
+                                    RowRealesed = -1;
+                                    ColumnRealeased = -1;
+                                    SetBoxText("\r\nObject Cleared.");
+                                    RefreshBoxText();
+                                    SetBoxText("\r\nYour Ready!");
+                                    RefreshBoxText();
+                                    DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                                    DrawQ.TableList.Clear();
+                                    DrawQ.TableList.Add(Table);
+                                    DrawQ.SetRowColumn(0);
+                                    BobSection = true;
+                                    AllDo = false;
+                                }
+                                else
+                                    if (BobSection && OrderPlate == 1)
+                                {
+
+                                    if (tM != null)
+                                    {
+                                        try
+                                        {
+                                            tM.Abort();
+                                            tM.Join();
+                                            tM = null;
+                                        }
+                                        catch (Exception t)
+                                        {
+                                            Log(t);
+                                        }
+                                    }
+                                    Person = true;
+
+                                    AliceWithPerson();
+
+                                    BobSection = false;
+
+                                    AllDo = false;
+
+                                }
+                            }
+
+                        }
+                        else
+                                if (StateGe)
+                        {
+                            if (Blitz)
+                            {
+                                GeneticAction();
+                                AllDo = false;
+
+                            }
+                            else
+                                if (FullGame)
+                            {
+                                GeneticAction();
+
+                                AllDo = false;
+                            }
+                        }
+                    }
+
+
+                    /* if (((StateCP) || Person || Blitz) && (!StateCC))
+                     {
+
+
+                         try
+                         {
+                             Color a = Color.Gray;
+                             if (OrderPlate == -1)
+                                 a = Color.Brown;
+                             bool[,] Tab = new bool[8, 8];
+                             if (RowClickP != -1 && ColumnClickP != -1)
+                                 Tab = VeryFye(Table, OrderPlate, a);
+                             if ((RowRealesed >= 0) && (RowRealesed < 8) && (ColumnRealeased >= 0) && (ColumnRealeased < 8) && ((int)(this.pictureBoxRefrigtz.Width / 8) >= 0) && ((int)(this.pictureBoxRefrigtz.Width / 8) < 8) && ((int)(this.pictureBoxRefrigtz.Height / 8) >= 0) && ((int)(this.pictureBoxRefrigtz.Height / 8) < 8))
+                             {
+                                 if ((RowRealesed + ColumnRealeased) % 2 == 0)
+                                     g.DrawImage(Image.FromFile(Root + "\\Images\\Program\\Black.jpg"), new Rectangle((int)RowRealesed, (int)ColumnRealeased, (int)(this.pictureBoxRefrigtz.Width / 8), (int)(this.pictureBoxRefrigtz.Height / 8)));
+                                 else
+                                     g.DrawImage(Image.FromFile(Root + "\\Images\\Program\\White.jpg"), new Rectangle((int)RowRealesed, (int)ColumnRealeased, (int)(this.pictureBoxRefrigtz.Width / 8), (int)(this.pictureBoxRefrigtz.Height / 8)));
+                             }
+
+                         }
+                         catch (Exception t)
+                         { //RunInFront();
+                             Log(t);
+                         }
+
+                         int Or = 1;
+                         if (Sec.radioButtonBrownOrder.Checked)
+                             Or = -1;
+                         if (Sec.radioButtonGrayOrder.Checked)
+                         {
+                             if (!Stockfish)
+                             {
+                                 if ((StateCP || Blitz) && (OrderPlate == Or))
+                                 {
+
+
+                                     QuantumRefrigiz.AllDraw.FoundATable = false;
+                                     Clicked = true;
+                                     QuantumRefrigiz.AllDraw.MouseClick = 0;
+                                     RowClick = -1;
+                                     ColumnClick = -1;
                                      RowClickP = -1;
                                      ColumnClickP = -1;
                                      RowRealesed = -1;
                                      ColumnRealeased = -1;
-                                     //Thread.Sleep(1500);
-                                     BobSection = false;
-                                     MovmentsNumber++;
-                                     GrayTimer.StopTime();
-                                     BrownTimer.StartTime();
 
-
-
-
-                                 }
-                                 else
-                                     if (!BobSection)
                                      {
-                                     }
-
-                             }
-                             else
-                             {
-                                 Stockfish = false;
-                                 StateCC = false;
-                                 StateCP = false;
-                                 MessageBox.Show("Mirror Objects please!");
-                             }
-
-                         }
-                     }
-                     else if (Sec.radioButtonBrownOrder.Checked)
-                     {
+                                         if (tM == null)
+                                             tM = new Thread(new ThreadStart(Movements));
+                                         if (!tM.IsAlive)
+                                         {
+                                             tM.Start();
+                                         }
+                                         Wait();
+                                         Clicked = false;
 
 
-                         if ((StateCP || Blitz) && (OrderPlate == Or))
-                         {
-
-                             Person = false;
-                             RefrigtzDLL.AllDraw.FoundATable = false;
-                             Clicked = true;
-                             RefrigtzDLL.AllDraw.MouseClick = 0;
-                             RowClick = -1;
-                             ColumnClick = -1;
-                             RowClickP = -1;
-                             ColumnClickP = -1;
-                             RowRealesed = -1;
-                             ColumnRealeased = -1;
-
-                             {
-                                 if (tM == null)
-                                     tM = new Thread(new ThreadStart(Movements));
-                                 if (!tM.IsAlive)
-                                 {
-                                     tM.Start();
-                                 }
-                                 Wait();
-                                 Clicked = false;
-
-
-                                 RefrigtzDLL.AllDraw.MouseClick = 0;
-                                 RowClick = -1;
-                                 ColumnClick = -1;
-                                 RowClickP = -1;
-                                 ColumnClickP = -1;
-                                 RowRealesed = -1;
-                                 ColumnRealeased = -1;
-                                 SetBoxText("\r\nObject Cleared.");
-                                 RefreshBoxText();
-                                 SetBoxText("\r\nYour Ready!");
-                                 RefreshBoxText();
-
-
-                             }
-                         }
-                         else
-                         {
-
-                             if (tM != null)
-                             {
-                                 try
-                                 {
-                                     tM.Abort();
-                                     tM.Join();
-                                     tM = null;
-                                 }
-                                 catch (Exception t)
-                                 {
-                                     Log(t);
-                                 }
-                             }
-                             if ((StateCP) || Blitz)
-                             {
-                                 if (Sec.radioButtonBrownOrder.Checked && OrderPlate == 1)
-                                 {
-                                     Person = true;
-                                     BobWithPerson();
-
-
-
-                                 }
-                             }
-                         }
-
-                     }
-                 }
-                 else
-                     if (StateCC)
-                     {
-                         if (!Stockfish)
-                         {
-                             if (Sec.radioButtonGrayOrder.Checked)
-                             {
-                                 if (BobSection)
-                                 {
-                                     Clicked = true;
-                                          BobAction();
-
-
-
-                                 }
-                                 else
-                                 {
-                                     Clicked = true;
-                                     if (AliceSection)
-                                     {
-                                         if (t2.IsAlive) new Syncronization(t2, 1); ;
-                                         AliceSection = false;
-                                         BobSection = true;
-                                               AliceAction();
+                                         QuantumRefrigiz.AllDraw.MouseClick = 0;
+                                         RowClick = -1;
+                                         ColumnClick = -1;
+                                         RowClickP = -1;
+                                         ColumnClickP = -1;
+                                         RowRealesed = -1;
+                                         ColumnRealeased = -1;
+                                         SetBoxText("\r\nObject Cleared.");
+                                         RefreshBoxText();
+                                         SetBoxText("\r\nYour Ready!");
+                                         RefreshBoxText();
+                                         DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound,IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                                         DrawQ.TableList.Clear();
+                                         DrawQ.TableList.Add(Table);
+                                         DrawQ.SetRowColumn(0);
 
 
                                      }
                                  }
-                             }
-                             else
-                                 if (Sec.radioButtonBrownOrder.Checked)
+                                 else
                                  {
-                                     if (AliceSection)
+
+                                     if (tM != null)
+                                     {
+                                         try
+                                         {
+                                             tM.Abort();
+                                             tM.Join();
+                                             tM = null;
+                                         }
+                                         catch (Exception t)
+                                         {
+                                             Log(t);
+                                         }
+                                     }
+                                     if ((StateCP) || Blitz)
+                                     {
+                                         if (Sec.radioButtonGrayOrder.Checked && OrderPlate == -1)
+                                         {
+                                             Person = true;
+
+                                             AliceWithPerson();
+                                         }
+                                     }
+                                 }
+                             }
+                             else//Stockfish with Person 
+                             {
+                                 if (ArrangmentsChanged)
+                                 {
+                                     if (BobSection)
                                      {
                                          Clicked = true;
-                                             AliceAction();
-                                         AliceSection = false;
-                                         BobSection = true;
-
-
-
-                                     }
-                                     else
-                                         if (BobSection)
+                                         GrayTimer.StartTime();
+                                         BrownTimer.StopTime();
+                                         if (tM == null)
+                                             tM = new Thread(new ThreadStart(Movements));
+                                         if (!tM.IsAlive)
                                          {
-                                             AliceSection = true;
-                                             BobSection = false;
-                                                 BobAction();
-
-
+                                             tM.Start();
                                          }
-                                 }
-                         }
-                         else
-                         {
-                             if (ArrangmentsChanged)
-                             {
-                                 if (Sec.radioButtonGrayOrder.Checked)
-                                 {
-                                     if (RefregitzisCurrent && BobSection)
-                                     {
-                                         if (t3.IsAlive) new Syncronization(t3, 1); ;
+                                         Wait();
+                                         Clicked = false;
 
-                                         BobAction();
 
-                                         if (RefrigtzDLL.ChessRules.BigKingCastleGray)
+                                         QuantumRefrigiz.AllDraw.MouseClick = 0;
+                                         SetBoxText("\r\nObject Cleared.");
+                                         RefreshBoxText();
+                                         SetBoxText("\r\nYour Ready!");
+                                         RefreshBoxText();
+                                         DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound,IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                                         DrawQ.TableList.Clear();
+                                         DrawQ.TableList.Add(Table);
+                                         DrawQ.SetRowColumn(0);
+                                         if (QuantumRefrigiz.ChessRules.BigKingCastleGray)
                                          {
                                              FenCastling = 1;
                                          }
                                          else
-                                             if (RefrigtzDLL.ChessRules.SmallKingCastleGray)
+                                             if (QuantumRefrigiz.ChessRules.SmallKingCastleGray)
                                              {
                                                  FenCastling = 0;
                                              }
                                              else
                                                  FenCastling = -1;
 
-                                         RowClickP = FormRefrigtz.LastRow;
-                                         ColumnClickP = FormRefrigtz.LastColumn;
-                                         RowRealesed = FormRefrigtz.NextRow;
-                                         ColumnRealeased = FormRefrigtz.NextColumn;
                                          String fens = Fen();
-                                         if (RefrigtzDLL.ChessRules.BigKingCastleGray)
+                                         if (QuantumRefrigiz.ChessRules.BigKingCastleGray)
                                          {
-                                             RefrigtzDLL.ChessRules.BigKingCastleGray = false;
+                                             QuantumRefrigiz.ChessRules.BigKingCastleGray = false;
                                          }
                                          else
-                                             if (RefrigtzDLL.ChessRules.SmallKingCastleGray)
+                                             if (QuantumRefrigiz.ChessRules.SmallKingCastleGray)
                                              {
-                                                 RefrigtzDLL.ChessRules.SmallKingCastleGray = false;
+                                                 QuantumRefrigiz.ChessRules.SmallKingCastleGray = false;
                                              }
                                          StreamWriter sw = proc.StandardInput;
                                          string input = fens + "\r\n";
@@ -1522,260 +2751,460 @@ namespace Refrigtz
 
 
 
-
                                      }
-                                     else if (!BobSection)
+                                     else
+                                         if (!BobSection)
+                                         {
+                                         }
+
+                                 }
+                                 else
+                                 {
+                                     Stockfish = false;
+                                     StateCC = false;
+                                     StateCP = false;
+                                     MessageBox.Show("Mirror Objects please!");
+                                 }
+
+                             }
+                         }
+                         else if (Sec.radioButtonBrownOrder.Checked)
+                         {
+
+
+                             if ((StateCP || Blitz) && (OrderPlate == Or))
+                             {
+
+                                 Person = false;
+                                 QuantumRefrigiz.AllDraw.FoundATable = false;
+                                 Clicked = true;
+                                 QuantumRefrigiz.AllDraw.MouseClick = 0;
+                                 RowClick = -1;
+                                 ColumnClick = -1;
+                                 RowClickP = -1;
+                                 ColumnClickP = -1;
+                                 RowRealesed = -1;
+                                 ColumnRealeased = -1;
+
+                                 {
+                                     if (tM == null)
+                                         tM = new Thread(new ThreadStart(Movements));
+                                     if (!tM.IsAlive)
                                      {
-
-
-                                         if (OrderPlate == 1)
-                                         {
-                                             SetBoxText("\r\nStockfish Number " + MovmentsNumber + " By Bob!");
-                                             RefreshBoxText();
-                                         }
-                                         else
-                                         {
-                                             SetBoxText("\r\nStockfish Number " + MovmentsNumber + " By Alice!");
-                                             RefreshBoxText();
-                                         }
-
-                                         // RefregitzisCurrent = false;
-
-                                         String Pre = "";
-                                         if (File.Exists("output.txt"))
-                                             Pre = File.ReadAllText("output.txt");
-                                         StreamWriter sw = proc.StandardInput;
-                                         string input = "go depth " + comboBoxMaxLevelText + "\r\n";
-                                         sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
-                                         sw.Flush();
-                                         WaitOn = true;
-                                         do
-                                         {
-                                             try
-                                             {
-                                                 Thread.Sleep(1000);
-                                                 input = "wr" + "\r\n";
-                                                 sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
-                                                 sw.Flush();
-                                                 WaitOn = WaitOnMovmentOccured(Pre);
-                                             }
-                                             catch (Exception t)
-                                             {
-                                                 Log(t);
-                                             }
-                                         } while (WaitOn);
-
-                                         while (WaitOn) { Thread.Sleep(100); }
-
-                                         String wr = File.ReadAllText("output.txt");
-                                         if (wr == "e8c8")
-                                         {
-                                             FenCastling = 1;
-                                             RefrigtzDLL.ChessRules.BigKingCastleBrown = true;
-                                         }
-                                         else
-                                             if (wr == "e8g8")
-                                             {
-                                                 RefrigtzDLL.ChessRules.SmallKingCastleBrown = true;
-                                                 FenCastling = 0;
-                                             }
-                                             else
-                                                 FenCastling = -1;
-                                         int Pro = 0;
-                                         if (FenCastling == -1)
-                                         {
-                                             Pro = SetRowColumn(wr);
-                                             if (Pro == 0)
-                                             {
-                                                 Table[(int)RowRealesed, (int)ColumnRealeased] = Table[(int)RowClickP, (int)ColumnClickP];
-                                                 Table[(int)RowClickP, (int)ColumnClickP] = 0;
-                                             }
-                                             else
-                                             {
-                                                 Table[(int)RowRealesed, (int)ColumnRealeased] = Pro;
-                                                 Table[(int)RowClickP, (int)ColumnClickP] = 0;
-
-                                             }
-                                         }
-                                         else
-                                             if (FenCastling == 1)
-                                             {
-                                                 Table[0, 0] = 0;
-                                                 Table[4, 0] = 0;
-                                                 Table[3, 0] = -6;
-                                                 Table[4, 0] = -4;
-                                             }
-                                             else
-                                                 if (FenCastling == 0)
-                                                 {
-                                                     Table[7, 0] = 0;
-                                                     Table[4, 0] = 0;
-                                                     Table[6, 0] = -6;
-                                                     Table[5, 0] = -4;
-                                                 }
-                                         if (RefrigtzDLL.ChessRules.BigKingCastleGray)
-                                         {
-                                             RefrigtzDLL.ChessRules.BigKingCastleGray = false;
-                                         }
-                                         else
-                                             if (RefrigtzDLL.ChessRules.SmallKingCastleGray)
-                                             {
-                                                 RefrigtzDLL.ChessRules.SmallKingCastleGray = false;
-                                             }
-                                         String fens = Fen();
-                                         if (FenCastling != -1)
-                                         {
-                                             RefrigtzDLL.ChessRules.BigKingCastleBrown = false;
-                                             RefrigtzDLL.ChessRules.SmallKingCastleBrown = false;
-
-                                         }
-                                         RowClickP = -1;
-                                         ColumnClickP = -1;
-                                         RowRealesed = -1;
-                                         ColumnRealeased = -1;
-                                         sw = proc.StandardInput;
-                                         input = fens + "\r\n";
-                                         sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
-                                         sw.Flush();
-                                         RefrigtzDLL.AllDraw.TableListAction.Add(Table);
-                                         Draw = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound,IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-                                         Draw.TableList.Clear();
-                                         Draw.TableList.Add(Table);
-                                         Draw.SetRowColumn(0);
-                                         this.SetBoxText("\r\nThinking Finished by Bob!");
-                                         RefreshBoxText();
-
-                                         if (RefrigtzDLL.AllDraw.TableListAction.Count >= 1)
-                                         {
-                                             RefrigtzDLL.ChessGeneticAlgorithm R = new RefrigtzDLL.ChessGeneticAlgorithm(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-                                             if (R.FindGenToModified(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2], RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1], RefrigtzDLL.AllDraw.TableListAction, 0, OrderPlate, true))
-                                             {
-                                                 bool HitVal = false;
-                                                 int Hit = RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2][R.CromosomRow, R.CromosomColumn];
-                                                 if (Hit != 0)
-                                                     HitVal = true;
-                                                 bool Convert = false;
-                                                 if (OrderPlate == 1)
-                                                 {
-                                                     if (RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1][R.CromosomRow, R.CromosomColumn] == 1)
-                                                     {
-                                                         if (R.CromosomColumn == 7)
-                                                             Convert = true;
-                                                     }
-                                                     if ((RefrigtzDLL.ChessRules.SmallKingCastleGray || RefrigtzDLL.ChessRules.BigKingCastleGray) && (!RefrigtzDLL.ChessRules.CastleActGray))
-                                                         RefrigtzDLL.ChessRules.CastleActGray = true;
-                                                     RefrigtzDLL.AllDraw.SyntaxToWrite = (new RefrigtzDLL.ChessRules(0,OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, Table, MovmentsNumber + 1, RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2][R.CromosomRowFirst, R.CromosomColumnFirst], R.CromosomColumn, R.CromosomRow, HitVal, Hit, RefrigtzDLL.ChessRules.CastleActGray, Convert);
-                                                 }
-                                                 else
-                                                 {
-                                                     if (RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1][R.CromosomRow, R.CromosomColumn] == -1)
-                                                     {
-                                                         if (R.CromosomColumn == 0)
-                                                             Convert = true;
-                                                     }
-                                                     if ((RefrigtzDLL.ChessRules.SmallKingCastleBrown || RefrigtzDLL.ChessRules.BigKingCastleBrown) && (!RefrigtzDLL.ChessRules.CastleActBrown))
-                                                         RefrigtzDLL.ChessRules.CastleActBrown = true;
-
-                                                     RefrigtzDLL.AllDraw.SyntaxToWrite = (new RefrigtzDLL.ChessRules(0,OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, Table, MovmentsNumber + 1, RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2][R.CromosomRowFirst, R.CromosomColumnFirst], R.CromosomColumn, R.CromosomRow, HitVal, Hit, RefrigtzDLL.ChessRules.CastleActBrown, Convert);
-                                                 }
-                                                 SetBoxStatistic(RefrigtzDLL.AllDraw.SyntaxToWrite);
-                                                 RefreshBoxStatistic();
-                                             }
-                                         }
-                                         using (SoundPlayer soundClick = new SoundPlayer(Root + "\\Music\\Click6.wav"))
-                                         {
-                                             soundClick.Play();
-                                             soundClick.Dispose();
-                                         }
-
-
-                                         OrderPlate *= -1;
-                                         BobSection = true;
-                                         Draw.TableList.Clear();
-                                         Draw.TableList.Add(Table);
-                                         Draw.SetRowColumn(0);
-                                         InsertTableAtDataBase(Table);
-                                         GrayTimer.StartTime();
-                                         BrownTimer.StopTime();
-
-
-
-
-
-
+                                         tM.Start();
                                      }
+                                     Wait();
+                                     Clicked = false;
+
+
+                                     QuantumRefrigiz.AllDraw.MouseClick = 0;
+                                     RowClick = -1;
+                                     ColumnClick = -1;
+                                     RowClickP = -1;
+                                     ColumnClickP = -1;
+                                     RowRealesed = -1;
+                                     ColumnRealeased = -1;
+                                     SetBoxText("\r\nObject Cleared.");
+                                     RefreshBoxText();
+                                     SetBoxText("\r\nYour Ready!");
+                                     RefreshBoxText();
+
 
                                  }
                              }
                              else
                              {
-                                 Stockfish = false;
-                                 StateCC = false;
-                                 StateCP = false;
-                                 MessageBox.Show("Mirror Objects please!");
+
+                                 if (tM != null)
+                                 {
+                                     try
+                                     {
+                                         tM.Abort();
+                                         tM.Join();
+                                         tM = null;
+                                     }
+                                     catch (Exception t)
+                                     {
+                                         Log(t);
+                                     }
+                                 }
+                                 if ((StateCP) || Blitz)
+                                 {
+                                     if (Sec.radioButtonBrownOrder.Checked && OrderPlate == 1)
+                                     {
+                                         Person = true;
+                                         BobWithPerson();
+
+
+
+                                     }
+                                 }
                              }
+
                          }
                      }
                      else
-                         if (StateGe)
+                         if (StateCC)
                          {
-                                GeneticAction();
+                             if (!Stockfish)
+                             {
+                                 if (Sec.radioButtonGrayOrder.Checked)
+                                 {
+                                     if (BobSection)
+                                     {
+                                         Clicked = true;
+                                              BobAction();
 
 
 
+                                     }
+                                     else
+                                     {
+                                         Clicked = true;
+                                         if (AliceSection)
+                                         {
+                                             if (t2.IsAlive) new Syncronization(t2, 1); ;
+                                             AliceSection = false;
+                                             BobSection = true;
+                                                   AliceAction();
+
+
+                                         }
+                                     }
+                                 }
+                                 else
+                                     if (Sec.radioButtonBrownOrder.Checked)
+                                     {
+                                         if (AliceSection)
+                                         {
+                                             Clicked = true;
+                                                 AliceAction();
+                                             AliceSection = false;
+                                             BobSection = true;
+
+
+
+                                         }
+                                         else
+                                             if (BobSection)
+                                             {
+                                                 AliceSection = true;
+                                                 BobSection = false;
+                                                     BobAction();
+
+
+                                             }
+                                     }
+                             }
+                             else
+                             {
+                                 if (ArrangmentsChanged)
+                                 {
+                                     if (Sec.radioButtonGrayOrder.Checked)
+                                     {
+                                         if (RefregitzisCurrent && BobSection)
+                                         {
+                                             if (t3.IsAlive) new Syncronization(t3, 1); ;
+
+                                             BobAction();
+
+                                             if (QuantumRefrigiz.ChessRules.BigKingCastleGray)
+                                             {
+                                                 FenCastling = 1;
+                                             }
+                                             else
+                                                 if (QuantumRefrigiz.ChessRules.SmallKingCastleGray)
+                                                 {
+                                                     FenCastling = 0;
+                                                 }
+                                                 else
+                                                     FenCastling = -1;
+
+                                             RowClickP = FormRefrigtz.LastRow;
+                                             ColumnClickP = FormRefrigtz.LastColumn;
+                                             RowRealesed = FormRefrigtz.NextRow;
+                                             ColumnRealeased = FormRefrigtz.NextColumn;
+                                             String fens = Fen();
+                                             if (QuantumRefrigiz.ChessRules.BigKingCastleGray)
+                                             {
+                                                 QuantumRefrigiz.ChessRules.BigKingCastleGray = false;
+                                             }
+                                             else
+                                                 if (QuantumRefrigiz.ChessRules.SmallKingCastleGray)
+                                                 {
+                                                     QuantumRefrigiz.ChessRules.SmallKingCastleGray = false;
+                                                 }
+                                             StreamWriter sw = proc.StandardInput;
+                                             string input = fens + "\r\n";
+                                             sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
+                                             sw.Flush();
+                                             RowClickP = -1;
+                                             ColumnClickP = -1;
+                                             RowRealesed = -1;
+                                             ColumnRealeased = -1;
+                                             //Thread.Sleep(1500);
+                                             BobSection = false;
+                                             MovmentsNumber++;
+                                             GrayTimer.StopTime();
+                                             BrownTimer.StartTime();
+
+
+
+
+
+                                         }
+                                         else if (!BobSection)
+                                         {
+
+
+                                             if (OrderPlate == 1)
+                                             {
+                                                 SetBoxText("\r\nStockfish Number " + MovmentsNumber + " By Bob!");
+                                                 RefreshBoxText();
+                                             }
+                                             else
+                                             {
+                                                 SetBoxText("\r\nStockfish Number " + MovmentsNumber + " By Alice!");
+                                                 RefreshBoxText();
+                                             }
+
+                                             // RefregitzisCurrent = false;
+
+                                             String Pre = "";
+                                             if (File.Exists("output.txt"))
+                                                 Pre = File.ReadAllText("output.txt");
+                                             StreamWriter sw = proc.StandardInput;
+                                             string input = "go depth " + comboBoxMaxLevelText + "\r\n";
+                                             sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
+                                             sw.Flush();
+                                             WaitOn = true;
+                                             do
+                                             {
+                                                 try
+                                                 {
+                                                     Thread.Sleep(1000);
+                                                     input = "wr" + "\r\n";
+                                                     sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
+                                                     sw.Flush();
+                                                     WaitOn = WaitOnMovmentOccured(Pre);
+                                                 }
+                                                 catch (Exception t)
+                                                 {
+                                                     Log(t);
+                                                 }
+                                             } while (WaitOn);
+
+                                             while (WaitOn) { Thread.Sleep(100); }
+
+                                             String wr = File.ReadAllText("output.txt");
+                                             if (wr == "e8c8")
+                                             {
+                                                 FenCastling = 1;
+                                                 QuantumRefrigiz.ChessRules.BigKingCastleBrown = true;
+                                             }
+                                             else
+                                                 if (wr == "e8g8")
+                                                 {
+                                                     QuantumRefrigiz.ChessRules.SmallKingCastleBrown = true;
+                                                     FenCastling = 0;
+                                                 }
+                                                 else
+                                                     FenCastling = -1;
+                                             int Pro = 0;
+                                             if (FenCastling == -1)
+                                             {
+                                                 Pro = SetRowColumn(wr);
+                                                 if (Pro == 0)
+                                                 {
+                                                     Table[(int)RowRealesed, (int)ColumnRealeased] = Table[(int)RowClickP, (int)ColumnClickP];
+                                                     Table[(int)RowClickP, (int)ColumnClickP] = 0;
+                                                 }
+                                                 else
+                                                 {
+                                                     Table[(int)RowRealesed, (int)ColumnRealeased] = Pro;
+                                                     Table[(int)RowClickP, (int)ColumnClickP] = 0;
+
+                                                 }
+                                             }
+                                             else
+                                                 if (FenCastling == 1)
+                                                 {
+                                                     Table[0, 0] = 0;
+                                                     Table[4, 0] = 0;
+                                                     Table[3, 0] = -6;
+                                                     Table[4, 0] = -4;
+                                                 }
+                                                 else
+                                                     if (FenCastling == 0)
+                                                     {
+                                                         Table[7, 0] = 0;
+                                                         Table[4, 0] = 0;
+                                                         Table[6, 0] = -6;
+                                                         Table[5, 0] = -4;
+                                                     }
+                                             if (QuantumRefrigiz.ChessRules.BigKingCastleGray)
+                                             {
+                                                 QuantumRefrigiz.ChessRules.BigKingCastleGray = false;
+                                             }
+                                             else
+                                                 if (QuantumRefrigiz.ChessRules.SmallKingCastleGray)
+                                                 {
+                                                     QuantumRefrigiz.ChessRules.SmallKingCastleGray = false;
+                                                 }
+                                             String fens = Fen();
+                                             if (FenCastling != -1)
+                                             {
+                                                 QuantumRefrigiz.ChessRules.BigKingCastleBrown = false;
+                                                 QuantumRefrigiz.ChessRules.SmallKingCastleBrown = false;
+
+                                             }
+                                             RowClickP = -1;
+                                             ColumnClickP = -1;
+                                             RowRealesed = -1;
+                                             ColumnRealeased = -1;
+                                             sw = proc.StandardInput;
+                                             input = fens + "\r\n";
+                                             sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
+                                             sw.Flush();
+                                             QuantumRefrigiz.AllDraw.TableListAction.Add(Table);
+                                             DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound,IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                                             DrawQ.TableList.Clear();
+                                             DrawQ.TableList.Add(Table);
+                                             DrawQ.SetRowColumn(0);
+                                             this.SetBoxText("\r\nThinking Finished by Bob!");
+                                             RefreshBoxText();
+
+                                             if (QuantumRefrigiz.AllDraw.TableListAction.Count >= 1)
+                                             {
+                                                 QuantumRefrigiz.ChessGeneticAlgorithm R = new QuantumRefrigiz.ChessGeneticAlgorithm(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                                                 if (R.FindGenToModified(QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 2], QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 1], QuantumRefrigiz.AllDraw.TableListAction, 0, OrderPlate, true))
+                                                 {
+                                                     bool HitVal = false;
+                                                     int Hit = QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 2][R.CromosomRow, R.CromosomColumn];
+                                                     if (Hit != 0)
+                                                         HitVal = true;
+                                                     bool Convert = false;
+                                                     if (OrderPlate == 1)
+                                                     {
+                                                         if (QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 1][R.CromosomRow, R.CromosomColumn] == 1)
+                                                         {
+                                                             if (R.CromosomColumn == 7)
+                                                                 Convert = true;
+                                                         }
+                                                         if ((QuantumRefrigiz.ChessRules.SmallKingCastleGray || QuantumRefrigiz.ChessRules.BigKingCastleGray) && (!QuantumRefrigiz.ChessRules.CastleActGray))
+                                                             QuantumRefrigiz.ChessRules.CastleActGray = true;
+                                                         QuantumRefrigiz.AllDraw.SyntaxToWrite = (new QuantumRefrigiz.ChessRules(0,OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, Table, MovmentsNumber + 1, QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 2][R.CromosomRowFirst, R.CromosomColumnFirst], R.CromosomColumn, R.CromosomRow, HitVal, Hit, QuantumRefrigiz.ChessRules.CastleActGray, Convert);
+                                                     }
+                                                     else
+                                                     {
+                                                         if (QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 1][R.CromosomRow, R.CromosomColumn] == -1)
+                                                         {
+                                                             if (R.CromosomColumn == 0)
+                                                                 Convert = true;
+                                                         }
+                                                         if ((QuantumRefrigiz.ChessRules.SmallKingCastleBrown || QuantumRefrigiz.ChessRules.BigKingCastleBrown) && (!QuantumRefrigiz.ChessRules.CastleActBrown))
+                                                             QuantumRefrigiz.ChessRules.CastleActBrown = true;
+
+                                                         QuantumRefrigiz.AllDraw.SyntaxToWrite = (new QuantumRefrigiz.ChessRules(0,OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, Table, MovmentsNumber + 1, QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 2][R.CromosomRowFirst, R.CromosomColumnFirst], R.CromosomColumn, R.CromosomRow, HitVal, Hit, QuantumRefrigiz.ChessRules.CastleActBrown, Convert);
+                                                     }
+                                                     SetBoxStatistic(QuantumRefrigiz.AllDraw.SyntaxToWrite);
+                                                     RefreshBoxStatistic();
+                                                 }
+                                             }
+                                             using (SoundPlayer soundClick = new SoundPlayer(Root + "\\Music\\Click6.wav"))
+                                             {
+                                                 soundClick.Play();
+                                                 soundClick.Dispose();
+                                             }
+
+
+                                             OrderPlate *= -1;
+                                             BobSection = true;
+                                             DrawQ.TableList.Clear();
+                                             DrawQ.TableList.Add(Table);
+                                             Draw.SetRowColumn(0);
+                                             InsertTableAtDataBase(Table);
+                                             GrayTimer.StartTime();
+                                             BrownTimer.StopTime();
+
+
+
+
+
+
+                                         }
+
+                                     }
+                                 }
+                                 else
+                                 {
+                                     Stockfish = false;
+                                     StateCC = false;
+                                     StateCP = false;
+                                     MessageBox.Show("Mirror Objects please!");
+                                 }
+                             }
                          }
+                         else
+                             if (StateGe)
+                             {
+                                    GeneticAction();
 
 
-                 */
 
-                //while ((!StateCP && !StateCC && !StateGe && !Blitz))
+                             }
+
+
+                     */
+
+                    //while ((!StateCP && !StateCC && !StateGe && !Blitz))
                     //Thread.Sleep(1000);
 
-                {
-
-
-                    if (RefrigtzDLL.AllDraw.MouseClick == 0 && RowClickP != -1)
                     {
 
-                        //HitRecustruct();
-                        RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
-                        RowClick = -1;
-                        ColumnClick = -1;
-                        RowClickP = -1;
-                        ColumnClickP = -1;
-                        RowRealesed = -1;
-                        ColumnRealeased = -1;
-                        RowRealesedP = -1;
-                        ColumnClickP = -1;
 
-                    }
-                    else
-                    {
-                        if (RefrigtzDLL.AllDraw.MouseClick >= 2)
+                        if (QuantumRefrigiz.AllDraw.MouseClick == 0 && RowClickP != -1)
                         {
 
-                            using (SoundPlayer soundClick = new SoundPlayer(Root + "\\Music\\Click6.wav"))
-                            {
-                                soundClick.Play();
-                                soundClick.Dispose();
-                            }
-
-
+                            //HitRecustruct();
+                            QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
+                            RowClick = -1;
+                            ColumnClick = -1;
+                            RowClickP = -1;
+                            ColumnClickP = -1;
+                            RowRealesed = -1;
+                            ColumnRealeased = -1;
+                            RowRealesedP = -1;
+                            ColumnClickP = -1;
 
                         }
+                        else
+                        {
+                            if (QuantumRefrigiz.AllDraw.MouseClick >= 2)
+                            {
+
+                                using (SoundPlayer soundClick = new SoundPlayer(Root + "\\Music\\Click6.wav"))
+                                {
+                                    soundClick.Play();
+                                    soundClick.Dispose();
+                                }
+
+
+
+                            }
+                        }
+
+
+                        QuantumRefrigiz.AllDraw.RedrawTable = false;
                     }
 
-
-                    RefrigtzDLL.AllDraw.RedrawTable = false;
                 }
-
+                catch (Exception t)
+                {
+                    Log(t);
+                }
             }
-            catch (Exception t)
-            {
-                Log(t);
-            }
 
-            
 
         }
         //Error Handling.
@@ -1815,16 +3244,29 @@ namespace Refrigtz
             }
 
 
-
-            for (int i = 0; i < 8; i++)
+            if (!Quantum)
             {
-                for (int j = 0; j < 8; j++)
+                for (int i = 0; i < 8; i++)
                 {
-                    RefrigtzDLL.AllDraw.TableVeryfy[i, j] = Table[i, j];
-                    RefrigtzDLL.AllDraw.TableVeryfyConst[i, j] = Table[i, j];
+                    for (int j = 0; j < 8; j++)
+                    {
+                        RefrigtzDLL.AllDraw.TableVeryfy[i, j] = Table[i, j];
+                        RefrigtzDLL.AllDraw.TableVeryfyConst[i, j] = Table[i, j];
+                    }
                 }
+                RefrigtzDLL.ThinkingChess.LearniningTable = new LearningMachine.NetworkQuantumLearningKrinskyAtamata(8, 8, 8);
             }
-            RefrigtzDLL.ThinkingChess.LearniningTable = new LearningMachine.NetworkQuantumLearningKrinskyAtamata(8, 8, 8);
+            else {
+                for (int i = 0; i < 8; i++)
+                {
+                    for (int j = 0; j < 8; j++)
+                    {
+                        QuantumRefrigiz.AllDraw.TableVeryfy[i, j] = Table[i, j];
+                        QuantumRefrigiz.AllDraw.TableVeryfyConst[i, j] = Table[i, j];
+                    }
+                }
+                QuantumRefrigiz.ThinkingQuantumChess.LearniningTable = new LearningMachine.NetworkQuantumLearningKrinskyAtamata(8, 8, 8);
+            }
             try
             {
                 if (System.IO.File.Exists(Root + "\\Database\\CurrentBank.accdb"))
@@ -1854,11 +3296,20 @@ namespace Refrigtz
                 Object O = new Object();
                 lock (O)
                 {
-                    //while (!StateCC && !StateCP && !StateGe)
-                    Refrigtz.Timer.AStarGreadyFirstSearch = RefrigtzDLL.AllDraw.AStarGreadyFirstSearch;
-                    Refrigtz.Timer.AStarGreedytiLevelMax = RefrigtzDLL.AllDraw.AStarGreedyiLevelMax;
-                    Refrigtz.Timer.UseDoubleTime = RefrigtzDLL.AllDraw.UseDoubleTime;
-                    Refrigtz.Timer.StoreAllDrawCount = RefrigtzDLL.AllDraw.StoreADraw.Count;
+                    if (!Quantum)
+                    {
+                        //while (!StateCC && !StateCP && !StateGe)
+                        Refrigtz.Timer.AStarGreadyFirstSearch = RefrigtzDLL.AllDraw.AStarGreadyFirstSearch;
+                        Refrigtz.Timer.AStarGreedytiLevelMax = RefrigtzDLL.AllDraw.AStarGreedyiLevelMax;
+                        Refrigtz.Timer.UseDoubleTime = RefrigtzDLL.AllDraw.UseDoubleTime;
+                        Refrigtz.Timer.StoreAllDrawCount = RefrigtzDLL.AllDraw.StoreADraw.Count;
+                    }
+                    else {
+                        Refrigtz.Timer.AStarGreadyFirstSearch = QuantumRefrigiz.AllDraw.AStarGreadyFirstSearch;
+                        Refrigtz.Timer.AStarGreedytiLevelMax = QuantumRefrigiz.AllDraw.AStarGreedyiLevelMax;
+                        Refrigtz.Timer.UseDoubleTime = QuantumRefrigiz.AllDraw.UseDoubleTime;
+                        Refrigtz.Timer.StoreAllDrawCount = QuantumRefrigiz.AllDraw.StoreADraw.Count;
+                    }
                 }
                 //System.Threading.Thread.Sleep(10);
             }
@@ -2003,24 +3454,44 @@ namespace Refrigtz
         //Boolean Setting of Illustration at Slected Object Rules.
         bool[,] VeryFye(int[,] Table, int Order, Color a)
         {
-            int Cdummy = RefrigtzDLL.ChessRules.CurrentOrder;
-            if (OrderPlate == 1)
-                RefrigtzDLL.ChessRules.CurrentOrder = 1;
-            else
-                RefrigtzDLL.ChessRules.CurrentOrder = -1;
+            int Cdummy = 0;
+            if (!Quantum)
+            {
+                Cdummy = RefrigtzDLL.ChessRules.CurrentOrder;
+                if (OrderPlate == 1)
+                    RefrigtzDLL.ChessRules.CurrentOrder = 1;
+                else
+                    RefrigtzDLL.ChessRules.CurrentOrder = -1;
+            }
+            else {
+                Cdummy = QuantumRefrigiz.ChessRules.CurrentOrder;
+                if (OrderPlate == 1)
+                    QuantumRefrigiz.ChessRules.CurrentOrder = 1;
+                else
+                    QuantumRefrigiz.ChessRules.CurrentOrder = -1;
+            }
             bool[,] Tab = new bool[8, 8];
 
             for (int i = 0; i < 8; i++)
             {
                 for (int j = 0; j < 8; j++)
                 {
-                    if ((new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, Table[(int)RowClickP, (int)ColumnClickP], Table, Order, (int)RowClickP, (int)ColumnClickP)).Rules((int)RowClickP, (int)ColumnClickP, i, j, a, Table[(int)RowClickP, (int)ColumnClickP]))
-
-                        Tab[i, j] = true;
+                    if (!Quantum)
+                    {
+                        if ((new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, Table[(int)RowClickP, (int)ColumnClickP], Table, Order, (int)RowClickP, (int)ColumnClickP)).Rules((int)RowClickP, (int)ColumnClickP, i, j, a, Table[(int)RowClickP, (int)ColumnClickP]))
+                            Tab[i, j] = true;
+                    }
+                    else {
+                        if ((new QuantumRefrigiz.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, Table[(int)RowClickP, (int)ColumnClickP], Table, Order, (int)RowClickP, (int)ColumnClickP)).Rules((int)RowClickP, (int)ColumnClickP, i, j, a, Table[(int)RowClickP, (int)ColumnClickP]))
+                            Tab[i, j] = true;
+                    }
 
                 }
             }
-            RefrigtzDLL.ChessRules.CurrentOrder = Cdummy;
+            if (!Quantum)
+                RefrigtzDLL.ChessRules.CurrentOrder = Cdummy;
+            else
+                QuantumRefrigiz.ChessRules.CurrentOrder = Cdummy;
             return Tab;
         }
         //Delegate Of Form Close Visibility.
@@ -2092,111 +3563,218 @@ namespace Refrigtz
         }
         public void SetObjectInPictureBox(int R, int C)
         {
-            int Hit = RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2][R, C];
-            if (Hit > 0)
+            if (!Quantum)
             {
-                if (GrayCountHiiting == 1)
-                    SetImageOfPictrueBox(ref pictureBox1, Hit);
-                else
-                    if (GrayCountHiiting == 2)
-                    SetImageOfPictrueBox(ref pictureBox2, Hit);
-                else
-                        if (GrayCountHiiting == 3)
-                    SetImageOfPictrueBox(ref pictureBox3, Hit);
-                else
-                            if (GrayCountHiiting == 4)
-                    SetImageOfPictrueBox(ref pictureBox4, Hit);
-                else
-                                if (GrayCountHiiting == 5)
-                    SetImageOfPictrueBox(ref pictureBox5, Hit);
-                else
-                                    if (GrayCountHiiting == 6)
-                    SetImageOfPictrueBox(ref pictureBox6, Hit);
-                else
-                                        if (GrayCountHiiting == 7)
-                    SetImageOfPictrueBox(ref pictureBox7, Hit);
-                else
-                                            if (GrayCountHiiting == 8)
-                    SetImageOfPictrueBox(ref pictureBox8, Hit);
-                else
-                                                if (GrayCountHiiting == 9)
-                    SetImageOfPictrueBox(ref pictureBox9, Hit);
-                else
-                                                    if (GrayCountHiiting == 10)
-                    SetImageOfPictrueBox(ref pictureBox10, Hit);
-                else
-                                                        if (GrayCountHiiting == 11)
-                    SetImageOfPictrueBox(ref pictureBox11, Hit);
-                else
-                                                            if (GrayCountHiiting == 12)
-                    SetImageOfPictrueBox(ref pictureBox12, Hit);
-                else
-                                                                if (GrayCountHiiting == 13)
-                    SetImageOfPictrueBox(ref pictureBox13, Hit);
-                else
-                                                                    if (GrayCountHiiting == 14)
-                    SetImageOfPictrueBox(ref pictureBox14, Hit);
-                else
-                                                                        if (GrayCountHiiting == 15)
-                    SetImageOfPictrueBox(ref pictureBox15, Hit);
-                else
-                                                                            if (GrayCountHiiting == 16)
-                    SetImageOfPictrueBox(ref pictureBox16, Hit);
-                GrayCountHiiting++;
-            }
-            else if (Hit < 0)
-            {
-                if (BrownCountHiiting == 17)
-                    SetImageOfPictrueBox(ref pictureBox17, Hit);
-                else
-                    if (BrownCountHiiting == 18)
-                    SetImageOfPictrueBox(ref pictureBox18, Hit);
-                else
-                        if (BrownCountHiiting == 19)
-                    SetImageOfPictrueBox(ref pictureBox19, Hit);
-                else
-                            if (BrownCountHiiting == 20)
-                    SetImageOfPictrueBox(ref pictureBox20, Hit);
-                else
-                                if (BrownCountHiiting == 21)
-                    SetImageOfPictrueBox(ref pictureBox21, Hit);
-                else
-                                    if (BrownCountHiiting == 22)
-                    SetImageOfPictrueBox(ref pictureBox22, Hit);
-                else
-                                        if (BrownCountHiiting == 23)
-                    SetImageOfPictrueBox(ref pictureBox23, Hit);
-                else
-                                            if (BrownCountHiiting == 24)
-                    SetImageOfPictrueBox(ref pictureBox24, Hit);
-                else
-                                                if (BrownCountHiiting == 25)
-                    SetImageOfPictrueBox(ref pictureBox25, Hit);
-                else
-                                                    if (BrownCountHiiting == 26)
-                    SetImageOfPictrueBox(ref pictureBox26, Hit);
-                else
-                                                        if (BrownCountHiiting == 27)
-                    SetImageOfPictrueBox(ref pictureBox27, Hit);
-                else
-                                                            if (BrownCountHiiting == 28)
-                    SetImageOfPictrueBox(ref pictureBox28, Hit);
-                else
-                                                                if (BrownCountHiiting == 29)
-                    SetImageOfPictrueBox(ref pictureBox29, Hit);
-                else
-                                                                    if (BrownCountHiiting == 30)
-                    SetImageOfPictrueBox(ref pictureBox30, Hit);
-                else
-                                                                        if (BrownCountHiiting == 31)
-                    SetImageOfPictrueBox(ref pictureBox31, Hit);
-                else
-                                                                            if (BrownCountHiiting == 32)
-                    SetImageOfPictrueBox(ref pictureBox32, Hit);
-                BrownCountHiiting++;
-            }
+                int Hit = RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2][R, C];
+                if (Hit > 0)
+                {
+                    if (GrayCountHiiting == 1)
+                        SetImageOfPictrueBox(ref pictureBox1, Hit);
+                    else
+                        if (GrayCountHiiting == 2)
+                        SetImageOfPictrueBox(ref pictureBox2, Hit);
+                    else
+                            if (GrayCountHiiting == 3)
+                        SetImageOfPictrueBox(ref pictureBox3, Hit);
+                    else
+                                if (GrayCountHiiting == 4)
+                        SetImageOfPictrueBox(ref pictureBox4, Hit);
+                    else
+                                    if (GrayCountHiiting == 5)
+                        SetImageOfPictrueBox(ref pictureBox5, Hit);
+                    else
+                                        if (GrayCountHiiting == 6)
+                        SetImageOfPictrueBox(ref pictureBox6, Hit);
+                    else
+                                            if (GrayCountHiiting == 7)
+                        SetImageOfPictrueBox(ref pictureBox7, Hit);
+                    else
+                                                if (GrayCountHiiting == 8)
+                        SetImageOfPictrueBox(ref pictureBox8, Hit);
+                    else
+                                                    if (GrayCountHiiting == 9)
+                        SetImageOfPictrueBox(ref pictureBox9, Hit);
+                    else
+                                                        if (GrayCountHiiting == 10)
+                        SetImageOfPictrueBox(ref pictureBox10, Hit);
+                    else
+                                                            if (GrayCountHiiting == 11)
+                        SetImageOfPictrueBox(ref pictureBox11, Hit);
+                    else
+                                                                if (GrayCountHiiting == 12)
+                        SetImageOfPictrueBox(ref pictureBox12, Hit);
+                    else
+                                                                    if (GrayCountHiiting == 13)
+                        SetImageOfPictrueBox(ref pictureBox13, Hit);
+                    else
+                                                                        if (GrayCountHiiting == 14)
+                        SetImageOfPictrueBox(ref pictureBox14, Hit);
+                    else
+                                                                            if (GrayCountHiiting == 15)
+                        SetImageOfPictrueBox(ref pictureBox15, Hit);
+                    else
+                                                                                if (GrayCountHiiting == 16)
+                        SetImageOfPictrueBox(ref pictureBox16, Hit);
+                    GrayCountHiiting++;
+                }
+                else if (Hit < 0)
+                {
+                    if (BrownCountHiiting == 17)
+                        SetImageOfPictrueBox(ref pictureBox17, Hit);
+                    else
+                        if (BrownCountHiiting == 18)
+                        SetImageOfPictrueBox(ref pictureBox18, Hit);
+                    else
+                            if (BrownCountHiiting == 19)
+                        SetImageOfPictrueBox(ref pictureBox19, Hit);
+                    else
+                                if (BrownCountHiiting == 20)
+                        SetImageOfPictrueBox(ref pictureBox20, Hit);
+                    else
+                                    if (BrownCountHiiting == 21)
+                        SetImageOfPictrueBox(ref pictureBox21, Hit);
+                    else
+                                        if (BrownCountHiiting == 22)
+                        SetImageOfPictrueBox(ref pictureBox22, Hit);
+                    else
+                                            if (BrownCountHiiting == 23)
+                        SetImageOfPictrueBox(ref pictureBox23, Hit);
+                    else
+                                                if (BrownCountHiiting == 24)
+                        SetImageOfPictrueBox(ref pictureBox24, Hit);
+                    else
+                                                    if (BrownCountHiiting == 25)
+                        SetImageOfPictrueBox(ref pictureBox25, Hit);
+                    else
+                                                        if (BrownCountHiiting == 26)
+                        SetImageOfPictrueBox(ref pictureBox26, Hit);
+                    else
+                                                            if (BrownCountHiiting == 27)
+                        SetImageOfPictrueBox(ref pictureBox27, Hit);
+                    else
+                                                                if (BrownCountHiiting == 28)
+                        SetImageOfPictrueBox(ref pictureBox28, Hit);
+                    else
+                                                                    if (BrownCountHiiting == 29)
+                        SetImageOfPictrueBox(ref pictureBox29, Hit);
+                    else
+                                                                        if (BrownCountHiiting == 30)
+                        SetImageOfPictrueBox(ref pictureBox30, Hit);
+                    else
+                                                                            if (BrownCountHiiting == 31)
+                        SetImageOfPictrueBox(ref pictureBox31, Hit);
+                    else
+                                                                                if (BrownCountHiiting == 32)
+                        SetImageOfPictrueBox(ref pictureBox32, Hit);
+                    BrownCountHiiting++;
+                }
 
-
+            }
+            else {
+                int Hit = QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 2][R, C];
+                if (Hit > 0)
+                {
+                    if (GrayCountHiiting == 1)
+                        SetImageOfPictrueBox(ref pictureBox1, Hit);
+                    else
+                        if (GrayCountHiiting == 2)
+                        SetImageOfPictrueBox(ref pictureBox2, Hit);
+                    else
+                            if (GrayCountHiiting == 3)
+                        SetImageOfPictrueBox(ref pictureBox3, Hit);
+                    else
+                                if (GrayCountHiiting == 4)
+                        SetImageOfPictrueBox(ref pictureBox4, Hit);
+                    else
+                                    if (GrayCountHiiting == 5)
+                        SetImageOfPictrueBox(ref pictureBox5, Hit);
+                    else
+                                        if (GrayCountHiiting == 6)
+                        SetImageOfPictrueBox(ref pictureBox6, Hit);
+                    else
+                                            if (GrayCountHiiting == 7)
+                        SetImageOfPictrueBox(ref pictureBox7, Hit);
+                    else
+                                                if (GrayCountHiiting == 8)
+                        SetImageOfPictrueBox(ref pictureBox8, Hit);
+                    else
+                                                    if (GrayCountHiiting == 9)
+                        SetImageOfPictrueBox(ref pictureBox9, Hit);
+                    else
+                                                        if (GrayCountHiiting == 10)
+                        SetImageOfPictrueBox(ref pictureBox10, Hit);
+                    else
+                                                            if (GrayCountHiiting == 11)
+                        SetImageOfPictrueBox(ref pictureBox11, Hit);
+                    else
+                                                                if (GrayCountHiiting == 12)
+                        SetImageOfPictrueBox(ref pictureBox12, Hit);
+                    else
+                                                                    if (GrayCountHiiting == 13)
+                        SetImageOfPictrueBox(ref pictureBox13, Hit);
+                    else
+                                                                        if (GrayCountHiiting == 14)
+                        SetImageOfPictrueBox(ref pictureBox14, Hit);
+                    else
+                                                                            if (GrayCountHiiting == 15)
+                        SetImageOfPictrueBox(ref pictureBox15, Hit);
+                    else
+                                                                                if (GrayCountHiiting == 16)
+                        SetImageOfPictrueBox(ref pictureBox16, Hit);
+                    GrayCountHiiting++;
+                }
+                else if (Hit < 0)
+                {
+                    if (BrownCountHiiting == 17)
+                        SetImageOfPictrueBox(ref pictureBox17, Hit);
+                    else
+                        if (BrownCountHiiting == 18)
+                        SetImageOfPictrueBox(ref pictureBox18, Hit);
+                    else
+                            if (BrownCountHiiting == 19)
+                        SetImageOfPictrueBox(ref pictureBox19, Hit);
+                    else
+                                if (BrownCountHiiting == 20)
+                        SetImageOfPictrueBox(ref pictureBox20, Hit);
+                    else
+                                    if (BrownCountHiiting == 21)
+                        SetImageOfPictrueBox(ref pictureBox21, Hit);
+                    else
+                                        if (BrownCountHiiting == 22)
+                        SetImageOfPictrueBox(ref pictureBox22, Hit);
+                    else
+                                            if (BrownCountHiiting == 23)
+                        SetImageOfPictrueBox(ref pictureBox23, Hit);
+                    else
+                                                if (BrownCountHiiting == 24)
+                        SetImageOfPictrueBox(ref pictureBox24, Hit);
+                    else
+                                                    if (BrownCountHiiting == 25)
+                        SetImageOfPictrueBox(ref pictureBox25, Hit);
+                    else
+                                                        if (BrownCountHiiting == 26)
+                        SetImageOfPictrueBox(ref pictureBox26, Hit);
+                    else
+                                                            if (BrownCountHiiting == 27)
+                        SetImageOfPictrueBox(ref pictureBox27, Hit);
+                    else
+                                                                if (BrownCountHiiting == 28)
+                        SetImageOfPictrueBox(ref pictureBox28, Hit);
+                    else
+                                                                    if (BrownCountHiiting == 29)
+                        SetImageOfPictrueBox(ref pictureBox29, Hit);
+                    else
+                                                                        if (BrownCountHiiting == 30)
+                        SetImageOfPictrueBox(ref pictureBox30, Hit);
+                    else
+                                                                            if (BrownCountHiiting == 31)
+                        SetImageOfPictrueBox(ref pictureBox31, Hit);
+                    else
+                                                                                if (BrownCountHiiting == 32)
+                        SetImageOfPictrueBox(ref pictureBox32, Hit);
+                    BrownCountHiiting++;
+                }
+            }
         }
 
         void SetNodesCount()
@@ -2207,17 +3785,33 @@ namespace Refrigtz
             Object O = new Object();
             lock (O)
             {
-                Int64 FirstTimeD = DateTime.Now.Hour * 3600000 + DateTime.Now.Minute * 60000 + DateTime.Now.Second * 1000 + DateTime.Now.Millisecond;
-                Int64 FirstNode = RefrigtzDLL.ThinkingChess.NumbersOfAllNode;
-                Thread.Sleep(1);
-                Int64 EndTime = DateTime.Now.Hour * 3600000 + DateTime.Now.Minute * 60000 + DateTime.Now.Second * 1000 + DateTime.Now.Millisecond;
-                Double S = ((double)RefrigtzDLL.ThinkingChess.NumbersOfAllNode - FirstNode) / (((double)EndTime - (double)FirstTimeD) / 1000.0);
-                Store = ((Store * Count) + S) / (Count + 1.0);
-                Count++;
-                if (RefrigtzDLL.AllDraw.ActionStringReady)
-                    SetlableRefregitzMaxValue(labelNodesCount, RefrigtzDLL.ThinkingChess.NumbersOfAllNode.ToString() + " at time " + ((int)(Store)).ToString() + "N/s and by Elapsed time " + ((int)((EndTime - TimeElapsed) / 1000)).ToString() + " s by string" + RefrigtzDLL.AllDraw.ActionString + " By CheckMate Count " + RefrigtzDLL.ThinkingChess.FoundFirstMating.ToString() + " For Order  " + RefrigtzDLL.AllDraw.OrderPlate.ToString());
-                else
-                    SetlableRefregitzMaxValue(labelNodesCount, RefrigtzDLL.ThinkingChess.NumbersOfAllNode.ToString() + " at time " + ((int)(Store)).ToString() + "N/s and by Elapsed time " + ((int)((EndTime - TimeElapsed) / 1000)).ToString() + " s" + " By CheckMate Count " + RefrigtzDLL.ThinkingChess.FoundFirstMating.ToString() + " For Order  " + RefrigtzDLL.AllDraw.OrderPlate.ToString());
+                    if (!Quantum)
+                    {
+                        Int64 FirstTimeD = DateTime.Now.Hour * 3600000 + DateTime.Now.Minute * 60000 + DateTime.Now.Second * 1000 + DateTime.Now.Millisecond;
+                        Int64 FirstNode = RefrigtzDLL.ThinkingChess.NumbersOfAllNode;
+                        Thread.Sleep(1);
+                        Int64 EndTime = DateTime.Now.Hour * 3600000 + DateTime.Now.Minute * 60000 + DateTime.Now.Second * 1000 + DateTime.Now.Millisecond;
+                        Double S = ((double)RefrigtzDLL.ThinkingChess.NumbersOfAllNode - FirstNode) / (((double)EndTime - (double)FirstTimeD) / 1000.0);
+                        Store = ((Store * Count) + S) / (Count + 1.0);
+                        Count++;
+                        if (RefrigtzDLL.AllDraw.ActionStringReady)
+                            SetlableRefregitzMaxValue(labelNodesCount, RefrigtzDLL.ThinkingChess.NumbersOfAllNode.ToString() + " at time " + ((int)(Store)).ToString() + "N/s and by Elapsed time " + ((int)((EndTime - TimeElapsed) / 1000)).ToString() + " s by string" + RefrigtzDLL.AllDraw.ActionString + " By CheckMate Count " + RefrigtzDLL.ThinkingChess.FoundFirstMating.ToString() + " For Order  " + RefrigtzDLL.AllDraw.OrderPlate.ToString());
+                        else
+                            SetlableRefregitzMaxValue(labelNodesCount, RefrigtzDLL.ThinkingChess.NumbersOfAllNode.ToString() + " at time " + ((int)(Store)).ToString() + "N/s and by Elapsed time " + ((int)((EndTime - TimeElapsed) / 1000)).ToString() + " s" + " By CheckMate Count " + RefrigtzDLL.ThinkingChess.FoundFirstMating.ToString() + " For Order  " + RefrigtzDLL.AllDraw.OrderPlate.ToString());
+                    }
+                    else {
+                        Int64 FirstTimeD = DateTime.Now.Hour * 3600000 + DateTime.Now.Minute * 60000 + DateTime.Now.Second * 1000 + DateTime.Now.Millisecond;
+                        Int64 FirstNode = QuantumRefrigiz.ThinkingQuantumChess.NumbersOfAllNode;
+                        Thread.Sleep(1);
+                        Int64 EndTime = DateTime.Now.Hour * 3600000 + DateTime.Now.Minute * 60000 + DateTime.Now.Second * 1000 + DateTime.Now.Millisecond;
+                        Double S = ((double)QuantumRefrigiz.ThinkingQuantumChess.NumbersOfAllNode - FirstNode) / (((double)EndTime - (double)FirstTimeD) / 1000.0);
+                        Store = ((Store * Count) + S) / (Count + 1.0);
+                        Count++;
+                        if (QuantumRefrigiz.AllDraw.ActionStringReady)
+                            SetlableRefregitzMaxValue(labelNodesCount, QuantumRefrigiz.ThinkingQuantumChess.NumbersOfAllNode.ToString() + " at time " + ((int)(Store)).ToString() + "N/s and by Elapsed time " + ((int)((EndTime - TimeElapsed) / 1000)).ToString() + " s by string" + QuantumRefrigiz.AllDraw.ActionString + " By CheckMate Count " + QuantumRefrigiz.ThinkingQuantumChess.FoundFirstMating.ToString() + " For Order  " + QuantumRefrigiz.AllDraw.OrderPlate.ToString());
+                        else
+                            SetlableRefregitzMaxValue(labelNodesCount, QuantumRefrigiz.ThinkingQuantumChess.NumbersOfAllNode.ToString() + " at time " + ((int)(Store)).ToString() + "N/s and by Elapsed time " + ((int)((EndTime - TimeElapsed) / 1000)).ToString() + " s" + " By CheckMate Count " + QuantumRefrigiz.ThinkingQuantumChess.FoundFirstMating.ToString() + " For Order  " + QuantumRefrigiz.AllDraw.OrderPlate.ToString());
+                    }
                 //labelNodesCount.Refresh();
                 Thread.Sleep(1);
             }
