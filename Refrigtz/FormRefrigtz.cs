@@ -2229,103 +2229,202 @@ namespace Refrigtz
         {
             bool Set = false;
             SetDLL = true;
-               do{
-            Object o = new Object();
-            lock (o)
+            do
             {
-                //System.Threading.Thread.Sleep(10);
-                RefrigtzDLL.AllDraw.Root = Root;
-                RefrigtzDLL.AllDraw.OrderPlate = OrderPlate;
-                RefrigtzDLL.AllDraw.Blitz = Blitz;
-                ConvertWait = RefrigtzDLL.AllDraw.ConvertWait;
-                RefrigtzDLL.AllDraw.Stockfish = Stockfish;
-                RefrigtzDLL.AllDraw.Person = Person;
-                RefrigtzDLL.AllDraw.THISSecradioButtonGrayOrderChecked = Sec.radioButtonGrayOrder.Checked;
-                RefrigtzDLL.AllDraw.THISSecradioButtonBrownOrderChecked = Sec.radioButtonBrownOrder.Checked;
-                RefrigtzDLL.AllDraw.MovmentsNumber = MovmentsNumber;
-                while (!(RefrigtzDLL.ChessRules.ObjectHittedRow != -1 && RefrigtzDLL.ChessRules.ObjectHittedColumn != -1) &&
-                    (!RefrigtzDLL.AllDraw.ActionStringReady) &&
-                         (!(RefrigtzDLL.AllDraw.OutPut != "")) &&
-                             (!(RefrigtzDLL.AllDraw.ConvertedKind == -1)) &&
-                                 (!StateCC) &&
-                                     (!StateCP))
+                Object o = new Object();
+                lock (o)
                 {
-                    Thread.Sleep(1);
-
-                }
-                if (RefrigtzDLL.ChessRules.ObjectHittedRow != -1 && RefrigtzDLL.ChessRules.ObjectHittedColumn != -1)
-                {
-                    SetObjectInPictureBox(RefrigtzDLL.ChessRules.ObjectHittedRow, RefrigtzDLL.ChessRules.ObjectHittedColumn);
-                    RefrigtzDLL.ChessRules.ObjectHittedRow = -1;
-                    RefrigtzDLL.ChessRules.ObjectHittedColumn = -1;
-                }
-                if (RefrigtzDLL.AllDraw.ActionStringReady)
-                {
-                    SetBoxText(RefrigtzDLL.AllDraw.ActionString);
-                    RefreshBoxText();
-                    RefrigtzDLL.AllDraw.ActionString = "";
-                    RefrigtzDLL.AllDraw.ActionStringReady = false;
-                }
-                if (RefrigtzDLL.AllDraw.OutPut != "")
-                {
-                    SetBoxText(RefrigtzDLL.AllDraw.OutPut);
-                    RefreshBoxText();
-                    RefrigtzDLL.AllDraw.OutPut = "";
-
-                }
-
-
-                if (RefrigtzDLL.AllDraw.ConvertedKind == -1)
-                {
-                    FormُSelectItems.Items = -1;
-                    FormُSelectItems A = new FormُSelectItems();
-                    A.ShowDialog();
-
-
-                    while (RefrigtzDLL.AllDraw.ConvertedKind == -1) { RefrigtzDLL.AllDraw.ConvertedKind = FormُSelectItems.Items; Thread.Sleep(10); }
-
-
-                }
-
-                if (LoadedDLL)
-                {
-                    SetcomboBoxText();
-                    LoadedDLL = false;
-                }
-                //public static AllDraw THISDummy;
-                RefrigtzDLL.AllDraw.StateCP = StateCP;
-                if (StateCP && (!Stockfish))
-                {
-                    if (OrderPlate == -1 && Sec.radioButtonGrayOrder.Checked)
+                    if (!Quantum)
                     {
-                        LastRow = RefrigtzDLL.AllDraw.LastRow;
-                        LastColumn = RefrigtzDLL.AllDraw.LastColumn;
-                        NextRow = RefrigtzDLL.AllDraw.NextRow;
-                        NextColumn = RefrigtzDLL.AllDraw.NextRow;
-                    }
-                    else if (OrderPlate == 1 && Sec.radioButtonBrownOrder.Checked)
-                    {
-                        LastRow = RefrigtzDLL.AllDraw.LastRow;
-                        LastColumn = RefrigtzDLL.AllDraw.LastColumn;
-                        NextRow = RefrigtzDLL.AllDraw.NextRow;
-                        NextColumn = RefrigtzDLL.AllDraw.NextRow;
-                    }
-                }
-                else
-                        if (StateCP && Stockfish)
-                {
-                    if (OrderPlate == -1 && Sec.radioButtonGrayOrder.Checked)
-                    {
-                        LastRow = RefrigtzDLL.AllDraw.LastRow;
-                        LastColumn = RefrigtzDLL.AllDraw.LastColumn;
-                        NextRow = RefrigtzDLL.AllDraw.NextRow;
-                        NextColumn = RefrigtzDLL.AllDraw.NextRow;
-                    }
-                }
-               // System.Threading.Thread.Sleep(10);
-            }
+                        //System.Threading.Thread.Sleep(10);
+                        RefrigtzDLL.AllDraw.Root = Root;
+                        RefrigtzDLL.AllDraw.OrderPlate = OrderPlate;
+                        RefrigtzDLL.AllDraw.Blitz = Blitz;
+                        ConvertWait = RefrigtzDLL.AllDraw.ConvertWait;
+                        RefrigtzDLL.AllDraw.Stockfish = Stockfish;
+                        RefrigtzDLL.AllDraw.Person = Person;
+                        RefrigtzDLL.AllDraw.THISSecradioButtonGrayOrderChecked = Sec.radioButtonGrayOrder.Checked;
+                        RefrigtzDLL.AllDraw.THISSecradioButtonBrownOrderChecked = Sec.radioButtonBrownOrder.Checked;
+                        RefrigtzDLL.AllDraw.MovmentsNumber = MovmentsNumber;
+                        while (!(RefrigtzDLL.ChessRules.ObjectHittedRow != -1 && RefrigtzDLL.ChessRules.ObjectHittedColumn != -1) &&
+                            (!RefrigtzDLL.AllDraw.ActionStringReady) &&
+                                 (!(RefrigtzDLL.AllDraw.OutPut != "")) &&
+                                     (!(RefrigtzDLL.AllDraw.ConvertedKind == -1)) &&
+                                         (!StateCC) &&
+                                             (!StateCP))
+                        {
+                            Thread.Sleep(1);
 
-                } while (true);
+                        }
+                        if (RefrigtzDLL.ChessRules.ObjectHittedRow != -1 && RefrigtzDLL.ChessRules.ObjectHittedColumn != -1)
+                        {
+                            SetObjectInPictureBox(RefrigtzDLL.ChessRules.ObjectHittedRow, RefrigtzDLL.ChessRules.ObjectHittedColumn);
+                            RefrigtzDLL.ChessRules.ObjectHittedRow = -1;
+                            RefrigtzDLL.ChessRules.ObjectHittedColumn = -1;
+                        }
+                        if (RefrigtzDLL.AllDraw.ActionStringReady)
+                        {
+                            SetBoxText(RefrigtzDLL.AllDraw.ActionString);
+                            RefreshBoxText();
+                            RefrigtzDLL.AllDraw.ActionString = "";
+                            RefrigtzDLL.AllDraw.ActionStringReady = false;
+                        }
+                        if (RefrigtzDLL.AllDraw.OutPut != "")
+                        {
+                            SetBoxText(RefrigtzDLL.AllDraw.OutPut);
+                            RefreshBoxText();
+                            RefrigtzDLL.AllDraw.OutPut = "";
+
+                        }
+
+
+                        if (RefrigtzDLL.AllDraw.ConvertedKind == -1)
+                        {
+                            FormُSelectItems.Items = -1;
+                            FormُSelectItems A = new FormُSelectItems();
+                            A.ShowDialog();
+
+
+                            while (RefrigtzDLL.AllDraw.ConvertedKind == -1) { RefrigtzDLL.AllDraw.ConvertedKind = FormُSelectItems.Items; Thread.Sleep(10); }
+
+
+                        }
+
+                        if (LoadedDLL)
+                        {
+                            SetcomboBoxText();
+                            LoadedDLL = false;
+                        }
+                        //public static AllDraw THISDummy;
+                        RefrigtzDLL.AllDraw.StateCP = StateCP;
+                        if (StateCP && (!Stockfish))
+                        {
+                            if (OrderPlate == -1 && Sec.radioButtonGrayOrder.Checked)
+                            {
+                                LastRow = RefrigtzDLL.AllDraw.LastRow;
+                                LastColumn = RefrigtzDLL.AllDraw.LastColumn;
+                                NextRow = RefrigtzDLL.AllDraw.NextRow;
+                                NextColumn = RefrigtzDLL.AllDraw.NextRow;
+                            }
+                            else if (OrderPlate == 1 && Sec.radioButtonBrownOrder.Checked)
+                            {
+                                LastRow = RefrigtzDLL.AllDraw.LastRow;
+                                LastColumn = RefrigtzDLL.AllDraw.LastColumn;
+                                NextRow = RefrigtzDLL.AllDraw.NextRow;
+                                NextColumn = RefrigtzDLL.AllDraw.NextRow;
+                            }
+                        }
+                        else
+                                if (StateCP && Stockfish)
+                        {
+                            if (OrderPlate == -1 && Sec.radioButtonGrayOrder.Checked)
+                            {
+                                LastRow = RefrigtzDLL.AllDraw.LastRow;
+                                LastColumn = RefrigtzDLL.AllDraw.LastColumn;
+                                NextRow = RefrigtzDLL.AllDraw.NextRow;
+                                NextColumn = RefrigtzDLL.AllDraw.NextRow;
+                            }
+                        }
+                        // System.Threading.Thread.Sleep(10);
+
+                    }
+                    else
+                    {//System.Threading.Thread.Sleep(10);
+                        QuantumRefrigiz.AllDraw.Root = Root;
+                        QuantumRefrigiz.AllDraw.OrderPlate = OrderPlate;
+                        QuantumRefrigiz.AllDraw.Blitz = Blitz;
+                        ConvertWait = QuantumRefrigiz.AllDraw.ConvertWait;
+                        QuantumRefrigiz.AllDraw.Stockfish = Stockfish;
+                        QuantumRefrigiz.AllDraw.Person = Person;
+                        QuantumRefrigiz.AllDraw.THISSecradioButtonGrayOrderChecked = Sec.radioButtonGrayOrder.Checked;
+                        QuantumRefrigiz.AllDraw.THISSecradioButtonBrownOrderChecked = Sec.radioButtonBrownOrder.Checked;
+                        QuantumRefrigiz.AllDraw.MovmentsNumber = MovmentsNumber;
+                        while (!(QuantumRefrigiz.ChessRules.ObjectHittedRow != -1 && QuantumRefrigiz.ChessRules.ObjectHittedColumn != -1) &&
+                            (!QuantumRefrigiz.AllDraw.ActionStringReady) &&
+                                 (!(QuantumRefrigiz.AllDraw.OutPut != "")) &&
+                                     (!(QuantumRefrigiz.AllDraw.ConvertedKind == -1)) &&
+                                         (!StateCC) &&
+                                             (!StateCP))
+                        {
+                            Thread.Sleep(1);
+
+                        }
+                        if (QuantumRefrigiz.ChessRules.ObjectHittedRow != -1 && QuantumRefrigiz.ChessRules.ObjectHittedColumn != -1)
+                        {
+                            SetObjectInPictureBox(QuantumRefrigiz.ChessRules.ObjectHittedRow, QuantumRefrigiz.ChessRules.ObjectHittedColumn);
+                            QuantumRefrigiz.ChessRules.ObjectHittedRow = -1;
+                            QuantumRefrigiz.ChessRules.ObjectHittedColumn = -1;
+                        }
+                        if (QuantumRefrigiz.AllDraw.ActionStringReady)
+                        {
+                            SetBoxText(QuantumRefrigiz.AllDraw.ActionString);
+                            RefreshBoxText();
+                            QuantumRefrigiz.AllDraw.ActionString = "";
+                            QuantumRefrigiz.AllDraw.ActionStringReady = false;
+                        }
+                        if (QuantumRefrigiz.AllDraw.OutPut != "")
+                        {
+                            SetBoxText(QuantumRefrigiz.AllDraw.OutPut);
+                            RefreshBoxText();
+                            RefrigtzDLL.AllDraw.OutPut = "";
+
+                        }
+
+
+                        if (RefrigtzDLL.AllDraw.ConvertedKind == -1)
+                        {
+                            FormُSelectItems.Items = -1;
+                            FormُSelectItems A = new FormُSelectItems();
+                            A.ShowDialog();
+
+
+                            while (RefrigtzDLL.AllDraw.ConvertedKind == -1) { QuantumRefrigiz.AllDraw.ConvertedKind = FormُSelectItems.Items; Thread.Sleep(10); }
+
+
+                        }
+
+                        if (LoadedDLL)
+                        {
+                            SetcomboBoxText();
+                            LoadedDLL = false;
+                        }
+                        //public static AllDraw THISDummy;
+                        QuantumRefrigiz.AllDraw.StateCP = StateCP;
+                        if (StateCP && (!Stockfish))
+                        {
+                            if (OrderPlate == -1 && Sec.radioButtonGrayOrder.Checked)
+                            {
+                                LastRow = QuantumRefrigiz.AllDraw.LastRow;
+                                LastColumn = QuantumRefrigiz.AllDraw.LastColumn;
+                                NextRow = QuantumRefrigiz.AllDraw.NextRow;
+                                NextColumn = QuantumRefrigiz.AllDraw.NextRow;
+                            }
+                            else if (OrderPlate == 1 && Sec.radioButtonBrownOrder.Checked)
+                            {
+                                LastRow = QuantumRefrigiz.AllDraw.LastRow;
+                                LastColumn = QuantumRefrigiz.AllDraw.LastColumn;
+                                NextRow = QuantumRefrigiz.AllDraw.NextRow;
+                                NextColumn = QuantumRefrigiz.AllDraw.NextRow;
+                            }
+                        }
+                        else
+                                if (StateCP && Stockfish)
+                        {
+                            if (OrderPlate == -1 && Sec.radioButtonGrayOrder.Checked)
+                            {
+                                LastRow = QuantumRefrigiz.AllDraw.LastRow;
+                                LastColumn = QuantumRefrigiz.AllDraw.LastColumn;
+                                NextRow = QuantumRefrigiz.AllDraw.NextRow;
+                                NextColumn = QuantumRefrigiz.AllDraw.NextRow;
+                            }
+                        }
+                        // System.Threading.Thread.Sleep(10);
+                    }
+
+                }
+            } while (true);
+
+
             SetDLL = false;
         }
         void Timerstart()
@@ -2637,8 +2736,9 @@ namespace Refrigtz
                 if (QuantumRefrigiz.AllDraw.TableListAction.Count == 0)
                     QuantumRefrigiz.AllDraw.TableListAction.Add(Table);
             }
-
+            
             DrawImageOfMain();
+
 
             bool A = GrayTimer.TextChanged;
             GrayTimer.TextChanged = true;
@@ -3472,7 +3572,7 @@ namespace Refrigtz
 
                     bookConn.Close();
                     bookConn.Open();
-                    oleDbCmd.CommandText = "Insert into Configuration (checkBoxAStarGreedyHuristic,checkBoxPredictHuristci,checkBoxAStarGreadyFirstSearch,checkBoxBestMovments,checkBoxOnlySelf,radioButtonOriginalImages,radioButtonBigFittingImages,radioButtonSmallFittingImages,checkBoxAStarGreedyMovement,checkBoxUseDoubleTime,checkBoxUsePenaltyRegradMechnisam,checkBoxDynamicProgrammingAStarGreedyt,comboBoxMaxTree,comboBoxAttack,comboBoxObjectDangour,comboBoxReducedAttacked,comboBoxSupport,comboBoxHitting,comboBoxMovments,ArrangmentsChanged,GrayTimer,BrownTimer,BobSection,AliceSection,StateCP,StateCC,StateGe,Blitz,Person,SettingPRFALSE,FullGame,Stockfish,lable1,lable2,MovmentsNumber,Quantum) values(" + System.Convert.ToInt32(checkBoxAStarGreedyHuristic.Checked).ToString() + "," + System.Convert.ToInt32(checkBoxPredictHuristci.Checked).ToString() + "," + System.Convert.ToInt32(checkBoxAStarGreadyFirstSearch.Checked).ToString() + "," + System.Convert.ToInt32(checkBoxBestMovments.Checked).ToString() + "," + System.Convert.ToInt32(checkBoxOnlySelf.Checked).ToString() + "," + System.Convert.ToInt32(radioButtonOriginalImages.Checked).ToString() + "," + System.Convert.ToInt32(radioButtonBigFittingImages.Checked).ToString() + "," + System.Convert.ToInt32(radioButtonSmallFittingImages.Checked).ToString() + "," + System.Convert.ToInt32(checkBoxBestMovments.Checked).ToString() + "," + System.Convert.ToInt32(checkBoxUseDoubleTime.Checked).ToString() + "," + System.Convert.ToInt32(checkBoxUsePenaltyRegradMechnisam.Checked).ToString() + "," + System.Convert.ToInt32(checkBoxDynamicProgrammingAStarGreedyt.Checked).ToString() + "," + System.Convert.ToInt32(comboBoxMaxLevel.Text).ToString() + "," + System.Convert.ToInt32(comboBoxAttack.Text).ToString() + "," + System.Convert.ToInt32(comboBoxObjectDangour.Text).ToString() + "," + System.Convert.ToInt32(comboBoxReducedAttacked.Text).ToString() + "," + System.Convert.ToInt32(comboBoxSupport.Text).ToString() + "," + System.Convert.ToInt32(comboBoxKiller.Text).ToString() + "," + System.Convert.ToInt32(comboBoxMovments.Text).ToString() + "," + System.Convert.ToInt32(ArrangmentsChanged).ToString() + "," + GrayTimer.Times.ToString() + "," + BrownTimer.Times.ToString() + "," + System.Convert.ToInt32(BobSection).ToString() + "," + System.Convert.ToInt32(AliceSection).ToString() + "," + System.Convert.ToInt32(StateCP).ToString() + "," + System.Convert.ToInt32(StateCC).ToString() + "," + System.Convert.ToInt32(StateGe).ToString() + "," + System.Convert.ToInt32(Blitz).ToString() + "," + System.Convert.ToInt32(Person).ToString() + "," + System.Convert.ToInt32(SettingPRFALSE).ToString() + "," + System.Convert.ToInt32(FullGame).ToString() + "," + System.Convert.ToInt32(Stockfish).ToString() + ",'" + label1.Text + "','" + label2.Text + "','" + MovmentsNumber.ToString() + "','"+System.Convert.ToInt32(Quantum)+"')";
+                    oleDbCmd.CommandText = "Insert into Configuration (checkBoxAStarGreedyHuristic,checkBoxPredictHuristci,checkBoxAStarGreadyFirstSearch,checkBoxBestMovments,checkBoxOnlySelf,radioButtonOriginalImages,radioButtonBigFittingImages,radioButtonSmallFittingImages,checkBoxAStarGreedyMovement,checkBoxUseDoubleTime,checkBoxUsePenaltyRegradMechnisam,checkBoxDynamicProgrammingAStarGreedyt,comboBoxMaxTree,comboBoxAttack,comboBoxObjectDangour,comboBoxReducedAttacked,comboBoxSupport,comboBoxHitting,comboBoxMovments,ArrangmentsChanged,GrayTimer,BrownTimer,BobSection,AliceSection,StateCP,StateCC,StateGe,Blitz,Person,SettingPRFALSE,FullGame,Stockfish,lable1,lable2,MovmentsNumber,Quantum) values(" + System.Convert.ToInt32(checkBoxAStarGreedyHuristic.Checked).ToString() + "," + System.Convert.ToInt32(checkBoxPredictHuristci.Checked).ToString() + "," + System.Convert.ToInt32(checkBoxAStarGreadyFirstSearch.Checked).ToString() + "," + System.Convert.ToInt32(checkBoxBestMovments.Checked).ToString() + "," + System.Convert.ToInt32(checkBoxOnlySelf.Checked).ToString() + "," + System.Convert.ToInt32(radioButtonOriginalImages.Checked).ToString() + "," + System.Convert.ToInt32(radioButtonBigFittingImages.Checked).ToString() + "," + System.Convert.ToInt32(radioButtonSmallFittingImages.Checked).ToString() + "," + System.Convert.ToInt32(checkBoxBestMovments.Checked).ToString() + "," + System.Convert.ToInt32(checkBoxUseDoubleTime.Checked).ToString() + "," + System.Convert.ToInt32(checkBoxUsePenaltyRegradMechnisam.Checked).ToString() + "," + System.Convert.ToInt32(checkBoxDynamicProgrammingAStarGreedyt.Checked).ToString() + "," + System.Convert.ToInt32(comboBoxMaxLevel.Text).ToString() + "," + System.Convert.ToInt32(comboBoxAttack.Text).ToString() + "," + System.Convert.ToInt32(comboBoxObjectDangour.Text).ToString() + "," + System.Convert.ToInt32(comboBoxReducedAttacked.Text).ToString() + "," + System.Convert.ToInt32(comboBoxSupport.Text).ToString() + "," + System.Convert.ToInt32(comboBoxKiller.Text).ToString() + "," + System.Convert.ToInt32(comboBoxMovments.Text).ToString() + "," + System.Convert.ToInt32(ArrangmentsChanged).ToString() + "," + GrayTimer.Times.ToString() + "," + BrownTimer.Times.ToString() + "," + System.Convert.ToInt32(BobSection).ToString() + "," + System.Convert.ToInt32(AliceSection).ToString() + "," + System.Convert.ToInt32(StateCP).ToString() + "," + System.Convert.ToInt32(StateCC).ToString() + "," + System.Convert.ToInt32(StateGe).ToString() + "," + System.Convert.ToInt32(Blitz).ToString() + "," + System.Convert.ToInt32(Person).ToString() + "," + System.Convert.ToInt32(SettingPRFALSE).ToString() + "," + System.Convert.ToInt32(FullGame).ToString() + "," + System.Convert.ToInt32(Stockfish).ToString() + ",'" + label1.Text + "','" + label2.Text + "','" + MovmentsNumber.ToString() + "','" + System.Convert.ToInt32(Quantum).ToString() + "')";
 
                     temp = oleDbCmd.ExecuteNonQuery();
 
@@ -3654,7 +3754,7 @@ namespace Refrigtz
 
 
 
-                    oleDbCmd.CommandText = "Update Configuration Set checkBoxAStarGreedyHuristic=" + System.Convert.ToInt32(checkBoxAStarGreedyHuristic.Checked).ToString() + ",checkBoxPredictHuristci=" + System.Convert.ToInt32(checkBoxPredictHuristci.Checked).ToString() + ",checkBoxAStarGreadyFirstSearch=" + System.Convert.ToInt32(checkBoxAStarGreadyFirstSearch.Checked).ToString() + ",checkBoxBestMovments=" + System.Convert.ToInt32(checkBoxBestMovments.Checked).ToString() + ",checkBoxOnlySelf=" + System.Convert.ToInt32(checkBoxOnlySelf.Checked).ToString() + ",radioButtonOriginalImages=" + System.Convert.ToInt32(radioButtonOriginalImages.Checked).ToString() + ",radioButtonBigFittingImages=" + System.Convert.ToInt32(radioButtonBigFittingImages.Checked).ToString() + ",radioButtonSmallFittingImages=" + System.Convert.ToInt32(radioButtonSmallFittingImages.Checked).ToString() + ",checkBoxAStarGreedyMovement=" + System.Convert.ToInt32(checkBoxAStarGreedyMovement.Checked).ToString() + ",checkBoxUseDoubleTime=" + System.Convert.ToInt32(checkBoxUseDoubleTime.Checked).ToString() + ",checkBoxUsePenaltyRegradMechnisam=" + System.Convert.ToInt32(checkBoxUsePenaltyRegradMechnisam.Checked).ToString() + ",checkBoxDynamicProgrammingAStarGreedyt=" + System.Convert.ToInt32(checkBoxDynamicProgrammingAStarGreedyt.Checked).ToString() + ",comboBoxMaxTree=" + comboBoxMaxLevel.Text + ",comboBoxAttack=" + comboBoxAttack.Text + ",comboBoxObjectDangour=" + comboBoxObjectDangour.Text + ",comboBoxReducedAttacked=" + comboBoxReducedAttacked.Text + ",comboBoxSupport=" + comboBoxSupport.Text + ",comboBoxHitting=" + comboBoxKiller.Text + ",comboBoxMovments=" + comboBoxMovments.Text + ",ArrangmentsChanged=" + System.Convert.ToString(System.Convert.ToInt32(ArrangmentsChanged)) + ",GrayTimer=" + GrayTimer.Times.ToString() + ",BrownTimer=" + BrownTimer.Times.ToString() + ",BobSection = " + System.Convert.ToUInt32(BobSection).ToString() + ",AliceSection =" + System.Convert.ToUInt32(AliceSection).ToString() + ",StateCP = " + System.Convert.ToUInt32(StateCP).ToString() + ",StateCC = " + System.Convert.ToUInt32(StateCC).ToString() + ",StateGe=" + System.Convert.ToUInt32(StateGe).ToString() + ",Blitz=" + System.Convert.ToUInt32(Blitz).ToString() + ",Person=" + System.Convert.ToUInt32(Person).ToString() + ",SettingPRFALSE=" + System.Convert.ToUInt32(SettingPRFALSE).ToString() + ",FullGame=" + System.Convert.ToUInt32(FullGame).ToString() + ",Stockfish=" + System.Convert.ToUInt32(Stockfish).ToString() + ",lable1='" + label1.Text + "',lable2='" + label2.Text + "',MovmentsNumber='" + MovmentsNumber.ToString() + "'" + "Quantum = '" + System.Convert.ToInt32(Quantum) + "'";
+                    oleDbCmd.CommandText = "Update Configuration Set checkBoxAStarGreedyHuristic=" + System.Convert.ToInt32(checkBoxAStarGreedyHuristic.Checked).ToString() + ",checkBoxPredictHuristci=" + System.Convert.ToInt32(checkBoxPredictHuristci.Checked).ToString() + ",checkBoxAStarGreadyFirstSearch=" + System.Convert.ToInt32(checkBoxAStarGreadyFirstSearch.Checked).ToString() + ",checkBoxBestMovments=" + System.Convert.ToInt32(checkBoxBestMovments.Checked).ToString() + ",checkBoxOnlySelf=" + System.Convert.ToInt32(checkBoxOnlySelf.Checked).ToString() + ",radioButtonOriginalImages=" + System.Convert.ToInt32(radioButtonOriginalImages.Checked).ToString() + ",radioButtonBigFittingImages=" + System.Convert.ToInt32(radioButtonBigFittingImages.Checked).ToString() + ",radioButtonSmallFittingImages=" + System.Convert.ToInt32(radioButtonSmallFittingImages.Checked).ToString() + ",checkBoxAStarGreedyMovement=" + System.Convert.ToInt32(checkBoxAStarGreedyMovement.Checked).ToString() + ",checkBoxUseDoubleTime=" + System.Convert.ToInt32(checkBoxUseDoubleTime.Checked).ToString() + ",checkBoxUsePenaltyRegradMechnisam=" + System.Convert.ToInt32(checkBoxUsePenaltyRegradMechnisam.Checked).ToString() + ",checkBoxDynamicProgrammingAStarGreedyt=" + System.Convert.ToInt32(checkBoxDynamicProgrammingAStarGreedyt.Checked).ToString() + ",comboBoxMaxTree=" + comboBoxMaxLevel.Text + ",comboBoxAttack=" + comboBoxAttack.Text + ",comboBoxObjectDangour=" + comboBoxObjectDangour.Text + ",comboBoxReducedAttacked=" + comboBoxReducedAttacked.Text + ",comboBoxSupport=" + comboBoxSupport.Text + ",comboBoxHitting=" + comboBoxKiller.Text + ",comboBoxMovments=" + comboBoxMovments.Text + ",ArrangmentsChanged=" + System.Convert.ToString(System.Convert.ToInt32(ArrangmentsChanged)) + ",GrayTimer=" + GrayTimer.Times.ToString() + ",BrownTimer=" + BrownTimer.Times.ToString() + ",BobSection = " + System.Convert.ToUInt32(BobSection).ToString() + ",AliceSection =" + System.Convert.ToUInt32(AliceSection).ToString() + ",StateCP = " + System.Convert.ToUInt32(StateCP).ToString() + ",StateCC = " + System.Convert.ToUInt32(StateCC).ToString() + ",StateGe=" + System.Convert.ToUInt32(StateGe).ToString() + ",Blitz=" + System.Convert.ToUInt32(Blitz).ToString() + ",Person=" + System.Convert.ToUInt32(Person).ToString() + ",SettingPRFALSE=" + System.Convert.ToUInt32(SettingPRFALSE).ToString() + ",FullGame=" + System.Convert.ToUInt32(FullGame).ToString() + ",Stockfish=" + System.Convert.ToUInt32(Stockfish).ToString() + ",lable1='" + label1.Text + "',lable2='" + label2.Text + "',MovmentsNumber='" + MovmentsNumber.ToString() + "'," + "Quantum = '" + System.Convert.ToInt32(Quantum).ToString() + "'";
                     bookConn.Close();
                     bookConn.Open();
                     int temp = oleDbCmd.ExecuteNonQuery();
@@ -3867,6 +3967,165 @@ namespace Refrigtz
                 //}
             }
         }
+        void DrawObjectsQ()
+        {
+            for (int i = 0; i < DrawQ.SodierHigh; i++)
+            {
+                Object O1 = new Object();
+                lock (O1)
+                {
+                    if (DrawQ.SolderesOnTable[i] != null)
+                    {
+                        try
+                        {
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                DrawQ.SolderesOnTable[i].DrawSoldierOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                            }
+                        }
+                        catch (Exception t)
+                        {
+                            Log(t);
+                        }
+                    }
+                }
+                //}
+            }
+            //}, () =>
+            //{
+            //for(int i = 0;i< DrawQ.ElefantHigh;i++)
+            for (int i = 0; i < DrawQ.ElefantHigh; i++)
+            {
+                Object O1 = new Object();
+                lock (O1)
+                {
+                    if (DrawQ.ElephantOnTable[i] != null)
+                    {
+                        try
+                        {
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                DrawQ.ElephantOnTable[i].DrawElefantOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                            }
+                        }
+                        catch (Exception t)
+                        {
+                            Log(t);
+                        }
+                    }
+                }
+                //}
+            }
+            //}, () =>
+            //{
+            //for(int i = 0;i< DrawQ.HourseHight;i++)
+            for (int i = 0; i < DrawQ.HourseHight; i++)
+            {
+                Object O1 = new Object();
+                lock (O1)
+                {
+                    if (DrawQ.HoursesOnTable[i] != null)
+                    {
+                        try
+                        {
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                DrawQ.HoursesOnTable[i].DrawHourseOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                            }
+                        }
+                        catch (Exception t)
+                        {
+                            Log(t);
+                        }
+                    }
+                }
+                //}
+            }
+            //}, () =>
+            //{
+            for (int i = 0; i < DrawQ.CastleHigh; i++)
+            //for(int i = 0;i< DrawQ.CastleHigh;i++)
+            {
+                Object O1 = new Object();
+                lock (O1)
+                {
+                    if (DrawQ.CastlesOnTable[i] != null)
+                    {
+                        try
+                        {
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                DrawQ.CastlesOnTable[i].DrawCastleOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                            }
+                        }
+                        catch (Exception t)
+                        {
+                            Log(t);
+                        }
+                    }
+                }
+                //}
+                //}, () =>
+                //{
+            }
+            //for(int i = 0;i< DrawQ.MinisterHigh;i++)
+            for (int i = 0; i < DrawQ.MinisterHigh; i++)
+            {
+                Object O1 = new Object();
+                lock (O1)
+                {
+                    if (DrawQ.MinisterOnTable[i] != null)
+                    {
+                        try
+                        {
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                DrawQ.MinisterOnTable[i].DrawMinisterOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                            }
+
+                        }
+                        catch (Exception t)
+                        {
+                            Log(t);
+                        }
+                    }
+                }
+                //}
+                //}, () =>
+            }
+            //{
+            for (int i = 0; i < DrawQ.KingHigh; i++)
+            //for(int i = 0;i< DrawQ.KingHigh;i++)
+            {
+                Object O1 = new Object();
+                lock (O1)
+                {
+                    if (DrawQ.KingOnTable[i] != null)
+                    {
+                        try
+                        {
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                DrawQ.KingOnTable[i].DrawKingOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                            }
+                        }
+                        catch (Exception t)
+                        {
+                            Log(t);
+                        }
+                    }
+                }
+                //}
+                //}
+            }
+        }
+
         //Painting of Form Refregitz PictureBox and Tow Refrigtz.Timer Pictue Box on Time.
         private void pictureBoxRefrigtz_Paint(object sender, PaintEventArgs e)
         {
@@ -3956,8 +4215,10 @@ namespace Refrigtz
                             //System.Threading.Tasks.Parallel.Invoke(() =>
                             //{
                             //for(int i = 0;i< Draw.SodierHigh;i++)
-
-                            DrawObjects();
+                            if (!Quantum)
+                                DrawObjects();
+                            else
+                                DrawObjectsQ();
 
                             pictureBoxRefrigtz.Image = ChessTable;
                             g.Dispose();
@@ -3993,10 +4254,11 @@ namespace Refrigtz
                 //pictureBoxRefrigtz.Invalidate();
                 //pictureBoxRefrigtz.Update();
 
-                else {
+                else
+                {
                     if (!Quantum)
                     {
-                        if (QuantumRefrigiz.AllDraw.DrawTable)
+                        if (RefrigtzDLL.AllDraw.DrawTable)
                         {
                             //System.Threading.Thread.Sleep(100);
                             if (GameStarted && MovmentsNumber == 0)
@@ -4077,8 +4339,124 @@ namespace Refrigtz
                                 //System.Threading.Tasks.Parallel.Invoke(() =>
                                 //{
                                 //for(int i = 0;i< Draw.SodierHigh;i++)
-
                                 DrawObjects();
+
+                                pictureBoxRefrigtz.Image = ChessTable;
+                                g.Dispose();
+                            }
+                            catch (Exception t)
+                            {
+                                Log(t);
+
+
+                                //RunInFront();
+                            }
+                        }
+                        LoadedTable = true;
+                        //UpadatTimer();
+
+                        /*while (PaintedPaused && DrawNumber > 50)
+                        {
+                            System.Threading.Thread.Sleep(10);
+                        }
+
+                        DrawNumber++;
+                        if (DrawNumber >= 50)
+                            DrawNumber = 0;
+
+                         */
+                        AllDrawLoad = true;
+                        //pictureBoxTimerGray.Update();
+                        //pictureBoxTimerGray.Invalidate();
+
+                        //return;
+                        System.Threading.Thread.Sleep(20);
+                    }
+                    else
+                    {
+                        if (QuantumRefrigiz.AllDraw.DrawTable)
+                        {
+                            //System.Threading.Thread.Sleep(100);
+                            if (GameStarted && MovmentsNumber == 0)
+                                buttonChangeArrangment.Visible = false;
+                            //System.Threading.Thread.Sleep(8);
+
+                            //if (QuantumRefrigiz.AllDraw.TableListAction.Count > 3)
+                            //toolStripMenuItemRandomGeneticGames.Enabled = true;
+                            //else
+                            //  toolStripMenuItemRandomGeneticGames.Enabled = false;
+
+                            if (GrayTimer.EndTime)
+                                BrownWiner = true;
+                            if (BrownTimer.EndTime)
+                                GrayWinner = true;
+                            if (GrayWinner || BrownWiner)
+                            {
+                                if (t1 != null)
+                                    t1.Abort();
+                                if (t2 != null)
+                                    t2.Abort();
+                                if (t3 != null)
+                                    t3.Abort();
+                                if (GrayWinner)
+                                    SetBoxText("\r\nGray Winees!");
+                                if (BrownWiner)
+                                    SetBoxText("\r\nBrown Winees!");
+
+                                return;
+                            }
+                            try
+                            {
+                                QuantumRefrigiz.AllDraw.DrawTable = false;
+                                //ReconstructTable();
+                                pictureBoxRefrigtz.Image = (Image)new Bitmap(pictureBoxRefrigtz.Width, pictureBoxRefrigtz.Height);
+                                ChessTable = (Image)new Bitmap(pictureBoxRefrigtz.Image.Width, pictureBoxRefrigtz.Image.Height);
+                                g = Graphics.FromImage(ChessTable);
+                                g.FillRectangle(new SolidBrush(Color.Yellow), new Rectangle(0, 0, pictureBoxRefrigtz.Width, pictureBoxRefrigtz.Height));
+                                DrawQ.SetObjectNumbers(DrawQ.TableList[0]);
+
+                                for (int i = 0; i < pictureBoxRefrigtz.Image.Width; i += pictureBoxRefrigtz.Image.Width / 8)
+                                    for (int j = 0; j < pictureBoxRefrigtz.Image.Height; j += pictureBoxRefrigtz.Image.Height / 8)
+                                    {
+                                        try
+                                        {
+                                            if ((i + j) % 2 == 0)
+                                                g.DrawImage(Image.FromFile(Root + "\\Images\\Program\\Black.jpg"), new Rectangle(i, j, this.pictureBoxRefrigtz.Width / 8, this.pictureBoxRefrigtz.Height / 8));
+                                            else
+                                                g.DrawImage(Image.FromFile(Root + "\\Images\\Program\\White.jpg"), new Rectangle(i, j, this.pictureBoxRefrigtz.Width / 8, this.pictureBoxRefrigtz.Height / 8));
+
+                                        }
+                                        catch (Exception t) { Log(t); }
+                                    }
+                                if (RowClickP != -1 && ColumnClickP != -1)
+                                {
+                                    Color a = Color.Gray;
+                                    if (OrderPlate == -1)
+                                        a = Color.Brown;
+                                    bool[,] Tab = null;
+                                    Tab = VeryFye(Table, OrderPlate, a);
+                                    for (int i = 0; i < pictureBoxRefrigtz.Image.Width; i += pictureBoxRefrigtz.Image.Width / 8)
+                                        for (int j = 0; j < pictureBoxRefrigtz.Image.Height; j += pictureBoxRefrigtz.Image.Height / 8)
+                                        {
+                                            try
+                                            {
+                                                if (Tab != null)
+                                                {
+                                                    if (Tab[i / (pictureBoxRefrigtz.Image.Width / 8), j / (pictureBoxRefrigtz.Image.Height / 8)])
+                                                    {
+                                                        g.DrawString("*", new Font("Times New Roman", 50), new SolidBrush(Color.Red), new Rectangle(i, j, this.pictureBoxRefrigtz.Width / 8, this.pictureBoxRefrigtz.Height / 8));
+                                                    }
+                                                }
+
+                                            }
+                                            catch (Exception t) { Log(t); }
+                                        }
+                                }
+                                //System.Threading.Tasks.Parallel.Invoke(() =>
+                                //{
+                                //for(int i = 0;i< Draw.SodierHigh;i++)
+
+                                DrawObjectsQ();
 
                                 pictureBoxRefrigtz.Image = ChessTable;
                                 g.Dispose();
@@ -4114,10 +4492,7 @@ namespace Refrigtz
                 }
             }
         }
-        void SetRefregitzBicture()
-        {
-
-        }
+       
         double CalculateMoveMentHueuristicUser(int[,] Table, int Order, int Row, int Column, int RowSource, int ColumnS, Color color)
             {
 
