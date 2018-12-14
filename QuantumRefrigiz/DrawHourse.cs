@@ -12,7 +12,7 @@ namespace QuantumRefrigiz
         //A quantum move cannot be used to take a piece.
         public bool IsQuntumMove = false;
         //Pieces have rings around them, filled in with colour. These rings show the probability that the piece is in that square.
-        public bool RingHalf = true;
+        public bool RingHalf = false;
         public int WinOcuuredatChiled = 0;
         private readonly object balanceLock = new object();
         private readonly object balanceLockS = new object();
@@ -114,8 +114,6 @@ namespace QuantumRefrigiz
             )
         {
 
-            if (IsQuntumMove)
-                RingHalf = true;
             {
                 if (H[0] == null && H[1] == null)
                 {
@@ -188,7 +186,7 @@ namespace QuantumRefrigiz
             try
             {
 
-
+                RingHalf = true;
                 lock (balanceLockS)
                 {
                     if (H[0] == null || H[1] == null)

@@ -14,7 +14,7 @@ namespace QuantumRefrigiz
         //Pieces have rings around them, filled in with colour. These rings show the probability that the piece is in that square.
         public static bool KingGrayNotCheckedByQuantumMove = false;
         public static bool KingBrownNotCheckedByQuantumMove = false;
-        public bool RingHalf = true;
+        public bool RingHalf = false;
         public int WinOcuuredatChiled = 0;
         private readonly object balanceLock = new object();
         private readonly object balanceLockS = new object();
@@ -119,8 +119,6 @@ namespace QuantumRefrigiz
             )
         {
 
-            if (IsQuntumMove)
-                RingHalf = true;
             lock (balanceLock)
             {
                 if (K[0] == null && K[1] == null)
@@ -196,7 +194,7 @@ namespace QuantumRefrigiz
             try
             {
 
-                
+                RingHalf = true;
                 lock (balanceLockS)
                 {
                     if (K[0] == null || K[1] == null)
