@@ -48,11 +48,8 @@ namespace Refrigtz
                                 Curent.Draw = Curent.RootFound();
 
                                 RefrigtzDLL.AllDraw THIS = null;
-                                QuantumRefrigiz.AllDraw THISQ = null;
-                                if (!Quantum)
-                                    Curent.SetDrawFounding(ref FOUND, ref THIS, false);
-                                else
-                                    Curent.SetDrawFounding(ref FOUND, ref THISQ, false);
+
+                                Curent.SetDrawFounding(ref FOUND, ref THIS, false);
                                 DrawDrawen = true;
 
                                 System.Windows.Forms.MessageBox.Show("Load Completed.");
@@ -72,12 +69,8 @@ namespace Refrigtz
 
                                 Curent.DrawQ = Curent.RootFoundQ();
 
-                                RefrigtzDLL.AllDraw THIS = null;
                                 QuantumRefrigiz.AllDraw THISQ = null;
-                                if (!Quantum)
-                                    Curent.SetDrawFounding(ref FOUND, ref THIS, false);
-                                else
-                                    Curent.SetDrawFounding(ref FOUND, ref THISQ, false);
+                                Curent.SetDrawFounding(ref FOUND, ref THISQ, false);
                                 DrawDrawen = true;
 
                                 System.Windows.Forms.MessageBox.Show("Load Completed.");
@@ -119,7 +112,7 @@ namespace Refrigtz
                         {
                             Curent.DrawQ = Curent.RootFoundQ();
                             rt.AllDrawCurrentAccessQ = Curent.DrawQ;
-                            rt.RewriteAllDraw(FormRefrigtz.OrderPlate);
+                            rt.RewriteAllDrawQ(FormRefrigtz.OrderPlate);
                             QuantumRefrigiz.AllDraw.DrawTable = false;
                             Curent.SetBoxText("\r\nSaved Completed.");
                             Curent.RefreshBoxText();
