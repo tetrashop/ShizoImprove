@@ -34,26 +34,54 @@ namespace Refrigtz
                 {
                     if (FormRefrigtz.MovmentsNumber >= 0)
                     {
-                        GalleryStudio.RefregizMemmory tr = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-                        RefrigtzDLL.AllDraw t = tr.Load(FormRefrigtz.OrderPlate);
-                        if (t != null)
+                        if (!Quantum)
                         {
-                            Curent.Draw = t;
+                            GalleryStudio.RefregizMemmory tr = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                            RefrigtzDLL.AllDraw t = tr.Load(Quantum, FormRefrigtz.OrderPlate);
+                            if (t != null)
+                            {
+                                Curent.Draw = t;
 
-                            LoadTree = true;
-                            bool FOUND = false;
+                                LoadTree = true;
+                                bool FOUND = false;
 
-                            Curent.Draw = Curent.RootFound();
+                                Curent.Draw = Curent.RootFound();
 
-                            RefrigtzDLL.AllDraw THIS = null;
-                            QuantumRefrigiz.AllDraw THISQ = null;
-                            if(!Quantum)
-                                Curent.SetDrawFounding(ref FOUND, ref THIS, false);
-                            else
-                                Curent.SetDrawFounding(ref FOUND, ref THISQ, false);
-                            DrawDrawen = true;
+                                RefrigtzDLL.AllDraw THIS = null;
+                                QuantumRefrigiz.AllDraw THISQ = null;
+                                if (!Quantum)
+                                    Curent.SetDrawFounding(ref FOUND, ref THIS, false);
+                                else
+                                    Curent.SetDrawFounding(ref FOUND, ref THISQ, false);
+                                DrawDrawen = true;
 
-                            System.Windows.Forms.MessageBox.Show("Load Completed.");
+                                System.Windows.Forms.MessageBox.Show("Load Completed.");
+                            }
+                        }
+                        else
+                        {
+                            GalleryStudio.RefregizMemmory tr = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                           QuantumRefrigiz.AllDraw t = tr.LoadQ(Quantum, FormRefrigtz.OrderPlate);
+                            if (t != null)
+                            {
+                               
+                                Curent.DrawQ = t;
+
+                                LoadTree = true;
+                                bool FOUND = false;
+
+                                Curent.DrawQ = Curent.RootFoundQ();
+
+                                RefrigtzDLL.AllDraw THIS = null;
+                                QuantumRefrigiz.AllDraw THISQ = null;
+                                if (!Quantum)
+                                    Curent.SetDrawFounding(ref FOUND, ref THIS, false);
+                                else
+                                    Curent.SetDrawFounding(ref FOUND, ref THISQ, false);
+                                DrawDrawen = true;
+
+                                System.Windows.Forms.MessageBox.Show("Load Completed.");
+                            }
                         }
                     }
                     File.Delete("AllDraw.asd");

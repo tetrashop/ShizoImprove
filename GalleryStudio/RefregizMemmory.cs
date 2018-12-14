@@ -482,7 +482,7 @@ namespace GalleryStudio
                 }                
             }
         }
-        public AllDraw Load(int Order)
+        public AllDraw Load(bool Quantum, int Order)
         {
             Object o = new Object();
             lock (o)
@@ -495,16 +495,17 @@ namespace GalleryStudio
                 //Node.AllDrawNextAccessM = null;
                 //Node.AllDrawNextAccessK = null;
                 //Node.AllDrawCurrentAccess = null;
-                AllDraw t = null; 
+                AllDraw t = null;
+                QuantumRefrigiz.AllDraw tQ = null;
                 try
                 {
                     FileStream DummyFileStream = new FileStream(SAllDraw, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.ReadWrite);
                     BinaryFormatter Formatters = new BinaryFormatter();
-                 
+
                     Console.WriteLine("Loading...");
                     DummyFileStream.Seek(0, SeekOrigin.Begin);
-                    t = LoadrEC(Order, this, DummyFileStream, Formatters);
-
+                        t = LoadrEC(Quantum, Order, this, DummyFileStream, Formatters);
+                    
                     DummyFileStream.Flush();
                     DummyFileStream.Close();
                 }
@@ -513,13 +514,45 @@ namespace GalleryStudio
                 //return Node.al;
             }
         }
-        public AllDraw LoadrEC(int Order, GalleryStudio.RefregizMemmory Last, FileStream DummyFileStream, BinaryFormatter Formatters)
+        public  QuantumRefrigiz.AllDraw LoadQ(bool Quantum, int Order)
+        {
+            Object o = new Object();
+            lock (o)
+            {
+
+                //Node.AllDrawNextAccessS = null;
+                //Node.AllDrawNextAccessE = null;
+                //Node.AllDrawNextAccessH = null;
+                //Node.AllDrawNextAccessC = null;
+                //Node.AllDrawNextAccessM = null;
+                //Node.AllDrawNextAccessK = null;
+                //Node.AllDrawCurrentAccess = null;
+                AllDraw t = null;
+                QuantumRefrigiz.AllDraw tQ = null;
+                try
+                {
+                    FileStream DummyFileStream = new FileStream(SAllDraw, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.ReadWrite);
+                    BinaryFormatter Formatters = new BinaryFormatter();
+
+                    Console.WriteLine("Loading...");
+                    DummyFileStream.Seek(0, SeekOrigin.Begin);
+                        tQ = LoadrECQ(Quantum, Order, this, DummyFileStream, Formatters);
+
+                    DummyFileStream.Flush();
+                    DummyFileStream.Close();
+                }
+                catch (IOException tt) { Log(tt); }
+                return tQ;
+                //return Node.al;
+            }
+        }
+        public AllDraw LoadrEC(bool Quantum, int Order, GalleryStudio.RefregizMemmory Last, FileStream DummyFileStream, BinaryFormatter Formatters)
         {
             RefregizMemmory Dummy = null;
             Object o = new Object();
             lock (o)
             {
-                
+
                 //Node.AllDrawNextAccessS = null;
                 //Node.AllDrawNextAccessE = null;
                 //Node.AllDrawNextAccessH = null;
@@ -530,7 +563,7 @@ namespace GalleryStudio
 
                 try
                 {
-                 
+
 
                     //NEWNOD = Node.AllDrawCurrentAccess;
                     while (DummyFileStream.Position < DummyFileStream.Length)
@@ -655,6 +688,151 @@ namespace GalleryStudio
                 catch (IOException tt) { Log(tt); }
                 //return CreateAllDrawFromMemmory(Last, new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT), Order);
                 return Dummy.Current;
+                //return Node.al;
+            }
+        }
+        public QuantumRefrigiz.AllDraw LoadrECQ(bool Quantum, int Order, GalleryStudio.RefregizMemmory Last, FileStream DummyFileStream, BinaryFormatter Formatters)
+        {
+            RefregizMemmory Dummy = null;
+            Object o = new Object();
+            lock (o)
+            {
+
+                //Node.AllDrawNextAccessS = null;
+                //Node.AllDrawNextAccessE = null;
+                //Node.AllDrawNextAccessH = null;
+                //Node.AllDrawNextAccessC = null;
+                //Node.AllDrawNextAccessM = null;
+                //Node.AllDrawNextAccessK = null;
+                //Node.AllDrawCurrentAccess = null;
+
+                try
+                {
+
+
+                    //NEWNOD = Node.AllDrawCurrentAccess;
+                    while (DummyFileStream.Position < DummyFileStream.Length)
+                    {
+                        Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
+                        //Dummy.CloneSphycose(Last);
+                        /*{
+                            //Last = Node;
+                            if (Dummy.NextS.Count > 0 && Dummy.NewListOfNextBegins)
+                            {
+                                do
+                                {
+
+                                    if (DummyFileStream.Position < DummyFileStream.Length)
+                                        Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
+                                    else
+                                        break;
+                                    Last.NextS.Add(Dummy);
+                                } while (!Dummy.NewListOfNextBegins);
+
+                                for (int i = 0; i < Last.NextS.Count; i++)
+                                    Last.NextS[i].Load(Order * -1, Last.NextS[i]);
+
+
+                            }
+                            else
+                            if (Dummy.NextE.Count > 0 && Dummy.NewListOfNextBegins)
+                            {
+                                do
+                                {
+
+                                    
+                                    if (DummyFileStream.Position < DummyFileStream.Length)
+                                        Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
+                                    else
+                                        break;
+                                    Last.NextE.Add(Dummy);
+                                } while (!Dummy.NewListOfNextBegins);
+
+                                for (int i = 0; i < Last.NextE.Count; i++)
+                                    Last.NextE[i].Load(Order * -1, Last.NextE[i]);
+
+                            }
+                            else
+                            if (Dummy.NextH.Count > 0 && Dummy.NewListOfNextBegins)
+                            {
+                                do
+                                {
+
+                                    
+                                    if (DummyFileStream.Position < DummyFileStream.Length)
+                                        Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
+                                    else
+                                        break;
+                                    Last.NextH.Add(Dummy);
+                                } while (!Dummy.NewListOfNextBegins);
+
+                                for (int i = 0; i < Last.NextH.Count; i++)
+                                    Last.NextH[i].Load(Order * -1, Last.NextH[i]);
+
+                            }
+                            else
+                            if (Dummy.NextC.Count > 0 && Dummy.NewListOfNextBegins)
+                            {
+                                do
+                                {
+
+                                    
+                                    if (DummyFileStream.Position < DummyFileStream.Length)
+                                        Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
+                                    else
+                                        break;
+                                    Last.NextC.Add(Dummy);
+                                } while (!Dummy.NewListOfNextBegins);
+
+                                for (int i = 0; i < Last.NextC.Count; i++)
+                                    Last.NextC[i].Load(Order * -1, Last.NextC[i]);
+
+                            }
+                            else
+                            if (Dummy.NextM.Count > 0 && Dummy.NewListOfNextBegins)
+                            {
+                                do
+                                {
+
+                                    
+                                    if (DummyFileStream.Position < DummyFileStream.Length)
+                                        Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
+                                    else
+                                        break;
+                                    Last.NextM.Add(Dummy);
+                                } while (!Dummy.NewListOfNextBegins);
+
+                                for (int i = 0; i < Last.NextM.Count; i++)
+                                    Last.NextM[i].Load(Order * -1, Last.NextM[i]);
+
+                            }
+                            else
+                            if (Dummy.NextK.Count > 0 && Dummy.NewListOfNextBegins)
+                            {
+                                do
+                                {
+
+                                    
+                                    if (DummyFileStream.Position < DummyFileStream.Length)
+                                        Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
+                                    else
+                                        break;
+                                    Last.NextK.Add(Dummy);
+                                } while (!Dummy.NewListOfNextBegins);
+
+                                for (int i = 0; i < Last.NextK.Count; i++)
+                                    Last.NextK[i].Load(Order * -1, Last.NextK[i]);
+                            }
+                            
+                            
+                        }
+                        */
+                    }
+
+                }
+                catch (IOException tt) { Log(tt); }
+                //return CreateAllDrawFromMemmory(Last, new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT), Order);
+                return Dummy.CurrentQ;
                 //return Node.al;
             }
         }

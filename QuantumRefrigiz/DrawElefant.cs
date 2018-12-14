@@ -235,7 +235,7 @@ namespace QuantumRefrigiz
                                     g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
                                     if (this.ElefantThinkingQuantum[0].TableConst[ElefantThinkingQuantum[0].Row, ElefantThinkingQuantum[0].Column] != 0)
                                     {
-                                        g.DrawImage(E[0], new Rectangle((int)(this.ElefantThinkingQuantum[0].Row * (float)CellW), (int)(this.ElefantThinkingQuantum[0].Column * (float)CellH), CellW, CellH));
+                                        g.DrawImage(E[1], new Rectangle((int)(this.ElefantThinkingQuantum[0].Row * (float)CellW), (int)(this.ElefantThinkingQuantum[0].Column * (float)CellH), CellW, CellH));
                                         g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((this.ElefantThinkingQuantum[0].Row * (float)CellW)), (int)(this.ElefantThinkingQuantum[0].Column * (float)CellH), CellW, CellH), -45, 180);
                                     }
                                 }

@@ -232,7 +232,7 @@ namespace QuantumRefrigiz
                                     g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
                                     if (this.MinisterThinkingQuantum[0].TableConst[MinisterThinkingQuantum[0].Row, MinisterThinkingQuantum[0].Column] != 0)
                                     {
-                                        g.DrawImage(M[0], new Rectangle((int)(this.MinisterThinkingQuantum[0].Row * (float)CellW), (int)(this.MinisterThinkingQuantum[0].Column * (float)CellH), CellW, CellH));
+                                        g.DrawImage(M[1], new Rectangle((int)(this.MinisterThinkingQuantum[0].Row * (float)CellW), (int)(this.MinisterThinkingQuantum[0].Column * (float)CellH), CellW, CellH));
                                         g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((this.MinisterThinkingQuantum[0].Row * (float)CellW)), (int)(this.MinisterThinkingQuantum[0].Column * (float)CellH), CellW, CellH), -45, 180);
                                     }
                                 }

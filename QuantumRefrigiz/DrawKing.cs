@@ -258,15 +258,31 @@ namespace QuantumRefrigiz
                                 g.DrawImage(K[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                 if (RingHalf)
                                 {
-                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
-                                    if (AllDraw.OrderPlate == 1)
-                                        KingGrayNotCheckedByQuantumMove = true;
-                                    else
-                                        KingBrownNotCheckedByQuantumMove = true;
+                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
+                                    if (this.KingThinkingQuantum[0].TableConst[KingThinkingQuantum[0].Row, KingThinkingQuantum[0].Column] != 0)
+                                    {
+                                        if (this.KingThinkingQuantum[0].TableConst[KingThinkingQuantum[0].Row, KingThinkingQuantum[0].Column] != 0)
+                                        {
+                                            g.DrawImage(K[1], new Rectangle((int)(this.KingThinkingQuantum[0].Row * (float)CellW), (int)(this.KingThinkingQuantum[0].Column * (float)CellH), CellW, CellH));
+                                            g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((this.KingThinkingQuantum[0].Row * (float)CellW)), (int)(this.KingThinkingQuantum[0].Column * (float)CellH), CellW, CellH), -45, 180);
+                                            if (AllDraw.OrderPlate == 1)
+                                                KingGrayNotCheckedByQuantumMove = true;
+                                            else
+                                                KingBrownNotCheckedByQuantumMove = true;
+                                        }
+                                    }
                                 }
                                 else
                                 {
-                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
+                                    if (this.KingThinkingQuantum[0].TableConst[KingThinkingQuantum[0].Row, KingThinkingQuantum[0].Column] != 0)
+                                    {
+                                        if (this.KingThinkingQuantum[0].TableConst[KingThinkingQuantum[0].Row, KingThinkingQuantum[0].Column] != 0)
+                                        {
+                                            g.DrawImage(K[1], new Rectangle((int)(this.KingThinkingQuantum[0].Row * (float)CellW), (int)(this.KingThinkingQuantum[0].Column * (float)CellH), CellW, CellH));
+                                            g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((this.KingThinkingQuantum[0].Row * (float)CellW)), (int)(this.KingThinkingQuantum[0].Column * (float)CellH), CellW, CellH), -45, 180);
+                                        }
+                                    }
                                     if (AllDraw.OrderPlate == 1)
                                         KingGrayNotCheckedByQuantumMove = true;
                                     else

@@ -4224,23 +4224,6 @@ namespace Refrigtz
                     //MessageBox.Show("Draw Not Found.");
                 }
             }
-            if (Quantum)
-            {
-                BrownTimer = new Refrigtz.Timer(true);
-                GrayTimer = new Refrigtz.Timer(true);
-
-                if (OrderPlate == 1)
-                {
-                    GrayTimer.StartTime();
-                    BrownTimer.StopTime();
-                }
-                else
-                {
-                    GrayTimer.StopTime();
-                    BrownTimer.StartTime();
-                }
-            }
-            else
             if (Blitz)
             {
                 BrownTimer = new Refrigtz.Timer(true);
@@ -4575,10 +4558,18 @@ namespace Refrigtz
                                 TableA[i, j] = Tab[i, j];
                             }
                         }
-
-                        Draw.TableList.Clear();
-                        Draw.TableList.Add(TableA);
-                        Draw.SetRowColumn(0);
+                        if (!Quantum)
+                        {
+                            Draw.TableList.Clear();
+                            Draw.TableList.Add(TableA);
+                            Draw.SetRowColumn(0);
+                        }
+                        else
+                        {
+                            DrawQ.TableList.Clear();
+                            DrawQ.TableList.Add(TableA);
+                            DrawQ.SetRowColumn(0);
+                        }
                         if (!Quantum)
                         {
                             RefrigtzDLL.AllDraw.TableListAction.Add(TableA);
@@ -5885,7 +5876,7 @@ namespace Refrigtz
                             }
                             try
                             {
-                                QuantumRefrigiz.AllDraw.DrawTable = false;
+                                RefrigtzDLL.AllDraw.DrawTable = false;
                                 //ReconstructTable();
                                 pictureBoxRefrigtz.Image = (Image)new Bitmap(pictureBoxRefrigtz.Width, pictureBoxRefrigtz.Height);
                                 ChessTable = (Image)new Bitmap(pictureBoxRefrigtz.Image.Width, pictureBoxRefrigtz.Image.Height);
@@ -6049,7 +6040,6 @@ namespace Refrigtz
                                 //System.Threading.Tasks.Parallel.Invoke(() =>
                                 //{
                                 //for(int i = 0;i< Draw.SodierHigh;i++)
-
                                 DrawObjectsQ();
 
                                 pictureBoxRefrigtz.Image = ChessTable;
@@ -6168,95 +6158,189 @@ namespace Refrigtz
             bool CanHit = true;
             DrawImageOfMain();
             g = Graphics.FromImage(ChessTable);
-
-            if (Kind == 7)
+            if (!Quantum)
             {
+                if (Kind == 7)
+                {
                     Draw.KingOnTable[King].Row = RowRealesed;
                     Draw.KingOnTable[King].Column = ColumnRealeased;
                     Draw.KingOnTable[King].DrawKingOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
-                
-            }
-            else
-                if (Kind == 1)
-            {
+
+                }
+                else
+                    if (Kind == 1)
+                {
                     Draw.SolderesOnTable[Soldier].Row = (int)RowRealesed;
                     Draw.SolderesOnTable[Soldier].Column = (int)ColumnRealeased;
                     Draw.SolderesOnTable[Soldier].DrawSoldierOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
 
 
-            }
-            else
-                if (Kind == 2)
-            {
+                }
+                else
+                    if (Kind == 2)
+                {
                     Draw.ElephantOnTable[Elefant].Row = RowRealesed;
                     Draw.ElephantOnTable[Elefant].Column = ColumnRealeased;
                     Draw.ElephantOnTable[Elefant].DrawElefantOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
-            }
-            else if (Kind == 3)
-            {
+                }
+                else if (Kind == 3)
+                {
                     Draw.HoursesOnTable[Hourse].Row = RowRealesed;
                     Draw.HoursesOnTable[Hourse].Column = ColumnRealeased;
                     Draw.HoursesOnTable[Hourse].DrawHourseOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
-            }
-            else if (Kind == 4)
-            {
+                }
+                else if (Kind == 4)
+                {
                     Draw.CastlesOnTable[Castle].Row = RowRealesed;
                     Draw.CastlesOnTable[Castle].Column = ColumnRealeased;
                     Draw.CastlesOnTable[Castle].DrawCastleOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
-            }
-            else if (Kind == 5)
-            {
+                }
+                else if (Kind == 5)
+                {
                     Draw.MinisterOnTable[Minister].Row = RowRealesed;
                     Draw.MinisterOnTable[Minister].Column = ColumnRealeased;
                     Draw.MinisterOnTable[Minister].DrawMinisterOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
-            }
-            else if (Kind == 6)
-            {
+                }
+                else if (Kind == 6)
+                {
                     Draw.KingOnTable[King].Row = RowRealesed;
                     Draw.KingOnTable[King].Column = ColumnRealeased;
                     Draw.KingOnTable[King].DrawKingOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
-            }
-            else if (Kind == -7)
-            {
+                }
+                else if (Kind == -7)
+                {
                     Draw.KingOnTable[King].Row = RowRealesed;
                     Draw.KingOnTable[King].Column = ColumnRealeased;
                     Draw.KingOnTable[King].DrawKingOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
-            }
-            else if (Kind == -1)
-            {
+                }
+                else if (Kind == -1)
+                {
                     Draw.SolderesOnTable[Soldier].Row = (int)RowRealesed;
                     Draw.SolderesOnTable[Soldier].Column = (int)ColumnRealeased;
                     Draw.SolderesOnTable[Soldier].DrawSoldierOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
-            }
-            else if (Kind == -2)
-            {
+                }
+                else if (Kind == -2)
+                {
                     Draw.ElephantOnTable[Elefant].Row = RowRealesed;
                     Draw.ElephantOnTable[Elefant].Column = ColumnRealeased;
                     Draw.ElephantOnTable[Elefant].DrawElefantOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
-            }
-            else if (Kind == -3)
-            {
+                }
+                else if (Kind == -3)
+                {
                     Draw.HoursesOnTable[Hourse].Row = RowRealesed;
                     Draw.HoursesOnTable[Hourse].Column = ColumnRealeased;
                     Draw.HoursesOnTable[Hourse].DrawHourseOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
-            }
-            else if (Kind == -4)
-            {
+                }
+                else if (Kind == -4)
+                {
                     Draw.CastlesOnTable[Castle].Row = RowRealesed;
                     Draw.CastlesOnTable[Castle].Column = ColumnRealeased;
                     Draw.CastlesOnTable[Castle].DrawCastleOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
-            }
-            else if (Kind == -5)
-            {
+                }
+                else if (Kind == -5)
+                {
                     Draw.MinisterOnTable[Minister].Row = RowRealesed;
                     Draw.MinisterOnTable[Minister].Column = ColumnRealeased;
                     Draw.MinisterOnTable[Minister].DrawMinisterOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
-            }
-            else if (Kind == -6)
-            {
+                }
+                else if (Kind == -6)
+                {
                     Draw.KingOnTable[King].Row = RowRealesed;
                     Draw.KingOnTable[King].Column = ColumnRealeased;
                     Draw.KingOnTable[King].DrawKingOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                }
+            }
+            else
+            {
+                if (Kind == 7)
+                {
+                    DrawQ.KingOnTable[King].Row = RowRealesed;
+                    DrawQ.KingOnTable[King].Column = ColumnRealeased;
+                    DrawQ.KingOnTable[King].DrawKingOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+
+                }
+                else
+                    if (Kind == 1)
+                {
+                    DrawQ.SolderesOnTable[Soldier].Row = (int)RowRealesed;
+                    DrawQ.SolderesOnTable[Soldier].Column = (int)ColumnRealeased;
+                    DrawQ.SolderesOnTable[Soldier].DrawSoldierOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+
+
+                }
+                else
+                    if (Kind == 2)
+                {
+                    DrawQ.ElephantOnTable[Elefant].Row = RowRealesed;
+                    DrawQ.ElephantOnTable[Elefant].Column = ColumnRealeased;
+                    DrawQ.ElephantOnTable[Elefant].DrawElefantOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                }
+                else if (Kind == 3)
+                {
+                    DrawQ.HoursesOnTable[Hourse].Row = RowRealesed;
+                    DrawQ.HoursesOnTable[Hourse].Column = ColumnRealeased;
+                    DrawQ.HoursesOnTable[Hourse].DrawHourseOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                }
+                else if (Kind == 4)
+                {
+                    DrawQ.CastlesOnTable[Castle].Row = RowRealesed;
+                    DrawQ.CastlesOnTable[Castle].Column = ColumnRealeased;
+                    DrawQ.CastlesOnTable[Castle].DrawCastleOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                }
+                else if (Kind == 5)
+                {
+                    DrawQ.MinisterOnTable[Minister].Row = RowRealesed;
+                    DrawQ.MinisterOnTable[Minister].Column = ColumnRealeased;
+                    DrawQ.MinisterOnTable[Minister].DrawMinisterOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                }
+                else if (Kind == 6)
+                {
+                    DrawQ.KingOnTable[King].Row = RowRealesed;
+                    DrawQ.KingOnTable[King].Column = ColumnRealeased;
+                    DrawQ.KingOnTable[King].DrawKingOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                }
+                else if (Kind == -7)
+                {
+                    DrawQ.KingOnTable[King].Row = RowRealesed;
+                    DrawQ.KingOnTable[King].Column = ColumnRealeased;
+                    DrawQ.KingOnTable[King].DrawKingOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                }
+                else if (Kind == -1)
+                {
+                    DrawQ.SolderesOnTable[Soldier].Row = (int)RowRealesed;
+                    DrawQ.SolderesOnTable[Soldier].Column = (int)ColumnRealeased;
+                    DrawQ.SolderesOnTable[Soldier].DrawSoldierOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                }
+                else if (Kind == -2)
+                {
+                    DrawQ.ElephantOnTable[Elefant].Row = RowRealesed;
+                    DrawQ.ElephantOnTable[Elefant].Column = ColumnRealeased;
+                    DrawQ.ElephantOnTable[Elefant].DrawElefantOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                }
+                else if (Kind == -3)
+                {
+                    DrawQ.HoursesOnTable[Hourse].Row = RowRealesed;
+                    DrawQ.HoursesOnTable[Hourse].Column = ColumnRealeased;
+                    DrawQ.HoursesOnTable[Hourse].DrawHourseOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                }
+                else if (Kind == -4)
+                {
+                    DrawQ.CastlesOnTable[Castle].Row = RowRealesed;
+                    DrawQ.CastlesOnTable[Castle].Column = ColumnRealeased;
+                    DrawQ.CastlesOnTable[Castle].DrawCastleOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                }
+                else if (Kind == -5)
+                {
+                    DrawQ.MinisterOnTable[Minister].Row = RowRealesed;
+                    DrawQ.MinisterOnTable[Minister].Column = ColumnRealeased;
+                    DrawQ.MinisterOnTable[Minister].DrawMinisterOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                }
+                else if (Kind == -6)
+                {
+                    DrawQ.KingOnTable[King].Row = RowRealesed;
+                    DrawQ.KingOnTable[King].Column = ColumnRealeased;
+                    DrawQ.KingOnTable[King].DrawKingOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
+                }
             }
             //pictureBoxRefrigtz.Image = ChessTable;
             g.Dispose();
@@ -8072,6 +8156,7 @@ namespace Refrigtz
                         catch (Exception T)
                         {
                             Log(T);
+
                             RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                             //Blitz = true; 
                             //Person = true;
@@ -13835,11 +13920,11 @@ namespace Refrigtz
                                     {
                                         RowClickP = i;
                                         ColumnClickP = j;
-                                        for (int ii = 0; ii < Draw.SodierHigh; ii++)
+                                        for (int ii = 0; ii < DrawQ.SodierHigh; ii++)
                                         {
                                             try
                                             {
-                                                if ((Draw.SolderesOnTable[ii].Row == i & Draw.SolderesOnTable[ii].Column == j) && System.Math.Abs(Table[i, j]) == 1)
+                                                if ((DrawQ.SolderesOnTable[ii].Row == i & DrawQ.SolderesOnTable[ii].Column == j) && System.Math.Abs(Table[i, j]) == 1)
                                                 {
                                                     Soldier = ii;
                                                     QuantumRefrigiz.AllDraw.MouseClick++;
@@ -13854,11 +13939,11 @@ namespace Refrigtz
                                             }
 
                                         }
-                                        for (int ii = 0; ii < Draw.ElefantHigh; ii++)
+                                        for (int ii = 0; ii < DrawQ.ElefantHigh; ii++)
                                         {
                                             try
                                             {
-                                                if ((Draw.ElephantOnTable[ii].Row == i & Draw.ElephantOnTable[ii].Column == j) && System.Math.Abs(Table[i, j]) == 2)
+                                                if ((DrawQ.ElephantOnTable[ii].Row == i & DrawQ.ElephantOnTable[ii].Column == j) && System.Math.Abs(Table[i, j]) == 2)
                                                 {
                                                     Elefant = ii;
                                                     QuantumRefrigiz.AllDraw.MouseClick++;
@@ -13873,11 +13958,11 @@ namespace Refrigtz
                                             }
 
                                         }
-                                        for (int ii = 0; ii < Draw.HourseHight; ii++)
+                                        for (int ii = 0; ii < DrawQ.HourseHight; ii++)
                                         {
                                             try
                                             {
-                                                if ((Draw.HoursesOnTable[ii].Row == i & Draw.HoursesOnTable[ii].Column == j) && System.Math.Abs(Table[i, j]) == 3)
+                                                if ((DrawQ.HoursesOnTable[ii].Row == i & DrawQ.HoursesOnTable[ii].Column == j) && System.Math.Abs(Table[i, j]) == 3)
                                                 {
                                                     Hourse = ii;
                                                     QuantumRefrigiz.AllDraw.MouseClick++;
@@ -13892,11 +13977,11 @@ namespace Refrigtz
                                                 Log(t);
                                             }
                                         }
-                                        for (int ii = 0; ii < Draw.CastleHigh; ii++)
+                                        for (int ii = 0; ii < DrawQ.CastleHigh; ii++)
                                         {
                                             try
                                             {
-                                                if ((Draw.CastlesOnTable[ii].Row == i & Draw.CastlesOnTable[ii].Column == j) && System.Math.Abs(Table[i, j]) == 4)
+                                                if ((DrawQ.CastlesOnTable[ii].Row == i & DrawQ.CastlesOnTable[ii].Column == j) && System.Math.Abs(Table[i, j]) == 4)
                                                 {
                                                     Castle = ii;
                                                     QuantumRefrigiz.AllDraw.MouseClick++;
@@ -13911,11 +13996,11 @@ namespace Refrigtz
                                             }
                                         }
 
-                                        for (int ii = 0; ii < Draw.MinisterHigh; ii++)
+                                        for (int ii = 0; ii < DrawQ.MinisterHigh; ii++)
                                         {
                                             try
                                             {
-                                                if ((Draw.MinisterOnTable[ii].Row == i & Draw.MinisterOnTable[ii].Column == j) && System.Math.Abs(Table[i, j]) == 5)
+                                                if ((DrawQ.MinisterOnTable[ii].Row == i & DrawQ.MinisterOnTable[ii].Column == j) && System.Math.Abs(Table[i, j]) == 5)
                                                 {
                                                     Minister = ii;
                                                     QuantumRefrigiz.AllDraw.MouseClick++;
@@ -13930,11 +14015,11 @@ namespace Refrigtz
                                             }
                                         }
 
-                                        for (int ii = 0; ii < Draw.KingHigh; ii++)
+                                        for (int ii = 0; ii < DrawQ.KingHigh; ii++)
                                         {
                                             try
                                             {
-                                                if ((Draw.KingOnTable[ii].Row == i & Draw.KingOnTable[ii].Column == j) && System.Math.Abs(Table[i, j]) == 6)
+                                                if ((DrawQ.KingOnTable[ii].Row == i & DrawQ.KingOnTable[ii].Column == j) && System.Math.Abs(Table[i, j]) == 6)
                                                 {
                                                     King = ii;
                                                     QuantumRefrigiz.AllDraw.MouseClick++;
@@ -13987,7 +14072,7 @@ namespace Refrigtz
                                     }
                                 }
 
-                                return;
+                                
                             }
                         }
                     }
@@ -14015,63 +14100,127 @@ namespace Refrigtz
                     {
                         if ((e != null) && (pictureBoxRefrigtz != null) && (pictureBoxRefrigtz.Image != null) && (System.Math.Abs(e.X - i * (pictureBoxRefrigtz.Image.Width / 8)) < pictureBoxRefrigtz.Image.Width / 8) && (System.Math.Abs(e.Y - j * (pictureBoxRefrigtz.Image.Height / 8)) < pictureBoxRefrigtz.Image.Height / 8))
                         {
-                            if (QuantumRefrigiz.AllDraw.MouseClick == 1)
+                            if (!Quantum)
                             {
-                                 
-                                ChessTable = pictureBoxRefrigtz.Image;
-                                g = Graphics.FromImage(ChessTable);
+                                if (RefrigtzDLL.AllDraw.MouseClick == 1)
+                                {
 
-                                for (int ii = 0; ii < pictureBoxRefrigtz.Image.Width; ii += pictureBoxRefrigtz.Image.Width / 8)
-                                    for (int jj = 0; jj < pictureBoxRefrigtz.Image.Height; jj += pictureBoxRefrigtz.Image.Height / 8)
-                                    {
-                                        try
+                                    ChessTable = pictureBoxRefrigtz.Image;
+                                    g = Graphics.FromImage(ChessTable);
+
+                                    for (int ii = 0; ii < pictureBoxRefrigtz.Image.Width; ii += pictureBoxRefrigtz.Image.Width / 8)
+                                        for (int jj = 0; jj < pictureBoxRefrigtz.Image.Height; jj += pictureBoxRefrigtz.Image.Height / 8)
                                         {
-                                            if ((i >= 0) && (i < 8) && (j >= 0) && (j < 8) && ((int)(this.pictureBoxRefrigtz.Width / 8) >= 0) && ((int)(this.pictureBoxRefrigtz.Width / 8) < 8) && ((int)(this.pictureBoxRefrigtz.Height / 8) >= 0) && ((int)(this.pictureBoxRefrigtz.Height / 8) < 8)
-                                                )
+                                            try
                                             {
-                                                if ((ii + jj) % 2 == 0)
-                                                    g.DrawImage(Image.FromFile(Root + "\\Images\\Program\\Black.jpg"), new Rectangle((int)ii, (int)jj, (int)(this.pictureBoxRefrigtz.Width / 8), (int)(this.pictureBoxRefrigtz.Height / 8)));
-                                                else
-                                                    g.DrawImage(Image.FromFile(Root + "\\Images\\Program\\White.jpg"), new Rectangle((int)ii, (int)jj, (int)(this.pictureBoxRefrigtz.Width / 8), (int)(this.pictureBoxRefrigtz.Height / 8)));
-                                            }
-
-                                        }
-                                        catch (Exception t) { Log(t); }
-
-
-                                        
-
-                                        Color a = Color.Gray;
-                                        if (OrderPlate == -1)
-                                            a = Color.Brown;
-                                        bool[,] Tab = new bool[8, 8];
-                                        if (RowClickP != -1 && ColumnClickP != -1)
-                                            Tab = VeryFye(Table, OrderPlate, a);
-                                        if (Tab != null)
-                                        {
-                                            if (Tab[ii / (int)(pictureBoxRefrigtz.Image.Width / 8), jj / (int)(pictureBoxRefrigtz.Image.Height / 8)])
-                                            {
-                                                if (((int)(this.pictureBoxRefrigtz.Width / 8) >= 0) && ((int)(this.pictureBoxRefrigtz.Width / 8) < 8) && ((int)(this.pictureBoxRefrigtz.Height / 8) >= 0) && ((int)(this.pictureBoxRefrigtz.Height / 8) < 8 && ((int)(this.pictureBoxRefrigtz.Height) >= jj) && ((int)(this.pictureBoxRefrigtz.Width) >= ii)))
+                                                if ((i >= 0) && (i < 8) && (j >= 0) && (j < 8) && ((int)(this.pictureBoxRefrigtz.Width / 8) >= 0) && ((int)(this.pictureBoxRefrigtz.Width / 8) < 8) && ((int)(this.pictureBoxRefrigtz.Height / 8) >= 0) && ((int)(this.pictureBoxRefrigtz.Height / 8) < 8)
+                                                    )
                                                 {
-                                                    g.DrawString("*", new Font("Times New Roman", 50), new SolidBrush(Color.Red), new Rectangle(new Point(ii, jj), new Size((int)(this.pictureBoxRefrigtz.Width / 8), (int)(this.pictureBoxRefrigtz.Height / 8))));
+                                                    if ((ii + jj) % 2 == 0)
+                                                        g.DrawImage(Image.FromFile(Root + "\\Images\\Program\\Black.jpg"), new Rectangle((int)ii, (int)jj, (int)(this.pictureBoxRefrigtz.Width / 8), (int)(this.pictureBoxRefrigtz.Height / 8)));
+                                                    else
+                                                        g.DrawImage(Image.FromFile(Root + "\\Images\\Program\\White.jpg"), new Rectangle((int)ii, (int)jj, (int)(this.pictureBoxRefrigtz.Width / 8), (int)(this.pictureBoxRefrigtz.Height / 8)));
+                                                }
+
+                                            }
+                                            catch (Exception t) { Log(t); }
+
+
+
+
+                                            Color a = Color.Gray;
+                                            if (OrderPlate == -1)
+                                                a = Color.Brown;
+                                            bool[,] Tab = new bool[8, 8];
+                                            if (RowClickP != -1 && ColumnClickP != -1)
+                                                Tab = VeryFye(Table, OrderPlate, a);
+                                            if (Tab != null)
+                                            {
+                                                if (Tab[ii / (int)(pictureBoxRefrigtz.Image.Width / 8), jj / (int)(pictureBoxRefrigtz.Image.Height / 8)])
+                                                {
+                                                    if (((int)(this.pictureBoxRefrigtz.Width / 8) >= 0) && ((int)(this.pictureBoxRefrigtz.Width / 8) < 8) && ((int)(this.pictureBoxRefrigtz.Height / 8) >= 0) && ((int)(this.pictureBoxRefrigtz.Height / 8) < 8 && ((int)(this.pictureBoxRefrigtz.Height) >= jj) && ((int)(this.pictureBoxRefrigtz.Width) >= ii)))
+                                                    {
+                                                        g.DrawString("*", new Font("Times New Roman", 50), new SolidBrush(Color.Red), new Rectangle(new Point(ii, jj), new Size((int)(this.pictureBoxRefrigtz.Width / 8), (int)(this.pictureBoxRefrigtz.Height / 8))));
+                                                    }
                                                 }
                                             }
                                         }
+
+                                    pictureBoxRefrigtz.Image = ChessTable;
+                                    g.Dispose();
+
+                                    if (RowRealesed == -1 && ColumnRealeased == -1 & RowRealesedP == -1 && ColumnRealeasedP == -1)
+                                    {
+                                        RowRealesed = i;
+                                        ColumnRealeased = j;
+                                        RowRealesedP = i;
+                                        ColumnRealeasedP = j;
+
                                     }
 
-                                pictureBoxRefrigtz.Image = ChessTable;
-                                g.Dispose();
 
-                                if (RowRealesed == -1 && ColumnRealeased == -1 & RowRealesedP == -1 && ColumnRealeasedP == -1)
-                                {
-                                    RowRealesed = i;
-                                    ColumnRealeased = j;
-                                    RowRealesedP = i;
-                                    ColumnRealeasedP = j;
-                                    
                                 }
-                              
+                            }
+                            else
+                            {
+                                if (QuantumRefrigiz.AllDraw.MouseClick == 1)
+                                {
 
+                                    ChessTable = pictureBoxRefrigtz.Image;
+                                    g = Graphics.FromImage(ChessTable);
+
+                                    for (int ii = 0; ii < pictureBoxRefrigtz.Image.Width; ii += pictureBoxRefrigtz.Image.Width / 8)
+                                        for (int jj = 0; jj < pictureBoxRefrigtz.Image.Height; jj += pictureBoxRefrigtz.Image.Height / 8)
+                                        {
+                                            try
+                                            {
+                                                if ((i >= 0) && (i < 8) && (j >= 0) && (j < 8) && ((int)(this.pictureBoxRefrigtz.Width / 8) >= 0) && ((int)(this.pictureBoxRefrigtz.Width / 8) < 8) && ((int)(this.pictureBoxRefrigtz.Height / 8) >= 0) && ((int)(this.pictureBoxRefrigtz.Height / 8) < 8)
+                                                    )
+                                                {
+                                                    if ((ii + jj) % 2 == 0)
+                                                        g.DrawImage(Image.FromFile(Root + "\\Images\\Program\\Black.jpg"), new Rectangle((int)ii, (int)jj, (int)(this.pictureBoxRefrigtz.Width / 8), (int)(this.pictureBoxRefrigtz.Height / 8)));
+                                                    else
+                                                        g.DrawImage(Image.FromFile(Root + "\\Images\\Program\\White.jpg"), new Rectangle((int)ii, (int)jj, (int)(this.pictureBoxRefrigtz.Width / 8), (int)(this.pictureBoxRefrigtz.Height / 8)));
+                                                }
+
+                                            }
+                                            catch (Exception t) { Log(t); }
+
+
+
+
+                                            Color a = Color.Gray;
+                                            if (OrderPlate == -1)
+                                                a = Color.Brown;
+                                            bool[,] Tab = new bool[8, 8];
+                                            if (RowClickP != -1 && ColumnClickP != -1)
+                                                Tab = VeryFye(Table, OrderPlate, a);
+                                            if (Tab != null)
+                                            {
+                                                if (Tab[ii / (int)(pictureBoxRefrigtz.Image.Width / 8), jj / (int)(pictureBoxRefrigtz.Image.Height / 8)])
+                                                {
+                                                    if (((int)(this.pictureBoxRefrigtz.Width / 8) >= 0) && ((int)(this.pictureBoxRefrigtz.Width / 8) < 8) && ((int)(this.pictureBoxRefrigtz.Height / 8) >= 0) && ((int)(this.pictureBoxRefrigtz.Height / 8) < 8 && ((int)(this.pictureBoxRefrigtz.Height) >= jj) && ((int)(this.pictureBoxRefrigtz.Width) >= ii)))
+                                                    {
+                                                        g.DrawString("*", new Font("Times New Roman", 50), new SolidBrush(Color.Red), new Rectangle(new Point(ii, jj), new Size((int)(this.pictureBoxRefrigtz.Width / 8), (int)(this.pictureBoxRefrigtz.Height / 8))));
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                    pictureBoxRefrigtz.Image = ChessTable;
+                                    g.Dispose();
+
+                                    if (RowRealesed == -1 && ColumnRealeased == -1 & RowRealesedP == -1 && ColumnRealeasedP == -1)
+                                    {
+                                        RowRealesed = i;
+                                        ColumnRealeased = j;
+                                        RowRealesedP = i;
+                                        ColumnRealeasedP = j;
+
+                                    }
+
+
+                                }
                             }
                             
                             RowRealesedP = RowRealesed;
@@ -16104,7 +16253,7 @@ namespace Refrigtz
             UpdateConfigurationTableVal = true;
             UpdateConfigurationTable();
             AllDo = false;
-            MessageBox.Show("Reload Project For Quntum Rifrigitz!");
+            //MessageBox.Show("Reload Project For Quntum Rifrigitz!");
             exitToolStripMenuItem_Click(new object(), new EventArgs());
         }
 
