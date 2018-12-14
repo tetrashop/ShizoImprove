@@ -3780,11 +3780,11 @@ namespace Refrigtz
         void SetNodesCount()
         {
             SetNode = true;
-              do
+            do
             {
-            Object O = new Object();
-            lock (O)
-            {
+                Object O = new Object();
+                lock (O)
+                {
                     if (!Quantum)
                     {
                         Int64 FirstTimeD = DateTime.Now.Hour * 3600000 + DateTime.Now.Minute * 60000 + DateTime.Now.Second * 1000 + DateTime.Now.Millisecond;
@@ -3799,7 +3799,8 @@ namespace Refrigtz
                         else
                             SetlableRefregitzMaxValue(labelNodesCount, RefrigtzDLL.ThinkingChess.NumbersOfAllNode.ToString() + " at time " + ((int)(Store)).ToString() + "N/s and by Elapsed time " + ((int)((EndTime - TimeElapsed) / 1000)).ToString() + " s" + " By CheckMate Count " + RefrigtzDLL.ThinkingChess.FoundFirstMating.ToString() + " For Order  " + RefrigtzDLL.AllDraw.OrderPlate.ToString());
                     }
-                    else {
+                    else
+                    {
                         Int64 FirstTimeD = DateTime.Now.Hour * 3600000 + DateTime.Now.Minute * 60000 + DateTime.Now.Second * 1000 + DateTime.Now.Millisecond;
                         Int64 FirstNode = QuantumRefrigiz.ThinkingQuantumChess.NumbersOfAllNode;
                         Thread.Sleep(1);
@@ -3812,10 +3813,10 @@ namespace Refrigtz
                         else
                             SetlableRefregitzMaxValue(labelNodesCount, QuantumRefrigiz.ThinkingQuantumChess.NumbersOfAllNode.ToString() + " at time " + ((int)(Store)).ToString() + "N/s and by Elapsed time " + ((int)((EndTime - TimeElapsed) / 1000)).ToString() + " s" + " By CheckMate Count " + QuantumRefrigiz.ThinkingQuantumChess.FoundFirstMating.ToString() + " For Order  " + QuantumRefrigiz.AllDraw.OrderPlate.ToString());
                     }
-                //labelNodesCount.Refresh();
-                Thread.Sleep(1);
-            }
-              } while (true);
+                    //labelNodesCount.Refresh();
+                    Thread.Sleep(1);
+                }
+            } while (true);
             SetNode = false;
         }
 
@@ -12573,6 +12574,7 @@ namespace Refrigtz
             {
                 if (!Quantum)
                 {
+
                     RefrigtzDLL.AllDraw.TableListAction.Add(Table);
 
                     if (RefrigtzDLL.AllDraw.TableListAction.Count >= 1)
@@ -13030,77 +13032,157 @@ namespace Refrigtz
         }
         public void SetObjectNumbers(int[,] TabS)
         {
-            Draw.SodierMidle = 0;
-            Draw.SodierHigh = 0;
-            Draw.ElefantMidle = 0;
-            Draw.ElefantHigh = 0;
-            Draw.HourseMidle = 0;
-            Draw.HourseHight = 0;
-            Draw.CastleMidle = 0;
-            Draw.CastleHigh = 0;
-            Draw.MinisterMidle = 0;
-            Draw.MinisterHigh = 0;
-            Draw.KingMidle = 0;
-            Draw.KingHigh = 0;
-            for (int h = 0; h < 8; h++)
+            if (!Quantum)
             {
-                for (int s = 0; s < 8; s++)
+                Draw.SodierMidle = 0;
+                Draw.SodierHigh = 0;
+                Draw.ElefantMidle = 0;
+                Draw.ElefantHigh = 0;
+                Draw.HourseMidle = 0;
+                Draw.HourseHight = 0;
+                Draw.CastleMidle = 0;
+                Draw.CastleHigh = 0;
+                Draw.MinisterMidle = 0;
+                Draw.MinisterHigh = 0;
+                Draw.KingMidle = 0;
+                Draw.KingHigh = 0;
+                for (int h = 0; h < 8; h++)
                 {
-                    if (TabS[h, s] == 1)
+                    for (int s = 0; s < 8; s++)
                     {
-                        Draw.SodierMidle++;
-                        Draw.SodierHigh++;
-                    }
-                    else if (TabS[h, s] == 2)
-                    {
-                        Draw.ElefantMidle++;
-                        Draw.ElefantHigh++;
-                    }
-                    else if (TabS[h, s] == 3)
-                    {
-                        Draw.HourseMidle++;
-                        Draw.HourseHight++;
-                    }
-                    else if (TabS[h, s] == 4)
-                    {
-                        Draw.CastleMidle++;
-                        Draw.CastleHigh++;
-                    }
-                    else if (TabS[h, s] == 5)
-                    {
-                        Draw.MinisterMidle++;
-                        Draw.MinisterHigh++;
-                    }
-                    else if (TabS[h, s] == 6)
-                    {
-                        Draw.KingMidle++;
-                        Draw.KingHigh++;
-                    }
-                    else
-                        if (TabS[h, s] == -1)
-                    {
-                        Draw.SodierHigh++;
-                    }
-                    else if (TabS[h, s] == -2)
-                    {
-                        Draw.ElefantHigh++;
-                    }
-                    else if (TabS[h, s] == -3)
-                    {
-                        Draw.HourseHight++;
-                    }
-                    else if (TabS[h, s] == -4)
-                    {
-                        Draw.CastleHigh++;
-                    }
-                    else if (TabS[h, s] == -5)
-                    {
+                        if (TabS[h, s] == 1)
+                        {
+                            Draw.SodierMidle++;
+                            Draw.SodierHigh++;
+                        }
+                        else if (TabS[h, s] == 2)
+                        {
+                            Draw.ElefantMidle++;
+                            Draw.ElefantHigh++;
+                        }
+                        else if (TabS[h, s] == 3)
+                        {
+                            Draw.HourseMidle++;
+                            Draw.HourseHight++;
+                        }
+                        else if (TabS[h, s] == 4)
+                        {
+                            Draw.CastleMidle++;
+                            Draw.CastleHigh++;
+                        }
+                        else if (TabS[h, s] == 5)
+                        {
+                            Draw.MinisterMidle++;
+                            Draw.MinisterHigh++;
+                        }
+                        else if (TabS[h, s] == 6)
+                        {
+                            Draw.KingMidle++;
+                            Draw.KingHigh++;
+                        }
+                        else
+                            if (TabS[h, s] == -1)
+                        {
+                            Draw.SodierHigh++;
+                        }
+                        else if (TabS[h, s] == -2)
+                        {
+                            Draw.ElefantHigh++;
+                        }
+                        else if (TabS[h, s] == -3)
+                        {
+                            Draw.HourseHight++;
+                        }
+                        else if (TabS[h, s] == -4)
+                        {
+                            Draw.CastleHigh++;
+                        }
+                        else if (TabS[h, s] == -5)
+                        {
 
-                        Draw.MinisterHigh++;
+                            Draw.MinisterHigh++;
+                        }
+                        else if (TabS[h, s] == -6)
+                        {
+                            Draw.KingHigh++;
+                        }
                     }
-                    else if (TabS[h, s] == -6)
+                }
+            }
+            else
+            {
+                DrawQ.SodierMidle = 0;
+                DrawQ.SodierHigh = 0;
+                DrawQ.ElefantMidle = 0;
+                DrawQ.ElefantHigh = 0;
+                DrawQ.HourseMidle = 0;
+                DrawQ.HourseHight = 0;
+                DrawQ.CastleMidle = 0;
+                DrawQ.CastleHigh = 0;
+                DrawQ.MinisterMidle = 0;
+                DrawQ.MinisterHigh = 0;
+                DrawQ.KingMidle = 0;
+                DrawQ.KingHigh = 0;
+                for (int h = 0; h < 8; h++)
+                {
+                    for (int s = 0; s < 8; s++)
                     {
-                        Draw.KingHigh++;
+                        if (TabS[h, s] == 1)
+                        {
+                            DrawQ.SodierMidle++;
+                            DrawQ.SodierHigh++;
+                        }
+                        else if (TabS[h, s] == 2)
+                        {
+                            DrawQ.ElefantMidle++;
+                            DrawQ.ElefantHigh++;
+                        }
+                        else if (TabS[h, s] == 3)
+                        {
+                            DrawQ.HourseMidle++;
+                            DrawQ.HourseHight++;
+                        }
+                        else if (TabS[h, s] == 4)
+                        {
+                            DrawQ.CastleMidle++;
+                            DrawQ.CastleHigh++;
+                        }
+                        else if (TabS[h, s] == 5)
+                        {
+                            DrawQ.MinisterMidle++;
+                            DrawQ.MinisterHigh++;
+                        }
+                        else if (TabS[h, s] == 6)
+                        {
+                            DrawQ.KingMidle++;
+                            DrawQ.KingHigh++;
+                        }
+                        else
+                            if (TabS[h, s] == -1)
+                        {
+                            DrawQ.SodierHigh++;
+                        }
+                        else if (TabS[h, s] == -2)
+                        {
+                            DrawQ.ElefantHigh++;
+                        }
+                        else if (TabS[h, s] == -3)
+                        {
+                            DrawQ.HourseHight++;
+                        }
+                        else if (TabS[h, s] == -4)
+                        {
+                            DrawQ.CastleHigh++;
+                        }
+                        else if (TabS[h, s] == -5)
+                        {
+
+                            DrawQ.MinisterHigh++;
+                        }
+                        else if (TabS[h, s] == -6)
+                        {
+                            DrawQ.KingHigh++;
+                        }
                     }
                 }
             }
@@ -13887,20 +13969,21 @@ namespace Refrigtz
                                         }
                                         else
                                         {
+                                            
                                             //Needing for Objects for fen string of stockfish
-                                            if (!Stockfish)
-                                            {
-                                                RowClick = -1;
-                                                ColumnClick = -1;
-                                                RowClickP = -1;
-                                                ColumnClickP = -1;
-                                                RowRealesed = -1;
-                                                ColumnRealeased = -1;
-                                            }
-                                            RefrigtzDLL.AllDraw.MouseClick = 0;
-                                            SetBoxText("\r\nObject Cleared.");
-                                            RefreshBoxText();
-
+                                                if (!Stockfish)
+                                                {
+                                                    RowClick = -1;
+                                                    ColumnClick = -1;
+                                                    RowClickP = -1;
+                                                    ColumnClickP = -1;
+                                                    RowRealesed = -1;
+                                                    ColumnRealeased = -1;
+                                                }
+                                                RefrigtzDLL.AllDraw.MouseClick = 0;
+                                                SetBoxText("\r\nObject Cleared.");
+                                                RefreshBoxText();
+                                            
                                         }
                                     }
                                 }
@@ -14051,24 +14134,7 @@ namespace Refrigtz
                                             SetBoxText("\r\nObject Released.");
                                             RefreshBoxText();
 
-                                        }
-                                        else
-                                        {
-                                            //Needing for Objects for fen string of stockfish
-                                            if (!Stockfish)
-                                            {
-                                                RowClick = -1;
-                                                ColumnClick = -1;
-                                                RowClickP = -1;
-                                                ColumnClickP = -1;
-                                                RowRealesed = -1;
-                                                ColumnRealeased = -1;
-                                            }
-                                            QuantumRefrigiz.AllDraw.MouseClick = 0;
-                                            SetBoxText("\r\nObject Cleared.");
-                                            RefreshBoxText();
-
-                                        }
+                                        }                                        
                                     }
                                 }
 
