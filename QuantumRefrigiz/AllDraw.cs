@@ -159,6 +159,8 @@ namespace QuantumRefrigiz
 
     public class AllDraw
     {
+        public static int NextRowQ = -1;
+        public static int NextColumnQ = -1;
 
         StackFrame callStack = new StackFrame(1, true);
         int[,] Tabl = new int[8, 8];

@@ -189,7 +189,18 @@ namespace QuantumRefrigiz
         {
             try
             {
-                RingHalf = true;
+                
+                if (AllDraw.LastRow == Row && AllDraw.LastColumn == Column)
+                    if (AllDraw.LastRow != AllDraw.NextRow || AllDraw.LastColumn == AllDraw.NextColumn)
+                    {
+                        AllDraw.LastRow = -1;
+                        AllDraw.LastColumn = -1;
+                        AllDraw.NextRow = -1;
+                        AllDraw.NextColumn = -1;
+                        IsQuntumMove = true;
+                    }
+                if (IsQuntumMove)
+                    RingHalf = true;
                 lock (balanceLockS)
                 {
 
@@ -209,17 +220,21 @@ namespace QuantumRefrigiz
                                 g.DrawImage(C[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                 if (RingHalf)
                                 {
+
                                     g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
-                                    if (this.CastleThinkingQuantum[0].TableConst[CastleThinkingQuantum[0].Row, CastleThinkingQuantum[0].Column] != 0)
-                                    {
-                                        g.DrawImage(C[0], new Rectangle((int)(this.CastleThinkingQuantum[0].Row * (float)CellW), (int)(this.CastleThinkingQuantum[0].Column * (float)CellH), CellW, CellH));
+                                    if (AllDraw.NextRowQ != -1 && AllDraw.NextColumnQ != -1)
+                                        g.DrawImage(C[0], new Rectangle(AllDraw.NextRowQ * CellW, AllDraw.NextColumnQ * CellH, CellW, CellH));
+                                    if (Row != this.CastleThinkingQuantum[0].Row || Column != this.CastleThinkingQuantum[0].Column)
                                         g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((this.CastleThinkingQuantum[0].Row * (float)CellW)), (int)(this.CastleThinkingQuantum[0].Column * (float)CellH), CellW, CellH), -45, 180);
-                                    }
+                                    else
+                                        if (AllDraw.NextRowQ != -1 && AllDraw.NextColumnQ != -1)
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((AllDraw.NextRowQ * CellW)), (int)(AllDraw.NextColumnQ * (float)CellH), CellW, CellH), -45, 180);
+
                                 }
                                 else
-                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                                }
                             }
-                        }
                         else
                         {
                             Object O1 = new Object();
@@ -230,11 +245,14 @@ namespace QuantumRefrigiz
                                 if (RingHalf)
                                 {
                                     g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
-                                    if (this.CastleThinkingQuantum[0].TableConst[CastleThinkingQuantum[0].Row, CastleThinkingQuantum[0].Column] != 0)
-                                    {
-                                        g.DrawImage(C[1], new Rectangle((int)(this.CastleThinkingQuantum[0].Row * (float)CellW), (int)(this.CastleThinkingQuantum[0].Column * (float)CellH), CellW, CellH));
+                                    if (AllDraw.NextRowQ != -1 && AllDraw.NextColumnQ != -1)
+                                        g.DrawImage(C[1], new Rectangle(AllDraw.NextRowQ * CellW, AllDraw.NextColumnQ * CellH, CellW, CellH));
+                                    if (Row != this.CastleThinkingQuantum[0].Row || Column != this.CastleThinkingQuantum[0].Column)
                                         g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((this.CastleThinkingQuantum[0].Row * (float)CellW)), (int)(this.CastleThinkingQuantum[0].Column * (float)CellH), CellW, CellH), -45, 180);
-                                    }
+                                    else
+                                        if (AllDraw.NextRowQ != -1 && AllDraw.NextColumnQ != -1)
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((AllDraw.NextRowQ * CellW)), (int)(AllDraw.NextColumnQ * (float)CellH), CellW, CellH), -45, 180);
+
                                 }
                                 else
                                     g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);

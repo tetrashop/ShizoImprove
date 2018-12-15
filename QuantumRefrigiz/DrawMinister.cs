@@ -188,8 +188,18 @@ namespace QuantumRefrigiz
         {
             try
             {
-                RingHalf = true;
+                if (AllDraw.LastRow == Row && AllDraw.LastColumn == Column)
+                    if (AllDraw.LastRow != AllDraw.NextRow || AllDraw.LastColumn == AllDraw.NextColumn)
+                    {
+                        AllDraw.LastRow = -1;
+                        AllDraw.LastColumn = -1;
+                        AllDraw.NextRow = -1;
+                        AllDraw.NextColumn = -1;
+                        IsQuntumMove = true;
+                    }
 
+                if (IsQuntumMove)
+                    RingHalf = true;
                 lock (balanceLockS)
                 {
                     if (M[0] == null || M[1] == null)
@@ -200,7 +210,7 @@ namespace QuantumRefrigiz
                     if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
                     {
                         //Gray Order.
-                        if(Order==1)
+                        if (Order == 1)
                         {
                             Object O1 = new Object();
                             lock (O1)
@@ -209,12 +219,11 @@ namespace QuantumRefrigiz
                                 g.DrawImage(M[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                 if (RingHalf)
                                 {
-                                    if (this.MinisterThinkingQuantum[0].TableConst[MinisterThinkingQuantum[0].Row, MinisterThinkingQuantum[0].Column] != 0)
-                                    {
-                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
-                                        g.DrawImage(M[0], new Rectangle((int)(this.MinisterThinkingQuantum[0].Row * (float)CellW), (int)(this.MinisterThinkingQuantum[0].Column * (float)CellH), CellW, CellH));
-                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((this.MinisterThinkingQuantum[0].Row * (float)CellW)), (int)(this.MinisterThinkingQuantum[0].Column * (float)CellH), CellW, CellH), -45, 180);
-                                    }
+
+                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
+                                    g.DrawImage(M[0], new Rectangle((int)(this.MinisterThinkingQuantum[0].Row * (float)CellW), (int)(this.MinisterThinkingQuantum[0].Column * (float)CellH), CellW, CellH));
+                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((this.MinisterThinkingQuantum[0].Row * (float)CellW)), (int)(this.MinisterThinkingQuantum[0].Column * (float)CellH), CellW, CellH), -45, 180);
+
                                 }
                                 else
                                     g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
