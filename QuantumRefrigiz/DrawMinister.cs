@@ -189,10 +189,12 @@ namespace QuantumRefrigiz
             try
             {
                 if (AllDraw.LastRow == Row && AllDraw.LastColumn == Column)
-                    if (AllDraw.LastRow != AllDraw.NextRow || AllDraw.LastColumn == AllDraw.NextColumn)
+                    if (AllDraw.LastRow != AllDraw.NextRow || AllDraw.LastColumn != AllDraw.NextColumn)
                     {
                         AllDraw.LastRow = -1;
                         AllDraw.LastColumn = -1;
+                        AllDraw.NextRowQ = AllDraw.NextRow;
+                        AllDraw.NextColumnQ = AllDraw.NextColumn;
                         AllDraw.NextRow = -1;
                         AllDraw.NextColumn = -1;
                         IsQuntumMove = true;

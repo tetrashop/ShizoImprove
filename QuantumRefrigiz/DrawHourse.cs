@@ -184,17 +184,20 @@ namespace QuantumRefrigiz
         public void DrawHourseOnTable(ref Graphics g, int CellW, int CellH)
         {
             try
-            {            
-                
+            {
+
                 if (AllDraw.LastRow == Row && AllDraw.LastColumn == Column)
-                    if (AllDraw.LastRow != AllDraw.NextRow || AllDraw.LastColumn == AllDraw.NextColumn)
+                    if (AllDraw.LastRow != AllDraw.NextRow || AllDraw.LastColumn != AllDraw.NextColumn)
                     {
                         AllDraw.LastRow = -1;
                         AllDraw.LastColumn = -1;
+                        AllDraw.NextRowQ = AllDraw.NextRow;
+                        AllDraw.NextColumnQ = AllDraw.NextColumn;
                         AllDraw.NextRow = -1;
                         AllDraw.NextColumn = -1;
                         IsQuntumMove = true;
                     }
+
                 if (IsQuntumMove || (AllDraw.QuntumTable[0,(int)Row, (int)Column] != -1 && AllDraw.QuntumTable[1,(int)Row, (int)Column] != -1))
                     RingHalf = true;
                 lock (balanceLockS)
