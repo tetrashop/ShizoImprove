@@ -159,6 +159,23 @@ namespace QuantumRefrigiz
 
     public class AllDraw
     {
+        public static int[,,] QuntumTable = {
+            {{-1, -1, - 1, -1, -1, -1, -1, -1 },
+             {-1, -1, - 1, -1, -1, -1, -1, -1 },
+             {-1, -1, - 1, -1, -1, -1, -1, -1 },
+             {-1, -1, - 1, -1, -1, -1, -1, -1 },
+             {-1, -1, - 1, -1, -1, -1, -1, -1 },
+             {-1, -1, - 1, -1, -1, -1, -1, -1 },
+             {-1, -1, - 1, -1, -1, -1, -1, -1 },
+             {-1, -1, - 1, -1, -1, -1, -1, -1 }},
+             {{-1, -1, - 1, -1, -1, -1, -1, -1 },
+              {-1, -1, - 1, -1, -1, -1, -1, -1 },
+              {-1, -1, - 1, -1, -1, -1, -1, -1 },
+              {-1, -1, - 1, -1, -1, -1, -1, -1 },
+              {-1, -1, - 1, -1, -1, -1, -1, -1 },
+              {-1, -1, - 1, -1, -1, -1, -1, -1 },
+              {-1, -1, - 1, -1, -1, -1, -1, -1 },
+              {-1, -1, - 1, -1, -1, -1, -1, -1 }}};
         public static int NextRowQ = -1;
         public static int NextColumnQ = -1;
 
@@ -964,8 +981,57 @@ if (Kind == 2)
             //Object a1 = new Object();
             ////lock (a1)
             {
-                
                 SetObjectNumbers(TableList[0]);
+                bool[] ElephantOnTableIsQuantumMove = new bool[ElefantHigh];
+                for (int i = 0; i < ElefantHigh; i++)
+                    ElephantOnTableIsQuantumMove[i] = new bool();
+
+                if (ElephantOnTable != null)
+                {
+
+                    for (int i = 0; i < ElefantHigh; i++)
+                        if (ElephantOnTable[i] != null)
+                            ElephantOnTableIsQuantumMove[i] = ElephantOnTable[i].IsQuntumMove;
+                }
+                bool[] HoursesOnTableIsQuantumMove = new bool[HourseHight];
+                for (int i = 0; i < HourseHight; i++)
+                    HoursesOnTableIsQuantumMove[i] = new bool();
+                if (HoursesOnTable != null)
+                {
+                    for (int i = 0; i < HourseHight; i++)
+                        if (HoursesOnTable[i] != null)
+                            HoursesOnTableIsQuantumMove[i] = HoursesOnTable[i].IsQuntumMove;
+                }
+                bool[] CastlesOnTableIsQuantumMove = new bool[CastleHigh];
+                for (int i = 0; i < CastleHigh; i++)
+                    CastlesOnTableIsQuantumMove[i] = new bool();
+                if (CastlesOnTable != null)
+                {
+                    for (int i = 0; i < CastleHigh; i++)
+                        if (CastlesOnTable[i] != null)
+                            CastlesOnTableIsQuantumMove[i] = CastlesOnTable[i].IsQuntumMove;
+
+                }
+                bool[] MinisterOnTableIsQuantumMove = new bool[MinisterHigh];
+                for (int i = 0; i < MinisterHigh; i++)
+                    MinisterOnTableIsQuantumMove[i] = new bool();
+                if (MinisterOnTable != null)
+                {
+                    for (int i = 0; i < MinisterHigh; i++)
+                        if (MinisterOnTable[i] != null)
+                            MinisterOnTableIsQuantumMove[i] = MinisterOnTable[i].IsQuntumMove;
+                }
+                bool[] KingOnTableIsQuantumMove = new bool[KingHigh];
+                for (int i = 0; i < KingHigh; i++)
+                    KingOnTableIsQuantumMove[i] = new bool();
+                if (KingOnTable != null)
+                {
+                    for (int i = 0; i < KingHigh; i++)
+                        if (KingOnTable[i] != null)
+                            KingOnTableIsQuantumMove[i] = KingOnTable[i].IsQuntumMove;
+
+                }
+                
 
                 int So1 = 0;
                 int So2 = SodierMidle;
@@ -993,6 +1059,7 @@ if (Kind == 2)
                     CastlesOnTable = new DrawCastle[CastleHigh];
                     MinisterOnTable = new DrawMinister[MinisterHigh];
                     KingOnTable = new DrawKing[KingHigh];
+
                     AllDraw.SodierConversionOcuured = false;
 
                     //When Table Exist.
@@ -1021,6 +1088,7 @@ if (Kind == 2)
                                         {
                                             if (SolderesOnTable[So1] != null)
                                                 SolderesOnTable[So1].Dispose();
+
                                             //Construct Soder Gray.
                                             SolderesOnTable[So1] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, So1);
                                             //Increase So1.
@@ -1052,7 +1120,7 @@ if (Kind == 2)
                                             So2++;
                                             if (So2 > SodierHigh)
                                                 SodierHigh++;
-                                            
+
                                         }
                                         catch (Exception t)
                                         {
@@ -1080,6 +1148,7 @@ if (Kind == 2)
 
                                             //Construction of Draw Object.
                                             ElephantOnTable[El1] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, El1);
+                                            ElephantOnTable[El1].IsQuntumMove = ElephantOnTableIsQuantumMove[El1];
                                             //Increament of Gray Index.
                                             El1++;
                                             //If New //Object Increament Gray Objects.
@@ -1120,6 +1189,7 @@ if (Kind == 2)
 
                                             //Construction of Draw Brown Elephant Object. 
                                             ElephantOnTable[El2] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, El2);
+                                            ElephantOnTable[El2].IsQuntumMove = ElephantOnTableIsQuantumMove[El2];
                                             //Increament of Index.
                                             El2++;
                                             //When New Brown Elephant //Object Increament of Index.
@@ -1167,6 +1237,7 @@ if (Kind == 2)
 
                                             //Construction of Draw Brown Hourse.
                                             HoursesOnTable[Ho1] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, Ho1);
+                                            HoursesOnTable[Ho1].IsQuntumMove = HoursesOnTableIsQuantumMove[Ho1];
                                             //Increament of Index.
                                             Ho1++;
                                             //when There is New Gray Hourse Increase.
@@ -1207,6 +1278,7 @@ if (Kind == 2)
 
                                             //Construction of Draw Brown Hourse.
                                             HoursesOnTable[Ho2] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, Ho2);
+                                            HoursesOnTable[Ho2].IsQuntumMove = HoursesOnTableIsQuantumMove[Ho2];
                                             //Increament of Index.
                                             Ho2++;
                                             //When New Brown Hourse Exist Exist Index.
@@ -1253,6 +1325,7 @@ if (Kind == 2)
 
                                             //Construction of New Draw Gray Castles.
                                             CastlesOnTable[Br1] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, Br1);
+                                            CastlesOnTable[Br1].IsQuntumMove = CastlesOnTableIsQuantumMove[Br1];
                                             //Increamnt of Index.
                                             Br1++;
                                             //When New Gray Briges Increamnt Max Index.
@@ -1293,25 +1366,26 @@ if (Kind == 2)
 
                                             //Construction Draw of New Brown Castles.
                                             CastlesOnTable[Br2] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, Br2);
+                                            CastlesOnTable[Br2].IsQuntumMove = CastlesOnTableIsQuantumMove[Br2];
                                             //Increament of Index.
                                             Br2++;
                                             //wehn Brown New Castles Detected Increament Max Index.
                                             if (Br2 > CastleHigh)
                                                 CastleHigh++;
                                             //When any quantum move is made, that piece exists in multiple places simultaneously. This is represented by multiple copies of the piece displayed, with appropriate meters to show the probability of finding the piece in that square. There is only one piece, but it can exist in one of multiple places.
-                                           /* bool IsQuantumMoves = IsAQuantumeMoveOccured(CastlesOnTable[Br2].IsQuntumMove);
-                                            CastlesOnTable[Br2 - 1].RingHalf = true;
-                                            if (IsQuantumMoves)
-                                            {
-                                                CastlesOnTable[Br2] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, Br2);
-                                                CastlesOnTable[Br2].IsQuntumMove = true;
-                                                CastlesOnTable[Br2].RingHalf = true;
-                                                //Increament of Gray Index.
-                                                Ho2++;
-                                                //When New Brown Hourse Exist Exist Index.
-                                                if (Ho2 > HourseHight)
-                                                    HourseHight++;
-                                            }*/
+                                            /* bool IsQuantumMoves = IsAQuantumeMoveOccured(CastlesOnTable[Br2].IsQuntumMove);
+                                             CastlesOnTable[Br2 - 1].RingHalf = true;
+                                             if (IsQuantumMoves)
+                                             {
+                                                 CastlesOnTable[Br2] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, Br2);
+                                                 CastlesOnTable[Br2].IsQuntumMove = true;
+                                                 CastlesOnTable[Br2].RingHalf = true;
+                                                 //Increament of Gray Index.
+                                                 Ho2++;
+                                                 //When New Brown Hourse Exist Exist Index.
+                                                 if (Ho2 > HourseHight)
+                                                     HourseHight++;
+                                             }*/
                                         }
                                         catch (Exception t)
                                         {
@@ -1340,6 +1414,7 @@ if (Kind == 2)
 
                                             //construction of new draw Gray Minster.
                                             MinisterOnTable[Mi1] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, Mi1);
+                                            MinisterOnTable[Mi1].IsQuntumMove = MinisterOnTableIsQuantumMove[Mi1];
                                             //Increament of Index.
                                             Mi1++;
                                             //Wehn New Gray Minster Detected Increament Max Indexes.
@@ -1381,6 +1456,7 @@ if (Kind == 2)
 
                                             //Construction of New Draw Brown Minster.
                                             MinisterOnTable[Mi2] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, Mi2);
+                                            MinisterOnTable[Mi2].IsQuntumMove = MinisterOnTableIsQuantumMove[Mi2];
                                             //Increament Index.
                                             Mi2++;
                                             //When New Brown Minister Detected Increament Max Index.
@@ -1427,6 +1503,7 @@ if (Kind == 2)
 
                                             //Construction of New Draw Gray King.
                                             KingOnTable[Ki1] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, Ki1);
+                                            KingOnTable[Ki1].IsQuntumMove = KingOnTableIsQuantumMove[Ki1];
                                             //Increament of Index.
                                             Ki1++;
                                             //when New Draw  //Object Detected Increament Max Index.
@@ -1469,6 +1546,7 @@ if (Kind == 2)
 
                                             //Construction of New Draw King Brown Object.
                                             KingOnTable[Ki2] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, Ki2);
+                                            KingOnTable[Ki2].IsQuntumMove = KingOnTableIsQuantumMove[Ki2];
                                             //Increament of Index.
                                             Ki2++;
                                             //When New //Object Detected Increament Of Brown King Max Index.
@@ -1512,41 +1590,117 @@ if (Kind == 2)
                     Log(t);
                 }
                 SetObjectNumbers(TableList[0]);
-                for (int i = So1; i < SodierMidle; i++)
-                    SolderesOnTable[i] = null;
+                try
+                {
+                    for (int i = So1; i < SodierMidle; i++)
+                        SolderesOnTable[i] = null;
+                }
+                catch (Exception t)
+                {
+                    Log(t);
+                }
+                try
+                {
 
-                for (int i = So2; i < SodierHigh; i++)
-                    SolderesOnTable[i] = null;
+                    for (int i = So2; i < SodierHigh; i++)
+                        SolderesOnTable[i] = null;
+                }
+                catch (Exception t)
+                {
+                    Log(t);
+                }
+                try
+                {
+                    for (int i = El1; i < ElefantMidle; i++)
+                        ElephantOnTable[i] = null;
+                }
+                catch (Exception t)
+                {
+                    Log(t);
+                }
+                try
+                {
+                    for (int i = El2; i < ElefantHigh; i++)
+                        ElephantOnTable[i] = null;
+                }
+                catch (Exception t)
+                {
+                    Log(t);
+                }
+                try
+                {
+                    for (int i = Ho1; i < HourseMidle; i++)
+                        HoursesOnTable[i] = null;
+                }
+                catch (Exception t)
+                {
+                    Log(t);
+                }
+                try
+                {
+                    for (int i = Ho2; i < HourseHight; i++)
+                        HoursesOnTable[i] = null;
+                }
+                catch (Exception t)
+                {
+                    Log(t);
+                }
+                try
+                {
+                    for (int i = Br1; i < CastleMidle; i++)
+                        CastlesOnTable[i] = null;
+                }
+                catch (Exception t)
+                {
+                    Log(t);
+                }
+                try
+                {
+                    for (int i = Br2; i < CastleHigh; i++)
+                        CastlesOnTable[i] = null;
+                }
+                catch (Exception t)
+                {
+                    Log(t);
+                }
+                try
+                {
+                    for (int i = Mi1; i < MinisterMidle; i++)
+                        MinisterOnTable[i] = null;
 
-                for (int i = El1; i < ElefantMidle; i++)
-                    ElephantOnTable[i] = null;
+                }
+                catch (Exception t)
+                {
+                    Log(t);
+                }
+                try
+                {
+                    for (int i = Mi2; i < MinisterHigh; i++)
+                        MinisterOnTable[i] = null;
+                }
+                catch (Exception t)
+                {
+                    Log(t);
+                }
+                try
+                {
+                    for (int i = Ki1; i < KingMidle; i++)
+                        KingOnTable[i] = null;
 
-                for (int i = El2; i < ElefantHigh; i++)
-                    ElephantOnTable[i] = null;
-
-                for (int i = Ho1; i < HourseMidle; i++)
-                    HoursesOnTable[i] = null;
-
-                for (int i = Ho2; i < HourseHight; i++)
-                    HoursesOnTable[i] = null;
-
-                for (int i = Br1; i < CastleMidle; i++)
-                    CastlesOnTable[i] = null;
-
-                for (int i = Br2; i < CastleHigh; i++)
-                    CastlesOnTable[i] = null;
-
-                for (int i = Mi1; i < MinisterMidle; i++)
-                    MinisterOnTable[i] = null;
-
-                for (int i = Mi2; i < MinisterHigh; i++)
-                    MinisterOnTable[i] = null;
-
-                for (int i = Ki1; i < KingMidle; i++)
-                    KingOnTable[i] = null;
-
-                for (int i = Ki2; i < KingHigh; i++)
-                    KingOnTable[i] = null;
+                }
+                catch (Exception t)
+                {
+                    Log(t);
+                }
+                try
+                {
+                    for (int i = Ki2; i < KingHigh; i++)
+                        KingOnTable[i] = null;
+                }
+                catch (Exception t)
+                {
+                    Log(t);
+                }
                 SetRowColumnFinished = true;
             }
         }
@@ -13922,6 +14076,15 @@ if (Kind == 2)
             }
              return Sum;
         }
+        public bool isSameDrawObjectCount(AllDraw A)
+        {
+            if (SodierMidle == A.SodierMidle && SodierHigh == A.SodierHigh && ElefantMidle == A.ElefantMidle
+                && ElefantHigh == A.ElefantHigh && HourseMidle == A.HourseMidle && HourseHight == A.HourseHight
+                && MinisterMidle == A.MinisterMidle && MinisterHigh == A.MinisterHigh && KingMidle == A.KingMidle && KingHigh == A.KingHigh)
+                return true;
+            //No Knowlage base for false option.
+            return false;
+        }
         bool FullGameThinkingTreeSoldier(int ik, Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
             bool Do = false;
@@ -14058,6 +14221,7 @@ if (Kind == 2)
                                                 int Ord =Order  * -1;
                                                 SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;                                                
                                                 SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder[j]), Order, false, FOUND, LeafAStarGreedy);
+
                                                 for (int h = 0; h < SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count; h++)
                                                     SolderesOnTable[ik].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
                                                 //Task array = Task.Factory.StartNew(() => SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder[j]), Order, false, FOUND, LeafAStarGreedy));
@@ -14364,7 +14528,10 @@ if (Kind == 2)
                                                     Color aa = a;
                                                     int[,] Tab = CloneATable(ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant[j]);
                                                     int Ord =Order  * -1;
-                                                    ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;                                                    
+                                                    ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                                    //if (isSameDrawObjectCount(ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1]))
+                                                        ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].ElephantOnTable[ik].IsQuntumMove = this.ElephantOnTable[ik].IsQuntumMove;
+
                                                     //Task array = Task.Factory.StartNew(() => ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant[j]), Order, false, FOUND, LeafAStarGreedy));
                                                     ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                                     for (int h = 0; h < ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count; h++)
@@ -14472,7 +14639,10 @@ if (Kind == 2)
                                                     int[,] Tab = CloneATable(ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant[j]);
                                                     int Ord =Order  * -1;
                                                     ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                    
+                                                    //if (isSameDrawObjectCount(ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1]))
+                                                        ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].ElephantOnTable[ik].IsQuntumMove = this.ElephantOnTable[ik].IsQuntumMove;
+
+
                                                     ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                                     for (int h = 0; h < ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count; h++)
                                                         ElephantOnTable[ik].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[h], Order);
@@ -14670,7 +14840,10 @@ if (Kind == 2)
                                                    Color aa = a;
                                                    int[,] Tab = CloneATable(HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse[j]);
                                                    int Ord =Order  * -1;
-                                                    HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;                                                    
+                                                    HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                                    //if (isSameDrawObjectCount(HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1]))
+                                                        HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].HoursesOnTable[ik].IsQuntumMove = this.HoursesOnTable[ik].IsQuntumMove;
+
                                                     HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                                     for (int h = 0; h < HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count; h++)
                                                         HoursesOnTable[ik].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[h], Order);
@@ -14783,7 +14956,10 @@ if (Kind == 2)
                                                int[,] Tab = CloneATable(HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse[j]);
                                                int Ord =Order  * -1;
                                                 HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                
+                                                //if (isSameDrawObjectCount(HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1]))
+                                                    HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].HoursesOnTable[ik].IsQuntumMove = this.HoursesOnTable[ik].IsQuntumMove;
+
+
                                                 //Task array = Task.Factory.StartNew(() => HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse[j]), Order, false, FOUND, LeafAStarGreedy));
                                                 HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                                 for (int h = 0; h < HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count; h++)
@@ -14979,6 +15155,9 @@ if (Kind == 2)
                                                 int[,] Tab = CloneATable(CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle[j]);
                                                 int Ord =Order  * -1;
                                                 CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                                //if (isSameDrawObjectCount(CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1]))
+                                                    CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].CastlesOnTable[ik].IsQuntumMove = this.CastlesOnTable[ik].IsQuntumMove;
+
                                                 //Task array = Task.Factory.StartNew(() => CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle[j]), Order, false, FOUND, LeafAStarGreedy));
                                                 CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                                 for (int h = 0; h < CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count; h++)
@@ -15087,6 +15266,8 @@ if (Kind == 2)
                                                 int[,] Tab = CloneATable(CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle[j]);
                                                 int Ord =Order  * -1;
                                                 CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                                //if (isSameDrawObjectCount(CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1]))
+                                                    CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].CastlesOnTable[ik].IsQuntumMove = this.CastlesOnTable[ik].IsQuntumMove;
 
                                                 //Task array = Task.Factory.StartNew(() => CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle[j]), Order, false, FOUND, LeafAStarGreedy));
                                                 CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
@@ -15283,7 +15464,10 @@ if (Kind == 2)
                                                Color aa = a;
                                                int[,] Tab = CloneATable(MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister[j]);
                                                int Ord =Order  * -1;
-                                                MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;                                                
+                                                MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                                //if (isSameDrawObjectCount(MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1]))
+                                                    MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].MinisterOnTable[ik].IsQuntumMove = this.MinisterOnTable[ik].IsQuntumMove;
+
                                                 //Task array = Task.Factory.StartNew(() => MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister[j]), Order, false, FOUND, LeafAStarGreedy));
                                                 MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                                 for (int h = 0; h < MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count; h++)
@@ -15390,6 +15574,8 @@ if (Kind == 2)
                                                int[,] Tab = CloneATable(MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister[j]);
                                                int Ord =Order  * -1;
                                                 MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                                //if (isSameDrawObjectCount(MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1]))
+                                                    MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].MinisterOnTable[ik].IsQuntumMove = this.MinisterOnTable[ik].IsQuntumMove;
 
                                                 //Task array = Task.Factory.StartNew(() => MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister[j]), Order, false, FOUND, LeafAStarGreedy));
                                                 MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
@@ -15585,6 +15771,8 @@ if (Kind == 2)
                                            int[,] Tab = CloneATable(KingOnTable[ik].KingThinkingQuantum[0].TableListKing[j]);
                                            int Ord =Order  * -1;
                                             KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                            //if (isSameDrawObjectCount(KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1]))
+                                                KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].KingOnTable[ik].IsQuntumMove = this.KingOnTable[ik].IsQuntumMove;
 
                                             //Task array = Task.Factory.StartNew(() => KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(KingOnTable[ik].KingThinkingQuantum[0].TableListKing[j]), Order, false, FOUND, LeafAStarGreedy));
                                             KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
