@@ -12,9 +12,9 @@ namespace QuantumRefrigiz
     {
         //Pawns cannot make quantum moves.
         //A quantum move cannot be used to take a piece.
-        const bool IsQuntumMove = false;
+        bool IsQuntumMove = false;
         //Pieces have rings around them, filled in with colour. These rings show the probability that the piece is in that square.
-        const bool RingHalf = false;
+        bool RingHalf = false;
         public int WinOcuuredatChiled = 0;
         //Iniatate Global Variables.
         private readonly object balanceLock = new object();
@@ -219,12 +219,57 @@ namespace QuantumRefrigiz
                                 Object O1 = new Object();
                                 lock (O1)
                                 {    //Draw an Instant from File of Gray Soldeirs.
-                                    g.DrawImage(S[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                                    if (RingHalf)                                    
-                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);                                   
+                                        //Draw an Instant from File of Gray Soldeirs.
+                                         //Draw a Gray Castles Instatnt Image On hte Tabe.
+                                        g.DrawImage(S[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+
+                                    if (ArrangmentsChanged)
+                                    {
+                                        if (Table[Row, Column - 1] < 0)
+                                        {
+                                            RingHalf = false;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (Table[Row, Column + 1] > 0)
+                                        {
+                                            RingHalf = false;
+                                        }
+                                    }
+
+                                    if (RingHalf)
+                                    {
+
+                                        double Prob = 180 * (AllDraw.Less / Double.MaxValue);
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, (int)Prob);                                        
+                                        if (Prob > 0)
+                                        {
+                                            if (AllDraw.NextRowQ != -1 && AllDraw.NextColumnQ != -1)
+                                            {
+                                                g.DrawImage(S[0], new Rectangle(AllDraw.NextRowQ * CellW, AllDraw.NextColumnQ * CellH, CellW, CellH));
+                                                g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((AllDraw.NextRowQ * CellW)), (int)(AllDraw.NextColumnQ * (float)CellH), CellW, CellH), -45, (int)Prob);
+                                                if (AllDraw.QuntumTable[0, AllDraw.NextRowQ, AllDraw.NextColumnQ] == -1 && AllDraw.QuntumTable[1, AllDraw.NextRowQ, AllDraw.NextColumnQ] == -1)
+                                                {
+                                                    AllDraw.QuntumTable[0, (int)Row, (int)Column] = AllDraw.NextRowQ;
+                                                    AllDraw.QuntumTable[1, (int)Row, (int)Column] = AllDraw.NextColumnQ;
+                                                }
+                                            }
+                                            else
+                                        if (AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1 && AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1)
+                                            {
+                                                AllDraw.NextRowQ = AllDraw.QuntumTable[0, (int)Row, (int)Column];
+                                                AllDraw.NextColumnQ = AllDraw.QuntumTable[1, (int)Row, (int)Column];
+                                                g.DrawImage(S[0], new Rectangle(AllDraw.NextRowQ * CellW, AllDraw.NextColumnQ * CellH, CellW, CellH));
+                                                g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((AllDraw.NextRowQ * CellW)), (int)(AllDraw.NextColumnQ * (float)CellH), CellW, CellH), -45, (int)Prob);
+
+                                            }
+                                            AllDraw.QuntumTable[0, AllDraw.QuntumTable[0, (int)Row, (int)Column], AllDraw.QuntumTable[1, (int)Row, (int)Column]] = -1;
+                                            AllDraw.QuntumTable[1, AllDraw.QuntumTable[0, (int)Row, (int)Column], AllDraw.QuntumTable[1, (int)Row, (int)Column]] = -1;
+                                        }
+                                    }
                                     else
                                         g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
-                                        
                                 }
                             }
                             else
@@ -234,8 +279,51 @@ namespace QuantumRefrigiz
                                 {    //Draw an Instant from File of Gray Soldeirs.
                                      //Draw an Instatnt of Brown Soldier File On the Table.
                                     g.DrawImage(S[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                    if (ArrangmentsChanged)
+                                    {
+                                        if (Table[Row, Column - 1] > 0)
+                                        {
+                                            RingHalf = false;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (Table[Row, Column + 1] < 0)
+                                        {
+                                            RingHalf = false;
+                                        }
+                                    }
+
                                     if (RingHalf)
-                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
+                                    {
+
+                                        double Prob = 180 * (AllDraw.Less / Double.MaxValue);
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, (int)Prob);                                        
+                                        if (Prob > 0)
+                                        {
+                                            if (AllDraw.NextRowQ != -1 && AllDraw.NextColumnQ != -1)
+                                            {
+                                                g.DrawImage(S[0], new Rectangle(AllDraw.NextRowQ * CellW, AllDraw.NextColumnQ * CellH, CellW, CellH));
+                                                g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((AllDraw.NextRowQ * CellW)), (int)(AllDraw.NextColumnQ * (float)CellH), CellW, CellH), -45, (int)Prob);
+                                                if (AllDraw.QuntumTable[0, AllDraw.NextRowQ, AllDraw.NextColumnQ] == -1 && AllDraw.QuntumTable[1, AllDraw.NextRowQ, AllDraw.NextColumnQ] == -1)
+                                                {
+                                                    AllDraw.QuntumTable[0, (int)Row, (int)Column] = AllDraw.NextRowQ;
+                                                    AllDraw.QuntumTable[1, (int)Row, (int)Column] = AllDraw.NextColumnQ;
+                                                }
+                                            }
+                                            else
+                                        if (AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1 && AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1)
+                                            {
+                                                AllDraw.NextRowQ = AllDraw.QuntumTable[0, (int)Row, (int)Column];
+                                                AllDraw.NextColumnQ = AllDraw.QuntumTable[1, (int)Row, (int)Column];
+                                                g.DrawImage(S[0], new Rectangle(AllDraw.NextRowQ * CellW, AllDraw.NextColumnQ * CellH, CellW, CellH));
+                                                g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((AllDraw.NextRowQ * CellW)), (int)(AllDraw.NextColumnQ * (float)CellH), CellW, CellH), -45, (int)Prob);
+
+                                            }
+                                            AllDraw.QuntumTable[0, AllDraw.QuntumTable[0, (int)Row, (int)Column], AllDraw.QuntumTable[1, (int)Row, (int)Column]] = -1;
+                                            AllDraw.QuntumTable[1, AllDraw.QuntumTable[0, (int)Row, (int)Column], AllDraw.QuntumTable[1, (int)Row, (int)Column]] = -1;
+                                        }
+                                    }
                                     else
                                         g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
                                 }
@@ -261,9 +349,37 @@ namespace QuantumRefrigiz
                                      //Draw of Gray Minsister Image File By an Instant.
                                     g.DrawImage(DrawMinister.M[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                     if (RingHalf)
-                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
-                                    else
-                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                                    {
+                                        double Prob = 180 * (AllDraw.Less / Double.MaxValue);
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, (int)Prob);                                        
+                                        if (Prob > 0)
+                                        {
+                                            if (AllDraw.NextRowQ != -1 && AllDraw.NextColumnQ != -1)
+                                            {
+                                                g.DrawImage(DrawMinister.M[0], new Rectangle(AllDraw.NextRowQ * CellW, AllDraw.NextColumnQ * CellH, CellW, CellH));
+                                                g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((AllDraw.NextRowQ * CellW)), (int)(AllDraw.NextColumnQ * (float)CellH), CellW, CellH), -45, (int)Prob);
+                                                if (AllDraw.QuntumTable[0, AllDraw.NextRowQ, AllDraw.NextColumnQ] == -1 && AllDraw.QuntumTable[1, AllDraw.NextRowQ, AllDraw.NextColumnQ] == -1)
+                                                {
+                                                    AllDraw.QuntumTable[0, (int)Row, (int)Column] = AllDraw.NextRowQ;
+                                                    AllDraw.QuntumTable[1, (int)Row, (int)Column] = AllDraw.NextColumnQ;
+                                                }
+                                            }
+                                            else
+                                        if (AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1 && AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1)
+                                            {
+                                                AllDraw.NextRowQ = AllDraw.QuntumTable[0, (int)Row, (int)Column];
+                                                AllDraw.NextColumnQ = AllDraw.QuntumTable[1, (int)Row, (int)Column];
+                                                g.DrawImage(DrawMinister.M[0], new Rectangle(AllDraw.NextRowQ * CellW, AllDraw.NextColumnQ * CellH, CellW, CellH));
+                                                g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((AllDraw.NextRowQ * CellW)), (int)(AllDraw.NextColumnQ * (float)CellH), CellW, CellH), -45, (int)Prob);
+
+                                            }
+                                            AllDraw.QuntumTable[0, AllDraw.QuntumTable[0, (int)Row, (int)Column], AllDraw.QuntumTable[1, (int)Row, (int)Column]] = -1;
+                                            AllDraw.QuntumTable[1, AllDraw.QuntumTable[0, (int)Row, (int)Column], AllDraw.QuntumTable[1, (int)Row, (int)Column]] = -1;
+
+                                        }
+                                        else
+                                            g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                                    }
                                 }
                             }
                             else
@@ -274,9 +390,37 @@ namespace QuantumRefrigiz
                                      //Draw a Image File on the Table Form n Instatnt One.
                                     g.DrawImage(DrawMinister.M[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                     if (RingHalf)
-                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
-                                    else
-                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                                    {
+                                        double Prob = 180 * (AllDraw.Less / Double.MaxValue);
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, (int)Prob);                                        
+                                        if (Prob > 0)
+                                        {
+                                            if (AllDraw.NextRowQ != -1 && AllDraw.NextColumnQ != -1)
+                                            {
+                                                g.DrawImage(DrawMinister.M[1], new Rectangle(AllDraw.NextRowQ * CellW, AllDraw.NextColumnQ * CellH, CellW, CellH));
+                                                g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((AllDraw.NextRowQ * CellW)), (int)(AllDraw.NextColumnQ * (float)CellH), CellW, CellH), -45, (int)Prob);
+                                                if (AllDraw.QuntumTable[0, AllDraw.NextRowQ, AllDraw.NextColumnQ] == -1 && AllDraw.QuntumTable[1, AllDraw.NextRowQ, AllDraw.NextColumnQ] == -1)
+                                                {
+                                                    AllDraw.QuntumTable[0, (int)Row, (int)Column] = AllDraw.NextRowQ;
+                                                    AllDraw.QuntumTable[1, (int)Row, (int)Column] = AllDraw.NextColumnQ;
+                                                }
+                                            }
+                                            else
+                                        if (AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1 && AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1)
+                                            {
+                                                AllDraw.NextRowQ = AllDraw.QuntumTable[0, (int)Row, (int)Column];
+                                                AllDraw.NextColumnQ = AllDraw.QuntumTable[1, (int)Row, (int)Column];
+                                                g.DrawImage(DrawMinister.M[1], new Rectangle(AllDraw.NextRowQ * CellW, AllDraw.NextColumnQ * CellH, CellW, CellH));
+                                                g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((AllDraw.NextRowQ * CellW)), (int)(AllDraw.NextColumnQ * (float)CellH), CellW, CellH), -45, (int)Prob);
+
+                                            }
+                                            AllDraw.QuntumTable[0, AllDraw.QuntumTable[0, (int)Row, (int)Column], AllDraw.QuntumTable[1, (int)Row, (int)Column]] = -1;
+                                            AllDraw.QuntumTable[1, AllDraw.QuntumTable[0, (int)Row, (int)Column], AllDraw.QuntumTable[1, (int)Row, (int)Column]] = -1;
+
+                                        }
+                                        else
+                                            g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                                    }
                                 }
                             }
                         }
@@ -298,9 +442,37 @@ namespace QuantumRefrigiz
                                      //Create on the Inststant of Gray Castles Images.
                                     g.DrawImage(DrawCastle.C[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                     if (RingHalf)
-                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
-                                    else
-                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                                    {
+                                        double Prob = 180 * (AllDraw.Less / Double.MaxValue);
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, (int)Prob);                                        
+                                        if (Prob > 0)
+                                        {
+                                            if (AllDraw.NextRowQ != -1 && AllDraw.NextColumnQ != -1)
+                                            {
+                                                g.DrawImage(DrawCastle.C[0], new Rectangle(AllDraw.NextRowQ * CellW, AllDraw.NextColumnQ * CellH, CellW, CellH));
+                                                g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((AllDraw.NextRowQ * CellW)), (int)(AllDraw.NextColumnQ * (float)CellH), CellW, CellH), -45, (int)Prob);
+                                                if (AllDraw.QuntumTable[0, AllDraw.NextRowQ, AllDraw.NextColumnQ] == -1 && AllDraw.QuntumTable[1, AllDraw.NextRowQ, AllDraw.NextColumnQ] == -1)
+                                                {
+                                                    AllDraw.QuntumTable[0, (int)Row, (int)Column] = AllDraw.NextRowQ;
+                                                    AllDraw.QuntumTable[1, (int)Row, (int)Column] = AllDraw.NextColumnQ;
+                                                }
+                                            }
+                                            else
+                                        if (AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1 && AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1)
+                                            {
+                                                AllDraw.NextRowQ = AllDraw.QuntumTable[0, (int)Row, (int)Column];
+                                                AllDraw.NextColumnQ = AllDraw.QuntumTable[1, (int)Row, (int)Column];
+                                                g.DrawImage(DrawCastle.C[0], new Rectangle(AllDraw.NextRowQ * CellW, AllDraw.NextColumnQ * CellH, CellW, CellH));
+                                                g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((AllDraw.NextRowQ * CellW)), (int)(AllDraw.NextColumnQ * (float)CellH), CellW, CellH), -45, (int)Prob);
+
+                                            }
+                                            AllDraw.QuntumTable[0, AllDraw.QuntumTable[0, (int)Row, (int)Column], AllDraw.QuntumTable[1, (int)Row, (int)Column]] = -1;
+                                            AllDraw.QuntumTable[1, AllDraw.QuntumTable[0, (int)Row, (int)Column], AllDraw.QuntumTable[1, (int)Row, (int)Column]] = -1;
+
+                                        }
+                                        else
+                                            g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                                    }
                                 }
                             }
                             else
@@ -311,9 +483,37 @@ namespace QuantumRefrigiz
                                      //Creat of an Instant of Brown Image Castles.
                                     g.DrawImage(DrawCastle.C[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                     if (RingHalf)
-                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
-                                    else
-                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                                    {
+                                        double Prob = 180 * (AllDraw.Less / Double.MaxValue);
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, (int)Prob);                                        
+                                        if (Prob > 0)
+                                        {
+                                            if (AllDraw.NextRowQ != -1 && AllDraw.NextColumnQ != -1)
+                                            {
+                                                g.DrawImage(DrawCastle.C[1], new Rectangle(AllDraw.NextRowQ * CellW, AllDraw.NextColumnQ * CellH, CellW, CellH));
+                                                g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((AllDraw.NextRowQ * CellW)), (int)(AllDraw.NextColumnQ * (float)CellH), CellW, CellH), -45, (int)Prob);
+                                                if (AllDraw.QuntumTable[0, AllDraw.NextRowQ, AllDraw.NextColumnQ] == -1 && AllDraw.QuntumTable[1, AllDraw.NextRowQ, AllDraw.NextColumnQ] == -1)
+                                                {
+                                                    AllDraw.QuntumTable[0, (int)Row, (int)Column] = AllDraw.NextRowQ;
+                                                    AllDraw.QuntumTable[1, (int)Row, (int)Column] = AllDraw.NextColumnQ;
+                                                }
+                                            }
+                                            else
+                                        if (AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1 && AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1)
+                                            {
+                                                AllDraw.NextRowQ = AllDraw.QuntumTable[0, (int)Row, (int)Column];
+                                                AllDraw.NextColumnQ = AllDraw.QuntumTable[1, (int)Row, (int)Column];
+                                                g.DrawImage(DrawCastle.C[1], new Rectangle(AllDraw.NextRowQ * CellW, AllDraw.NextColumnQ * CellH, CellW, CellH));
+                                                g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((AllDraw.NextRowQ * CellW)), (int)(AllDraw.NextColumnQ * (float)CellH), CellW, CellH), -45, (int)Prob);
+
+                                            }
+                                            AllDraw.QuntumTable[0, AllDraw.QuntumTable[0, (int)Row, (int)Column], AllDraw.QuntumTable[1, (int)Row, (int)Column]] = -1;
+                                            AllDraw.QuntumTable[1, AllDraw.QuntumTable[0, (int)Row, (int)Column], AllDraw.QuntumTable[1, (int)Row, (int)Column]] = -1;
+
+                                        }
+                                        else
+                                            g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                                    }
                                 }
                             }
                         }
@@ -333,11 +533,39 @@ namespace QuantumRefrigiz
                                 Object O1 = new Object();
                                 lock (O1)
                                 {//Draw an Instatnt of Gray Hourse Image File.
-                                    g.DrawImage(DrawHourse.H[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (int)CellH), CellW, CellH));
+                                    g.DrawImage(DrawHourse.H[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                     if (RingHalf)
-                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
-                                    else
-                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                                    {
+                                        double Prob = 180 * (AllDraw.Less / Double.MaxValue);
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, (int)Prob);                                        
+                                        if (Prob > 0)
+                                        {
+                                            if (AllDraw.NextRowQ != -1 && AllDraw.NextColumnQ != -1)
+                                            {
+                                                g.DrawImage(DrawHourse.H[0], new Rectangle(AllDraw.NextRowQ * CellW, AllDraw.NextColumnQ * CellH, CellW, CellH));
+                                                g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((AllDraw.NextRowQ * CellW)), (int)(AllDraw.NextColumnQ * (float)CellH), CellW, CellH), -45, (int)Prob);
+                                                if (AllDraw.QuntumTable[0, AllDraw.NextRowQ, AllDraw.NextColumnQ] == -1 && AllDraw.QuntumTable[1, AllDraw.NextRowQ, AllDraw.NextColumnQ] == -1)
+                                                {
+                                                    AllDraw.QuntumTable[0, (int)Row, (int)Column] = AllDraw.NextRowQ;
+                                                    AllDraw.QuntumTable[1, (int)Row, (int)Column] = AllDraw.NextColumnQ;
+                                                }
+                                            }
+                                            else
+                                        if (AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1 && AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1)
+                                            {
+                                                AllDraw.NextRowQ = AllDraw.QuntumTable[0, (int)Row, (int)Column];
+                                                AllDraw.NextColumnQ = AllDraw.QuntumTable[1, (int)Row, (int)Column];
+                                                g.DrawImage(DrawHourse.H[0], new Rectangle(AllDraw.NextRowQ * CellW, AllDraw.NextColumnQ * CellH, CellW, CellH));
+                                                g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((AllDraw.NextRowQ * CellW)), (int)(AllDraw.NextColumnQ * (float)CellH), CellW, CellH), -45, (int)Prob);
+
+                                            }
+                                            AllDraw.QuntumTable[0, AllDraw.QuntumTable[0, (int)Row, (int)Column], AllDraw.QuntumTable[1, (int)Row, (int)Column]] = -1;
+                                            AllDraw.QuntumTable[1, AllDraw.QuntumTable[0, (int)Row, (int)Column], AllDraw.QuntumTable[1, (int)Row, (int)Column]] = -1;
+
+                                        }
+                                        else
+                                            g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                                    }
                                 }
                             }
                             else
@@ -347,9 +575,37 @@ namespace QuantumRefrigiz
                                 {//Creat of an Instatnt Hourse Image File.
                                     g.DrawImage(DrawHourse.H[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                     if (RingHalf)
-                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
-                                    else
-                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                                    {
+                                        double Prob = 180 * (AllDraw.Less / Double.MaxValue);
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, (int)Prob);                                        
+                                        if (Prob > 0)
+                                        {
+                                            if (AllDraw.NextRowQ != -1 && AllDraw.NextColumnQ != -1)
+                                            {
+                                                g.DrawImage(DrawHourse.H[1], new Rectangle(AllDraw.NextRowQ * CellW, AllDraw.NextColumnQ * CellH, CellW, CellH));
+                                                g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((AllDraw.NextRowQ * CellW)), (int)(AllDraw.NextColumnQ * (float)CellH), CellW, CellH), -45, (int)Prob);
+                                                if (AllDraw.QuntumTable[0, AllDraw.NextRowQ, AllDraw.NextColumnQ] == -1 && AllDraw.QuntumTable[1, AllDraw.NextRowQ, AllDraw.NextColumnQ] == -1)
+                                                {
+                                                    AllDraw.QuntumTable[0, (int)Row, (int)Column] = AllDraw.NextRowQ;
+                                                    AllDraw.QuntumTable[1, (int)Row, (int)Column] = AllDraw.NextColumnQ;
+                                                }
+                                            }
+                                            else
+                                        if (AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1 && AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1)
+                                            {
+                                                AllDraw.NextRowQ = AllDraw.QuntumTable[0, (int)Row, (int)Column];
+                                                AllDraw.NextColumnQ = AllDraw.QuntumTable[1, (int)Row, (int)Column];
+                                                g.DrawImage(DrawHourse.H[1], new Rectangle(AllDraw.NextRowQ * CellW, AllDraw.NextColumnQ * CellH, CellW, CellH));
+                                                g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((AllDraw.NextRowQ * CellW)), (int)(AllDraw.NextColumnQ * (float)CellH), CellW, CellH), -45, (int)Prob);
+
+                                            }
+                                            AllDraw.QuntumTable[0, AllDraw.QuntumTable[0, (int)Row, (int)Column], AllDraw.QuntumTable[1, (int)Row, (int)Column]] = -1;
+                                            AllDraw.QuntumTable[1, AllDraw.QuntumTable[0, (int)Row, (int)Column], AllDraw.QuntumTable[1, (int)Row, (int)Column]] = -1;
+
+                                        }
+                                        else
+                                            g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                                    }
                                 }
                             }
                         }
@@ -371,9 +627,37 @@ namespace QuantumRefrigiz
                                 {//Draw an Instatnt Image of Gray Elephant.
                                     g.DrawImage(DrawElefant.E[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                     if (RingHalf)
-                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
-                                    else
-                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                                    {
+                                        double Prob = 180 * (AllDraw.Less / Double.MaxValue);
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, (int)Prob);                                        
+                                        if (Prob > 0)
+                                        {
+                                            if (AllDraw.NextRowQ != -1 && AllDraw.NextColumnQ != -1)
+                                            {
+                                                g.DrawImage(DrawElefant.E[0], new Rectangle(AllDraw.NextRowQ * CellW, AllDraw.NextColumnQ * CellH, CellW, CellH));
+                                                g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((AllDraw.NextRowQ * CellW)), (int)(AllDraw.NextColumnQ * (float)CellH), CellW, CellH), -45, (int)Prob);
+                                                if (AllDraw.QuntumTable[0, AllDraw.NextRowQ, AllDraw.NextColumnQ] == -1 && AllDraw.QuntumTable[1, AllDraw.NextRowQ, AllDraw.NextColumnQ] == -1)
+                                                {
+                                                    AllDraw.QuntumTable[0, (int)Row, (int)Column] = AllDraw.NextRowQ;
+                                                    AllDraw.QuntumTable[1, (int)Row, (int)Column] = AllDraw.NextColumnQ;
+                                                }
+                                            }
+                                            else
+                                        if (AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1 && AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1)
+                                            {
+                                                AllDraw.NextRowQ = AllDraw.QuntumTable[0, (int)Row, (int)Column];
+                                                AllDraw.NextColumnQ = AllDraw.QuntumTable[1, (int)Row, (int)Column];
+                                                g.DrawImage(DrawElefant.E[0], new Rectangle(AllDraw.NextRowQ * CellW, AllDraw.NextColumnQ * CellH, CellW, CellH));
+                                                g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((AllDraw.NextRowQ * CellW)), (int)(AllDraw.NextColumnQ * (float)CellH), CellW, CellH), -45, (int)Prob);
+
+                                            }
+                                            AllDraw.QuntumTable[0, AllDraw.QuntumTable[0, (int)Row, (int)Column], AllDraw.QuntumTable[1, (int)Row, (int)Column]] = -1;
+                                            AllDraw.QuntumTable[1, AllDraw.QuntumTable[0, (int)Row, (int)Column], AllDraw.QuntumTable[1, (int)Row, (int)Column]] = -1;
+
+                                        }
+                                        else
+                                            g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                                    }
                                 }
                             }
                             else
@@ -383,9 +667,37 @@ namespace QuantumRefrigiz
                                 {//Draw of Instant Image of Brown Elephant.
                                     g.DrawImage(DrawElefant.E[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                     if (RingHalf)
-                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 180);
-                                    else
-                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                                    {
+                                        double Prob = 180 * (AllDraw.Less / Double.MaxValue);
+                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, (int)Prob);                                        
+                                        if (Prob > 0)
+                                        {
+                                            if (AllDraw.NextRowQ != -1 && AllDraw.NextColumnQ != -1)
+                                            {
+                                                g.DrawImage(DrawElefant.E[1], new Rectangle(AllDraw.NextRowQ * CellW, AllDraw.NextColumnQ * CellH, CellW, CellH));
+                                                g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((AllDraw.NextRowQ * CellW)), (int)(AllDraw.NextColumnQ * (float)CellH), CellW, CellH), -45, (int)Prob);
+                                                if (AllDraw.QuntumTable[0, AllDraw.NextRowQ, AllDraw.NextColumnQ] == -1 && AllDraw.QuntumTable[1, AllDraw.NextRowQ, AllDraw.NextColumnQ] == -1)
+                                                {
+                                                    AllDraw.QuntumTable[0, (int)Row, (int)Column] = AllDraw.NextRowQ;
+                                                    AllDraw.QuntumTable[1, (int)Row, (int)Column] = AllDraw.NextColumnQ;
+                                                }
+                                            }
+                                            else
+                                        if (AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1 && AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1)
+                                            {
+                                                AllDraw.NextRowQ = AllDraw.QuntumTable[0, (int)Row, (int)Column];
+                                                AllDraw.NextColumnQ = AllDraw.QuntumTable[1, (int)Row, (int)Column];
+                                                g.DrawImage(DrawElefant.E[1], new Rectangle(AllDraw.NextRowQ * CellW, AllDraw.NextColumnQ * CellH, CellW, CellH));
+                                                g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((AllDraw.NextRowQ * CellW)), (int)(AllDraw.NextColumnQ * (float)CellH), CellW, CellH), -45, (int)Prob);
+
+                                            }
+                                            AllDraw.QuntumTable[0, AllDraw.QuntumTable[0, (int)Row, (int)Column], AllDraw.QuntumTable[1, (int)Row, (int)Column]] = -1;
+                                            AllDraw.QuntumTable[1, AllDraw.QuntumTable[0, (int)Row, (int)Column], AllDraw.QuntumTable[1, (int)Row, (int)Column]] = -1;
+
+                                        }
+                                        else
+                                            g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+                                    }
                                 }
                             }
 
