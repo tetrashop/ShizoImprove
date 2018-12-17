@@ -227,7 +227,7 @@ namespace QuantumRefrigiz
                                 {
                                     double Prob = 180 * (AllDraw.Less / Double.MaxValue);
                                     g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45,(int)Prob);                                    
-                                    if (Prob > 0)
+                                    //if (Prob > 0)
                                     {
                                         if (AllDraw.NextRowQ != -1 && AllDraw.NextColumnQ != -1)
                                         {
@@ -267,7 +267,7 @@ namespace QuantumRefrigiz
                                 {
                                     double Prob = 180 * (AllDraw.Less / Double.MaxValue);
                                     g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45,(int)Prob);                                    
-                                    if (Prob > 0)
+                                    //if (Prob > 0)
                                     {
                                         if (AllDraw.NextRowQ != -1 && AllDraw.NextColumnQ != -1)
                                         {

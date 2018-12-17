@@ -223,7 +223,7 @@ namespace QuantumRefrigiz
                                     if (RingHalf)
                                     {
                                     double Prob = 180 * (AllDraw.Less / Double.MaxValue);
-                                    if (Prob > 0)
+                                    //if (Prob > 0)
                                     {
                                         g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, (int)Prob);
                                         if (AllDraw.NextRowQ != -1 && AllDraw.NextColumnQ != -1)
@@ -263,8 +263,8 @@ namespace QuantumRefrigiz
                                 if (RingHalf)
                                 {
                                     double Prob = 180 * (AllDraw.Less / Double.MaxValue);
-                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, (int)Prob);                                    
-                                    if (Prob > 0)
+                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, (int)Prob);
+                                    //if (Prob > 0)
                                     {
                                         if (AllDraw.NextRowQ != -1 && AllDraw.NextColumnQ != -1)
                                         {
@@ -287,11 +287,11 @@ namespace QuantumRefrigiz
                                         }
                                         AllDraw.QuntumTable[0, AllDraw.QuntumTable[0, (int)Row, (int)Column], AllDraw.QuntumTable[1, (int)Row, (int)Column]] = -1;
                                         AllDraw.QuntumTable[1, AllDraw.QuntumTable[0, (int)Row, (int)Column], AllDraw.QuntumTable[1, (int)Row, (int)Column]] = -1;
-
                                     }
-                                    else
-                                        g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
                                 }
+                                else
+                                    g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
+
                             }
                         }
                     }

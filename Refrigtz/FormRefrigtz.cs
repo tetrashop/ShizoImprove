@@ -6122,47 +6122,49 @@ namespace Refrigtz
                 }
             }
         }
-       
+
         double CalculateMoveMentHueuristicUser(int[,] Table, int Order, int Row, int Column, int RowSource, int ColumnS, Color color)
+        {
+
+            RefrigtzDLL.ThinkingChess th = null;
+            QuantumRefrigiz.ThinkingQuantumChess th1 = null;
+            if (!Quantum)
+                th = new RefrigtzDLL.ThinkingChess(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, Row, Column);
+            else
+                th1 = new QuantumRefrigiz.ThinkingQuantumChess(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, Row, Column);
+            double HuristicAttackValue = new double();
+            double HuristicMovementValue = new double();
+            double HuristicSelfSupportedValue = new double();
+            double HuristicObjectDangourCheckMateValue = new double();
+            double HuristicHittingValue = new double();
+            double HuristicReducedAttackValue = new double();
+            double HeuristicDistabceOfCurrentMoveFromEnemyKingValue = new double();
+            double HeuristicKingSafe = new double();
+            double HeuristicFromCenter = new double();
+            double HeuristicKingDangour = new double();
+            if (!Quantum)
             {
+                th.CalculateHuristics(true, 0, Table, Row, Column, RowSource, ColumnS, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicHittingValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                double[] Hu = new double[4];
 
-                RefrigtzDLL.ThinkingChess th = null;
-                QuantumRefrigiz.ThinkingQuantumChess th1 = null;
-                if (!Quantum)
-                    th = new RefrigtzDLL.ThinkingChess(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, Row, Column);
-                else
-                    th1 = new QuantumRefrigiz.ThinkingQuantumChess(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, Row, Column);
-                double HuristicAttackValue = new double();
-                double HuristicMovementValue = new double();
-                double HuristicSelfSupportedValue = new double();
-                double HuristicObjectDangourCheckMateValue = new double();
-                double HuristicHittingValue = new double();
-                double HuristicReducedAttackValue = new double();
-                double HeuristicDistabceOfCurrentMoveFromEnemyKingValue = new double();
-                double HeuristicKingSafe = new double();
-                double HeuristicFromCenter = new double();
-                double HeuristicKingDangour = new double();
-                if (!Quantum)
-                {
-                    th.CalculateHuristics(true, 0, Table, Row, Column, RowSource, ColumnS, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicHittingValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
-                    double[] Hu = new double[4];
+                return HuristicAttackValue + HuristicMovementValue +
+                HuristicSelfSupportedValue +
 
-                    return HuristicAttackValue + HuristicMovementValue +
-                    HuristicSelfSupportedValue +
-
-                    HuristicObjectDangourCheckMateValue + HuristicReducedAttackValue + HuristicHittingValue + HeuristicDistabceOfCurrentMoveFromEnemyKingValue + HeuristicKingSafe + HeuristicFromCenter + HeuristicKingDangour;
-                }
-                else
-                {
-                    th1.CalculateHuristics(true, 0, Table, Row, Column, RowSource, ColumnS, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicHittingValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
-                    double[] Hu = new double[4];
-
-                    return HuristicAttackValue + HuristicMovementValue +
-                    HuristicSelfSupportedValue +
-
-                    HuristicObjectDangourCheckMateValue + HuristicReducedAttackValue + HuristicHittingValue + HeuristicDistabceOfCurrentMoveFromEnemyKingValue + HeuristicKingSafe + HeuristicFromCenter + HeuristicKingDangour;
-                }
+                HuristicObjectDangourCheckMateValue + HuristicReducedAttackValue + HuristicHittingValue + HeuristicDistabceOfCurrentMoveFromEnemyKingValue + HeuristicKingSafe + HeuristicFromCenter + HeuristicKingDangour;
             }
+            else
+            {
+                th1.CalculateHuristics(true, 0, Table, Row, Column, RowSource, ColumnS, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicHittingValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                double[] Hu = new double[4];
+
+
+                QuantumRefrigiz.AllDraw.Less = HuristicAttackValue + HuristicMovementValue +
+                    HuristicSelfSupportedValue +
+
+                    HuristicObjectDangourCheckMateValue + HuristicReducedAttackValue + HuristicHittingValue + HeuristicDistabceOfCurrentMoveFromEnemyKingValue + HeuristicKingSafe + HeuristicFromCenter + HeuristicKingDangour;
+                return QuantumRefrigiz.AllDraw.Less;
+            }
+        }
         bool CheckMovment(int[,] Table, int i, int j, int ii, int jj, int Order)
             {
                 bool Check = false;
