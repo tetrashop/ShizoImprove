@@ -192,6 +192,36 @@ namespace QuantumRefrigiz
             AA.color = color;
 
         }
+        bool Quantum(int[,] Tab, int Order, int Row, int Column, int LastRow, int LastColumn)
+        {
+            if (ArrangmentsChanged)
+            {
+                if (LastRow == 6)
+                {
+                    if (Column == LastColumn + 2)
+                        if (Table[Row, LastColumn + 1] < 0)
+                            if (Table[Row, Column] == 1)
+                                return true;
+                    if (System.Math.Abs(Row - LastRow) == 1)
+                        if (Table[Row, Column] == 1)
+                            return true;
+                }
+
+            }
+            else {
+                if (LastRow == 6)
+                {
+                    if (Column == LastColumn - 2)
+                        if (Table[Row, LastColumn - 1] > 0)
+                            if (Table[Row, Column] == -1)
+                                return true;
+                    if (System.Math.Abs(Row - LastRow) == 1)
+                        if (Table[Row, Column] == -1)
+                            return true;
+                }
+            }
+            return false;
+        }
         //Drawing Soldiers On the Table Method..
         public void DrawSoldierOnTable(ref Graphics g, int CellW, int CellH)
         {
@@ -199,27 +229,29 @@ namespace QuantumRefrigiz
 
             lock (balanceLockS)
             {
-                if (AllDraw.LastRow == Row && AllDraw.LastColumn == Column)
-                    if (AllDraw.LastRow != AllDraw.NextRow || AllDraw.LastColumn != AllDraw.NextColumn)
+                if (AllDraw.LastRow != Row && AllDraw.LastColumn != Column&&AllDraw.LastRow!=-1&&AllDraw.LastColumn!=-1)
+                    
                     {
                         if (AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1 && AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1)
                         {
                             LastRow = AllDraw.QuntumTable[0, (int)Row, (int)Column];
-                            LastColumn = AllDraw.QuntumTable[1, (int)Row, (int)Column];
-                        }
+                        LastColumn = AllDraw.QuntumTable[1, (int)Row, (int)Column];
+                        IsQuntumMove = true;
+                    }
                         else
                         if (AllDraw.LastRowQ != -1 && AllDraw.LastColumnQ != -1)
                         {
                             LastRow = AllDraw.LastRowQ;
                             LastColumn = AllDraw.LastColumnQ;
                             AllDraw.LastRowQ = -1;
-                            AllDraw.LastColumnQ = -1;
-                        }
+                        AllDraw.LastColumnQ = -1;
+                        IsQuntumMove = true;
+                    }
                         AllDraw.LastRow = -1;
                         AllDraw.LastColumn = -1;
                         AllDraw.NextRow = -1;
                         AllDraw.NextColumn = -1;
-                        IsQuntumMove = true;
+                        
                     }
 
                 if (AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1 && AllDraw.QuntumTable[1, (int)Row, (int)Column] != -1)
@@ -241,7 +273,8 @@ namespace QuantumRefrigiz
                     }
                 }
 
-
+                if (!Quantum(Table, Order, Row, Column, LastRow, LastColumn))
+                    RingHalf = false;
                 if (S[0] == null || S[1] == null)
                 {
                     S[0] = Image.FromFile(AllDraw.ImagesSubRoot + "SG.png");

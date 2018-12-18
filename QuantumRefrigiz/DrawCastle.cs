@@ -191,28 +191,30 @@ namespace QuantumRefrigiz
             {
                 int LastRow = -1, LastColumn = -1;
 
-                if (AllDraw.LastRow == Row && AllDraw.LastColumn == Column)
-                    if (AllDraw.LastRow != AllDraw.NextRow || AllDraw.LastColumn != AllDraw.NextColumn)
+                if (AllDraw.LastRow != Row && AllDraw.LastColumn != Column && AllDraw.LastRow != -1 && AllDraw.LastColumn != -1 && AllDraw.NextRow == Row && AllDraw.NextColumn ==Column)
+                {
+                    if (AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1 && AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1)
                     {
-                        if (AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1 && AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1)
-                        {
-                            LastRow = AllDraw.QuntumTable[0, (int)Row, (int)Column];
-                            LastColumn = AllDraw.QuntumTable[1, (int)Row, (int)Column];
-                        }
-                        else
-                        if (AllDraw.LastRowQ != -1 && AllDraw.LastColumnQ != -1)
-                        {
-                            LastRow = AllDraw.LastRowQ;
-                            LastColumn = AllDraw.LastColumnQ;
-                            AllDraw.LastRowQ = -1;
-                            AllDraw.LastColumnQ = -1;
-                        }
-                        AllDraw.LastRow = -1;
-                        AllDraw.LastColumn = -1;
-                        AllDraw.NextRow = -1;
-                        AllDraw.NextColumn = -1;
+                        LastRow = AllDraw.QuntumTable[0, (int)Row, (int)Column];
+                        LastColumn = AllDraw.QuntumTable[1, (int)Row, (int)Column];
                         IsQuntumMove = true;
                     }
+                    else
+                    if (AllDraw.LastRowQ != -1 && AllDraw.LastColumnQ != -1)
+                    {
+                        LastRow = AllDraw.LastRowQ;
+                        LastColumn = AllDraw.LastColumnQ;
+                        AllDraw.LastRowQ = -1;
+                        AllDraw.LastColumnQ = -1;
+                        IsQuntumMove = true;
+                    }
+                    AllDraw.LastRow = -1;
+                    AllDraw.LastColumn = -1;
+                    AllDraw.NextRow = -1;
+                    AllDraw.NextColumn = -1;
+
+                }
+            
 
                 if (AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1 && AllDraw.QuntumTable[1, (int)Row, (int)Column] != -1)
                 {
