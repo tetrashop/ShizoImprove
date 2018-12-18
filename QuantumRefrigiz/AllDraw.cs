@@ -176,8 +176,8 @@ namespace QuantumRefrigiz
               {-1, -1, - 1, -1, -1, -1, -1, -1 },
               {-1, -1, - 1, -1, -1, -1, -1, -1 },
               {-1, -1, - 1, -1, -1, -1, -1, -1 }}};
-        public static int NextRowQ = -1;
-        public static int NextColumnQ = -1;
+        public static int LastRowQ = -1;
+        public static int LastColumnQ = -1;
 
         StackFrame callStack = new StackFrame(1, true);
         int[,] Tabl = new int[8, 8];

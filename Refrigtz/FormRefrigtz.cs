@@ -11496,47 +11496,6 @@ namespace Refrigtz
                     }
                     else
                     {
-                        if (System.Math.Abs(Tab[i, j]) == 1)
-                        {
-                            Draw.SolderesOnTable[Soldier].Row = (int)RowClickP;
-                            Draw.SolderesOnTable[Soldier].Column = (int)ColumnClickP;
-                        }
-                        else
-                            if (System.Math.Abs(Tab[i, j]) == 2)
-                        {
-                            Draw.ElephantOnTable[Elefant].Row = (int)RowClickP;
-                            Draw.ElephantOnTable[Elefant].Column = (int)ColumnClickP;
-                        }
-                        else
-                            if (System.Math.Abs(Tab[i, j]) == 3)
-                        {
-                            Draw.HoursesOnTable[Hourse].Row = RowClickP;
-                            Draw.HoursesOnTable[Hourse].Column = ColumnClickP;
-                        }
-                        else
-                            if (System.Math.Abs(Tab[i, j]) == 1)
-                        {
-                            Draw.SolderesOnTable[Soldier].Row = (int)RowClickP;
-                            Draw.SolderesOnTable[Soldier].Column = (int)ColumnClickP;
-                        }
-                        else
-                            if (System.Math.Abs(Tab[i, j]) == 4)
-                        {
-                            Draw.CastlesOnTable[Castle].Row = (int)RowClickP;
-                            Draw.CastlesOnTable[Castle].Column = (int)ColumnClickP;
-                        }
-                        else
-                            if (System.Math.Abs(Tab[i, j]) == 5)
-                        {
-                            Draw.MinisterOnTable[Minister].Row = (int)RowClickP;
-                            Draw.MinisterOnTable[Minister].Column = (int)ColumnClickP;
-                        }
-                        else
-                            if (System.Math.Abs(Tab[i, j]) == 6)
-                        {
-                            Draw.KingOnTable[King].Row = (int)RowClickP;
-                            Draw.KingOnTable[King].Column = (int)ColumnClickP;
-                        }
                         SetBoxText("\r\nWait...");
                         RefreshBoxText();
                         //if (!FirstMovmentOnLoad && System.Convert.ToInt32(comboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, Table, OrderPlate * -1, King, -6);
@@ -11567,9 +11526,14 @@ namespace Refrigtz
                     {
                         Tab[ii, jj] = Tab[i, j];
                         Tab[i, j] = 0;
-                        QuantumRefrigiz.AllDraw.NextRowQ = ii;
-                        QuantumRefrigiz.AllDraw.NextColumnQ = jj;
+                        QuantumRefrigiz.AllDraw.LastRowQ = i;
+                        QuantumRefrigiz.AllDraw.LastColumnQ = j;
 
+                        if (System.Math.Abs(Tab[ii, jj]) == 1)
+                        {
+                            DrawQ.SolderesOnTable[Soldier].IsQuntumMove = true;
+                        }
+                        else
                         if (System.Math.Abs(Tab[ii, jj]) == 2)
                         {
                             DrawQ.ElephantOnTable[Elefant].IsQuntumMove = true;
@@ -11577,8 +11541,6 @@ namespace Refrigtz
                         else
                             if (System.Math.Abs(Tab[ii, jj]) == 3)
                         {
-                            DrawQ.HoursesOnTable[Hourse].Row = RowClickP;
-                            DrawQ.HoursesOnTable[Hourse].Column = ColumnClickP;
                             DrawQ.HoursesOnTable[Hourse].IsQuntumMove = true;
                         }
                         else
@@ -11674,49 +11636,9 @@ namespace Refrigtz
                     }
                     else
                     {
-                        if (System.Math.Abs(Tab[i, j]) == 1)
-                        {
-                            DrawQ.SolderesOnTable[Soldier].Row = (int)RowClickP;
-                            DrawQ.SolderesOnTable[Soldier].Column = (int)ColumnClickP;
-                        }
-                        else
-                            if (System.Math.Abs(Tab[i, j]) == 2)
-                        {
-                            DrawQ.ElephantOnTable[Elefant].Row = (int)RowClickP;
-                            DrawQ.ElephantOnTable[Elefant].Column = (int)ColumnClickP;
-                            DrawQ.ElephantOnTable[Elefant].IsQuntumMove = true;
-                        }
-                        else
-                            if (System.Math.Abs(Tab[i, j]) == 3)
-                        {
-                            DrawQ.HoursesOnTable[Hourse].Row = RowClickP;
-                            DrawQ.HoursesOnTable[Hourse].Column = ColumnClickP;
-                            DrawQ.HoursesOnTable[Hourse].IsQuntumMove = true;
-                        }
-                        else
-                        if (System.Math.Abs(Tab[i, j]) == 4)
-                        {
-                            DrawQ.CastlesOnTable[Castle].Row = (int)RowClickP;
-                            DrawQ.CastlesOnTable[Castle].Column = (int)ColumnClickP;
-                            DrawQ.CastlesOnTable[Castle].IsQuntumMove = true;
-                        }
-                        else
-                            if (System.Math.Abs(Tab[i, j]) == 5)
-                        {
-                            DrawQ.MinisterOnTable[Minister].Row = (int)RowClickP;
-                            DrawQ.MinisterOnTable[Minister].Column = (int)ColumnClickP;
-                            DrawQ.MinisterOnTable[Minister].IsQuntumMove = true;
-                        }
-                        else
-                            if (System.Math.Abs(Tab[i, j]) == 6)
-                        {
-                            DrawQ.KingOnTable[King].Row = (int)RowClickP;
-                            DrawQ.KingOnTable[King].Column = (int)ColumnClickP;
-                            DrawQ.KingOnTable[King].IsQuntumMove = true;
-                        }
                         SetBoxText("\r\nWait...");
                         RefreshBoxText();
-                        //if (!FirstMovmentOnLoad && System.Convert.ToInt32(comboBoxMaxLevel.Text) > 2) DrawQ.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, Table, OrderPlate * -1, King, -6);
+                        //if (!FirstMovmentOnLoad && System.Convert.ToInt32(comboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, Table, OrderPlate * -1, King, -6);
                         Clicked = true;
                         // SetRefregitzBicture();
 
