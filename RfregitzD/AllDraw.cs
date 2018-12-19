@@ -12126,10 +12126,18 @@ if (Kind == 2)
                     Object OOOO = new Object();
                     lock (OOOO)
                     {
-                        if (iAStarGreedy <= CurrentAStarGredyMax && ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
+                        if (iAStarGreedy <= MaxAStarGreedy)
                         {
-                            OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
-                            return null;
+                            if (ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
+                            {
+                                OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
+                                return null;
+                            }
+                            else
+                            {
+                                iAStarGreedy = MaxAStarGreedy;
+                                OutPut = "\r\nLevel Boundry Conditon for iAStarGreedy is Set To " + iAStarGreedy.ToString() + "MaxAStarGreedy";
+                            }
                         }
                     }
                     CurrentAStarGredyMax = AStarGreedyiLevelMax - iAStarGreedy;
@@ -13789,10 +13797,18 @@ if (Kind == 2)
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
-                    if (iAStarGreedy <= CurrentAStarGredyMax && ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
+                    if (iAStarGreedy <=MaxAStarGreedy)
                     {
-                        OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
-                        return true;
+                        if (ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
+                        {
+                            OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
+                            return false;
+                        }
+                        else
+                        {
+                            iAStarGreedy = MaxAStarGreedy;
+                            OutPut = "\r\nLevel Boundry Conditon for iAStarGreedy is Set To " + iAStarGreedy.ToString() + "MaxAStarGreedy";
+                        }
                     }
                 }
                 //List<Task> tHA = new List<Task>();
@@ -13802,7 +13818,7 @@ if (Kind == 2)
                 //    continue; Do;
 
                 //Parallel.For(0, SolderesOnTable[ik].SoldierThinking[0].TableListSolder.Count, j =>
-                for(int j=0;j< SolderesOnTable[ik].SoldierThinking[0].TableListSolder.Count; j++)
+                for (int j=0;j< SolderesOnTable[ik].SoldierThinking[0].TableListSolder.Count; j++)
                 {
                     //Object ooo = new Object();
                     ////lock (ooo)
@@ -14102,10 +14118,18 @@ if (Kind == 2)
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
-                    if (iAStarGreedy <= CurrentAStarGredyMax && ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
+                    if (iAStarGreedy <=MaxAStarGreedy)
                     {
-                        OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
-                        return true;
+                        if (ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
+                        {
+                            OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
+                            return false;
+                        }
+                        else
+                        {
+                            iAStarGreedy = MaxAStarGreedy;
+                            OutPut = "\r\nLevel Boundry Conditon for iAStarGreedy is Set To " + iAStarGreedy.ToString() + "MaxAStarGreedy";
+                        }
                     }
                 }
                 //List<Task> tHA = new List<Task>();
@@ -14113,7 +14137,7 @@ if (Kind == 2)
                 //if (ElephantOnTable[ik].ElefantThinking[0].TableListElefant.Count == 0)
                 //     continue; Do;
                 //Parallel.For(0, ElephantOnTable[ik].ElefantThinking[0].TableListElefant.Count, j =>
-                for(int j=0;j< ElephantOnTable[ik].ElefantThinking[0].TableListElefant.Count; j++)
+                for (int j=0;j< ElephantOnTable[ik].ElefantThinking[0].TableListElefant.Count; j++)
                 {
                     //Object ooo = new Object();
                     ////lock (ooo)
@@ -14406,13 +14430,22 @@ if (Kind == 2)
                     }
                     //S += 100; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
                 }
+
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
-                    if (iAStarGreedy <= CurrentAStarGredyMax && ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
+                    if (iAStarGreedy <=MaxAStarGreedy)
                     {
-                        OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
-                        return true;
+                        if (ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
+                        {
+                            OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
+                            return false;
+                        }
+                        else
+                        {
+                            iAStarGreedy = MaxAStarGreedy;
+                            OutPut = "\r\nLevel Boundry Conditon for iAStarGreedy is Set To " + iAStarGreedy.ToString() + "MaxAStarGreedy";
+                        }
                     }
                 }
                 //List<Task> tHA = new List<Task>();
@@ -14420,7 +14453,7 @@ if (Kind == 2)
                 //if (HoursesOnTable[ik].HourseThinking[0].TableListHourse.Count == 0)
                 //    return Do;
                 //Parallel.For(0, HoursesOnTable[ik].HourseThinking[0].TableListHourse.Count, j =>
-                for(int j=0;j< HoursesOnTable[ik].HourseThinking[0].TableListHourse.Count; j++)
+                for (int j=0;j< HoursesOnTable[ik].HourseThinking[0].TableListHourse.Count; j++)
                 {
                     //Object ooo = new Object();
                     ////lock (ooo)
@@ -14719,17 +14752,25 @@ if (Kind == 2)
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
-                    if (iAStarGreedy <= CurrentAStarGredyMax && ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
+                    if (iAStarGreedy <=MaxAStarGreedy)
                     {
-                        OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
-                        return true;
+                        if (ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
+                        {
+                            OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
+                            return false;
+                        }
+                        else
+                        {
+                            iAStarGreedy = MaxAStarGreedy;
+                            OutPut = "\r\nLevel Boundry Conditon for iAStarGreedy is Set To " + iAStarGreedy.ToString() + "MaxAStarGreedy";
+                        }
                     }
                 }
                 //List<Task> tHA = new List<Task>();
                 //if (CastlesOnTable[ik].CastleThinking[0].TableListCastle.Count == 0)
                 //    return Do;
                 //Parallel.For(0, CastlesOnTable[ik].CastleThinking[0].TableListCastle.Count, j =>
-                for(int j=0;j< CastlesOnTable[ik].CastleThinking[0].TableListCastle.Count; j++)
+                for (int j=0;j< CastlesOnTable[ik].CastleThinking[0].TableListCastle.Count; j++)
                 {
                     //Object ooo = new Object();
                     ////lock (ooo)
@@ -15020,10 +15061,18 @@ if (Kind == 2)
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
-                    if (iAStarGreedy <= CurrentAStarGredyMax && ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
+                    if (iAStarGreedy <=MaxAStarGreedy)
                     {
-                        OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
-                        return true;
+                        if (ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
+                        {
+                            OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
+                            return false;
+                        }
+                        else
+                        {
+                            iAStarGreedy = MaxAStarGreedy;
+                            OutPut = "\r\nLevel Boundry Conditon for iAStarGreedy is Set To " + iAStarGreedy.ToString() + "MaxAStarGreedy";
+                        }
                     }
                 }
                 //List<Task> tHA = new List<Task>();
@@ -15324,10 +15373,18 @@ if (Kind == 2)
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
-                    if (iAStarGreedy <= CurrentAStarGredyMax && ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
+                    if (iAStarGreedy <=MaxAStarGreedy)
                     {
-                        OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
-                        return true;
+                        if (ThinkingChess.FoundFirstMating >= MaxAStarGreedy)
+                        {
+                            OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
+                            return false;
+                        }
+                        else
+                        {
+                            iAStarGreedy = MaxAStarGreedy;
+                            OutPut = "\r\nLevel Boundry Conditon for iAStarGreedy is Set To " + iAStarGreedy.ToString() + "MaxAStarGreedy";
+                        }
                     }
                 }
                 //List<Task> tHA = new List<Task>();

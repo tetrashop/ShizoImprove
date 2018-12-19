@@ -4334,7 +4334,32 @@ namespace Refrigtz
             var parallelOptions = new ParallelOptions();
             //parallelOptions.MaxDegreeOfParallelism = Int32.MaxValue;
             parallelOptions.MaxDegreeOfParallelism = PlatformHelper.ProcessorCount;
-
+            if (Quantum)
+            {
+                String SFile = "QBN.aqs";
+                if (File.Exists(SFile))
+                {
+                    String SCoun = File.ReadAllText(SFile);
+                    //for (int i = 0; i < 2; i++)
+                    //for (int jj = 0; jj < 8; jj++)
+                    //for (int kk = 0; kk < 8; kk++)
+                    int L = 0, k = 0;
+                    String S = "";
+                    do
+                    {
+                        int kk = (L) % 8;
+                        int jj = ((L) / 8) % 8;
+                        int i = (((L) / 8) / 8) % 2;
+                        {
+                            S = SCoun.Substring(k, SCoun.IndexOf(','));
+                            S = S.Replace(",","");
+                            QuantumRefrigiz.AllDraw.QuntumTable[i, jj, kk] = System.Convert.ToInt32(S);
+                            k += S.Length + 1;
+                            L++;
+                        }
+                    } while (k < SCoun.Length);
+                }
+            }
             //worker_DoWork();
             //worker_DoWorkMove();
             //worker_DoWorkDLL();
@@ -14862,6 +14887,18 @@ namespace Refrigtz
                             return;
                         }
                     }
+                }
+                if (Quantum)
+                {
+                    String SFile = "QBN.aqs";
+                    if (File.Exists(SFile))
+                        File.Delete(SFile);
+                    for (int i = 0; i < 2; i++)
+                        for (int jj = 0; jj < 8; jj++)
+                            for (int kk = 0; kk < 8; kk++)
+                            {
+                                System.IO.File.AppendAllText(SFile, QuantumRefrigiz.AllDraw.QuntumTable[i, jj, kk].ToString() + ",");
+                            }
                 }
                 (new TakeRoot()).Save(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
 
