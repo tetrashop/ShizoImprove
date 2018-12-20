@@ -202,23 +202,23 @@ namespace QuantumRefrigiz
                         if (Table[Row, LastColumn + 1] < 0)
                             if (Table[Row, Column] == 1)
                                 return true;
-                    if (System.Math.Abs(Row - LastRow) == 1)
-                        if (Table[Row, Column] == 1)
-                            return true;
                 }
-
+                if (System.Math.Abs(Column - LastColumn) == 1 && System.Math.Abs(Row - LastRow) == 1)
+                    if (Table[Row, Column] == 1 || Table[LastRow, LastColumn] == 1)
+                        return true;
             }
             else {
-                if (LastRow == 6)
+                if (LastRow == 1)
                 {
                     if (Column == LastColumn - 2)
                         if (Table[Row, LastColumn - 1] > 0)
                             if (Table[Row, Column] == -1)
                                 return true;
-                    if (System.Math.Abs(Row - LastRow) == 1)
-                        if (Table[Row, Column] == -1)
-                            return true;
                 }
+                if (System.Math.Abs(Column - LastColumn) == 1 && System.Math.Abs(Row - LastRow) == 1)
+                    if (Table[Row, Column] == -1 || Table[LastRow, LastColumn] == -1)
+                        return true;
+
             }
             return false;
         }
