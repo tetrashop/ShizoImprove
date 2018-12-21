@@ -83,6 +83,7 @@ namespace QuantumRefrigiz
         StackFrame callStack = new StackFrame(1, true);
         //Initiate Global and Static Variables. 
         public bool IsThereMateOfEnemy = false;
+        public bool IsThereMateOfSelf = false;
         public static NetworkQuantumLearningKrinskyAtamata LearniningTable = null;
         bool ThinkingQuantumAtRun = false;
         public static String ActionsString = "";
@@ -138,6 +139,7 @@ namespace QuantumRefrigiz
         public static bool KingMaovableGray = false;
         public static bool KingMaovableBrown = false;
         public static int FoundFirstMating;
+        public static int FoundFirstSelfMating;
         public int SodierValue = 1 * 3;
         public int ElefantValue = 2 * 16;
         public int HourseValue = 3 * 8;
@@ -6309,7 +6311,7 @@ namespace QuantumRefrigiz
         }
 
 
-        void KingThinkingQuantumChess(ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
+        void KingThinkingQuantumChess(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
             ////Object O = new Object();
             //lock (O)
@@ -6370,7 +6372,7 @@ namespace QuantumRefrigiz
                         ////Object A3 = new object();
                         //lock (A3)
                         {
-                            PenaltyMechanisam(ref WinOcuuredatChiled, ref CheckedM, Killed, false, 6, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                            PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 6, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
                             //{ ThinkingQuantumAtRun = false; return; }
                         }
 
@@ -6476,7 +6478,7 @@ namespace QuantumRefrigiz
             return AA;
         }
         
-        void MinisterThinkingQuantumChess(ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
+        void MinisterThinkingQuantumChess(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
             ////Object O11 = new Object();
             //lock (O11)
@@ -6530,7 +6532,7 @@ namespace QuantumRefrigiz
                         ////Object A3 = new object();
                         //lock (A3)
                         {
-                              PenaltyMechanisam(ref WinOcuuredatChiled,ref CheckedM,Killed, false, 5, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                              PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled,ref CheckedM,Killed, false, 5, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
                             //{ ThinkingQuantumAtRun = false; return; }
                         }
                         ///Store of Indexes Changes and Table in specific List.
@@ -6955,7 +6957,7 @@ namespace QuantumRefrigiz
                 return LearningV;
             }
         }
-        void CastlesThinkingQuantumChess(ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle
+        void CastlesThinkingQuantumChess(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle
         )
         {
             ////Object O22 = new Object();
@@ -7008,7 +7010,7 @@ namespace QuantumRefrigiz
                     ////Object A3 = new object();
                     //lock (A3)
                     {
-                          PenaltyMechanisam(ref WinOcuuredatChiled,ref CheckedM,Killed, false, 4, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                          PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled,ref CheckedM,Killed, false, 4, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
                         //{ ThinkingQuantumAtRun = false; return; }
                     }
                     ///Store of Indexes Changes and Table in specific List.
@@ -7065,7 +7067,7 @@ namespace QuantumRefrigiz
                 }
             }
         }
-        void HourseThinkingQuantumChess(ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
+        void HourseThinkingQuantumChess(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
             ////Object OO = new Object();
             //lock (OO)
@@ -7122,7 +7124,7 @@ namespace QuantumRefrigiz
                         ////Object A3 = new object();
                         //lock (A3)
                         {
-                              PenaltyMechanisam(ref WinOcuuredatChiled,ref CheckedM,Killed, false, 3, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                              PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled,ref CheckedM,Killed, false, 3, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
                             //{ ThinkingQuantumAtRun = false; return; }
                         }
 
@@ -7190,7 +7192,7 @@ namespace QuantumRefrigiz
                 }
             }
         }
-        void ElephantThinkingQuantumChess(ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
+        void ElephantThinkingQuantumChess(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
             ////Object OO = new Object();
             //lock (OO)
@@ -7246,7 +7248,7 @@ namespace QuantumRefrigiz
                         ////Object A3 = new object();
                         //lock (A3)
                         {
-                              PenaltyMechanisam(ref WinOcuuredatChiled,ref CheckedM,Killed, false, 2, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                              PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled,ref CheckedM,Killed, false, 2, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
                             //{ ThinkingQuantumAtRun = false; return; }
                         }
 
@@ -7430,7 +7432,7 @@ namespace QuantumRefrigiz
                     PenaltyRegardListKing.RemoveAt(PenaltyRegardListKing.Count - 1);
             }
         }
-        bool PenaltyMechanisam(ref int WinOcuuredatChiled, ref int CheckedM,int Killed, bool Before, int kind, int[,] TableS, int ii, int jj, ref QuantumAtamata Current, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int i, int j, bool Castle)
+        bool PenaltyMechanisam(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, ref int CheckedM,int Killed, bool Before, int kind, int[,] TableS, int ii, int jj, ref QuantumAtamata Current, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int i, int j, bool Castle)
         {
             ////Object OO = new Object();
             //lock (OO)
@@ -7485,6 +7487,40 @@ namespace QuantumRefrigiz
                                 return true;
                             }
                         }
+                        if ((AllDraw.OrderPlate == -1 && AA.CheckBrown)|| (AllDraw.OrderPlate == -1 && AA.CheckMateBrown))
+                        {
+                            Object A = new Object();
+                            lock (A)
+                            {
+                                IsThereMateOfSelf = true;
+                                FoundFirstSelfMating++;
+                                LoseOcuuredatChiled = -2;
+                                Current.LearningAlgorithmPenalty();
+                                RemoveAtList(kind);
+                                AddAtList(kind, Current);
+                                CheckedM = 3;
+                                return true;
+                            }
+
+
+                        }
+                        if ((AllDraw.OrderPlate == 1 && AA.CheckGray) || (AllDraw.OrderPlate == 1 && AA.CheckMateGray))
+                        {
+                            DoEnemySelf = false;
+                            ////Object A = new Object();
+                            //lock (A)
+                            {
+                                IsThereMateOfSelf = true;
+                                FoundFirstSelfMating++;
+                                LoseOcuuredatChiled = -2;
+                                RemoveAtList(kind);
+                                Current.LearningAlgorithmPenalty();
+                                AddAtList(kind, Current);
+                                CheckedM = 3;
+                                return true;
+                            }
+                        }
+                        
                         if (Order == 1 && AA.CheckMateBrown)
                         {
                             DoEnemySelf = false;
@@ -7935,7 +7971,7 @@ namespace QuantumRefrigiz
                 return false;
             }
         }
-        void SolderThinkingQuantumChess(ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
+        void SolderThinkingQuantumChess(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
             ////Object O1 = new Object();
             //lock (O1)
@@ -7993,7 +8029,7 @@ namespace QuantumRefrigiz
                         ////Object A3 = new object();
                         //lock (A3)
                         {
-                              PenaltyMechanisam(ref WinOcuuredatChiled,ref CheckedM,Killed, false, 1, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                              PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled,ref CheckedM,Killed, false, 1, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
                             //{ ThinkingQuantumAtRun = false; return; }
                         }
                         //}
@@ -8058,7 +8094,7 @@ namespace QuantumRefrigiz
                 }
             }
         }
-        void CastleThinkingQuantumBrown(ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
+        void CastleThinkingQuantumBrown(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
             ////Object O1 = new Object();
             //lock (O1)
@@ -8112,7 +8148,7 @@ namespace QuantumRefrigiz
                     //TableS[7, ColumnSource] = 0;
 
                 }
-                  PenaltyMechanisam(ref WinOcuuredatChiled,ref CheckedM,Killed, false, 7, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                  PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled,ref CheckedM,Killed, false, 7, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
                 //{ ThinkingQuantumAtRun = false; return; }
                 //Store Movments Items. 
                 int[] AS = new int[2];
@@ -8283,7 +8319,7 @@ namespace QuantumRefrigiz
                 }
             }
         }
-        void CastleThinkingQuantumGray(ref int WinOcuuredatChiled,int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
+        void CastleThinkingQuantumGray(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled,int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
             ////Object O1 = new Object();
             //lock (O1)
@@ -8337,7 +8373,7 @@ namespace QuantumRefrigiz
                     //TableS[7, ColumnSource] = 0;
 
                 }
-                   PenaltyMechanisam(ref WinOcuuredatChiled,ref CheckedM,Killed, false, 7, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                   PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled,ref CheckedM,Killed, false, 7, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
                 //{ ThinkingQuantumAtRun = false; return; }
 
                 //Store Movments Items.
@@ -8464,7 +8500,7 @@ namespace QuantumRefrigiz
                 }
             }
         }
-        public void ThinkingQuantumSoldierBase(ref int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingQuantumSoldierBase(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
             ////Object O = new Object();
             //lock (O)
@@ -8483,11 +8519,11 @@ namespace QuantumRefrigiz
                 {
                     Order = ord;
 
-                    SolderThinkingQuantumChess(ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
+                    SolderThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
                 }
             }
         }
-        public void ThinkingQuantumSoldier(ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingQuantumSoldier(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
             ////Object O1 = new Object();
             //lock (O1)
@@ -8504,7 +8540,7 @@ namespace QuantumRefrigiz
 
                             if (Scop(ii, jj, i, j, 1))
                             {
-                                ThinkingQuantumSoldierBase(ref WinOcuuredatChiled, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
+                                ThinkingQuantumSoldierBase(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
                                 while (ThinkingQuantumAtRun) { }
                             }
 
@@ -8514,7 +8550,7 @@ namespace QuantumRefrigiz
                 }//);
             }
         }
-        public void ThinkingQuantumElephantBase(ref int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingQuantumElephantBase(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
             ////Object O1 = new Object();
             //lock (O1)
@@ -8537,13 +8573,13 @@ namespace QuantumRefrigiz
                     if (Scop(ii, jj, i, j, 2) && System.Math.Abs(TableS[ii, jj]) == 2 && System.Math.Abs(Kind) == 2)
                     {
                         Order = ord;
-                        ElephantThinkingQuantumChess(ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
+                        ElephantThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
                     }
                 }
             }
         }
 
-        public void ThinkingQuantumElephant(ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingQuantumElephant(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
             ////Object O2 = new Object();
             //lock (O2)
@@ -8563,7 +8599,7 @@ namespace QuantumRefrigiz
                             int j = i + jj - ii;
                             if (Scop(ii, jj, i, j, 2))
                             {
-                                ThinkingQuantumElephantBase(ref WinOcuuredatChiled, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
+                                ThinkingQuantumElephantBase(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
                                 while (ThinkingQuantumAtRun) { }
                             }
 
@@ -8579,14 +8615,14 @@ namespace QuantumRefrigiz
                             while (ThinkingQuantumAtRun) { }
                             int j = i * -1 + ii + jj;
                             if (Scop(ii, jj, i, j, 2))
-                                ThinkingQuantumElephantBase(ref WinOcuuredatChiled, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
+                                ThinkingQuantumElephantBase(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
                             ThinkingQuantumAtRun = false;
                         }
                     }//);
                 }
             }
         }
-        public void ThinkingQuantumHourseOne(ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingQuantumHourseOne(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
             ////Object O1 = new Object();
             //lock (O1)
@@ -8609,11 +8645,11 @@ namespace QuantumRefrigiz
                         }
                     Order = ord;
                     if (Scop(ii, jj, ii + 2, jj + 1, 3))
-                        HourseThinkingQuantumChess(ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 2, jj + 1, Castle);
+                        HourseThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 2, jj + 1, Castle);
                 }
             }
         }
-        public void ThinkingQuantumHourseTwo(ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingQuantumHourseTwo(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
             ////Object O1 = new Object();
             //lock (O1)
@@ -8633,12 +8669,12 @@ namespace QuantumRefrigiz
                     }
                 Order = ord;
                 if (Scop(ii, jj, ii - 2, jj - 1, 3))
-                    HourseThinkingQuantumChess(ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii - 2, jj - 1, Castle
+                    HourseThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii - 2, jj - 1, Castle
         );
 
             }
         }
-        public void ThinkingQuantumHourseThree(ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingQuantumHourseThree(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
             ////Object O1 = new Object();
             //lock (O1)
@@ -8660,11 +8696,11 @@ namespace QuantumRefrigiz
                         }
                     Order = ord;
                     if (Scop(ii, jj, ii + 2, jj - 1, 3))
-                        HourseThinkingQuantumChess(ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 2, jj - 1, Castle);
+                        HourseThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 2, jj - 1, Castle);
                 }
             }
         }
-        public void ThinkingQuantumHourseFour(ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingQuantumHourseFour(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
             ////Object O1 = new Object();
             //lock (O1)
@@ -8683,11 +8719,11 @@ namespace QuantumRefrigiz
                     }
                 Order = ord;
                 if (Scop(ii, jj, ii - 2, jj + 1, 3))
-                    HourseThinkingQuantumChess(ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii - 2, jj + 1, Castle
+                    HourseThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii - 2, jj + 1, Castle
         );
             }
         }
-        public void ThinkingQuantumHourseFive(ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingQuantumHourseFive(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
             ////Object O1 = new Object();
             //lock (O1)
@@ -8710,12 +8746,12 @@ namespace QuantumRefrigiz
                         }
                     Order = ord;
                     if (Scop(ii, jj, ii + 1, jj + 2, 3))
-                        HourseThinkingQuantumChess(ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 1, jj + 2, Castle
+                        HourseThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 1, jj + 2, Castle
         );
                 }
             }
         }
-        public void ThinkingQuantumHourseSix(ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingQuantumHourseSix(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
             ////Object O1 = new Object();
             //lock (O1)
@@ -8738,11 +8774,11 @@ namespace QuantumRefrigiz
                         }
                     Order = ord;
                     if (Scop(ii, jj, ii - 1, jj - 2, 3))
-                        HourseThinkingQuantumChess(ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii - 1, jj - 2, Castle);
+                        HourseThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii - 1, jj - 2, Castle);
                 }
             }
         }
-        public void ThinkingQuantumHourseSeven(ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingQuantumHourseSeven(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
             ////Object O = new Object();
             //lock (O)
@@ -8766,11 +8802,11 @@ namespace QuantumRefrigiz
                         }
                     Order = ord;
                     if (Scop(ii, jj, ii + 1, jj - 2, 3))
-                        HourseThinkingQuantumChess(ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 1, jj - 2, Castle);
+                        HourseThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 1, jj - 2, Castle);
                 }
             }
         }
-        public void ThinkingQuantumHourseEight(ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingQuantumHourseEight(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
             ////Object O111 = new Object();
             //lock (O111)
@@ -8792,72 +8828,72 @@ namespace QuantumRefrigiz
                         }
                     Order = ord;
                     if (Scop(ii, jj, ii - 1, jj + 2, 3))
-                        HourseThinkingQuantumChess(ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii - 1, jj + 2, Castle);
+                        HourseThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii - 1, jj + 2, Castle);
                 }
             }
         }
 
 
-        public void ThinkingQuantumHourse(ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingQuantumHourse(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
             ////Object O = new Object();
             //lock (O)
             {
 
-                ThinkingQuantumHourseOne(ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
+                ThinkingQuantumHourseOne(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
                 while (ThinkingQuantumAtRun) { }
             }
             ////Object O1 = new Object();
             //lock (O1)
             {
 
-                ThinkingQuantumHourseTwo(ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
+                ThinkingQuantumHourseTwo(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
                 while (ThinkingQuantumAtRun) { }
             }
             ////Object O2 = new Object();
             //lock (O2)
             {
 
-                ThinkingQuantumHourseThree(ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
+                ThinkingQuantumHourseThree(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
                 while (ThinkingQuantumAtRun) { }
             }
             ////Object O3 = new Object();
             //lock (O3)
             {
 
-                ThinkingQuantumHourseFour(ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
+                ThinkingQuantumHourseFour(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
                 while (ThinkingQuantumAtRun) { }
             }
             ////Object O4 = new Object();
             //lock (O4)
             {
 
-                ThinkingQuantumHourseFive(ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
+                ThinkingQuantumHourseFive(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
                 while (ThinkingQuantumAtRun) { }
             }
             ////Object O5 = new Object();
             //lock (O5)
             {
 
-                ThinkingQuantumHourseSix(ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
+                ThinkingQuantumHourseSix(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
                 while (ThinkingQuantumAtRun) { }
             }
             ////Object O6 = new Object();
             //lock (O6)
             {
 
-                ThinkingQuantumHourseSeven(ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
+                ThinkingQuantumHourseSeven(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
                 while (ThinkingQuantumAtRun) { }
             }
             ////Object O7 = new Object();
             //lock (O7)
             {
 
-                ThinkingQuantumHourseEight(ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
+                ThinkingQuantumHourseEight(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
                 while (ThinkingQuantumAtRun) { }
             }
         }
-        public void ThinkingQuantumCastleOne(ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingQuantumCastleOne(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
 
             ////Object O1 = new Object();
@@ -8886,13 +8922,13 @@ namespace QuantumRefrigiz
                         {
                             while (ThinkingQuantumAtRun) { }
                             Order = ord;
-                            CastlesThinkingQuantumChess(ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
+                            CastlesThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
                         }
                     }
                 }//);
             }
         }
-        public void ThinkingQuantumCastleTow(ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingQuantumCastleTow(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {  //==================
             ////Object O1 = new Object();
             //lock (O1)
@@ -8920,7 +8956,7 @@ namespace QuantumRefrigiz
                         {
                             while (ThinkingQuantumAtRun) { }
                             Order = ord;
-                            CastlesThinkingQuantumChess(ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle
+                            CastlesThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle
     );
                         }
 
@@ -8929,18 +8965,18 @@ namespace QuantumRefrigiz
                 }//);
             }
         }
-        public void ThinkingQuantumCastle(ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingQuantumCastle(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
 
             ////Object O = new Object();
             //lock (O)
             {
-                ThinkingQuantumCastleOne(ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
-                ThinkingQuantumCastleTow(ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
+                ThinkingQuantumCastleOne(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
+                ThinkingQuantumCastleTow(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
             }
 
         }
-        public void ThinkingQuantumMinisterBase(ref int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingQuantumMinisterBase(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
             ////Object O1 = new Object();
             //lock (O1)
@@ -8965,14 +9001,14 @@ namespace QuantumRefrigiz
                     {
                         while (ThinkingQuantumAtRun) { }
                         Order = ord;
-                        MinisterThinkingQuantumChess(ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle
+                        MinisterThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle
         );
                     }
 
                 }
             }
         }
-        public void ThinkingQuantumMinister(ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingQuantumMinister(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
             ////Object O1 = new Object();
             //lock (O1)
@@ -8988,14 +9024,14 @@ namespace QuantumRefrigiz
                         //lock (O)
                         {
 
-                            ThinkingQuantumMinisterBase(ref WinOcuuredatChiled, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
+                            ThinkingQuantumMinisterBase(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
 
                         }
                     }//);
                 }//);
             }
         }
-        public void ThinkingQuantumCastleGray(ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingQuantumCastleGray(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
             ////Object O = new Object();
             //lock (O)
@@ -9018,14 +9054,14 @@ namespace QuantumRefrigiz
                     ///Calculate of Castles of Brown.
                     if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, -7, TableS, Order, ii, jj)).Rules(ii, jj, i, jj, color, -7) && (ChessRules.CastleKingAllowedBrown))
                     {
-                        CastleThinkingQuantumBrown(ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, jj, Castle);
+                        CastleThinkingQuantumBrown(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, jj, Castle);
                     }
                     ThinkingQuantumAtRun = false;
                 }
             }
 
         }
-        public void ThinkingQuantumCastleBrown(ref int WinOcuuredatChiled,int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingQuantumCastleBrown(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled,int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
             ////Object O = new Object();
             //lock (O)
@@ -9046,14 +9082,14 @@ namespace QuantumRefrigiz
                         }
                     if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 7, TableS, Order, ii, jj)).Rules(ii, jj, i, jj, color, 7) && (ChessRules.CastleKingAllowedGray))
                     {
-                        CastleThinkingQuantumGray(ref WinOcuuredatChiled,DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, jj, Castle);
+                        CastleThinkingQuantumGray(ref LoseOcuuredatChiled, ref WinOcuuredatChiled,DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, jj, Castle);
                     }
                     ThinkingQuantumAtRun = false;
                 }
 
             }
         }
-        public void ThinkingQuantumKing(ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingQuantumKing(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
             ////Object O1 = new Object();
             //lock (O1)
@@ -9085,7 +9121,7 @@ namespace QuantumRefrigiz
                           {
                               while (ThinkingQuantumAtRun) { }
                               Order = ord;
-                              KingThinkingQuantumChess(ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
+                              KingThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
                           }
                       }//);
                     }//);
@@ -9093,7 +9129,7 @@ namespace QuantumRefrigiz
             }
         }
         ///Kernel of ThinkingQuantum
-        public void ThinkingQuantum(ref int WinOcuuredatChiled)
+        public void ThinkingQuantum(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled)
         {
 
             int ord = Order;
@@ -9117,19 +9153,34 @@ namespace QuantumRefrigiz
                 //bool ASS = false; ////Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
                 {
                     if (//CheckMateOcuured || 
-                        FoundFirstMating > AllDraw.MaxAStarGreedy
+                        FoundFirstSelfMating > AllDraw.MaxAStarGreedy
                         )
                     {
-                       Object O2 = new Object();
+                        Object O2 = new Object();
                         lock (O2)
                         {
-                            AllDraw.OutPut = "\r\nBoundry Condition at ThinkingQuantum at " + ThinkingQuantumChess.FoundFirstMating.ToString() + " Checkmate";
+                            AllDraw.OutPut = "\r\nBoundry Condition at ThinkingQuantum at " + ThinkingQuantumChess.FoundFirstSelfMating.ToString() + " Checkmate SELF";
                             ThinkingQuantumBegin = false;
                             ThinkingQuantumFinished = true;
                             EndThread++;
                         }
                         return;
                     }
+                    if (//CheckMateOcuured || 
+                        FoundFirstMating > AllDraw.MaxAStarGreedy
+                        )
+                    {
+                        Object O2 = new Object();
+                        lock (O2)
+                        {
+                            AllDraw.OutPut = "\r\nBoundry Condition at ThinkingQuantum at " + ThinkingQuantumChess.FoundFirstMating.ToString() + " Checkmate ENEY";
+                            ThinkingQuantumBegin = false;
+                            ThinkingQuantumFinished = true;
+                            EndThread++;
+                        }
+                        return;
+                    }
+                    
                 }
                 int DummyOrder = Order;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
@@ -9160,7 +9211,22 @@ namespace QuantumRefrigiz
                     Object O2 = new Object();
                     lock (O2)
                     {
-                        AllDraw.OutPut = "\r\nBoundry Condition at ThinkingQuantum at " + ThinkingQuantumChess.FoundFirstMating.ToString() + " Checkmate";
+                        AllDraw.OutPut = "\r\nBoundry Condition at ThinkingQuantum at " + ThinkingQuantumChess.FoundFirstMating.ToString() + " Checkmate ENEMY";
+                        ThinkingQuantumFinished = true;
+                        ThinkingQuantumBegin = false;
+                        EndThread++;
+                    }
+                    return;
+                }
+                if (CheckMateOcuured
+                    || FoundFirstSelfMating > AllDraw.MaxAStarGreedy
+                    )
+                {
+
+                    Object O2 = new Object();
+                    lock (O2)
+                    {
+                        AllDraw.OutPut = "\r\nBoundry Condition at ThinkingQuantum at " + ThinkingQuantumChess.FoundFirstSelfMating.ToString() + " Checkmate SLEF";
                         ThinkingQuantumFinished = true;
                         ThinkingQuantumBegin = false;
                         EndThread++;
@@ -9194,7 +9260,12 @@ namespace QuantumRefrigiz
                             AllDraw.OutPut = "\r\nBoundry Condition at ThinkingQuantum at " + ThinkingQuantumChess.FoundFirstMating.ToString() + " Checkmate";
                             ThinkingQuantumFinished = true;
                             CheckMateOcuured = true;
-                            if ((AAA.CheckMateGray && AllDraw.OrderPlate == 1) || (AAA.CheckMateBrown && AllDraw.OrderPlate == -1))
+                            if ((AAA.CheckGray && AllDraw.OrderPlate == 1) || (AAA.CheckBrown && AllDraw.OrderPlate == -1) || (AAA.CheckMateGray && AllDraw.OrderPlate == 1) || (AAA.CheckMateBrown && AllDraw.OrderPlate == -1))
+                            {
+                                FoundFirstSelfMating++;
+                                LoseOcuuredatChiled = -2;
+                            }
+                            if ((AAA.CheckMateGray && AllDraw.OrderPlate == -1) || (AAA.CheckMateBrown && AllDraw.OrderPlate == 1))
                             {
                                 WinOcuuredatChiled = 3;
                                 FoundFirstMating++;
@@ -9229,46 +9300,46 @@ namespace QuantumRefrigiz
                 {
                     if (Kind == 7)
                     {
-                        ThinkingQuantumCastleBrown(ref WinOcuuredatChiled,ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
+                        ThinkingQuantumCastleBrown(ref LoseOcuuredatChiled, ref WinOcuuredatChiled,ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
                     }
                     else
                         if (Kind == -7)
                     {
-                        ThinkingQuantumCastleGray(ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
+                        ThinkingQuantumCastleGray(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
                     }
                     else
                             if (System.Math.Abs(Kind) == 1)///For Soldier ThinkingQuantum
                     {
-                        ThinkingQuantumSoldier(ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
+                        ThinkingQuantumSoldier(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
                     }
                     else
                                 if (System.Math.Abs(Kind) == 2)///For Elephant ThinkingQuantum
                     {
-                        ThinkingQuantumElephant(ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
+                        ThinkingQuantumElephant(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
                     }
                     ///Else for Hourse ThinkingQuantum.
                     else
                                     if (System.Math.Abs(Kind) == 3)///For Hourse ThinkingQuantum
                     {
-                        ThinkingQuantumHourse(ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
+                        ThinkingQuantumHourse(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
                     }
                     ///Else For Castles ThinkingQuantum.
                     else
                                         if (System.Math.Abs(Kind) == 4)///For Castle ThinkingQuantum
                     {
-                        ThinkingQuantumCastle(ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
+                        ThinkingQuantumCastle(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
                     }
                     ///Else for Minister ThinkingQuantums.
                     else
                                             if (System.Math.Abs(Kind) == 5)///For Minister ThinkingQuantum
                     {
-                        ThinkingQuantumMinister(ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
+                        ThinkingQuantumMinister(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
                     }
                     ///Else For Kings ThinkingQuantums.
                     else
                                                 if (System.Math.Abs(Kind) == 6)///For King ThinkingQuantum
                     {
-                        ThinkingQuantumKing(ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
+                        ThinkingQuantumKing(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
 
                     }
                 }

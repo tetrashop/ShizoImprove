@@ -6723,6 +6723,8 @@ if (Kind == 2)
                                     }
                                     catch (Exception tt) { Log(tt); }
                                     Order = COrder;
+                                    if (SolderesOnTable[i].LoseOcuuredatChiled <= -1 || SolderesOnTable[i].LoseOcuuredatChiled <= -2 || SolderesOnTable[i].LoseOcuuredatChiled <= -3)
+                                        continue;
                                     ChessRules.CurrentOrder = CDummy;
                                     //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                                       //)
@@ -7086,6 +7088,8 @@ if (Kind == 2)
 
                                     }
                                     catch (Exception tt) { Log(tt); }
+                                    if (ElephantOnTable[i].LoseOcuuredatChiled <= -1 || ElephantOnTable[i].LoseOcuuredatChiled<= -2 || ElephantOnTable[i].LoseOcuuredatChiled <= -3)
+                                        continue;
                                     Order = COrder;
                                     ChessRules.CurrentOrder = CDummy;
                                     //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
@@ -7353,6 +7357,9 @@ if (Kind == 2)
                                         Do = 0;
                                     }
                                     catch (Exception tt) { Log(tt); }
+
+                                    if (HoursesOnTable[i].LoseOcuuredatChiled <= -1 || HoursesOnTable[i].LoseOcuuredatChiled <= -2 || HoursesOnTable[i].LoseOcuuredatChiled <= -3)
+                                        continue;
                                     Order = COrder;
                                     ChessRules.CurrentOrder = CDummy;
                                     //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
@@ -7607,6 +7614,8 @@ if (Kind == 2)
                                         Order *= -1;
                                     }
                                     catch (Exception tt) { Log(tt); }
+                                    if (CastlesOnTable[i].LoseOcuuredatChiled <= -1 || CastlesOnTable[i].LoseOcuuredatChiled <= -2 || CastlesOnTable[i].LoseOcuuredatChiled <= -3)
+                                        continue;
                                     Order = COrder;
                                     ChessRules.CurrentOrder = CDummy;
                                     //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
@@ -7861,6 +7870,8 @@ if (Kind == 2)
                                     Do = 0;
                                 }
                                 catch (Exception tt) { Log(tt); }
+                                if (MinisterOnTable[i].LoseOcuuredatChiled <= -1 || MinisterOnTable[i].LoseOcuuredatChiled <= -2 || MinisterOnTable[i].LoseOcuuredatChiled <= -3)
+                                    continue;
                                 Order = COrder;
                                 ChessRules.CurrentOrder = CDummy;
                                 //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
@@ -8111,6 +8122,8 @@ if (Kind == 2)
                                         Do = 0;
                                     }
                                     catch (Exception tt) { Log(tt); }
+                                    if (KingOnTable[i].LoseOcuuredatChiled <= -1 || KingOnTable[i].LoseOcuuredatChiled <= -2 || KingOnTable[i].LoseOcuuredatChiled <= -3)
+                                        continue;
                                     Order = COrder;
                                     ChessRules.CurrentOrder = CDummy;
                                     //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
@@ -10418,7 +10431,7 @@ if (Kind == 2)
                                             //ThinkingQuantum of Gray Solder Operation.
                                             SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                            SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum(ref SolderesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum));
+                                            SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum(ref SolderesOnTable[iIndex].LoseOcuuredatChiled, ref SolderesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum));
                                             SolderesOnTable[iIndex].SoldierThinkingQuantum[0].t.Start();
                                             if (SolderesOnTable[iIndex].SoldierThinkingQuantum[0].t != null) { //Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(SolderesOnTable[iIndex].SoldierThinkingQuantum[0].t); } }*/
@@ -10430,7 +10443,7 @@ if (Kind == 2)
                                             //ThinkingQuantum of Gray Soldeir Operations.
                                             SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                            SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum(ref SolderesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum));
+                                            SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum(ref SolderesOnTable[iIndex].LoseOcuuredatChiled, ref SolderesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum));
                                             SolderesOnTable[iIndex].SoldierThinkingQuantum[0].t.Start();
                                             if (SolderesOnTable[iIndex].SoldierThinkingQuantum[0].t != null) { //Object tttt = new Object(); lock (tttt) 
                                                     { tH.Add(SolderesOnTable[iIndex].SoldierThinkingQuantum[0].t); } }*/
@@ -10459,7 +10472,7 @@ if (Kind == 2)
                                             //Operational ThinkingQuantum Gray Elephant. 
                                             ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                            ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum(ref ElephantOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum));
+                                            ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum(ref ElephantOnTable[iIndex].LoseOcuuredatChiled,ref ElephantOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum));
                                             ElephantOnTable[iIndex].ElefantThinkingQuantum[0].t.Start();
                                             if (ElephantOnTable[iIndex].ElefantThinkingQuantum[0].t != null) { //Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(ElephantOnTable[iIndex].ElefantThinkingQuantum[0].t); } }*/
@@ -10470,7 +10483,7 @@ if (Kind == 2)
                                             //Gray Elephant //Object ThinkingQuantum Operations.
                                             ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                            ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum(ref ElephantOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum));
+                                            ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum(ref ElephantOnTable[iIndex].LoseOcuuredatChiled,ref ElephantOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum));
                                             ElephantOnTable[iIndex].ElefantThinkingQuantum[0].t.Start();
                                             if (ElephantOnTable[iIndex].ElefantThinkingQuantum[0].t != null) { //Object tttt = new Object(); lock (tttt) 
                                                     { tH.Add(ElephantOnTable[iIndex].ElefantThinkingQuantum[0].t); } }*/
@@ -10497,7 +10510,7 @@ if (Kind == 2)
                                             //ThinkingQuantum of Gray Hourse Oprational.
                                             HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                            HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum(ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum));
+                                            HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum(ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum));
                                             HoursesOnTable[iIndex].HourseThinkingQuantum[0].t.Start();
                                             if (HoursesOnTable[iIndex].HourseThinkingQuantum[0].t != null) { //Object tttt = new Object(); lock (tttt)
                                                 { tH.Add(HoursesOnTable[iIndex].HourseThinkingQuantum[0].t); } }*/
@@ -10509,7 +10522,7 @@ if (Kind == 2)
                                             HoursesOnTable[iIndex].HourseThinkingQuantum[0].TableT = HoursesOnTable[iIndex].HourseThinkingQuantum[0].TableListHourse[j];
                                             HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                            HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum(ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum));
+                                            HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum(ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum));
                                             HoursesOnTable[iIndex].HourseThinkingQuantum[0].t.Start();
                                             if (HoursesOnTable[iIndex].HourseThinkingQuantum[0].t != null) { //Object tttt = new Object(); lock (tttt) 
                                                     { tH.Add(HoursesOnTable[iIndex].HourseThinkingQuantum[0].t); } }*/
@@ -10536,7 +10549,7 @@ if (Kind == 2)
                                             //ThinkingQuantum of Gray Castles Operational.
                                             CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                            CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantum(ref CastlesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantum));
+                                            CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantum(ref CastlesOnTable[iIndex].LoseOcuuredatChiled, ref CastlesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantum));
                                             CastlesOnTable[iIndex].CastleThinkingQuantum[0].t.Start();
                                             if (CastlesOnTable[iIndex].CastleThinkingQuantum[0].t != null) { //Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(CastlesOnTable[iIndex].CastleThinkingQuantum[0].t); } }*/
@@ -10549,7 +10562,7 @@ if (Kind == 2)
                                             CastlesOnTable[iIndex].CastleThinkingQuantum[0].TableT = CastlesOnTable[iIndex].CastleThinkingQuantum[0].TableListCastle[j];
                                             CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                            CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantum(ref CastlesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantum));
+                                            CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantum(ref CastlesOnTable[iIndex].LoseOcuuredatChiled, ref CastlesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantum));
                                             CastlesOnTable[iIndex].CastleThinkingQuantum[0].t.Start();
                                             if (CastlesOnTable[iIndex].CastleThinkingQuantum[0].t != null) { //Object tttt = new Object(); lock (tttt) 
                                                     { tH.Add(CastlesOnTable[iIndex].CastleThinkingQuantum[0].t); } }*/
@@ -10572,7 +10585,7 @@ if (Kind == 2)
                                          //ThinkingQuantum of Gray Minister Operational.
                                             MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                            MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum(ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum));
+                                            MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum(ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum));
                                             MinisterOnTable[iIndex].MinisterThinkingQuantum[0].t.Start();
                                             if (MinisterOnTable[iIndex].MinisterThinkingQuantum[0].t != null) { //Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(MinisterOnTable[iIndex].MinisterThinkingQuantum[0].t); } }*/
@@ -10583,7 +10596,7 @@ if (Kind == 2)
                                             MinisterOnTable[iIndex].Table = MinisterOnTable[iIndex].MinisterThinkingQuantum[0].TableListMinister[j];
                                             MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                            MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum(ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum));
+                                            MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum(ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum));
                                             MinisterOnTable[iIndex].MinisterThinkingQuantum[0].t.Start();
                                             if (MinisterOnTable[iIndex].MinisterThinkingQuantum[0].t != null) { //Object tttt = new Object(); lock (tttt) 
                                                     { tH.Add(MinisterOnTable[iIndex].MinisterThinkingQuantum[0].t); } }*/
@@ -10608,7 +10621,7 @@ if (Kind == 2)
                                          //ThinkingQuantum Of Gray King Operatins.
                                             KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                            KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantum(ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantum));
+                                            KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantum(ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantum));
                                             KingOnTable[iIndex].KingThinkingQuantum[0].t.Start();
                                             if (KingOnTable[iIndex].KingThinkingQuantum[0].t != null) { //Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(KingOnTable[iIndex].KingThinkingQuantum[0].t); } }*/
@@ -10618,7 +10631,7 @@ if (Kind == 2)
                                             //Gray King ThinkingQuantum Operations.                                        
                                             KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                            KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantum(ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantum));
+                                            KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantum(ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantum));
                                             KingOnTable[iIndex].KingThinkingQuantum[0].t.Start();
                                             if (KingOnTable[iIndex].KingThinkingQuantum[0].t != null) { //Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(KingOnTable[iIndex].KingThinkingQuantum[0].t); } }*/
@@ -10647,7 +10660,7 @@ if (Kind == 2)
                                             //ThinkingQuantum Operations of Brown Current Objects.
                                             SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                            SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum(ref SolderesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum));
+                                            SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum(ref SolderesOnTable[iIndex].LoseOcuuredatChiled, ref SolderesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum));
                                             SolderesOnTable[iIndex].SoldierThinkingQuantum[0].t.Start();
                                             if (SolderesOnTable[iIndex].SoldierThinkingQuantum[0].t != null) { //Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(SolderesOnTable[iIndex].SoldierThinkingQuantum[0].t); } }*/
@@ -10659,7 +10672,7 @@ if (Kind == 2)
                                             //ThinkingQuantum of ThinkingQuantum Brown CurrentTable Objective Operations.
                                             SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                            SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum(ref SolderesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum));
+                                            SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum(ref SolderesOnTable[iIndex].LoseOcuuredatChiled, ref SolderesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum));
                                             SolderesOnTable[iIndex].SoldierThinkingQuantum[0].t.Start();
                                             if (SolderesOnTable[iIndex].SoldierThinkingQuantum[0].t != null) { //Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(SolderesOnTable[iIndex].SoldierThinkingQuantum[0].t); } }*/
@@ -10683,7 +10696,7 @@ if (Kind == 2)
                                             //ThinkingQuantum Operations of Brown Current Objects.
                                             ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                            ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum(ref ElephantOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum));
+                                            ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum(ref ElephantOnTable[iIndex].LoseOcuuredatChiled,ref ElephantOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum));
                                             ElephantOnTable[iIndex].ElefantThinkingQuantum[0].t.Start();
                                             if (ElephantOnTable[iIndex].ElefantThinkingQuantum[0].t != null) { //Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(ElephantOnTable[iIndex].ElefantThinkingQuantum[0].t); } }*/
@@ -10694,7 +10707,7 @@ if (Kind == 2)
                                             //ThinkingQuantum of ThinkingQuantum Brown CurrentTable Objective Operations.                                                   
                                             ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                            ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum(ref ElephantOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum));
+                                            ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum(ref ElephantOnTable[iIndex].LoseOcuuredatChiled,ref ElephantOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum));
                                             ElephantOnTable[iIndex].ElefantThinkingQuantum[0].t.Start();
                                             if (ElephantOnTable[iIndex].ElefantThinkingQuantum[0].t != null) { //Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(ElephantOnTable[iIndex].ElefantThinkingQuantum[0].t); } }*/
@@ -10720,7 +10733,7 @@ if (Kind == 2)
                                          //HoursesOnTable[iIndex].HourseThinkingQuantum[0].TableT = HoursesOnTable[iIndex].HourseThinkingQuantum[0].TableT;
                                             HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                            HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum(ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum));
+                                            HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum(ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum));
                                             HoursesOnTable[iIndex].HourseThinkingQuantum[0].t.Start();
                                             if (HoursesOnTable[iIndex].HourseThinkingQuantum[0].t != null) { //Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(HoursesOnTable[iIndex].HourseThinkingQuantum[0].t); } }*/
@@ -10731,7 +10744,7 @@ if (Kind == 2)
                                             //ThinkingQuantum of ThinkingQuantum Brown CurrentTable Objective Operations.                                          SolderesOnTable[iIndex].SoldierThinkingQuantum[0].Table = SolderesOnTable[iIndex].SoldierThinkingQuantum[0].TableListSolder[j];
                                             HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                            HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum(ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum));
+                                            HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum(ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum));
                                             HoursesOnTable[iIndex].HourseThinkingQuantum[0].t.Start();
                                             if (HoursesOnTable[iIndex].HourseThinkingQuantum[0].t != null) { //Object tttt = new Object(); lock (tttt)
                                                     { tH.Add(HoursesOnTable[iIndex].HourseThinkingQuantum[0].t); } }*/
@@ -10761,7 +10774,7 @@ if (Kind == 2)
                                          //ThinkingQuantum Operations of Brown Current Objects.
                                             CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                            CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantum(ref CastlesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantum));
+                                            CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantum(ref CastlesOnTable[iIndex].LoseOcuuredatChiled, ref CastlesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantum));
                                             CastlesOnTable[iIndex].CastleThinkingQuantum[0].t.Start();
                                             if (CastlesOnTable[iIndex].CastleThinkingQuantum[0].t != null) { //Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(CastlesOnTable[iIndex].CastleThinkingQuantum[0].t); } }*/
@@ -10771,7 +10784,7 @@ if (Kind == 2)
                                             //ThinkingQuantum of ThinkingQuantum Brown CurrentTable Objective Operations.        
                                             CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                            CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantum(ref CastlesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantum));
+                                            CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantum(ref CastlesOnTable[iIndex].LoseOcuuredatChiled, ref CastlesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantum));
                                             CastlesOnTable[iIndex].CastleThinkingQuantum[0].t.Start();
                                             if (CastlesOnTable[iIndex].CastleThinkingQuantum[0].t != null) { //Object tttt = new Object(); lock (tttt)
                                                     { tH.Add(CastlesOnTable[iIndex].CastleThinkingQuantum[0].t); } }*/
@@ -10795,7 +10808,7 @@ if (Kind == 2)
                                          //ThinkingQuantum Operations of Brown Current Objects.
                                             MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                            MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum(ref MinisterOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum));
+                                            MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum(ref MinisterOnTable[iIndex].LoseOcuuredatChiled, ref MinisterOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum));
                                             MinisterOnTable[iIndex].MinisterThinkingQuantum[0].t.Start();
                                             if (MinisterOnTable[iIndex].MinisterThinkingQuantum[0].t != null) { //Object tttt = new Object(); lock (tttt)
                                                 { tH.Add(MinisterOnTable[iIndex].MinisterThinkingQuantum[0].t); } }*/
@@ -10805,7 +10818,7 @@ if (Kind == 2)
                                             //ThinkingQuantum of ThinkingQuantum Brown CurrentTable Objective Operations.                                          SolderesOnTable[iIndex].SoldierThinkingQuantum[0].Table = SolderesOnTable[iIndex].SoldierThinkingQuantum[0].TableListSolder[j];
                                             MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                            MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum(ref MinisterOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum));
+                                            MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum(ref MinisterOnTable[iIndex].LoseOcuuredatChiled, ref MinisterOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum));
                                             MinisterOnTable[iIndex].MinisterThinkingQuantum[0].t.Start();
                                             if (MinisterOnTable[iIndex].MinisterThinkingQuantum[0].t != null) { //Object tttt = new Object(); lock (tttt) 
                                                     { tH.Add(MinisterOnTable[iIndex].MinisterThinkingQuantum[0].t); } }*/
@@ -10831,7 +10844,7 @@ if (Kind == 2)
                                          //ThinkingQuantum Operations of Brown Current Objects.
                                             KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                            KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantum(ref KingOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantum));
+                                            KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantum(ref KingOnTable[iIndex].LoseOcuuredatChiled, ref KingOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantum));
                                             KingOnTable[iIndex].KingThinkingQuantum[0].t.Start();
                                             if (KingOnTable[iIndex].KingThinkingQuantum[0].t != null) { //Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(KingOnTable[iIndex].KingThinkingQuantum[0].t); } }*/
@@ -10843,7 +10856,7 @@ if (Kind == 2)
                                             KingOnTable[iIndex].KingThinkingQuantum[0].TableT = KingOnTable[iIndex].KingThinkingQuantum[0].TableListKing[j];
                                             KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                            KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantum(ref KingOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantum));
+                                            KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantum(ref KingOnTable[iIndex].LoseOcuuredatChiled, ref KingOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantum));
                                             KingOnTable[iIndex].KingThinkingQuantum[0].t.Start();
                                             if (KingOnTable[iIndex].KingThinkingQuantum[0].t != null) { //Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(KingOnTable[iIndex].KingThinkingQuantum[0].t); } }*/
@@ -11068,7 +11081,7 @@ if (Kind == 2)
                                                         SolderesOnTable[i].SoldierThinkingQuantum[0].ThinkingQuantumBegin = true;
                                                         SolderesOnTable[i].SoldierThinkingQuantum[0].ThinkingQuantumFinished = false;
                                                         SolderesOnTable[i].SoldierThinkingQuantum[0].Kind = 1;
-                                                        SolderesOnTable[i].SoldierThinkingQuantum[j].ThinkingQuantum(ref SolderesOnTable[i].WinOcuuredatChiled);/*.t = new Task(new Action(SolderesOnTable[i].SoldierThinkingQuantum[j].ThinkingQuantum));
+                                                        SolderesOnTable[i].SoldierThinkingQuantum[j].ThinkingQuantum(ref SolderesOnTable[i].LoseOcuuredatChiled, ref SolderesOnTable[i].WinOcuuredatChiled);/*.t = new Task(new Action(SolderesOnTable[i].SoldierThinkingQuantum[j].ThinkingQuantum));
                                                         SolderesOnTable[i].SoldierThinkingQuantum[j].t.Start();*
 
 
@@ -11231,7 +11244,7 @@ if (Kind == 2)
                                                         CastlesOnTable[i].CastleThinkingQuantum[0].ThinkingQuantumBegin = true;
                                                         CastlesOnTable[i].CastleThinkingQuantum[0].ThinkingQuantumFinished = false;
                                                         CastlesOnTable[i].CastleThinkingQuantum[0].Kind = 4;
-                                                        CastlesOnTable[i].CastleThinkingQuantum[0].ThinkingQuantum(ref CastlesOnTable[i].WinOcuuredatChiled);/*.t = new Task(new Action(CastlesOnTable[i].CastleThinkingQuantum[0].ThinkingQuantum));
+                                                        CastlesOnTable[i].CastleThinkingQuantum[0].ThinkingQuantum(ref CastlesOnTable[i].LoseOcuuredatChiled, ref CastlesOnTable[i].WinOcuuredatChiled);/*.t = new Task(new Action(CastlesOnTable[i].CastleThinkingQuantum[0].ThinkingQuantum));
                                                         CastlesOnTable[i].CastleThinkingQuantum[0].t.Start();*/
 
 
@@ -11287,7 +11300,7 @@ if (Kind == 2)
                                                         MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantumBegin = true;
                                                         MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantumFinished = false;
                                                         MinisterOnTable[i].MinisterThinkingQuantum[0].Kind = 5;
-                                                        MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantum(ref MinisterOnTable[i].WinOcuuredatChiled);/*.t = new Task(new Action(MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantum));
+                                                        MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantum(ref MinisterOnTable[i].LoseOcuuredatChiled, ref MinisterOnTable[i].WinOcuuredatChiled);/*.t = new Task(new Action(MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantum));
                                                         MinisterOnTable[i].MinisterThinkingQuantum[0].t.Start();*/
 
 
@@ -11346,7 +11359,7 @@ if (Kind == 2)
                                                         KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantumBegin = true;
                                                         KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantumFinished = false;
                                                         KingOnTable[i].KingThinkingQuantum[0].Kind = 6;
-                                                        KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantum(ref MinisterOnTable[i].WinOcuuredatChiled);/*.t = new Task(new Action(KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantum));
+                                                        KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantum(ref MinisterOnTable[i].LoseOcuuredatChiled, ref MinisterOnTable[i].WinOcuuredatChiled);/*.t = new Task(new Action(KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantum));
                                                         KingOnTable[i].KingThinkingQuantum[0].t.Start();*/
 
                                                     }
@@ -11414,7 +11427,7 @@ if (Kind == 2)
                                                         SolderesOnTable[i].SoldierThinkingQuantum[0].ThinkingQuantumBegin = true;
                                                         SolderesOnTable[i].SoldierThinkingQuantum[0].ThinkingQuantumFinished = false;
                                                         SolderesOnTable[i].SoldierThinkingQuantum[0].Kind = 1;
-                                                        SolderesOnTable[i].SoldierThinkingQuantum[0].ThinkingQuantum(ref SolderesOnTable[i].WinOcuuredatChiled);/*.t = new Task(new Action(SolderesOnTable[i].SoldierThinkingQuantum[0].ThinkingQuantum));
+                                                        SolderesOnTable[i].SoldierThinkingQuantum[0].ThinkingQuantum(ref SolderesOnTable[i].LoseOcuuredatChiled, ref SolderesOnTable[i].WinOcuuredatChiled);/*.t = new Task(new Action(SolderesOnTable[i].SoldierThinkingQuantum[0].ThinkingQuantum));
                                                         SolderesOnTable[i].SoldierThinkingQuantum[0].t.Start();*/
                                                     }
                                                 }//);
@@ -11468,7 +11481,7 @@ if (Kind == 2)
                                                         ElephantOnTable[i].ElefantThinkingQuantum[0].ThinkingQuantumBegin = true;
                                                         ElephantOnTable[i].ElefantThinkingQuantum[0].ThinkingQuantumFinished = false;
                                                         ElephantOnTable[i].ElefantThinkingQuantum[0].Kind = 2;
-                                                        ElephantOnTable[i].ElefantThinkingQuantum[0].ThinkingQuantum(ref ElephantOnTable[i].WinOcuuredatChiled);/*.t = new Task(new Action(ElephantOnTable[i].ElefantThinkingQuantum[0].ThinkingQuantum));
+                                                        ElephantOnTable[i].ElefantThinkingQuantum[0].ThinkingQuantum(ref ElephantOnTable[i].LoseOcuuredatChiled, ref ElephantOnTable[i].WinOcuuredatChiled);/*.t = new Task(new Action(ElephantOnTable[i].ElefantThinkingQuantum[0].ThinkingQuantum));
                                                         ElephantOnTable[i].ElefantThinkingQuantum[0].t.Start();*/
                                                     }
                                                 }//);
@@ -11521,7 +11534,7 @@ if (Kind == 2)
                                                         HoursesOnTable[i].HourseThinkingQuantum[0].ThinkingQuantumBegin = true;
                                                         HoursesOnTable[i].HourseThinkingQuantum[0].ThinkingQuantumFinished = false;
                                                         HoursesOnTable[i].HourseThinkingQuantum[0].Kind = 3;
-                                                        HoursesOnTable[i].HourseThinkingQuantum[0].ThinkingQuantum(ref HoursesOnTable[i].WinOcuuredatChiled);/*.t = new Task(new Action(HoursesOnTable[i].HourseThinkingQuantum[0].ThinkingQuantum));
+                                                        HoursesOnTable[i].HourseThinkingQuantum[0].ThinkingQuantum(ref HoursesOnTable[i].LoseOcuuredatChiled, ref HoursesOnTable[i].WinOcuuredatChiled);/*.t = new Task(new Action(HoursesOnTable[i].HourseThinkingQuantum[0].ThinkingQuantum));
                                                         HoursesOnTable[i].HourseThinkingQuantum[0].t.Start();*/
                                                     }
                                                 }//);
@@ -11574,7 +11587,7 @@ if (Kind == 2)
                                                         CastlesOnTable[i].CastleThinkingQuantum[0].ThinkingQuantumBegin = true;
                                                         CastlesOnTable[i].CastleThinkingQuantum[0].ThinkingQuantumFinished = false;
                                                         CastlesOnTable[i].CastleThinkingQuantum[0].Kind = 4;
-                                                        CastlesOnTable[i].CastleThinkingQuantum[0].ThinkingQuantum(ref CastlesOnTable[i].WinOcuuredatChiled);/*.t = new Task(new Action(HoursesOnTable[i].HourseThinkingQuantum[0].ThinkingQuantum));
+                                                        CastlesOnTable[i].CastleThinkingQuantum[0].ThinkingQuantum(ref CastlesOnTable[i].LoseOcuuredatChiled, ref CastlesOnTable[i].WinOcuuredatChiled);/*.t = new Task(new Action(HoursesOnTable[i].HourseThinkingQuantum[0].ThinkingQuantum));
                                                         CastlesOnTable[i].CastleThinkingQuantum[0].t.Start();*/
                                                     }
                                                 }//);
@@ -11627,7 +11640,7 @@ if (Kind == 2)
                                                         MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantumBegin = true;
                                                         MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantumFinished = false;
                                                         MinisterOnTable[i].MinisterThinkingQuantum[0].Kind = 5;
-                                                        MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantum(ref CastlesOnTable[i].WinOcuuredatChiled);/*.t = new Task(new Action(MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantum));
+                                                        MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantum(ref CastlesOnTable[i].LoseOcuuredatChiled, ref CastlesOnTable[i].WinOcuuredatChiled);/*.t = new Task(new Action(MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantum));
                                                         MinisterOnTable[i].MinisterThinkingQuantum[0].t.Start();*/
                                                     }
                                                 }//);
@@ -11679,7 +11692,7 @@ if (Kind == 2)
                                                         KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantumBegin = true;
                                                         KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantumFinished = false;
                                                         KingOnTable[i].KingThinkingQuantum[0].Kind = 6;
-                                                        KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantum(ref CastlesOnTable[i].WinOcuuredatChiled);/*.t = new Task(new Action(KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantum));
+                                                        KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantum(ref CastlesOnTable[i].LoseOcuuredatChiled, ref CastlesOnTable[i].WinOcuuredatChiled);/*.t = new Task(new Action(KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantum));
                                                         KingOnTable[i].KingThinkingQuantum[0].t.Start();*/
                                                     }
                                                 }//);
@@ -11743,7 +11756,7 @@ if (Kind == 2)
                                         {
                                             SolderesOnTable[i].SoldierThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             SolderesOnTable[i].SoldierThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                            SolderesOnTable[i].SoldierThinkingQuantum[0].ThinkingQuantum(ref SolderesOnTable[i].WinOcuuredatChiled);
+                                            SolderesOnTable[i].SoldierThinkingQuantum[0].ThinkingQuantum(ref SolderesOnTable[i].LoseOcuuredatChiled, ref SolderesOnTable[i].WinOcuuredatChiled);
 
                                         }
 
@@ -11801,7 +11814,7 @@ if (Kind == 2)
                                         {
                                             ElephantOnTable[i].ElefantThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             ElephantOnTable[i].ElefantThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                            ElephantOnTable[i].ElefantThinkingQuantum[0].ThinkingQuantum(ref ElephantOnTable[i].WinOcuuredatChiled);
+                                            ElephantOnTable[i].ElefantThinkingQuantum[0].ThinkingQuantum(ref ElephantOnTable[i].LoseOcuuredatChiled, ref ElephantOnTable[i].WinOcuuredatChiled);
 
 
                                         }
@@ -11859,7 +11872,7 @@ if (Kind == 2)
                                         {
                                             HoursesOnTable[i].HourseThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             HoursesOnTable[i].HourseThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                            HoursesOnTable[i].HourseThinkingQuantum[0].ThinkingQuantum(ref HoursesOnTable[i].WinOcuuredatChiled);
+                                            HoursesOnTable[i].HourseThinkingQuantum[0].ThinkingQuantum(ref HoursesOnTable[i].LoseOcuuredatChiled, ref HoursesOnTable[i].WinOcuuredatChiled);
 
 
 
@@ -11918,7 +11931,7 @@ if (Kind == 2)
                                             //ThinkingQuantum of Gray Castles Operational.
                                             CastlesOnTable[i].CastleThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             CastlesOnTable[i].CastleThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                            CastlesOnTable[i].CastleThinkingQuantum[0].ThinkingQuantum(ref CastlesOnTable[i].WinOcuuredatChiled);
+                                            CastlesOnTable[i].CastleThinkingQuantum[0].ThinkingQuantum(ref CastlesOnTable[i].LoseOcuuredatChiled, ref CastlesOnTable[i].WinOcuuredatChiled);
 
 
                                         }
@@ -11976,7 +11989,7 @@ if (Kind == 2)
                                         {
                                             MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                            MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantum(ref MinisterOnTable[i].WinOcuuredatChiled);
+                                            MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantum(ref MinisterOnTable[i].LoseOcuuredatChiled, ref MinisterOnTable[i].WinOcuuredatChiled);
 
 
                                         }
@@ -12035,7 +12048,7 @@ if (Kind == 2)
                                             KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantumFinished = false;
 
-                                            KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantum(ref KingOnTable[i].WinOcuuredatChiled);
+                                            KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantum(ref KingOnTable[i].LoseOcuuredatChiled, ref KingOnTable[i].WinOcuuredatChiled);
 
                                         }
                                     }//);
@@ -12093,7 +12106,7 @@ if (Kind == 2)
                                             {
                                                 SolderesOnTable[i].SoldierThinkingQuantum[0].ThinkingQuantumBegin = true;
                                                 SolderesOnTable[i].SoldierThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                                SolderesOnTable[i].SoldierThinkingQuantum[0].ThinkingQuantum(ref SolderesOnTable[i].WinOcuuredatChiled);
+                                                SolderesOnTable[i].SoldierThinkingQuantum[0].ThinkingQuantum(ref SolderesOnTable[i].LoseOcuuredatChiled, ref SolderesOnTable[i].WinOcuuredatChiled);
                                             }
                                         }//);
 
@@ -12151,7 +12164,7 @@ if (Kind == 2)
                                                 //ThinkingQuantum Operations of Brown Current Objects.
                                                 ElephantOnTable[i].ElefantThinkingQuantum[0].ThinkingQuantumBegin = true;
                                                 ElephantOnTable[i].ElefantThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                                ElephantOnTable[i].ElefantThinkingQuantum[0].ThinkingQuantum(ref ElephantOnTable[i].WinOcuuredatChiled);
+                                                ElephantOnTable[i].ElefantThinkingQuantum[0].ThinkingQuantum(ref ElephantOnTable[i].LoseOcuuredatChiled, ref ElephantOnTable[i].WinOcuuredatChiled);
                                             }
                                         }//);
                                     }
@@ -12210,7 +12223,7 @@ if (Kind == 2)
                                                 //HoursesOnTable[i].HourseThinkingQuantum[0].TableT = HoursesOnTable[i].HourseThinkingQuantum[0].TableT;
                                                 HoursesOnTable[i].HourseThinkingQuantum[0].ThinkingQuantumBegin = true;
                                                 HoursesOnTable[i].HourseThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                                HoursesOnTable[i].HourseThinkingQuantum[0].ThinkingQuantum(ref HoursesOnTable[i].WinOcuuredatChiled);
+                                                HoursesOnTable[i].HourseThinkingQuantum[0].ThinkingQuantum(ref HoursesOnTable[i].LoseOcuuredatChiled, ref HoursesOnTable[i].WinOcuuredatChiled);
                                             }
                                         }//);
 
@@ -12269,7 +12282,7 @@ if (Kind == 2)
                                                 //ThinkingQuantum Operations of Brown Current Objects.
                                                 CastlesOnTable[i].CastleThinkingQuantum[0].ThinkingQuantumBegin = true;
                                                 CastlesOnTable[i].CastleThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                                CastlesOnTable[i].CastleThinkingQuantum[0].ThinkingQuantum(ref CastlesOnTable[i].WinOcuuredatChiled);
+                                                CastlesOnTable[i].CastleThinkingQuantum[0].ThinkingQuantum(ref CastlesOnTable[i].LoseOcuuredatChiled, ref CastlesOnTable[i].WinOcuuredatChiled);
                                             }
                                         }//);
 
@@ -12325,7 +12338,7 @@ if (Kind == 2)
                                             //ThinkingQuantum Operations of Brown Current Objects.
                                             MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                            MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantum(ref MinisterOnTable[i].WinOcuuredatChiled);
+                                            MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantum(ref MinisterOnTable[i].LoseOcuuredatChiled, ref MinisterOnTable[i].WinOcuuredatChiled);
                                         }
                                     }//);
                                 }
@@ -12379,7 +12392,7 @@ if (Kind == 2)
                                             //ThinkingQuantum Operations of Brown Current Objects.
                                             KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                            KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantum(ref KingOnTable[i].WinOcuuredatChiled);
+                                            KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantum(ref KingOnTable[i].LoseOcuuredatChiled, ref KingOnTable[i].WinOcuuredatChiled);
                                         }
                                     }//);
 
@@ -12452,6 +12465,16 @@ if (Kind == 2)
                                 iAStarGreedy = MaxAStarGreedy;
                                 OutPut = "\r\nLevel Boundry Conditon for iAStarGreedy is Set To " + iAStarGreedy.ToString() + "MaxAStarGreedy";
                             }
+                            /*if (ThinkingQuantumChess.FoundFirstSelfMating >= MaxAStarGreedy)
+                            {
+                                OutPut = "\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString();
+                                return null;
+                            }
+                            else
+                            {
+                                iAStarGreedy = MaxAStarGreedy;
+                                OutPut = "\r\nLevel Boundry Conditon for iAStarGreedy is Set To " + iAStarGreedy.ToString() + "MaxAStarGreedy";
+                            }*/
                         }
                     }
                     CurrentAStarGredyMax = AStarGreedyiLevelMax - iAStarGreedy;
@@ -12853,10 +12876,28 @@ if (Kind == 2)
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
-                    if (ThinkingQuantumChess.FoundFirstMating >= MaxAStarGreedy)
+                    if (iAStarGreedy <= CurrentAStarGredyMax)
                     {
-                        OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstMating.ToString();
-                        return null;
+                        if (ThinkingQuantumChess.FoundFirstMating >= MaxAStarGreedy)
+                        {
+                            OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstMating.ToString();
+                            return null;
+                        }
+                        else
+                        {
+                            iAStarGreedy = MaxAStarGreedy;
+                            OutPut = "\r\nLevel Boundry Conditon for iAStarGreedy is Set To " + iAStarGreedy.ToString() + "MaxAStarGreedy";
+                        }
+                        /*if (ThinkingQuantumChess.FoundFirstSelfMating >= MaxAStarGreedy)
+                        {
+                            OutPut = "\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString();
+                            return null;
+                        }
+                        else
+                        {
+                            iAStarGreedy = MaxAStarGreedy;
+                            OutPut = "\r\nLevel Boundry Conditon for iAStarGreedy is Set To " + iAStarGreedy.ToString() + "MaxAStarGreedy";
+                        }*/
                     }
                 }
 
@@ -14049,21 +14090,22 @@ if (Kind == 2)
                 for (int i = 0; i < A.ElefantMidle; i++)
                     if (A.ElephantOnTable[i] != null)
                         Sum += A.ElephantOnTable[i].WinOcuuredatChiled;
-                 for (int i = 0; i < A.HourseMidle; i++)
+                for (int i = 0; i < A.HourseMidle; i++)
                     if (A.HoursesOnTable[i] != null)
                         Sum += A.HoursesOnTable[i].WinOcuuredatChiled;
-                 for (int i = 0; i < A.CastleMidle; i++)
+                for (int i = 0; i < A.CastleMidle; i++)
                     if (A.CastlesOnTable[i] != null)
                         Sum += A.CastlesOnTable[i].WinOcuuredatChiled;
-                  for (int i = 0; i < A.MinisterMidle; i++)
+                for (int i = 0; i < A.MinisterMidle; i++)
                     if (A.MinisterOnTable[i] != null)
                         Sum += A.MinisterOnTable[i].WinOcuuredatChiled;
-                 for (int i = 0; i < A.KingMidle; i++)
+                for (int i = 0; i < A.KingMidle; i++)
                     if (A.KingOnTable[i] != null)
                         Sum += A.KingOnTable[i].WinOcuuredatChiled;
-            
+
             }
-            else {
+            else
+            {
                 for (int i = A.SodierMidle; i < A.SodierHigh; i++)
                     if (A.SolderesOnTable[i] != null)
                         Sum += A.SolderesOnTable[i].WinOcuuredatChiled;
@@ -14079,11 +14121,61 @@ if (Kind == 2)
                 for (int i = A.MinisterMidle; i < A.MinisterHigh; i++)
                     if (A.MinisterOnTable[i] != null)
                         Sum += A.MinisterOnTable[i].WinOcuuredatChiled;
-               for (int i = A.KingMidle; i < A.KingHigh; i++)
+                for (int i = A.KingMidle; i < A.KingHigh; i++)
                     if (A.KingOnTable[i] != null)
                         Sum += A.KingOnTable[i].WinOcuuredatChiled;
             }
-             return Sum;
+            return Sum;
+        }
+        int SumMinusOfObjects(AllDraw A, int Order)
+        {
+            int Sum = 0;
+            if (A == null)
+                return Sum;
+            if (Order == 1)
+            {
+                for (int i = 0; i < A.SodierMidle; i++)
+                    if (A.SolderesOnTable[i] != null)
+                        Sum += A.SolderesOnTable[i].LoseOcuuredatChiled;
+                for (int i = 0; i < A.ElefantMidle; i++)
+                    if (A.ElephantOnTable[i] != null)
+                        Sum += A.ElephantOnTable[i].LoseOcuuredatChiled;
+                for (int i = 0; i < A.HourseMidle; i++)
+                    if (A.HoursesOnTable[i] != null)
+                        Sum += A.HoursesOnTable[i].LoseOcuuredatChiled;
+                for (int i = 0; i < A.CastleMidle; i++)
+                    if (A.CastlesOnTable[i] != null)
+                        Sum += A.CastlesOnTable[i].LoseOcuuredatChiled;
+                for (int i = 0; i < A.MinisterMidle; i++)
+                    if (A.MinisterOnTable[i] != null)
+                        Sum += A.MinisterOnTable[i].LoseOcuuredatChiled;
+                for (int i = 0; i < A.KingMidle; i++)
+                    if (A.KingOnTable[i] != null)
+                        Sum += A.KingOnTable[i].LoseOcuuredatChiled;
+
+            }
+            else
+            {
+                for (int i = A.SodierMidle; i < A.SodierHigh; i++)
+                    if (A.SolderesOnTable[i] != null)
+                        Sum += A.SolderesOnTable[i].LoseOcuuredatChiled;
+                for (int i = A.ElefantMidle; i < A.ElefantHigh; i++)
+                    if (A.ElephantOnTable[i] != null)
+                        Sum += A.ElephantOnTable[i].LoseOcuuredatChiled;
+                for (int i = A.HourseMidle; i < A.HourseHight; i++)
+                    if (A.HoursesOnTable[i] != null)
+                        Sum += A.HoursesOnTable[i].LoseOcuuredatChiled;
+                for (int i = A.CastleMidle; i < A.CastleHigh; i++)
+                    if (A.CastlesOnTable[i] != null)
+                        Sum += A.CastlesOnTable[i].LoseOcuuredatChiled;
+                for (int i = A.MinisterMidle; i < A.MinisterHigh; i++)
+                    if (A.MinisterOnTable[i] != null)
+                        Sum += A.MinisterOnTable[i].LoseOcuuredatChiled;
+                for (int i = A.KingMidle; i < A.KingHigh; i++)
+                    if (A.KingOnTable[i] != null)
+                        Sum += A.KingOnTable[i].LoseOcuuredatChiled;
+            }
+            return Sum;
         }
         public bool isSameDrawObjectCount(AllDraw A)
         {
@@ -14122,7 +14214,7 @@ if (Kind == 2)
                 {
                     if (iAStarGreedy <= CurrentAStarGredyMax)
                     {
-                        if (ThinkingQuantumChess.FoundFirstMating >= MaxAStarGreedy)
+                        if (ThinkingQuantumChess.FoundFirstMating >= MaxAStarGreedy && ThinkingQuantumChess.FoundFirstSelfMating == 0)
                         {
                             OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstMating.ToString();
                             return false;
@@ -14132,6 +14224,16 @@ if (Kind == 2)
                             iAStarGreedy = MaxAStarGreedy;
                             OutPut = "\r\nLevel Boundry Conditon for iAStarGreedy is Set To " + iAStarGreedy.ToString() + "MaxAStarGreedy";
                         }
+                        /*if (ThinkingQuantumChess.FoundFirstSelfMating >= MaxAStarGreedy)
+                        {
+                            OutPut = "\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString();
+                            return false;
+                        }
+                        else
+                        {
+                            iAStarGreedy = MaxAStarGreedy;
+                            OutPut = "\r\nLevel Boundry Conditon for iAStarGreedy is Set To " + iAStarGreedy.ToString() + "MaxAStarGreedy";
+                        }*/
                     }
                 }
                 //List<Task> tHA = new List<Task>();
@@ -14241,6 +14343,8 @@ if (Kind == 2)
 
                                                 for (int h = 0; h < SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count; h++)
                                                     SolderesOnTable[ik].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
+                                                for (int h = 0; h < SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count; h++)
+                                                    SolderesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
                                                 //Task array = Task.Factory.StartNew(() => SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder[j]), Order, false, FOUND, LeafAStarGreedy));
 
                                                 //SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
@@ -14354,6 +14458,8 @@ if (Kind == 2)
                                                 SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder[j]), Order, false, FOUND, LeafAStarGreedy);
                                                 for (int h = 0; h < SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count; h++)
                                                     SolderesOnTable[ik].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
+                                                for (int h = 0; h < SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count; h++)
+                                                    SolderesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
 
                                                 //SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                                 //array.Start();
@@ -14454,6 +14560,16 @@ if (Kind == 2)
                             iAStarGreedy = MaxAStarGreedy;
                             OutPut = "\r\nLevel Boundry Conditon for iAStarGreedy is Set To " + iAStarGreedy.ToString() + "MaxAStarGreedy";
                         }
+                       /* if (ThinkingQuantumChess.FoundFirstSelfMating >= MaxAStarGreedy)
+                        {
+                            OutPut = "\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString();
+                            return false;
+                        }
+                        else
+                        {
+                            iAStarGreedy = MaxAStarGreedy;
+                            OutPut = "\r\nLevel Boundry Conditon for iAStarGreedy is Set To " + iAStarGreedy.ToString() + "MaxAStarGreedy";
+                        }*/
                     }
                 }
                 //List<Task> tHA = new List<Task>();
@@ -14561,6 +14677,8 @@ if (Kind == 2)
                                                     ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                                     for (int h = 0; h < ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count; h++)
                                                         ElephantOnTable[ik].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[h], Order);
+                                                    for (int h = 0; h < ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count; h++)
+                                                        ElephantOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[h], Order);
 
                                                     //array.Start();
                                                     /*bool ASS = false; Object OOOAAA = new Object(); //lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
@@ -14671,6 +14789,8 @@ if (Kind == 2)
                                                     ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                                     for (int h = 0; h < ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count; h++)
                                                         ElephantOnTable[ik].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[h], Order);
+                                                    for (int h = 0; h < ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count; h++)
+                                                        ElephantOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[h], Order);
                                                     //Task array = Task.Factory.StartNew(() => ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant[j]), Order, false, FOUND, LeafAStarGreedy));
 
                                                     //array.Start();
@@ -14775,6 +14895,16 @@ if (Kind == 2)
                             iAStarGreedy = MaxAStarGreedy;
                             OutPut = "\r\nLevel Boundry Conditon for iAStarGreedy is Set To " + iAStarGreedy.ToString() + "MaxAStarGreedy";
                         }
+                        /*if (ThinkingQuantumChess.FoundFirstSelfMating >= MaxAStarGreedy)
+                        {
+                            OutPut = "\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString();
+                            return false;
+                        }
+                        else
+                        {
+                            iAStarGreedy = MaxAStarGreedy;
+                            OutPut = "\r\nLevel Boundry Conditon for iAStarGreedy is Set To " + iAStarGreedy.ToString() + "MaxAStarGreedy";
+                        }*/
                     }
                 }
                 //List<Task> tHA = new List<Task>();
@@ -14880,6 +15010,8 @@ if (Kind == 2)
                                                     HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                                     for (int h = 0; h < HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count; h++)
                                                         HoursesOnTable[ik].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[h], Order);
+                                                    for (int h = 0; h < HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count; h++)
+                                                        HoursesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[h], Order);
 
                                                     //Task array = Task.Factory.StartNew(() => HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse[j]), Order, false, FOUND, LeafAStarGreedy));
 
@@ -14997,6 +15129,8 @@ if (Kind == 2)
                                                 HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                                 for (int h = 0; h < HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count; h++)
                                                     HoursesOnTable[ik].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[h], Order);
+                                                for (int h = 0; h < HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count; h++)
+                                                    HoursesOnTable[ik].LoseOcuuredatChiled +=SumMinusOfObjects(HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[h], Order);
                                                 //array.Start();
                                                 /*bool ASS = false; Object OOOAAA = new Object(); //lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
                                                {
@@ -15099,6 +15233,16 @@ if (Kind == 2)
                             iAStarGreedy = MaxAStarGreedy;
                             OutPut = "\r\nLevel Boundry Conditon for iAStarGreedy is Set To " + iAStarGreedy.ToString() + "MaxAStarGreedy";
                         }
+                       /*if (ThinkingQuantumChess.FoundFirstSelfMating >= MaxAStarGreedy)
+                        {
+                            OutPut = "\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString();
+                            return false;
+                        }
+                        else
+                        {
+                            iAStarGreedy = MaxAStarGreedy;
+                            OutPut = "\r\nLevel Boundry Conditon for iAStarGreedy is Set To " + iAStarGreedy.ToString() + "MaxAStarGreedy";
+                        }*/
                     }
                 }
                 //List<Task> tHA = new List<Task>();
@@ -15203,6 +15347,8 @@ if (Kind == 2)
                                                 CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                                 for (int h = 0; h < CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count; h++)
                                                     CastlesOnTable[ik].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[h], Order);
+                                                for (int h = 0; h < CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count; h++)
+                                                    CastlesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[h], Order);
 
                                                 //array.Start();
                                                 /*bool ASS = false; Object OOOAAA = new Object(); //lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
@@ -15314,6 +15460,8 @@ if (Kind == 2)
                                                 CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                                 for (int h = 0; h < CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count; h++)
                                                     CastlesOnTable[ik].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[h], Order);
+                                                for (int h = 0; h < CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count; h++)
+                                                    CastlesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[h], Order);
                                                 //array.Start();
                                                 /*bool ASS = false; Object OOOAAA = new Object(); //lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
                                                 {
@@ -15413,6 +15561,16 @@ if (Kind == 2)
                             iAStarGreedy = MaxAStarGreedy;
                             OutPut = "\r\nLevel Boundry Conditon for iAStarGreedy is Set To " + iAStarGreedy.ToString() + "MaxAStarGreedy";
                         }
+                        /*if (ThinkingQuantumChess.FoundFirstSelfMating >= MaxAStarGreedy)
+                        {
+                            OutPut = "\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString();
+                            return false;
+                        }
+                        else
+                        {
+                            iAStarGreedy = MaxAStarGreedy;
+                            OutPut = "\r\nLevel Boundry Conditon for iAStarGreedy is Set To " + iAStarGreedy.ToString() + "MaxAStarGreedy";
+                        }*/
                     }
                 }
                 //List<Task> tHA = new List<Task>();
@@ -15521,6 +15679,8 @@ if (Kind == 2)
                                                 MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                                 for (int h = 0; h < MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count; h++)
                                                     MinisterOnTable[ik].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[h], Order);
+                                                for (int h = 0; h < MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count; h++)
+                                                    MinisterOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[h], Order);
 
                                                 //array.Start();
                                                 /*bool ASS = false; Object OOOAAA = new Object(); //lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
@@ -15630,6 +15790,8 @@ if (Kind == 2)
                                                 MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                                 for (int h = 0; h < MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count; h++)
                                                     MinisterOnTable[ik].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[h], Order);
+                                                for (int h = 0; h < MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count; h++)
+                                                    MinisterOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[h], Order);
                                                 //array.Start();
                                                 /*bool ASS = false; Object OOOAAA = new Object(); //lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
                                                 {
@@ -15730,6 +15892,16 @@ if (Kind == 2)
                             iAStarGreedy = MaxAStarGreedy;
                             OutPut = "\r\nLevel Boundry Conditon for iAStarGreedy is Set To " + iAStarGreedy.ToString() + "MaxAStarGreedy";
                         }
+                        /*if (ThinkingQuantumChess.FoundFirstSelfMating >= MaxAStarGreedy)
+                        {
+                            OutPut = "\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString();
+                            return false;
+                        }
+                        else
+                        {
+                            iAStarGreedy = MaxAStarGreedy;
+                            OutPut = "\r\nLevel Boundry Conditon for iAStarGreedy is Set To " + iAStarGreedy.ToString() + "MaxAStarGreedy";
+                        }*/
                     }
                 }
                 //List<Task> tHA = new List<Task>();
@@ -15835,6 +16007,8 @@ if (Kind == 2)
                                             KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                             for (int h = 0; h < KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count; h++)
                                                 KingOnTable[ik].WinOcuuredatChiled += SumOfObjects(KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[h], Order);
+                                            for (int h = 0; h < KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count; h++)
+                                                KingOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[h], Order);
 
                                             //array.Start();
                                             /*bool ASS = false; Object OOOAAA = new Object(); //lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
@@ -15934,7 +16108,10 @@ if (Kind == 2)
                                            KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                                            //Task array = Task.Factory.StartNew(() => KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(KingOnTable[ik].KingThinkingQuantum[0].TableListKing[j]), Order, false, FOUND, LeafAStarGreedy));
                                            KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
-                                            KingOnTable[ik].WinOcuuredatChiled += SumOfObjects(KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1], Ord);
+                                            for (int h = 0; h < KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count; h++)
+                                                KingOnTable[ik].WinOcuuredatChiled += SumOfObjects(KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[h], Order);
+                                            for (int h = 0; h < KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count; h++)
+                                                KingOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[h], Order);
                                             //array.Start();
                                             /*bool ASS = false; Object OOOAAA = new Object(); //lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
                                             {
@@ -17896,6 +18073,7 @@ if (Kind == 5)
                 //ThinkingQuantumChess.NumbersOfAllNode = 0;
 
                 ThinkingQuantumChess.FoundFirstMating = 0;
+                ThinkingQuantumChess.FoundFirstSelfMating = 0;
                 //Monitor Log File Appending ZFirst Line. 
                 //Object On = new Object();
                 //lock (On)

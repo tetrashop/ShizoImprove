@@ -15,7 +15,7 @@ namespace QuantumRefrigiz
         public bool IsQuntumMove = false;
         //Pieces have rings around them, filled in with colour. These rings show the probability that the piece is in that square.
         bool RingHalf = false;
-        public int WinOcuuredatChiled = 0;
+        public int WinOcuuredatChiled = 0;public int LoseOcuuredatChiled = 0;
         //Iniatate Global Variables.
         private readonly object balanceLock = new object();
         private readonly object balanceLockS = new object();

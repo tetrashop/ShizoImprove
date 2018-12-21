@@ -14,7 +14,7 @@ namespace RefrigtzDLL
         
         
         
-        public int WinOcuuredatChiled = 0;
+        public int WinOcuuredatChiled = 0;public int LoseOcuuredatChiled = 0;
         private readonly object balanceLock = new object();
         private readonly object balanceLockS = new object();
         public static Image[] E = new Image[2];

@@ -13,7 +13,7 @@ namespace RefrigtzDLL
         
         
         
-        public int WinOcuuredatChiled = 0;
+        public int WinOcuuredatChiled = 0;public int LoseOcuuredatChiled = 0;
         //Iniatate Global Variables.
         private readonly object balanceLock = new object();
         private readonly object balanceLockS = new object();

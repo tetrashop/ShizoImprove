@@ -15,7 +15,7 @@ namespace QuantumRefrigiz
         public static bool KingGrayNotCheckedByQuantumMove = false;
         public static bool KingBrownNotCheckedByQuantumMove = false;
         public bool RingHalf = false;
-        public int WinOcuuredatChiled = 0;
+        public int WinOcuuredatChiled = 0;public int LoseOcuuredatChiled = 0;
         private readonly object balanceLock = new object();
         private readonly object balanceLockS = new object();
         public static Image[] K = new Image[2]; 
