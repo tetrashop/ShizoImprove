@@ -55,6 +55,7 @@
     <Compile Include="DrawKing.cs" />
     <Compile Include="DrawMinister.cs" />
     <Compile Include="DrawSoldire.cs" />
+    <Compile Include="IsNextEnemyMovementForCheckedMate.cs" />
     <Compile Include="PlatformHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

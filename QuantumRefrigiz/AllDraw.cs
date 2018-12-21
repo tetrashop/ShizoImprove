@@ -179,6 +179,7 @@ namespace QuantumRefrigiz
               {-1, -1, - 1, -1, -1, -1, -1, -1 }}};
         public static int LastRowQ = -1;
         public static int LastColumnQ = -1;
+        bool SetDeptIgnore = false;
 
         StackFrame callStack = new StackFrame(1, true);
         int[,] Tabl = new int[8, 8];
@@ -14214,7 +14215,7 @@ if (Kind == 2)
                 {
                     if (iAStarGreedy <= CurrentAStarGredyMax)
                     {
-                        if (ThinkingQuantumChess.FoundFirstMating >= MaxAStarGreedy && ThinkingQuantumChess.FoundFirstSelfMating == 0)
+                        if ((ThinkingQuantumChess.FoundFirstMating >= MaxAStarGreedy && ThinkingQuantumChess.FoundFirstSelfMating == 0) || SetDeptIgnore)
                         {
                             OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstMating.ToString();
                             return false;
@@ -18038,12 +18039,12 @@ if (Kind == 5)
             }
         }
         //Main Initiate ThinkingQuantum Method.
-        public int[,] Initiate(int ii, int jj, Color a, int[,] Table, int Order, bool TB, bool FOUND, int LeafAStarGreedy)
+        public int[,] Initiate(int ii, int jj, Color a, int[,] Table, int Order, bool TB, bool FOUND, int LeafAStarGreedy,bool SetDept=false)
         {
             int[,] TableHuristic = new int[8, 8];
             int Current = ChessRules.CurrentOrder;
             int DummyOrder = Order;
-
+            SetDeptIgnore = SetDept;
             //Object O = new Object();
             ////lock (O)
             {
@@ -18271,7 +18272,8 @@ if (Kind == 5)
                     //lock (OOO)
                     {
 
-                        MaxAStarGreedy = System.Convert.ToInt32(AllDraw.THIScomboBoxMaxLevelText);
+                        if (!SetDept)
+                            MaxAStarGreedy = System.Convert.ToInt32(AllDraw.THIScomboBoxMaxLevelText);
                         AllDraw.AStarGreedyiLevelMax = MaxAStarGreedy;
                         AStarGreedyiLevelMax = System.Convert.ToInt32(AllDraw.THIScomboBoxMaxLevelText);
                         AllDraw.MaxAStarGreedyHuristicProgress = 6;

@@ -159,7 +159,7 @@ namespace RefrigtzDLL
 
     public class AllDraw
     {
-
+        bool SetDeptIgnore = false;
         StackFrame callStack = new StackFrame(1, true);
         int[,] Tabl = new int[8, 8];
         public int OrderP = 0;
@@ -12140,7 +12140,7 @@ if (Kind == 2)
                     {
                         if (iAStarGreedy <= MaxAStarGreedy)
                         {
-                            if (ThinkingChess.FoundFirstMating >= MaxAStarGreedy && ThinkingChess.FoundFirstSelfMating == 0)
+                            if ((ThinkingChess.FoundFirstMating >= MaxAStarGreedy && ThinkingChess.FoundFirstSelfMating == 0)||(SetDeptIgnore))
                             {
                                 OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
                                 return null;
@@ -12562,7 +12562,7 @@ if (Kind == 2)
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
-                    if (ThinkingChess.FoundFirstMating >= MaxAStarGreedy && ThinkingChess.FoundFirstSelfMating == 0)
+                    if ((ThinkingChess.FoundFirstMating >= MaxAStarGreedy && ThinkingChess.FoundFirstSelfMating == 0)||(SetDeptIgnore))
                     {
                         OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
                         return null;
@@ -13861,11 +13861,11 @@ if (Kind == 2)
                     TaskBegin++;
                     int S = 0;
                     while (SolderesOnTable[ik].SoldierThinking[0].ThinkingBegin && (!SolderesOnTable[ik].SoldierThinking[0].ThinkingFinished))
-                    { 
-                        
+                    {
+
                         //System.Threading.Thread.Sleep(5);
-                        
-                            
+
+
                         Thread.Sleep(1);
                         S += 1;//if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } 
                         SemaphoreExxedTime(S, 1);
@@ -13875,9 +13875,9 @@ if (Kind == 2)
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
-                    if (iAStarGreedy <=MaxAStarGreedy)
+                    if (iAStarGreedy <= MaxAStarGreedy)
                     {
-                        if (ThinkingChess.FoundFirstMating >= MaxAStarGreedy && ThinkingChess.FoundFirstSelfMating == 0)
+                        if ((ThinkingChess.FoundFirstMating >= MaxAStarGreedy && ThinkingChess.FoundFirstSelfMating == 0) || SetDeptIgnore)
                         {
                             OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
                             return false;
@@ -14212,7 +14212,7 @@ if (Kind == 2)
                 {
                     if (iAStarGreedy <=MaxAStarGreedy)
                     {
-                        if (ThinkingChess.FoundFirstMating >= MaxAStarGreedy && ThinkingChess.FoundFirstSelfMating == 0)
+                        if ((ThinkingChess.FoundFirstMating >= MaxAStarGreedy && ThinkingChess.FoundFirstSelfMating == 0)||(SetDeptIgnore))
                         {
                             OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
                             return false;
@@ -14542,7 +14542,7 @@ if (Kind == 2)
                 {
                     if (iAStarGreedy <=MaxAStarGreedy)
                     {
-                        if (ThinkingChess.FoundFirstMating >= MaxAStarGreedy && ThinkingChess.FoundFirstSelfMating == 0)
+                        if ((ThinkingChess.FoundFirstMating >= MaxAStarGreedy && ThinkingChess.FoundFirstSelfMating == 0)||(SetDeptIgnore))
                         {
                             OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
                             return false;
@@ -14874,7 +14874,7 @@ if (Kind == 2)
                 {
                     if (iAStarGreedy <=MaxAStarGreedy)
                     {
-                        if (ThinkingChess.FoundFirstMating >= MaxAStarGreedy && ThinkingChess.FoundFirstSelfMating == 0)
+                        if ((ThinkingChess.FoundFirstMating >= MaxAStarGreedy && ThinkingChess.FoundFirstSelfMating == 0)||(SetDeptIgnore))
                         {
                             OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
                             return false;
@@ -15197,7 +15197,7 @@ if (Kind == 2)
                 {
                     if (iAStarGreedy <=MaxAStarGreedy)
                     {
-                        if (ThinkingChess.FoundFirstMating >= MaxAStarGreedy && ThinkingChess.FoundFirstSelfMating == 0)
+                        if ((ThinkingChess.FoundFirstMating >= MaxAStarGreedy && ThinkingChess.FoundFirstSelfMating == 0)||(SetDeptIgnore))
                         {
                             OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
                             return false;
@@ -15523,7 +15523,7 @@ if (Kind == 2)
                 {
                     if (iAStarGreedy <=MaxAStarGreedy)
                     {
-                        if (ThinkingChess.FoundFirstMating >= MaxAStarGreedy && ThinkingChess.FoundFirstSelfMating == 0)
+                        if ((ThinkingChess.FoundFirstMating >= MaxAStarGreedy && ThinkingChess.FoundFirstSelfMating == 0)||(SetDeptIgnore))
                         {
                             OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
                             return false;
@@ -17677,8 +17677,9 @@ if (Kind == 5)
             }
         }
         //Main Initiate Thinking Method.
-        public int[,] Initiate(int ii, int jj, Color a, int[,] Table, int Order, bool TB, bool FOUND, int LeafAStarGreedy)
+        public int[,] Initiate(int ii, int jj, Color a, int[,] Table, int Order, bool TB, bool FOUND, int LeafAStarGreedy, bool SetDept = false)
         {
+            SetDeptIgnore = SetDept;
             int[,] TableHuristic = new int[8, 8];
             int Current = ChessRules.CurrentOrder;
             int DummyOrder = Order;
@@ -17909,8 +17910,8 @@ if (Kind == 5)
                     //Object OOO = new Object();
                     //lock (OOO)
                     {
-
-                        MaxAStarGreedy = System.Convert.ToInt32(AllDraw.THIScomboBoxMaxLevelText);
+                        if (!SetDept)
+                            MaxAStarGreedy = System.Convert.ToInt32(AllDraw.THIScomboBoxMaxLevelText);
                         AllDraw.AStarGreedyiLevelMax = MaxAStarGreedy;
                         AStarGreedyiLevelMax = System.Convert.ToInt32(AllDraw.THIScomboBoxMaxLevelText);
                         AllDraw.MaxAStarGreedyHuristicProgress = 6;
