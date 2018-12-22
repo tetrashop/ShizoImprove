@@ -7487,7 +7487,9 @@ namespace QuantumRefrigiz
                                 return true;
                             }
                         }
-                        if ((AllDraw.OrderPlate == -1 && AA.CheckBrown)|| (AllDraw.OrderPlate == -1 && AA.CheckMateBrown))
+                        if (//(AllDraw.OrderPlate == -1 && AA.CheckBrown)|| 
+                            
+                            (AllDraw.OrderPlate == -1 && AA.CheckMateBrown))
                         {
                             Object A = new Object();
                             lock (A)
@@ -7504,7 +7506,8 @@ namespace QuantumRefrigiz
 
 
                         }
-                        if ((AllDraw.OrderPlate == 1 && AA.CheckGray) || (AllDraw.OrderPlate == 1 && AA.CheckMateGray))
+                        if (//(AllDraw.OrderPlate == 1 && AA.CheckGray) ||
+                            (AllDraw.OrderPlate == 1 && AA.CheckMateGray))
                           {
                               DoEnemySelf = false;
                               ////Object A = new Object();
@@ -7521,9 +7524,9 @@ namespace QuantumRefrigiz
                               }
                           }
 
-                        if (FoundFirstSelfMating > 0)
+                        //if (FoundFirstSelfMating > 0)
                         {
-                            if ((new IsNextEnemyMovementForCheckedMate(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS)).Is())
+                            /*if ((new IsNextEnemyMovementForCheckedMate(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS)).Is())
                             {
                                 IsThereMateOfSelf = true;
                                 FoundFirstSelfMating++;
@@ -7533,9 +7536,9 @@ namespace QuantumRefrigiz
                                 AddAtList(kind, Current);
                                 CheckedM = 3;
                                 return true;
-                            }
+                            }*/
                         }
-
+                        
                         if (Order == 1 && AA.CheckMateBrown)
                         {
                             DoEnemySelf = false;
@@ -9146,6 +9149,11 @@ namespace QuantumRefrigiz
         ///Kernel of ThinkingQuantum
         public void ThinkingQuantum(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled)
         {
+            if (CurrentAStarGredyMax > AllDraw.MaxAStarGreedy)
+            {
+                ThinkingQuantumFinished = true;
+                return;
+            }
 
             int ord = Order;
             ////Object O = new Object();

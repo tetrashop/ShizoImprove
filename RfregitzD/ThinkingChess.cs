@@ -7466,6 +7466,7 @@ namespace RefrigtzDLL
                                 RemoveAtList(kind);
                                 AddAtList(kind, Current);
                                 CheckedM = 3;
+                                ThinkingFinished = true;
                                 return true;
                             }
 
@@ -7485,11 +7486,13 @@ namespace RefrigtzDLL
                                 Current.LearningAlgorithmRegard();
                                 AddAtList(kind, Current);
                                 CheckedM = 3;
+                                ThinkingFinished = true;
                                 return true;
                             }
                         }
 
-                        if ((AllDraw.OrderPlate == -1 && AA.CheckBrown) || (AllDraw.OrderPlate == -1 && AA.CheckMateBrown))
+                        if (//(AllDraw.OrderPlate == -1 && AA.CheckBrown) || 
+                            (AllDraw.OrderPlate == -1 && AA.CheckMateBrown))
                         {
                             Object A = new Object();
                             lock (A)
@@ -7501,12 +7504,14 @@ namespace RefrigtzDLL
                                 RemoveAtList(kind);
                                 AddAtList(kind, Current);
                                 CheckedM = 3;
+                                ThinkingFinished = true;
                                 return true;
                             }
 
 
                         }
-                        if ((AllDraw.OrderPlate == 1 && AA.CheckGray) || (AllDraw.OrderPlate == 1 && AA.CheckMateGray))
+                        if (//(AllDraw.OrderPlate == 1 && AA.CheckGray) || 
+                            (AllDraw.OrderPlate == 1 && AA.CheckMateGray))
                         {
                             DoEnemySelf = false;
                             ////Object A = new Object();
@@ -7519,13 +7524,14 @@ namespace RefrigtzDLL
                                 Current.LearningAlgorithmPenalty();
                                 AddAtList(kind, Current);
                                 CheckedM = 3;
+                                ThinkingFinished = true;
                                 return true;
                             }
                         }
-
-                        if (FoundFirstSelfMating > 0)
+                        
+                        //if (FoundFirstSelfMating > 0)
                         {
-                            if ((new IsNextEnemyMovementForCheckedMate(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS)).Is())
+                            /*if ((new IsNextEnemyMovementForCheckedMate(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS)).Is())
                             {
                                 IsThereMateOfSelf = true;
                                 FoundFirstSelfMating++;
@@ -7534,8 +7540,9 @@ namespace RefrigtzDLL
                                 Current.LearningAlgorithmPenalty();
                                 AddAtList(kind, Current);
                                 CheckedM = 3;
+                                ThinkingFinished = true;
                                 return true;
-                            }
+                            }*/
                         }
                         if (Order == 1 && AA.CheckMateBrown)
                         {
@@ -9147,7 +9154,11 @@ namespace RefrigtzDLL
         ///Kernel of Thinking
         public void Thinking(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled)
         {
-
+            if (CurrentAStarGredyMax > AllDraw.MaxAStarGreedy)
+            {
+                ThinkingFinished = true;
+                return;
+            }
             int ord = Order;
             ////Object O = new Object();
             //lock (O)
