@@ -9159,7 +9159,8 @@ namespace QuantumRefrigiz
             ////Object O = new Object();
             //lock (O)
             {
-                while (!ThinkingQuantumBegin) { System.Threading.Thread.Sleep(1); }// S += 2; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
+                while (!ThinkingQuantumBegin) { //System.Threading.Thread.Sleep(1);
+                }// S += 2; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
 
                 NumberOfPenalties = 0;
                 SetObjectNumbers(CloneATable(TableConst));

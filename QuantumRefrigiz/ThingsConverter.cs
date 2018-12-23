@@ -104,7 +104,8 @@ namespace QuantumRefrigiz
                             {
                                 if (AllDraw.OrderPlate == 1)
                                 {
-                                    while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100); }
+                                    while (AllDraw.ConvertedKind == -1) { //System.Threading.Thread.Sleep(100);
+                                    }
 
                                     Rand = AllDraw.ConvertedKind;
 
@@ -118,7 +119,8 @@ namespace QuantumRefrigiz
                                 if (AllDraw.OrderPlate == -1)
                                 {
                                     //(new FormُSelectItems()).ShowDialog();
-                                    while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100); }
+                                    while (AllDraw.ConvertedKind == -1) { //System.Threading.Thread.Sleep(100); 
+                                    }
 
                                     Rand = AllDraw.ConvertedKind;
 
@@ -202,7 +204,8 @@ namespace QuantumRefrigiz
                                 {
                                     if (AllDraw.OrderPlate == 1)
                                     {
-                                        while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100); }
+                                        while (AllDraw.ConvertedKind == -1) { //System.Threading.Thread.Sleep(100); 
+                                        }
 
                                         Rand = AllDraw.ConvertedKind;
 
@@ -214,7 +217,8 @@ namespace QuantumRefrigiz
                                 {
                                     if (AllDraw.OrderPlate == -1)
                                     {
-                                        while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100); }
+                                        while (AllDraw.ConvertedKind == -1) { //System.Threading.Thread.Sleep(100); 
+                                        }
 
                                         Rand = AllDraw.ConvertedKind;
 
@@ -301,7 +305,8 @@ namespace QuantumRefrigiz
                                 {
                                     if (AllDraw.OrderPlate == 1)
                                     {
-                                        while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100); }
+                                        while (AllDraw.ConvertedKind == -1) { //System.Threading.Thread.Sleep(100);
+                                        }
 
                                         Rand = AllDraw.ConvertedKind;
 
@@ -313,7 +318,8 @@ namespace QuantumRefrigiz
                                 {
                                     if (AllDraw.OrderPlate == -1)
                                     {
-                                        while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100); }
+                                        while (AllDraw.ConvertedKind == -1) { //System.Threading.Thread.Sleep(100);
+                                        }
 
                                         Rand = AllDraw.ConvertedKind;
 
