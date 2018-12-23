@@ -9401,7 +9401,7 @@ namespace RefrigtzDLL
                 //if (BeginArragmentsOfOrderFinished(Tabl, Order))
                 {
 
-                    ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[RowS, ColS], Table, Order,RowS, ColS);
+                    ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[RowS, ColS], Table, Order, RowS, ColS);
                     Color a = Color.Gray;
                     Color aa = Color.Gray;
                     if (Order == -1)
@@ -9420,102 +9420,138 @@ namespace RefrigtzDLL
                                 //Parallel.For(0, 8, ColS =>
                                 //for (int ColS = 0; ColS < 8; ColS++)
                                 {
-                              ////Object O = new Object();
-                              //lock (O)
-                              {
-                                  if (Scop(RowO, ColumnO, RowS, ColS, System.Math.Abs(Table[RowO, ColumnO])) && (Table[RowO, ColumnO] != 0) && (Table[RowS, ColS] == 0))
-                                  {
-                                      if (SignEqualOrEmptySelf(Table[RowO, ColumnO], Table[RowS, ColS], Order))
-                                      {
-                                          A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[RowO, ColumnO], Table, Order, RowO, ColumnO);
-                                          if (A.Rules(RowO, ColumnO, RowS, ColS, a, Order))
-                                              Val++;
-                                      }
-                                      
-                                      if (SignEqualOrEmptyEnemy(Table[RowO, ColumnO], Table[RowS, ColS], Order))
-                                      {
-                                          A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[RowO, ColumnO], Table, Order, RowO, ColumnO);
-                                          if (A.Rules(RowO, ColumnO, RowS, ColS, a, Order))
-                                              Val --;
-                                      }
-                                      else
-                                          continue;
-                                  }
-                                  else
-                                  if (Scop(RowO, ColumnO, RowS, ColS, System.Math.Abs(Table[RowO, ColumnO])) && (Table[RowO, ColumnO] != 0) && (Table[RowS, ColS] != 0))
-                                  {
-                                      //When is self level
-                                      if (Order == AllDraw.OrderPlate)
-                                      {
-                                          if (SignNotEqual(Table[RowO, ColumnO], Table[RowS, ColS]))
-                                          {
-                                              //When there is enemy attack dec.
-                                              if (Attack(Table, RowO, ColumnO, RowS, ColS, aa, Order * -1))
-                                                  Val --;
-                                          }
-                                          
-                                          if (SignEqual(Table[RowO, ColumnO], Table[RowS, ColS]))
-                                          {
-                                              //when there is self support inc.
-                                              if (Support(Table, RowO, ColumnO, RowS, ColS, a, Order))
-                                                  Val++;
-                                          }
-                                          
-                                          if (SignNotEqual(Table[RowO, ColumnO], Table[RowS, ColS]))
-                                          {
-                                              //When there is self attack inc.
-                                              if (Attack(Table, RowO, ColumnO, RowS, ColS, a, Order))
-                                                  Val++;
-                                          }
-                                          
-                                          //when there is enemy support dec..
-                                          if (SignEqual(Table[RowO, ColumnO], Table[RowS, ColS]))
-                                          {
-                                              if (Support(Table, RowO, ColumnO, RowS, ColS, aa, Order * -1))
-                                                  Val--;
-                                          }
-                                          else
-                                              continue;
-                                      }
-                                      //When is enemy level.
-                                      else
-                                      {
-                                          if (SignNotEqual(Table[RowO, ColumnO], Table[RowS, ColS]))
-                                          {
-                                              //When there is enemy attack inc.
-                                              if (Attack(Table, RowO, ColumnO, RowS, ColS, aa, Order * -1))
-                                                  Val ++;
-                                          }
-                                          else
-                                          if (SignEqual(Table[RowO, ColumnO], Table[RowS, ColS]))
-                                          {
-                                              //when there is self support dec.
-                                              if (Support(Table, RowO, ColumnO, RowS, ColS, a, Order))
-                                                  Val--;
-                                          }
-                                          else
-                                          //When there is self attack dec.
-                                          if (SignNotEqual(Table[RowO, ColumnO], Table[RowS, ColS]))
-                                          {
-                                              if (Attack(Table, RowO, ColumnO, RowS, ColS, a, Order))
-                                                  Val--;
-                                          }
-                                          else
-                                          if (SignEqual(Table[RowO, ColumnO], Table[RowS, ColS]))
-                                          {
-                                              //when there is enemy support inc.
-                                              if (Support(Table, RowO, ColumnO, RowS, ColS, aa, Order * -1))
-                                                  Val++;
-                                          }
-                                          else
-                                              continue;
-                                      }
-                                  }
+                                    ////Object O = new Object();
+                                    //lock (O)
+                                    {
+                                        if (Scop(RowO, ColumnO, RowS, ColS, System.Math.Abs(Table[RowO, ColumnO])) && (Table[RowO, ColumnO] != 0) && (Table[RowS, ColS] == 0))
+                                        {
+                                            if (SignEqualOrEmptySelf(Table[RowO, ColumnO], Table[RowS, ColS], Order))
+                                            {
+                                                A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[RowO, ColumnO], Table, Order, RowO, ColumnO);
+                                                if (A.Rules(RowO, ColumnO, RowS, ColS, a, Order))
+                                                    Val--;
+                                            }
 
-                              }
-                          }//);
-                      }//)/\;
-                  }//));
+                                            if (SignEqualOrEmptyEnemy(Table[RowO, ColumnO], Table[RowS, ColS], Order))
+                                            {
+                                                A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[RowO, ColumnO], Table, Order, RowO, ColumnO);
+                                                if (A.Rules(RowO, ColumnO, RowS, ColS, a, Order))
+                                                    Val--;
+                                            }
+                                            else
+                                                continue;
+                                        }
+                                        else
+                                        if (Scop(RowO, ColumnO, RowS, ColS, System.Math.Abs(Table[RowS, ColS])) && (Table[RowO, ColumnO] == 0) && (Table[RowS, ColS] != 0))
+                                        {
+                                            if (SignEqualOrEmptySelf(Table[RowO, ColumnO], Table[RowS, ColS], Order))
+                                            {
+                                                A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[RowS, ColS], Table, Order, RowS, ColS);
+                                                if (A.Rules(RowS, ColS, RowO, ColumnO, a, Order))
+                                                    Val++;
+                                            }
+
+                                            if (SignEqualOrEmptyEnemy(Table[RowO, ColumnO], Table[RowS, ColS], Order))
+                                            {
+                                                A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[RowS, ColS], Table, Order, RowS, ColS);
+                                                if (A.Rules(RowS, ColS, RowO, ColumnO, a, Order))
+                                                    Val++;
+                                            }
+                                            else
+                                                continue;
+                                        }
+                                        else
+                                  if (Scop(RowO, ColumnO, RowS, ColS, System.Math.Abs(Table[RowO, ColumnO])) && (Table[RowO, ColumnO] != 0) && (Table[RowS, ColS] != 0))
+                                        {
+                                            //When is self level
+                                            if (Order == AllDraw.OrderPlate)
+                                            {
+                                                if (SignNotEqual(Table[RowO, ColumnO], Table[RowS, ColS]))
+                                                {
+                                                    //When there is enemy attack dec.
+                                                    if (Attack(Table, RowO, ColumnO, RowS, ColS, aa, Order * -1))
+                                                        Val--;
+                                                    if (Attack(Table, RowS, ColS, RowO, ColumnO, a, Order))
+                                                        Val++;
+                                                }
+
+                                                if (SignEqual(Table[RowO, ColumnO], Table[RowS, ColS]))
+                                                {
+                                                    //when there is self support inc.
+                                                    if (Support(Table, RowO, ColumnO, RowS, ColS, a, Order))
+                                                        Val++;
+                                                    if (Support(Table, RowS, ColS, RowO, ColumnO, a, Order))
+                                                        Val++;
+                                                }
+
+                                                if (SignNotEqual(Table[RowO, ColumnO], Table[RowS, ColS]))
+                                                {
+                                                    //When there is self attack inc.
+                                                    if (Attack(Table, RowO, ColumnO, RowS, ColS, a, Order * -1))
+                                                        Val--;
+                                                    if (Attack(Table, RowS, ColS, RowO, ColumnO, a, Order))
+                                                        Val++;
+
+                                                }
+
+                                                //when there is enemy support dec..
+                                                if (SignEqual(Table[RowO, ColumnO], Table[RowS, ColS]))
+                                                {
+                                                    if (Support(Table, RowO, ColumnO, RowS, ColS, aa, Order))
+                                                        Val++;
+                                                    if (Support(Table, RowS, ColS, RowO, ColumnO, a, Order))
+                                                        Val++;
+                                                }
+                                                else
+                                                    continue;
+                                            }
+                                            //When is enemy level.
+                                            else
+                                            {
+                                                if (SignNotEqual(Table[RowO, ColumnO], Table[RowS, ColS]))
+                                                {
+                                                    //When there is enemy attack inc.
+                                                    if (Attack(Table, RowO, ColumnO, RowS, ColS, aa, Order * -1))
+                                                        Val--;
+                                                    if (Attack(Table, RowS, ColS, RowO, ColumnO, a, Order))
+                                                        Val++;
+                                                }
+                                                else
+                                                if (SignEqual(Table[RowO, ColumnO], Table[RowS, ColS]))
+                                                {
+                                                    //when there is self support dec.
+                                                    if (Support(Table, RowO, ColumnO, RowS, ColS, a, Order))
+                                                        Val++;
+                                                    if (Support(Table, RowS, ColS, RowO, ColumnO, a, Order))
+                                                        Val++;
+                                                }
+                                                else
+                                                //When there is self attack dec.
+                                                if (SignNotEqual(Table[RowO, ColumnO], Table[RowS, ColS]))
+                                                {
+                                                    if (Attack(Table, RowO, ColumnO, RowS, ColS, a, Order * -1))
+                                                        Val--;
+                                                    if (Attack(Table, RowS, ColS, RowO, ColumnO, a, Order))
+                                                        Val++;
+                                                }
+                                                else
+                                                if (SignEqual(Table[RowO, ColumnO], Table[RowS, ColS]))
+                                                {
+                                                    //when there is enemy support inc.
+                                                    if (Support(Table, RowO, ColumnO, RowS, ColS, aa, Order))
+                                                        Val++;
+                                                    if (Support(Table, RowS, ColS, RowO, ColumnO, a, Order))
+                                                        Val++;
+                                                }
+                                                else
+                                                    continue;
+                                            }
+                                        }
+
+                                    }
+                                }//);
+                            }//)/\;
+                        }//));
                     A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[RowS, ColS], Table, Order, RowS, ColS);
                     if (A.ObjectDangourKingMove(Order, Table, false))
                     {
@@ -9524,9 +9560,9 @@ namespace RefrigtzDLL
                         if (Order == -1 && A.CheckBrownObjectDangour)
                             Val *= -1;
                         if (Order == -1 && A.CheckGrayObjectDangour)
-                            Val ++;
+                            Val++;
                         if (Order == 1 && A.CheckBrownObjectDangour)
-                            Val ++;
+                            Val++;
                     }
 
                     if (System.Math.Abs(Table[RowS, ColS]) == 2)
@@ -9555,11 +9591,11 @@ namespace RefrigtzDLL
                     }
 
                 }
-         //       if (Val < 0)
-           //         Val = 0;
+                //       if (Val < 0)
+                //         Val = 0;
                 return Val;
             }
-            
+
             /*if (AllDraw.OrderPlate == Order)
                 return 1;
             else
