@@ -4886,7 +4886,7 @@ namespace QuantumRefrigiz
                     {
                         if (PenaltyRegardListSolder[i].IsPenaltyAction() != 0)
                         {
-                            if (Order != AllDraw.OrderPlate)
+                            if (Order == AllDraw.OrderPlate)
                             {
                                 if (Less > HuristicListSolder[i][0] +
                                     HuristicListSolder[i][1] +
@@ -4953,7 +4953,7 @@ namespace QuantumRefrigiz
                     {
                         if (PenaltyRegardListElefant[i].IsPenaltyAction() != 0)
                         {
-                            if (Order != AllDraw.OrderPlate)
+                            if (Order == AllDraw.OrderPlate)
                             {
                                 if (Less > HuristicListElefant[i][0] +
                                     HuristicListElefant[i][1] +
@@ -5018,7 +5018,7 @@ namespace QuantumRefrigiz
                     {
                         if (PenaltyRegardListHourse[i].IsPenaltyAction() != 0)
                         {
-                            if (Order != AllDraw.OrderPlate)
+                            if (Order == AllDraw.OrderPlate)
                             {
                                 if (Less > HuristicListHourse[i][0] +
                                     HuristicListHourse[i][1] +
@@ -5083,7 +5083,7 @@ namespace QuantumRefrigiz
                     {
                         if (PenaltyRegardListCastle[i].IsPenaltyAction() != 0)
                         {
-                            if (Order != AllDraw.OrderPlate)
+                            if (Order == AllDraw.OrderPlate)
                             {
                                 if (Less > HuristicListCastle[i][0] +
                                     HuristicListCastle[i][1] +
@@ -5147,7 +5147,7 @@ namespace QuantumRefrigiz
                     {
                         if (PenaltyRegardListMinister[i].IsPenaltyAction() != 0)
                         {
-                            if (Order != AllDraw.OrderPlate)
+                            if (Order == AllDraw.OrderPlate)
                             {
                                 if (Less > HuristicListMinister[i][0] +
                                     HuristicListMinister[i][1] +
@@ -5213,7 +5213,7 @@ namespace QuantumRefrigiz
                     {
                         if (PenaltyRegardListKing[i].IsPenaltyAction() != 0)
                         {
-                            if (Order != AllDraw.OrderPlate)
+                            if (Order == AllDraw.OrderPlate)
                             {
                                 if (Less > HuristicListKing[i][0] +
                                     HuristicListKing[i][1] +
