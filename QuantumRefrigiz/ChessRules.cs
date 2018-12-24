@@ -155,8 +155,8 @@ namespace QuantumRefrigiz
         {
             try
             {
-                //Object a = new Object();
-                //lock (a)
+                Object a = new Object();
+                lock (a)
                 {
                     string stackTrace = ex.ToString();
                     File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
@@ -228,8 +228,8 @@ namespace QuantumRefrigiz
             , bool SelfHomeStatCP = true
             )
         {
-            //Object O = new Object();
-            //lock (O)
+            Object O = new Object();
+            lock (O)
             {
                 if (!SelfHomeStatCP)
                     IgnoreSelfObject = true;
@@ -237,8 +237,8 @@ namespace QuantumRefrigiz
                     IgnoreSelfObject = false;
             }
             //Initaite Global Varibales.
-            //Object O1 = new Object();
-            //lock (O1)
+            Object O1 = new Object();
+            lock (O1)
             {
                 CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKingHaveSupporter = false;
                 CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKingHaveSupporterNumber = 0;
@@ -340,8 +340,8 @@ namespace QuantumRefrigiz
                                 {
                                     if (((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond - 2, ColumnSecond] == 6 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond + 1, ColumnSecond] == 4)
                                     {
-                                        //Object O = new Object();
-                                        //lock (O)
+                                        Object O = new Object();
+                                        lock (O)
                                         {
                                             CastleActGray = true;
                                             SmallKingCastleGray = true;
@@ -364,8 +364,8 @@ namespace QuantumRefrigiz
                                     {
                                         if (((RowSecond + 2) < 8) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond + 2, ColumnSecond] == 6 && Table[RowSecond + 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond - 2, ColumnSecond] == 4)
                                         {
-                                        //Object O = new Object();
-                                        //lock (O)
+                                        Object O = new Object();
+                                        lock (O)
                                         {
                                             CastleActGray = true;
                                             BigKingCastleGray = true;
@@ -399,8 +399,8 @@ namespace QuantumRefrigiz
                                     if (((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && Table[RowSecond - 2, ColumnSecond] == -6 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond + 1, ColumnSecond] == -4)
                                     {
                                         //CastleActBrown = true;
-                                        //Object O1 = new Object();
-                                        //lock (O1)
+                                        Object O1 = new Object();
+                                        lock (O1)
                                         {
                                             SmallKingCastleBrown = true;
                                         }
@@ -422,8 +422,8 @@ namespace QuantumRefrigiz
                                         if (((RowSecond + 2) < 8) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond + 2, ColumnSecond] == -6 && Table[RowSecond + 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond - 2, ColumnSecond] == -4)
                                         {
                                         //CastleActBrown = true;
-                                        //Object O = new Object();
-                                        //lock (O)
+                                        Object O = new Object();
+                                        lock (O)
                                         {
                                             BigKingCastleBrown = true;
                                         }
@@ -606,8 +606,8 @@ namespace QuantumRefrigiz
             CheckBrownObjectDangour = false;
             int RowG = 0, ColumnG = 0;
             int RowB = 0, ColumnB = 0;
-            //Object O = new Object();
-            //lock (O)
+            Object O = new Object();
+            lock (O)
             {
                 if (DoIgnore)
                     ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = true;
@@ -763,8 +763,8 @@ namespace QuantumRefrigiz
                 }
             }
             //Iniaiate Global Variables.
-            //Object O1 = new Object();
-            //lock (O1)
+            Object O1 = new Object();
+            lock (O1)
             {
                 ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = false;
             }
@@ -819,8 +819,8 @@ namespace QuantumRefrigiz
             CheckBrown = false;
             CheckGrayObjectDangour = false;
             CheckBrownObjectDangour = false;
-            //Object O = new Object();
-            //lock (O)
+            Object O = new Object();
+            lock (O)
             {
                 if (DoIgnore)
                     ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = true;
@@ -1508,8 +1508,8 @@ namespace QuantumRefrigiz
                 for (int j = 0; j < 8; j++)
                     Tabl[i, j] = Table[i, j];
             //Initiate Global Variables.
-            //Object O = new Object();
-            //lock (O)
+            Object O = new Object();
+            lock (O)
             {
                 CheckGrayRemovable = true;
 
@@ -1566,8 +1566,8 @@ namespace QuantumRefrigiz
                                                         //Initiate and Move.
                                                         Tab[i, j] = Table[ii, jj];
                                                         Tab[ii, jj] = 0;
-                                                        //Object O1 = new Object();
-                                                        //lock (O1)
+                                                        Object O1 = new Object();
+                                                        lock (O1)
                                                         {
                                                             CheckBrownRemovableValueRowi = i;
                                                             CheckGrayRemovableValueColumni = j;
@@ -1635,8 +1635,8 @@ namespace QuantumRefrigiz
                                                         //Move and Initaite Local and Global Variables.
                                                         Tab[i, j] = Table[ii, jj];
                                                         Tab[ii, jj] = 0;
-                                                        //Object O1 = new Object();
-                                                        //lock (O1)
+                                                        Object O1 = new Object();
+                                                        lock (O1)
                                                         {
                                                             CheckBrownRemovableValueRowi = i;
                                                             CheckBrownRemovableValueColumnj = j;
@@ -1719,8 +1719,8 @@ namespace QuantumRefrigiz
                 for (int j = 0; j < 8; j++)
                     Table[i, j] = Tab[i, j];
             bool Pat = false;
-            //Object O = new Object();
-            //lock (O)
+            Object O = new Object();
+            lock (O)
             {
                 PatCheckedInKingRule = true;
             }
@@ -1810,8 +1810,8 @@ namespace QuantumRefrigiz
                         NumbersofKingMovesToPatBrown = 0;
 
             }
-            //Object O1 = new Object();
-            //lock (O1)
+            Object O1 = new Object();
+            lock (O1)
             {
                 PatCheckedInKingRule = false;
             }
@@ -1892,8 +1892,8 @@ namespace QuantumRefrigiz
             int DummyOrder = Ord;
             //Initiate Local and Global Briables.
             bool Store = ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing;
-            //Object O = new Object();
-            //lock (O)
+            Object O = new Object();
+            lock (O)
             {
                 ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = false;
             }
@@ -2269,8 +2269,8 @@ namespace QuantumRefrigiz
             if (RowFirst == RowSecond && ColumnFirst == ColumnSecond)
                 return false;
             //Initiate Global Variable.
-            //Object O = new Object();
-            //lock (O)
+            Object O = new Object();
+            lock (O)
             {
                 KingAttacker = false;
             }

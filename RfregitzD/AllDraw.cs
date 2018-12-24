@@ -2,7 +2,7 @@
  * Initiate and Decision making class.******************************************************
  * Ramin Edjlal*****************************************************************************
  * Call Of Constructor From Constructor***************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * The Storing AllDraw //Object in Self Constructor Caused Stack Overflow*******************0.12**4**Managements and Cuation Programing**********************(+)
+ * The Storing AllDraw Object in Self Constructor Caused Stack Overflow*******************0.12**4**Managements and Cuation Programing**********************(+)
  * Link List Of Storing String Caused A Stack Over Flow***********************************0.12**4**Managements and Cuation Programing**********************(+)
  * Wait For Finished Current AStarGreedy Caused To Long Time*************************************0.12**4**Managements and Cuation Programing**********************(+)
  * Need To Heuristic (Arvin) Function(s) to Manage Cell in Form1**************************0.12**4**Managements and Cuation Programing**********************(+)
@@ -17,7 +17,7 @@
  * Initiate Error*************************************************************************0.12**4**Managements and Cuation Programing**********************(+)
  * Seems To Be Logical Drawing ***********************************************************0.12**4**Managements and Cuation Programing**********************(+)
  * int Suddenly Changing****************************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * AllDraw //Object Sub Objects List When Return from local Scope Become Zero.**************0.12**4**Managements and Cuation Programing**********************(+)
+ * AllDraw Object Sub Objects List When Return from local Scope Become Zero.**************0.12**4**Managements and Cuation Programing**********************(+)
  * Huristic Dosn't Work*******************************************************************0.12**4**Managements and Cuation Programing**********************(+)
  * int Order Of Visualization Changed Suddenly******************************************0.12**4**Managements and Cuation Programing**********************(+)
  * int Changes with no movement*********************************************************0.12**4**Managements and Cuation Programing**********************(+)
@@ -127,7 +127,7 @@
  * Mal Function of Reconstruction of AStarGreedy Objects In Initiate AStarGreedy First.*****************0.12**4**Managements and Cuation Programing**********************<+>
  * Hurisic Operantional Have Mal Function Behaviour.**************************************0.12**4**Managements and Cuation Programing**********************<+>
  * Table Zero of AStarGreedy First Huristic Mal Function.****************************************0.12**4**Managements and Cuation Programing**********************<+>
- * AStarGreedy First Initiate Method Result //Object Content Mal Function.*************************0.12**4**Managements and Cuation Programing**********************<+>
+ * AStarGreedy First Initiate Method Result Object Content Mal Function.*************************0.12**4**Managements and Cuation Programing**********************<+>
  * Table Nopt Found Of AStarGreedy First Huristic.Mal Function of Initiate and Huristic.*********0.12**4**Managements and Cuation Programing**********************<+>
  * Table Foundation Successfule. Traversaling of All Tree Not Successfule.****************0.12**4**Managements and Cuation Programing**********************<+>
  * Table Some Movments Intiaiazation Mal Function.****************************************0.12**4**Managements and Cuation Programing**********************{+}
@@ -340,8 +340,8 @@ namespace RefrigtzDLL
         {
             try
             {
-                //Object a = new Object();
-                //lock (a)
+                Object a = new Object();
+                lock (a)
                 {
                     string stackTrace = ex.ToString();
                     File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
@@ -379,8 +379,8 @@ namespace RefrigtzDLL
         }
         public void SetObjectNumbers(int[,] TabS)
         {
-            //Object a = new Object();
-            ////lock (a)
+            Object a = new Object();
+            lock (a)
             {
 
                 SodierMidle = 0;
@@ -459,8 +459,8 @@ namespace RefrigtzDLL
         }
         float[] FoundLocationOfObject(ref int[,] Tabl, int Kind, bool IsGray)
         {
-            //Object a = new Object();
-            ////lock (a)
+            Object a = new Object();
+            lock (a)
             {
                 float[] Location = { -1, -1 };
                 for (int i = 0; i < 8; i++)
@@ -495,8 +495,8 @@ namespace RefrigtzDLL
         //Constructor
         public AllDraw(int Order, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
         {
-            //Object a = new Object();
-            ////lock (a)
+            Object a = new Object();
+            lock (a)
             {
 
                 MaxHuristicxT = Double.MinValue;
@@ -508,15 +508,15 @@ namespace RefrigtzDLL
                 OnlySelfT = OnlySel;
                 AStarGreedyHuristicT = AStarGreedyHuris;
                 ArrangmentsChanged = Arrangments;
-                //Object Om = new Object();
-                //lock (Om)
+                Object Om = new Object();
+                lock (Om)
                 {
                     FoundATable = false;
                 }
                 CastlesKing = false;
                 increasedProgress = 0;
-                //Object ol = new Object();
-                //lock (ol)
+                Object ol = new Object();
+                lock (ol)
                 {
                     CurrentHuristic = Double.MinValue;
 
@@ -609,8 +609,8 @@ namespace RefrigtzDLL
         //Clone Copy Method
         public void Clone(AllDraw AA)
         {
-            //Object O = new Object();
-            ////lock (O)
+            Object O = new Object();
+            lock (O)
             {
 
 
@@ -744,8 +744,8 @@ namespace RefrigtzDLL
         //aBlanck Constructor
         public AllDraw(int Order, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, AllDraw THi)
         {
-            //Object a = new Object();
-            ////lock (a)
+            Object a = new Object();
+            lock (a)
             {
                 OrderP = Order;
                 MaxHuristicxT = Double.MinValue;
@@ -760,20 +760,20 @@ namespace RefrigtzDLL
                     ArrangmentsChanged = Arrangments;
                 else
                     ArrangmentsChanged = Arrangments;
-                //Object Om = new Object();
-                //lock (Om)
+                Object Om = new Object();
+                lock (Om)
                 {
                     AStarGreedytMaxCount = 0;
                 }
-                //Object Omm = new Object();
-                //lock (Omm)
+                Object Omm = new Object();
+                lock (Omm)
                 {
                     FoundATable = false;
                 }
                 CastlesKing = false;
                 increasedProgress = 0;
-                //Object ol = new Object();
-                //lock (ol)
+                Object ol = new Object();
+                lock (ol)
                 {
                     CurrentHuristic = Double.MinValue;
 
@@ -854,8 +854,8 @@ namespace RefrigtzDLL
                 MinisterOnTable = null;
                 KingOnTable = null;
                 */
-                //Object OOOO = new Object();
-                //lock (OOOO)
+                Object OOOO = new Object();
+                lock (OOOO)
                 {
                     MaxDuringLevelThinkingCreation = System.Convert.ToInt32(AllDraw.THIScomboBoxMaxLevelText);
                 }
@@ -864,8 +864,8 @@ namespace RefrigtzDLL
         //Check For Thinking Of Current Item Movments Finished.
         public bool AllCurrentAStarGreedyThinkingFinished(AllDraw Dum, int i, int j, int Kind)
         {
-            //Object a = new Object();
-            ////lock (a)
+            Object a = new Object();
+            lock (a)
             {
                 //For All kind of Current Thinking depend of current type consider finshing state thinking.
                 bool Finished = false;
@@ -972,11 +972,11 @@ if (Kind == 2)
             }
 
         }*/
-        //Rearrange AllDraw //Object Content.
+        //Rearrange AllDraw Object Content.
         public void SetRowColumn(int index)
         {
-            //Object a1 = new Object();
-            ////lock (a1)
+            Object a1 = new Object();
+            lock (a1)
             {
 
                 SetObjectNumbers(TableList[0]);
@@ -1096,7 +1096,7 @@ if (Kind == 2)
                                             ElephantOnTable[El1] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, El1);
                                             //Increament of Gray Index.
                                             El1++;
-                                            //If New //Object Increament Gray Objects.
+                                            //If New Object Increament Gray Objects.
                                             if (El1 > ElefantMidle)
                                             {
                                                 ElefantMidle++;
@@ -1119,7 +1119,7 @@ if (Kind == 2)
                                             ElephantOnTable[El2] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, El2);
                                             //Increament of Index.
                                             El2++;
-                                            //When New Brown Elephant //Object Increament of Index.
+                                            //When New Brown Elephant Object Increament of Index.
                                             if (El2 > ElefantHigh)
                                                 ElefantHigh++;
                                         }
@@ -1319,7 +1319,7 @@ if (Kind == 2)
                                             KingOnTable[Ki1] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, Ki1);
                                             //Increament of Index.
                                             Ki1++;
-                                            //when New Draw  //Object Detected Increament Max Index.
+                                            //when New Draw  Object Detected Increament Max Index.
                                             if (Ki1 > KingMidle)
                                             {
                                                 KingMidle++;
@@ -1343,7 +1343,7 @@ if (Kind == 2)
                                             KingOnTable[Ki2] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, Ki2);
                                             //Increament of Index.
                                             Ki2++;
-                                            //When New //Object Detected Increament Of Brown King Max Index.
+                                            //When New Object Detected Increament Of Brown King Max Index.
                                             if (Ki2 > KingHigh)
                                                 KingHigh++;
                                         }
@@ -1409,8 +1409,8 @@ if (Kind == 2)
         }
         void SetRowColumnFinishedWait()
         {
-            //Object a = new Object();
-            ////lock (a)
+            Object a = new Object();
+            lock (a)
             {
                 do
                 {
@@ -1436,7 +1436,7 @@ if (Kind == 2)
                     bool Added = false;
                     //Recursive Method.
                     BeginIndexFoundingMaxLessofMaxList(ListIndex++, Founded, ref Less);
-                    //When Greater Less of First index //Object Found.
+                    //When Greater Less of First index Object Found.
                     if (Less < MaxHuristicAStarGreedytBackWard[ListIndex][1])
                     {
                         Less = MaxHuristicAStarGreedytBackWard[ListIndex][1];
@@ -1444,7 +1444,7 @@ if (Kind == 2)
 
                         Founded.Add(2);
                     }
-                    //When Greater Less of Second index //Object Found.
+                    //When Greater Less of Second index Object Found.
                     if (Less < MaxHuristicAStarGreedytBackWard[ListIndex][5])
                     {
                         Less = MaxHuristicAStarGreedytBackWard[ListIndex][5];
@@ -1453,7 +1453,7 @@ if (Kind == 2)
                         Added = true;
                         Founded.Add(6);
                     }
-                    //When Greater Less of Third index //Object Found.
+                    //When Greater Less of Third index Object Found.
                     if (Less < MaxHuristicAStarGreedytBackWard[ListIndex][9])
                     {
                         Less = MaxHuristicAStarGreedytBackWard[ListIndex][9];
@@ -1462,7 +1462,7 @@ if (Kind == 2)
                         Added = true;
                         Founded.Add(10);
                     }
-                    //When Greater Less of Foutrh index //Object Found.
+                    //When Greater Less of Foutrh index Object Found.
                     if (Less < MaxHuristicAStarGreedytBackWard[ListIndex][13])
                     {
                         Less = MaxHuristicAStarGreedytBackWard[ListIndex][13];
@@ -1471,7 +1471,7 @@ if (Kind == 2)
                         Added = true;
                         Founded.Add(14);
                     }
-                    //When Greater Less of Fifth index //Object Found.
+                    //When Greater Less of Fifth index Object Found.
                     if (Less < MaxHuristicAStarGreedytBackWard[ListIndex][18])
                     {
                         Less = MaxHuristicAStarGreedytBackWard[ListIndex][18];
@@ -1480,7 +1480,7 @@ if (Kind == 2)
                         Added = true;
                         Founded.Add(19);
                     }
-                    //When Greater Less of Sith index //Object Found.
+                    //When Greater Less of Sith index Object Found.
                     if (Less < MaxHuristicAStarGreedytBackWard[ListIndex][22])
                     {
                         Less = MaxHuristicAStarGreedytBackWard[ListIndex][22];
@@ -1495,8 +1495,8 @@ if (Kind == 2)
         //Method for Check of Existence of Checkmate less than for checked mate.
         bool IsToCheckMateHasLessDeeperThanForCheckMate(AllDraw A, int Order, ref int ToCheckMate, ref int ForCheckMate, int AStarGreedy)
         {
-            //Object a = new Object();
-            ////lock (a)
+            Object a = new Object();
+            lock (a)
             {
 
                 //Initiate variables.
@@ -1948,8 +1948,8 @@ if (Kind == 2)
         //When Penalty Regard Branches expanded to sub branches.
         void IsPenaltyRegardCheckMateAtBranch(int Order, ref int Do, AllDraw Base)
         {
-            //Object a = new Object();
-            ////lock (a)
+            Object a = new Object();
+            lock (a)
             {
                 int CDummy = ChessRules.CurrentOrder;
                 int COrder = Order;
@@ -2686,8 +2686,8 @@ if (Kind == 2)
         }
         public void MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
         {
-            //Object a = new Object();
-            ////lock (a)
+            Object a = new Object();
+            lock (a)
             {
                 int COrder = Order;
                 int CDummy = ChessRules.CurrentOrder;
@@ -2984,8 +2984,8 @@ if (Kind == 2)
         }
         public AllDraw RemovePenalltyFromFirstBranches(int Order)
         {
-            //Object a = new Object();
-            ////lock (a)
+            Object a = new Object();
+            lock (a)
             {
 
                 if (Order == 1)
@@ -3202,8 +3202,8 @@ if (Kind == 2)
         }
         public AllDraw FoundOfCurrentTableNode(int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
         {
-            //Object a = new Object();
-            ////lock (a)
+            Object a = new Object();
+            lock (a)
             {
                 //if (Found)
                 //return THIS;
@@ -3528,8 +3528,8 @@ if (Kind == 2)
         }
         public AllDraw FoundOfLeafDepenOfKind(int Kind, ref AllDraw Leaf, ref bool Found, int Order, ref int OrderLeaf)
         {
-            //Object a = new Object();
-            ////lock (a)
+            Object a = new Object();
+            lock (a)
             {
 
                 //if (ThinkingChess.FoundFirstMating > MaxAStarGreedy)
@@ -3811,8 +3811,8 @@ if (Kind == 2)
         }
         public bool IsFoundOfLeafDepenOfKindhaveVictory(int Kind, ref bool Found, int Order)
         {
-            //Object a = new Object();
-            ////lock (a)
+            Object a = new Object();
+            lock (a)
             {
 
                 //if (ThinkingChess.FoundFirstMating > MaxAStarGreedy)
@@ -4093,15 +4093,15 @@ if (Kind == 2)
         }
         public void FoundOfLeafDepenOfKindFullGame(int[,] table, int Order, int iAStarGreedy, int ii, int jj, int ik, int jjj, bool FOUND, int LeafAStarGreedy)
         {
-            //Object a1 = new Object();
-            //lock (a1)
+            Object a1 = new Object();
+            lock (a1)
             {
                 //if()
                 bool FullGameFound = false;
                 //if (ThinkingChess.FoundFirstMating > MaxAStarGreedy)
                 //   return;
-                //Object O = new Object();
-                //lock (O)
+                Object O = new Object();
+                lock (O)
                 {
                     table = CloneATable(table);
                     OutPut = "\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString();
@@ -4403,8 +4403,8 @@ if (Kind == 2)
                 }
                 if (!FullGameFound)
                 {
-                    //Object O1 = new Object();
-                    ////lock (O1)
+                    Object O1 = new Object();
+                    lock (O1)
                     {
                         iAStarGreedy++;
                         Color a = Color.Gray;
@@ -4419,8 +4419,8 @@ if (Kind == 2)
         }
         public void MakeRegardAllCheckMateBranches(AllDraw A, int Order)
         {
-            //Object a = new Object();
-            ////lock (a)
+            Object a = new Object();
+            lock (a)
             {
 
                 int COrder = Order;
@@ -4721,8 +4721,8 @@ if (Kind == 2)
         }
         int[,] HuristicAStarGreadySearchPenalties(int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-            //Object a1 = new Object();
-            //lock (a1)
+            Object a1 = new Object();
+            lock (a1)
             {
 
                 ChessRules AB = null;
@@ -4780,8 +4780,8 @@ if (Kind == 2)
                                         {
                                             //Set Table and Huristic Value and Syntax.
                                             Act = true;
-                                            //Object On = new Object();
-                                            //lock (On)
+                                            Object On = new Object();
+                                            lock (On)
                                             {
 
                                                 AllDraw.LastRow = SolderesOnTable[i].SoldierThinking[k].Row;
@@ -4797,8 +4797,8 @@ if (Kind == 2)
                                             TableHuristic = SolderesOnTable[i].SoldierThinking[k].TableListSolder[j];
 
 
-                                            //Object O = new Object();
-                                            ////lock (O)
+                                            Object O = new Object();
+                                            lock (O)
                                             {
                                                 ThingsConverter.ActOfClickEqualTow = true;
                                             }
@@ -4834,8 +4834,8 @@ if (Kind == 2)
                                         }
 
                                         //When There is No Movments in Such Order Enemy continue.
-                                        //Object ol = new Object();
-                                        //lock (ol)
+                                        Object ol = new Object();
+                                        lock (ol)
                                         {
                                             if (Order != AllDraw.OrderPlate)
                                                 if (SolderesOnTable[i].SoldierThinking[0].NumberOfPenalties < Less)
@@ -4930,8 +4930,8 @@ if (Kind == 2)
 
                                                 if (AStarGreedyi == 1)
                                                 {
-                                                    //Object O = new Object();
-                                                    //lock (O)
+                                                    Object O = new Object();
+                                                    lock (O)
                                                     {
                                                         if (Order == 1)
                                                         {
@@ -4946,8 +4946,8 @@ if (Kind == 2)
                                                     }
                                                     //Set Table and Huristic Value and Syntax.
                                                     Act = true;
-                                                    //Object On = new Object();
-                                                    //lock (On)
+                                                    Object On = new Object();
+                                                    lock (On)
                                                     {
                                                         AllDraw.LastRow = SolderesOnTable[i].SoldierThinking[k].Row;
                                                         AllDraw.LastColumn = SolderesOnTable[i].SoldierThinking[k].Column;
@@ -4961,8 +4961,8 @@ if (Kind == 2)
                                                     TableHuristic = SolderesOnTable[i].SoldierThinking[k].TableListSolder[j];
 
 
-                                                    //Object O1 = new Object();
-                                                    ////lock (O1)
+                                                    Object O1 = new Object();
+                                                    lock (O1)
                                                     {
                                                         ThingsConverter.ActOfClickEqualTow = true;
                                                     }
@@ -5011,8 +5011,8 @@ if (Kind == 2)
                                                         if (Founded[0] != MaxSoldeirFounded)
                                                             continue;
                                                         Act = true;
-                                                        //Object On = new Object();
-                                                        //lock (On)
+                                                        Object On = new Object();
+                                                        lock (On)
                                                         {
                                                             AllDraw.LastRow = SolderesOnTable[RW1].SoldierThinking[CL1].Row;
                                                             AllDraw.LastColumn = SolderesOnTable[RW1].SoldierThinking[CL1].Column;
@@ -5025,8 +5025,8 @@ if (Kind == 2)
                                                         TableHuristic = SolderesOnTable[RW1].SoldierThinking[CL1].TableListSolder[Ki1];
 
 
-                                                        //Object O1 = new Object();
-                                                        ////lock (O1)
+                                                        Object O1 = new Object();
+                                                        lock (O1)
                                                         {
                                                             ThingsConverter.ActOfClickEqualTow = true;
                                                         }
@@ -5052,8 +5052,8 @@ if (Kind == 2)
 
 
                                                         }
-                                                        //Object O = new Object();
-                                                        //lock (O)
+                                                        Object O = new Object();
+                                                        lock (O)
                                                         {
                                                             if (Order == 1)
                                                             {
@@ -5143,8 +5143,8 @@ if (Kind == 2)
                                         if ((ElephantOnTable[i].ElefantThinking[k].PenaltyRegardListElefant[j].IsPenaltyAction() != 0 && ElephantOnTable[i].ElefantThinking[k].PenaltyRegardListElefant[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA || ElephantOnTable[i].WinOcuuredatChiled >= 1 || ElephantOnTable[i].WinOcuuredatChiled >= 2 || ElephantOnTable[i].WinOcuuredatChiled >= 3)
                                         {
 
-                                            //Object On = new Object();
-                                            //lock (On)
+                                            Object On = new Object();
+                                            lock (On)
                                             {
                                                 AllDraw.LastRow = ElephantOnTable[i].ElefantThinking[k].Row;
                                                 AllDraw.LastColumn = ElephantOnTable[i].ElefantThinking[k].Column;
@@ -5165,8 +5165,8 @@ if (Kind == 2)
 
                                         }
 
-                                        //Object ol = new Object();
-                                        //lock (ol)
+                                        Object ol = new Object();
+                                        lock (ol)
                                         {
                                             //When There is No Movments in Such Order Enemy continue.
                                             if (Order != AllDraw.OrderPlate)
@@ -5258,8 +5258,8 @@ if (Kind == 2)
 
                                                 if (AStarGreedyi == 1)
                                                 {
-                                                    //Object O = new Object();
-                                                    //lock (O)
+                                                    Object O = new Object();
+                                                    lock (O)
                                                     {
                                                         if (Order == 1)
                                                         {
@@ -5273,8 +5273,8 @@ if (Kind == 2)
                                                         }
                                                     }
 
-                                                    //Object On = new Object();
-                                                    //lock (On)
+                                                    Object On = new Object();
+                                                    lock (On)
                                                     {
                                                         AllDraw.LastRow = ElephantOnTable[i].ElefantThinking[k].Row;
                                                         AllDraw.LastColumn = ElephantOnTable[i].ElefantThinking[k].Column;
@@ -5304,8 +5304,8 @@ if (Kind == 2)
                                                         if (Founded[0] != MaxElephntFounded)
                                                             continue;
 
-                                                        //Object On = new Object();
-                                                        //lock (On)
+                                                        Object On = new Object();
+                                                        lock (On)
                                                         {
                                                             AllDraw.LastRow = ElephantOnTable[RW2].ElefantThinking[CL2].Row;
                                                             AllDraw.LastColumn = ElephantOnTable[RW2].ElefantThinking[CL2].Column;
@@ -5315,8 +5315,8 @@ if (Kind == 2)
                                                         Act = true;
                                                         Less = ElephantOnTable[RW2].ElefantThinking[CL2].ReturnHuristic(RW2, Ki2, Order, false);
                                                         TableHuristic = ElephantOnTable[RW2].ElefantThinking[CL2].TableListElefant[Ki2];
-                                                        //Object O = new Object();
-                                                        //lock (O)
+                                                        Object O = new Object();
+                                                        lock (O)
                                                         {
                                                             if (Order == 1)
                                                             {
@@ -5394,8 +5394,8 @@ if (Kind == 2)
                                         //)
                                         if ((HoursesOnTable[i].HourseThinking[k].PenaltyRegardListHourse[j].IsPenaltyAction() != 0 && HoursesOnTable[i].HourseThinking[k].PenaltyRegardListHourse[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA || HoursesOnTable[i].WinOcuuredatChiled >= 1 || HoursesOnTable[i].WinOcuuredatChiled >= 2 || HoursesOnTable[i].WinOcuuredatChiled >= 3)
                                         {
-                                            //Object On = new Object();
-                                            //lock (On)
+                                            Object On = new Object();
+                                            lock (On)
                                             {
                                                 AllDraw.LastRow = HoursesOnTable[i].HourseThinking[k].Row;
                                                 AllDraw.LastColumn = HoursesOnTable[i].HourseThinking[k].Column;
@@ -5414,8 +5414,8 @@ if (Kind == 2)
                                             continue;
 
                                         }
-                                        //Object ol = new Object();
-                                        //lock (ol)
+                                        Object ol = new Object();
+                                        lock (ol)
                                         {
                                             //When There is No Movments in Such Order Enemy continue.
                                             if (Order != AllDraw.OrderPlate)
@@ -5507,8 +5507,8 @@ if (Kind == 2)
 
                                                 if (AStarGreedyi == 1)
                                                 {
-                                                    //Object O = new Object();
-                                                    //lock (O)
+                                                    Object O = new Object();
+                                                    lock (O)
                                                     {
                                                         if (Order == 1)
                                                         {
@@ -5523,8 +5523,8 @@ if (Kind == 2)
                                                     }
                                                     //Set Table and Huristic Value and Syntax.
 
-                                                    //Object On = new Object();
-                                                    //lock (On)
+                                                    Object On = new Object();
+                                                    lock (On)
                                                     {
                                                         AllDraw.LastRow = HoursesOnTable[i].HourseThinking[k].Row;
                                                         AllDraw.LastColumn = HoursesOnTable[i].HourseThinking[k].Column;
@@ -5556,8 +5556,8 @@ if (Kind == 2)
                                                         if (Founded[0] != MaxHourseFounded)
                                                             continue;
 
-                                                        //Object On = new Object();
-                                                        //lock (On)
+                                                        Object On = new Object();
+                                                        lock (On)
                                                         {
                                                             AllDraw.LastRow = HoursesOnTable[RW3].HourseThinking[CL3].Row;
                                                             AllDraw.LastColumn = HoursesOnTable[RW3].HourseThinking[CL3].Column;
@@ -5567,8 +5567,8 @@ if (Kind == 2)
                                                         Act = true;
                                                         Less = HoursesOnTable[RW3].HourseThinking[CL3].ReturnHuristic(RW3, Ki3, Order, false);
                                                         TableHuristic = HoursesOnTable[RW3].HourseThinking[CL3].TableListHourse[Ki3];
-                                                        //Object O = new Object();
-                                                        //lock (O)
+                                                        Object O = new Object();
+                                                        lock (O)
                                                         {
                                                             if (Order == 1)
                                                             {
@@ -5655,8 +5655,8 @@ if (Kind == 2)
                                         if ((CastlesOnTable[i].CastleThinking[k].PenaltyRegardListCastle[j].IsPenaltyAction() != 0 && CastlesOnTable[i].CastleThinking[k].PenaltyRegardListCastle[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA || CastlesOnTable[i].WinOcuuredatChiled >= 1 || CastlesOnTable[i].WinOcuuredatChiled >= 2 || CastlesOnTable[i].WinOcuuredatChiled >= 3)
                                         {
 
-                                            //Object On = new Object();
-                                            //lock (On)
+                                            Object On = new Object();
+                                            lock (On)
                                             {
                                                 AllDraw.LastRow = CastlesOnTable[i].CastleThinking[k].Row;
                                                 AllDraw.LastColumn = CastlesOnTable[i].CastleThinking[k].Column;
@@ -5674,8 +5674,8 @@ if (Kind == 2)
                                             //return TableHuristic;
                                             continue;
                                         }
-                                        //Object ol = new Object();
-                                        //lock (ol)
+                                        Object ol = new Object();
+                                        lock (ol)
                                         {
                                             //When There is No Movments in Such Order Enemy continue.
                                             if (Order != AllDraw.OrderPlate)
@@ -5765,8 +5765,8 @@ if (Kind == 2)
 
                                                 if (AStarGreedyi == 1)
                                                 {
-                                                    //Object O = new Object();
-                                                    //lock (O)
+                                                    Object O = new Object();
+                                                    lock (O)
                                                     {
                                                         if (Order == 1)
                                                         {
@@ -5779,8 +5779,8 @@ if (Kind == 2)
                                                             //THIS.RefreshBoxText();
                                                         }
                                                     }
-                                                    //Object On = new Object();
-                                                    //lock (On)
+                                                    Object On = new Object();
+                                                    lock (On)
                                                     {
                                                         AllDraw.LastRow = CastlesOnTable[i].CastleThinking[k].Row;
                                                         AllDraw.LastColumn = CastlesOnTable[i].CastleThinking[k].Column;
@@ -5810,8 +5810,8 @@ if (Kind == 2)
                                                         if (Founded[0] != MaxCastlesFounded)
                                                             continue;
 
-                                                        //Object On = new Object();
-                                                        //lock (On)
+                                                        Object On = new Object();
+                                                        lock (On)
                                                         {
                                                             AllDraw.LastRow = CastlesOnTable[RW4].CastleThinking[CL4].Row;
                                                             AllDraw.LastColumn = CastlesOnTable[RW4].CastleThinking[CL4].Column;
@@ -5821,8 +5821,8 @@ if (Kind == 2)
                                                         Act = true;
                                                         Less = CastlesOnTable[RW4].CastleThinking[CL4].ReturnHuristic(RW4, Ki4, Order, false);
                                                         TableHuristic = CastlesOnTable[RW4].CastleThinking[CL4].TableListCastle[Ki4];
-                                                        //Object O = new Object();
-                                                        //lock (O)
+                                                        Object O = new Object();
+                                                        lock (O)
                                                         {
                                                             if (Order == 1)
                                                             {
@@ -5905,8 +5905,8 @@ if (Kind == 2)
                                     if ((MinisterOnTable[i].MinisterThinking[k].PenaltyRegardListMinister[j].IsPenaltyAction() != 0 && MinisterOnTable[i].MinisterThinking[k].PenaltyRegardListMinister[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA || MinisterOnTable[i].WinOcuuredatChiled >= 1 || MinisterOnTable[i].WinOcuuredatChiled >= 2 || MinisterOnTable[i].WinOcuuredatChiled >= 3)
                                     {
 
-                                        //Object On = new Object();
-                                        //lock (On)
+                                        Object On = new Object();
+                                        lock (On)
                                         {
                                             AllDraw.LastRow = MinisterOnTable[i].MinisterThinking[k].Row;
                                             AllDraw.LastColumn = MinisterOnTable[i].MinisterThinking[k].Column;
@@ -5924,8 +5924,8 @@ if (Kind == 2)
                                         //return TableHuristic;
                                         continue;
                                     }
-                                    //Object ol = new Object();
-                                    //lock (ol)
+                                    Object ol = new Object();
+                                    lock (ol)
                                     {
                                         if (Order != AllDraw.OrderPlate)
                                             if (MinisterOnTable[i].MinisterThinking[0].NumberOfPenalties < Less)
@@ -6017,8 +6017,8 @@ if (Kind == 2)
 
                                             if (AStarGreedyi == 1)
                                             {
-                                                //Object O = new Object();
-                                                //lock (O)
+                                                Object O = new Object();
+                                                lock (O)
                                                 {
                                                     if (Order == 1)
                                                     {
@@ -6031,8 +6031,8 @@ if (Kind == 2)
                                                         //THIS.RefreshBoxText();
                                                     }   //Set Table and Huristic Value and Syntax.
                                                 }
-                                                //Object On = new Object();
-                                                //lock (On)
+                                                Object On = new Object();
+                                                lock (On)
                                                 {
                                                     AllDraw.LastRow = MinisterOnTable[i].MinisterThinking[k].Row;
                                                     AllDraw.LastColumn = MinisterOnTable[i].MinisterThinking[k].Column;
@@ -6062,8 +6062,8 @@ if (Kind == 2)
                                                     if (Founded[0] != MaxMinisterFounded)
                                                         continue;
 
-                                                    //Object On = new Object();
-                                                    //lock (On)
+                                                    Object On = new Object();
+                                                    lock (On)
                                                     {
                                                         AllDraw.LastRow = MinisterOnTable[RW5].MinisterThinking[CL5].Row;
                                                         AllDraw.LastColumn = MinisterOnTable[RW5].MinisterThinking[CL5].Column;
@@ -6073,8 +6073,8 @@ if (Kind == 2)
                                                     Act = true;
                                                     Less = MinisterOnTable[RW5].MinisterThinking[CL5].ReturnHuristic(RW5, Ki5, Order, false);
                                                     TableHuristic = MinisterOnTable[RW5].MinisterThinking[CL5].TableListMinister[Ki5];
-                                                    //Object O = new Object();
-                                                    //lock (O)
+                                                    Object O = new Object();
+                                                    lock (O)
                                                     {
                                                         if (Order == 1)
                                                         {
@@ -6155,8 +6155,8 @@ if (Kind == 2)
                                         //)
                                         if ((KingOnTable[i].KingThinking[k].PenaltyRegardListKing[j].IsPenaltyAction() != 0 && KingOnTable[i].KingThinking[k].PenaltyRegardListKing[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA || KingOnTable[i].WinOcuuredatChiled >= 1 || KingOnTable[i].WinOcuuredatChiled >= 2 || KingOnTable[i].WinOcuuredatChiled >= 3)
                                         {
-                                            //Object On = new Object();
-                                            //lock (On)
+                                            Object On = new Object();
+                                            lock (On)
                                             {
                                                 AllDraw.LastRow = KingOnTable[i].KingThinking[k].Row;
                                                 AllDraw.LastColumn = KingOnTable[i].KingThinking[k].Column;
@@ -6174,8 +6174,8 @@ if (Kind == 2)
                                             //return TableHuristic;
                                             continue;
                                         }
-                                        //Object ol = new Object();
-                                        //lock (ol)
+                                        Object ol = new Object();
+                                        lock (ol)
                                         {
 
                                             //When There is No Movments in Such Order Enemy continue.
@@ -6270,8 +6270,8 @@ if (Kind == 2)
 
                                                 if (AStarGreedyi == 1)
                                                 {
-                                                    //Object O = new Object();
-                                                    //lock (O)
+                                                    Object O = new Object();
+                                                    lock (O)
                                                     {
                                                         if (Order == 1)
                                                         {
@@ -6284,8 +6284,8 @@ if (Kind == 2)
                                                             //THIS.RefreshBoxText();
                                                         }
                                                     }
-                                                    //Object On = new Object();
-                                                    //lock (On)
+                                                    Object On = new Object();
+                                                    lock (On)
                                                     {
                                                         AllDraw.LastRow = KingOnTable[i].KingThinking[k].Row;
                                                         AllDraw.LastColumn = KingOnTable[i].KingThinking[k].Column;
@@ -6316,8 +6316,8 @@ if (Kind == 2)
                                                         if (Founded[0] != MaxKingFounded)
                                                             continue;
 
-                                                        //Object On = new Object();
-                                                        //lock (On)
+                                                        Object On = new Object();
+                                                        lock (On)
                                                         {
                                                             AllDraw.LastRow = KingOnTable[RW6].KingThinking[CL6].Row;
                                                             AllDraw.LastColumn = KingOnTable[RW6].KingThinking[CL6].Column;
@@ -6328,8 +6328,8 @@ if (Kind == 2)
                                                         Act = true;
                                                         Less = KingOnTable[RW6].KingThinking[CL6].ReturnHuristic(RW6, Ki6, Order, false);
                                                         TableHuristic = KingOnTable[RW6].KingThinking[CL6].TableListKing[Ki6];
-                                                        //Object O = new Object();
-                                                        //lock (O)
+                                                        Object O = new Object();
+                                                        lock (O)
                                                         {
                                                             if (Order == 1)
                                                             {
@@ -6383,8 +6383,8 @@ if (Kind == 2)
 
         int[,] HuristicAStarGreadySearchSoldier(ref int[,] TableHuristic, int i, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-            //Object a1 = new Object();
-            ////lock (a1)
+            Object a1 = new Object();
+            lock (a1)
             {
                 ChessRules AB = null;
 
@@ -6434,8 +6434,8 @@ if (Kind == 2)
                                     {
                                         //Set Table and Huristic Value and Syntax.
                                         Act = true;
-                                        //Object On = new Object();
-                                        //lock (On)
+                                        Object On = new Object();
+                                        lock (On)
                                         {
 
                                             AllDraw.LastRow = SolderesOnTable[i].SoldierThinking[k].Row;
@@ -6451,8 +6451,8 @@ if (Kind == 2)
                                         TableHuristic = SolderesOnTable[i].SoldierThinking[k].TableListSolder[j];
 
 
-                                        //Object O = new Object();
-                                        ////lock (O)
+                                        Object O = new Object();
+                                        lock (O)
                                         {
                                             ThingsConverter.ActOfClickEqualTow = true;
                                         }
@@ -6487,8 +6487,8 @@ if (Kind == 2)
                                         continue;
                                     }
                                     //When There is No Movments in Such Order Enemy continue.
-                                    //Object ol = new Object();
-                                    //lock (ol)
+                                    Object ol = new Object();
+                                    lock (ol)
                                     {
                                         if (Order != AllDraw.OrderPlate)
                                             if (SolderesOnTable[i].SoldierThinking[0].ReturnHuristic(i, j, Order, AA) > Less)
@@ -6497,8 +6497,8 @@ if (Kind == 2)
                                         if (SolderesOnTable[i].SoldierThinking[0].ReturnHuristic(i, j, Order, AA) > Less)
                                         {
 
-                                            //Object O11 = new Object();
-                                            //lock (O11)
+                                            Object O11 = new Object();
+                                            lock (O11)
                                             {
                                                 ActionString = ThinkingChess.ActionsString; AllDraw.ActionStringReady = true;
 
@@ -6586,8 +6586,8 @@ if (Kind == 2)
 
                                                 if (AStarGreedyi == 1)
                                                 {
-                                                    //Object O = new Object();
-                                                    //lock (O)
+                                                    Object O = new Object();
+                                                    lock (O)
                                                     {
                                                         if (Order == 1)
                                                         {
@@ -6602,8 +6602,8 @@ if (Kind == 2)
                                                     }
                                                     //Set Table and Huristic Value and Syntax.
                                                     Act = true;
-                                                    //Object On = new Object();
-                                                    //lock (On)
+                                                    Object On = new Object();
+                                                    lock (On)
                                                     {
                                                         AllDraw.LastRow = SolderesOnTable[i].SoldierThinking[k].Row;
                                                         AllDraw.LastColumn = SolderesOnTable[i].SoldierThinking[k].Column;
@@ -6617,8 +6617,8 @@ if (Kind == 2)
                                                     TableHuristic = SolderesOnTable[i].SoldierThinking[k].TableListSolder[j];
 
 
-                                                    //Object O1 = new Object();
-                                                    ////lock (O1)
+                                                    Object O1 = new Object();
+                                                    lock (O1)
                                                     {
                                                         ThingsConverter.ActOfClickEqualTow = true;
                                                     }
@@ -6684,8 +6684,8 @@ if (Kind == 2)
         int[,] HuristicAStarGreadySearchSoldierGray(ref int[,] TableHuristic, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
 
-            //Object a1 = new Object();
-            ////lock (a1)
+            Object a1 = new Object();
+            lock (a1)
             {
 
                 if (SodierMidle != 0)
@@ -6700,8 +6700,8 @@ if (Kind == 2)
         }
         int[,] HuristicAStarGreadySearchSoldierBrown(ref int[,] TableHuristic, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-            //Object a1 = new Object();
-            ////lock (a1)
+            Object a1 = new Object();
+            lock (a1)
             {
                 if (SodierMidle != SodierHigh)
                 {
@@ -6719,8 +6719,8 @@ if (Kind == 2)
         int[,] HuristicAStarGreadySearchElephantGray(ref int[,] TableHuristic, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
 
-            //Object a1 = new Object();
-            ////lock (a1)
+            Object a1 = new Object();
+            lock (a1)
             {
                 if (0 != ElefantMidle)
                 {
@@ -6735,8 +6735,8 @@ if (Kind == 2)
         }
         int[,] HuristicAStarGreadySearchElephantBrown(ref int[,] TableHuristic, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-            //Object a1 = new Object();
-            ////lock (a1)
+            Object a1 = new Object();
+            lock (a1)
             {
 
                 if (ElefantHigh != ElefantMidle)
@@ -6752,8 +6752,8 @@ if (Kind == 2)
         }
         int[,] HuristicAStarGreadySearchElephant(ref int[,] TableHuristic, int i, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-            //Object a1 = new Object();
-            ////lock (a1)
+            Object a1 = new Object();
+            lock (a1)
             {
 
                 ChessRules AB = null;
@@ -6799,8 +6799,8 @@ if (Kind == 2)
                                     if ((ElephantOnTable[i].ElefantThinking[k].PenaltyRegardListElefant[j].IsPenaltyAction() != 0 && ElephantOnTable[i].ElefantThinking[k].PenaltyRegardListElefant[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA || ElephantOnTable[i].WinOcuuredatChiled >= 1 || ElephantOnTable[i].WinOcuuredatChiled >= 2 || ElephantOnTable[i].WinOcuuredatChiled >= 3)
                                     {
 
-                                        //Object On = new Object();
-                                        //lock (On)
+                                        Object On = new Object();
+                                        lock (On)
                                         {
                                             AllDraw.LastRow = ElephantOnTable[i].ElefantThinking[k].Row;
                                             AllDraw.LastColumn = ElephantOnTable[i].ElefantThinking[k].Column;
@@ -6820,8 +6820,8 @@ if (Kind == 2)
                                         continue;
 
                                     }
-                                    //Object ol = new Object();
-                                    //lock (ol)
+                                    Object ol = new Object();
+                                    lock (ol)
                                     {
 
                                         //When There is No Movments in Such Order Enemy continue.
@@ -6833,8 +6833,8 @@ if (Kind == 2)
                                         if (ElephantOnTable[i].ElefantThinking[0].ReturnHuristic(i, j, Order, AA) > Less)
                                         {
 
-                                            //Object O = new Object();
-                                            //lock (O)
+                                            Object O = new Object();
+                                            lock (O)
                                             {
                                                 ActionString = ThinkingChess.ActionsString; AllDraw.ActionStringReady = true;
                                             }
@@ -6918,8 +6918,8 @@ if (Kind == 2)
 
                                             if (AStarGreedyi == 1)
                                             {
-                                                //Object O1 = new Object();
-                                                //lock (O1)
+                                                Object O1 = new Object();
+                                                lock (O1)
                                                 {
                                                     if (Order == 1)
                                                     {
@@ -6934,8 +6934,8 @@ if (Kind == 2)
                                                 }
                                                 //Set Table and Huristic Value and Syntax.
 
-                                                //Object On = new Object();
-                                                //lock (On)
+                                                Object On = new Object();
+                                                lock (On)
                                                 {
                                                     AllDraw.LastRow = ElephantOnTable[i].ElefantThinking[k].Row;
                                                     AllDraw.LastColumn = ElephantOnTable[i].ElefantThinking[k].Column;
@@ -6987,8 +6987,8 @@ if (Kind == 2)
         int[,] HuristicAStarGreadySearchHourseGray(ref int[,] TableHuristic, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
 
-            //Object a1 = new Object();
-            ////lock (a1)
+            Object a1 = new Object();
+            lock (a1)
             {
                 if (0 != HourseMidle)
                 {
@@ -7004,8 +7004,8 @@ if (Kind == 2)
         }
         int[,] HuristicAStarGreadySearchHourseBrown(ref int[,] TableHuristic, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-            //Object a1 = new Object();
-            ////lock (a1)
+            Object a1 = new Object();
+            lock (a1)
             {
 
                 if (HourseHight != HourseMidle)
@@ -7021,8 +7021,8 @@ if (Kind == 2)
         }
         int[,] HuristicAStarGreadySearchHourse(ref int[,] TableHuristic, int i, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-            //Object a1 = new Object();
-            ////lock (a1)
+            Object a1 = new Object();
+            lock (a1)
             {
 
                 ChessRules AB = null;
@@ -7067,8 +7067,8 @@ if (Kind == 2)
                                     //)
                                     if ((HoursesOnTable[i].HourseThinking[k].PenaltyRegardListHourse[j].IsPenaltyAction() != 0 && HoursesOnTable[i].HourseThinking[k].PenaltyRegardListHourse[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA || HoursesOnTable[i].WinOcuuredatChiled >= 1 || HoursesOnTable[i].WinOcuuredatChiled >= 2 || HoursesOnTable[i].WinOcuuredatChiled >= 3)
                                     {
-                                        //Object On = new Object();
-                                        //lock (On)
+                                        Object On = new Object();
+                                        lock (On)
                                         {
                                             AllDraw.LastRow = HoursesOnTable[i].HourseThinking[k].Row;
                                             AllDraw.LastColumn = HoursesOnTable[i].HourseThinking[k].Column;
@@ -7087,8 +7087,8 @@ if (Kind == 2)
                                         continue;
 
                                     }
-                                    //Object ol = new Object();
-                                    //lock (ol)
+                                    Object ol = new Object();
+                                    lock (ol)
                                     {
 
                                         //When There is No Movments in Such Order Enemy continue.
@@ -7098,8 +7098,8 @@ if (Kind == 2)
                                         //When There is greater Huristic Movments.
                                         if (HoursesOnTable[i].HourseThinking[0].ReturnHuristic(i, j, Order, AA) > Less)
                                         {
-                                            //Object O = new Object();
-                                            //lock (O)
+                                            Object O = new Object();
+                                            lock (O)
                                             {
                                                 ActionString = ThinkingChess.ActionsString; AllDraw.ActionStringReady = true;
                                             }
@@ -7185,8 +7185,8 @@ if (Kind == 2)
 
                                             if (AStarGreedyi == 1)
                                             {
-                                                //Object O1 = new Object();
-                                                //lock (O1)
+                                                Object O1 = new Object();
+                                                lock (O1)
                                                 {
                                                     if (Order == 1)
                                                     {
@@ -7200,8 +7200,8 @@ if (Kind == 2)
                                                     }
                                                 }//Set Table and Huristic Value and Syntax.
 
-                                                //Object On = new Object();
-                                                //lock (On)
+                                                Object On = new Object();
+                                                lock (On)
                                                 {
                                                     AllDraw.LastRow = HoursesOnTable[i].HourseThinking[k].Row;
                                                     AllDraw.LastColumn = HoursesOnTable[i].HourseThinking[k].Column;
@@ -7243,8 +7243,8 @@ if (Kind == 2)
         }
         int[,] HuristicAStarGreadySearchCastleGray(ref int[,] TableHuristic, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-            //Object O = new Object();
-            ////lock (O)
+            Object O = new Object();
+            lock (O)
             {
 
                 if (0 != HourseMidle)
@@ -7260,8 +7260,8 @@ if (Kind == 2)
         int[,] HuristicAStarGreadySearchCastleBrown(ref int[,] TableHuristic, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
 
-            //Object O = new Object();
-            ////lock (O)
+            Object O = new Object();
+            lock (O)
             {
 
 
@@ -7278,8 +7278,8 @@ if (Kind == 2)
         }
         int[,] HuristicAStarGreadySearchCastle(ref int[,] TableHuristic, int i, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-            //Object O1 = new Object();
-            ////lock (O1)
+            Object O1 = new Object();
+            lock (O1)
             {
 
 
@@ -7324,8 +7324,8 @@ if (Kind == 2)
                                     if ((CastlesOnTable[i].CastleThinking[k].PenaltyRegardListCastle[j].IsPenaltyAction() != 0 && CastlesOnTable[i].CastleThinking[k].PenaltyRegardListCastle[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA || CastlesOnTable[i].WinOcuuredatChiled >= 1 || CastlesOnTable[i].WinOcuuredatChiled >= 2 || CastlesOnTable[i].WinOcuuredatChiled >= 3)
                                     {
 
-                                        //Object On = new Object();
-                                        //lock (On)
+                                        Object On = new Object();
+                                        lock (On)
                                         {
                                             AllDraw.LastRow = CastlesOnTable[i].CastleThinking[k].Row;
                                             AllDraw.LastColumn = CastlesOnTable[i].CastleThinking[k].Column;
@@ -7343,8 +7343,8 @@ if (Kind == 2)
                                         //return TableHuristic;
                                         continue;
                                     }
-                                    //Object ol = new Object();
-                                    //lock (ol)
+                                    Object ol = new Object();
+                                    lock (ol)
                                     {
                                         //When There is No Movments in Such Order Enemy continue.
                                         if (Order != AllDraw.OrderPlate)
@@ -7352,8 +7352,8 @@ if (Kind == 2)
                                         //When There is greater Huristic Movments.
                                         if (CastlesOnTable[i].CastleThinking[0].ReturnHuristic(i, j, Order, AA) > Less)
                                         {
-                                            //Object O = new Object();
-                                            //lock (O)
+                                            Object O = new Object();
+                                            lock (O)
                                             {
                                                 ActionString = ThinkingChess.ActionsString; AllDraw.ActionStringReady = true;
                                             }
@@ -7439,8 +7439,8 @@ if (Kind == 2)
 
                                             if (AStarGreedyi == 1)
                                             {
-                                                //Object OO1 = new Object();
-                                                //lock (OO1)
+                                                Object OO1 = new Object();
+                                                lock (OO1)
                                                 {
                                                     if (Order == 1)
                                                     {
@@ -7455,8 +7455,8 @@ if (Kind == 2)
                                                 }
                                                 //Set Table and Huristic Value and Syntax.
 
-                                                //Object On = new Object();
-                                                //lock (On)
+                                                Object On = new Object();
+                                                lock (On)
                                                 {
                                                     AllDraw.LastRow = CastlesOnTable[i].CastleThinking[k].Row;
                                                     AllDraw.LastColumn = CastlesOnTable[i].CastleThinking[k].Column;
@@ -7503,8 +7503,8 @@ if (Kind == 2)
         }
         int[,] HuristicAStarGreadySearchMinsisterGray(ref int[,] TableHuristic, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-            //Object O = new Object();
-            ////lock (O)
+            Object O = new Object();
+            lock (O)
             {
                 if (0 != MinisterMidle)
                 {
@@ -7520,8 +7520,8 @@ if (Kind == 2)
         }
         int[,] HuristicAStarGreadySearchMinsisterBrown(ref int[,] TableHuristic, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-            //Object O = new Object();
-            ////lock (O)
+            Object O = new Object();
+            lock (O)
             {
                 if (MinisterHigh != MinisterMidle)
                 {
@@ -7536,8 +7536,8 @@ if (Kind == 2)
         }
         int[,] HuristicAStarGreadySearchMinsister(ref int[,] TableHuristic, int i, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-            //Object O3 = new Object();
-            ////lock (O3)
+            Object O3 = new Object();
+            lock (O3)
             {
 
                 ChessRules AB = null;
@@ -7580,8 +7580,8 @@ if (Kind == 2)
                                 if ((MinisterOnTable[i].MinisterThinking[k].PenaltyRegardListMinister[j].IsPenaltyAction() != 0 && MinisterOnTable[i].MinisterThinking[k].PenaltyRegardListMinister[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA || MinisterOnTable[i].WinOcuuredatChiled >= 1 || MinisterOnTable[i].WinOcuuredatChiled >= 2 || MinisterOnTable[i].WinOcuuredatChiled >= 3)
                                 {
 
-                                    //Object On = new Object();
-                                    //lock (On)
+                                    Object On = new Object();
+                                    lock (On)
                                     {
                                         AllDraw.LastRow = MinisterOnTable[i].MinisterThinking[k].Row;
                                         AllDraw.LastColumn = MinisterOnTable[i].MinisterThinking[k].Column;
@@ -7599,16 +7599,16 @@ if (Kind == 2)
                                     //return TableHuristic;
                                     continue;
                                 }
-                                //Object ol = new Object();
-                                //lock (ol)
+                                Object ol = new Object();
+                                lock (ol)
                                 {
                                     if (Order != AllDraw.OrderPlate)
                                         if (MinisterOnTable[i].MinisterThinking[0].ReturnHuristic(i, j, Order, AA) > Less)
                                             continue;
                                     if (MinisterOnTable[i].MinisterThinking[0].ReturnHuristic(i, j, Order, AA) > Less)
                                     {
-                                        //Object O = new Object();
-                                        //lock (O)
+                                        Object O = new Object();
+                                        lock (O)
                                         {
                                             ActionString = ThinkingChess.ActionsString; AllDraw.ActionStringReady = true;
                                         }
@@ -7696,8 +7696,8 @@ if (Kind == 2)
 
                                         if (AStarGreedyi == 1)
                                         {
-                                            //Object O1 = new Object();
-                                            //lock (O1)
+                                            Object O1 = new Object();
+                                            lock (O1)
                                             {
                                                 if (Order == 1)
                                                 {
@@ -7712,8 +7712,8 @@ if (Kind == 2)
                                             }
                                             //Set Table and Huristic Value and Syntax.
 
-                                            //Object On = new Object();
-                                            //lock (On)
+                                            Object On = new Object();
+                                            lock (On)
                                             {
                                                 AllDraw.LastRow = MinisterOnTable[i].MinisterThinking[k].Row;
                                                 AllDraw.LastColumn = MinisterOnTable[i].MinisterThinking[k].Column;
@@ -7755,8 +7755,8 @@ if (Kind == 2)
         }
         int[,] HuristicAStarGreadySearchKingGray(ref int[,] TableHuristic, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-            //Object O = new Object();
-            ////lock (O)
+            Object O = new Object();
+            lock (O)
             {
                 if (0 != MinisterMidle)
                 {
@@ -7770,8 +7770,8 @@ if (Kind == 2)
         }
         int[,] HuristicAStarGreadySearchKingBrown(ref int[,] TableHuristic, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-            //Object O = new Object();
-            ////lock (O)
+            Object O = new Object();
+            lock (O)
             {
 
                 if (KingHigh != KingMidle)
@@ -7786,8 +7786,8 @@ if (Kind == 2)
         }
         int[,] HuristicAStarGreadySearchKing(ref int[,] TableHuristic, int i, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-            //Object O = new Object();
-            ////lock (O)
+            Object O = new Object();
+            lock (O)
             {
 
                 ChessRules AB = null;
@@ -7831,8 +7831,8 @@ if (Kind == 2)
                                     //)
                                     if ((KingOnTable[i].KingThinking[k].PenaltyRegardListKing[j].IsPenaltyAction() != 0 && KingOnTable[i].KingThinking[k].PenaltyRegardListKing[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA || KingOnTable[i].WinOcuuredatChiled >= 1 || KingOnTable[i].WinOcuuredatChiled >= 2 || KingOnTable[i].WinOcuuredatChiled >= 3)
                                     {
-                                        //Object On = new Object();
-                                        //lock (On)
+                                        Object On = new Object();
+                                        lock (On)
                                         {
                                             AllDraw.LastRow = KingOnTable[i].KingThinking[k].Row;
                                             AllDraw.LastColumn = KingOnTable[i].KingThinking[k].Column;
@@ -7850,8 +7850,8 @@ if (Kind == 2)
                                         //return TableHuristic;
                                         continue;
                                     }
-                                    //Object ol = new Object();
-                                    //lock (ol)
+                                    Object ol = new Object();
+                                    lock (ol)
                                     {
                                         //When There is No Movments in Such Order Enemy continue.
                                         if (Order != AllDraw.OrderPlate)
@@ -7860,8 +7860,8 @@ if (Kind == 2)
                                         //When There is greater Huristic Movments.
                                         if (KingOnTable[i].KingThinking[0].ReturnHuristic(i, j, Order, AA) > Less)
                                         {
-                                            //Object OO = new Object();
-                                            //lock (OO)
+                                            Object OO = new Object();
+                                            lock (OO)
                                             {
                                                 ActionString = ThinkingChess.ActionsString; AllDraw.ActionStringReady = true;
                                             }
@@ -7948,8 +7948,8 @@ if (Kind == 2)
 
                                             if (AStarGreedyi == 1)
                                             {
-                                                //Object O1 = new Object();
-                                                //lock (O1)
+                                                Object O1 = new Object();
+                                                lock (O1)
                                                 {
                                                     if (Order == 1)
                                                     {
@@ -7964,8 +7964,8 @@ if (Kind == 2)
                                                 }
                                                 //Set Table and Huristic Value and Syntax.
 
-                                                //Object On = new Object();
-                                                //lock (On)
+                                                Object On = new Object();
+                                                lock (On)
                                                 {
                                                     AllDraw.LastRow = KingOnTable[i].KingThinking[k].Row;
                                                     AllDraw.LastColumn = KingOnTable[i].KingThinking[k].Column;
@@ -8017,8 +8017,8 @@ if (Kind == 2)
         }
         int[,] HuristicAStarGreadySearchGray(int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-            //Object O = new Object();
-            ////lock (O)
+            Object O = new Object();
+            lock (O)
             {
 
                 int[,] TableHuristic = new int[8, 8];
@@ -8043,8 +8043,8 @@ if (Kind == 2)
         int[,] HuristicAStarGreadySearchBrown(int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
 
-            //Object O = new Object();
-            ////lock (O)
+            Object O = new Object();
+            lock (O)
             {
                 int[,] TableHuristic = new int[8, 8];
 
@@ -8067,8 +8067,8 @@ if (Kind == 2)
         }
         int[,] BrownHuristicAStarGreaedySearchPenalites(int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-            //Object O = new Object();
-            ////lock (O)
+            Object O = new Object();
+            lock (O)
             {
 
                 ChessRules AB = null;
@@ -8125,8 +8125,8 @@ if (Kind == 2)
                                     {
                                         //Set Table and Huristic Value and Syntax.
                                         Act = true;
-                                        //Object o1l = new Object();
-                                        //lock (o1l)
+                                        Object o1l = new Object();
+                                        lock (o1l)
                                         {
 
                                             AllDraw.LastRow = SolderesOnTable[i].SoldierThinking[k].Row;
@@ -8141,8 +8141,8 @@ if (Kind == 2)
                                         TableHuristic = SolderesOnTable[i].SoldierThinking[k].TableListSolder[j];
 
 
-                                        //Object OO = new Object();
-                                        ////lock (OO)
+                                        Object OO = new Object();
+                                        lock (OO)
                                         {
                                             ThingsConverter.ActOfClickEqualTow = true;
                                         }
@@ -8173,8 +8173,8 @@ if (Kind == 2)
                                         }
 
                                     }
-                                    //Object ol = new Object();
-                                    //lock (ol)
+                                    Object ol = new Object();
+                                    lock (ol)
                                     {
                                         //When There is No Movments in Such Order Enemy continue.
                                         if (Order != AllDraw.OrderPlate)
@@ -8267,8 +8267,8 @@ if (Kind == 2)
                                             //Set Table and Huristic Value and Syntax.
                                             if (AStarGreedyi == 1)
                                             {
-                                                //Object OO = new Object();
-                                                //lock (OO)
+                                                Object OO = new Object();
+                                                lock (OO)
                                                 {
                                                     if (Order == 1)
                                                     {
@@ -8283,8 +8283,8 @@ if (Kind == 2)
                                                 }
                                                 //Set Table and Huristic Value and Syntax.
                                                 Act = true;
-                                                //Object On = new Object();
-                                                //lock (On)
+                                                Object On = new Object();
+                                                lock (On)
                                                 {
                                                     AllDraw.LastRow = SolderesOnTable[i].SoldierThinking[k].Row;
                                                     AllDraw.LastColumn = SolderesOnTable[i].SoldierThinking[k].Column;
@@ -8298,8 +8298,8 @@ if (Kind == 2)
                                                 TableHuristic = SolderesOnTable[i].SoldierThinking[k].TableListSolder[j];
 
 
-                                                //Object O1 = new Object();
-                                                ////lock (O1)
+                                                Object O1 = new Object();
+                                                lock (O1)
                                                 {
                                                     ThingsConverter.ActOfClickEqualTow = true;
                                                 }
@@ -8344,8 +8344,8 @@ if (Kind == 2)
                                                         if (Founded[0] != MaxSoldeirFounded)
                                                             continue;
                                                         Act = true;
-                                                        //Object On = new Object();
-                                                        //lock (On)
+                                                        Object On = new Object();
+                                                        lock (On)
                                                         {
                                                             AllDraw.LastRow = SolderesOnTable[RW1].SoldierThinking[CL1].Row;
                                                             AllDraw.LastColumn = SolderesOnTable[RW1].SoldierThinking[CL1].Column;
@@ -8358,8 +8358,8 @@ if (Kind == 2)
                                                         TableHuristic = SolderesOnTable[RW1].SoldierThinking[CL1].TableListSolder[Ki1];
 
 
-                                                        //Object O1 = new Object();
-                                                        ////lock (O1)
+                                                        Object O1 = new Object();
+                                                        lock (O1)
                                                         {
                                                             ThingsConverter.ActOfClickEqualTow = true;
                                                         }
@@ -8384,8 +8384,8 @@ if (Kind == 2)
 
 
                                                         }
-                                                        //Object OO = new Object();
-                                                        //lock (OO)
+                                                        Object OO = new Object();
+                                                        lock (OO)
                                                         {
                                                             if (Order == 1)
                                                             {
@@ -8476,8 +8476,8 @@ if (Kind == 2)
                                     //)
                                     if ((ElephantOnTable[i].ElefantThinking[k].PenaltyRegardListElefant[j].IsPenaltyAction() != 0 && ElephantOnTable[i].ElefantThinking[k].PenaltyRegardListElefant[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA)
                                     {
-                                        //Object On = new Object();
-                                        //lock (On)
+                                        Object On = new Object();
+                                        lock (On)
                                         {
                                             AllDraw.LastRow = ElephantOnTable[i].ElefantThinking[k].Row;
                                             AllDraw.LastColumn = ElephantOnTable[i].ElefantThinking[k].Column;
@@ -8497,8 +8497,8 @@ if (Kind == 2)
                                     //When There is No Movments in Such Order Enemy continue.
                                     if (ElephantOnTable[i].ElefantThinking[k].PenaltyRegardListElefant[j].IsPenaltyAction() == 0)
                                         continue;
-                                    //Object ol = new Object();
-                                    //lock (ol)
+                                    Object ol = new Object();
+                                    lock (ol)
                                     {
                                         //When There is No Movments in Such Order Enemy continue.
                                         if (Order != AllDraw.OrderPlate)
@@ -8588,8 +8588,8 @@ if (Kind == 2)
                                                 MaxLess6 = -1;
                                             if (AStarGreedyi == 1)
                                             {
-                                                //Object OO = new Object();
-                                                //lock (OO)
+                                                Object OO = new Object();
+                                                lock (OO)
                                                 {
                                                     if (Order == 1)
                                                     {
@@ -8602,8 +8602,8 @@ if (Kind == 2)
                                                         //THIS.RefreshBoxText();
                                                     }
                                                 }
-                                                //Object On = new Object();
-                                                //lock (On)
+                                                Object On = new Object();
+                                                lock (On)
                                                 {
                                                     AllDraw.LastRow = ElephantOnTable[i].ElefantThinking[k].Row;
                                                     AllDraw.LastColumn = ElephantOnTable[i].ElefantThinking[k].Column;
@@ -8634,8 +8634,8 @@ if (Kind == 2)
                                                     if (Founded[0] != MaxElephntFounded)
                                                         continue;
 
-                                                    //Object On = new Object();
-                                                    //lock (On)
+                                                    Object On = new Object();
+                                                    lock (On)
                                                     {
                                                         AllDraw.LastRow = ElephantOnTable[RW2].ElefantThinking[CL2].Row;
                                                         AllDraw.LastColumn = ElephantOnTable[RW2].ElefantThinking[CL2].Column;
@@ -8646,8 +8646,8 @@ if (Kind == 2)
                                                     Act = true;
                                                     Less = ElephantOnTable[RW2].ElefantThinking[CL2].ReturnHuristic(RW2, Ki2, Order, false);
                                                     TableHuristic = ElephantOnTable[RW2].ElefantThinking[CL2].TableListElefant[Ki2];
-                                                    //Object OO = new Object();
-                                                    //lock (OO)
+                                                    Object OO = new Object();
+                                                    lock (OO)
                                                     {
                                                         if (Order == 1)
                                                         {
@@ -8732,8 +8732,8 @@ if (Kind == 2)
                                     //)
                                     if ((HoursesOnTable[i].HourseThinking[k].PenaltyRegardListHourse[j].IsPenaltyAction() != 0 && HoursesOnTable[i].HourseThinking[k].PenaltyRegardListHourse[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA)
                                     {
-                                        //Object On = new Object();
-                                        //lock (On)
+                                        Object On = new Object();
+                                        lock (On)
                                         {
                                             AllDraw.LastRow = HoursesOnTable[i].HourseThinking[k].Row;
                                             AllDraw.LastColumn = HoursesOnTable[i].HourseThinking[k].Column;
@@ -8751,8 +8751,8 @@ if (Kind == 2)
                                         continue;
                                     }
 
-                                    //Object ol = new Object();
-                                    //lock (ol)
+                                    Object ol = new Object();
+                                    lock (ol)
                                     {
                                         //When There is No Movments in Such Order Enemy continue.
                                         if (Order != AllDraw.OrderPlate)
@@ -8846,8 +8846,8 @@ if (Kind == 2)
 
                                             if (AStarGreedyi == 1)
                                             {
-                                                //Object OO = new Object();
-                                                //lock (OO)
+                                                Object OO = new Object();
+                                                lock (OO)
                                                 {
                                                     if (Order == 1)
                                                     {
@@ -8862,8 +8862,8 @@ if (Kind == 2)
                                                 }
                                                 //Set Table and Huristic Value and Syntax.
 
-                                                //Object On = new Object();
-                                                //lock (On)
+                                                Object On = new Object();
+                                                lock (On)
                                                 {
                                                     AllDraw.LastRow = HoursesOnTable[i].HourseThinking[k].Row;
                                                     AllDraw.LastColumn = HoursesOnTable[i].HourseThinking[k].Column;
@@ -8894,8 +8894,8 @@ if (Kind == 2)
                                                     if (Founded[0] != MaxHourseFounded)
                                                         continue;
 
-                                                    //Object On = new Object();
-                                                    //lock (On)
+                                                    Object On = new Object();
+                                                    lock (On)
                                                     {
                                                         AllDraw.LastRow = HoursesOnTable[RW3].HourseThinking[CL3].Row;
                                                         AllDraw.LastColumn = HoursesOnTable[RW3].HourseThinking[CL3].Column;
@@ -8906,8 +8906,8 @@ if (Kind == 2)
                                                     Act = true;
                                                     Less = HoursesOnTable[RW3].HourseThinking[CL3].ReturnHuristic(RW3, Ki3, Order, false);
                                                     TableHuristic = HoursesOnTable[RW3].HourseThinking[CL3].TableListHourse[Ki3];
-                                                    //Object OO = new Object();
-                                                    //lock (OO)
+                                                    Object OO = new Object();
+                                                    lock (OO)
                                                     {
                                                         if (Order == 1)
                                                         {
@@ -8993,8 +8993,8 @@ if (Kind == 2)
                                     if ((CastlesOnTable[i].CastleThinking[k].PenaltyRegardListCastle[j].IsPenaltyAction() != 0 && CastlesOnTable[i].CastleThinking[k].PenaltyRegardListCastle[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA)
                                     {
 
-                                        //Object On = new Object();
-                                        //lock (On)
+                                        Object On = new Object();
+                                        lock (On)
                                         {
                                             AllDraw.LastRow = CastlesOnTable[i].CastleThinking[k].Row;
                                             AllDraw.LastColumn = CastlesOnTable[i].CastleThinking[k].Column;
@@ -9009,8 +9009,8 @@ if (Kind == 2)
                                         //return TableHuristic;
                                         continue;
                                     }
-                                    //Object ol = new Object();
-                                    //lock (ol)
+                                    Object ol = new Object();
+                                    lock (ol)
                                     {
                                         if (Order != AllDraw.OrderPlate)
                                             if (CastlesOnTable[i].CastleThinking[0].NumberOfPenalties < Less)
@@ -9098,8 +9098,8 @@ if (Kind == 2)
 
                                             if (AStarGreedyi == 1)
                                             {
-                                                //Object OO = new Object();
-                                                //lock (OO)
+                                                Object OO = new Object();
+                                                lock (OO)
                                                 {
                                                     if (Order == 1)
                                                     {
@@ -9114,8 +9114,8 @@ if (Kind == 2)
                                                 }
                                                 //Set Table and Huristic Value and Syntax.
 
-                                                //Object On = new Object();
-                                                //lock (On)
+                                                Object On = new Object();
+                                                lock (On)
                                                 {
                                                     AllDraw.LastRow = CastlesOnTable[i].CastleThinking[k].Row;
                                                     AllDraw.LastColumn = CastlesOnTable[i].CastleThinking[k].Column;
@@ -9146,8 +9146,8 @@ if (Kind == 2)
                                                     if (Founded[0] != MaxCastlesFounded)
                                                         continue;
 
-                                                    //Object On = new Object();
-                                                    //lock (On)
+                                                    Object On = new Object();
+                                                    lock (On)
                                                     {
                                                         AllDraw.LastRow = CastlesOnTable[RW4].CastleThinking[CL4].Row;
                                                         AllDraw.LastColumn = CastlesOnTable[RW4].CastleThinking[CL4].Column;
@@ -9158,8 +9158,8 @@ if (Kind == 2)
                                                     Act = true;
                                                     Less = CastlesOnTable[RW4].CastleThinking[CL4].ReturnHuristic(RW4, Ki4, Order, false);
                                                     TableHuristic = CastlesOnTable[RW4].CastleThinking[CL4].TableListCastle[Ki4];
-                                                    //Object OO = new Object();
-                                                    //lock (OO)
+                                                    Object OO = new Object();
+                                                    lock (OO)
                                                     {
                                                         if (Order == 1)
                                                         {
@@ -9242,8 +9242,8 @@ if (Kind == 2)
                                     if ((MinisterOnTable[i].MinisterThinking[k].PenaltyRegardListMinister[j].IsPenaltyAction() != 0 && MinisterOnTable[i].MinisterThinking[k].PenaltyRegardListMinister[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA)
                                     {
 
-                                        //Object On = new Object();
-                                        //lock (On)
+                                        Object On = new Object();
+                                        lock (On)
                                         {
                                             AllDraw.LastRow = MinisterOnTable[i].MinisterThinking[k].Row;
                                             AllDraw.LastColumn = MinisterOnTable[i].MinisterThinking[k].Column;
@@ -9260,8 +9260,8 @@ if (Kind == 2)
                                         //return TableHuristic;
                                         continue;
                                     }
-                                    //Object ol = new Object();
-                                    //lock (ol)
+                                    Object ol = new Object();
+                                    lock (ol)
                                     {
                                         //When There is No Movments in Such Order Enemy continue.
                                         if (Order != AllDraw.OrderPlate)
@@ -9353,8 +9353,8 @@ if (Kind == 2)
                                                 MaxLess6 = -1;
                                             if (AStarGreedyi == 1)
                                             {
-                                                //Object OO = new Object();
-                                                //lock (OO)
+                                                Object OO = new Object();
+                                                lock (OO)
                                                 {
                                                     if (Order == 1)
                                                     {
@@ -9367,8 +9367,8 @@ if (Kind == 2)
                                                         //THIS.RefreshBoxText();
                                                     }
                                                 }
-                                                //Object On = new Object();
-                                                //lock (On)
+                                                Object On = new Object();
+                                                lock (On)
                                                 {
                                                     AllDraw.LastRow = MinisterOnTable[i].MinisterThinking[k].Row;
                                                     AllDraw.LastColumn = MinisterOnTable[i].MinisterThinking[k].Column;
@@ -9399,8 +9399,8 @@ if (Kind == 2)
                                                     if (Founded[0] != MaxMinisterFounded)
                                                         continue;
 
-                                                    //Object On = new Object();
-                                                    //lock (On)
+                                                    Object On = new Object();
+                                                    lock (On)
                                                     {
                                                         AllDraw.LastRow = MinisterOnTable[RW5].MinisterThinking[CL5].Row;
                                                         AllDraw.LastColumn = MinisterOnTable[RW5].MinisterThinking[CL5].Column;
@@ -9410,8 +9410,8 @@ if (Kind == 2)
                                                     Act = true;
                                                     Less = MinisterOnTable[RW5].MinisterThinking[CL5].ReturnHuristic(RW5, Ki5, Order, false);
                                                     TableHuristic = MinisterOnTable[RW5].MinisterThinking[CL5].TableListMinister[Ki5];
-                                                    //Object OO = new Object();
-                                                    //lock (OO)
+                                                    Object OO = new Object();
+                                                    lock (OO)
                                                     {
                                                         if (Order == 1)
                                                         {
@@ -9497,8 +9497,8 @@ if (Kind == 2)
                                     if ((KingOnTable[i].KingThinking[k].PenaltyRegardListKing[j].IsPenaltyAction() != 0 && KingOnTable[i].KingThinking[k].PenaltyRegardListKing[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA)
                                     {
 
-                                        //Object On = new Object();
-                                        //lock (On)
+                                        Object On = new Object();
+                                        lock (On)
                                         {
                                             AllDraw.LastRow = KingOnTable[i].KingThinking[k].Row;
                                             AllDraw.LastColumn = KingOnTable[i].KingThinking[k].Column;
@@ -9515,8 +9515,8 @@ if (Kind == 2)
                                         //return TableHuristic;
                                         continue;
                                     }
-                                    //Object ol = new Object();
-                                    //lock (ol)
+                                    Object ol = new Object();
+                                    lock (ol)
                                     {
 
                                         //When There is No Movments in Such Order Enemy continue.
@@ -9609,8 +9609,8 @@ if (Kind == 2)
                                                 MaxLess5 = -1;
                                             if (AStarGreedyi == 1)
                                             {
-                                                //Object OO = new Object();
-                                                //lock (OO)
+                                                Object OO = new Object();
+                                                lock (OO)
                                                 {
                                                     if (Order == 1)
                                                     {
@@ -9623,8 +9623,8 @@ if (Kind == 2)
                                                         //THIS.RefreshBoxText();
                                                     }
                                                 }
-                                                //Object On = new Object();
-                                                //lock (On)
+                                                Object On = new Object();
+                                                lock (On)
                                                 {
                                                     AllDraw.LastRow = KingOnTable[i].KingThinking[k].Row;
                                                     AllDraw.LastColumn = KingOnTable[i].KingThinking[k].Column;
@@ -9657,8 +9657,8 @@ if (Kind == 2)
                                                     if (Founded[0] != MaxKingFounded)
                                                         continue;
 
-                                                    //Object On = new Object();
-                                                    //lock (On)
+                                                    Object On = new Object();
+                                                    lock (On)
                                                     {
                                                         AllDraw.LastRow = KingOnTable[RW6].KingThinking[CL6].Row;
                                                         AllDraw.LastColumn = KingOnTable[RW6].KingThinking[CL6].Column;
@@ -9669,8 +9669,8 @@ if (Kind == 2)
                                                     Act = true;
                                                     Less = KingOnTable[RW6].KingThinking[CL6].ReturnHuristic(RW6, Ki6, Order, false);
                                                     TableHuristic = KingOnTable[RW6].KingThinking[CL6].TableListKing[Ki6];
-                                                    //Object OO = new Object();
-                                                    //lock (OO)
+                                                    Object OO = new Object();
+                                                    lock (OO)
                                                     {
                                                         if (Order == 1)
                                                         {
@@ -9724,8 +9724,8 @@ if (Kind == 2)
         //AStarGreedy First Huristic Method.
         public int[,] HuristicAStarGreedySearch(int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic)
         {
-            //Object O = new Object();
-            ////lock (O)
+            Object O = new Object();
+            lock (O)
             {
                 int[,] TableHuristic = new int[8, 8];
 
@@ -9761,8 +9761,8 @@ if (Kind == 2)
                 Ki6 = -1;
 
                 double[] BacWard = new double[25];
-                //Object Omm = new Object();
-                //lock (Omm)
+                Object Omm = new Object();
+                lock (Omm)
                 {
 
                     if (AStarGreedyi > MaxAStarGreedy)
@@ -9830,8 +9830,8 @@ if (Kind == 2)
         }
         public int[,] HuristicAStarGreedySearchPenalties(int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic)
         {
-            //Object O = new Object();
-            ////lock (O)
+            Object O = new Object();
+            lock (O)
             {
                 int[,] TableHuristic = new int[8, 8];
 
@@ -9867,8 +9867,8 @@ if (Kind == 2)
                 Ki6 = -1;
 
                 double[] BacWard = new double[25];
-                //Object Omm = new Object();
-                //lock (Omm)
+                Object Omm = new Object();
+                lock (Omm)
                 {
                     if (AStarGreedyi > MaxAStarGreedy)
                         return TableHuristic;
@@ -9936,8 +9936,8 @@ if (Kind == 2)
         //Genethic Algorithm Game Method.
         public void InitiateGenetic(int ii, int jj, Color a, int[,] Table, int Order, bool TB)
         {
-            //Object O = new Object();
-            ////lock (O)
+            Object O = new Object();
+            lock (O)
             {
                 //Initiate Local and Global Variables.
                 int Current = ChessRules.CurrentOrder;
@@ -9946,8 +9946,8 @@ if (Kind == 2)
                 TableList.Add(Table);
 
 
-                //Object OO = new Object();
-                //lock (OO)
+                Object OO = new Object();
+                lock (OO)
                 {
                     ThinkingChess.NotSolvedKingDanger = false;
                 }
@@ -9956,8 +9956,8 @@ if (Kind == 2)
                 for (int i = 0; i < 1; i++)
                 {
                     //If Order is Gray.
-                    //Object O2 = new Object();
-                    //lock (O2)
+                    Object O2 = new Object();
+                    lock (O2)
                     {
                         if (Order == 1)
                         {
@@ -9989,8 +9989,8 @@ if (Kind == 2)
 
 
                     //If Order is Gray.
-                    //Object OOO = new Object();
-                    //lock (OOO)
+                    Object OOO = new Object();
+                    lock (OOO)
                     {
                         if (Order == 1)
                         {
@@ -10009,8 +10009,8 @@ if (Kind == 2)
                     //Found Table.
                     int[,] Tab = R.GenerateTable(TableListAction, 0, Order);
                     //If Order is Gray.
-                    //Object OOO1 = new Object();
-                    //lock (OOO1)
+                    Object OOO1 = new Object();
+                    lock (OOO1)
                     {
                         if (Order == 1)
                         {
@@ -10077,8 +10077,8 @@ if (Kind == 2)
                         Table[iii, jjj] = Tab[iii, jjj];
                 //ParallelOptions parallelOptions = new ParallelOptions();
                 //parallelOptions.MaxDegreeOfParallelism = PlatformHelper.ProcessorCount;
-                //Object O = new Object();
-                //lock (O)
+                Object O = new Object();
+                lock (O)
                 {
                     ThinkingChess.BeginThread = 0;
                     ThinkingChess.EndThread = 0;
@@ -10095,8 +10095,8 @@ if (Kind == 2)
                 else
                     a = Color.Brown;
                 int j = 0;
-                //Object Omm = new Object();
-                //lock (Omm)
+                Object Omm = new Object();
+                lock (Omm)
                 {
                     if (iAStarGreedy >= MaxAStarGreedy)
                         return null;
@@ -10125,7 +10125,7 @@ if (Kind == 2)
                                         //If There is no Thinking Movments on Current Object  
 
 
-                                        bool ASS = false; //Object OOOAAA = new Object(); lock (OOOAAA) 
+                                        bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) 
                                         { ASS = AllDraw.Blitz; }
                                         if (!ASS)
                                         {
@@ -10134,7 +10134,7 @@ if (Kind == 2)
                                             SolderesOnTable[iIndex].SoldierThinking[0].ThinkingFinished = false;
                                             SolderesOnTable[iIndex].SoldierThinking[0].Thinking(ref SolderesOnTable[iIndex].LoseOcuuredatChiled, ref SolderesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(SolderesOnTable[iIndex].SoldierThinking[0].Thinking));
                                             SolderesOnTable[iIndex].SoldierThinking[0].t.Start();
-                                            if (SolderesOnTable[iIndex].SoldierThinking[0].t != null) { //Object tttt = new Object(); lock (tttt) 
+                                            if (SolderesOnTable[iIndex].SoldierThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(SolderesOnTable[iIndex].SoldierThinking[0].t); } }*/
                                         }
                                         else if (ASS)
@@ -10146,7 +10146,7 @@ if (Kind == 2)
                                             SolderesOnTable[iIndex].SoldierThinking[0].ThinkingFinished = false;
                                             SolderesOnTable[iIndex].SoldierThinking[0].Thinking(ref SolderesOnTable[iIndex].LoseOcuuredatChiled, ref SolderesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(SolderesOnTable[iIndex].SoldierThinking[0].Thinking));
                                             SolderesOnTable[iIndex].SoldierThinking[0].t.Start();
-                                            if (SolderesOnTable[iIndex].SoldierThinking[0].t != null) { //Object tttt = new Object(); lock (tttt) 
+                                            if (SolderesOnTable[iIndex].SoldierThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                     { tH.Add(SolderesOnTable[iIndex].SoldierThinking[0].t); } }*/
                                         }
                                     }
@@ -10166,7 +10166,7 @@ if (Kind == 2)
                                         Order = DummyOrder;
                                         ChessRules.CurrentOrder = DummyCurrentOrder;
                                         //Ignore of Non Exist Current Elephant Gray Objects.
-                                        bool ASS = false; //Object OOOAAA = new Object(); lock (OOOAAA) 
+                                        bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) 
                                         { ASS = AllDraw.Blitz; }
                                         if (!ASS)
                                         {
@@ -10175,18 +10175,18 @@ if (Kind == 2)
                                             ElephantOnTable[iIndex].ElefantThinking[0].ThinkingFinished = false;
                                             ElephantOnTable[iIndex].ElefantThinking[0].Thinking(ref ElephantOnTable[iIndex].LoseOcuuredatChiled, ref ElephantOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(ElephantOnTable[iIndex].ElefantThinking[0].Thinking));
                                             ElephantOnTable[iIndex].ElefantThinking[0].t.Start();
-                                            if (ElephantOnTable[iIndex].ElefantThinking[0].t != null) { //Object tttt = new Object(); lock (tttt) 
+                                            if (ElephantOnTable[iIndex].ElefantThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(ElephantOnTable[iIndex].ElefantThinking[0].t); } }*/
-                                        }//If There is Movment Thinking Gary Elphant //Object List.
+                                        }//If There is Movment Thinking Gary Elphant Object List.
                                         else if (ASS)
                                         {
                                             //For Every Gray Elephant Thinking Movments.
-                                            //Gray Elephant //Object Thinking Operations.
+                                            //Gray Elephant Object Thinking Operations.
                                             ElephantOnTable[iIndex].ElefantThinking[0].ThinkingBegin = true;
                                             ElephantOnTable[iIndex].ElefantThinking[0].ThinkingFinished = false;
                                             ElephantOnTable[iIndex].ElefantThinking[0].Thinking(ref ElephantOnTable[iIndex].LoseOcuuredatChiled, ref ElephantOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(ElephantOnTable[iIndex].ElefantThinking[0].Thinking));
                                             ElephantOnTable[iIndex].ElefantThinking[0].t.Start();
-                                            if (ElephantOnTable[iIndex].ElefantThinking[0].t != null) { //Object tttt = new Object(); lock (tttt) 
+                                            if (ElephantOnTable[iIndex].ElefantThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                     { tH.Add(ElephantOnTable[iIndex].ElefantThinking[0].t); } }*/
                                         }
                                     }
@@ -10205,7 +10205,7 @@ if (Kind == 2)
                                         Order = DummyOrder;
                                         ChessRules.CurrentOrder = DummyCurrentOrder;
 
-                                        bool ASS = false; //Object OOOAAA = new Object(); lock (OOOAAA)
+                                        bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA)
                                         { ASS = AllDraw.Blitz; }
                                         if (!ASS)
                                         {
@@ -10214,7 +10214,7 @@ if (Kind == 2)
                                             HoursesOnTable[iIndex].HourseThinking[0].ThinkingFinished = false;
                                             HoursesOnTable[iIndex].HourseThinking[0].Thinking(ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(HoursesOnTable[iIndex].HourseThinking[0].Thinking));
                                             HoursesOnTable[iIndex].HourseThinking[0].t.Start();
-                                            if (HoursesOnTable[iIndex].HourseThinking[0].t != null) { //Object tttt = new Object(); lock (tttt)
+                                            if (HoursesOnTable[iIndex].HourseThinking[0].t != null) { Object tttt = new Object(); lock (tttt)
                                                 { tH.Add(HoursesOnTable[iIndex].HourseThinking[0].t); } }*/
                                         }
                                         else if (ASS)//If Table List Exist int The Thinking.
@@ -10226,7 +10226,7 @@ if (Kind == 2)
                                             HoursesOnTable[iIndex].HourseThinking[0].ThinkingFinished = false;
                                             HoursesOnTable[iIndex].HourseThinking[0].Thinking(ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(HoursesOnTable[iIndex].HourseThinking[0].Thinking));
                                             HoursesOnTable[iIndex].HourseThinking[0].t.Start();
-                                            if (HoursesOnTable[iIndex].HourseThinking[0].t != null) { //Object tttt = new Object(); lock (tttt) 
+                                            if (HoursesOnTable[iIndex].HourseThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                     { tH.Add(HoursesOnTable[iIndex].HourseThinking[0].t); } }*/
                                         }
                                     }
@@ -10244,7 +10244,7 @@ if (Kind == 2)
                                     {
                                         Order = DummyOrder;
                                         ChessRules.CurrentOrder = DummyCurrentOrder;
-                                        bool ASS = false; //Object OOOAAA = new Object(); lock (OOOAAA) 
+                                        bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) 
                                         { ASS = AllDraw.Blitz; }
                                         if (!ASS)
                                         {
@@ -10254,7 +10254,7 @@ if (Kind == 2)
                                             CastlesOnTable[iIndex].CastleThinking[0].ThinkingFinished = false;
                                             CastlesOnTable[iIndex].CastleThinking[0].Thinking(ref CastlesOnTable[iIndex].LoseOcuuredatChiled, ref CastlesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(CastlesOnTable[iIndex].CastleThinking[0].Thinking));
                                             CastlesOnTable[iIndex].CastleThinking[0].t.Start();
-                                            if (CastlesOnTable[iIndex].CastleThinking[0].t != null) { //Object tttt = new Object(); lock (tttt) 
+                                            if (CastlesOnTable[iIndex].CastleThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(CastlesOnTable[iIndex].CastleThinking[0].t); } }*/
 
                                         }
@@ -10267,7 +10267,7 @@ if (Kind == 2)
                                             CastlesOnTable[iIndex].CastleThinking[0].ThinkingFinished = false;
                                             CastlesOnTable[iIndex].CastleThinking[0].Thinking(ref CastlesOnTable[iIndex].LoseOcuuredatChiled, ref CastlesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(CastlesOnTable[iIndex].CastleThinking[0].Thinking));
                                             CastlesOnTable[iIndex].CastleThinking[0].t.Start();
-                                            if (CastlesOnTable[iIndex].CastleThinking[0].t != null) { //Object tttt = new Object(); lock (tttt) 
+                                            if (CastlesOnTable[iIndex].CastleThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                     { tH.Add(CastlesOnTable[iIndex].CastleThinking[0].t); } }*/
                                         }
                                     }
@@ -10282,7 +10282,7 @@ if (Kind == 2)
                                     {
                                         Order = DummyOrder;
                                         ChessRules.CurrentOrder = DummyCurrentOrder;
-                                        bool ASS = false; //Object OOOAAA = new Object(); lock (OOOAAA)
+                                        bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA)
                                         { ASS = AllDraw.Blitz; }
                                         if (!ASS)
                                         {//When There is Table Gray Minister Count of Thinking.
@@ -10291,7 +10291,7 @@ if (Kind == 2)
                                             MinisterOnTable[iIndex].MinisterThinking[0].ThinkingFinished = false;
                                             MinisterOnTable[iIndex].MinisterThinking[0].Thinking(ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(MinisterOnTable[iIndex].MinisterThinking[0].Thinking));
                                             MinisterOnTable[iIndex].MinisterThinking[0].t.Start();
-                                            if (MinisterOnTable[iIndex].MinisterThinking[0].t != null) { //Object tttt = new Object(); lock (tttt) 
+                                            if (MinisterOnTable[iIndex].MinisterThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(MinisterOnTable[iIndex].MinisterThinking[0].t); } }*/
                                         }
                                         else if (ASS)//When There is Table Gray Minister Count of Thinking.
@@ -10302,7 +10302,7 @@ if (Kind == 2)
                                             MinisterOnTable[iIndex].MinisterThinking[0].ThinkingFinished = false;
                                             MinisterOnTable[iIndex].MinisterThinking[0].Thinking(ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(MinisterOnTable[iIndex].MinisterThinking[0].Thinking));
                                             MinisterOnTable[iIndex].MinisterThinking[0].t.Start();
-                                            if (MinisterOnTable[iIndex].MinisterThinking[0].t != null) { //Object tttt = new Object(); lock (tttt) 
+                                            if (MinisterOnTable[iIndex].MinisterThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                     { tH.Add(MinisterOnTable[iIndex].MinisterThinking[0].t); } }*/
                                         }
                                     }
@@ -10319,7 +10319,7 @@ if (Kind == 2)
                                     {
                                         Order = DummyOrder;
                                         ChessRules.CurrentOrder = DummyCurrentOrder;
-                                        bool ASS = false; //Object OOOAAA = new Object(); lock (OOOAAA) 
+                                        bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) 
                                         { ASS = AllDraw.Blitz; }
                                         if (!ASS)
                                         {//When Thinking Gray King Count of Existing Operations.
@@ -10328,7 +10328,7 @@ if (Kind == 2)
                                             KingOnTable[iIndex].KingThinking[0].ThinkingFinished = false;
                                             KingOnTable[iIndex].KingThinking[0].Thinking(ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(KingOnTable[iIndex].KingThinking[0].Thinking));
                                             KingOnTable[iIndex].KingThinking[0].t.Start();
-                                            if (KingOnTable[iIndex].KingThinking[0].t != null) { //Object tttt = new Object(); lock (tttt) 
+                                            if (KingOnTable[iIndex].KingThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(KingOnTable[iIndex].KingThinking[0].t); } }*/
                                         }
                                         else if (ASS)//When Thinking Gray King Count of Existing Operations.
@@ -10338,7 +10338,7 @@ if (Kind == 2)
                                             KingOnTable[iIndex].KingThinking[0].ThinkingFinished = false;
                                             KingOnTable[iIndex].KingThinking[0].Thinking(ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(KingOnTable[iIndex].KingThinking[0].Thinking));
                                             KingOnTable[iIndex].KingThinking[0].t.Start();
-                                            if (KingOnTable[iIndex].KingThinking[0].t != null) { //Object tttt = new Object(); lock (tttt) 
+                                            if (KingOnTable[iIndex].KingThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(KingOnTable[iIndex].KingThinking[0].t); } }*/
                                         }
                                     }
@@ -10358,17 +10358,17 @@ if (Kind == 2)
                                     {
                                         Order = DummyOrder;
                                         ChessRules.CurrentOrder = DummyCurrentOrder;
-                                        bool ASS = false; //Object OOOAAA = new Object(); lock (OOOAAA) 
+                                        bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) 
                                         { ASS = AllDraw.Blitz; }
                                         if (!ASS)//When There is Current Brown Existing Objective Thinking Movments.
                                         {
-                                            //Wheen Brown King //Object There is Not Continue Traversal Back.
+                                            //Wheen Brown King Object There is Not Continue Traversal Back.
                                             //Thinking Operations of Brown Current Objects.
                                             SolderesOnTable[iIndex].SoldierThinking[0].ThinkingBegin = true;
                                             SolderesOnTable[iIndex].SoldierThinking[0].ThinkingFinished = false;
                                             SolderesOnTable[iIndex].SoldierThinking[0].Thinking(ref SolderesOnTable[iIndex].LoseOcuuredatChiled, ref SolderesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(SolderesOnTable[iIndex].SoldierThinking[0].Thinking));
                                             SolderesOnTable[iIndex].SoldierThinking[0].t.Start();
-                                            if (SolderesOnTable[iIndex].SoldierThinking[0].t != null) { //Object tttt = new Object(); lock (tttt) 
+                                            if (SolderesOnTable[iIndex].SoldierThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(SolderesOnTable[iIndex].SoldierThinking[0].t); } }*/
 
                                         }
@@ -10380,7 +10380,7 @@ if (Kind == 2)
                                             SolderesOnTable[iIndex].SoldierThinking[0].ThinkingFinished = false;
                                             SolderesOnTable[iIndex].SoldierThinking[0].Thinking(ref SolderesOnTable[iIndex].LoseOcuuredatChiled, ref SolderesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(SolderesOnTable[iIndex].SoldierThinking[0].Thinking));
                                             SolderesOnTable[iIndex].SoldierThinking[0].t.Start();
-                                            if (SolderesOnTable[iIndex].SoldierThinking[0].t != null) { //Object tttt = new Object(); lock (tttt) 
+                                            if (SolderesOnTable[iIndex].SoldierThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(SolderesOnTable[iIndex].SoldierThinking[0].t); } }*/
 
                                         }
@@ -10394,7 +10394,7 @@ if (Kind == 2)
                                 {
                                     try
                                     {
-                                        bool ASS = false; //Object OOOAAA = new Object(); lock (OOOAAA) 
+                                        bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) 
                                         { ASS = AllDraw.Blitz; }
                                         if (!ASS)
                                         {//When There is Current Brown Existing Objective Thinking Movments.
@@ -10405,7 +10405,7 @@ if (Kind == 2)
                                             ElephantOnTable[iIndex].ElefantThinking[0].ThinkingFinished = false;
                                             ElephantOnTable[iIndex].ElefantThinking[0].Thinking(ref ElephantOnTable[iIndex].LoseOcuuredatChiled, ref ElephantOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(ElephantOnTable[iIndex].ElefantThinking[0].Thinking));
                                             ElephantOnTable[iIndex].ElefantThinking[0].t.Start();
-                                            if (ElephantOnTable[iIndex].ElefantThinking[0].t != null) { //Object tttt = new Object(); lock (tttt) 
+                                            if (ElephantOnTable[iIndex].ElefantThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(ElephantOnTable[iIndex].ElefantThinking[0].t); } }*/
                                         }
                                         else if (ASS)//When There is Current Brown Existing Objective Thinking Movments.
@@ -10416,7 +10416,7 @@ if (Kind == 2)
                                             ElephantOnTable[iIndex].ElefantThinking[0].ThinkingFinished = false;
                                             ElephantOnTable[iIndex].ElefantThinking[0].Thinking(ref ElephantOnTable[iIndex].LoseOcuuredatChiled, ref ElephantOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(ElephantOnTable[iIndex].ElefantThinking[0].Thinking));
                                             ElephantOnTable[iIndex].ElefantThinking[0].t.Start();
-                                            if (ElephantOnTable[iIndex].ElefantThinking[0].t != null) { //Object tttt = new Object(); lock (tttt) 
+                                            if (ElephantOnTable[iIndex].ElefantThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(ElephantOnTable[iIndex].ElefantThinking[0].t); } }*/
                                         }
                                     }
@@ -10433,7 +10433,7 @@ if (Kind == 2)
                                     {
                                         Order = DummyOrder;
                                         ChessRules.CurrentOrder = DummyCurrentOrder;
-                                        bool ASS = false; //Object OOOAAA = new Object(); lock (OOOAAA) 
+                                        bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) 
                                         { ASS = AllDraw.Blitz; }
                                         if (!ASS)
                                         {//When There is Current Brown Existing Objective Thinking Movments.
@@ -10443,7 +10443,7 @@ if (Kind == 2)
                                             HoursesOnTable[iIndex].HourseThinking[0].ThinkingFinished = false;
                                             HoursesOnTable[iIndex].HourseThinking[0].Thinking(ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(HoursesOnTable[iIndex].HourseThinking[0].Thinking));
                                             HoursesOnTable[iIndex].HourseThinking[0].t.Start();
-                                            if (HoursesOnTable[iIndex].HourseThinking[0].t != null) { //Object tttt = new Object(); lock (tttt) 
+                                            if (HoursesOnTable[iIndex].HourseThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(HoursesOnTable[iIndex].HourseThinking[0].t); } }*/
 
                                         }
@@ -10454,7 +10454,7 @@ if (Kind == 2)
                                             HoursesOnTable[iIndex].HourseThinking[0].ThinkingFinished = false;
                                             HoursesOnTable[iIndex].HourseThinking[0].Thinking(ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(HoursesOnTable[iIndex].HourseThinking[0].Thinking));
                                             HoursesOnTable[iIndex].HourseThinking[0].t.Start();
-                                            if (HoursesOnTable[iIndex].HourseThinking[0].t != null) { //Object tttt = new Object(); lock (tttt)
+                                            if (HoursesOnTable[iIndex].HourseThinking[0].t != null) { Object tttt = new Object(); lock (tttt)
                                                     { tH.Add(HoursesOnTable[iIndex].HourseThinking[0].t); } }*/
 
 
@@ -10476,7 +10476,7 @@ if (Kind == 2)
                                     {
                                         Order = DummyOrder;
                                         ChessRules.CurrentOrder = DummyCurrentOrder;
-                                        bool ASS = false; //Object OOOAAA = new Object(); lock (OOOAAA)
+                                        bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA)
                                         { ASS = AllDraw.Blitz; }
                                         if (!ASS)
                                         {//When There is Current Brown Existing Objective Thinking Movments.
@@ -10485,7 +10485,7 @@ if (Kind == 2)
                                             CastlesOnTable[iIndex].CastleThinking[0].ThinkingFinished = false;
                                             CastlesOnTable[iIndex].CastleThinking[0].Thinking(ref CastlesOnTable[iIndex].LoseOcuuredatChiled, ref CastlesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(CastlesOnTable[iIndex].CastleThinking[0].Thinking));
                                             CastlesOnTable[iIndex].CastleThinking[0].t.Start();
-                                            if (CastlesOnTable[iIndex].CastleThinking[0].t != null) { //Object tttt = new Object(); lock (tttt) 
+                                            if (CastlesOnTable[iIndex].CastleThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(CastlesOnTable[iIndex].CastleThinking[0].t); } }*/
                                         }
                                         else if (ASS)//When There is Current Brown Existing Objective Thinking Movments.
@@ -10495,7 +10495,7 @@ if (Kind == 2)
                                             CastlesOnTable[iIndex].CastleThinking[0].ThinkingFinished = false;
                                             CastlesOnTable[iIndex].CastleThinking[0].Thinking(ref CastlesOnTable[iIndex].LoseOcuuredatChiled, ref CastlesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(CastlesOnTable[iIndex].CastleThinking[0].Thinking));
                                             CastlesOnTable[iIndex].CastleThinking[0].t.Start();
-                                            if (CastlesOnTable[iIndex].CastleThinking[0].t != null) { //Object tttt = new Object(); lock (tttt)
+                                            if (CastlesOnTable[iIndex].CastleThinking[0].t != null) { Object tttt = new Object(); lock (tttt)
                                                     { tH.Add(CastlesOnTable[iIndex].CastleThinking[0].t); } }*/
                                         }
                                     }
@@ -10511,7 +10511,7 @@ if (Kind == 2)
                                     {
                                         Order = DummyOrder;
                                         ChessRules.CurrentOrder = DummyCurrentOrder;
-                                        bool ASS = false; //Object OOOAAA = new Object(); lock (OOOAAA) 
+                                        bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) 
                                         { ASS = AllDraw.Blitz; }
                                         if (!ASS)
                                         {//When There is Current Brown Existing Objective Thinking Movments.
@@ -10520,7 +10520,7 @@ if (Kind == 2)
                                             MinisterOnTable[iIndex].MinisterThinking[0].ThinkingFinished = false;
                                             MinisterOnTable[iIndex].MinisterThinking[0].Thinking(ref MinisterOnTable[iIndex].LoseOcuuredatChiled, ref MinisterOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(MinisterOnTable[iIndex].MinisterThinking[0].Thinking));
                                             MinisterOnTable[iIndex].MinisterThinking[0].t.Start();
-                                            if (MinisterOnTable[iIndex].MinisterThinking[0].t != null) { //Object tttt = new Object(); lock (tttt)
+                                            if (MinisterOnTable[iIndex].MinisterThinking[0].t != null) { Object tttt = new Object(); lock (tttt)
                                                 { tH.Add(MinisterOnTable[iIndex].MinisterThinking[0].t); } }*/
                                         }
                                         else if (ASS)//When There is Current Brown Existing Objective Thinking Movments.
@@ -10530,7 +10530,7 @@ if (Kind == 2)
                                             MinisterOnTable[iIndex].MinisterThinking[0].ThinkingFinished = false;
                                             MinisterOnTable[iIndex].MinisterThinking[0].Thinking(ref MinisterOnTable[iIndex].LoseOcuuredatChiled, ref MinisterOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(MinisterOnTable[iIndex].MinisterThinking[0].Thinking));
                                             MinisterOnTable[iIndex].MinisterThinking[0].t.Start();
-                                            if (MinisterOnTable[iIndex].MinisterThinking[0].t != null) { //Object tttt = new Object(); lock (tttt) 
+                                            if (MinisterOnTable[iIndex].MinisterThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                     { tH.Add(MinisterOnTable[iIndex].MinisterThinking[0].t); } }*/
 
                                         }
@@ -10548,7 +10548,7 @@ if (Kind == 2)
                                     {
                                         Order = DummyOrder;
                                         ChessRules.CurrentOrder = DummyCurrentOrder;
-                                        bool ASS = false; //Object OOOAAA = new Object(); lock (OOOAAA) 
+                                        bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) 
                                         { ASS = AllDraw.Blitz; }
                                         if (!ASS)
                                         {//When There is Current Brown Existing Objective Thinking Movments.
@@ -10557,7 +10557,7 @@ if (Kind == 2)
                                             KingOnTable[iIndex].KingThinking[0].ThinkingFinished = false;
                                             KingOnTable[iIndex].KingThinking[0].Thinking(ref KingOnTable[iIndex].LoseOcuuredatChiled, ref KingOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(KingOnTable[iIndex].KingThinking[0].Thinking));
                                             KingOnTable[iIndex].KingThinking[0].t.Start();
-                                            if (KingOnTable[iIndex].KingThinking[0].t != null) { //Object tttt = new Object(); lock (tttt) 
+                                            if (KingOnTable[iIndex].KingThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(KingOnTable[iIndex].KingThinking[0].t); } }*/
 
                                         }
@@ -10569,7 +10569,7 @@ if (Kind == 2)
                                             KingOnTable[iIndex].KingThinking[0].ThinkingFinished = false;
                                             KingOnTable[iIndex].KingThinking[0].Thinking(ref KingOnTable[iIndex].LoseOcuuredatChiled, ref KingOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(KingOnTable[iIndex].KingThinking[0].Thinking));
                                             KingOnTable[iIndex].KingThinking[0].t.Start();
-                                            if (KingOnTable[iIndex].KingThinking[0].t != null) { //Object tttt = new Object(); lock (tttt) 
+                                            if (KingOnTable[iIndex].KingThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(KingOnTable[iIndex].KingThinking[0].t); } }*/
 
 
@@ -10683,8 +10683,8 @@ if (Kind == 2)
         }
         int MaxGrayMidle()
         {
-            //Object O = new Object();
-            ////lock (O)
+            Object O = new Object();
+            lock (O)
             {
                 int[] Tab = new int[6];
                 Tab[0] = SodierMidle;
@@ -10705,8 +10705,8 @@ if (Kind == 2)
         int MaxBrownHigh()
         {
 
-            //Object O = new Object();
-            ////lock (O)
+            Object O = new Object();
+            lock (O)
             {
                 int[] Tab = new int[6];
                 Tab[0] = SodierHigh;
@@ -10726,8 +10726,8 @@ if (Kind == 2)
         }
         int MinBrownMidle()
         {
-            //Object O = new Object();
-            ////lock (O)
+            Object O = new Object();
+            lock (O)
             {
 
                 int[] Tab = new int[6];
@@ -10749,20 +10749,20 @@ if (Kind == 2)
         AllDraw InitiateAStarGreedytObjectGray(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy //, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
             )
         {
-            //Object oo = new Object();
-            ////lock (oo)
+            Object oo = new Object();
+            lock (oo)
             {
                 for (int i = 0; i < MaxGrayMidle(); i++)
                 {
                     //Parallel.Invoke(() =>
                     {
-                        //Object ooo = new Object();
-                        ////lock (ooo)
+                        Object ooo = new Object();
+                        lock (ooo)
                         {
                             if (SodierMidle > i)
                             {
-                                //Object O = new Object();
-                                ////lock (O)
+                                Object O = new Object();
+                                lock (O)
                                 {
                                     try
                                     {
@@ -10786,8 +10786,8 @@ if (Kind == 2)
                                                 //Parallel.For(0, AllDraw.SodierMovments, j =>
                                                 {
                                                     //Thinking of Gray Solder Operation.
-                                                    //Object OOO = new Object();
-                                                    ////lock (OOO)
+                                                    Object OOO = new Object();
+                                                    lock (OOO)
                                                     {
                                                         SolderesOnTable[i].SoldierThinking[0].ThinkingBegin = true;
                                                         SolderesOnTable[i].SoldierThinking[0].ThinkingFinished = false;
@@ -10812,14 +10812,14 @@ if (Kind == 2)
                     }//,
                     // () =>
                     {
-                        //Object ooo = new Object();
-                        ////lock (ooo)
+                        Object ooo = new Object();
+                        lock (ooo)
                         {
                             if (ElefantMidle > i)
                             {
 
-                                //Object O = new Object();
-                                ////lock (O)
+                                Object O = new Object();
+                                lock (O)
                                 {
                                     try
                                     {
@@ -10842,8 +10842,8 @@ if (Kind == 2)
                                                 for (int j = 0; j < AllDraw.ElefantMovments; j++)
                                                 {
                                                     //Operational Thinking Gray Elephant. 
-                                                    //Object OOO = new Object();
-                                                    ////lock (OOO)
+                                                    Object OOO = new Object();
+                                                    lock (OOO)
                                                     {
                                                         ElephantOnTable[i].ElefantThinking[0].ThinkingBegin = true;
                                                         ElephantOnTable[i].ElefantThinking[0].ThinkingFinished = false;
@@ -10867,14 +10867,14 @@ if (Kind == 2)
                     }//,
                      //() =>
                     {
-                        //Object ooo = new Object();
-                        ////lock (ooo)
+                        Object ooo = new Object();
+                        lock (ooo)
                         {
                             if (HourseMidle > i)
                             {
 
-                                //Object O = new Object();
-                                ////lock (O)
+                                Object O = new Object();
+                                lock (O)
                                 {
                                     try
                                     {
@@ -10897,8 +10897,8 @@ if (Kind == 2)
                                                 //Parallel.For(0, AllDraw.HourseMovments, j =>
                                                 {
                                                     //Thinking of Gray Hourse Oprational.
-                                                    //Object OOO = new Object();
-                                                    ////lock (OOO)
+                                                    Object OOO = new Object();
+                                                    lock (OOO)
                                                     {
                                                         HoursesOnTable[i].HourseThinking[0].ThinkingBegin = true;
                                                         HoursesOnTable[i].HourseThinking[0].ThinkingFinished = false;
@@ -10920,13 +10920,13 @@ if (Kind == 2)
                     }//,
                      //() =>
                     {
-                        //Object ooo = new Object();
-                        ////lock (ooo)
+                        Object ooo = new Object();
+                        lock (ooo)
                         {
                             if (CastleMidle > i)
                             {
-                                //Object O = new Object();
-                                ////lock (O)
+                                Object O = new Object();
+                                lock (O)
                                 {
                                     try
                                     {
@@ -10948,8 +10948,8 @@ if (Kind == 2)
                                                 //Parallel.For(0, AllDraw.CastleMovments, j =>
                                                 for (int j = 0; j < AllDraw.CastleMovments; j++)
                                                 {
-                                                    //Object OOO = new Object();
-                                                    ////lock (OOO)
+                                                    Object OOO = new Object();
+                                                    lock (OOO)
                                                     {
                                                         //Thinking of Gray Castles Operational.
                                                         CastlesOnTable[i].CastleThinking[0].ThinkingBegin = true;
@@ -10975,16 +10975,16 @@ if (Kind == 2)
                     }//,
                     // () =>
                     {
-                        //Object ooo = new Object();
-                        ////lock (ooo)
+                        Object ooo = new Object();
+                        lock (ooo)
                         {
                             if (MinisterMidle > i)
                             {
 
                                 try
                                 {
-                                    //Object O = new Object();
-                                    ////lock (O)
+                                    Object O = new Object();
+                                    lock (O)
                                     {
                                         Order = DummyOrder;
                                         ChessRules.CurrentOrder = DummyCurrentOrder;
@@ -11005,8 +11005,8 @@ if (Kind == 2)
                                                 //Parallel.For(0, AllDraw.MinisterMovments, j =>
                                                 {
                                                     //Thinking of Gray Minister Operational.
-                                                    //Object OOO = new Object();
-                                                    ////lock (OOO)
+                                                    Object OOO = new Object();
+                                                    lock (OOO)
                                                     {
                                                         MinisterOnTable[i].MinisterThinking[0].ThinkingBegin = true;
                                                         MinisterOnTable[i].MinisterThinking[0].ThinkingFinished = false;
@@ -11032,22 +11032,22 @@ if (Kind == 2)
                     }//,
                      //() =>
                     {
-                        //Object ooo = new Object();
-                        ////lock (ooo)
+                        Object ooo = new Object();
+                        lock (ooo)
                         {
 
                             if (KingMidle > i)
                             {
 
 
-                                //Object O = new Object();
-                                ////lock (O)
+                                Object O = new Object();
+                                lock (O)
                                 {
                                     try
                                     {
                                         Order = DummyOrder;
                                         ChessRules.CurrentOrder = DummyCurrentOrder;
-                                        //If There is Not Current //Object Continue Traversal Back.
+                                        //If There is Not Current Object Continue Traversal Back.
                                         if (KingOnTable != null && KingOnTable[i] != null)
                                         {
                                             //Initiate Local varibale By Global Objective Varibales.
@@ -11064,8 +11064,8 @@ if (Kind == 2)
                                                 for (int j = 0; j < AllDraw.KingMovments; j++)
                                                 {
                                                     //Thinking Of Gray King Operatins.
-                                                    //Object OOO = new Object();
-                                                    ////lock (OOO)
+                                                    Object OOO = new Object();
+                                                    lock (OOO)
                                                     {
                                                         KingOnTable[i].KingThinking[0].ThinkingBegin = true;
                                                         KingOnTable[i].KingThinking[0].ThinkingFinished = false;
@@ -11093,8 +11093,8 @@ if (Kind == 2)
         AllDraw InitiateAStarGreedytObjectBrown(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
             )
         {
-            //Object oo = new Object();
-            ////lock (oo)
+            Object oo = new Object();
+            lock (oo)
             {
                 //Parallel.For(MinBrownMidle(), MaxBrownHigh(), i =>
                 for (int i = MinBrownMidle(); i < MaxBrownHigh(); i++)
@@ -11102,13 +11102,13 @@ if (Kind == 2)
 
                     //Parallel.Invoke(() =>
                     {
-                        //Object ooo = new Object();
-                        ////lock (ooo)
+                        Object ooo = new Object();
+                        lock (ooo)
                         {
                             if (SodierMidle <= i && SodierHigh > i)
                             {
-                                //Object O = new Object();
-                                ////lock (O)
+                                Object O = new Object();
+                                lock (O)
                                 {
                                     try
                                     {
@@ -11132,8 +11132,8 @@ if (Kind == 2)
                                                 //Parallel.For(0, AllDraw.SodierMovments, j =>
                                                 {
                                                     //Thinking of Gray Solder Operation.
-                                                    //Object OOO = new Object();
-                                                    ////lock (OOO)
+                                                    Object OOO = new Object();
+                                                    lock (OOO)
                                                     {
                                                         SolderesOnTable[i].SoldierThinking[0].ThinkingBegin = true;
                                                         SolderesOnTable[i].SoldierThinking[0].ThinkingFinished = false;
@@ -11155,15 +11155,15 @@ if (Kind == 2)
                         }
                     }//,() =>
                     {
-                        //Object oooo = new Object();
-                        ////lock (oooo)
+                        Object oooo = new Object();
+                        lock (oooo)
                         {
 
                             if (ElefantMidle <= i && ElefantHigh > i)
                             {
 
-                                //Object O = new Object();
-                                ////lock (O)
+                                Object O = new Object();
+                                lock (O)
                                 {
                                     try
                                     {
@@ -11186,8 +11186,8 @@ if (Kind == 2)
                                                 for (int j = 0; j < AllDraw.ElefantMovments; j++)
                                                 {
                                                     //Operational Thinking Gray Elephant. 
-                                                    //Object OOO = new Object();
-                                                    ////lock (OOO)
+                                                    Object OOO = new Object();
+                                                    lock (OOO)
                                                     {
                                                         ElephantOnTable[i].ElefantThinking[0].ThinkingBegin = true;
                                                         ElephantOnTable[i].ElefantThinking[0].ThinkingFinished = false;
@@ -11208,15 +11208,15 @@ if (Kind == 2)
                         }
                     }//,() =>
                     {
-                        //Object oooo = new Object();
-                        ////lock (oooo)
+                        Object oooo = new Object();
+                        lock (oooo)
                         {
 
                             if (HourseMidle <= i && HourseHight > i)
                             {
 
-                                //Object O = new Object();
-                                ////lock (O)
+                                Object O = new Object();
+                                lock (O)
                                 {
                                     try
                                     {
@@ -11239,8 +11239,8 @@ if (Kind == 2)
                                                 //Parallel.For(0, AllDraw.HourseMovments, j =>
                                                 {
                                                     //Thinking of Gray Hourse Oprational.
-                                                    //Object OOO = new Object();
-                                                    ////lock (OOO)
+                                                    Object OOO = new Object();
+                                                    lock (OOO)
                                                     {
                                                         HoursesOnTable[i].HourseThinking[0].ThinkingBegin = true;
                                                         HoursesOnTable[i].HourseThinking[0].ThinkingFinished = false;
@@ -11262,14 +11262,14 @@ if (Kind == 2)
 
                     }//,() =>
                     {
-                        //Object oooo = new Object();
-                        ////lock (oooo)
+                        Object oooo = new Object();
+                        lock (oooo)
                         {
 
                             if (CastleMidle <= i && CastleHigh < i)
                             {
-                                //Object O = new Object();
-                                ////lock (O)
+                                Object O = new Object();
+                                lock (O)
                                 {
                                     try
                                     {
@@ -11291,8 +11291,8 @@ if (Kind == 2)
                                                 //Parallel.For(0, AllDraw.CastleMovments, j =>
                                                 for (int j = 0; j < AllDraw.CastleMovments; j++)
                                                 {
-                                                    //Object OOO = new Object();
-                                                    ////lock (OOO)
+                                                    Object OOO = new Object();
+                                                    lock (OOO)
                                                     {
                                                         //Thinking of Gray Castles Operational.
                                                         CastlesOnTable[i].CastleThinking[0].ThinkingBegin = true;
@@ -11314,8 +11314,8 @@ if (Kind == 2)
                         }
                     }//,() =>
                     {
-                        //Object oooo = new Object();
-                        ////lock (oooo)
+                        Object oooo = new Object();
+                        lock (oooo)
                         {
 
                             try
@@ -11323,8 +11323,8 @@ if (Kind == 2)
 
                                 if (MinisterMidle <= i && MinisterHigh > i)
                                 {
-                                    //Object O = new Object();
-                                    ////lock (O)
+                                    Object O = new Object();
+                                    lock (O)
                                     {
                                         Order = DummyOrder;
                                         ChessRules.CurrentOrder = DummyCurrentOrder;
@@ -11345,8 +11345,8 @@ if (Kind == 2)
                                                 for (int j = 0; j < AllDraw.MinisterMovments; j++)
                                                 {
                                                     //Thinking of Gray Minister Operational.
-                                                    //Object OOO = new Object();
-                                                    ////lock (OOO)
+                                                    Object OOO = new Object();
+                                                    lock (OOO)
                                                     {
                                                         MinisterOnTable[i].MinisterThinking[0].ThinkingBegin = true;
                                                         MinisterOnTable[i].MinisterThinking[0].ThinkingFinished = false;
@@ -11369,19 +11369,19 @@ if (Kind == 2)
                     }//,
                     // () =>
                     {
-                        //Object oooo = new Object();
-                        ////lock (oooo)
+                        Object oooo = new Object();
+                        lock (oooo)
                         {
                             if (KingMidle <= i && KingHigh > i)
                             {
-                                //Object O = new Object();
-                                ////lock (O)
+                                Object O = new Object();
+                                lock (O)
                                 {
                                     try
                                     {
                                         Order = DummyOrder;
                                         ChessRules.CurrentOrder = DummyCurrentOrder;
-                                        //If There is Not Current //Object Continue Traversal Back.
+                                        //If There is Not Current Object Continue Traversal Back.
                                         if (KingOnTable != null && KingOnTable[i] != null)
                                         {
                                             //Initiate Local varibale By Global Objective Varibales.
@@ -11397,8 +11397,8 @@ if (Kind == 2)
                                                 for (int j = 0; j < AllDraw.KingMovments; j++)
                                                 {
                                                     //Thinking Of Gray King Operatins.
-                                                    //Object OOO = new Object();
-                                                    ////lock (OOO)
+                                                    Object OOO = new Object();
+                                                    lock (OOO)
                                                     {
                                                         KingOnTable[i].KingThinking[0].ThinkingBegin = true;
                                                         KingOnTable[i].KingThinking[0].ThinkingFinished = false;
@@ -11430,16 +11430,16 @@ if (Kind == 2)
             )
         {
             //List<Task> tH = new List<Task>();
-            //Object oo = new Object();
-            ////lock (oo)
+            Object oo = new Object();
+            lock (oo)
             {
 
                 //For Gray Soldeirs Objects. 
                 //Parallel.For(0, SodierMidle, i =>
                 for (int i = 0; i < SodierMidle; i++)
                 {
-                    //Object O = new Object();
-                    ////lock (O)
+                    Object O = new Object();
+                    lock (O)
                     {
                         try
                         {
@@ -11462,8 +11462,8 @@ if (Kind == 2)
                                     //Parallel.For(0, AllDraw.SodierMovments, j =>
                                     {
                                         //Thinking of Gray Solder Operation.
-                                        //Object OOO = new Object();
-                                        ////lock (OOO)
+                                        Object OOO = new Object();
+                                        lock (OOO)
                                         {
                                             SolderesOnTable[i].SoldierThinking[0].ThinkingBegin = true;
                                             SolderesOnTable[i].SoldierThinking[0].ThinkingFinished = false;
@@ -11490,15 +11490,15 @@ if (Kind == 2)
         AllDraw InitiateAStarGreedytElephantGray(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
             )
         {
-            //Object oo = new Object();
-            ////lock (oo)
+            Object oo = new Object();
+            lock (oo)
             {
                 //List<Task> tH = new List<Task>();
                 //Parallel.For(0, ElefantMidle, i =>
                 for (int i = 0; i < ElefantMidle; i++)
                 {
-                    //Object O = new Object();
-                    ////lock (O)
+                    Object O = new Object();
+                    lock (O)
                     {
                         try
                         {
@@ -11520,8 +11520,8 @@ if (Kind == 2)
                                     //Parallel.For(0, AllDraw.ElefantMovments, j =>
                                     {
                                         //Operational Thinking Gray Elephant. 
-                                        //Object OOO = new Object();
-                                        ////lock (OOO)
+                                        Object OOO = new Object();
+                                        lock (OOO)
                                         {
                                             ElephantOnTable[i].ElefantThinking[0].ThinkingBegin = true;
                                             ElephantOnTable[i].ElefantThinking[0].ThinkingFinished = false;
@@ -11546,8 +11546,8 @@ if (Kind == 2)
         AllDraw InitiateAStarGreedythHourseGray(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
             )
         {
-            //Object oo = new Object();
-            ////lock (oo)
+            Object oo = new Object();
+            lock (oo)
             {
                 //List<Task> tH = new List<Task>();
                 //For All Gray Hourse Objects.
@@ -11555,8 +11555,8 @@ if (Kind == 2)
                 for (int i = 0; i < HourseMidle; i++)
 
                 {
-                    //Object O = new Object();
-                    ////lock (O)
+                    Object O = new Object();
+                    lock (O)
                     {
                         try
                         {
@@ -11578,8 +11578,8 @@ if (Kind == 2)
                                     //Parallel.For(0, AllDraw.HourseMovments, j =>
                                     {
                                         //Thinking of Gray Hourse Oprational.
-                                        //Object OOO = new Object();
-                                        ////lock (OOO)
+                                        Object OOO = new Object();
+                                        lock (OOO)
                                         {
                                             HoursesOnTable[i].HourseThinking[0].ThinkingBegin = true;
                                             HoursesOnTable[i].HourseThinking[0].ThinkingFinished = false;
@@ -11606,16 +11606,16 @@ if (Kind == 2)
         AllDraw InitiateAStarGreedythCastleGray(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
             )
         {
-            //Object oo = new Object();
-            ////lock (oo)
+            Object oo = new Object();
+            lock (oo)
             {
                 //List<Task> tH = new List<Task>();
                 //For All Possible Gray Castles Objects.
                 //Parallel.For(0, CastleMidle, i =>
                 for (int i = 0; i < CastleMidle; i++)
                 {
-                    //Object O = new Object();
-                    ////lock (O)
+                    Object O = new Object();
+                    lock (O)
                     {
                         try
                         {
@@ -11636,8 +11636,8 @@ if (Kind == 2)
                                     //For All Possible Movments.
                                     //Parallel.For(0, AllDraw.CastleMovments, j =>
                                     {
-                                        //Object OOO = new Object();
-                                        ////lock (OOO)
+                                        Object OOO = new Object();
+                                        lock (OOO)
                                         {
                                             //Thinking of Gray Castles Operational.
                                             CastlesOnTable[i].CastleThinking[0].ThinkingBegin = true;
@@ -11664,8 +11664,8 @@ if (Kind == 2)
         AllDraw InitiateAStarGreedythMinisterGray(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
             )
         {
-            //Object oo = new Object();
-            ////lock (oo)
+            Object oo = new Object();
+            lock (oo)
             {
                 //List<Task> tH = new List<Task>();
                 //For All Possible Gray Minister Movments.
@@ -11674,8 +11674,8 @@ if (Kind == 2)
                 {
                     try
                     {
-                        //Object O = new Object();
-                        ////lock (O)
+                        Object O = new Object();
+                        lock (O)
                         {
                             Order = DummyOrder;
                             ChessRules.CurrentOrder = DummyCurrentOrder;
@@ -11695,8 +11695,8 @@ if (Kind == 2)
                                     // Parallel.For(0, AllDraw.MinisterMovments, j =>
                                     {
                                         //Thinking of Gray Minister Operational.
-                                        //Object OOO = new Object();
-                                        ////lock (OOO)
+                                        Object OOO = new Object();
+                                        lock (OOO)
                                         {
                                             MinisterOnTable[i].MinisterThinking[0].ThinkingBegin = true;
                                             MinisterOnTable[i].MinisterThinking[0].ThinkingFinished = false;
@@ -11722,22 +11722,22 @@ if (Kind == 2)
         AllDraw InitiateAStarGreedythKingGray(int iii, int jjjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
             )
         {
-            //Object oo = new Object();
-            ////lock (oo)
+            Object oo = new Object();
+            lock (oo)
             {
                 //List<Task> tH = new List<Task>();
                 //For All Possible Gray King Objects.
                 //Parallel.For(0, KingMidle, i =>
                 for (int i = 0; i < KingMidle; i++)
                 {
-                    //Object O = new Object();
-                    ////lock (O)
+                    Object O = new Object();
+                    lock (O)
                     {
                         try
                         {
                             Order = DummyOrder;
                             ChessRules.CurrentOrder = DummyCurrentOrder;
-                            //If There is Not Current //Object Continue Traversal Back.
+                            //If There is Not Current Object Continue Traversal Back.
                             if (KingOnTable != null && KingOnTable[i] != null)
                             {
                                 //Initiate Local varibale By Global Objective Varibales.
@@ -11753,8 +11753,8 @@ if (Kind == 2)
                                     //Parallel.For(0, AllDraw.KingMovments, j =>
                                     {
                                         //Thinking Of Gray King Operatins.
-                                        //Object OOO = new Object();
-                                        ////lock (OOO)
+                                        Object OOO = new Object();
+                                        lock (OOO)
                                         {
                                             KingOnTable[i].KingThinking[0].ThinkingBegin = true;
                                             KingOnTable[i].KingThinking[0].ThinkingFinished = false;
@@ -11780,22 +11780,22 @@ if (Kind == 2)
         AllDraw InitiateAStarGreedythSoldierBrown(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
             )
         {
-            //Object oo = new Object();
-            ////lock (oo)
+            Object oo = new Object();
+            lock (oo)
             {
                 //List<Task> tH = new List<Task>();
                 //For Each Objects of Brown Sodiers.
                 //Parallel.For(SodierMidle, SodierHigh, i =>
                 for (int i = SodierMidle; i < SodierHigh; i++)
                 {
-                    //Object O = new Object();
-                    ////lock (O)
+                    Object O = new Object();
+                    lock (O)
                     {
                         try
                         {
                             Order = DummyOrder;
                             ChessRules.CurrentOrder = DummyCurrentOrder;
-                            //Wheen Brown King //Object There is Not Continue Traversal Back.
+                            //Wheen Brown King Object There is Not Continue Traversal Back.
                             if (SolderesOnTable != null && SolderesOnTable[i] != null)
                             {
                                 //Initiate Local varibale By Global Objective Varibales.
@@ -11805,15 +11805,15 @@ if (Kind == 2)
                                 if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count == 0)
                                     SolderesOnTable[i] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i); ;
                                 {
-                                    //When There is Current Brown //Object Table List Thinking Objective Movments.
+                                    //When There is Current Brown Object Table List Thinking Objective Movments.
                                     if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count == 0)
                                     {
                                         //For Each Brown Possible Movments. 
                                         //Parallel.For(0, AllDraw.SodierMovments, j =>
                                         {
                                             //Thinking Operations of Brown Current Objects.
-                                            //Object OOO = new Object();
-                                            ////lock (OOO)
+                                            Object OOO = new Object();
+                                            lock (OOO)
                                             {
                                                 SolderesOnTable[i].SoldierThinking[0].ThinkingBegin = true;
                                                 SolderesOnTable[i].SoldierThinking[0].ThinkingFinished = false;
@@ -11840,15 +11840,15 @@ if (Kind == 2)
         AllDraw InitiateAStarGreedythElephantBrown(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
             )
         {
-            //Object oo = new Object();
-            ////lock (oo)
+            Object oo = new Object();
+            lock (oo)
             {
                 //List<Task> tH = new List<Task>();
                 //Parallel.For(ElefantMidle, ElefantHigh, i =>
                 for (int i = ElefantMidle; i < ElefantHigh; i++)
                 {
-                    //Object O = new Object();
-                    ////lock (O)
+                    Object O = new Object();
+                    lock (O)
                     {
                         try
                         {
@@ -11863,14 +11863,14 @@ if (Kind == 2)
                                 if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count == 0)
                                     ElephantOnTable[i] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i); ;
                                 {
-                                    //When There is Current Brown //Object Table List Thinking Objective Movments.
+                                    //When There is Current Brown Object Table List Thinking Objective Movments.
                                     if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count == 0)
                                     {
                                         //For Each Brown Possible Movments. 
                                         //Parallel.For(0, AllDraw.ElefantMovments, j =>
                                         {
-                                            //Object OOO = new Object();
-                                            ////lock (OOO)
+                                            Object OOO = new Object();
+                                            lock (OOO)
                                             {
                                                 //Thinking Operations of Brown Current Objects.
                                                 ElephantOnTable[i].ElefantThinking[0].ThinkingBegin = true;
@@ -11897,15 +11897,15 @@ if (Kind == 2)
         AllDraw InitiateAStarGreedythHourseBrown(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
             )
         {
-            //Object oo = new Object();
-            ////lock (oo)
+            Object oo = new Object();
+            lock (oo)
             {
                 //List<Task> tH = new List<Task>();
                 //Parallel.For(HourseMidle, HourseHight, i =>
                 for (int i = HourseMidle; i < HourseHight; i++)
                 {
-                    //Object O = new Object();
-                    ////lock (O)
+                    Object O = new Object();
+                    lock (O)
                     {
                         try
                         {
@@ -11921,14 +11921,14 @@ if (Kind == 2)
                                     HoursesOnTable[i] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i); ;
 
                                 {
-                                    //When There is Current Brown //Object Table List Thinking Objective Movments.
+                                    //When There is Current Brown Object Table List Thinking Objective Movments.
                                     if (HoursesOnTable[i].HourseThinking[0].TableListHourse.Count == 0)
                                     {
                                         //For Each Brown Possible Movments. 
                                         //Parallel.For(0, AllDraw.HourseMovments, j =>
                                         {
-                                            //Object OOO = new Object();
-                                            ////lock (OOO)
+                                            Object OOO = new Object();
+                                            lock (OOO)
                                             {
                                                 //Thinking Operations of Brown Current Objects.
                                                 //HoursesOnTable[i].HourseThinking[0].TableT = HoursesOnTable[i].HourseThinking[0].TableT;
@@ -11956,15 +11956,15 @@ if (Kind == 2)
         AllDraw InitiateAStarGreedythCastleBrown(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
             )
         {
-            //Object oo = new Object();
-            ////lock (oo)
+            Object oo = new Object();
+            lock (oo)
             {
                 //List<Task> tH = new List<Task>();
                 //Parallel.For(CastleMidle, CastleHigh, i =>
                 for (int i = CastleMidle; i < CastleHigh; i++)
                 {
-                    //Object O = new Object();
-                    ////lock (O)
+                    Object O = new Object();
+                    lock (O)
                     {
                         try
                         {
@@ -11981,14 +11981,14 @@ if (Kind == 2)
                                     CastlesOnTable[i] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i); ;
 
                                 {
-                                    //When There is Current Brown //Object Table List Thinking Objective Movments.
+                                    //When There is Current Brown Object Table List Thinking Objective Movments.
                                     if (CastlesOnTable[i].CastleThinking[0].TableListCastle.Count == 0)
                                     {
                                         //For Each Brown Possible Movments. 
                                         //Parallel.For(0, AllDraw.CastleMovments, j =>
                                         {
-                                            //Object OOO = new Object();
-                                            ////lock (OOO)
+                                            Object OOO = new Object();
+                                            lock (OOO)
                                             {
                                                 //Thinking Operations of Brown Current Objects.
                                                 CastlesOnTable[i].CastleThinking[0].ThinkingBegin = true;
@@ -12014,15 +12014,15 @@ if (Kind == 2)
         AllDraw InitiateAStarGreedythMinisterBrown(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
             )
         {
-            //Object oo = new Object();
-            ////lock (oo)
+            Object oo = new Object();
+            lock (oo)
             {
                 //List<Task> tH = new List<Task>();
                 //Parallel.For(MinisterMidle, MinisterHigh, i =>
                 for (int i = MinisterMidle; i < MinisterHigh; i++)
                 {
-                    //Object O = new Object();
-                    ////lock (O)
+                    Object O = new Object();
+                    lock (O)
                     {
                         try
                         {
@@ -12037,14 +12037,14 @@ if (Kind == 2)
                                 if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count == 0)
                                     MinisterOnTable[i] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i); ;
 
-                                //When There is Current Brown //Object Table List Thinking Objective Movments.
+                                //When There is Current Brown Object Table List Thinking Objective Movments.
                                 if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count == 0)
                                 {
                                     //For Each Brown Possible Movments. 
                                     //Parallel.For(0, AllDraw.MinisterMovments, j =>
                                     {
-                                        //Object OOO = new Object();
-                                        ////lock (OOO)
+                                        Object OOO = new Object();
+                                        lock (OOO)
                                         {
                                             //Thinking Operations of Brown Current Objects.
                                             MinisterOnTable[i].MinisterThinking[0].ThinkingBegin = true;
@@ -12068,15 +12068,15 @@ if (Kind == 2)
         AllDraw InitiateAStarGreedythKingBrown(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
             )
         {
-            //Object oo = new Object();
-            ////lock (oo)
+            Object oo = new Object();
+            lock (oo)
             {
                 //List<Task> tH = new List<Task>();
                 //Parallel.For(KingMidle, KingHigh, i =>
                 for (int i = KingMidle; i < KingHigh; i++)
                 {
-                    //Object O = new Object();
-                    ////lock (O)
+                    Object O = new Object();
+                    lock (O)
                     {
                         try
                         {
@@ -12091,14 +12091,14 @@ if (Kind == 2)
                                 if (KingOnTable[i].KingThinking[0].TableListKing.Count == 0)
                                     KingOnTable[i] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i); ;
 
-                                //When There is Current Brown //Object Table List Thinking Objective Movments.
+                                //When There is Current Brown Object Table List Thinking Objective Movments.
                                 if (KingOnTable[i].KingThinking[0].TableListKing.Count == 0)
                                 {
                                     //For Each Brown Possible Movments. 
                                     //Parallel.For(0, AllDraw.KingMovments, j =>
                                     {
-                                        //Object OOO = new Object();
-                                        ////lock (OOO)
+                                        Object OOO = new Object();
+                                        lock (OOO)
                                         {
                                             //Thinking Operations of Brown Current Objects.
                                             KingOnTable[i].KingThinking[0].ThinkingBegin = true;
@@ -12294,8 +12294,8 @@ if (Kind == 2)
                     for (int jjj = 0; jjj < 8; jjj++)
                         Table[iii, jjj] = Tab[iii, jjj];
 
-                //Object oo = new Object();
-                //lock (oo)
+                Object oo = new Object();
+                lock (oo)
                 {
                     ThinkingChess.BeginThread = 0;
                     ThinkingChess.EndThread = 0;
@@ -12337,9 +12337,9 @@ if (Kind == 2)
                 if (iAStarGreedy >= 0 && iAStarGreedy < MaxDuringLevelThinkingCreation)
                 {
                     MaxDuringLevelThinkingCreation = iAStarGreedy;
-                    //Object O = new Object();
+                    Object O = new Object();
                     DepthIterative++;
-                    //lock (O)
+                    lock (O)
                     {
                         OutPut = "\r\nMinimum Level During Thinking Tree Creation is " + MaxDuringLevelThinkingCreation.ToString() + "at Iterative " + DepthIterative.ToString();
                     }
@@ -12354,8 +12354,8 @@ if (Kind == 2)
                         //Initiate Of Local Variables.
 
 
-                        //Object o = new Object();
-                        ////lock (o)
+                        Object o = new Object();
+                        lock (o)
                         {
 
                             //If Order is Gray.
@@ -12371,8 +12371,8 @@ if (Kind == 2)
                                 Parallel.Invoke(() =>
                                 {
                                     //For All Gray Soldier Objects.
-                                    //Object O = new Object();
-                                    ////lock (O)
+                                    Object O = new Object();
+                                    lock (O)
                                     {
                                         this.InitiateAStarGreedytSodlerGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
                                     }
@@ -12381,8 +12381,8 @@ if (Kind == 2)
                                 () =>
                                 {
                                     //For All Gray Elephant Objects.
-                                    //Object O = new Object();
-                                    ////lock (O)
+                                    Object O = new Object();
+                                    lock (O)
                                     {
                                         this.InitiateAStarGreedytElephantGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
                                     }
@@ -12390,8 +12390,8 @@ if (Kind == 2)
                                 , () =>
                                 {
                                     //For All Gray Hourse Objects.
-                                    //Object O = new Object();
-                                    ////lock (O)
+                                    Object O = new Object();
+                                    lock (O)
                                     {
                                         this.InitiateAStarGreedythHourseGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
                                     }
@@ -12399,8 +12399,8 @@ if (Kind == 2)
                                 ,
                                 () =>
                                 {
-                                    //Object O = new Object();
-                                    ////lock (O)
+                                    Object O = new Object();
+                                    lock (O)
                                     {
                                         this.InitiateAStarGreedythCastleGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
                                     }
@@ -12408,8 +12408,8 @@ if (Kind == 2)
                                 , () =>
                                 {
 
-                                    //Object O = new Object();
-                                    ////lock (O)
+                                    Object O = new Object();
+                                    lock (O)
                                     {
                                         this.InitiateAStarGreedythMinisterGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
                                     }
@@ -12417,8 +12417,8 @@ if (Kind == 2)
                                 }
                                 , () =>
                                 {
-                                    //Object O = new Object();
-                                    ////lock (O)
+                                    Object O = new Object();
+                                    lock (O)
                                     {
                                         this.InitiateAStarGreedythKingGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
                                     }
@@ -12438,8 +12438,8 @@ if (Kind == 2)
                                 Parallel.Invoke(() =>
                                 {
                                     //For All Gray Soldier Objects.
-                                    //Object O = new Object();
-                                    ////lock (O)
+                                    Object O = new Object();
+                                    lock (O)
                                     {
                                         this.InitiateAStarGreedythSoldierBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
                                     }
@@ -12448,8 +12448,8 @@ if (Kind == 2)
                                 () =>
                                 {
                                     //For All Gray Elephant Objects.
-                                    //Object O = new Object();
-                                    ////lock (O)
+                                    Object O = new Object();
+                                    lock (O)
                                     {
                                         this.InitiateAStarGreedythElephantBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
                                     }
@@ -12457,8 +12457,8 @@ if (Kind == 2)
                                 , () =>
                                 {
                                     //For All Gray Hourse Objects.
-                                    //Object O = new Object();
-                                    ////lock (O)
+                                    Object O = new Object();
+                                    lock (O)
                                     {
                                         this.InitiateAStarGreedythHourseBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
                                     }
@@ -12466,8 +12466,8 @@ if (Kind == 2)
                                 ,
                                 () =>
                                 {
-                                    //Object O = new Object();
-                                    ////lock (O)
+                                    Object O = new Object();
+                                    lock (O)
                                     {
                                         this.InitiateAStarGreedythCastleBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
                                     }
@@ -12475,8 +12475,8 @@ if (Kind == 2)
                                 , () =>
                                 {
 
-                                    //Object O = new Object();
-                                    ////lock (O)
+                                    Object O = new Object();
+                                    lock (O)
                                     {
                                         this.InitiateAStarGreedythMinisterBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
                                     }
@@ -12484,8 +12484,8 @@ if (Kind == 2)
                                 }
                                 , () =>
                                 {
-                                    //Object O = new Object();
-                                    ////lock (O)
+                                    Object O = new Object();
+                                    lock (O)
                                     {
                                         this.InitiateAStarGreedythKingBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
                                     }
@@ -12501,8 +12501,8 @@ if (Kind == 2)
                         //Initiate Of Local Variables.
 
 
-                        //Object o = new Object();
-                        ////lock (o)
+                        Object o = new Object();
+                        lock (o)
                         {
 
                             //If Order is Gray.
@@ -12518,18 +12518,18 @@ if (Kind == 2)
                                 //Parallel.Invoke(() =>
                                 {
                                     //For All Gray Soldier Objects.
-                                    //Object O = new Object();
-                                    ////lock (O)
+                                    Object O = new Object();
+                                    lock (O)
                                     {
                                         this.InitiateAStarGreedytSodlerGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
                                     }
                                 }
                                 //,
-                                //() =>
+                               // () =>
                                 {
                                     //For All Gray Elephant Objects.
-                                    //Object O = new Object();
-                                    ////lock (O)
+                                    Object O = new Object();
+                                    lock (O)
                                     {
                                         this.InitiateAStarGreedytElephantGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
                                     }
@@ -12537,26 +12537,26 @@ if (Kind == 2)
                                 //, () =>
                                 {
                                     //For All Gray Hourse Objects.
-                                    //Object O = new Object();
-                                    ////lock (O)
+                                    Object O = new Object();
+                                    lock (O)
                                     {
                                         this.InitiateAStarGreedythHourseGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
                                     }
                                 }
-                                //,
-                                //() =>
+                               // ,
+                               // () =>
                                 {
-                                    //Object O = new Object();
-                                    ////lock (O)
+                                    Object O = new Object();
+                                    lock (O)
                                     {
                                         this.InitiateAStarGreedythCastleGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
                                     }
                                 }
-                                //, () =>
+                               // , () =>
                                 {
 
-                                    //Object O = new Object();
-                                    ////lock (O)
+                                    Object O = new Object();
+                                    lock (O)
                                     {
                                         this.InitiateAStarGreedythMinisterGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
                                     }
@@ -12564,13 +12564,13 @@ if (Kind == 2)
                                 }
                                 //, () =>
                                 {
-                                    //Object O = new Object();
-                                    ////lock (O)
+                                    Object O = new Object();
+                                    lock (O)
                                     {
                                         this.InitiateAStarGreedythKingGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
                                     }
                                 }
-                                //);
+                               // );
                             }
                             else//Brown Order Considarations.
                             {
@@ -12585,18 +12585,18 @@ if (Kind == 2)
                                 //Parallel.Invoke(() =>
                                 {
                                     //For All Gray Soldier Objects.
-                                    //Object O = new Object();
-                                    ////lock (O)
+                                    Object O = new Object();
+                                    lock (O)
                                     {
                                         this.InitiateAStarGreedythSoldierBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
                                     }
                                 }
-                                //,
-                                //() =>
+                               // ,
+                               // () =>
                                 {
                                     //For All Gray Elephant Objects.
-                                    //Object O = new Object();
-                                    ////lock (O)
+                                    Object O = new Object();
+                                   lock (O)
                                     {
                                         this.InitiateAStarGreedythElephantBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
                                     }
@@ -12604,17 +12604,17 @@ if (Kind == 2)
                                 //, () =>
                                 {
                                     //For All Gray Hourse Objects.
-                                    //Object O = new Object();
-                                    ////lock (O)
+                                    Object O = new Object();
+                                    lock (O)
                                     {
                                         this.InitiateAStarGreedythHourseBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
                                     }
                                 }
-                                //,
+                               // ,
                                 //() =>
                                 {
-                                    //Object O = new Object();
-                                    ////lock (O)
+                                    Object O = new Object();
+                                    lock (O)
                                     {
                                         this.InitiateAStarGreedythCastleBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
                                     }
@@ -12622,8 +12622,8 @@ if (Kind == 2)
                                 //, () =>
                                 {
 
-                                    //Object O = new Object();
-                                    ////lock (O)
+                                    Object O = new Object();
+                                    lock (O)
                                     {
                                         this.InitiateAStarGreedythMinisterBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
                                     }
@@ -12631,13 +12631,13 @@ if (Kind == 2)
                                 }
                                 //, () =>
                                 {
-                                    //Object O = new Object();
-                                    ////lock (O)
+                                    Object O = new Object();
+                                    lock (O)
                                     {
                                         this.InitiateAStarGreedythKingBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
                                     }
                                 }
-                                //);
+                               // );
                             }
                         }
                     }
@@ -12646,8 +12646,8 @@ if (Kind == 2)
 
                     if (FOUND)
                     {
-                        //Object O = new Object();
-                        ////lock (O)
+                        Object O = new Object();
+                        lock (O)
                         {
                             Tabl = CloneATable(Table);
                             FoundOfLeafDepenOfKindFullGame(Tabl, Order, iAStarGreedy, ii, jj, ik, j, FOUND, LeafAStarGreedy);
@@ -12655,13 +12655,13 @@ if (Kind == 2)
                     }
                     else
                     {
-                        //Object O = new Object();
-                        ////lock (O)
+                        Object O = new Object();
+                        lock (O)
                         {
                             Order = DummyOrder;
                             ChessRules.CurrentOrder = DummyCurrentOrder;
                             int Ord = Order, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
-                            //System.Threading.Thread.Sleep(100);
+                            System.Threading.Thread.Sleep(100);
                             //Parallel.Invoke(() =>
                             {
                                 Do = this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
@@ -12669,8 +12669,8 @@ if (Kind == 2)
                         }
 
 
-                        //Object Om = new Object();
-                        //lock (Om)
+                        Object Om = new Object();
+                        lock (Om)
                         {
                             if (!Do)
                                 if (iAStarGreedy < MinThinkingTreeDepth)
@@ -12682,8 +12682,8 @@ if (Kind == 2)
                 catch (Exception t)
                 {
                     Log(t);
-                    //Object O = new Object();
-                    //lock (O)
+                    Object O = new Object();
+                    lock (O)
                     {
                         OutPut = "\r\nPossibly Aggregation need.";
                     }
@@ -12704,8 +12704,8 @@ if (Kind == 2)
                 for (int iii = 0; iii < 8; iii++)
                     for (int jjj = 0; jjj < 8; jjj++)
                         Table[iii, jjj] = Tab[iii, jjj];
-                //Object oo = new Object();
-                //lock (oo)
+                Object oo = new Object();
+                lock (oo)
                 {
                     ThinkingChess.BeginThread = 0;
                     ThinkingChess.EndThread = 0;
@@ -12745,9 +12745,9 @@ if (Kind == 2)
                 if (iAStarGreedy >= 0 && iAStarGreedy < MaxDuringLevelThinkingCreation)
                 {
                     MaxDuringLevelThinkingCreation = iAStarGreedy;
-                    //Object O = new Object();
+                    Object O = new Object();
                     DepthIterative++;
-                    //lock (O)
+                    lock (O)
                     {
                         OutPut = "\r\nMinimum Level During Thinking Tree Creation is " + MaxDuringLevelThinkingCreation.ToString() + "at Iterative " + DepthIterative.ToString();
                     }
@@ -12760,8 +12760,8 @@ if (Kind == 2)
 
                 if (!FOUND)
                 {
-                    //Object o = new Object();
-                    ////lock (o)
+                    Object o = new Object();
+                    lock (o)
                     {
                         if (Order == 1)
                             this.InitiateAStarGreedytObjectGray(i, j, Table, DummyOrder, DummyCurrentOrder, iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND, LeafAStarGreedy);
@@ -12772,8 +12772,8 @@ if (Kind == 2)
 
                 if (FOUND)
                 {
-                    //Object O = new Object();
-                    ////lock (O)
+                    Object O = new Object();
+                    lock (O)
                     {
                         Tabl = CloneATable(Table);
                         FoundOfLeafDepenOfKindFullGame(Tabl, Order, iAStarGreedy, ii, jj, ik, j, FOUND, LeafAStarGreedy);
@@ -12781,14 +12781,14 @@ if (Kind == 2)
                 }
                 else
                 {
-                    //Object O = new Object();
-                    ////lock (O)
+                    Object O = new Object();
+                    lock (O)
                     {
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                         int Ord = Order, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
                         //int Ord = Order, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
-                        //System.Threading.Thread.Sleep(100);
+                        System.Threading.Thread.Sleep(100);
                         //Parallel.Invoke(() =>
                         {
                             Do |= this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
@@ -12796,8 +12796,8 @@ if (Kind == 2)
                     }
 
                 }
-                //Object Om = new Object();
-                //lock (Om)
+                Object Om = new Object();
+                lock (Om)
                 {
                     if (!Do)
                         if (iAStarGreedy < MinThinkingTreeDepth)
@@ -12816,8 +12816,8 @@ if (Kind == 2)
                         continue;
                     for (j = 0; j < SolderesOnTable[ik].SoldierThinking[0].HuristicListSolder.Count; j++)
                     {
-                        //Object O = new Object();
-                        ////lock (O)
+                        Object O = new Object();
+                        lock (O)
                         {
                             if (AllDraw.OrderPlate == Order)
                             {
@@ -12864,8 +12864,8 @@ if (Kind == 2)
                         continue;
                     for (j = 0; j < ElephantOnTable[ik].ElefantThinking[0].HuristicListElefant.Count; j++)
                     {
-                        //Object O = new Object();
-                        ////lock (O)
+                        Object O = new Object();
+                        lock (O)
                         {
                             if (AllDraw.OrderPlate == Order)
                             {
@@ -12912,8 +12912,8 @@ if (Kind == 2)
                         continue;
                     for (j = 0; j < HoursesOnTable[ik].HourseThinking[0].HuristicListHourse.Count; j++)
                     {
-                        //Object O = new Object();
-                        ////lock (O)
+                        Object O = new Object();
+                        lock (O)
                         {
 
                             if (AllDraw.OrderPlate == Order)
@@ -12960,8 +12960,8 @@ if (Kind == 2)
                         continue;
                     for (j = 0; j < CastlesOnTable[ik].CastleThinking[0].HuristicListCastle.Count; j++)
                     {
-                        //Object O = new Object();
-                        ////lock (O)
+                        Object O = new Object();
+                        lock (O)
                         {
                             if (AllDraw.OrderPlate == Order)
                             {
@@ -13013,8 +13013,8 @@ if (Kind == 2)
                     for (j = 0; j < MinisterOnTable[ik].MinisterThinking[0].HuristicListMinister.Count; j++)
                     {
 
-                        //Object O = new Object();
-                        ////lock (O)
+                        Object O = new Object();
+                        lock (O)
                         {
                             if (AllDraw.OrderPlate == Order)
                             {
@@ -13063,8 +13063,8 @@ if (Kind == 2)
                         continue;
                     for (j = 0; j < KingOnTable[ik].KingThinking[0].HuristicListKing.Count; j++)
                     {
-                        //Object O = new Object();
-                        ////lock (O)
+                        Object O = new Object();
+                        lock (O)
                         {
                             if (AllDraw.OrderPlate == Order)
                             {
@@ -13105,8 +13105,8 @@ if (Kind == 2)
         void BlitzGameTreeCreationThinkingTreeSolder(Color a, int[] Index, int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         {
             List<Task> tHA = new List<Task>();
-            //Object O1 = new Object();
-            ////lock (O1)
+            Object O1 = new Object();
+            lock (O1)
             {
 
                 if (Index[0] != -1)
@@ -13119,7 +13119,7 @@ if (Kind == 2)
                     //SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy[SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, SolderesOnTable[Index[0]].SoldierThinking[0].TableListSolder[jIndex[0]], Order, false);
                     //ParameterizedThreadStart start = new ParameterizedThreadStart(SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy[SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
                     Task array = Task.Factory.StartNew(() => SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy[SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, SolderesOnTable[Index[0]].SoldierThinking[0].RowColumnSoldier[jIndex[0]][0], SolderesOnTable[Index[0]].SoldierThinking[0].RowColumnSoldier[jIndex[0]][1], a, SolderesOnTable[Index[0]].SoldierThinking[0].TableListSolder[jIndex[0]], Order, false, FOUND, LeafAStarGreedy));
-                    //Object ttttt = new Object(); ////lock (ttttt) { tHA.Add(array); }                    
+                    Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }                    
                     array.Wait();
                     //array.Name = "S" + i.ToString();
                     //array.Start();
@@ -13133,8 +13133,8 @@ if (Kind == 2)
         void BlitzGameTreeCreationThinkingTreeElephant(Color a, int[] Index, int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         {
             List<Task> tHA = new List<Task>();
-            //Object O1 = new Object();
-            ////lock (O1)
+            Object O1 = new Object();
+            lock (O1)
             {
                 if (Index[1] != -1)
                 {
@@ -13146,7 +13146,7 @@ if (Kind == 2)
                     //ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy[ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, ElephantOnTable[Index[1]].ElefantThinking[0].TableListElefant[jIndex[1]], Order, false);
                     //ParameterizedThreadStart start = new ParameterizedThreadStart(ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy[ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
                     Task array = Task.Factory.StartNew(() => ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy[ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ElephantOnTable[Index[1]].ElefantThinking[0].RowColumnElefant[jIndex[1]][0], ElephantOnTable[Index[1]].ElefantThinking[0].RowColumnElefant[jIndex[1]][1], a, ElephantOnTable[Index[1]].ElefantThinking[0].TableListElefant[jIndex[1]], Order, false, FOUND, LeafAStarGreedy));
-                    //Object ttttt = new Object(); ////lock (ttttt) { tHA.Add(array); }
+                    Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
                     //array.Name = "E" + i.ToString();
                     //array.Start();
                     array.Wait();
@@ -13158,8 +13158,8 @@ if (Kind == 2)
         void BlitzGameTreeCreationThinkingTreeHourse(Color a, int[] Index, int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         {
             List<Task> tHA = new List<Task>();
-            //Object O1 = new Object();
-            ////lock (O1)
+            Object O1 = new Object();
+            lock (O1)
             {
                 if (Index[2] != -1)
                 {
@@ -13171,7 +13171,7 @@ if (Kind == 2)
                     //HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy[HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, HoursesOnTable[Index[2]].HourseThinking[0].TableListHourse[jIndex[2]], Order, false);
                     //ParameterizedThreadStart start = new ParameterizedThreadStart(HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy[HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
                     Task array = Task.Factory.StartNew(() => HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy[HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, HoursesOnTable[Index[2]].HourseThinking[0].RowColumnHourse[jIndex[2]][0], HoursesOnTable[Index[2]].HourseThinking[0].RowColumnHourse[jIndex[2]][1], a, HoursesOnTable[Index[2]].HourseThinking[0].TableListHourse[jIndex[2]], Order, false, FOUND, LeafAStarGreedy));
-                    //Object ttttt = new Object(); ////lock (ttttt) { tHA.Add(array); }
+                    Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
                     //array.Name = "H" + i.ToString();
                     //array.Start();
                     array.Wait();
@@ -13183,8 +13183,8 @@ if (Kind == 2)
         void BlitzGameTreeCreationThinkingTreeCastle(Color a, int[] Index, int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         {
             List<Task> tHA = new List<Task>();
-            //Object O1 = new Object();
-            ////lock (O1)
+            Object O1 = new Object();
+            lock (O1)
             {
                 if (Index[3] != -1)
                 {
@@ -13197,7 +13197,7 @@ if (Kind == 2)
                     //ParameterizedThreadStart start = new ParameterizedThreadStart(CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy[CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
                     Task array = Task.Factory.StartNew(() => CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy[CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, CastlesOnTable[Index[3]].CastleThinking[0].RowColumnCastle[jIndex[3]][0], CastlesOnTable[Index[3]].CastleThinking[0].RowColumnCastle[jIndex[3]][1], a, CastlesOnTable[Index[3]].CastleThinking[0].TableListCastle[jIndex[3]], Order, false, FOUND, LeafAStarGreedy));
                     array.Wait();
-                    //Object ttttt = new Object(); ////lock (ttttt) { tHA.Add(array); }
+                    Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
                     //array.Name = "B" + i.ToString();
                     //array.Start();
 
@@ -13208,8 +13208,8 @@ if (Kind == 2)
         void BlitzGameTreeCreationThinkingTreeMinister(Color a, int[] Index, int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         {
             List<Task> tHA = new List<Task>();
-            //Object O1 = new Object();
-            ////lock (O1)
+            Object O1 = new Object();
+            lock (O1)
             {
                 if (Index[4] != -1)
                 {
@@ -13221,7 +13221,7 @@ if (Kind == 2)
                     //MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy[MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, MinisterOnTable[Index[4]].MinisterThinking[0].TableListMinister[jIndex[4]], Order, false);
                     //ParameterizedThreadStart start = new ParameterizedThreadStart(MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy[MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
                     Task array = Task.Factory.StartNew(() => MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy[MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, MinisterOnTable[Index[4]].MinisterThinking[0].RowColumnMinister[jIndex[4]][0], MinisterOnTable[Index[4]].MinisterThinking[0].RowColumnMinister[jIndex[4]][1], a, MinisterOnTable[Index[4]].MinisterThinking[0].TableListMinister[jIndex[4]], Order, false, FOUND, LeafAStarGreedy));
-                    //Object ttttt = new Object(); ////lock (ttttt) { tHA.Add(array); }
+                    Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
                     //array.Name = "M" + i.ToString();
                     //array.Start();
                     array.Wait();
@@ -13233,8 +13233,8 @@ if (Kind == 2)
         void BlitzGameTreeCreationThinkingTreeKing(Color a, int[] Index, int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         {
             List<Task> tHA = new List<Task>();
-            //Object O1 = new Object();
-            ////lock (O1)
+            Object O1 = new Object();
+            lock (O1)
             {
                 if (Index[5] != -1)
                 {
@@ -13246,7 +13246,7 @@ if (Kind == 2)
                     //KingOnTable[Index[5]].KingThinking[0].AStarGreedy[KingOnTable[Index[5]].KingThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, KingOnTable[Index[5]].KingThinking[0].TableListKing[jIndex[5]], Order, false);
                     //ParameterizedThreadStart start = new ParameterizedThreadStart(KingOnTable[Index[5]].KingThinking[0].AStarGreedy[KingOnTable[Index[5]].KingThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
                     Task array = Task.Factory.StartNew(() => KingOnTable[Index[5]].KingThinking[0].AStarGreedy[KingOnTable[Index[5]].KingThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, KingOnTable[Index[5]].KingThinking[0].RowColumnKing[jIndex[5]][0], KingOnTable[Index[5]].KingThinking[0].RowColumnKing[jIndex[5]][1], a, KingOnTable[Index[5]].KingThinking[0].TableListKing[jIndex[5]], Order, false, FOUND, LeafAStarGreedy));
-                    //Object ttttt = new Object(); ////lock (ttttt) { tHA.Add(array); }
+                    Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
                     //array.Name = "K" + i.ToString();
                     //array.Start();
                     array.Wait();
@@ -13411,8 +13411,8 @@ if (Kind == 2)
             int[] jindex = { -1, -1, -1, -1, -1, -1 };
             if (Order == 1)
             {
-                //Object O = new Object();
-                ////lock (O)
+                Object O = new Object();
+                lock (O)
                 {
                     BlitzGameThinkingTreeSolderGray(ref PS, ref index, ref jindex, Order, 0, 0, 0, false, LeafAStarGreedy);
                     BlitzGameThinkingTreeElephantGray(ref PE, ref index, ref jindex, Order, 0, 0, 0, false, LeafAStarGreedy);
@@ -13425,8 +13425,8 @@ if (Kind == 2)
             }
             else
             {
-                //Object O = new Object();
-                ////lock (O)
+                Object O = new Object();
+                lock (O)
                 {
                     BlitzGameThinkingTreeSolderBrown(ref PS, ref index, ref jindex, Order, 0, 0, 0, false, LeafAStarGreedy);
                     BlitzGameThinkingTreeElephantBrown(ref PE, ref index, ref jindex, Order, 0, 0, 0, false, LeafAStarGreedy);
@@ -13437,8 +13437,8 @@ if (Kind == 2)
                 }
             }
             int JI = -1;
-            //Object O1 = new Object();
-            ////lock (O1)
+            Object O1 = new Object();
+            lock (O1)
             {
 
                 if (Order == OrderPlate)
@@ -13451,8 +13451,8 @@ if (Kind == 2)
                 Kind = JI;
                 for (int i = 0; i < 6; i++)
                 {
-                    //Object O = new Object();
-                    ////lock (O)
+                    Object O = new Object();
+                    lock (O)
                     {
                         Index[i] = index[i];
                         jIndex[i] = jindex[i];
@@ -13635,8 +13635,8 @@ if (Kind == 2)
             //For Gray Order calculating foreach Objects Maximum total Huristic Count Incl;usively.
             if (Order == 1)
             {
-                //Object O1 = new Object();
-                ////lock (O1)
+                Object O1 = new Object();
+                lock (O1)
                 {
                     Index[0] = -1;
                     BlitzGameThinkingTreeSolderGray(ref PreviousLessS, ref Index, ref jIndex, Order, iAStarGreedy, ik, j, FOUND, LeafAStarGreedy);
@@ -13652,15 +13652,15 @@ if (Kind == 2)
                     BlitzGameThinkingTreeKingGray(ref PreviousLessK, ref Index, ref jIndex, Order, iAStarGreedy, ik, j, FOUND, LeafAStarGreedy);
                 }
                 int JI = -1;
-                //Object O2 = new Object();
-                ////lock (O2)
+                Object O2 = new Object();
+                lock (O2)
                 {
 
                     JI = MaxOfSixHuristic(PreviousLessS, PreviousLessE, PreviousLessH, PreviousLessB, PreviousLessM, PreviousLessK);
                 }
 
-                //Object O3 = new Object();
-                ////lock (O3)
+                Object O3 = new Object();
+                lock (O3)
                 {
                     if (JI != -1)
                     {
@@ -13745,8 +13745,8 @@ if (Kind == 2)
             //For Brown Order Blitz Game Calculate Maximum Huristic Inclusive AStarGreedy First Game Search.
             else
             {
-                //Object O1 = new Object();
-                ////lock (O1)
+                Object O1 = new Object();
+                lock (O1)
                 {
                     Index[0] = -1;
                     BlitzGameThinkingTreeSolderBrown(ref PreviousLessS, ref Index, ref jIndex, Order, iAStarGreedy, ik, j, FOUND, LeafAStarGreedy);
@@ -13762,13 +13762,13 @@ if (Kind == 2)
                     BlitzGameThinkingTreeKingBrown(ref PreviousLessK, ref Index, ref jIndex, Order, iAStarGreedy, ik, j, FOUND, LeafAStarGreedy);
                 }
                 int JI = -1;
-                //Object O2 = new Object();
-                ////lock (O2)
+                Object O2 = new Object();
+                lock (O2)
                 {
                     JI = MaxOfSixHuristic(PreviousLessS, PreviousLessE, PreviousLessH, PreviousLessB, PreviousLessM, PreviousLessK);
                 }
-                //Object O3 = new Object();
-                ////lock (O3)
+                Object O3 = new Object();
+                lock (O3)
                 {
                     if (JI != -1)
                     {
@@ -14018,18 +14018,18 @@ if (Kind == 2)
         bool FullGameThinkingTreeSoldier(int ik, Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
             bool Do = false;
-            //Object O1 = new Object();
-            ////lock (O1)
+            Object O1 = new Object();
+            lock (O1)
             {
-                //Object OO1 = new Object();
-                //lock (OO1)
+                Object OO1 = new Object();
+                lock (OO1)
                 {
                     TaskBegin++;
                     int S = 0;
                     while (SolderesOnTable[ik].SoldierThinking[0].ThinkingBegin && (!SolderesOnTable[ik].SoldierThinking[0].ThinkingFinished))
                     {
 
-                        //System.Threading.Thread.Sleep(5);
+                        System.Threading.Thread.Sleep(5);
 
 
                         Thread.Sleep(1);
@@ -14059,8 +14059,8 @@ if (Kind == 2)
                 //Parallel.For(0, SolderesOnTable[ik].SoldierThinking[0].TableListSolder.Count, j =>
                 for (int j = 0; j < SolderesOnTable[ik].SoldierThinking[0].TableListSolder.Count; j++)
                 {
-                    //Object ooo = new Object();
-                    ////lock (ooo)
+                    Object ooo = new Object();
+                    lock (ooo)
                     {
 
                         try
@@ -14120,8 +14120,8 @@ if (Kind == 2)
                                             }
 
                                         }
-                                        //Object O3 = new Object();
-                                        ////lock (O3)
+                                        Object O3 = new Object();
+                                        lock (O3)
                                         {
                                             if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy == null)
                                                 SolderesOnTable[ik].SoldierThinking[0].AStarGreedy = new List<AllDraw>();
@@ -14135,9 +14135,9 @@ if (Kind == 2)
                                         //ParameterizedThreadStart start = new ParameterizedThreadStart(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
                                         if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count > 0)
                                         {
-                                            //Object O = new Object();
+                                            Object O = new Object();
 
-                                            //lock (O)
+                                            lock (O)
                                             {
                                                 OutPutAction = " " + Alphabet(SolderesOnTable[ik].SoldierThinking[0].Row) + Number(SolderesOnTable[ik].SoldierThinking[0].Column) + Alphabet(SolderesOnTable[ik].SoldierThinking[0].RowColumnSoldier[j][0]) + Number(SolderesOnTable[ik].SoldierThinking[0].RowColumnSoldier[j][1]);
                                                 if (Order == 1)
@@ -14162,13 +14162,13 @@ if (Kind == 2)
 
                                                 //SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                                 //array.Start();
-                                                /*bool ASS = false; Object OOOAAA = new Object(); //lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
+                                                /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
                                                 {
-                                                    //Object ttttt = new Object(); ////lock (ttttt) { tHA.Add(array); }
+                                                    Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
                                                 }
                                                 else
                                                 {
-                                                    //Object ttttt = new Object(); ////lock (ttttt) { array.Wait(); }
+                                                    Object ttttt = new Object(); lock (ttttt) { array.Wait(); }
                                                 }
                                                 */
                                                 //array.Name = "S" + i.ToString();
@@ -14234,8 +14234,8 @@ if (Kind == 2)
                                                 continue; ;
                                             }
                                         }
-                                        //Object O3 = new Object();
-                                        ////lock (O3)
+                                        Object O3 = new Object();
+                                        lock (O3)
                                         {
                                             if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy == null)
                                                 SolderesOnTable[ik].SoldierThinking[0].AStarGreedy = new List<AllDraw>();
@@ -14249,8 +14249,8 @@ if (Kind == 2)
                                         //ParameterizedThreadStart start = new ParameterizedThreadStart(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
                                         if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count > 0)
                                         {
-                                            //Object O = new Object();
-                                            //lock (O)
+                                            Object O = new Object();
+                                            lock (O)
                                             {
                                                 OutPutAction = " " + Alphabet(SolderesOnTable[ik].SoldierThinking[0].Row) + Number(SolderesOnTable[ik].SoldierThinking[0].Column) + Alphabet(SolderesOnTable[ik].SoldierThinking[0].RowColumnSoldier[j][0]) + Number(SolderesOnTable[ik].SoldierThinking[0].RowColumnSoldier[j][1]);
                                                 if (Order == 1)
@@ -14276,13 +14276,13 @@ if (Kind == 2)
 
                                                 //SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                                 //array.Start();
-                                                /*bool ASS = false; Object OOOAAA = new Object(); //lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
+                                                /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
                                                 {
-                                                    //Object ttttt = new Object(); ////lock (ttttt) { tHA.Add(array); }
+                                                    Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
                                                 }
                                                 else
                                                 {
-                                                    //Object ttttt = new Object(); ////lock (ttttt) { array.Wait(); }
+                                                    Object ttttt = new Object(); lock (ttttt) { array.Wait(); }
                                                 }
                                                 */
                                                 //array.Name = "S" + i.ToString();
@@ -14307,8 +14307,8 @@ if (Kind == 2)
                     Task.WaitAll(array);
                 }
     */
-                //Object O2 = new Object();
-                //lock (O2)
+                Object O2 = new Object();
+                lock (O2)
                 {
                     TaskEnd++;
                 }
@@ -14319,8 +14319,8 @@ if (Kind == 2)
         bool FullGameThinkingTreeSoldierGray(Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
             bool Do = false;
-            //Object O1 = new Object();
-            ////lock (O1)
+            Object O1 = new Object();
+            lock (O1)
             {
                 try
                 {
@@ -14329,8 +14329,8 @@ if (Kind == 2)
                     {
                         if (SolderesOnTable != null && SolderesOnTable[ik] != null)
                         {
-                            //Object O = new Object();
-                            ////lock (O)
+                            Object O = new Object();
+                            lock (O)
                             {
                                 Do = FullGameThinkingTreeSoldier(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
                             }
@@ -14344,11 +14344,11 @@ if (Kind == 2)
         bool FullGameThinkingTreeElephant(int ik, Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
             bool Do = false;
-            //Object O1 = new Object();
-            ////lock (O1)
+            Object O1 = new Object();
+            lock (O1)
             {
-                //Object OO1 = new Object();
-                //lock (OO1)
+                Object OO1 = new Object();
+                lock (OO1)
                 {
                     TaskBegin++;
                     int S = 0;
@@ -14378,8 +14378,8 @@ if (Kind == 2)
                 //Parallel.For(0, ElephantOnTable[ik].ElefantThinking[0].TableListElefant.Count, j =>
                 for (int j = 0; j < ElephantOnTable[ik].ElefantThinking[0].TableListElefant.Count; j++)
                 {
-                    //Object ooo = new Object();
-                    ////lock (ooo)
+                    Object ooo = new Object();
+                    lock (ooo)
                     {
 
                         try
@@ -14438,8 +14438,8 @@ if (Kind == 2)
                                             }
 
                                         }
-                                        //Object O3 = new Object();
-                                        ////lock (O3)
+                                        Object O3 = new Object();
+                                        lock (O3)
                                         {
                                             if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedy == null)
                                                 ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = new List<AllDraw>();
@@ -14453,8 +14453,8 @@ if (Kind == 2)
                                             //ParameterizedThreadStart start = new ParameterizedThreadStart(ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
                                             if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count > 0)
                                             {
-                                                //Object O = new Object();
-                                                //lock (O)
+                                                Object O = new Object();
+                                                lock (O)
                                                 {
                                                     OutPutAction = " " + Alphabet(ElephantOnTable[ik].ElefantThinking[0].Row) + Number(ElephantOnTable[ik].ElefantThinking[0].Column) + Alphabet(ElephantOnTable[ik].ElefantThinking[0].RowColumnElefant[j][0]) + Number(ElephantOnTable[ik].ElefantThinking[0].RowColumnElefant[j][1]);
                                                     if (Order == 1)
@@ -14477,13 +14477,13 @@ if (Kind == 2)
                                                         ElephantOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[h], Order);
 
                                                     //array.Start();
-                                                    /*bool ASS = false; Object OOOAAA = new Object(); //lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
+                                                    /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
                                                     {
-                                                        //Object ttttt = new Object(); ////lock (ttttt) { tHA.Add(array); }
+                                                        Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
                                                     }
                                                     else
                                                     {
-                                                        //Object ttttt = new Object(); ////lock (ttttt) { array.Wait(); }
+                                                        Object ttttt = new Object(); lock (ttttt) { array.Wait(); }
                                                     }*/
                                                     //array.Name = "E" + i.ToString();
                                                     Do = true;
@@ -14548,8 +14548,8 @@ if (Kind == 2)
                                                 continue; ;
                                             }
                                         }
-                                        //Object O3 = new Object();
-                                        ////lock (O3)
+                                        Object O3 = new Object();
+                                        lock (O3)
                                         {
                                             if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedy == null)
                                                 ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = new List<AllDraw>();
@@ -14562,8 +14562,8 @@ if (Kind == 2)
                                             //ParameterizedThreadStart start = new ParameterizedThreadStart(ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
                                             if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count > 0)
                                             {
-                                                //Object O = new Object();
-                                                //lock (O)
+                                                Object O = new Object();
+                                                lock (O)
                                                 {
                                                     OutPutAction = " " + Alphabet(ElephantOnTable[ik].ElefantThinking[0].Row) + Number(ElephantOnTable[ik].ElefantThinking[0].Column) + Alphabet(ElephantOnTable[ik].ElefantThinking[0].RowColumnElefant[j][0]) + Number(ElephantOnTable[ik].ElefantThinking[0].RowColumnElefant[j][1]);
                                                     if (Order == 1)
@@ -14587,13 +14587,13 @@ if (Kind == 2)
                                                     //Task array = Task.Factory.StartNew(() => ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j]), Order, false, FOUND, LeafAStarGreedy));
 
                                                     //array.Start();
-                                                    /*bool ASS = false; Object OOOAAA = new Object(); //lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
+                                                    /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
                                                     {
-                                                        //Object ttttt = new Object(); ////lock (ttttt) { tHA.Add(array); }
+                                                        Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
                                                     }
                                                     else
                                                     {
-                                                        //Object ttttt = new Object(); ////lock (ttttt) { array.Wait(); }
+                                                        Object ttttt = new Object(); lock (ttttt) { array.Wait(); }
                                                     }*/
                                                     //array.Name = "E" + i.ToString();
                                                     Do = true;
@@ -14618,8 +14618,8 @@ if (Kind == 2)
                     Task.WaitAll(array);
                 }
                 */
-                //Object O2 = new Object();
-                //lock (O2)
+                Object O2 = new Object();
+                lock (O2)
                 {
                     TaskEnd++;
                 }
@@ -14629,8 +14629,8 @@ if (Kind == 2)
         bool FullGameThinkingTreeElephantGray(Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
             bool Do = false;
-            //Object O1 = new Object();
-            ////lock (O1)
+            Object O1 = new Object();
+            lock (O1)
             {
 
                 //Elephant
@@ -14641,8 +14641,8 @@ if (Kind == 2)
                     {
                         if (ElephantOnTable != null && ElephantOnTable[ik] != null)
                         {
-                            //Object O = new Object();
-                            ////lock (O)
+                            Object O = new Object();
+                            lock (O)
                             {
                                 Do = FullGameThinkingTreeElephant(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
                             }
@@ -14657,11 +14657,11 @@ if (Kind == 2)
         {
 
             bool Do = false;
-            //Object O1 = new Object();
-            ////lock (O1)
+            Object O1 = new Object();
+            lock (O1)
             {
-                //Object OO1 = new Object();
-                //lock (OO1)
+                Object OO1 = new Object();
+                lock (OO1)
                 {
                     TaskBegin++;
                     int S = 0;
@@ -14692,8 +14692,8 @@ if (Kind == 2)
                 //Parallel.For(0, HoursesOnTable[ik].HourseThinking[0].TableListHourse.Count, j =>
                 for (int j = 0; j < HoursesOnTable[ik].HourseThinking[0].TableListHourse.Count; j++)
                 {
-                    //Object ooo = new Object();
-                    ////lock (ooo)
+                    Object ooo = new Object();
+                    lock (ooo)
                     {
                         try
                         {
@@ -14751,8 +14751,8 @@ if (Kind == 2)
                                             }
 
 
-                                            //Object O3 = new Object();
-                                            ////lock (O3)
+                                            Object O3 = new Object();
+                                            lock (O3)
                                             {
                                                 if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy == null)
                                                     HoursesOnTable[ik].HourseThinking[0].AStarGreedy = new List<AllDraw>();
@@ -14766,8 +14766,8 @@ if (Kind == 2)
                                             //ParameterizedThreadStart start = new ParameterizedThreadStart(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
                                             if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count > 0)
                                             {
-                                                //Object O = new Object();
-                                                //lock (O)
+                                                Object O = new Object();
+                                                lock (O)
                                                 {
                                                     OutPutAction = " " + Alphabet(HoursesOnTable[ik].HourseThinking[0].Row) + Number(HoursesOnTable[ik].HourseThinking[0].Column) + Alphabet(HoursesOnTable[ik].HourseThinking[0].RowColumnHourse[j][0]) + Number(HoursesOnTable[ik].HourseThinking[0].RowColumnHourse[j][1]);
                                                     if (Order == 1)
@@ -14791,13 +14791,13 @@ if (Kind == 2)
                                                     //Task array = Task.Factory.StartNew(() => HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j]), Order, false, FOUND, LeafAStarGreedy));
 
                                                     //array.Start();
-                                                    /*bool ASS = false; Object OOOAAA = new Object(); //lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
+                                                    /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
                                                    {
-                                                       //Object ttttt = new Object(); ////lock (ttttt) { tHA.Add(array); }
+                                                       Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
                                                    }
                                                    else
                                                    {
-                                                       //Object ttttt = new Object(); ////lock (ttttt) { array.Wait(); }
+                                                       Object ttttt = new Object(); lock (ttttt) { array.Wait(); }
                                                    }
                                                    */
                                                     //array.Name = "H" + i.ToString();
@@ -14865,8 +14865,8 @@ if (Kind == 2)
                                             }
 
                                         }
-                                        //Object O3 = new Object();
-                                        ////lock (O3)
+                                        Object O3 = new Object();
+                                        lock (O3)
                                         {
                                             if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy == null)
                                                 HoursesOnTable[ik].HourseThinking[0].AStarGreedy = new List<AllDraw>();
@@ -14880,8 +14880,8 @@ if (Kind == 2)
                                         //ParameterizedThreadStart start = new ParameterizedThreadStart(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
                                         if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count > 0)
                                         {
-                                            //Object O = new Object();
-                                            //lock (O)
+                                            Object O = new Object();
+                                            lock (O)
                                             {
                                                 OutPutAction = " " + Alphabet(HoursesOnTable[ik].HourseThinking[0].Row) + Number(HoursesOnTable[ik].HourseThinking[0].Column) + Alphabet(HoursesOnTable[ik].HourseThinking[0].RowColumnHourse[j][0]) + Number(HoursesOnTable[ik].HourseThinking[0].RowColumnHourse[j][1]);
                                                 if (Order == 1)
@@ -14904,13 +14904,13 @@ if (Kind == 2)
                                                 for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count; h++)
                                                     HoursesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[h], Order);
                                                 //array.Start();
-                                                /*bool ASS = false; Object OOOAAA = new Object(); //lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
+                                                /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
                                                {
-                                                   //Object ttttt = new Object(); ////lock (ttttt) { tHA.Add(array); }
+                                                   Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
                                                }
                                                else
                                                {
-                                                   //Object ttttt = new Object(); ////lock (ttttt) { array.Wait(); }
+                                                   Object ttttt = new Object(); lock (ttttt) { array.Wait(); }
                                                }
                                                */
                                                 //array.Name = "H" + i.ToString();
@@ -14935,8 +14935,8 @@ if (Kind == 2)
                     Task.WaitAll(array);
                 }
                 */
-                //Object O2 = new Object();
-                //lock (O2)
+                Object O2 = new Object();
+                lock (O2)
                 {
                     TaskEnd++;
                 }
@@ -14946,8 +14946,8 @@ if (Kind == 2)
         bool FullGameThinkingTreeHourseGray(Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
             bool Do = false;
-            //Object O1 = new Object();
-            ////lock (O1)
+            Object O1 = new Object();
+            lock (O1)
             {
 
                 //Hourse.
@@ -14958,8 +14958,8 @@ if (Kind == 2)
                     {
                         if (HoursesOnTable != null && HoursesOnTable[ik] != null)
                         {
-                            //Object O = new Object();
-                            ////lock (O)
+                            Object O = new Object();
+                            lock (O)
                             {
                                 Do = FullGameThinkingTreeHourse(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
                             }
@@ -14974,11 +14974,11 @@ if (Kind == 2)
         {
 
             bool Do = false;
-            //Object O1 = new Object();
-            ////lock (O1)
+            Object O1 = new Object();
+            lock (O1)
             {
-                //Object OO1 = new Object();
-                //lock (OO1)
+                Object OO1 = new Object();
+                lock (OO1)
                 {
                     TaskBegin++;
                     int S = 0;
@@ -15007,8 +15007,8 @@ if (Kind == 2)
                 //Parallel.For(0, CastlesOnTable[ik].CastleThinking[0].TableListCastle.Count, j =>
                 for (int j = 0; j < CastlesOnTable[ik].CastleThinking[0].TableListCastle.Count; j++)
                 {
-                    //Object ooo = new Object();
-                    ////lock (ooo)
+                    Object ooo = new Object();
+                    lock (ooo)
                     {
                         try
                         {
@@ -15065,8 +15065,8 @@ if (Kind == 2)
                                                 continue;
                                             }
                                         }
-                                        //Object O3 = new Object();
-                                        ////lock (O3)
+                                        Object O3 = new Object();
+                                        lock (O3)
                                         {
                                             if (CastlesOnTable[ik].CastleThinking[0].AStarGreedy == null)
                                                 CastlesOnTable[ik].CastleThinking[0].AStarGreedy = new List<AllDraw>();
@@ -15080,8 +15080,8 @@ if (Kind == 2)
                                         //ParameterizedThreadStart start = new ParameterizedThreadStart(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
                                         if (CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count > 0)
                                         {
-                                            //Object O = new Object();
-                                            //lock (O)
+                                            Object O = new Object();
+                                            lock (O)
                                             {
                                                 OutPutAction = " " + Alphabet(CastlesOnTable[ik].CastleThinking[0].Row) + Number(CastlesOnTable[ik].CastleThinking[0].Column) + Alphabet(CastlesOnTable[ik].CastleThinking[0].RowColumnCastle[j][0]) + Number(CastlesOnTable[ik].CastleThinking[0].RowColumnCastle[j][1]);
                                                 if (Order == 1)
@@ -15104,13 +15104,13 @@ if (Kind == 2)
                                                     CastlesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[h], Order);
 
                                                 //array.Start();
-                                                /*bool ASS = false; Object OOOAAA = new Object(); //lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
+                                                /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
                                                 {
-                                                    //Object ttttt = new Object(); ////lock (ttttt) { tHA.Add(array); }
+                                                    Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
                                                 }
                                                 else
                                                 {
-                                                    //Object ttttt = new Object(); ////lock (ttttt) { array.Wait(); }
+                                                    Object ttttt = new Object(); lock (ttttt) { array.Wait(); }
                                                 }
                                                 */
                                                 //array.Name = "B" + i.ToString();
@@ -15175,8 +15175,8 @@ if (Kind == 2)
                                                 continue;
                                             }
                                         }
-                                        //Object O3 = new Object();
-                                        ////lock (O3)
+                                        Object O3 = new Object();
+                                        lock (O3)
                                         {
                                             if (CastlesOnTable[ik].CastleThinking[0].AStarGreedy == null)
                                                 CastlesOnTable[ik].CastleThinking[0].AStarGreedy = new List<AllDraw>();
@@ -15190,8 +15190,8 @@ if (Kind == 2)
                                         //ParameterizedThreadStart start = new ParameterizedThreadStart(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
                                         if (CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count > 0)
                                         {
-                                            //Object O = new Object();
-                                            //lock (O)
+                                            Object O = new Object();
+                                            lock (O)
                                             {
                                                 OutPutAction = " " + Alphabet(CastlesOnTable[ik].CastleThinking[0].Row) + Number(CastlesOnTable[ik].CastleThinking[0].Column) + Alphabet(CastlesOnTable[ik].CastleThinking[0].RowColumnCastle[j][0]) + Number(CastlesOnTable[ik].CastleThinking[0].RowColumnCastle[j][1]);
                                                 if (Order == 1)
@@ -15214,13 +15214,13 @@ if (Kind == 2)
                                                 for (int h = 0; h < CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count; h++)
                                                     CastlesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[h], Order);
                                                 //array.Start();
-                                                /*bool ASS = false; Object OOOAAA = new Object(); //lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
+                                                /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
                                                 {
-                                                    //Object ttttt = new Object(); ////lock (ttttt) { tHA.Add(array); }
+                                                    Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
                                                 }
                                                 else
                                                 {
-                                                    //Object ttttt = new Object(); ////lock (ttttt) { array.Wait(); }
+                                                    Object ttttt = new Object(); lock (ttttt) { array.Wait(); }
                                                 }
                                                 */
                                                 //array.Name = "B" + i.ToString();
@@ -15244,8 +15244,8 @@ if (Kind == 2)
                     //array.Start();
                     Task.WaitAll(array);
                 }*/
-                //Object O2 = new Object();
-                //lock (O2)
+                Object O2 = new Object();
+                lock (O2)
                 {
                     TaskEnd++;
                 }
@@ -15255,8 +15255,8 @@ if (Kind == 2)
         bool FullGameThinkingTreeCastleGray(Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
             bool Do = false;
-            //Object O1 = new Object();
-            ////lock (O1)
+            Object O1 = new Object();
+            lock (O1)
             {
 
                 //Castle.
@@ -15267,8 +15267,8 @@ if (Kind == 2)
                     {
                         if (CastlesOnTable != null && CastlesOnTable[ik] != null)
                         {
-                            //Object O = new Object();
-                            ////lock (O)
+                            Object O = new Object();
+                            lock (O)
                             {
                                 Do = FullGameThinkingTreeCastle(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
                             }
@@ -15282,11 +15282,11 @@ if (Kind == 2)
         bool FullGameThinkingTreeMinister(int ik, Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
             bool Do = false;
-            //Object O1 = new Object();
-            ////lock (O1)
+            Object O1 = new Object();
+            lock (O1)
             {
-                //Object OO1 = new Object();
-                //lock (OO1)
+                Object OO1 = new Object();
+                lock (OO1)
                 {
                     TaskBegin++;
                     int S = 0;
@@ -15316,8 +15316,8 @@ if (Kind == 2)
                 //Parallel.For(0, MinisterOnTable[ik].MinisterThinking[0].TableListMinister.Count, j =>
                 for (int j = 0; j < MinisterOnTable[ik].MinisterThinking[0].TableListMinister.Count; j++)
                 {
-                    //Object ooo = new Object();
-                    ////lock (ooo)
+                    Object ooo = new Object();
+                    lock (ooo)
                     {
 
                         try
@@ -15376,8 +15376,8 @@ if (Kind == 2)
                                             }
 
                                         }
-                                        //Object O3 = new Object();
-                                        ////lock (O3)
+                                        Object O3 = new Object();
+                                        lock (O3)
                                         {
                                             if (MinisterOnTable[ik].MinisterThinking[0].AStarGreedy == null)
                                                 MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = new List<AllDraw>();
@@ -15391,8 +15391,8 @@ if (Kind == 2)
                                         //ParameterizedThreadStart start = new ParameterizedThreadStart(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
                                         if (MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count > 0)
                                         {
-                                            //Object O = new Object();
-                                            //lock (O)
+                                            Object O = new Object();
+                                            lock (O)
                                             {
                                                 OutPutAction = " " + Alphabet(MinisterOnTable[ik].MinisterThinking[0].Row) + Number(MinisterOnTable[ik].MinisterThinking[0].Column) + Alphabet(MinisterOnTable[ik].MinisterThinking[0].RowColumnMinister[j][0]) + Number(MinisterOnTable[ik].MinisterThinking[0].RowColumnMinister[j][1]);
                                                 if (Order == 1)
@@ -15416,13 +15416,13 @@ if (Kind == 2)
                                                     MinisterOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h], Order);
 
                                                 //array.Start();
-                                                /*bool ASS = false; Object OOOAAA = new Object(); //lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
+                                                /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
                                                 {
-                                                    //Object ttttt = new Object(); ////lock (ttttt) { tHA.Add(array); }
+                                                    Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
                                                 }
                                                 else
                                                 {
-                                                    //Object ttttt = new Object(); ////lock (ttttt) { array.Wait(); }
+                                                    Object ttttt = new Object(); lock (ttttt) { array.Wait(); }
                                                 }*/
                                                 //array.Name = "M" + i.ToString();
                                                 Do = true;
@@ -15485,8 +15485,8 @@ if (Kind == 2)
                                                 continue;
                                             }
                                         }
-                                        //Object O3 = new Object();
-                                        ////lock (O3)
+                                        Object O3 = new Object();
+                                        lock (O3)
                                         {
                                             if (MinisterOnTable[ik].MinisterThinking[0].AStarGreedy == null)
                                                 MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = new List<AllDraw>();
@@ -15500,8 +15500,8 @@ if (Kind == 2)
                                         //ParameterizedThreadStart start = new ParameterizedThreadStart(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
                                         if (MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count > 0)
                                         {
-                                            //Object O = new Object();
-                                            //lock (O)
+                                            Object O = new Object();
+                                            lock (O)
                                             {
                                                 OutPutAction = " " + Alphabet(MinisterOnTable[ik].MinisterThinking[0].Row) + Number(MinisterOnTable[ik].MinisterThinking[0].Column) + Alphabet(MinisterOnTable[ik].MinisterThinking[0].RowColumnMinister[j][0]) + Number(MinisterOnTable[ik].MinisterThinking[0].RowColumnMinister[j][1]);
                                                 if (Order == 1)
@@ -15524,13 +15524,13 @@ if (Kind == 2)
                                                 for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count; h++)
                                                     MinisterOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h], Order);
                                                 //array.Start();
-                                                /*bool ASS = false; Object OOOAAA = new Object(); //lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
+                                                /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
                                                 {
-                                                    //Object ttttt = new Object(); ////lock (ttttt) { tHA.Add(array); }
+                                                    Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
                                                 }
                                                 else
                                                 {
-                                                    //Object ttttt = new Object(); ////lock (ttttt) { array.Wait(); }
+                                                    Object ttttt = new Object(); lock (ttttt) { array.Wait(); }
                                                 }*/
                                                 //array.Name = "M" + i.ToString();
                                                 Do = true;
@@ -15555,8 +15555,8 @@ if (Kind == 2)
                     //array.Start();
                 }
                 */
-                //Object O2 = new Object();
-                //lock (O2)
+                Object O2 = new Object();
+                lock (O2)
                 {
                     TaskEnd++;
                 }
@@ -15566,8 +15566,8 @@ if (Kind == 2)
         bool FullGameThinkingTreeMinisterGray(Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
             bool Do = false;
-            //Object O1 = new Object();
-            ////lock (O1)
+            Object O1 = new Object();
+            lock (O1)
             {
 
                 //Minister.
@@ -15578,8 +15578,8 @@ if (Kind == 2)
                     {
                         if (MinisterOnTable != null && MinisterOnTable[ik] != null)
                         {
-                            //Object O = new Object();
-                            ////lock (O)
+                            Object O = new Object();
+                            lock (O)
                             {
                                 Do = FullGameThinkingTreeMinister(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
                             }
@@ -15593,11 +15593,11 @@ if (Kind == 2)
         bool FullGameThinkingTreeKing(int ik, Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
             bool Do = false;
-            //Object O1 = new Object();
-            ////lock (O1)
+            Object O1 = new Object();
+            lock (O1)
             {
-                //Object OO1 = new Object();
-                //lock (OO1)
+                Object OO1 = new Object();
+                lock (OO1)
                 {
                     TaskBegin++;
                     int S = 0;
@@ -15628,8 +15628,8 @@ if (Kind == 2)
                 // Parallel.For(0, KingOnTable[ik].KingThinking[0].TableListKing.Count, j =>
                 for (int j = 0; j < KingOnTable[ik].KingThinking[0].TableListKing.Count; j++)
                 {
-                    //Object ooo = new Object();
-                    ////lock (ooo)
+                    Object ooo = new Object();
+                    lock (ooo)
                     {
 
                         try
@@ -15685,8 +15685,8 @@ if (Kind == 2)
                                         }
 
                                     }
-                                    //Object O3 = new Object();
-                                    ////lock (O3)
+                                    Object O3 = new Object();
+                                    lock (O3)
                                     {
                                         if (KingOnTable[ik].KingThinking[0].AStarGreedy == null)
                                             KingOnTable[ik].KingThinking[0].AStarGreedy = new List<AllDraw>();
@@ -15700,8 +15700,8 @@ if (Kind == 2)
                                     //ParameterizedThreadStart start = new ParameterizedThreadStart(KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
                                     if (KingOnTable[ik].KingThinking[0].AStarGreedy.Count > 0)
                                     {
-                                        //Object O = new Object();
-                                        //lock (O)
+                                        Object O = new Object();
+                                        lock (O)
                                         {
                                             OutPutAction = " " + Alphabet(KingOnTable[ik].KingThinking[0].Row) + Number(KingOnTable[ik].KingThinking[0].Column) + Alphabet(KingOnTable[ik].KingThinking[0].RowColumnKing[j][0]) + Number(KingOnTable[ik].KingThinking[0].RowColumnKing[j][1]);
                                             if (Order == 1)
@@ -15726,13 +15726,13 @@ if (Kind == 2)
                                                 KingOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[ik].KingThinking[0].AStarGreedy[h], Order);
 
                                             //array.Start();
-                                            /*bool ASS = false; Object OOOAAA = new Object(); //lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
+                                            /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
                                             {
-                                                //Object ttttt = new Object(); ////lock (ttttt) { tHA.Add(array); }
+                                                Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
                                             }
                                             else
                                             {
-                                                //Object ttttt = new Object(); ////lock (ttttt) { array.Wait(); }
+                                                Object ttttt = new Object(); lock (ttttt) { array.Wait(); }
                                             }*/
                                             //array.Name = "K" + i.ToString();
                                             Do = true;
@@ -15790,8 +15790,8 @@ if (Kind == 2)
                                         continue;
                                     }
 
-                                    //Object O3 = new Object();
-                                    ////lock (O3)
+                                    Object O3 = new Object();
+                                    lock (O3)
                                     {
                                         if (KingOnTable[ik].KingThinking[0].AStarGreedy == null)
                                             KingOnTable[ik].KingThinking[0].AStarGreedy = new List<AllDraw>();
@@ -15805,8 +15805,8 @@ if (Kind == 2)
                                     //ParameterizedThreadStart start = new ParameterizedThreadStart(KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
                                     if (KingOnTable[ik].KingThinking[0].AStarGreedy.Count > 0)
                                     {
-                                        //Object O = new Object();
-                                        //lock (O)
+                                        Object O = new Object();
+                                        lock (O)
                                         {
                                             OutPutAction = " " + Alphabet(KingOnTable[ik].KingThinking[0].Row) + Number(KingOnTable[ik].KingThinking[0].Column) + Alphabet(KingOnTable[ik].KingThinking[0].RowColumnKing[j][0]) + Number(KingOnTable[ik].KingThinking[0].RowColumnKing[j][1]);
                                             if (Order == 1)
@@ -15828,13 +15828,13 @@ if (Kind == 2)
                                             for (int h = 0; h < KingOnTable[ik].KingThinking[0].AStarGreedy.Count; h++)
                                                 KingOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[ik].KingThinking[0].AStarGreedy[h], Order);
                                             //array.Start();
-                                            /*bool ASS = false; Object OOOAAA = new Object(); //lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
+                                            /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
                                             {
-                                                //Object ttttt = new Object(); ////lock (ttttt) { tHA.Add(array); }
+                                                Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
                                             }
                                             else
                                             {
-                                                //Object ttttt = new Object(); ////lock (ttttt) { array.Wait(); }
+                                                Object ttttt = new Object(); lock (ttttt) { array.Wait(); }
                                             }*/
                                             //array.Name = "K" + i.ToString();
                                             Do = true;
@@ -15856,8 +15856,8 @@ if (Kind == 2)
                     Task.WaitAll(array);
                     //array.Start();
                 }*/
-                //Object O2 = new Object();
-                //lock (O2)
+                Object O2 = new Object();
+                lock (O2)
                 {
                     TaskEnd++;
                 }
@@ -15867,8 +15867,8 @@ if (Kind == 2)
         bool FullGameThinkingTreeKingGray(Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
             bool Do = false;
-            //Object O1 = new Object();
-            ////lock (O1)
+            Object O1 = new Object();
+            lock (O1)
             {
                 //int ik;
                 //King.
@@ -15879,8 +15879,8 @@ if (Kind == 2)
                     {
                         if (KingOnTable != null && KingOnTable[ik] != null)
                         {
-                            //Object O = new Object();
-                            ////lock (O)
+                            Object O = new Object();
+                            lock (O)
                             {
                                 Do = FullGameThinkingTreeKing(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
                             }
@@ -15894,8 +15894,8 @@ if (Kind == 2)
         bool FullGameThinkingTreeSoldierBrown(Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
             bool Do = false;
-            //Object O1 = new Object();
-            ////lock (O1)
+            Object O1 = new Object();
+            lock (O1)
             {
 
                 try
@@ -15906,8 +15906,8 @@ if (Kind == 2)
                         if (SolderesOnTable != null && SolderesOnTable[ik] != null)
                         {
                             //Soldier.
-                            //Object O = new Object();
-                            ////lock (O)
+                            Object O = new Object();
+                            lock (O)
                             {
                                 Do = FullGameThinkingTreeSoldier(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
                             }
@@ -15921,8 +15921,8 @@ if (Kind == 2)
         bool FullGameThinkingTreeElephantBrown(Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
             bool Do = false;
-            //Object O1 = new Object();
-            ////lock (O1)
+            Object O1 = new Object();
+            lock (O1)
             {
 
                 //Elephant
@@ -15933,8 +15933,8 @@ if (Kind == 2)
                     {
                         if (ElephantOnTable != null && ElephantOnTable[ik] != null)
                         {
-                            //Object O = new Object();
-                            ////lock (O)
+                            Object O = new Object();
+                            lock (O)
                             {
                                 Do = FullGameThinkingTreeElephant(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
                             }
@@ -15948,8 +15948,8 @@ if (Kind == 2)
         bool FullGameThinkingTreeHourseBrown(Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
             bool Do = false;
-            //Object O1 = new Object();
-            ////lock (O1)
+            Object O1 = new Object();
+            lock (O1)
             {
                 //Hourse.
                 try
@@ -15959,8 +15959,8 @@ if (Kind == 2)
                     {
                         if (HoursesOnTable != null && HoursesOnTable[ik] != null)
                         {
-                            //Object O = new Object();
-                            ////lock (O)
+                            Object O = new Object();
+                            lock (O)
                             {
                                 Do = FullGameThinkingTreeHourse(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
                             }
@@ -15974,8 +15974,8 @@ if (Kind == 2)
         bool FullGameThinkingTreeCastleBrown(Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
             bool Do = false;
-            //Object O1 = new Object();
-            ////lock (O1)
+            Object O1 = new Object();
+            lock (O1)
             {
                 //Castles.
                 try
@@ -15985,8 +15985,8 @@ if (Kind == 2)
                     {
                         if (CastlesOnTable != null && CastlesOnTable[ik] != null)
                         {
-                            //Object O = new Object();
-                            ////lock (O)
+                            Object O = new Object();
+                            lock (O)
                             {
                                 Do = FullGameThinkingTreeCastle(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
                             }
@@ -16000,8 +16000,8 @@ if (Kind == 2)
         bool FullGameThinkingTreeMinisterBrown(Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
             bool Do = false;
-            //Object O1 = new Object();
-            ////lock (O1)
+            Object O1 = new Object();
+            lock (O1)
             {
 
                 //Minister.
@@ -16012,8 +16012,8 @@ if (Kind == 2)
                     {
                         if (MinisterOnTable != null && MinisterOnTable[ik] != null)
                         {
-                            //Object O = new Object();
-                            ////lock (O)
+                            Object O = new Object();
+                            lock (O)
                             {
                                 Do = FullGameThinkingTreeMinister(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
                             }
@@ -16027,8 +16027,8 @@ if (Kind == 2)
         bool FullGameThinkingTreeKingBrown(Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
             bool Do = false;
-            //Object O1 = new Object();
-            ////lock (O1)
+            Object O1 = new Object();
+            lock (O1)
             {
                 //King.
                 try
@@ -16039,8 +16039,8 @@ if (Kind == 2)
 
                         if (KingOnTable != null && KingOnTable[ik] != null)
                         {
-                            //Object O = new Object();
-                            ////lock (O)
+                            Object O = new Object();
+                            lock (O)
                             {
                                 Do = FullGameThinkingTreeKing(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
                             }
@@ -16077,14 +16077,14 @@ if (Kind == 2)
             //Index = -1;
             //jindex = -1;
             //Kind =
-            //Object O = new Object();
-            ////lock (O)
+            Object O = new Object();
+            lock (O)
             {
                 if (AllDraw.Blitz)
                     FullGameMakimgBlitz(ref Index, ref jindex, Order, LeafAStarGreedy);
             }
-            /*//Object OO = new Object();
-            ////lock (OO)
+            /*Object OO = new Object();
+            lock (OO)
             {
 
                 if (Order == -1)
@@ -16098,7 +16098,7 @@ if (Kind == 2)
                     int iAStarGreedy1 = iAStarGreedy;
                     Task array1 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeSoldierGray(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND));
                     //array1.Start();
-                    //Object tttt1 = new Object(); ////lock (tttt1) { TH.Add(array1); }
+                    //Object tttt1 = new Object(); lock (tttt1) { TH.Add(array1); }
 
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
@@ -16117,7 +16117,7 @@ if (Kind == 2)
                     int iAStarGreedy2 = iAStarGreedy;
                     Task array2 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeElephantGray(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND));
                     //array2.Start();
-                    //Object tttt2 = new Object(); ////lock (tttt2) { TH.Add(array2); }
+                   //Object tttt2 = new Object(); lock (tttt2) { TH.Add(array2); }
 
                     //Initiatye Variables.
                     Order = DummyOrder;
@@ -16137,7 +16137,7 @@ if (Kind == 2)
                     int iAStarGreedy3 = iAStarGreedy;
                     Task array3 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeHourseGray(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND));
                     ///array3.Start();
-                    //Object tttt3 = new Object(); ////lock (tttt3) { TH.Add(array3); }
+                    //Object tttt3 = new Object(); lock (tttt3) { TH.Add(array3); }
 
                     //Initiatye Variables.
                     Order = DummyOrder;
@@ -16157,7 +16157,7 @@ if (Kind == 2)
                     int iAStarGreedy4 = iAStarGreedy;
                     Task array4 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeCastleGray(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND));
                     //array4.Start();
-                    //Object tttt4 = new Object(); ////lock (tttt4) { TH.Add(array4); }
+                    //Object tttt4 = new Object(); lock (tttt4) { TH.Add(array4); }
 
                     //Initiatye Variables.
                     Order = DummyOrder;
@@ -16176,7 +16176,7 @@ if (Kind == 2)
                     int iAStarGreedy5 = iAStarGreedy;
                     Task array5 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeMinisterGray(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND));
                     //array5.Start();
-                    //Object tttt5 = new Object(); ////lock (tttt5) { TH.Add(array5); }
+                    //Object tttt5 = new Object(); lock (tttt5) { TH.Add(array5); }
 
                     //Initiatye Variables.
                     Order = DummyOrder;
@@ -16195,7 +16195,7 @@ if (Kind == 2)
                     int iAStarGreedy6 = iAStarGreedy;
                     Task array6 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeKingGray(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND));
                     //array6.Start();
-                    //Object tttt6 = new Object(); ////lock (tttt6) { TH.Add(array6); }
+                    //Object tttt6 = new Object(); lock (tttt6) { TH.Add(array6); }
 
                 }
                 //For Brown Order Blitz Game Calculate Maximum Table Inclusive AStarGreedy First Game Search.
@@ -16207,7 +16207,7 @@ if (Kind == 2)
                     int iAStarGreedy1 = iAStarGreedy;
                     Task array1 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeSoldierBrown(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND));
                     //array1.Start();
-                    //Object tttt1 = new Object(); ////lock (tttt1) { TH.Add(array1); }
+                    //Object tttt1 = new Object(); lock (tttt1) { TH.Add(array1); }
 
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
@@ -16226,7 +16226,7 @@ if (Kind == 2)
                     int iAStarGreedy2 = iAStarGreedy;
                     Task array2 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeElephantBrown(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND));
                     //array2.Start();
-                    //Object tttt2 = new Object(); ////lock (tttt2) { TH.Add(array2); }
+                   //Object tttt2 = new Object(); lock (tttt2) { TH.Add(array2); }
 
                     //Initiatye Variables.
                     Order = DummyOrder;
@@ -16246,7 +16246,7 @@ if (Kind == 2)
                     int iAStarGreedy3 = iAStarGreedy;
                     Task array3 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeHourseBrown(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND));
                     ///array3.Start();
-                    //Object tttt3 = new Object(); ////lock (tttt3) { TH.Add(array3); }
+                    //Object tttt3 = new Object(); lock (tttt3) { TH.Add(array3); }
 
                     //Initiatye Variables.
                     Order = DummyOrder;
@@ -16266,7 +16266,7 @@ if (Kind == 2)
                     int iAStarGreedy4 = iAStarGreedy;
                     Task array4 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeCastleBrown(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND));
                     //array4.Start();
-                    //Object tttt4 = new Object(); ////lock (tttt4) { TH.Add(array4); }
+                    //Object tttt4 = new Object(); lock (tttt4) { TH.Add(array4); }
 
                     //Initiatye Variables.
                     Order = DummyOrder;
@@ -16285,7 +16285,7 @@ if (Kind == 2)
                     int iAStarGreedy5 = iAStarGreedy;
                     Task array5 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeMinisterBrown(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND));
                     //array5.Start();
-                    //Object tttt5 = new Object(); ////lock (tttt5) { TH.Add(array5); }
+                    //Object tttt5 = new Object(); lock (tttt5) { TH.Add(array5); }
 
                     //Initiatye Variables.
                     Order = DummyOrder;
@@ -16304,7 +16304,7 @@ if (Kind == 2)
                     int iAStarGreedy6 = iAStarGreedy;
                     Task array6 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeKingBrown(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND));
                     //array6.Start();
-                    //Object tttt6 = new Object(); ////lock (tttt6) { TH.Add(array6); }
+                    //Object tttt6 = new Object(); lock (tttt6) { TH.Add(array6); }
                 }
                 Parallel.ForEach(TH, items => Task.WaitAny(items));
             }
@@ -16315,11 +16315,11 @@ if (Kind == 2)
                 //Soldeir
                 //Initiatye Variables.               
 
-                // Parallel.Invoke(() =>
+                 //Parallel.Invoke(() =>
 
                 {
-                    //Object O1 = new Object();
-                    ////lock (O1)
+                    Object O1 = new Object();
+                    lock (O1)
                     {
                         if (Order == 1)
                             a = Color.Gray;
@@ -16332,15 +16332,15 @@ if (Kind == 2)
                         Do |= this.FullGameThinkingTreeSoldierGray(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy);
                         //Task array1 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeSoldierGray(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND));
                         //array1.Start();
-                        //Object tttt1 = new Object(); ////lock (tttt1) { TH.Add(array1); }
+                        //Object tttt1 = new Object(); lock (tttt1) { TH.Add(array1); }
 
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
                 }//, () =>
                 {
-                    //Object O1 = new Object();
-                    ////lock (O1)
+                    Object O1 = new Object();
+                    lock (O1)
                     {
                         if (Order == 1)
                             a = Color.Gray;
@@ -16356,7 +16356,7 @@ if (Kind == 2)
                         Do |= this.FullGameThinkingTreeElephantGray(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND, LeafAStarGreedy);
                         //Task array2 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeElephantGray(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND));
                         //array2.Start();
-                        //Object tttt2 = new Object(); ////lock (tttt2) { TH.Add(array2); }
+                       //Object tttt2 = new Object(); lock (tttt2) { TH.Add(array2); }
 
                         //Initiatye Variables.
                         Order = DummyOrder;
@@ -16365,8 +16365,8 @@ if (Kind == 2)
 
                 }//, () =>
                 {
-                    //Object O1 = new Object();
-                    ////lock (O1)
+                    Object O1 = new Object();
+                    lock (O1)
                     {
                         if (Order == 1)
                             a = Color.Gray;
@@ -16382,7 +16382,7 @@ if (Kind == 2)
                         Do |= this.FullGameThinkingTreeHourseGray(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND, LeafAStarGreedy);
                         //Task array3 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeHourseGray(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND));
                         ///array3.Start();
-                        //Object tttt3 = new Object(); ////lock (tttt3) { TH.Add(array3); }
+                        //Object tttt3 = new Object(); lock (tttt3) { TH.Add(array3); }
 
                         //Initiatye Variables.
                         Order = DummyOrder;
@@ -16390,8 +16390,8 @@ if (Kind == 2)
                     }
                 }//, () =>
                 {
-                    //Object O1 = new Object();
-                    ////lock (O1)
+                    Object O1 = new Object();
+                    lock (O1)
                     {
                         if (Order == 1)
                             a = Color.Gray;
@@ -16407,7 +16407,7 @@ if (Kind == 2)
                         Do |= this.FullGameThinkingTreeCastleGray(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND, LeafAStarGreedy);
                         //Task array4 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeCastleGray(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND));
                         //array4.Start();
-                        //Object tttt4 = new Object(); ////lock (tttt4) { TH.Add(array4); }
+                        //Object tttt4 = new Object(); lock (tttt4) { TH.Add(array4); }
 
                         //Initiatye Variables.
                         Order = DummyOrder;
@@ -16415,8 +16415,8 @@ if (Kind == 2)
                     }
                 }//, () =>
                 {
-                    //Object O1 = new Object();
-                    ////lock (O1)
+                    Object O1 = new Object();
+                    lock (O1)
                     {
                         if (Order == 1)
                             a = Color.Gray;
@@ -16431,7 +16431,7 @@ if (Kind == 2)
                         Do |= this.FullGameThinkingTreeMinisterGray(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND, LeafAStarGreedy);
                         //Task array5 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeMinisterGray(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND));
                         //array5.Start();
-                        //Object tttt5 = new Object(); ////lock (tttt5) { TH.Add(array5); }
+                        //Object tttt5 = new Object(); lock (tttt5) { TH.Add(array5); }
 
                         //Initiatye Variables.
                         Order = DummyOrder;
@@ -16439,8 +16439,8 @@ if (Kind == 2)
                     }
                 }//, () =>
                 {
-                    //Object O1 = new Object();
-                    ////lock (O1)
+                    Object O1 = new Object();
+                    lock (O1)
                     {
                         if (Order == 1)
                             a = Color.Gray;
@@ -16455,7 +16455,7 @@ if (Kind == 2)
                         Do |= this.FullGameThinkingTreeKingGray(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND, LeafAStarGreedy);
                         //Task array6 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeKingGray(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND));
                         //array6.Start();
-                        //Object tttt6 = new Object(); ////lock (tttt6) { TH.Add(array6); }
+                        //Object tttt6 = new Object(); lock (tttt6) { TH.Add(array6); }
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
@@ -16466,8 +16466,8 @@ if (Kind == 2)
             {
                 //Parallel.Invoke(() =>
                 {
-                    //Object O1 = new Object();
-                    ////lock (O1)
+                    Object O1 = new Object();
+                    lock (O1)
                     {
                         if (Order == 1)
                             a = Color.Gray;
@@ -16480,15 +16480,15 @@ if (Kind == 2)
                         Do |= this.FullGameThinkingTreeSoldierBrown(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy);
                         //Task array1 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeSoldierBrown(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND));
                         //array1.Start();
-                        //Object tttt1 = new Object(); ////lock (tttt1) { TH.Add(array1); }
+                        //Object tttt1 = new Object(); lock (tttt1) { TH.Add(array1); }
 
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
                 }//, () =>
                 {
-                    //Object O1 = new Object();
-                    ////lock (O1)
+                    Object O1 = new Object();
+                    lock (O1)
                     {
                         if (Order == 1)
                             a = Color.Gray;
@@ -16504,7 +16504,7 @@ if (Kind == 2)
                         Do |= this.FullGameThinkingTreeElephantBrown(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND, LeafAStarGreedy);
                         //Task array2 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeElephantBrown(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND));
                         //array2.Start();
-                        //Object tttt2 = new Object(); ////lock (tttt2) { TH.Add(array2); }
+                       //Object tttt2 = new Object(); lock (tttt2) { TH.Add(array2); }
 
                         //Initiatye Variables.
                         Order = DummyOrder;
@@ -16512,8 +16512,8 @@ if (Kind == 2)
                     }
                 }//, () =>
                 {
-                    //Object O1 = new Object();
-                    ////lock (O1)
+                    Object O1 = new Object();
+                    lock (O1)
                     {
                         if (Order == 1)
                             a = Color.Gray;
@@ -16529,7 +16529,7 @@ if (Kind == 2)
                         Do |= this.FullGameThinkingTreeHourseBrown(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND, LeafAStarGreedy);
                         //Task array3 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeHourseBrown(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND));
                         ///array3.Start();
-                        //Object tttt3 = new Object(); ////lock (tttt3) { TH.Add(array3); }
+                        //Object tttt3 = new Object(); lock (tttt3) { TH.Add(array3); }
 
                         //Initiatye Variables.
                         Order = DummyOrder;
@@ -16537,8 +16537,8 @@ if (Kind == 2)
                     }
                 }//, () =>
                 {
-                    //Object O1 = new Object();
-                    ////lock (O1)
+                    Object O1 = new Object();
+                    lock (O1)
                     {
                         if (Order == 1)
                             a = Color.Gray;
@@ -16554,7 +16554,7 @@ if (Kind == 2)
                         Do |= this.FullGameThinkingTreeCastleBrown(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND, LeafAStarGreedy);
                         //Task array4 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeCastleBrown(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND));
                         //array4.Start();
-                        //Object tttt4 = new Object(); ////lock (tttt4) { TH.Add(array4); }
+                        //Object tttt4 = new Object(); lock (tttt4) { TH.Add(array4); }
 
                         //Initiatye Variables.
                         Order = DummyOrder;
@@ -16562,8 +16562,8 @@ if (Kind == 2)
                     }
                 }//, () =>
                 {
-                    //Object O1 = new Object();
-                    ////lock (O1)
+                    Object O1 = new Object();
+                    lock (O1)
                     {
                         if (Order == 1)
                             a = Color.Gray;
@@ -16578,7 +16578,7 @@ if (Kind == 2)
                         Do |= this.FullGameThinkingTreeMinisterBrown(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND, LeafAStarGreedy);
                         //Task array5 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeMinisterBrown(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND));
                         //array5.Start();
-                        //Object tttt5 = new Object(); ////lock (tttt5) { TH.Add(array5); }
+                        //Object tttt5 = new Object(); lock (tttt5) { TH.Add(array5); }
 
                         //Initiatye Variables.
                         Order = DummyOrder;
@@ -16586,8 +16586,8 @@ if (Kind == 2)
                     }
                 }//, () =>
                 {
-                    //Object O1 = new Object();
-                    ////lock (O1)
+                    Object O1 = new Object();
+                    lock (O1)
                     {
                         if (Order == 1)
                             a = Color.Gray;
@@ -16606,7 +16606,7 @@ if (Kind == 2)
                         Do |= this.FullGameThinkingTreeKingBrown(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND, LeafAStarGreedy);
                         //Task array6 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeKingBrown(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND));
                         //array6.Start();
-                        //Object tttt6 = new Object(); ////lock (tttt6) { TH.Add(array6); }
+                        //Object tttt6 = new Object(); lock (tttt6) { TH.Add(array6); }
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
@@ -16632,8 +16632,8 @@ if (Kind == 2)
             //Index = -1;
             //jindex = -1;
             //Kind =
-            //Object O = new Object();
-            ////lock (O)
+            Object O = new Object();
+            lock (O)
             {
                 if (AllDraw.Blitz)
                     FullGameMakimgBlitz(ref Index, ref jindex, Order, LeafAStarGreedy);
@@ -16645,13 +16645,13 @@ if (Kind == 2)
                     Parallel.Invoke(() =>
 
                       {
-                          //Object ooo = new Object();
-                          ////lock (ooo)
+                          Object ooo = new Object();
+                          lock (ooo)
                           {
                               if (i < SodierMidle)
                               {
-                                  //Object O1 = new Object();
-                                  ////lock (O1)
+                                  Object O1 = new Object();
+                                  lock (O1)
                                   {
                                       if (Order == 1)
                                           a = Color.Gray;
@@ -16665,7 +16665,7 @@ if (Kind == 2)
                                       Do |= FullGameThinkingTreeSoldier(i1, a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy);
                                       //Task array1 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeSoldierGray(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND));
                                       //array1.Start();
-                                      //Object tttt1 = new Object(); ////lock (tttt1) { TH.Add(array1); }
+                                      //Object tttt1 = new Object(); lock (tttt1) { TH.Add(array1); }
 
                                       Order = DummyOrder;
                                       ChessRules.CurrentOrder = DummyCurrentOrder;
@@ -16674,14 +16674,14 @@ if (Kind == 2)
                           }
                       }, () =>
                       {
-                          //Object ooo = new Object();
-                          ////lock (ooo)
+                          Object ooo = new Object();
+                          lock (ooo)
                           {
 
                               if (i < ElefantMidle)
                               {
-                                  //Object O1 = new Object();
-                                  ////lock (O1)
+                                  Object O1 = new Object();
+                                  lock (O1)
                                   {
                                       if (Order == 1)
                                           a = Color.Gray;
@@ -16704,14 +16704,14 @@ if (Kind == 2)
                           }
                       }, () =>
                       {
-                          //Object ooo = new Object();
-                          ////lock (ooo)
+                          Object ooo = new Object();
+                          lock (ooo)
                           {
 
                               if (i < HourseMidle)
                               {
-                                  //Object O1 = new Object();
-                                  ////lock (O1)
+                                  Object O1 = new Object();
+                                  lock (O1)
                                   {
                                       if (Order == 1)
                                           a = Color.Gray;
@@ -16734,14 +16734,14 @@ if (Kind == 2)
                           }
                       }, () =>
                       {
-                          //Object ooo = new Object();
-                          ////lock (ooo)
+                          Object ooo = new Object();
+                          lock (ooo)
                           {
 
                               if (i < CastleMidle)
                               {
-                                  //Object O1 = new Object();
-                                  ////lock (O1)
+                                  Object O1 = new Object();
+                                  lock (O1)
                                   {
                                       if (Order == 1)
                                           a = Color.Gray;
@@ -16764,14 +16764,14 @@ if (Kind == 2)
                           }
                       }, () =>
                       {
-                          //Object ooo = new Object();
-                          ////lock (ooo)
+                          Object ooo = new Object();
+                          lock (ooo)
                           {
 
                               if (i < MinisterMidle)
                               {
-                                  //Object O1 = new Object();
-                                  ////lock (O1)
+                                  Object O1 = new Object();
+                                  lock (O1)
                                   {
                                       if (Order == 1)
                                           a = Color.Gray;
@@ -16793,15 +16793,15 @@ if (Kind == 2)
                           }
                       }, () =>
                       {
-                          //Object ooo = new Object();
-                          ////lock (ooo)
+                          Object ooo = new Object();
+                          lock (ooo)
                           {
 
                               if (i < KingMidle)
 
                               {
-                                  //Object O1 = new Object();
-                                  ////lock (O1)
+                                  Object O1 = new Object();
+                                  lock (O1)
                                   {
                                       if (Order == 1)
                                           a = Color.Gray;
@@ -16830,15 +16830,15 @@ if (Kind == 2)
                 {
                     Parallel.Invoke(() =>
                 {
-                    //Object ooo = new Object();
-                    //////lock (ooo)
+                    Object ooo = new Object();
+                    lock (ooo)
                     {
 
                         if (i >= SodierMidle && i < SodierHigh)
                         {
 
-                            //Object O1 = new Object();
-                            //////lock (O1)
+                            Object O1 = new Object();
+                            lock (O1)
                             {
                                 if (Order == 1)
                                     a = Color.Gray;
@@ -16859,8 +16859,8 @@ if (Kind == 2)
                 {
                     if (i >= ElefantMidle && i < ElefantHigh)
                     {
-                        //Object ooo = new Object();
-                        //////lock (ooo)
+                        Object ooo = new Object();
+                        lock (ooo)
                         {
                             if (Order == 1)
                                 a = Color.Gray;
@@ -16881,8 +16881,8 @@ if (Kind == 2)
                 {
                     if (i >= HourseMidle && i < HourseHight)
                     {
-                        //Object O1 = new Object();
-                        //////lock (O1)
+                        Object O1 = new Object();
+                        lock (O1)
                         {
                             if (Order == 1)
                                 a = Color.Gray;
@@ -16904,8 +16904,8 @@ if (Kind == 2)
                 {
                     if (i >= CastleMidle && i < CastleHigh)
                     {
-                        //Object ooo = new Object();
-                        //////lock (ooo)
+                        Object ooo = new Object();
+                        lock (ooo)
                         {
                             if (Order == 1)
                                 a = Color.Gray;
@@ -16926,8 +16926,8 @@ if (Kind == 2)
                 {
                     if (i >= MinisterMidle && i < MinisterHigh)
                     {
-                        //Object ooo = new Object();
-                        //////lock (ooo)
+                        Object ooo = new Object();
+                        lock (ooo)
                         {
                             if (Order == 1)
                                 a = Color.Gray;
@@ -16949,8 +16949,8 @@ if (Kind == 2)
                 {
                     if (i >= KingMidle && i < KingHigh)
                     {
-                        //Object ooo = new Object();
-                        //////lock (ooo)
+                        Object ooo = new Object();
+                        lock (ooo)
                         {
                             if (Order == 1)
                                 a = Color.Gray;
@@ -17460,8 +17460,8 @@ if (Kind == 2)
 
         void CheckedMateConfiguratiion(int Order)
         {
-            //Object O = new Object();
-            ////lock (O)
+            Object O = new Object();
+            lock (O)
             {
                 if (ThinkingChess.LearningVarsCheckedMateOccured && ThinkingChess.LearningVarsCheckedMateOccuredOneCheckedMate)
                 {
@@ -17762,8 +17762,8 @@ if (Kind == 5)
             int Current = ChessRules.CurrentOrder;
             int DummyOrder = Order;
 
-            //Object O = new Object();
-            ////lock (O)
+            Object O = new Object();
+            lock (O)
             {
                 AllDraw.ActionStringReady = false;
                 //SignKiller = Double.MaxValue / (System.Math.Pow(6 * 32, AllDraw.MaxAStarGreedy) * 64 * 32);
@@ -17771,20 +17771,20 @@ if (Kind == 5)
                 ThinkingChess.LearningVarsCheckedMateOccured = false;
                 ThinkingChess.LearningVarsCheckedMateOccuredOneCheckedMate = false;
                 RegardOccurred = false;
-                //Object OO1 = new Object();
-                ////lock (OO1)
+                Object OO1 = new Object();
+                lock (OO1)
                 {
                     TaskBegin = 0;
                     TaskEnd = 0;
                 }
 
-                //Object OO = new Object();
-                //lock (OO)
+                Object OO = new Object();
+                lock (OO)
                 {
                     MaxDuringLevelThinkingCreation = System.Convert.ToInt32(AllDraw.THIScomboBoxMaxLevelText);
                 }
-                //Object Om = new Object();
-                //lock (Om)
+                Object Om = new Object();
+                lock (Om)
                 {
                     MinThinkingTreeDepth = 0;
                 }
@@ -17793,8 +17793,8 @@ if (Kind == 5)
                 ThinkingChess.FoundFirstMating = 0;
                 ThinkingChess.FoundFirstSelfMating = 0;
                 //Monitor Log File Appending ZFirst Line. 
-                //Object On = new Object();
-                //lock (On)
+                Object On = new Object();
+                lock (On)
                 {
                     String state1 = "\n\t=====================================================================================================================================================================<br/>";
                     String state2 = "\n\tMovment Number:" + AllDraw.MovmentsNumber + "<br/>";
@@ -17812,8 +17812,8 @@ if (Kind == 5)
                 }
                 //Initiate Local and Global Variables.            
                 //ThinkingChess.Sign = 1;
-                //Object ol = new Object();
-                //lock (ol)
+                Object ol = new Object();
+                lock (ol)
                 {
                     CurrentHuristic = Double.MinValue; ;
 
@@ -17970,8 +17970,8 @@ if (Kind == 5)
 
                 if (!FOUND)
                 {
-                    //Object O7 = new Object();
-                    //lock (O7)
+                    Object O7 = new Object();
+                    lock (O7)
                     {
                         ThinkingChess.NotSolvedKingDanger = false;
 
@@ -17985,8 +17985,8 @@ if (Kind == 5)
                 }
                 //THIS.Invoke((MethodInvoker)delegate()
                 {
-                    //Object OOO = new Object();
-                    //lock (OOO)
+                    Object OOO = new Object();
+                    lock (OOO)
                     {
                         if (!SetDept)
                             MaxAStarGreedy = System.Convert.ToInt32(AllDraw.THIScomboBoxMaxLevelText);
@@ -17997,8 +17997,8 @@ if (Kind == 5)
                             AllDraw.MaxAStarGreedyHuristicProgress += AllDraw.MaxAStarGreedyHuristicProgress * 6;
                         //THIS.progressBarVerify.Maximum = 999999999;
                         increasedProgress = (int)((double)999999999 / (double)(AllDraw.MaxAStarGreedyHuristicProgress));
-                        //Object Omm1 = new Object();
-                        //lock (Omm1)
+                        Object Omm1 = new Object();
+                        lock (Omm1)
                         {
                             AStarGreedytMaxCount = (double)MaxAStarGreedy;
                         }
@@ -18010,8 +18010,8 @@ if (Kind == 5)
                 Order = DummyOrder;
                 int iiii = ii, jjjj = jj, Ord = Order;
                 int MaxAStarGreedy1 = 0;
-                //Object OOOO = new Object();
-                //lock (OOOO)
+                Object OOOO = new Object();
+                lock (OOOO)
                 {
 
                     MaxAStarGreedy1 = MaxAStarGreedy;
@@ -18021,8 +18021,8 @@ if (Kind == 5)
                 //InitiateAStarGreedytObject(MaxAStarGreedy1, iiii, jjjj, aaa, Tabl, Ord, false, FOUND, LeafAStarGreedy);
                 InitiateAStarGreedyt(MaxAStarGreedy1, iiii, jjjj, aaa, Tabl, Ord, false, FOUND, LeafAStarGreedy);
 
-                //Object Om = new Object();
-                //lock (Om)
+                Object Om = new Object();
+                lock (Om)
                 {
                     MinThinkingTreeDepth = MaxAStarGreedy - MinThinkingTreeDepth;
 
@@ -18033,8 +18033,8 @@ if (Kind == 5)
                 ChessRules.CurrentOrder = Current;
                 Order = DummyOrder;
                 //Thread.Sleep(1000);
-                //Object OO = new Object();
-                //lock (OO)
+                Object OO = new Object();
+                lock (OO)
                 {
                     OutPut = "\r\nMinimum Thinking Tree Depth:" + MinThinkingTreeDepth.ToString() + "!";
                 }
@@ -18045,8 +18045,8 @@ if (Kind == 5)
 
                     try
                     {
-                        //Object OOoOO = new Object();
-                        //lock (OOoOO)
+                        Object OOoOO = new Object();
+                        lock (OOoOO)
                         {
                             OutPut = "\r\nTable Zero.Possibly Full Penalty!";
 
@@ -18077,8 +18077,8 @@ if (Kind == 5)
 
                 if (TableHuristic != null)
                 {
-                    //Object OOOOO = new Object();
-                    //lock (OOOOO)
+                    Object OOOOO = new Object();
+                    lock (OOOOO)
                     {
                         if (Order == 1)
                         {
@@ -18097,8 +18097,8 @@ if (Kind == 5)
                 }
                 else
                 {
-                    //Object OOoOO = new Object();
-                    //lock (OOoOO)
+                    Object OOoOO = new Object();
+                    lock (OOoOO)
                     {
                         //Clear AStarGreedy Varibales.
                         AllDraw.StoreADraw.Clear();
@@ -18109,8 +18109,8 @@ if (Kind == 5)
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = Current;
                 //THISDummy.Dispose();
-                //Object Omm = new Object();
-                //lock (Omm)
+                Object Omm = new Object();
+                lock (Omm)
                 {
                     DrawTable = true;
                     FoundATable = true;
@@ -18145,7 +18145,7 @@ if (Kind == 5)
                         //Situation 11.
                         if (and)
                         {
-                            //All The Brown //Object Ignored.
+                            //All The Brown Object Ignored.
                             if (Cromosom1[i, j] < 0 && Cromosom2[i, j] < 0)
                                 continue;
                         }
@@ -18452,8 +18452,8 @@ if (Kind == 5)
         }
         List<int[]> WhereNumbers(String Tag)
         {
-            //Object OOOO = new Object();
-            //lock (OOOO)
+            Object OOOO = new Object();
+            lock (OOOO)
             {
 
                 List<int[]> TagList = new List<int[]>();
@@ -18490,8 +18490,8 @@ if (Kind == 5)
         }
         String CreateHtmlTag(String Tag)
         {
-            //Object O = new Object();
-            ////lock (O)
+            Object O = new Object();
+            lock (O)
             {
                 //List<int[]> List = new List<int[]>();
                 //List = WhereNumbers(Tag);

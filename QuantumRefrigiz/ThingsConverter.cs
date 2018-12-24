@@ -58,19 +58,19 @@ namespace QuantumRefrigiz
                 if (!Convert && ActOfClickEqualTow)
                 {
                     Object O = new Object();
-                    //lock (O)
+                    lock (O)
                     {
                         AllDraw.ConvertWait = true;
                     }
 
                     Object O1 = new Object();
-                    //lock (O1)
+                    lock (O1)
                     {
                         ClickOcurred = true;
                     }
                     //Set tow time click unclicked.
                     Object O2 = new Object();
-                    //lock (O2)
+                    lock (O2)
                     {
                         ActOfClickEqualTow = false;
                     }
@@ -104,7 +104,7 @@ namespace QuantumRefrigiz
                             {
                                 if (AllDraw.OrderPlate == 1)
                                 {
-                                    while (AllDraw.ConvertedKind == -1) { //System.Threading.Thread.Sleep(100);
+                                    while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100);
                                     }
 
                                     Rand = AllDraw.ConvertedKind;
@@ -119,7 +119,7 @@ namespace QuantumRefrigiz
                                 if (AllDraw.OrderPlate == -1)
                                 {
                                     //(new FormُSelectItems()).ShowDialog();
-                                    while (AllDraw.ConvertedKind == -1) { //System.Threading.Thread.Sleep(100); 
+                                    while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100); 
                                     }
 
                                     Rand = AllDraw.ConvertedKind;
@@ -204,7 +204,7 @@ namespace QuantumRefrigiz
                                 {
                                     if (AllDraw.OrderPlate == 1)
                                     {
-                                        while (AllDraw.ConvertedKind == -1) { //System.Threading.Thread.Sleep(100); 
+                                        while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100); 
                                         }
 
                                         Rand = AllDraw.ConvertedKind;
@@ -217,7 +217,7 @@ namespace QuantumRefrigiz
                                 {
                                     if (AllDraw.OrderPlate == -1)
                                     {
-                                        while (AllDraw.ConvertedKind == -1) { //System.Threading.Thread.Sleep(100); 
+                                        while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100); 
                                         }
 
                                         Rand = AllDraw.ConvertedKind;
@@ -305,7 +305,7 @@ namespace QuantumRefrigiz
                                 {
                                     if (AllDraw.OrderPlate == 1)
                                     {
-                                        while (AllDraw.ConvertedKind == -1) { //System.Threading.Thread.Sleep(100);
+                                        while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100);
                                         }
 
                                         Rand = AllDraw.ConvertedKind;
@@ -318,7 +318,7 @@ namespace QuantumRefrigiz
                                 {
                                     if (AllDraw.OrderPlate == -1)
                                     {
-                                        while (AllDraw.ConvertedKind == -1) { //System.Threading.Thread.Sleep(100);
+                                        while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100);
                                         }
 
                                         Rand = AllDraw.ConvertedKind;
@@ -400,7 +400,7 @@ namespace QuantumRefrigiz
                 if (Convert)
                 {
                     Object O = new Object();
-                    //lock (O)
+                    lock (O)
                     {
                         TableConverted = new int[8, 8];
                         for (int iii = 0; iii < 8; iii++)
@@ -408,14 +408,14 @@ namespace QuantumRefrigiz
                                 TableConverted[iii, jjj] = Tab[iii, jjj];
                     }
                     Object O1 = new Object();
-                    //lock (O1)
+                    lock (O1)
                     {
                         LoadConvertTable = true;
                     }
 
 
                 }
-                //System.Threading.Thread.Sleep(100);
+                System.Threading.Thread.Sleep(100);
                 //return Convert State.
                 return Convert;
             }

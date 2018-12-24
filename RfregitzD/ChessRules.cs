@@ -155,8 +155,8 @@ namespace RefrigtzDLL
         {
             try
             {
-                //Object a = new Object();
-                //lock (a)
+                Object a = new Object();
+                lock (a)
                 {
                     string stackTrace = ex.ToString();
                     File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
@@ -225,8 +225,8 @@ namespace RefrigtzDLL
             , bool SelfHomeStatCP = true
             )
         {
-            //Object O = new Object();
-            //lock (O)
+            Object O = new Object();
+            lock (O)
             {
                 if (!SelfHomeStatCP)
                     IgnoreSelfObject = true;
@@ -234,8 +234,8 @@ namespace RefrigtzDLL
                     IgnoreSelfObject = false;
             }
             //Initaite Global Varibales.
-            //Object O1 = new Object();
-            //lock (O1)
+            Object O1 = new Object();
+            lock (O1)
             {
                 CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKingHaveSupporter = false;
                 CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKingHaveSupporterNumber = 0;
@@ -337,8 +337,8 @@ namespace RefrigtzDLL
                                 {
                                     if (((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond - 2, ColumnSecond] == 6 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond + 1, ColumnSecond] == 4)
                                     {
-                                        //Object O = new Object();
-                                        //lock (O)
+                                        Object O = new Object();
+                                        lock (O)
                                         {
                                             CastleActGray = true;
                                             SmallKingCastleGray = true;
@@ -361,8 +361,8 @@ namespace RefrigtzDLL
                                     {
                                         if (((RowSecond + 2) < 8) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond + 2, ColumnSecond] == 6 && Table[RowSecond + 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond - 2, ColumnSecond] == 4)
                                         {
-                                        //Object O = new Object();
-                                        //lock (O)
+                                        Object O = new Object();
+                                        lock (O)
                                         {
                                             CastleActGray = true;
                                             BigKingCastleGray = true;
@@ -396,8 +396,8 @@ namespace RefrigtzDLL
                                     if (((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && Table[RowSecond - 2, ColumnSecond] == -6 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond + 1, ColumnSecond] == -4)
                                     {
                                         //CastleActBrown = true;
-                                        //Object O1 = new Object();
-                                        //lock (O1)
+                                        Object O1 = new Object();
+                                        lock (O1)
                                         {
                                             SmallKingCastleBrown = true;
                                         }
@@ -419,8 +419,8 @@ namespace RefrigtzDLL
                                         if (((RowSecond + 2) < 8) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond + 2, ColumnSecond] == -6 && Table[RowSecond + 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond - 2, ColumnSecond] == -4)
                                         {
                                         //CastleActBrown = true;
-                                        //Object O = new Object();
-                                        //lock (O)
+                                        Object O = new Object();
+                                        lock (O)
                                         {
                                             BigKingCastleBrown = true;
                                         }
@@ -603,8 +603,8 @@ namespace RefrigtzDLL
             CheckBrownObjectDangour = false;
             int RowG = 0, ColumnG = 0;
             int RowB = 0, ColumnB = 0;
-            //Object O = new Object();
-            //lock (O)
+            Object O = new Object();
+            lock (O)
             {
                 if (DoIgnore)
                     ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = true;
@@ -760,8 +760,8 @@ namespace RefrigtzDLL
                 }
             }
             //Iniaiate Global Variables.
-            //Object O1 = new Object();
-            //lock (O1)
+            Object O1 = new Object();
+            lock (O1)
             {
                 ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = false;
             }
@@ -816,8 +816,8 @@ namespace RefrigtzDLL
             CheckBrown = false;
             CheckGrayObjectDangour = false;
             CheckBrownObjectDangour = false;
-            //Object O = new Object();
-            //lock (O)
+            Object O = new Object();
+            lock (O)
             {
                 if (DoIgnore)
                     ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = true;
@@ -1505,8 +1505,8 @@ namespace RefrigtzDLL
                 for (int j = 0; j < 8; j++)
                     Tabl[i, j] = Table[i, j];
             //Initiate Global Variables.
-            //Object O = new Object();
-            //lock (O)
+            Object O = new Object();
+            lock (O)
             {
                 CheckGrayRemovable = true;
 
@@ -1563,8 +1563,8 @@ namespace RefrigtzDLL
                                                         //Initiate and Move.
                                                         Tab[i, j] = Table[ii, jj];
                                                         Tab[ii, jj] = 0;
-                                                        //Object O1 = new Object();
-                                                        //lock (O1)
+                                                        Object O1 = new Object();
+                                                        lock (O1)
                                                         {
                                                             CheckBrownRemovableValueRowi = i;
                                                             CheckGrayRemovableValueColumni = j;
@@ -1632,8 +1632,8 @@ namespace RefrigtzDLL
                                                         //Move and Initaite Local and Global Variables.
                                                         Tab[i, j] = Table[ii, jj];
                                                         Tab[ii, jj] = 0;
-                                                        //Object O1 = new Object();
-                                                        //lock (O1)
+                                                        Object O1 = new Object();
+                                                        lock (O1)
                                                         {
                                                             CheckBrownRemovableValueRowi = i;
                                                             CheckBrownRemovableValueColumnj = j;
@@ -1716,8 +1716,8 @@ namespace RefrigtzDLL
                 for (int j = 0; j < 8; j++)
                     Table[i, j] = Tab[i, j];
             bool Pat = false;
-            //Object O = new Object();
-            //lock (O)
+            Object O = new Object();
+            lock (O)
             {
                 PatCheckedInKingRule = true;
             }
@@ -1807,8 +1807,8 @@ namespace RefrigtzDLL
                         NumbersofKingMovesToPatBrown = 0;
 
             }
-            //Object O1 = new Object();
-            //lock (O1)
+            Object O1 = new Object();
+            lock (O1)
             {
                 PatCheckedInKingRule = false;
             }
@@ -1889,8 +1889,8 @@ namespace RefrigtzDLL
             int DummyOrder = Ord;
             //Initiate Local and Global Briables.
             bool Store = ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing;
-            //Object O = new Object();
-            //lock (O)
+            Object O = new Object();
+            lock (O)
             {
                 ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = false;
             }
@@ -2266,8 +2266,8 @@ namespace RefrigtzDLL
             if (RowFirst == RowSecond && ColumnFirst == ColumnSecond)
                 return false;
             //Initiate Global Variable.
-            //Object O = new Object();
-            //lock (O)
+            Object O = new Object();
+            lock (O)
             {
                 KingAttacker = false;
             }

@@ -269,8 +269,8 @@ Double Castling
           , bool SelfHomeStatCP = true
           )
         {
-            //Object O = new Object();
-            //lock (O)
+            Object O = new Object();
+            lock (O)
             {
                 if (!SelfHomeStatCP)
                     IgnoreSelfObject = true;
@@ -278,8 +278,8 @@ Double Castling
                     IgnoreSelfObject = false;
             }
             //Initaite Global Varibales.
-            //Object O1 = new Object();
-            //lock (O1)
+            Object O1 = new Object();
+            lock (O1)
             {
                 CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKingHaveSupporter = false;
                 CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKingHaveSupporterNumber = 0;
