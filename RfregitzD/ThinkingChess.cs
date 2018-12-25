@@ -2579,25 +2579,27 @@ namespace RefrigtzDLL
                             //Calculate Local Support Huristic.
                             HA += (Sign * (System.Math.Abs((SetValueOfTabls(Tab, RowD, ColD) + SetValueOfTabls(Tab, RowS, ColS)
                             ))));
-                            /*bool Supported = new bool();
-                            Supported = false;
+                            int Supported = new int();
+                            Supported = 0;
                             //For All Self Obejcts.                                             
-                            Parallel.For(0, 8, g =>
+                            //Parallel.For(0, 8, g =>
+                            for (int g = 0; g < 8; g++)
                             {
-                                if (Supported)
-                                    return;
-                                Parallel.For(0, 8, h =>
+                                //if (Supported)
+                                //return;
+                                //Parallel.For(0, 8, h =>
+                                for (int h = 0; h < 8; h++)
                                 {
                                     Object O2 = new Object();
                                     lock (O2)
                                     {
-                                        if (Supported)
-                                            return;
+                                        //if (Supported)
+                                            //return;
                                         //Ignore Of Enemy Objects.
                                         if (Order == 1 && Tab[g, h] <= 0)
-                                            return;
+                                            continue;
                                         if (Order == -1 && Tab[g, h] >= 0)
-                                            return;
+                                            continue;
                                         Color aaa = new Color();
                                         //Assgin Enemy ints.
                                         aaa = Color.Gray;
@@ -2607,135 +2609,135 @@ namespace RefrigtzDLL
                                             aaa = Color.Gray;
                                         //When Enemy is Supported.
                                         bool A = new bool();
-                                        A = Support(Tab, g, h, RowD, ColD, aaa, Order);
+                                        A = Support(Tab, g, h, RowS, ColS, aaa, Order);
                                         //When Enemy is Supported.
                                         if (A)
                                         {
                                             //Assgine variable.
-                                            Supported = true;
-                                            return;
-
+                                            Supported++;
+                                            
                                         }
                                     }
-                                });
+                                }//);
                                 
-                                if (Supported)
-                                    return;
-                            });
+                                //if (Supported)
+                                    //return;
+                            }//);
                         
                             Object O1 = new Object();
                             lock (O1)
                             {
-                                if (Supported)
+                                if (Supported != 0)
                                     //When is Not Supported multyply 100.
-                                    HA *=2;
+                                    HA *= System.Math.Pow(2, Supported);
                                 else
                                     //When is Supported Multyply -100.
-                                    HA *=-2;
-                            }*/
+                                    HA *= ((-1) * System.Math.Pow(2, Supported));
+
+                            }
                         }
                     }
                     //For All Homes Table.
                     else
                     {
                         int Order = new int();
+                        Order = DumOrder;
                         Color a = new Color();
                         a = aa;
+
+                        //Ignore Current Unnessery Home.
+                        if (RowS == RowD && ColS == ColD)
+                            return HuristicSelfSupportedValue;
+                        //Default Is Gray One.
+                        double Sign = 1;
+                        Order = DummyOrder;
+                        ///When Supporte is true. means [RowD,ColD] Supportes [RowS,ColS].
+                        ///What is Supporte!
+                        ///Ans:When [RowS,ColS] is Supporte [RowD,ColD] return true when Self is located in [RowD,ColD].
+                        if (Tab[RowD, ColD] < 0 && DummyOrder == -1 && Tab[RowS, ColS] < 0)
                         {
-                            //Ignore Current Home.
-                            if (RowS == RowD && ColS == ColD)
-                                return HuristicSelfSupportedValue;
-                            //Initiate Local Variables.
-                            double Sign = 1;
-                            Order = DummyOrder;
-                            ///When Supporte is true. means [RowD,ColD] is in SelfSupported.by [RowS,ColS].
-                            ///What is Supporte!
-                            ///Ans:When [RowS,ColS] is Supporte [RowD,ColD] return true when Self is located in [RowD,ColD].
-                            if (Tab[RowD, ColD] < 0 && DummyOrder == -1 && Tab[RowS, ColS] < 0)
+                            Order = -1;
+                            Object O1 = new Object();
+                            lock (O1)
                             {
-                                Order = -1;
-                                Object O2 = new Object();
-                                lock (O2)
-                                {
-                                    Sign = 1 * AllDraw.SignSupport;
-                                    ChessRules.CurrentOrder = -1;
-                                    a = Color.Brown;
-                                }
+                                Sign = 1 * AllDraw.SignSupport;
+                                ChessRules.CurrentOrder = -1;
                             }
-                            else if (Tab[RowD, ColD] > 0 && DummyOrder == 1 && Tab[RowS, ColS] > 0)
+                            a = Color.Brown;
+                        }
+                        else if (Tab[RowD, ColD] > 0 && DummyOrder == 1 && Tab[RowS, ColS] > 0)
+                        {
+                            Order = 1;
+                            Object O1 = new Object();
+                            lock (O1)
                             {
-                                Order = 1;
-                                Object O2 = new Object();
-                                lock (O2)
-                                {
-                                    Sign = 1 * AllDraw.SignSupport;
-                                    ChessRules.CurrentOrder = 1;
-                                    a = Color.Gray;
-                                }
+                                Sign = 1 * AllDraw.SignSupport;
+                                ChessRules.CurrentOrder = 1;
                             }
-                            else
-                                return HuristicSelfSupportedValue;
-                            //For Support Movments.
-                            if (Support(Tab, RowS, ColS, RowD, ColD, a, Order))
+                            a = Color.Gray;
+                        }
+                        else
+                            return HuristicSelfSupportedValue;
+                        //For Support Movments.
+                        if (Support(Tab, RowS, ColS, RowD, ColD, a, Order))
+                        {
+                            //Calculate Local Support Huristic.
+                            HA += (Sign * (System.Math.Abs((SetValueOfTabls(Tab, RowD, ColD) + SetValueOfTabls(Tab, RowS, ColS)
+                            ))));
+                            int Supported = new int();
+                            Supported = 0;
+                            //For All Self Obejcts.                                             
+                            //Parallel.For(0, 8, g =>
+                            for (int g = 0; g < 8; g++)
                             {
-                                //Calculate Local Support Huristic.
-                                HA += (Sign * (System.Math.Abs((SetValueOfTabls(Tab, RowD, ColD) + SetValueOfTabls(Tab, RowS, ColS)
-                                ))));
-                            /*
-                                bool Supported = new bool();
-                                Supported = false;
-                                //For All Self Obejcts.                                             
-                                Parallel.For(0, 8, g =>
+                                //if (Supported)
+                                //return;
+                                //Parallel.For(0, 8, h =>
+                                for (int h = 0; h < 8; h++)
                                 {
-                                    if (Supported)
-                                        return;
-                                    Parallel.For(0, 8, h =>
+                                    Object O2 = new Object();
+                                    lock (O2)
+                                    {
+                                        //if (Supported)
+                                        //return;
+                                        //Ignore Of Enemy Objects.
+                                        if (Order == 1 && Tab[g, h] <= 0)
+                                            continue;
+                                        if (Order == -1 && Tab[g, h] >= 0)
+                                            continue;
+                                        Color aaa = new Color();
+                                        //Assgin Enemy ints.
+                                        aaa = Color.Gray;
+                                        if (Order == -1)
+                                            aaa = Color.Brown;
+                                        else
+                                            aaa = Color.Gray;
+                                        //When Enemy is Supported.
+                                        bool A = new bool();
+                                        A = Support(Tab, g, h, RowS, ColS, aaa, Order);
+                                        //When Enemy is Supported.
+                                        if (A)
                                         {
-                                            if (Supported)
-                                                return;
-                                            //Ignore Of Enemy Objects.
-                                            if (Order == 1 && Tab[g, h] <= 0)
-                                                return;
-                                            if (Order == -1 && Tab[g, h] >= 0)
-                                                return;
-                                            Color aaa = new Color();
-                                            //Assgin Enemy ints.
-                                            Object O2 = new Object();
-                                            lock (O2)
-                                            {
-                                                aaa = Color.Gray;
-                                                if (Order == -1)
-                                                    aaa = Color.Brown;
-                                                else
-                                                    aaa = Color.Gray;
-                                            }
-                                            //When Enemy is Supported.
-                                            bool A = new bool();
-                                            Object O1 = new Object();
-                                            lock (O1)
-                                            {
-                                                A = Support(Tab, g, h, RowD, ColD, aaa, Order);
-                                            }
-                                            //When Enemy is Supported.
-                                            if (A)
-                                            {
-                                                //Assgine variable.
-                                                Supported = true;
-                                                return;
-                                            }
-                                        });
-                                        
-                                    if (Supported)
-                                        return;
-                                });
-                        
-                                if (!Supported)
+                                            //Assgine variable.
+                                            Supported++;
+
+                                        }
+                                    }
+                                }//);
+
+                                //if (Supported)
+                                //return;
+                            }//);
+
+                            Object O1 = new Object();
+                            lock (O1)
+                            {
+                                if (Supported != 0)
                                     //When is Not Supported multyply 100.
-                                    HA *=2;
+                                    HA *= System.Math.Pow(2, Supported);
                                 else
                                     //When is Supported Multyply -100.
-                                    HA *=-2;
-                          */
+                                    HA *= ((-1) * System.Math.Pow(2, Supported));
                             }
                         }
                     }
@@ -4844,6 +4846,7 @@ namespace RefrigtzDLL
                 if (Table[i, j] > 0 && Table[ii, jj] >= 0)
                 {
                     ///When [i,j] Supporte [ii,jj].
+                    Table[ii, jj] = 0;
                     if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[i, j], Table, Order, i, j)).Rules(i, j, ii, jj, a, Table[i, j], false))
                     {
 
@@ -4858,6 +4861,7 @@ namespace RefrigtzDLL
                 ///When All is Brown.
                 if (Table[i, j] < 0 && Table[ii, jj] <= 0)
                 {
+                    Table[ii, jj] = 0;
                     ///When [i,j] Supporetd [ii,jj].
                     if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[i, j], Table, Order, i, j)).Rules(i, j, ii, jj, a, Table[i, j], false))
                     {
