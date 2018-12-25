@@ -4906,7 +4906,7 @@ namespace QuantumRefrigiz
                     for (int ColS = 0; ColS < 8; ColS++)
                         Table[RowS, ColS] = Tab[RowS, ColS];
                 ///When All Tables is Gray.
-                if (Table[i, j] > 0 && Table[ii, jj] >= 0)
+                if (Table[i, j] > 0 && Table[ii, jj] > 0)
                 {
                     ///When [i,j] Supporte [ii,jj].
                     if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[i, j], Table, Order, i, j)).Rules(i, j, ii, jj, a, Table[i, j], false))
@@ -4921,7 +4921,7 @@ namespace QuantumRefrigiz
                     for (int ColS = 0; ColS < 8; ColS++)
                         Table[RowS, ColS] = Tab[RowS, ColS];
                 ///When All is Brown.
-                if (Table[i, j] < 0 && Table[ii, jj] <= 0)
+                if (Table[i, j] < 0 && Table[ii, jj] < 0)
                 {
                     ///When [i,j] Supporetd [ii,jj].
                     if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[i, j], Table, Order, i, j)).Rules(i, j, ii, jj, a, Table[i, j], false))
