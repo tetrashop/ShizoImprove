@@ -4846,8 +4846,7 @@ namespace RefrigtzDLL
                 if (Table[i, j] > 0 && Table[ii, jj] >= 0)
                 {
                     ///When [i,j] Supporte [ii,jj].
-                    Table[ii, jj] = 0;
-                    if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[i, j], Table, Order, i, j)).Rules(i, j, ii, jj, a, Table[i, j], false))
+                     if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[i, j], Table, Order, i, j)).Rules(i, j, ii, jj, a, Table[i, j], false))
                     {
 
                         return true;
@@ -4859,10 +4858,9 @@ namespace RefrigtzDLL
                     for (int ColS = 0; ColS < 8; ColS++)
                         Table[RowS, ColS] = Tab[RowS, ColS];
                 ///When All is Brown.
-                if (Table[i, j] < 0 && Table[ii, jj] <= 0)
+                if (Table[i, j] < 0 && Table[ii, jj] < =0)
                 {
-                    Table[ii, jj] = 0;
-                    ///When [i,j] Supporetd [ii,jj].
+                   ///When [i,j] Supporetd [ii,jj].
                     if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[i, j], Table, Order, i, j)).Rules(i, j, ii, jj, a, Table[i, j], false))
                     {
                         return true;
@@ -4891,7 +4889,7 @@ namespace RefrigtzDLL
                     {
                         if (PenaltyRegardListSolder[i].IsPenaltyAction() != 0)
                         {
-                            if (Order == AllDraw.OrderPlate)
+                            if (Order != AllDraw.OrderPlate)
                             {
                                 if (Less > HuristicListSolder[i][0] +
                                     HuristicListSolder[i][1] +
@@ -4958,7 +4956,7 @@ namespace RefrigtzDLL
                     {
                         if (PenaltyRegardListElefant[i].IsPenaltyAction() != 0)
                         {
-                            if (Order == AllDraw.OrderPlate)
+                            if (Order != AllDraw.OrderPlate)
                             {
                                 if (Less > HuristicListElefant[i][0] +
                                     HuristicListElefant[i][1] +
@@ -5023,7 +5021,7 @@ namespace RefrigtzDLL
                     {
                         if (PenaltyRegardListHourse[i].IsPenaltyAction() != 0)
                         {
-                            if (Order == AllDraw.OrderPlate)
+                            if (Order != AllDraw.OrderPlate)
                             {
                                 if (Less > HuristicListHourse[i][0] +
                                     HuristicListHourse[i][1] +
@@ -5088,7 +5086,7 @@ namespace RefrigtzDLL
                     {
                         if (PenaltyRegardListCastle[i].IsPenaltyAction() != 0)
                         {
-                            if (Order == AllDraw.OrderPlate)
+                            if (Order != AllDraw.OrderPlate)
                             {
                                 if (Less > HuristicListCastle[i][0] +
                                     HuristicListCastle[i][1] +
@@ -5152,7 +5150,7 @@ namespace RefrigtzDLL
                     {
                         if (PenaltyRegardListMinister[i].IsPenaltyAction() != 0)
                         {
-                            if (Order == AllDraw.OrderPlate)
+                            if (Order != AllDraw.OrderPlate)
                             {
                                 if (Less > HuristicListMinister[i][0] +
                                     HuristicListMinister[i][1] +
@@ -5218,7 +5216,7 @@ namespace RefrigtzDLL
                     {
                         if (PenaltyRegardListKing[i].IsPenaltyAction() != 0)
                         {
-                            if (Order == AllDraw.OrderPlate)
+                            if (Order != AllDraw.OrderPlate)
                             {
                                 if (Less > HuristicListKing[i][0] +
                                     HuristicListKing[i][1] +

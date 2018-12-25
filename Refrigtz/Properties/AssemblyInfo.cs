@@ -33,6 +33,6 @@ using System.Resources;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("13.56.88.441")]
-[assembly: AssemblyFileVersion("13.56.88.441")]
+[assembly: AssemblyVersion("13.55.88.440")]
+[assembly: AssemblyFileVersion("13.55.88.440")]
 [assembly: NeutralResourcesLanguageAttribute("fa")]

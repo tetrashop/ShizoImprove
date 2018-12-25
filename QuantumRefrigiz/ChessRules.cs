@@ -235,6 +235,7 @@ namespace QuantumRefrigiz
                     IgnoreSelfObject = true;
                 else
                     IgnoreSelfObject = false;
+                    
             }
             //Initaite Global Varibales.
             Object O1 = new Object();
