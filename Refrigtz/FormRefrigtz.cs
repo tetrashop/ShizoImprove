@@ -6166,11 +6166,9 @@ namespace Refrigtz
                 double[] Hu = new double[4];
 
 
-                QuantumRefrigiz.AllDraw.Less = HuristicAttackValue + HuristicMovementValue +
+                return HuristicAttackValue + HuristicMovementValue +
                     HuristicSelfSupportedValue +
-
-                    HuristicObjectDangourCheckMateValue + HuristicReducedAttackValue + HuristicHittingValue + HeuristicDistabceOfCurrentMoveFromEnemyKingValue + HeuristicKingSafe + HeuristicFromCenter + HeuristicKingDangour;
-                return QuantumRefrigiz.AllDraw.Less;
+                    HuristicObjectDangourCheckMateValue + HuristicReducedAttackValue + HuristicHittingValue + HeuristicDistabceOfCurrentMoveFromEnemyKingValue + HeuristicKingSafe + HeuristicFromCenter + HeuristicKingDangour;                
             }
         }
         bool CheckMovment(int[,] Table, int i, int j, int ii, int jj, int Order)

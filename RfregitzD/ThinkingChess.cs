@@ -340,8 +340,10 @@ namespace RefrigtzDLL
             }
         }
         //Constructor
-        public ThinkingChess(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, int i, int j)
+        public ThinkingChess(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, int i, int j//,int Kin
+            )
         {
+            //Kind = Kin;
             Object O = new Object();
             lock (O)
             {
@@ -620,7 +622,8 @@ namespace RefrigtzDLL
                 //Assignment Content to New Content Object.
                 //Initaite New Object.
                 if (AA == null)
-                    AA = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column);
+                    AA = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column//, Kind
+                        );
                 AA.ArrangmentsChanged = ArrangmentsChanged;
                 //When Depth Object is not NULL.
                 if (AStarGreedy.Count != 0)
@@ -1195,13 +1198,7 @@ namespace RefrigtzDLL
                                             }//);
 
 
-                                            if (Reduced == 0)
-                                                //When is Not Supported multyply 100.
-                                                HA *= System.Math.Pow(2, Reduced);
-                                            else
-                                                //When is Supported Multyply -100.
-                                                HA *= (-1 * System.Math.Pow(2, Reduced));
-
+                                            HA *= System.Math.Pow(2, Reduced);
 
                                         }
                                     }
@@ -1299,12 +1296,9 @@ namespace RefrigtzDLL
                                                             }//);
 
                                                         }//);
-                                                        if (Reduced == 0)
-                                                            //When is Not Supported multyply 100.
-                                                            HA *= System.Math.Pow(2, Reduced);
-                                                        else
-                                                            //When is Supported Multyply -100.
-                                                            HA *= (-1 * System.Math.Pow(2, Reduced));
+                                                         //When is Not Supported multyply 100.
+                                                        HA *= System.Math.Pow(2, Reduced);
+
                                                     }
                                                 }
                                             }

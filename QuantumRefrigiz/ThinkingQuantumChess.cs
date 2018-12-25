@@ -341,6 +341,7 @@ namespace QuantumRefrigiz
         //Constructor
         public ThinkingQuantumChess(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, int i, int j)
         {
+            //Kind = Kin;
             Object O = new Object();
             lock (O)
             {
@@ -619,7 +620,8 @@ namespace QuantumRefrigiz
                 //Assignment Content to New Content Object.
                 //Initaite New Object.
                 if (AA == null)
-                    AA = new ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column);
+                    AA = new ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column//, Kind
+                        );
                 AA.ArrangmentsChanged = ArrangmentsChanged;
                 //When Depth Object is not NULL.
                 if (AStarGreedy.Count != 0)
@@ -1194,12 +1196,7 @@ namespace QuantumRefrigiz
                                             }//);
 
 
-                                            if (Reduced == 0)
-                                                //When is Not Supported multyply 100.
-                                                HA *= System.Math.Pow(2, Reduced);
-                                            else
-                                                //When is Supported Multyply -100.
-                                                HA *= (-1 * System.Math.Pow(2, Reduced));
+                                            HA *= System.Math.Pow(2, Reduced);
 
 
                                         }
@@ -1298,12 +1295,7 @@ namespace QuantumRefrigiz
                                                             }//);
 
                                                         }//);
-                                                        if (Reduced == 0)
-                                                            //When is Not Supported multyply 100.
-                                                            HA *= System.Math.Pow(2, Reduced);
-                                                        else
-                                                            //When is Supported Multyply -100.
-                                                            HA *= (-1 * System.Math.Pow(2, Reduced));
+                                                        HA *= System.Math.Pow(2, Reduced);
                                                     }
                                                 }
                                             }
