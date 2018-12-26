@@ -228,11 +228,26 @@ namespace RefrigtzDLL
             Object O = new Object();
             lock (O)
             {
-                if (!SelfHomeStatCP)
-                    IgnoreSelfObject = true;
+
+                if (Table[RowFirst, ColumnFirst] > 0 && Table[RowSecond, ColumnSecond] > 0)
+                {
+                    if (!SelfHomeStatCP)
+                        IgnoreSelfObject = true;
+                    else
+                        IgnoreSelfObject = false;
+                }
                 else
                     IgnoreSelfObject = false;
-                    
+
+                if (Table[RowFirst, ColumnFirst] < 0 && Table[RowSecond, ColumnSecond] < 0)
+                {
+                    if (!SelfHomeStatCP)
+                        IgnoreSelfObject = true;
+                    else
+                        IgnoreSelfObject = false;
+                }
+                else
+                    IgnoreSelfObject = false;
             }
             //Initaite Global Varibales.
             Object O1 = new Object();

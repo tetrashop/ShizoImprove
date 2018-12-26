@@ -13128,7 +13128,7 @@ if (Kind == 2)
             for (ik = 0; ik < SodierMidle; ik++)
                 try
                 {
-                    if (SolderesOnTable == null || SolderesOnTable[ik] == null)
+                    if (SolderesOnTable == null || SolderesOnTable[ik] == null || SolderesOnTable[ik].SoldierThinkingQuantum == null || SolderesOnTable[ik].SoldierThinkingQuantum[0].IsSup)
                         continue;
                     for (j = 0; j < SolderesOnTable[ik].SoldierThinkingQuantum[0].HuristicListSolder.Count; j++)
                     {
@@ -13176,7 +13176,7 @@ if (Kind == 2)
             for (ik = 0; ik < ElefantMidle; ik++)
                 try
                 {
-                    if (ElephantOnTable == null || ElephantOnTable[ik] == null)
+                    if (ElephantOnTable == null || ElephantOnTable[ik] == null || ElephantOnTable[ik].ElefantThinkingQuantum[0].IsSup)
                         continue;
                     for (j = 0; j < ElephantOnTable[ik].ElefantThinkingQuantum[0].HuristicListElefant.Count; j++)
                     {
@@ -13224,7 +13224,7 @@ if (Kind == 2)
             for (ik = 0; ik < HourseMidle; ik++)
                 try
                 {
-                    if (HoursesOnTable == null || HoursesOnTable[ik] == null)
+                    if (HoursesOnTable == null || HoursesOnTable[ik] == null || HoursesOnTable[ik].HourseThinkingQuantum[0].IsSup)
                         continue;
                     for (j = 0; j < HoursesOnTable[ik].HourseThinkingQuantum[0].HuristicListHourse.Count; j++)
                     {
@@ -13272,7 +13272,7 @@ if (Kind == 2)
             for (ik = 0; ik < CastleMidle; ik++)
                 try
                 {
-                    if (CastlesOnTable == null || CastlesOnTable[ik] == null)
+                    if (CastlesOnTable == null || CastlesOnTable[ik] == null || CastlesOnTable[ik].CastleThinkingQuantum[0].IsSup)
                         continue;
                     for (j = 0; j < CastlesOnTable[ik].CastleThinkingQuantum[0].HuristicListCastle.Count; j++)
                     {
@@ -13324,7 +13324,7 @@ if (Kind == 2)
             for (ik = 0; ik < MinisterMidle; ik++)
                 try
                 {
-                    if (MinisterOnTable == null || MinisterOnTable[ik] == null)
+                    if (MinisterOnTable == null || MinisterOnTable[ik] == null || MinisterOnTable[ik].MinisterThinkingQuantum[0].IsSup)
                         continue;
                     for (j = 0; j < MinisterOnTable[ik].MinisterThinkingQuantum[0].HuristicListMinister.Count; j++)
                     {
@@ -13375,7 +13375,7 @@ if (Kind == 2)
             for (ik = 0; ik < KingMidle; ik++)
                 try
                 {
-                    if (KingOnTable == null || KingOnTable[ik] == null)
+                    if (KingOnTable == null || KingOnTable[ik] == null || KingOnTable[ik].KingThinkingQuantum==null || KingOnTable[ik].KingThinkingQuantum[0].IsSup)
                         continue;
                     for (j = 0; j < KingOnTable[ik].KingThinkingQuantum[0].HuristicListKing.Count; j++)
                     {
@@ -13576,7 +13576,7 @@ if (Kind == 2)
             for (ik = SodierMidle; ik < SodierHigh; ik++)
                 try
                 {
-                    if (SolderesOnTable == null || SolderesOnTable[ik] == null)
+                    if (SolderesOnTable == null || SolderesOnTable[ik] == null || SolderesOnTable[ik].SoldierThinkingQuantum == null || SolderesOnTable[ik].SoldierThinkingQuantum[0] == null || SolderesOnTable[ik].SoldierThinkingQuantum[0].IsSup)
                         continue;
                     //Soldier.
                     for (j = 0; j < SolderesOnTable[ik].SoldierThinkingQuantum[0].HuristicListSolder.Count; j++)
@@ -13621,7 +13621,7 @@ if (Kind == 2)
             for (ik = ElefantMidle; ik < ElefantHigh; ik++)
                 try
                 {
-                    if (ElephantOnTable == null || ElephantOnTable[ik] == null)
+                    if (ElephantOnTable == null || ElephantOnTable[ik] == null || ElephantOnTable[ik].ElefantThinkingQuantum == null || ElephantOnTable[ik].ElefantThinkingQuantum[0] == null || ElephantOnTable[ik].ElefantThinkingQuantum[0].IsSup)
                         continue;
                     for (j = 0; j < ElephantOnTable[ik].ElefantThinkingQuantum[0].HuristicListElefant.Count; j++)
                     {
@@ -13667,7 +13667,7 @@ if (Kind == 2)
             for (ik = HourseMidle; ik < HourseHight; ik++)
                 try
                 {
-                    if (HoursesOnTable == null || HoursesOnTable[ik] == null)
+                    if (HoursesOnTable == null || HoursesOnTable[ik] == null || HoursesOnTable[ik].HourseThinkingQuantum == null || HoursesOnTable[ik].HourseThinkingQuantum[0] == null || HoursesOnTable[ik].HourseThinkingQuantum[0].IsSup)
                         continue;
                     for (j = 0; j < HoursesOnTable[ik].HourseThinkingQuantum[0].HuristicListHourse.Count; j++)
                     {
@@ -13785,7 +13785,7 @@ if (Kind == 2)
             for (ik = CastleMidle; ik < CastleHigh; ik++)
                 try
                 {
-                    if (CastlesOnTable == null || CastlesOnTable[ik] == null)
+                    if (CastlesOnTable == null || CastlesOnTable[ik] == null || CastlesOnTable[ik].CastleThinkingQuantum == null || CastlesOnTable[ik].CastleThinkingQuantum[0] == null || CastlesOnTable[ik].CastleThinkingQuantum[0].IsSup)
                         continue;
                     for (j = 0; j < CastlesOnTable[ik].CastleThinkingQuantum[0].HuristicListCastle.Count; j++)
                     {
@@ -13836,7 +13836,7 @@ if (Kind == 2)
             for (ik = MinisterMidle; ik < MinisterHigh; ik++)
                 try
                 {
-                    if (MinisterOnTable == null || MinisterOnTable[ik] == null)
+                    if (MinisterOnTable == null || MinisterOnTable[ik] == null || MinisterOnTable[ik].MinisterThinkingQuantum == null || MinisterOnTable[ik].MinisterThinkingQuantum[0] == null || MinisterOnTable[ik].MinisterThinkingQuantum[0].IsSup)
                         continue;
                     for (j = 0; j < MinisterOnTable[ik].MinisterThinkingQuantum[0].HuristicListMinister.Count; j++)
                     {
@@ -13881,7 +13881,7 @@ if (Kind == 2)
             for (ik = KingMidle; ik < KingHigh; ik++)
                 try
                 {
-                    if (KingOnTable == null || KingOnTable[ik] == null)
+                    if (KingOnTable == null || KingOnTable[ik] == null || KingOnTable[ik].KingThinkingQuantum == null || KingOnTable[ik].KingThinkingQuantum[0] == null || KingOnTable[ik].KingThinkingQuantum[0] == null || KingOnTable[ik].KingThinkingQuantum[0].IsSup)
                         continue;
                     for (j = 0; j < KingOnTable[ik].KingThinkingQuantum[0].HuristicListKing.Count; j++)
                     {
@@ -14651,7 +14651,7 @@ if (Kind == 2)
                     //Parallel.For(0, SodierMidle, ik =>
                     for (int ik = 0; ik < SodierMidle; ik++)
                     {
-                        if (SolderesOnTable != null && SolderesOnTable[ik] != null)
+                        if (SolderesOnTable != null && SolderesOnTable[ik] != null && SolderesOnTable[ik].SoldierThinkingQuantum != null && SolderesOnTable[ik].SoldierThinkingQuantum[0] != null && (!SolderesOnTable[ik].SoldierThinkingQuantum[0].IsSup))
                         {
                             Object O = new Object();
                             lock (O)
@@ -14967,7 +14967,7 @@ if (Kind == 2)
                     //Parallel.For(0, ElefantMidle, ik =>
                     for (int ik = 0; ik < ElefantMidle; ik++)
                     {
-                        if (ElephantOnTable != null && ElephantOnTable[ik] != null)
+                        if (ElephantOnTable != null && ElephantOnTable[ik] != null && ElephantOnTable[ik].ElefantThinkingQuantum != null && ElephantOnTable[ik].ElefantThinkingQuantum[0] != null && (!ElephantOnTable[ik].ElefantThinkingQuantum[0].IsSup))
                         {
                             Object O = new Object();
                             lock (O)
@@ -15288,7 +15288,7 @@ if (Kind == 2)
                     //Parallel.For(0, HourseMidle, ik =>
                     for (int ik = 0; ik < HourseMidle; ik++)
                     {
-                        if (HoursesOnTable != null && HoursesOnTable[ik] != null)
+                        if (HoursesOnTable != null && HoursesOnTable[ik] != null && HoursesOnTable[ik].HourseThinkingQuantum != null && HoursesOnTable[ik].HourseThinkingQuantum[0] != null && (!HoursesOnTable[ik].HourseThinkingQuantum[0].IsSup))
                         {
                             Object O = new Object();
                             lock (O)
@@ -15601,7 +15601,7 @@ if (Kind == 2)
                     //Parallel.For(0, CastleMidle, ik =>
                     for (int ik = 0; ik < CastleMidle; ik++)
                     {
-                        if (CastlesOnTable != null && CastlesOnTable[ik] != null)
+                        if (CastlesOnTable != null && CastlesOnTable[ik] != null && CastlesOnTable[ik].CastleThinkingQuantum != null && CastlesOnTable[ik].CastleThinkingQuantum[0] != null && (!CastlesOnTable[ik].CastleThinkingQuantum[0].IsSup))
                         {
                             Object O = new Object();
                             lock (O)
@@ -15915,7 +15915,7 @@ if (Kind == 2)
                     //Parallel.For(0, MinisterMidle, ik =>
                     for (int ik = 0; ik < MinisterMidle; ik++)
                     {
-                        if (MinisterOnTable != null && MinisterOnTable[ik] != null)
+                        if (MinisterOnTable != null && MinisterOnTable[ik] != null && MinisterOnTable[ik].MinisterThinkingQuantum != null && MinisterOnTable[ik].MinisterThinkingQuantum[0] != null && (!MinisterOnTable[ik].MinisterThinkingQuantum[0].IsSup))
                         {
                             Object O = new Object();
                             lock (O)
@@ -16215,7 +16215,7 @@ if (Kind == 2)
                     //Parallel.For(0, KingMidle, ik =>
                     for (int ik = 0; ik < KingMidle; ik++)
                     {
-                        if (KingOnTable != null && KingOnTable[ik] != null)
+                        if (KingOnTable != null && KingOnTable[ik] != null && KingOnTable[ik].KingThinkingQuantum != null && KingOnTable[ik].KingThinkingQuantum[0] != null && (!KingOnTable[ik].KingThinkingQuantum[0].IsSup))
                         {
                             Object O = new Object();
                             lock (O)
@@ -16241,7 +16241,7 @@ if (Kind == 2)
                     //Parallel.For(SodierMidle, SodierHigh, ik =>
                     for (int ik = SodierMidle; ik < SodierHigh; ik++)
                     {
-                        if (SolderesOnTable != null && SolderesOnTable[ik] != null)
+                        if (SolderesOnTable != null && SolderesOnTable[ik] != null && SolderesOnTable[ik].SoldierThinkingQuantum != null && SolderesOnTable[ik].SoldierThinkingQuantum[0] != null && (!SolderesOnTable[ik].SoldierThinkingQuantum[0].IsSup))
                         {
                             //Soldier.
                             Object O = new Object();
@@ -16269,7 +16269,7 @@ if (Kind == 2)
                     //Parallel.For(ElefantMidle, ElefantHigh, ik =>
                     for (int ik = ElefantMidle; ik < ElefantHigh; ik++)
                     {
-                        if (ElephantOnTable != null && ElephantOnTable[ik] != null)
+                        if (ElephantOnTable != null && ElephantOnTable[ik] != null && ElephantOnTable[ik].ElefantThinkingQuantum != null && ElephantOnTable[ik].ElefantThinkingQuantum[0] != null && (!ElephantOnTable[ik].ElefantThinkingQuantum[0].IsSup))
                         {
                             Object O = new Object();
                             lock (O)
@@ -16295,7 +16295,7 @@ if (Kind == 2)
                     //Parallel.For(HourseMidle, HourseHight, ik =>
                     for (int ik = HourseMidle; ik < HourseHight; ik++)
                     {
-                        if (HoursesOnTable != null && HoursesOnTable[ik] != null)
+                        if (HoursesOnTable != null && HoursesOnTable[ik] != null && HoursesOnTable[ik].HourseThinkingQuantum != null && HoursesOnTable[ik].HourseThinkingQuantum[0] != null && (!HoursesOnTable[ik].HourseThinkingQuantum[0].IsSup))
                         {
                             Object O = new Object();
                             lock (O)
@@ -16321,7 +16321,7 @@ if (Kind == 2)
                     //Parallel.For(CastleMidle, CastleHigh, ik =>
                     for (int ik = CastleMidle; ik < CastleHigh; ik++)
                     {
-                        if (CastlesOnTable != null && CastlesOnTable[ik] != null)
+                        if (CastlesOnTable != null && CastlesOnTable[ik] != null && CastlesOnTable[ik].CastleThinkingQuantum != null && CastlesOnTable[ik].CastleThinkingQuantum[0] != null && (!CastlesOnTable[ik].CastleThinkingQuantum[0].IsSup))
                         {
                             Object O = new Object();
                             lock (O)
@@ -16348,7 +16348,7 @@ if (Kind == 2)
                     //Parallel.For(MinisterMidle, MinisterHigh, ik =>
                     for (int ik = MinisterMidle; ik < MinisterHigh; ik++)
                     {
-                        if (MinisterOnTable != null && MinisterOnTable[ik] != null)
+                        if (MinisterOnTable != null && MinisterOnTable[ik] != null && MinisterOnTable[ik].MinisterThinkingQuantum != null && MinisterOnTable[ik].MinisterThinkingQuantum[0] != null && (!MinisterOnTable[ik].MinisterThinkingQuantum[0].IsSup))
                         {
                             Object O = new Object();
                             lock (O)
@@ -16375,7 +16375,7 @@ if (Kind == 2)
                     for (int ik = KingMidle; ik < KingHigh; ik++)
                     {
 
-                        if (KingOnTable != null && KingOnTable[ik] != null)
+                        if (KingOnTable != null && KingOnTable[ik] != null && KingOnTable[ik].KingThinkingQuantum != null && KingOnTable[ik].KingThinkingQuantum[0] != null && (!KingOnTable[ik].KingThinkingQuantum[0].IsSup))
                         {
                             Object O = new Object();
                             lock (O)

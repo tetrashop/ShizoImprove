@@ -59,10 +59,11 @@ namespace GalleryStudio
                 RefrigtzDLL.AllDraw Current = new RefrigtzDLL.AllDraw(Order, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT);
             }
         }
-       
-        
+
+
         public RefrigtzDLL.AllDraw GetRefregiz(int No)
-        { Object o = new Object();
+        {
+            Object o = new Object();
             lock (o)
             {
 
