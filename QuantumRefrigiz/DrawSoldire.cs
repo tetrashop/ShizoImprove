@@ -38,6 +38,7 @@ namespace QuantumRefrigiz
         public int Order = 0;
         public int Current = 0;
         int CurrentAStarGredyMax = -1;
+        
         static void Log(Exception ex)
         {
             try
@@ -146,8 +147,9 @@ namespace QuantumRefrigiz
                 if (i >= 8 || j >= 8)
                     i = 7;
                 for (int ii = 0; ii < AllDraw.SodierMovments; ii++)
-
-                    SoldierThinkingQuantum[ii] = new ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 4, Ord, TB, Cur, 16, 1);
+                {
+                    SoldierThinkingQuantum[ii] = new ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 4, Ord, TB, Cur, 16, 1);                    
+                }
                 RowS = i;
                 ColumnS = j;
                 color = a;

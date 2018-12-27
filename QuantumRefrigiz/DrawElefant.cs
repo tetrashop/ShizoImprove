@@ -37,6 +37,7 @@ namespace QuantumRefrigiz
         public int Current = 0;
         public int Order;
         int CurrentAStarGredyMax = -1;
+
         static void Log(Exception ex)
         {
             try
