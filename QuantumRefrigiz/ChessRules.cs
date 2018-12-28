@@ -342,7 +342,7 @@ namespace QuantumRefrigiz
                 if (Order == 1)
                 {
                     //When Gray Castles Not Act.
-                    if (ChessRules.CastleKingAllowedGray)
+                    if (QuantumRefrigiz.ChessRules.CastleKingAllowedGray)
                     {
                         //If Column is At First Location.
                         if (ColumnFirst == 0 && ColumnSecond == 0)
@@ -400,7 +400,7 @@ namespace QuantumRefrigiz
                 else//Order of Brown.
                 {
                     //When Brown Castles King Not Occured.
-                    if (ChessRules.CastleKingAllowedBrown)
+                    if (QuantumRefrigiz.ChessRules.CastleKingAllowedBrown)
                     {
                         //Column Situation.
                         if (ColumnFirst == 7 && ColumnSecond == 7)
@@ -460,7 +460,7 @@ namespace QuantumRefrigiz
                 if (Order == 1)
                 {
                     //When Gray Castles Not Act.
-                    if (ChessRules.CastleKingAllowedGray)
+                    if (QuantumRefrigiz.ChessRules.CastleKingAllowedGray)
                     {
                         //If Column is At First Location.
                         if (ColumnFirst == 7 && ColumnSecond == 7)
@@ -510,7 +510,7 @@ namespace QuantumRefrigiz
                 else//Order of Brown.
                 {
                     //When Brown Castles King Not Occured.
-                    if (ChessRules.CastleKingAllowedBrown)
+                    if (QuantumRefrigiz.ChessRules.CastleKingAllowedBrown)
                     {
                         //Column Situation.
                         if (ColumnFirst == 0 && ColumnSecond == 0)
@@ -625,7 +625,7 @@ namespace QuantumRefrigiz
             lock (O)
             {
                 if (DoIgnore)
-                    ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = true;
+                    QuantumRefrigiz.ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = true;
             }
             //Check identification.
             Check(Tab, Order);
@@ -642,7 +642,7 @@ namespace QuantumRefrigiz
                 return true;
 
             }
-            int CDummy = ChessRules.CurrentOrder;
+            int CDummy = QuantumRefrigiz.ChessRules.CurrentOrder;
             int COrder = Order;
             if (Order == 1)
             {
@@ -654,9 +654,9 @@ namespace QuantumRefrigiz
                     {
                         for (int jj = 0; jj < 8; jj++)
                         {
-                            for (int i = 0; i < 8; i++)
-                                for (int j = 0; j < 8; j++)
-                                    Tab[i, j] = Table[i, j];
+                            //for (int i = 0; i < 8; i++)
+                                //for (int j = 0; j < 8; j++)
+                                    //Tab[i, j] = Table[i, j];
                             //Ignore Gray.
                             if (Tab[ii, jj] >= 0)
                                 continue;
@@ -671,11 +671,11 @@ namespace QuantumRefrigiz
                                     //Ignore Brown.
                                     if (Tab[iii, jjj] < 0)
                                         continue;
-                                    ThinkingQuantumChess AA = new ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
+                                    QuantumRefrigiz.ThinkingQuantumChess AA = new QuantumRefrigiz.ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
                                     //When There is Attacked to Gray from Brown.
                                     if (AA.Attack(Tab, ii, jj, iii, jjj, Color.Brown, Order * -1))
                                     {
-                                        /*
+
                                         //Move.
                                         int a = Tab[iii, jjj];
                                         Tab[iii, jjj] = Tab[ii, jj];
@@ -684,15 +684,18 @@ namespace QuantumRefrigiz
                                         for (int h = 0; h < 8; h++)
                                             for (int g = 0; g < 8; g++)
                                                 Tabl[h, g] = Tab[h, g];
-                                        ChessRules AAA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tabl[iii, jjj], Tabl, Order, iii, jjj);
+                                        QuantumRefrigiz.ChessRules AAA = new QuantumRefrigiz.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tabl[iii, jjj], Tabl, Order, iii, jjj);
                                         //When there is checked or checkmate.
-                                        if (AAA.Check(Tabl, Order))
+                                        if (AAA.CheckMate(Tabl, Order))
                                         {
-                                            CheckGrayObjectDangour = true;
-                                            break;
+                                            if (AAA.CheckMateGray)
+                                            {
+                                                CheckGrayObjectDangour = true;
+                                                break;
+                                            }
                                         }
-                                         */
-                                        CheckGrayObjectDangour = true;
+
+                                        //CheckGrayObjectDangour = true;
                                     }
                                     if (CheckGrayObjectDangour)
                                         break;
@@ -737,28 +740,31 @@ namespace QuantumRefrigiz
                                     if (Tab[iii, jjj] > 0)
                                         continue;
 
-                                    ThinkingQuantumChess AA = new ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
+                                    QuantumRefrigiz.ThinkingQuantumChess AA = new QuantumRefrigiz.ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
                                     //Wehn There is Attack to Brwon.
                                     if (AA.Attack(Tab, ii, jj, iii, jjj, Color.Gray, Order * -1))
                                     {
                                         //Move
-                                        /*int a = Tab[iii, jjj];
+                                        int a = Tab[iii, jjj];
                                         Tab[iii, jjj] = Tab[ii, jj];
                                         Tab[ii, jj] = 0;
                                         int[,] Tabl = new int[8, 8];
                                         for (int h = 0; h < 8; h++)
                                             for (int g = 0; g < 8; g++)
                                                 Tabl[h, g] = Tab[h, g];
-                                        ChessRules AAA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tabl[iii, jjj], Tabl, Order, iii, jjj);
+                                        QuantumRefrigiz.ChessRules AAA = new QuantumRefrigiz.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tabl[iii, jjj], Tabl, Order, iii, jjj);
                                         //When There is Check or Checkedmate
-                                        if (AAA.Check(Tab, Order))
+                                        if (AAA.CheckMate(Tab, Order))
                                         {
-                                            CheckBrownObjectDangour = true;
-                                            break;
+                                            if (AAA.CheckMateBrown)
+                                            {
+                                                CheckBrownObjectDangour = true;
+                                                break;
+                                            }
 
                                         }
-                                        */
-                                        CheckBrownObjectDangour = true;
+
+                                        //CheckBrownObjectDangour = true;
 
                                     }
                                     if (CheckBrownObjectDangour)
@@ -781,20 +787,20 @@ namespace QuantumRefrigiz
             Object O1 = new Object();
             lock (O1)
             {
-                ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = false;
+                QuantumRefrigiz.ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = false;
             }
             //If There is Brown ObjectDanger Or Gray ObjectDanger.
             if (CheckBrownObjectDangour || CheckGrayObjectDangour)
             {
                 //Iniaate Global Check Variable By Local Variables.
-                ChessRules.CurrentOrder = CDummy;
+                QuantumRefrigiz.ChessRules.CurrentOrder = CDummy;
                 Order = COrder;
                 CheckGray = CheckGrayDummy;
                 CheckBrown = CheckBrownDummy;
                 //Achamz is Validity.
                 return true;
             }
-            ChessRules.CurrentOrder = CDummy;
+            QuantumRefrigiz.ChessRules.CurrentOrder = CDummy;
             Order = COrder;
 
             //Iniatiate Of Global Varibales By Local Variables.
@@ -838,7 +844,7 @@ namespace QuantumRefrigiz
             lock (O)
             {
                 if (DoIgnore)
-                    ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = true;
+                    QuantumRefrigiz.ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = true;
             }
 
             //Check identification.
@@ -856,14 +862,14 @@ namespace QuantumRefrigiz
                 return true;
 
             }
-            int CDummy = ChessRules.CurrentOrder;
+            int CDummy = QuantumRefrigiz.ChessRules.CurrentOrder;
             int COrder = Order;
 
             //Location of King Gary
 
             {
                 //Iniatite Global Varibales.
-                ChessRules.CurrentOrder = -1;
+                QuantumRefrigiz.ChessRules.CurrentOrder = -1;
                 Order = -1;
                 //For Enemies.
                 for (int i = 0; i < 8; i++)
@@ -891,7 +897,7 @@ namespace QuantumRefrigiz
                                 for (int ik = 0; ik < 8; ik++)
                                     for (int jk = 0; jk < 8; jk++)
                                         Tab[ik, jk] = Table[ik, jk];
-                                ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tab[i, j], Tab, Order * -1, i, j);
+                                QuantumRefrigiz.ChessRules A = new QuantumRefrigiz.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tab[i, j], Tab, Order * -1, i, j);
                                 Color a = Color.Gray;
                                 if (Order * -1 == -1)
                                     a = Color.Brown;
@@ -930,7 +936,7 @@ namespace QuantumRefrigiz
                                                             Tab[iii, jjj] = Tab[i, j];
                                                             Tab[i, j] = 0;
 
-                                                            A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tab[iiii, jjjj], Tab, Order, iiii, jjjj);
+                                                            A = new QuantumRefrigiz.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tab[iiii, jjjj], Tab, Order, iiii, jjjj);
                                                             if (A.Rules(iiii, jjjj, iiiii, jjjjj, a, Tab[i, j]))
                                                             {
                                                                 Tab[iiiii, jjjjj] = Tab[iiii, jjjj];
@@ -943,7 +949,7 @@ namespace QuantumRefrigiz
                                                                     CheckMateBrown = A.CheckMateBrown;
                                                                     CheckGrayObjectDangour = A.CheckGrayObjectDangour;
                                                                     CheckBrownObjectDangour = A.CheckBrownObjectDangour;
-                                                                    ChessRules.CurrentOrder = CDummy;
+                                                                    QuantumRefrigiz.ChessRules.CurrentOrder = CDummy;
                                                                     Order = COrder;
                                                                     return true;
                                                                 }
@@ -984,7 +990,7 @@ namespace QuantumRefrigiz
                                                                 Tab[iii, jjj] = Tab[i, j];
                                                                 Tab[i, j] = 0;
 
-                                                                A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tab[iiii, jjjj], Tab, Order, iiii, jjjj);
+                                                                A = new QuantumRefrigiz.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tab[iiii, jjjj], Tab, Order, iiii, jjjj);
                                                                 if (A.Rules(iiii, jjjj, iiiii, jjjjj, a, Tab[i, j]))
                                                                 {
                                                                     Tab[iiiii, jjjjj] = Tab[iiii, jjjj];
@@ -997,7 +1003,7 @@ namespace QuantumRefrigiz
                                                                         CheckMateBrown = A.CheckMateBrown;
                                                                         CheckGrayObjectDangour = A.CheckGrayObjectDangour;
                                                                         CheckBrownObjectDangour = A.CheckBrownObjectDangour;
-                                                                        ChessRules.CurrentOrder = CDummy;
+                                                                        QuantumRefrigiz.ChessRules.CurrentOrder = CDummy;
                                                                         Order = COrder;
                                                                         return true;
                                                                     }
@@ -1020,7 +1026,7 @@ namespace QuantumRefrigiz
 
             }
 
-            ChessRules.CurrentOrder = CDummy;
+            QuantumRefrigiz.ChessRules.CurrentOrder = CDummy;
             Order = COrder;
 
             //Iniatiate Of Global Varibales By Local Variables.
@@ -1123,9 +1129,9 @@ namespace QuantumRefrigiz
 
 
                 //Consider CheckMate Condition of Table.
-                ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, Arrange, 1, Tab, 1, Row, Column);
-                ChessRules AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, Arrange, 1, Tab, 1, Row, Column);
-                ChessRules AAA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, Arrange, 1, Tab, 1, Row, Column);
+                QuantumRefrigiz.ChessRules A = new QuantumRefrigiz.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, Arrange, 1, Tab, 1, Row, Column);
+                QuantumRefrigiz.ChessRules AA = new QuantumRefrigiz.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, Arrange, 1, Tab, 1, Row, Column);
+                QuantumRefrigiz.ChessRules AAA = new QuantumRefrigiz.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, Arrange, 1, Tab, 1, Row, Column);
                 A.CheckMate(Tab, Order);
                 AA.ObjectDangourKingMove(Order, Tab, false);
                 Color a = Color.Gray;
@@ -1137,9 +1143,9 @@ namespace QuantumRefrigiz
                     Object O2 = new Object();
                     lock (O2)
                     {
-                        ChessRules.CastleKingAllowedGray = false;
-                        ChessRules.CastleActGray = true;
-                        ThinkingQuantumChess.KingMaovableGray = true;
+                        QuantumRefrigiz.ChessRules.CastleKingAllowedGray = false;
+                        QuantumRefrigiz.ChessRules.CastleActGray = true;
+                        QuantumRefrigiz.ThinkingQuantumChess.KingMaovableGray = true;
                     }
                 }
                 else if (A.CheckBrown)
@@ -1147,17 +1153,17 @@ namespace QuantumRefrigiz
                     Object O2 = new Object();
                     lock (O2)
                     {
-                        ChessRules.CastleActBrown = true;
-                        ChessRules.CastleKingAllowedBrown = false;
-                        ThinkingQuantumChess.KingMaovableBrown = true;
+                        QuantumRefrigiz.ChessRules.CastleActBrown = true;
+                        QuantumRefrigiz.ChessRules.CastleKingAllowedBrown = false;
+                        QuantumRefrigiz.ThinkingQuantumChess.KingMaovableBrown = true;
                     }
                 }
                 bool Castles = false;
                 if (Order == 1)
-                    if (ChessRules.SmallKingCastleGray || ChessRules.BigKingCastleGray)
+                    if (QuantumRefrigiz.ChessRules.SmallKingCastleGray || QuantumRefrigiz.ChessRules.BigKingCastleGray)
                         Castles = true;
                 if (Order == -1)
-                    if (ChessRules.SmallKingCastleBrown || ChessRules.BigKingCastleBrown)
+                    if (QuantumRefrigiz.ChessRules.SmallKingCastleBrown || QuantumRefrigiz.ChessRules.BigKingCastleBrown)
                         Castles = true;
                 //When Solder Converted or Castles King Acts.
                 if (SodierConvert || (CastleKing && Castles))
@@ -1166,66 +1172,66 @@ namespace QuantumRefrigiz
                     if (CastleKing)
                     {
                         //Castles Brown King.
-                        if (ChessRules.SmallKingCastleGray)
+                        if (QuantumRefrigiz.ChessRules.SmallKingCastleGray)
                         {
                             Object O2 = new Object();
                             lock (O2)
                             {
-                                ThinkingQuantumChess.KingMaovableGray = true;
+                                QuantumRefrigiz.ThinkingQuantumChess.KingMaovableGray = true;
                                 S += "Gray-BK-S";
                                 Object O = new Object();
                                 lock (O)
                                 {
                                     if (!AllDraw.Stockfish)
                                     {
-                                        ChessRules.SmallKingCastleGray = false;
-                                        ChessRules.CastleKingAllowedGray = false;
+                                        QuantumRefrigiz.ChessRules.SmallKingCastleGray = false;
+                                        QuantumRefrigiz.ChessRules.CastleKingAllowedGray = false;
                                     }
                                 }
                             }
                         }
                         else
-                            if (ChessRules.BigKingCastleGray)
+                            if (QuantumRefrigiz.ChessRules.BigKingCastleGray)
                         //Castles Brown King.                    
                         {
                             Object O2 = new Object();
                             lock (O2)
                             {
                                 S += "Gray-BK-B";
-                                ThinkingQuantumChess.KingMaovableGray = true;
+                                QuantumRefrigiz.ThinkingQuantumChess.KingMaovableGray = true;
                                 Object O = new Object();
                                 lock (O)
                                 {
                                     if (!AllDraw.Stockfish)
                                     {
-                                        ChessRules.BigKingCastleGray = false;
-                                        ChessRules.CastleKingAllowedGray = false;
+                                        QuantumRefrigiz.ChessRules.BigKingCastleGray = false;
+                                        QuantumRefrigiz.ChessRules.CastleKingAllowedGray = false;
                                     }
                                 }
                             }
                         }
                         else
-                                if (ChessRules.SmallKingCastleBrown)
+                                if (QuantumRefrigiz.ChessRules.SmallKingCastleBrown)
                         //Castles Brown King.                    
                         {
                             Object O2 = new Object();
                             lock (O2)
                             {
                                 S += "Brown-BK-S";
-                                ThinkingQuantumChess.KingMaovableBrown = true;
+                                QuantumRefrigiz.ThinkingQuantumChess.KingMaovableBrown = true;
                                 Object O = new Object();
                                 lock (O)
                                 {
                                     if (!AllDraw.Stockfish)
                                     {
-                                        ChessRules.SmallKingCastleBrown = false;
-                                        ChessRules.CastleKingAllowedBrown = false;
+                                        QuantumRefrigiz.ChessRules.SmallKingCastleBrown = false;
+                                        QuantumRefrigiz.ChessRules.CastleKingAllowedBrown = false;
                                     }
                                 }
                             }
                         }
                         else
-                                    if (ChessRules.BigKingCastleBrown)
+                                    if (QuantumRefrigiz.ChessRules.BigKingCastleBrown)
                         //Castles Brown King.                    
                         {
 
@@ -1233,14 +1239,14 @@ namespace QuantumRefrigiz
                             lock (O2)
                             {
                                 S += "Brown-BK-B";
-                                ThinkingQuantumChess.KingMaovableBrown = true;
+                                QuantumRefrigiz.ThinkingQuantumChess.KingMaovableBrown = true;
                                 Object O = new Object();
                                 lock (O)
                                 {
                                     if (!AllDraw.Stockfish)
                                     {
-                                        ChessRules.BigKingCastleBrown = false;
-                                        ChessRules.CastleKingAllowedBrown = false;
+                                        QuantumRefrigiz.ChessRules.BigKingCastleBrown = false;
+                                        QuantumRefrigiz.ChessRules.CastleKingAllowedBrown = false;
                                     }
                                 }
                             }
@@ -1289,9 +1295,9 @@ namespace QuantumRefrigiz
                                 Object O2 = new Object();
                                 lock (O2)
                                 {
-                                    ThinkingQuantumChess.KingMaovableBrown = true;
-                                    ChessRules.BigKingCastleBrown = false;
-                                    ChessRules.CastleKingAllowedBrown = false;
+                                    QuantumRefrigiz.ThinkingQuantumChess.KingMaovableBrown = true;
+                                    QuantumRefrigiz.ChessRules.BigKingCastleBrown = false;
+                                    QuantumRefrigiz.ChessRules.CastleKingAllowedBrown = false;
                                 }
                             }
                             if (A.CheckGray && Order == 1)
@@ -1299,9 +1305,9 @@ namespace QuantumRefrigiz
                                 Object O2 = new Object();
                                 lock (O2)
                                 {
-                                    ThinkingQuantumChess.KingMaovableGray = true;
-                                    ChessRules.BigKingCastleGray = false;
-                                    ChessRules.CastleKingAllowedGray = false;
+                                    QuantumRefrigiz.ThinkingQuantumChess.KingMaovableGray = true;
+                                    QuantumRefrigiz.ChessRules.BigKingCastleGray = false;
+                                    QuantumRefrigiz.ChessRules.CastleKingAllowedGray = false;
                                 }
                             }
                         }
@@ -1313,7 +1319,7 @@ namespace QuantumRefrigiz
                                 Object O2 = new Object();
                                 lock (O2)
                                 {
-                                    ThinkingQuantumChess.KingMaovableBrown = true;
+                                    QuantumRefrigiz.ThinkingQuantumChess.KingMaovableBrown = true;
 
                                 }
                             }
@@ -1322,7 +1328,7 @@ namespace QuantumRefrigiz
                                 Object O2 = new Object();
                                 lock (O2)
                                 {
-                                    ThinkingQuantumChess.KingMaovableGray = true;
+                                    QuantumRefrigiz.ThinkingQuantumChess.KingMaovableGray = true;
 
                                 }
                             }
@@ -1369,9 +1375,9 @@ namespace QuantumRefrigiz
                             Object O2 = new Object();
                             lock (O2)
                             {
-                                ChessRules.BigKingCastleBrown = false;
-                                ChessRules.CastleKingAllowedBrown = false;
-                                ThinkingQuantumChess.KingMaovableGray = true;
+                                QuantumRefrigiz.ChessRules.BigKingCastleBrown = false;
+                                QuantumRefrigiz.ChessRules.CastleKingAllowedBrown = false;
+                                QuantumRefrigiz.ThinkingQuantumChess.KingMaovableGray = true;
 
                             }
                         }
@@ -1380,9 +1386,9 @@ namespace QuantumRefrigiz
                             Object O2 = new Object();
                             lock (O2)
                             {
-                                ChessRules.BigKingCastleGray = false;
-                                ChessRules.CastleKingAllowedGray = false;
-                                ThinkingQuantumChess.KingMaovableGray = true;
+                                QuantumRefrigiz.ChessRules.BigKingCastleGray = false;
+                                QuantumRefrigiz.ChessRules.CastleKingAllowedGray = false;
+                                QuantumRefrigiz.ThinkingQuantumChess.KingMaovableGray = true;
 
                             }
                         }
@@ -1395,7 +1401,7 @@ namespace QuantumRefrigiz
                             Object O2 = new Object();
                             lock (O2)
                             {
-                                ThinkingQuantumChess.KingMaovableBrown = true;
+                                QuantumRefrigiz.ThinkingQuantumChess.KingMaovableBrown = true;
 
                             }
                         }
@@ -1404,7 +1410,7 @@ namespace QuantumRefrigiz
                             Object O2 = new Object();
                             lock (O2)
                             {
-                                ThinkingQuantumChess.KingMaovableGray = true;
+                                QuantumRefrigiz.ThinkingQuantumChess.KingMaovableGray = true;
 
                             }
                         }
@@ -1473,7 +1479,7 @@ namespace QuantumRefrigiz
                                 for (int jj = 0; jj < 8; jj++)
                                 {
                                     //If First Home is Movable to Second Home.
-                                    if ((new ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, i, j)).Movable(Table, i, j, ii, jj, A, Order))
+                                    if ((new QuantumRefrigiz.ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, i, j)).Movable(Table, i, j, ii, jj, A, Order))
                                     {
                                         //If Array Exist in Home.
                                         if (ArrayInList(List, AA))
@@ -1558,7 +1564,7 @@ namespace QuantumRefrigiz
                                                 Tab[iii, jjj] = Table[iii, jjj];
                                             }
                                         //If Is Movable.
-                                        if ((new ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, i, j)).Movable(Tab, i, j, ii, jj, Color.Brown, -1))
+                                        if ((new QuantumRefrigiz.ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, i, j)).Movable(Tab, i, j, ii, jj, Color.Brown, -1))
                                         {
                                             //Clone a Copy.
                                             for (int iii = 0; iii < 8; iii++)
@@ -1628,7 +1634,7 @@ namespace QuantumRefrigiz
                                                 Tab[iii, jjj] = Table[iii, jjj];
                                             }
                                         //Moveable Movemnts in the Tow Traversal Kind.
-                                        if ((new ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, i, j)).Movable(Tab, i, j, ii, jj, Color.Gray, 1))
+                                        if ((new QuantumRefrigiz.ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, i, j)).Movable(Tab, i, j, ii, jj, Color.Gray, 1))
                                         {
                                             for (int iii = 0; iii < 8; iii++)
                                                 for (int jjj = 0; jjj < 8; jjj++)
@@ -1681,11 +1687,11 @@ namespace QuantumRefrigiz
         }
         bool[,] VeryFye(int[,] Table, int Order, Color a, int ii, int jj)
         {
-            int Cdummy = ChessRules.CurrentOrder;
+            int Cdummy = QuantumRefrigiz.ChessRules.CurrentOrder;
             if (Order == 1)
-                ChessRules.CurrentOrder = 1;
+                QuantumRefrigiz.ChessRules.CurrentOrder = 1;
             else
-                ChessRules.CurrentOrder = -1;
+                QuantumRefrigiz.ChessRules.CurrentOrder = -1;
             bool[,] Tab = new bool[8, 8];
             for (int i = 0; i < 8; i++)
                 for (int j = 0; j < 8; j++)
@@ -1694,16 +1700,16 @@ namespace QuantumRefrigiz
                         continue;
 
 
-                    if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[ii, jj], Table, Order, ii, jj)).Rules(ii, jj, i, j, a, Table[ii, jj]))
+                    if ((new QuantumRefrigiz.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[ii, jj], Table, Order, ii, jj)).Rules(ii, jj, i, j, a, Table[ii, jj]))
                     {
                         Tab[i, j] = true;
                     }
-                    if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[ii, jj], Table, Order, ii, jj)).Rules(ii, jj, i, j, a, Table[ii, jj]))
+                    if ((new QuantumRefrigiz.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[ii, jj], Table, Order, ii, jj)).Rules(ii, jj, i, j, a, Table[ii, jj]))
                     {
                         Tab[i, j] = true;
                     }
                 }
-            ChessRules.CurrentOrder = Cdummy;
+            QuantumRefrigiz.ChessRules.CurrentOrder = Cdummy;
             return Tab;
         }
         public bool OnlyKingMovable(int[,] Tab, bool[,] TabB, int Order)
@@ -1853,8 +1859,8 @@ namespace QuantumRefrigiz
                     if (Ord == -1 & Tab[i, j] >= 0)
                         continue;
                     //Initiate Global Variables.
-                    int Dummt = ChessRules.CurrentOrder;
-                    ChessRules.CurrentOrder = -1;
+                    int Dummt = QuantumRefrigiz.ChessRules.CurrentOrder;
+                    QuantumRefrigiz.ChessRules.CurrentOrder = -1;
                     //Clone a Copy.
                     for (int ii = 0; ii < 8; ii++)
                         for (int jj = 0; jj < 8; jj++)
@@ -1863,7 +1869,7 @@ namespace QuantumRefrigiz
                     Color a = Color.Gray;
                     if (Ord == -1)
                         a = Color.Brown;
-                    ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[i, j], Table, Ord, i, j);
+                    QuantumRefrigiz.ChessRules A = new QuantumRefrigiz.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[i, j], Table, Ord, i, j);
                     if (Ord == -1)
                     {
                         //Menen Parameter is Moveble to Second Parameters Location returm Movable.
@@ -1886,7 +1892,7 @@ namespace QuantumRefrigiz
                     }
 
                     //Initiate Global Variables.
-                    ChessRules.CurrentOrder = Dummt;
+                    QuantumRefrigiz.ChessRules.CurrentOrder = Dummt;
 
 
                 }
@@ -1906,11 +1912,11 @@ namespace QuantumRefrigiz
                 return false;
             int DummyOrder = Ord;
             //Initiate Local and Global Briables.
-            bool Store = ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing;
+            bool Store = QuantumRefrigiz.ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing;
             Object O = new Object();
             lock (O)
             {
-                ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = false;
+                QuantumRefrigiz.ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = false;
             }
             CheckGray = false;
             CheckBrown = false;
@@ -1954,12 +1960,12 @@ namespace QuantumRefrigiz
                     if (Checked)
                     {
                         //Initiate Global Variables.
-                        ChessRules.CurrentOrder = 1;
+                        QuantumRefrigiz.ChessRules.CurrentOrder = 1;
                         //Ig Gray King is Movable to First Home Table.
                         Color a = Color.Gray;
                         if (Ord == -1)
                             a = Color.Brown;
-                        ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[RowK, ColumnK], Table, Ord, RowK, ColumnK);
+                        QuantumRefrigiz.ChessRules A = new QuantumRefrigiz.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[RowK, ColumnK], Table, Ord, RowK, ColumnK);
                         Order = DummyOrder;
                         ///Table[ii, jj] = 0;
                         //Menen Parameter is Moveble to Second Parameters Location returm Movable.
@@ -2067,7 +2073,7 @@ namespace QuantumRefrigiz
                             Color a = Color.Gray;
                             if (Ord == -1)
                                 a = Color.Brown;
-                            ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[i, j], Table, Ord, i, j);
+                            QuantumRefrigiz.ChessRules A = new QuantumRefrigiz.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[i, j], Table, Ord, i, j);
                             ///Table[ii, jj] = 0;
                             //Menen Parameter is Moveble to Second Parameters Location returm Movable.
                             if (A.Rules(i, j, ii, jj, a, Ord))
@@ -2080,7 +2086,7 @@ namespace QuantumRefrigiz
                                 Table[ii, jj] = Table[i, j];
                                 Table[i, j] = 0;
                                 //If Check.
-                                A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[ii, jj], Table, Ord, ii, jj);
+                                A = new QuantumRefrigiz.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[ii, jj], Table, Ord, ii, jj);
                                 if (A.Check(Table, Ord))
                                 {
                                     Order = DummyOrder;
@@ -2193,7 +2199,7 @@ namespace QuantumRefrigiz
             for (int i = 0; i < 8; i++)
                 for (int j = 0; j < 8; j++)
                     Table[i, j] = Tab[i, j];
-            ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[RowG, ColumnG], Table, Ord, RowG, ColumnG);
+            QuantumRefrigiz.ChessRules A = new QuantumRefrigiz.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[RowG, ColumnG], Table, Ord, RowG, ColumnG);
 
             //Found of Gray King.
             if (FindGrayKing(Table, ref RowG, ref ColumnG))
@@ -2218,7 +2224,7 @@ namespace QuantumRefrigiz
             ActMoveB = true;
             ActMoveBF = true;
 
-            ChessRules AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[RowB, ColumnB], Table, Ord, RowB, ColumnB);
+            QuantumRefrigiz.ChessRules AA = new QuantumRefrigiz.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[RowB, ColumnB], Table, Ord, RowB, ColumnB);
             for (int i = 0; i < 8; i++)
                 for (int j = 0; j < 8; j++)
                     Table[i, j] = Tab[i, j];

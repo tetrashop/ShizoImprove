@@ -3869,13 +3869,7 @@ namespace Refrigtz
                             RefrigtzDLL.AllDraw.ActionStringReady = false;
                             RefreshBoxText();
                         }
-                        if (RefrigtzDLL.AllDraw.ActionStringReady)
-                        {
-                            SetBoxText(RefrigtzDLL.AllDraw.ActionString);
-                            RefrigtzDLL.AllDraw.ActionString = "";
-                            RefrigtzDLL.AllDraw.ActionStringReady = false;
-                            RefreshBoxText();
-                        }
+                        
                         if (RefrigtzDLL.AllDraw.OutPut != "")
                         {
                             SetBoxText(RefrigtzDLL.AllDraw.OutPut);

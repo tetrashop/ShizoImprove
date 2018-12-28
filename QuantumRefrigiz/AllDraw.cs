@@ -13413,13 +13413,21 @@ if (Kind == 2)
                 return this;
             }
         }
+        bool KingDan(int[,] Tab, int Order)
+        {
+            bool IsDang = false;
+            QuantumRefrigiz.ChessRules A = new QuantumRefrigiz.ChessRules(0, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Order);
+            IsDang = A.ObjectDangourKingMove(Order, Tab, false);
+            return IsDang;
 
+        }
         void BlitzGameThinkingTreeSolderGray(ref double PreviousLessS, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         { //Soldeir
             for (ik = 0; ik < SodierMidle; ik++)
                 try
                 {
-                    if (SolderesOnTable == null || SolderesOnTable[ik] == null || SolderesOnTable[ik].SoldierThinkingQuantum == null || SolderesOnTable[ik].SoldierThinkingQuantum[0].IsSup)
+                    if (SolderesOnTable == null || SolderesOnTable[ik] == null || SolderesOnTable[ik].SoldierThinkingQuantum == null || SolderesOnTable[ik].SoldierThinkingQuantum[0] == null || SolderesOnTable[ik].SoldierThinkingQuantum[0].IsSup
+                        )
                         continue;
                     for (j = 0; j < SolderesOnTable[ik].SoldierThinkingQuantum[0].HuristicListSolder.Count; j++)
                     {
@@ -13428,7 +13436,7 @@ if (Kind == 2)
                         {
                             if (AllDraw.OrderPlate == Order)
                             {
-                                if (SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) < PreviousLessS || SolderesOnTable[ik].SoldierThinkingQuantum[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0)
+                                if (SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) < PreviousLessS || SolderesOnTable[ik].SoldierThinkingQuantum[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0 || KingDan(SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder[j], Order))
                                 {
 
                                 }
@@ -13441,7 +13449,7 @@ if (Kind == 2)
                             }
                             else
                             {
-                                if (SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) > PreviousLessS || SolderesOnTable[ik].SoldierThinkingQuantum[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0)
+                                if (SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) > PreviousLessS || SolderesOnTable[ik].SoldierThinkingQuantum[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0 || KingDan(SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder[j], Order))
                                 {
                                     //SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy = null;
                                     //SolderesOnTable[ik] = null;
@@ -13460,14 +13468,18 @@ if (Kind == 2)
 
                     //Elephant
                 }
-                catch (Exception t) { Log(t); }
+                catch (Exception t)
+                {
+                    Log(t);
+                }
         }
         void BlitzGameThinkingTreeElephantGray(ref double PreviousLessE, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         { //Elephant
             for (ik = 0; ik < ElefantMidle; ik++)
                 try
                 {
-                    if (ElephantOnTable == null || ElephantOnTable[ik] == null || ElephantOnTable[ik].ElefantThinkingQuantum[0].IsSup)
+                    if (ElephantOnTable == null || ElephantOnTable[ik] == null || ElephantOnTable[ik].ElefantThinkingQuantum == null || ElephantOnTable[ik].ElefantThinkingQuantum[0] == null || ElephantOnTable[ik].ElefantThinkingQuantum[0].IsSup
+                        )
                         continue;
                     for (j = 0; j < ElephantOnTable[ik].ElefantThinkingQuantum[0].HuristicListElefant.Count; j++)
                     {
@@ -13476,7 +13488,7 @@ if (Kind == 2)
                         {
                             if (AllDraw.OrderPlate == Order)
                             {
-                                if (ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) < PreviousLessE || ElephantOnTable[ik].ElefantThinkingQuantum[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0)
+                                if (ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) < PreviousLessE || ElephantOnTable[ik].ElefantThinkingQuantum[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0 || KingDan(ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant[j], Order))
                                 {
                                     //ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy = null;
                                     //ElephantOnTable[ik] = null;
@@ -13491,7 +13503,7 @@ if (Kind == 2)
                             }
                             else
                             {
-                                if (ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) > PreviousLessE || ElephantOnTable[ik].ElefantThinkingQuantum[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0)
+                                if (ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) > PreviousLessE || ElephantOnTable[ik].ElefantThinkingQuantum[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0 || KingDan(ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant[j], Order))
                                 {
                                     //ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy = null;
                                     //ElephantOnTable[ik] = null;
@@ -13515,7 +13527,8 @@ if (Kind == 2)
             for (ik = 0; ik < HourseMidle; ik++)
                 try
                 {
-                    if (HoursesOnTable == null || HoursesOnTable[ik] == null || HoursesOnTable[ik].HourseThinkingQuantum[0].IsSup)
+                    if (HoursesOnTable == null || HoursesOnTable[ik] == null || HoursesOnTable[ik].HourseThinkingQuantum == null || HoursesOnTable[ik].HourseThinkingQuantum[0] == null || HoursesOnTable[ik].HourseThinkingQuantum[0].IsSup
+                        )
                         continue;
                     for (j = 0; j < HoursesOnTable[ik].HourseThinkingQuantum[0].HuristicListHourse.Count; j++)
                     {
@@ -13525,7 +13538,7 @@ if (Kind == 2)
 
                             if (AllDraw.OrderPlate == Order)
                             {
-                                if (HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) < PreviousLessH || HoursesOnTable[ik].HourseThinkingQuantum[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0)
+                                if (HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) < PreviousLessH || HoursesOnTable[ik].HourseThinkingQuantum[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0 || KingDan(HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse[j], Order))
                                 {
                                     //HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy = null;
                                     //continue;
@@ -13539,7 +13552,7 @@ if (Kind == 2)
                             }
                             else
                             {
-                                if (HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) > PreviousLessH || HoursesOnTable[ik].HourseThinkingQuantum[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0)
+                                if (HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) > PreviousLessH || HoursesOnTable[ik].HourseThinkingQuantum[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0 || KingDan(HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse[j], Order))
                                 {
                                     //HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy = null;
                                     //continue;
@@ -13563,7 +13576,8 @@ if (Kind == 2)
             for (ik = 0; ik < CastleMidle; ik++)
                 try
                 {
-                    if (CastlesOnTable == null || CastlesOnTable[ik] == null || CastlesOnTable[ik].CastleThinkingQuantum[0].IsSup)
+                    if (CastlesOnTable == null || CastlesOnTable[ik] == null || CastlesOnTable[ik].CastleThinkingQuantum == null || CastlesOnTable[ik].CastleThinkingQuantum[0] == null || CastlesOnTable[ik].CastleThinkingQuantum[0].IsSup
+                        )
                         continue;
                     for (j = 0; j < CastlesOnTable[ik].CastleThinkingQuantum[0].HuristicListCastle.Count; j++)
                     {
@@ -13572,7 +13586,7 @@ if (Kind == 2)
                         {
                             if (AllDraw.OrderPlate == Order)
                             {
-                                if (CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) < PreviousLessB || CastlesOnTable[ik].CastleThinkingQuantum[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0)
+                                if (CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) < PreviousLessB || CastlesOnTable[ik].CastleThinkingQuantum[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0 || KingDan(CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle[j], Order))
                                 {
 
                                     //CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy = null;
@@ -13589,7 +13603,7 @@ if (Kind == 2)
                             }
                             else
                             {
-                                if (CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) > PreviousLessB || CastlesOnTable[ik].CastleThinkingQuantum[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0)
+                                if (CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) > PreviousLessB || CastlesOnTable[ik].CastleThinkingQuantum[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0 || KingDan(CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle[j], Order))
                                 {
 
                                     //CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy = null;
@@ -13615,7 +13629,8 @@ if (Kind == 2)
             for (ik = 0; ik < MinisterMidle; ik++)
                 try
                 {
-                    if (MinisterOnTable == null || MinisterOnTable[ik] == null || MinisterOnTable[ik].MinisterThinkingQuantum[0].IsSup)
+                    if (MinisterOnTable == null || MinisterOnTable[ik] == null || MinisterOnTable[ik].MinisterThinkingQuantum == null || MinisterOnTable[ik].MinisterThinkingQuantum[0] == null || MinisterOnTable[ik].MinisterThinkingQuantum[0].IsSup
+                        )
                         continue;
                     for (j = 0; j < MinisterOnTable[ik].MinisterThinkingQuantum[0].HuristicListMinister.Count; j++)
                     {
@@ -13625,7 +13640,7 @@ if (Kind == 2)
                         {
                             if (AllDraw.OrderPlate == Order)
                             {
-                                if (MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) < PreviousLessM || MinisterOnTable[ik].MinisterThinkingQuantum[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0)
+                                if (MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) < PreviousLessM || MinisterOnTable[ik].MinisterThinkingQuantum[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0 || KingDan(MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister[j], Order))
                                 {
                                     //MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy = null;
                                     // MinisterOnTable[ik] = null;
@@ -13641,7 +13656,7 @@ if (Kind == 2)
                             }
                             else
                             {
-                                if (MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) > PreviousLessM || MinisterOnTable[ik].MinisterThinkingQuantum[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0)
+                                if (MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) > PreviousLessM || MinisterOnTable[ik].MinisterThinkingQuantum[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0 || KingDan(MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister[j], Order))
                                 {
                                     //MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy = null;
                                     // MinisterOnTable[ik] = null;
@@ -13666,7 +13681,8 @@ if (Kind == 2)
             for (ik = 0; ik < KingMidle; ik++)
                 try
                 {
-                    if (KingOnTable == null || KingOnTable[ik] == null || KingOnTable[ik].KingThinkingQuantum==null || KingOnTable[ik].KingThinkingQuantum[0].IsSup)
+                    if (KingOnTable == null || KingOnTable[ik] == null || KingOnTable[ik].KingThinkingQuantum == null || KingOnTable[ik].KingThinkingQuantum[0] == null || KingOnTable[ik].KingThinkingQuantum[0].IsSup
+                        )
                         continue;
                     for (j = 0; j < KingOnTable[ik].KingThinkingQuantum[0].HuristicListKing.Count; j++)
                     {
@@ -13675,7 +13691,7 @@ if (Kind == 2)
                         {
                             if (AllDraw.OrderPlate == Order)
                             {
-                                if (KingOnTable[ik].KingThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) < PreviousLessK || KingOnTable[ik].KingThinkingQuantum[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0)
+                                if (KingOnTable[ik].KingThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) < PreviousLessK || KingOnTable[ik].KingThinkingQuantum[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0 || KingDan(KingOnTable[ik].KingThinkingQuantum[0].TableListKing[j], Order))
                                 {
                                     //KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy = null;
                                     //KingOnTable[ik] = null;
@@ -13690,7 +13706,7 @@ if (Kind == 2)
                             }
                             else
                             {
-                                if (KingOnTable[ik].KingThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) > PreviousLessK || KingOnTable[ik].KingThinkingQuantum[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0)
+                                if (KingOnTable[ik].KingThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) > PreviousLessK || KingOnTable[ik].KingThinkingQuantum[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0 || KingDan(KingOnTable[ik].KingThinkingQuantum[0].TableListKing[j], Order))
                                 {
                                     //KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy = null;
                                     //KingOnTable[ik] = null;
@@ -13726,7 +13742,7 @@ if (Kind == 2)
                     //SolderesOnTable[Index[0]].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[Index[0]].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, SolderesOnTable[Index[0]].SoldierThinkingQuantum[0].TableListSolder[jIndex[0]], Order, false);
                     //ParameterizedThreadStart start = new ParameterizedThreadStart(SolderesOnTable[Index[0]].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[Index[0]].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
                     Task array = Task.Factory.StartNew(() => SolderesOnTable[Index[0]].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[Index[0]].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, SolderesOnTable[Index[0]].SoldierThinkingQuantum[0].RowColumnSoldier[jIndex[0]][0], SolderesOnTable[Index[0]].SoldierThinkingQuantum[0].RowColumnSoldier[jIndex[0]][1], a, SolderesOnTable[Index[0]].SoldierThinkingQuantum[0].TableListSolder[jIndex[0]], Order, false, FOUND, LeafAStarGreedy));
-                    Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }                    
+                    Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
                     array.Wait();
                     //array.Name = "S" + i.ToString();
                     //array.Start();
@@ -13867,14 +13883,15 @@ if (Kind == 2)
             for (ik = SodierMidle; ik < SodierHigh; ik++)
                 try
                 {
-                    if (SolderesOnTable == null || SolderesOnTable[ik] == null || SolderesOnTable[ik].SoldierThinkingQuantum == null || SolderesOnTable[ik].SoldierThinkingQuantum[0] == null || SolderesOnTable[ik].SoldierThinkingQuantum[0].IsSup)
+                    if (SolderesOnTable == null || SolderesOnTable[ik] == null || SolderesOnTable[ik].SoldierThinkingQuantum == null || SolderesOnTable[ik].SoldierThinkingQuantum[0] == null || SolderesOnTable[ik].SoldierThinkingQuantum[0].IsSup
+                        )
                         continue;
                     //Soldier.
                     for (j = 0; j < SolderesOnTable[ik].SoldierThinkingQuantum[0].HuristicListSolder.Count; j++)
                     {
                         if (AllDraw.OrderPlate == Order)
                         {
-                            if (SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) < PreviousLessS || SolderesOnTable[ik].SoldierThinkingQuantum[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0)
+                            if (SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) < PreviousLessS || SolderesOnTable[ik].SoldierThinkingQuantum[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0 || KingDan(SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder[j], Order))
                             {
                                 //SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy = null;
                                 //SolderesOnTable[ik] = null;
@@ -13889,7 +13906,7 @@ if (Kind == 2)
                         }
                         else
                         {
-                            if (SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) > PreviousLessS || SolderesOnTable[ik].SoldierThinkingQuantum[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0)
+                            if (SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) > PreviousLessS || SolderesOnTable[ik].SoldierThinkingQuantum[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0 || KingDan(SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder[j], Order))
                             {
                                 //SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy = null;
                                 //SolderesOnTable[ik] = null;
@@ -13912,13 +13929,14 @@ if (Kind == 2)
             for (ik = ElefantMidle; ik < ElefantHigh; ik++)
                 try
                 {
-                    if (ElephantOnTable == null || ElephantOnTable[ik] == null || ElephantOnTable[ik].ElefantThinkingQuantum == null || ElephantOnTable[ik].ElefantThinkingQuantum[0] == null || ElephantOnTable[ik].ElefantThinkingQuantum[0].IsSup)
+                    if (ElephantOnTable == null || ElephantOnTable[ik] == null || ElephantOnTable[ik].ElefantThinkingQuantum == null || ElephantOnTable[ik].ElefantThinkingQuantum[0] == null || ElephantOnTable[ik].ElefantThinkingQuantum[0].IsSup
+                        )
                         continue;
                     for (j = 0; j < ElephantOnTable[ik].ElefantThinkingQuantum[0].HuristicListElefant.Count; j++)
                     {
                         if (AllDraw.OrderPlate == Order)
                         {
-                            if (ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) < PreviousLessE || ElephantOnTable[ik].ElefantThinkingQuantum[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0)
+                            if (ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) < PreviousLessE || ElephantOnTable[ik].ElefantThinkingQuantum[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0 || KingDan(ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant[j], Order))
                             {
                                 //ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy = null;
                                 //ElephantOnTable[ik] = null;
@@ -13933,7 +13951,7 @@ if (Kind == 2)
                         }
                         else
                         {
-                            if (ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) > PreviousLessE || ElephantOnTable[ik].ElefantThinkingQuantum[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0)
+                            if (ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) > PreviousLessE || ElephantOnTable[ik].ElefantThinkingQuantum[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0 || KingDan(ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant[j], Order))
                             {
                                 //ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy = null;
                                 //ElephantOnTable[ik] = null;
@@ -13958,13 +13976,14 @@ if (Kind == 2)
             for (ik = HourseMidle; ik < HourseHight; ik++)
                 try
                 {
-                    if (HoursesOnTable == null || HoursesOnTable[ik] == null || HoursesOnTable[ik].HourseThinkingQuantum == null || HoursesOnTable[ik].HourseThinkingQuantum[0] == null || HoursesOnTable[ik].HourseThinkingQuantum[0].IsSup)
+                    if (HoursesOnTable == null || HoursesOnTable[ik] == null || HoursesOnTable[ik].HourseThinkingQuantum == null || HoursesOnTable[ik].HourseThinkingQuantum[0] == null || HoursesOnTable[ik].HourseThinkingQuantum[0].IsSup
+                        )
                         continue;
                     for (j = 0; j < HoursesOnTable[ik].HourseThinkingQuantum[0].HuristicListHourse.Count; j++)
                     {
                         if (AllDraw.OrderPlate == Order)
                         {
-                            if (HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) < PreviousLessH || HoursesOnTable[ik].HourseThinkingQuantum[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0)
+                            if (HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) < PreviousLessH || HoursesOnTable[ik].HourseThinkingQuantum[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0 || KingDan(HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse[j], Order))
                             {
                                 //HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy = null;
                                 //HoursesOnTable[ik] = null;
@@ -13980,7 +13999,7 @@ if (Kind == 2)
                         }
                         else
                         {
-                            if (HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) > PreviousLessH || HoursesOnTable[ik].HourseThinkingQuantum[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0)
+                            if (HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) > PreviousLessH || HoursesOnTable[ik].HourseThinkingQuantum[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0 || KingDan(HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse[j], Order))
                             {
                                 //HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy = null;
                                 //HoursesOnTable[ik] = null;
@@ -14076,14 +14095,15 @@ if (Kind == 2)
             for (ik = CastleMidle; ik < CastleHigh; ik++)
                 try
                 {
-                    if (CastlesOnTable == null || CastlesOnTable[ik] == null || CastlesOnTable[ik].CastleThinkingQuantum == null || CastlesOnTable[ik].CastleThinkingQuantum[0] == null || CastlesOnTable[ik].CastleThinkingQuantum[0].IsSup)
+                    if (CastlesOnTable == null || CastlesOnTable[ik] == null || CastlesOnTable[ik].CastleThinkingQuantum == null || CastlesOnTable[ik].CastleThinkingQuantum[0] == null || CastlesOnTable[ik].CastleThinkingQuantum[0].IsSup
+                        )
                         continue;
                     for (j = 0; j < CastlesOnTable[ik].CastleThinkingQuantum[0].HuristicListCastle.Count; j++)
                     {
 
                         if (AllDraw.OrderPlate == Order)
                         {
-                            if (CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) < PreviousLessB || CastlesOnTable[ik].CastleThinkingQuantum[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0)
+                            if (CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) < PreviousLessB || CastlesOnTable[ik].CastleThinkingQuantum[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0 || KingDan(CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle[j], Order))
                             {
 
                                 //CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy = null;
@@ -14101,7 +14121,7 @@ if (Kind == 2)
                         }
                         else
                         {
-                            if (CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) > PreviousLessB || CastlesOnTable[ik].CastleThinkingQuantum[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0)
+                            if (CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) > PreviousLessB || CastlesOnTable[ik].CastleThinkingQuantum[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0 || KingDan(CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle[j], Order))
                             {
 
                                 //CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy = null;
@@ -14127,13 +14147,14 @@ if (Kind == 2)
             for (ik = MinisterMidle; ik < MinisterHigh; ik++)
                 try
                 {
-                    if (MinisterOnTable == null || MinisterOnTable[ik] == null || MinisterOnTable[ik].MinisterThinkingQuantum == null || MinisterOnTable[ik].MinisterThinkingQuantum[0] == null || MinisterOnTable[ik].MinisterThinkingQuantum[0].IsSup)
+                    if (MinisterOnTable == null || MinisterOnTable[ik] == null || MinisterOnTable[ik].MinisterThinkingQuantum == null || MinisterOnTable[ik].MinisterThinkingQuantum[0] == null || MinisterOnTable[ik].MinisterThinkingQuantum[0].IsSup
+                        )
                         continue;
                     for (j = 0; j < MinisterOnTable[ik].MinisterThinkingQuantum[0].HuristicListMinister.Count; j++)
                     {
                         if (AllDraw.OrderPlate == Order)
                         {
-                            if (MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) < PreviousLessM || MinisterOnTable[ik].MinisterThinkingQuantum[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0)
+                            if (MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) < PreviousLessM || MinisterOnTable[ik].MinisterThinkingQuantum[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0 || KingDan(MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister[j], Order))
                             {
                                 //MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy = null;
                                 //MinisterOnTable[ik] = null;
@@ -14148,7 +14169,7 @@ if (Kind == 2)
                         }
                         else
                         {
-                            if (MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) > PreviousLessM || MinisterOnTable[ik].MinisterThinkingQuantum[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0)
+                            if (MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) > PreviousLessM || MinisterOnTable[ik].MinisterThinkingQuantum[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0 || KingDan(MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister[j], Order))
                             {
                                 //MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy = null;
                                 //MinisterOnTable[ik] = null;
@@ -14172,13 +14193,14 @@ if (Kind == 2)
             for (ik = KingMidle; ik < KingHigh; ik++)
                 try
                 {
-                    if (KingOnTable == null || KingOnTable[ik] == null || KingOnTable[ik].KingThinkingQuantum == null || KingOnTable[ik].KingThinkingQuantum[0] == null || KingOnTable[ik].KingThinkingQuantum[0] == null || KingOnTable[ik].KingThinkingQuantum[0].IsSup)
+                    if (KingOnTable == null || KingOnTable[ik] == null || KingOnTable[ik].KingThinkingQuantum == null || KingOnTable[ik].KingThinkingQuantum[0] == null || KingOnTable[ik].KingThinkingQuantum[0].IsSup
+                        )
                         continue;
                     for (j = 0; j < KingOnTable[ik].KingThinkingQuantum[0].HuristicListKing.Count; j++)
                     {
                         if (AllDraw.OrderPlate == Order)
                         {
-                            if (KingOnTable[ik].KingThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) < PreviousLessK || KingOnTable[ik].KingThinkingQuantum[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0)
+                            if (KingOnTable[ik].KingThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) < PreviousLessK || KingOnTable[ik].KingThinkingQuantum[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0 || KingDan(KingOnTable[ik].KingThinkingQuantum[0].TableListKing[j], Order))
                             {
                                 //KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy = null;
                                 //KingOnTable[ik] = null;
@@ -14193,7 +14215,7 @@ if (Kind == 2)
                         }
                         else
                         {
-                            if (KingOnTable[ik].KingThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) > PreviousLessK || KingOnTable[ik].KingThinkingQuantum[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0)
+                            if (KingOnTable[ik].KingThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) > PreviousLessK || KingOnTable[ik].KingThinkingQuantum[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0 || KingDan(KingOnTable[ik].KingThinkingQuantum[0].TableListKing[j], Order))
                             {
                                 //KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy = null;
                                 //KingOnTable[ik] = null;
