@@ -609,9 +609,9 @@ namespace RefrigtzDLL
         {
             int[,] Tab = new int[8, 8];
             //Clone a Copy
-            for (int i = 0; i < 8; i++)
-                for (int j = 0; j < 8; j++)
-                    Tab[i, j] = Table[i, j];
+            //for (int i = 0; i < 8; i++)
+            //for (int j = 0; j < 8; j++)
+            //Tab[i, j] = Table[i, j];
             //Initiate Variables.
             CheckGray = false;
             CheckBrown = false;
@@ -619,18 +619,18 @@ namespace RefrigtzDLL
             CheckBrownObjectDangour = false;
             int RowG = 0, ColumnG = 0;
             int RowB = 0, ColumnB = 0;
-            Object O = new Object();
-            lock (O)
-            {
-                if (DoIgnore)
-                    RefrigtzDLL.ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = true;
-            }
+            //Object O = new Object();
+            ////lock (O)
+            ///{
+            /// if (DoIgnore)
+            ///RefrigtzDLL.ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = true;
+            // }
             //Check identification.
-            Check(Tab, Order);
+            //Check(Tab, Order);
             bool CheckGrayDummy = CheckGray;
             bool CheckBrownDummy = CheckBrown;
             //If There is Check on Tow Side.
-            if (CheckBrown || CheckGray)
+            /*if (CheckBrown || CheckGray)
             {
                 //Check meand achmaz.
                 if (CheckBrown)
@@ -639,7 +639,7 @@ namespace RefrigtzDLL
                     CheckGrayObjectDangour = true;
                 return true;
 
-            }
+            }*/
             int CDummy = RefrigtzDLL.ChessRules.CurrentOrder;
             int COrder = Order;
             if (Order == 1)
@@ -652,9 +652,9 @@ namespace RefrigtzDLL
                     {
                         for (int jj = 0; jj < 8; jj++)
                         {
-                            for (int i = 0; i < 8; i++)
-                                for (int j = 0; j < 8; j++)
-                                    Tab[i, j] = Table[i, j];
+                            //for (int i = 0; i < 8; i++)
+                            //for (int j = 0; j < 8; j++)
+                            //Tab[i, j] = Table[i, j];
                             //Ignore Gray.
                             if (Tab[ii, jj] >= 0)
                                 continue;
@@ -782,11 +782,11 @@ namespace RefrigtzDLL
                 }
             }
             //Iniaiate Global Variables.
-            Object O1 = new Object();
-            lock (O1)
-            {
-                RefrigtzDLL.ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = false;
-            }
+            //Object O1 = new Object();
+            //lock (O1)
+            //{
+            //RefrigtzDLL.ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = false;
+            //}
             //If There is Brown ObjectDanger Or Gray ObjectDanger.
             if (CheckBrownObjectDangour || CheckGrayObjectDangour)
             {

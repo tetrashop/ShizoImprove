@@ -640,7 +640,7 @@ namespace RefrigtzDLL
                     AA.jindex[i] = jindex[i];
                 for (int i = 0; i < 6; i++)
                     AA.Kind[i] = Kind[i];
-                if (AStarGreedyString != null)
+               if (AStarGreedyString != null)
                     AStarGreedyString.Clone(AA.AStarGreedyString);
                 if (TableList.Count == 1)
                     SetObjectNumbers(TableList[0]);
@@ -7574,7 +7574,7 @@ if (Kind == 2)
                                     Do = 0;
                                 }
                                 catch (Exception tt) { Log(tt); }
-                                if (MinisterOnTable[i].LoseOcuuredatChiled <= -1 || MinisterOnTable[i].LoseOcuuredatChiled >= -2 || MinisterOnTable[i].LoseOcuuredatChiled <= -3)
+                                if (MinisterOnTable[i].LoseOcuuredatChiled <= -1 || MinisterOnTable[i].LoseOcuuredatChiled <= -2 || MinisterOnTable[i].LoseOcuuredatChiled <= -3)
                                     continue;
                                 Order = COrder;
                                 ChessRules.CurrentOrder = CDummy;
@@ -7761,7 +7761,7 @@ if (Kind == 2)
             Object O = new Object();
             lock (O)
             {
-                if (0 != MinisterMidle)
+                if (0 != KingMidle)
                 {
                     for (int i = 0; i < KingMidle; i++)
                         TableHuristic = HuristicAStarGreadySearchKing(ref TableHuristic, i, AStarGreedyi, a, Order, CurrentTableHuristic, ref Act);
@@ -7826,7 +7826,7 @@ if (Kind == 2)
                                         Do = 0;
                                     }
                                     catch (Exception tt) { Log(tt); }
-                                    if (KingOnTable[i].LoseOcuuredatChiled <= -1 || KingOnTable[i].LoseOcuuredatChiled >= -2 || KingOnTable[i].LoseOcuuredatChiled <= -3)
+                                    if (KingOnTable[i].LoseOcuuredatChiled <= -1 || KingOnTable[i].LoseOcuuredatChiled <= -2 || KingOnTable[i].LoseOcuuredatChiled <= -3)
                                         continue;
                                     Order = COrder;
                                     ChessRules.CurrentOrder = CDummy;
@@ -12693,11 +12693,11 @@ if (Kind == 2)
         {
             if (Current < MaxAStarGreedy)
                 return false;
-            if (TimerEnded)
-                return true;
+            //if (TimerEnded)
+                //return true;
 
             bool IS = false;
-            if (Order == 1)
+            /*if (Order == 1)
             {
                 for (int ikk = 0; ikk < SodierMidle; ikk++)
                 {
@@ -12764,13 +12764,12 @@ if (Kind == 2)
                     OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
                     IS = true;
                 }
-                /*else
+                else
                 if (iAStarGreedy < 0)
                 {
                     iAStarGreedy = MaxAStarGreedy;
                     OutPut = "\r\nLevel Boundry Conditon for iAStarGreedy is Set To " + iAStarGreedy.ToString() + "MaxAStarGreedy";
-                }*/
-
+                }
             }
             else
             {
@@ -12839,13 +12838,13 @@ if (Kind == 2)
                     OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
                     IS = true;
                 }
-                /*else
+                else
                 if (iAStarGreedy < 0)
                 {
                     iAStarGreedy = MaxAStarGreedy;
                     OutPut = "\r\nLevel Boundry Conditon for iAStarGreedy is Set To " + iAStarGreedy.ToString() + "MaxAStarGreedy";
-                }*/
-            }
+                }
+            }*/
             return IS;
         } //AStarGreedy First Initiat Thinking Main Method.
         public AllDraw InitiateAStarGreedyt(int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
@@ -14749,8 +14748,11 @@ if (Kind == 2)
                                                 SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j]), Order, false, FOUND, LeafAStarGreedy);
                                                 for (int h = 0; h < SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count; h++)
                                                     SolderesOnTable[ik].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[h], Order);
-                                                for (int h = 0; h < SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count; h++)
-                                                    SolderesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[h], Order);
+                                               //if (AStarGreedyString.AStarGreedyString != null)
+                                                {
+                                                    for (int h = 0; h < SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count; h++)
+                                                        SolderesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[h], Order);
+                                                }
                                                 //Task array = Task.Factory.StartNew(() => SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j]), Order, false, FOUND, LeafAStarGreedy));
 
                                                 //SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
@@ -14864,8 +14866,11 @@ if (Kind == 2)
                                                 SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j]), Order, false, FOUND, LeafAStarGreedy);
                                                 for (int h = 0; h < SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count; h++)
                                                     SolderesOnTable[ik].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[h], Order);
-                                                for (int h = 0; h < SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count; h++)
-                                                    SolderesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[h], Order);
+                                               //if (AStarGreedyString.AStarGreedyString != null)
+                                                {
+                                                    for (int h = 0; h < SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count; h++)
+                                                        SolderesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[h], Order);
+                                                }
 
                                                 //SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                                 //array.Start();
@@ -15067,8 +15072,11 @@ if (Kind == 2)
                                                     ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                                     for (int h = 0; h < ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count; h++)
                                                         ElephantOnTable[ik].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[h], Order);
-                                                    for (int h = 0; h < ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count; h++)
-                                                        ElephantOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[h], Order);
+                                                    //if (AStarGreedyString.AStarGreedyString != null)
+                                                    {
+                                                        for (int h = 0; h < ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count; h++)
+                                                            ElephantOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[h], Order);
+                                                    }
 
                                                     //array.Start();
                                                     /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
@@ -15176,8 +15184,11 @@ if (Kind == 2)
                                                     ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                                     for (int h = 0; h < ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count; h++)
                                                         ElephantOnTable[ik].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[h], Order);
-                                                    for (int h = 0; h < ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count; h++)
-                                                        ElephantOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[h], Order);
+                                                   //if (AStarGreedyString.AStarGreedyString != null)
+                                                    {
+                                                        for (int h = 0; h < ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count; h++)
+                                                            ElephantOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[h], Order);
+                                                    }
                                                     //Task array = Task.Factory.StartNew(() => ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j]), Order, false, FOUND, LeafAStarGreedy));
 
                                                     //array.Start();
@@ -15380,8 +15391,11 @@ if (Kind == 2)
                                                     HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                                     for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count; h++)
                                                         HoursesOnTable[ik].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[h], Order);
-                                                    for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count; h++)
-                                                        HoursesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[h], Order);
+                                                   //if (AStarGreedyString.AStarGreedyString != null)
+                                                    {
+                                                        for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count; h++)
+                                                            HoursesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[h], Order);
+                                                    }
 
                                                     //Task array = Task.Factory.StartNew(() => HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j]), Order, false, FOUND, LeafAStarGreedy));
 
@@ -15496,8 +15510,11 @@ if (Kind == 2)
                                                 HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                                 for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count; h++)
                                                     HoursesOnTable[ik].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[h], Order);
-                                                for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count; h++)
-                                                    HoursesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[h], Order);
+                                               //if (AStarGreedyString.AStarGreedyString != null)
+                                                {
+                                                    for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count; h++)
+                                                        HoursesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[h], Order);
+                                                }
                                                 //array.Start();
                                                 /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
                                                {
@@ -15696,8 +15713,11 @@ if (Kind == 2)
                                                 CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                                 for (int h = 0; h < CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count; h++)
                                                     CastlesOnTable[ik].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[h], Order);
-                                                for (int h = 0; h < CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count; h++)
-                                                    CastlesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[h], Order);
+                                               //if (AStarGreedyString.AStarGreedyString != null)
+                                                {
+                                                    for (int h = 0; h < CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count; h++)
+                                                        CastlesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[h], Order);
+                                                }
 
                                                 //array.Start();
                                                 /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
@@ -15807,8 +15827,11 @@ if (Kind == 2)
                                                 CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                                 for (int h = 0; h < CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count; h++)
                                                     CastlesOnTable[ik].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[h], Order);
-                                                for (int h = 0; h < CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count; h++)
-                                                    CastlesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[h], Order);
+                                               //if (AStarGreedyString.AStarGreedyString != null)
+                                                {
+                                                    for (int h = 0; h < CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count; h++)
+                                                        CastlesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[h], Order);
+                                                }
                                                 //array.Start();
                                                 /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
                                                 {
@@ -16009,8 +16032,11 @@ if (Kind == 2)
                                                 MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                                 for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count; h++)
                                                     MinisterOnTable[ik].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h], Order);
-                                                for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count; h++)
-                                                    MinisterOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h], Order);
+                                               //if (AStarGreedyString.AStarGreedyString != null)
+                                                {
+                                                    for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count; h++)
+                                                        MinisterOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h], Order);
+                                                }
 
                                                 //array.Start();
                                                 /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
@@ -16118,8 +16144,11 @@ if (Kind == 2)
                                                 MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                                 for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count; h++)
                                                     MinisterOnTable[ik].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h], Order);
-                                                for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count; h++)
-                                                    MinisterOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h], Order);
+                                               //if (AStarGreedyString.AStarGreedyString != null)
+                                                {
+                                                    for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count; h++)
+                                                        MinisterOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h], Order);
+                                                }
                                                 //array.Start();
                                                 /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
                                                 {
@@ -16320,8 +16349,11 @@ if (Kind == 2)
                                             KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                             for (int h = 0; h < KingOnTable[ik].KingThinking[0].AStarGreedy.Count; h++)
                                                 KingOnTable[ik].WinOcuuredatChiled += SumOfObjects(KingOnTable[ik].KingThinking[0].AStarGreedy[h], Order);
-                                            for (int h = 0; h < KingOnTable[ik].KingThinking[0].AStarGreedy.Count; h++)
-                                                KingOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[ik].KingThinking[0].AStarGreedy[h], Order);
+                                           //if (AStarGreedyString.AStarGreedyString != null)
+                                            {
+                                                for (int h = 0; h < KingOnTable[ik].KingThinking[0].AStarGreedy.Count; h++)
+                                                    KingOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[ik].KingThinking[0].AStarGreedy[h], Order);
+                                            }
 
                                             //array.Start();
                                             /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
@@ -16423,8 +16455,11 @@ if (Kind == 2)
                                             KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                             for (int h = 0; h < KingOnTable[ik].KingThinking[0].AStarGreedy.Count; h++)
                                                 KingOnTable[ik].WinOcuuredatChiled += SumOfObjects(KingOnTable[ik].KingThinking[0].AStarGreedy[h], Order);
-                                            for (int h = 0; h < KingOnTable[ik].KingThinking[0].AStarGreedy.Count; h++)
-                                                KingOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[ik].KingThinking[0].AStarGreedy[h], Order);
+                                           //if (AStarGreedyString.AStarGreedyString != null)
+                                            {
+                                                for (int h = 0; h < KingOnTable[ik].KingThinking[0].AStarGreedy.Count; h++)
+                                                    KingOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[ik].KingThinking[0].AStarGreedy[h], Order);
+                                            }
                                             //array.Start();
                                             /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
                                             {
