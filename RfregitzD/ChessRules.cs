@@ -1836,13 +1836,17 @@ namespace RefrigtzDLL
             }
             return Pat;
         }
-        void CheckKing(int[,] Table, int Ord, int RowK, int ColumnK)
+        void CheckKing(int[,] Table, int Order, int RowK, int ColumnK)
         {
             int[,] Tab = new int[8, 8];
             //Clone a Copy.
             for (int ii = 0; ii < 8; ii++)
                 for (int jj = 0; jj < 8; jj++)
                     Tab[ii, jj] = Table[ii, jj];
+            int Ord = Order * -1;
+            Color aa = Color.Gray;
+            if (Ord == -1)
+                aa = Color.Brown;
             bool BREAK = false;
             //For All Home Table.
             for (int i = 0; i < 8; i++)
@@ -1852,9 +1856,9 @@ namespace RefrigtzDLL
                     //If The Current Home is the Gray King Continue Traversal Back.
                     if (i == RowK && j == ColumnK)
                         continue;
-                    if (Ord == 1 & Tab[i, j] <= 0)
+                    if (Ord == 1 & Tab[i, j] >= 0)
                         continue;
-                    if (Ord == -1 & Tab[i, j] >= 0)
+                    if (Ord == -1 & Tab[i, j] <= 0)
                         continue;
                     //Initiate Global Variables.
                     int Dummt = RefrigtzDLL.ChessRules.CurrentOrder;
@@ -1871,7 +1875,7 @@ namespace RefrigtzDLL
                     if (Ord == -1)
                     {
                         //Menen Parameter is Moveble to Second Parameters Location returm Movable.
-                        if (A.Rules(i, j, RowK, ColumnK, a, Ord))
+                        if (A.Rules(i, j, RowK, ColumnK, aa, Ord))
                         {
                             BREAK = true;
                             //Initiate Local Is Check Variables.
@@ -1881,7 +1885,7 @@ namespace RefrigtzDLL
                     }
                     else
                     {   //Menen Parameter is Moveble to Second Parameters Location returm Movable.
-                        if (A.Rules(i, j, RowK, ColumnK, a, Ord))
+                        if (A.Rules(i, j, RowK, ColumnK, aa, Ord))
                         {
                             BREAK = true;
                             CheckBrown = true;
