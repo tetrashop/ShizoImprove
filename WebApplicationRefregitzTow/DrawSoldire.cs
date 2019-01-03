@@ -10,6 +10,10 @@ namespace RefrigtzW
     [Serializable]
     public class DrawSoldier : ThingsConverter
     {
+        
+        
+        
+        public int WinOcuuredatChiled = 0;public int LoseOcuuredatChiled = 0;
         //Iniatate Global Variables.
         private readonly object balanceLock = new object();
         private readonly object balanceLockS = new object();
@@ -45,6 +49,7 @@ namespace RefrigtzW
             }
             catch (Exception t) { Log(t); }
         }
+        
         public void Dispose()
         {
             ValuableSelfSupported = null;
@@ -186,7 +191,6 @@ namespace RefrigtzW
         public void DrawSoldierOnTable(ref Graphics g, int CellW, int CellH)
         {
 
-
             lock (balanceLockS)
             {
                 if (S[0] == null || S[1] == null)
@@ -211,6 +215,7 @@ namespace RefrigtzW
                                 lock (O1)
                                 {    //Draw an Instant from File of Gray Soldeirs.
                                     g.DrawImage(S[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                        
                                 }
                             }
                             else
@@ -220,7 +225,7 @@ namespace RefrigtzW
                                 {    //Draw an Instant from File of Gray Soldeirs.
                                      //Draw an Instatnt of Brown Soldier File On the Table.
                                     g.DrawImage(S[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                                }
+                                 }
                             }
                         }
                         catch (Exception t)
@@ -242,7 +247,7 @@ namespace RefrigtzW
                                 {    //Draw an Instant from File of Gray Soldeirs.
                                      //Draw of Gray Minsister Image File By an Instant.
                                     g.DrawImage(DrawMinister.M[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                                }
+                                 }
                             }
                             else
                             {
@@ -251,7 +256,7 @@ namespace RefrigtzW
                                 {    //Draw an Instant from File of Gray Soldeirs.
                                      //Draw a Image File on the Table Form n Instatnt One.
                                     g.DrawImage(DrawMinister.M[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                                }
+                                 }
                             }
                         }
                         catch (Exception t)
@@ -271,7 +276,7 @@ namespace RefrigtzW
                                 {    //Draw an Instant from File of Gray Soldeirs.
                                      //Create on the Inststant of Gray Castles Images.
                                     g.DrawImage(DrawCastle.C[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                                }
+                                  }
                             }
                             else
                             {
@@ -300,7 +305,7 @@ namespace RefrigtzW
                                 lock (O1)
                                 {//Draw an Instatnt of Gray Hourse Image File.
                                     g.DrawImage(DrawHourse.H[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (int)CellH), CellW, CellH));
-                                }
+                                  }
                             }
                             else
                             {
@@ -308,7 +313,7 @@ namespace RefrigtzW
                                 lock (O1)
                                 {//Creat of an Instatnt Hourse Image File.
                                     g.DrawImage(DrawHourse.H[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                                }
+                                  }
                             }
                         }
                         catch (Exception t)
@@ -328,7 +333,7 @@ namespace RefrigtzW
                                 lock (O1)
                                 {//Draw an Instatnt Image of Gray Elephant.
                                     g.DrawImage(DrawElefant.E[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                                }
+                                   }
                             }
                             else
                             {
@@ -336,7 +341,7 @@ namespace RefrigtzW
                                 lock (O1)
                                 {//Draw of Instant Image of Brown Elephant.
                                     g.DrawImage(DrawElefant.E[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                                }
+                                  }
                             }
 
                         }

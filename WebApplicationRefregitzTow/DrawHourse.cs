@@ -9,6 +9,11 @@ namespace RefrigtzW
     [Serializable]
     public class DrawHourse
     {
+        
+        
+        
+        
+        public int WinOcuuredatChiled = 0;public int LoseOcuuredatChiled = 0;
         private readonly object balanceLock = new object();
         private readonly object balanceLockS = new object();
         public static Image[] H = new Image[2];
@@ -109,7 +114,6 @@ namespace RefrigtzW
             )
         {
 
-            lock (balanceLock)
             {
                 if (H[0] == null && H[1] == null)
                 {
@@ -199,7 +203,7 @@ namespace RefrigtzW
                             {    //Draw an Instant from File of Gray Soldeirs.
                                  //Draw an Instatnt Gray Hourse on the Table.
                                 g.DrawImage(H[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                            }
+                               }
                         }
                         else
                         {
@@ -208,7 +212,7 @@ namespace RefrigtzW
                             {    //Draw an Instant from File of Gray Soldeirs.
                                  //Draw an Instatnt Brown Hourse on the Table.
                                 g.DrawImage(H[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                            }
+                                }
                         }
                     }
                 }

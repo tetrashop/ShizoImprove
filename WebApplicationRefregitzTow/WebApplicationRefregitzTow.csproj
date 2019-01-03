@@ -338,7 +338,6 @@
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="ChessGeneticAlgorithm.cs" />
-    <Compile Include="ChessPerdict.cs" />
     <Compile Include="ChessRules.cs" />
     <Compile Include="CodeClass.cs" />
     <Compile Include="Contact.aspx.cs">

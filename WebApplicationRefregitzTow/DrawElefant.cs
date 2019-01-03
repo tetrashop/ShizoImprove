@@ -8,7 +8,13 @@ namespace RefrigtzW
 {
     [Serializable]
     public class DrawElefant
+
     {
+        
+        
+        
+        
+        public int WinOcuuredatChiled = 0;public int LoseOcuuredatChiled = 0;
         private readonly object balanceLock = new object();
         private readonly object balanceLockS = new object();
         public static Image[] E = new Image[2];
@@ -204,7 +210,7 @@ namespace RefrigtzW
                             {    //Draw an Instant from File of Gray Soldeirs.
                                  //Draw an Instatnt Gray Elephant On the Table.
                                 g.DrawImage(E[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                            }
+                               }
                         }
                         else
                         {

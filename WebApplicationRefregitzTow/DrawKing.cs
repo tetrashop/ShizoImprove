@@ -9,6 +9,13 @@ namespace RefrigtzW
     [Serializable]
     public class DrawKing
     {
+        
+        
+        
+        public static bool KingGrayNotCheckedByQuantumMove = false;
+        public static bool KingBrownNotCheckedByQuantumMove = false;
+        
+        public int WinOcuuredatChiled = 0;public int LoseOcuuredatChiled = 0;
         private readonly object balanceLock = new object();
         private readonly object balanceLockS = new object();
         public static Image[] K = new Image[2]; 
@@ -112,7 +119,7 @@ namespace RefrigtzW
             )
         {
 
-            lock (balanceLock)
+              lock (balanceLock)
             {
                 if (K[0] == null && K[1] == null)
                 {
@@ -204,6 +211,7 @@ namespace RefrigtzW
                             {    //Draw an Instant from File of Gray Soldeirs.
                                  //Draw an Instatnt Gray King Image On the Table.
                                 g.DrawImage(K[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+
                             }
 
                         }
@@ -214,8 +222,9 @@ namespace RefrigtzW
                             {    //Draw an Instant from File of Gray Soldeirs.
                                  //Draw an Instatnt Brown King Image On the Table.
                                 g.DrawImage(K[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+
                             }
-                        }
+                            }
                     }
                 }
             }
