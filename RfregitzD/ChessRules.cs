@@ -609,9 +609,9 @@ namespace RefrigtzDLL
         {
             int[,] Tab = new int[8, 8];
             //Clone a Copy
-            //for (int i = 0; i < 8; i++)
-            //for (int j = 0; j < 8; j++)
-            //Tab[i, j] = Table[i, j];
+            for (int i = 0; i < 8; i++)
+            for (int j = 0; j < 8; j++)
+            Tab[i, j] = Table[i, j];
             //Initiate Variables.
             CheckGray = false;
             CheckBrown = false;
@@ -1879,7 +1879,7 @@ namespace RefrigtzDLL
                         {
                             BREAK = true;
                             //Initiate Local Is Check Variables.
-                            CheckGray = true;
+                            CheckBrown = true;
                             break;
                         }
                     }
@@ -1888,7 +1888,7 @@ namespace RefrigtzDLL
                         if (A.Rules(i, j, RowK, ColumnK, aa, Ord))
                         {
                             BREAK = true;
-                            CheckBrown = true;
+                            CheckGray = true;                            
                             break;
                         }
                     }

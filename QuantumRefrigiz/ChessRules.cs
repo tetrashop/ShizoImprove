@@ -611,9 +611,9 @@ namespace QuantumRefrigiz
         {
             int[,] Tab = new int[8, 8];
             //Clone a Copy
-            //for (int i = 0; i < 8; i++)
-                //for (int j = 0; j < 8; j++)
-                    //Tab[i, j] = Table[i, j];
+            for (int i = 0; i < 8; i++)
+                for (int j = 0; j < 8; j++)
+                    Tab[i, j] = Table[i, j];
             //Initiate Variables.
             CheckGray = false;
             CheckBrown = false;
@@ -1881,7 +1881,7 @@ namespace QuantumRefrigiz
                         {
                             BREAK = true;
                             //Initiate Local Is Check Variables.
-                            CheckGray = true;
+                            CheckBrown = true;
                             break;
                         }
                     }
@@ -1889,8 +1889,8 @@ namespace QuantumRefrigiz
                     {   //Menen Parameter is Moveble to Second Parameters Location returm Movable.
                         if (A.Rules(i, j, RowK, ColumnK, aa, Ord))
                         {
-                            BREAK = true;
-                            CheckBrown = true;
+                            BREAK = true;                            
+                            CheckGray = true;
                             break;
                         }
                     }

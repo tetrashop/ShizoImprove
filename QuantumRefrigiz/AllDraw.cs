@@ -11750,272 +11750,544 @@ if (Kind == 2)
                 }
             return Is;
         }
-        void ServeISSup(int Kind, int i)
+        void Serve(int Order)
+        {
+            if (Order == 1)
+            {
+                for (int i = 0; i < SodierMidle; i++)
+                    ServeISSup(Order, 1, i);
+                for (int i = 0; i < ElefantMidle; i++)
+                    ServeISSup(Order, 2, i);
+                for (int i = 0; i < HourseMidle; i++)
+                    ServeISSup(Order, 3, i);
+                for (int i = 0; i < CastleMidle; i++)
+                    ServeISSup(Order, 4, i);
+                for (int i = 0; i < MinisterMidle; i++)
+                    ServeISSup(Order, 5, i);
+                for (int i = 0; i < KingMidle; i++)
+                    ServeISSup(Order, 6, i);
+
+            }
+            else
+            {
+                for (int i = SodierMidle; i < SodierHigh; i++)
+                    ServeISSup(Order, 1, i);
+                for (int i = ElefantMidle; i < ElefantHigh; i++)
+                    ServeISSup(Order, 2, i);
+                for (int i = HourseMidle; i < HourseHight; i++)
+                    ServeISSup(Order, 3, i);
+                for (int i = CastleMidle; i < CastleHigh; i++)
+                    ServeISSup(Order, 4, i);
+                for (int i = MinisterMidle; i < MinisterHigh; i++)
+                    ServeISSup(Order, 5, i);
+                for (int i = KingMidle; i < KingHigh; i++)
+                    ServeISSup(Order, 6, i);
+            }
+        }
+        void ServeISSup(int Order, int Kind,
+                       int ii
+                      )
         {
             if (Kind == 1)
             {
-                if (SolderesOnTable[i].SoldierThinkingQuantum[0].IsSup)
+                if (Order == 1)
                 {
-                    if (this.AStarGreedyString != null && this.AStarGreedyString.AStarGreedyString != null)
+                    if (SolderesOnTable[ii].SoldierThinkingQuantum[0].IsSup)
                     {
-                        int j = FoundTableIndex(this.AStarGreedyString.AStarGreedyString.SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder, SolderesOnTable[i].SoldierThinkingQuantum[0].TableT);
-                        if (j != -1)
+
+                        for (int i = 0; i < SodierMidle; i++)
                         {
-                            
-                            this.AStarGreedyString.AStarGreedyString.SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder[j][0] += SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicAttackValueSup;
-                            SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicAttackValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder[j][1] += SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicMovementValueSup;
-                            SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicMovementValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder[j][2] += SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicSelfSupportedValueSup;
-                            SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicSelfSupportedValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder[j][3] += SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicObjectDangourCheckMateValueSup;
-                            SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicObjectDangourCheckMateValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder[j][4] += SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicKillerValueSup;
-                            SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicKillerValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder[j][5] += SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicReducedAttackValueSup;
-                            SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicReducedAttackValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder[j][6] += SolderesOnTable[i].SoldierThinkingQuantum[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
-                            SolderesOnTable[i].SoldierThinkingQuantum[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder[j][7] += SolderesOnTable[i].SoldierThinkingQuantum[0].HeuristicKingSafeSup;
-                            SolderesOnTable[i].SoldierThinkingQuantum[0].HeuristicKingSafeSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder[j][8] += SolderesOnTable[i].SoldierThinkingQuantum[0].HeuristicFromCenterSup;
-                            SolderesOnTable[i].SoldierThinkingQuantum[0].HeuristicFromCenterSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder[j][9] += SolderesOnTable[i].SoldierThinkingQuantum[0].HeuristicKingDangourSup;
-                            SolderesOnTable[i].SoldierThinkingQuantum[0].HeuristicKingDangourSup = 0;
-                            SolderesOnTable[i].SoldierThinkingQuantum[0].IsSup = false;
-                            AllDraw.OutPut = "Served Soldeir!";
+                            if (SolderesOnTable[i] == null)
+                                continue;
+                            //int j = FoundTableIndex(this.SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder, SolderesOnTable[ii].SoldierThinkingQuantum[0].TableConst);
+                            for (int j = 0; j < SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder.Count; j++)
+                            {
+
+                                this.SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder[j][0] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HuristicAttackValueSup;
+                                this.SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder[j][1] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HuristicMovementValueSup;
+                                this.SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder[j][2] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HuristicSelfSupportedValueSup;
+                                this.SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder[j][3] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HuristicObjectDangourCheckMateValueSup;
+                                this.SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder[j][4] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HuristicKillerValueSup;
+                                this.SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder[j][5] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HuristicReducedAttackValueSup;
+                                this.SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder[j][6] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+                                this.SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder[j][7] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicKingSafeSup;
+                                this.SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder[j][8] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicFromCenterSup;
+                                this.SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder[j][9] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicKingDangourSup;
+
+                                AllDraw.OutPut = "\r\nServed Soldeir!";
+                            }
                         }
-                        else
-                            SolderesOnTable[i].SoldierThinkingQuantum[0].IsSup = false;
+                        SolderesOnTable[ii].SoldierThinkingQuantum[0].HuristicAttackValueSup = 0;
+                        SolderesOnTable[ii].SoldierThinkingQuantum[0].HuristicMovementValueSup = 0;
+                        SolderesOnTable[ii].SoldierThinkingQuantum[0].HuristicSelfSupportedValueSup = 0;
+                        SolderesOnTable[ii].SoldierThinkingQuantum[0].HuristicObjectDangourCheckMateValueSup = 0;
+                        SolderesOnTable[ii].SoldierThinkingQuantum[0].HuristicKillerValueSup = 0;
+                        SolderesOnTable[ii].SoldierThinkingQuantum[0].HuristicReducedAttackValueSup = 0;
+                        SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+                        SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicKingSafeSup = 0;
+                        SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicFromCenterSup = 0;
+                        SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicKingDangourSup = 0;
+                        SolderesOnTable[ii].SoldierThinkingQuantum[0].IsSup = false;
                     }
-                    else
-                        SolderesOnTable[i].SoldierThinkingQuantum[0].IsSup = false;
                 }
                 else
-                    SolderesOnTable[i].SoldierThinkingQuantum[0].IsSup = false;
-            }
-            else
+                {
+                    if (SolderesOnTable[ii].SoldierThinkingQuantum[0].IsSup)
+                    {
 
-            if (Kind == 2)
+                        for (int i = SodierMidle; i < SodierHigh; i++)
+                        {
+                            if (SolderesOnTable[i] == null)
+                                continue;
+                            //int j = FoundTableIndex(this.SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder, SolderesOnTable[ii].SoldierThinkingQuantum[0].TableConst);
+                            for (int j = 0; j < SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder.Count; j++)
+                            {
+
+                                this.SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder[j][0] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HuristicAttackValueSup;
+                                this.SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder[j][1] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HuristicMovementValueSup;
+                                this.SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder[j][2] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HuristicSelfSupportedValueSup;
+                                this.SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder[j][3] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HuristicObjectDangourCheckMateValueSup;
+                                this.SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder[j][4] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HuristicKillerValueSup;
+                                this.SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder[j][5] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HuristicReducedAttackValueSup;
+                                this.SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder[j][6] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+                                this.SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder[j][7] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicKingSafeSup;
+                                this.SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder[j][8] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicFromCenterSup;
+                                this.SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder[j][9] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicKingDangourSup;
+
+                                AllDraw.OutPut = "\r\nServed Soldeir!";
+                            }
+                        }
+                        SolderesOnTable[ii].SoldierThinkingQuantum[0].HuristicAttackValueSup = 0;
+                        SolderesOnTable[ii].SoldierThinkingQuantum[0].HuristicMovementValueSup = 0;
+                        SolderesOnTable[ii].SoldierThinkingQuantum[0].HuristicSelfSupportedValueSup = 0;
+                        SolderesOnTable[ii].SoldierThinkingQuantum[0].HuristicObjectDangourCheckMateValueSup = 0;
+                        SolderesOnTable[ii].SoldierThinkingQuantum[0].HuristicKillerValueSup = 0;
+                        SolderesOnTable[ii].SoldierThinkingQuantum[0].HuristicReducedAttackValueSup = 0;
+                        SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+                        SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicKingSafeSup = 0;
+                        SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicFromCenterSup = 0;
+                        SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicKingDangourSup = 0;
+                        SolderesOnTable[ii].SoldierThinkingQuantum[0].IsSup = false;
+                    }
+                }
+            }
+            else if (Kind == 2)
             {
-                if (ElephantOnTable[i].ElefantThinkingQuantum[0].IsSup)
+                if (Order == 1)
                 {
-                    if (this.AStarGreedyString != null && this.AStarGreedyString.AStarGreedyString != null)
+                    if (ElephantOnTable[ii].ElefantThinkingQuantum[0].IsSup)
                     {
-                        int j = FoundTableIndex(this.AStarGreedyString.AStarGreedyString.ElephantOnTable[i].ElefantThinkingQuantum[0].TableListSolder, ElephantOnTable[i].ElefantThinkingQuantum[0].TableT);
-                        if (j != -1)
+                        for (int i = 0; i < ElefantMidle; i++)
                         {
-                            
-                            this.AStarGreedyString.AStarGreedyString.ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListSolder[j][0] += ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicAttackValueSup;
-                            ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicAttackValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListSolder[j][1] += ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicMovementValueSup;
-                            ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicMovementValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListSolder[j][2] += ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicSelfSupportedValueSup;
-                            ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicSelfSupportedValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListSolder[j][3] += ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicObjectDangourCheckMateValueSup;
-                            ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicObjectDangourCheckMateValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListSolder[j][4] += ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicKillerValueSup;
-                            ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicKillerValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListSolder[j][5] += ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicReducedAttackValueSup;
-                            ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicReducedAttackValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListSolder[j][6] += ElephantOnTable[i].ElefantThinkingQuantum[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
-                            ElephantOnTable[i].ElefantThinkingQuantum[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListSolder[j][7] += ElephantOnTable[i].ElefantThinkingQuantum[0].HeuristicKingSafeSup;
-                            ElephantOnTable[i].ElefantThinkingQuantum[0].HeuristicKingSafeSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListSolder[j][8] += ElephantOnTable[i].ElefantThinkingQuantum[0].HeuristicFromCenterSup;
-                            ElephantOnTable[i].ElefantThinkingQuantum[0].HeuristicFromCenterSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListSolder[j][9] += ElephantOnTable[i].ElefantThinkingQuantum[0].HeuristicKingDangourSup;
-                            ElephantOnTable[i].ElefantThinkingQuantum[0].HeuristicKingDangourSup = 0;
-                            ElephantOnTable[i].ElefantThinkingQuantum[0].IsSup = false;
-                            AllDraw.OutPut = "Served Elephant!";
+                            if (ElephantOnTable[i] == null)
+                                continue;
+                            //if (this != null && this != null)
+                            {
+                                //int j = FoundTableIndex(this.ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant, ElephantOnTable[ii].ElefantThinkingQuantum[0].TableConst);
+                                for (int j = 0; j < ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListElefant.Count; j++)
+                                {
+
+                                    this.ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListElefant[j][0] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HuristicAttackValueSup;
+                                    this.ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListElefant[j][1] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HuristicMovementValueSup;
+                                    this.ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListElefant[j][2] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HuristicSelfSupportedValueSup;
+                                    this.ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListElefant[j][3] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HuristicObjectDangourCheckMateValueSup;
+                                    this.ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListElefant[j][4] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HuristicKillerValueSup;
+                                    this.ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListElefant[j][5] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HuristicReducedAttackValueSup;
+                                    this.ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListElefant[j][6] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+                                    this.ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListElefant[j][7] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicKingSafeSup;
+                                    this.ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListElefant[j][8] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicFromCenterSup;
+                                    this.ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListElefant[j][9] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicKingDangourSup;
+
+                                    AllDraw.OutPut = "\r\nServed Elephant!";
+                                }
+                            }
                         }
-                        else
-                            ElephantOnTable[i].ElefantThinkingQuantum[0].IsSup = false;
+                        ElephantOnTable[ii].ElefantThinkingQuantum[0].HuristicAttackValueSup = 0;
+                        ElephantOnTable[ii].ElefantThinkingQuantum[0].HuristicMovementValueSup = 0;
+                        ElephantOnTable[ii].ElefantThinkingQuantum[0].HuristicSelfSupportedValueSup = 0;
+                        ElephantOnTable[ii].ElefantThinkingQuantum[0].HuristicObjectDangourCheckMateValueSup = 0;
+                        ElephantOnTable[ii].ElefantThinkingQuantum[0].HuristicKillerValueSup = 0;
+                        ElephantOnTable[ii].ElefantThinkingQuantum[0].HuristicReducedAttackValueSup = 0;
+                        ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+                        ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicKingSafeSup = 0;
+                        ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicFromCenterSup = 0;
+                        ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicKingDangourSup = 0;
+                        ElephantOnTable[ii].ElefantThinkingQuantum[0].IsSup = false;
                     }
-                    else
-                        ElephantOnTable[i].ElefantThinkingQuantum[0].IsSup = false;
                 }
                 else
-                    ElephantOnTable[i].ElefantThinkingQuantum[0].IsSup = false;
-            }
-            else
+                {
 
-            if (Kind == 3)
+                    if (ElephantOnTable[ii].ElefantThinkingQuantum[0].IsSup)
+                    {
+                        for (int i = ElefantMidle; i < ElefantHigh; i++)
+                        {
+                            if (ElephantOnTable[i] == null)
+                                continue;
+                            //if (this != null && this != null)
+                            {
+                                //int j = FoundTableIndex(this.ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant, ElephantOnTable[ii].ElefantThinkingQuantum[0].TableConst);
+                                for (int j = 0; j < ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListElefant.Count; j++)
+                                {
+
+                                    this.ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListElefant[j][0] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HuristicAttackValueSup;
+                                    this.ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListElefant[j][1] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HuristicMovementValueSup;
+                                    this.ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListElefant[j][2] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HuristicSelfSupportedValueSup;
+                                    this.ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListElefant[j][3] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HuristicObjectDangourCheckMateValueSup;
+                                    this.ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListElefant[j][4] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HuristicKillerValueSup;
+                                    this.ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListElefant[j][5] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HuristicReducedAttackValueSup;
+                                    this.ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListElefant[j][6] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+                                    this.ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListElefant[j][7] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicKingSafeSup;
+                                    this.ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListElefant[j][8] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicFromCenterSup;
+                                    this.ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListElefant[j][9] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicKingDangourSup;
+
+                                    AllDraw.OutPut = "\r\nServed Elephant!";
+                                }
+                            }
+                        }
+                        ElephantOnTable[ii].ElefantThinkingQuantum[0].HuristicAttackValueSup = 0;
+                        ElephantOnTable[ii].ElefantThinkingQuantum[0].HuristicMovementValueSup = 0;
+                        ElephantOnTable[ii].ElefantThinkingQuantum[0].HuristicSelfSupportedValueSup = 0;
+                        ElephantOnTable[ii].ElefantThinkingQuantum[0].HuristicObjectDangourCheckMateValueSup = 0;
+                        ElephantOnTable[ii].ElefantThinkingQuantum[0].HuristicKillerValueSup = 0;
+                        ElephantOnTable[ii].ElefantThinkingQuantum[0].HuristicReducedAttackValueSup = 0;
+                        ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+                        ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicKingSafeSup = 0;
+                        ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicFromCenterSup = 0;
+                        ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicKingDangourSup = 0;
+                        ElephantOnTable[ii].ElefantThinkingQuantum[0].IsSup = false;
+                    }
+                }
+            }
+            else if (Kind == 3)
             {
-                if (HoursesOnTable[i].HourseThinkingQuantum[0].IsSup)
+                if (Order == 1)
                 {
-                    if (this.AStarGreedyString != null && this.AStarGreedyString.AStarGreedyString != null)
+                    if (HoursesOnTable[ii].HourseThinkingQuantum[0].IsSup)
                     {
-                        int j = FoundTableIndex(this.AStarGreedyString.AStarGreedyString.HoursesOnTable[i].HourseThinkingQuantum[0].TableListSolder, HoursesOnTable[i].HourseThinkingQuantum[0].TableT);
-                        if (j != -1)
+                        for (int i = 0; i < HourseMidle; i++)
                         {
-                            
-                            this.AStarGreedyString.AStarGreedyString.HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListSolder[j][0] += HoursesOnTable[i].HourseThinkingQuantum[0].HuristicAttackValueSup;
-                            HoursesOnTable[i].HourseThinkingQuantum[0].HuristicAttackValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListSolder[j][1] += HoursesOnTable[i].HourseThinkingQuantum[0].HuristicMovementValueSup;
-                            HoursesOnTable[i].HourseThinkingQuantum[0].HuristicMovementValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListSolder[j][2] += HoursesOnTable[i].HourseThinkingQuantum[0].HuristicSelfSupportedValueSup;
-                            HoursesOnTable[i].HourseThinkingQuantum[0].HuristicSelfSupportedValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListSolder[j][3] += HoursesOnTable[i].HourseThinkingQuantum[0].HuristicObjectDangourCheckMateValueSup;
-                            HoursesOnTable[i].HourseThinkingQuantum[0].HuristicObjectDangourCheckMateValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListSolder[j][4] += HoursesOnTable[i].HourseThinkingQuantum[0].HuristicKillerValueSup;
-                            HoursesOnTable[i].HourseThinkingQuantum[0].HuristicKillerValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListSolder[j][5] += HoursesOnTable[i].HourseThinkingQuantum[0].HuristicReducedAttackValueSup;
-                            HoursesOnTable[i].HourseThinkingQuantum[0].HuristicReducedAttackValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListSolder[j][6] += HoursesOnTable[i].HourseThinkingQuantum[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
-                            HoursesOnTable[i].HourseThinkingQuantum[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListSolder[j][7] += HoursesOnTable[i].HourseThinkingQuantum[0].HeuristicKingSafeSup;
-                            HoursesOnTable[i].HourseThinkingQuantum[0].HeuristicKingSafeSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListSolder[j][8] += HoursesOnTable[i].HourseThinkingQuantum[0].HeuristicFromCenterSup;
-                            HoursesOnTable[i].HourseThinkingQuantum[0].HeuristicFromCenterSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListSolder[j][9] += HoursesOnTable[i].HourseThinkingQuantum[0].HeuristicKingDangourSup;
-                            HoursesOnTable[i].HourseThinkingQuantum[0].HeuristicKingDangourSup = 0;
-                            HoursesOnTable[i].HourseThinkingQuantum[0].IsSup = false;
-                            AllDraw.OutPut = "Served Hourse!";
+                            if (HoursesOnTable[i] == null)
+                                continue;
+                            //int j = FoundTableIndex(this.HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse, HoursesOnTable[ii].HourseThinkingQuantum[0].TableConst);
+                            for (int j = 0; j < HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListHourse.Count; j++)
+                            {
+
+                                this.HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListHourse[j][0] += HoursesOnTable[ii].HourseThinkingQuantum[0].HuristicAttackValueSup;
+                                this.HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListHourse[j][1] += HoursesOnTable[ii].HourseThinkingQuantum[0].HuristicMovementValueSup;
+                                this.HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListHourse[j][2] += HoursesOnTable[ii].HourseThinkingQuantum[0].HuristicSelfSupportedValueSup;
+                                this.HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListHourse[j][3] += HoursesOnTable[ii].HourseThinkingQuantum[0].HuristicObjectDangourCheckMateValueSup;
+                                this.HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListHourse[j][4] += HoursesOnTable[ii].HourseThinkingQuantum[0].HuristicKillerValueSup;
+                                this.HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListHourse[j][5] += HoursesOnTable[ii].HourseThinkingQuantum[0].HuristicReducedAttackValueSup;
+                                this.HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListHourse[j][6] += HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+                                this.HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListHourse[j][7] += HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicKingSafeSup;
+                                this.HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListHourse[j][8] += HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicFromCenterSup;
+                                this.HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListHourse[j][9] += HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicKingDangourSup;
+
+                                AllDraw.OutPut = "\r\nServed Hourse!";
+                            }
                         }
-                        else
-                            HoursesOnTable[i].HourseThinkingQuantum[0].IsSup = false;
+                        HoursesOnTable[ii].HourseThinkingQuantum[0].HuristicAttackValueSup = 0;
+                        HoursesOnTable[ii].HourseThinkingQuantum[0].HuristicMovementValueSup = 0;
+                        HoursesOnTable[ii].HourseThinkingQuantum[0].HuristicSelfSupportedValueSup = 0;
+                        HoursesOnTable[ii].HourseThinkingQuantum[0].HuristicObjectDangourCheckMateValueSup = 0;
+                        HoursesOnTable[ii].HourseThinkingQuantum[0].HuristicKillerValueSup = 0;
+                        HoursesOnTable[ii].HourseThinkingQuantum[0].HuristicReducedAttackValueSup = 0;
+                        HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+                        HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicKingSafeSup = 0;
+                        HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicFromCenterSup = 0;
+                        HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicKingDangourSup = 0;
+                        HoursesOnTable[ii].HourseThinkingQuantum[0].IsSup = false;
                     }
-                    else
-                        HoursesOnTable[i].HourseThinkingQuantum[0].IsSup = false;
+
                 }
                 else
-                    HoursesOnTable[i].HourseThinkingQuantum[0].IsSup = false;
-            }
-            else
+                {
+                    if (HoursesOnTable[ii].HourseThinkingQuantum[0].IsSup)
+                    {
+                        for (int i = HourseMidle; i < HourseHight; i++)
+                        {
+                            if (HoursesOnTable[i] == null)
+                                continue;
+                            //int j = FoundTableIndex(this.HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse, HoursesOnTable[ii].HourseThinkingQuantum[0].TableConst);
+                            for (int j = 0; j < HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListHourse.Count; j++)
+                            {
 
-            if (Kind == 4)
+                                this.HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListHourse[j][0] += HoursesOnTable[ii].HourseThinkingQuantum[0].HuristicAttackValueSup;
+                                this.HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListHourse[j][1] += HoursesOnTable[ii].HourseThinkingQuantum[0].HuristicMovementValueSup;
+                                this.HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListHourse[j][2] += HoursesOnTable[ii].HourseThinkingQuantum[0].HuristicSelfSupportedValueSup;
+                                this.HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListHourse[j][3] += HoursesOnTable[ii].HourseThinkingQuantum[0].HuristicObjectDangourCheckMateValueSup;
+                                this.HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListHourse[j][4] += HoursesOnTable[ii].HourseThinkingQuantum[0].HuristicKillerValueSup;
+                                this.HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListHourse[j][5] += HoursesOnTable[ii].HourseThinkingQuantum[0].HuristicReducedAttackValueSup;
+                                this.HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListHourse[j][6] += HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+                                this.HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListHourse[j][7] += HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicKingSafeSup;
+                                this.HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListHourse[j][8] += HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicFromCenterSup;
+                                this.HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListHourse[j][9] += HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicKingDangourSup;
+
+                                AllDraw.OutPut = "\r\nServed Hourse!";
+                            }
+                        }
+                        HoursesOnTable[ii].HourseThinkingQuantum[0].HuristicAttackValueSup = 0;
+                        HoursesOnTable[ii].HourseThinkingQuantum[0].HuristicMovementValueSup = 0;
+                        HoursesOnTable[ii].HourseThinkingQuantum[0].HuristicSelfSupportedValueSup = 0;
+                        HoursesOnTable[ii].HourseThinkingQuantum[0].HuristicObjectDangourCheckMateValueSup = 0;
+                        HoursesOnTable[ii].HourseThinkingQuantum[0].HuristicKillerValueSup = 0;
+                        HoursesOnTable[ii].HourseThinkingQuantum[0].HuristicReducedAttackValueSup = 0;
+                        HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+                        HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicKingSafeSup = 0;
+                        HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicFromCenterSup = 0;
+                        HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicKingDangourSup = 0;
+                        HoursesOnTable[ii].HourseThinkingQuantum[0].IsSup = false;
+                    }
+                }
+            }
+            else if (Kind == 4)
             {
-                if (CastlesOnTable[i].CastleThinkingQuantum[0].IsSup)
+                if (Order == 1)
                 {
-                    if (this.AStarGreedyString != null && this.AStarGreedyString.AStarGreedyString != null)
+                    if (CastlesOnTable[ii].CastleThinkingQuantum[0].IsSup)
                     {
-                        int j = FoundTableIndex(this.AStarGreedyString.AStarGreedyString.CastlesOnTable[i].CastleThinkingQuantum[0].TableListSolder, CastlesOnTable[i].CastleThinkingQuantum[0].TableT);
-                        if (j != -1)
+                        for (int i = 0; i < CastleMidle; i++)
                         {
-                            
-                            this.AStarGreedyString.AStarGreedyString.CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListSolder[j][0] += CastlesOnTable[i].CastleThinkingQuantum[0].HuristicAttackValueSup;
-                            CastlesOnTable[i].CastleThinkingQuantum[0].HuristicAttackValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListSolder[j][1] += CastlesOnTable[i].CastleThinkingQuantum[0].HuristicMovementValueSup;
-                            CastlesOnTable[i].CastleThinkingQuantum[0].HuristicMovementValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListSolder[j][2] += CastlesOnTable[i].CastleThinkingQuantum[0].HuristicSelfSupportedValueSup;
-                            CastlesOnTable[i].CastleThinkingQuantum[0].HuristicSelfSupportedValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListSolder[j][3] += CastlesOnTable[i].CastleThinkingQuantum[0].HuristicObjectDangourCheckMateValueSup;
-                            CastlesOnTable[i].CastleThinkingQuantum[0].HuristicObjectDangourCheckMateValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListSolder[j][4] += CastlesOnTable[i].CastleThinkingQuantum[0].HuristicKillerValueSup;
-                            CastlesOnTable[i].CastleThinkingQuantum[0].HuristicKillerValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListSolder[j][5] += CastlesOnTable[i].CastleThinkingQuantum[0].HuristicReducedAttackValueSup;
-                            CastlesOnTable[i].CastleThinkingQuantum[0].HuristicReducedAttackValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListSolder[j][6] += CastlesOnTable[i].CastleThinkingQuantum[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
-                            CastlesOnTable[i].CastleThinkingQuantum[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListSolder[j][7] += CastlesOnTable[i].CastleThinkingQuantum[0].HeuristicKingSafeSup;
-                            CastlesOnTable[i].CastleThinkingQuantum[0].HeuristicKingSafeSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListSolder[j][8] += CastlesOnTable[i].CastleThinkingQuantum[0].HeuristicFromCenterSup;
-                            CastlesOnTable[i].CastleThinkingQuantum[0].HeuristicFromCenterSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListSolder[j][9] += CastlesOnTable[i].CastleThinkingQuantum[0].HeuristicKingDangourSup;
-                            CastlesOnTable[i].CastleThinkingQuantum[0].HeuristicKingDangourSup = 0;
-                            CastlesOnTable[i].CastleThinkingQuantum[0].IsSup = false;
-                            AllDraw.OutPut = "Served Castle!";
+                            if (CastlesOnTable[i] == null)
+                                continue;
+                            //int j = FoundTableIndex(this.CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle, CastlesOnTable[ii].CastleThinkingQuantum[0].TableConst);
+                            for (int j = 0; j < CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListCastle.Count; j++)
+                            {
+
+                                this.CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListCastle[j][0] += CastlesOnTable[ii].CastleThinkingQuantum[0].HuristicAttackValueSup;
+                                this.CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListCastle[j][1] += CastlesOnTable[ii].CastleThinkingQuantum[0].HuristicMovementValueSup;
+                                this.CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListCastle[j][2] += CastlesOnTable[ii].CastleThinkingQuantum[0].HuristicSelfSupportedValueSup;
+                                this.CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListCastle[j][3] += CastlesOnTable[ii].CastleThinkingQuantum[0].HuristicObjectDangourCheckMateValueSup;
+                                this.CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListCastle[j][4] += CastlesOnTable[ii].CastleThinkingQuantum[0].HuristicKillerValueSup;
+                                this.CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListCastle[j][5] += CastlesOnTable[ii].CastleThinkingQuantum[0].HuristicReducedAttackValueSup;
+                                this.CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListCastle[j][6] += CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+                                this.CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListCastle[j][7] += CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicKingSafeSup;
+                                this.CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListCastle[j][8] += CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicFromCenterSup;
+                                this.CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListCastle[j][9] += CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicKingDangourSup;
+
+                                AllDraw.OutPut = "\r\nServed Castle!";
+                            }
                         }
-                        else
-                            CastlesOnTable[i].CastleThinkingQuantum[0].IsSup = false;
+                        CastlesOnTable[ii].CastleThinkingQuantum[0].HuristicAttackValueSup = 0;
+                        CastlesOnTable[ii].CastleThinkingQuantum[0].HuristicMovementValueSup = 0;
+                        CastlesOnTable[ii].CastleThinkingQuantum[0].HuristicSelfSupportedValueSup = 0;
+                        CastlesOnTable[ii].CastleThinkingQuantum[0].HuristicObjectDangourCheckMateValueSup = 0;
+                        CastlesOnTable[ii].CastleThinkingQuantum[0].HuristicKillerValueSup = 0;
+                        CastlesOnTable[ii].CastleThinkingQuantum[0].HuristicReducedAttackValueSup = 0;
+                        CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+                        CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicKingSafeSup = 0;
+                        CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicFromCenterSup = 0;
+                        CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicKingDangourSup = 0;
+                        CastlesOnTable[ii].CastleThinkingQuantum[0].IsSup = false;
                     }
-                    else
-                        CastlesOnTable[i].CastleThinkingQuantum[0].IsSup = false;
                 }
                 else
-                    CastlesOnTable[i].CastleThinkingQuantum[0].IsSup = false;
+                {
+                    if (CastlesOnTable[ii].CastleThinkingQuantum[0].IsSup)
+                    {
+                        for (int i = CastleMidle; i < CastleHigh; i++)
+                        {
+                            if (CastlesOnTable[i] == null)
+                                continue;
+                            //int j = FoundTableIndex(this.CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle, CastlesOnTable[ii].CastleThinkingQuantum[0].TableConst);
+                            for (int j = 0; j < CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListCastle.Count; j++)
+                            {
+
+                                this.CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListCastle[j][0] += CastlesOnTable[ii].CastleThinkingQuantum[0].HuristicAttackValueSup;
+                                this.CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListCastle[j][1] += CastlesOnTable[ii].CastleThinkingQuantum[0].HuristicMovementValueSup;
+                                this.CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListCastle[j][2] += CastlesOnTable[ii].CastleThinkingQuantum[0].HuristicSelfSupportedValueSup;
+                                this.CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListCastle[j][3] += CastlesOnTable[ii].CastleThinkingQuantum[0].HuristicObjectDangourCheckMateValueSup;
+                                this.CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListCastle[j][4] += CastlesOnTable[ii].CastleThinkingQuantum[0].HuristicKillerValueSup;
+                                this.CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListCastle[j][5] += CastlesOnTable[ii].CastleThinkingQuantum[0].HuristicReducedAttackValueSup;
+                                this.CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListCastle[j][6] += CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+                                this.CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListCastle[j][7] += CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicKingSafeSup;
+                                this.CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListCastle[j][8] += CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicFromCenterSup;
+                                this.CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListCastle[j][9] += CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicKingDangourSup;
+
+                                AllDraw.OutPut = "\r\nServed Castle!";
+                            }
+                        }
+                        CastlesOnTable[ii].CastleThinkingQuantum[0].HuristicAttackValueSup = 0;
+                        CastlesOnTable[ii].CastleThinkingQuantum[0].HuristicMovementValueSup = 0;
+                        CastlesOnTable[ii].CastleThinkingQuantum[0].HuristicSelfSupportedValueSup = 0;
+                        CastlesOnTable[ii].CastleThinkingQuantum[0].HuristicObjectDangourCheckMateValueSup = 0;
+                        CastlesOnTable[ii].CastleThinkingQuantum[0].HuristicKillerValueSup = 0;
+                        CastlesOnTable[ii].CastleThinkingQuantum[0].HuristicReducedAttackValueSup = 0;
+                        CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+                        CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicKingSafeSup = 0;
+                        CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicFromCenterSup = 0;
+                        CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicKingDangourSup = 0;
+                        CastlesOnTable[ii].CastleThinkingQuantum[0].IsSup = false;
+                    }
+                }
             }
             else
-
             if (Kind == 5)
             {
-                if (MinisterOnTable[i].MinisterThinkingQuantum[0].IsSup)
+                if (Order == 1)
                 {
-                    if (this.AStarGreedyString != null && this.AStarGreedyString.AStarGreedyString != null)
+                    if (MinisterOnTable[ii].MinisterThinkingQuantum[0].IsSup)
                     {
-                        int j = FoundTableIndex(this.AStarGreedyString.AStarGreedyString.MinisterOnTable[i].MinisterThinkingQuantum[0].TableListSolder, MinisterOnTable[i].MinisterThinkingQuantum[0].TableT);
-                        if (j != -1)
+                        for (int i = 0; i < MinisterMidle; i++)
                         {
-                            
-                            this.AStarGreedyString.AStarGreedyString.MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListSolder[j][0] += MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicAttackValueSup;
-                            MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicAttackValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListSolder[j][1] += MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicMovementValueSup;
-                            MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicMovementValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListSolder[j][2] += MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicSelfSupportedValueSup;
-                            MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicSelfSupportedValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListSolder[j][3] += MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicObjectDangourCheckMateValueSup;
-                            MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicObjectDangourCheckMateValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListSolder[j][4] += MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicKillerValueSup;
-                            MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicKillerValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListSolder[j][5] += MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicReducedAttackValueSup;
-                            MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicReducedAttackValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListSolder[j][6] += MinisterOnTable[i].MinisterThinkingQuantum[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
-                            MinisterOnTable[i].MinisterThinkingQuantum[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListSolder[j][7] += MinisterOnTable[i].MinisterThinkingQuantum[0].HeuristicKingSafeSup;
-                            MinisterOnTable[i].MinisterThinkingQuantum[0].HeuristicKingSafeSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListSolder[j][8] += MinisterOnTable[i].MinisterThinkingQuantum[0].HeuristicFromCenterSup;
-                            MinisterOnTable[i].MinisterThinkingQuantum[0].HeuristicFromCenterSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListSolder[j][9] += MinisterOnTable[i].MinisterThinkingQuantum[0].HeuristicKingDangourSup;
-                            MinisterOnTable[i].MinisterThinkingQuantum[0].HeuristicKingDangourSup = 0;
-                            MinisterOnTable[i].MinisterThinkingQuantum[0].IsSup = false;
-                            AllDraw.OutPut = "Served Minister!";
+                            if (MinisterOnTable[i] == null)
+                                continue;
+                            //int j = FoundTableIndex(this.MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister, MinisterOnTable[ii].MinisterThinkingQuantum[0].TableConst);
+                            for (int j = 0; j < MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListMinister.Count; j++)
+                            {
+
+                                this.MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListMinister[j][0] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HuristicAttackValueSup;
+                                this.MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListMinister[j][1] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HuristicMovementValueSup;
+                                this.MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListMinister[j][2] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HuristicSelfSupportedValueSup;
+                                this.MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListMinister[j][3] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HuristicObjectDangourCheckMateValueSup;
+                                this.MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListMinister[j][4] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HuristicKillerValueSup;
+                                this.MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListMinister[j][5] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HuristicReducedAttackValueSup;
+                                this.MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListMinister[j][6] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+                                this.MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListMinister[j][7] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicKingSafeSup;
+                                this.MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListMinister[j][8] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicFromCenterSup;
+                                this.MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListMinister[j][9] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicKingDangourSup;
+
+                                AllDraw.OutPut = "\r\nServed Minister!";
+                            }
                         }
-                        else
-                            MinisterOnTable[i].MinisterThinkingQuantum[0].IsSup = false;
+                        MinisterOnTable[ii].MinisterThinkingQuantum[0].HuristicAttackValueSup = 0;
+                        MinisterOnTable[ii].MinisterThinkingQuantum[0].HuristicMovementValueSup = 0;
+                        MinisterOnTable[ii].MinisterThinkingQuantum[0].HuristicSelfSupportedValueSup = 0;
+                        MinisterOnTable[ii].MinisterThinkingQuantum[0].HuristicObjectDangourCheckMateValueSup = 0;
+                        MinisterOnTable[ii].MinisterThinkingQuantum[0].HuristicKillerValueSup = 0;
+                        MinisterOnTable[ii].MinisterThinkingQuantum[0].HuristicReducedAttackValueSup = 0;
+                        MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+                        MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicKingSafeSup = 0;
+                        MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicFromCenterSup = 0;
+                        MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicKingDangourSup = 0;
+                        MinisterOnTable[ii].MinisterThinkingQuantum[0].IsSup = false;
                     }
-                    else
-                        MinisterOnTable[i].MinisterThinkingQuantum[0].IsSup = false;
                 }
                 else
-                    MinisterOnTable[i].MinisterThinkingQuantum[0].IsSup = false;
+                {
+                    if (MinisterOnTable[ii].MinisterThinkingQuantum[0].IsSup)
+                    {
+                        for (int i = MinisterMidle; i < MinisterHigh; i++)
+                        {
+                            if (MinisterOnTable[i] == null)
+                                continue;
+                            //int j = FoundTableIndex(this.MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister, MinisterOnTable[ii].MinisterThinkingQuantum[0].TableConst);
+                            for (int j = 0; j < MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListMinister.Count; j++)
+                            {
+
+                                this.MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListMinister[j][0] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HuristicAttackValueSup;
+                                this.MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListMinister[j][1] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HuristicMovementValueSup;
+                                this.MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListMinister[j][2] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HuristicSelfSupportedValueSup;
+                                this.MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListMinister[j][3] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HuristicObjectDangourCheckMateValueSup;
+                                this.MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListMinister[j][4] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HuristicKillerValueSup;
+                                this.MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListMinister[j][5] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HuristicReducedAttackValueSup;
+                                this.MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListMinister[j][6] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+                                this.MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListMinister[j][7] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicKingSafeSup;
+                                this.MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListMinister[j][8] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicFromCenterSup;
+                                this.MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListMinister[j][9] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicKingDangourSup;
+
+                                AllDraw.OutPut = "\r\nServed Minister!";
+                            }
+                        }
+                        MinisterOnTable[ii].MinisterThinkingQuantum[0].HuristicAttackValueSup = 0;
+                        MinisterOnTable[ii].MinisterThinkingQuantum[0].HuristicMovementValueSup = 0;
+                        MinisterOnTable[ii].MinisterThinkingQuantum[0].HuristicSelfSupportedValueSup = 0;
+                        MinisterOnTable[ii].MinisterThinkingQuantum[0].HuristicObjectDangourCheckMateValueSup = 0;
+                        MinisterOnTable[ii].MinisterThinkingQuantum[0].HuristicKillerValueSup = 0;
+                        MinisterOnTable[ii].MinisterThinkingQuantum[0].HuristicReducedAttackValueSup = 0;
+                        MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+                        MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicKingSafeSup = 0;
+                        MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicFromCenterSup = 0;
+                        MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicKingDangourSup = 0;
+                        MinisterOnTable[ii].MinisterThinkingQuantum[0].IsSup = false;
+                    }
+                }
             }
             else
-
             if (Kind == 6)
             {
-                if (KingOnTable[i].KingThinkingQuantum[0].IsSup)
+                if (Order == 1)
                 {
-                    if (this.AStarGreedyString != null && this.AStarGreedyString.AStarGreedyString != null)
+                    if (KingOnTable[ii].KingThinkingQuantum[0].IsSup)
                     {
-                        int j = FoundTableIndex(this.AStarGreedyString.AStarGreedyString.KingOnTable[i].KingThinkingQuantum[0].TableListSolder, KingOnTable[i].KingThinkingQuantum[0].TableT);
-                        if (j != -1)
+                        for (int i = 0; i < KingMidle; i++)
                         {
-                         
-                            this.AStarGreedyString.AStarGreedyString.KingOnTable[i].KingThinkingQuantum[0].HuristicListSolder[j][0] += KingOnTable[i].KingThinkingQuantum[0].HuristicAttackValueSup;
-                            KingOnTable[i].KingThinkingQuantum[0].HuristicAttackValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.KingOnTable[i].KingThinkingQuantum[0].HuristicListSolder[j][1] += KingOnTable[i].KingThinkingQuantum[0].HuristicMovementValueSup;
-                            KingOnTable[i].KingThinkingQuantum[0].HuristicMovementValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.KingOnTable[i].KingThinkingQuantum[0].HuristicListSolder[j][2] += KingOnTable[i].KingThinkingQuantum[0].HuristicSelfSupportedValueSup;
-                            KingOnTable[i].KingThinkingQuantum[0].HuristicSelfSupportedValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.KingOnTable[i].KingThinkingQuantum[0].HuristicListSolder[j][3] += KingOnTable[i].KingThinkingQuantum[0].HuristicObjectDangourCheckMateValueSup;
-                            KingOnTable[i].KingThinkingQuantum[0].HuristicObjectDangourCheckMateValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.KingOnTable[i].KingThinkingQuantum[0].HuristicListSolder[j][4] += KingOnTable[i].KingThinkingQuantum[0].HuristicKillerValueSup;
-                            KingOnTable[i].KingThinkingQuantum[0].HuristicKillerValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.KingOnTable[i].KingThinkingQuantum[0].HuristicListSolder[j][5] += KingOnTable[i].KingThinkingQuantum[0].HuristicReducedAttackValueSup;
-                            KingOnTable[i].KingThinkingQuantum[0].HuristicReducedAttackValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.KingOnTable[i].KingThinkingQuantum[0].HuristicListSolder[j][6] += KingOnTable[i].KingThinkingQuantum[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
-                            KingOnTable[i].KingThinkingQuantum[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.KingOnTable[i].KingThinkingQuantum[0].HuristicListSolder[j][7] += KingOnTable[i].KingThinkingQuantum[0].HeuristicKingSafeSup;
-                            KingOnTable[i].KingThinkingQuantum[0].HeuristicKingSafeSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.KingOnTable[i].KingThinkingQuantum[0].HuristicListSolder[j][8] += KingOnTable[i].KingThinkingQuantum[0].HeuristicFromCenterSup;
-                            KingOnTable[i].KingThinkingQuantum[0].HeuristicFromCenterSup = 0;
-                            this.AStarGreedyString.AStarGreedyString.KingOnTable[i].KingThinkingQuantum[0].HuristicListSolder[j][9] += KingOnTable[i].KingThinkingQuantum[0].HeuristicKingDangourSup;
-                            KingOnTable[i].KingThinkingQuantum[0].HeuristicKingDangourSup = 0;
-                            KingOnTable[i].KingThinkingQuantum[0].IsSup = false;
-                            AllDraw.OutPut = "Served King!";
+                            if (KingOnTable[i] == null)
+                                continue;
+                            //int j = FoundTableIndex(this.KingOnTable[i].KingThinkingQuantum[0].TableListKing, KingOnTable[ii].KingThinkingQuantum[0].TableConst);
+                            for (int j = 0; j < KingOnTable[i].KingThinkingQuantum[0].HuristicListKing.Count; j++)
+                            {
+
+                                this.KingOnTable[i].KingThinkingQuantum[0].HuristicListKing[j][0] += KingOnTable[ii].KingThinkingQuantum[0].HuristicAttackValueSup;
+                                this.KingOnTable[i].KingThinkingQuantum[0].HuristicListKing[j][1] += KingOnTable[ii].KingThinkingQuantum[0].HuristicMovementValueSup;
+                                this.KingOnTable[i].KingThinkingQuantum[0].HuristicListKing[j][2] += KingOnTable[ii].KingThinkingQuantum[0].HuristicSelfSupportedValueSup;
+                                this.KingOnTable[i].KingThinkingQuantum[0].HuristicListKing[j][3] += KingOnTable[ii].KingThinkingQuantum[0].HuristicObjectDangourCheckMateValueSup;
+                                this.KingOnTable[i].KingThinkingQuantum[0].HuristicListKing[j][4] += KingOnTable[ii].KingThinkingQuantum[0].HuristicKillerValueSup;
+                                this.KingOnTable[i].KingThinkingQuantum[0].HuristicListKing[j][5] += KingOnTable[ii].KingThinkingQuantum[0].HuristicReducedAttackValueSup;
+                                this.KingOnTable[i].KingThinkingQuantum[0].HuristicListKing[j][6] += KingOnTable[ii].KingThinkingQuantum[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+                                this.KingOnTable[i].KingThinkingQuantum[0].HuristicListKing[j][7] += KingOnTable[ii].KingThinkingQuantum[0].HeuristicKingSafeSup;
+                                this.KingOnTable[i].KingThinkingQuantum[0].HuristicListKing[j][8] += KingOnTable[ii].KingThinkingQuantum[0].HeuristicFromCenterSup;
+                                this.KingOnTable[i].KingThinkingQuantum[0].HuristicListKing[j][9] += KingOnTable[ii].KingThinkingQuantum[0].HeuristicKingDangourSup;
+
+                                AllDraw.OutPut = "\r\nServed King!";
+                            }
                         }
-                        else
-                            KingOnTable[i].KingThinkingQuantum[0].IsSup = false;
+                        KingOnTable[ii].KingThinkingQuantum[0].HuristicAttackValueSup = 0;
+                        KingOnTable[ii].KingThinkingQuantum[0].HuristicMovementValueSup = 0;
+                        KingOnTable[ii].KingThinkingQuantum[0].HuristicSelfSupportedValueSup = 0;
+                        KingOnTable[ii].KingThinkingQuantum[0].HuristicObjectDangourCheckMateValueSup = 0;
+                        KingOnTable[ii].KingThinkingQuantum[0].HuristicKillerValueSup = 0;
+                        KingOnTable[ii].KingThinkingQuantum[0].HuristicReducedAttackValueSup = 0;
+                        KingOnTable[ii].KingThinkingQuantum[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+                        KingOnTable[ii].KingThinkingQuantum[0].HeuristicKingSafeSup = 0;
+                        KingOnTable[ii].KingThinkingQuantum[0].HeuristicFromCenterSup = 0;
+                        KingOnTable[ii].KingThinkingQuantum[0].HeuristicKingDangourSup = 0;
+
+                        KingOnTable[ii].KingThinkingQuantum[0].IsSup = false;
                     }
-                    else
-                        KingOnTable[i].KingThinkingQuantum[0].IsSup = false;
                 }
                 else
-                    KingOnTable[i].KingThinkingQuantum[0].IsSup = false;
-            }
-            
+                {
+                    if (KingOnTable[ii].KingThinkingQuantum[0].IsSup)
+                    {
+                        for (int i = KingMidle; i < KingHigh; i++)
+                        {
+                            if (KingOnTable[i] == null)
+                                continue;
+                            //int j = FoundTableIndex(this.KingOnTable[i].KingThinkingQuantum[0].TableListKingKingThinking, KingOnTable[ii].KingThinkingQuantum[0].TableConst);
+                            for (int j = 0; j < KingOnTable[i].KingThinkingQuantum[0].HuristicListKing.Count; j++)
+                            {
 
+                                this.KingOnTable[i].KingThinkingQuantum[0].HuristicListKing[j][0] += KingOnTable[ii].KingThinkingQuantum[0].HuristicAttackValueSup;
+                                this.KingOnTable[i].KingThinkingQuantum[0].HuristicListKing[j][1] += KingOnTable[ii].KingThinkingQuantum[0].HuristicMovementValueSup;
+                                this.KingOnTable[i].KingThinkingQuantum[0].HuristicListKing[j][2] += KingOnTable[ii].KingThinkingQuantum[0].HuristicSelfSupportedValueSup;
+                                this.KingOnTable[i].KingThinkingQuantum[0].HuristicListKing[j][3] += KingOnTable[ii].KingThinkingQuantum[0].HuristicObjectDangourCheckMateValueSup;
+                                this.KingOnTable[i].KingThinkingQuantum[0].HuristicListKing[j][4] += KingOnTable[ii].KingThinkingQuantum[0].HuristicKillerValueSup;
+                                this.KingOnTable[i].KingThinkingQuantum[0].HuristicListKing[j][5] += KingOnTable[ii].KingThinkingQuantum[0].HuristicReducedAttackValueSup;
+                                this.KingOnTable[i].KingThinkingQuantum[0].HuristicListKing[j][6] += KingOnTable[ii].KingThinkingQuantum[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+                                this.KingOnTable[i].KingThinkingQuantum[0].HuristicListKing[j][7] += KingOnTable[ii].KingThinkingQuantum[0].HeuristicKingSafeSup;
+                                this.KingOnTable[i].KingThinkingQuantum[0].HuristicListKing[j][8] += KingOnTable[ii].KingThinkingQuantum[0].HeuristicFromCenterSup;
+                                this.KingOnTable[i].KingThinkingQuantum[0].HuristicListKing[j][9] += KingOnTable[ii].KingThinkingQuantum[0].HeuristicKingDangourSup;
+
+                                AllDraw.OutPut = "\r\nServed King!";
+                            }
+                        }
+                        KingOnTable[ii].KingThinkingQuantum[0].HuristicAttackValueSup = 0;
+                        KingOnTable[ii].KingThinkingQuantum[0].HuristicMovementValueSup = 0;
+                        KingOnTable[ii].KingThinkingQuantum[0].HuristicSelfSupportedValueSup = 0;
+                        KingOnTable[ii].KingThinkingQuantum[0].HuristicObjectDangourCheckMateValueSup = 0;
+                        KingOnTable[ii].KingThinkingQuantum[0].HuristicKillerValueSup = 0;
+                        KingOnTable[ii].KingThinkingQuantum[0].HuristicReducedAttackValueSup = 0;
+                        KingOnTable[ii].KingThinkingQuantum[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+                        KingOnTable[ii].KingThinkingQuantum[0].HeuristicKingSafeSup = 0;
+                        KingOnTable[ii].KingThinkingQuantum[0].HeuristicFromCenterSup = 0;
+                        KingOnTable[ii].KingThinkingQuantum[0].HeuristicKingDangourSup = 0;
+
+                        KingOnTable[ii].KingThinkingQuantum[0].IsSup = false;
+                    }
+                }
+            }
         }
         AllDraw InitiateAStarGreedytSodlerGray(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
             )
@@ -12059,7 +12331,7 @@ if (Kind == 2)
                                             SolderesOnTable[i].SoldierThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             SolderesOnTable[i].SoldierThinkingQuantum[0].ThinkingQuantumFinished = false;
                                             SolderesOnTable[i].SoldierThinkingQuantum[0].ThinkingQuantum(ref SolderesOnTable[i].LoseOcuuredatChiled, ref SolderesOnTable[i].WinOcuuredatChiled);
-                                            ServeISSup(1, i);
+                                            //ServeISSup(1, i);
                                         }
 
                                     }//);
@@ -12117,7 +12389,7 @@ if (Kind == 2)
                                             ElephantOnTable[i].ElefantThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             ElephantOnTable[i].ElefantThinkingQuantum[0].ThinkingQuantumFinished = false;
                                             ElephantOnTable[i].ElefantThinkingQuantum[0].ThinkingQuantum(ref ElephantOnTable[i].LoseOcuuredatChiled, ref ElephantOnTable[i].WinOcuuredatChiled);
-                                            ServeISSup(2, i);
+                                            //ServeISSup(2, i);
 
                                         }
                                     }//);
@@ -12175,7 +12447,7 @@ if (Kind == 2)
                                             HoursesOnTable[i].HourseThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             HoursesOnTable[i].HourseThinkingQuantum[0].ThinkingQuantumFinished = false;
                                             HoursesOnTable[i].HourseThinkingQuantum[0].ThinkingQuantum(ref HoursesOnTable[i].LoseOcuuredatChiled, ref HoursesOnTable[i].WinOcuuredatChiled);
-                                            ServeISSup(3, i);
+                                            //ServeISSup(3, i);
 
 
                                         }
@@ -12233,7 +12505,7 @@ if (Kind == 2)
                                             CastlesOnTable[i].CastleThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             CastlesOnTable[i].CastleThinkingQuantum[0].ThinkingQuantumFinished = false;
                                             CastlesOnTable[i].CastleThinkingQuantum[0].ThinkingQuantum(ref CastlesOnTable[i].LoseOcuuredatChiled, ref CastlesOnTable[i].WinOcuuredatChiled);
-                                            ServeISSup(4, i);
+                                            //ServeISSup(4, i);
 
                                         }
                                     }//);
@@ -12291,7 +12563,7 @@ if (Kind == 2)
                                             MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantumFinished = false;
                                             MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantum(ref MinisterOnTable[i].LoseOcuuredatChiled, ref MinisterOnTable[i].WinOcuuredatChiled);
-                                            ServeISSup(5, i);
+                                            //ServeISSup(5, i);
 
                                         }
                                     }//);
@@ -12349,7 +12621,7 @@ if (Kind == 2)
                                             KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantumFinished = false;
                                             KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantum(ref KingOnTable[i].LoseOcuuredatChiled, ref KingOnTable[i].WinOcuuredatChiled);
-                                            ServeISSup(6, i);
+                                            //ServeISSup(6, i);
                                         }
                                     }//);
                                 }
@@ -12407,7 +12679,7 @@ if (Kind == 2)
                                                 SolderesOnTable[i].SoldierThinkingQuantum[0].ThinkingQuantumBegin = true;
                                                 SolderesOnTable[i].SoldierThinkingQuantum[0].ThinkingQuantumFinished = false;
                                                 SolderesOnTable[i].SoldierThinkingQuantum[0].ThinkingQuantum(ref SolderesOnTable[i].LoseOcuuredatChiled, ref SolderesOnTable[i].WinOcuuredatChiled);
-                                                ServeISSup(1, i);
+                                                //ServeISSup(1, i);
                                             }
                                         }//);
 
@@ -12466,7 +12738,7 @@ if (Kind == 2)
                                                 ElephantOnTable[i].ElefantThinkingQuantum[0].ThinkingQuantumBegin = true;
                                                 ElephantOnTable[i].ElefantThinkingQuantum[0].ThinkingQuantumFinished = false;
                                                 ElephantOnTable[i].ElefantThinkingQuantum[0].ThinkingQuantum(ref ElephantOnTable[i].LoseOcuuredatChiled, ref ElephantOnTable[i].WinOcuuredatChiled);
-                                                ServeISSup(2, i);
+                                                //ServeISSup(2, i);
                                             }
                                         }//);
                                     }
@@ -12526,7 +12798,7 @@ if (Kind == 2)
                                                 HoursesOnTable[i].HourseThinkingQuantum[0].ThinkingQuantumBegin = true;
                                                 HoursesOnTable[i].HourseThinkingQuantum[0].ThinkingQuantumFinished = false;
                                                 HoursesOnTable[i].HourseThinkingQuantum[0].ThinkingQuantum(ref HoursesOnTable[i].LoseOcuuredatChiled, ref HoursesOnTable[i].WinOcuuredatChiled);
-                                                ServeISSup(3, i);
+                                                //ServeISSup(3, i);
                                             }
                                         }//);
 
@@ -12586,7 +12858,7 @@ if (Kind == 2)
                                                 CastlesOnTable[i].CastleThinkingQuantum[0].ThinkingQuantumBegin = true;
                                                 CastlesOnTable[i].CastleThinkingQuantum[0].ThinkingQuantumFinished = false;
                                                 CastlesOnTable[i].CastleThinkingQuantum[0].ThinkingQuantum(ref CastlesOnTable[i].LoseOcuuredatChiled, ref CastlesOnTable[i].WinOcuuredatChiled);
-                                                ServeISSup(4, i);
+                                                ////ServeISSup(4, i);
                                             }
                                         }//);
 
@@ -12643,7 +12915,7 @@ if (Kind == 2)
                                             MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantumFinished = false;
                                             MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantum(ref MinisterOnTable[i].LoseOcuuredatChiled, ref MinisterOnTable[i].WinOcuuredatChiled);
-                                            ServeISSup(5, i);
+                                            ////ServeISSup(5, i);
                                         }
                                     }//);
                                 }
@@ -12698,7 +12970,7 @@ if (Kind == 2)
                                             KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantumFinished = false;
                                             KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantum(ref KingOnTable[i].LoseOcuuredatChiled, ref KingOnTable[i].WinOcuuredatChiled);
-                                            ServeISSup(6, i);
+                                            ////ServeISSup(6, i);
                                         }
                                     }//);
 
@@ -13252,6 +13524,8 @@ if (Kind == 2)
                     }
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
+
+                    Serve(Order);
 
                     if (FOUND)
                     {
@@ -14793,7 +15067,7 @@ if (Kind == 2)
 
                                                 for (int h = 0; h < SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count; h++)
                                                     SolderesOnTable[ik].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
-                                               //if (AStarGreedyString.AStarGreedyString != null)
+                                               
                                                 {
                                                     for (int h = 0; h < SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count; h++)
                                                         SolderesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
@@ -14909,13 +15183,7 @@ if (Kind == 2)
 
                                                 //Task array = Task.Factory.StartNew(() => SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder[j]), Order, false, FOUND, LeafAStarGreedy));
                                                 SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder[j]), Order, false, FOUND, LeafAStarGreedy);
-                                                for (int h = 0; h < SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count; h++)
-                                                    SolderesOnTable[ik].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
-                                               //if (AStarGreedyString.AStarGreedyString != null)
-                                                {
-                                                    for (int h = 0; h < SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count; h++)
-                                                        SolderesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
-                                                }
+                                                
 
                                                 //SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                                 //array.Start();
@@ -14956,6 +15224,11 @@ if (Kind == 2)
                     TaskEnd++;
                 }
             }
+            for (int h = 0; h < SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count; h++)
+                SolderesOnTable[ik].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
+            for (int h = 0; h < SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count; h++)
+                SolderesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
+
             return Do;
             //Elephant
         }
@@ -15115,13 +15388,7 @@ if (Kind == 2)
 
                                                     //Task array = Task.Factory.StartNew(() => ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant[j]), Order, false, FOUND, LeafAStarGreedy));
                                                     ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
-                                                    for (int h = 0; h < ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count; h++)
-                                                        ElephantOnTable[ik].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[h], Order);
-                                                   //if (AStarGreedyString.AStarGreedyString != null)
-                                                    {
-                                                        for (int h = 0; h < ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count; h++)
-                                                            ElephantOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[h], Order);
-                                                    }
+
 
                                                     //array.Start();
                                                     /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
@@ -15232,7 +15499,7 @@ if (Kind == 2)
                                                     ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                                     for (int h = 0; h < ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count; h++)
                                                         ElephantOnTable[ik].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[h], Order);
-                                                   //if (AStarGreedyString.AStarGreedyString != null)
+
                                                     {
                                                         for (int h = 0; h < ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count; h++)
                                                             ElephantOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[h], Order);
@@ -15277,6 +15544,11 @@ if (Kind == 2)
                     TaskEnd++;
                 }
             }
+            for (int h = 0; h < ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count; h++)
+                ElephantOnTable[ik].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[h], Order);
+            for (int h = 0; h < ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count; h++)
+                ElephantOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[h], Order);
+
             return Do;
         }
         bool FullGameThinkingTreeElephantGray(Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
@@ -15437,13 +15709,7 @@ if (Kind == 2)
                                                     HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].HoursesOnTable[ik].IsQuntumMove = this.HoursesOnTable[ik].IsQuntumMove;
 
                                                     HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
-                                                    for (int h = 0; h < HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count; h++)
-                                                        HoursesOnTable[ik].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[h], Order);
-                                                   //if (AStarGreedyString.AStarGreedyString != null)
-                                                    {
-                                                        for (int h = 0; h < HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count; h++)
-                                                            HoursesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[h], Order);
-                                                    }
+
 
                                                     //Task array = Task.Factory.StartNew(() => HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse[j]), Order, false, FOUND, LeafAStarGreedy));
 
@@ -15561,7 +15827,7 @@ if (Kind == 2)
                                                 HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                                 for (int h = 0; h < HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count; h++)
                                                     HoursesOnTable[ik].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[h], Order);
-                                               //if (AStarGreedyString.AStarGreedyString != null)
+
                                                 {
                                                     for (int h = 0; h < HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count; h++)
                                                         HoursesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[h], Order);
@@ -15604,6 +15870,11 @@ if (Kind == 2)
                     TaskEnd++;
                 }
             }
+            for (int h = 0; h < HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count; h++)
+                HoursesOnTable[ik].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[h], Order);
+            for (int h = 0; h < HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count; h++)
+                HoursesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[h], Order);
+
             return Do;
         }
         bool FullGameThinkingTreeHourseGray(Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
@@ -15763,13 +16034,6 @@ if (Kind == 2)
 
                                                 //Task array = Task.Factory.StartNew(() => CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle[j]), Order, false, FOUND, LeafAStarGreedy));
                                                 CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
-                                                for (int h = 0; h < CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count; h++)
-                                                    CastlesOnTable[ik].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[h], Order);
-                                               //if (AStarGreedyString.AStarGreedyString != null)
-                                                {
-                                                    for (int h = 0; h < CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count; h++)
-                                                        CastlesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[h], Order);
-                                                }
 
                                                 //array.Start();
                                                 /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
@@ -15881,7 +16145,7 @@ if (Kind == 2)
                                                 CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                                 for (int h = 0; h < CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count; h++)
                                                     CastlesOnTable[ik].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[h], Order);
-                                               //if (AStarGreedyString.AStarGreedyString != null)
+
                                                 {
                                                     for (int h = 0; h < CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count; h++)
                                                         CastlesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[h], Order);
@@ -15923,6 +16187,11 @@ if (Kind == 2)
                     TaskEnd++;
                 }
             }
+            for (int h = 0; h < CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count; h++)
+                CastlesOnTable[ik].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[h], Order);
+            for (int h = 0; h < CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count; h++)
+                CastlesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[h], Order);
+
             return Do;
         }
         bool FullGameThinkingTreeCastleGray(Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
@@ -16086,7 +16355,7 @@ if (Kind == 2)
                                                 MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                                 for (int h = 0; h < MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count; h++)
                                                     MinisterOnTable[ik].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[h], Order);
-                                               //if (AStarGreedyString.AStarGreedyString != null)
+
                                                 {
                                                     for (int h = 0; h < MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count; h++)
                                                         MinisterOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[h], Order);
@@ -16198,13 +16467,6 @@ if (Kind == 2)
 
                                                 //Task array = Task.Factory.StartNew(() => MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister[j]), Order, false, FOUND, LeafAStarGreedy));
                                                 MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
-                                                for (int h = 0; h < MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count; h++)
-                                                    MinisterOnTable[ik].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[h], Order);
-                                               //if (AStarGreedyString.AStarGreedyString != null)
-                                                {
-                                                    for (int h = 0; h < MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count; h++)
-                                                        MinisterOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[h], Order);
-                                                }
                                                 //array.Start();
                                                 /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
                                                 {
@@ -16243,6 +16505,11 @@ if (Kind == 2)
                     TaskEnd++;
                 }
             }
+            for (int h = 0; h < MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count; h++)
+                MinisterOnTable[ik].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[h], Order);
+            for (int h = 0; h < MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count; h++)
+                MinisterOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[h], Order);
+
             return Do;
         }
         bool FullGameThinkingTreeMinisterGray(Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
@@ -16403,7 +16670,7 @@ if (Kind == 2)
                                             KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
                                             for (int h = 0; h < KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count; h++)
                                                 KingOnTable[ik].WinOcuuredatChiled += SumOfObjects(KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[h], Order);
-                                           //if (AStarGreedyString.AStarGreedyString != null)
+
                                             {
                                                 for (int h = 0; h < KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count; h++)
                                                     KingOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[h], Order);
@@ -16506,13 +16773,6 @@ if (Kind == 2)
                                             KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                                             //Task array = Task.Factory.StartNew(() => KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(KingOnTable[ik].KingThinkingQuantum[0].TableListKing[j]), Order, false, FOUND, LeafAStarGreedy));
                                             KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
-                                            for (int h = 0; h < KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count; h++)
-                                                KingOnTable[ik].WinOcuuredatChiled += SumOfObjects(KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[h], Order);
-                                           //if (AStarGreedyString.AStarGreedyString != null)
-                                            {
-                                                for (int h = 0; h < KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count; h++)
-                                                    KingOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[h], Order);
-                                            }
                                             //array.Start();
                                             /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
                                             {
@@ -16548,6 +16808,10 @@ if (Kind == 2)
                     TaskEnd++;
                 }
             }
+            for (int h = 0; h < KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count; h++)
+                KingOnTable[ik].WinOcuuredatChiled += SumOfObjects(KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[h], Order);
+            for (int h = 0; h < KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count; h++)
+                KingOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[h], Order);
             return Do;
         }
         bool FullGameThinkingTreeKingGray(Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
