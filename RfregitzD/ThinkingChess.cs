@@ -968,7 +968,9 @@ namespace RefrigtzDLL
                                     HA += (Sign * (System.Math.Abs(SetValueOfTabls(Table, RowD, ColD) + SetValueOfTabls(Table, RowS, ColS))));
                                     //When there is supporter of attacked Objects take huristic negative else take muliply sign and muliply huristic.
                                     int Supported = new int();
+                                    int SupportedS = new int();
                                     Supported = 0;
+                                    SupportedS = 0;
                                     //For All Enemy Obejcts.                                             
                                     //Parallel.For(0, 8, g =>
                                     for (int g = 0; g < 8; g++)
@@ -990,12 +992,20 @@ namespace RefrigtzDLL
                                                 aaa = Color.Gray;
                                             //When Enemy is Supported.
                                             bool A = new bool();
+                                            bool B = new bool();
                                             Object O2 = new Object();
                                             lock (O2)
                                             {
                                                 A = Support(Table, g, h, RowD, ColD, aaa, Order * -1);
+                                                B = Support(Table, g, h, RowS, ColS, a, Order);
                                             }
                                             //When Enemy is Supported.
+                                            if (B)
+                                            {
+                                                //Assgine variable.
+                                                SupportedS++;
+
+                                            }
                                             if (A)
                                             {
                                                 //Assgine variable.
@@ -1006,13 +1016,11 @@ namespace RefrigtzDLL
 
                                         }//);
                                     }//);
-                                    if (Supported == 0)
-                                        //When is Not Supported multyply 20.
-                                        HA *= System.Math.Pow(2, Supported);
+                                    if (SupportedS != 0)
+                                        HA *= System.Math.Pow(2, SupportedS);
 
-                                    else
-                                        //When is Supported Multyply -20.
-                                        HA *= (-1 * System.Math.Pow(2, Supported));
+                                    if (Supported != 0)
+                                        HA *= -1 * System.Math.Pow(2, SupportedS);
 
                                 }
                             }
@@ -1067,11 +1075,15 @@ namespace RefrigtzDLL
                                     //For All Enemy Obejcts.                                             
                                     //Parallel.For(0, 8, g =>
 
-
+                                    int SupportedS = new int();
+                                    Supported = 0;
+                                    SupportedS = 0;
+                                    //For All Enemy Obejcts.                                             
+                                    //Parallel.For(0, 8, g =>
                                     for (int g = 0; g < 8; g++)
                                     {
-                                        for (int h = 0; h < 8; h++)
                                         //Parallel.For(0, 8, h =>
+                                        for (int h = 0; h < 8; h++)
                                         {
                                             //Ignore Of Self Objects.
                                             if (Order == 1 && Table[g, h] >= 0)
@@ -1087,29 +1099,35 @@ namespace RefrigtzDLL
                                                 aaa = Color.Gray;
                                             //When Enemy is Supported.
                                             bool A = new bool();
-                                            Object O1 = new Object();
-                                            lock (O1)
+                                            bool B = new bool();
+                                            Object O12 = new Object();
+                                            lock (O12)
                                             {
                                                 A = Support(Table, g, h, RowD, ColD, aaa, Order * -1);
+                                                B = Support(Table, g, h, RowS, ColS, a, Order);
                                             }
                                             //When Enemy is Supported.
+                                            if (B)
+                                            {
+                                                //Assgine variable.
+                                                SupportedS++;
+
+                                            }
                                             if (A)
                                             {
                                                 //Assgine variable.
                                                 Supported++;
+                                                continue;
 
                                             }
+
                                         }//);
                                     }//);
-                                     //When there is supported take positive multiply else take negative multiply.                               
+                                    if (SupportedS != 0)
+                                        HA *= System.Math.Pow(2, SupportedS);
 
-                                    if (Supported == 0)
-                                        //When is Not Supported multyply 20.
-                                        HA *= System.Math.Pow(2, Supported);
-
-                                    else
-                                        //When is Supported Multyply -20.
-                                        HA *= (-1 * System.Math.Pow(2, Supported));
+                                    if (Supported != 0)
+                                        HA *= -1 * System.Math.Pow(2, SupportedS);
                                 }
                             }
                         }
@@ -1204,7 +1222,9 @@ namespace RefrigtzDLL
 
                                             HA += (Sign * (System.Math.Abs(SetValueOfTabls(Table, RowS, ColS) + SetValueOfTabls(Table, RowD, ColD))));
                                             int Reduced = new int();
+                                            int Increased = new int();
                                             Reduced = 0;
+                                            Increased = 0;
 
                                             //Parallel.For(0, 8, g =>
                                             for (int g = 0; g < 8; g++)
@@ -1214,9 +1234,9 @@ namespace RefrigtzDLL
 
                                                 {
                                                     //Ignore Of Enemy Objects.
-                                                    if (Order == 1 && Table[g, h] <= 0)
+                                                    if (Order == 1 && Table[g, h] == 0)
                                                         continue;
-                                                    if (Order == -1 && Table[g, h] >= 0)
+                                                    if (Order == -1 && Table[g, h] == 0)
                                                         continue;
                                                     Color aaa = new Color();
                                                     //Assgin Enemy ints.
@@ -1225,12 +1245,21 @@ namespace RefrigtzDLL
                                                     else
                                                         aaa = Color.Gray;
                                                     bool A = new bool();
+                                                    bool B = new bool();
+                                                    
                                                     Object O2 = new Object();
                                                     lock (O2)
                                                     {
                                                         A = Support(Table, g, h, RowD, ColD, aaa, Order * 1);
+                                                        B = Support(Table, g, h, RowS, ColS, a, Order);
                                                     }
                                                     //When Enemy is Supported.
+                                                    if (B)
+                                                    {
+                                                        //Assgine variable.
+                                                        Increased++;
+                                                        
+                                                    }
                                                     if (A)
                                                     {
                                                         //Assgine variable.
@@ -1241,8 +1270,11 @@ namespace RefrigtzDLL
 
                                             }//);
 
+                                            if (Reduced != 0)
+                                                HA *= -1 * System.Math.Pow(2, Reduced);
+                                            if (Increased != 0)
+                                                HA *= System.Math.Pow(2, Increased);
 
-                                            HA *= System.Math.Pow(2, Reduced);
 
 
                                         }
@@ -1303,20 +1335,22 @@ namespace RefrigtzDLL
 
                                                         HA += (Sign * (System.Math.Abs(SetValueOfTabls(Table, RowS, ColS) + SetValueOfTabls(Table, RowD, ColD))));
                                                         int Reduced = new int();
+                                                        int Increased = new int();
                                                         Reduced = 0;
+                                                        Increased = 0;
                                                         //For All Self Obejcts.                                             
+                                                        //Parallel.For(0, 8, g =>
                                                         //Parallel.For(0, 8, g =>
                                                         for (int g = 0; g < 8; g++)
                                                         {
                                                             //Parallel.For(0, 8, h =>
                                                             for (int h = 0; h < 8; h++)
 
-
                                                             {
                                                                 //Ignore Of Enemy Objects.
-                                                                if (Order == 1 && Table[g, h] <= 0)
+                                                                if (Order == 1 && Table[g, h] == 0)
                                                                     continue;
-                                                                if (Order == -1 && Table[g, h] >= 0)
+                                                                if (Order == -1 && Table[g, h] == 0)
                                                                     continue;
                                                                 Color aaa = new Color();
                                                                 //Assgin Enemy ints.
@@ -1325,23 +1359,35 @@ namespace RefrigtzDLL
                                                                 else
                                                                     aaa = Color.Gray;
                                                                 bool A = new bool();
+                                                                bool B = new bool();
+
                                                                 Object O2 = new Object();
                                                                 lock (O2)
                                                                 {
                                                                     A = Support(Table, g, h, RowD, ColD, aaa, Order * 1);
+                                                                    B = Support(Table, g, h, RowS, ColS, a, Order);
                                                                 }
-                                                                //When Self is Supported.
+                                                                //When Enemy is Supported.
+                                                                if (B)
+                                                                {
+                                                                    //Assgine variable.
+                                                                    Increased++;
+                                                                    
+                                                                }
                                                                 if (A)
                                                                 {
                                                                     //Assgine variable.
                                                                     Reduced++;
-
+                                                                    continue;
                                                                 }
-
                                                             }//);
 
                                                         }//);
-                                                        HA *= System.Math.Pow(2, Reduced);
+
+                                                        if (Reduced != 0)
+                                                            HA *= -1 * System.Math.Pow(2, Reduced);
+                                                        if (Increased != 0)
+                                                            HA *= System.Math.Pow(2, Increased);
                                                     }
                                                 }
                                             }
@@ -2671,7 +2717,9 @@ namespace RefrigtzDLL
                                     HA += (Sign * (System.Math.Abs((SetValueOfTabls(Tab, RowD, ColD) + SetValueOfTabls(Tab, RowS, ColS)
                                     ))));
                                     int Supported = new int();
+                                    int SupportedE = new int();
                                     Supported = 0;
+                                    SupportedE = 0;
                                     //For All Self Obejcts.                                             
                                     //Parallel.For(0, 8, g =>
                                     for (int g = 0; g < 8; g++)
@@ -2687,9 +2735,9 @@ namespace RefrigtzDLL
                                                 //if (Supported)
                                                 //return;
                                                 //Ignore Of Enemy Objects.
-                                                if (Order == 1 && Tab[g, h] <= 0)
+                                                if (Order == 1 && Tab[g, h] == 0)
                                                     continue;
-                                                if (Order == -1 && Tab[g, h] >= 0)
+                                                if (Order == -1 && Tab[g, h] == 0)
                                                     continue;
                                                 if (!Scop(g, h, RowS, ColS, System.Math.Abs(Tab[g, h])))
                                                     continue;
@@ -2697,18 +2745,33 @@ namespace RefrigtzDLL
                                                 Color aaa = new Color();
                                                 //Assgin Enemy ints.
                                                 aaa = Color.Gray;
+                                                aa = Color.Gray;
+
                                                 if (Order == -1)
                                                     aaa = Color.Brown;
                                                 else
                                                     aaa = Color.Gray;
+                                                if (Order * -1 == -1)
+                                                    aa = Color.Brown;
+                                                else
+                                                    aa = Color.Gray;
                                                 //When Enemy is Supported.
                                                 bool A = new bool();
+                                                bool B = new bool();
                                                 A = Support(Tab, g, h, RowS, ColS, aaa, Order);
+                                                B = Attack(Tab, g, h, RowS, ColS, aa, Order * -1);
                                                 //When Enemy is Supported.
                                                 if (A)
                                                 {
                                                     //Assgine variable.
                                                     Supported++;
+                                                    //return;
+
+                                                }
+                                                if (B)
+                                                {
+                                                    //Assgine variable.
+                                                    SupportedE++;
                                                     //return;
 
                                                 }
@@ -2726,8 +2789,9 @@ namespace RefrigtzDLL
                                             //When is Not Supported multyply 100.
                                             HA *= System.Math.Pow(2, Supported);
                                         else
+                                            if (SupportedE != 0)
                                             //When is Supported Multyply -100.
-                                            HA *= (-1 * System.Math.Pow(2, 64 - Supported));
+                                            HA *= -1 * System.Math.Pow(2, SupportedE);
                                     }
 
                                 }
@@ -2792,7 +2856,11 @@ namespace RefrigtzDLL
                                                 HA += (Sign * (System.Math.Abs((SetValueOfTabls(Tab, RowD, ColD) + SetValueOfTabls(Tab, RowS, ColS)
                                                 ))));
                                                 int Supported = new int();
+                                                int SupportedE = new int();
                                                 Supported = 0;
+                                                SupportedE = 0;
+                                                //For All Self Obejcts.                                             
+                                                //Parallel.For(0, 8, g =>
                                                 for (int g = 0; g < 8; g++)
                                                 {
                                                     //if (Supported)
@@ -2806,27 +2874,43 @@ namespace RefrigtzDLL
                                                             //if (Supported)
                                                             //return;
                                                             //Ignore Of Enemy Objects.
-                                                            if (Order == 1 && Tab[g, h] <= 0)
+                                                            if (Order == 1 && Tab[g, h] == 0)
                                                                 continue;
-                                                            if (Order == -1 && Tab[g, h] >= 0)
+                                                            if (Order == -1 && Tab[g, h] == 0)
                                                                 continue;
                                                             if (!Scop(g, h, RowS, ColS, System.Math.Abs(Tab[g, h])))
                                                                 continue;
+
                                                             Color aaa = new Color();
                                                             //Assgin Enemy ints.
                                                             aaa = Color.Gray;
+                                                            aa = Color.Gray;
+
                                                             if (Order == -1)
                                                                 aaa = Color.Brown;
                                                             else
                                                                 aaa = Color.Gray;
+                                                            if (Order * -1 == -1)
+                                                                aa = Color.Brown;
+                                                            else
+                                                                aa = Color.Gray;
                                                             //When Enemy is Supported.
                                                             bool A = new bool();
+                                                            bool B = new bool();
                                                             A = Support(Tab, g, h, RowS, ColS, aaa, Order);
+                                                            B = Attack(Tab, g, h, RowS, ColS, aa, Order * -1);
                                                             //When Enemy is Supported.
                                                             if (A)
                                                             {
                                                                 //Assgine variable.
                                                                 Supported++;
+                                                                //return;
+
+                                                            }
+                                                            if (B)
+                                                            {
+                                                                //Assgine variable.
+                                                                SupportedE++;
                                                                 //return;
 
                                                             }
@@ -2836,6 +2920,7 @@ namespace RefrigtzDLL
                                                     // if (Supported)
                                                     //   return;
                                                 }//);
+
                                                 Object O1 = new Object();
                                                 lock (O1)
                                                 {
@@ -2843,11 +2928,13 @@ namespace RefrigtzDLL
                                                         //When is Not Supported multyply 100.
                                                         HA *= System.Math.Pow(2, Supported);
                                                     else
+                                                        if (SupportedE != 0)
                                                         //When is Supported Multyply -100.
-                                                        HA *= (-1 * System.Math.Pow(2, Supported));
+                                                        HA *= -1 * System.Math.Pow(2, SupportedE);
                                                 }
+
                                             }
-                                        }
+                                        }                                        
                                     }
                                 }
                             }
@@ -4699,10 +4786,9 @@ namespace RefrigtzDLL
                                 for (int ik = 0; ik < 8; ik++)
                                     for (int jk = 0; jk < 8; jk++)
                                         Tab[ik, jk] = Table[ik, jk];
-                                Tab[RowD, ColD] = Tab[RowS, ColS];
-                                Tab[RowS, ColS] = 0;
                                 HA += (Sign * (System.Math.Abs(SetValueOfTabls(Table, RowS, ColS) + SetValueOfTabls(Table, RowD, ColD))));
                                 int Supported = 0;
+                                int Attacked = 0;
                                 //For All Enemy Obejcts.                                             
                                 for (int g = 0; g < 8; g++)
                                 //Parallel.For(0, 8, g =>
@@ -4714,9 +4800,9 @@ namespace RefrigtzDLL
                                         lock (O2)
                                         {
                                             //Ignore Of Self Objects.
-                                            if (Order == 1 && Table[g, h] >= 0)
+                                            if (Order == 1 && Table[g, h] == 0)
                                                 continue;
-                                            if (Order == -1 && Table[g, h] <= 0)
+                                            if (Order == -1 && Table[g, h] == 0)
                                                 continue;
                                             Color aaa = new Color();
                                             //Assgin Enemy ints.
@@ -4727,8 +4813,15 @@ namespace RefrigtzDLL
                                                 aaa = Color.Gray;
                                             //When Enemy is Supported.
                                             bool A = new bool();
-                                            A = Support(Tab, g, h, RowD, ColD, aaa, Order * -1);
+                                            bool B = new bool();
+                                            A = Support(Tab, g, h, RowS, ColS, a, Order);
+                                            B = Attack(Tab, g, h, RowS, ColS, aaa, Order * -1);
                                             //When Enemy is Supported.
+                                            if (B)
+                                            {
+                                                //Assgine variable.
+                                                Attacked++;
+                                            }
                                             if (A)
                                             {
                                                 //Assgine variable.
@@ -4742,12 +4835,15 @@ namespace RefrigtzDLL
                                 Object O1 = new Object();
                                 lock (O1)
                                 {
-                                    if (Supported == 0)
+                                    if (Supported != 0)
                                         //When is Not Supported multyply 100.
-                                        HA *= -1 * System.Math.Pow(2, 64 - Supported);
-                                    else
-                                        //When is Supported Multyply -100.
                                         HA *= System.Math.Pow(2, Supported);
+
+                                    //When is Supported Multyply -100.
+                                    if (Attacked != 0)
+                                        //When is Not Supported multyply 100.
+                                        HA *= -1 * System.Math.Pow(2, Attacked);
+
                                 }
                             }
                         }
@@ -4797,51 +4893,65 @@ namespace RefrigtzDLL
                             {
                                 HA += (Sign * (System.Math.Abs(SetValueOfTabls(Table, RowS, ColS) + SetValueOfTabls(Table, RowD, ColD))));
                                 int Supported = 0;
+                                int Attacked = 0;
                                 //For All Enemy Obejcts.                                             
                                 for (int g = 0; g < 8; g++)
                                 //Parallel.For(0, 8, g =>
                                 {
-
-                                    for (int h = 0; h < 8; h++)
                                     //Parallel.For(0, 8, h =>
+                                    for (int h = 0; h < 8; h++)
                                     {
-
-                                        //Ignore Of Self Objects.
-                                        if (Order == 1 && Table[g, h] >= 0)
-                                            continue;
-                                        if (Order == -1 && Table[g, h] <= 0)
-                                            continue;
-                                        Color aaa = new Color();
-                                        //Assgin Enemy ints.
-                                        aaa = Color.Gray;
-                                        if (Order * -1 == -1)
-                                            aaa = Color.Brown;
-                                        else
-                                            aaa = Color.Gray;
-                                        //When Enemy is Supported.
-                                        bool A = new bool();
                                         Object O2 = new Object();
                                         lock (O2)
                                         {
-                                            A = Support(Table, g, h, RowD, ColD, aaa, Order * -1);
-                                        }
-                                        //When Enemy is Supported.
-                                        if (A)
-                                        {
-                                            //Assgine variable.
-                                            Supported++;
-
+                                            //Ignore Of Self Objects.
+                                            if (Order == 1 && Table[g, h] == 0)
+                                                continue;
+                                            if (Order == -1 && Table[g, h] == 0)
+                                                continue;
+                                            Color aaa = new Color();
+                                            //Assgin Enemy ints.
+                                            aaa = Color.Gray;
+                                            if (Order * -1 == -1)
+                                                aaa = Color.Brown;
+                                            else
+                                                aaa = Color.Gray;
+                                            //When Enemy is Supported.
+                                            bool A = new bool();
+                                            bool B = new bool();
+                                            A = Support(Table, g, h, RowS, ColS, a, Order);
+                                            B = Attack(Table, g, h, RowS, ColS, aaa, Order * -1);
+                                            //When Enemy is Supported.
+                                            if (B)
+                                            {
+                                                //Assgine variable.
+                                                Attacked++;
+                                            }
+                                            if (A)
+                                            {
+                                                //Assgine variable.
+                                                Supported++;
+                                                continue;
+                                            }
                                         }
                                     }//);
+
                                 }//);
-                                if (Supported == 0)
-                                    //When is Not Supported multyply 100.
-                                    HA *= -1 * System.Math.Pow(2, 64 - Supported);
-                                else
+                                Object O1 = new Object();
+                                lock (O1)
+                                {
+                                    if (Supported != 0)
+                                        //When is Not Supported multyply 100.
+                                        HA *= System.Math.Pow(2, Supported);
+
                                     //When is Supported Multyply -100.
-                                    HA *= System.Math.Pow(2, Supported);
+                                    if (Attacked != 0)
+                                        //When is Not Supported multyply 100.
+                                        HA *= -1 * System.Math.Pow(2, Attacked);
+
+                                }
                             }
-                        }
+                            }
                     }
                 }
                 catch (Exception t)
@@ -6770,9 +6880,9 @@ namespace RefrigtzDLL
                             {
                                 OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
                                 if (Order == 1)
-                                    AllDraw.OutPut = "\r\nThinking Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                                    AllDraw.OutPut = "\r\nThinking King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                                 else
-                                    AllDraw.OutPut = "\r\nThinking Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                                    AllDraw.OutPut = "\r\nThinking King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                                 ThinkingLevel++;
                                 ThinkingAtRun = false;
                             }
@@ -6997,9 +7107,9 @@ namespace RefrigtzDLL
                             {
                                 OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
                                 if (Order == 1)
-                                    AllDraw.OutPut = "\r\nThinking Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                                    AllDraw.OutPut = "\r\nThinking Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                                 else
-                                    AllDraw.OutPut = "\r\nThinking Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                                    AllDraw.OutPut = "\r\nThinking Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                                 ThinkingLevel++;
                                 ThinkingAtRun = false;
                             }
@@ -7563,9 +7673,9 @@ namespace RefrigtzDLL
                                 {
                                     OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
                                     if (Order == 1)
-                                        AllDraw.OutPut = "\r\nThinking Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                                        AllDraw.OutPut = "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                                     else
-                                        AllDraw.OutPut = "\r\nThinking Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                                        AllDraw.OutPut = "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                                     ThinkingLevel++;
                                     ThinkingAtRun = false;
                                 }
@@ -8848,9 +8958,9 @@ namespace RefrigtzDLL
                             {
                                 OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
                                 if (Order == 1)
-                                    AllDraw.OutPut = "\r\nThinking Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                                    AllDraw.OutPut = "\r\nThinking Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                                 else
-                                    AllDraw.OutPut = "\r\nThinking Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                                    AllDraw.OutPut = "\r\nThinking Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                                 ThinkingLevel++;
                                 ThinkingAtRun = false;
                             }
