@@ -2727,7 +2727,7 @@ namespace RefrigtzDLL
                                             HA *= System.Math.Pow(2, Supported);
                                         else
                                             //When is Supported Multyply -100.
-                                            HA *= (-1 * System.Math.Pow(2, Supported));
+                                            HA *= (-1 * System.Math.Pow(2, 64 - Supported));
                                     }
 
                                 }
@@ -4744,10 +4744,10 @@ namespace RefrigtzDLL
                                 {
                                     if (Supported == 0)
                                         //When is Not Supported multyply 100.
-                                        HA *= System.Math.Pow(2, Supported);
+                                        HA *= -1 * System.Math.Pow(2, 64 - Supported);
                                     else
                                         //When is Supported Multyply -100.
-                                        HA *= -1 * System.Math.Pow(2, Supported);
+                                        HA *= System.Math.Pow(2, Supported);
                                 }
                             }
                         }
@@ -4836,10 +4836,10 @@ namespace RefrigtzDLL
                                 }//);
                                 if (Supported == 0)
                                     //When is Not Supported multyply 100.
-                                    HA *= System.Math.Pow(2, Supported);
+                                    HA *= -1 * System.Math.Pow(2, 64 - Supported);
                                 else
                                     //When is Supported Multyply -100.
-                                    HA *= -1 * System.Math.Pow(2, Supported);
+                                    HA *= System.Math.Pow(2, Supported);
                             }
                         }
                     }

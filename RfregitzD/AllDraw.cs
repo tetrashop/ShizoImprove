@@ -13381,6 +13381,16 @@ if (Kind == 2)
             bool IsDang = false;
             RefrigtzDLL.ChessRules A = new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Order);
             IsDang = A.ObjectDangourKingMove(Order, Tab, false);
+            if (Order == 1 && (IsDang))
+            {
+                if (A.CheckBrownObjectDangour && ((!A.CheckGrayObjectDangour)))
+                    IsDang = false;
+            }
+            if (Order == -1 && (IsDang))
+            {
+                if (A.CheckGrayObjectDangour && ((!A.CheckBrownObjectDangour)))
+                    IsDang = false;
+            }
             return IsDang;           
 
         }
@@ -16172,14 +16182,7 @@ if (Kind == 2)
                                                 MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                                                 //Task array = Task.Factory.StartNew(() => MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j]), Order, false, FOUND, LeafAStarGreedy));
                                                 MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord, false, FOUND, LeafAStarGreedy);
-                                                for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count; h++)
-                                                    MinisterOnTable[ik].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h], Order);
-
-                                                {
-                                                    for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count; h++)
-                                                        MinisterOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h], Order);
-                                                }
-
+                         
                                                 //array.Start();
                                                 /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
                                                 {

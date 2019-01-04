@@ -13692,6 +13692,16 @@ if (Kind == 2)
             bool IsDang = false;
             QuantumRefrigiz.ChessRules A = new QuantumRefrigiz.ChessRules(0, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Order);
             IsDang = A.ObjectDangourKingMove(Order, Tab, false);
+            if (Order == 1 && (IsDang))
+            {
+                if (A.CheckBrownObjectDangour && ((!A.CheckGrayObjectDangour)))
+                    IsDang = false;
+            }
+            if (Order == -1 && (IsDang))
+            {
+                if (A.CheckGrayObjectDangour && ((!A.CheckBrownObjectDangour)))
+                    IsDang = false;
+            }
             return IsDang;
 
         }
