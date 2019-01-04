@@ -148,6 +148,7 @@ namespace Refrigtz
             }
             catch (Exception t)
             {
+                Log(t);
                 return false;
             }
         }

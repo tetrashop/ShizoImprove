@@ -104,9 +104,6 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Xml" />
-    <Reference Include="Timer">
-      <HintPath>..\RfregitzD\bin\Debug\Timer.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalSuppressions.cs" />

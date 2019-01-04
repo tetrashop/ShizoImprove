@@ -8,7 +8,6 @@ namespace RefregitzReader
     [Serializable]
     class RefregitzReader
     {
-        String Read;
         List<String> Item;
         //public List<SearchGoogle> ItemSearch;
         public bool OKResult = false;

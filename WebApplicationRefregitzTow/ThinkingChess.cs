@@ -4282,7 +4282,7 @@ namespace RefrigtzW
             Object O = new Object();
             lock (O)
             {
-                double HeuristicDistabceOfCurrentMoveFromEnemyKingValue = 0;
+                //double HeuristicDistabceOfCurrentMoveFromEnemyKingValue = 0;
                 //Initiate.
                 int RowG = -1, ColumnG = -1, RowB = -1, ColumnB = -1;
                 //Create ChessRules Objects.

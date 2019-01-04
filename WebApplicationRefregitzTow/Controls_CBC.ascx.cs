@@ -218,11 +218,7 @@ namespace WebApplicationRefregitzTow
                                 t.ConvertOperation(Row2, Column2, A, FormRefrigtz.Table, FormRefrigtz.OrderPlate, false, 0);
                                 if (t.Convert)
                                 {
-                                    int Hit = FormRefrigtz.Table[Row2, Column2];
-                                    bool HitVal = false;
-                                    if (Hit != 0)
-                                        HitVal = true;
-
+                            
                                     FormRefrigtz.Table[Row1, Column1] = 0;
                                     if (t.ConvertedToMinister)
                                         FormRefrigtz.Table[Row2, Column2] = 5;

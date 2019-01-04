@@ -160,7 +160,6 @@ namespace RefrigtzDLL
     public class AllDraw
     {
         bool SetDeptIgnore = false;
-        bool TimerEnded = false;
         long Now = DateTime.Now.Hour * (36000000 * 24) + DateTime.Now.Minute * 36000000 + DateTime.Now.Second * 600000 + DateTime.Now.Millisecond;
         long Later = DateTime.Now.Hour * (36000000 * 24) + DateTime.Now.Minute * 36000000 + DateTime.Now.Second * 600000 + DateTime.Now.Millisecond;
         StackFrame callStack = new StackFrame(1, true);
@@ -372,9 +371,9 @@ namespace RefrigtzDLL
             do
             {
                 Later = DateTime.Now.Hour * (60000 * 24) + DateTime.Now.Minute * 60000 + DateTime.Now.Second * 1000 + DateTime.Now.Millisecond;
-                TimerEnded = false;
+                
             } while (Later - Now < 3 * 60000);
-            TimerEnded = true;
+            
 
         }
         public void SetObjectNumbers(int[,] TabS)
@@ -12915,7 +12914,7 @@ if (Kind == 2)
                 {
 
 
-                    /*if (!FOUND)
+                    if (!FOUND)
                     {
                         //Initiate Of Local Variables.
 
@@ -13060,7 +13059,7 @@ if (Kind == 2)
                             }
                         }
                     }
-                    */
+                    /*
 
                     if (!FOUND)
                     {
@@ -13207,7 +13206,7 @@ if (Kind == 2)
                             }
                         }
                     }
-
+                    */
                     
 
                     Order = DummyOrder;
@@ -17095,7 +17094,7 @@ if (Kind == 2)
                 //Soldeir
                 //Initiatye Variables.               
 
-                 //Parallel.Invoke(() =>
+                 Parallel.Invoke(() =>
 
                 {
                     Object O1 = new Object();
@@ -17117,7 +17116,7 @@ if (Kind == 2)
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
-                }//, () =>
+                }, () =>
                 {
                     Object O1 = new Object();
                     lock (O1)
@@ -17143,7 +17142,7 @@ if (Kind == 2)
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
 
-                }//, () =>
+                }, () =>
                 {
                     Object O1 = new Object();
                     lock (O1)
@@ -17168,7 +17167,7 @@ if (Kind == 2)
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
-                }//, () =>
+                }, () =>
                 {
                     Object O1 = new Object();
                     lock (O1)
@@ -17193,7 +17192,7 @@ if (Kind == 2)
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
-                }//, () =>
+                }, () =>
                 {
                     Object O1 = new Object();
                     lock (O1)
@@ -17217,7 +17216,7 @@ if (Kind == 2)
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
-                }//, () =>
+                }, () =>
                 {
                     Object O1 = new Object();
                     lock (O1)
@@ -17239,12 +17238,12 @@ if (Kind == 2)
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
-                }//);
+                });
             }
             //For Brown Order Blitz Game Calculate Maximum Table Inclusive AStarGreedy First Game Search.
             else
             {
-                //Parallel.Invoke(() =>
+                Parallel.Invoke(() =>
                 {
                     Object O1 = new Object();
                     lock (O1)
@@ -17265,7 +17264,7 @@ if (Kind == 2)
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
-                }//, () =>
+                }, () =>
                 {
                     Object O1 = new Object();
                     lock (O1)
@@ -17290,7 +17289,7 @@ if (Kind == 2)
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
-                }//, () =>
+                }, () =>
                 {
                     Object O1 = new Object();
                     lock (O1)
@@ -17315,7 +17314,7 @@ if (Kind == 2)
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
-                }//, () =>
+                }, () =>
                 {
                     Object O1 = new Object();
                     lock (O1)
@@ -17340,7 +17339,7 @@ if (Kind == 2)
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
-                }//, () =>
+                }, () =>
                 {
                     Object O1 = new Object();
                     lock (O1)
@@ -17364,7 +17363,7 @@ if (Kind == 2)
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
-                }//, () =>
+                }, () =>
                 {
                     Object O1 = new Object();
                     lock (O1)
@@ -17390,7 +17389,7 @@ if (Kind == 2)
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
-                }//);
+                });
             }
 
             return Do;

@@ -9,7 +9,7 @@ namespace QuantumRefrigiz
     [Serializable]
     public static class TakeRoot
     {
-        static AllDraw Node = null;
+        //static AllDraw Node = null;
         //  POINTER IS THE MEMMERY LOCATION OF LAST MOVMENTS.
         public static AllDraw Pointer=null;
         

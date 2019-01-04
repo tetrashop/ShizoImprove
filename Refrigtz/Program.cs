@@ -85,9 +85,9 @@ namespace Refrigtz
             try
             {
                 //https://blogs.msdn.microsoft.com/pfxteam/2011/09/17/whats-new-for-parallelism-in-net-4-5/
-                Task tt = new Task(new Action(TaskParallelLibrary));
-                tt.Start();
-                //Task ttt = new Task(new Action(CoordinationDataStructures));
+                //Task tt = new Task(new Action(TaskParallelLibrary));
+                //tt.Start();
+                ////Task ttt = new Task(new Action(CoordinationDataStructures));
                 //ttt.Start();
                 Application.SetCompatibleTextRenderingDefault(false);
                 t = new Load();
@@ -119,7 +119,7 @@ namespace Refrigtz
              the following code, which continually updates the same entry in the 
              dictionary to have a new value:
              After upgrading my machine to .NET 4.5, this runs 15% faster than it did with .NET 4.*/
-            /*while (true)
+            while (true)
 
             {
 
@@ -132,15 +132,15 @@ namespace Refrigtz
                 for (int i = 1; i < 10000000; i++)
 
                 {
-
-                    cd.TryUpdate(42, i, i – 1);
+                    int k = i - 1;
+                    cd.TryUpdate(42, i, k);
 
                 }
 
                 Console.WriteLine(sw.Elapsed);
 
             }
-            */
+            
         }
         static void TaskParallelLibrary()
 

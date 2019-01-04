@@ -408,12 +408,6 @@
     <Content Include="Account\Web.config" />
     <Content Include="Site.Master" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\GalleryStudio\GalleryStudio.csproj">
-      <Project>{257fbd67-c2d8-4e20-8d14-9a4e27341e1a}</Project>
-      <Name>GalleryStudio</Name>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

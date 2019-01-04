@@ -99,14 +99,10 @@ namespace Refrigtz
 
         //Initiate Variables.
         String Out = "";
-        bool LoadConvertedTable = false;
         bool LoadedDLL = false;
         bool WaitOn = true;
         String comboBoxMaxLevelText = "";
         bool RemoveUncomStock = false;
-        bool TimerIniataite = false;
-
-        bool PersonWithStockfish = false;
         const string PieceToChar = "kqrnbp PBNRQK";
         int StockMoveBase = 0;
         int FenCastling = -1;//0 for small castling 1 for big castling -1 for non castling.
@@ -123,18 +119,13 @@ namespace Refrigtz
         public bool AStarGreedyHuristic = false;
         public bool BestMovments = false;
 
-        bool Loaded = false;
-        bool FirstMovmentOnLoad = true;
-        int DrawNumber = 0;
-        bool FullGame = false;
+         bool FullGame = false;
         static int GrayCountHiiting = 1;
         static int BrownCountHiiting = 17;
         List<PictureBox> ApList = new List<PictureBox>();
         public static int X1 = 0, Y1 = 0;
         public static int X2 = 0, Y2 = 0;
-        bool BobWithStockfishFinished = false;
         public static bool Stockfish = false;
-        bool RefregitzisCurrent = true;
         bool SettingPRFALSE = false;
         public static bool ProfesionalWithComputer = false;
         public bool TimersSet = true;
@@ -154,21 +145,19 @@ namespace Refrigtz
         static bool _2 = false;
         static bool _3 = false;
         static bool _4 = false;
-        static bool Hideag = false;
-        bool exit = false;
         public FormSelect Sec = new FormSelect();
         bool AllDrawLoad = false;
        Thread AllOperate = null;
         static bool PaintingPaused = false;
-        static bool PaintedPaused = false;
-        static bool UpdateConfigurationTableVal = false;
+        //static bool PaintedPaused = false;
+        //static bool UpdateConfigurationTableVal = false;
         static bool NewTable = false;
         OleDbConnection bookConn;
         OleDbCommand oleDbCmd = new OleDbCommand();
         private OleDbCommand oleDbCmdUser = new OleDbCommand();
-        Image TimerImage = null;
+        //Image TimerImage = null;
         Graphics g1 = null;
-        Image TimerImage1 = null;
+        //Image TimerImage1 = null;
         Graphics g2 = null;
         Graphics g = null;
         Image ChessTable = null;
@@ -180,7 +169,7 @@ namespace Refrigtz
         Thread t2 = null;
         Thread t3 = null;
         Thread t4 = null;
-        Thread TTimerSet;
+        //Thread TTimerSet;
         public static bool LoadedTable = false;
         bool GrayWinner = false;
         bool BrownWiner = false;
@@ -3319,7 +3308,7 @@ namespace Refrigtz
                 System.Threading.Thread.Sleep(10);
             }
              while (true);
-            SetTimer = false;
+            //SetTimer = false;
 
         }
         delegate void SetlableRefregitzMaxValueCalBack(Label Refregitz, String value);
@@ -3822,7 +3811,7 @@ namespace Refrigtz
                     Thread.Sleep(10);
                 }
             } while (true);
-            SetNode = false;
+            //SetNode = false;
         }
 
         void SetRefregitzDLL()
@@ -4027,7 +4016,7 @@ namespace Refrigtz
             } while (true);
 
 
-            SetDLL = false;
+            //SetDLL = false;
         }
         void Timerstart()
         {
@@ -4140,13 +4129,13 @@ namespace Refrigtz
                     //When movments not occured.
                     if (!NewTable)
                     {
-                        UpdateConfigurationTableVal = false;
+                        //UpdateConfigurationTableVal = false;
 
                         //When Configuration is Allowed Read Configuration.
                         ReadConfigurationTable();
 
                         //Set Configuration To True for some unknown reason!.
-                        UpdateConfigurationTableVal = true;
+                        //UpdateConfigurationTableVal = true;
                         //Read Last Table and Set MovementNumber                            
                         Table = ReadTable(0, ref MovmentsNumber);
 
@@ -4193,7 +4182,7 @@ namespace Refrigtz
             }
 
 
-            Loaded = true;
+            //Loaded = true;
             LoadedDLL = true;
 
             if (Sec.radioButtonGrayOrder.Checked && OrderPlate == 1)
@@ -4283,7 +4272,7 @@ namespace Refrigtz
                     AliceSection = true;
                     BrownTimer.StartTime();
                 }
-                UpdateConfigurationTableVal = true;
+                //UpdateConfigurationTableVal = true;
             }
             else if (Stockfish)
             {
@@ -4338,7 +4327,7 @@ namespace Refrigtz
             BrownTimer.TextChanged = A;
 
             var parallelOptions = new ParallelOptions();
-            //parallelOptions.MaxDegreeOfParallelism = Int32.MaxValue;
+            parallelOptions.MaxDegreeOfParallelism = Int32.MaxValue;
             parallelOptions.MaxDegreeOfParallelism = PlatformHelper.ProcessorCount;
             if (Quantum)
             {
@@ -4569,7 +4558,7 @@ namespace Refrigtz
                 }
                 catch (Exception t)
                 {
-
+                    Log(t);
                     try
                     {
 
@@ -4940,7 +4929,7 @@ namespace Refrigtz
                             do { iii++; } while (System.IO.File.Exists(Root + "\\Database\\Games\\CurrentBank" + iii.ToString() + ".accdb"));
                             System.IO.File.Copy(Root + "\\Database\\CurrentBank.accdb", Root + "\\Database\\Games\\CurrentBank" + iii.ToString() + ".accdb");
                             System.IO.File.Delete(Root + "\\Database\\CurrentBank.accdb");
-                            break;
+                            //break;
 
                             if (A.CheckGray && TowCheckFromOneKind)
                             {
@@ -6203,8 +6192,7 @@ namespace Refrigtz
         //A quantum move cannot be used to take a piece.
         void MovmentneDraw(int Kind)
         {
-            bool CanHit = true;
-            DrawImageOfMain();
+             DrawImageOfMain();
             g = Graphics.FromImage(ChessTable);
             if (!Quantum)
             {
@@ -9948,7 +9936,7 @@ namespace Refrigtz
                     while (true);
 
                 }
-                AllMove = false;
+                //AllMove = false;
             }
         }
             
@@ -12193,7 +12181,7 @@ namespace Refrigtz
                         }
                         catch (Exception t)
                         {
-
+                            Log(t);
 
                         }
 
@@ -12440,11 +12428,11 @@ namespace Refrigtz
                     RefrigtzDLL.ThinkingChess.ThinkingRun = true;
                 else
                     QuantumRefrigiz.ThinkingQuantumChess.ThinkingQuantumRun = true;
-                PaintedPaused = true;
+                //PaintedPaused = true;
                 try
                 {
                     Begin1:
-                    LoadConvertedTable = false;
+                    //LoadConvertedTable = false;
 
                     Color a = Color.Gray;
                     bool StoreStateCC = false, StoreStateCP = false, StoreStateGe = false;
@@ -12461,8 +12449,8 @@ namespace Refrigtz
                         Table = Draw.Initiate(1, 4, a, Table, OrderPlate, false, FOUND, LeafAStarGrteedy);
                     else
                         Table = DrawQ.Initiate(1, 4, a, Table, OrderPlate, false, FOUND, LeafAStarGrteedy);
-                    LoadConvertedTable = true;
-                    PaintedPaused = false;
+                    //LoadConvertedTable = true;
+                    //PaintedPaused = false;
                     this.SetBoxText("\r\nThinking Finished!");
                     try
                     {
@@ -12510,7 +12498,7 @@ namespace Refrigtz
             {
                 int[,] TableCon = new int[8, 8];
                 int[,] TableC = new int[8, 8];
-                LoadConvertedTable = false;
+                //LoadConvertedTable = false;
                 if(!Quantum)
                     RefrigtzDLL.ThinkingChess.ThinkingRun = true;
                 else
@@ -12825,7 +12813,7 @@ namespace Refrigtz
                 else
                     Table = DrawQ.Initiate(1, 4, a, Table, OrderPlate, false, FOUND, LeafAStarGrteedy);
 
-                LoadConvertedTable = true;
+                //LoadConvertedTable = true;
                 //StateCP = false;
                 try
                 {
@@ -13057,7 +13045,7 @@ namespace Refrigtz
             lock (O)
             {
                 int[,] TableC = new int[8, 8];
-                LoadConvertedTable = false;
+                //LoadConvertedTable = false;
                 if(!Quantum)
                     RefrigtzDLL.ThinkingChess.ThinkingRun = true;
                 else
@@ -13079,7 +13067,7 @@ namespace Refrigtz
                 else
                     Table = DrawQ.Initiate(1, 4, a, Table, OrderPlate, false, FOUND, LeafAStarGrteedy);
 
-                LoadConvertedTable = true;
+                //LoadConvertedTable = true;
                 StateCC = StoreStateCC;
                 StateCP = StoreStateCP;
                 StateGe = StoreStateGe;
@@ -13121,7 +13109,7 @@ namespace Refrigtz
 
                 OpAfterAllTinking(ref StoreStateCC, ref StoreStateCP, ref StoreStateGe);
 
-                BobWithStockfishFinished = true;
+                //BobWithStockfishFinished = true;
 
                 OrderPlate *= -1;
 
@@ -14420,7 +14408,7 @@ namespace Refrigtz
                 AliceSection = true;
                 BrownTimer.StartTime();
             }
-            UpdateConfigurationTableVal = true;
+            //UpdateConfigurationTableVal = true;
             //UpdateConfigurationTable();
             AllDo = false;
         }
@@ -14466,7 +14454,7 @@ namespace Refrigtz
 
             SetDrawFounding(ref FOUND, ref THIS, false);
 
-            UpdateConfigurationTableVal = true;
+            //UpdateConfigurationTableVal = true;
             //UpdateConfigurationTable();
             AllDo = false;
 
@@ -14598,7 +14586,7 @@ namespace Refrigtz
         {
             try
             {
-                UpdateConfigurationTableVal = true;
+                //UpdateConfigurationTableVal = true;
 
                 UpdateConfigurationTable();
                 bookConn.Close();
@@ -14630,12 +14618,10 @@ namespace Refrigtz
                         }
                         catch (Exception t) { Log(t); }
                         {
-                            UpdateConfigurationTableVal = true;
+                            //UpdateConfigurationTableVal = true;
                             //UpdateConfigurationTable();
                             try
                             {
-                                if (TTimerSet != null)
-                                    TTimerSet.Abort();
                                 //if (AllOperate != null)
                                 AllOperate.Abort();
                                 if (t1 != null)
@@ -14702,13 +14688,11 @@ namespace Refrigtz
                         }
                         catch (Exception t) { Log(t); }
                         {
-                            UpdateConfigurationTableVal = true;
+                            //UpdateConfigurationTableVal = true;
                             //UpdateConfigurationTable();
                             try
                             {
-                                if (TTimerSet != null)
-                                    TTimerSet.Abort();
-                                //if (AllOperate != null)
+                                if (AllOperate != null)
                                 AllOperate.Abort();
                                 if (t1 != null)
                                     t1.Abort();
@@ -14767,7 +14751,7 @@ namespace Refrigtz
 
             try
             {
-                UpdateConfigurationTableVal = true;
+                ////UpdateConfigurationTableVal = true;
 
                 UpdateConfigurationTable();
                 bookConn.Close();
@@ -14799,13 +14783,11 @@ namespace Refrigtz
                         }
                         catch (Exception t) { Log(t); }
                         {
-                            UpdateConfigurationTableVal = true;
+                            //UpdateConfigurationTableVal = true;
                             //UpdateConfigurationTable();
                             try
                             {
-                                if (TTimerSet != null)
-                                    TTimerSet.Abort();
-                                //if (AllOperate != null)
+                                if (AllOperate != null)
                                 AllOperate.Abort();
                                 if (t1 != null)
                                     t1.Abort();
@@ -14872,13 +14854,11 @@ namespace Refrigtz
                         }
                         catch (Exception t) { Log(t); }
                         {
-                            UpdateConfigurationTableVal = true;
+                            //UpdateConfigurationTableVal = true;
                             //UpdateConfigurationTable();
                             try
                             {
-                                if (TTimerSet != null)
-                                    TTimerSet.Abort();
-                                //if (AllOperate != null)
+                                if (AllOperate != null)
                                 AllOperate.Abort();
                                 if (t1 != null)
                                     t1.Abort();
@@ -15090,7 +15070,7 @@ namespace Refrigtz
         {
             AllDo = false;
             StateGe = true;
-            UpdateConfigurationTableVal = true;
+            //UpdateConfigurationTableVal = true;
             //UpdateConfigurationTable();
 
         }
@@ -15377,7 +15357,7 @@ namespace Refrigtz
                 GrayTimer.TimerInitiate();
                 BrownTimer.TimerInitiate();
             }
-            TimerIniataite = true;
+            //TimerIniataite = true;
             //BobSection = false;
             //AliceSection = false;
             StateCP = true;
@@ -15424,7 +15404,7 @@ namespace Refrigtz
             else
                 SetDrawFounding(ref FOUND, ref THISQ, false);
 
-            UpdateConfigurationTableVal = true;
+            //UpdateConfigurationTableVal = true;
             UpdateConfigurationTable();
             AllDo = false;
         }
@@ -15902,7 +15882,7 @@ namespace Refrigtz
                 StateCP = true;
                 Person = false;
             }
-            UpdateConfigurationTableVal = true;
+            //UpdateConfigurationTableVal = true;
             //UpdateConfigurationTable();
             AllDo = false;
         }
@@ -15931,7 +15911,7 @@ namespace Refrigtz
                 AliceSection = true;
                 BrownTimer.StartTime();
             }
-            UpdateConfigurationTableVal = true;
+            //UpdateConfigurationTableVal = true;
             //UpdateConfigurationTable();
             AllDo = false;
         }
@@ -16116,7 +16096,7 @@ namespace Refrigtz
                 Blitz = false;
             }
             Blitz = true;
-            UpdateConfigurationTableVal = true;
+            ///UpdateConfigurationTableVal = true;
             AllDo = false;
         }
 
@@ -16147,7 +16127,7 @@ namespace Refrigtz
             }
             //UsePenaltyRegardMechnisam = false;
             PredictHuristic = false;
-            TimerIniataite = true;
+            //TimerIniataite = true;
             if (Sec.radioButtonGrayOrder.Checked)
             {
                 label1.Text = "Refregitz";
@@ -16171,7 +16151,7 @@ namespace Refrigtz
             else
                 SetDrawFounding(ref FOUND, ref THISQ, false);
 
-            UpdateConfigurationTableVal = true;
+            //UpdateConfigurationTableVal = true;
             UpdateConfigurationTable();
             AllDo = false;
             //BobSection = true;
@@ -16210,7 +16190,7 @@ namespace Refrigtz
                 Blitz = false;
             }
             Blitz = true;
-            UpdateConfigurationTableVal = true;
+            ///UpdateConfigurationTableVal = true;
 
             AllDo = false;
         }
@@ -16269,7 +16249,7 @@ namespace Refrigtz
             else
                 SetDrawFounding(ref FOUND, ref THISQ, false);
 
-            UpdateConfigurationTableVal = true;
+            //UpdateConfigurationTableVal = true;
             UpdateConfigurationTable();
             AllDo = false;
         }
@@ -16328,7 +16308,7 @@ namespace Refrigtz
             else
                 SetDrawFounding(ref FOUND, ref THISQ, false);
 
-            UpdateConfigurationTableVal = true;
+            //UpdateConfigurationTableVal = true;
 
 
             UpdateConfigurationTable();
@@ -16376,7 +16356,7 @@ namespace Refrigtz
                 GrayTimer.TimerInitiate();
                 BrownTimer.TimerInitiate();
             }
-            TimerIniataite = true;
+            //TimerIniataite = true;
             //BobSection = false;
             //AliceSection = false;
             StateCP = true;
@@ -16429,7 +16409,7 @@ namespace Refrigtz
 
                 SetDrawFounding(ref FOUND, ref THIS, false);
             }
-            UpdateConfigurationTableVal = true;
+            //UpdateConfigurationTableVal = true;
             UpdateConfigurationTable();
             AllDo = false;
             //MessageBox.Show("Reload Project For Quntum Rifrigitz!");
@@ -16491,7 +16471,7 @@ namespace Refrigtz
             else
                 SetDrawFounding(ref FOUND, ref THISQ, false);
 
-            UpdateConfigurationTableVal = true;
+            //UpdateConfigurationTableVal = true;
             UpdateConfigurationTable();
             AllDo = false;
         }
@@ -16553,14 +16533,14 @@ namespace Refrigtz
             else
                 SetDrawFounding(ref FOUND, ref THISQ, false);
 
-            UpdateConfigurationTableVal = true;
+            //UpdateConfigurationTableVal = true;
             AllDo = false;
         }
 
         private void toolStripMenuItem16_Click(object sender, EventArgs e)
         {
             //UsePenaltyRegardMechnisam = false;
-            TimerIniataite = true;
+            //TimerIniataite = true;
             label1.Text = "Refregitz";
             label2.Text = "stockfish-8";
             Stockfish = true;
@@ -16574,14 +16554,14 @@ namespace Refrigtz
         {
             UsePenaltyRegardMechnisam = true;
             checkBoxUsePenaltyRegradMechnisam.Checked = true;
-            TimerIniataite = true;
+            //TimerIniataite = true;
             label1.Text = "You";
             label2.Text = "stockfish-8";
             Stockfish = true;
             Person = true;
             StateCP = true;
             //BobSection = true;
-            PersonWithStockfish = true;
+            //PersonWithStockfish = true;
             if (!Quantum)
             {
                 Draw = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
@@ -16613,7 +16593,7 @@ namespace Refrigtz
                 BrownTimer.TimerInitiate();
             }
             PredictHuristic = false;
-            TimerIniataite = true;
+            //TimerIniataite = true;
             label1.Text = "Refregitz";
             label2.Text = "stockfish-8";
             Stockfish = true;
@@ -16648,7 +16628,7 @@ namespace Refrigtz
 
             }
             PredictHuristic = false;
-            TimerIniataite = true;
+            //TimerIniataite = true;
             if (OrderPlate == 1)
             {
                 Blitz = true;
@@ -16688,7 +16668,7 @@ namespace Refrigtz
                     SetDrawFounding(ref FOUND, ref THISQ, false);
 
             }
-            UpdateConfigurationTableVal = true;
+            //UpdateConfigurationTableVal = true;
             UpdateConfigurationTable();
             AllDo = false;
         }
@@ -16707,7 +16687,7 @@ namespace Refrigtz
                 BrownTimer.TimerInitiate();
             }
             PredictHuristic = false;
-            TimerIniataite = true;
+            //TimerIniataite = true;
             label1.Text = "Refregitz";
             label2.Text = "stockfish-8";
             Stockfish = true;

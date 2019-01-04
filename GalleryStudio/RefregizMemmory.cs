@@ -851,7 +851,7 @@ namespace GalleryStudio
                 //Node.AllDrawNextAccessK = null;
                 //Node.AllDrawCurrentAccess = null;
                 AllDraw t = null;
-                QuantumRefrigiz.AllDraw tQ = null;
+                //QuantumRefrigiz.AllDraw tQ = null;
                 try
                 {
                     FileStream DummyFileStream = new FileStream(SAllDraw, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.ReadWrite);
@@ -875,15 +875,7 @@ namespace GalleryStudio
             lock (o)
             {
 
-                //Node.AllDrawNextAccessS = null;
-                //Node.AllDrawNextAccessE = null;
-                //Node.AllDrawNextAccessH = null;
-                //Node.AllDrawNextAccessC = null;
-                //Node.AllDrawNextAccessM = null;
-                //Node.AllDrawNextAccessK = null;
-                //Node.AllDrawCurrentAccess = null;
-                AllDraw t = null;
-                QuantumRefrigiz.AllDraw tQ = null;
+                 QuantumRefrigiz.AllDraw tQ = null;
                 try
                 {
                     FileStream DummyFileStream = new FileStream(SAllDraw, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.ReadWrite);

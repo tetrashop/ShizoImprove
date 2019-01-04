@@ -13230,7 +13230,7 @@ if (Kind == 2)
                 {
 
 
-                    /*if (!FOUND)
+                    if (!FOUND)
                     {
                         //Initiate Of Local Variables.
 
@@ -13375,7 +13375,7 @@ if (Kind == 2)
                             }
                         }
                     }
-                    */
+                    /*
 
                     if (!FOUND)
                     {
@@ -13521,7 +13521,7 @@ if (Kind == 2)
                                // );
                             }
                         }
-                    }
+                    }*/
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
 
@@ -17414,7 +17414,7 @@ if (Kind == 2)
                 //Soldeir
                 //Initiatye Variables.               
 
-                 //Parallel.Invoke(() =>
+                 Parallel.Invoke(() =>
 
                 {
                     Object O1 = new Object();
@@ -17436,7 +17436,7 @@ if (Kind == 2)
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
-                }//, () =>
+                }, () =>
                 {
                     Object O1 = new Object();
                     lock (O1)
@@ -17462,7 +17462,7 @@ if (Kind == 2)
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
 
-                }//, () =>
+                }, () =>
                 {
                     Object O1 = new Object();
                     lock (O1)
@@ -17487,7 +17487,7 @@ if (Kind == 2)
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
-                }//, () =>
+                }, () =>
                 {
                     Object O1 = new Object();
                     lock (O1)
@@ -17512,7 +17512,7 @@ if (Kind == 2)
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
-                }//, () =>
+                }, () =>
                 {
                     Object O1 = new Object();
                     lock (O1)
@@ -17536,7 +17536,7 @@ if (Kind == 2)
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
-                }//, () =>
+                }, () =>
                 {
                     Object O1 = new Object();
                     lock (O1)
@@ -17558,12 +17558,12 @@ if (Kind == 2)
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
-                }///);
+                });
             }
             //For Brown Order Blitz Game Calculate Maximum Table Inclusive AStarGreedy First Game Search.
             else
             {
-                //Parallel.Invoke(() =>
+                Parallel.Invoke(() =>
                 {
                     Object O1 = new Object();
                     lock (O1)
@@ -17584,7 +17584,7 @@ if (Kind == 2)
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
-                }//, () =>
+                }, () =>
                 {
                     Object O1 = new Object();
                     lock (O1)
@@ -17609,7 +17609,7 @@ if (Kind == 2)
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
-                }//, () =>
+                }, () =>
                 {
                     Object O1 = new Object();
                     lock (O1)
@@ -17634,7 +17634,7 @@ if (Kind == 2)
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
-                }//, () =>
+                }, () =>
                 {
                     Object O1 = new Object();
                     lock (O1)
@@ -17659,7 +17659,7 @@ if (Kind == 2)
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
-                }//, () =>
+                }, () =>
                 {
                     Object O1 = new Object();
                     lock (O1)
@@ -17683,7 +17683,7 @@ if (Kind == 2)
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
-                }//, () =>
+                }, () =>
                 {
                     Object O1 = new Object();
                     lock (O1)
@@ -17709,7 +17709,7 @@ if (Kind == 2)
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
-                }//);
+                });
             }
 
             return Do;

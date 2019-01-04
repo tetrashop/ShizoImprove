@@ -123,7 +123,6 @@ namespace RefrigtzW
         public static String Root = System.Web.HttpRuntime.AppDomainAppPath;
         public bool MouseClicked = false;
         public static bool Blitz = false;
-        DateTime PreviousTime;
         static bool LoadAG = false;
         static bool _1 = false;
         static bool _2 = false;
@@ -169,12 +168,6 @@ namespace RefrigtzW
         AllDraw Draw;
         public static int OrderPlate = 1;
         // int AllDraw.MouseClick;
-        int Soldier;
-        int Elefant;
-        int Hourse;
-        int Castle;
-        int Minister;
-        int King;
         float RowClickP = -1, ColumnClickP = -1;
         int RowClick = -1, ColumnClick = -1;
         float RowRealesedP = -1, ColumnRealeasedP = -1;
@@ -194,7 +187,7 @@ namespace RefrigtzW
                     File.AppendAllText(Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
                 }
             }
-            catch (Exception t) {  }
+            catch (Exception t) { Log(t); }
         }
         //Constructor No2
         public FormRefrigtz(bool AllDra)
@@ -368,7 +361,7 @@ namespace RefrigtzW
         {
 
             ChessRules.CastleActBrown = false;
-            bool OneIncreament = false;
+            //bool OneIncreament = false;
             int[,] Tab = Table;
             int Move = 0;
             AllDraw.TableListAction.Clear();
@@ -640,7 +633,7 @@ namespace RefrigtzW
                     }
                     catch (Exception t)
                     {
-                        
+                        Log(t);
                         Move++;
                         break;
                     }
@@ -735,7 +728,7 @@ namespace RefrigtzW
                 }
                 catch (Exception t)
                 {
-
+                    Log(t);
                     bookConn.Close();
                     oleDbCmd.Dispose();
                     bookConn.Dispose();
@@ -894,7 +887,7 @@ namespace RefrigtzW
             }
             catch (Exception t)
             {
-                
+                Log(t);
                 try
                 {
                     bookConn.Close();
@@ -1025,8 +1018,8 @@ namespace RefrigtzW
             }
             catch (Exception t)
             {
-                
-                
+                Log(t);
+
 
                 bookConn = new OleDbConnection(connParam);
                 bookConn.Open();
@@ -1086,23 +1079,20 @@ namespace RefrigtzW
         }
         void UpdateTable(int[,] Tabl, String TableName)
         {
-            //if (UpdateConfigurationTableVal)
+            try
             {
-            Begin121:
-                try
-                {
-                    oleDbCmd.CommandText = "Drop Table " + TableName;
-                    int temp = 0;
-                    temp = oleDbCmd.ExecuteNonQuery();
-                    InsertTableAtDataBase(Tabl);
+                oleDbCmd.CommandText = "Drop Table " + TableName;
+                int temp = 0;
+                temp = oleDbCmd.ExecuteNonQuery();
+                InsertTableAtDataBase(Tabl);
 
-                }
-                catch (Exception t)
-                {
-                    Log(t);
-                }
+            }
+            catch (Exception t)
+            {
+                Log(t);
             }
         }
+        
 
         //Reading of Configuration Table Method.
         void ReadConfigurationTable()
@@ -1536,7 +1526,7 @@ namespace RefrigtzW
                 }
                 catch (Exception t)
                 {
-                    
+                    Log(t);
                     goto Begin1;
                 }
 
@@ -1635,7 +1625,7 @@ namespace RefrigtzW
             }
             catch (Exception t)
             {
-                
+                Log(t);
                 //this.//SetBoxText("\r\nError!");
             }
         }
@@ -1644,7 +1634,7 @@ namespace RefrigtzW
         {
             bool NotZerro = false;
             for (int i = 0; i < 8; i++)
-                for (int j = 0; j < 8l; j++)
+                for (int j = 0; j < 8; j++)
                     if (Ta[i, j] != 0)
                         NotZerro = true;
             return NotZerro;

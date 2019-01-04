@@ -318,7 +318,7 @@ namespace WebApplicationRefregitzTow
            // }
 
             Iniziate();
-            try
+            //try
             {
                 if (uc != null)
                 {
@@ -327,8 +327,9 @@ namespace WebApplicationRefregitzTow
                 }
 
             }
-            catch (Exception t)
+            //catch (Exception t)
             {
+                //Log(t);
             }
             //Response.Redirect(Request.Url.AbsoluteUri);
             RefrigtzW.FormRefrigtz.LoadPlaceHolder = false;

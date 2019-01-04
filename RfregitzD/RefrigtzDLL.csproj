@@ -71,9 +71,6 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="Timer">
-      <HintPath>..\Refrigtz\bin\Debug\Timer\Timer\bin\Debug\Timer.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AllDraw.cs" />

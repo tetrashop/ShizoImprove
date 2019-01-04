@@ -129,10 +129,6 @@
     <CodeAnalysisRuleSet>Refrigtz.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="All, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\All\All\bin\Debug\All.dll</HintPath>
-    </Reference>
     <Reference Include="DotNetOpenAuth.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
       <HintPath>..\packages\DotNetOpenAuth.Core.4.3.4.13329\lib\net45-full\DotNetOpenAuth.Core.dll</HintPath>
     </Reference>
@@ -150,9 +146,6 @@
     </Reference>
     <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-    </Reference>
-    <Reference Include="RefrigtzDLL">
-      <HintPath>..\RfregitzD\bin\Debug\RefrigtzDLL.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -174,9 +167,6 @@
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
-    <Reference Include="Timer">
-      <HintPath>bin\Debug\Timer\Timer\bin\Debug\Timer.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AboutBoxChessRefregitz.cs">
@@ -375,6 +365,18 @@
     <ProjectReference Include="..\QuantumRefrigiz\QuantumRefrigiz.csproj">
       <Project>{56d82e52-1fc9-4bc2-b57c-4d23ee44ce23}</Project>
       <Name>QuantumRefrigiz</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RfregitzD\RefrigtzDLL.csproj">
+      <Project>{6fe9bef7-bd1c-48c4-9967-6d1517c76661}</Project>
+      <Name>RefrigtzDLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="bin\Debug\All\All\chtc.csproj">
+      <Project>{ac2b4cf6-3294-46d5-9af0-c58ee5b637d4}</Project>
+      <Name>chtc</Name>
+    </ProjectReference>
+    <ProjectReference Include="bin\Debug\Timer\Timer\Timer.csproj">
+      <Project>{6b7e2b13-fd25-412b-896d-cb710e8737f8}</Project>
+      <Name>Timer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

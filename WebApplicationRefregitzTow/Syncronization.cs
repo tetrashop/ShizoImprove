@@ -20,7 +20,10 @@ namespace RefrigtzW
                     File.AppendAllText(FormRefrigtz.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
                 }
             }
-            catch (Exception t) {  }
+            catch (Exception t)
+            {
+                Log(t);
+            }
         }
         //
         bool LastState = false;

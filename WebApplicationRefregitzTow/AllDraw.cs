@@ -160,11 +160,6 @@ namespace RefrigtzW
     public class AllDraw
     {
         bool SetDeptIgnore = false;
-        bool TimerEnded = false;
-        long Now = DateTime.Now.Hour * (36000000 * 24) + DateTime.Now.Minute * 36000000 + DateTime.Now.Second * 600000 + DateTime.Now.Millisecond;
-        long Later = DateTime.Now.Hour * (36000000 * 24) + DateTime.Now.Minute * 36000000 + DateTime.Now.Second * 600000 + DateTime.Now.Millisecond;
-        StackFrame callStack = new StackFrame(1, true);
-        int[,] Tabl = new int[8, 8];
         public int OrderP = 0;
         public static int DepthIterative = 0;
         int PerceptionCount = 0;
@@ -366,16 +361,14 @@ namespace RefrigtzW
         }
         void TimeEnd()
         {
-
-            Now = DateTime.Now.Hour * (60000 * 24) + DateTime.Now.Minute * 60000 + DateTime.Now.Second * 1000 + DateTime.Now.Millisecond;
-            long Later = Now;
+            long Now = DateTime.Now.Hour * (36000000 * 24) + DateTime.Now.Minute * 36000000 + DateTime.Now.Second * 600000 + DateTime.Now.Millisecond;
+            long Later = DateTime.Now.Hour * (36000000 * 24) + DateTime.Now.Minute * 36000000 + DateTime.Now.Second * 600000 + DateTime.Now.Millisecond;
+            Later = Now;
             do
             {
                 Later = DateTime.Now.Hour * (60000 * 24) + DateTime.Now.Minute * 60000 + DateTime.Now.Second * 1000 + DateTime.Now.Millisecond;
-                TimerEnded = false;
             } while (Later - Now < 3 * 60000);
-            TimerEnded = true;
-
+            
         }
         public void SetObjectNumbers(int[,] TabS)
         {
@@ -620,10 +613,6 @@ namespace RefrigtzW
                     AA = new AllDraw(OrderP, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
                     AA.TableList.Add(TableList[0]);
                 }
-                AA.Tabl = new int[8, 8];
-                for (int i = 0; i < 8; i++)
-                    for (int j = 0; j < 8; j++)
-                        AA.Tabl[i, j] = Tabl[i, j];
                 AA.OrderP = OrderP;
 
                 AA.PerceptionCount = PerceptionCount;
@@ -6696,8 +6685,6 @@ if (Kind == 2)
                     for (int i = 0; i < SodierMidle; i++)
                         TableHuristic = HuristicAStarGreadySearchSoldier(ref TableHuristic, i, AStarGreedyi, a, Order, CurrentTableHuristic, ref Act);
                 }
-                else
-                    CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
                 return TableHuristic;
             }
         }
@@ -6712,9 +6699,7 @@ if (Kind == 2)
                     for (int i = SodierMidle; i < SodierHigh; i++)
                         TableHuristic = HuristicAStarGreadySearchSoldier(ref TableHuristic, i, AStarGreedyi, a, Order, CurrentTableHuristic, ref Act);
                 }
-                else
-                    CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
-
+                
                 return TableHuristic;
             }
         }
@@ -6731,8 +6716,6 @@ if (Kind == 2)
                     for (int i = 0; i < ElefantMidle; i++)
                         TableHuristic = HuristicAStarGreadySearchElephant(ref TableHuristic, i, AStarGreedyi, a, Order, CurrentTableHuristic, ref Act);
                 }
-                else
-                    CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
                 return TableHuristic;
             }
         }
@@ -6748,8 +6731,6 @@ if (Kind == 2)
                     for (int i = ElefantMidle; i < ElefantHigh; i++)
                         TableHuristic = HuristicAStarGreadySearchElephant(ref TableHuristic, i, AStarGreedyi, a, Order, CurrentTableHuristic, ref Act);
                 }
-                else
-                    CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
                 return TableHuristic;
             }
         }
@@ -6999,9 +6980,7 @@ if (Kind == 2)
                     for (int i = 0; i < HourseMidle; i++)
                         TableHuristic = HuristicAStarGreadySearchHourse(ref TableHuristic, i, AStarGreedyi, a, Order, CurrentTableHuristic, ref Act);
                 }
-                else
-                    CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
-
+                
                 return TableHuristic;
             }
         }
@@ -7017,8 +6996,6 @@ if (Kind == 2)
                     for (int i = HourseMidle; i < HourseHight; i++)
                         TableHuristic = HuristicAStarGreadySearchHourse(ref TableHuristic, i, AStarGreedyi, a, Order, CurrentTableHuristic, ref Act);
                 }
-                else
-                    CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
                 return TableHuristic;
             }
         }
@@ -7255,8 +7232,6 @@ if (Kind == 2)
                     for (int i = 0; i < CastleMidle; i++)
                         TableHuristic = HuristicAStarGreadySearchCastle(ref TableHuristic, i, AStarGreedyi, a, Order, CurrentTableHuristic, ref Act);
                 }
-                else
-                    CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
                 return TableHuristic;
             }
         }
@@ -7274,8 +7249,6 @@ if (Kind == 2)
                         TableHuristic = HuristicAStarGreadySearchCastle(ref TableHuristic, i, AStarGreedyi, a, Order, CurrentTableHuristic, ref Act);
 
                 }
-                else
-                    CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
                 return TableHuristic;
             }
         }
@@ -7515,8 +7488,6 @@ if (Kind == 2)
                         TableHuristic = HuristicAStarGreadySearchMinsister(ref TableHuristic, i, AStarGreedyi, a, Order, CurrentTableHuristic, ref Act);
 
                 }
-                else
-                    CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
                 return TableHuristic;
             }
 
@@ -7532,8 +7503,6 @@ if (Kind == 2)
                         TableHuristic = HuristicAStarGreadySearchMinsister(ref TableHuristic, i, AStarGreedyi, a, Order, CurrentTableHuristic, ref Act);
 
                 }
-                else
-                    CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
                 return TableHuristic;
             }
         }
@@ -7766,8 +7735,8 @@ if (Kind == 2)
                     for (int i = 0; i < KingMidle; i++)
                         TableHuristic = HuristicAStarGreadySearchKing(ref TableHuristic, i, AStarGreedyi, a, Order, CurrentTableHuristic, ref Act);
                 }
-                else
-                    CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
+                //else
+                    //CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
                 return TableHuristic;
             }
         }
@@ -7782,8 +7751,6 @@ if (Kind == 2)
                     for (int i = KingMidle; i < KingHigh; i++)
                         TableHuristic = HuristicAStarGreadySearchKing(ref TableHuristic, i, AStarGreedyi, a, Order, CurrentTableHuristic, ref Act);
                 }
-                else
-                    CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
                 return TableHuristic;
             }
         }
@@ -12851,7 +12818,7 @@ if (Kind == 2)
             )
         {
             {
-
+                int[,] Tabl = null;
                 OrderP = Order;
                 SetObjectNumbers(Tab);
 
@@ -13075,7 +13042,7 @@ if (Kind == 2)
                             if (Order == 1)
                             {
                                 int i1 = i, j1 = j;
-                                int[,] Tabl = CloneATable(Table);
+                                Tabl = CloneATable(Table);
                                 int DummyOrder1 = DummyOrder, DummyCurrentOrder1 = DummyCurrentOrder, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, Ord1 = Order;
                                 bool TB1 = TB;
                                 Color aa = a;
@@ -13141,7 +13108,7 @@ if (Kind == 2)
                             else//Brown Order Considarations.
                             {
                                 int i1 = i, j1 = j;
-                                int[,] Tabl = CloneATable(Table);
+                                Tabl = CloneATable(Table);
                                 int DummyOrder1 = DummyOrder, DummyCurrentOrder1 = DummyCurrentOrder, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, Ord1 = Order;
                                 bool TB1 = TB;
                                 Color aa = a;
@@ -13265,6 +13232,7 @@ if (Kind == 2)
         public AllDraw InitiateAStarGreedytObject(int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
             )
         {
+            int[,] Tabl = null;
             bool Do = false;
             {
 

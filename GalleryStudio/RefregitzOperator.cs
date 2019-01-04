@@ -25,10 +25,10 @@ namespace GalleryStudio
         public static String Root = System.IO.Path.GetDirectoryName(Environment.GetCommandLineArgs()[0]);
 
         const string SAllDraw = "AllDraw.asd";
-        static GalleryStudio.RefregizMemmory Node;
-        RefrigtzDLL.AllDraw Current = null;
-        GalleryStudio.RefregizMemmory Next = null;
-        int Kind = -1;
+        //static GalleryStudio.RefregizMemmory Node;
+        //RefrigtzDLL.AllDraw Current = null;
+        //GalleryStudio.RefregizMemmory Next = null;
+        //int Kind = -1;
         static void Log(Exception ex)
         {
             try

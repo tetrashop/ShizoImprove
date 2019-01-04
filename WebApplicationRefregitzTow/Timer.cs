@@ -153,27 +153,15 @@ namespace Refrigtz
                 //int PowerEx = 4;
                 int Increase = 0;//Initaiate
                 Increase = 1;
-                int PowerEx = 3;
                 //When Ok.
                 if (Sign != 1)
                 {
-                    /*if ((System.Math.Pow((AStarGreedytiLevelMax - StoreAllDrawCount) * AStarGreedytMidleTimer, PowerEx) + System.Math.Pow(TimerColor.TimesAccess, PowerEx) > System.Math.Pow((AStarGreedytiLevelMax - StoreAllDrawCount) * AStarGreedytMidleTimer, PowerEx) + System.Math.Pow((AStarGreedyti - StoreAllDrawCount) * AStarGreedytMidleTimer, PowerEx)))
-                    {
-                        Increase = 1;
-
-                    }
-                    else//When is Cancled.
-                    {
-                        if ((System.Math.Pow((AStarGreedytiLevelMax - StoreAllDrawCount) * AStarGreedytMidleTimer, PowerEx) + System.Math.Pow(TimerColor.TimesAccess, PowerEx) < System.Math.Pow((AStarGreedytiLevelMax - StoreAllDrawCount) * AStarGreedytMidleTimer, PowerEx) + System.Math.Pow((AStarGreedyti - StoreAllDrawCount) * AStarGreedytMidleTimer, PowerEx)))
-                        {
-                            Increase = -1;
-                        }
-                    }*/
+                    
                     if (Times - 120000 < 0)
                         Increase = -1;
                     else
                         Increase = 1;
-                    //Value
+                    
                 }
                 return Increase;
             }

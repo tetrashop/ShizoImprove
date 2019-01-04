@@ -104,10 +104,7 @@ namespace RefrigtzDLL
         int ThinkingLevel = 0;
         public List<bool[]> LearningVarsObject = new List<bool[]>();
         public static bool LearningVarsCheckedMateOccured;
-        public static bool LearningVarsCheckedMateOccuredOneCheckedMate;
-        int DivisionPenaltyRegardHeuristicQueficient = 1;
-        public int SuppportCountStaticGray = 0;
-        public int SuppportCountStaticBrown = 0;
+        public static bool LearningVarsCheckedMateOccuredOneCheckedMate;        
         bool IsGardHighPriority = false;
         const int ThresholdBlitz = 10000;
         const int ThresholdFullGame = 20000;
@@ -3015,7 +3012,7 @@ namespace RefrigtzDLL
                     Sign = 1.0;
                 else
                     //When Order is Opposite Sign Negative.
-                    if (Order == AllDraw.OrderPlate)
+                    if (Order != AllDraw.OrderPlate)
                     Sign = -1.0;
 
                 return Sign;
@@ -4282,8 +4279,7 @@ namespace RefrigtzDLL
             Object O = new Object();
             lock (O)
             {
-                double HeuristicDistabceOfCurrentMoveFromEnemyKingValue = 0;
-                //Initiate.
+                  //Initiate.
                 int RowG = -1, ColumnG = -1, RowB = -1, ColumnB = -1;
                 //Create ChessRules Objects.
                 ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tab[RowS, ColS], Tab, Order, RowS, ColS);
@@ -8393,7 +8389,6 @@ namespace RefrigtzDLL
                                     for (int ik = 0; ik < System.Math.Abs(TableS[i, j]); ik++)
                                         LearniningTable.LearningAlgorithmPenaltyNet(ii, jj);
                                 }
-                                DivisionPenaltyRegardHeuristicQueficient = 3;
                                 //When previous Move of Enemy goes to Dangoure Current Object.
                                 if (IsPrviousMovemntIsDangrousForCurr && Current.IsPenaltyAction() != 0)
                                 {
@@ -8493,7 +8488,6 @@ namespace RefrigtzDLL
                                         LearniningTable.LearningAlgorithmRegardNet(ii, jj);
                                 }
 
-                                DivisionPenaltyRegardHeuristicQueficient = 3;
                                 if (SelfNotSupported && Current.IsPenaltyAction() != 0)
                                 {
                                     RemoveAtList(kind);
@@ -8587,7 +8581,6 @@ namespace RefrigtzDLL
                                 }
                             }
 
-                            DivisionPenaltyRegardHeuristicQueficient = 2;
                             if (IsNextMovemntIsCheckOrCheckMateForCurrent && Current.IsPenaltyAction() != 0)
                             {
                                 NumberOfPenalties++;
@@ -9095,11 +9088,11 @@ namespace RefrigtzDLL
                     HeuristicDistabceOfCurrentMoveFromEnemyKingValue = HDistance * SignOrderToPlate(Order);
                     HeuristicKingSafe = HKingSafe * SignOrderToPlate(Order);
                     HeuristicFromCenter = HFromCenter * SignOrderToPlate(Order);
-                    HeuristicKingDangour = HKingDangour * SignOrderToPlate(Order);*/
-
+                    HeuristicKingDangour = HKingDangour * SignOrderToPlate(Order);
+                    */
                     if (Before)
                     {
-                        HuristicAttackValue = Huriistic[0];
+                        /*HuristicAttackValue = Huriistic[0];
                         HuristicKillerValue = Huriistic[1];
                         HuristicMovementValue = Huriistic[2];
                         HuristicObjectDangourCheckMateValue = (Huriistic[3] + HCheck);
@@ -9109,9 +9102,21 @@ namespace RefrigtzDLL
                         HeuristicKingSafe = HKingSafe;
                         HeuristicFromCenter = HFromCenter;
                         HeuristicKingDangour = HKingDangour;
+                        */
+
+                        HuristicAttackValue = Huriistic[0] * SignOrderToPlate(Order);
+                        HuristicKillerValue = Huriistic[1] * SignOrderToPlate(Order);
+                        HuristicMovementValue = Huriistic[2] * SignOrderToPlate(Order);
+                        HuristicObjectDangourCheckMateValue = (Huriistic[3] + HCheck) * SignOrderToPlate(Order);
+                        HuristicReducedAttackValue = Huriistic[4] * SignOrderToPlate(Order);
+                        HuristicSelfSupportedValue = Huriistic[5] * SignOrderToPlate(Order);
+                        HeuristicDistabceOfCurrentMoveFromEnemyKingValue = HDistance * SignOrderToPlate(Order);
+                        HeuristicKingSafe = HKingSafe * SignOrderToPlate(Order);
+                        HeuristicFromCenter = HFromCenter * SignOrderToPlate(Order);
+                        HeuristicKingDangour = HKingDangour * SignOrderToPlate(Order);
                     }
                     else
-                    {
+                    {/*
                         HuristicAttackValue += Huriistic[0];
                         HuristicKillerValue += Huriistic[1];
                         HuristicMovementValue += Huriistic[2];
@@ -9122,6 +9127,18 @@ namespace RefrigtzDLL
                         HeuristicKingSafe += HKingSafe;
                         HeuristicFromCenter += HFromCenter;
                         HeuristicKingDangour += HKingDangour;
+                        */
+
+                        HuristicAttackValue += (Huriistic[0] * SignOrderToPlate(Order));
+                        HuristicKillerValue += (Huriistic[1] * SignOrderToPlate(Order));
+                        HuristicMovementValue += (Huriistic[2] * SignOrderToPlate(Order));
+                        HuristicObjectDangourCheckMateValue += ((Huriistic[3] + HCheck) * SignOrderToPlate(Order));
+                        HuristicReducedAttackValue += (Huriistic[4] * SignOrderToPlate(Order));
+                        HuristicSelfSupportedValue += (Huriistic[5] * SignOrderToPlate(Order));
+                        HeuristicDistabceOfCurrentMoveFromEnemyKingValue += (HDistance * SignOrderToPlate(Order));
+                        HeuristicKingSafe += (HKingSafe * SignOrderToPlate(Order));
+                        HeuristicFromCenter += (HFromCenter * SignOrderToPlate(Order));
+                        HeuristicKingDangour += (HKingDangour * SignOrderToPlate(Order));
                     }
 
                 }
@@ -10196,14 +10213,16 @@ namespace RefrigtzDLL
 
         double ObjectValueCalculator(int[,] Table, int Order, int RowS, int ColS)
         {
+            double Val = 1;
+            ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[RowS, ColS], Table, Order, RowS, ColS);
             Object O1 = new Object();
             lock (O1)
             {
-                double Val = 1;
+
                 //if (BeginArragmentsOfOrderFinished(Tabl, Order))
                 {
 
-                    ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[RowS, ColS], Table, Order, RowS, ColS);
+
                     Color a = Color.Gray;
                     Color aa = Color.Gray;
                     if (Order == -1)
@@ -10228,92 +10247,89 @@ namespace RefrigtzDLL
 
                                         if (Scop(RowS, ColS, RowO, ColumnO, System.Math.Abs(Table[RowS, ColS])))
                                         {
-                                            if (SignSelfEmptyDes(Table[RowS, ColS], Table[RowO, ColumnO], Order))
+                                            Color AAB = Color.Gray;
+                                            int Ord = 0;
+                                            if (SignSelfEmpty(Table[RowS, ColS], Table[RowO, ColumnO], Order, ref Ord, ref AAB))
                                             {
-                                                A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[RowS, ColS], Table, Order, RowS, ColS);
-                                                if (A.Rules(RowS, ColS, RowO, ColumnO, a, Order))
+                                                A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[RowS, ColS], Table, Ord, RowS, ColS);
+                                                if (A.Rules(RowS, ColS, RowO, ColumnO, AAB, Ord))
                                                     Val++;//Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, Table, 1));
                                             }
-
-                                            if (SignNotEqualEnemy(Table[RowS, ColS], Table[RowO, ColumnO], Order))
+                                            else
+                                            if (SignEnemyEmpty(Table[RowO, ColumnO], Table[RowS, ColS], Order, ref Ord, ref AAB))
                                             {
-                                                A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[RowS, ColS], Table, Order, RowS, ColS);
-                                                if (A.Rules(RowS, ColS, RowO, ColumnO, a, Order))
+                                                A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[RowO, ColumnO], Table, Ord, RowO, ColumnO);
+                                                if (A.Rules(RowO, ColumnO, RowS, ColS, AAB, Ord))
+                                                    Val--;//Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, Table, 1));
+                                            }
+                                            else
+                                            if (SignEqualSelf(Table[RowS, ColS], Table[RowO, ColumnO], Order, ref Ord, ref AAB))
+                                            {
+                                                if (Support(Table, RowS, ColS, RowO, ColumnO, AAB, Ord))
                                                     Val++;//Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, Table, 1));
                                             }
+                                            else
+                                            if (SignNotEqualEnemy(Table[RowO, ColumnO], Table[RowS, ColS], Order, ref Ord, ref AAB))
+                                            {
+                                                if (Attack(Table, RowO, ColumnO, RowS, ColS, AAB, Ord))
+                                                    Val--;//Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, Table, 1));
+                                            }//when there is self support inc.                                                                                            else
+                                            else
+                                            if (SignNotEqualSelf(Table[RowS, ColS], Table[RowO, ColumnO], Order, ref Ord, ref AAB))
+                                            {
+                                                if (Attack(Table, RowS, ColS, RowO, ColumnO, AAB, Ord))
+                                                    Val++;//Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, Table, 1));
+                                            }//when there is self support inc.                                                                                            
                                         }
-
-                                        if (Scop(RowS, ColS, RowO, ColumnO, System.Math.Abs(Table[RowS, ColS])))
-                                        {
-                                            //When is self level
-                                            if (SignNotEqual(Table[RowS, ColS], Table[RowO, ColumnO]))
-                                            {
-                                                //When there is enemy attack dec.
-                                                if (Attack(Table, RowO, ColumnO, RowS, ColS, aa, Order * -1))
-                                                    Val--;//Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, Table, -1));
-                                                if (Attack(Table, RowS, ColS, RowO, ColumnO, a, Order))
-                                                    Val++;//Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, Table, 1));
-                                            }
-
-                                            if (SignEqual(Table[RowS, ColS], Table[RowO, ColumnO]))
-                                            {
-                                                //when there is self support inc.
-                                                if (Support(Table, RowO, ColumnO, RowS, ColS, a, Order))
-                                                    Val++;//Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, Table, 1));
-                                                if (Support(Table, RowS, ColS, RowO, ColumnO, a, Order))
-                                                    Val++;//Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, Table, 1));
-                                            }
-
-                                         
-                                        }                                        
                                     }
-                                    
-                                }//);
-                            }//)/\;
-                        }//));
-                    A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[RowS, ColS], Table, Order, RowS, ColS);
-                    if (A.ObjectDangourKingMove(Order, Table, false))
-                    {
-                        if (Order == 1 && A.CheckGrayObjectDangour)
-                            Val *= -1;
-                        if (Order == -1 && A.CheckBrownObjectDangour)
-                            Val *= -1;
-                        if (Order == -1 && A.CheckGrayObjectDangour)
-                            Val++;//Val += RetrunValValue(RowS, ColS, -1, -1, Table, 1);
-                        if (Order == 1 && A.CheckBrownObjectDangour)
-                            Val++;//Val += RetrunValValue(RowS, ColS, -1, -1, Table, 1);
-                    }
+                                }
 
-                    if (System.Math.Abs(Table[RowS, ColS]) == 2)
-                    {
-                        Val = Val * 3;
-                    }
-                    else
-                            if (System.Math.Abs(Table[RowS, ColS]) == 3)
-                    {
-                        Val = Val * 3;
-                    }
-                    else
-                                if (System.Math.Abs(Table[RowS, ColS]) == 4)
-                    {
-                        Val = Val * 5;
-                    }
-                    else
-                                    if (System.Math.Abs(Table[RowS, ColS]) == 5)
-                    {
-                        Val = Val * 9;
-                    }
-                    else
-                                    if (System.Math.Abs(Table[RowS, ColS]) == 6)
-                    {
-                        Val = Val * 10;
-                    }
-
+                            }//);
+                        }//)/\;
+                }//));
+                A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[RowS, ColS], Table, Order, RowS, ColS);
+                if (A.ObjectDangourKingMove(Order, Table, false))
+                {
+                    if (Order == 1 && A.CheckGrayObjectDangour)
+                        Val *= -1;
+                    if (Order == -1 && A.CheckBrownObjectDangour)
+                        Val *= -1;
+                    if (Order == -1 && A.CheckGrayObjectDangour)
+                        Val++;//Val += RetrunValValue(RowS, ColS, -1, -1, Table, 1);
+                    if (Order == 1 && A.CheckBrownObjectDangour)
+                        Val++;//Val += RetrunValValue(RowS, ColS, -1, -1, Table, 1);
                 }
-                //       if (Val < 0)
-                //         Val = 0;
-                return Val;
+
+                if (System.Math.Abs(Table[RowS, ColS]) == 2)
+                {
+                    Val = Val * 3;
+                }
+                else
+                        if (System.Math.Abs(Table[RowS, ColS]) == 3)
+                {
+                    Val = Val * 3;
+                }
+                else
+                            if (System.Math.Abs(Table[RowS, ColS]) == 4)
+                {
+                    Val = Val * 5;
+                }
+                else
+                                if (System.Math.Abs(Table[RowS, ColS]) == 5)
+                {
+                    Val = Val * 9;
+                }
+                else
+                                if (System.Math.Abs(Table[RowS, ColS]) == 6)
+                {
+                    Val = Val * 10;
+                }
+
             }
+            //       if (Val < 0)
+            //         Val = 0;
+            return Val;
+
 
             /*if (AllDraw.OrderPlate == Order)
                 return 1;
@@ -10322,7 +10338,7 @@ namespace RefrigtzDLL
                 */
 
         }
-        bool SignSelfEmptyDes(int Obj1, int Obj2, int Order)
+        bool SignSelfEmpty(int Obj1, int Obj2, int Order, ref int Ord, ref Color A)
         {
             Object O = new Object();
             lock (O)
@@ -10332,67 +10348,142 @@ namespace RefrigtzDLL
                 if (Order == 1)
                 {
                     if (Obj1 > 0 && Obj2 == 0)
+                    {
                         Is = true;
+                        A = Color.Gray;
+                        Ord = 1;
+                    }
                 }
                 else
                 {
                     if (Obj1 < 0 && Obj2 == 0)
+                    {
                         Is = true;
+                        A = Color.Brown;
+                        Ord = -1;
+                    }
                 }
 
                 return Is;
             }
         }
-        bool SignNotEqualEnemy(int Obj1, int Obj2, int Order)
+        bool SignEnemyEmpty(int Obj1, int Obj2, int Order, ref int Ord, ref Color A)
         {
             Object O = new Object();
             lock (O)
             {
                 bool Is = false;
-                if (Order == AllDraw.OrderPlate)
+
+                if (Order == 1)
                 {
-
-
-                    if (Order == 1)
+                    if (Obj1 < 0 && Obj2 == 0)
                     {
-                        if (Obj1 > 0 && Obj2 < 0)
-                            Is = true;
+                        Is = true;
+                        A = Color.Brown;
+                        Ord = -1;
                     }
-                    else
+                }
+                else
+                {
+                    if (Obj1 > 0 && Obj2 == 0)
                     {
-                        if (Obj1 < 0 && Obj2 > 0)
-                            Is = true;
+                        Is = true;
+                        A = Color.Gray;
+                        Ord = 1;
+                    }
+                }
+
+                return Is;
+            }
+        }
+        bool SignNotEqualEnemy(int Obj1, int Obj2, int Order, ref int Ord, ref Color A)
+        {
+            Object O = new Object();
+            lock (O)
+            {
+                bool Is = false;
+
+
+                if (Order == 1)
+                {
+                    if (Obj1 < 0 && Obj2 > 0)
+                    {
+                        Is = true;
+                        A = Color.Brown;
+                        Ord = -1;
+                    }
+                }
+                else
+                {
+                    if (Obj1 > 0 && Obj2 < 0)
+                    {
+                        Is = true;
+                        A = Color.Gray;
+                        Ord = 1;
+                    }
+                }
+
+                return Is;
+            }
+        }
+        bool SignEqualSelf(int Obj1, int Obj2, int Order, ref int Ord, ref Color A)
+        {
+            Object O = new Object();
+            lock (O)
+            {
+                bool Is = false;
+
+
+                if (Order == 1)
+                {
+                    if (Obj1 > 0 && Obj2 > 0)
+                    {
+                        Is = true;
+                        A = Color.Gray;
+                        Ord = 1;
+                    }
+                }
+                else
+                {
+                    if (Obj1 < 0 && Obj2 < 0)
+                    {
+                        Is = true;
+                        A = Color.Brown;
+                        Ord = -1;
+                    }
+                }
+
+                return Is;
+            }
+        }
+        bool SignNotEqualSelf(int Obj1, int Obj2, int Order, ref int Ord, ref Color A)
+        {
+            Object O = new Object();
+            lock (O)
+            {
+                bool Is = false;
+                if (Order == 1)
+                {
+                    if (Obj1 > 0 && Obj2 < 0)
+                    {
+                        Is = true;
+                        A = Color.Gray;
+                        Ord = 1;
+                    }
+                }
+                else
+                {
+                    if (Obj1 < 0 && Obj2 > 0)
+                    {
+                        Is = true;
+                        A = Color.Brown;
+                        Ord = -1;
                     }
                 }
                 return Is;
             }
         }
-        bool SignEqual(int Obj1, int Obj2)
-        {
-            Object O = new Object();
-            lock (O)
-            {
-                bool Is = false;
-                if (Obj1 > 0 && Obj2 > 0)
-                    Is = true;
-                if (Obj1 < 0 && Obj2 < 0)
-                    Is = true;
-                return Is;
-            }
-        }
-        bool SignNotEqual(int Obj1, int Obj2)
-        {
-            Object O = new Object();
-            lock (O)
-            {
-                bool Is = false;
-                if (Obj1 < 0 && Obj2 > 0)
-                    Is = true;
-                if (Obj1 > 0 && Obj2 < 0)
-                    Is = true;
-                return Is;
-            }
-        }
+       
     }
 }
 
