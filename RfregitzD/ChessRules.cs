@@ -1843,7 +1843,7 @@ namespace RefrigtzDLL
             for (int ii = 0; ii < 8; ii++)
                 for (int jj = 0; jj < 8; jj++)
                     Tab[ii, jj] = Table[ii, jj];
-            int Ord = Order * -1;
+            int Ord = Order;
             Color aa = Color.Gray;
             if (Ord == -1)
                 aa = Color.Brown;
@@ -1856,9 +1856,9 @@ namespace RefrigtzDLL
                     //If The Current Home is the Gray King Continue Traversal Back.
                     if (i == RowK && j == ColumnK)
                         continue;
-                    if (Ord == 1 & Tab[i, j] >= 0)
+                    if (Ord == 1 & Tab[i, j] <= 0)
                         continue;
-                    if (Ord == -1 & Tab[i, j] <= 0)
+                    if (Ord == -1 & Tab[i, j] >= 0)
                         continue;
                     //Initiate Global Variables.
                     int Dummt = RefrigtzDLL.ChessRules.CurrentOrder;
@@ -1872,7 +1872,7 @@ namespace RefrigtzDLL
                     if (Ord == -1)
                         a = Color.Brown;
                     RefrigtzDLL.ChessRules A = new RefrigtzDLL.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[i, j], Table, Ord, i, j);
-                    if (Ord == -1)
+                    if (Ord == 1)
                     {
                         //Menen Parameter is Moveble to Second Parameters Location returm Movable.
                         if (A.Rules(i, j, RowK, ColumnK, aa, Ord))

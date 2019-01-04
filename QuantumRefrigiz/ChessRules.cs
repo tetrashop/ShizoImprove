@@ -1845,7 +1845,7 @@ namespace QuantumRefrigiz
             for (int ii = 0; ii < 8; ii++)
                 for (int jj = 0; jj < 8; jj++)
                     Tab[ii, jj] = Table[ii, jj];
-            int Ord = Order * -1;
+            int Ord = Order;
             Color aa = Color.Gray;
             if (Ord == -1)
                 aa = Color.Brown;
@@ -1858,9 +1858,9 @@ namespace QuantumRefrigiz
                     //If The Current Home is the Gray King Continue Traversal Back.
                     if (i == RowK && j == ColumnK)
                         continue;
-                    if (Ord == 1 & Tab[i, j] >= 0)
+                    if (Ord == 1 & Tab[i, j] <= 0)
                         continue;
-                    if (Ord == -1 & Tab[i, j] <= 0)
+                    if (Ord == -1 & Tab[i, j] >= 0)
                         continue;
                     //Initiate Global Variables.
                     int Dummt = QuantumRefrigiz.ChessRules.CurrentOrder;
@@ -1874,7 +1874,7 @@ namespace QuantumRefrigiz
                     if (Ord == -1)
                         a = Color.Brown;
                     QuantumRefrigiz.ChessRules A = new QuantumRefrigiz.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[i, j], Table, Ord, i, j);
-                    if (Ord == -1)
+                    if (Ord == 1)
                     {
                         //Menen Parameter is Moveble to Second Parameters Location returm Movable.
                         if (A.Rules(i, j, RowK, ColumnK, aa, Ord))
@@ -1889,7 +1889,7 @@ namespace QuantumRefrigiz
                     {   //Menen Parameter is Moveble to Second Parameters Location returm Movable.
                         if (A.Rules(i, j, RowK, ColumnK, aa, Ord))
                         {
-                            BREAK = true;                            
+                            BREAK = true;
                             CheckGray = true;
                             break;
                         }
