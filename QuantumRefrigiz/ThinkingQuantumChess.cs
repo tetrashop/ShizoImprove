@@ -6815,7 +6815,7 @@ namespace QuantumRefrigiz
                             lock (A6)
                             {
                                 double[] Hu = new double[10];
-                                if (!IsSup)
+                                //if (!IsSup)
                                 {
                                     HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
                                     if (IgnoreFromCheckandMateHuristic)
@@ -6834,7 +6834,7 @@ namespace QuantumRefrigiz
                                     H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
                                     HuristicListKing.Add(Hu);
                                 }
-                                else
+                               /* else
                                 {
                                     {
                                         HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
@@ -6861,10 +6861,10 @@ namespace QuantumRefrigiz
                                         Hu[9] = HeuristicKingDangour + HeuristicKingDangourSup;
                                         //HeuristicKingDangourSup = 0;
                                         H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
-                                        /*  HuristicListKing.Add(Hu);
-                                        IsSup = false;*/
+                                        HuristicListKing.Add(Hu);
+                                        IsSup = false;
                                     }
-                                }
+                                }*/
                             }
                             Object O4 = new Object();
                             lock (O4)
@@ -7045,7 +7045,7 @@ namespace QuantumRefrigiz
                             lock (A6)
                             {
                                 double[] Hu = new double[10];
-                                if (!IsSup)
+                                //if (!IsSup)
                                 {
                                     HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
                                     if (IgnoreFromCheckandMateHuristic)
@@ -7064,7 +7064,7 @@ namespace QuantumRefrigiz
                                     H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
                                     HuristicListMinister.Add(Hu);
                                 }
-                                else
+                               /* else
                                 {
                                     {
                                         HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
@@ -7091,10 +7091,10 @@ namespace QuantumRefrigiz
                                         Hu[9] = HeuristicKingDangour + HeuristicKingDangourSup;
                                         //HeuristicKingDangourSup = 0;
                                         H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
-                                        /*  HuristicListMinister.Add(Hu);
-                                        IsSup = false;*/
+                                        HuristicListMinister.Add(Hu);
+                                        IsSup = false;
                                     }
-                                }
+                                }*/
                                 Object O4 = new Object();
                                 lock (O4)
                                 {
@@ -7612,7 +7612,7 @@ namespace QuantumRefrigiz
                             lock (A6)
                             {
                                 double[] Hu = new double[10];
-                                if (!IsSup)
+                                //if (!IsSup)
                                 {
                                     HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
                                     if (IgnoreFromCheckandMateHuristic)
@@ -7631,7 +7631,7 @@ namespace QuantumRefrigiz
                                     H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
                                     HuristicListCastle.Add(Hu);
                                 }
-                                else
+                                /*else
                                 {
                                     {
                                         HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
@@ -7658,10 +7658,10 @@ namespace QuantumRefrigiz
                                         Hu[9] = HeuristicKingDangour + HeuristicKingDangourSup;
                                         //HeuristicKingDangourSup = 0;
                                         H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
-                                        /*       HuristicListCastle.Add(Hu);
-                                        IsSup = false;*/
+                                        HuristicListCastle.Add(Hu);l
+                                        IsSup = false;
                                     }
-                                }
+                                }*/
                                 Object O4 = new Object();
                                 lock (O4)
                                 {
@@ -7819,7 +7819,7 @@ namespace QuantumRefrigiz
                             lock (A6)
                             {
                                 double[] Hu = new double[10];
-                                if (!IsSup)
+                                //if (!IsSup)
                                 {
                                     HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
                                     if (IgnoreFromCheckandMateHuristic)
@@ -7838,7 +7838,7 @@ namespace QuantumRefrigiz
                                     H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
                                     HuristicListHourse.Add(Hu);
                                 }
-                                else
+                                /*else
                                 {
                                     {
                                         HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
@@ -7865,11 +7865,11 @@ namespace QuantumRefrigiz
                                         Hu[9] = HeuristicKingDangour + HeuristicKingDangourSup;
                                         //HeuristicKingDangourSup = 0;
                                         H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
-                                        /*   HuristicListHourse.Add(Hu);
-                                        IsSup = false;*/
+                                        HuristicListHourse.Add(Hu);
+                                        IsSup = false;
                                     }
 
-                                }
+                                }*/
                                 Object O4 = new Object();
                                 lock (O4)
                                 {
@@ -8024,7 +8024,7 @@ namespace QuantumRefrigiz
                             lock (A6)
                             {
                                 double[] Hu = new double[10];
-                                if (!IsSup)
+                                //if (!IsSup)
                                 {
                                     HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
                                     if (IgnoreFromCheckandMateHuristic)
@@ -8043,7 +8043,7 @@ namespace QuantumRefrigiz
                                     H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
                                     HuristicListElefant.Add(Hu);
                                 }
-                                else
+                                /*else
                                 {
                                     {
                                         HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
@@ -8070,11 +8070,11 @@ namespace QuantumRefrigiz
                                         Hu[9] = HeuristicKingDangour + HeuristicKingDangourSup;
                                         //HeuristicKingDangourSup = 0;
                                         H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
-                                        /*  HuristicListElefant.Add(Hu);
-                                        IsSup = false;*/
+                                        HuristicListElefant.Add(Hu);
+                                        IsSup = false;
                                     }
 
-                                }
+                                }*/
                                 Object O4 = new Object();
                                 lock (O4)
                                 {
@@ -8904,7 +8904,7 @@ namespace QuantumRefrigiz
                             lock (A6)
                             {
                                 double[] Hu = new double[10];
-                                if (!IsSup)
+                                //if (!IsSup)
                                 {
                                     HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
                                     if (IgnoreFromCheckandMateHuristic)
@@ -8923,7 +8923,7 @@ namespace QuantumRefrigiz
                                     H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
                                     HuristicListSolder.Add(Hu);
                                 }
-                                else
+                                /*else
                                 {
                                     {
                                         HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
@@ -8950,10 +8950,10 @@ namespace QuantumRefrigiz
                                         Hu[9] = HeuristicKingDangour + HeuristicKingDangourSup;
                                         //HeuristicKingDangourSup = 0;
                                         H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
-                                        /*  HuristicListSolder.Add(Hu);
-                                        IsSup = false;*/
+                                        HuristicListSolder.Add(Hu);
+                                        IsSup = false;
                                     }
-                                }
+                                }*/
                                 Object O4 = new Object();
                                 lock (O4)
                                 {
