@@ -42,10 +42,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RewriteRefrigitz", "Rewrite
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantumRefrigiz", "QuantumRefrigiz\QuantumRefrigiz.csproj", "{56D82E52-1FC9-4BC2-B57C-4D23EE44CE23}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refregitz-12", "Refregitz-12\Refregitz-12.csproj", "{4FDCE655-E7EA-4BF5-B7C1-1DA5E8DDD81B}"
+EndProject
 Global
-	GlobalSection(Performance) = preSolution
-		HasPerformanceSessions = true
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -361,9 +360,32 @@ Global
 		{56D82E52-1FC9-4BC2-B57C-4D23EE44CE23}.Release|x64.Build.0 = Release|Any CPU
 		{56D82E52-1FC9-4BC2-B57C-4D23EE44CE23}.Release|x86.ActiveCfg = Release|Any CPU
 		{56D82E52-1FC9-4BC2-B57C-4D23EE44CE23}.Release|x86.Build.0 = Release|Any CPU
+		{4FDCE655-E7EA-4BF5-B7C1-1DA5E8DDD81B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FDCE655-E7EA-4BF5-B7C1-1DA5E8DDD81B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FDCE655-E7EA-4BF5-B7C1-1DA5E8DDD81B}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{4FDCE655-E7EA-4BF5-B7C1-1DA5E8DDD81B}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{4FDCE655-E7EA-4BF5-B7C1-1DA5E8DDD81B}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{4FDCE655-E7EA-4BF5-B7C1-1DA5E8DDD81B}.Debug|Win32.Build.0 = Debug|Any CPU
+		{4FDCE655-E7EA-4BF5-B7C1-1DA5E8DDD81B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4FDCE655-E7EA-4BF5-B7C1-1DA5E8DDD81B}.Debug|x64.Build.0 = Debug|Any CPU
+		{4FDCE655-E7EA-4BF5-B7C1-1DA5E8DDD81B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4FDCE655-E7EA-4BF5-B7C1-1DA5E8DDD81B}.Debug|x86.Build.0 = Debug|Any CPU
+		{4FDCE655-E7EA-4BF5-B7C1-1DA5E8DDD81B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FDCE655-E7EA-4BF5-B7C1-1DA5E8DDD81B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FDCE655-E7EA-4BF5-B7C1-1DA5E8DDD81B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{4FDCE655-E7EA-4BF5-B7C1-1DA5E8DDD81B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{4FDCE655-E7EA-4BF5-B7C1-1DA5E8DDD81B}.Release|Win32.ActiveCfg = Release|Any CPU
+		{4FDCE655-E7EA-4BF5-B7C1-1DA5E8DDD81B}.Release|Win32.Build.0 = Release|Any CPU
+		{4FDCE655-E7EA-4BF5-B7C1-1DA5E8DDD81B}.Release|x64.ActiveCfg = Release|Any CPU
+		{4FDCE655-E7EA-4BF5-B7C1-1DA5E8DDD81B}.Release|x64.Build.0 = Release|Any CPU
+		{4FDCE655-E7EA-4BF5-B7C1-1DA5E8DDD81B}.Release|x86.ActiveCfg = Release|Any CPU
+		{4FDCE655-E7EA-4BF5-B7C1-1DA5E8DDD81B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
 	EndGlobalSection
 	GlobalSection(Performance) = preSolution
 		HasPerformanceSessions = true

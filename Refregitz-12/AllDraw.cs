@@ -152,7 +152,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.IO;
 using System.Diagnostics;
-namespace RefrigtzDLL
+namespace Refregitz_12
 {
 
     [Serializable]
@@ -6379,62 +6379,9 @@ if (Kind == 2)
                 return TableHuristic;
             }
         }
-        void StringHuristics(int Obj, int Sec, bool AA, int Do, int WinOcuuredatChiled)
-        {
-            String SOut = "";
-            if (Obj == 1)
-            {
-                SOut = "Soldier ";
-            }
-            else
-                if (Obj == 2)
-            {
-                SOut = "Elephant ";
-            }
-            else
-                if (Obj == 3)
-            {
-                SOut = "Hourse ";
-            }
-            else
-                if (Obj == 4)
-            {
-                SOut = "Castle ";
-            }
-            else
-                if (Obj == 5)
-            {
-                SOut = "Minister ";
-            }
-            else
-                    if (Obj == 6)
-            {
-                SOut = "King ";
-            }
-            SOut += "AStar Huristics ";
-            if (Sec == 1)
-                SOut += " -Initiatetion- ";
-            if (Sec == 2)
-                SOut += " -Regard- ";
-            if (Sec == 3)
-                SOut += " -Foundation Greatest- ";
-            if (WinOcuuredatChiled >= 1)
-                SOut += " At -King Checked Mate is active For Eneter Regard- ";
-            if (AA)
-                SOut += " -'AA' is Active due to Regard Enter- ";
-            if (Do == 1)
-                SOut += " -'Do' is Active due to Regard Enter- ";
-            SOut += " With Huristic Count " + AllDraw.Less;
-            Object O = new Object();
-            lock (O)
-            {
-                OutPut = SOut;
-            }
-        }
+
         int[,] HuristicAStarGreadySearchSoldier(ref int[,] TableHuristic, int i, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-
-
             Object a1 = new Object();
             lock (a1)
             {
@@ -6456,7 +6403,6 @@ if (Kind == 2)
                     {
                         for (j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[k] != null && SolderesOnTable[i].SoldierThinking[k] != null && j < SolderesOnTable[i].SoldierThinking[k].TableListSolder.Count; j++)
                         {
-                            System.Threading.Thread.Sleep(1);
                             {
                                 try
                                 {
@@ -6483,8 +6429,6 @@ if (Kind == 2)
                                     ChessRules.CurrentOrder = CDummy;
                                     //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                                     //)
-                                    StringHuristics(1, 1, AA, Do, SolderesOnTable[i].WinOcuuredatChiled);
-
                                     if ((SolderesOnTable[i].SoldierThinking[k].PenaltyRegardListSolder[j].IsPenaltyAction() != 0 && SolderesOnTable[i].SoldierThinking[k].PenaltyRegardListSolder[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA || SolderesOnTable[i].WinOcuuredatChiled >= 1 || SolderesOnTable[i].WinOcuuredatChiled >= 2 || SolderesOnTable[i].WinOcuuredatChiled >= 3)
                                     {
                                         //Set Table and Huristic Value and Syntax.
@@ -6537,7 +6481,6 @@ if (Kind == 2)
                                         RegardOccurred = true;
                                         if (SolderesOnTable[i].WinOcuuredatChiled >= 1 || SolderesOnTable[i].WinOcuuredatChiled >= 2 || SolderesOnTable[i].WinOcuuredatChiled >= 3)
                                             Less = double.MaxValue;
-                                        StringHuristics(1, 2, AA, Do, SolderesOnTable[i].WinOcuuredatChiled);
                                         //if (Do == 1 || AA)
                                         //return TableHuristic;
                                         continue;
@@ -6672,7 +6615,6 @@ if (Kind == 2)
 
                                                     Less = SolderesOnTable[i].SoldierThinking[k].ReturnHuristic(i, j, Order, AA);
 
-                                                    StringHuristics(1, 3, AA, Do, SolderesOnTable[i].WinOcuuredatChiled);
 
                                                     TableHuristic = SolderesOnTable[i].SoldierThinking[k].TableListSolder[j];
 
@@ -6830,7 +6772,6 @@ if (Kind == 2)
                     {
                         for (j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[k] != null && ElephantOnTable[i].ElefantThinking[k] != null && j < ElephantOnTable[i].ElefantThinking[k].TableListElefant.Count; j++)
                         {
-                            System.Threading.Thread.Sleep(1);
                             {
                                 try
                                 {
@@ -6857,8 +6798,6 @@ if (Kind == 2)
                                     ChessRules.CurrentOrder = CDummy;
                                     //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                                     //)
-                                    StringHuristics(2, 1, AA, Do, ElephantOnTable[i].WinOcuuredatChiled);
-
                                     if ((ElephantOnTable[i].ElefantThinking[k].PenaltyRegardListElefant[j].IsPenaltyAction() != 0 && ElephantOnTable[i].ElefantThinking[k].PenaltyRegardListElefant[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA || ElephantOnTable[i].WinOcuuredatChiled >= 1 || ElephantOnTable[i].WinOcuuredatChiled >= 2 || ElephantOnTable[i].WinOcuuredatChiled >= 3)
                                     {
 
@@ -6878,9 +6817,6 @@ if (Kind == 2)
                                         if (ElephantOnTable[i].WinOcuuredatChiled >= 1 || ElephantOnTable[i].WinOcuuredatChiled >= 2 || ElephantOnTable[i].WinOcuuredatChiled >= 3)
                                             Less = double.MaxValue;
                                         RegardOccurred = true;
-
-                                        StringHuristics(2, 2, AA, Do, ElephantOnTable[i].WinOcuuredatChiled);
-
                                         //if (Do == 1 || AA)
                                         //return TableHuristic;
                                         continue;
@@ -7010,9 +6946,6 @@ if (Kind == 2)
                                                 }
                                                 Act = true;
                                                 Less = ElephantOnTable[i].ElefantThinking[k].ReturnHuristic(i, j, Order, AA);
-
-                                                StringHuristics(2, 3, AA, Do, ElephantOnTable[i].WinOcuuredatChiled);
-
                                                 TableHuristic = ElephantOnTable[i].ElefantThinking[k].TableListElefant[j];
                                             }
                                         }
@@ -7109,7 +7042,6 @@ if (Kind == 2)
                     {
                         for (j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[k] != null && HoursesOnTable[i].HourseThinking[k] != null && j < HoursesOnTable[i].HourseThinking[k].TableListHourse.Count; j++)
                         {
-                            System.Threading.Thread.Sleep(1);
                             {
                                 try
                                 {
@@ -7135,8 +7067,6 @@ if (Kind == 2)
                                     ChessRules.CurrentOrder = CDummy;
                                     //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                                     //)
-                                    StringHuristics(3, 1, AA, Do, HoursesOnTable[i].WinOcuuredatChiled);
-
                                     if ((HoursesOnTable[i].HourseThinking[k].PenaltyRegardListHourse[j].IsPenaltyAction() != 0 && HoursesOnTable[i].HourseThinking[k].PenaltyRegardListHourse[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA || HoursesOnTable[i].WinOcuuredatChiled >= 1 || HoursesOnTable[i].WinOcuuredatChiled >= 2 || HoursesOnTable[i].WinOcuuredatChiled >= 3)
                                     {
                                         Object On = new Object();
@@ -7156,9 +7086,6 @@ if (Kind == 2)
                                         //return TableHuristic;
                                         if (HoursesOnTable[i].WinOcuuredatChiled >= 1 || HoursesOnTable[i].WinOcuuredatChiled >= 2 || HoursesOnTable[i].WinOcuuredatChiled >= 3)
                                             Less = double.MaxValue;
-
-                                        StringHuristics(3, 2, AA, Do, HoursesOnTable[i].WinOcuuredatChiled);
-
                                         continue;
 
                                     }
@@ -7288,7 +7215,6 @@ if (Kind == 2)
                                                 Less = HoursesOnTable[i].HourseThinking[k].ReturnHuristic(i, j, Order, AA);
                                                 TableHuristic = HoursesOnTable[i].HourseThinking[k].TableListHourse[j];
 
-                                                StringHuristics(3, 3, AA, Do, HoursesOnTable[i].WinOcuuredatChiled);
                                             }
 
                                         }
@@ -7373,7 +7299,6 @@ if (Kind == 2)
                     {
                         for (j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[k] != null && CastlesOnTable[i].CastleThinking[k] != null && j < CastlesOnTable[i].CastleThinking[k].TableListCastle.Count; j++)
                         {
-                            System.Threading.Thread.Sleep(1);
                             {
                                 try
                                 {
@@ -7398,8 +7323,6 @@ if (Kind == 2)
                                     ChessRules.CurrentOrder = CDummy;
                                     //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                                     //)
-                                    StringHuristics(4, 1, AA, Do, CastlesOnTable[i].WinOcuuredatChiled);
-
                                     if ((CastlesOnTable[i].CastleThinking[k].PenaltyRegardListCastle[j].IsPenaltyAction() != 0 && CastlesOnTable[i].CastleThinking[k].PenaltyRegardListCastle[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA || CastlesOnTable[i].WinOcuuredatChiled >= 1 || CastlesOnTable[i].WinOcuuredatChiled >= 2 || CastlesOnTable[i].WinOcuuredatChiled >= 3)
                                     {
 
@@ -7418,9 +7341,6 @@ if (Kind == 2)
                                         RegardOccurred = true;
                                         if (CastlesOnTable[i].WinOcuuredatChiled >= 1 || CastlesOnTable[i].WinOcuuredatChiled >= 2 || CastlesOnTable[i].WinOcuuredatChiled >= 3)
                                             Less = double.MaxValue;
-
-                                        StringHuristics(4, 2, AA, Do, CastlesOnTable[i].WinOcuuredatChiled);
-
                                         //if (Do == 1 || AA)
                                         //return TableHuristic;
                                         continue;
@@ -7550,7 +7470,6 @@ if (Kind == 2)
                                                 Less = CastlesOnTable[i].CastleThinking[k].ReturnHuristic(i, j, Order, AA);
                                                 TableHuristic = CastlesOnTable[i].CastleThinking[k].TableListCastle[j];
 
-                                                StringHuristics(4, 3, AA, Do, CastlesOnTable[i].WinOcuuredatChiled);
                                             }
                                         }
                                         else//Set Table and Huristic Value and Syntax.
@@ -7637,7 +7556,6 @@ if (Kind == 2)
                     {
                         for (j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[k] != null && MinisterOnTable[i].MinisterThinking[k] != null && j < MinisterOnTable[i].MinisterThinking[k].TableListMinister.Count; j++)
                         {
-                            System.Threading.Thread.Sleep(1);
                             {
                                 //For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
                                 //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
@@ -7661,9 +7579,6 @@ if (Kind == 2)
                                 ChessRules.CurrentOrder = CDummy;
                                 //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                                 //)
-
-                                StringHuristics(5, 1, AA, Do, MinisterOnTable[i].WinOcuuredatChiled);
-
                                 if ((MinisterOnTable[i].MinisterThinking[k].PenaltyRegardListMinister[j].IsPenaltyAction() != 0 && MinisterOnTable[i].MinisterThinking[k].PenaltyRegardListMinister[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA || MinisterOnTable[i].WinOcuuredatChiled >= 1 || MinisterOnTable[i].WinOcuuredatChiled >= 2 || MinisterOnTable[i].WinOcuuredatChiled >= 3)
                                 {
 
@@ -7682,9 +7597,6 @@ if (Kind == 2)
                                     RegardOccurred = true;
                                     if (MinisterOnTable[i].WinOcuuredatChiled >= 1 || MinisterOnTable[i].WinOcuuredatChiled >= 2 || MinisterOnTable[i].WinOcuuredatChiled >= 3)
                                         Less = double.MaxValue;
-
-                                    StringHuristics(5, 2, AA, Do, MinisterOnTable[i].WinOcuuredatChiled);
-
                                     //if (Do == 1 || AA)
                                     //return TableHuristic;
                                     continue;
@@ -7815,7 +7727,6 @@ if (Kind == 2)
                                             Less = MinisterOnTable[i].MinisterThinking[k].ReturnHuristic(i, j, Order, AA);
                                             TableHuristic = MinisterOnTable[i].MinisterThinking[k].TableListMinister[j];
 
-                                            StringHuristics(5, 3, AA, Do, MinisterOnTable[i].WinOcuuredatChiled);
                                         }
                                     }
                                     else//Set Table and Huristic Value and Syntax.
@@ -7895,7 +7806,6 @@ if (Kind == 2)
                     {
                         for (j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[k] != null && KingOnTable[i].KingThinking[k] != null && j < KingOnTable[i].KingThinking[k].TableListKing.Count; j++)
                         {
-                            System.Threading.Thread.Sleep(1);
                             {
                                 try
                                 {
@@ -7921,9 +7831,6 @@ if (Kind == 2)
                                     ChessRules.CurrentOrder = CDummy;
                                     //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                                     //)
-
-                                    StringHuristics(6, 1, AA, Do, KingOnTable[i].WinOcuuredatChiled);
-
                                     if ((KingOnTable[i].KingThinking[k].PenaltyRegardListKing[j].IsPenaltyAction() != 0 && KingOnTable[i].KingThinking[k].PenaltyRegardListKing[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA || KingOnTable[i].WinOcuuredatChiled >= 1 || KingOnTable[i].WinOcuuredatChiled >= 2 || KingOnTable[i].WinOcuuredatChiled >= 3)
                                     {
                                         Object On = new Object();
@@ -7941,9 +7848,6 @@ if (Kind == 2)
                                         RegardOccurred = true;
                                         if (KingOnTable[i].WinOcuuredatChiled >= 1 || KingOnTable[i].WinOcuuredatChiled >= 2 || KingOnTable[i].WinOcuuredatChiled >= 3)
                                             Less = double.MaxValue;
-
-                                        StringHuristics(6, 2, AA, Do, KingOnTable[i].WinOcuuredatChiled);
-
                                         //if (Do == 1 || AA)
                                         //return TableHuristic;
                                         continue;
@@ -8074,8 +7978,6 @@ if (Kind == 2)
                                                 Act = true;
                                                 Less = KingOnTable[i].KingThinking[k].ReturnHuristic(i, j, Order, AA);
                                                 TableHuristic = KingOnTable[i].KingThinking[k].TableListKing[j];
-
-                                                StringHuristics(6, 3, AA, Do, KingOnTable[i].WinOcuuredatChiled);
                                             }
 
 
@@ -13477,7 +13379,7 @@ if (Kind == 2)
         bool KingDan(int[,] Tab, int Order)
         {
             bool IsDang = false;
-            RefrigtzDLL.ChessRules A = new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Order);
+            Refregitz_12.ChessRules A = new Refregitz_12.ChessRules(0, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Order);
             IsDang = A.ObjectDangourKingMove(Order, Tab, false);
             if (Order == 1 && (IsDang))
             {
@@ -19341,7 +19243,7 @@ if (Kind == 5)
                 {
                     if (i + 1 < Tag.Length)
                     {
-                        for (int j = i + 1; j < i + RefrigtzDLL.AllDraw.MaxAStarGreedy.ToString().Length + 1; j++)
+                        for (int j = i + 1; j < i + Refregitz_12.AllDraw.MaxAStarGreedy.ToString().Length + 1; j++)
                         {
                             try
                             {

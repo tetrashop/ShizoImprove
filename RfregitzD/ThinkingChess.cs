@@ -6345,6 +6345,8 @@ namespace RefrigtzDLL
                             }
                         }
                     }
+                    else
+                        return Double.MinValue;
                     for (int k = 0; k < AStarGreedy.Count; k++)
                     {
 
@@ -6474,96 +6476,106 @@ namespace RefrigtzDLL
                 }
                 else
                 {
-                    //When Solder Kind.
-                    if (System.Math.Abs(Kind) == 1 && HuristicListSolder.Count > 0)
+                    if (!IsSup)
                     {
-                        Huristic += HuristicListSolder[j][0] +
-                            HuristicListSolder[j][1] +
-                            HuristicListSolder[j][2] +
-                            HuristicListSolder[j][3] +
-                            HuristicListSolder[j][4] +
-                            HuristicListSolder[j][5] +
-                            HuristicListSolder[j][6] +
-                            HuristicListSolder[j][7]+
-                            HuristicListSolder[j][8]+
-                            HuristicListSolder[j][9];
+                        //When Solder Kind.
+                        if (System.Math.Abs(Kind) == 1 && HuristicListSolder.Count > 0)
+                        {
+                            Huristic += HuristicListSolder[j][0] +
+                                HuristicListSolder[j][1] +
+                                HuristicListSolder[j][2] +
+                                HuristicListSolder[j][3] +
+                                HuristicListSolder[j][4] +
+                                HuristicListSolder[j][5] +
+                                HuristicListSolder[j][6] +
+                                HuristicListSolder[j][7] +
+                                HuristicListSolder[j][8] +
+                                HuristicListSolder[j][9];
 
-                    }
-                    else
-                    //When Elephant Kind.
-                    if (System.Math.Abs(Kind) == 2 && HuristicListElefant.Count > 0)
-                    {
-                        Huristic += HuristicListElefant[j][0] +
-                            HuristicListElefant[j][1] +
-                            HuristicListElefant[j][2] +
-                            HuristicListElefant[j][3] +
-                            HuristicListElefant[j][4] +
-                            HuristicListElefant[j][5] +
-                            HuristicListElefant[j][6] +
-                            HuristicListElefant[j][7] +
-                            HuristicListElefant[j][8] +
-                        HuristicListElefant[j][9];
+                        }
+                        else
+                        //When Elephant Kind.
+                        if (System.Math.Abs(Kind) == 2 && HuristicListElefant.Count > 0)
+                        {
+                            Huristic += HuristicListElefant[j][0] +
+                                HuristicListElefant[j][1] +
+                                HuristicListElefant[j][2] +
+                                HuristicListElefant[j][3] +
+                                HuristicListElefant[j][4] +
+                                HuristicListElefant[j][5] +
+                                HuristicListElefant[j][6] +
+                                HuristicListElefant[j][7] +
+                                HuristicListElefant[j][8] +
+                            HuristicListElefant[j][9];
 
+                        }
+                        else
+                        //When Hourse Kind.
+                        if (System.Math.Abs(Kind) == 3 && HuristicListHourse.Count > 0)
+                        {
+                            Huristic += HuristicListHourse[j][0] +
+                                HuristicListHourse[j][1] +
+                                HuristicListHourse[j][2] +
+                                HuristicListHourse[j][3] +
+                                HuristicListHourse[j][4] +
+                                HuristicListHourse[j][5] +
+                                HuristicListHourse[j][6] +
+                                HuristicListHourse[j][7] +
+                                HuristicListHourse[j][8] +
+                            HuristicListHourse[j][9];
+                        }
+                        else
+                        //When Castles Kind.
+                        if (System.Math.Abs(Kind) == 4 && HuristicListCastle.Count > 0)
+                        {
+                            Huristic += HuristicListCastle[j][0] +
+                                HuristicListCastle[j][1] +
+                                HuristicListCastle[j][2] +
+                                HuristicListCastle[j][3] +
+                                HuristicListCastle[j][4] +
+                                HuristicListCastle[j][5] +
+                                HuristicListCastle[j][6] +
+                                HuristicListCastle[j][7] +
+                            HuristicListCastle[j][8] +
+                                HuristicListCastle[j][9];
+                        }
+                        else
+                        //When Minister Kind.
+                        if (System.Math.Abs(Kind) == 5 && HuristicListMinister.Count > 0)
+                        {
+                            Huristic += HuristicListMinister[j][0] +
+                                HuristicListMinister[j][1] +
+                                HuristicListMinister[j][2] +
+                                HuristicListMinister[j][3] +
+                                HuristicListMinister[j][4] +
+                                HuristicListMinister[j][5] +
+                                HuristicListMinister[j][6] +
+                            HuristicListMinister[j][7] +
+                            HuristicListMinister[j][8] +
+                            HuristicListMinister[j][9];
+                        }
+                        else
+                        //When King Kind.
+                        if (System.Math.Abs(Kind) == 6 && HuristicListKing.Count > 0)
+                        {
+                            Huristic += HuristicListKing[j][0] +
+                                HuristicListKing[j][1] +
+                                HuristicListKing[j][2] +
+                                HuristicListKing[j][3] +
+                                HuristicListKing[j][4] +
+                                HuristicListKing[j][5] +
+                                HuristicListKing[j][6] +
+                                HuristicListKing[j][7] +
+                                HuristicListKing[j][8] +
+                                HuristicListKing[j][9];
+                        }
                     }
                     else
-                    //When Hourse Kind.
-                    if (System.Math.Abs(Kind) == 3 && HuristicListHourse.Count > 0)
                     {
-                        Huristic += HuristicListHourse[j][0] +
-                            HuristicListHourse[j][1] +
-                            HuristicListHourse[j][2] +
-                            HuristicListHourse[j][3] +
-                            HuristicListHourse[j][4] +
-                            HuristicListHourse[j][5] +
-                            HuristicListHourse[j][6] +
-                            HuristicListHourse[j][7] +
-                            HuristicListHourse[j][8] +
-                        HuristicListHourse[j][9];
-                    }
-                    else
-                    //When Castles Kind.
-                    if (System.Math.Abs(Kind) == 4 && HuristicListCastle.Count > 0)
-                    {
-                        Huristic += HuristicListCastle[j][0] +
-                            HuristicListCastle[j][1] +
-                            HuristicListCastle[j][2] +
-                            HuristicListCastle[j][3] +
-                            HuristicListCastle[j][4] +
-                            HuristicListCastle[j][5] +
-                            HuristicListCastle[j][6] +
-                            HuristicListCastle[j][7] +
-                        HuristicListCastle[j][8] +
-                            HuristicListCastle[j][9];
-                    }
-                    else
-                    //When Minister Kind.
-                    if (System.Math.Abs(Kind) == 5 && HuristicListMinister.Count > 0)
-                    {
-                        Huristic += HuristicListMinister[j][0] +
-                            HuristicListMinister[j][1] +
-                            HuristicListMinister[j][2] +
-                            HuristicListMinister[j][3] +
-                            HuristicListMinister[j][4] +
-                            HuristicListMinister[j][5] +
-                            HuristicListMinister[j][6] +
-                        HuristicListMinister[j][7] +
-                        HuristicListMinister[j][8] +
-                        HuristicListMinister[j][9];
-                    }
-                    else
-                    //When King Kind.
-                    if (System.Math.Abs(Kind) == 6 && HuristicListKing.Count > 0)
-                    {
-                        Huristic += HuristicListKing[j][0] +
-                            HuristicListKing[j][1] +
-                            HuristicListKing[j][2] +
-                            HuristicListKing[j][3] +
-                            HuristicListKing[j][4] +
-                            HuristicListKing[j][5] +
-                            HuristicListKing[j][6] +
-                            HuristicListKing[j][7] +
-                            HuristicListKing[j][8] +
-                            HuristicListKing[j][9];
+                        if (Order == AllDraw.OrderPlate)
+                            return Double.MinValue;
+                        else
+                            return Double.MaxValue;
                     }
                 }
                 Order = DummyOrder;
@@ -10043,7 +10055,7 @@ namespace RefrigtzDLL
 
 
                             if (i == ii && j == jj)
-                                return;
+                                continue;
                             ///Initiate a Local Variables.
                             TableS = new int[8, 8];
                             ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).

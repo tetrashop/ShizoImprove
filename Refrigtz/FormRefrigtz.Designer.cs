@@ -36,6 +36,7 @@
             this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem21 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
@@ -145,7 +146,6 @@
             this.pictureBoxTimerBrown = new System.Windows.Forms.PictureBox();
             this.pictureBoxTimerGray = new System.Windows.Forms.PictureBox();
             this.pictureBoxRefrigtz = new System.Windows.Forms.PictureBox();
-            this.toolStripMenuItem21 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripChessRefrigitz.SuspendLayout();
             this.groupBoxGroupOfPowerity.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).BeginInit();
@@ -272,6 +272,13 @@
             this.toolStripMenuItem15.Size = new System.Drawing.Size(327, 22);
             this.toolStripMenuItem15.Text = "Computer By Computer Full Game";
             this.toolStripMenuItem15.Click += new System.EventHandler(this.toolStripMenuItem15_Click);
+            // 
+            // toolStripMenuItem21
+            // 
+            this.toolStripMenuItem21.Name = "toolStripMenuItem21";
+            this.toolStripMenuItem21.Size = new System.Drawing.Size(327, 22);
+            this.toolStripMenuItem21.Text = "Blitz Quantum";
+            this.toolStripMenuItem21.Click += new System.EventHandler(this.toolStripMenuItem21_Click);
             // 
             // toolStripMenuItem6
             // 
@@ -1048,6 +1055,7 @@
             this.textBoxText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxText.Size = new System.Drawing.Size(368, 75);
             this.textBoxText.TabIndex = 44;
+            this.textBoxText.TextChanged += new System.EventHandler(this.textBoxText_TextChanged);
             // 
             // label1
             // 
@@ -1443,13 +1451,6 @@
             this.pictureBoxRefrigtz.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pictureBoxRefrigtz_MouseDoubleClick);
             this.pictureBoxRefrigtz.MouseLeave += new System.EventHandler(this.pictureBoxRefrigtz_MouseLeave);
             this.pictureBoxRefrigtz.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBoxRefrigtz_MouseMove);
-            // 
-            // toolStripMenuItem21
-            // 
-            this.toolStripMenuItem21.Name = "toolStripMenuItem21";
-            this.toolStripMenuItem21.Size = new System.Drawing.Size(327, 22);
-            this.toolStripMenuItem21.Text = "Blitz Quantum";
-            this.toolStripMenuItem21.Click += new System.EventHandler(this.toolStripMenuItem21_Click);
             // 
             // FormRefrigtz
             // 

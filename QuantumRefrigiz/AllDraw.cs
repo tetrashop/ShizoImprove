@@ -6683,9 +6683,62 @@ if (Kind == 2)
                 return TableHuristic;
             }
         }
-
+        void StringHuristics(int Obj, int Sec, bool AA, int Do, int WinOcuuredatChiled)
+        {
+            String SOut = "";
+            if (Obj == 1)
+            {
+                SOut = "Soldier ";
+            }
+            else
+                if (Obj == 2)
+            {
+                SOut = "Elephant ";
+            }
+            else
+                if (Obj == 3)
+            {
+                SOut = "Hourse ";
+            }
+            else
+                if (Obj == 4)
+            {
+                SOut = "Castle ";
+            }
+            else
+                if (Obj == 5)
+            {
+                SOut = "Minister ";
+            }
+            else
+                    if (Obj == 6)
+            {
+                SOut = "King ";
+            }
+            SOut += "AStar Huristics ";
+            if (Sec == 1)
+                SOut += " -Initiatetion- ";
+            if (Sec == 2)
+                SOut += " -Regard- ";
+            if (Sec == 3)
+                SOut += " -Foundation Greatest- ";
+            if (WinOcuuredatChiled >= 1)
+                SOut += " At -King Checked Mate is active For Eneter Regard- ";
+            if (AA)
+                SOut += " -'AA' is Active due to Regard Enter- ";
+            if (Do == 1)
+                SOut += " -'Do' is Active due to Regard Enter- ";
+            SOut += " With Huristic Count " + AllDraw.Less;
+            Object O = new Object();
+            lock (O)
+            {
+                OutPut = SOut;
+            }
+        }
         int[,] HuristicAStarGreadySearchSoldier(ref int[,] TableHuristic, int i, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
+            
+
             Object a1 = new Object();
             lock (a1)
             {
@@ -6707,6 +6760,7 @@ if (Kind == 2)
                     {
                         for (j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum[k] != null && SolderesOnTable[i].SoldierThinkingQuantum[k] != null && j < SolderesOnTable[i].SoldierThinkingQuantum[k].TableListSolder.Count; j++)
                         {
+                            System.Threading.Thread.Sleep(1);
                             {
                                 try
                                 {
@@ -6727,12 +6781,14 @@ if (Kind == 2)
 
                                     }
                                     catch (Exception tt) { Log(tt); }
-                                    Order = COrder;
                                     if (SolderesOnTable[i].LoseOcuuredatChiled <= -1 || SolderesOnTable[i].LoseOcuuredatChiled <= -2 || SolderesOnTable[i].LoseOcuuredatChiled <= -3)
                                         continue;
+                                    Order = COrder;
                                     ChessRules.CurrentOrder = CDummy;
                                     //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                                     //)
+                                    StringHuristics(1, 1, AA, Do, SolderesOnTable[i].WinOcuuredatChiled);
+
                                     if ((SolderesOnTable[i].SoldierThinkingQuantum[k].PenaltyRegardListSolder[j].IsPenaltyAction() != 0 && SolderesOnTable[i].SoldierThinkingQuantum[k].PenaltyRegardListSolder[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA || SolderesOnTable[i].WinOcuuredatChiled >= 1 || SolderesOnTable[i].WinOcuuredatChiled >= 2 || SolderesOnTable[i].WinOcuuredatChiled >= 3)
                                     {
                                         //Set Table and Huristic Value and Syntax.
@@ -6785,6 +6841,7 @@ if (Kind == 2)
                                         RegardOccurred = true;
                                         if (SolderesOnTable[i].WinOcuuredatChiled >= 1 || SolderesOnTable[i].WinOcuuredatChiled >= 2 || SolderesOnTable[i].WinOcuuredatChiled >= 3)
                                             Less = double.MaxValue;
+                                        StringHuristics(1, 2, AA, Do, SolderesOnTable[i].WinOcuuredatChiled);
                                         //if (Do == 1 || AA)
                                         //return TableHuristic;
                                         continue;
@@ -6803,8 +6860,11 @@ if (Kind == 2)
                                             Object O11 = new Object();
                                             lock (O11)
                                             {
-                                                ActionString = ThinkingQuantumChess.ActionsString; AllDraw.ActionStringReady = true;
-
+                                                Object O = new Object();
+                                                lock (O)
+                                                {
+                                                    //ActionString = ThinkingChess.ActionsString; AllDraw.ActionStringReady = true;
+                                                }
                                                 //retrive table of current huristic.
                                                 int[,] TableS = SolderesOnTable[i].SoldierThinkingQuantum[k].TableListSolder[j];
                                                 int[,] TableSS = SolderesOnTable[i].SoldierThinkingQuantum[k].TableListSolder[j];
@@ -6889,8 +6949,8 @@ if (Kind == 2)
 
                                                 if (AStarGreedyi == 1)
                                                 {
-                                                    Object O = new Object();
-                                                    lock (O)
+                                                    Object OO = new Object();
+                                                    lock (OO)
                                                     {
                                                         if (Order == 1)
                                                         {
@@ -6916,6 +6976,7 @@ if (Kind == 2)
 
                                                     Less = SolderesOnTable[i].SoldierThinkingQuantum[k].ReturnHuristic(i, j, Order, AA);
 
+                                                    StringHuristics(1, 3, AA, Do, SolderesOnTable[i].WinOcuuredatChiled);
 
                                                     TableHuristic = SolderesOnTable[i].SoldierThinkingQuantum[k].TableListSolder[j];
 
@@ -7073,6 +7134,7 @@ if (Kind == 2)
                     {
                         for (j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum[k] != null && ElephantOnTable[i].ElefantThinkingQuantum[k] != null && j < ElephantOnTable[i].ElefantThinkingQuantum[k].TableListElefant.Count; j++)
                         {
+                            System.Threading.Thread.Sleep(1);
                             {
                                 try
                                 {
@@ -7099,6 +7161,8 @@ if (Kind == 2)
                                     ChessRules.CurrentOrder = CDummy;
                                     //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                                     //)
+                                    StringHuristics(2, 1, AA, Do, ElephantOnTable[i].WinOcuuredatChiled);
+
                                     if ((ElephantOnTable[i].ElefantThinkingQuantum[k].PenaltyRegardListElefant[j].IsPenaltyAction() != 0 && ElephantOnTable[i].ElefantThinkingQuantum[k].PenaltyRegardListElefant[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA || ElephantOnTable[i].WinOcuuredatChiled >= 1 || ElephantOnTable[i].WinOcuuredatChiled >= 2 || ElephantOnTable[i].WinOcuuredatChiled >= 3)
                                     {
 
@@ -7118,6 +7182,9 @@ if (Kind == 2)
                                         if (ElephantOnTable[i].WinOcuuredatChiled >= 1 || ElephantOnTable[i].WinOcuuredatChiled >= 2 || ElephantOnTable[i].WinOcuuredatChiled >= 3)
                                             Less = double.MaxValue;
                                         RegardOccurred = true;
+
+                                        StringHuristics(2, 2, AA, Do, ElephantOnTable[i].WinOcuuredatChiled);
+
                                         //if (Do == 1 || AA)
                                         //return TableHuristic;
                                         continue;
@@ -7139,7 +7206,7 @@ if (Kind == 2)
                                             Object O = new Object();
                                             lock (O)
                                             {
-                                                ActionString = ThinkingQuantumChess.ActionsString; AllDraw.ActionStringReady = true;
+                                                //ActionString = ThinkingChess.ActionsString; AllDraw.ActionStringReady = true;
                                             }
                                             //retrive table of current huristic.
                                             int[,] TableS = ElephantOnTable[i].ElefantThinkingQuantum[k].TableListElefant[j];
@@ -7247,6 +7314,9 @@ if (Kind == 2)
                                                 }
                                                 Act = true;
                                                 Less = ElephantOnTable[i].ElefantThinkingQuantum[k].ReturnHuristic(i, j, Order, AA);
+
+                                                StringHuristics(2, 3, AA, Do, ElephantOnTable[i].WinOcuuredatChiled);
+
                                                 TableHuristic = ElephantOnTable[i].ElefantThinkingQuantum[k].TableListElefant[j];
                                             }
                                         }
@@ -7343,6 +7413,7 @@ if (Kind == 2)
                     {
                         for (j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum[k] != null && HoursesOnTable[i].HourseThinkingQuantum[k] != null && j < HoursesOnTable[i].HourseThinkingQuantum[k].TableListHourse.Count; j++)
                         {
+                            System.Threading.Thread.Sleep(1);
                             {
                                 try
                                 {
@@ -7362,13 +7433,14 @@ if (Kind == 2)
                                         Do = 0;
                                     }
                                     catch (Exception tt) { Log(tt); }
-
                                     if (HoursesOnTable[i].LoseOcuuredatChiled <= -1 || HoursesOnTable[i].LoseOcuuredatChiled <= -2 || HoursesOnTable[i].LoseOcuuredatChiled <= -3)
                                         continue;
                                     Order = COrder;
                                     ChessRules.CurrentOrder = CDummy;
                                     //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                                     //)
+                                    StringHuristics(3, 1, AA, Do, HoursesOnTable[i].WinOcuuredatChiled);
+
                                     if ((HoursesOnTable[i].HourseThinkingQuantum[k].PenaltyRegardListHourse[j].IsPenaltyAction() != 0 && HoursesOnTable[i].HourseThinkingQuantum[k].PenaltyRegardListHourse[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA || HoursesOnTable[i].WinOcuuredatChiled >= 1 || HoursesOnTable[i].WinOcuuredatChiled >= 2 || HoursesOnTable[i].WinOcuuredatChiled >= 3)
                                     {
                                         Object On = new Object();
@@ -7388,6 +7460,9 @@ if (Kind == 2)
                                         //return TableHuristic;
                                         if (HoursesOnTable[i].WinOcuuredatChiled >= 1 || HoursesOnTable[i].WinOcuuredatChiled >= 2 || HoursesOnTable[i].WinOcuuredatChiled >= 3)
                                             Less = double.MaxValue;
+
+                                        StringHuristics(3, 2, AA, Do, HoursesOnTable[i].WinOcuuredatChiled);
+
                                         continue;
 
                                     }
@@ -7405,7 +7480,7 @@ if (Kind == 2)
                                             Object O = new Object();
                                             lock (O)
                                             {
-                                                ActionString = ThinkingQuantumChess.ActionsString; AllDraw.ActionStringReady = true;
+                                                //ActionString = ThinkingChess.ActionsString; AllDraw.ActionStringReady = true;
                                             }
                                             //retrive table of current huristic.
                                             int[,] TableS = HoursesOnTable[i].HourseThinkingQuantum[k].TableListHourse[j];
@@ -7517,6 +7592,7 @@ if (Kind == 2)
                                                 Less = HoursesOnTable[i].HourseThinkingQuantum[k].ReturnHuristic(i, j, Order, AA);
                                                 TableHuristic = HoursesOnTable[i].HourseThinkingQuantum[k].TableListHourse[j];
 
+                                                StringHuristics(3, 3, AA, Do, HoursesOnTable[i].WinOcuuredatChiled);
                                             }
 
                                         }
@@ -7601,6 +7677,7 @@ if (Kind == 2)
                     {
                         for (j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum[k] != null && CastlesOnTable[i].CastleThinkingQuantum[k] != null && j < CastlesOnTable[i].CastleThinkingQuantum[k].TableListCastle.Count; j++)
                         {
+                            System.Threading.Thread.Sleep(1);
                             {
                                 try
                                 {
@@ -7619,12 +7696,14 @@ if (Kind == 2)
                                         Order *= -1;
                                     }
                                     catch (Exception tt) { Log(tt); }
+                                    Order = COrder;
                                     if (CastlesOnTable[i].LoseOcuuredatChiled <= -1 || CastlesOnTable[i].LoseOcuuredatChiled <= -2 || CastlesOnTable[i].LoseOcuuredatChiled <= -3)
                                         continue;
-                                    Order = COrder;
                                     ChessRules.CurrentOrder = CDummy;
                                     //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                                     //)
+                                    StringHuristics(4, 1, AA, Do, CastlesOnTable[i].WinOcuuredatChiled);
+
                                     if ((CastlesOnTable[i].CastleThinkingQuantum[k].PenaltyRegardListCastle[j].IsPenaltyAction() != 0 && CastlesOnTable[i].CastleThinkingQuantum[k].PenaltyRegardListCastle[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA || CastlesOnTable[i].WinOcuuredatChiled >= 1 || CastlesOnTable[i].WinOcuuredatChiled >= 2 || CastlesOnTable[i].WinOcuuredatChiled >= 3)
                                     {
 
@@ -7643,6 +7722,9 @@ if (Kind == 2)
                                         RegardOccurred = true;
                                         if (CastlesOnTable[i].WinOcuuredatChiled >= 1 || CastlesOnTable[i].WinOcuuredatChiled >= 2 || CastlesOnTable[i].WinOcuuredatChiled >= 3)
                                             Less = double.MaxValue;
+
+                                        StringHuristics(4, 2, AA, Do, CastlesOnTable[i].WinOcuuredatChiled);
+
                                         //if (Do == 1 || AA)
                                         //return TableHuristic;
                                         continue;
@@ -7659,7 +7741,7 @@ if (Kind == 2)
                                             Object O = new Object();
                                             lock (O)
                                             {
-                                                ActionString = ThinkingQuantumChess.ActionsString; AllDraw.ActionStringReady = true;
+                                                //ActionString = ThinkingChess.ActionsString; AllDraw.ActionStringReady = true;
                                             }
                                             //retrive table of current huristic.
 
@@ -7772,6 +7854,7 @@ if (Kind == 2)
                                                 Less = CastlesOnTable[i].CastleThinkingQuantum[k].ReturnHuristic(i, j, Order, AA);
                                                 TableHuristic = CastlesOnTable[i].CastleThinkingQuantum[k].TableListCastle[j];
 
+                                                StringHuristics(4, 3, AA, Do, CastlesOnTable[i].WinOcuuredatChiled);
                                             }
                                         }
                                         else//Set Table and Huristic Value and Syntax.
@@ -7858,6 +7941,7 @@ if (Kind == 2)
                     {
                         for (j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum[k] != null && MinisterOnTable[i].MinisterThinkingQuantum[k] != null && j < MinisterOnTable[i].MinisterThinkingQuantum[k].TableListMinister.Count; j++)
                         {
+                            System.Threading.Thread.Sleep(1);
                             {
                                 //For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
                                 //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
@@ -7881,6 +7965,9 @@ if (Kind == 2)
                                 ChessRules.CurrentOrder = CDummy;
                                 //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                                 //)
+
+                                StringHuristics(5, 1, AA, Do, MinisterOnTable[i].WinOcuuredatChiled);
+
                                 if ((MinisterOnTable[i].MinisterThinkingQuantum[k].PenaltyRegardListMinister[j].IsPenaltyAction() != 0 && MinisterOnTable[i].MinisterThinkingQuantum[k].PenaltyRegardListMinister[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA || MinisterOnTable[i].WinOcuuredatChiled >= 1 || MinisterOnTable[i].WinOcuuredatChiled >= 2 || MinisterOnTable[i].WinOcuuredatChiled >= 3)
                                 {
 
@@ -7899,6 +7986,9 @@ if (Kind == 2)
                                     RegardOccurred = true;
                                     if (MinisterOnTable[i].WinOcuuredatChiled >= 1 || MinisterOnTable[i].WinOcuuredatChiled >= 2 || MinisterOnTable[i].WinOcuuredatChiled >= 3)
                                         Less = double.MaxValue;
+
+                                    StringHuristics(5, 2, AA, Do, MinisterOnTable[i].WinOcuuredatChiled);
+
                                     //if (Do == 1 || AA)
                                     //return TableHuristic;
                                     continue;
@@ -7914,7 +8004,7 @@ if (Kind == 2)
                                         Object O = new Object();
                                         lock (O)
                                         {
-                                            ActionString = ThinkingQuantumChess.ActionsString; AllDraw.ActionStringReady = true;
+                                            //ActionString = ThinkingChess.ActionsString; AllDraw.ActionStringReady = true;
                                         }
                                         //retrive table of current huristic.
 
@@ -8029,6 +8119,7 @@ if (Kind == 2)
                                             Less = MinisterOnTable[i].MinisterThinkingQuantum[k].ReturnHuristic(i, j, Order, AA);
                                             TableHuristic = MinisterOnTable[i].MinisterThinkingQuantum[k].TableListMinister[j];
 
+                                            StringHuristics(5, 3, AA, Do, MinisterOnTable[i].WinOcuuredatChiled);
                                         }
                                     }
                                     else//Set Table and Huristic Value and Syntax.
@@ -8108,6 +8199,7 @@ if (Kind == 2)
                     {
                         for (j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum[k] != null && KingOnTable[i].KingThinkingQuantum[k] != null && j < KingOnTable[i].KingThinkingQuantum[k].TableListKing.Count; j++)
                         {
+                            System.Threading.Thread.Sleep(1);
                             {
                                 try
                                 {
@@ -8133,6 +8225,9 @@ if (Kind == 2)
                                     ChessRules.CurrentOrder = CDummy;
                                     //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                                     //)
+
+                                    StringHuristics(6, 1, AA, Do, KingOnTable[i].WinOcuuredatChiled);
+
                                     if ((KingOnTable[i].KingThinkingQuantum[k].PenaltyRegardListKing[j].IsPenaltyAction() != 0 && KingOnTable[i].KingThinkingQuantum[k].PenaltyRegardListKing[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA || KingOnTable[i].WinOcuuredatChiled >= 1 || KingOnTable[i].WinOcuuredatChiled >= 2 || KingOnTable[i].WinOcuuredatChiled >= 3)
                                     {
                                         Object On = new Object();
@@ -8150,6 +8245,9 @@ if (Kind == 2)
                                         RegardOccurred = true;
                                         if (KingOnTable[i].WinOcuuredatChiled >= 1 || KingOnTable[i].WinOcuuredatChiled >= 2 || KingOnTable[i].WinOcuuredatChiled >= 3)
                                             Less = double.MaxValue;
+
+                                        StringHuristics(6, 2, AA, Do, KingOnTable[i].WinOcuuredatChiled);
+
                                         //if (Do == 1 || AA)
                                         //return TableHuristic;
                                         continue;
@@ -8167,7 +8265,7 @@ if (Kind == 2)
                                             Object OO = new Object();
                                             lock (OO)
                                             {
-                                                ActionString = ThinkingQuantumChess.ActionsString; AllDraw.ActionStringReady = true;
+                                                //ActionString = ThinkingChess.ActionsString; AllDraw.ActionStringReady = true;
                                             }
                                             //retrive table of current huristic.
 
@@ -8280,6 +8378,8 @@ if (Kind == 2)
                                                 Act = true;
                                                 Less = KingOnTable[i].KingThinkingQuantum[k].ReturnHuristic(i, j, Order, AA);
                                                 TableHuristic = KingOnTable[i].KingThinkingQuantum[k].TableListKing[j];
+
+                                                StringHuristics(6, 3, AA, Do, KingOnTable[i].WinOcuuredatChiled);
                                             }
 
 
@@ -12298,8 +12398,8 @@ if (Kind == 2)
             {
 
                 //For Gray Soldeirs Objects. 
-                //Parallel.For(0, SodierMidle, i =>
-                for (int i = 0; i < SodierMidle; i++)
+                Parallel.For(0, SodierMidle, i =>
+                //for (int i = 0; i < SodierMidle; i++)
                 {
                     Object O = new Object();
                     lock (O)
@@ -12344,7 +12444,7 @@ if (Kind == 2)
                             Log(t);
                         }
                     }
-                }//);
+                });
             }
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
 
@@ -12357,8 +12457,8 @@ if (Kind == 2)
             lock (oo)
             {
                 //List<Task> tH = new List<Task>();
-                //Parallel.For(0, ElefantMidle, i =>
-                for (int i = 0; i < ElefantMidle; i++)
+                Parallel.For(0, ElefantMidle, i =>
+                //for (int i = 0; i < ElefantMidle; i++)
                 {
                     Object O = new Object();
                     lock (O)
@@ -12401,7 +12501,7 @@ if (Kind == 2)
                             Log(t);
                         }
                     }
-                }//);
+                });
             }
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
@@ -12414,8 +12514,8 @@ if (Kind == 2)
             {
                 //List<Task> tH = new List<Task>();
                 //For All Gray Hourse Objects.
-                //Parallel.For(0, ElefantMidle, i =>
-                for (int i = 0; i < HourseMidle; i++)
+                Parallel.For(0, ElefantMidle, i =>
+                //for (int i = 0; i < HourseMidle; i++)
 
                 {
                     Object O = new Object();
@@ -12460,7 +12560,7 @@ if (Kind == 2)
                             Log(t);
                         }
                     }
-                }//);
+                });
             }
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
@@ -12473,8 +12573,8 @@ if (Kind == 2)
             {
                 //List<Task> tH = new List<Task>();
                 //For All Possible Gray Castles Objects.
-                //Parallel.For(0, CastleMidle, i =>
-                for (int i = 0; i < CastleMidle; i++)
+                Parallel.For(0, CastleMidle, i =>
+                //for (int i = 0; i < CastleMidle; i++)
                 {
                     Object O = new Object();
                     lock (O)
@@ -12518,7 +12618,7 @@ if (Kind == 2)
                             Log(t);
                         }
                     }
-                }//);
+                });
             }
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
@@ -12531,8 +12631,8 @@ if (Kind == 2)
             {
                 //List<Task> tH = new List<Task>();
                 //For All Possible Gray Minister Movments.
-                //Parallel.For(0, MinisterMidle, i =>
-                for (int i = 0; i < MinisterMidle; i++)
+                Parallel.For(0, MinisterMidle, i =>
+                //for (int i = 0; i < MinisterMidle; i++)
                 {
                     try
                     {
@@ -12576,7 +12676,7 @@ if (Kind == 2)
                     {
                         Log(t);
                     }
-                }//);
+                });
             }
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
@@ -12589,8 +12689,8 @@ if (Kind == 2)
             {
                 //List<Task> tH = new List<Task>();
                 //For All Possible Gray King Objects.
-                //Parallel.For(0, KingMidle, i =>
-                for (int i = 0; i < KingMidle; i++)
+                Parallel.For(0, KingMidle, i =>
+                //for (int i = 0; i < KingMidle; i++)
                 {
                     Object O = new Object();
                     lock (O)
@@ -12633,7 +12733,7 @@ if (Kind == 2)
                             Log(t);
                         }
                     }
-                }//);
+                });
             }
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
@@ -12646,8 +12746,8 @@ if (Kind == 2)
             {
                 //List<Task> tH = new List<Task>();
                 //For Each Objects of Brown Sodiers.
-                //Parallel.For(SodierMidle, SodierHigh, i =>
-                for (int i = SodierMidle; i < SodierHigh; i++)
+                Parallel.For(SodierMidle, SodierHigh, i =>
+                //for (int i = SodierMidle; i < SodierHigh; i++)
                 {
                     Object O = new Object();
                     lock (O)
@@ -12694,7 +12794,7 @@ if (Kind == 2)
 
                         }
                     }
-                }//);
+                });
             }
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
@@ -12706,8 +12806,8 @@ if (Kind == 2)
             lock (oo)
             {
                 //List<Task> tH = new List<Task>();
-                //Parallel.For(ElefantMidle, ElefantHigh, i =>
-                for (int i = ElefantMidle; i < ElefantHigh; i++)
+                Parallel.For(ElefantMidle, ElefantHigh, i =>
+                //for (int i = ElefantMidle; i < ElefantHigh; i++)
                 {
                     Object O = new Object();
                     lock (O)
@@ -12752,7 +12852,7 @@ if (Kind == 2)
 
                         }
                     }
-                }//);
+                });
             }
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
@@ -12764,8 +12864,8 @@ if (Kind == 2)
             lock (oo)
             {
                 //List<Task> tH = new List<Task>();
-                //Parallel.For(HourseMidle, HourseHight, i =>
-                for (int i = HourseMidle; i < HourseHight; i++)
+                Parallel.For(HourseMidle, HourseHight, i =>
+                //for (int i = HourseMidle; i < HourseHight; i++)
                 {
                     Object O = new Object();
                     lock (O)
@@ -12811,7 +12911,7 @@ if (Kind == 2)
                             Log(t);
                         }
                     }
-                }//);
+                });
             }
 
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
@@ -12824,8 +12924,8 @@ if (Kind == 2)
             lock (oo)
             {
                 //List<Task> tH = new List<Task>();
-                //Parallel.For(CastleMidle, CastleHigh, i =>
-                for (int i = CastleMidle; i < CastleHigh; i++)
+                Parallel.For(CastleMidle, CastleHigh, i =>
+                //for (int i = CastleMidle; i < CastleHigh; i++)
                 {
                     Object O = new Object();
                     lock (O)
@@ -12871,7 +12971,7 @@ if (Kind == 2)
                             Log(t);
                         }
                     }
-                }//);
+                });
             }
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
@@ -12883,8 +12983,8 @@ if (Kind == 2)
             lock (oo)
             {
                 //List<Task> tH = new List<Task>();
-                //Parallel.For(MinisterMidle, MinisterHigh, i =>
-                for (int i = MinisterMidle; i < MinisterHigh; i++)
+                Parallel.For(MinisterMidle, MinisterHigh, i =>
+                //for (int i = MinisterMidle; i < MinisterHigh; i++)
                 {
                     Object O = new Object();
                     lock (O)
@@ -12926,7 +13026,7 @@ if (Kind == 2)
                             Log(t);
                         }
                     }
-                }//);
+                });
             }
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
@@ -12938,8 +13038,8 @@ if (Kind == 2)
             lock (oo)
             {
                 //List<Task> tH = new List<Task>();
-                //Parallel.For(KingMidle, KingHigh, i =>
-                for (int i = KingMidle; i < KingHigh; i++)
+                Parallel.For(KingMidle, KingHigh, i =>
+                //for (int i = KingMidle; i < KingHigh; i++)
                 {
                     Object O = new Object();
                     lock (O)
@@ -12983,7 +13083,7 @@ if (Kind == 2)
                             Log(t);
                         }
                     }
-                }//);
+                });
             }
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
@@ -15100,12 +15200,12 @@ if (Kind == 2)
                     while (SolderesOnTable[ik].SoldierThinkingQuantum[0].ThinkingQuantumBegin && (!SolderesOnTable[ik].SoldierThinkingQuantum[0].ThinkingQuantumFinished))
                     {
 
-                        System.Threading.Thread.Sleep(5);
+                        //.Threading.Thread.Sleep(5);
 
 
                         Thread.Sleep(1);
-                        S += 1;//if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } 
-                        SemaphoreExxedTime(S, 1);
+                        //S += 1;//if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } 
+                        //SemaphoreExxedTime(S, 1);
                     }
 
                 }
@@ -15430,8 +15530,8 @@ if (Kind == 2)
                     while (ElephantOnTable[ik].ElefantThinkingQuantum[0].ThinkingQuantumBegin && (!ElephantOnTable[ik].ElefantThinkingQuantum[0].ThinkingQuantumFinished))
                     {
                         Thread.Sleep(1);
-                        S += 1;//if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } 
-                        SemaphoreExxedTime(S, 2);
+                        //S += 1;//if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } 
+                        //SemaphoreExxedTime(S, 2);
                     }// S += 100; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
                 }
                 Object OOOO = new Object();
@@ -15752,8 +15852,8 @@ if (Kind == 2)
                     while (HoursesOnTable[ik].HourseThinkingQuantum[0].ThinkingQuantumBegin && (!HoursesOnTable[ik].HourseThinkingQuantum[0].ThinkingQuantumFinished))
                     {
                         Thread.Sleep(1);
-                        S += 1;//if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } 
-                        SemaphoreExxedTime(S, 3);
+                        //S += 1;//if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } 
+                        //SemaphoreExxedTime(S, 3);
                     }
                     //S += 100; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
                 }
@@ -16078,8 +16178,8 @@ if (Kind == 2)
                     while (CastlesOnTable[ik].CastleThinkingQuantum[0].ThinkingQuantumBegin && (!CastlesOnTable[ik].CastleThinkingQuantum[0].ThinkingQuantumFinished))
                     {
                         Thread.Sleep(1);
-                        S += 1;//if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } 
-                        SemaphoreExxedTime(S, 4);
+                        //S += 1;//if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } 
+                        //SemaphoreExxedTime(S, 4);
                     }
                     //S += 100; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
                 }
@@ -16394,8 +16494,8 @@ if (Kind == 2)
                     while (MinisterOnTable[ik].MinisterThinkingQuantum[0].ThinkingQuantumBegin && (!MinisterOnTable[ik].MinisterThinkingQuantum[0].ThinkingQuantumFinished))
                     {
                         Thread.Sleep(1);
-                        S += 1;//if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } 
-                        SemaphoreExxedTime(S, 5);
+                        ///S += 1;//if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } 
+                        //SemaphoreExxedTime(S, 5);
                     }// S += 100; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
                 }
                 Object OOOO = new Object();
@@ -16712,8 +16812,8 @@ if (Kind == 2)
                     while (KingOnTable[ik].KingThinkingQuantum[0].ThinkingQuantumBegin && (!KingOnTable[ik].KingThinkingQuantum[0].ThinkingQuantumFinished))
                     {
                         Thread.Sleep(1);
-                        S += 1;//if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } 
-                        SemaphoreExxedTime(S, 5);
+                        //S += 1;//if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } 
+                        //SemaphoreExxedTime(S, 5);
                     }// S += 100; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
                 }
                 Object OOOO = new Object();

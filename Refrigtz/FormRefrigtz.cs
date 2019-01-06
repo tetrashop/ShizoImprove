@@ -3322,12 +3322,15 @@ namespace Refrigtz
                     if (Refregitz.InvokeRequired)
                     {
                         SetlableRefregitzMaxValueCalBack d = new SetlableRefregitzMaxValueCalBack(SetlableRefregitzMaxValue);
+                        //Refregitz.Text = "";
                         Refregitz.Invoke(new Action(() => Refregitz.Text = value));
+                        //Refregitz.Text = value;
                         //SetlableRefregitzRefresh(Refregitz);
-                        Refregitz.Refresh();
+                        //Refregitz.Refresh();
                     }
                     else
                     {
+                        //Refregitz.Text = "";
                         Refregitz.Text = value;
                         // SetlableRefregitzRefresh(Refregitz);
                         Refregitz.Refresh();
@@ -3825,7 +3828,7 @@ namespace Refrigtz
                 {
                     if (!Quantum)
                     {
-                        System.Threading.Thread.Sleep(10);
+                        //System.Threading.Thread.Sleep(10);
                         RefrigtzDLL.AllDraw.Root = Root;
                         RefrigtzDLL.AllDraw.OrderPlate = OrderPlate;
                         RefrigtzDLL.AllDraw.Blitz = Blitz;
@@ -3915,7 +3918,7 @@ namespace Refrigtz
                                 NextColumn = RefrigtzDLL.AllDraw.NextRow;
                             }
                         }
-                        System.Threading.Thread.Sleep(1);
+                        //System.Threading.Thread.Sleep(1);
 
                     }
                     else
@@ -4009,7 +4012,7 @@ namespace Refrigtz
 
                             }
                         }
-                        System.Threading.Thread.Sleep(1);
+                        //System.Threading.Thread.Sleep(1);
                     }
 
                 }
@@ -12349,7 +12352,7 @@ namespace Refrigtz
                     {
                         //RefreshhTextBoxTextCallback d = new RefreshhTextBoxTextCallback(RefreshBoxText);
                         //this.Invoke(new Action(() => textBoxText.Refresh()));
-                        textBoxText.Refresh();
+                        //textBoxText.Refresh();
                     }
                     catch (Exception t) { Log(t); }
                 }
@@ -12357,7 +12360,7 @@ namespace Refrigtz
                 {
                     try
                     {
-                        this.textBoxStatistic.Refresh();
+                        //this.textBoxStatistic.Refresh();
                     }
                     catch (Exception t) { Log(t); }
                 }
@@ -16414,6 +16417,11 @@ namespace Refrigtz
             AllDo = false;
             //MessageBox.Show("Reload Project For Quntum Rifrigitz!");
             exitToolStripMenuItem_Click(new object(), new EventArgs());
+        }
+
+        private void textBoxText_TextChanged(object sender, EventArgs e)
+        {
+            ((TextBox)sender).Refresh();
         }
 
         private void toolStripMenuItem14_Click(object sender, EventArgs e)
