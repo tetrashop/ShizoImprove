@@ -11187,7 +11187,7 @@ if (Kind == 2)
                                             {
                                                 //For All Movable Gray Solders.
                                                 for (int j = 0; j < AllDraw.SodierMovments; j++)
-                                                //Parallel.For(0, AllDraw.SodierMovments, j =>
+                                                ////Parallel.For(0, AllDraw.SodierMovments, j =>
                                                 {
                                                     //ThinkingQuantum of Gray Solder Operation.
                                                     Object OOO = new Object();
@@ -11242,7 +11242,7 @@ if (Kind == 2)
                                             if (ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count == 0)
                                             {
                                                 //For All Possible Movments.
-                                                //Parallel.For(0, AllDraw.ElefantMovments, j =>
+                                                ////Parallel.For(0, AllDraw.ElefantMovments, j =>
                                                 for (int j = 0; j < AllDraw.ElefantMovments; j++)
                                                 {
                                                     //Operational ThinkingQuantum Gray Elephant. 
@@ -11298,7 +11298,7 @@ if (Kind == 2)
                                             {
                                                 //For All Possible Movments.
                                                 for (int j = 0; j < AllDraw.HourseMovments; j++)
-                                                //Parallel.For(0, AllDraw.HourseMovments, j =>
+                                                ////Parallel.For(0, AllDraw.HourseMovments, j =>
                                                 {
                                                     //ThinkingQuantum of Gray Hourse Oprational.
                                                     Object OOO = new Object();
@@ -11349,7 +11349,7 @@ if (Kind == 2)
                                             if (CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count == 0)
                                             {
                                                 //For All Possible Movments.
-                                                //Parallel.For(0, AllDraw.CastleMovments, j =>
+                                                ////Parallel.For(0, AllDraw.CastleMovments, j =>
                                                 for (int j = 0; j < AllDraw.CastleMovments; j++)
                                                 {
                                                     Object OOO = new Object();
@@ -11406,7 +11406,7 @@ if (Kind == 2)
                                             {
                                                 //For All Possible Movments.
                                                 for (int j = 0; j < AllDraw.MinisterMovments; j++)
-                                                //Parallel.For(0, AllDraw.MinisterMovments, j =>
+                                                ////Parallel.For(0, AllDraw.MinisterMovments, j =>
                                                 {
                                                     //ThinkingQuantum of Gray Minister Operational.
                                                     Object OOO = new Object();
@@ -11464,7 +11464,7 @@ if (Kind == 2)
                                             if (KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count == 0)
                                             {
                                                 //For All Possible Gray King Movments.
-                                                //Parallel.For(0, AllDraw.KingMovments, j =>
+                                                ////Parallel.For(0, AllDraw.KingMovments, j =>
                                                 for (int j = 0; j < AllDraw.KingMovments; j++)
                                                 {
                                                     //ThinkingQuantum Of Gray King Operatins.
@@ -11500,7 +11500,7 @@ if (Kind == 2)
             Object oo = new Object();
             lock (oo)
             {
-                //Parallel.For(MinBrownMidle(), MaxBrownHigh(), i =>
+                ////Parallel.For(MinBrownMidle(), MaxBrownHigh(), i =>
                 for (int i = MinBrownMidle(); i < MaxBrownHigh(); i++)
                 {
 
@@ -11533,7 +11533,7 @@ if (Kind == 2)
                                             {
                                                 //For All Movable Gray Solders.
                                                 for (int j = 0; j < AllDraw.SodierMovments; j++)
-                                                //Parallel.For(0, AllDraw.SodierMovments, j =>
+                                                ////Parallel.For(0, AllDraw.SodierMovments, j =>
                                                 {
                                                     //ThinkingQuantum of Gray Solder Operation.
                                                     Object OOO = new Object();
@@ -11586,7 +11586,7 @@ if (Kind == 2)
                                             if (ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count == 0)
                                             {
                                                 //For All Possible Movments.
-                                                //Parallel.For(0, AllDraw.ElefantMovments, j =>
+                                                ////Parallel.For(0, AllDraw.ElefantMovments, j =>
                                                 for (int j = 0; j < AllDraw.ElefantMovments; j++)
                                                 {
                                                     //Operational ThinkingQuantum Gray Elephant. 
@@ -11640,7 +11640,7 @@ if (Kind == 2)
                                             {
                                                 //For All Possible Movments.
                                                 for (int j = 0; j < AllDraw.HourseMovments; j++)
-                                                //Parallel.For(0, AllDraw.HourseMovments, j =>
+                                                ////Parallel.For(0, AllDraw.HourseMovments, j =>
                                                 {
                                                     //ThinkingQuantum of Gray Hourse Oprational.
                                                     Object OOO = new Object();
@@ -11692,7 +11692,7 @@ if (Kind == 2)
                                             if (CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count == 0)
                                             {
                                                 //For All Possible Movments.
-                                                //Parallel.For(0, AllDraw.CastleMovments, j =>
+                                                ////Parallel.For(0, AllDraw.CastleMovments, j =>
                                                 for (int j = 0; j < AllDraw.CastleMovments; j++)
                                                 {
                                                     Object OOO = new Object();
@@ -11745,7 +11745,7 @@ if (Kind == 2)
                                             if (MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count == 0)
                                             {
                                                 //For All Possible Movments.
-                                                //Parallel.For(0, AllDraw.MinisterMovments, j =>
+                                                ////Parallel.For(0, AllDraw.MinisterMovments, j =>
                                                 for (int j = 0; j < AllDraw.MinisterMovments; j++)
                                                 {
                                                     //ThinkingQuantum of Gray Minister Operational.
@@ -12398,8 +12398,8 @@ if (Kind == 2)
             {
 
                 //For Gray Soldeirs Objects. 
-                Parallel.For(0, SodierMidle, i =>
-                //for (int i = 0; i < SodierMidle; i++)
+                //Parallel.For(0, SodierMidle, i =>
+                for (int i = 0; i < SodierMidle; i++)
                 {
                     Object O = new Object();
                     lock (O)
@@ -12422,7 +12422,7 @@ if (Kind == 2)
                                 if (SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count == 0)
                                 {
                                     //For All Movable Gray Solders.
-                                    //Parallel.For(0, AllDraw.SodierMovments, j =>
+                                    ////Parallel.For(0, AllDraw.SodierMovments, j =>
                                     {
                                         //ThinkingQuantum of Gray Solder Operation.
                                         Object OOO = new Object();
@@ -12444,7 +12444,7 @@ if (Kind == 2)
                             Log(t);
                         }
                     }
-                });
+                }//);
             }
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
 
@@ -12457,8 +12457,8 @@ if (Kind == 2)
             lock (oo)
             {
                 //List<Task> tH = new List<Task>();
-                Parallel.For(0, ElefantMidle, i =>
-                //for (int i = 0; i < ElefantMidle; i++)
+                //Parallel.For(0, ElefantMidle, i =>
+                for (int i = 0; i < ElefantMidle; i++)
                 {
                     Object O = new Object();
                     lock (O)
@@ -12480,7 +12480,7 @@ if (Kind == 2)
                                 if (ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count == 0)
                                 {
                                     //For All Possible Movments.
-                                    //Parallel.For(0, AllDraw.ElefantMovments, j =>
+                                    ////Parallel.For(0, AllDraw.ElefantMovments, j =>
                                     {
                                         //Operational ThinkingQuantum Gray Elephant. 
                                         Object OOO = new Object();
@@ -12501,7 +12501,7 @@ if (Kind == 2)
                             Log(t);
                         }
                     }
-                });
+                }//);
             }
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
@@ -12514,8 +12514,8 @@ if (Kind == 2)
             {
                 //List<Task> tH = new List<Task>();
                 //For All Gray Hourse Objects.
-                Parallel.For(0, ElefantMidle, i =>
-                //for (int i = 0; i < HourseMidle; i++)
+                //Parallel.For(0, ElefantMidle, i =>
+                for (int i = 0; i < HourseMidle; i++)
 
                 {
                     Object O = new Object();
@@ -12538,7 +12538,7 @@ if (Kind == 2)
                                 if (HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count == 0)
                                 {
                                     //For All Possible Movments.
-                                    //Parallel.For(0, AllDraw.HourseMovments, j =>
+                                    ////Parallel.For(0, AllDraw.HourseMovments, j =>
                                     {
                                         //ThinkingQuantum of Gray Hourse Oprational.
                                         Object OOO = new Object();
@@ -12560,7 +12560,7 @@ if (Kind == 2)
                             Log(t);
                         }
                     }
-                });
+                }//);
             }
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
@@ -12573,8 +12573,8 @@ if (Kind == 2)
             {
                 //List<Task> tH = new List<Task>();
                 //For All Possible Gray Castles Objects.
-                Parallel.For(0, CastleMidle, i =>
-                //for (int i = 0; i < CastleMidle; i++)
+                //Parallel.For(0, CastleMidle, i =>
+                for (int i = 0; i < CastleMidle; i++)
                 {
                     Object O = new Object();
                     lock (O)
@@ -12596,7 +12596,7 @@ if (Kind == 2)
                                 if (CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count == 0)
                                 {
                                     //For All Possible Movments.
-                                    //Parallel.For(0, AllDraw.CastleMovments, j =>
+                                    ////Parallel.For(0, AllDraw.CastleMovments, j =>
                                     {
                                         Object OOO = new Object();
                                         lock (OOO)
@@ -12618,7 +12618,7 @@ if (Kind == 2)
                             Log(t);
                         }
                     }
-                });
+                }//);
             }
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
@@ -12631,8 +12631,8 @@ if (Kind == 2)
             {
                 //List<Task> tH = new List<Task>();
                 //For All Possible Gray Minister Movments.
-                Parallel.For(0, MinisterMidle, i =>
-                //for (int i = 0; i < MinisterMidle; i++)
+                //Parallel.For(0, MinisterMidle, i =>
+                for (int i = 0; i < MinisterMidle; i++)
                 {
                     try
                     {
@@ -12654,7 +12654,7 @@ if (Kind == 2)
                                 if (MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count == 0)
                                 {
                                     //For All Possible Movments.
-                                    // Parallel.For(0, AllDraw.MinisterMovments, j =>
+                                    // //Parallel.For(0, AllDraw.MinisterMovments, j =>
                                     {
                                         //ThinkingQuantum of Gray Minister Operational.
                                         Object OOO = new Object();
@@ -12676,7 +12676,7 @@ if (Kind == 2)
                     {
                         Log(t);
                     }
-                });
+                }//);
             }
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
@@ -12689,8 +12689,8 @@ if (Kind == 2)
             {
                 //List<Task> tH = new List<Task>();
                 //For All Possible Gray King Objects.
-                Parallel.For(0, KingMidle, i =>
-                //for (int i = 0; i < KingMidle; i++)
+                //Parallel.For(0, KingMidle, i =>
+                for (int i = 0; i < KingMidle; i++)
                 {
                     Object O = new Object();
                     lock (O)
@@ -12712,7 +12712,7 @@ if (Kind == 2)
                                 if (KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count == 0)
                                 {
                                     //For All Possible Gray King Movments.
-                                    //Parallel.For(0, AllDraw.KingMovments, j =>
+                                    ////Parallel.For(0, AllDraw.KingMovments, j =>
                                     {
                                         //ThinkingQuantum Of Gray King Operatins.
                                         Object OOO = new Object();
@@ -12733,7 +12733,7 @@ if (Kind == 2)
                             Log(t);
                         }
                     }
-                });
+                }//);
             }
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
@@ -12746,8 +12746,8 @@ if (Kind == 2)
             {
                 //List<Task> tH = new List<Task>();
                 //For Each Objects of Brown Sodiers.
-                Parallel.For(SodierMidle, SodierHigh, i =>
-                //for (int i = SodierMidle; i < SodierHigh; i++)
+                //Parallel.For(SodierMidle, SodierHigh, i =>
+                for (int i = SodierMidle; i < SodierHigh; i++)
                 {
                     Object O = new Object();
                     lock (O)
@@ -12770,7 +12770,7 @@ if (Kind == 2)
                                     if (SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count == 0)
                                     {
                                         //For Each Brown Possible Movments. 
-                                        //Parallel.For(0, AllDraw.SodierMovments, j =>
+                                        ////Parallel.For(0, AllDraw.SodierMovments, j =>
                                         {
                                             //ThinkingQuantum Operations of Brown Current Objects.
                                             Object OOO = new Object();
@@ -12794,7 +12794,7 @@ if (Kind == 2)
 
                         }
                     }
-                });
+                }//);
             }
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
@@ -12806,8 +12806,8 @@ if (Kind == 2)
             lock (oo)
             {
                 //List<Task> tH = new List<Task>();
-                Parallel.For(ElefantMidle, ElefantHigh, i =>
-                //for (int i = ElefantMidle; i < ElefantHigh; i++)
+                //Parallel.For(ElefantMidle, ElefantHigh, i =>
+                for (int i = ElefantMidle; i < ElefantHigh; i++)
                 {
                     Object O = new Object();
                     lock (O)
@@ -12829,7 +12829,7 @@ if (Kind == 2)
                                     if (ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count == 0)
                                     {
                                         //For Each Brown Possible Movments. 
-                                        //Parallel.For(0, AllDraw.ElefantMovments, j =>
+                                        ////Parallel.For(0, AllDraw.ElefantMovments, j =>
                                         {
                                             Object OOO = new Object();
                                             lock (OOO)
@@ -12852,7 +12852,7 @@ if (Kind == 2)
 
                         }
                     }
-                });
+                }//);
             }
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
@@ -12864,8 +12864,8 @@ if (Kind == 2)
             lock (oo)
             {
                 //List<Task> tH = new List<Task>();
-                Parallel.For(HourseMidle, HourseHight, i =>
-                //for (int i = HourseMidle; i < HourseHight; i++)
+                //Parallel.For(HourseMidle, HourseHight, i =>
+                for (int i = HourseMidle; i < HourseHight; i++)
                 {
                     Object O = new Object();
                     lock (O)
@@ -12888,7 +12888,7 @@ if (Kind == 2)
                                     if (HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count == 0)
                                     {
                                         //For Each Brown Possible Movments. 
-                                        //Parallel.For(0, AllDraw.HourseMovments, j =>
+                                        ////Parallel.For(0, AllDraw.HourseMovments, j =>
                                         {
                                             Object OOO = new Object();
                                             lock (OOO)
@@ -12911,7 +12911,7 @@ if (Kind == 2)
                             Log(t);
                         }
                     }
-                });
+                }//);
             }
 
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
@@ -12924,8 +12924,8 @@ if (Kind == 2)
             lock (oo)
             {
                 //List<Task> tH = new List<Task>();
-                Parallel.For(CastleMidle, CastleHigh, i =>
-                //for (int i = CastleMidle; i < CastleHigh; i++)
+                //Parallel.For(CastleMidle, CastleHigh, i =>
+                for (int i = CastleMidle; i < CastleHigh; i++)
                 {
                     Object O = new Object();
                     lock (O)
@@ -12949,7 +12949,7 @@ if (Kind == 2)
                                     if (CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count == 0)
                                     {
                                         //For Each Brown Possible Movments. 
-                                        //Parallel.For(0, AllDraw.CastleMovments, j =>
+                                        ////Parallel.For(0, AllDraw.CastleMovments, j =>
                                         {
                                             Object OOO = new Object();
                                             lock (OOO)
@@ -12971,7 +12971,7 @@ if (Kind == 2)
                             Log(t);
                         }
                     }
-                });
+                }//);
             }
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
@@ -12983,8 +12983,8 @@ if (Kind == 2)
             lock (oo)
             {
                 //List<Task> tH = new List<Task>();
-                Parallel.For(MinisterMidle, MinisterHigh, i =>
-                //for (int i = MinisterMidle; i < MinisterHigh; i++)
+                //Parallel.For(MinisterMidle, MinisterHigh, i =>
+                for (int i = MinisterMidle; i < MinisterHigh; i++)
                 {
                     Object O = new Object();
                     lock (O)
@@ -13006,7 +13006,7 @@ if (Kind == 2)
                                 if (MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count == 0)
                                 {
                                     //For Each Brown Possible Movments. 
-                                    //Parallel.For(0, AllDraw.MinisterMovments, j =>
+                                    ////Parallel.For(0, AllDraw.MinisterMovments, j =>
                                     {
                                         Object OOO = new Object();
                                         lock (OOO)
@@ -13026,7 +13026,7 @@ if (Kind == 2)
                             Log(t);
                         }
                     }
-                });
+                }//);
             }
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
@@ -13038,8 +13038,8 @@ if (Kind == 2)
             lock (oo)
             {
                 //List<Task> tH = new List<Task>();
-                Parallel.For(KingMidle, KingHigh, i =>
-                //for (int i = KingMidle; i < KingHigh; i++)
+                //Parallel.For(KingMidle, KingHigh, i =>
+                for (int i = KingMidle; i < KingHigh; i++)
                 {
                     Object O = new Object();
                     lock (O)
@@ -13061,7 +13061,7 @@ if (Kind == 2)
                                 if (KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count == 0)
                                 {
                                     //For Each Brown Possible Movments. 
-                                    //Parallel.For(0, AllDraw.KingMovments, j =>
+                                    ////Parallel.For(0, AllDraw.KingMovments, j =>
                                     {
                                         Object OOO = new Object();
                                         lock (OOO)
@@ -13083,7 +13083,7 @@ if (Kind == 2)
                             Log(t);
                         }
                     }
-                });
+                }//);
             }
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
@@ -15225,7 +15225,7 @@ if (Kind == 2)
                 //if (SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder.Count == 0)
                 //    continue; Do;
 
-                //Parallel.For(0, SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder.Count, j =>
+                ////Parallel.For(0, SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder.Count, j =>
                 for (int j = 0; j < SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder.Count; j++)
                 {
                     Object ooo = new Object();
@@ -15499,7 +15499,7 @@ if (Kind == 2)
             {
                 try
                 {
-                    //Parallel.For(0, SodierMidle, ik =>
+                    ////Parallel.For(0, SodierMidle, ik =>
                     for (int ik = 0; ik < SodierMidle; ik++)
                     {
                         if (SolderesOnTable != null && SolderesOnTable[ik] != null && SolderesOnTable[ik].SoldierThinkingQuantum != null && SolderesOnTable[ik].SoldierThinkingQuantum[0] != null && (!SolderesOnTable[ik].SoldierThinkingQuantum[0].IsSup))
@@ -15548,7 +15548,7 @@ if (Kind == 2)
 
                 //if (ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant.Count == 0)
                 //     continue; Do;
-                //Parallel.For(0, ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant.Count, j =>
+                ////Parallel.For(0, ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant.Count, j =>
                 for (int j = 0; j < ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant.Count; j++)
                 {
                     Object ooo = new Object();
@@ -15820,7 +15820,7 @@ if (Kind == 2)
                 //Elephant
                 try
                 {
-                    //Parallel.For(0, ElefantMidle, ik =>
+                    ////Parallel.For(0, ElefantMidle, ik =>
                     for (int ik = 0; ik < ElefantMidle; ik++)
                     {
                         if (ElephantOnTable != null && ElephantOnTable[ik] != null && ElephantOnTable[ik].ElefantThinkingQuantum != null && ElephantOnTable[ik].ElefantThinkingQuantum[0] != null && (!ElephantOnTable[ik].ElefantThinkingQuantum[0].IsSup))
@@ -15871,7 +15871,7 @@ if (Kind == 2)
 
                 //if (HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse.Count == 0)
                 //    return Do;
-                //Parallel.For(0, HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse.Count, j =>
+                ////Parallel.For(0, HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse.Count, j =>
                 for (int j = 0; j < HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse.Count; j++)
                 {
                     Object ooo = new Object();
@@ -16146,7 +16146,7 @@ if (Kind == 2)
                 //Hourse.
                 try
                 {
-                    //Parallel.For(0, HourseMidle, ik =>
+                    ////Parallel.For(0, HourseMidle, ik =>
                     for (int ik = 0; ik < HourseMidle; ik++)
                     {
                         if (HoursesOnTable != null && HoursesOnTable[ik] != null && HoursesOnTable[ik].HourseThinkingQuantum != null && HoursesOnTable[ik].HourseThinkingQuantum[0] != null && (!HoursesOnTable[ik].HourseThinkingQuantum[0].IsSup))
@@ -16196,7 +16196,7 @@ if (Kind == 2)
                 //List<Task> tHA = new List<Task>();
                 //if (CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle.Count == 0)
                 //    return Do;
-                //Parallel.For(0, CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle.Count, j =>
+                ////Parallel.For(0, CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle.Count, j =>
                 for (int j = 0; j < CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle.Count; j++)
                 {
                     Object ooo = new Object();
@@ -16463,7 +16463,7 @@ if (Kind == 2)
                 //Castle.
                 try
                 {
-                    //Parallel.For(0, CastleMidle, ik =>
+                    ////Parallel.For(0, CastleMidle, ik =>
                     for (int ik = 0; ik < CastleMidle; ik++)
                     {
                         if (CastlesOnTable != null && CastlesOnTable[ik] != null && CastlesOnTable[ik].CastleThinkingQuantum != null && CastlesOnTable[ik].CastleThinkingQuantum[0] != null && (!CastlesOnTable[ik].CastleThinkingQuantum[0].IsSup))
@@ -16512,7 +16512,7 @@ if (Kind == 2)
 
                 // if (MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister.Count == 0)
                 //   return Do;
-                //Parallel.For(0, MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister.Count, j =>
+                ////Parallel.For(0, MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister.Count, j =>
                 for (int j = 0; j < MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister.Count; j++)
                 {
                     Object ooo = new Object();
@@ -16781,7 +16781,7 @@ if (Kind == 2)
                 //Minister.
                 try
                 {
-                    //Parallel.For(0, MinisterMidle, ik =>
+                    ////Parallel.For(0, MinisterMidle, ik =>
                     for (int ik = 0; ik < MinisterMidle; ik++)
                     {
                         if (MinisterOnTable != null && MinisterOnTable[ik] != null && MinisterOnTable[ik].MinisterThinkingQuantum != null && MinisterOnTable[ik].MinisterThinkingQuantum[0] != null && (!MinisterOnTable[ik].MinisterThinkingQuantum[0].IsSup))
@@ -16830,7 +16830,7 @@ if (Kind == 2)
 
                 if (KingOnTable[ik].KingThinkingQuantum[0].TableListKing.Count == 0)
                     return Do;
-                // Parallel.For(0, KingOnTable[ik].KingThinkingQuantum[0].TableListKing.Count, j =>
+                // //Parallel.For(0, KingOnTable[ik].KingThinkingQuantum[0].TableListKing.Count, j =>
                 for (int j = 0; j < KingOnTable[ik].KingThinkingQuantum[0].TableListKing.Count; j++)
                 {
                     Object ooo = new Object();
@@ -17083,7 +17083,7 @@ if (Kind == 2)
                 //King.
                 try
                 {
-                    //Parallel.For(0, KingMidle, ik =>
+                    ////Parallel.For(0, KingMidle, ik =>
                     for (int ik = 0; ik < KingMidle; ik++)
                     {
                         if (KingOnTable != null && KingOnTable[ik] != null && KingOnTable[ik].KingThinkingQuantum != null && KingOnTable[ik].KingThinkingQuantum[0] != null && (!KingOnTable[ik].KingThinkingQuantum[0].IsSup))
@@ -17109,7 +17109,7 @@ if (Kind == 2)
 
                 try
                 {
-                    //Parallel.For(SodierMidle, SodierHigh, ik =>
+                    ////Parallel.For(SodierMidle, SodierHigh, ik =>
                     for (int ik = SodierMidle; ik < SodierHigh; ik++)
                     {
                         if (SolderesOnTable != null && SolderesOnTable[ik] != null && SolderesOnTable[ik].SoldierThinkingQuantum != null && SolderesOnTable[ik].SoldierThinkingQuantum[0] != null && (!SolderesOnTable[ik].SoldierThinkingQuantum[0].IsSup))
@@ -17137,7 +17137,7 @@ if (Kind == 2)
                 //Elephant
                 try
                 {
-                    //Parallel.For(ElefantMidle, ElefantHigh, ik =>
+                    ////Parallel.For(ElefantMidle, ElefantHigh, ik =>
                     for (int ik = ElefantMidle; ik < ElefantHigh; ik++)
                     {
                         if (ElephantOnTable != null && ElephantOnTable[ik] != null && ElephantOnTable[ik].ElefantThinkingQuantum != null && ElephantOnTable[ik].ElefantThinkingQuantum[0] != null && (!ElephantOnTable[ik].ElefantThinkingQuantum[0].IsSup))
@@ -17163,7 +17163,7 @@ if (Kind == 2)
                 //Hourse.
                 try
                 {
-                    //Parallel.For(HourseMidle, HourseHight, ik =>
+                    ////Parallel.For(HourseMidle, HourseHight, ik =>
                     for (int ik = HourseMidle; ik < HourseHight; ik++)
                     {
                         if (HoursesOnTable != null && HoursesOnTable[ik] != null && HoursesOnTable[ik].HourseThinkingQuantum != null && HoursesOnTable[ik].HourseThinkingQuantum[0] != null && (!HoursesOnTable[ik].HourseThinkingQuantum[0].IsSup))
@@ -17189,7 +17189,7 @@ if (Kind == 2)
                 //Castles.
                 try
                 {
-                    //Parallel.For(CastleMidle, CastleHigh, ik =>
+                    ////Parallel.For(CastleMidle, CastleHigh, ik =>
                     for (int ik = CastleMidle; ik < CastleHigh; ik++)
                     {
                         if (CastlesOnTable != null && CastlesOnTable[ik] != null && CastlesOnTable[ik].CastleThinkingQuantum != null && CastlesOnTable[ik].CastleThinkingQuantum[0] != null && (!CastlesOnTable[ik].CastleThinkingQuantum[0].IsSup))
@@ -17216,7 +17216,7 @@ if (Kind == 2)
                 //Minister.
                 try
                 {
-                    //Parallel.For(MinisterMidle, MinisterHigh, ik =>
+                    ////Parallel.For(MinisterMidle, MinisterHigh, ik =>
                     for (int ik = MinisterMidle; ik < MinisterHigh; ik++)
                     {
                         if (MinisterOnTable != null && MinisterOnTable[ik] != null && MinisterOnTable[ik].MinisterThinkingQuantum != null && MinisterOnTable[ik].MinisterThinkingQuantum[0] != null && (!MinisterOnTable[ik].MinisterThinkingQuantum[0].IsSup))
@@ -17242,7 +17242,7 @@ if (Kind == 2)
                 //King.
                 try
                 {
-                    //Parallel.For(KingMidle, KingHigh, ik =>
+                    ////Parallel.For(KingMidle, KingHigh, ik =>
                     for (int ik = KingMidle; ik < KingHigh; ik++)
                     {
 
@@ -17524,7 +17524,7 @@ if (Kind == 2)
                 //Soldeir
                 //Initiatye Variables.               
 
-                 Parallel.Invoke(() =>
+                 //Parallel.Invoke(() =>
 
                 {
                     Object O1 = new Object();
@@ -17546,7 +17546,7 @@ if (Kind == 2)
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
-                }, () =>
+                }//, () =>
                 {
                     Object O1 = new Object();
                     lock (O1)
@@ -17572,7 +17572,7 @@ if (Kind == 2)
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
 
-                }, () =>
+                }//, () =>
                 {
                     Object O1 = new Object();
                     lock (O1)
@@ -17597,7 +17597,7 @@ if (Kind == 2)
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
-                }, () =>
+                }//, () =>
                 {
                     Object O1 = new Object();
                     lock (O1)
@@ -17622,7 +17622,7 @@ if (Kind == 2)
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
-                }, () =>
+                }//, () =>
                 {
                     Object O1 = new Object();
                     lock (O1)
@@ -17646,7 +17646,7 @@ if (Kind == 2)
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
-                }, () =>
+                }//, () =>
                 {
                     Object O1 = new Object();
                     lock (O1)
@@ -17668,7 +17668,7 @@ if (Kind == 2)
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
-                });
+                }//);
             }
             //For Brown Order Blitz Game Calculate Maximum Table Inclusive AStarGreedy First Game Search.
             else

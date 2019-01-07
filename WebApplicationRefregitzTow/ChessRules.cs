@@ -652,8 +652,8 @@ namespace RefrigtzW
                     {
                         for (int jj = 0; jj < 8; jj++)
                         {
-                            //for (int i = 0; i < 8; i++)
-                            //for (int j = 0; j < 8; j++)
+                            for (int i = 0; i < 8; i++)
+                            for (int j = 0; j < 8; j++)
                             //Tab[i, j] = Table[i, j];
                             //Ignore Gray.
                             if (Tab[ii, jj] >= 0)

@@ -409,8 +409,8 @@ namespace RefrigtzW
             Object o = new Object();
             lock (o)
             {
-                //for (int h = 0; h < 8; h++)
-                //for (int m = 0; m < 8; m++)
+                for (int h = 0; h < 8; h++)
+                for (int m = 0; m < 8; m++)
                 {
                     //if (h != Row || m != Column)
                     //return;
@@ -973,10 +973,10 @@ namespace RefrigtzW
                                     int Supported = new int();
                                     Supported = 0;
                                     //For All Enemy Obejcts.                                             
-                                    //Parallel.For(0, 8, g =>
+                                    ////Parallel.For(0, 8, g =>
                                     for (int g = 0; g < 8; g++)
                                     {
-                                        //Parallel.For(0, 8, h =>
+                                        ////Parallel.For(0, 8, h =>
                                         for (int h = 0; h < 8; h++)
                                         {
                                             //Ignore Of Self Objects.
@@ -1068,13 +1068,13 @@ namespace RefrigtzW
 
                                     //When there is supporter of attacked Objects take huristic negative else take muliply sign and muliply huristic.
                                     //For All Enemy Obejcts.                                             
-                                    //Parallel.For(0, 8, g =>
+                                    ////Parallel.For(0, 8, g =>
 
 
                                     for (int g = 0; g < 8; g++)
                                     {
                                         for (int h = 0; h < 8; h++)
-                                        //Parallel.For(0, 8, h =>
+                                        ////Parallel.For(0, 8, h =>
                                         {
                                             //Ignore Of Self Objects.
                                             if (Order == 1 && Table[g, h] >= 0)
@@ -1209,10 +1209,10 @@ namespace RefrigtzW
                                             int Reduced = new int();
                                             Reduced = 0;
 
-                                            //Parallel.For(0, 8, g =>
+                                            ////Parallel.For(0, 8, g =>
                                             for (int g = 0; g < 8; g++)
                                             {
-                                                //Parallel.For(0, 8, h =>
+                                                ////Parallel.For(0, 8, h =>
                                                 for (int h = 0; h < 8; h++)
 
                                                 {
@@ -1308,10 +1308,10 @@ namespace RefrigtzW
                                                         int Reduced = new int();
                                                         Reduced = 0;
                                                         //For All Self Obejcts.                                             
-                                                        //Parallel.For(0, 8, g =>
+                                                        ////Parallel.For(0, 8, g =>
                                                         for (int g = 0; g < 8; g++)
                                                         {
-                                                            //Parallel.For(0, 8, h =>
+                                                            ////Parallel.For(0, 8, h =>
                                                             for (int h = 0; h < 8; h++)
 
 
@@ -1576,11 +1576,11 @@ namespace RefrigtzW
                 {
                     EnemyNotSupported = true;
                     //Enemy
-                    //Parallel.For(0, 8, RowS =>
+                    ////Parallel.For(0, 8, RowS =>
                     for (int RowS = 0; RowS < 8; RowS++)
 
                     {
-                        //Parallel.For(0, 8, ColS =>
+                        ////Parallel.For(0, 8, ColS =>
                         for (int ColS = 0; ColS < 8; ColS++)
                         {
                             if (!EnemyNotSupported)
@@ -1588,13 +1588,13 @@ namespace RefrigtzW
                             int Order1 = new int();
                             Order1 = Ord;
                             int[,] Tab = new int[8, 8];
-                            //Parallel.For(0, 8, ik =>
+                            ////Parallel.For(0, 8, ik =>
                             for (int ik = 0; ik < 8; ik++)
                             {
                                 if (!EnemyNotSupported)
                                     continue;
                                 for (int jk = 0; jk < 8; jk++)
-                                //Parallel.For(0, 8, jk =>
+                                ////Parallel.For(0, 8, jk =>
                                 {
                                     Object O3 = new Object();
                                     lock (O3)
@@ -1820,12 +1820,12 @@ namespace RefrigtzW
                         AttackCount = 0;
                         //For All Self
                         for (int RowS = 0; RowS < 8; RowS++)
-                        //Parallel.For(0, 8, RowS =>
+                        ////Parallel.For(0, 8, RowS =>
                         {
                             //if (AttackCount > 1)
                             //continue;
                             for (int ColS = 0; ColS < 8; ColS++)
-                            //Parallel.For(0, 8, ColS =>
+                            ////Parallel.For(0, 8, ColS =>
                             {
                                 if (AttackCount > 1)
                                     continue;
@@ -1843,12 +1843,12 @@ namespace RefrigtzW
                                 {
                                     bool Supporte = false;
                                     //For All Self
-                                    //Parallel.For(0, 8, RowD =>
+                                    ////Parallel.For(0, 8, RowD =>
                                     for (int RowD = 0; RowD < 8; RowD++)
                                     {
                                         if (AttackCount > 1)
                                             continue;
-                                        //Parallel.For(0, 8, ColD =>
+                                        ////Parallel.For(0, 8, ColD =>
                                         for (int ColD = 0; ColD < 8; ColD++)
                                         {
                                             if (AttackCount > 1)
@@ -2346,10 +2346,10 @@ namespace RefrigtzW
 
                 //For Enemies.
 
-                //Parallel.For(0, 8, RowS =>
+                ////Parallel.For(0, 8, RowS =>
                 for (int RowS = 0; RowS < 8; RowS++)
                 {
-                    //Parallel.For(0, 8, ColS =>
+                    ////Parallel.For(0, 8, ColS =>
                     for (int ColS = 0; ColS < 8; ColS++)
                     {
                         if (Order == 1 && Tab[RowS, ColS] >= 0)
@@ -2358,10 +2358,10 @@ namespace RefrigtzW
                             continue;
                         ChessRules A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tab[RowS, ColS], Tab, Order * -1, RowS, ColS);
                         //For Current and Empty
-                        //Parallel.For(0, 8, RowD =>
+                        ////Parallel.For(0, 8, RowD =>
                         for (int RowD = 0; RowD < 8; RowD++)
                         {
-                            //Parallel.For(0, 8, ColD =>
+                            ////Parallel.For(0, 8, ColD =>
                             for (int ColD = 0; ColD < 8; ColD++)
                             {
                                 //Ignore of Enemy.
@@ -2372,13 +2372,13 @@ namespace RefrigtzW
                                 int[,] Table = new int[8, 8];
                                 //Clone a Copy.
                                 /*
-                                Parallel.For(0, 8, ij =>
+                                //Parallel.For(0, 8, ij =>
                                 {
-                                    Parallel.For(0, 8, ji =>
+                                    //Parallel.For(0, 8, ji =>
                                 {
                                     Table[ij, ji] = Tab[ij, ji];
-                                });
-                                });
+                                }//);
+                                }//);
                                 */
                                 for (int ij = 0; ij < 8; ij++)
                                 {
@@ -2410,13 +2410,13 @@ namespace RefrigtzW
                                         {
                                             //Clone a Copy.
                                             /*
-                                            Parallel.For(0, 8, ij =>
+                                            //Parallel.For(0, 8, ij =>
                                             {
-                                                Parallel.For(0, 8, ji =>
+                                                //Parallel.For(0, 8, ji =>
                                                 {
                                                     Table[ij, ji] = Tab[ij, ji];
-                                                });
-                                            });
+                                                }//);
+                                            }//);
                                             */
                                             for (int ij = 0; ij < 8; ij++)
                                             {
@@ -2467,9 +2467,9 @@ namespace RefrigtzW
                 double HA = 0;
                 //For Self.
                 for (int RowS = 0; RowS < 8; RowS++)
-                //Parallel.For(0, 8, RowS =>
+                ////Parallel.For(0, 8, RowS =>
                 {
-                    //Parallel.For(0, 8, ColS =>
+                    ////Parallel.For(0, 8, ColS =>
                     for (int ColS = 0; ColS < 8; ColS++)
                     {
                         //Ignore of Enemy and Empty.
@@ -2479,10 +2479,10 @@ namespace RefrigtzW
                             continue;
                         ChessRules A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tab[RowS, ColS], Tab, Order, RowS, ColS);
                         //For Enemy and Empty.
-                        //Parallel.For(0, 8, RowD =>
+                        ////Parallel.For(0, 8, RowD =>
                         for (int RowD = 0; RowD < 8; RowD++)
                         {
-                            //Parallel.For(0, 8, ColD =>
+                            ////Parallel.For(0, 8, ColD =>
                             for (int ColD = 0; ColD < 8; ColD++)
                             {
                                 //Ignore of Self.
@@ -2492,18 +2492,18 @@ namespace RefrigtzW
                                     continue;
                                 int[,] Table = new int[8, 8];
                                 //Clone a Copy.
-                                /*Parallel.For(0, 8, ij =>
+                                /*//Parallel.For(0, 8, ij =>
                                     {
-                                        Parallel.For(0, 8, ji =>
+                                        //Parallel.For(0, 8, ji =>
                                         {
                                             Object O2 = new Object();
                                             lock (O2)
                                             {
                                                 Table[ij, ji] = Tab[ij, ji];
                                             }
-                                        });
+                                        }//);
 
-                                    });
+                                    }//);
                                     */
                                 for (int ij = 0; ij < 8; ij++)
                                 {
@@ -2539,17 +2539,17 @@ namespace RefrigtzW
                                             int[,] Table1 = new int[8, 8];
                                             //Clone a Copy.
                                             /*
-                                            Parallel.For(0, 8, ij =>
+                                            //Parallel.For(0, 8, ij =>
                                                     {
-                                                        Parallel.For(0, 8, ji =>
+                                                        //Parallel.For(0, 8, ji =>
                                                         {
                                                             Object O1 = new Object();
                                                             lock (O1)
                                                             {
                                                                 Table1[ij, ji] = Tab[ij, ji];
                                                             }
-                                                        });
-                                                    });
+                                                        }//);
+                                                    }//);
 */
                                             for (int ij = 0; ij < 8; ij++)
                                             {
@@ -2676,12 +2676,12 @@ namespace RefrigtzW
                                     int Supported = new int();
                                     Supported = 0;
                                     //For All Self Obejcts.                                             
-                                    //Parallel.For(0, 8, g =>
+                                    ////Parallel.For(0, 8, g =>
                                     for (int g = 0; g < 8; g++)
                                     {
                                         //if (Supported)
                                         //return;
-                                        //Parallel.For(0, 8, h =>
+                                        ////Parallel.For(0, 8, h =>
                                         for (int h = 0; h < 8; h++)
                                         {
                                             Object O2 = new Object();
@@ -2743,11 +2743,11 @@ namespace RefrigtzW
                     {
                         //for (int RowS = 0; RowS < 8; RowS++)
                         {
-                            //for (int ColS = 0; ColS < 8; ColS++)
+//for (int ColS = 0; ColS < 8; ColS++)
                             {
                                 //for (int RowD = 0; RowD < 8; RowD++)
                                 {
-                                    //for (int ColD = 0; ColD < 8; ColD++)
+                                   // for (int ColD = 0; ColD < 8; ColD++)
                                     {
                                         int Order = new int();
                                         Color a = new Color();
@@ -2800,7 +2800,7 @@ namespace RefrigtzW
                                                 {
                                                     //if (Supported)
                                                     //return;
-                                                    //Parallel.For(0, 8, h =>
+                                                    ////Parallel.For(0, 8, h =>
                                                     for (int h = 0; h < 8; h++)
                                                     {
                                                         Object O2 = new Object();
@@ -3543,8 +3543,8 @@ namespace RefrigtzW
                     //For All Enemies.
                     for (int ik = 0; ik < 8; ik++)
                         for (int jk = 0; jk < 8; jk++)
-                        //Parallel.For(0, 8, ik =>
-                        //Parallel.For(0, 8, jk =>
+                        ////Parallel.For(0, 8, ik =>
+                        ////Parallel.For(0, 8, jk =>
                         {
                             //Ignore of Current
                             if (Order == 1 && Tabl[ik, jk] >= 0)
@@ -3557,8 +3557,8 @@ namespace RefrigtzW
                                 for (int iki = ik - 2; iki < ik + 3; iki++)
                                     for (int jki = jk - 2; jki < jk + 3; jki++)
 
-                                    //Parallel.For(ik - 2, ik + 3, iki =>
-                                    //Parallel.For(jk - 2, jk + 3, jki =>
+                                    ////Parallel.For(ik - 2, ik + 3, iki =>
+                                    ////Parallel.For(jk - 2, jk + 3, jki =>
                                     // init subtotal
                                     {
                                         if (!Scop(ik, jk, iki, jki, 1))
@@ -3591,7 +3591,7 @@ namespace RefrigtzW
                             {
 
                                 //For Current Home
-                                //Parallel.For(0, 8, iki =>
+                                ////Parallel.For(0, 8, iki =>
                                 for (int iki = 0; iki < 8; iki++)
                                 {
                                     int jki = iki + jk - ik;
@@ -3620,7 +3620,7 @@ namespace RefrigtzW
 
                                 }//);
                                  //For Current Home
-                                 //Parallel.For(0, 8, iki =>
+                                 ////Parallel.For(0, 8, iki =>
                                 for (int iki = 0; iki < 8; iki++)
                                 {
                                     int jki = iki * -1 + jk + ik;
@@ -3652,8 +3652,8 @@ namespace RefrigtzW
                             if (System.Math.Abs(Tabl[ik, jk]) == 3)
                             {
                                 //For Current Home
-                                //Parallel.For(ik - 2, ik + 3, iki =>
-                                //Parallel.For(jk - 2, jk + 3, jki =>
+                                ////Parallel.For(ik - 2, ik + 3, iki =>
+                                ////Parallel.For(jk - 2, jk + 3, jki =>
                                 for (int iki = ik - 2; iki < ik + 3; iki++)
                                     for (int jki = jk - 2; jki < jk + 3; jki++)
 
@@ -3684,7 +3684,7 @@ namespace RefrigtzW
                             if (System.Math.Abs(Tabl[ik, jk]) == 4)
                             {
                                 //For Current Home
-                                //Parallel.For(0, 8, iki =>
+                                ////Parallel.For(0, 8, iki =>
                                 for (int iki = 0; iki < 8; iki++)
                                 {
                                     int jki = jk;
@@ -3712,7 +3712,7 @@ namespace RefrigtzW
                                     }
                                 }//);
                                  //For Current Home
-                                 //Parallel.For(0, 8, jki =>
+                                 ////Parallel.For(0, 8, jki =>
                                 for (int jki = 0; jki < 8; jki++)
                                 {
                                     int iki = ik;
@@ -3745,8 +3745,8 @@ namespace RefrigtzW
                             {
 
                                 //For Current Home
-                                //Parallel.For(0, 8, iki =>
-                                //Parallel.For(0, 8, jki =>
+                                ////Parallel.For(0, 8, iki =>
+                                ////Parallel.For(0, 8, jki =>
                                 for (int iki = 0; iki < 8; iki++)
                                     for (int jki = 0; jki < 8; jki++)
                                     {
@@ -3778,8 +3778,8 @@ namespace RefrigtzW
                             if (System.Math.Abs(Tabl[ik, jk]) == 6)
                             {
                                 //For Current Home
-                                //Parallel.For(ik - 1, ik + 2, iki =>
-                                //Parallel.For(jk - 1, jk + 2, jki =>
+                                ////Parallel.For(ik - 1, ik + 2, iki =>
+                                ////Parallel.For(jk - 1, jk + 2, jki =>
                                 for (int iki = ik - 1; iki < ik + 2; iki++)
                                     for (int jki = jk - 1; jki < jk + 2; jki++)
 
@@ -3868,14 +3868,14 @@ namespace RefrigtzW
                         TabS[ii, jj] = 0;
 
                         //For Self Objects.
-                        //Parallel.For(0, 8, RowD =>
+                        ////Parallel.For(0, 8, RowD =>
                         for (int RowD = 0; RowD < 8; RowD++)
 
                         {
                             if (!Attacked || NumberOfCurrentEnemyAttackSuchObject > 1)
                                 continue;
 
-                            //Parallel.For(0, 8, ColD =>
+                            ////Parallel.For(0, 8, ColD =>
                             for (int ColD = 0; ColD < 8; ColD++)
                             {
                                 if (!Attacked || NumberOfCurrentEnemyAttackSuchObject > 1)
@@ -3888,10 +3888,10 @@ namespace RefrigtzW
                                 //Show the Attacked.
                                 Attacked = true;
                                 //For Self Objects and Empty.
-                                //Parallel.For(0, 8, iiiii =>
+                                ////Parallel.For(0, 8, iiiii =>
                                 for (int iiiii = 0; iiiii < 8; iiiii++)
                                 {
-                                    //Parallel.For(0, 8, jjjjj =>
+                                    ////Parallel.For(0, 8, jjjjj =>
                                     for (int jjjjj = 0; jjjjj < 8; jjjjj++)
                                     {
                                         //Ignore of Enemy Objects.
@@ -4497,9 +4497,9 @@ namespace RefrigtzW
                     if (!AStarGreedyHuristicT)
                     {
                         //For Current Objects.
-                        //Parallel.For(0, 8, RowS =>
+                        ////Parallel.For(0, 8, RowS =>
                         {
-                            //Parallel.For(0, 8, ColS =>
+                            ////Parallel.For(0, 8, ColS =>
                             {
                                 Object O1 = new Object();
                                 lock (O1)
@@ -4562,14 +4562,14 @@ namespace RefrigtzW
                     //For All Homes Table.
                     else
                     {
-                        //Parallel.For(0, 8, RowS =>
+                        ////Parallel.For(0, 8, RowS =>
                         {
-                            //Parallel.For(0, 8, ColS =>
+                            ////Parallel.For(0, 8, ColS =>
                             {
-                                //Parallel.For(0, 8, ii =>
+                                ////Parallel.For(0, 8, ii =>
                                 for (int ii = 0; ii < 8; ii++)
                                 {
-                                    //Parallel.For(0, 8, jj =>
+                                    ////Parallel.For(0, 8, jj =>
                                     for (int jj = 0; jj < 8; jj++)
                                     {
                                         Object O1 = new Object();
@@ -4709,9 +4709,9 @@ namespace RefrigtzW
                                 int Supported = 0;
                                 //For All Enemy Obejcts.                                             
                                 for (int g = 0; g < 8; g++)
-                                //Parallel.For(0, 8, g =>
+                                ////Parallel.For(0, 8, g =>
                                 {
-                                    //Parallel.For(0, 8, h =>
+                                    ////Parallel.For(0, 8, h =>
                                     for (int h = 0; h < 8; h++)
                                     {
                                         Object O2 = new Object();
@@ -4803,11 +4803,11 @@ namespace RefrigtzW
                                 int Supported = 0;
                                 //For All Enemy Obejcts.                                             
                                 for (int g = 0; g < 8; g++)
-                                //Parallel.For(0, 8, g =>
+                                ////Parallel.For(0, 8, g =>
                                 {
 
                                     for (int h = 0; h < 8; h++)
-                                    //Parallel.For(0, 8, h =>
+                                    ////Parallel.For(0, 8, h =>
                                     {
 
                                         //Ignore Of Self Objects.
@@ -5761,7 +5761,7 @@ namespace RefrigtzW
                             for (int i = 0; i < AStarGreedy.Count; i++)
                             {
                                 //For All solder DrawOn Table Count.
-                                //for (int m = 0; m < SolderOnTableCount(ref AStarGreedy[i].SolderesOnTable, true, AStarGreedy[i].SodierHigh); m++)
+                                for (int m = 0; m < SolderOnTableCount(ref AStarGreedy[i].SolderesOnTable, true, AStarGreedy[i].SodierHigh); m++)
                                 for (int m = 0; m < AStarGreedy[i].SodierMidle; m++)
                                 {
                                     //When Depth of Solders On Table is Not NULL.
@@ -5787,7 +5787,7 @@ namespace RefrigtzW
 
                                 }
                                 //For All Elephant On Table Count.
-                                //for (int m = 0; m < ElefantOnTableCount(ref AStarGreedy[i].ElephantOnTable, true, AStarGreedy[i].ElefantHigh); m++)
+                                for (int m = 0; m < ElefantOnTableCount(ref AStarGreedy[i].ElephantOnTable, true, AStarGreedy[i].ElefantHigh); m++)
                                 for (int m = 0; m < AStarGreedy[i].ElefantMidle; m++)
                                 {
 
@@ -5813,7 +5813,7 @@ namespace RefrigtzW
 
                                 }
                                 //For All Hourse on Table Count.
-                                //for (int m = 0; m < HourseOnTableCount(ref AStarGreedy[i].HoursesOnTable, true, AStarGreedy[i].HourseHight); m++)
+                                for (int m = 0; m < HourseOnTableCount(ref AStarGreedy[i].HoursesOnTable, true, AStarGreedy[i].HourseHight); m++)
                                 for (int m = 0; m < AStarGreedy[i].HourseMidle; m++)
                                 {
                                     //When is HourseOn Table Depth Object is Not NULL.
@@ -5839,7 +5839,7 @@ namespace RefrigtzW
 
                                 }
                                 //For All Castles on table Count.
-                                //for (int m = 0; m < CastleOnTableCount(ref AStarGreedy[i].CastlesOnTable, true, AStarGreedy[i].CastleHigh); m++)
+                                for (int m = 0; m < CastleOnTableCount(ref AStarGreedy[i].CastlesOnTable, true, AStarGreedy[i].CastleHigh); m++)
                                 for (  int m = 0; m < AStarGreedy[i].CastleMidle; m++)
                                 {
                                     //When Depth Objects of Hourse Table is Not NULL.
@@ -5865,7 +5865,7 @@ namespace RefrigtzW
 
                                 }
                                 //For All Minsiter on table count.
-                                //for (int m = 0; m < MinisterOnTableCount(ref AStarGreedy[i].MinisterOnTable, true, AStarGreedy[i].MinisterHigh); m++)
+                                for (int m = 0; m < MinisterOnTableCount(ref AStarGreedy[i].MinisterOnTable, true, AStarGreedy[i].MinisterHigh); m++)
                                 for (int m = 0; m < AStarGreedy[i].MinisterMidle; m++)
                                 {
                                     //When Minster of Depth is Not Null.
@@ -5885,7 +5885,7 @@ namespace RefrigtzW
 
                                 }
                                 //For All King on table Count.
-                                //for (int m = 0; m < KingOnTableCount(ref AStarGreedy[i].KingOnTable, true, AStarGreedy[i].KingHigh); m++)
+                                for (int m = 0; m < KingOnTableCount(ref AStarGreedy[i].KingOnTable, true, AStarGreedy[i].KingHigh); m++)
                                 for (int m = 0; m < AStarGreedy[i].KingMidle; m++)
                                 {
                                     //When Depth Object of King Table is Not NULL.
@@ -5918,7 +5918,7 @@ namespace RefrigtzW
                             for (int i = 0; i < AStarGreedy.Count; i++)
                             {
                                 //For All Brown Solders on table count.
-                                //for (int m = SolderOnTableCount(ref AStarGreedy[i].SolderesOnTable, true, AStarGreedy[i].SodierHigh); m < SolderOnTableCount(ref AStarGreedy[i].SolderesOnTable, false, AStarGreedy[i].SodierHigh); m++)
+                                for (int m = SolderOnTableCount(ref AStarGreedy[i].SolderesOnTable, true, AStarGreedy[i].SodierHigh); m < SolderOnTableCount(ref AStarGreedy[i].SolderesOnTable, false, AStarGreedy[i].SodierHigh); m++)
                                 for (int m = AStarGreedy[i].SodierMidle; m < AStarGreedy[i].SodierHigh; m++)
                                 {
                                     //When solderis on table depth obejcts is nopt null.
@@ -5942,7 +5942,7 @@ namespace RefrigtzW
 
                                 }
                                 //For All Elephant On Table Count.
-                                //for (int m = ElefantOnTableCount(ref AStarGreedy[i].ElephantOnTable, true, AStarGreedy[i].ElefantHigh); m < ElefantOnTableCount(ref AStarGreedy[i].ElephantOnTable, false, AStarGreedy[i].ElefantHigh); m++)
+                                for (int m = ElefantOnTableCount(ref AStarGreedy[i].ElephantOnTable, true, AStarGreedy[i].ElefantHigh); m < ElefantOnTableCount(ref AStarGreedy[i].ElephantOnTable, false, AStarGreedy[i].ElefantHigh); m++)
                                 for (int m = AStarGreedy[i].ElefantMidle; m < AStarGreedy[i].ElefantHigh; m++)
                                 {
                                     //For All Elephant in Depth Count.
@@ -5967,7 +5967,7 @@ namespace RefrigtzW
 
                                 }
                                 //For All Hourse on Table Count.
-                                //for (int m = HourseOnTableCount(ref AStarGreedy[i].HoursesOnTable, true, AStarGreedy[i].HourseHight); m < HourseOnTableCount(ref AStarGreedy[i].HoursesOnTable, false, AStarGreedy[i].HourseHight); m++)
+                                for (int m = HourseOnTableCount(ref AStarGreedy[i].HoursesOnTable, true, AStarGreedy[i].HourseHight); m < HourseOnTableCount(ref AStarGreedy[i].HoursesOnTable, false, AStarGreedy[i].HourseHight); m++)
                                 for (int m = AStarGreedy[i].HourseMidle; m < AStarGreedy[i].HourseHight; m++)
                                 {
                                     //When is HourseOn Table Depth Object is Not NULL.
@@ -5990,7 +5990,7 @@ namespace RefrigtzW
                                         //CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
                                 }
                                 //For All Castles on table Count.
-                                //for (int m = CastleOnTableCount(ref AStarGreedy[i].CastlesOnTable, true, AStarGreedy[i].CastleHigh); m < CastleOnTableCount(ref AStarGreedy[i].CastlesOnTable, false, AStarGreedy[i].CastleHigh); m++)
+                                for (int m = CastleOnTableCount(ref AStarGreedy[i].CastlesOnTable, true, AStarGreedy[i].CastleHigh); m < CastleOnTableCount(ref AStarGreedy[i].CastlesOnTable, false, AStarGreedy[i].CastleHigh); m++)
                                 for (int m = AStarGreedy[i].CastleMidle; m < AStarGreedy[i].CastleHigh; m++)
                                 {
                                     //When Depth Objects of Hourse Table is Not NULL.
@@ -6014,7 +6014,7 @@ namespace RefrigtzW
 
                                 }
                                 //For All Minsiter on table count.
-                                //for (int m = MinisterOnTableCount(ref AStarGreedy[i].MinisterOnTable, true, AStarGreedy[i].MinisterHigh); m < MinisterOnTableCount(ref AStarGreedy[i].MinisterOnTable, false, AStarGreedy[i].MinisterHigh); m++)
+                                for (int m = MinisterOnTableCount(ref AStarGreedy[i].MinisterOnTable, true, AStarGreedy[i].MinisterHigh); m < MinisterOnTableCount(ref AStarGreedy[i].MinisterOnTable, false, AStarGreedy[i].MinisterHigh); m++)
                                 for (int m = AStarGreedy[i].MinisterMidle; m < AStarGreedy[i].MinisterHigh; m++)
                                 {
                                     //When Minster of Depth is Not Null.
@@ -6038,7 +6038,7 @@ namespace RefrigtzW
 
                                 }
                                 //For All King on table Count.
-                                //for (int m = KingOnTableCount(ref AStarGreedy[i].KingOnTable, true, AStarGreedy[i].KingHigh); m < KingOnTableCount(ref AStarGreedy[i].KingOnTable, false, AStarGreedy[i].KingHigh); m++)
+                                for (int m = KingOnTableCount(ref AStarGreedy[i].KingOnTable, true, AStarGreedy[i].KingHigh); m < KingOnTableCount(ref AStarGreedy[i].KingOnTable, false, AStarGreedy[i].KingHigh); m++)
                                 for (int m = AStarGreedy[i].KingMidle; m < AStarGreedy[i].KingHigh; m++)
                                 {
                                     //When Minster of Depth is Not Null.
@@ -7172,23 +7172,23 @@ namespace RefrigtzW
                 Object O = new Object();
                 lock (O)
                 {
-                    //Parallel.For(0, 8, i =>
+                    ////Parallel.For(0, 8, i =>
                     for (int i = 0; i < 8; i++)
                     {
                         if ((LearningV[0] || LearningV[1] || LearningV[2]))
                             continue;
-                        //Parallel.For(0, 8, j =>
+                        ////Parallel.For(0, 8, j =>
                         for (int j = 0; j < 8; j++)
                         {
                             if ((LearningV[0] || LearningV[1] || LearningV[2]))
                                 continue;
-                            //Parallel.For(0, 8, RowS =>
+                            ////Parallel.For(0, 8, RowS =>
                             for (int RowS = 0; RowS < 8; RowS++)
                             {
                                 if ((LearningV[0] || LearningV[1] || LearningV[2]))
                                     continue;
 
-                                //Parallel.For(0, 8, ColS =>
+                                ////Parallel.For(0, 8, ColS =>
                                 for (int ColS = 0; ColS < 8; ColS++)
                                 {
                                     if ((LearningV[0] || LearningV[1] || LearningV[2]))
@@ -9337,10 +9337,10 @@ namespace RefrigtzW
             Object O1 = new Object();
             lock (O1)
             {
-                //Parallel.For(ii - 2, ii + 3, i =>
+                ////Parallel.For(ii - 2, ii + 3, i =>
                 for (int i = ii - 2; i < ii + 3; i++)
                 {
-                    //Parallel.For(jj - 2, jj + 3, j =>
+                    ////Parallel.For(jj - 2, jj + 3, j =>
                     for (int j = jj - 2; j < jj + 3; j++)
                     {
                         Object O = new Object();
@@ -9397,7 +9397,7 @@ namespace RefrigtzW
                 Object O1 = new Object();
                 lock (O1)
                 {
-                    //Parallel.For(0, 8, i =>
+                    ////Parallel.For(0, 8, i =>
                     for (int i = 0; i < 8; i++)
                     {
                         Object O = new Object();
@@ -9415,7 +9415,7 @@ namespace RefrigtzW
                         }
                     }//);
                     //==================
-                    //Parallel.For(0, 8, i =>
+                    ////Parallel.For(0, 8, i =>
                     for (int i = 0; i < 8; i++)
                     {
                         Object O = new Object();
@@ -9708,7 +9708,7 @@ namespace RefrigtzW
             Object O1 = new Object();
             lock (O1)
             {
-                //Parallel.For(0, 8, i =>
+                ////Parallel.For(0, 8, i =>
                 for (int i = 0; i < 8; i++)
                 {
                     Object O = new Object();
@@ -9742,7 +9742,7 @@ namespace RefrigtzW
             Object O1 = new Object();
             lock (O1)
             {
-                //Parallel.For(0, 8, j =>
+                ////Parallel.For(0, 8, j =>
                 for (int j = 0; j < 8; j++)
                 {
                     Object O = new Object();
@@ -9823,10 +9823,10 @@ namespace RefrigtzW
             lock (O1)
             {
 
-                //Parallel.For(0, 8, i =>
+                ////Parallel.For(0, 8, i =>
                 for (int i = 0; i < 8; i++)
                 {
-                    //Parallel.For(0, 8, j =>
+                    ////Parallel.For(0, 8, j =>
                     for (int j = 0; j < 8; j++)
                     {
                         Object O = new Object();
@@ -9907,10 +9907,10 @@ namespace RefrigtzW
                 Object O = new Object();
                 lock (O)
                 {
-                    //Parallel.For(ii - 1, ii + 2, i =>
+                    ////Parallel.For(ii - 1, ii + 2, i =>
                     for (int i = ii - 1; i < ii + 2; i++)
                     {
-                        //Parallel.For(jj - 1, jj + 2, j =>
+                        ////Parallel.For(jj - 1, jj + 2, j =>
                         for (int j = jj - 1; j < jj + 2; j++)
                         {
 
@@ -10210,16 +10210,16 @@ namespace RefrigtzW
                         a = Color.Brown;
                     if (Order * -1 == -1)
                         aa = Color.Brown;
-                    //Parallel.For(0, 8, RowO =>
+                    ////Parallel.For(0, 8, RowO =>
                     for (int RowO = 0; RowO < 8; RowO++)
 
-                        //Parallel.For(0, 8, ColumnO =>
+                        ////Parallel.For(0, 8, ColumnO =>
                         for (int ColumnO = 0; ColumnO < 8; ColumnO++)
                         {
                             //for (int RowS = 0; RowS < 8; RowS++)
-                            //Parallel.For(0, 8, RowS =>
+                            ////Parallel.For(0, 8, RowS =>
                             {
-                                //Parallel.For(0, 8, ColS =>
+                                ////Parallel.For(0, 8, ColS =>
                                 //for (int ColS = 0; ColS < 8; ColS++)
                                 {
                                     Object O = new Object();
