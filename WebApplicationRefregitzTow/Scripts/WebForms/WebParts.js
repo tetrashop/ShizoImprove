@@ -310,7 +310,7 @@ function WebPartMenu_Show() {
     }
     var menuHTML =
         "<html><head><style>" +
-        "a.menuItem, a.menuItem:Link { display: block; padding: 1px; text-decoration: none; " + this.itemStyle + " }" +
+        "a.menuItem, a.menuItem:Link { display: b//lock; padding: 1px; text-decoration: none; " + this.itemStyle + " }" +
         "a.menuItem:Hover { " + this.itemHoverStyle + " }" +
         "</style><body scroll=\"no\" style=\"border: none; margin: 0; padding: 0;\" ondragstart=\"window.event.returnValue=false;\" onclick=\"popup.hide()\">" +
         this.menuElement.innerHTML +
@@ -447,7 +447,7 @@ function WebPartManager_InitiateWebPartDragDrop(webPartElement) {
     var overlayContainerElement = this.overlayContainerElement;
     overlayContainerElement.style.left = location.x - webPartElement.offsetWidth / 2;
     overlayContainerElement.style.top = location.y + 4 + (webPartElement.clientTop ? webPartElement.clientTop : 0);
-    overlayContainerElement.style.display = "block";
+    overlayContainerElement.style.display = "b//lock";
     overlayContainerElement.style.width = webPartElement.offsetWidth;
     overlayContainerElement.style.height = webPartElement.offsetHeight;
     overlayContainerElement.appendChild(webPartElement.cloneNode(true));

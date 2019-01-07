@@ -164,7 +164,7 @@ function TreeView_ToggleNode(data, index, node, lineType, children) {
     var newExpandState;
     try {
         if (children.style.display == "none") {
-            children.style.display = "block";
+            children.style.display = "b//lock";
             newExpandState = "e";
             if ((typeof(img) != "undefined") && (img != null)) {
                 if (lineType == "l") {

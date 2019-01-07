@@ -57,7 +57,7 @@ Sys.WebForms.Menu = function(options) {
         }
         else {
             this.displayMode = "static";
-            this.element.style.display = "block";
+            this.element.style.display = "b//lock";
             if (this.container.orientation === 'horizontal') {
                 Sys.WebForms.Menu._domHelper.setFloat(this.element, this.container.rightToLeft ? "right" : "left");
             }
@@ -144,7 +144,7 @@ Sys.WebForms.Menu.prototype = {
     isRoot: function() { return this.rootMenu === this; },
     isStatic: function() { return this.displayMode === 'static'; },
     lastChild: function() { return this.items[this.items.length - 1]; },
-    show: function() { this.element.style.display = 'block'; }
+    show: function() { this.element.style.display = 'b//lock'; }
 };
 if (Sys.WebForms.Menu.registerClass) {
     Sys.WebForms.Menu.registerClass('Sys.WebForms.Menu');

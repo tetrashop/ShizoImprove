@@ -14,8 +14,8 @@ namespace QuantumRefrigiz
         //Pieces have rings around them, filled in with colour. These rings show the probability that the piece is in that square.
         public bool RingHalf = false;
         public int WinOcuuredatChiled = 0;public int LoseOcuuredatChiled = 0;
-        private readonly object balanceLock = new object();
-        private readonly object balanceLockS = new object();
+        //private readonly //object balancelock = new object();
+        //private readonly //object balancelockS = new object();
         public static Image[] M = new Image[2];
         //Initiate Global Variable.
         List<int[]> ValuableSelfSupported = new List<int[]>();
@@ -43,7 +43,7 @@ namespace QuantumRefrigiz
             try
             {
                 Object a = new Object();
-                lock (a)
+                //lock (a)
                 {
                     string stackTrace = ex.ToString();
                     File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
@@ -65,7 +65,7 @@ namespace QuantumRefrigiz
                 if (MaxHuristicxM < a)
                 {
                     Object O2 = new Object();
-                    lock (O2)
+                    //lock (O2)
                     {
                         MaxNotFound = false;
                         if (ThinkingQuantumChess.MaxHuristicx < MaxHuristicxM)
@@ -115,15 +115,11 @@ namespace QuantumRefrigiz
         public DrawMinister(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. THIS
             )
         {
+            //object balancelock = new object();
 
-            lock (balanceLock)
+            //lock (balance//lock)
             {
-                if (M[0] == null && M[1] == null)
-                {
-                    M[0] = Image.FromFile(AllDraw.ImagesSubRoot + "MG.png");
-                    M[1] = Image.FromFile(AllDraw.ImagesSubRoot + "MB.png");
-                }
-
+                
                 CurrentAStarGredyMax = CurrentAStarGredy;
                 MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
                 IgnoreSelfObjectsT = IgnoreSelfObject;
@@ -187,6 +183,8 @@ namespace QuantumRefrigiz
         //Draw an Mnister on the Table.
         public void DrawMinisterOnTable(ref Graphics g, int CellW, int CellH)
         {
+            //object balancelockS = new object();
+
             int LastRow = -1, LastColumn = -1;
             try
             {
@@ -235,7 +233,7 @@ namespace QuantumRefrigiz
                     }
                 }
 
-                lock (balanceLockS)
+                //lock (balance//lockS)
                 {
                     if (M[0] == null || M[1] == null)
                     {
@@ -248,7 +246,7 @@ namespace QuantumRefrigiz
                         if (Order == 1)
                         {
                             Object O1 = new Object();
-                            lock (O1)
+                            //lock (O1)
                             {    //Draw an Instant from File of Gray Soldeirs.
                                  //Draw a Gray Instatnt Minister Image on the Table.
 
@@ -285,7 +283,7 @@ namespace QuantumRefrigiz
                         else
                         {
                             Object O1 = new Object();
-                            lock (O1)
+                            //lock (O1)
                             {
 
                                 g.DrawImage(M[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));

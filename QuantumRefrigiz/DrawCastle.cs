@@ -14,8 +14,8 @@ namespace QuantumRefrigiz
         //Pieces have rings around them, filled in with colour. These rings show the probability that the piece is in that square.
         public bool RingHalf = false;
         public int WinOcuuredatChiled = 0;public int LoseOcuuredatChiled = 0;
-        private readonly object balanceLock = new object();
-        private readonly object balanceLockS = new object();
+        //private readonly //object balancelock = new object();
+        //private readonly //object balancelockS = new object();
         public static Image[] C = new Image[2];
         //Iniatite Global Variable.
         List<int[]> ValuableSelfSupported = new List<int[]>();
@@ -42,7 +42,7 @@ namespace QuantumRefrigiz
             try
             {
                 Object a = new Object();
-                lock (a)
+                //lock (a)
                 {
                     string stackTrace = ex.ToString();
                     File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
@@ -64,7 +64,7 @@ namespace QuantumRefrigiz
                 {
                     MaxNotFound = false;
                     Object O = new Object();
-                    lock (O)
+                    //lock (O)
                     {
                         if (ThinkingQuantumChess.MaxHuristicx < MaxHuristicxB)
                             ThinkingQuantumChess.MaxHuristicx = a;
@@ -115,14 +115,11 @@ namespace QuantumRefrigiz
         public DrawCastle(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. THIS
             )
         {
+            //object balancelock = new object();
 
-            lock (balanceLock)
+            //lock (balance//lock)
             {
-                if (C[0] == null && C[1] == null)
-                {
-                    C[0] = Image.FromFile(AllDraw.ImagesSubRoot + "BrG.png");
-                    C[1] = Image.FromFile(AllDraw.ImagesSubRoot + "BrB.png");
-                }
+                
 
                 CurrentAStarGredyMax = CurrentAStarGredy;
                 MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
@@ -187,6 +184,7 @@ namespace QuantumRefrigiz
         //Draw An Instatnt Brideges Images On the Table Method.
         public void DrawCastleOnTable(ref Graphics g, int CellW, int CellH)
         {
+            //object balancelockS = new object();
             try
             {
                 int LastRow = -1, LastColumn = -1;
@@ -235,7 +233,7 @@ namespace QuantumRefrigiz
                     }
                 }
 
-                lock (balanceLockS)
+                //lock (balance//lockS)
                 {
 
                     if (C[0] == null || C[1] == null)
@@ -248,7 +246,7 @@ namespace QuantumRefrigiz
                         if (Order == 1)
                         {
                             Object O1 = new Object();
-                            lock (O1)
+                            //lock (O1)
                             {    //Draw an Instant from File of Gray Soldeirs.
                                  //Draw a Gray Castles Instatnt Image On hte Tabe.
                                 g.DrawImage(C[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
@@ -283,7 +281,7 @@ namespace QuantumRefrigiz
                         else
                         {
                             Object O1 = new Object();
-                            lock (O1)
+                            //lock (O1)
                             {    //Draw an Instant from File of Gray Soldeirs.
                                  //Draw an Instatnt of Brown Castles On the Table.
                                 g.DrawImage(C[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));

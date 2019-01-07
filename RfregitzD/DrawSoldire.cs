@@ -15,8 +15,8 @@ namespace RefrigtzDLL
         
         public int WinOcuuredatChiled = 0;public int LoseOcuuredatChiled = 0;
         //Iniatate Global Variables.
-        private readonly object balanceLock = new object();
-        private readonly object balanceLockS = new object();
+        //private readonly //object balancelock = new object();
+        //private readonly //object balancelockS = new object();
         List<int[]> ValuableSelfSupported = new List<int[]>();
 
         public static Image[] S = new Image[2];
@@ -41,7 +41,7 @@ namespace RefrigtzDLL
             try
             {
                 Object a = new Object();
-                lock (a)
+                //lock (a)
                 {
                     string stackTrace = ex.ToString();
                     File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
@@ -63,7 +63,7 @@ namespace RefrigtzDLL
                 if (MaxHuristicxS < a)
                 {
                     Object O2 = new Object();
-                    lock (O2)
+                    //lock (O2)
                     {
                         MaxNotFound = false;
                         if (ThinkingChess.MaxHuristicx < MaxHuristicxS)
@@ -114,15 +114,10 @@ namespace RefrigtzDLL
             ) :
             base(Arrangments, (int)i, (int)j, a, Tab, Ord, TB, Cur)
         {
-
-            lock (balanceLock)
+            //object balancelock = new object();
+            //lock (balance//lock)
             {
-                if (S[0] == null && S[1] == null)
-                {
-                    S[0] = Image.FromFile(AllDraw.ImagesSubRoot + "SG.png");
-                    S[1] = Image.FromFile(AllDraw.ImagesSubRoot + "SB.png");
-                }
-
+            
 
                 CurrentAStarGredyMax = CurrentAStarGredy;
                 MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
@@ -138,8 +133,6 @@ namespace RefrigtzDLL
                 for (int ii = 0; ii < 8; ii++)
                     for (int jj = 0; jj < 8; jj++)
                         Table[ii, jj] = Tab[ii, jj];
-                if (i >= 8 || j >= 8)
-                    i = 7;
                 for (int ii = 0; ii < AllDraw.SodierMovments; ii++)
 
                     SoldierThinking[ii] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 4, Ord, TB, Cur, 16, 1);
@@ -190,8 +183,9 @@ namespace RefrigtzDLL
         //Drawing Soldiers On the Table Method..
         public void DrawSoldierOnTable(ref Graphics g, int CellW, int CellH)
         {
+            //object balancelockS = new object();
 
-            lock (balanceLockS)
+            //lock (balance//lockS)
             {
                 if (S[0] == null || S[1] == null)
                 {
@@ -212,7 +206,7 @@ namespace RefrigtzDLL
                             if (Order == 1)
                             {
                                 Object O1 = new Object();
-                                lock (O1)
+                                //lock (O1)
                                 {    //Draw an Instant from File of Gray Soldeirs.
                                     g.DrawImage(S[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                         
@@ -221,7 +215,7 @@ namespace RefrigtzDLL
                             else
                             {
                                 Object O1 = new Object();
-                                lock (O1)
+                                //lock (O1)
                                 {    //Draw an Instant from File of Gray Soldeirs.
                                      //Draw an Instatnt of Brown Soldier File On the Table.
                                     g.DrawImage(S[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
@@ -243,7 +237,7 @@ namespace RefrigtzDLL
                             if (Order == 1)
                             {
                                 Object O1 = new Object();
-                                lock (O1)
+                                //lock (O1)
                                 {    //Draw an Instant from File of Gray Soldeirs.
                                      //Draw of Gray Minsister Image File By an Instant.
                                     g.DrawImage(DrawMinister.M[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
@@ -252,7 +246,7 @@ namespace RefrigtzDLL
                             else
                             {
                                 Object O1 = new Object();
-                                lock (O1)
+                                //lock (O1)
                                 {    //Draw an Instant from File of Gray Soldeirs.
                                      //Draw a Image File on the Table Form n Instatnt One.
                                     g.DrawImage(DrawMinister.M[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
@@ -272,7 +266,7 @@ namespace RefrigtzDLL
                             if (Order == 1)
                             {
                                 Object O1 = new Object();
-                                lock (O1)
+                                //lock (O1)
                                 {    //Draw an Instant from File of Gray Soldeirs.
                                      //Create on the Inststant of Gray Castles Images.
                                     g.DrawImage(DrawCastle.C[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
@@ -281,7 +275,7 @@ namespace RefrigtzDLL
                             else
                             {
                                 Object O1 = new Object();
-                                lock (O1)
+                                //lock (O1)
                                 {    //Draw an Instant from File of Gray Soldeirs.
                                      //Creat of an Instant of Brown Image Castles.
                                     g.DrawImage(DrawCastle.C[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
@@ -302,7 +296,7 @@ namespace RefrigtzDLL
                             if (Order == 1)
                             {
                                 Object O1 = new Object();
-                                lock (O1)
+                                //lock (O1)
                                 {//Draw an Instatnt of Gray Hourse Image File.
                                     g.DrawImage(DrawHourse.H[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (int)CellH), CellW, CellH));
                                   }
@@ -310,7 +304,7 @@ namespace RefrigtzDLL
                             else
                             {
                                 Object O1 = new Object();
-                                lock (O1)
+                                //lock (O1)
                                 {//Creat of an Instatnt Hourse Image File.
                                     g.DrawImage(DrawHourse.H[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                   }
@@ -330,7 +324,7 @@ namespace RefrigtzDLL
                             if (Order == 1)
                             {
                                 Object O1 = new Object();
-                                lock (O1)
+                                //lock (O1)
                                 {//Draw an Instatnt Image of Gray Elephant.
                                     g.DrawImage(DrawElefant.E[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                    }
@@ -338,7 +332,7 @@ namespace RefrigtzDLL
                             else
                             {
                                 Object O1 = new Object();
-                                lock (O1)
+                                //lock (O1)
                                 {//Draw of Instant Image of Brown Elephant.
                                     g.DrawImage(DrawElefant.E[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                   }

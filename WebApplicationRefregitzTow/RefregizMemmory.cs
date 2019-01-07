@@ -44,7 +44,7 @@ namespace RefrigtzW
             try
             {
                 Object a = new Object();
-                lock (a)
+                //lock (a)
                 {
                     string stackTrace = ex.ToString();
                     File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
@@ -63,7 +63,7 @@ namespace RefrigtzW
             NextK = new List<RefregizMemmory>();
 
             Object o = new Object();
-            lock (o)
+            //lock (o)
             {
                 MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
                 IgnoreSelfObjectsT = IgnoreSelfObject;
@@ -80,7 +80,7 @@ namespace RefrigtzW
         void RewriteAllDrawRec(BinaryFormatter Formatters, FileStream DummyFileStream, int Order)
         {
             Object o = new Object();
-            lock (o)
+            //lock (o)
             {
 
                 try
@@ -102,7 +102,7 @@ namespace RefrigtzW
                                         for (int j = 0; j < Current.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; j++)
                                         {
                                             Object O = new Object();
-                                            lock (O)
+                                            //lock (O)
                                             {
                                                 iii = i;
                                                 jjj = j;
@@ -125,7 +125,7 @@ namespace RefrigtzW
                                         for (int j = 0; j < Current.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; j++)
                                         {
                                             Object O = new Object();
-                                            lock (O)
+                                            //lock (O)
                                             {
                                                 iii = i;
                                                 jjj = j;
@@ -149,7 +149,7 @@ namespace RefrigtzW
                                         for (int j = 0; j < Current.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; j++)
                                         {
                                             Object O = new Object();
-                                            lock (O)
+                                            //lock (O)
                                             {
                                                 iii = i;
                                                 jjj = j;
@@ -173,7 +173,7 @@ namespace RefrigtzW
                                         for (int j = 0; j < Current.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; j++)
                                         {
                                             Object O = new Object();
-                                            lock (O)
+                                            //lock (O)
                                             {
                                                 iii = i;
                                                 jjj = j;
@@ -197,7 +197,7 @@ namespace RefrigtzW
                                         for (int j = 0; j < Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; j++)
                                         {
                                             Object O = new Object();
-                                            lock (O)
+                                            //lock (O)
                                             {
                                                 iii = i;
                                                 jjj = j;
@@ -222,7 +222,7 @@ namespace RefrigtzW
                                         for (int j = 0; j < Current.KingOnTable[i].KingThinking[0].AStarGreedy.Count; j++)
                                         {
                                             Object O = new Object();
-                                            lock (O)
+                                            //lock (O)
                                             {
                                                 iii = i;
                                                 jjj = j;
@@ -248,7 +248,7 @@ namespace RefrigtzW
                                         for (int j = 0; j < Current.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; j++)
                                         {
                                             Object O = new Object();
-                                            lock (O)
+                                            //lock (O)
                                             {
                                                 iii = i;
                                                 jjj = j;
@@ -272,7 +272,7 @@ namespace RefrigtzW
                                         for (int j = 0; j < Current.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; j++)
                                         {
                                             Object O = new Object();
-                                            lock (O)
+                                            //lock (O)
                                             {
                                                 iii = i;
                                                 jjj = j;
@@ -297,7 +297,7 @@ namespace RefrigtzW
                                         for (int j = 0; j < Current.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; j++)
                                         {
                                             Object O = new Object();
-                                            lock (O)
+                                            //lock (O)
                                             {
                                                 iii = i;
                                                 jjj = j;
@@ -322,7 +322,7 @@ namespace RefrigtzW
                                         for (int j = 0; j < Current.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; j++)
                                         {
                                             Object O = new Object();
-                                            lock (O)
+                                            //lock (O)
                                             {
                                                 iii = i;
                                                 jjj = j;
@@ -346,7 +346,7 @@ namespace RefrigtzW
                                         for (int j = 0; j < Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; j++)
                                         {
                                             Object O = new Object();
-                                            lock (O)
+                                            //lock (O)
                                             {
                                                 iii = i;
                                                 jjj = j;
@@ -371,7 +371,7 @@ namespace RefrigtzW
                                         for (int j = 0; j < Current.KingOnTable[i].KingThinking[0].AStarGreedy.Count; j++)
                                         {
                                             Object O = new Object();
-                                            lock (O)
+                                            //lock (O)
                                             {
                                                 iii = i;
                                                 jjj = j;
@@ -452,7 +452,7 @@ namespace RefrigtzW
         public void RewriteAllDraw(int Order)
         {
             Object oo = new Object();
-            lock (oo)
+            //lock (oo)
             {
 
                 //Current = new RefrigtzW.AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT);
@@ -484,7 +484,7 @@ namespace RefrigtzW
         public AllDraw Load(int Order)
         {
             Object o = new Object();
-            lock (o)
+            //lock (o)
             {
 
                 //Node.AllDrawNextAccessS = null;
@@ -516,7 +516,7 @@ namespace RefrigtzW
         {
             RefregizMemmory Dummy = null;
             Object o = new Object();
-            lock (o)
+            //lock (o)
             {
                 
                 //Node.AllDrawNextAccessS = null;
@@ -660,7 +660,7 @@ namespace RefrigtzW
         AllDraw CreateAllDrawFromMemmory(RefregizMemmory t, AllDraw Last,int Order)
         {
             Object o = new Object();
-            lock (o)
+            //lock (o)
             {
 
 

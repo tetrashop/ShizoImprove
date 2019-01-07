@@ -40,7 +40,7 @@ namespace LearningMachine
         public void Initiate()
         {
             Object o = new Object();
-            lock (o)
+            //lock (o)
             {
                 IsPenalty = false;
                 IsReward = false;
@@ -49,7 +49,7 @@ namespace LearningMachine
         public LearningKrinskyAtamata(int r0, int m0, int k0)
         {
             Object o = new Object();
-            lock (o)
+            //lock (o)
             {
                 IsReward = new bool();
                 IsPenalty = new bool();
@@ -89,7 +89,7 @@ namespace LearningMachine
         public void Clone(ref QuantumAtamata AA)
         {
             Object o = new Object();
-            lock (o)
+            //lock (o)
             {
                 AA.r = this.r;
                 AA.m = this.m;
@@ -115,7 +115,7 @@ namespace LearningMachine
         public void FailureState()
         {
             Object o = new Object();
-            lock (o)
+            //lock (o)
             {
                 Failer++;
                 if (Success < Failer && State < r - 1)
@@ -127,7 +127,7 @@ namespace LearningMachine
         public void SuccessState()
         {
             Object o = new Object();
-            lock (o)
+            //lock (o)
             {
                 Success++;
                 if (Success > Failer && State < r - 1)
@@ -139,7 +139,7 @@ namespace LearningMachine
         public int IsSecondDerivitionIsPositive()
         {
             Object o = new Object();
-            lock (o)
+            //lock (o)
             {
                 for (int i = 0; i < r - 2; i++)
                 {
@@ -152,7 +152,7 @@ namespace LearningMachine
         public double LearningAlgorithmRegard()
         {
             Object o = new Object();
-            lock (o)
+            //lock (o)
             {
                 SuccessState();
                 this.IsReward = true;
@@ -168,7 +168,7 @@ namespace LearningMachine
         public int IsRewardAction()
         {
             Object o = new Object();
-            lock (o)
+            //lock (o)
             {
                 if (this.IsReward)
                     return 1;
@@ -179,7 +179,7 @@ namespace LearningMachine
         public double IsPenaltyAction()
         {
             Object o = new Object();
-            lock (o)
+            //lock (o)
             {
                 if (this.IsPenalty)
                     return 0;
@@ -189,7 +189,7 @@ namespace LearningMachine
         public double LearningAlgorithmPenalty()
         {
             Object o = new Object();
-            lock (o)
+            //lock (o)
             {
                 FailureState();
                 this.IsPenalty = true;

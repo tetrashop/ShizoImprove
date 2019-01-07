@@ -14,8 +14,8 @@ namespace RefrigtzDLL
         
         
         public int WinOcuuredatChiled = 0;public int LoseOcuuredatChiled = 0;
-        private readonly object balanceLock = new object();
-        private readonly object balanceLockS = new object();
+        //private readonly //object balancelock = new object();
+        //private readonly //object balancelockS = new object();
         public static Image[] C = new Image[2];
         //Iniatite Global Variable.
         List<int[]> ValuableSelfSupported = new List<int[]>();
@@ -42,7 +42,7 @@ namespace RefrigtzDLL
             try
             {
                 Object a = new Object();
-                lock (a)
+                //lock (a)
                 {
                     string stackTrace = ex.ToString();
                     File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
@@ -64,7 +64,7 @@ namespace RefrigtzDLL
                 {
                     MaxNotFound = false;
                     Object O = new Object();
-                    lock (O)
+                    //lock (O)
                     {
                         if (ThinkingChess.MaxHuristicx < MaxHuristicxB)
                             ThinkingChess.MaxHuristicx = a;
@@ -115,15 +115,10 @@ namespace RefrigtzDLL
         public DrawCastle(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. THIS
             )
         {
-
-            lock (balanceLock)
+            //object balancelock = new object();
+            //lock (balance//lock)
             {
-                if (C[0] == null && C[1] == null)
-                {
-                    C[0] = Image.FromFile(AllDraw.ImagesSubRoot + "BrG.png");
-                    C[1] = Image.FromFile(AllDraw.ImagesSubRoot + "BrB.png");
-                }
-
+             
                 CurrentAStarGredyMax = CurrentAStarGredy;
                 MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
                 IgnoreSelfObjectsT = IgnoreSelfObject;
@@ -189,8 +184,9 @@ namespace RefrigtzDLL
         {
             try
             {
+                //object balancelockS = new object();
 
-                lock (balanceLockS)
+                //lock (balance//lockS)
                 {
 
                     if (C[0] == null || C[1] == null)
@@ -203,7 +199,7 @@ namespace RefrigtzDLL
                         if(Order==1)
                         {
                             Object O1 = new Object();
-                            lock (O1)
+                            //lock (O1)
                             {    //Draw an Instant from File of Gray Soldeirs.
                                  //Draw a Gray Castles Instatnt Image On hte Tabe.
                                 g.DrawImage(C[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
@@ -212,7 +208,7 @@ namespace RefrigtzDLL
                         else
                         {
                             Object O1 = new Object();
-                            lock (O1)
+                            //lock (O1)
                             {    //Draw an Instant from File of Gray Soldeirs.
                                  //Draw an Instatnt of Brown Castles On the Table.
                                 g.DrawImage(C[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));

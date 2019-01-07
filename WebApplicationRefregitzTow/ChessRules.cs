@@ -156,7 +156,7 @@ namespace RefrigtzW
             try
             {
                 Object a = new Object();
-                lock (a)
+                //lock (a)
                 {
                     string stackTrace = ex.ToString();
                     File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
@@ -226,7 +226,7 @@ namespace RefrigtzW
             )
         {
             Object O = new Object();
-            lock (O)
+            //lock (O)
             {
 
                 if (Table[RowFirst, ColumnFirst] > 0 && Table[RowSecond, ColumnSecond] > 0)
@@ -251,7 +251,7 @@ namespace RefrigtzW
             }
             //Initaite Global Varibales.
             Object O1 = new Object();
-            lock (O1)
+            //lock (O1)
             {
                 CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKingHaveSupporter = false;
                 CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKingHaveSupporterNumber = 0;
@@ -354,7 +354,7 @@ namespace RefrigtzW
                                     if (((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond - 2, ColumnSecond] == 6 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond + 1, ColumnSecond] == 4)
                                     {
                                         Object O = new Object();
-                                        lock (O)
+                                        //lock (O)
                                         {
                                             CastleActGray = true;
                                             SmallKingCastleGray = true;
@@ -378,7 +378,7 @@ namespace RefrigtzW
                                         if (((RowSecond + 2) < 8) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond + 2, ColumnSecond] == 6 && Table[RowSecond + 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond - 2, ColumnSecond] == 4)
                                         {
                                         Object O = new Object();
-                                        lock (O)
+                                        //lock (O)
                                         {
                                             CastleActGray = true;
                                             BigKingCastleGray = true;
@@ -413,7 +413,7 @@ namespace RefrigtzW
                                     {
                                         //CastleActBrown = true;
                                         Object O1 = new Object();
-                                        lock (O1)
+                                        //lock (O1)
                                         {
                                             SmallKingCastleBrown = true;
                                         }
@@ -436,7 +436,7 @@ namespace RefrigtzW
                                         {
                                         //CastleActBrown = true;
                                         Object O = new Object();
-                                        lock (O)
+                                        //lock (O)
                                         {
                                             BigKingCastleBrown = true;
                                         }
@@ -620,7 +620,7 @@ namespace RefrigtzW
             int RowG = 0, ColumnG = 0;
             int RowB = 0, ColumnB = 0;
             //Object O = new Object();
-            ////lock (O)
+            //////lock (O)
             ///{
             /// if (DoIgnore)
             ///RefrigtzW.ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = true;
@@ -783,7 +783,7 @@ namespace RefrigtzW
             }
             //Iniaiate Global Variables.
             //Object O1 = new Object();
-            //lock (O1)
+            ////lock (O1)
             //{
             //RefrigtzW.ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = false;
             //}
@@ -839,7 +839,7 @@ namespace RefrigtzW
             CheckGrayObjectDangour = false;
             CheckBrownObjectDangour = false;
             Object O = new Object();
-            lock (O)
+            //lock (O)
             {
                 if (DoIgnore)
                     RefrigtzW.ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = true;
@@ -1109,7 +1109,7 @@ namespace RefrigtzW
             )
         {
             Object OOO = new Object();
-            lock (OOO)
+            //lock (OOO)
             {
                 ArrangmentsBoard = Arrange;
 
@@ -1139,7 +1139,7 @@ namespace RefrigtzW
                 if (A.CheckGray)
                 {
                     Object O2 = new Object();
-                    lock (O2)
+                    //lock (O2)
                     {
                         RefrigtzW.ChessRules.CastleKingAllowedGray = false;
                         RefrigtzW.ChessRules.CastleActGray = true;
@@ -1149,7 +1149,7 @@ namespace RefrigtzW
                 else if (A.CheckBrown)
                 {
                     Object O2 = new Object();
-                    lock (O2)
+                    //lock (O2)
                     {
                         RefrigtzW.ChessRules.CastleActBrown = true;
                         RefrigtzW.ChessRules.CastleKingAllowedBrown = false;
@@ -1173,12 +1173,12 @@ namespace RefrigtzW
                         if (RefrigtzW.ChessRules.SmallKingCastleGray)
                         {
                             Object O2 = new Object();
-                            lock (O2)
+                            //lock (O2)
                             {
                                 RefrigtzW.ThinkingChess.KingMaovableGray = true;
                                 S += "Gray-BK-S";
                                 Object O = new Object();
-                                lock (O)
+                                //lock (O)
                                 {
                                     if (!AllDraw.Stockfish)
                                     {
@@ -1193,12 +1193,12 @@ namespace RefrigtzW
                         //Castles Brown King.                    
                         {
                             Object O2 = new Object();
-                            lock (O2)
+                            //lock (O2)
                             {
                                 S += "Gray-BK-B";
                                 RefrigtzW.ThinkingChess.KingMaovableGray = true;
                                 Object O = new Object();
-                                lock (O)
+                                //lock (O)
                                 {
                                     if (!AllDraw.Stockfish)
                                     {
@@ -1213,12 +1213,12 @@ namespace RefrigtzW
                         //Castles Brown King.                    
                         {
                             Object O2 = new Object();
-                            lock (O2)
+                            //lock (O2)
                             {
                                 S += "Brown-BK-S";
                                 RefrigtzW.ThinkingChess.KingMaovableBrown = true;
                                 Object O = new Object();
-                                lock (O)
+                                //lock (O)
                                 {
                                     if (!AllDraw.Stockfish)
                                     {
@@ -1234,12 +1234,12 @@ namespace RefrigtzW
                         {
 
                             Object O2 = new Object();
-                            lock (O2)
+                            //lock (O2)
                             {
                                 S += "Brown-BK-B";
                                 RefrigtzW.ThinkingChess.KingMaovableBrown = true;
                                 Object O = new Object();
-                                lock (O)
+                                //lock (O)
                                 {
                                     if (!AllDraw.Stockfish)
                                     {
@@ -1263,7 +1263,7 @@ namespace RefrigtzW
                         if (Hit)
                         {
                             Object O = new Object();
-                            lock (O)
+                            //lock (O)
                             {
                                 ObjectHittedRow = Row;
                                 ObjectHittedColumn = Column;
@@ -1291,7 +1291,7 @@ namespace RefrigtzW
                             if (A.CheckBrown && Order == -1)
                             {
                                 Object O2 = new Object();
-                                lock (O2)
+                                //lock (O2)
                                 {
                                     RefrigtzW.ThinkingChess.KingMaovableBrown = true;
                                     RefrigtzW.ChessRules.BigKingCastleBrown = false;
@@ -1301,7 +1301,7 @@ namespace RefrigtzW
                             if (A.CheckGray && Order == 1)
                             {
                                 Object O2 = new Object();
-                                lock (O2)
+                                //lock (O2)
                                 {
                                     RefrigtzW.ThinkingChess.KingMaovableGray = true;
                                     RefrigtzW.ChessRules.BigKingCastleGray = false;
@@ -1315,7 +1315,7 @@ namespace RefrigtzW
                             if (AA.CheckGrayObjectDangour && Order == -1)
                             {
                                 Object O2 = new Object();
-                                lock (O2)
+                                //lock (O2)
                                 {
                                     RefrigtzW.ThinkingChess.KingMaovableBrown = true;
 
@@ -1324,7 +1324,7 @@ namespace RefrigtzW
                             if (AA.CheckBrownObjectDangour && Order == 1)
                             {
                                 Object O2 = new Object();
-                                lock (O2)
+                                //lock (O2)
                                 {
                                     RefrigtzW.ThinkingChess.KingMaovableGray = true;
 
@@ -1342,7 +1342,7 @@ namespace RefrigtzW
                     if (Hit)
                     {
                         Object O = new Object();
-                        lock (O)
+                        //lock (O)
                         {
                             ObjectHittedRow = Row;
                             ObjectHittedColumn = Column;
@@ -1371,7 +1371,7 @@ namespace RefrigtzW
                         if (A.CheckBrown && Order == -1)
                         {
                             Object O2 = new Object();
-                            lock (O2)
+                            //lock (O2)
                             {
                                 RefrigtzW.ChessRules.BigKingCastleBrown = false;
                                 RefrigtzW.ChessRules.CastleKingAllowedBrown = false;
@@ -1382,7 +1382,7 @@ namespace RefrigtzW
                         if (A.CheckGray && Order == 1)
                         {
                             Object O2 = new Object();
-                            lock (O2)
+                            //lock (O2)
                             {
                                 RefrigtzW.ChessRules.BigKingCastleGray = false;
                                 RefrigtzW.ChessRules.CastleKingAllowedGray = false;
@@ -1397,7 +1397,7 @@ namespace RefrigtzW
                         if (AA.CheckGrayObjectDangour && Order == -1)
                         {
                             Object O2 = new Object();
-                            lock (O2)
+                            //lock (O2)
                             {
                                 RefrigtzW.ThinkingChess.KingMaovableBrown = true;
 
@@ -1406,7 +1406,7 @@ namespace RefrigtzW
                         if (AA.CheckBrownObjectDangour && Order == 1)
                         {
                             Object O2 = new Object();
-                            lock (O2)
+                            //lock (O2)
                             {
                                 RefrigtzW.ThinkingChess.KingMaovableGray = true;
 
@@ -1528,7 +1528,7 @@ namespace RefrigtzW
                     Tabl[i, j] = Table[i, j];
             //Initiate Global Variables.
             Object O = new Object();
-            lock (O)
+            //lock (O)
             {
                 CheckGrayRemovable = true;
 
@@ -1586,7 +1586,7 @@ namespace RefrigtzW
                                                         Tab[i, j] = Table[ii, jj];
                                                         Tab[ii, jj] = 0;
                                                         Object O1 = new Object();
-                                                        lock (O1)
+                                                        //lock (O1)
                                                         {
                                                             CheckBrownRemovableValueRowi = i;
                                                             CheckGrayRemovableValueColumni = j;
@@ -1655,7 +1655,7 @@ namespace RefrigtzW
                                                         Tab[i, j] = Table[ii, jj];
                                                         Tab[ii, jj] = 0;
                                                         Object O1 = new Object();
-                                                        lock (O1)
+                                                        //lock (O1)
                                                         {
                                                             CheckBrownRemovableValueRowi = i;
                                                             CheckBrownRemovableValueColumnj = j;
@@ -1739,7 +1739,7 @@ namespace RefrigtzW
                     Table[i, j] = Tab[i, j];
             bool Pat = false;
             Object O = new Object();
-            lock (O)
+            //lock (O)
             {
                 PatCheckedInKingRule = true;
             }
@@ -1776,7 +1776,7 @@ namespace RefrigtzW
                 if (Pat || NumbersofKingMovesToPatGray > 16)
                 {
                     Object On = new Object();
-                    lock (On)
+                    //lock (On)
                     {
                         AllDraw.EndOfGame = true;
                         PatkGray = true;
@@ -1811,7 +1811,7 @@ namespace RefrigtzW
                 if (Pat || NumbersofKingMovesToPatBrown >= 16)
                 {
                     Object On = new Object();
-                    lock (On)
+                    //lock (On)
                     {
                         AllDraw.EndOfGame = true;
                         PatBrown = true;
@@ -1830,7 +1830,7 @@ namespace RefrigtzW
 
             }
             Object O1 = new Object();
-            lock (O1)
+            //lock (O1)
             {
                 PatCheckedInKingRule = false;
             }
@@ -1916,7 +1916,7 @@ namespace RefrigtzW
             //Initiate Local and Global Briables.
             bool Store = RefrigtzW.ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing;
             Object O = new Object();
-            lock (O)
+            //lock (O)
             {
                 RefrigtzW.ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = false;
             }
@@ -2257,7 +2257,7 @@ namespace RefrigtzW
                 CheckGray = CheckGrayDummy;
                 CheckBrown = CheckBrownDummy;
                 Object On = new Object();
-                lock (On)
+                //lock (On)
                 {
                     AllDraw.EndOfGame = true;
                     return true;
@@ -2293,7 +2293,7 @@ namespace RefrigtzW
                 return false;
             //Initiate Global Variable.
             Object O = new Object();
-            lock (O)
+            //lock (O)
             {
                 KingAttacker = false;
             }

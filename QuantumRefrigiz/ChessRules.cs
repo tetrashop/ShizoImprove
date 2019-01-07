@@ -156,7 +156,7 @@ namespace QuantumRefrigiz
             try
             {
                 Object a = new Object();
-                lock (a)
+                //lock (a)
                 {
                     string stackTrace = ex.ToString();
                     File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
@@ -229,7 +229,7 @@ namespace QuantumRefrigiz
             )
         {
             Object O = new Object();
-            lock (O)
+            //lock (O)
             {
                 if (Table[RowFirst, ColumnFirst] > 0 && Table[RowSecond, ColumnSecond] > 0)
                 {
@@ -253,7 +253,7 @@ namespace QuantumRefrigiz
             }
             //Initaite Global Varibales.
             Object O1 = new Object();
-            lock (O1)
+            //lock (O1)
             {
                 CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKingHaveSupporter = false;
                 CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKingHaveSupporterNumber = 0;
@@ -356,7 +356,7 @@ namespace QuantumRefrigiz
                                     if (((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond - 2, ColumnSecond] == 6 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond + 1, ColumnSecond] == 4)
                                     {
                                         Object O = new Object();
-                                        lock (O)
+                                        //lock (O)
                                         {
                                             CastleActGray = true;
                                             SmallKingCastleGray = true;
@@ -380,7 +380,7 @@ namespace QuantumRefrigiz
                                         if (((RowSecond + 2) < 8) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond + 2, ColumnSecond] == 6 && Table[RowSecond + 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond - 2, ColumnSecond] == 4)
                                         {
                                         Object O = new Object();
-                                        lock (O)
+                                        //lock (O)
                                         {
                                             CastleActGray = true;
                                             BigKingCastleGray = true;
@@ -415,7 +415,7 @@ namespace QuantumRefrigiz
                                     {
                                         //CastleActBrown = true;
                                         Object O1 = new Object();
-                                        lock (O1)
+                                        //lock (O1)
                                         {
                                             SmallKingCastleBrown = true;
                                         }
@@ -438,7 +438,7 @@ namespace QuantumRefrigiz
                                         {
                                         //CastleActBrown = true;
                                         Object O = new Object();
-                                        lock (O)
+                                        //lock (O)
                                         {
                                             BigKingCastleBrown = true;
                                         }
@@ -622,7 +622,7 @@ namespace QuantumRefrigiz
             int RowG = 0, ColumnG = 0;
             int RowB = 0, ColumnB = 0;
             //Object O = new Object();
-            ////lock (O)
+            //////lock (O)
             ///{
                /// if (DoIgnore)
 ///QuantumRefrigiz.ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = true;
@@ -785,7 +785,7 @@ namespace QuantumRefrigiz
             }
             //Iniaiate Global Variables.
             //Object O1 = new Object();
-            //lock (O1)
+            ////lock (O1)
             //{
                 //QuantumRefrigiz.ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = false;
             //}
@@ -841,7 +841,7 @@ namespace QuantumRefrigiz
             CheckGrayObjectDangour = false;
             CheckBrownObjectDangour = false;
             Object O = new Object();
-            lock (O)
+            //lock (O)
             {
                 if (DoIgnore)
                     QuantumRefrigiz.ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = true;
@@ -1111,7 +1111,7 @@ namespace QuantumRefrigiz
             )
         {
             Object OOO = new Object();
-            lock (OOO)
+            //lock (OOO)
             {
                 ArrangmentsBoard = Arrange;
 
@@ -1141,7 +1141,7 @@ namespace QuantumRefrigiz
                 if (A.CheckGray)
                 {
                     Object O2 = new Object();
-                    lock (O2)
+                    //lock (O2)
                     {
                         QuantumRefrigiz.ChessRules.CastleKingAllowedGray = false;
                         QuantumRefrigiz.ChessRules.CastleActGray = true;
@@ -1151,7 +1151,7 @@ namespace QuantumRefrigiz
                 else if (A.CheckBrown)
                 {
                     Object O2 = new Object();
-                    lock (O2)
+                    //lock (O2)
                     {
                         QuantumRefrigiz.ChessRules.CastleActBrown = true;
                         QuantumRefrigiz.ChessRules.CastleKingAllowedBrown = false;
@@ -1175,12 +1175,12 @@ namespace QuantumRefrigiz
                         if (QuantumRefrigiz.ChessRules.SmallKingCastleGray)
                         {
                             Object O2 = new Object();
-                            lock (O2)
+                            //lock (O2)
                             {
                                 QuantumRefrigiz.ThinkingQuantumChess.KingMaovableGray = true;
                                 S += "Gray-BK-S";
                                 Object O = new Object();
-                                lock (O)
+                                //lock (O)
                                 {
                                     if (!AllDraw.Stockfish)
                                     {
@@ -1195,12 +1195,12 @@ namespace QuantumRefrigiz
                         //Castles Brown King.                    
                         {
                             Object O2 = new Object();
-                            lock (O2)
+                            //lock (O2)
                             {
                                 S += "Gray-BK-B";
                                 QuantumRefrigiz.ThinkingQuantumChess.KingMaovableGray = true;
                                 Object O = new Object();
-                                lock (O)
+                                //lock (O)
                                 {
                                     if (!AllDraw.Stockfish)
                                     {
@@ -1215,12 +1215,12 @@ namespace QuantumRefrigiz
                         //Castles Brown King.                    
                         {
                             Object O2 = new Object();
-                            lock (O2)
+                            //lock (O2)
                             {
                                 S += "Brown-BK-S";
                                 QuantumRefrigiz.ThinkingQuantumChess.KingMaovableBrown = true;
                                 Object O = new Object();
-                                lock (O)
+                                //lock (O)
                                 {
                                     if (!AllDraw.Stockfish)
                                     {
@@ -1236,12 +1236,12 @@ namespace QuantumRefrigiz
                         {
 
                             Object O2 = new Object();
-                            lock (O2)
+                            //lock (O2)
                             {
                                 S += "Brown-BK-B";
                                 QuantumRefrigiz.ThinkingQuantumChess.KingMaovableBrown = true;
                                 Object O = new Object();
-                                lock (O)
+                                //lock (O)
                                 {
                                     if (!AllDraw.Stockfish)
                                     {
@@ -1265,7 +1265,7 @@ namespace QuantumRefrigiz
                         if (Hit)
                         {
                             Object O = new Object();
-                            lock (O)
+                            //lock (O)
                             {
                                 ObjectHittedRow = Row;
                                 ObjectHittedColumn = Column;
@@ -1293,7 +1293,7 @@ namespace QuantumRefrigiz
                             if (A.CheckBrown && Order == -1)
                             {
                                 Object O2 = new Object();
-                                lock (O2)
+                                //lock (O2)
                                 {
                                     QuantumRefrigiz.ThinkingQuantumChess.KingMaovableBrown = true;
                                     QuantumRefrigiz.ChessRules.BigKingCastleBrown = false;
@@ -1303,7 +1303,7 @@ namespace QuantumRefrigiz
                             if (A.CheckGray && Order == 1)
                             {
                                 Object O2 = new Object();
-                                lock (O2)
+                                //lock (O2)
                                 {
                                     QuantumRefrigiz.ThinkingQuantumChess.KingMaovableGray = true;
                                     QuantumRefrigiz.ChessRules.BigKingCastleGray = false;
@@ -1317,7 +1317,7 @@ namespace QuantumRefrigiz
                             if (AA.CheckGrayObjectDangour && Order == -1)
                             {
                                 Object O2 = new Object();
-                                lock (O2)
+                                //lock (O2)
                                 {
                                     QuantumRefrigiz.ThinkingQuantumChess.KingMaovableBrown = true;
 
@@ -1326,7 +1326,7 @@ namespace QuantumRefrigiz
                             if (AA.CheckBrownObjectDangour && Order == 1)
                             {
                                 Object O2 = new Object();
-                                lock (O2)
+                                //lock (O2)
                                 {
                                     QuantumRefrigiz.ThinkingQuantumChess.KingMaovableGray = true;
 
@@ -1344,7 +1344,7 @@ namespace QuantumRefrigiz
                     if (Hit)
                     {
                         Object O = new Object();
-                        lock (O)
+                        //lock (O)
                         {
                             ObjectHittedRow = Row;
                             ObjectHittedColumn = Column;
@@ -1373,7 +1373,7 @@ namespace QuantumRefrigiz
                         if (A.CheckBrown && Order == -1)
                         {
                             Object O2 = new Object();
-                            lock (O2)
+                            //lock (O2)
                             {
                                 QuantumRefrigiz.ChessRules.BigKingCastleBrown = false;
                                 QuantumRefrigiz.ChessRules.CastleKingAllowedBrown = false;
@@ -1384,7 +1384,7 @@ namespace QuantumRefrigiz
                         if (A.CheckGray && Order == 1)
                         {
                             Object O2 = new Object();
-                            lock (O2)
+                            //lock (O2)
                             {
                                 QuantumRefrigiz.ChessRules.BigKingCastleGray = false;
                                 QuantumRefrigiz.ChessRules.CastleKingAllowedGray = false;
@@ -1399,7 +1399,7 @@ namespace QuantumRefrigiz
                         if (AA.CheckGrayObjectDangour && Order == -1)
                         {
                             Object O2 = new Object();
-                            lock (O2)
+                            //lock (O2)
                             {
                                 QuantumRefrigiz.ThinkingQuantumChess.KingMaovableBrown = true;
 
@@ -1408,7 +1408,7 @@ namespace QuantumRefrigiz
                         if (AA.CheckBrownObjectDangour && Order == 1)
                         {
                             Object O2 = new Object();
-                            lock (O2)
+                            //lock (O2)
                             {
                                 QuantumRefrigiz.ThinkingQuantumChess.KingMaovableGray = true;
 
@@ -1530,7 +1530,7 @@ namespace QuantumRefrigiz
                     Tabl[i, j] = Table[i, j];
             //Initiate Global Variables.
             Object O = new Object();
-            lock (O)
+            //lock (O)
             {
                 CheckGrayRemovable = true;
 
@@ -1588,7 +1588,7 @@ namespace QuantumRefrigiz
                                                         Tab[i, j] = Table[ii, jj];
                                                         Tab[ii, jj] = 0;
                                                         Object O1 = new Object();
-                                                        lock (O1)
+                                                        //lock (O1)
                                                         {
                                                             CheckBrownRemovableValueRowi = i;
                                                             CheckGrayRemovableValueColumni = j;
@@ -1657,7 +1657,7 @@ namespace QuantumRefrigiz
                                                         Tab[i, j] = Table[ii, jj];
                                                         Tab[ii, jj] = 0;
                                                         Object O1 = new Object();
-                                                        lock (O1)
+                                                        //lock (O1)
                                                         {
                                                             CheckBrownRemovableValueRowi = i;
                                                             CheckBrownRemovableValueColumnj = j;
@@ -1741,7 +1741,7 @@ namespace QuantumRefrigiz
                     Table[i, j] = Tab[i, j];
             bool Pat = false;
             Object O = new Object();
-            lock (O)
+            //lock (O)
             {
                 PatCheckedInKingRule = true;
             }
@@ -1778,7 +1778,7 @@ namespace QuantumRefrigiz
                 if (Pat || NumbersofKingMovesToPatGray > 16)
                 {
                     Object On = new Object();
-                    lock (On)
+                    //lock (On)
                     {
                         AllDraw.EndOfGame = true;
                         PatkGray = true;
@@ -1813,7 +1813,7 @@ namespace QuantumRefrigiz
                 if (Pat || NumbersofKingMovesToPatBrown >= 16)
                 {
                     Object On = new Object();
-                    lock (On)
+                    //lock (On)
                     {
                         AllDraw.EndOfGame = true;
                         PatBrown = true;
@@ -1832,7 +1832,7 @@ namespace QuantumRefrigiz
 
             }
             Object O1 = new Object();
-            lock (O1)
+            //lock (O1)
             {
                 PatCheckedInKingRule = false;
             }
@@ -1919,7 +1919,7 @@ namespace QuantumRefrigiz
             //Initiate Local and Global Briables.
             bool Store = QuantumRefrigiz.ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing;
             Object O = new Object();
-            lock (O)
+            //lock (O)
             {
                 QuantumRefrigiz.ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = false;
             }
@@ -2260,7 +2260,7 @@ namespace QuantumRefrigiz
                 CheckGray = CheckGrayDummy;
                 CheckBrown = CheckBrownDummy;
                 Object On = new Object();
-                lock (On)
+                //lock (On)
                 {
                     AllDraw.EndOfGame = true;
                     return true;
@@ -2296,7 +2296,7 @@ namespace QuantumRefrigiz
                 return false;
             //Initiate Global Variable.
             Object O = new Object();
-            lock (O)
+            //lock (O)
             {
                 KingAttacker = false;
             }

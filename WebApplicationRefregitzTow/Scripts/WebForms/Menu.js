@@ -821,7 +821,7 @@ function PopOut_Show(panelId, hideScrollers, data) {
             WebForm_SetElementY(childFrame, pos.y - parentPos.y);
             WebForm_SetElementWidth(childFrame, pos.width);
             WebForm_SetElementHeight(childFrame, pos.height);
-            childFrame.style.display = "block";
+            childFrame.style.display = "b//lock";
             if (panel.currentStyle && panel.currentStyle.zIndex && panel.currentStyle.zIndex != "auto") {
                 z = panel.currentStyle.zIndex;
             }

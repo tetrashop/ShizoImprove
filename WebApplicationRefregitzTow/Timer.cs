@@ -54,7 +54,7 @@ namespace Refrigtz
             try
             {
                 Object a = new Object();
-                lock (a)
+                //lock (a)
                 {
                     string stackTrace = ex.ToString();
                     File.AppendAllText("ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
@@ -67,7 +67,7 @@ namespace Refrigtz
         {
 
             Object o = new Object();
-            lock (o)
+            //lock (o)
             {
                 //For Infinity Timer until end.
                 if (SignPositive)
@@ -83,7 +83,7 @@ namespace Refrigtz
         public void TimerInitiate()
         {
             Object o = new Object();
-            lock (o)
+            //lock (o)
             {
                 t = new Thread(new ThreadStart(TimerThread));
                 t.Start();
@@ -94,7 +94,7 @@ namespace Refrigtz
         {
 
             Object o = new Object();
-            lock (o)
+            //lock (o)
             {
 
                 do
@@ -148,7 +148,7 @@ namespace Refrigtz
         public int AStarGreedytiLevelMaxInitiate(Timer TimerColor, int AStarGreedyti)
         {
             Object o = new Object();
-            lock (o)
+            //lock (o)
             {
                 //int PowerEx = 4;
                 int Increase = 0;//Initaiate
@@ -170,7 +170,7 @@ namespace Refrigtz
         public void SetAStarGreedytTimer()
         {
             Object o = new Object();
-            lock (o)
+            //lock (o)
             {
                 if (AStarGreedytLastTime == 0)
                     AStarGreedytLastTime = 0;
@@ -184,7 +184,7 @@ namespace Refrigtz
         public void MidleAStarGreedytTimer(int AStarGreedyti)
         {
             Object o = new Object();
-            lock (o)
+            //lock (o)
             {
                 try
                 {
@@ -203,7 +203,7 @@ namespace Refrigtz
         public void StartTime()
         {
             Object o = new Object();
-            lock (o)
+            //lock (o)
             {
                 if (Sign != 1)
                 {
@@ -223,7 +223,7 @@ namespace Refrigtz
         public void StopTime()
         {
             Object o = new Object();
-            lock (o)
+            //lock (o)
             {
                 if (Sign != 1)
                 {
@@ -270,7 +270,7 @@ namespace Refrigtz
         {
             //Cal and return timer string.
             Object o = new Object();
-            lock (o)
+            //lock (o)
             {
                 long T = Times;
                 //Cal and return timer string.

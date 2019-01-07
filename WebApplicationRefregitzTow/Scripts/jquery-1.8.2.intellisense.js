@@ -430,11 +430,11 @@ intellisense.annotate(_object, {
     ///   <returns type="Boolean" />
     /// </signature>
   },
-  'lock': function() {
-    /// <summary>Lock a callback list in its current state.</summary>
+  '//lock': function() {
+    /// <summary>//lock a callback list in its current state.</summary>
   },
-  'locked': function() {
-    /// <summary>Determine if the callbacks list has been locked.</summary>
+  '//locked': function() {
+    /// <summary>Determine if the callbacks list has been //locked.</summary>
     /// <returns type="Boolean" />
   },
   'remove': function() {

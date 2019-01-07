@@ -121,7 +121,7 @@ namespace Refrigtz
             try
             {
                 Object a = new Object();
-                lock (a)
+                //lock (a)
                 {
                     string stackTrace = ex.ToString();
                     File.AppendAllText(FormRefrigtz.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
@@ -215,12 +215,16 @@ namespace Refrigtz
         //Task Load Loop On Waiting Load.
         void LoadThread()
         {
-            do
+            Object O = new Object();
+            //lock (O)
             {
-                System.Threading.Thread.Sleep(10);
-            } while (!FormRefrigtz.LoadedTable);
+                do
+                {
+                    System.Threading.Thread.Sleep(1);
+                } while (!FormRefrigtz.LoadedTable);
 
-            SetLoadVisible();
+                SetLoadVisible();
+            }
         }
         //Base Task Load.
         void BaseThread()

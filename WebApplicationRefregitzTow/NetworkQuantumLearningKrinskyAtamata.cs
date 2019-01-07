@@ -16,7 +16,7 @@ namespace LearningMachine
             try
             {
                 Object a = new Object();
-                lock (a)
+                //lock (a)
                 {
                     string stackTrace = ex.ToString();
                     File.AppendAllText(Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
@@ -32,7 +32,7 @@ namespace LearningMachine
         public NetworkQuantumLearningKrinskyAtamata(int r0, int m0, int k0) : base(r0, m0, k0)
         {
             Object o = new Object();
-            lock (o)
+            //lock (o)
             {
                 Netfi = new LearningKrinskyAtamata[m0, k0];
 
@@ -48,7 +48,7 @@ namespace LearningMachine
         public double LearningAlgorithmRegardNet(int Row, int Column)
         {
             Object o = new Object();
-            lock (o)
+            //lock (o)
             {
 
                 double Hu = 1;
@@ -67,7 +67,7 @@ namespace LearningMachine
         public int IsRewardActionNet(int Row, int Column)
         {
             Object o = new Object();
-            lock (o)
+            //lock (o)
             {
                 if (Netfi[Row, Column].IsReward)
                     return 1;
@@ -78,7 +78,7 @@ namespace LearningMachine
         public double IsPenaltyActionNet(int Row, int Column)
         {
             Object o = new Object();
-            lock (o)
+            //lock (o)
             {
                 if (Netfi[Row, Column].IsPenalty)
                     return 0;
@@ -88,7 +88,7 @@ namespace LearningMachine
         public double LearningAlgorithmPenaltyNet(int Row, int Column)
         {
             Object o = new Object();
-            lock (o)
+            //lock (o)
             {
                 double Hu = 1;
                 try
@@ -106,7 +106,7 @@ namespace LearningMachine
         public double LearingValue(int Row, int Column)
         {
             Object o = new Object();
-            lock (o)
+            //lock (o)
             {
                 double Hu = 1;
                 try

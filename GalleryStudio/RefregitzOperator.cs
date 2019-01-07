@@ -34,7 +34,7 @@ namespace GalleryStudio
             try
             {
                 Object a = new Object();
-                lock (a)
+                //lock (a)
                 {
                     string stackTrace = ex.ToString();
                     File.AppendAllText(Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
@@ -46,7 +46,7 @@ namespace GalleryStudio
             )
         {
             Object o = new Object();
-            lock (o)
+            //lock (o)
             {
                 MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
                 IgnoreSelfObjectsT = IgnoreSelfObject;
@@ -64,7 +64,7 @@ namespace GalleryStudio
         public RefrigtzDLL.AllDraw GetRefregiz(int No)
         {
             Object o = new Object();
-            lock (o)
+            //lock (o)
             {
 
                 FileStream DummyFileStream = null;

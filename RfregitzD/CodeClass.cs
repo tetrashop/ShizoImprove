@@ -15,7 +15,7 @@ namespace RefrigtzDLL
         public static void SaveByCode(int Code, int LineCode, String File)
         {
             Object O = new Object();
-            lock (O)
+            //lock (O)
             {
                 if (!System.IO.File.Exists("CodeLogEvent.log"))
                     System.IO.File.CreateText("CodeLogEvent.log");
