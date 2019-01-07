@@ -14,7 +14,7 @@ namespace LearningMachine
             : base(r0, m0, k0)
         {
             Object o = new Object();
-            //lock (o)
+            lock (o)
             {
                 r = new int();
                 k = new int();

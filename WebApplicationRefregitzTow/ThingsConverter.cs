@@ -46,7 +46,7 @@ namespace RefrigtzW
         public bool ConvertOperation(int i, int j, Color a, int[,] Tab, int Ord, bool TB, int Cur)
         {
             Object OOO = new Object();
-            //lock (OOO)
+            lock (OOO)
             {
                 //Initiate Global variables with Local One.
                 Row = i;
@@ -58,19 +58,19 @@ namespace RefrigtzW
                 if (!Convert && ActOfClickEqualTow)
                 {
                     Object O = new Object();
-                    //lock (O)
+                    lock (O)
                     {
                         AllDraw.ConvertWait = true;
                     }
 
                     Object O1 = new Object();
-                    //lock (O1)
+                    lock (O1)
                     {
                         ClickOcurred = true;
                     }
                     //Set tow time click unclicked.
                     Object O2 = new Object();
-                    //lock (O2)
+                    lock (O2)
                     {
                         ActOfClickEqualTow = false;
                     }
@@ -93,7 +93,7 @@ namespace RefrigtzW
                     //If Converted is Occured the Operation od Set and table reference content occured.
                     if (Convert)
                     {
-                        bool ASS = false; Object OOOAAA = new Object(); //lock (OOOAAA) { ASS = AllDraw.Blitz; }
+                        bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }
                         if (!ASS)
                         {
                             AllDraw.ConvertedKind = -1;
@@ -400,7 +400,7 @@ namespace RefrigtzW
                 if (Convert)
                 {
                     Object O = new Object();
-                    //lock (O)
+                    lock (O)
                     {
                         TableConverted = new int[8, 8];
                         for (int iii = 0; iii < 8; iii++)
@@ -408,7 +408,7 @@ namespace RefrigtzW
                                 TableConverted[iii, jjj] = Tab[iii, jjj];
                     }
                     Object O1 = new Object();
-                    //lock (O1)
+                    lock (O1)
                     {
                         LoadConvertTable = true;
                     }

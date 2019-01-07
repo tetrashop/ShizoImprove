@@ -16,8 +16,8 @@ namespace RefrigtzDLL
         public static bool KingBrownNotCheckedByQuantumMove = false;
         
         public int WinOcuuredatChiled = 0;public int LoseOcuuredatChiled = 0;
-        //private readonly //object balancelock = new object();
-        //private readonly //object balancelockS = new object();
+        //private readonly object balancelock = new object();
+        //private readonly object balancelockS = new object();
         public static Image[] K = new Image[2]; 
         //Initiate Global Variables.
         List<int[]> ValuableSelfSupported = new List<int[]>();
@@ -45,7 +45,7 @@ namespace RefrigtzDLL
             try
             {
                 Object a = new Object();
-                //lock (a)
+                lock (a)
                 {
                     string stackTrace = ex.ToString();
                     File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
@@ -82,7 +82,7 @@ namespace RefrigtzDLL
                 if (MaxHuristicxK < a)
                 {
                     Object O2 = new Object();
-                    //lock (O2)
+                    lock (O2)
                     {
                         MaxNotFound = false;
                         if (ThinkingChess.MaxHuristicx < MaxHuristicxK)
@@ -118,8 +118,8 @@ namespace RefrigtzDLL
         public DrawKing(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. THIS
             )
         {
-            //object balancelock = new object();
-            //lock (balance//lock)
+            object balancelock = new object();
+            lock (balancelock)
             {
              
 
@@ -189,9 +189,9 @@ namespace RefrigtzDLL
             try
             {
 
-                //object balancelockS = new object();
+                object balancelockS = new object();
 
-                //lock (balance//lockS)
+                lock (balancelockS)
                 {
                     if (K[0] == null || K[1] == null)
                     {
@@ -203,7 +203,7 @@ namespace RefrigtzDLL
                         if(Order==1)
                         {
                             Object O1 = new Object();
-                            //lock (O1)
+                            lock (O1)
                             {    //Draw an Instant from File of Gray Soldeirs.
                                  //Draw an Instatnt Gray King Image On the Table.
                                 g.DrawImage(K[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
@@ -214,7 +214,7 @@ namespace RefrigtzDLL
                         else
                         {
                             Object O1 = new Object();
-                            //lock (O1)
+                            lock (O1)
                             {    //Draw an Instant from File of Gray Soldeirs.
                                  //Draw an Instatnt Brown King Image On the Table.
                                 g.DrawImage(K[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));

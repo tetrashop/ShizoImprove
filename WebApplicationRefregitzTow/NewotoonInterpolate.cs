@@ -16,7 +16,7 @@ namespace LearningMachine
         private static Double fx0untinxn(Double[] x, Double[] f, int n, int i, int j)
         {
             Object o = new Object();
-            //lock (o)
+            lock (o)
             {
                 if ((i == j - 1) || (i + 1 == j))
                     return (f[i] - f[j]) / (x[i] - x[j]);
@@ -29,7 +29,7 @@ namespace LearningMachine
         public static Double[] px(Double[] x, Double[] f, int n)
         {
             Object o = new Object();
-            //lock (o)
+            lock (o)
             {
                 /*Double s = f[0];
                             for (int i = 1; i < n; i++)
@@ -66,7 +66,7 @@ namespace LearningMachine
         static Double[] Simplify(Double[] s, Double[] x, int i, int j)
             {
                 Object o = new Object();
-                //lock (o)
+                lock (o)
                 {
                     if (j == i)
                     return s;

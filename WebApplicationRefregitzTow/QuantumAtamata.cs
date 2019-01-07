@@ -12,7 +12,7 @@ namespace LearningMachine
         public Bit()
         {
             Object o = new Object();
-            //lock (o)
+            lock (o)
             {
                 Bits[0] = false;
                 Bits[1] = false;
@@ -21,7 +21,7 @@ namespace LearningMachine
         public bool[] GetBits()
         {
             Object o = new Object();
-            //lock (o)
+            lock (o)
             {
                 return Bits;
             }
@@ -29,7 +29,7 @@ namespace LearningMachine
         public void SetZeroZero()//State 0
         {
             Object o = new Object();
-            //lock (o)
+            lock (o)
             {
                 Bits[0] = false;
                 Bits[1] = false;
@@ -38,7 +38,7 @@ namespace LearningMachine
         public void SetZeroOne()//State 1
         {
             Object o = new Object();
-            //lock (o)
+            lock (o)
             {
                 Bits[0] = true;
                 Bits[1] = false;
@@ -47,7 +47,7 @@ namespace LearningMachine
         public void SetOneZero()//State SuperPosition
         {
             Object o = new Object();
-            //lock (o)
+            lock (o)
             {
                 Bits[0] = false;
                 Bits[1] = true;
@@ -56,7 +56,7 @@ namespace LearningMachine
         public void SetOneOne()
         {
             Object o = new Object();
-            //lock (o)
+            lock (o)
             {
                 Bits[0] = true;
                 Bits[1] = true;
@@ -65,7 +65,7 @@ namespace LearningMachine
         public bool IsZeroZero()
         {
             Object o = new Object();
-            //lock (o)
+            lock (o)
             {
                 if (Bits[0] == false && Bits[1] == false)
                     return true;
@@ -75,7 +75,7 @@ namespace LearningMachine
         public bool IsZeroOne()
         {
             Object o = new Object();
-            //lock (o)
+            lock (o)
             {
                 if (Bits[0] == true && Bits[1] == false)
                     return true;
@@ -85,7 +85,7 @@ namespace LearningMachine
         public bool IsOneZero()
         {
             Object o = new Object();
-            //lock (o)
+            lock (o)
             {
                 if (Bits[0] == false && Bits[1] == true)
                     return true;
@@ -95,7 +95,7 @@ namespace LearningMachine
         public bool IsOneOne()
         {
             Object o = new Object();
-            //lock (o)
+            lock (o)
             {
                 if (Bits[0] == true && Bits[1] == true)
                     return true;
@@ -129,7 +129,7 @@ namespace LearningMachine
             : base(r0, m0, k0)
         {
             Object o = new Object();
-            //lock (o)
+            lock (o)
             {
                 for (int i = 0; i < 3; i++)
                 {
@@ -148,7 +148,7 @@ namespace LearningMachine
         public void CurrenStateInitialize()
         {
             Object o = new Object();
-            //lock (o)
+            lock (o)
             {
                 A1 = FirstAtamataState();
                 A2 = SecondAtamataState();
@@ -282,7 +282,7 @@ namespace LearningMachine
         
         public int FirstAtamataState()
         { Object o = new Object();
-            //lock (o)
+            lock (o)
             {
 
                 if (BitState[0].IsZeroZero())
@@ -302,7 +302,7 @@ namespace LearningMachine
         }
         public int SecondAtamataState()
         { Object o = new Object();
-            //lock (o)
+            lock (o)
             {
 
                 if (BitState[1].IsZeroZero())
@@ -323,7 +323,7 @@ namespace LearningMachine
         }
         public int ThirdAtamataState()
         { Object o = new Object();
-            //lock (o)
+            lock (o)
             {
 
                 if (BitState[2].IsZeroZero())

@@ -1,7 +1,7 @@
 //CdnPath=http://ajax.aspnetcdn.com/ajax/4.5/6/WebUIValidation.js
 var Page_ValidationVer = "125";
 var Page_IsValid = true;
-var Page_B//lockSubmit = false;
+var Page_BlockSubmit = false;
 var Page_InvalidControlToBeFocused = null;
 var Page_TextTypes = /^(text|password|file|search|tel|url|email|number|range|color|datetime|date|month|week|time|datetime-local)$/i;
 function ValidatorUpdateDisplay(val) {
@@ -121,16 +121,16 @@ function Page_ClientValidate(validationGroup) {
     }
     ValidatorUpdateIsValid();
     ValidationSummaryOnSubmit(validationGroup);
-    Page_B//lockSubmit = !Page_IsValid;
+    Page_BlockSubmit = !Page_IsValid;
     return Page_IsValid;
 }
 function ValidatorCommonOnSubmit() {
     Page_InvalidControlToBeFocused = null;
-    var result = !Page_B//lockSubmit;
+    var result = !Page_BlockSubmit;
     if ((typeof(window.event) != "undefined") && (window.event != null)) {
         window.event.returnValue = result;
     }
-    Page_B//lockSubmit = false;
+    Page_BlockSubmit = false;
     return result;
 }
 function ValidatorEnable(val, enable) {

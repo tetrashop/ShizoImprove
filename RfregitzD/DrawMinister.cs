@@ -14,8 +14,8 @@ namespace RefrigtzDLL
         
         
         public int WinOcuuredatChiled = 0;public int LoseOcuuredatChiled = 0;
-        //private readonly //object balancelock = new object();
-        //private readonly //object balancelockS = new object();
+        //private readonly object balancelock = new object();
+        //private readonly object balancelockS = new object();
         public static Image[] M = new Image[2];
         //Initiate Global Variable.
         List<int[]> ValuableSelfSupported = new List<int[]>();
@@ -42,7 +42,7 @@ namespace RefrigtzDLL
             try
             {
                 Object a = new Object();
-                //lock (a)
+                lock (a)
                 {
                     string stackTrace = ex.ToString();
                     File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
@@ -64,7 +64,7 @@ namespace RefrigtzDLL
                 if (MaxHuristicxM < a)
                 {
                     Object O2 = new Object();
-                    //lock (O2)
+                    lock (O2)
                     {
                         MaxNotFound = false;
                         if (ThinkingChess.MaxHuristicx < MaxHuristicxM)
@@ -114,8 +114,8 @@ namespace RefrigtzDLL
         public DrawMinister(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. THIS
             )
         {
-            //object balancelock = new object();
-            //lock (balance//lock)
+            object balancelock = new object();
+            lock (balancelock)
             {
                 
                 CurrentAStarGredyMax = CurrentAStarGredy;
@@ -184,9 +184,9 @@ namespace RefrigtzDLL
             try
             {
 
-                //object balancelockS = new object();
+                object balancelockS = new object();
 
-                //lock (balance//lockS)
+                lock (balancelockS)
                 {
                     if (M[0] == null || M[1] == null)
                     {
@@ -199,7 +199,7 @@ namespace RefrigtzDLL
                         if(Order==1)
                         {
                             Object O1 = new Object();
-                            //lock (O1)
+                            lock (O1)
                             {    //Draw an Instant from File of Gray Soldeirs.
                                  //Draw a Gray Instatnt Minister Image on the Table.
                                 g.DrawImage(M[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
@@ -208,7 +208,7 @@ namespace RefrigtzDLL
                         else
                         {
                             Object O1 = new Object();
-                            //lock (O1)
+                            lock (O1)
                             {    //Draw an Instant from File of Gray Soldeirs.
                                  //Draw a Brown Instatnt Minister Image on the Table.
                                 g.DrawImage(M[1], new Rectangle((int)(Row * CellW), (int)(Column * (float)CellH), CellW, CellH));

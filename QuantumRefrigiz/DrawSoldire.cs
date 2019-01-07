@@ -17,8 +17,8 @@ namespace QuantumRefrigiz
         bool RingHalf = false;
         public int WinOcuuredatChiled = 0;public int LoseOcuuredatChiled = 0;
         //Iniatate Global Variables.
-        //private readonly //object balancelock = new object();
-        //private readonly //object balancelockS = new object();
+        //private readonly object balancelock = new object();
+        //private readonly object balancelockS = new object();
         List<int[]> ValuableSelfSupported = new List<int[]>();
 
         public static Image[] S = new Image[2];
@@ -44,7 +44,7 @@ namespace QuantumRefrigiz
             try
             {
                 Object a = new Object();
-                //lock (a)
+                lock (a)
                 {
                     string stackTrace = ex.ToString();
                     File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
@@ -69,7 +69,7 @@ namespace QuantumRefrigiz
                 if (MaxHuristicxS < a)
                 {
                     Object O2 = new Object();
-                    //lock (O2)
+                    lock (O2)
                     {
                         MaxNotFound = false;
                         if (ThinkingQuantumChess.MaxHuristicx < MaxHuristicxS)
@@ -120,8 +120,8 @@ namespace QuantumRefrigiz
             ) :
             base(Arrangments, (int)i, (int)j, a, Tab, Ord, TB, Cur)
         {
-            //object balancelock = new object();
-            //lock (balance//lock)
+            object balancelock = new object();
+            lock (balancelock)
             {
                 
 
@@ -222,11 +222,11 @@ namespace QuantumRefrigiz
         //Drawing Soldiers On the Table Method..
         public void DrawSoldierOnTable(ref Graphics g, int CellW, int CellH)
         {
-            //object balancelockS = new object();
+            object balancelockS = new object();
 
             int LastRow = 0, LastColumn = 0;
 
-            //lock (balance//lockS)
+            lock (balancelockS)
             {
                 if (AllDraw.LastRow != Row && AllDraw.LastColumn != Column&&AllDraw.LastRow!=-1&&AllDraw.LastColumn!=-1)
                     
@@ -293,7 +293,7 @@ namespace QuantumRefrigiz
                             if (Order == 1)
                             {
                                 Object O1 = new Object();
-                                //lock (O1)
+                                lock (O1)
                                 {    //Draw an Instant from File of Gray Soldeirs.
                                         //Draw an Instant from File of Gray Soldeirs.
                                          //Draw a Gray Castles Instatnt Image On hte Tabe.
@@ -346,7 +346,7 @@ namespace QuantumRefrigiz
                             else
                             {
                                 Object O1 = new Object();
-                                //lock (O1)
+                                lock (O1)
                                 {    //Draw an Instant from File of Gray Soldeirs.
                                      //Draw an Instatnt of Brown Soldier File On the Table.
                                     
@@ -409,7 +409,7 @@ namespace QuantumRefrigiz
                             if (Order == 1)
                             {
                                 Object O1 = new Object();
-                                //lock (O1)
+                                lock (O1)
                                 {    //Draw an Instant from File of Gray Soldeirs.
                                      //Draw of Gray Minsister Image File By an Instant.
                                     g.DrawImage(DrawMinister.M[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
@@ -443,7 +443,7 @@ namespace QuantumRefrigiz
                             else
                             {
                                 Object O1 = new Object();
-                                //lock (O1)
+                                lock (O1)
                                 {    //Draw an Instant from File of Gray Soldeirs.
                                      //Draw a Image File on the Table Form n Instatnt One.
                                     g.DrawImage(DrawMinister.M[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
@@ -488,7 +488,7 @@ namespace QuantumRefrigiz
                             if (Order == 1)
                             {
                                 Object O1 = new Object();
-                                //lock (O1)
+                                lock (O1)
                                 {    //Draw an Instant from File of Gray Soldeirs.
                                      //Create on the Inststant of Gray Castles Images.
                                     g.DrawImage(DrawCastle.C[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
@@ -523,7 +523,7 @@ namespace QuantumRefrigiz
                             else
                             {
                                 Object O1 = new Object();
-                                //lock (O1)
+                                lock (O1)
                                 {    //Draw an Instant from File of Gray Soldeirs.
                                      //Creat of an Instant of Brown Image Castles.
                                     g.DrawImage(DrawCastle.C[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
@@ -569,7 +569,7 @@ namespace QuantumRefrigiz
                             if (Order == 1)
                             {
                                 Object O1 = new Object();
-                                //lock (O1)
+                                lock (O1)
                                 {//Draw an Instatnt of Gray Hourse Image File.
                                     g.DrawImage(DrawElefant.E[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                     if (RingHalf)
@@ -602,7 +602,7 @@ namespace QuantumRefrigiz
                             else
                             {
                                 Object O1 = new Object();
-                                //lock (O1)
+                                lock (O1)
                                 {//Creat of an Instatnt Hourse Image File.
                                     g.DrawImage(DrawElefant.E[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                     if (RingHalf)
@@ -647,7 +647,7 @@ namespace QuantumRefrigiz
                             if (Order == 1)
                             {
                                 Object O1 = new Object();
-                                //lock (O1)
+                                lock (O1)
                                 {//Draw an Instatnt Image of Gray Elephant.
                                     g.DrawImage(DrawElefant.E[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                     if (RingHalf)
@@ -687,7 +687,7 @@ namespace QuantumRefrigiz
                             else
                             {
                                 Object O1 = new Object();
-                                //lock (O1)
+                                lock (O1)
                                 {//Draw of Instant Image of Brown Elephant.
                                     g.DrawImage(DrawElefant.E[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                     if (RingHalf)

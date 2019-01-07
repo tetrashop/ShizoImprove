@@ -29,7 +29,7 @@
  * Virtualization Filed (Not Responding) at Indpencdency State********************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Unable To Draw Refrigtz.Timer  Content at Tow Picture Box*******************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Refrigtz.Timer Working Hardly.**********************************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Dead //lock In Drawing Images.***************************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
+ * Dead lock In Drawing Images.***************************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Misleading Thread OrderPlate And Time Sharing**********************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Thinkings Taking a lot of Time.************************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * AntiVirus Protextion and Existance Caused to Reduce Speed of Thinking and lead to Lose.****RS*****0.12**4**Managements and Cuation Programing**(+)
@@ -3207,7 +3207,7 @@ namespace Refrigtz
             try
             {
                 Object a = new Object();
-                //lock (a)
+                lock (a)
                 {
                     string stackTrace = ex.ToString();
                     File.AppendAllText(Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
@@ -3288,7 +3288,7 @@ namespace Refrigtz
             {
                 //Thread.Sleep(1);
                 Object O = new Object();
-                //lock (O)
+                lock (O)
                 {
                     if (!Quantum)
                     {
@@ -3317,7 +3317,7 @@ namespace Refrigtz
             try
             {
                 Object O = new Object();
-                //lock (O)
+                lock (O)
                 {
                     if (Refregitz.InvokeRequired)
                     {
@@ -3348,7 +3348,7 @@ namespace Refrigtz
             try
             {
                 Object O = new Object();
-                //lock (O)
+                lock (O)
                 {
                     if (Refregitz.InvokeRequired)
                     {
@@ -3780,7 +3780,7 @@ namespace Refrigtz
             do
             {
                 Object O = new Object();
-                //lock (O)
+                lock (O)
                 {
                     if (!Quantum)
                     {
@@ -3824,7 +3824,7 @@ namespace Refrigtz
             do
             {
                 Object o = new Object();
-                //lock (o)
+                lock (o)
                 {
                     if (!Quantum)
                     {
@@ -4330,8 +4330,8 @@ namespace Refrigtz
             BrownTimer.TextChanged = A;
 
             var parallelOptions = new ParallelOptions();
-            parallelOptions.MaxDegreeOfParallelism = Int32.MaxValue;
             parallelOptions.MaxDegreeOfParallelism = PlatformHelper.ProcessorCount;
+            //parallelOptions.MaxDegreeOfParallelism = PlatformHelper.ProcessorCount;
             if (Quantum)
             {
                 String SFile = "QBN.aqs";
@@ -5440,14 +5440,14 @@ namespace Refrigtz
             for (int i = 0; i < Draw.SodierHigh; i++)
             {
                 Object O1 = new Object();
-                //lock (O1)
+                lock (O1)
                 {
                     if (Draw.SolderesOnTable[i] != null)
                     {
                         try
                         {
                             Object O = new Object();
-                            //lock (O)
+                            lock (O)
                             {
                                 Draw.SolderesOnTable[i].DrawSoldierOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
                             }
@@ -5466,14 +5466,14 @@ namespace Refrigtz
             for (int i = 0; i < Draw.ElefantHigh; i++)
             {
                 Object O1 = new Object();
-                //lock (O1)
+                lock (O1)
                 {
                     if (Draw.ElephantOnTable[i] != null)
                     {
                         try
                         {
                             Object O = new Object();
-                            //lock (O)
+                            lock (O)
                             {
                                 Draw.ElephantOnTable[i].DrawElefantOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
                             }
@@ -5492,14 +5492,14 @@ namespace Refrigtz
             for (int i = 0; i < Draw.HourseHight; i++)
             {
                 Object O1 = new Object();
-                //lock (O1)
+                lock (O1)
                 {
                     if (Draw.HoursesOnTable[i] != null)
                     {
                         try
                         {
                             Object O = new Object();
-                            //lock (O)
+                            lock (O)
                             {
                                 Draw.HoursesOnTable[i].DrawHourseOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
                             }
@@ -5518,14 +5518,14 @@ namespace Refrigtz
             //for(int i = 0;i< Draw.CastleHigh;i++)
             {
                 Object O1 = new Object();
-                //lock (O1)
+                lock (O1)
                 {
                     if (Draw.CastlesOnTable[i] != null)
                     {
                         try
                         {
                             Object O = new Object();
-                            //lock (O)
+                            lock (O)
                             {
                                 Draw.CastlesOnTable[i].DrawCastleOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
                             }
@@ -5544,14 +5544,14 @@ namespace Refrigtz
             for (int i = 0; i < Draw.MinisterHigh; i++)
             {
                 Object O1 = new Object();
-                //lock (O1)
+                lock (O1)
                 {
                     if (Draw.MinisterOnTable[i] != null)
                     {
                         try
                         {
                             Object O = new Object();
-                            //lock (O)
+                            lock (O)
                             {
                                 Draw.MinisterOnTable[i].DrawMinisterOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
                             }
@@ -5571,14 +5571,14 @@ namespace Refrigtz
             //for(int i = 0;i< Draw.KingHigh;i++)
             {
                 Object O1 = new Object();
-                //lock (O1)
+                lock (O1)
                 {
                     if (Draw.KingOnTable[i] != null)
                     {
                         try
                         {
                             Object O = new Object();
-                            //lock (O)
+                            lock (O)
                             {
                                 Draw.KingOnTable[i].DrawKingOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
                             }
@@ -5598,14 +5598,14 @@ namespace Refrigtz
             for (int i = 0; i < DrawQ.SodierHigh; i++)
             {
                 Object O1 = new Object();
-                //lock (O1)
+                lock (O1)
                 {
                     if (DrawQ.SolderesOnTable[i] != null)
                     {
                         try
                         {
                             Object O = new Object();
-                            //lock (O)
+                            lock (O)
                             {
                                 DrawQ.SolderesOnTable[i].DrawSoldierOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
                             }
@@ -5624,14 +5624,14 @@ namespace Refrigtz
             for (int i = 0; i < DrawQ.ElefantHigh; i++)
             {
                 Object O1 = new Object();
-                //lock (O1)
+                lock (O1)
                 {
                     if (DrawQ.ElephantOnTable[i] != null)
                     {
                         try
                         {
                             Object O = new Object();
-                            //lock (O)
+                            lock (O)
                             {
                                 DrawQ.ElephantOnTable[i].DrawElefantOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
                             }
@@ -5650,14 +5650,14 @@ namespace Refrigtz
             for (int i = 0; i < DrawQ.HourseHight; i++)
             {
                 Object O1 = new Object();
-                //lock (O1)
+                lock (O1)
                 {
                     if (DrawQ.HoursesOnTable[i] != null)
                     {
                         try
                         {
                             Object O = new Object();
-                            //lock (O)
+                            lock (O)
                             {
                                 DrawQ.HoursesOnTable[i].DrawHourseOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
                             }
@@ -5676,14 +5676,14 @@ namespace Refrigtz
             //for(int i = 0;i< DrawQ.CastleHigh;i++)
             {
                 Object O1 = new Object();
-                //lock (O1)
+                lock (O1)
                 {
                     if (DrawQ.CastlesOnTable[i] != null)
                     {
                         try
                         {
                             Object O = new Object();
-                            //lock (O)
+                            lock (O)
                             {
                                 DrawQ.CastlesOnTable[i].DrawCastleOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
                             }
@@ -5702,14 +5702,14 @@ namespace Refrigtz
             for (int i = 0; i < DrawQ.MinisterHigh; i++)
             {
                 Object O1 = new Object();
-                //lock (O1)
+                lock (O1)
                 {
                     if (DrawQ.MinisterOnTable[i] != null)
                     {
                         try
                         {
                             Object O = new Object();
-                            //lock (O)
+                            lock (O)
                             {
                                 DrawQ.MinisterOnTable[i].DrawMinisterOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
                             }
@@ -5729,14 +5729,14 @@ namespace Refrigtz
             //for(int i = 0;i< DrawQ.KingHigh;i++)
             {
                 Object O1 = new Object();
-                //lock (O1)
+                lock (O1)
                 {
                     if (DrawQ.KingOnTable[i] != null)
                     {
                         try
                         {
                             Object O = new Object();
-                            //lock (O)
+                            lock (O)
                             {
                                 DrawQ.KingOnTable[i].DrawKingOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
                             }
@@ -5756,7 +5756,7 @@ namespace Refrigtz
         private void pictureBoxRefrigtz_Paint(object sender, PaintEventArgs e)
         {
             Object o = new Object();
-            //lock (o)
+            lock (o)
             {
                 if (!Quantum)
                 {
@@ -6530,7 +6530,7 @@ namespace Refrigtz
         {
             AllMove = true;
             Object O = new Object();
-            //lock (O)
+            lock (O)
             {
                 if (!Quantum)
                 {
@@ -11980,7 +11980,7 @@ namespace Refrigtz
         public void SetDrawFounding(ref bool FOUND, ref RefrigtzDLL.AllDraw THIS, bool First)
         {
             Object O = new Object();
-            //lock (O)
+            lock (O)
             {
                 FOUND = false;
                 THIS = null;
@@ -12027,7 +12027,7 @@ namespace Refrigtz
         public void SetDrawFounding(ref bool FOUND, ref QuantumRefrigiz.AllDraw THIS, bool First)
         {
             Object O = new Object();
-            //lock (O)
+            lock (O)
             {
                 FOUND = false;
                 THIS = null;
@@ -12199,7 +12199,7 @@ namespace Refrigtz
         String CreateHtmlTag(String Tag)
         {
             Object O = new Object();
-            //lock (O)
+            lock (O)
             {
                 //List<int[]> List = new List<int[]>();
                 //List = WhereNumbers(Tag);
@@ -12248,7 +12248,7 @@ namespace Refrigtz
         public void SetBoxTextWrite(String state)
         {
             Object O = new Object();
-            //lock (O)
+            lock (O)
             {
 
                 // InvokeRequired required compares the thread ID of the
@@ -12282,7 +12282,7 @@ namespace Refrigtz
         public void SetBoxText(String state)
         {
             Object O = new Object();
-            //lock (O)
+            lock (O)
             {
 
                 // InvokeRequired required compares the thread ID of the
@@ -12322,7 +12322,7 @@ namespace Refrigtz
         public void SetcomboBoxText()
         {
             Object O = new Object();
-            //lock (O)
+            lock (O)
             {
                 // InvokeRequired required compares the thread ID of the
                 // calling thread to the thread ID of the creating thread.
@@ -12342,7 +12342,7 @@ namespace Refrigtz
         public void RefreshBoxText()
         {
             Object O = new Object();
-            //lock (O)
+            lock (O)
             {
                 // InvokeRequired required compares the thread ID of the
                 // calling thread to the thread ID of the creating thread.
@@ -12372,7 +12372,7 @@ namespace Refrigtz
         public void SetBoxStatistic(String state)
         {
             Object O = new Object();
-            //lock (O)
+            lock (O)
             {
                 // InvokeRequired required compares the thread ID of the
                 // calling thread to the thread ID of the creating thread.
@@ -12403,7 +12403,7 @@ namespace Refrigtz
         public void RefreshBoxStatistic()
         {
             Object O = new Object();
-            //lock (O)
+            lock (O)
             {
 
                 // InvokeRequired required compares the thread ID of the
@@ -12425,7 +12425,7 @@ namespace Refrigtz
         void AliceWithPerson()
         {
             Object O = new Object();
-            //lock (O)
+            lock (O)
             {
                 int[,] TableC = new int[8, 8];
                 if (!Quantum)
@@ -12498,7 +12498,7 @@ namespace Refrigtz
         void BobWithPerson()
         {
             Object O = new Object();
-            //lock (O)
+            lock (O)
             {
                 int[,] TableCon = new int[8, 8];
                 int[,] TableC = new int[8, 8];
@@ -12584,7 +12584,7 @@ namespace Refrigtz
         void OpBeforeThinking(ref Color a, ref bool StoreStateCC, ref bool StoreStateCP, ref bool StoreStateGe)
         {
             Object O = new Object();
-            //lock (O)
+            lock (O)
             {
                 StoreStateCC = StateCC;
                 StoreStateCP = StateCP;
@@ -12624,7 +12624,7 @@ namespace Refrigtz
         void OpTableZero()
         {
             Object O = new Object();
-            //lock (O)
+            lock (O)
             {
                 //Saved Midle Target.
                 (new TakeRoot()).Save(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
@@ -12663,7 +12663,7 @@ namespace Refrigtz
         void SetAndConfirmSyntax()
         {
             Object O = new Object();
-            //lock (O)
+            lock (O)
             {
                 if (!Quantum)
                 {
@@ -12755,7 +12755,7 @@ namespace Refrigtz
         void OpAfterAllTinking(ref bool StoreStateCC, ref bool StoreStateCP, ref bool StoreStateGe)
         {
             Object O = new Object();
-            //lock (O)
+            lock (O)
             {
                 InsertTableAtDataBase(Table);
 
@@ -12792,7 +12792,7 @@ namespace Refrigtz
         void AliceAction()
         {
             Object O = new Object();
-            //lock (O)
+            lock (O)
             {
 
                 if (!Quantum)
@@ -12859,7 +12859,7 @@ namespace Refrigtz
         void DrawImageOfMain()
         {
             Object O = new Object();
-            //lock (O)
+            lock (O)
             {
                 if(!Quantum)
                     RefrigtzDLL.AllDraw.DrawTable = true;
@@ -13046,7 +13046,7 @@ namespace Refrigtz
         void BobAction()
         {
             Object O = new Object();
-            //lock (O)
+            lock (O)
             {
                 int[,] TableC = new int[8, 8];
                 //LoadConvertedTable = false;
@@ -15970,7 +15970,7 @@ namespace Refrigtz
         private void pictureBoxTimerGray_Paint(object sender, PaintEventArgs e)
         {
             Object o = new Object();
-            //lock (o)
+            lock (o)
             {
                 //UpadatTimer();
                 if (GrayTimer.TextChanged)
@@ -16024,7 +16024,7 @@ namespace Refrigtz
         private void pictureBoxTimerBrown_Paint(object sender, PaintEventArgs e)
         {
             Object o = new Object();
-            //lock (o)
+            lock (o)
             {
                 //UpadatTimer();
 

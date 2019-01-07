@@ -45,7 +45,7 @@ namespace GalleryStudio
             try
             {
                 Object a = new Object();
-                //lock (a)
+                lock (a)
                 {
                     string stackTrace = ex.ToString();
                     File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
@@ -64,7 +64,7 @@ namespace GalleryStudio
             NextK = new List<RefregizMemmory>();
 
             Object o = new Object();
-            //lock (o)
+            lock (o)
             {
                 MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
                 IgnoreSelfObjectsT = IgnoreSelfObject;
@@ -81,7 +81,7 @@ namespace GalleryStudio
         void RewriteAllDrawRec(BinaryFormatter Formatters, FileStream DummyFileStream, int Order)
         {
             Object o = new Object();
-            //lock (o)
+            lock (o)
             {
 
                 try
@@ -104,7 +104,7 @@ namespace GalleryStudio
                                              for (int j = 0; j < Current.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; j++)
                                              {
                                                  Object O = new Object();
-                                                 //lock (O)
+                                                 lock (O)
                                                  {
                                                      iii = i;
                                                      jjj = j;
@@ -127,7 +127,7 @@ namespace GalleryStudio
                                              for (int j = 0; j < Current.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; j++)
                                              {
                                                  Object O = new Object();
-                                                 //lock (O)
+                                                 lock (O)
                                                  {
                                                      iii = i;
                                                      jjj = j;
@@ -151,7 +151,7 @@ namespace GalleryStudio
                                              for (int j = 0; j < Current.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; j++)
                                              {
                                                  Object O = new Object();
-                                                 //lock (O)
+                                                 lock (O)
                                                  {
                                                      iii = i;
                                                      jjj = j;
@@ -175,7 +175,7 @@ namespace GalleryStudio
                                              for (int j = 0; j < Current.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; j++)
                                              {
                                                  Object O = new Object();
-                                                 //lock (O)
+                                                 lock (O)
                                                  {
                                                      iii = i;
                                                      jjj = j;
@@ -199,7 +199,7 @@ namespace GalleryStudio
                                              for (int j = 0; j < Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; j++)
                                              {
                                                  Object O = new Object();
-                                                 //lock (O)
+                                                 lock (O)
                                                  {
                                                      iii = i;
                                                      jjj = j;
@@ -224,7 +224,7 @@ namespace GalleryStudio
                                              for (int j = 0; j < Current.KingOnTable[i].KingThinking[0].AStarGreedy.Count; j++)
                                              {
                                                  Object O = new Object();
-                                                 //lock (O)
+                                                 lock (O)
                                                  {
                                                      iii = i;
                                                      jjj = j;
@@ -250,7 +250,7 @@ namespace GalleryStudio
                                              for (int j = 0; j < Current.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; j++)
                                              {
                                                  Object O = new Object();
-                                                 //lock (O)
+                                                 lock (O)
                                                  {
                                                      iii = i;
                                                      jjj = j;
@@ -274,7 +274,7 @@ namespace GalleryStudio
                                              for (int j = 0; j < Current.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; j++)
                                              {
                                                  Object O = new Object();
-                                                 //lock (O)
+                                                 lock (O)
                                                  {
                                                      iii = i;
                                                      jjj = j;
@@ -299,7 +299,7 @@ namespace GalleryStudio
                                              for (int j = 0; j < Current.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; j++)
                                              {
                                                  Object O = new Object();
-                                                 //lock (O)
+                                                 lock (O)
                                                  {
                                                      iii = i;
                                                      jjj = j;
@@ -324,7 +324,7 @@ namespace GalleryStudio
                                              for (int j = 0; j < Current.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; j++)
                                              {
                                                  Object O = new Object();
-                                                 //lock (O)
+                                                 lock (O)
                                                  {
                                                      iii = i;
                                                      jjj = j;
@@ -348,7 +348,7 @@ namespace GalleryStudio
                                              for (int j = 0; j < Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; j++)
                                              {
                                                  Object O = new Object();
-                                                 //lock (O)
+                                                 lock (O)
                                                  {
                                                      iii = i;
                                                      jjj = j;
@@ -373,7 +373,7 @@ namespace GalleryStudio
                                              for (int j = 0; j < Current.KingOnTable[i].KingThinking[0].AStarGreedy.Count; j++)
                                              {
                                                  Object O = new Object();
-                                                 //lock (O)
+                                                 lock (O)
                                                  {
                                                      iii = i;
                                                      jjj = j;
@@ -403,7 +403,7 @@ namespace GalleryStudio
         void RewriteAllDrawRecQ(BinaryFormatter Formatters, FileStream DummyFileStream, int Order)
         {
             Object o = new Object();
-            //lock (o)
+            lock (o)
             {
 
                 try
@@ -426,7 +426,7 @@ namespace GalleryStudio
                                              for (int j = 0; j < Current.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; j++)
                                              {
                                                  Object O = new Object();
-                                                 //lock (O)
+                                                 lock (O)
                                                  {
                                                      iii = i;
                                                      jjj = j;
@@ -449,7 +449,7 @@ namespace GalleryStudio
                                              for (int j = 0; j < Current.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; j++)
                                              {
                                                  Object O = new Object();
-                                                 //lock (O)
+                                                 lock (O)
                                                  {
                                                      iii = i;
                                                      jjj = j;
@@ -473,7 +473,7 @@ namespace GalleryStudio
                                              for (int j = 0; j < Current.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; j++)
                                              {
                                                  Object O = new Object();
-                                                 //lock (O)
+                                                 lock (O)
                                                  {
                                                      iii = i;
                                                      jjj = j;
@@ -497,7 +497,7 @@ namespace GalleryStudio
                                              for (int j = 0; j < Current.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; j++)
                                              {
                                                  Object O = new Object();
-                                                 //lock (O)
+                                                 lock (O)
                                                  {
                                                      iii = i;
                                                      jjj = j;
@@ -521,7 +521,7 @@ namespace GalleryStudio
                                              for (int j = 0; j < Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; j++)
                                              {
                                                  Object O = new Object();
-                                                 //lock (O)
+                                                 lock (O)
                                                  {
                                                      iii = i;
                                                      jjj = j;
@@ -546,7 +546,7 @@ namespace GalleryStudio
                                              for (int j = 0; j < Current.KingOnTable[i].KingThinking[0].AStarGreedy.Count; j++)
                                              {
                                                  Object O = new Object();
-                                                 //lock (O)
+                                                 lock (O)
                                                  {
                                                      iii = i;
                                                      jjj = j;
@@ -572,7 +572,7 @@ namespace GalleryStudio
                                              for (int j = 0; j < Current.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; j++)
                                              {
                                                  Object O = new Object();
-                                                 //lock (O)
+                                                 lock (O)
                                                  {
                                                      iii = i;
                                                      jjj = j;
@@ -596,7 +596,7 @@ namespace GalleryStudio
                                              for (int j = 0; j < Current.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; j++)
                                              {
                                                  Object O = new Object();
-                                                 //lock (O)
+                                                 lock (O)
                                                  {
                                                      iii = i;
                                                      jjj = j;
@@ -621,7 +621,7 @@ namespace GalleryStudio
                                              for (int j = 0; j < Current.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; j++)
                                              {
                                                  Object O = new Object();
-                                                 //lock (O)
+                                                 lock (O)
                                                  {
                                                      iii = i;
                                                      jjj = j;
@@ -646,7 +646,7 @@ namespace GalleryStudio
                                              for (int j = 0; j < Current.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; j++)
                                              {
                                                  Object O = new Object();
-                                                 //lock (O)
+                                                 lock (O)
                                                  {
                                                      iii = i;
                                                      jjj = j;
@@ -670,7 +670,7 @@ namespace GalleryStudio
                                              for (int j = 0; j < Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; j++)
                                              {
                                                  Object O = new Object();
-                                                 //lock (O)
+                                                 lock (O)
                                                  {
                                                      iii = i;
                                                      jjj = j;
@@ -695,7 +695,7 @@ namespace GalleryStudio
                                              for (int j = 0; j < Current.KingOnTable[i].KingThinking[0].AStarGreedy.Count; j++)
                                              {
                                                  Object O = new Object();
-                                                 //lock (O)
+                                                 lock (O)
                                                  {
                                                      iii = i;
                                                      jjj = j;
@@ -776,7 +776,7 @@ namespace GalleryStudio
         public void RewriteAllDraw(int Order)
         {
             Object oo = new Object();
-            //lock (oo)
+            lock (oo)
             {
 
                 //Current = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT);
@@ -808,7 +808,7 @@ namespace GalleryStudio
         public void RewriteAllDrawQ(int Order)
         {
             Object oo = new Object();
-            //lock (oo)
+            lock (oo)
             {
 
                 //Current = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT);
@@ -840,7 +840,7 @@ namespace GalleryStudio
         public AllDraw Load(bool Quantum, int Order)
         {
             Object o = new Object();
-            //lock (o)
+            lock (o)
             {
 
                 //Node.AllDrawNextAccessS = null;
@@ -872,7 +872,7 @@ namespace GalleryStudio
         public  QuantumRefrigiz.AllDraw LoadQ(bool Quantum, int Order)
         {
             Object o = new Object();
-            //lock (o)
+            lock (o)
             {
 
                  QuantumRefrigiz.AllDraw tQ = null;
@@ -897,7 +897,7 @@ namespace GalleryStudio
         {
             RefregizMemmory Dummy = null;
             Object o = new Object();
-            //lock (o)
+            lock (o)
             {
 
                 //Node.AllDrawNextAccessS = null;
@@ -1042,7 +1042,7 @@ namespace GalleryStudio
         {
             RefregizMemmory Dummy = null;
             Object o = new Object();
-            //lock (o)
+            lock (o)
             {
 
                 //Node.AllDrawNextAccessS = null;
@@ -1186,7 +1186,7 @@ namespace GalleryStudio
         AllDraw CreateAllDrawFromMemmory(RefregizMemmory t, AllDraw Last,int Order)
         {
             Object o = new Object();
-            //lock (o)
+            lock (o)
             {
 
 

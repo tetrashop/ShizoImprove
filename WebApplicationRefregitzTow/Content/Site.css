@@ -33,7 +33,7 @@ a {
 
 header, footer, hgroup,
 nav, section {
-    display: b//lock;
+    display: block;
 }
 
 mark {
@@ -53,7 +53,7 @@ mark {
 .clear-fix:after {
     content: ".";
     clear: both;
-    display: b//lock;
+    display: block;
     height: 0;
     visibility: hidden;
 }
@@ -145,7 +145,7 @@ footer {
 /* login
 ----------------------------------------------------------*/
 #login {
-    display: b//lock;
+    display: block;
     font-size: .85em;
     margin: 0 0 10px;
     text-align: right;
@@ -334,7 +334,7 @@ aside {
 }
 
     #loginForm .validation-error {
-        display: b//lock;
+        display: block;
         margin-left: 15px;
     }
 
@@ -391,7 +391,7 @@ fieldset {
         }
 
     label {
-        display: b//lock;
+        display: block;
         font-size: 1.2em;
         font-weight: 600;
     }
@@ -517,7 +517,7 @@ th {
 }
 
     th a {
-        display: b//lock;
+        display: block;
         position: relative;
         
     }
@@ -538,7 +538,7 @@ th {
     }
     
     th.asc a:after, th.desc a:after {
-		display: b//lock;
+		display: block;
         position: absolute;
         right: 0em;
         top: 0;
@@ -704,7 +704,7 @@ tr.pager td {
     }
 
         #loginForm .validation-error {
-            display: b//lock;
+            display: block;
             margin-left: 15px;
         }
 

@@ -238,7 +238,7 @@ namespace QuantumRefrigiz
             try
             {
                 Object a = new Object();
-                //lock (a)
+                lock (a)
                 {
                     string stackTrace = ex.ToString();
                     File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
@@ -449,7 +449,7 @@ namespace QuantumRefrigiz
                                 if (i == 6 && Cromosom2[i, j] == -6 && Cromosom2[i + 1, j] == -4 && Cromosom1[i, j] != -6 && Cromosom1[i + 1, j] != -4)
                                 {
                                     Object O = new Object();
-                                    //lock (O)
+                                    lock (O)
                                     {
                                         CromosomRowFirst = i - 3;
                                         CromosomColumnFirst = j;
@@ -465,7 +465,7 @@ namespace QuantumRefrigiz
                                     if (i == 3 && Cromosom2[i, j] == -4 && Cromosom2[i - 1, j] == -6 && Cromosom1[i, j] != -4 && Cromosom1[i - 1, j] != -6)
                                     {
                                     Object O = new Object();
-                                    //lock (O)
+                                    lock (O)
                                     {
                                         CromosomRowFirst = i + 3;
                                         CromosomColumnFirst = j;
@@ -575,7 +575,7 @@ namespace QuantumRefrigiz
                                 if (i == 6 && Cromosom2[i, j] == -6 && Cromosom2[i + 1, j] == -4 && Cromosom1[i, j] != -6 && Cromosom1[i + 1, j] != -4)
                                 {
                                     Object O = new Object();
-                                    //lock (O)
+                                    lock (O)
                                     {
                                         CromosomRowFirst = i - 3;
                                         CromosomColumnFirst = j;
@@ -591,7 +591,7 @@ namespace QuantumRefrigiz
                                     if (i == 3 && Cromosom2[i, j] == -4 && Cromosom2[i - 1, j] == -6 && Cromosom1[i, j] != -4 && Cromosom1[i - 1, j] != -6)
                                     {
                                     Object O = new Object();
-                                    //lock (O)
+                                    lock (O)
                                     {
                                         CromosomRowFirst = i + 3;
                                         CromosomColumnFirst = j;

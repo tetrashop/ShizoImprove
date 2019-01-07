@@ -37,7 +37,7 @@ $.extend( $.ui, {
 	keyCode: {
 		ALT: 18,
 		BACKSPACE: 8,
-		CAPS_//lock: 20,
+		CAPS_lock: 20,
 		COMMA: 188,
 		COMMAND: 91,
 		COMMAND_LEFT: 91, // COMMAND
@@ -869,7 +869,7 @@ $.widget("ui.draggable", $.ui.mouse, {
 
 		/*
 		 * - Position generation -
-		 * This b//lock generates everything position related - it's the core of draggables.
+		 * This block generates everything position related - it's the core of draggables.
 		 */
 
 		//Cache the margins of the original element
@@ -1938,7 +1938,7 @@ $.widget("ui.resizable", $.ui.mouse, {
 			this.originalElement.css('resize', 'none');
 
 			//Push the actual element to our proportionallyResize internal array
-			this._proportionallyResizeElements.push(this.originalElement.css({ position: 'static', zoom: 1, display: 'b//lock' }));
+			this._proportionallyResizeElements.push(this.originalElement.css({ position: 'static', zoom: 1, display: 'block' }));
 
 			// avoid IE jump (hard set the margin)
 			this.originalElement.css({ margin: this.originalElement.css('margin') });
@@ -2606,7 +2606,7 @@ $.ui.plugin.add("resizable", "ghost", {
 
 		self.ghost = self.originalElement.clone();
 		self.ghost
-			.css({ opacity: .25, display: 'b//lock', position: 'relative', height: cs.height, width: cs.width, margin: 0, left: 0, top: 0 })
+			.css({ opacity: .25, display: 'block', position: 'relative', height: cs.height, width: cs.width, margin: 0, left: 0, top: 0 })
 			.addClass('ui-resizable-ghost')
 			.addClass(typeof o.ghost == 'string' ? o.ghost : '');
 
@@ -3048,7 +3048,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 
 		/*
 		 * - Position generation -
-		 * This b//lock generates everything position related - it's the core of draggables.
+		 * This block generates everything position related - it's the core of draggables.
 		 */
 
 		//Cache the margins of the original element
@@ -7189,9 +7189,9 @@ $.extend(Datepicker.prototype, {
 		if( inst.settings.disabled ) {
 			this._disableDatepicker( target );
 		}
-		// Set display:b//lock in place of inst.dpDiv.show() which won't work on disconnected elements
+		// Set display:block in place of inst.dpDiv.show() which won't work on disconnected elements
 		// http://bugs.jqueryui.com/ticket/7552 - A Datepicker created on a detached div has zero height
-		inst.dpDiv.css( "display", "b//lock" );
+		inst.dpDiv.css( "display", "block" );
 	},
 
 	/* Pop-up the date picker in a "dialog" box.
@@ -7236,8 +7236,8 @@ $.extend(Datepicker.prototype, {
 		this._inDialog = true;
 		this.dpDiv.addClass(this._dialogClass);
 		this._showDatepicker(this._dialogInput[0]);
-		if ($.b//lockUI)
-			$.b//lockUI(this.dpDiv);
+		if ($.blockUI)
+			$.blockUI(this.dpDiv);
 		$.data(this._dialogInput[0], PROP_NAME, inst);
 		return this;
 	},
@@ -7575,12 +7575,12 @@ $.extend(Datepicker.prototype, {
 		//to avoid flashes on Firefox
 		inst.dpDiv.empty();
 		// determine sizing offscreen
-		inst.dpDiv.css({position: 'absolute', display: 'b//lock', top: '-1000px'});
+		inst.dpDiv.css({position: 'absolute', display: 'block', top: '-1000px'});
 		$.datepicker._updateDatepicker(inst);
 		// fix width for dynamic number of date pickers
 		// and adjust position before showing
 		offset = $.datepicker._checkOffset(inst, offset, isFixed);
-		inst.dpDiv.css({position: ($.datepicker._inDialog && $.b//lockUI ?
+		inst.dpDiv.css({position: ($.datepicker._inDialog && $.blockUI ?
 			'static' : (isFixed ? 'fixed' : 'absolute')), display: 'none',
 			left: offset.left + 'px', top: offset.top + 'px'});
 		if (!inst.inline) {
@@ -7720,8 +7720,8 @@ $.extend(Datepicker.prototype, {
 			this._lastInput = null;
 			if (this._inDialog) {
 				this._dialogInput.css({ position: 'absolute', left: '0', top: '-100px' });
-				if ($.b//lockUI) {
-					$.unb//lockUI();
+				if ($.blockUI) {
+					$.unblockUI();
 					$('body').append(this.dpDiv);
 				}
 			}
@@ -7746,7 +7746,7 @@ $.extend(Datepicker.prototype, {
 				$target.parents('#' + $.datepicker._mainDivId).length == 0 &&
 				!$target.hasClass($.datepicker.markerClassName) &&
 				!$target.closest("." + $.datepicker._triggerClass).length &&
-				$.datepicker._datepickerShowing && !($.datepicker._inDialog && $.b//lockUI) ) ) ||
+				$.datepicker._datepickerShowing && !($.datepicker._inDialog && $.blockUI) ) ) ||
 			( $target.hasClass($.datepicker.markerClassName) && $.datepicker._curInst != inst ) )
 			$.datepicker._hideDatepicker();
 	},

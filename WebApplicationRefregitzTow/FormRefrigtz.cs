@@ -29,7 +29,7 @@
  * Virtualization Filed (Not Responding) at Indpencdency State********************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Unable To Draw Refrigtz.Timer  Content at Tow Picture Box*******************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Refrigtz.Timer Working Hardly.**********************************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Dead //lock In Drawing Images.***************************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
+ * Dead lock In Drawing Images.***************************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Misleading Thread OrderPlate And Time Sharing**********************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Thinkings Taking a lot of Time.************************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * AntiVirus Protextion and Existance Caused to Reduce Speed of Thinking and lead to Lose.****RS*****0.12**4**Managements and Cuation Programing**(+)
@@ -181,7 +181,7 @@ namespace RefrigtzW
             try
             {
                 Object a = new Object();
-                //lock (a)
+                lock (a)
                 {
                     string stackTrace = ex.ToString();
                     File.AppendAllText(Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
@@ -1646,7 +1646,7 @@ namespace RefrigtzW
             do
             {
                 Object o = new Object();
-                //lock (o)
+                lock (o)
                 {
                     if (AllDraw.ActionStringReady)
                     {
