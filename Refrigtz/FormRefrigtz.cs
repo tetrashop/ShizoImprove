@@ -3305,7 +3305,7 @@ namespace Refrigtz
                         Refrigtz.Timer.StoreAllDrawCount = QuantumRefrigiz.AllDraw.StoreADraw.Count;
                     }
                 }
-                System.Threading.Thread.Sleep(10);
+                System.Threading.Thread.Sleep(1);
             }
              while (true);
             //SetTimer = false;
@@ -3811,7 +3811,7 @@ namespace Refrigtz
                             SetlableRefregitzMaxValue(labelNodesCount, QuantumRefrigiz.ThinkingQuantumChess.NumbersOfAllNode.ToString() + " at time " + ((int)(Store)).ToString() + "N/s and by Elapsed time " + ((int)((EndTime - TimeElapsed) / 1000)).ToString() + " s" + " By CheckMate Count " + QuantumRefrigiz.ThinkingQuantumChess.FoundFirstMating.ToString() + " By CheckMate SELF Count " + QuantumRefrigiz.ThinkingQuantumChess.FoundFirstSelfMating.ToString() + " For Order  " + QuantumRefrigiz.AllDraw.OrderPlate.ToString());
                     }
                     //labelNodesCount.Refresh();
-                    Thread.Sleep(10);
+                    //Thread.Sleep(10);
                 }
             } while (true);
             //SetNode = false;
@@ -3922,7 +3922,8 @@ namespace Refrigtz
 
                     }
                     else
-                    {System.Threading.Thread.Sleep(10);
+                    {
+                        //System.Threading.Thread.Sleep(10);
                         QuantumRefrigiz.AllDraw.Root = Root;
                         QuantumRefrigiz.AllDraw.OrderPlate = OrderPlate;
                         QuantumRefrigiz.AllDraw.Blitz = Blitz;
@@ -4993,7 +4994,7 @@ namespace Refrigtz
                             oleDbCmd.CommandText = "Drop Table " + TableName;
                             OleDbDataReader dr = null;
                             dr = oleDbCmd.ExecuteReader();
-                            //return true;
+                            return true;
 
                         }
                         catch (Exception tt)
@@ -5001,7 +5002,7 @@ namespace Refrigtz
                             Log(tt);
                             return false;
                         }
-                        System.Threading.Thread.Sleep(10);
+                        System.Threading.Thread.Sleep(1);
                     } while (true);
                 }
                 if (!Quantum)
@@ -5020,7 +5021,7 @@ namespace Refrigtz
                     }
                 }
 
-                System.Threading.Thread.Sleep(10);
+                System.Threading.Thread.Sleep(1);
             } while (true);
 
             return true;
@@ -5762,10 +5763,10 @@ namespace Refrigtz
                 {
                     if (RefrigtzDLL.AllDraw.DrawTable)
                     {
-                        System.Threading.Thread.Sleep(100);
+                        //System.Threading.Thread.Sleep(1);
                         if (GameStarted && MovmentsNumber == 0)
                             buttonChangeArrangment.Visible = false;
-                        System.Threading.Thread.Sleep(8);
+                        //System.Threading.Thread.Sleep(8);
 
                         //if (RefrigtzDLL.AllDraw.TableListAction.Count > 3)
                         //toolStripMenuItemRandomGeneticGames.Enabled = true;
@@ -5875,7 +5876,7 @@ namespace Refrigtz
                     //pictureBoxTimerGray.Invalidate();
 
                     //return;
-                    System.Threading.Thread.Sleep(20);
+                    //System.Threading.Thread.Sleep(1);
                 }
                 //pictureBoxRefrigtz.Invalidate();
                 //pictureBoxRefrigtz.Update();
@@ -5886,10 +5887,10 @@ namespace Refrigtz
                     {
                         if (RefrigtzDLL.AllDraw.DrawTable)
                         {
-                            System.Threading.Thread.Sleep(100);
+                            //System.Threading.Thread.Sleep(100);
                             if (GameStarted && MovmentsNumber == 0)
                                 buttonChangeArrangment.Visible = false;
-                            System.Threading.Thread.Sleep(8);
+                            //System.Threading.Thread.Sleep(8);
 
                             //if (QuantumRefrigiz.AllDraw.TableListAction.Count > 3)
                             //toolStripMenuItemRandomGeneticGames.Enabled = true;
@@ -5996,16 +5997,16 @@ namespace Refrigtz
                         //pictureBoxTimerGray.Invalidate();
 
                         //return;
-                        System.Threading.Thread.Sleep(20);
+                        //System.Threading.Thread.Sleep(20);
                     }
                     else
                     {
                         if (QuantumRefrigiz.AllDraw.DrawTable)
                         {
-                            System.Threading.Thread.Sleep(100);
+                            //System.Threading.Thread.Sleep(100);
                             if (GameStarted && MovmentsNumber == 0)
                                 buttonChangeArrangment.Visible = false;
-                            System.Threading.Thread.Sleep(8);
+                            //System.Threading.Thread.Sleep(8);
 
                             //if (QuantumRefrigiz.AllDraw.TableListAction.Count > 3)
                             //toolStripMenuItemRandomGeneticGames.Enabled = true;
@@ -6112,10 +6113,12 @@ namespace Refrigtz
                         //pictureBoxTimerGray.Invalidate();
 
                         //return;
-                        System.Threading.Thread.Sleep(20);
+
                     }
+
                 }
             }
+            System.Threading.Thread.Sleep(1);
         }
 
         double CalculateMoveMentHueuristicUser(int[,] Table, int Order, int Row, int Column, int RowSource, int ColumnS, Color color)

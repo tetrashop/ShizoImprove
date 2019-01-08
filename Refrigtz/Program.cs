@@ -85,12 +85,12 @@ namespace Refrigtz
             try
             {
                 //https://blogs.msdn.microsoft.com/pfxteam/2011/09/17/whats-new-for-parallelism-in-net-4-5/
-                Task tt = new Task(new Action(TaskParallelLibrary));
-                tt.Start();
-                Task ttt = new Task(new Action(CoordinationDataStructures));
-                ttt.Start();
-                Application.SetCompatibleTextRenderingDefault(false);
-                t = new Load();
+                //Task tt = new Task(new Action(TaskParallelLibrary));
+                //tt.Start();
+                //Task ttt = new Task(new Action(CoordinationDataStructures));
+                //ttt.Start();
+                //Application.SetCompatibleTextRenderingDefault(false);
+                 t = new Load();
                 Application.Run(t);
                 (new TakeRoot()).Save(t.ttt.Quantum, t.ttt, ref t.ttt.LoadTree, t.ttt.MovementsAStarGreedyHuristicFound, t.ttt.IInoreSelfObjects, t.ttt.UsePenaltyRegardMechnisam, t.ttt.BestMovments, t.ttt.PredictHuristic, t.ttt.OnlySelf, t.ttt.AStarGreedyHuristic, t.ttt.ArrangmentsChanged);
             }

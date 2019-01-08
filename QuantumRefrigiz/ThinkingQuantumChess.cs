@@ -9122,7 +9122,7 @@ namespace QuantumRefrigiz
                 double HKingSafe = new double();
                 double HKingDangour = new double();
                 double HFromCenter = 0;
-                //Parallel.Invoke(() =>
+                Parallel.Invoke(() =>
                 {
                     Object O = new Object();
                     lock (O)
@@ -9131,7 +9131,7 @@ namespace QuantumRefrigiz
                         Huriistic = HuristicAll(Before, Killed, TableSS, color, Order, RowS, ColS, RowD, ColD);
                     }
                 }
-                // , () =>
+                , () =>
                 {
                     Object O = new Object();
                     lock (O)
@@ -9141,7 +9141,7 @@ namespace QuantumRefrigiz
                             );
                     }
                 }
-                /// , () =>
+                , () =>
                 {
                     Object O = new Object();
                     lock (O)
@@ -9151,7 +9151,7 @@ namespace QuantumRefrigiz
                              );
                     }
                 }
-                // , () =>
+                , () =>
                 {
                     Object O = new Object();
                     lock (O)
@@ -9161,7 +9161,7 @@ namespace QuantumRefrigiz
                              , CurrentAStarGredyMax);
                     }
                 }
-                // , () =>
+                , () =>
                 {
                     Object O = new Object();
                     lock (O)
@@ -9171,7 +9171,7 @@ namespace QuantumRefrigiz
                         , CurrentAStarGredyMax);
                     }
                 }
-                // , () =>
+                , () =>
                 {
                     Object O = new Object();
                     lock (O)
@@ -9180,7 +9180,7 @@ namespace QuantumRefrigiz
                         HFromCenter = HuristicSoldierFromCenter(TableSS, color, Order, RowS, ColS, RowD, ColD);
                     }
                 }
-                //)/;
+                );
                 Object O1 = new Object();
                 lock (O1)
                 {
