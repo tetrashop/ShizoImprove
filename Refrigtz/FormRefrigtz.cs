@@ -3838,16 +3838,16 @@ namespace Refrigtz
                         RefrigtzDLL.AllDraw.THISSecradioButtonGrayOrderChecked = Sec.radioButtonGrayOrder.Checked;
                         RefrigtzDLL.AllDraw.THISSecradioButtonBrownOrderChecked = Sec.radioButtonBrownOrder.Checked;
                         RefrigtzDLL.AllDraw.MovmentsNumber = MovmentsNumber;
-                        while (!(RefrigtzDLL.ChessRules.ObjectHittedRow != -1 && RefrigtzDLL.ChessRules.ObjectHittedColumn != -1) &&
+                        /*while (!(RefrigtzDLL.ChessRules.ObjectHittedRow != -1 && RefrigtzDLL.ChessRules.ObjectHittedColumn != -1) &&
                             (!RefrigtzDLL.AllDraw.ActionStringReady) &&
                                  (!(RefrigtzDLL.AllDraw.OutPut != "")) &&
                                      (!(RefrigtzDLL.AllDraw.ConvertedKind == -1)) &&
                                          (!StateCC) &&
                                              (!StateCP))
                         {
-                            Thread.Sleep(1);
+                            //Thread.Sleep(1);
 
-                        }
+                        }*/
                         if (RefrigtzDLL.ChessRules.ObjectHittedRow != -1 && RefrigtzDLL.ChessRules.ObjectHittedColumn != -1)
                         {
                             SetObjectInPictureBox(RefrigtzDLL.ChessRules.ObjectHittedRow, RefrigtzDLL.ChessRules.ObjectHittedColumn);
@@ -3933,7 +3933,7 @@ namespace Refrigtz
                         QuantumRefrigiz.AllDraw.THISSecradioButtonGrayOrderChecked = Sec.radioButtonGrayOrder.Checked;
                         QuantumRefrigiz.AllDraw.THISSecradioButtonBrownOrderChecked = Sec.radioButtonBrownOrder.Checked;
                         QuantumRefrigiz.AllDraw.MovmentsNumber = MovmentsNumber;
-                        while (!(QuantumRefrigiz.ChessRules.ObjectHittedRow != -1 && QuantumRefrigiz.ChessRules.ObjectHittedColumn != -1) &&
+                        /*while (!(QuantumRefrigiz.ChessRules.ObjectHittedRow != -1 && QuantumRefrigiz.ChessRules.ObjectHittedColumn != -1) &&
                             (!QuantumRefrigiz.AllDraw.ActionStringReady) &&
                                  (!(QuantumRefrigiz.AllDraw.OutPut != "")) &&
                                      (!(QuantumRefrigiz.AllDraw.ConvertedKind == -1)) &&
@@ -3942,7 +3942,7 @@ namespace Refrigtz
                         {
                             Thread.Sleep(1);
 
-                        }
+                        }*/
                         if (QuantumRefrigiz.ChessRules.ObjectHittedRow != -1 && QuantumRefrigiz.ChessRules.ObjectHittedColumn != -1)
                         {
                             SetObjectInPictureBox(QuantumRefrigiz.ChessRules.ObjectHittedRow, QuantumRefrigiz.ChessRules.ObjectHittedColumn);
