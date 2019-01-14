@@ -118,16 +118,10 @@ namespace RefrigtzW
         public DrawKing(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. THIS
             )
         {
-
             object balancelock = new object();
             lock (balancelock)
             {
-                if (K[0] == null && K[1] == null)
-                {
-                    K[0] = Image.FromFile(AllDraw.ImagesSubRoot + "KG.png");
-                    K[1] = Image.FromFile(AllDraw.ImagesSubRoot + "KB.png");
-                }
-
+             
 
                 CurrentAStarGredyMax = CurrentAStarGredy;
                 MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;

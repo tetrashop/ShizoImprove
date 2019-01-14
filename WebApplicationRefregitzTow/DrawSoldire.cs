@@ -117,12 +117,7 @@ namespace RefrigtzW
             object balancelock = new object();
             lock (balancelock)
             {
-                if (S[0] == null && S[1] == null)
-                {
-                    S[0] = Image.FromFile(AllDraw.ImagesSubRoot + "SG.png");
-                    S[1] = Image.FromFile(AllDraw.ImagesSubRoot + "SB.png");
-                }
-
+            
 
                 CurrentAStarGredyMax = CurrentAStarGredy;
                 MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
@@ -138,7 +133,6 @@ namespace RefrigtzW
                 for (int ii = 0; ii < 8; ii++)
                     for (int jj = 0; jj < 8; jj++)
                         Table[ii, jj] = Tab[ii, jj];
-
                 for (int ii = 0; ii < AllDraw.SodierMovments; ii++)
 
                     SoldierThinking[ii] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 4, Ord, TB, Cur, 16, 1);

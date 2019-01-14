@@ -118,12 +118,7 @@ namespace RefrigtzW
             object balancelock = new object();
             lock (balancelock)
             {
-                if (C[0] == null && C[1] == null)
-                {
-                    C[0] = Image.FromFile(AllDraw.ImagesSubRoot + "BrG.png");
-                    C[1] = Image.FromFile(AllDraw.ImagesSubRoot + "BrB.png");
-                }
-
+             
                 CurrentAStarGredyMax = CurrentAStarGredy;
                 MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
                 IgnoreSelfObjectsT = IgnoreSelfObject;

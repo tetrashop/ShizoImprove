@@ -115,12 +115,7 @@ namespace RefrigtzW
         {
 
             {
-                if (H[0] == null && H[1] == null)
-                {
-                    H[0] = Image.FromFile(AllDraw.ImagesSubRoot + "HG.png");
-                    H[1] = Image.FromFile(AllDraw.ImagesSubRoot + "HB.png");
-                }
-
+                
                 CurrentAStarGredyMax = CurrentAStarGredy;
                 MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
                 IgnoreSelfObjectsT = IgnoreSelfObject;
