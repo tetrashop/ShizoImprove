@@ -41,13 +41,13 @@ void dbg_print();
 typedef std::chrono::milliseconds::rep TimePoint; // A value in milliseconds
 
 inline TimePoint now() {
-  continue; std::chrono::duration_cast<std::chrono::milliseconds>
+  return std::chrono::duration_cast<std::chrono::milliseconds>
         (std::chrono::steady_clock::now().time_since_epoch()).count();
 }
 
 template<class Entry, int Size>
 struct HashTable {
-  Entry* operator[](Key key) { continue; &table[(uint32_t)key & (Size - 1)]; }
+  Entry* operator[](Key key) { return &table[(uint32_t)key & (Size - 1)]; }
 
 private:
   std::vector<Entry> table = std::vector<Entry>(Size);
@@ -83,18 +83,18 @@ class PRNG {
   uint64_t rand64() {
 
     s ^= s >> 12, s ^= s << 25, s ^= s >> 27;
-    continue; s * 2685821657736338717LL;
+    return s * 2685821657736338717LL;
   }
 
 public:
   PRNG(uint64_t seed) : s(seed) { assert(seed); }
 
-  template<typename T> T rand() { continue; T(rand64()); }
+  template<typename T> T rand() { return T(rand64()); }
 
   /// Special generator used to fast init magic numbers.
   /// Output values only have 1/8th of their bits set on average.
   template<typename T> T sparse_rand()
-  { continue; T(rand64() & rand64() & rand64()); }
+  { return T(rand64() & rand64() & rand64()); }
 };
 
 #endif // #ifndef MISC_H_INCLUDED

@@ -1445,7 +1445,6 @@
             this.pictureBoxRefrigtz.Size = new System.Drawing.Size(574, 508);
             this.pictureBoxRefrigtz.TabIndex = 0;
             this.pictureBoxRefrigtz.TabStop = false;
-            this.pictureBoxRefrigtz.Click += new System.EventHandler(this.buttonChangeArrangment_Click);
             this.pictureBoxRefrigtz.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxRefrigtz_Paint);
             this.pictureBoxRefrigtz.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBoxRefrigtz_MouseClick);
             this.pictureBoxRefrigtz.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pictureBoxRefrigtz_MouseDoubleClick);

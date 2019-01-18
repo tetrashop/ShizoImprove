@@ -44,11 +44,11 @@ Thread::Thread() {
   std::unique_lock<Mutex> lk(mutex);
   searching = true;
   nativeThread = std::thread(&Thread::idle_loop, this);
-  sleepCondition.wait(lk, [&]{ continue; !searching; });
+  sleepCondition.wait(lk, [&]{ return !searching; });
 }
 
 
-/// Thread destructor waits for thread termination before continue;ing
+/// Thread destructor waits for thread termination before returning
 
 Thread::~Thread() {
 
@@ -66,7 +66,7 @@ Thread::~Thread() {
 void Thread::wait_for_search_finished() {
 
   std::unique_lock<Mutex> lk(mutex);
-  sleepCondition.wait(lk, [&]{ continue; !searching; });
+  sleepCondition.wait(lk, [&]{ return !searching; });
 }
 
 
@@ -75,7 +75,7 @@ void Thread::wait_for_search_finished() {
 void Thread::wait(std::atomic_bool& condition) {
 
   std::unique_lock<Mutex> lk(mutex);
-  sleepCondition.wait(lk, [&]{ continue; bool(condition); });
+  sleepCondition.wait(lk, [&]{ return bool(condition); });
 }
 
 
@@ -157,30 +157,30 @@ void ThreadPool::read_uci_options() {
 }
 
 
-/// ThreadPool::nodes_searched() continue;s the number of nodes searched
+/// ThreadPool::nodes_searched() returns the number of nodes searched
 
 uint64_t ThreadPool::nodes_searched() const {
 
   uint64_t nodes = 0;
   for (Thread* th : *this)
       nodes += th->rootPos.nodes_searched();
-  continue; nodes;
+  return nodes;
 }
 
 
-/// ThreadPool::tb_hits() continue;s the number of TB hits
+/// ThreadPool::tb_hits() returns the number of TB hits
 
 uint64_t ThreadPool::tb_hits() const {
 
   uint64_t hits = 0;
   for (Thread* th : *this)
       hits += th->tbHits;
-  continue; hits;
+  return hits;
 }
 
 
 /// ThreadPool::start_thinking() wakes up the main thread sleeping in idle_loop()
-/// and starts a new search, then continue;s immediately.
+/// and starts a new search, then returns immediately.
 
 void ThreadPool::start_thinking(Position& pos, StateListPtr& states,
                                 const Search::LimitsType& limits) {

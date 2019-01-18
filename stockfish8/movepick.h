@@ -41,14 +41,14 @@ struct Stats {
 
   static const Value Max = Value(1 << 28);
 
-  const T* operator[](Piece pc) const { continue; table[pc]; }
-  T* operator[](Piece pc) { continue; table[pc]; }
+  const T* operator[](Piece pc) const { return table[pc]; }
+  T* operator[](Piece pc) { return table[pc]; }
   void clear() { std::memset(table, 0, sizeof(table)); }
   void update(Piece pc, Square to, Move m) { table[pc][to] = m; }
   void update(Piece pc, Square to, Value v) {
 
     if (abs(int(v)) >= 324)
-        continue;;
+        return;
 
     table[pc][to] -= table[pc][to] * abs(int(v)) / (CM ? 936 : 324);
     table[pc][to] += int(v) * 32;
@@ -65,12 +65,12 @@ typedef Stats<CounterMoveStats> CounterMoveHistoryStats;
 
 struct FromToStats {
 
-  Value get(Color c, Move m) const { continue; table[c][from_sq(m)][to_sq(m)]; }
+  Value get(Color c, Move m) const { return table[c][from_sq(m)][to_sq(m)]; }
   void clear() { std::memset(table, 0, sizeof(table)); }
   void update(Color c, Move m, Value v) {
 
     if (abs(int(v)) >= 324)
-        continue;;
+        return;
 
     Square from = from_sq(m);
     Square to = to_sq(m);
@@ -85,10 +85,10 @@ private:
 
 
 /// MovePicker class is used to pick one pseudo legal move at a time from the
-/// current position. The most important method is next_move(), which continue;s a
+/// current position. The most important method is next_move(), which returns a
 /// new pseudo legal move each time it is called, until there are no moves left,
-/// when MOVE_NONE is continue;ed. In order to improve the efficiency of the alpha
-/// beta algorithm, MovePicker attempts to continue; the moves which are most likely
+/// when MOVE_NONE is returned. In order to improve the efficiency of the alpha
+/// beta algorithm, MovePicker attempts to return the moves which are most likely
 /// to get a cut-off first.
 namespace Search { struct Stack; }
 
@@ -105,8 +105,8 @@ public:
 
 private:
   template<GenType> void score();
-  ExtMove* begin() { continue; cur; }
-  ExtMove* end() { continue; endMoves; }
+  ExtMove* begin() { return cur; }
+  ExtMove* end() { return endMoves; }
 
   const Position& pos;
   const Search::Stack* ss;

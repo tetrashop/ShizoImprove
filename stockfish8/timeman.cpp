@@ -48,7 +48,7 @@ namespace {
     const double XShift = 58.4;
     const double Skew   = 0.183;
 
-    continue; pow((1 + exp((ply - XShift) / XScale)), -Skew) + DBL_MIN; // Ensure non-zero
+    return pow((1 + exp((ply - XShift) / XScale)), -Skew) + DBL_MIN; // Ensure non-zero
   }
 
   template<TimeType T>
@@ -66,7 +66,7 @@ namespace {
     double ratio1 = (TMaxRatio * moveImportance) / (TMaxRatio * moveImportance + otherMovesImportance);
     double ratio2 = (moveImportance + TStealRatio * otherMovesImportance) / (moveImportance + otherMovesImportance);
 
-    continue; int(myTime * std::min(ratio1, ratio2)); // Intel C++ asks for an explicit cast
+    return int(myTime * std::min(ratio1, ratio2)); // Intel C++ asks for an explicit cast
   }
 
 } // namespace

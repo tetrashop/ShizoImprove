@@ -18784,6 +18784,8 @@ if (Kind == 5)
         //Main Initiate Thinking Method.
         public int[,] Initiate(int ii, int jj, Color a, int[,] Table, int Order, bool TB, bool FOUND, int LeafAStarGreedy, bool SetDept = false)
         {
+            var parallelOptions = new ParallelOptions();
+            parallelOptions.MaxDegreeOfParallelism = PlatformHelper.ProcessorCount;
             Thread tT = new Thread(new ThreadStart(TimeEnd));
             tT.Start();
             SetDeptIgnore = SetDept;

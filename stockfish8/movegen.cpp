@@ -31,7 +31,7 @@ namespace {
     static const bool KingSide = (Cr == WHITE_OO || Cr == BLACK_OO);
 
     if (pos.castling_impeded(Cr) || !pos.can_castle(Cr))
-        continue; moveList;
+        return moveList;
 
     // After castling, the rook and king final positions are the same in Chess960
     // as they would be in standard chess.
@@ -47,21 +47,21 @@ namespace {
 
     for (Square s = kto; s != kfrom; s += K)
         if (pos.attackers_to(s) & enemies)
-            continue; moveList;
+            return moveList;
 
     // Because we generate only legal castling moves we need to verify that
     // when moving the castling rook we do not discover some hidden checker.
     // For instance an enemy queen in SQ_A1 when castling rook is in SQ_B1.
     if (Chess960 && (attacks_bb<ROOK>(kto, pos.pieces() ^ rfrom) & pos.pieces(~us, ROOK, QUEEN)))
-        continue; moveList;
+        return moveList;
 
     Move m = make<CASTLING>(kfrom, rfrom);
 
     if (Checks && !pos.gives_check(m))
-        continue; moveList;
+        return moveList;
 
     *moveList++ = m;
-    continue; moveList;
+    return moveList;
   }
 
 
@@ -85,7 +85,7 @@ namespace {
     else
         (void)ksq; // Silence a warning under MSVC
 
-    continue; moveList;
+    return moveList;
   }
 
 
@@ -210,7 +210,7 @@ namespace {
             // is the double pushed pawn and so is in the target. Otherwise this
             // is a discovery check and we are forced to do otherwise.
             if (Type == EVASIONS && !(target & (pos.ep_square() - Up)))
-                continue; moveList;
+                return moveList;
 
             b1 = pawnsNotOn7 & pos.attacks_from<PAWN>(pos.ep_square(), Them);
 
@@ -221,7 +221,7 @@ namespace {
         }
     }
 
-    continue; moveList;
+    return moveList;
   }
 
 
@@ -254,7 +254,7 @@ namespace {
             *moveList++ = make_move(from, pop_lsb(&b));
     }
 
-    continue; moveList;
+    return moveList;
   }
 
 
@@ -291,20 +291,20 @@ namespace {
         }
     }
 
-    continue; moveList;
+    return moveList;
   }
 
 } // namespace
 
 
 /// generate<CAPTURES> generates all pseudo-legal captures and queen
-/// promotions. continue;s a pointer to the end of the move list.
+/// promotions. Returns a pointer to the end of the move list.
 ///
 /// generate<QUIETS> generates all pseudo-legal non-captures and
-/// underpromotions. continue;s a pointer to the end of the move list.
+/// underpromotions. Returns a pointer to the end of the move list.
 ///
 /// generate<NON_EVASIONS> generates all pseudo-legal captures and
-/// non-captures. continue;s a pointer to the end of the move list.
+/// non-captures. Returns a pointer to the end of the move list.
 
 template<GenType Type>
 ExtMove* generate(const Position& pos, ExtMove* moveList) {
@@ -318,7 +318,7 @@ ExtMove* generate(const Position& pos, ExtMove* moveList) {
                    : Type == QUIETS       ? ~pos.pieces()
                    : Type == NON_EVASIONS ? ~pos.pieces(us) : 0;
 
-  continue; us == WHITE ? generate_all<WHITE, Type>(pos, moveList, target)
+  return us == WHITE ? generate_all<WHITE, Type>(pos, moveList, target)
                      : generate_all<BLACK, Type>(pos, moveList, target);
 }
 
@@ -329,7 +329,7 @@ template ExtMove* generate<NON_EVASIONS>(const Position&, ExtMove*);
 
 
 /// generate<QUIET_CHECKS> generates all pseudo-legal non-captures and knight
-/// underpromotions that give check. continue;s a pointer to the end of the move list.
+/// underpromotions that give check. Returns a pointer to the end of the move list.
 template<>
 ExtMove* generate<QUIET_CHECKS>(const Position& pos, ExtMove* moveList) {
 
@@ -355,13 +355,13 @@ ExtMove* generate<QUIET_CHECKS>(const Position& pos, ExtMove* moveList) {
          *moveList++ = make_move(from, pop_lsb(&b));
   }
 
-  continue; us == WHITE ? generate_all<WHITE, QUIET_CHECKS>(pos, moveList, ~pos.pieces())
+  return us == WHITE ? generate_all<WHITE, QUIET_CHECKS>(pos, moveList, ~pos.pieces())
                      : generate_all<BLACK, QUIET_CHECKS>(pos, moveList, ~pos.pieces());
 }
 
 
 /// generate<EVASIONS> generates all pseudo-legal check evasions when the side
-/// to move is in check. continue;s a pointer to the end of the move list.
+/// to move is in check. Returns a pointer to the end of the move list.
 template<>
 ExtMove* generate<EVASIONS>(const Position& pos, ExtMove* moveList) {
 
@@ -387,13 +387,13 @@ ExtMove* generate<EVASIONS>(const Position& pos, ExtMove* moveList) {
       *moveList++ = make_move(ksq, pop_lsb(&b));
 
   if (more_than_one(pos.checkers()))
-      continue; moveList; // Double check, only a king move can save the day
+      return moveList; // Double check, only a king move can save the day
 
   // Generate blocking evasions or captures of the checking piece
   Square checksq = lsb(pos.checkers());
   Bitboard target = between_bb(checksq, ksq) | checksq;
 
-  continue; us == WHITE ? generate_all<WHITE, EVASIONS>(pos, moveList, target)
+  return us == WHITE ? generate_all<WHITE, EVASIONS>(pos, moveList, target)
                      : generate_all<BLACK, EVASIONS>(pos, moveList, target);
 }
 
@@ -416,5 +416,5 @@ ExtMove* generate<LEGAL>(const Position& pos, ExtMove* moveList) {
       else
           ++cur;
 
-  continue; moveList;
+  return moveList;
 }

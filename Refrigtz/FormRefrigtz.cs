@@ -343,31 +343,31 @@ namespace Refrigtz
                 if (MovmentsNumber == 0)
                 {
                     MovmentsNumberMax = MovmentsNumber;
-                    if (Stockfish)
+                 /*   if (Stockfish)
                     {
                         GrayTimer.Sign = 1;
                         BrownTimer.Sign = 1;
                         if (OrderPlate == 1)
                         {
-                            GrayTimer.StartTime();
+                            GrayTimer.StartTime("GrayTimer");
                             BrownTimer.StopTime();
                             BobSection = true;
                             AliceSection = false;
-                            GrayTimer.StartTime();
+                            GrayTimer.StartTime("GrayTimer");
                         }
                         else
                         {
-                            BrownTimer.StartTime();
+                            BrownTimer.StartTime("BrownTimer");
                             GrayTimer.StopTime();
                             BobSection = false;
                             AliceSection = true;
-                            BrownTimer.StartTime();
+                            BrownTimer.StartTime("BrownTimer");
                         }
 
 
 
-
-                    }
+                    
+                    }*/
                 }
 
                 RefrigtzDLL.AllDraw.SyntaxToWrite = "";
@@ -550,7 +550,7 @@ namespace Refrigtz
                                     if (BobSection && OrderPlate == 1)
                                     {
                                         Clicked = true;
-                                        GrayTimer.StartTime();
+                                        GrayTimer.StartTime("GrayTimer");
                                         BrownTimer.StopTime();
                                         if (tM == null)
                                             tM = new Thread(new ThreadStart(Movements));
@@ -609,7 +609,7 @@ namespace Refrigtz
                                         BobSection = false;
                                         MovmentsNumber++;
                                         GrayTimer.StopTime();
-                                        BrownTimer.StartTime();
+                                        BrownTimer.StartTime("BrownTimer");
                                         AllDo = false;
 
 
@@ -912,7 +912,7 @@ namespace Refrigtz
                                     if (BobSection && OrderPlate == 1)
                                     {
                                         Clicked = true;
-                                        GrayTimer.StartTime();
+                                        GrayTimer.StartTime("GrayTimer");
                                         BrownTimer.StopTime();
                                         if (tM == null)
                                             tM = new Thread(new ThreadStart(Movements));
@@ -967,7 +967,7 @@ namespace Refrigtz
                                         BobSection = false;
                                         MovmentsNumber++;
                                         GrayTimer.StopTime();
-                                        BrownTimer.StartTime();
+                                        BrownTimer.StartTime("BrownTimer");
 
                                         AllDo = false;
 
@@ -1254,7 +1254,7 @@ namespace Refrigtz
                                      if (BobSection)
                                      {
                                          Clicked = true;
-                                         GrayTimer.StartTime();
+                                         GrayTimer.StartTime("GrayTimer");
                                          BrownTimer.StopTime();
                                          if (tM == null)
                                              tM = new Thread(new ThreadStart(Movements));
@@ -1309,7 +1309,7 @@ namespace Refrigtz
                                          BobSection = false;
                                          MovmentsNumber++;
                                          GrayTimer.StopTime();
-                                         BrownTimer.StartTime();
+                                         BrownTimer.StartTime("BrownTimer");
 
 
 
@@ -1509,7 +1509,7 @@ namespace Refrigtz
                                              BobSection = false;
                                              MovmentsNumber++;
                                              GrayTimer.StopTime();
-                                             BrownTimer.StartTime();
+                                             BrownTimer.StartTime("BrownTimer");
 
 
 
@@ -1687,7 +1687,7 @@ namespace Refrigtz
                                              Draw.TableList.Add(Table);
                                              Draw.SetRowColumn(0);
                                              InsertTableAtDataBase(Table);
-                                             GrayTimer.StartTime();
+                                             GrayTimer.StartTime("GrayTimer");
                                              BrownTimer.StopTime();
 
 
@@ -1773,31 +1773,31 @@ namespace Refrigtz
                 if (MovmentsNumber == 0)
                 {
                     MovmentsNumberMax = MovmentsNumber;
-                    if (Stockfish)
+        /*            if (Stockfish)
                     {
                         GrayTimer.Sign = 1;
                         BrownTimer.Sign = 1;
                         if (OrderPlate == 1)
                         {
-                            GrayTimer.StartTime();
+                            GrayTimer.StartTime("GrayTimer");
                             BrownTimer.StopTime();
                             BobSection = true;
                             AliceSection = false;
-                            GrayTimer.StartTime();
+                            GrayTimer.StartTime("GrayTimer");
                         }
                         else
                         {
-                            BrownTimer.StartTime();
+                            BrownTimer.StartTime("BrownTimer");
                             GrayTimer.StopTime();
                             BobSection = false;
                             AliceSection = true;
-                            BrownTimer.StartTime();
+                            BrownTimer.StartTime("BrownTimer");
                         }
 
 
+                    
 
-
-                    }
+                    }*/
                 }
 
                 QuantumRefrigiz.AllDraw.SyntaxToWrite = "";
@@ -1981,7 +1981,7 @@ namespace Refrigtz
                                     if (BobSection && OrderPlate == 1)
                                     {
                                         Clicked = true;
-                                        GrayTimer.StartTime();
+                                        GrayTimer.StartTime("GrayTimer");
                                         BrownTimer.StopTime();
                                         if (tM == null)
                                             tM = new Thread(new ThreadStart(Movements));
@@ -2040,7 +2040,7 @@ namespace Refrigtz
                                         BobSection = false;
                                         MovmentsNumber++;
                                         GrayTimer.StopTime();
-                                        BrownTimer.StartTime();
+                                        BrownTimer.StartTime("BrownTimer");
                                         AllDo = false;
 
 
@@ -2343,7 +2343,7 @@ namespace Refrigtz
                                     if (BobSection && OrderPlate == 1)
                                     {
                                         Clicked = true;
-                                        GrayTimer.StartTime();
+                                        GrayTimer.StartTime("GrayTimer");
                                         BrownTimer.StopTime();
                                         if (tM == null)
                                             tM = new Thread(new ThreadStart(Movements));
@@ -2398,7 +2398,7 @@ namespace Refrigtz
                                         BobSection = false;
                                         MovmentsNumber++;
                                         GrayTimer.StopTime();
-                                        BrownTimer.StartTime();
+                                        BrownTimer.StartTime("BrownTimer");
 
                                         AllDo = false;
 
@@ -2685,7 +2685,7 @@ namespace Refrigtz
                                      if (BobSection)
                                      {
                                          Clicked = true;
-                                         GrayTimer.StartTime();
+                                         GrayTimer.StartTime("GrayTimer");
                                          BrownTimer.StopTime();
                                          if (tM == null)
                                              tM = new Thread(new ThreadStart(Movements));
@@ -2740,7 +2740,7 @@ namespace Refrigtz
                                          BobSection = false;
                                          MovmentsNumber++;
                                          GrayTimer.StopTime();
-                                         BrownTimer.StartTime();
+                                         BrownTimer.StartTime("BrownTimer");
 
 
 
@@ -2940,7 +2940,7 @@ namespace Refrigtz
                                              BobSection = false;
                                              MovmentsNumber++;
                                              GrayTimer.StopTime();
-                                             BrownTimer.StartTime();
+                                             BrownTimer.StartTime("BrownTimer");
 
 
 
@@ -3118,7 +3118,7 @@ namespace Refrigtz
                                              DrawQ.TableList.Add(Table);
                                              Draw.SetRowColumn(0);
                                              InsertTableAtDataBase(Table);
-                                             GrayTimer.StartTime();
+                                             GrayTimer.StartTime("GrayTimer");
                                              BrownTimer.StopTime();
 
 
@@ -3786,7 +3786,7 @@ namespace Refrigtz
                     {
                         Int64 FirstTimeD = DateTime.Now.Hour * 3600000 + DateTime.Now.Minute * 60000 + DateTime.Now.Second * 1000 + DateTime.Now.Millisecond;
                         Int64 FirstNode = RefrigtzDLL.ThinkingChess.NumbersOfAllNode;
-                        Thread.Sleep(1);
+                        Thread.Sleep(1000);
                         Int64 EndTime = DateTime.Now.Hour * 3600000 + DateTime.Now.Minute * 60000 + DateTime.Now.Second * 1000 + DateTime.Now.Millisecond;
                         Double S = ((double)RefrigtzDLL.ThinkingChess.NumbersOfAllNode - FirstNode) / (((double)EndTime - (double)FirstTimeD) / 1000.0);
                         Store = ((Store * Count) + S) / (Count + 1.0);
@@ -3800,7 +3800,7 @@ namespace Refrigtz
                     {
                         Int64 FirstTimeD = DateTime.Now.Hour * 3600000 + DateTime.Now.Minute * 60000 + DateTime.Now.Second * 1000 + DateTime.Now.Millisecond;
                         Int64 FirstNode = QuantumRefrigiz.ThinkingQuantumChess.NumbersOfAllNode;
-                        Thread.Sleep(1);
+                        Thread.Sleep(1000);
                         Int64 EndTime = DateTime.Now.Hour * 3600000 + DateTime.Now.Minute * 60000 + DateTime.Now.Second * 1000 + DateTime.Now.Millisecond;
                         Double S = ((double)QuantumRefrigiz.ThinkingQuantumChess.NumbersOfAllNode - FirstNode) / (((double)EndTime - (double)FirstTimeD) / 1000.0);
                         Store = ((Store * Count) + S) / (Count + 1.0);
@@ -3811,7 +3811,7 @@ namespace Refrigtz
                             SetlableRefregitzMaxValue(labelNodesCount, QuantumRefrigiz.ThinkingQuantumChess.NumbersOfAllNode.ToString() + " at time " + ((int)(Store)).ToString() + "N/s and by Elapsed time " + ((int)((EndTime - TimeElapsed) / 1000)).ToString() + " s" + " By CheckMate Count " + QuantumRefrigiz.ThinkingQuantumChess.FoundFirstMating.ToString() + " By CheckMate SELF Count " + QuantumRefrigiz.ThinkingQuantumChess.FoundFirstSelfMating.ToString() + " For Order  " + QuantumRefrigiz.AllDraw.OrderPlate.ToString());
                     }
                     //labelNodesCount.Refresh();
-                    //Thread.Sleep(10);
+                    
                 }
             } while (true);
             //SetNode = false;
@@ -4050,14 +4050,14 @@ namespace Refrigtz
             GrayTimer = new Refrigtz.Timer(false);
             TimerText = new Refrigtz.Timer(true);
 
-            BrownTimer.TimerInitiate();
-            GrayTimer.TimerInitiate();
+            BrownTimer.TimerInitiate("BrownTimer");
+            GrayTimer.TimerInitiate("GrayTimer");
             //TTimerSet = new Thread(new ThreadStart(SetTimer));
             //TTimerSet.Start();
 
-            TimerText.TimerInitiate();
+            TimerText.TimerInitiate("TimerText");
 
-            TimerText.StartTime();
+            TimerText.StartTime("TimerText");
 
             //Wehn no need to load.
             if (File.Exists(Root + "\\Run.txt"))
@@ -4232,13 +4232,13 @@ namespace Refrigtz
 
                 if (OrderPlate == 1)
                 {
-                    GrayTimer.StartTime();
+                    GrayTimer.StartTime("GrayTimer");
                     BrownTimer.StopTime();
                 }
                 else
                 {
                     GrayTimer.StopTime();
-                    BrownTimer.StartTime();
+                    BrownTimer.StartTime("BrownTimer");
                 }
             }
             else if (FullGame)
@@ -4249,55 +4249,53 @@ namespace Refrigtz
 
                 if (OrderPlate == 1)
                 {
-                    GrayTimer.StartTime();
+                    GrayTimer.StartTime("GrayTimer");
                     BrownTimer.StopTime();
                 }
                 else
                 {
                     GrayTimer.StopTime();
-                    BrownTimer.StartTime();
+                    BrownTimer.StartTime("BrownTimer");
                 }
             }
             else if (StateCC)
             {
                 GrayTimer = new Refrigtz.Timer(true);
                 BrownTimer = new Refrigtz.Timer(true);
-                GrayTimer.TimerInitiate();
-                BrownTimer.TimerInitiate();
                 if (OrderPlate == 1)
                 {
                     BobSection = true;
                     AliceSection = false;
-                    GrayTimer.StartTime();
+                    GrayTimer.StartTime("GrayTimer");
+                    BrownTimer.StopTime();
                 }
                 else
                 {
                     BobSection = false;
                     AliceSection = true;
-                    BrownTimer.StartTime();
+                    BrownTimer.StartTime("BrownTimer");
+                    GrayTimer.StopTime();
                 }
                 //UpdateConfigurationTableVal = true;
             }
             else if (Stockfish)
             {
-                BrownTimer = new Refrigtz.Timer(true);
                 GrayTimer = new Refrigtz.Timer(true);
+                BrownTimer = new Refrigtz.Timer(true);
 
                 if (OrderPlate == 1)
                 {
-                    GrayTimer.StartTime();
+                    GrayTimer.StartTime("GrayTimer");
                     BrownTimer.StopTime();
                     BobSection = true;
-                    AliceSection = false;
-                    GrayTimer.StartTime();
+                    AliceSection = false;                    
                 }
                 else
                 {
-                    BrownTimer.StartTime();
+                    BrownTimer.StartTime("BrownTimer");
                     GrayTimer.StopTime();
                     BobSection = false;
                     AliceSection = true;
-                    BrownTimer.StartTime();
                 }
 
                 //
@@ -4318,7 +4316,7 @@ namespace Refrigtz
             DrawImageOfMain();
 
 
-            bool A = GrayTimer.TextChanged;
+            /*bool A = GrayTimer.TextChanged;
             GrayTimer.TextChanged = true;
             SetPrictureBoxRefregitzInvalidate(pictureBoxTimerGray);
             SetPrictureBoxRefregitzUpdate(pictureBoxTimerGray);
@@ -4326,12 +4324,13 @@ namespace Refrigtz
 
             A = BrownTimer.TextChanged;
             BrownTimer.TextChanged = true;
+            */
             SetPrictureBoxRefregitzInvalidate(pictureBoxTimerBrown);
             SetPrictureBoxRefregitzUpdate(pictureBoxTimerBrown);
-            BrownTimer.TextChanged = A;
+            //BrownTimer.TextChanged = A;
 
-            var parallelOptions = new ParallelOptions();
-            parallelOptions.MaxDegreeOfParallelism = PlatformHelper.ProcessorCount;
+            //var parallelOptions = new ParallelOptions();
+           // parallelOptions.MaxDegreeOfParallelism = PlatformHelper.ProcessorCount;
             //parallelOptions.MaxDegreeOfParallelism = PlatformHelper.ProcessorCount;
             if (Quantum)
             {
@@ -4359,7 +4358,9 @@ namespace Refrigtz
                     } while (k < SCoun.Length);
                 }
             }
+            
             LoadedTable = true;
+            
             //worker_DoWork();
             //worker_DoWorkMove();
             //worker_DoWorkDLL();
@@ -6118,7 +6119,10 @@ namespace Refrigtz
 
                 }
             }
-            System.Threading.Thread.Sleep(1);
+            pictureBoxTimerGray.Invalidate();
+            pictureBoxTimerGray.Update();
+
+            System.Threading.Thread.Sleep(5);
         }
 
         double CalculateMoveMentHueuristicUser(int[,] Table, int Order, int Row, int Column, int RowSource, int ColumnS, Color color)
@@ -6540,6 +6544,7 @@ namespace Refrigtz
                     RefrigtzDLL.ChessRules AA = null;
                     do
                     {
+                        Thread.Sleep(250);
                         if (RefrigtzDLL.AllDraw.MouseClick == 1 //|| RefrigtzDLL.AllDraw.MouseClick == 2
                             )
                         {
@@ -6703,7 +6708,7 @@ namespace Refrigtz
 
 
                                                 GrayTimer.StopTime();
-                                                BrownTimer.StartTime();
+                                                BrownTimer.StartTime("BrownTimer");
 
                                                 Person = false;
                                                 int[,] TableCon = new int[8, 8];
@@ -6740,7 +6745,7 @@ namespace Refrigtz
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                                                 MovmentsNumber++;
                                                 GrayTimer.StopTime();
-                                                BrownTimer.StartTime();
+                                                BrownTimer.StartTime("BrownTimer");
                                                 InsertTableAtDataBase(Table);
                                                 Clicked = false;
                                                 RefrigtzDLL.ChessRules.CastleActGray = true;
@@ -6897,7 +6902,7 @@ namespace Refrigtz
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                                                 MovmentsNumber++;
                                                 GrayTimer.StopTime();
-                                                BrownTimer.StartTime();
+                                                BrownTimer.StartTime("BrownTimer");
                                                 InsertTableAtDataBase(Table);
                                                 SetBoxText("\r\nWait...");
                                                 RefreshBoxText();
@@ -6987,7 +6992,7 @@ namespace Refrigtz
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                                                 MovmentsNumber++;
                                                 GrayTimer.StopTime();
-                                                BrownTimer.StartTime();
+                                                BrownTimer.StartTime("BrownTimer");
                                                 InsertTableAtDataBase(Table);
                                                 SetBoxText("\r\nWait...");
                                                 RefreshBoxText();
@@ -7077,7 +7082,7 @@ namespace Refrigtz
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                                                 MovmentsNumber++;
                                                 GrayTimer.StopTime();
-                                                BrownTimer.StartTime();
+                                                BrownTimer.StartTime("BrownTimer");
                                                 InsertTableAtDataBase(Table);
                                                 SetBoxText("\r\nWait...");
                                                 RefreshBoxText();
@@ -7170,7 +7175,7 @@ namespace Refrigtz
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                                                 MovmentsNumber++;
                                                 GrayTimer.StopTime();
-                                                BrownTimer.StartTime();
+                                                BrownTimer.StartTime("BrownTimer");
                                                 InsertTableAtDataBase(Table);
                                                 SetBoxText("\r\nWait...");
                                                 RefreshBoxText();
@@ -7265,7 +7270,7 @@ namespace Refrigtz
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                                                 MovmentsNumber++;
                                                 GrayTimer.StopTime();
-                                                BrownTimer.StartTime();
+                                                BrownTimer.StartTime("BrownTimer");
                                                 InsertTableAtDataBase(Table);
                                                 SetBoxText("\r\nWait...");
                                                 RefreshBoxText();
@@ -7356,7 +7361,7 @@ namespace Refrigtz
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                                                 MovmentsNumber++;
                                                 GrayTimer.StopTime();
-                                                BrownTimer.StartTime();
+                                                BrownTimer.StartTime("BrownTimer");
                                                 InsertTableAtDataBase(Table);
                                                 SetBoxText("\r\nWait...");
                                                 RefreshBoxText();
@@ -7520,7 +7525,7 @@ namespace Refrigtz
 
 
                                                 GrayTimer.StopTime();
-                                                BrownTimer.StartTime();
+                                                BrownTimer.StartTime("BrownTimer");
 
                                                 Person = false;
                                                 int[,] TableCon = new int[8, 8];
@@ -7555,7 +7560,7 @@ namespace Refrigtz
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                                                 MovmentsNumber++;
                                                 GrayTimer.StopTime();
-                                                BrownTimer.StartTime();
+                                                BrownTimer.StartTime("BrownTimer");
                                                 InsertTableAtDataBase(Table);
                                                 Clicked = false;
                                                 //RefrigtzDLL.ChessRules.CastleActBrown = true;
@@ -7706,7 +7711,7 @@ namespace Refrigtz
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                                                 MovmentsNumber++;
                                                 BrownTimer.StopTime();
-                                                GrayTimer.StartTime();
+                                                GrayTimer.StartTime("GrayTimer");
                                                 InsertTableAtDataBase(Table);
                                                 SetBoxText("\r\nWait...");
                                                 RefreshBoxText();
@@ -7795,7 +7800,7 @@ namespace Refrigtz
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                                                 MovmentsNumber++;
                                                 BrownTimer.StopTime();
-                                                GrayTimer.StartTime();
+                                                GrayTimer.StartTime("GrayTimer");
                                                 InsertTableAtDataBase(Table);
                                                 SetBoxText("\r\nWait...");
                                                 RefreshBoxText();
@@ -7886,7 +7891,7 @@ namespace Refrigtz
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                                                 MovmentsNumber++;
                                                 BrownTimer.StopTime();
-                                                GrayTimer.StartTime();
+                                                GrayTimer.StartTime("GrayTimer");
                                                 InsertTableAtDataBase(Table);
                                                 SetBoxText("\r\nWait...");
                                                 RefreshBoxText();
@@ -7977,7 +7982,7 @@ namespace Refrigtz
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                                                 MovmentsNumber++;
                                                 BrownTimer.StopTime();
-                                                GrayTimer.StartTime();
+                                                GrayTimer.StartTime("GrayTimer");
                                                 InsertTableAtDataBase(Table);
                                                 SetBoxText("\r\nWait...");
                                                 RefreshBoxText();
@@ -8069,7 +8074,7 @@ namespace Refrigtz
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                                                 MovmentsNumber++;
                                                 BrownTimer.StopTime();
-                                                GrayTimer.StartTime();
+                                                GrayTimer.StartTime("GrayTimer");
                                                 InsertTableAtDataBase(Table);
                                                 SetBoxText("\r\nWait...");
                                                 RefreshBoxText();
@@ -8166,7 +8171,7 @@ namespace Refrigtz
                                                 MovmentsNumber++;
 
                                                 BrownTimer.StopTime();
-                                                GrayTimer.StartTime();
+                                                GrayTimer.StartTime("GrayTimer");
                                                 InsertTableAtDataBase(Table);
                                                 SetBoxText("\r\nWait...");
                                                 RefreshBoxText();
@@ -8389,7 +8394,7 @@ namespace Refrigtz
 
 
                                                 GrayTimer.StopTime();
-                                                BrownTimer.StartTime();
+                                                BrownTimer.StartTime("BrownTimer");
 
                                                 Person = false;
                                                 int[,] TableCon = new int[8, 8];
@@ -8426,7 +8431,7 @@ namespace Refrigtz
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
                                                 MovmentsNumber++;
                                                 GrayTimer.StopTime();
-                                                BrownTimer.StartTime();
+                                                BrownTimer.StartTime("BrownTimer");
                                                 InsertTableAtDataBase(Table);
                                                 Clicked = false;
                                                 QuantumRefrigiz.ChessRules.CastleActGray = true;
@@ -8586,7 +8591,7 @@ namespace Refrigtz
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
                                                 MovmentsNumber++;
                                                 GrayTimer.StopTime();
-                                                BrownTimer.StartTime();
+                                                BrownTimer.StartTime("BrownTimer");
                                                 InsertTableAtDataBase(Table);
                                                 SetBoxText("\r\nWait...");
                                                 RefreshBoxText();
@@ -8680,7 +8685,7 @@ namespace Refrigtz
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
                                                 MovmentsNumber++;
                                                 GrayTimer.StopTime();
-                                                BrownTimer.StartTime();
+                                                BrownTimer.StartTime("BrownTimer");
                                                 InsertTableAtDataBase(Table);
                                                 SetBoxText("\r\nWait...");
                                                 RefreshBoxText();
@@ -8773,7 +8778,7 @@ namespace Refrigtz
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
                                                 MovmentsNumber++;
                                                 GrayTimer.StopTime();
-                                                BrownTimer.StartTime();
+                                                BrownTimer.StartTime("BrownTimer");
                                                 InsertTableAtDataBase(Table);
                                                 SetBoxText("\r\nWait...");
                                                 RefreshBoxText();
@@ -8871,7 +8876,7 @@ namespace Refrigtz
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
                                                 MovmentsNumber++;
                                                 GrayTimer.StopTime();
-                                                BrownTimer.StartTime();
+                                                BrownTimer.StartTime("BrownTimer");
                                                 InsertTableAtDataBase(Table);
                                                 SetBoxText("\r\nWait...");
                                                 RefreshBoxText();
@@ -8969,7 +8974,7 @@ namespace Refrigtz
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
                                                 MovmentsNumber++;
                                                 GrayTimer.StopTime();
-                                                BrownTimer.StartTime();
+                                                BrownTimer.StartTime("BrownTimer");
                                                 InsertTableAtDataBase(Table);
                                                 SetBoxText("\r\nWait...");
                                                 RefreshBoxText();
@@ -9063,7 +9068,7 @@ namespace Refrigtz
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
                                                 MovmentsNumber++;
                                                 GrayTimer.StopTime();
-                                                BrownTimer.StartTime();
+                                                BrownTimer.StartTime("BrownTimer");
                                                 InsertTableAtDataBase(Table);
                                                 SetBoxText("\r\nWait...");
                                                 RefreshBoxText();
@@ -9230,7 +9235,7 @@ namespace Refrigtz
 
 
                                                 GrayTimer.StopTime();
-                                                BrownTimer.StartTime();
+                                                BrownTimer.StartTime("BrownTimer");
 
                                                 Person = false;
                                                 int[,] TableCon = new int[8, 8];
@@ -9265,7 +9270,7 @@ namespace Refrigtz
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
                                                 MovmentsNumber++;
                                                 GrayTimer.StopTime();
-                                                BrownTimer.StartTime();
+                                                BrownTimer.StartTime("BrownTimer");
                                                 InsertTableAtDataBase(Table);
                                                 Clicked = false;
                                                 //QuantumRefrigiz.ChessRules.CastleActBrown = true;
@@ -9418,7 +9423,7 @@ namespace Refrigtz
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
                                                 MovmentsNumber++;
                                                 BrownTimer.StopTime();
-                                                GrayTimer.StartTime();
+                                                GrayTimer.StartTime("GrayTimer");
                                                 InsertTableAtDataBase(Table);
                                                 SetBoxText("\r\nWait...");
                                                 RefreshBoxText();
@@ -9510,7 +9515,7 @@ namespace Refrigtz
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
                                                 MovmentsNumber++;
                                                 BrownTimer.StopTime();
-                                                GrayTimer.StartTime();
+                                                GrayTimer.StartTime("GrayTimer");
                                                 InsertTableAtDataBase(Table);
                                                 SetBoxText("\r\nWait...");
                                                 RefreshBoxText();
@@ -9605,7 +9610,7 @@ namespace Refrigtz
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
                                                 MovmentsNumber++;
                                                 BrownTimer.StopTime();
-                                                GrayTimer.StartTime();
+                                                GrayTimer.StartTime("GrayTimer");
                                                 InsertTableAtDataBase(Table);
                                                 SetBoxText("\r\nWait...");
                                                 RefreshBoxText();
@@ -9699,7 +9704,7 @@ namespace Refrigtz
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
                                                 MovmentsNumber++;
                                                 BrownTimer.StopTime();
-                                                GrayTimer.StartTime();
+                                                GrayTimer.StartTime("GrayTimer");
                                                 InsertTableAtDataBase(Table);
                                                 SetBoxText("\r\nWait...");
                                                 RefreshBoxText();
@@ -9794,7 +9799,7 @@ namespace Refrigtz
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
                                                 MovmentsNumber++;
                                                 BrownTimer.StopTime();
-                                                GrayTimer.StartTime();
+                                                GrayTimer.StartTime("GrayTimer");
                                                 InsertTableAtDataBase(Table);
                                                 SetBoxText("\r\nWait...");
                                                 RefreshBoxText();
@@ -9894,7 +9899,7 @@ namespace Refrigtz
                                                 MovmentsNumber++;
 
                                                 BrownTimer.StopTime();
-                                                GrayTimer.StartTime();
+                                                GrayTimer.StartTime("GrayTimer");
                                                 InsertTableAtDataBase(Table);
                                                 SetBoxText("\r\nWait...");
                                                 RefreshBoxText();
@@ -11529,7 +11534,7 @@ namespace Refrigtz
                             MovmentsNumber++;
 
                             BrownTimer.StopTime();
-                            GrayTimer.StartTime();
+                            GrayTimer.StartTime("GrayTimer");
                             InsertTableAtDataBase(Table);
                             SetBoxText("\r\nWait...");
                             RefreshBoxText();
@@ -11669,7 +11674,7 @@ namespace Refrigtz
                             MovmentsNumber++;
 
                             BrownTimer.StopTime();
-                            GrayTimer.StartTime();
+                            GrayTimer.StartTime("GrayTimer");
                             InsertTableAtDataBase(Table);
                             SetBoxText("\r\nWait...");
                             RefreshBoxText();
@@ -11921,7 +11926,7 @@ namespace Refrigtz
             //Draw.SetRowColumn(0);
             InsertTableAtDataBase(Tab);
             BrownTimer.StopTime();
-            GrayTimer.StartTime();
+            GrayTimer.StartTime("GrayTimer");
 
             SetBoxTextWrite(Out);
 
@@ -11972,7 +11977,7 @@ namespace Refrigtz
             BobSection = false;
             MovmentsNumber++;
             GrayTimer.StopTime();
-            BrownTimer.StartTime();
+            BrownTimer.StartTime("BrownTimer");
 
             SetBoxTextWrite(Out);
 
@@ -12162,7 +12167,7 @@ namespace Refrigtz
                 BobSection = true;
             else
                 BobSection = false;
-            do { AllOp(); } while (true);
+            do { AllOp(); Thread.Sleep(1000); } while (true);
         
         }
         List<int[]> WhereNumbers(String Tag)
@@ -12961,12 +12966,12 @@ namespace Refrigtz
                 if (OrderPlate == 1)
                 {
                     BrownTimer.StopTime();
-                    GrayTimer.StartTime();
+                    GrayTimer.StartTime("GrayTimer");
                 }
                 else
                 {
                     GrayTimer.StopTime();
-                    BrownTimer.StartTime();
+                    BrownTimer.StartTime("BrownTimer");
 
                 }
 
@@ -13023,12 +13028,12 @@ namespace Refrigtz
                 if (OrderPlate == 1)
                 {
                     BrownTimer.StopTime();
-                    GrayTimer.StartTime();
+                    GrayTimer.StartTime("GrayTimer");
                 }
                 else
                 {
                     GrayTimer.StopTime();
-                    BrownTimer.StartTime();
+                    BrownTimer.StartTime("BrownTimer");
 
                 }
 
@@ -14407,13 +14412,13 @@ namespace Refrigtz
             {
                 BobSection = true;
                 AliceSection = false;
-                GrayTimer.StartTime();
+                GrayTimer.StartTime("GrayTimer");
             }
             else
             {
                 BobSection = false;
                 AliceSection = true;
-                BrownTimer.StartTime();
+                BrownTimer.StartTime("BrownTimer");
             }
             //UpdateConfigurationTableVal = true;
             //UpdateConfigurationTable();
@@ -14431,13 +14436,13 @@ namespace Refrigtz
             {
                 Person = true;
                 StateCP = true;
-                GrayTimer.StartTime();
+                GrayTimer.StartTime("GrayTimer");
             }
             else if (Sec.radioButtonBrownOrder.Checked && OrderPlate == -1)
             {
                 Person = false;
                 StateCP = true;
-                BrownTimer.StartTime();
+                BrownTimer.StartTime("BrownTimer");
             }
             else
             {
@@ -15361,8 +15366,8 @@ namespace Refrigtz
             {
                 GrayTimer = new Refrigtz.Timer(true);
                 BrownTimer = new Refrigtz.Timer(true);
-                GrayTimer.TimerInitiate();
-                BrownTimer.TimerInitiate();
+                GrayTimer.TimerInitiate("GrayTimer");
+                BrownTimer.TimerInitiate("BrownTimer");
             }
             //TimerIniataite = true;
             //BobSection = false;
@@ -15374,13 +15379,13 @@ namespace Refrigtz
             comboBoxMaxLevel.Text = (PlatformHelper.ProcessorCount).ToString();
             if (OrderPlate == 1)
             {
-                GrayTimer.StartTime();
+                GrayTimer.StartTime("GrayTimer");
 
                 Blitz = true;
             }
             else if (OrderPlate == -1)
             {
-                BrownTimer.StartTime();
+                BrownTimer.StartTime("BrownTimer");
                 Blitz = true;
             }
             else
@@ -15864,8 +15869,8 @@ namespace Refrigtz
         {
             GrayTimer = new Refrigtz.Timer(true);
             BrownTimer = new Refrigtz.Timer(true);
-            GrayTimer.TimerInitiate();
-            BrownTimer.TimerInitiate();
+            GrayTimer.TimerInitiate("GrayTimer");
+            BrownTimer.TimerInitiate("BrownTimer");
             BobSection = false;
             AliceSection = false;
             StateCP = true;
@@ -15876,13 +15881,13 @@ namespace Refrigtz
             {
                 Person = true;
                 StateCP = true;
-                GrayTimer.StartTime();
+                GrayTimer.StartTime("GrayTimer");
             }
             else if (Sec.radioButtonBrownOrder.Checked && OrderPlate == -1)
             {
                 Person = false;
                 StateCP = true;
-                BrownTimer.StartTime();
+                BrownTimer.StartTime("BrownTimer");
             }
             else
             {
@@ -15903,20 +15908,20 @@ namespace Refrigtz
         {
             GrayTimer = new Refrigtz.Timer(true);
             BrownTimer = new Refrigtz.Timer(true);
-            GrayTimer.TimerInitiate();
-            BrownTimer.TimerInitiate();
+            GrayTimer.TimerInitiate("GrayTimer");
+            BrownTimer.TimerInitiate("BrownTimer");
             StateCC = true;
             if (OrderPlate == 1)
             {
                 BobSection = true;
                 AliceSection = false;
-                GrayTimer.StartTime();
+                GrayTimer.StartTime("GrayTimer");
             }
             else
             {
                 BobSection = false;
                 AliceSection = true;
-                BrownTimer.StartTime();
+                BrownTimer.StartTime("BrownTimer");
             }
             //UpdateConfigurationTableVal = true;
             //UpdateConfigurationTable();
@@ -16001,6 +16006,10 @@ namespace Refrigtz
 
                 pictureBoxTimerBrown.Invalidate();
                 pictureBoxTimerBrown.Update();
+
+                //pictureBoxRefrigtz.Invalidate();
+                //pictureBoxRefrigtz.Update();
+
                 
             }
         }
@@ -16052,11 +16061,14 @@ namespace Refrigtz
                         //RunInFront();
                     }
                 }
-                System.Threading.Thread.Sleep(1000);
+                System.Threading.Thread.Sleep(10);
+                //pictureBoxTimerGray.Invalidate();
+                //pictureBoxTimerGray.Update();
+
                 pictureBoxRefrigtz.Invalidate();
                 pictureBoxRefrigtz.Update();
 
-            
+
             }
 
         }
@@ -16083,8 +16095,8 @@ namespace Refrigtz
             comboBoxMaxLevel.Enabled = false;
             GrayTimer = new Refrigtz.Timer(true);
             BrownTimer = new Refrigtz.Timer(true);
-            GrayTimer.TimerInitiate();
-            BrownTimer.TimerInitiate();
+            GrayTimer.TimerInitiate("GrayTimer");
+            BrownTimer.TimerInitiate("BrownTimer");
             BobSection = false;
             AliceSection = false;
             StateCP = false;
@@ -16092,11 +16104,11 @@ namespace Refrigtz
             StateGe = false;
             if (OrderPlate == 1)
             {
-                GrayTimer.StartTime();
+                GrayTimer.StartTime("GrayTimer");
             }
             else if (OrderPlate == -1)
             {
-                BrownTimer.StartTime();
+                BrownTimer.StartTime("BrownTimer");
             }
             else
             {
@@ -16118,19 +16130,19 @@ namespace Refrigtz
             {
                 GrayTimer = new Refrigtz.Timer(true);
                 BrownTimer = new Refrigtz.Timer(true);
-                GrayTimer.TimerInitiate();
-                BrownTimer.TimerInitiate();
+                GrayTimer.TimerInitiate("GrayTimer");
+                BrownTimer.TimerInitiate("BrownTimer");
             }//AStarGreedyHuristic = false;
             if (OrderPlate == 1)
             {
                 FullGame = true;
-                GrayTimer.StartTime();
+                GrayTimer.StartTime("GrayTimer");
 
             }
             else if (OrderPlate == -1)
             {
                 FullGame = true;
-                BrownTimer.StartTime();
+                BrownTimer.StartTime("BrownTimer");
             }
             //UsePenaltyRegardMechnisam = false;
             PredictHuristic = false;
@@ -16176,8 +16188,8 @@ namespace Refrigtz
             UpdateConfigurationTable();
             GrayTimer = new Refrigtz.Timer(true);
             BrownTimer = new Refrigtz.Timer(true);
-            GrayTimer.TimerInitiate();
-            BrownTimer.TimerInitiate();
+            GrayTimer.TimerInitiate("GrayTimer");
+            BrownTimer.TimerInitiate("BrownTimer");
             BobSection = false;
             AliceSection = false;
             StateCP = false;
@@ -16186,11 +16198,11 @@ namespace Refrigtz
             comboBoxMaxLevel.Text = "4";
             if (OrderPlate == 1)
             {
-                GrayTimer.StartTime();
+                GrayTimer.StartTime("GrayTimer");
             }
             else if (OrderPlate == -1)
             {
-                BrownTimer.StartTime();
+                BrownTimer.StartTime("BrownTimer");
             }
             else
             {
@@ -16213,8 +16225,8 @@ namespace Refrigtz
             {
                 GrayTimer = new Refrigtz.Timer(true);
                 BrownTimer = new Refrigtz.Timer(true);
-                GrayTimer.TimerInitiate();
-                BrownTimer.TimerInitiate();
+                GrayTimer.TimerInitiate("GrayTimer");
+                BrownTimer.TimerInitiate("BrownTimer");
             }
             //BobSection = false;
             //AliceSection = false;
@@ -16226,12 +16238,12 @@ namespace Refrigtz
             if (OrderPlate == 1)
             {
                 Blitz = true;
-                GrayTimer.StartTime();
+                GrayTimer.StartTime("GrayTimer");
             }
             else if (OrderPlate == -1)
             {
                 Blitz = true;
-                BrownTimer.StartTime();
+                BrownTimer.StartTime("BrownTimer");
             }
             else
             {
@@ -16272,8 +16284,8 @@ namespace Refrigtz
             {
                 GrayTimer = new Refrigtz.Timer(true);
                 BrownTimer = new Refrigtz.Timer(true);
-                GrayTimer.TimerInitiate();
-                BrownTimer.TimerInitiate();
+                GrayTimer.TimerInitiate("GrayTimer");
+                BrownTimer.TimerInitiate("BrownTimer");
             }
             //BobSection = false;
             //AliceSection = false;
@@ -16285,12 +16297,12 @@ namespace Refrigtz
             if (OrderPlate == 1)
             {
                 FullGame = true;
-                GrayTimer.StartTime();
+                GrayTimer.StartTime("GrayTimer");
             }
             else if (OrderPlate == -1)
             {
                 FullGame = true;
-                BrownTimer.StartTime();
+                BrownTimer.StartTime("BrownTimer");
             }
             else
             {
@@ -16360,8 +16372,8 @@ namespace Refrigtz
             {
                 GrayTimer = new Refrigtz.Timer(true);
                 BrownTimer = new Refrigtz.Timer(true);
-                GrayTimer.TimerInitiate();
-                BrownTimer.TimerInitiate();
+                GrayTimer.TimerInitiate("GrayTimer");
+                BrownTimer.TimerInitiate("BrownTimer");
             }
             //TimerIniataite = true;
             //BobSection = false;
@@ -16373,13 +16385,13 @@ namespace Refrigtz
             comboBoxMaxLevel.Text = (PlatformHelper.ProcessorCount).ToString();
             if (OrderPlate == 1)
             {
-                GrayTimer.StartTime();
+                GrayTimer.StartTime("GrayTimer");
 
                 Blitz = true;
             }
             else if (OrderPlate == -1)
             {
-                BrownTimer.StartTime();
+                BrownTimer.StartTime("BrownTimer");
                 Blitz = true;
             }
             else
@@ -16440,8 +16452,8 @@ namespace Refrigtz
             {
                 GrayTimer = new Refrigtz.Timer(true);
                 BrownTimer = new Refrigtz.Timer(true);
-                GrayTimer.TimerInitiate();
-                BrownTimer.TimerInitiate();
+                GrayTimer.TimerInitiate("GrayTimer");
+                BrownTimer.TimerInitiate("BrownTimer");
             }
             //BobSection = false;
             //AliceSection = false;
@@ -16453,12 +16465,12 @@ namespace Refrigtz
             if (OrderPlate == 1)
             {
                 FullGame = true;
-                GrayTimer.StartTime();
+                GrayTimer.StartTime("GrayTimer");
             }
             else if (OrderPlate == -1)
             {
                 FullGame = true;
-                BrownTimer.StartTime();
+                BrownTimer.StartTime("BrownTimer");
             }
             else
             {
@@ -16511,20 +16523,20 @@ namespace Refrigtz
             FullGame = true;
             GrayTimer = new Refrigtz.Timer(true);
             BrownTimer = new Refrigtz.Timer(true);
-            GrayTimer.TimerInitiate();
-            BrownTimer.TimerInitiate();
+            GrayTimer.TimerInitiate("GrayTimer");
+            BrownTimer.TimerInitiate("BrownTimer");
             comboBoxMaxLevel.Text = (PlatformHelper.ProcessorCount * 2 + 1).ToString();
             if (OrderPlate == 1)
             {
                 //BobSection = true;
                 //AliceSection = false;
-                GrayTimer.StartTime();
+                GrayTimer.StartTime("GrayTimer");
             }
             else
             {
                 //BobSection = false;
                 //AliceSection = true;
-                BrownTimer.StartTime();
+                BrownTimer.StartTime("BrownTimer");
             }
             if (Sec.radioButtonGrayOrder.Checked)
             {
@@ -16601,8 +16613,8 @@ namespace Refrigtz
             {
                 GrayTimer = new Refrigtz.Timer(true);
                 BrownTimer = new Refrigtz.Timer(true);
-                GrayTimer.TimerInitiate();
-                BrownTimer.TimerInitiate();
+                GrayTimer.TimerInitiate("GrayTimer");
+                BrownTimer.TimerInitiate("BrownTimer");
             }
             PredictHuristic = false;
             //TimerIniataite = true;
@@ -16635,8 +16647,8 @@ namespace Refrigtz
             {
                 GrayTimer = new Refrigtz.Timer(true);
                 BrownTimer = new Refrigtz.Timer(true);
-                GrayTimer.TimerInitiate();
-                BrownTimer.TimerInitiate();
+                GrayTimer.TimerInitiate("GrayTimer");
+                BrownTimer.TimerInitiate("BrownTimer");
 
             }
             PredictHuristic = false;
@@ -16644,12 +16656,12 @@ namespace Refrigtz
             if (OrderPlate == 1)
             {
                 Blitz = true;
-                GrayTimer.StartTime();
+                GrayTimer.StartTime("GrayTimer");
             }
             else if (OrderPlate == -1)
             {
                 Blitz = true;
-                BrownTimer.StartTime();
+                BrownTimer.StartTime("BrownTimer");
             }
             if (Sec.radioButtonGrayOrder.Checked)
             {
@@ -16695,8 +16707,8 @@ namespace Refrigtz
             {
                 GrayTimer = new Refrigtz.Timer(true);
                 BrownTimer = new Refrigtz.Timer(true);
-                GrayTimer.TimerInitiate();
-                BrownTimer.TimerInitiate();
+                GrayTimer.TimerInitiate("GrayTimer");
+                BrownTimer.TimerInitiate("BrownTimer");
             }
             PredictHuristic = false;
             //TimerIniataite = true;

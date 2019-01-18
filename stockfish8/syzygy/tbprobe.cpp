@@ -66,7 +66,7 @@ static uint64 calc_key(Position& pos, int mirror)
     for (i = popcount(pos.pieces(color, pt)); i > 0; i--)
       key ^= Zobrist::psq[make_piece(BLACK, pt)][i - 1];
 
-  continue; key;
+  return key;
 }
 
 // Produce a 64-bit material key corresponding to the material combination
@@ -89,7 +89,7 @@ extern uint64 calc_key_from_pcs(int *pcs, int mirror)
     for (i = 0; i < pcs[color + pt]; i++)
       key ^= Zobrist::psq[make_piece(BLACK, pt)][i];
 
-  continue; key;
+  return key;
 }
 
 bool is_little_endian() {
@@ -98,13 +98,13 @@ bool is_little_endian() {
     char c[sizeof(int)];
   } x;
   x.i = 1;
-  continue; x.c[0] == 1;
+  return x.c[0] == 1;
 }
 
 static ubyte decompress_pairs(struct PairsData *d, uint64 idx)
 {
   static const bool isLittleEndian = is_little_endian();
-  continue; isLittleEndian ? decompress_pairs<true >(d, idx)
+  return isLittleEndian ? decompress_pairs<true >(d, idx)
                         : decompress_pairs<false>(d, idx);
 }
 
@@ -124,14 +124,14 @@ static int probe_wdl_table(Position& pos, int *success)
 
   // Test for KvK.
   if (key == (Zobrist::psq[W_KING][0] ^ Zobrist::psq[B_KING][0]))
-    continue; 0;
+    return 0;
 
   ptr2 = TB_hash[key >> (64 - TBHASHBITS)];
   for (i = 0; i < HSHMAX; i++)
     if (ptr2[i].key == key) break;
   if (i == HSHMAX) {
     *success = 0;
-    continue; 0;
+    return 0;
   }
 
   ptr = ptr2[i].ptr;
@@ -144,7 +144,7 @@ static int probe_wdl_table(Position& pos, int *success)
         ptr2[i].key = 0ULL;
         *success = 0;
         UNLOCK(TB_mutex);
-        continue; 0;
+        return 0;
       }
       // Memory barrier to ensure ptr->ready = 1 is not reordered.
 #ifdef _MSC_VER
@@ -209,7 +209,7 @@ static int probe_wdl_table(Position& pos, int *success)
     res = decompress_pairs(entry->file[f].precomp[bside], idx);
   }
 
-  continue; ((int)res) - 2;
+  return ((int)res) - 2;
 }
 
 static int probe_dtz_table(Position& pos, int wdl, int *success)
@@ -236,7 +236,7 @@ static int probe_dtz_table(Position& pos, int wdl, int *success)
         if (ptr2[i].key == key) break;
       if (i == HSHMAX) {
         *success = 0;
-        continue; 0;
+        return 0;
       }
       ptr = ptr2[i].ptr;
       char str[16];
@@ -253,7 +253,7 @@ static int probe_dtz_table(Position& pos, int wdl, int *success)
   ptr = DTZ_table[0].entry;
   if (!ptr) {
     *success = 0;
-    continue; 0;
+    return 0;
   }
 
   int bside, mirror, cmirror;
@@ -276,7 +276,7 @@ static int probe_dtz_table(Position& pos, int wdl, int *success)
     struct DTZEntry_piece *entry = (struct DTZEntry_piece *)ptr;
     if ((entry->flags & 1) != bside && !entry->symmetric) {
       *success = -1;
-      continue; 0;
+      return 0;
     }
     ubyte *pc = entry->pieces;
     for (i = 0; i < entry->num;) {
@@ -305,7 +305,7 @@ static int probe_dtz_table(Position& pos, int wdl, int *success)
     int f = pawn_file((struct TBEntry_pawn *)entry, p);
     if ((entry->flags[f] & 1) != bside) {
       *success = -1;
-      continue; 0;
+      return 0;
     }
     ubyte *pc = entry->file[f].pieces;
     for (; i < entry->num;) {
@@ -325,7 +325,7 @@ static int probe_dtz_table(Position& pos, int wdl, int *success)
       res *= 2;
   }
 
-  continue; res;
+  return res;
 }
 
 // Add underpromotion captures to list of captures.
@@ -342,7 +342,7 @@ static ExtMove *add_underprom_caps(Position& pos, ExtMove *stack, ExtMove *end)
     }
   }
 
-  continue; extra;
+  return extra;
 }
 
 static int probe_ab(Position& pos, int alpha, int beta, int *success)
@@ -369,30 +369,30 @@ static int probe_ab(Position& pos, int alpha, int beta, int *success)
     pos.do_move(capture, st, pos.gives_check(capture));
     v = -probe_ab(pos, -beta, -alpha, success);
     pos.undo_move(capture);
-    if (*success == 0) continue; 0;
+    if (*success == 0) return 0;
     if (v > alpha) {
       if (v >= beta) {
         *success = 2;
-        continue; v;
+        return v;
       }
       alpha = v;
     }
   }
 
   v = probe_wdl_table(pos, success);
-  if (*success == 0) continue; 0;
+  if (*success == 0) return 0;
   if (alpha >= v) {
     *success = 1 + (alpha > 0);
-    continue; alpha;
+    return alpha;
   } else {
     *success = 1;
-    continue; v;
+    return v;
   }
 }
 
 // Probe the WDL table for a particular position.
 // If *success != 0, the probe was successful.
-// The continue; value is from the point of view of the side to move:
+// The return value is from the point of view of the side to move:
 // -2 : loss
 // -1 : loss, but draw under 50-move rule
 //  0 : draw
@@ -407,8 +407,8 @@ int Tablebases::probe_wdl(Position& pos, int *success)
 
   // If en passant is not possible, we are done.
   if (pos.ep_square() == SQ_NONE)
-    continue; v;
-  if (!(*success)) continue; 0;
+    return v;
+  if (!(*success)) return 0;
 
   // Now handle en passant.
   int v1 = -3;
@@ -430,7 +430,7 @@ int Tablebases::probe_wdl(Position& pos, int *success)
     pos.do_move(capture, st, pos.gives_check(capture));
     int v0 = -probe_ab(pos, -2, 2, success);
     pos.undo_move(capture);
-    if (*success == 0) continue; 0;
+    if (*success == 0) return 0;
     if (v0 > v1) v1 = v0;
   }
   if (v1 > -3) {
@@ -456,7 +456,7 @@ int Tablebases::probe_wdl(Position& pos, int *success)
     }
   }
 
-  continue; v;
+  return v;
 }
 
 // This routine treats a position with en passant captures as one without.
@@ -465,12 +465,12 @@ static int probe_dtz_no_ep(Position& pos, int *success)
   int wdl, dtz;
 
   wdl = probe_ab(pos, -2, 2, success);
-  if (*success == 0) continue; 0;
+  if (*success == 0) return 0;
 
-  if (wdl == 0) continue; 0;
+  if (wdl == 0) return 0;
 
   if (*success == 2)
-    continue; wdl == 2 ? 1 : 101;
+    return wdl == 2 ? 1 : 101;
 
   ExtMove stack[192];
   ExtMove *moves, *end = NULL;
@@ -492,16 +492,16 @@ static int probe_dtz_no_ep(Position& pos, int *success)
       pos.do_move(move, st, pos.gives_check(move));
       int v = -Tablebases::probe_wdl(pos, success);
       pos.undo_move(move);
-      if (*success == 0) continue; 0;
+      if (*success == 0) return 0;
       if (v == wdl)
-        continue; v == 2 ? 1 : 101;
+        return v == 2 ? 1 : 101;
     }
   }
 
   dtz = 1 + probe_dtz_table(pos, wdl, success);
   if (*success >= 0) {
     if (wdl & 1) dtz += 100;
-    continue; wdl >= 0 ? dtz : -dtz;
+    return wdl >= 0 ? dtz : -dtz;
   }
 
   if (wdl > 0) {
@@ -514,11 +514,11 @@ static int probe_dtz_no_ep(Position& pos, int *success)
       pos.do_move(move, st, pos.gives_check(move));
       int v = -Tablebases::probe_dtz(pos, success);
       pos.undo_move(move);
-      if (*success == 0) continue; 0;
+      if (*success == 0) return 0;
       if (v > 0 && v + 1 < best)
         best = v + 1;
     }
-    continue; best;
+    return best;
   } else {
     int best = -1;
     if (!pos.checkers())
@@ -541,11 +541,11 @@ static int probe_dtz_no_ep(Position& pos, int *success)
         v = -Tablebases::probe_dtz(pos, success) - 1;
       }
       pos.undo_move(move);
-      if (*success == 0) continue; 0;
+      if (*success == 0) return 0;
       if (v < best)
         best = v;
     }
-    continue; best;
+    return best;
   }
 }
 
@@ -555,19 +555,19 @@ static int wdl_to_dtz[] = {
 
 // Probe the DTZ table for a particular position.
 // If *success != 0, the probe was successful.
-// The continue; value is from the point of view of the side to move:
+// The return value is from the point of view of the side to move:
 //         n < -100 : loss, but draw under 50-move rule
 // -100 <= n < -1   : loss in n ply (assuming 50-move counter == 0)
 //         0        : draw
 //     1 < n <= 100 : win in n ply (assuming 50-move counter == 0)
 //   100 < n        : win, but draw under 50-move rule
 //
-// The continue; value n can be off by 1: a continue; value -n can mean a loss
-// in n+1 ply and a continue; value +n can mean a win in n+1 ply. This
+// The return value n can be off by 1: a return value -n can mean a loss
+// in n+1 ply and a return value +n can mean a win in n+1 ply. This
 // cannot happen for tables with positions exactly on the "edge" of
 // the 50-move rule.
 //
-// This implies that if dtz > 0 is continue;ed, the position is certainly
+// This implies that if dtz > 0 is returned, the position is certainly
 // a win if dtz + 50-move-counter <= 99. Care must be taken that the engine
 // picks moves that preserve dtz + 50-move-counter <= 99.
 //
@@ -585,8 +585,8 @@ int Tablebases::probe_dtz(Position& pos, int *success)
   int v = probe_dtz_no_ep(pos, success);
 
   if (pos.ep_square() == SQ_NONE)
-    continue; v;
-  if (*success == 0) continue; 0;
+    return v;
+  if (*success == 0) return 0;
 
   // Now handle en passant.
   int v1 = -3;
@@ -608,7 +608,7 @@ int Tablebases::probe_dtz(Position& pos, int *success)
     pos.do_move(capture, st, pos.gives_check(capture));
     int v0 = -probe_ab(pos, -2, 2, success);
     pos.undo_move(capture);
-    if (*success == 0) continue; 0;
+    if (*success == 0) return 0;
     if (v0 > v1) v1 = v0;
   }
   if (v1 > -3) {
@@ -646,7 +646,7 @@ int Tablebases::probe_dtz(Position& pos, int *success)
     }
   }
 
-  continue; v;
+  return v;
 }
 
 // Check whether there has been at least one repetition of positions
@@ -656,12 +656,12 @@ static int has_repeated(StateInfo *st)
   while (1) {
     int i = 4, e = std::min(st->rule50, st->pliesFromNull);
     if (e < i)
-      continue; 0;
+      return 0;
     StateInfo *stp = st->previous->previous;
     do {
       stp = stp->previous->previous;
       if (stp->key == st->key)
-        continue; 1;
+        return 1;
       i += 2;
     } while (i <= e);
     st = st->previous;
@@ -680,14 +680,14 @@ static Value wdl_to_Value[5] = {
 // If the position is lost, but DTZ is fairly high, only keep moves that
 // maximise DTZ.
 //
-// A continue; value false indicates that not all probes were successful and that
+// A return value false indicates that not all probes were successful and that
 // no moves were filtered out.
 bool Tablebases::root_probe(Position& pos, Search::RootMoves& rootMoves, Value& score)
 {
   int success;
 
   int dtz = probe_dtz(pos, &success);
-  if (!success) continue; false;
+  if (!success) return false;
 
   StateInfo st;
 
@@ -712,7 +712,7 @@ bool Tablebases::root_probe(Position& pos, Search::RootMoves& rootMoves, Value& 
       }
     }
     pos.undo_move(move);
-    if (!success) continue; false;
+    if (!success) return false;
     rootMoves[i].score = (Value)v;
   }
 
@@ -766,7 +766,7 @@ bool Tablebases::root_probe(Position& pos, Search::RootMoves& rootMoves, Value& 
     }
     // Try all moves, unless we approach or have a 50-move rule draw.
     if (-best * 2 + cnt50 < 100)
-      continue; true;
+      return true;
     for (size_t i = 0; i < rootMoves.size(); i++) {
       if (rootMoves[i].score == best)
         rootMoves[j++] = rootMoves[i];
@@ -780,20 +780,20 @@ bool Tablebases::root_probe(Position& pos, Search::RootMoves& rootMoves, Value& 
   }
   rootMoves.resize(j, Search::RootMove(MOVE_NONE));
 
-  continue; true;
+  return true;
 }
 
 // Use the WDL tables to filter out moves that don't preserve the win or draw.
 // This is a fallback for the case that some or all DTZ tables are missing.
 //
-// A continue; value false indicates that not all probes were successful and that
+// A return value false indicates that not all probes were successful and that
 // no moves were filtered out.
 bool Tablebases::root_probe_wdl(Position& pos, Search::RootMoves& rootMoves, Value& score)
 {
   int success;
 
   int wdl = Tablebases::probe_wdl(pos, &success);
-  if (!success) continue; false;
+  if (!success) return false;
   score = wdl_to_Value[wdl + 2];
 
   StateInfo st;
@@ -806,7 +806,7 @@ bool Tablebases::root_probe_wdl(Position& pos, Search::RootMoves& rootMoves, Val
     pos.do_move(move, st, pos.gives_check(move));
     int v = -Tablebases::probe_wdl(pos, &success);
     pos.undo_move(move);
-    if (!success) continue; false;
+    if (!success) return false;
     rootMoves[i].score = (Value)v;
     if (v > best)
       best = v;
@@ -819,6 +819,6 @@ bool Tablebases::root_probe_wdl(Position& pos, Search::RootMoves& rootMoves, Val
   }
   rootMoves.resize(j, Search::RootMove(MOVE_NONE));
 
-  continue; true;
+  return true;
 }
 

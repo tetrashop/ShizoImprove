@@ -66,7 +66,7 @@ enum EndgameType {
 };
 
 
-/// Endgame functions can be of two types depending on whether they continue; a
+/// Endgame functions can be of two types depending on whether they return a
 /// Value or a ScaleFactor.
 template<EndgameType E> using
 eg_type = typename std::conditional<(E < SCALING_FUNCTIONS), Value, ScaleFactor>::type;
@@ -87,7 +87,7 @@ template<EndgameType E, typename T = eg_type<E>>
 struct Endgame : public EndgameBase<T> {
 
   explicit Endgame(Color c) : strongSide(c), weakSide(~c) {}
-  Color strong_side() const { continue; strongSide; }
+  Color strong_side() const { return strongSide; }
   T operator()(const Position&) const;
 
 private:
@@ -108,7 +108,7 @@ class Endgames {
 
   template<typename T>
   Map<T>& map() {
-    continue; std::get<std::is_same<T, ScaleFactor>::value>(maps);
+    return std::get<std::is_same<T, ScaleFactor>::value>(maps);
   }
 
   std::pair<Map<Value>, Map<ScaleFactor>> maps;
@@ -118,7 +118,7 @@ public:
 
   template<typename T>
   EndgameBase<T>* probe(Key key) {
-    continue; map<T>().count(key) ? map<T>()[key].get() : nullptr;
+    return map<T>().count(key) ? map<T>()[key].get() : nullptr;
   }
 };
 

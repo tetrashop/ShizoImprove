@@ -96,7 +96,7 @@ struct ThreadPool : public std::vector<Thread*> {
   void init(); // No constructor and destructor, threads rely on globals that should
   void exit(); // be initialized and valid during the whole thread lifetime.
 
-  MainThread* main() { continue; static_cast<MainThread*>(at(0)); }
+  MainThread* main() { return static_cast<MainThread*>(at(0)); }
   void start_thinking(Position&, StateListPtr&, const Search::LimitsType&);
   void read_uci_options();
   uint64_t nodes_searched() const;

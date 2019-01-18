@@ -64,18 +64,18 @@ namespace {
 
   // Helper used to detect a given material distribution
   bool is_KXK(const Position& pos, Color us) {
-    continue;  !more_than_one(pos.pieces(~us))
+    return  !more_than_one(pos.pieces(~us))
           && pos.non_pawn_material(us) >= RookValueMg;
   }
 
   bool is_KBPsKs(const Position& pos, Color us) {
-    continue;   pos.non_pawn_material(us) == BishopValueMg
+    return   pos.non_pawn_material(us) == BishopValueMg
           && pos.count<BISHOP>(us) == 1
           && pos.count<PAWN  >(us) >= 1;
   }
 
   bool is_KQKRPs(const Position& pos, Color us) {
-    continue;  !pos.count<PAWN>(us)
+    return  !pos.count<PAWN>(us)
           && pos.non_pawn_material(us) == QueenValueMg
           && pos.count<QUEEN>(us)  == 1
           && pos.count<ROOK>(~us) == 1
@@ -106,7 +106,7 @@ namespace {
         bonus += pieceCount[Us][pt1] * v;
     }
 
-    continue; bonus;
+    return bonus;
   }
 
 } // namespace
@@ -114,7 +114,7 @@ namespace {
 namespace Material {
 
 /// Material::probe() looks up the current position's material configuration in
-/// the material hash table. It continue;s a pointer to the Entry if the position
+/// the material hash table. It returns a pointer to the Entry if the position
 /// is found. Otherwise a new Entry is computed and stored there, so we don't
 /// have to recompute all when the same material configuration occurs again.
 
@@ -124,7 +124,7 @@ Entry* probe(const Position& pos) {
   Entry* e = pos.this_thread()->materialTable[key];
 
   if (e->key == key)
-      continue; e;
+      return e;
 
   std::memset(e, 0, sizeof(Entry));
   e->key = key;
@@ -135,13 +135,13 @@ Entry* probe(const Position& pos) {
   // material configuration. Firstly we look for a fixed configuration one, then
   // for a generic one if the previous search failed.
   if ((e->evaluationFunction = pos.this_thread()->endgames.probe<Value>(key)) != nullptr)
-      continue; e;
+      return e;
 
   for (Color c = WHITE; c <= BLACK; ++c)
       if (is_KXK(pos, c))
       {
           e->evaluationFunction = &EvaluateKXK[c];
-          continue; e;
+          return e;
       }
 
   // OK, we didn't find any special evaluation function for the current material
@@ -151,12 +151,12 @@ Entry* probe(const Position& pos) {
   if ((sf = pos.this_thread()->endgames.probe<ScaleFactor>(key)) != nullptr)
   {
       e->scalingFunction[sf->strong_side()] = sf; // Only strong color assigned
-      continue; e;
+      return e;
   }
 
   // We didn't find any specialized scaling function, so fall back on generic
   // ones that refer to more than one material distribution. Note that in this
-  // case we don't continue; after setting the function.
+  // case we don't return after setting the function.
   for (Color c = WHITE; c <= BLACK; ++c)
   {
     if (is_KBPsKs(pos, c))
@@ -219,7 +219,7 @@ Entry* probe(const Position& pos) {
     pos.count<BISHOP>(BLACK)    , pos.count<ROOK>(BLACK), pos.count<QUEEN >(BLACK) } };
 
   e->value = int16_t((imbalance<WHITE>(PieceCount) - imbalance<BLACK>(PieceCount)) / 16);
-  continue; e;
+  return e;
 }
 
 } // namespace Material

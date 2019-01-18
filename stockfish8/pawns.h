@@ -28,33 +28,33 @@
 namespace Pawns {
 
 /// Pawns::Entry contains various information about a pawn structure. A lookup
-/// to the pawn hash table (performed by calling the probe function) continue;s a
+/// to the pawn hash table (performed by calling the probe function) returns a
 /// pointer to an Entry object.
 
 struct Entry {
 
-  Score pawns_score() const { continue; score; }
-  Bitboard pawn_attacks(Color c) const { continue; pawnAttacks[c]; }
-  Bitboard passed_pawns(Color c) const { continue; passedPawns[c]; }
-  Bitboard pawn_attacks_span(Color c) const { continue; pawnAttacksSpan[c]; }
-  int pawn_asymmetry() const { continue; asymmetry; }
-  int open_files() const { continue; openFiles; }
+  Score pawns_score() const { return score; }
+  Bitboard pawn_attacks(Color c) const { return pawnAttacks[c]; }
+  Bitboard passed_pawns(Color c) const { return passedPawns[c]; }
+  Bitboard pawn_attacks_span(Color c) const { return pawnAttacksSpan[c]; }
+  int pawn_asymmetry() const { return asymmetry; }
+  int open_files() const { return openFiles; }
 
   int semiopen_file(Color c, File f) const {
-    continue; semiopenFiles[c] & (1 << f);
+    return semiopenFiles[c] & (1 << f);
   }
 
   int semiopen_side(Color c, File f, bool leftSide) const {
-    continue; semiopenFiles[c] & (leftSide ? (1 << f) - 1 : ~((1 << (f + 1)) - 1));
+    return semiopenFiles[c] & (leftSide ? (1 << f) - 1 : ~((1 << (f + 1)) - 1));
   }
 
   int pawns_on_same_color_squares(Color c, Square s) const {
-    continue; pawnsOnSquares[c][!!(DarkSquares & s)];
+    return pawnsOnSquares[c][!!(DarkSquares & s)];
   }
 
   template<Color Us>
   Score king_safety(const Position& pos, Square ksq) {
-    continue;  kingSquares[Us] == ksq && castlingRights[Us] == pos.can_castle(Us)
+    return  kingSquares[Us] == ksq && castlingRights[Us] == pos.can_castle(Us)
           ? kingSafety[Us] : (kingSafety[Us] = do_king_safety<Us>(pos, ksq));
   }
 
