@@ -2356,7 +2356,7 @@ namespace RefrigtzDLL
             }
         }
         ///Huristic of King safty.
-        double HeuristicKingSafety(int[,] Tab, int Order, Color a, int CurrentAStarGredy)
+        double HeuristicKingSafety(int[,] Tab, int Order, Color a, int CurrentAStarGredy,int RowS, int ColS, int RowD, int ColD)
         {
             Object O = new Object();
             lock (O)
@@ -2367,28 +2367,28 @@ namespace RefrigtzDLL
                 //For Enemies.
 
                 ////Parallel.For(0, 8, RowS =>
-                for (int RowS = 0; RowS < 8; RowS++)
+                //for (int RowS = 0; RowS < 8; RowS++)
                 {
                     ////Parallel.For(0, 8, ColS =>
-                    for (int ColS = 0; ColS < 8; ColS++)
+                    //for (int ColS = 0; ColS < 8; ColS++)
                     {
                         if (Order == 1 && Tab[RowS, ColS] >= 0)
-                            continue;
+                            return 0;
                         if (Order == -1 && Tab[RowS, ColS] <= 0)
-                            continue;
+                            return 0;
                         ChessRules A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tab[RowS, ColS], Tab, Order * -1, RowS, ColS);
                         //For Current and Empty
                         ////Parallel.For(0, 8, RowD =>
-                        for (int RowD = 0; RowD < 8; RowD++)
+                        //for (int RowD = 0; RowD < 8; RowD++)
                         {
                             ////Parallel.For(0, 8, ColD =>
-                            for (int ColD = 0; ColD < 8; ColD++)
+                            //for (int ColD = 0; ColD < 8; ColD++)
                             {
                                 //Ignore of Enemy.
                                 if (Order == 1 && Tab[RowD, ColD] < 0)
-                                    continue;
+                                    return 0;
                                 if (Order == -1 && Tab[RowD, ColD] > 0)
-                                    continue;
+                                    return 0;
                                 int[,] Table = new int[8, 8];
                                 //Clone a Copy.
                                 /*
@@ -2478,7 +2478,7 @@ namespace RefrigtzDLL
                 return HeuristicKingSafe;
             }
         }
-        double HeuristicKingDangourous(int[,] Tab, int Order, Color a, int CurrentAStarGredy)
+        double HeuristicKingDangourous(int[,] Tab, int Order, Color a, int CurrentAStarGredy, int RowS, int ColS, int RowD, int ColD)
         {
             Object O = new Object();
             lock (O)
@@ -2486,30 +2486,30 @@ namespace RefrigtzDLL
                 double HeuristicKingDangour = 0;
                 double HA = 0;
                 //For Self.
-                for (int RowS = 0; RowS < 8; RowS++)
+                //for (int RowS = 0; RowS < 8; RowS++)
                 ////Parallel.For(0, 8, RowS =>
                 {
                     ////Parallel.For(0, 8, ColS =>
-                    for (int ColS = 0; ColS < 8; ColS++)
+                    //for (int ColS = 0; ColS < 8; ColS++)
                     {
                         //Ignore of Enemy and Empty.
                         if (Order == 1 && Tab[RowS, ColS] <= 0)
-                            continue;
+                            return 0;
                         if (Order == -1 && Tab[RowS, ColS] >= 0)
-                            continue;
+                            return 0;
                         ChessRules A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tab[RowS, ColS], Tab, Order, RowS, ColS);
                         //For Enemy and Empty.
                         ////Parallel.For(0, 8, RowD =>
-                        for (int RowD = 0; RowD < 8; RowD++)
+                        //for (int RowD = 0; RowD < 8; RowD++)
                         {
                             ////Parallel.For(0, 8, ColD =>
-                            for (int ColD = 0; ColD < 8; ColD++)
+                            //for (int ColD = 0; ColD < 8; ColD++)
                             {
                                 //Ignore of Self.
                                 if (Order == 1 && Tab[RowD, ColD] > 0)
-                                    continue;
+                                    return 0;
                                 if (Order == -1 && Tab[RowD, ColD] < 0)
-                                    continue;
+                                    return 0;
                                 int[,] Table = new int[8, 8];
                                 //Clone a Copy.
                                 /*//Parallel.For(0, 8, ij =>
@@ -9157,7 +9157,7 @@ namespace RefrigtzDLL
                     lock (O)
                     {
                         int[,] TableSS = CloneATable(TableS);
-                        HKingSafe = HeuristicKingSafety(TableSS, Order, color//, RowS, ColS, RowD, ColD, ref HeuristicKingSafe
+                        HKingSafe = HeuristicKingSafety(TableSS, Order, color, RowS, ColS, RowD, ColD//, ref HeuristicKingSafe
                              , CurrentAStarGredyMax);
                     }
                 }
@@ -9167,7 +9167,7 @@ namespace RefrigtzDLL
                     lock (O)
                     {
                         int[,] TableSS = CloneATable(TableS);
-                        HKingDangour = HeuristicKingDangourous(TableSS, Order, color//, RowS, ColS, RowD, ColD//, ref HeuristicKingSafe
+                        HKingDangour = HeuristicKingDangourous(TableSS, Order, color, RowS, ColS, RowD, ColD//, ref HeuristicKingSafe
                         , CurrentAStarGredyMax);
                     }
                 }
