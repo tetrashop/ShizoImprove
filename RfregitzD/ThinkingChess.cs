@@ -4421,7 +4421,7 @@ namespace RefrigtzDLL
                 Object O1 = new Object();
                 lock (O1)
                 {
-                    if (Table[ii, jj] != 0)
+                    if (System.Math.Abs(Table[i, j]) == 1)
                     {
                         if (!ArrangmentsChanged)
                         {
@@ -4479,7 +4479,7 @@ namespace RefrigtzDLL
 
 
                     }
-                    else if (Table[i, j] != 0)
+                    else if (System.Math.Abs(Table[ii, jj]) == 1)
                     {
                         if (!ArrangmentsChanged)
                         {
@@ -6888,6 +6888,33 @@ namespace RefrigtzDLL
                             HeuristicKingSafeSup += HeuristicKingSafe;
                             HeuristicFromCenterSup += HeuristicFromCenter;
                             HeuristicKingDangourSup += HeuristicKingDangour;
+                            double[] Hu = new double[10];
+                            Hu[0] = HuristicAttackValueSup;
+                            //HuristicAttackValueSup = 0;
+                            Hu[1] = HuristicMovementValueSup;
+                            //HuristicMovementValueSup = 0;
+                            Hu[2] = HuristicSelfSupportedValueSup;
+                            //HuristicSelfSupportedValueSup = 0;
+                            Hu[3] = HuristicObjectDangourCheckMateValueSup;
+                            //HuristicObjectDangourCheckMateValueSup = 0;
+                            Hu[4] = HuristicKillerValueSup;
+                            //HuristicKillerValueSup = 0;
+                            Hu[5] = HuristicReducedAttackValueSup;
+                            //HuristicReducedAttackValueSup = 0;
+                            Hu[6] = HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+                            //HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+                            Hu[7] = HeuristicKingSafeSup;
+                            //HeuristicKingSafeSup = 0;
+                            Hu[8] = HeuristicFromCenterSup;
+                            //HeuristicFromCenterSup = 0;
+                            Hu[9] = HeuristicKingDangourSup;
+                            //HeuristicKingDangourSup = 0;
+                            String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
+                            OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
+                            if (Order == 1)
+                                AllDraw.OutPut = "\r\nThinking King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                            else
+                                AllDraw.OutPut = "\r\nThinking King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                             ThinkingAtRun = false;
                         }
                     }
@@ -7116,6 +7143,33 @@ namespace RefrigtzDLL
                             HeuristicKingSafeSup += HeuristicKingSafe;
                             HeuristicFromCenterSup += HeuristicFromCenter;
                             HeuristicKingDangourSup += HeuristicKingDangour;
+                            double[] Hu = new double[10];
+                            Hu[0] = HuristicAttackValueSup;
+                            //HuristicAttackValueSup = 0;
+                            Hu[1] = HuristicMovementValueSup;
+                            //HuristicMovementValueSup = 0;
+                            Hu[2] = HuristicSelfSupportedValueSup;
+                            //HuristicSelfSupportedValueSup = 0;
+                            Hu[3] = HuristicObjectDangourCheckMateValueSup;
+                            //HuristicObjectDangourCheckMateValueSup = 0;
+                            Hu[4] = HuristicKillerValueSup;
+                            //HuristicKillerValueSup = 0;
+                            Hu[5] = HuristicReducedAttackValueSup;
+                            //HuristicReducedAttackValueSup = 0;
+                            Hu[6] = HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+                            //HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+                            Hu[7] = HeuristicKingSafeSup;
+                            //HeuristicKingSafeSup = 0;
+                            Hu[8] = HeuristicFromCenterSup;
+                            //HeuristicFromCenterSup = 0;
+                            Hu[9] = HeuristicKingDangourSup;
+                            //HeuristicKingDangourSup = 0;
+                            String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
+                            OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
+                            if (Order == 1)
+                                AllDraw.OutPut = "\r\nThinking Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                            else
+                                AllDraw.OutPut = "\r\nThinking Minster AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                             ThinkingAtRun = false;
                         }
                     }
@@ -7684,7 +7738,33 @@ namespace RefrigtzDLL
                             HeuristicKingSafeSup += HeuristicKingSafe;
                             HeuristicFromCenterSup += HeuristicFromCenter;
                             HeuristicKingDangourSup += HeuristicKingDangour;
-                            ThinkingAtRun = false;
+                            double[] Hu = new double[10];
+                            Hu[0] = HuristicAttackValueSup;
+                            //HuristicAttackValueSup = 0;
+                            Hu[1] = HuristicMovementValueSup;
+                            //HuristicMovementValueSup = 0;
+                            Hu[2] = HuristicSelfSupportedValueSup;
+                            //HuristicSelfSupportedValueSup = 0;
+                            Hu[3] = HuristicObjectDangourCheckMateValueSup;
+                            //HuristicObjectDangourCheckMateValueSup = 0;
+                            Hu[4] = HuristicKillerValueSup;
+                            //HuristicKillerValueSup = 0;
+                            Hu[5] = HuristicReducedAttackValueSup;
+                            //HuristicReducedAttackValueSup = 0;
+                            Hu[6] = HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+                            //HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+                            Hu[7] = HeuristicKingSafeSup;
+                            //HeuristicKingSafeSup = 0;
+                            Hu[8] = HeuristicFromCenterSup;
+                            //HeuristicFromCenterSup = 0;
+                            Hu[9] = HeuristicKingDangourSup;
+                            //HeuristicKingDangourSup = 0;
+                            String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
+                            OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
+                            if (Order == 1)
+                                AllDraw.OutPut = "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                            else
+                                AllDraw.OutPut = "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                         }
                     }
                     catch (Exception t)
@@ -7891,6 +7971,34 @@ namespace RefrigtzDLL
                             HeuristicKingSafeSup += HeuristicKingSafe;
                             HeuristicFromCenterSup += HeuristicFromCenter;
                             HeuristicKingDangourSup += HeuristicKingDangour;
+                            double[] Hu = new double[10];
+                            Hu[0] = HuristicAttackValueSup;
+                            //HuristicAttackValueSup = 0;
+                            Hu[1] = HuristicMovementValueSup;
+                            //HuristicMovementValueSup = 0;
+                            Hu[2] = HuristicSelfSupportedValueSup;
+                            //HuristicSelfSupportedValueSup = 0;
+                            Hu[3] = HuristicObjectDangourCheckMateValueSup;
+                            //HuristicObjectDangourCheckMateValueSup = 0;
+                            Hu[4] = HuristicKillerValueSup;
+                            //HuristicKillerValueSup = 0;
+                            Hu[5] = HuristicReducedAttackValueSup;
+                            //HuristicReducedAttackValueSup = 0;
+                            Hu[6] = HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+                            //HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+                            Hu[7] = HeuristicKingSafeSup;
+                            //HeuristicKingSafeSup = 0;
+                            Hu[8] = HeuristicFromCenterSup;
+                            //HeuristicFromCenterSup = 0;
+                            Hu[9] = HeuristicKingDangourSup;
+                            //HeuristicKingDangourSup = 0;
+                            String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
+                            OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
+                            if (Order == 1)
+                                AllDraw.OutPut = "\r\nThinking Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                            else
+                                AllDraw.OutPut = "\r\nThinking Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+
                             ThinkingAtRun = false;
                         }
                     }
@@ -8096,6 +8204,33 @@ namespace RefrigtzDLL
                             HeuristicKingSafeSup += HeuristicKingSafe;
                             HeuristicFromCenterSup += HeuristicFromCenter;
                             HeuristicKingDangourSup += HeuristicKingDangour;
+                            double[] Hu = new double[10];
+                            Hu[0] = HuristicAttackValueSup;
+                            //HuristicAttackValueSup = 0;
+                            Hu[1] = HuristicMovementValueSup;
+                            //HuristicMovementValueSup = 0;
+                            Hu[2] = HuristicSelfSupportedValueSup;
+                            //HuristicSelfSupportedValueSup = 0;
+                            Hu[3] = HuristicObjectDangourCheckMateValueSup;
+                            //HuristicObjectDangourCheckMateValueSup = 0;
+                            Hu[4] = HuristicKillerValueSup;
+                            //HuristicKillerValueSup = 0;
+                            Hu[5] = HuristicReducedAttackValueSup;
+                            //HuristicReducedAttackValueSup = 0;
+                            Hu[6] = HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+                            //HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+                            Hu[7] = HeuristicKingSafeSup;
+                            //HeuristicKingSafeSup = 0;
+                            Hu[8] = HeuristicFromCenterSup;
+                            //HeuristicFromCenterSup = 0;
+                            Hu[9] = HeuristicKingDangourSup;
+                            //HeuristicKingDangourSup = 0;
+                            String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
+                            OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
+                            if (Order == 1)
+                                AllDraw.OutPut = "\r\nThinking Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                            else
+                                AllDraw.OutPut = "\r\nThinking Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                             ThinkingAtRun = false;
                         }
                     }
@@ -8971,6 +9106,33 @@ namespace RefrigtzDLL
                             HeuristicKingSafeSup += HeuristicKingSafe;
                             HeuristicFromCenterSup += HeuristicFromCenter;
                             HeuristicKingDangourSup += HeuristicKingDangour;
+                            double[] Hu = new double[10];
+                            Hu[0] = HuristicAttackValueSup;
+                            //HuristicAttackValueSup = 0;
+                            Hu[1] = HuristicMovementValueSup;
+                            //HuristicMovementValueSup = 0;
+                            Hu[2] = HuristicSelfSupportedValueSup;
+                            //HuristicSelfSupportedValueSup = 0;
+                            Hu[3] = HuristicObjectDangourCheckMateValueSup;
+                            //HuristicObjectDangourCheckMateValueSup = 0;
+                            Hu[4] = HuristicKillerValueSup;
+                            //HuristicKillerValueSup = 0;
+                            Hu[5] = HuristicReducedAttackValueSup;
+                            //HuristicReducedAttackValueSup = 0;
+                            Hu[6] = HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+                            //HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+                            Hu[7] = HeuristicKingSafeSup;
+                            //HeuristicKingSafeSup = 0;
+                            Hu[8] = HeuristicFromCenterSup;
+                            //HeuristicFromCenterSup = 0;
+                            Hu[9] = HeuristicKingDangourSup;
+                            //HeuristicKingDangourSup = 0;
+                            String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
+                            OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
+                            if (Order == 1)
+                                AllDraw.OutPut = "\r\nThinking Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                            else
+                                AllDraw.OutPut = "\r\nThinking Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                             ThinkingAtRun = false;
                         }
                         
@@ -10418,7 +10580,7 @@ namespace RefrigtzDLL
                         Val++;//Val += RetrunValValue(RowS, ColS, -1, -1, Table, 1);
                 }
 
-                if (System.Math.Abs(Table[RowS, ColS]) == 2)
+               /* if (System.Math.Abs(Table[RowS, ColS]) == 2)
                 {
                     Val = Val * 3;
                 }
@@ -10442,7 +10604,7 @@ namespace RefrigtzDLL
                 {
                     Val = Val * 10;
                 }
-
+                */
             }
             //       if (Val < 0)
             //         Val = 0;
