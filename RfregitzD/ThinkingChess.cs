@@ -4421,7 +4421,7 @@ namespace RefrigtzDLL
                 Object O1 = new Object();
                 lock (O1)
                 {
-                    if (System.Math.Abs(Table[i, j]) == 1)
+                    if (System.Math.Abs(Table[ii, jj]) == 1)
                     {
                         if (!ArrangmentsChanged)
                         {

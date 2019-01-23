@@ -12813,9 +12813,9 @@ if (Kind == 2)
             //return true;
 
             bool IS = false;
-            if (iAStarGreedy < 0)
-                IS = true;
-            /*if (Order == 1)
+            //if (iAStarGreedy < 0)
+            //    IS = true;
+            if (Order == 1)
             {
                 for (int ikk = 0; ikk < SodierMidle; ikk++)
                 {
@@ -12962,7 +12962,7 @@ if (Kind == 2)
                     iAStarGreedy = MaxAStarGreedy;
                     OutPut = "\r\nLevel Boundry Conditon for iAStarGreedy is Set To " + iAStarGreedy.ToString() + "MaxAStarGreedy";
                 }
-            }*/
+            }
             return IS;
         } //AStarGreedy First Initiat Thinking Main Method.
         void AstarGreedyThinking(int Order, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int i, int j, int ii, int jj, int[,] Table, Color a, bool TB, bool FOUND, int LeafAStarGreedy)

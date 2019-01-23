@@ -13118,10 +13118,11 @@ if (Kind == 2)
         }
         bool FullBoundryConditions(int Current, int Order, int iAStarGreedy)
         {
-            bool IS = false; if (iAStarGreedy < 0)
+            bool IS = false;
+            //if (iAStarGreedy < 0)
 
-                IS = true;
-            /*if (TimeEnded)
+              //  IS = true;
+            if (TimeEnded)
                 return true;
             
             if (Order == 1)
@@ -13272,7 +13273,7 @@ if (Kind == 2)
                     iAStarGreedy = MaxAStarGreedy;
                     OutPut = "\r\nLevel Boundry Conditon for iAStarGreedy is Set To " + iAStarGreedy.ToString() + "MaxAStarGreedy";
                 }
-            }*/
+            }
             return IS;
         }
         void TimeEnd()
