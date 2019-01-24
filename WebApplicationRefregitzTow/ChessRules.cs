@@ -652,9 +652,7 @@ namespace RefrigtzW
                     {
                         for (int jj = 0; jj < 8; jj++)
                         {
-                            for (int i = 0; i < 8; i++)
-                            for (int j = 0; j < 8; j++)
-                            //Tab[i, j] = Table[i, j];
+                            
                             //Ignore Gray.
                             if (Tab[ii, jj] >= 0)
                                 continue;
@@ -673,7 +671,6 @@ namespace RefrigtzW
                                     //When There is Attacked to Gray from Brown.
                                     if (AA.Attack(Tab, ii, jj, iii, jjj, Color.Brown, Order * -1))
                                     {
-
                                         //Move.
                                         int a = Tab[iii, jjj];
                                         Tab[iii, jjj] = Tab[ii, jj];
@@ -692,7 +689,6 @@ namespace RefrigtzW
                                                 break;
                                             }
                                         }
-
                                         //CheckGrayObjectDangour = true;
                                     }
                                     if (CheckGrayObjectDangour)
@@ -726,7 +722,7 @@ namespace RefrigtzW
                             //Ignore Brown
                             if (Tab[ii, jj] <= 0)
                                 continue;
-                            //For Current BNrown.
+                            //For Current Brown.
                             for (int iii = 0; iii < 8; iii++)
                             {
                                 for (int jjj = 0; jjj < 8; jjj++)
@@ -739,7 +735,7 @@ namespace RefrigtzW
                                         continue;
 
                                     RefrigtzW.ThinkingChess AA = new RefrigtzW.ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
-                                    //Wehn There is Attack to Brwon.
+                                    //When There is Attack to Brown.
                                     if (AA.Attack(Tab, ii, jj, iii, jjj, Color.Gray, Order * -1))
                                     {
                                         //Move
@@ -752,7 +748,7 @@ namespace RefrigtzW
                                                 Tabl[h, g] = Tab[h, g];
                                         RefrigtzW.ChessRules AAA = new RefrigtzW.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tabl[iii, jjj], Tabl, Order, iii, jjj);
                                         //When There is Check or Checkedmate
-                                        if (AAA.CheckMate(Tab, Order))
+                                        if (AAA.CheckMate(Tabl, Order))
                                         {
                                             if (AAA.CheckMateBrown)
                                             {
