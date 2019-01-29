@@ -5806,7 +5806,7 @@ namespace RefrigtzDLL
             lock (O)
             {
                 double Huristic = 0; ;
-                if (AStarGreedy == null)
+                  if (AStarGreedy == null)
                     return 0;
                 NumbersOfCurrentBranchesPenalties += NumberOfPenalties;
                 int DummyOrder = Order;
@@ -6158,7 +6158,7 @@ namespace RefrigtzDLL
                         // Calculate Huristic of Current Node.
                         //When Sodleris Kind.
                         //System.Math.Abs(Kind) == 1 &&
-                        for (j = 0; j < HuristicListSolder.Count; j++)
+                        for (j = 0; HuristicListSolder != null && j < HuristicListSolder.Count; j++)
                         {
                             //if (!ActionStringSetting)
                             {
@@ -6186,7 +6186,7 @@ namespace RefrigtzDLL
                         }
 
                         //When Elephant Kind.
-                        for (j = 0; j < HuristicListElefant.Count; j++)
+                        for (j = 0; HuristicListElefant != null && j < HuristicListElefant.Count; j++)
                         {
                             //if (!ActionStringSetting)
                             {
@@ -6213,7 +6213,7 @@ namespace RefrigtzDLL
                                 //ActionStringSetting = true;
                             }
                         }
-                        for (j = 0; j < HuristicListHourse.Count; j++)
+                        for (j = 0; HuristicListHourse != null && j < HuristicListHourse.Count; j++)
                         {
                             //if (!ActionStringSetting)
                             {
@@ -6240,7 +6240,7 @@ namespace RefrigtzDLL
                                 //ActionStringSetting = true;
                             }
                         }
-                        for (j = 0; j < HuristicListCastle.Count; j++)
+                        for (j = 0; HuristicListCastle != null && j < HuristicListCastle.Count; j++)
                         {
                             //if (!ActionStringSetting)
                             {
@@ -6267,7 +6267,7 @@ namespace RefrigtzDLL
                                 //ActionStringSetting = true;
                             }
                         }
-                        for (j = 0; j < HuristicListMinister.Count; j++)
+                        for (j = 0; HuristicListMinister != null && j < HuristicListMinister.Count; j++)
                         {
                             //if (!ActionStringSetting)
                             {
@@ -6293,7 +6293,7 @@ namespace RefrigtzDLL
                                 //ActionStringSetting = true;
                             }
                         }
-                        for (j = 0; j < HuristicListKing.Count; j++)
+                        for (j = 0; HuristicListKing != null && j < HuristicListKing.Count; j++)
                         {
                             {
                                 //if (!ActionStringSetting)
@@ -6329,93 +6329,97 @@ namespace RefrigtzDLL
 
                         if (AStarGreedy[k] == null)
                             continue;
-                        if (Order == 1)
+                        Object OOO = new Object();
+                        lock (OOO)
                         {
-                            //Repeate for Solder.
-                            for (int m = 0; m < SodierMidle; m++)
+                            if (Order == 1)
                             {
-                                if (AStarGreedy[k].SolderesOnTable == null || AStarGreedy[k].SolderesOnTable[m] == null)
-                                    continue;
-                                Huristic += AStarGreedy[k].SolderesOnTable[m].SoldierThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+                                //Repeate for Solder.
+                                for (int m = 0; m < AStarGreedy[k].SodierMidle; m++)
+                                {
+                                    if (AStarGreedy[k].SolderesOnTable == null || AStarGreedy[k].SolderesOnTable[m] == null)
+                                        continue;
+                                    Huristic += AStarGreedy[k].SolderesOnTable[m].SoldierThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+                                }
+                                //Repeate for Elephant.
+                                for (int m = 0; m < AStarGreedy[k].ElefantMidle; m++)
+                                {
+                                    if (AStarGreedy[k].ElephantOnTable == null || AStarGreedy[k].ElephantOnTable[m] == null)
+                                        continue;
+                                    Huristic += AStarGreedy[k].ElephantOnTable[m].ElefantThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+                                }
+                                //Repeate for Hourse.
+                                for (int m = 0; m < AStarGreedy[k].HourseMidle; m++)
+                                {
+                                    if (AStarGreedy[k].HoursesOnTable == null || AStarGreedy[k].HoursesOnTable[m] == null)
+                                        continue;
+                                    Huristic += AStarGreedy[k].HoursesOnTable[m].HourseThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+                                }
+                                //Repeate for Castles.
+                                for (int m = 0; m < AStarGreedy[k].CastleMidle; m++)
+                                {
+                                    if (AStarGreedy[k].CastlesOnTable == null || AStarGreedy[k].CastlesOnTable[m] == null)
+                                        continue;
+                                    Huristic += AStarGreedy[k].CastlesOnTable[m].CastleThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+                                }
+                                //Repeate for Minstre.
+                                for (int m = 0; m < AStarGreedy[k].MinisterMidle; m++)
+                                {
+                                    if (AStarGreedy[k].MinisterOnTable == null || AStarGreedy[k].MinisterOnTable[m] == null)
+                                        continue;
+                                    Huristic += AStarGreedy[k].MinisterOnTable[m].MinisterThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+                                }
+                                //Repeate for King.
+                                for (int m = 0; m < AStarGreedy[k].KingMidle; m++)
+                                {
+                                    if (AStarGreedy[k].KingOnTable == null || AStarGreedy[k].KingOnTable[m] == null)
+                                        continue;
+                                    Huristic += AStarGreedy[k].KingOnTable[m].KingThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+                                }
                             }
-                            //Repeate for Elephant.
-                            for (int m = 0; m < ElefantMidle; m++)
+                            else
                             {
-                                if (AStarGreedy[k].ElephantOnTable == null || AStarGreedy[k].ElephantOnTable[m] == null)
-                                    continue;
-                                Huristic += AStarGreedy[k].ElephantOnTable[m].ElefantThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
-                            }
-                            //Repeate for Hourse.
-                            for (int m = 0; m < HourseMidle; m++)
-                            {
-                                if (AStarGreedy[k].HoursesOnTable == null || AStarGreedy[k].HoursesOnTable[m] == null)
-                                    continue;
-                                Huristic += AStarGreedy[k].HoursesOnTable[m].HourseThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
-                            }
-                            //Repeate for Castles.
-                            for (int m = 0; m < CastleMidle; m++)
-                            {
-                                if (AStarGreedy[k].CastlesOnTable == null || AStarGreedy[k].CastlesOnTable[m] == null)
-                                    continue;
-                                Huristic += AStarGreedy[k].CastlesOnTable[m].CastleThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
-                            }
-                            //Repeate for Minstre.
-                            for (int m = 0; m < MinisterMidle; m++)
-                            {
-                                if (AStarGreedy[k].MinisterOnTable == null || AStarGreedy[k].MinisterOnTable[m] == null)
-                                    continue;
-                                Huristic += AStarGreedy[k].MinisterOnTable[m].MinisterThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
-                            }
-                            //Repeate for King.
-                            for (int m = 0; m < KingMidle; m++)
-                            {
-                                if (AStarGreedy[k].KingOnTable == null || AStarGreedy[k].KingOnTable[m] == null)
-                                    continue;
-                                Huristic += AStarGreedy[k].KingOnTable[m].KingThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
-                            }
-                        }
-                        else
-                        {
-                            for (int m = SodierMidle; m < SodierHigh; m++)
-                            {
-                                if (AStarGreedy[k].SolderesOnTable == null || AStarGreedy[k].SolderesOnTable[m] == null)
-                                    continue;
-                                Huristic += AStarGreedy[k].SolderesOnTable[m].SoldierThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
-                            }
-                            //Repeate for Elephant.
-                            for (int m = ElefantMidle; m < ElefantHigh; m++)
-                            {
-                                if (AStarGreedy[k].ElephantOnTable == null || AStarGreedy[k].ElephantOnTable[m] == null)
-                                    continue;
-                                Huristic += AStarGreedy[k].ElephantOnTable[m].ElefantThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
-                            }
-                            //Repeate for Hourse.
-                            for (int m = HourseMidle; m < HourseHight; m++)
-                            {
-                                if (AStarGreedy[k].HoursesOnTable == null || AStarGreedy[k].HoursesOnTable[m] == null)
-                                    continue;
-                                Huristic += AStarGreedy[k].HoursesOnTable[m].HourseThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
-                            }
-                            //Repeate for Castles.
-                            for (int m = CastleMidle; m < CastleHigh; m++)
-                            {
-                                if (AStarGreedy[k].CastlesOnTable == null || AStarGreedy[k].CastlesOnTable[m] == null)
-                                    continue;
-                                Huristic += AStarGreedy[k].CastlesOnTable[m].CastleThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
-                            }
-                            //Repeate for Minstre.
-                            for (int m = MinisterMidle; m < MinisterHigh; m++)
-                            {
-                                if (AStarGreedy[k].MinisterOnTable == null || AStarGreedy[k].MinisterOnTable[m] == null)
-                                    continue;
-                                Huristic += AStarGreedy[k].MinisterOnTable[m].MinisterThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
-                            }
-                            //Repeate for King.
-                            for (int m = KingMidle; m < KingHigh; m++)
-                            {
-                                if (AStarGreedy[k].KingOnTable == null || AStarGreedy[k].KingOnTable[m] == null)
-                                    continue;
-                                Huristic += AStarGreedy[k].KingOnTable[m].KingThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+                                for (int m = AStarGreedy[k].SodierMidle; m < AStarGreedy[k].SodierHigh; m++)
+                                {
+                                    if (AStarGreedy[k].SolderesOnTable == null || AStarGreedy[k].SolderesOnTable[m] == null)
+                                        continue;
+                                    Huristic += AStarGreedy[k].SolderesOnTable[m].SoldierThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+                                }
+                                //Repeate for Elephant.
+                                for (int m = AStarGreedy[k].ElefantMidle; m < AStarGreedy[k].ElefantHigh; m++)
+                                {
+                                    if (AStarGreedy[k].ElephantOnTable == null || AStarGreedy[k].ElephantOnTable[m] == null)
+                                        continue;
+                                    Huristic += AStarGreedy[k].ElephantOnTable[m].ElefantThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+                                }
+                                //Repeate for Hourse.
+                                for (int m = AStarGreedy[k].HourseMidle; m < AStarGreedy[k].HourseHight; m++)
+                                {
+                                    if (AStarGreedy[k].HoursesOnTable == null || AStarGreedy[k].HoursesOnTable[m] == null)
+                                        continue;
+                                    Huristic += AStarGreedy[k].HoursesOnTable[m].HourseThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+                                }
+                                //Repeate for Castles.
+                                for (int m = AStarGreedy[k].CastleMidle; m < AStarGreedy[k].CastleHigh; m++)
+                                {
+                                    if (AStarGreedy[k].CastlesOnTable == null || AStarGreedy[k].CastlesOnTable[m] == null)
+                                        continue;
+                                    Huristic += AStarGreedy[k].CastlesOnTable[m].CastleThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+                                }
+                                //Repeate for Minstre.
+                                for (int m = AStarGreedy[k].MinisterMidle; m < AStarGreedy[k].MinisterHigh; m++)
+                                {
+                                    if (AStarGreedy[k].MinisterOnTable == null || AStarGreedy[k].MinisterOnTable[m] == null)
+                                        continue;
+                                    Huristic += AStarGreedy[k].MinisterOnTable[m].MinisterThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+                                }
+                                //Repeate for King.
+                                for (int m = AStarGreedy[k].KingMidle; m < AStarGreedy[k].KingHigh; m++)
+                                {
+                                    if (AStarGreedy[k].KingOnTable == null || AStarGreedy[k].KingOnTable[m] == null)
+                                        continue;
+                                    Huristic += AStarGreedy[k].KingOnTable[m].KingThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+                                }
                             }
                         }
                     }
