@@ -4155,7 +4155,9 @@ namespace Refrigtz
                         int iii = 0;
                         do { iii++; } while (System.IO.File.Exists(Root + "\\Database\\Games\\CurrentBank" + iii.ToString() + ".accdb"));
                         System.IO.File.Copy(Root + "\\Database\\CurrentBank.accdb", Root + "\\Database\\Games\\CurrentBank" + iii.ToString() + ".accdb");
+                        System.IO.File.Copy(Root + "\\Database\\Monitor.html", Root + "\\Database\\Games\\Monitor" + iii.ToString() + ".html");
                         System.IO.File.Delete(Root + "\\Database\\CurrentBank.accdb");
+                        System.IO.File.Delete(Root + "\\Database\\Monitor.html");
                         System.IO.File.Copy(Root + "\\Database\\MainBank\\ChessBank.accdb", Root + "\\Database\\CurrentBank.accdb");
                         System.IO.File.Copy(Root + "\\Database\\MainBank\\Monitor_Log.html", Root + "\\Database\\Monitor.html");
                         InsertTableAtDataBase(Table);
