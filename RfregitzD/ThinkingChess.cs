@@ -5729,8 +5729,11 @@ namespace RefrigtzDLL
                     else
                         Hur = ReturnHuristicCalculartor(0, ii, j, Order) + 1000;
 
-                    //Optimization depend of numbers of unpealties nodes quefficient.                
-                    return Hur * ((double)(NumbersOfAllNode - NumbersOfCurrentBranchesPenalties) / (double)(NumbersOfAllNode));
+                    //Optimization depend of numbers of unpealties nodes quefficient.  
+                    if (UsePenaltyRegardMechnisamT)
+                        return Hur * ((double)(NumbersOfAllNode - NumbersOfCurrentBranchesPenalties) / (double)(NumbersOfAllNode));
+                    return Hur;
+
                 }
             }
         }

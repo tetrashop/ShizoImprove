@@ -5720,7 +5720,9 @@ namespace QuantumRefrigiz
                         Hur = ReturnHuristicCalculartor(0, ii, j, Order) + 1000;
 
                     //Optimization depend of numbers of unpealties nodes quefficient.                
-                    return Hur * ((double)(NumbersOfAllNode - NumbersOfCurrentBranchesPenalties) / (double)(NumbersOfAllNode));
+                    if (UsePenaltyRegardMechnisamT)
+                        return Hur * ((double)(NumbersOfAllNode - NumbersOfCurrentBranchesPenalties) / (double)(NumbersOfAllNode));
+                    return Hur;
                 }
             }
         }
