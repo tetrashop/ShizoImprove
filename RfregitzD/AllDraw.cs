@@ -9890,6 +9890,7 @@ if (Kind == 2)
                         return TableHuristic;
                 }
                 bool Act = false;
+
                 if (Order == 1)
                 {
                     TableHuristic = HuristicAStarGreadySearchGray(AStarGreedyi, a, Order, CurrentTableHuristic, ref Act);

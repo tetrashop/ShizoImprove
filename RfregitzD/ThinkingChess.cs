@@ -111,7 +111,7 @@ namespace RefrigtzDLL
         public static double MaxHuristicx = Double.MinValue;
         public bool MovementsAStarGreedyHuristicFoundT = false;
         public bool IgnoreSelfObjectsT = false;
-        public bool UsePenaltyRegardMechnisamT = true;
+        public bool UsePenaltyRegardMechnisamT = false;
         public bool BestMovmentsT = false;
         public bool PredictHuristicT = true;
         public bool OnlySelfT = false;
@@ -997,7 +997,7 @@ namespace RefrigtzDLL
                                         HA *= System.Math.Pow(2, SupportedS);
 
                                     if (Supported != 0)
-                                        HA *= -1 * System.Math.Pow(2, SupportedS);
+                                        HA *= (-1 * System.Math.Pow(2, Supported));
 
                                 }
                             }
@@ -1104,7 +1104,7 @@ namespace RefrigtzDLL
                                         HA *= System.Math.Pow(2, SupportedS);
 
                                     if (Supported != 0)
-                                        HA *= -1 * System.Math.Pow(2, SupportedS);
+                                        HA *= (-1 * System.Math.Pow(2, Supported));
                                 }
                             }
                         }
@@ -1248,7 +1248,7 @@ namespace RefrigtzDLL
                                             }//);
 
                                             if (Reduced != 0)
-                                                HA *= -1 * System.Math.Pow(2, Reduced);
+                                                HA *= (-1 * System.Math.Pow(2, Reduced));
                                             if (Increased != 0)
                                                 HA *= System.Math.Pow(2, Increased);
 
@@ -1362,7 +1362,7 @@ namespace RefrigtzDLL
                                                         }//);
 
                                                         if (Reduced != 0)
-                                                            HA *= -1 * System.Math.Pow(2, Reduced);
+                                                            HA *= (-1 * System.Math.Pow(2, Reduced));
                                                         if (Increased != 0)
                                                             HA *= System.Math.Pow(2, Increased);
                                                     }
@@ -2768,7 +2768,7 @@ namespace RefrigtzDLL
                                         else
                                             if (SupportedE != 0)
                                             //When is Supported Multyply -100.
-                                            HA *= -1 * System.Math.Pow(2, SupportedE);
+                                            HA *= (-1 * System.Math.Pow(2, SupportedE));
                                     }
 
                                 }
@@ -2907,7 +2907,7 @@ namespace RefrigtzDLL
                                                     else
                                                         if (SupportedE != 0)
                                                         //When is Supported Multyply -100.
-                                                        HA *= -1 * System.Math.Pow(2, SupportedE);
+                                                        HA *= (-1 * System.Math.Pow(2, SupportedE));
                                                 }
 
                                             }
@@ -4819,7 +4819,7 @@ namespace RefrigtzDLL
                                     //When is Supported Multyply -100.
                                     if (Attacked != 0)
                                         //When is Not Supported multyply 100.
-                                        HA *= -1 * System.Math.Pow(2, Attacked);
+                                        HA *= -(1 * System.Math.Pow(2, Attacked));
 
                                 }
                             }
@@ -4924,7 +4924,7 @@ namespace RefrigtzDLL
                                     //When is Supported Multyply -100.
                                     if (Attacked != 0)
                                         //When is Not Supported multyply 100.
-                                        HA *= -1 * System.Math.Pow(2, Attacked);
+                                        HA *= (-1 * System.Math.Pow(2, Attacked));
 
                                 }
                             }
@@ -9390,6 +9390,39 @@ namespace RefrigtzDLL
                         HeuristicKingSafe = HKingSafe * SignOrderToPlate(Order);
                         HeuristicFromCenter = HFromCenter * SignOrderToPlate(Order);
                         HeuristicKingDangour = HKingDangour * SignOrderToPlate(Order);
+                        if (Killed != 0)
+                        {
+                            if (Order == 1)
+                            {
+                                //When Current Order is on Attack
+                                if (Killed > 0)
+                                {
+                                    HuristicKillerValue = Double.MinValue / 2;
+                                }
+                                else
+                                //When Enemy has Attacked.
+                                if (Killed < 0)
+                                {
+                                    HuristicKillerValue = Double.MaxValue / 2;
+
+                                }
+                            }
+                            else
+                            {
+                                if (Killed < 0)
+                                {
+                                    HuristicKillerValue = Double.MinValue / 2;
+                                }
+                                else
+                                //When Enemy has Attacked.
+                                if (Killed > 0)
+                                {
+                                    HuristicKillerValue = Double.MaxValue / 2;
+
+                                }
+                            }
+
+                        }
                     }
                     else
                     {/*
@@ -9415,8 +9448,41 @@ namespace RefrigtzDLL
                         HeuristicKingSafe += (HKingSafe * SignOrderToPlate(Order));
                         HeuristicFromCenter += (HFromCenter * SignOrderToPlate(Order));
                         HeuristicKingDangour += (HKingDangour * SignOrderToPlate(Order));
-                    }
+                        if (Killed != 0)
+                        {
+                            if (Order == 1)
+                            {
+                                //When Current Order is on Attack
+                                if (Killed > 0)
+                                {
+                                    HuristicKillerValue = Double.MinValue / 2;
+                                }
+                                else
+                                //When Enemy has Attacked.
+                                if (Killed < 0)
+                                {
+                                    HuristicKillerValue = Double.MaxValue / 2;
 
+                                }
+                            }
+                            else
+                            {
+                                //When Self is On attach
+                                if (Killed < 0)
+                                {
+                                    HuristicKillerValue = Double.MinValue / 2;
+                                }
+                                else
+                                //When Enemy has on Attack.
+                                if (Killed > 0)
+                                {
+                                    HuristicKillerValue = Double.MaxValue / 2;
+
+                                }
+                            }
+                        }
+
+                    }
                 }
             }
         }
@@ -9715,10 +9781,14 @@ namespace RefrigtzDLL
                         Object O = new Object();
                         lock (O)
                         {
-                            while (ThinkingAtRun) { }
+                         
                             int j = i * -1 + ii + jj;
                             if (Scop(ii, jj, i, j, 2))
+                            {
                                 ThinkingElephantBase(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
+                                while (ThinkingAtRun) { }
+                            }
+                           
                             ThinkingAtRun = false;
                         }
                     }//);
@@ -9741,11 +9811,6 @@ namespace RefrigtzDLL
                 Object O = new Object();
                 lock (O)
                 {
-                    for (int RowS = 0; RowS < 8; RowS++)
-                        for (int ColS = 0; ColS < 8; ColS++)
-                        {
-                            TableS[RowS, ColS] = TableConst[RowS, ColS];
-                        }
                     Order = ord;
                     if (Scop(ii, jj, ii + 2, jj + 1, 3))
                         HourseThinkingChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 2, jj + 1, Castle);
@@ -10306,11 +10371,12 @@ namespace RefrigtzDLL
                 ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                 ///Most Dot Net FrameWork Hot Path
                 ///Create A Clone of Current Table Constant in ThinkingChess Object Tasble.
-                for (int RowS = 0; RowS < 8; RowS++)
+               /* for (int RowS = 0; RowS < 8; RowS++)
                     for (int ColS = 0; ColS < 8; ColS++)
                     {
                         TableS[RowS, ColS] = TableConst[RowS, ColS];
                     }
+                */
                 ///For Stored Location of Objects.
                 int ii = Row;
                 int jj = Column;

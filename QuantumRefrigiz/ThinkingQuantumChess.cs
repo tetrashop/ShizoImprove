@@ -9384,6 +9384,39 @@ namespace QuantumRefrigiz
                         HeuristicKingSafe = HKingSafe * SignOrderToPlate(Order);
                         HeuristicFromCenter = HFromCenter * SignOrderToPlate(Order);
                         HeuristicKingDangour = HKingDangour * SignOrderToPlate(Order);
+                        if (Killed != 0)
+                        {
+                            if (Order == 1)
+                            {
+                                //When Current Order is on Attack
+                                if (Killed > 0)
+                                {
+                                    HuristicKillerValue = Double.MinValue / 2;
+                                }
+                                else
+                                //When Enemy has Attacked.
+                                if (Killed < 0)
+                                {
+                                    HuristicKillerValue = Double.MaxValue / 2;
+
+                                }
+                            }
+                            else
+                            {
+                                if (Killed < 0)
+                                {
+                                    HuristicKillerValue = Double.MinValue / 2;
+                                }
+                                else
+                                //When Enemy has Attacked.
+                                if (Killed > 0)
+                                {
+                                    HuristicKillerValue = Double.MaxValue / 2;
+
+                                }
+                            }
+
+                        }
                     }
                     else
                     {/*
@@ -9409,9 +9442,41 @@ namespace QuantumRefrigiz
                         HeuristicKingSafe += (HKingSafe * SignOrderToPlate(Order));
                         HeuristicFromCenter += (HFromCenter * SignOrderToPlate(Order));
                         HeuristicKingDangour += (HKingDangour * SignOrderToPlate(Order));
+                        if (Killed != 0)
+                        {
+                            if (Order == 1)
+                            {
+                                //When Current Order is on Attack
+                                if (Killed > 0)
+                                {
+                                    HuristicKillerValue = Double.MinValue / 2;
+                                }
+                                else
+                                //When Enemy has Attacked.
+                                if (Killed < 0)
+                                {
+                                    HuristicKillerValue = Double.MaxValue / 2;
+
+                                }
+                            }
+                            else
+                            {
+                                //When Self is On attach
+                                if (Killed < 0)
+                                {
+                                    HuristicKillerValue = Double.MinValue / 2;
+                                }
+                                else
+                                //When Enemy has on Attack.
+                                if (Killed > 0)
+                                {
+                                    HuristicKillerValue = Double.MaxValue / 2;
+
+                                }
+                            }
+                        }
+
                     }
-
-
                 }
             }
         }
