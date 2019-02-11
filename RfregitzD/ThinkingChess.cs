@@ -10592,7 +10592,7 @@ namespace RefrigtzDLL
                                 lock (O)
                                 {
 
-                               
+
                                     if (Scop(RowS, ColS, RowO, ColumnO, System.Math.Abs(Table[RowS, ColS])))
                                     {
                                         Color AAB = Color.Gray;
@@ -10608,12 +10608,16 @@ namespace RefrigtzDLL
                                         {
                                             if (Support(Table, RowS, ColS, RowO, ColumnO, AAB, Ord))
                                                 Val++;//Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, Table, 1));
+                                            else
+                                                Val--;
                                         }
                                         else
                                         if (SignNotEqualSelf(Table[RowS, ColS], Table[RowO, ColumnO], Order, ref Ord, ref AAB))
                                         {
                                             if (Attack(Table, RowS, ColS, RowO, ColumnO, AAB, Ord))
                                                 Val++;//Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, Table, 1));
+                                            else
+                                                Val--;
                                         }//when there is self support inc.                                                                                            
                                     }
                                     else
@@ -10621,17 +10625,20 @@ namespace RefrigtzDLL
                                     {
                                         Color AAB = Color.Gray;
                                         int Ord = 0;
-                                        /*if (SignEnemyEmpty(Table[RowO, ColumnO], Table[RowS, ColS], Order, ref Ord, ref AAB))
+                                        if (SignEnemyEmpty(Table[RowO, ColumnO], Table[RowS, ColS], Order, ref Ord, ref AAB))
                                         {
-                                            A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[RowO, ColumnO], Table, Ord, RowO, ColumnO);
-                                            if (A.Rules(RowO, ColumnO, RowS, ColS, AAB, Ord))
-                                                Val--;//Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, Table, 1));
+                                            if (Support(Table, RowS, ColS, RowO, ColumnO, AAB, Ord))
+                                                Val++;//Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, Table, 1));
+                                            else
+                                                Val--;
                                         }
-                                        else*/
-                                        if (SignNotEqualEnemy(Table[RowO, ColumnO], Table[RowS, ColS], Order, ref Ord, ref AAB))
+                                        else
+                                            if (SignNotEqualEnemy(Table[RowO, ColumnO], Table[RowS, ColS], Order, ref Ord, ref AAB))
                                         {
                                             if (Attack(Table, RowO, ColumnO, RowS, ColS, AAB, Ord))
                                                 Val--;//Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, Table, 1));
+                                            else
+                                                Val++;
                                         }//when there is self support inc.                                                                                            else
                                     }
                                 }
@@ -10644,13 +10651,22 @@ namespace RefrigtzDLL
                 if (A.ObjectDangourKingMove(Order, Table, false,RowS,ColS))
                 {
                     if (Order == 1 && A.CheckGrayObjectDangour)
-                        Val *= -1;
+                        Val--;
+                    else
+                        Val++;
                     if (Order == -1 && A.CheckBrownObjectDangour)
-                        Val *= -1;
+                        Val--;
+                    else
+                        Val++;
                     if (Order == -1 && A.CheckGrayObjectDangour)
                         Val++;//Val += RetrunValValue(RowS, ColS, -1, -1, Table, 1);
+                    else
+                        Val--;
                     if (Order == 1 && A.CheckBrownObjectDangour)
                         Val++;//Val += RetrunValValue(RowS, ColS, -1, -1, Table, 1);
+                    else
+                        Val--;
+                    
                 }
 
                /* if (System.Math.Abs(Table[RowS, ColS]) == 2)
