@@ -229,7 +229,7 @@ namespace RefrigtzDLL
         public static double SignMovments = 1;
         public static double SignDistance = -1;
         public static double SignKingSafe = -1;
-        public static double SignKingDangour = 1;
+        public static double SignKingDangour = -1;
         public static bool DrawTable = true;
         public static int[,] TableVeryfy = new int[8, 8];
         public static int MaxAStarGreedy = 1;

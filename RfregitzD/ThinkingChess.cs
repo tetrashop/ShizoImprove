@@ -2586,13 +2586,13 @@ namespace RefrigtzDLL
                                             Object O4 = new Object();
                                             lock (O4)
                                             {
-                                                /*if (Order == -1 && A.CheckGrayObjectDangour)
-                                                    HA += AllDraw.SignKingDangour * (ObjectValueCalculator(Table1,RowS,ColS) + ObjectValueCalculator(Table1,RowD,ColD));
+                                                if (Order == -1 && A.CheckGrayObjectDangour)
+                                                    HA += AllDraw.SignKingDangour * (ObjectValueCalculator(Table1,RowS,ColS,RowD,ColD));
                                                 else
                                                     if (Order == 1 && A.CheckBrownObjectDangour)
-                                                    HA += AllDraw.SignKingDangour * (ObjectValueCalculator(Table1,RowS,ColS) + ObjectValueCalculator(Table1,RowD,ColD));
-                                                    */
-                                                Object ol = new Object();
+                                                    HA += AllDraw.SignKingDangour * (ObjectValueCalculator(Table1,RowS,ColS,RowD,ColD));
+                                                   
+                                                /*Object ol = new Object();
                                                 lock (ol)
                                                 {
                                                     if (Order == -1 && A.CheckGray)
@@ -2600,7 +2600,7 @@ namespace RefrigtzDLL
                                                     else
                                                     if (Order == 1 && A.CheckBrown)
                                                         HA += (ObjectValueCalculator(Table1, RowS, ColS, RowD, ColD));
-                                                }
+                                                }*/
 
                                             }
 
@@ -4429,11 +4429,11 @@ namespace RefrigtzDLL
                             {
                                 if (i < 4 && j < 4)
                                 {
-                                    HA += AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(i - 3, 2) + System.Math.Pow(j - 3, 2));
+                                    HA +=(System.Math.Sqrt(System.Math.Pow(i - 3, 2) + System.Math.Pow(j - 3, 2)));
                                 }
                                 if (i < 4 && j >= 4)
                                 {
-                                    HA += AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(i - 3, 2) + System.Math.Pow(j - 4, 2));
+                                    HA += (System.Math.Sqrt(System.Math.Pow(i - 3, 2) + System.Math.Pow(j - 4, 2)));
                                 }
 
                             }
@@ -4441,11 +4441,11 @@ namespace RefrigtzDLL
                             {
                                 if (i >= 4 && j < 4)
                                 {
-                                    HA += AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(i - 4, 2) + System.Math.Pow(j - 3, 2));
+                                    HA +=(System.Math.Sqrt(System.Math.Pow(i - 4, 2) + System.Math.Pow(j - 3, 2)));
                                 }
                                 if (i >= 4 && j >= 4)
                                 {
-                                    HA += AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(i - 4, 2) + System.Math.Pow(j - 4, 2));
+                                    HA += (System.Math.Sqrt(System.Math.Pow(i - 4, 2) + System.Math.Pow(j - 4, 2)));
                                 }
                             }
                         }
@@ -4455,11 +4455,11 @@ namespace RefrigtzDLL
                             {
                                 if (i < 4 && j < 4)
                                 {
-                                    HA += AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(i - 3, 2) + System.Math.Pow(j - 3, 2));
+                                    HA += (System.Math.Sqrt(System.Math.Pow(i - 3, 2) + System.Math.Pow(j - 3, 2)));
                                 }
                                 if (i < 4 && j >= 4)
                                 {
-                                    HA += AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(i - 3, 2) + System.Math.Pow(j - 4, 2));
+                                    HA += (System.Math.Sqrt(System.Math.Pow(i - 3, 2) + System.Math.Pow(j - 4, 2)));
                                 }
 
                             }
@@ -4467,11 +4467,11 @@ namespace RefrigtzDLL
                             {
                                 if (i >= 4 && j < 4)
                                 {
-                                    HA += AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(i - 4, 2) + System.Math.Pow(j - 3, 2));
+                                    HA += (System.Math.Sqrt(System.Math.Pow(i - 4, 2) + System.Math.Pow(j - 3, 2)));
                                 }
                                 if (i >= 4 && j >= 4)
                                 {
-                                    HA += AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(i - 4, 2) + System.Math.Pow(j - 4, 2));
+                                    HA += (System.Math.Sqrt(System.Math.Pow(i - 4, 2) + System.Math.Pow(j - 4, 2)));
                                 }
                             }
                         }
@@ -4487,11 +4487,11 @@ namespace RefrigtzDLL
                             {
                                 if (ii < 4 && jj < 4)
                                 {
-                                    HA += AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(ii - 3, 2) + System.Math.Pow(jj - 3, 2));
+                                    HA += (System.Math.Sqrt(System.Math.Pow(ii - 3, 2) + System.Math.Pow(jj - 3, 2)));
                                 }
                                 if (ii < 4 && jj >= 4)
                                 {
-                                    HA += AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(ii - 3, 2) + System.Math.Pow(jj - 4, 2));
+                                    HA += (System.Math.Sqrt(System.Math.Pow(ii - 3, 2) + System.Math.Pow(jj - 4, 2)));
                                 }
 
                             }
@@ -4499,11 +4499,11 @@ namespace RefrigtzDLL
                             {
                                 if (ii >= 4 && jj < 4)
                                 {
-                                    HA += AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(ii - 4, 2) + System.Math.Pow(jj - 3, 2));
+                                    HA += (System.Math.Sqrt(System.Math.Pow(ii - 4, 2) + System.Math.Pow(jj - 3, 2)));
                                 }
                                 if (ii >= 4 && jj >= 4)
                                 {
-                                    HA += AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(ii - 4, 2) + System.Math.Pow(jj - 4, 2));
+                                    HA += (System.Math.Sqrt(System.Math.Pow(ii - 4, 2) + System.Math.Pow(jj - 4, 2)));
                                 }
                             }
                         }
@@ -4513,11 +4513,11 @@ namespace RefrigtzDLL
                             {
                                 if (ii < 4 && jj < 4)
                                 {
-                                    HA += AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(ii - 3, 2) + System.Math.Pow(jj - 3, 2));
+                                    HA += (System.Math.Sqrt(System.Math.Pow(ii - 3, 2) + System.Math.Pow(jj - 3, 2)));
                                 }
                                 if (ii < 4 && jj >= 4)
                                 {
-                                    HA += AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(ii - 3, 2) + System.Math.Pow(jj - 4, 2));
+                                    HA += (System.Math.Sqrt(System.Math.Pow(ii - 3, 2) + System.Math.Pow(jj - 4, 2)));
                                 }
 
                             }
@@ -4525,11 +4525,11 @@ namespace RefrigtzDLL
                             {
                                 if (ii >= 4 && jj < 4)
                                 {
-                                    HA += AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(ii - 4, 2) + System.Math.Pow(jj - 3, 2));
+                                    HA += (System.Math.Sqrt(System.Math.Pow(ii - 4, 2) + System.Math.Pow(jj - 3, 2)));
                                 }
                                 if (ii >= 4 && jj >= 4)
                                 {
-                                    HA += AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(ii - 4, 2) + System.Math.Pow(jj - 4, 2));
+                                    HA += (System.Math.Sqrt(System.Math.Pow(ii - 4, 2) + System.Math.Pow(jj - 4, 2)));
                                 }
                             }
                         }
@@ -10608,16 +10608,16 @@ namespace RefrigtzDLL
                                         {
                                             if (Support(Table, RowS, ColS, RowO, ColumnO, AAB, Ord))
                                                 Val++;//Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, Table, 1));
-                                            else
-                                                Val--;
+                                            //else
+                                                //Val--;
                                         }
                                         else
                                         if (SignNotEqualSelf(Table[RowS, ColS], Table[RowO, ColumnO], Order, ref Ord, ref AAB))
                                         {
                                             if (Attack(Table, RowS, ColS, RowO, ColumnO, AAB, Ord))
                                                 Val++;//Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, Table, 1));
-                                            else
-                                                Val--;
+                                            //else
+                                                //Val--;
                                         }//when there is self support inc.                                                                                            
                                     }
                                     else
@@ -10627,18 +10627,18 @@ namespace RefrigtzDLL
                                         int Ord = 0;
                                         if (SignEnemyEmpty(Table[RowO, ColumnO], Table[RowS, ColS], Order, ref Ord, ref AAB))
                                         {
-                                            if (Support(Table, RowS, ColS, RowO, ColumnO, AAB, Ord))
-                                                Val++;//Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, Table, 1));
-                                            else
-                                                Val--;
+                                            if (Support(Table, RowO, ColumnO, RowS, ColS, AAB, Ord))
+                                                Val--;//Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, Table, 1));
+                                            //else
+                                                //Val--;
                                         }
                                         else
                                             if (SignNotEqualEnemy(Table[RowO, ColumnO], Table[RowS, ColS], Order, ref Ord, ref AAB))
                                         {
                                             if (Attack(Table, RowO, ColumnO, RowS, ColS, AAB, Ord))
                                                 Val--;//Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, Table, 1));
-                                            else
-                                                Val++;
+                                            //else
+                                                //Val++;
                                         }//when there is self support inc.                                                                                            else
                                     }
                                 }
@@ -10652,20 +10652,20 @@ namespace RefrigtzDLL
                 {
                     if (Order == 1 && A.CheckGrayObjectDangour)
                         Val--;
-                    else
-                        Val++;
+                    //else
+                        //Val++;
                     if (Order == -1 && A.CheckBrownObjectDangour)
                         Val--;
-                    else
-                        Val++;
+                    //else
+                        //Val++;
                     if (Order == -1 && A.CheckGrayObjectDangour)
                         Val++;//Val += RetrunValValue(RowS, ColS, -1, -1, Table, 1);
-                    else
-                        Val--;
+                    //else
+                        ///Val--;
                     if (Order == 1 && A.CheckBrownObjectDangour)
                         Val++;//Val += RetrunValValue(RowS, ColS, -1, -1, Table, 1);
-                    else
-                        Val--;
+                    ///else
+                        //Val--;
                     
                 }
 

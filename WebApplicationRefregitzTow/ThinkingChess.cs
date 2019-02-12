@@ -942,7 +942,7 @@ namespace RefrigtzW
                                 {
 
                                     //Find Huristic Value Of Current and Add to Sumation.
-                                    HA += (Sign * (System.Math.Abs(ObjectValueCalculator(Table, RowS, ColS, RowD, ColD))));
+                                    HA += (Sign * ((ObjectValueCalculator(Table, RowS, ColS, RowD, ColD))));
                                     //When there is supporter of attacked Objects take huristic negative else take muliply sign and muliply huristic.
                                     int Supported = new int();
                                     int SupportedS = new int();
@@ -1045,7 +1045,7 @@ namespace RefrigtzW
                                 if (Attack(Table, RowS, ColS, RowD, ColD, a, Order))
                                 {
 
-                                    HA += (Sign * (System.Math.Abs(ObjectValueCalculator(Table, RowS, ColS, RowD, ColD)
+                                    HA += (Sign * ((ObjectValueCalculator(Table, RowS, ColS, RowD, ColD)
                                    )));
 
                                     //When there is supporter of attacked Objects take huristic negative else take muliply sign and muliply huristic.
@@ -10482,7 +10482,7 @@ namespace RefrigtzW
         }
 
         double ObjectValueCalculator(int[,] Table//, int Order
-            , int RowS, int ColS, int RowO, int ColumnO)
+        , int RowS, int ColS, int RowO, int ColumnO)
         {
             double Val = 1;
 
@@ -10519,7 +10519,7 @@ namespace RefrigtzW
                                 lock (O)
                                 {
 
-                               
+
                                     if (Scop(RowS, ColS, RowO, ColumnO, System.Math.Abs(Table[RowS, ColS])))
                                     {
                                         Color AAB = Color.Gray;
@@ -10535,12 +10535,16 @@ namespace RefrigtzW
                                         {
                                             if (Support(Table, RowS, ColS, RowO, ColumnO, AAB, Ord))
                                                 Val++;//Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, Table, 1));
+                                            else
+                                                Val--;
                                         }
                                         else
                                         if (SignNotEqualSelf(Table[RowS, ColS], Table[RowO, ColumnO], Order, ref Ord, ref AAB))
                                         {
                                             if (Attack(Table, RowS, ColS, RowO, ColumnO, AAB, Ord))
                                                 Val++;//Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, Table, 1));
+                                            else
+                                                Val--;
                                         }//when there is self support inc.                                                                                            
                                     }
                                     else
@@ -10548,17 +10552,20 @@ namespace RefrigtzW
                                     {
                                         Color AAB = Color.Gray;
                                         int Ord = 0;
-                                        /*if (SignEnemyEmpty(Table[RowO, ColumnO], Table[RowS, ColS], Order, ref Ord, ref AAB))
+                                        if (SignEnemyEmpty(Table[RowO, ColumnO], Table[RowS, ColS], Order, ref Ord, ref AAB))
                                         {
-                                            A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[RowO, ColumnO], Table, Ord, RowO, ColumnO);
-                                            if (A.Rules(RowO, ColumnO, RowS, ColS, AAB, Ord))
-                                                Val--;//Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, Table, 1));
+                                            if (Support(Table, RowS, ColS, RowO, ColumnO, AAB, Ord))
+                                                Val++;//Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, Table, 1));
+                                            else
+                                                Val--;
                                         }
-                                        else*/
-                                        if (SignNotEqualEnemy(Table[RowO, ColumnO], Table[RowS, ColS], Order, ref Ord, ref AAB))
+                                        else
+                                            if (SignNotEqualEnemy(Table[RowO, ColumnO], Table[RowS, ColS], Order, ref Ord, ref AAB))
                                         {
                                             if (Attack(Table, RowO, ColumnO, RowS, ColS, AAB, Ord))
                                                 Val--;//Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, Table, 1));
+                                            else
+                                                Val++;
                                         }//when there is self support inc.                                                                                            else
                                     }
                                 }
@@ -10568,43 +10575,52 @@ namespace RefrigtzW
                     }//)/\;
                 }//));
                 A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[RowS, ColS], Table, Order, RowS, ColS);
-                if (A.ObjectDangourKingMove(Order, Table, false,RowS,ColS))
+                if (A.ObjectDangourKingMove(Order, Table, false, RowS, ColS))
                 {
                     if (Order == 1 && A.CheckGrayObjectDangour)
-                        Val *= -1;
+                        Val--;
+                    else
+                        Val++;
                     if (Order == -1 && A.CheckBrownObjectDangour)
-                        Val *= -1;
+                        Val--;
+                    else
+                        Val++;
                     if (Order == -1 && A.CheckGrayObjectDangour)
                         Val++;//Val += RetrunValValue(RowS, ColS, -1, -1, Table, 1);
+                    else
+                        Val--;
                     if (Order == 1 && A.CheckBrownObjectDangour)
                         Val++;//Val += RetrunValValue(RowS, ColS, -1, -1, Table, 1);
+                    else
+                        Val--;
+
                 }
 
-               /* if (System.Math.Abs(Table[RowS, ColS]) == 2)
-                {
-                    Val = Val * 3;
-                }
-                else
-                        if (System.Math.Abs(Table[RowS, ColS]) == 3)
-                {
-                    Val = Val * 3;
-                }
-                else
-                            if (System.Math.Abs(Table[RowS, ColS]) == 4)
-                {
-                    Val = Val * 5;
-                }
-                else
-                                if (System.Math.Abs(Table[RowS, ColS]) == 5)
-                {
-                    Val = Val * 9;
-                }
-                else
-                                if (System.Math.Abs(Table[RowS, ColS]) == 6)
-                {
-                    Val = Val * 10;
-                }
-                */
+                /* if (System.Math.Abs(Table[RowS, ColS]) == 2)
+                 {
+                     Val = Val * 3;
+                 }
+                 else
+                         if (System.Math.Abs(Table[RowS, ColS]) == 3)
+                 {
+                     Val = Val * 3;
+                 }
+                 else
+                             if (System.Math.Abs(Table[RowS, ColS]) == 4)
+                 {
+                     Val = Val * 5;
+                 }
+                 else
+                                 if (System.Math.Abs(Table[RowS, ColS]) == 5)
+                 {
+                     Val = Val * 9;
+                 }
+                 else
+                                 if (System.Math.Abs(Table[RowS, ColS]) == 6)
+                 {
+                     Val = Val * 10;
+                 }
+                 */
             }
             //       if (Val < 0)
             //         Val = 0;

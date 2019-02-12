@@ -2576,13 +2576,13 @@ namespace QuantumRefrigiz
                                             Object O4 = new Object();
                                             lock (O4)
                                             {
-                                                /*if (Order == -1 && A.CheckGrayObjectDangour)
-                                                    HA += AllDraw.SignKingDangour * (ObjectValueCalculator(Table1,RowS,ColS) + ObjectValueCalculator(Table1,RowD,ColD));
+                                                if (Order == -1 && A.CheckGrayObjectDangour)
+                                                    HA += AllDraw.SignKingDangour * (ObjectValueCalculator(Table1, RowS, ColS, RowD, ColD));
                                                 else
                                                     if (Order == 1 && A.CheckBrownObjectDangour)
-                                                    HA += AllDraw.SignKingDangour * (ObjectValueCalculator(Table1,RowS,ColS) + ObjectValueCalculator(Table1,RowD,ColD));
-                                                    */
-                                                Object ol = new Object();
+                                                    HA += AllDraw.SignKingDangour * (ObjectValueCalculator(Table1, RowS, ColS, RowD, ColD));
+
+                                                /*Object ol = new Object();
                                                 lock (ol)
                                                 {
                                                     if (Order == -1 && A.CheckGray)
@@ -2590,7 +2590,7 @@ namespace QuantumRefrigiz
                                                     else
                                                     if (Order == 1 && A.CheckBrown)
                                                         HA += (ObjectValueCalculator(Table1, RowS, ColS, RowD, ColD));
-                                                }
+                                                }*/
 
                                             }
 
@@ -10548,7 +10548,7 @@ namespace QuantumRefrigiz
         }
 
         double ObjectValueCalculator(int[,] Table//, int Order
-                , int RowS, int ColS, int RowO, int ColumnO)
+        , int RowS, int ColS, int RowO, int ColumnO)
         {
             double Val = 1;
 
@@ -10729,6 +10729,8 @@ namespace QuantumRefrigiz
             , int RowS, int ColS)
         {
             double Val = 1;
+
+
 
             if (System.Math.Abs(Table[RowS, ColS]) == 1)
             {
