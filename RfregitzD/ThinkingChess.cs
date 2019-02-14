@@ -2356,7 +2356,8 @@ namespace RefrigtzDLL
             }
         }
         ///Huristic of King safty.
-        double HeuristicKingSafety(int[,] Tab, int Order, Color a, int CurrentAStarGredy,int RowS, int ColS, int RowD, int ColD)
+        double HeuristicKingSafety(int[,] Tab, int Order, Color a, int CurrentAStarGredy,int RowS, int ColS, int RowD, int ColD
+            )
         {
             Object O = new Object();
             lock (O)
@@ -2426,7 +2427,7 @@ namespace RefrigtzDLL
                                         //Is Dangrous for King.
                                         A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tab[RowD, ColD], Table, Order * -1, RowD, ColD);
                                         //if (A.ObjectDangourKingMove(Order, Table, false))
-                                        A.Check(Table, Order);
+                                        A.ObjectDangourKingMove(Order, Table, false);
                                         {
                                             //Clone a Copy.
                                             /*
@@ -2449,14 +2450,18 @@ namespace RefrigtzDLL
                                                     }
                                                 }
                                             }
-                                            //When Before Move such situation is observed calculate huristic count.
-                                            /*if (Order == 1 && A.CheckGrayObjectDangour)
-                                                HA += AllDraw.SignKingSafe * (ObjectValueCalculator(Table,RowS,ColS) + ObjectValueCalculator(Table,RowD,ColD));
-                                            else
-                                                if (Order == -1 && A.CheckBrownObjectDangour)
-                                                HA += AllDraw.SignKingSafe * (ObjectValueCalculator(Table,RowS,ColS) + ObjectValueCalculator(Table,RowD,ColD));
-                                                */
                                             Object ol = new Object();
+                                            lock (ol)
+                                            {
+                                                //When Before Move such situation is observed calculate huristic count.
+                                                if (Order == 1 && A.CheckGrayObjectDangour)
+                                                    HA += AllDraw.SignKingSafe * (ObjectValueCalculator(Table, RowS, ColS, RowD, ColD));
+                                                else
+                                                if (Order == -1 && A.CheckBrownObjectDangour)
+                                                    HA += AllDraw.SignKingSafe * (ObjectValueCalculator(Table, RowS, ColS, RowD, ColD));
+
+                                            }
+                                            /*Object ol = new Object();
                                             lock (ol)
                                             {
 
@@ -2464,7 +2469,7 @@ namespace RefrigtzDLL
                                                     HA += AllDraw.SignKingSafe * (ObjectValueCalculator(Table,RowS, ColS,  RowD, ColD));
                                                 if (Order == -1 && A.CheckBrown)
                                                     HA += AllDraw.SignKingSafe * (ObjectValueCalculator(Table,RowS, ColS,  RowD, ColD));
-                                            }
+                                            }*/
 
                                         }
                                     }
@@ -2478,7 +2483,8 @@ namespace RefrigtzDLL
                 return HeuristicKingSafe;
             }
         }
-        double HeuristicKingDangourous(int[,] Tab, int Order, Color a, int CurrentAStarGredy, int RowS, int ColS, int RowD, int ColD)
+        double HeuristicKingDangourous(int[,] Tab, int Order, Color a, int CurrentAStarGredy, int RowS, int ColS, int RowD, int ColD
+            )
         {
             Object O = new Object();
             lock (O)
@@ -2554,7 +2560,7 @@ namespace RefrigtzDLL
                                     lock (O3)
                                     {
                                         //if (A.ObjectDangourKingMove(Order, Table, false))
-                                        A.Check(Table, Order);
+                                        A.ObjectDangourKingMove(Order, Table, false);
                                         {
                                             int[,] Table1 = new int[8, 8];
                                             //Clone a Copy.
