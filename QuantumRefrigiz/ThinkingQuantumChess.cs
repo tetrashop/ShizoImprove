@@ -2347,9 +2347,9 @@ namespace QuantumRefrigiz
         }
         ///Huristic of King safty.
         double HeuristicKingSafety(int[,] Tab, int Order, Color a, int CurrentAStarGredy, int RowS, int ColS, int RowD, int ColD
-            )
+              )
         {
-            Object O = new Object();
+            /*Object O = new Object();
             lock (O)
             {
                 double HeuristicKingSafe = 0;
@@ -2382,15 +2382,6 @@ namespace QuantumRefrigiz
                                     return 0;
                                 int[,] Table = new int[8, 8];
                                 //Clone a Copy.
-                                /*
-                                //Parallel.For(0, 8, ij =>
-                                {
-                                    //Parallel.For(0, 8, ji =>
-                                {
-                                    Table[ij, ji] = Tab[ij, ji];
-                                }//);
-                                }//);
-                                */
                                 for (int ij = 0; ij < 8; ij++)
                                 {
                                     for (int ji = 0; ji < 8; ji++)
@@ -2419,17 +2410,7 @@ namespace QuantumRefrigiz
                                         //if (A.ObjectDangourKingMove(Order, Table, false))
                                         A.ObjectDangourKingMove(Order, Table, false);
                                         {
-                                            //Clone a Copy.
-                                            /*
-                                            //Parallel.For(0, 8, ij =>
-                                            {
-                                                //Parallel.For(0, 8, ji =>
-                                                {
-                                                    Table[ij, ji] = Tab[ij, ji];
-                                                }//);
-                                            }//);
-                                            */
-                                            for (int ij = 0; ij < 8; ij++)
+                                           for (int ij = 0; ij < 8; ij++)
                                             {
                                                 for (int ji = 0; ji < 8; ji++)
                                                 {
@@ -2445,21 +2426,14 @@ namespace QuantumRefrigiz
                                             {
                                                 //When Before Move such situation is observed calculate huristic count.
                                                 if (Order == 1 && A.CheckGrayObjectDangour)
-                                                    HA += AllDraw.SignKingSafe * (ObjectValueCalculator(Table, RowS, ColS, RowD, ColD));
+                                                    HA +=// AllDraw.SignKingSafe * 
+                                                        (ObjectValueCalculator(Table, RowS, ColS, RowD, ColD));
                                                 else
                                                 if (Order == -1 && A.CheckBrownObjectDangour)
-                                                    HA += AllDraw.SignKingSafe * (ObjectValueCalculator(Table, RowS, ColS, RowD, ColD));
-                                            }
-                                            /*Object ol = new Object();
-                                            lock (ol)
-                                            {
+                                                    HA += //AllDraw.SignKingSafe * 
+                                                        (ObjectValueCalculator(Table, RowS, ColS, RowD, ColD));
 
-                                                if (Order == 1 && A.CheckGray)
-                                                    HA += AllDraw.SignKingSafe * (ObjectValueCalculator(Table,RowS, ColS,  RowD, ColD));
-                                                if (Order == -1 && A.CheckBrown)
-                                                    HA += AllDraw.SignKingSafe * (ObjectValueCalculator(Table,RowS, ColS,  RowD, ColD));
-                                            }*/
-
+                                            }               
                                         }
                                     }
                                 }
@@ -2470,12 +2444,56 @@ namespace QuantumRefrigiz
                 //For Enemy and Self Sign.
                 HeuristicKingSafe += (HA * 1);
                 return HeuristicKingSafe;
+            }*/
+            int[,] Table = new int[8, 8];
+
+            for (int ij = 0; ij < 8; ij++)
+            {
+                for (int ji = 0; ji < 8; ji++)
+                {
+                    Object O2 = new Object();
+                    lock (O2)
+                    {
+                        Table[ij, ji] = Tab[ij, ji];
+                    }
+                }
             }
+            double HA = 0;
+            ChessRules A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tab[RowD, ColD], Table, Order * -1, RowD, ColD);
+            //if (A.ObjectDangourKingMove(Order, Table, false))
+            A.ObjectDangourKingMove(Order, Table);
+            {
+                for (int ij = 0; ij < 8; ij++)
+                {
+                    for (int ji = 0; ji < 8; ji++)
+                    {
+                        Object O2 = new Object();
+                        lock (O2)
+                        {
+                            Table[ij, ji] = Tab[ij, ji];
+                        }
+                    }
+                }
+                Object ol = new Object();
+                lock (ol)
+                {
+                    //When Before Move such situation is observed calculate huristic count.
+                    if (Order == 1 && A.CheckGrayObjectDangour)
+                        HA +=// AllDraw.SignKingSafe * 
+                            (ObjectValueCalculator(Table, RowS, ColS, RowD, ColD));
+                    else
+                    if (Order == -1 && A.CheckBrownObjectDangour)
+                        HA += //AllDraw.SignKingSafe * 
+                            (ObjectValueCalculator(Table, RowS, ColS, RowD, ColD));
+
+                }
+            }
+            return HA;
         }
         double HeuristicKingDangourous(int[,] Tab, int Order, Color a, int CurrentAStarGredy, int RowS, int ColS, int RowD, int ColD
             )
         {
-            Object O = new Object();
+            /*Object O = new Object();
             lock (O)
             {
                 double HeuristicKingDangour = 0;
@@ -2507,19 +2525,6 @@ namespace QuantumRefrigiz
                                     return 0;
                                 int[,] Table = new int[8, 8];
                                 //Clone a Copy.
-                                /*//Parallel.For(0, 8, ij =>
-                                    {
-                                        //Parallel.For(0, 8, ji =>
-                                        {
-                                            Object O2 = new Object();
-                                            lock (O2)
-                                            {
-                                                Table[ij, ji] = Tab[ij, ji];
-                                            }
-                                        }//);
-
-                                    }//);
-                                    */
                                 for (int ij = 0; ij < 8; ij++)
                                 {
                                     for (int ji = 0; ji < 8; ji++)
@@ -2553,19 +2558,7 @@ namespace QuantumRefrigiz
                                         {
                                             int[,] Table1 = new int[8, 8];
                                             //Clone a Copy.
-                                            /*
-                                            //Parallel.For(0, 8, ij =>
-                                                    {
-                                                        //Parallel.For(0, 8, ji =>
-                                                        {
-                                                            Object O1 = new Object();
-                                                            lock (O1)
-                                                            {
-                                                                Table1[ij, ji] = Tab[ij, ji];
-                                                            }
-                                                        }//);
-                                                    }//);
-*/
+
                                             for (int ij = 0; ij < 8; ij++)
                                             {
                                                 for (int ji = 0; ji < 8; ji++)
@@ -2582,20 +2575,11 @@ namespace QuantumRefrigiz
                                             lock (O4)
                                             {
                                                 if (Order == -1 && A.CheckGrayObjectDangour)
-                                                    HA += AllDraw.SignKingDangour * (ObjectValueCalculator(Table1, RowS, ColS, RowD, ColD));
+                                                    HA += AllDraw.SignKingDangour * (ObjectValueCalculator(Table1,RowS,ColS,RowD,ColD));
                                                 else
                                                     if (Order == 1 && A.CheckBrownObjectDangour)
-                                                    HA += AllDraw.SignKingDangour * (ObjectValueCalculator(Table1, RowS, ColS, RowD, ColD));
+                                                    HA += AllDraw.SignKingDangour * (ObjectValueCalculator(Table1,RowS,ColS,RowD,ColD));
 
-                                                /*Object ol = new Object();
-                                                lock (ol)
-                                                {
-                                                    if (Order == -1 && A.CheckGray)
-                                                        HA += (ObjectValueCalculator(Table1, RowS, ColS, RowD, ColD));
-                                                    else
-                                                    if (Order == 1 && A.CheckBrown)
-                                                        HA += (ObjectValueCalculator(Table1, RowS, ColS, RowD, ColD));
-                                                }*/
 
                                             }
 
@@ -2609,7 +2593,48 @@ namespace QuantumRefrigiz
                 //For Order Sign.
                 HeuristicKingDangour += HA * 1;
                 return HeuristicKingDangour;
+            }*/
+            int[,] Table = new int[8, 8];
+
+            for (int ij = 0; ij < 8; ij++)
+            {
+                for (int ji = 0; ji < 8; ji++)
+                {
+                    Object O2 = new Object();
+                    lock (O2)
+                    {
+                        Table[ij, ji] = Tab[ij, ji];
+                    }
+                }
             }
+            ChessRules A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tab[RowS, ColS], Tab, Order, RowS, ColS);
+
+            double HA = 0;
+            Object O3 = new Object();
+            lock (O3)
+            {
+                //if (A.ObjectDangourKingMove(Order, Table, false))
+                A.ObjectDangourKingMove(Order, Table, false);
+                {
+                    int[,] Table1 = new int[8, 8];
+                    //Clone a Copy.
+
+                    //When Situation Observed Take Situation calcualte Huristic.
+                    Object O4 = new Object();
+                    lock (O4)
+                    {
+                        if (Order == -1 && A.CheckGrayObjectDangour)
+                            HA += AllDraw.SignKingDangour * (ObjectValueCalculator(Table1, RowS, ColS, RowD, ColD));
+                        else
+                            if (Order == 1 && A.CheckBrownObjectDangour)
+                            HA += AllDraw.SignKingDangour * (ObjectValueCalculator(Table1, RowS, ColS, RowD, ColD));
+
+
+                    }
+
+                }
+            }
+            return HA;
         }
         //Huristic of Supportation.
         double HuristicSelfSupported(int[,] Tab, int Ord, Color aa, int RowS, int ColS, int RowD, int ColD
@@ -9365,6 +9390,10 @@ namespace QuantumRefrigiz
                     HeuristicFromCenter = HFromCenter * SignOrderToPlate(Order);
                     HeuristicKingDangour = HKingDangour * SignOrderToPlate(Order);
                     */
+                    HDistance /= 10;
+                    HKingSafe /= 10;
+                    HFromCenter /= 10;
+                    HKingDangour /= 10;
                     if (Before)
                     {
                         /*HuristicAttackValue = Huriistic[0];
@@ -9484,6 +9513,7 @@ namespace QuantumRefrigiz
                     }
                 }
             }
+       
         }
         void CastleThinkingQuantumGray(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {

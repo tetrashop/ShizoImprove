@@ -683,6 +683,7 @@ namespace RefrigtzDLL
                                         //When there is checked or checkmate.
                                         if (AAA.CheckMate(Tabl, Order))
                                         {
+                                            //if (AAA.CheckMateGray)
                                             if (AAA.CheckMateGray)
                                             {
                                                 CheckGrayObjectDangour = true;
@@ -750,7 +751,208 @@ namespace RefrigtzDLL
                                         //When There is Check or Checkedmate
                                         if (AAA.CheckMate(Tabl, Order))
                                         {
+                                            //if (AAA.CheckMateBrown)
                                             if (AAA.CheckMateBrown)
+                                            {
+                                                CheckBrownObjectDangour = true;
+                                                break;
+                                            }
+
+                                        }
+
+                                        //CheckBrownObjectDangour = true;
+
+                                    }
+                                    if (CheckBrownObjectDangour)
+                                        break;
+                                }
+                                if (CheckBrownObjectDangour)
+                                    break;
+                            }
+                            if (CheckBrownObjectDangour)
+                                break;
+
+                        }
+                        if (CheckBrownObjectDangour)
+                            break;
+
+                    }
+                }
+            }
+            //Iniaiate Global Variables.
+            //Object O1 = new Object();
+            //lock (O1)
+            //{
+            //RefrigtzDLL.ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = false;
+            //}
+            //If There is Brown ObjectDanger Or Gray ObjectDanger.
+            if (CheckBrownObjectDangour || CheckGrayObjectDangour)
+            {
+                //Iniaate Global Check Variable By Local Variables.
+                RefrigtzDLL.ChessRules.CurrentOrder = CDummy;
+                Order = COrder;
+                CheckGray = CheckGrayDummy;
+                CheckBrown = CheckBrownDummy;
+                //Achamz is Validity.
+                return true;
+            }
+            RefrigtzDLL.ChessRules.CurrentOrder = CDummy;
+            Order = COrder;
+
+            //Iniatiate Of Global Varibales By Local Variables.
+            CheckGray = CheckGrayDummy;
+            CheckBrown = CheckBrownDummy;
+            //Return Not Validiy.
+            return false;
+        }
+        public bool ObjectDangourKingMove(int Order, int[,] Table)
+        {
+            int[,] Tab = new int[8, 8];
+            //Clone a Copy
+            for (int i = 0; i < 8; i++)
+                for (int j = 0; j < 8; j++)
+                    Tab[i, j] = Table[i, j];
+            //Initiate Variables.
+            CheckGray = false;
+            CheckBrown = false;
+            CheckGrayObjectDangour = false;
+            CheckBrownObjectDangour = false;
+            int RowG = 0, ColumnG = 0;
+            int RowB = 0, ColumnB = 0;
+            //Object O = new Object();
+            ////lock (O)
+            ///{
+            /// if (DoIgnore)
+            ///RefrigtzDLL.ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = true;
+            // }
+            //Check identification.
+            //Check(Tab, Order);
+            bool CheckGrayDummy = CheckGray;
+            bool CheckBrownDummy = CheckBrown;
+            //If There is Check on Tow Side.
+            /*if (CheckBrown || CheckGray)
+            {
+                //Check meand achmaz.
+                if (CheckBrown)
+                    CheckBrownObjectDangour = true;
+                if (CheckGray)
+                    CheckGrayObjectDangour = true;
+                return true;
+
+            }*/
+            int CDummy = RefrigtzDLL.ChessRules.CurrentOrder;
+            int COrder = Order;
+            if (Order == 1)
+            {
+                //Location of King Gary
+                if (FindGrayKing(Tab, ref RowG, ref ColumnG))
+                {
+                    //For Enemy Brown.
+                    for (int ii = 0; ii < 8; ii++)
+                    {
+                        for (int jj = 0; jj < 8; jj++)
+                        {
+
+                            //Ignore Gray.
+                            if (Tab[ii, jj] >= 0)
+                                continue;
+                            //For Current Gray and Empty.
+                            for (int iii = 0; iii < 8; iii++)
+                            {
+                                for (int jjj = 0; jjj < 8; jjj++)
+                                {
+                                    for (int i = 0; i < 8; i++)
+                                        for (int j = 0; j < 8; j++)
+                                            Tab[i, j] = Table[i, j];
+                                    //Ignore Brown.
+                                    if (Tab[iii, jjj] < 0)
+                                        continue;
+                                    RefrigtzDLL.ThinkingChess AA = new RefrigtzDLL.ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
+                                    //When There is Attacked to Gray from Brown.
+                                    if (AA.Attack(Tab, ii, jj, iii, jjj, Color.Brown, Order * -1))
+                                    {
+                                        //Move.
+                                        int a = Tab[iii, jjj];
+                                        Tab[iii, jjj] = Tab[ii, jj];
+                                        Tab[ii, jj] = 0;
+                                        int[,] Tabl = new int[8, 8];
+                                        for (int h = 0; h < 8; h++)
+                                            for (int g = 0; g < 8; g++)
+                                                Tabl[h, g] = Tab[h, g];
+                                        RefrigtzDLL.ChessRules AAA = new RefrigtzDLL.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tabl[iii, jjj], Tabl, Order, iii, jjj);
+                                        //When there is checked or checkmate.
+                                        if (AAA.Check(Tabl, Order))
+                                        {
+                                            //if (AAA.CheckMateGray)
+                                            if (AAA.CheckGray)
+                                            {
+                                                CheckGrayObjectDangour = true;
+                                                break;
+                                            }
+                                        }
+                                        //CheckGrayObjectDangour = true;
+                                    }
+                                    if (CheckGrayObjectDangour)
+                                        break;
+
+                                }
+                                if (CheckGrayObjectDangour)
+                                    break;
+                            }
+                            if (CheckGrayObjectDangour)
+                                break;
+
+                        }
+                        if (CheckGrayObjectDangour)
+                            break;
+
+                    }
+                }
+            }
+            else
+            {
+                //Location of King Brown
+                if (FindBrownKing(Tab, ref RowB, ref ColumnB))
+                {
+
+                    //For Gray Enemy.
+                    for (int ii = 0; ii < 8; ii++)
+                    {
+                        for (int jj = 0; jj < 8; jj++)
+                        {
+                            //Ignore Brown
+                            if (Tab[ii, jj] <= 0)
+                                continue;
+                            //For Current Brown.
+                            for (int iii = 0; iii < 8; iii++)
+                            {
+                                for (int jjj = 0; jjj < 8; jjj++)
+                                {
+                                    for (int i = 0; i < 8; i++)
+                                        for (int j = 0; j < 8; j++)
+                                            Tab[i, j] = Table[i, j];
+                                    //Ignore Gray.
+                                    if (Tab[iii, jjj] > 0)
+                                        continue;
+
+                                    RefrigtzDLL.ThinkingChess AA = new RefrigtzDLL.ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
+                                    //When There is Attack to Brown.
+                                    if (AA.Attack(Tab, ii, jj, iii, jjj, Color.Gray, Order * -1))
+                                    {
+                                        //Move
+                                        int a = Tab[iii, jjj];
+                                        Tab[iii, jjj] = Tab[ii, jj];
+                                        Tab[ii, jj] = 0;
+                                        int[,] Tabl = new int[8, 8];
+                                        for (int h = 0; h < 8; h++)
+                                            for (int g = 0; g < 8; g++)
+                                                Tabl[h, g] = Tab[h, g];
+                                        RefrigtzDLL.ChessRules AAA = new RefrigtzDLL.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tabl[iii, jjj], Tabl, Order, iii, jjj);
+                                        //When There is Check or Checkedmate
+                                        if (AAA.Check(Tabl, Order))
+                                        {
+                                            //if (AAA.CheckMateBrown)
+                                            if (AAA.CheckBrown)
                                             {
                                                 CheckBrownObjectDangour = true;
                                                 break;
