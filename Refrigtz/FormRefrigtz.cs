@@ -16005,7 +16005,7 @@ namespace Refrigtz
                         Log(t);
                     }
                 }
-                System.Threading.Thread.Sleep(10);
+                System.Threading.Thread.Sleep(5);
 
                 pictureBoxTimerBrown.Invalidate();
                 pictureBoxTimerBrown.Update();
@@ -16013,7 +16013,7 @@ namespace Refrigtz
                 //pictureBoxRefrigtz.Invalidate();
                 //pictureBoxRefrigtz.Update();
 
-                
+                //Thread.Sleep(5);
             }
         }
         void UpadatTimer()
@@ -16064,7 +16064,7 @@ namespace Refrigtz
                         //RunInFront();
                     }
                 }
-                System.Threading.Thread.Sleep(10);
+                System.Threading.Thread.Sleep(5);
                 //pictureBoxTimerGray.Invalidate();
                 //pictureBoxTimerGray.Update();
 
