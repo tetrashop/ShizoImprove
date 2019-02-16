@@ -2489,11 +2489,11 @@ namespace RefrigtzDLL
                 {
                     //When Before Move such situation is observed calculate huristic count.
                     if (Order == 1 && A.CheckGrayObjectDangour)
-                        HA +=// AllDraw.SignKingSafe * 
+                        HA += AllDraw.SignKingSafe * 
                             (ObjectValueCalculator(Table, RowS, ColS, RowD, ColD));
                     else
                     if (Order == -1 && A.CheckBrownObjectDangour)
-                        HA += //AllDraw.SignKingSafe * 
+                        HA += AllDraw.SignKingSafe * 
                             (ObjectValueCalculator(Table, RowS, ColS, RowD, ColD));
 
                 }
@@ -2634,10 +2634,12 @@ namespace RefrigtzDLL
                         lock (O4)
                         {
                             if (Order == -1 && A.CheckGrayObjectDangour)
-                                HA += AllDraw.SignKingDangour * (ObjectValueCalculator(Table1, RowS, ColS, RowD, ColD));
+                                HA +=// AllDraw.SignKingDangour *
+                                (ObjectValueCalculator(Table1, RowS, ColS, RowD, ColD));
                             else
                                 if (Order == 1 && A.CheckBrownObjectDangour)
-                                HA += AllDraw.SignKingDangour * (ObjectValueCalculator(Table1, RowS, ColS, RowD, ColD));
+                                HA +=// AllDraw.SignKingDangour *
+                                (ObjectValueCalculator(Table1, RowS, ColS, RowD, ColD));
 
 
                         }
@@ -9398,9 +9400,9 @@ namespace RefrigtzDLL
                     HeuristicKingDangour = HKingDangour * SignOrderToPlate(Order);
                     */
                     HDistance /= 10;
-                    HKingSafe /= 10;
+                    //HKingSafe /= 10;
                     HFromCenter /= 10;
-                    HKingDangour /= 10;
+                    //HKingDangour /= 10;
                     if (Before)
                     {
                         /*HuristicAttackValue = Huriistic[0];

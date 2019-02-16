@@ -13379,6 +13379,7 @@ if (Kind == 2)
                                 Color aa = a;
 
 
+                                Task output = Task.Factory.StartNew(() =>
                                 Parallel.Invoke(() =>
                                 {
                                     //For All Gray Soldier Objects.
@@ -13433,8 +13434,9 @@ if (Kind == 2)
                                     {
                                         this.InitiateAStarGreedythKingGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
                                     }
-                                }
+                                })
                                 );
+                                output.Wait();
                             }
                             else//Brown Order Considarations.
                             {
@@ -13446,6 +13448,7 @@ if (Kind == 2)
                                 //If Order is Gray.
 
 
+                                Task output = Task.Factory.StartNew(() =>
                                 Parallel.Invoke(() =>
                                 {
                                     //For All Gray Soldier Objects.
@@ -13500,8 +13503,9 @@ if (Kind == 2)
                                     {
                                         this.InitiateAStarGreedythKingBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
                                     }
-                                }
+                                })
                                 );
+                                output.Wait();
                             }
                         }
                     }
@@ -17515,7 +17519,7 @@ if (Kind == 2)
                 //Index[0] = -1;
                 //Soldeir
                 //Initiatye Variables.               
-
+                Task output = Task.Factory.StartNew(() =>
                  Parallel.Invoke(() =>
 
                 {
@@ -17660,11 +17664,13 @@ if (Kind == 2)
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
-                });
+                })
+                );
             }
             //For Brown Order Blitz Game Calculate Maximum Table Inclusive AStarGreedy First Game Search.
             else
             {
+                Task output = Task.Factory.StartNew(() =>
                 Parallel.Invoke(() =>
                 {
                     Object O1 = new Object();
@@ -17705,7 +17711,7 @@ if (Kind == 2)
                         Do |= this.FullGameThinkingTreeElephantBrown(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND, LeafAStarGreedy);
                         //Task array2 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeElephantBrown(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND));
                         //array2.Start();
-                       //Object tttt2 = new Object(); lock (tttt2) { TH.Add(array2); }
+                        //Object tttt2 = new Object(); lock (tttt2) { TH.Add(array2); }
 
                         //Initiatye Variables.
                         Order = DummyOrder;
@@ -17811,7 +17817,9 @@ if (Kind == 2)
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
-                });
+                })
+                );
+                output.Wait();
             }
 
             return Do;
@@ -17841,7 +17849,8 @@ if (Kind == 2)
             }
             if (Order == 1)
             {
-                Parallel.For(0, MaxGrayMidle(), i =>
+                Task output = Task.Factory.StartNew(() =>
+                   Parallel.For(0, MaxGrayMidle(), i =>
                 {
                     Parallel.Invoke(() =>
 
@@ -18022,157 +18031,161 @@ if (Kind == 2)
                               }
                           }
                       });
-                });
+                })
+                );
             }
             //For Brown Order Blitz Game Calculate Maximum Table Inclusive AStarGreedy First Game Search.
             else
             {
-                Parallel.For(MinBrownMidle(), MaxGrayMidle(), i =>
-                {
-                    Parallel.Invoke(() =>
-                {
-                    Object ooo = new Object();
-                    lock (ooo)
-                    {
+                Task output = Task.Factory.StartNew(() =>
+                      Parallel.For(MinBrownMidle(), MaxGrayMidle(), i =>
+                  {
+                      Parallel.Invoke(() =>
+                  {
+                      Object ooo = new Object();
+                      lock (ooo)
+                      {
 
-                        if (i >= SodierMidle && i < SodierHigh)
-                        {
+                          if (i >= SodierMidle && i < SodierHigh)
+                          {
 
-                            Object O1 = new Object();
-                            lock (O1)
-                            {
-                                if (Order == 1)
-                                    a = Color.Gray;
-                                else
-                                    a = Color.Brown;
-                                int ii1 = ii, jj1 = jj, ik11 = ik1, j11 = j1;
-                                int Ord1 = Order;
-                                Color a1 = a;
-                                int iAStarGreedy1 = iAStarGreedy;
-                                int i1 = i;
-                                Do |= this.FullGameThinkingTreeSoldier(i1, a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy);
-                                Order = DummyOrder;
-                                ChessRules.CurrentOrder = DummyCurrentOrder;
-                            }
-                        }
-                    }
-                }, () =>
-                {
-                    if (i >= ElefantMidle && i < ElefantHigh)
-                    {
-                        Object ooo = new Object();
-                        lock (ooo)
-                        {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
-                            int ii2 = ii, jj2 = jj, ik12 = ik1, j12 = j1;
-                            int Ord2 = Order;
-                            Color a2 = a;
-                            int iAStarGreedy2 = iAStarGreedy;
-                            int i2 = i;
-                            Do |= this.FullGameThinkingTreeElephant(i2, a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND, LeafAStarGreedy);
-                            //Initiatye Variables.
-                            Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-                    }
-                }, () =>
-                {
-                    if (i >= HourseMidle && i < HourseHight)
-                    {
-                        Object O1 = new Object();
-                        lock (O1)
-                        {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
+                              Object O1 = new Object();
+                              lock (O1)
+                              {
+                                  if (Order == 1)
+                                      a = Color.Gray;
+                                  else
+                                      a = Color.Brown;
+                                  int ii1 = ii, jj1 = jj, ik11 = ik1, j11 = j1;
+                                  int Ord1 = Order;
+                                  Color a1 = a;
+                                  int iAStarGreedy1 = iAStarGreedy;
+                                  int i1 = i;
+                                  Do |= this.FullGameThinkingTreeSoldier(i1, a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy);
+                                  Order = DummyOrder;
+                                  ChessRules.CurrentOrder = DummyCurrentOrder;
+                              }
+                          }
+                      }
+                  }, () =>
+                  {
+                      if (i >= ElefantMidle && i < ElefantHigh)
+                      {
+                          Object ooo = new Object();
+                          lock (ooo)
+                          {
+                              if (Order == 1)
+                                  a = Color.Gray;
+                              else
+                                  a = Color.Brown;
+                              int ii2 = ii, jj2 = jj, ik12 = ik1, j12 = j1;
+                              int Ord2 = Order;
+                              Color a2 = a;
+                              int iAStarGreedy2 = iAStarGreedy;
+                              int i2 = i;
+                              Do |= this.FullGameThinkingTreeElephant(i2, a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND, LeafAStarGreedy);
+                              //Initiatye Variables.
+                              Order = DummyOrder;
+                              ChessRules.CurrentOrder = DummyCurrentOrder;
+                          }
+                      }
+                  }, () =>
+                  {
+                      if (i >= HourseMidle && i < HourseHight)
+                      {
+                          Object O1 = new Object();
+                          lock (O1)
+                          {
+                              if (Order == 1)
+                                  a = Color.Gray;
+                              else
+                                  a = Color.Brown;
 
-                            int ii3 = ii, jj3 = jj, ik13 = ik1, j13 = j1;
-                            int Ord3 = Order;
-                            Color a3 = a;
-                            int iAStarGreedy3 = iAStarGreedy;
-                            int i3 = i;
-                            Do |= this.FullGameThinkingTreeHourse(i3, a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND, LeafAStarGreedy);
-                            //Initiatye Variables.
-                            Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-                    }
-                }, () =>
-                {
-                    if (i >= CastleMidle && i < CastleHigh)
-                    {
-                        Object ooo = new Object();
-                        lock (ooo)
-                        {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
-                            int ii4 = ii, jj4 = jj, ik14 = ik1, j14 = j1;
-                            int Ord4 = Order;
-                            Color a4 = a;
-                            int iAStarGreedy4 = iAStarGreedy;
-                            int i4 = i;
-                            Do |= this.FullGameThinkingTreeCastle(i4, a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND, LeafAStarGreedy);
-                            //Initiatye Variables.
-                            Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-                    }
-                }, () =>
-                {
-                    if (i >= MinisterMidle && i < MinisterHigh)
-                    {
-                        Object ooo = new Object();
-                        lock (ooo)
-                        {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
-                            int ii5 = ii, jj5 = jj, ik15 = ik1, j15 = j1;
-                            int Ord5 = Order;
-                            Color a5 = a;
-                            int iAStarGreedy5 = iAStarGreedy;
-                            int i5 = i;
-                            Do |= this.FullGameThinkingTreeMinister(i5, a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND, LeafAStarGreedy);
-                            //Initiatye Variables.
-                            Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-                    }
+                              int ii3 = ii, jj3 = jj, ik13 = ik1, j13 = j1;
+                              int Ord3 = Order;
+                              Color a3 = a;
+                              int iAStarGreedy3 = iAStarGreedy;
+                              int i3 = i;
+                              Do |= this.FullGameThinkingTreeHourse(i3, a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND, LeafAStarGreedy);
+                              //Initiatye Variables.
+                              Order = DummyOrder;
+                              ChessRules.CurrentOrder = DummyCurrentOrder;
+                          }
+                      }
+                  }, () =>
+                  {
+                      if (i >= CastleMidle && i < CastleHigh)
+                      {
+                          Object ooo = new Object();
+                          lock (ooo)
+                          {
+                              if (Order == 1)
+                                  a = Color.Gray;
+                              else
+                                  a = Color.Brown;
+                              int ii4 = ii, jj4 = jj, ik14 = ik1, j14 = j1;
+                              int Ord4 = Order;
+                              Color a4 = a;
+                              int iAStarGreedy4 = iAStarGreedy;
+                              int i4 = i;
+                              Do |= this.FullGameThinkingTreeCastle(i4, a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND, LeafAStarGreedy);
+                              //Initiatye Variables.
+                              Order = DummyOrder;
+                              ChessRules.CurrentOrder = DummyCurrentOrder;
+                          }
+                      }
+                  }, () =>
+                  {
+                      if (i >= MinisterMidle && i < MinisterHigh)
+                      {
+                          Object ooo = new Object();
+                          lock (ooo)
+                          {
+                              if (Order == 1)
+                                  a = Color.Gray;
+                              else
+                                  a = Color.Brown;
+                              int ii5 = ii, jj5 = jj, ik15 = ik1, j15 = j1;
+                              int Ord5 = Order;
+                              Color a5 = a;
+                              int iAStarGreedy5 = iAStarGreedy;
+                              int i5 = i;
+                              Do |= this.FullGameThinkingTreeMinister(i5, a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND, LeafAStarGreedy);
+                              //Initiatye Variables.
+                              Order = DummyOrder;
+                              ChessRules.CurrentOrder = DummyCurrentOrder;
+                          }
+                      }
 
-                }, () =>
-                {
-                    if (i >= KingMidle && i < KingHigh)
-                    {
-                        Object ooo = new Object();
-                        lock (ooo)
-                        {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
-                            int ii6 = ii, jj6 = jj, ik16 = ik1, j16 = j1;
-                            int Ord6 = Order;
-                            Color a6 = a;
-                            int iAStarGreedy6 = iAStarGreedy;
-                            int i6 = i;
-                            Do |= this.FullGameThinkingTreeKing(i6, a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND, LeafAStarGreedy);
-                            Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-                    }
-                });
-                });
+                  }, () =>
+                  {
+                      if (i >= KingMidle && i < KingHigh)
+                      {
+                          Object ooo = new Object();
+                          lock (ooo)
+                          {
+                              if (Order == 1)
+                                  a = Color.Gray;
+                              else
+                                  a = Color.Brown;
+                              if (Order == 1)
+                                  a = Color.Gray;
+                              else
+                                  a = Color.Brown;
+                              int ii6 = ii, jj6 = jj, ik16 = ik1, j16 = j1;
+                              int Ord6 = Order;
+                              Color a6 = a;
+                              int iAStarGreedy6 = iAStarGreedy;
+                              int i6 = i;
+                              Do |= this.FullGameThinkingTreeKing(i6, a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND, LeafAStarGreedy);
+                              Order = DummyOrder;
+                              ChessRules.CurrentOrder = DummyCurrentOrder;
+                          }
+                      }
+                  });
+                  })
+                  );
+                output.Wait();
             }
 
             return Do;

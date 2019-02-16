@@ -12981,7 +12981,7 @@ if (Kind == 2)
                     bool TB1 = TB;
                     Color aa = a;
 
-
+                    Task output = Task.Factory.StartNew(() =>
                     Parallel.Invoke(() =>
                     {
                         //For All Gray Soldier Objects.
@@ -13036,7 +13036,7 @@ if (Kind == 2)
                         {
                             this.InitiateAStarGreedythKingGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
                         }
-                    }
+                    })
                     );
                 }
                 else//Brown Order Considarations.
@@ -13048,7 +13048,7 @@ if (Kind == 2)
                     Color aa = a;
                     //If Order is Gray.
 
-
+                   Task output= Task.Factory.StartNew(() =>
                     Parallel.Invoke(() =>
                     {
                         //For All Gray Soldier Objects.
@@ -13103,8 +13103,9 @@ if (Kind == 2)
                         {
                             this.InitiateAStarGreedythKingBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
                         }
-                    }
+                    })
                     );
+                    output.Wait();
                 }
             }
         }
@@ -13196,6 +13197,7 @@ if (Kind == 2)
                                 Color aa = a;
 
 
+                                Task output = Task.Factory.StartNew(() => 
                                 Parallel.Invoke(() =>
                                 {
                                     //For All Gray Soldier Objects.
@@ -13250,8 +13252,9 @@ if (Kind == 2)
                                     {
                                         this.InitiateAStarGreedythKingGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
                                     }
-                                }
+                                })
                                 );
+                                output.Wait();
                             }
                             else//Brown Order Considarations.
                             {
@@ -13263,6 +13266,7 @@ if (Kind == 2)
                                 //If Order is Gray.
 
 
+                                Task output = Task.Factory.StartNew(() =>
                                 Parallel.Invoke(() =>
                                 {
                                     //For All Gray Soldier Objects.
@@ -13317,8 +13321,10 @@ if (Kind == 2)
                                     {
                                         this.InitiateAStarGreedythKingBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
                                     }
-                                }
-                                );
+                                })
+                            );
+                                output.Wait();
+
                             }
                         }
                     }
@@ -17353,7 +17359,8 @@ if (Kind == 2)
                 //Soldeir
                 //Initiatye Variables.               
 
-                 Parallel.Invoke(() =>
+                Task output =Task.Factory.StartNew(() =>
+                Parallel.Invoke(() =>
 
                 {
                     Object O1 = new Object();
@@ -17497,11 +17504,14 @@ if (Kind == 2)
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
-                });
+                })
+                );
+                output.Wait();
             }
             //For Brown Order Blitz Game Calculate Maximum Table Inclusive AStarGreedy First Game Search.
             else
             {
+                Task output = Task.Factory.StartNew(() =>
                 Parallel.Invoke(() =>
                 {
                     Object O1 = new Object();
@@ -17542,7 +17552,7 @@ if (Kind == 2)
                         Do |= this.FullGameThinkingTreeElephantBrown(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND, LeafAStarGreedy);
                         //Task array2 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeElephantBrown(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND));
                         //array2.Start();
-                       //Object tttt2 = new Object(); lock (tttt2) { TH.Add(array2); }
+                        //Object tttt2 = new Object(); lock (tttt2) { TH.Add(array2); }
 
                         //Initiatye Variables.
                         Order = DummyOrder;
@@ -17648,7 +17658,9 @@ if (Kind == 2)
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                     }
-                });
+                })
+                );
+                output.Wait();
             }
 
             return Do;
@@ -17678,6 +17690,7 @@ if (Kind == 2)
             }
             if (Order == 1)
             {
+                Task output = Task.Factory.StartNew(() =>
                 Parallel.For(0, MaxGrayMidle(), i =>
                 {
                     Parallel.Invoke(() =>
@@ -17859,11 +17872,15 @@ if (Kind == 2)
                               }
                           }
                       });
-                });
+                })
+                );
+                output.Wait();
+
             }
             //For Brown Order Blitz Game Calculate Maximum Table Inclusive AStarGreedy First Game Search.
             else
             {
+                Task output = Task.Factory.StartNew(() =>
                 Parallel.For(MinBrownMidle(), MaxGrayMidle(), i =>
                 {
                     Parallel.Invoke(() =>
@@ -18009,7 +18026,9 @@ if (Kind == 2)
                         }
                     }
                 });
-                });
+                })
+                );
+                output.Wait();
             }
 
             return Do;
