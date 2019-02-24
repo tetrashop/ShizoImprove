@@ -44,6 +44,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantumRefrigiz", "QuantumR
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refregitz-12", "Refregitz-12\Refregitz-12.csproj", "{4FDCE655-E7EA-4BF5-B7C1-1DA5E8DDD81B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "refrigitz 12", "refrigitz 12\refrigitz 12\refrigitz 12.vcxproj", "{54866E1B-247F-42D3-B286-E1CD2CA70ECD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -380,6 +382,24 @@ Global
 		{4FDCE655-E7EA-4BF5-B7C1-1DA5E8DDD81B}.Release|x64.Build.0 = Release|Any CPU
 		{4FDCE655-E7EA-4BF5-B7C1-1DA5E8DDD81B}.Release|x86.ActiveCfg = Release|Any CPU
 		{4FDCE655-E7EA-4BF5-B7C1-1DA5E8DDD81B}.Release|x86.Build.0 = Release|Any CPU
+		{54866E1B-247F-42D3-B286-E1CD2CA70ECD}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{54866E1B-247F-42D3-B286-E1CD2CA70ECD}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{54866E1B-247F-42D3-B286-E1CD2CA70ECD}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{54866E1B-247F-42D3-B286-E1CD2CA70ECD}.Debug|Win32.ActiveCfg = Debug|Win32
+		{54866E1B-247F-42D3-B286-E1CD2CA70ECD}.Debug|Win32.Build.0 = Debug|Win32
+		{54866E1B-247F-42D3-B286-E1CD2CA70ECD}.Debug|x64.ActiveCfg = Debug|x64
+		{54866E1B-247F-42D3-B286-E1CD2CA70ECD}.Debug|x64.Build.0 = Debug|x64
+		{54866E1B-247F-42D3-B286-E1CD2CA70ECD}.Debug|x86.ActiveCfg = Debug|Win32
+		{54866E1B-247F-42D3-B286-E1CD2CA70ECD}.Debug|x86.Build.0 = Debug|Win32
+		{54866E1B-247F-42D3-B286-E1CD2CA70ECD}.Release|Any CPU.ActiveCfg = Release|Win32
+		{54866E1B-247F-42D3-B286-E1CD2CA70ECD}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{54866E1B-247F-42D3-B286-E1CD2CA70ECD}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{54866E1B-247F-42D3-B286-E1CD2CA70ECD}.Release|Win32.ActiveCfg = Release|Win32
+		{54866E1B-247F-42D3-B286-E1CD2CA70ECD}.Release|Win32.Build.0 = Release|Win32
+		{54866E1B-247F-42D3-B286-E1CD2CA70ECD}.Release|x64.ActiveCfg = Release|x64
+		{54866E1B-247F-42D3-B286-E1CD2CA70ECD}.Release|x64.Build.0 = Release|x64
+		{54866E1B-247F-42D3-B286-E1CD2CA70ECD}.Release|x86.ActiveCfg = Release|Win32
+		{54866E1B-247F-42D3-B286-E1CD2CA70ECD}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

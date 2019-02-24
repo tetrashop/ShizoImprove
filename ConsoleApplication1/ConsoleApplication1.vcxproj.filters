@@ -15,217 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\AllDraw.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\ChessGeneticAlgorithm.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\ChessPerdict.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\ChessRules.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\ClassLoad.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\DrawBridge.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\DrawElefant.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\DrawHourse.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\DrawKing.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\DrawMinister.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\DrawSoldire.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\ImportantNodes.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\PlatformHelper.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\Program.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\RefregitzReader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\Refrigtz.AboutBoxChessRefregitz.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\Refrigtz.FormKindOfGameContinue.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\Refrigtz.FormRefrigtz.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\Refrigtz.FormSelect.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\Refrigtz.FormُSelectItems.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\Refrigtz.FormTXT.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\Refrigtz.Load.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\Resource1.Designer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\RunStockfish.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\Syncronization.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\ThingsConverter.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\ThinkingChess.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\HermitInterpolation.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\Interpolate.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\LearningAtamata.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\NewotoonInterpolate.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\QuantumAtamata.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\QuantumLearningAtamata.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\Timer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\AllDraw.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\ChessGeneticAlgorithm.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\ChessPerdict.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\ChessRules.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\ClassLoad.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\DrawBridge.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\DrawElefant.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\DrawHourse.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\DrawKing.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\DrawMinister.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\DrawSoldire.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\ImportantNodes.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\PlatformHelper.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\Program.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\RefregitzReader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\Refrigtz.AboutBoxChessRefregitz.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\Refrigtz.FormKindOfGameContinue.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\Refrigtz.FormRefrigtz.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\Refrigtz.FormSelect.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\Refrigtz.FormُSelectItems.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\Refrigtz.FormTXT.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\Refrigtz.Load.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\Resource1.Designer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\RunStockfish.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\stringconverter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\Syncronization.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\ThingsConverter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\ThinkingChess.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\HermitInterpolation.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\Interpolate.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\LearningAtamata.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\NewotoonInterpolate.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\QuantumAtamata.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\QuantumLearningAtamata.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\Timer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="C:\Users\ScienceLover\Desktop\New folder\App.config" />
     <None Include="C:\Users\ScienceLover\Desktop\New folder\Refrigtz.ruleset" />
     <None Include="C:\Users\ScienceLover\Desktop\New folder\Refrigtz_1_TemporaryKey.pfx" />
@@ -265,5 +54,129 @@
     <EmbeddedResource Include="C:\Users\ScienceLover\Desktop\New folder\Resource1.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\AllDraw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\ChessGeneticAlgorithm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\ChessRules.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\DrawBridge.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\DrawCastle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\DrawElefant.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\DrawHourse.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\DrawKing.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\DrawMinister.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\DrawSoldire.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\ThingsConverter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\ThinkingChess.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\GalleryStudio\Program.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\Refrigtz\bin\Debug\All\All\LearningAtamata.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\Refrigtz\bin\Debug\All\All\NetworkQuantumLearningKrinskyAtamata.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\Refrigtz\bin\Debug\All\All\NewotoonInterpolate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\Refrigtz\bin\Debug\All\All\QuantumAtamata.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\Refrigtz\bin\Debug\All\All\QuantumLearningAtamata.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\Refrigtz\bin\Debug\All\All\ThinkingAtamata.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\Refrigtz\bin\Debug\All\All\ThinkingChess.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\AllDraw.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\ChessGeneticAlgorithm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\ChessRules.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\DrawBridge.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\DrawElefant.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\DrawHourse.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\DrawKing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\DrawMinister.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\DrawSoldire.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\ThingsConverter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\ThinkingChess.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\GalleryStudio\Program.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\Refrigtz\bin\Debug\All\All\LearningAtamata.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\Refrigtz\bin\Debug\All\All\NetworkQuantumLearningKrinskyAtamata.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\Refrigtz\bin\Debug\All\All\NewotoonInterpolate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\Refrigtz\bin\Debug\All\All\QuantumLearningAtamata.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\Refrigtz\bin\Debug\All\All\ThinkingAtamata.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\Refrigtz\bin\Debug\All\All\ThinkingChess.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\Refrigtz\bin\Debug\All\All\QuantumAtamata.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\Refrigtz\DrawCastle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

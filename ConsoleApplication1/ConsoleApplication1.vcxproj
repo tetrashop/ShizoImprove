@@ -15,13 +15,13 @@
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>ConsoleApplication1</RootNamespace>
     <ProjectName>refregitz</ProjectName>
+    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>true</CLRSupport>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -40,9 +40,7 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LinkIncremental>true</LinkIncremental>
-  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
@@ -50,10 +48,6 @@
     <ClCompile>
       <PrecompiledHeader>
       </PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -79,79 +73,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\AllDraw.cpp" />
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\ChessGeneticAlgorithm.cpp" />
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\ChessPerdict.cpp" />
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\ChessRules.cpp" />
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\ClassLoad.cpp" />
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\DrawBridge.cpp" />
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\DrawElefant.cpp" />
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\DrawHourse.cpp" />
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\DrawKing.cpp" />
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\DrawMinister.cpp" />
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\DrawSoldire.cpp" />
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\HermitInterpolation.cpp" />
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\ImportantNodes.cpp" />
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\Interpolate.cpp" />
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\LearningAtamata.cpp" />
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\NewotoonInterpolate.cpp" />
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\PlatformHelper.cpp" />
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\Program.cpp" />
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\QuantumAtamata.cpp" />
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\QuantumLearningAtamata.cpp" />
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\RefregitzReader.cpp" />
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\Refrigtz.AboutBoxChessRefregitz.cpp" />
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\Refrigtz.FormKindOfGameContinue.cpp" />
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\Refrigtz.FormRefrigtz.cpp" />
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\Refrigtz.FormSelect.cpp" />
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\Refrigtz.FormTXT.cpp" />
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\Refrigtz.FormُSelectItems.cpp" />
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\Refrigtz.Load.cpp" />
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\Resource1.Designer.cpp" />
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\RunStockfish.cpp" />
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\Syncronization.cpp" />
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\ThingsConverter.cpp" />
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\ThinkingChess.cpp" />
-    <ClCompile Include="C:\Users\ScienceLover\Desktop\New folder\Timer.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\AllDraw.h" />
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\ChessGeneticAlgorithm.h" />
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\ChessPerdict.h" />
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\ChessRules.h" />
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\ClassLoad.h" />
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\DrawBridge.h" />
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\DrawElefant.h" />
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\DrawHourse.h" />
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\DrawKing.h" />
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\DrawMinister.h" />
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\DrawSoldire.h" />
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\HermitInterpolation.h" />
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\ImportantNodes.h" />
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\Interpolate.h" />
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\LearningAtamata.h" />
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\NewotoonInterpolate.h" />
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\PlatformHelper.h" />
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\Program.h" />
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\QuantumAtamata.h" />
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\QuantumLearningAtamata.h" />
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\RefregitzReader.h" />
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\Refrigtz.AboutBoxChessRefregitz.h" />
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\Refrigtz.FormKindOfGameContinue.h" />
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\Refrigtz.FormRefrigtz.h" />
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\Refrigtz.FormSelect.h" />
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\Refrigtz.FormTXT.h" />
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\Refrigtz.FormُSelectItems.h" />
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\Refrigtz.Load.h" />
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\Resource1.Designer.h" />
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\RunStockfish.h" />
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\stringconverter.h" />
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\Syncronization.h" />
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\ThingsConverter.h" />
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\ThinkingChess.h" />
-    <ClInclude Include="C:\Users\ScienceLover\Desktop\New folder\Timer.h" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="C:\Users\ScienceLover\Desktop\New folder\App.config" />
     <None Include="C:\Users\ScienceLover\Desktop\New folder\Refrigtz.ruleset" />
     <None Include="C:\Users\ScienceLover\Desktop\New folder\Refrigtz_1_TemporaryKey.pfx" />
@@ -173,6 +94,50 @@
     <EmbeddedResource Include="C:\Users\ScienceLover\Desktop\New folder\Refrigtz.FormُSelectItems.resx" />
     <EmbeddedResource Include="C:\Users\ScienceLover\Desktop\New folder\Refrigtz.Load.resx" />
     <EmbeddedResource Include="C:\Users\ScienceLover\Desktop\New folder\Resource1.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\GalleryStudio\Program.cpp" />
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\Refrigtz\bin\Debug\All\All\LearningAtamata.cpp" />
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\Refrigtz\bin\Debug\All\All\NetworkQuantumLearningKrinskyAtamata.cpp" />
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\Refrigtz\bin\Debug\All\All\NewotoonInterpolate.cpp" />
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\Refrigtz\bin\Debug\All\All\QuantumAtamata.cpp" />
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\Refrigtz\bin\Debug\All\All\QuantumLearningAtamata.cpp" />
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\Refrigtz\bin\Debug\All\All\ThinkingAtamata.cpp" />
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\Refrigtz\bin\Debug\All\All\ThinkingChess.cpp" />
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\AllDraw.cpp" />
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\ChessGeneticAlgorithm.cpp" />
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\ChessRules.cpp" />
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\DrawBridge.cpp" />
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\DrawCastle.cpp" />
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\DrawElefant.cpp" />
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\DrawHourse.cpp" />
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\DrawKing.cpp" />
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\DrawMinister.cpp" />
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\DrawSoldire.cpp" />
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\ThingsConverter.cpp" />
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\ThinkingChess.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\GalleryStudio\Program.h" />
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\Refrigtz\bin\Debug\All\All\LearningAtamata.h" />
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\Refrigtz\bin\Debug\All\All\NetworkQuantumLearningKrinskyAtamata.h" />
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\Refrigtz\bin\Debug\All\All\NewotoonInterpolate.h" />
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\Refrigtz\bin\Debug\All\All\QuantumAtamata.h" />
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\Refrigtz\bin\Debug\All\All\QuantumLearningAtamata.h" />
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\Refrigtz\bin\Debug\All\All\ThinkingAtamata.h" />
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\Refrigtz\bin\Debug\All\All\ThinkingChess.h" />
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\Refrigtz\DrawCastle.h" />
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\AllDraw.h" />
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\ChessGeneticAlgorithm.h" />
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\ChessRules.h" />
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\DrawBridge.h" />
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\DrawElefant.h" />
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\DrawHourse.h" />
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\DrawKing.h" />
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\DrawMinister.h" />
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\DrawSoldire.h" />
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\ThingsConverter.h" />
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Refregitz\RfregitzD\ThinkingChess.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
