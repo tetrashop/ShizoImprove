@@ -1,5 +1,4 @@
 ﻿#include "stdafx.h"
-#include "DrawHourse.h"
 
 
 namespace RefrigtzDLL

@@ -1,6 +1,6 @@
 ﻿#include "stdafx.h"
-#include "ChessRules.h"
-#include "stringconverter.h"
+
+
 namespace RefrigtzDLL
 {
 	
@@ -1820,15 +1820,15 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		}
 	}
 
-	bool ChessRules::ArrayInList(std::vector<int> &List, int A[])
+	bool ChessRules::ArrayInList(std::vector<int> *List, int A[])
 	{
 		//Initiate Local Variables.
 		bool Is = false;
 		//For each Items of a Tow Part List.
-		for (int i = 0; i < List.size(); i++)
+		for (int i = 0; i < List->size(); i++)
 		{
 			//If Listis Equal Setting of Local Variable Equality.
-			if (A == List[i][0] && A[1] == List[i][1])
+			if (A[i] == List[i][0] && A[1] == List[i][1])
 			{
 				Is = true;
 			}
@@ -1837,7 +1837,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		return Is;
 	}
 
-	bool ChessRules::FindAThing(int **Table, int &Row, int &Column, int Thing, bool BeMovable, std::vector<int> &List)
+	bool ChessRules::FindAThing(int **Table, int &Row, int &Column, int Thing, bool BeMovable, std::vector<int> *List)
 	{
 		//For All Items In Table Home.
 		for (int i = 0; i < 8; i++)
@@ -2534,7 +2534,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 								if (A->CheckGray)
 								{
 									//Move Mack.
-									ActMove = true;
+									(*ActMove) = true;
 									continue;
 								}
 								else //If There is Not Gray Check.
@@ -2549,7 +2549,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 								if (A->CheckBrown)
 								{
 									//Move Mack.
-									ActMove = true;
+									(*ActMove) = true;
 									continue;
 								}
 								else //If There is Not Gray Check.
@@ -2605,7 +2605,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 				CheckBrown = CheckBrownDummy;
 				//If There is Gray Check.
 				//Initiate Local Varibale.
-				ActMove = true;
+				(*ActMove) = true;
 				//For All Second Home Table.
 				for (int ii = 0; ii < 8; ii++)
 				{
@@ -2659,7 +2659,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 									if (A->CheckGray)
 									{
 										//Initiate and Move Back.
-										ActMove = true;
+										(*ActMove) = true;
 										Table[i][j] = Table[ii][jj];
 										Table[ii][jj] = Store;
 										continue;
@@ -2679,7 +2679,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 									if (A->CheckBrown)
 									{
 										//Initiate and Move Back.
-										ActMove = true;
+										(*ActMove) = true;
 										Table[i][j] = Table[ii][jj];
 										Table[ii][jj] = Store;
 										continue;
@@ -2750,10 +2750,9 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		CheckBrown = false;
 		CheckMateBrown = false;
 		CheckMateGray = false;
-		bool ActMoveG = true;
-		bool ActMoveGF = true;
-		bool ActMoveB = true;
-		bool ActMoveBF = true;
+		bool *ActMoveG = new bool();	(*ActMoveG) = true;
+		bool *ActMoveGF = new bool();	(*ActMoveGF) = true;
+		bool *ActMoveB = new bool();	(*ActMoveB) = true;
 		int RowG = 0, ColumnG = 0;
 		int RowB = 0, ColumnB = 0;
 		int DumnyOrder = Ord;
@@ -2763,8 +2762,8 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		bool CheckGrayDummy = CheckGray;
 		bool CheckBrownDummy = CheckBrown;
 
-		ActMoveG = true;
-		ActMoveGF = true;
+		(*ActMoveG) = true;
+		(*ActMoveGF) = true;
 
 		for (int i = 0; i < 8; i++)
 		{
@@ -2805,8 +2804,8 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		}
 
 
-		ActMoveB = true;
-		ActMoveBF = true;
+		(*ActMoveB) = true;
+		(*ActMoveGF) = true;
 
 		RefrigtzDLL::ChessRules *AA = new RefrigtzDLL::ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[RowB][ColumnB], Table, Ord, RowB, ColumnB);
 		for (int i = 0; i < 8; i++)
@@ -2831,7 +2830,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		//Found of Brown King.
 		if (FindBrownKing(Table, RowB, ColumnB))
 		{
-			AA->CheckMateNotKing(Table, -1, CheckGrayDummy, CheckBrownDummy, ActMoveBF);
+			AA->CheckMateNotKing(Table, -1, CheckGrayDummy, CheckBrownDummy, ActMoveGF);
 		}
 
 
@@ -2839,7 +2838,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		CheckGray = CheckGrayDummy;
 		CheckBrown = CheckBrownDummy;
 		//Condition of Brown CheckMate.
-		if (CheckBrown &&ActMoveB && ActMoveBF)
+		if (CheckBrown &&ActMoveB && ActMoveGF)
 		{
 			CheckMateBrown = true;
 		}
@@ -3182,7 +3181,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 	bool ChessRules::CastleRules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, int color, bool ExistInDestinationEnemy, int Ki)
 	{
 		bool Move = false;
-		bool Act = false;
+		bool *Act = new bool();	(*Act) = false;
 		//If Variation is Only in Row.
 		if (abs(ColumnFirst - ColumnSecond) == 0 && abs(RowFirst - RowSecond) != 0)
 		{
@@ -3246,12 +3245,12 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 						if (Table[i][ColumnFirst] > 0 && Table[RowFirst][ColumnFirst] > 0)
 						{
 							Move = false;
-							Act = true;
+							(*Act) = true;
 						}
 						//When There is Self Home of Brown Objects Return Not Validity.
 						if (Table[i][ColumnFirst] < 0 && Table[RowFirst][ColumnFirst] < 0)
 						{
-							Act = true;
+							(*Act) = true;
 							Move = false;
 						}
 
@@ -3261,13 +3260,13 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 							//When There is Slef Home at Root Return Not Valididty.
 							if ((Table[i][ColumnFirst] < 0 || Table[i][ColumnFirst] > 0) && Table[RowFirst][ColumnFirst] > 0)
 							{
-								Act = true;
+								(*Act) = true;
 								Move = false;
 							}
 							//When There is Slef Home at Root Return Not Valididty.
 							if ((Table[i][ColumnFirst] > 0 || Table[i][ColumnFirst] < 0) && Table[RowFirst][ColumnFirst] < 0)
 							{
-								Act = true;
+								(*Act) = true;
 								Move = false;
 							}
 						}
@@ -3343,13 +3342,13 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 					//For All Self Home at Root Return Not Validity
 					if (Table[RowFirst][j] > 0 && Table[RowFirst][ColumnFirst] > 0)
 					{
-						Act = true;
+						(*Act) = true;
 						Move = false;
 					}
 					//For All Self Home at Root Return Not Validity.                       
 					if (Table[RowFirst][j] < 0 && Table[RowFirst][ColumnFirst] < 0)
 					{
-						Act = true;
+						(*Act) = true;
 						Move = false;
 					}
 					//Condition Determination.
@@ -3358,13 +3357,13 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 						//Existing of Self Home At Root Cuased to Not validity.
 						if ((Table[RowFirst][j] < 0 || Table[RowFirst][j] > 0) && Table[RowFirst][ColumnFirst] > 0)
 						{
-							Act = true;
+							(*Act) = true;
 							Move = false;
 						}
 						//Existing of Self Home At Root Cuased to Not validity.
 						if ((Table[RowFirst][j] > 0 || Table[RowFirst][j] < 0) && Table[RowFirst][ColumnFirst] < 0)
 						{
-							Act = true;
+							(*Act) = true;
 							Move = false;
 						}
 					}
@@ -3395,7 +3394,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 	bool ChessRules::ElefantRules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, int color, bool ExistInDestinationEnemy, int Ki)
 	{
 		bool Move = false;
-		bool Act = false;
+		bool *Act = new bool(); (*Act) = false;
 		//Orthogonal Movments of One Abs Derivation.
 		if (abs(ColumnFirst - ColumnSecond) == abs(RowFirst - RowSecond))
 		{
@@ -3466,13 +3465,13 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 							//If the Root Contains Self Home Return Not Validity.
 							if (Table[i][j] > 0 && Table[RowFirst][ColumnFirst] > 0)
 							{
-								Act = true;
+								(*Act) = true;
 								Move = false;
 							}
 							//If The Root Contains Self Home Return Not vALIDITY. 
 							if (Table[i][j] < 0 && Table[RowFirst][ColumnFirst] < 0)
 							{
-								Act = true;
+								(*Act) = true;
 								Move = false;
 							}
 							//When the Current is Not The Source Home.
@@ -3481,13 +3480,13 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 								//When the Self ObjectExisting at the Root .
 								if ((Table[i][j] > 0 || Table[i][j] < 0) && Table[RowFirst][ColumnFirst] > 0)
 								{
-									Act = true;
+									(*Act) = true;
 									Move = false;
 								}
 								//When the Self ObjectExisting at the Root .
 								if ((Table[i][j] < 0 || Table[i][j] > 0) && Table[RowFirst][ColumnFirst] < 0)
 								{
-									Act = true;
+									(*Act) = true;
 									Move = false;
 								}
 							}

@@ -1,10 +1,7 @@
 ﻿#pragma once
 
 #include "stdafx.h"
-#include "AllDraw.h"
-#include "QuantumAtamata.h"
-#include "NetworkQuantumLearningKrinskyAtamata.h"
-#include "ThingsConverter.h"
+
 using namespace std;
 
 /****************************************************************************
@@ -209,12 +206,12 @@ namespace RefrigtzDLL
 //C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
 //ORIGINAL LINE: public int[,] TableT;
 		int **TableT;
-		std::vector<int*> HitNumberSoldier;
-		std::vector<int*> HitNumberElefant;
-		std::vector<int*> HitNumberHourse;
-		std::vector<int*> HitNumberCastle;
-		std::vector<int*> HitNumberMinister;
-		std::vector<int*> HitNumberKing;
+		std::vector<int> HitNumberSoldier;
+		std::vector<int> HitNumberElefant;
+		std::vector<int> HitNumberHourse;
+		std::vector<int> HitNumberCastle;
+		std::vector<int> HitNumberMinister;
+		std::vector<int> HitNumberKing;
 //C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
 //ORIGINAL LINE: public int[,] TableConst;
 		int **TableConst;
@@ -230,20 +227,17 @@ namespace RefrigtzDLL
 		std::vector<double*> HuristicListCastle;
 		std::vector<double*> HuristicListMinister;
 		std::vector<double*> HuristicListKing;
-		std::vector<QuantumAtamata*> PenaltyRegardListSolder;
-		std::vector<QuantumAtamata*> PenaltyRegardListElefant;
-		std::vector<QuantumAtamata*> PenaltyRegardListHourse;		
-		std::vector<QuantumAtamata*> PenaltyRegardListCastle;
-		std::vector<QuantumAtamata*> PenaltyRegardListMinister;
-		std::vector<QuantumAtamata*> PenaltyRegardListKing;
+		std::vector<QuantumAtamata> PenaltyRegardListSolder;
+		std::vector<QuantumAtamata> PenaltyRegardListElefant;
+		std::vector<QuantumAtamata> PenaltyRegardListHourse;		
+		std::vector<QuantumAtamata> PenaltyRegardListCastle;
+		std::vector<QuantumAtamata> PenaltyRegardListMinister;
+		std::vector<QuantumAtamata> PenaltyRegardListKing;
 		int Max;
 		int Row, Column;
 		int color;
 		int Order;
-//C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
-//ORIGINAL LINE: [NonSerialized()] public Task t = nullptr;
-		//Task *t;
-		std::vector<AllDraw*> *AStarGreedy;
+		std::vector<AllDraw> AStarGreedy;
 	private:
 		double Value[8][8];
 		bool IgnoreFromCheckandMateHuristic;
@@ -309,7 +303,7 @@ namespace RefrigtzDLL
 		double GetValue(int i, int j);
 		///Clone a Copy.
 	public:
-		void Clone(ThinkingChess *AA);
+		void Clone(ThinkingChess &AA);
 		///Huristic of Attacker.
 	private:
 		double HuristicAttack(bool Before, int **Table, int Ord, int aa, int RowS, int ColS, int RowD, int ColD);
@@ -321,8 +315,9 @@ namespace RefrigtzDLL
 		double HuristicKiller(int Killed, int **Tabl, int RowS, int ColS, int RowD, int ColD, int Ord, int aa, bool Hit);
 		//Attacks Of Enemy that is not Supported.QC_OK
 		bool InAttackEnemyThatIsNotSupported(int Kilded, int **Table, int Order, int a, int i, int j, int ii, int jj);
+		//bool InAttackEnemyThatIsNotSupportedAll(bool EnemyIsValuable, int ** Table, int Order, int a, int ij, int ji, int iij, int jji, std::vector<int> ValuableEnemyNotSupported);
 		//When at least one Attacked Self Object return true.
-		bool InAttackEnemyThatIsNotSupportedAll(bool EnemyIsValuable, int **Table, int Order, int a, int ij, int ji, int iij, int jji, std::vector<int> &ValuableEnemyNotSupported);
+		//bool InAttackEnemyThatIsNotSupportedAll(bool EnemyIsValuable, int **Table, int Order, int a, int ij, int ji, int iij, int jji, std::vector<int> &ValuableEnemyNotSupported);
 		//When  there is more than tow self object not supported on atacked by movement return true.
 		int IsNotSafeToMoveAenemeyToAttackMoreThanTowObject(int AttackCount, int **Table, int Order, int i, int j, int ii, int jj);
 		//Supported of Self that is Not Attacks.QC_BAD
@@ -330,8 +325,8 @@ namespace RefrigtzDLL
 		//When there is at least on self object that is not safty.
 		bool InAttackSelfThatNotSupportedAll(int **TableS, int Order, int a, int i, int j, int RowS, int ColS, int ikk, int jkk, int iik, int jjk);
 		//Creation A Complete List of Attacked Self Object(s).
-		bool InAttackSelfThatNotSupportedCalculateValuableAll(int **TableS, int Order, int a, int ij, int ji, int ii, int jj, std::vector<int*> ValuableSelfSupported);
-		bool ExistValuble(int Table[], std::vector<int*> ValuableSelfSupported);
+		bool InAttackSelfThatNotSupportedCalculateValuableAll(int **TableS, int Order, int a, int ij, int ji, int ii, int jj, std::vector<int*> &ValuableSelfSupported);
+		bool ExistValuble(int Table[], std::vector<int*> &ValuableSelfSupported);
 		bool MaxObjecvts(std::vector<int> &Obj, int Max);
 		//When Current Movment Take Supporte.QC_OK
 		bool IsCurrentMoveTakeSupporte(int **Table, int Order, int a, int i, int j, int ii, int jj);
@@ -357,6 +352,7 @@ namespace RefrigtzDLL
 		bool RemovePenalty(int **Tab, int Order, int i, int j);
 		//Dangouring of current movment fo current Order.
 	private:
+		bool InAttackEnemyThatIsNotSupportedAll(bool EnemyIsValuable, int **Table, int Order, int a, int ij, int ji, int iij, int jji, std::vector<int> ValuableEnemyNotSupported);
 		bool IsCurrentStateIsDangreousForCurrentOrder(int **Tabl, int Order, int a, int ii, int jj);
 
 		//When Next Movements is Checked.QC_OK.
@@ -437,7 +433,7 @@ namespace RefrigtzDLL
 		void MinisterThinkingChess(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
 		bool IsPrviousMovemntIsDangrousForCurrent(int **TableS, int Order);
 		//When There is not valuable Object in List Greater than Target Self Object return true.        
-		bool IsObjectValaubleObjectSelf(int i, int j, int Object, std::vector<int*> ValuableSelfSupported);
+		bool IsObjectValaubleObjectSelf(int i, int j, int Object, std::vector<int*> &ValuableSelfSupported);
 		bool IsObjectValaubleObjectEnemy(int i, int j, int Object, std::vector<int> ValuableEnemyNotSupported);
 		bool *SomeLearningVarsCalculator(int **TableS, int ik, int jk, int iik, int jjk);
 		bool *CalculateLearningVars(int Killed, int **TableS, int i, int j, int ii, int jj);
@@ -445,10 +441,10 @@ namespace RefrigtzDLL
 		void HourseThinkingChess(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
 		void ElephantThinkingChess(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
 		bool EqualitTow(bool PenRegStrore, int kind);
-		bool EqualitOne(QuantumAtamata  *Current, int kind);
-		void AddAtList(int kind, QuantumAtamata   *Current);
+		bool EqualitOne(QuantumAtamata  Current, int kind);
+		void AddAtList(int kind, QuantumAtamata   Current);
 		void RemoveAtList(int kind);
-    	bool PenaltyMechanisam(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int &CheckedM, int Killed, bool Before, int kind, int **TableS, int ii, int jj, QuantumAtamata  *Current, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int i, int j, bool Castle);
+    	bool PenaltyMechanisam(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int &CheckedM, int Killed, bool Before, int kind, int **TableS, int ii, int jj, QuantumAtamata  Current, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int i, int j, bool Castle);
 		void SolderThinkingChess(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
 		void CastleThinkingBrown(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
 
@@ -458,7 +454,7 @@ namespace RefrigtzDLL
 	private:
 		void CastleThinkingGray(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
 	public:
-		void HuristicPenaltyValuePerform(QuantumAtamata *Current, int Order, double &HuristicAttackValue, bool AllDrawClass = false);
+		void HuristicPenaltyValuePerform(QuantumAtamata Current, int Order, double &HuristicAttackValue, bool AllDrawClass = false);
 		void ThinkingSoldierBase(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
 		void ThinkingSoldier(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
 		void ThinkingElephantBase(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
@@ -495,7 +491,7 @@ namespace RefrigtzDLL
 		bool SignNotEqualEnemy(int Obj1, int Obj2, int Order, int &Ord, int &A);
 		bool SignEqualSelf(int Obj1, int Obj2, int Order, int &Ord, int &A);
 		bool SignNotEqualSelf(int Obj1, int Obj2, int Order, int &Ord, int &A);
-
+		
 
 	private:
 		void InitializeInstanceFields();

@@ -1,7 +1,6 @@
 ﻿#pragma once
 
 #include "stdafx.h"
-#include "LearningKrinskyAtamata.h"
 //Ramin Edjlal.CopyRight 2014.AllRightReserved.
 namespace RefrigtzDLL
 {

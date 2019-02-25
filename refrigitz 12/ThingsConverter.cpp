@@ -1,5 +1,4 @@
 ﻿#include "stdafx.h"
-#include "ThingsConverter.h"
 
 
 namespace RefrigtzDLL

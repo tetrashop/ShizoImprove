@@ -1,7 +1,6 @@
 ﻿#pragma once
 
 #include "stdafx.h"
-#include "ThinkingChess.h"
 /***********************************************************************************
  * Every Ruls of objective condition of chess game.*********************************
  * Current Rules Have not Attack Movements****************************************RS*****0.12**4**Managements and Cuation Programing**(+)
@@ -188,12 +187,13 @@ namespace RefrigtzDLL
 		//Create Syntax of Movments.
 	public:
 		std::wstring CreateStatistic(bool Arrange, int **Tab, int Movments, int SourceThings, int Column, int Row, bool Hit, int HitThings, bool CastleKing, bool SodierConvert);
+		
 		//Consideration of Existing Table in List.
 	public:
-		bool ArrayInList(std::vector<int> &List, int A[]);
+		bool ArrayInList(std::vector<int>* List, int A[]);
 		//Find a Specific Objects.
 	public:
-		bool FindAThing(int **Table, int &Row, int &Column, int Thing, bool BeMovable, std::vector<int> &List);
+		bool FindAThing(int **Table, int &Row, int &Column, int Thing, bool BeMovable, std::vector<int> *List);
 		//Brown King Found  Consideration.
 		bool FindBrownKing(int **Table, int &Row, int &Column);
 		//A Constraint Check Removed Unused Method.

@@ -1,7 +1,6 @@
 ﻿#pragma once
 
 #include "stdafx.h"
-#include "LearningKrinskyAtamata.h"
 /*CopyRight Ramin Edjlal***************************2018*************************
  The Magic Table Game Satte Learing Quantum Atamata.****************************
  *******************************************************************************

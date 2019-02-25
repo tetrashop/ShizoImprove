@@ -1,10 +1,10 @@
 ﻿#include "stdafx.h"
-#include "NetworkQuantumLearningKrinskyAtamata.h"
+
 
 namespace RefrigtzDLL
 {
 
-std::wstring NetworkQuantumLearningKrinskyAtamata::Root = System::IO::Path::GetDirectoryName(Environment::GetCommandLineArgs());
+	std::wstring NetworkQuantumLearningKrinskyAtamata::Root = L""; //System::IO::Path::GetDirectoryName(Environment::GetCommandLineArgs());
 
 	/*void NetworkQuantumLearningKrinskyAtamata::Log(std::exception &ex)
 	{

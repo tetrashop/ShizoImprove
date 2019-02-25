@@ -1,10 +1,5 @@
 ﻿#pragma once
-
-
-
 #include "stdafx.h"
-#include "ThinkingChess.h"
-
 namespace RefrigtzDLL
 {
 	

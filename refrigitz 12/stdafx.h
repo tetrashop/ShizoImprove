@@ -18,8 +18,6 @@
 #include <stdio.h>
 #include <tchar.h>
 #include <cmath>
-
-/*
 #include "stringconverter.h"
 #include "LearningKrinskyAtamata.h"
 #include "stringconverter.h"
@@ -39,7 +37,7 @@
 #include "AllDraw.h"
 #include "ChessRules.h"
 #include "HermitInterpolation.h"
-*/
+
 
 
 

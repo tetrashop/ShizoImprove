@@ -1,5 +1,4 @@
 ﻿#include "stdafx.h"
-#include "DrawElefant.h"
 
 
 namespace RefrigtzDLL
@@ -129,14 +128,14 @@ double DrawElefant::MaxHuristicxE = -20000000000000000;
 			}
 		}
 		//Initiate a Constructed Object an Clone a Copy.
-		AA = DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, color, Table, Order, false, Current);
+		AA = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, color, Table, Order, false, Current);
 		AA->ArrangmentsChanged = ArrangmentsChanged;
 		for (int i = 0; i < AllDraw::ElefantMovments; i++)
 		{
 			try
 			{
 				AA->ElefantThinking = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
-				ElefantThinking.Clone(AA->ElefantThinking);
+				ElefantThinking->Clone(AA->ElefantThinking);
 			}
 			catch (std::exception &t)
 			{

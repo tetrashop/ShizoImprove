@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "stdafx.h"
-#include "AllDraw.h"
+
 namespace RefrigtzDLL
 {
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:

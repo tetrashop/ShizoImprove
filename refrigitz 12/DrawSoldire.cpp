@@ -1,5 +1,5 @@
 ﻿#include "stdafx.h"
-#include "DrawSoldire.h"
+
 
 namespace RefrigtzDLL
 {

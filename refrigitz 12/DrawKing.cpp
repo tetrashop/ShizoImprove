@@ -1,5 +1,4 @@
 ﻿#include "stdafx.h"
-#include "DrawKing.h"
 
 
 namespace RefrigtzDLL

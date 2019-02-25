@@ -2,22 +2,20 @@
 
 
 #include "stdafx.h"
-//#include "ThingsConverter.h"
-#include "ThinkingChess.h"
 
 namespace RefrigtzDLL
 {//https://forum.arduino.cc/index.php?topic=565773.0
-	template <class T, size_t N>
+	/*template <class T, size_t N>
 	struct Array {
 		T data[N];
 
 		T &operator[](size_t index) { return data[index]; }
-		const T &operator[](size_t index) const { return data[index]; }
+		 T &operator[](size_t index)  { return data[index]; }
 		T *begin() { return &data[0]; }
-		const T *begin() const { return &data[0]; }
+		 T *begin()  { return &data[0]; }
 		T *end() { return &data[N]; }
-		const T *end() const { return &data[N]; }
-	};
+		 T *end()  { return &data[N]; }
+	};*/
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
 //ORIGINAL LINE: [Serializable] public class DrawSoldier : ThingsConverter
 	class DrawSoldier : public ThingsConverter

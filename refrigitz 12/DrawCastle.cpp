@@ -1,5 +1,4 @@
 ﻿#include "stdafx.h"
-#include "DrawCastle.h"
 
 namespace RefrigtzDLL
 {

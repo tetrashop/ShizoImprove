@@ -153,8 +153,7 @@ namespace RefrigtzDLL
                     Tab[i, j] = this.Table[i, j];
             //Initiate a Object and Assignemt of a Clone to Construction of a Copy.
 
-            AA = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, this.Row, this.Column, this.color, Tab, this.Order, false, this.Current
-                );
+            AA = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, this.Row, this.Column, this.color, Tab, this.Order, false, this.Current);
             AA.ArrangmentsChanged = ArrangmentsChanged;
             for (int i = 0; i < AllDraw.SodierMovments; i++)
             {

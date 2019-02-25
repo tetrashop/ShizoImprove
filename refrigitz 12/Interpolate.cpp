@@ -85,9 +85,9 @@ namespace RefrigtzDLL
 			{
 				for (int j = i + 1; j < n; j++)
 				{
-					double AS = N[i][j];
+					double AS = N[i][j]
 					N[i][j] = N[j][i];
-					N[j][i] = AS;
+					N[i][j] = AS;
 				}
 			}
 			double SAS = 1 / Det(A, n);

@@ -1,7 +1,7 @@
 ﻿#pragma once
 
 #include "stdafx.h"
-//#include "QuantumAtamata.h"
+
 
 /******************************************************************************
  * Ramin Edjlal Copyrights 2015.************************************************
@@ -51,7 +51,7 @@ namespace RefrigtzDLL
 	public:
 		void Initiate();
 		LearningKrinskyAtamata(int r0, int m0, int k0);
-		void Clone(QuantumAtamata  *AA);
+		//void Clone(QuantumAtamata  *AA);
 
 		void FailureState();
 		void SuccessState();
