@@ -1,11 +1,11 @@
 ﻿#include "stdafx.h"
-#include "HermitInterpolation.h"
+
 
 
 namespace RefrigtzDLL
 {
 
-	double *HermitInterpolation::SimplifyLxi(double s[], double x[], int p, int j, int i)
+	double *HermitInterpolation::SimplifyLxi(double *s, double *x, int p, int j, int i)
 	{
 		//autoo = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -35,7 +35,7 @@ namespace RefrigtzDLL
 		}
 	}
 
-	double *HermitInterpolation::Derivate(double za[], int n)
+	double *HermitInterpolation::Derivate(double *za, int n)
 	{
 		//autoo = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -50,7 +50,7 @@ namespace RefrigtzDLL
 		}
 	}
 
-	double *HermitInterpolation::PxLxi(double s[], double x[], int n, int i)
+	double *HermitInterpolation::PxLxi(double *s, double *x, int n, int i)
 	{
 		//autoo = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -74,8 +74,8 @@ namespace RefrigtzDLL
 				sas[0] = -1 * x[0];
 			}
 			sas[1] = 1;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
-//ORIGINAL LINE: Double[] aa = SimplifyLxi(sas, x, n - 1, 1, i);
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
+//ORIGINAL LINE: Double* aa = SimplifyLxi(sas, x, n - 1, 1, i);
 			double *aa = SimplifyLxi(sas, x, n - 1, 1, i);
 			for (int a = 0; a < n; a++)
 			{
@@ -85,7 +85,7 @@ namespace RefrigtzDLL
 		}
 	}
 
-	double *HermitInterpolation::PxUxi(double x[], double f[], int n, int i)
+	double *HermitInterpolation::PxUxi(double *x, double *f, int n, int i)
 	{
 		//autoo = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -96,12 +96,12 @@ namespace RefrigtzDLL
 			double *firstpar=new double[2];
 			firstpar[0] = 2 * x[i];
 			firstpar[1] = -2;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
-//ORIGINAL LINE: Double[] Lxi = PxLxi(f, x, n, i);
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
+//ORIGINAL LINE: Double* Lxi = PxLxi(f, x, n, i);
 			double *Lxi = PxLxi(f, x, n, i);
 			double *Lxi2 = new double[2 * n];
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
-//ORIGINAL LINE: Double[] lprinlxi = Derivate(Lxi, n);
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
+//ORIGINAL LINE: Double* lprinlxi = Derivate(Lxi, n);
 			double *lprinlxi = Derivate(Lxi, n);
 
 			for (int r = 0; r < n - 1; r++)
@@ -132,7 +132,7 @@ namespace RefrigtzDLL
 		}
 	}
 
-	double *HermitInterpolation::PxVxi(double x[], double f[], int n, int i)
+	double *HermitInterpolation::PxVxi(double *x, double *f, int n, int i)
 	{
 		//autoo = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -143,12 +143,12 @@ namespace RefrigtzDLL
 			double *firstpar = new double[2];
 			vxi[0] = (-1) * x[i];
 			vxi[1] = 1;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
-//ORIGINAL LINE: Double[] Lxi = PxLxi(f, x, n, i);
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
+//ORIGINAL LINE: Double* Lxi = PxLxi(f, x, n, i);
 			double *Lxi = PxLxi(f, x, n, i);
 			double *Lxi2=new double[2 * n];
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
-//ORIGINAL LINE: Double[] lprinlxi = Derivate(Lxi, n);
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
+//ORIGINAL LINE: Double* lprinlxi = Derivate(Lxi, n);
 			double *lprinlxi = Derivate(Lxi, n);
 
 			for (int r = 0; r < n; r++)
@@ -169,7 +169,7 @@ namespace RefrigtzDLL
 		}
 	}
 
-	double *HermitInterpolation::FPerinValue(double x[], double f[], int n)
+	double *HermitInterpolation::FPerinValue(double *x, double *f, int n)
 	{
 		//autoo = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -194,14 +194,14 @@ namespace RefrigtzDLL
 		}
 	}
 
-	double *HermitInterpolation::PxHermit(double x[], double f[], int n)
+	double *HermitInterpolation::PxHermit(double *x, double *f, int n)
 	{
 		//autoo = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 		//lock (o)
 		{
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
-//ORIGINAL LINE: Double[] fperin = FPerinValue(x, f, n);
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
+//ORIGINAL LINE: Double* fperin = FPerinValue(x, f, n);
 			double *fperin = FPerinValue(x, f, n);
 			double *Result = new double[2 * n + n];
 			double *Dummy=new double[2 * n + n];
@@ -234,7 +234,7 @@ namespace RefrigtzDLL
 		}
 	}
 
-	double HermitInterpolation::DetaIorward(double x[], double f[], int index)
+	double HermitInterpolation::DetaIorward(double *x, double *f, int index)
 	{
 		//autoo = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -249,7 +249,7 @@ namespace RefrigtzDLL
 		}
 	}
 
-	double HermitInterpolation::DeltaiBackward(double x[], double f[], int index)
+	double HermitInterpolation::DeltaiBackward(double *x, double *f, int index)
 	{
 		//autoo = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:

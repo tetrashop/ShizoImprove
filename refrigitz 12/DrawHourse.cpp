@@ -32,7 +32,7 @@ DrawHourse::~DrawHourse()
 		ValuableSelfSupported.clear();
 //		H = nullptr;
 	}
-	void* DrawHourse::operator[](std::size_t idx) { return malloc(idx * sizeof(this)); }
+	void* DrawHourse::operator*(std::size_t idx) { return malloc(idx * sizeof(this)); }
 	bool DrawHourse::MaxFound(bool &MaxNotFound)
 	{
 		try
@@ -70,7 +70,7 @@ DrawHourse::~DrawHourse()
 		{
 			try
 			{
-				a += HourseThinking->ReturnHuristic(-1, -1, Order,false);
+				a += HourseThinking.ReturnHuristic(-1, -1, Order,false);
 			}
 			catch (std::exception &t)
 			{
@@ -102,7 +102,7 @@ DrawHourse::~DrawHourse()
 				Table[ii][jj] = Tab[ii][jj];
 			}
 		}
-		HourseThinking = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(i), static_cast<int>(j), a, Tab, 8, Ord, TB, Cur, 4, 3);
+		HourseThinking = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(i), static_cast<int>(j), a, Tab, 8, Ord, TB, Cur, 4, 3);
 
 		Row = i;
 		Column = j;
@@ -112,7 +112,7 @@ DrawHourse::~DrawHourse()
 
 	}
 
-	void DrawHourse::Clone(DrawHourse *&AA)
+	/*void DrawHourse::Clone(DrawHourse *&AA)
 	{
 		int **Tab;
 		for (int i = 0; i < 8; i++)
@@ -124,37 +124,37 @@ DrawHourse::~DrawHourse()
 		}
 		//Create a Construction Ojects and Initiate a Clone Copy.
 		AA = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, color, Table, Order, false, Current);
-		AA->ArrangmentsChanged = ArrangmentsChanged;
+		AA.ArrangmentsChanged = ArrangmentsChanged;
 		for (int i = 0; i < AllDraw::HourseMovments; i++)
 		{
 			try
 			{
-				AA->HourseThinking = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
-				HourseThinking->Clone(AA->HourseThinking);
+				AA.HourseThinking = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
+				HourseThinking.Clone(AA.HourseThinking);
 			}
 			catch (std::exception &t)
 			{
 				
 //C# TO C++ CONVERTER WARNING: C# to C++ Converter converted the original 'null' assignment to a call to 'delete', but you should review memory allocation of all pointer variables in the converted code:
-				delete AA->HourseThinking;
+				delete AA.HourseThinking;
 			}
 		}
-		AA->Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii]-new int[8];
+		AA.Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii]-new int[8];
 		for (int ii = 0; ii < 8; ii++)
 		{
 			for (int jj = 0; jj < 8; jj++)
 			{
-				AA->Table[ii][jj] = Tab[ii][jj];
+				AA.Table[ii][jj] = Tab[ii][jj];
 			}
 		}
-		AA->Row = Row;
-		AA->Column = Column;
-		AA->Order = Order;
-		AA->Current = Current;
-		AA->color = color;
+		AA.Row = Row;
+		AA.Column = Column;
+		AA.Order = Order;
+		AA.Current = Current;
+		AA.color = color;
 
 	}
-
+	*/
 	void DrawHourse::DrawHourseOnTable( int CellW, int CellH)
 	{
 	/*	try
@@ -179,7 +179,7 @@ DrawHourse::~DrawHourse()
 						//lock (O1)
 						{ //Draw an Instant from File of Gray Soldeirs.
 							 //Draw an Instatnt Gray Hourse on the Table.
-							g->DrawImage(H, Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
+							g.DrawImage(H, Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
 						}
 					}
 					else
@@ -189,7 +189,7 @@ DrawHourse::~DrawHourse()
 						//lock (O1)
 						{ //Draw an Instant from File of Gray Soldeirs.
 							 //Draw an Instatnt Brown Hourse on the Table.
-							g->DrawImage(H[1], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
+							g.DrawImage(H[1], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
 						}
 					}
 				}

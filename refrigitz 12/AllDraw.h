@@ -14,7 +14,7 @@
  * In Current Version of Heuristic Table Doesn’t Reached(Zero)****************************0.12**4**Managements and Cuation Programing**********************(+)
  * In Current Version InitiateForEveryThisngsHome Dosn't Work*****************************0.12**4**Managements and Cuation Programing**********************(+)
  * In This Version Thinking Taking A LotofTime(AStarGreedyt Array Tree)**********************0.12**4**Managements and Cuation Programing**********************(+)
- * Heuristic Work In AStarGreedys. But Scanning Dosen’t Works************************************0.12**4**Managements and Cuation Programing**********************(+)
+ * Heuristic Work In AStarGreedys. But Scanning Dosen’t Work***x*********************************0.12**4**Managements and Cuation Programing**********************(+)
  * Adding Clone Caused To Stack Overflow**************************************************0.12**4**Managements and Cuation Programing**********************(+)
  * Clone Caused To StackOverFlow**********************************************************0.12**4**Managements and Cuation Programing**********************(+)
  * Row And Column Become Zero in Virtualization*******************************************0.12**4**Managements and Cuation Programing**********************(+)
@@ -27,10 +27,10 @@
  * int Changes with no movement*********************************************************0.12**4**Managements and Cuation Programing**********************(+)
  * Table Not Gate (Inversion of Table List) Doesn’t help to do Normally*******************0.12**4**Managements and Cuation Programing**********************(+)
  * Literally Errors Correction************************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * From Arrangements of Things Reaches Suddenly Things Location OccuRS********************0.12**4**Managements and Cuation Programing**********************(+)
+ * From Arrangements of Things Reaches Suddenly Things Location OccuR***x*****************0.12**4**Managements and Cuation Programing**********************(+)
  * The Arrangements is Logical************************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * The int changes and the arrangements changes are not clearly obvious*****************0.12**4**Managements and Cuation Programing**********************(+)
- * int Changes Solved. no movements*****************************************************0.12**4**Managements and Cuation Programing**********************(+)(-+)
+ * The int changes and the arrangements changes are not clearly obviou***x**************0.12**4**Managements and Cuation Programing**********************(+)
+ * int Changes Solved. no movement***x**************************************************0.12**4**Managements and Cuation Programing**********************(+)(-+)
  * Things movements Anomally**************************************************************0.12**4**Managements and Cuation Programing**********************(+)
  * Chess Rules Anomally*******************************************************************0.12**4**Managements and Cuation Programing**********************(+)
  * Heuristic Function Not Work************************************************************0.12**4**Managements and Cuation Programing**********************(+)
@@ -40,17 +40,17 @@
  * Need to Restricted Approval. Taking a lot of time Thinking Computation*****************0.12**4**Managements and Cuation Programing**********************(+)
  * No movements In Virtualization*********************************************************0.12**4**Managements and Cuation Programing**********************(+)
  * Chess Rules Abnormal thinking movements. No movement greater than 2********************0.12**4**Managements and Cuation Programing**********************(+)
- * Problem For Drawing of Thinking Things*************************************************0.12**4**Managements and Cuation Programing**********************(+)
+ * Problem For Drawing of Thinking Thing***x**********************************************0.12**4**Managements and Cuation Programing**********************(+)
  * Heuristic Constant Result**************************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * One movements Right .Heuristic Remaining Constant Results******************************0.12**4**Managements and Cuation Programing**********************(+)
+ * One movements Right .Heuristic Remaining Constant Result***x***************************0.12**4**Managements and Cuation Programing**********************(+)
  * Constant Heuristic Result**************************************************************0.12**4**Managements and Cuation Programing**********************(+)
  * Need To Add A Heuristic Useful Another*************************************************0.12**4**Managements and Cuation Programing**********************(+)
  * Heuristic Function Does’ Work Allis suddenly Become Zero that Previously Working*******0.12**4**Managements and Cuation Programing**********************(+)
  * No Movement Greater than one order in Computer 'Alice'*********************************0.12**4**Managements and Cuation Programing**********************(+)
  * Tow movements in Computer 'Alice' Of two Different Order int*************************0.12**4**Managements and Cuation Programing**********************(+)
- * Heuristic Not Work Greater than 3 Length Count of A************************************0.12**4**Managements and Cuation Programing**********************(+)
+ * Heuristic Not Work Greater than 3 Length Count of *a***********************************0.12**4**Managements and Cuation Programing**********************(+)
  * 'They Don't Really Take care about us'. Misleading in Heuristic King Supported*********0.12**4**Managements and Cuation Programing**********************(+)
- * Non Order Movments*********************************************************************0.12**4**Managements and Cuation Programing**********************(+)
+ * Non Order Movment***x******************************************************************0.12**4**Managements and Cuation Programing**********************(+)
  * Misleading at Stage three. no illegal movement greater than three**********************0.12**4**Managements and Cuation Programing**********************(+)
  * Thinking Order Misleading**************************************************************0.12**4**Managements and Cuation Programing**********************(+)
  * Hit Mechanism Malfunctional************************************************************0.12**4**Managements and Cuation Programing**********************(+)
@@ -321,6 +321,7 @@ namespace RefrigtzDLL
 		int Ki6;
 		double MaxLess6;
 	public:
+		AllDraw	*AStarGreedyString;
 		static int LoopHuristicIndex;
 	private:
 		static std::vector<int> RWList;
@@ -332,14 +333,14 @@ namespace RefrigtzDLL
 		static int MouseClick;
 	public:
 		int *AStarGreedyIndex;
-		void* operator[](std::size_t idx);
+		void* operator*(std::size_t idx);
 		/*
 		template <class T, size_t N>
 struct Array {
     T data[N];
 
-    T &operator[](size_t index) { return data[index]; }
-     T &operator[](size_t index)  { return data[index]; }
+    T &operator*(size_t index) { return data[index]; }
+     T &operator*(size_t index)  { return data[index]; }
     T *begin() { return &data[0]; }
      T *begin()  { return &data[0]; }
     T *end() { return &data[N]; }
@@ -388,14 +389,19 @@ struct Array {
 		//Constructor
 	public:
 		std::vector<std::vector<double>> FoundOfBestMovments(int AStarGreedy, std::vector<double> i, std::vector<double> j, std::vector<double> k, AllDraw Dummy, int a, int Order);
+		void SemaphoreExxedTime(int time, int Kind);
+		//int SumOfObjects(AllDraw A, int Order);
+		bool IsEnemyThingsinStable(int** TableHuristic, int**  TableAction, int Order);		
 		void IsPenaltyRegardCheckMateAtBranch(int Order, int *Do, AllDraw Base);
 		AllDraw(int Order, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments);
 		//Clone Copy Method
 		void Clone(AllDraw& AA);
+//		int SumOfObjects(AllDraw A, int Order);
 		//aBlanck Constructor
 		AllDraw(int Order, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, AllDraw THi);
 		//Check For Thinking Of Current Item Movments Finished.
 		bool KingDan(int** Tab, int Order);
+		//int** Initiate(int ii, int jj, int a, int** Table, int Order, bool TB, bool FOUND, int LeafAStarGreedy, bool SetDept = false);
 		/*void SetQuantumRowColumn(int Kind, int Section)
 		{
 			if (Kind == 1)
@@ -502,8 +508,11 @@ if (Kind == 2)
 		int **HuristicAStarGreadySearchKing(int **TableHuristic, int i, int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool *Act);
 		int **HuristicAStarGreadySearchGray(int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool *Act);
 		int **HuristicAStarGreadySearchBrown(int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool *Act);
+		int **BrownHuristicAStarGreaedySearchPenalites(int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool *Act);
 		//AStarGreedy First Huristic Method.
-	public:
+	public:	
+		bool AllCurrentAStarGreedyThinkingFinished(AllDraw Dum, int i, int j, int Kind);
+		//int** CloneATable(int** Tab);
 		int **HuristicAStarGreedySearch(int AStarGreedyi, int a, int Order, bool CurrentTableHuristic);
 		int **HuristicAStarGreedySearchPenalties(int AStarGreedyi, int a, int Order, bool CurrentTableHuristic);
 		//Genethic Algorithm Game Method.
@@ -511,7 +520,7 @@ if (Kind == 2)
 		//AStarGreedy First Initiat Thinking Main Method.
 		AllDraw InitiateAStarGreedytOneNode(int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, int iIndex, int KindIndex, int LeafAStarGreedy);
 		int** Initiate(int ii, int jj, int a, int** Table, int Order, bool TB, bool FOUND, int LeafAStarGreedy, bool SetDept = false);	
-		
+		//void StringHuristics(int Obj, int Sec, bool AA, int Do, int WinOcuuredatChiled, int LoseOcuuredatChiled);
 	private:
 		int MaxGrayMidle();
 		int MaxBrownHigh();
@@ -535,7 +544,8 @@ if (Kind == 2)
 		AllDraw InitiateAStarGreedythHourseBrown(int iii, int jjj, int **Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy); //, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
 		AllDraw InitiateAStarGreedythCastleBrown(int iii, int jjj, int **Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy); //, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
 		AllDraw InitiateAStarGreedythMinisterBrown(int iii, int jjj, int **Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy); //, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
-		AllDraw InitiateAStarGreedythKingBrown(int iii, int jjj, int **Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy); //, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
+		AllDraw InitiateAStarGreedythKingBrown(int iii, int jjj, int **Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy);
+		AllDraw InitiateAStarGreedyt(int Order, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int i, int j, int ii, int jj, int **Table, int a, bool TB, bool FOUND, int LeafAStarGreedy);
 
 		bool FullBoundryConditions(int Current, int Order, int iAStarGreedy);
 		void BlitzGameTreeCreationThinkingTreeSolder(int a, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);

@@ -11,7 +11,7 @@ namespace RefrigtzDLL
 
 
 	public:
-		void* operator[](std::size_t idx);
+		void* operator*(std::size_t idx);
 
 		static bool KingGrayNotCheckedByQuantumMove;
 		static bool KingBrownNotCheckedByQuantumMove;
@@ -38,10 +38,10 @@ namespace RefrigtzDLL
 		static double MaxHuristicxK;
 		float Row, Column;
 		int color;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: public int[,] Table = nullptr;
 		int **Table;
-		ThinkingChess *KingThinking;
+		ThinkingChess KingThinking;
 		int Current;
 		int Order;
 	private:
@@ -54,7 +54,7 @@ namespace RefrigtzDLL
 		double ReturnHuristic();
 		bool MaxFound(bool &MaxNotFound);
 		//Constructor 1.
-		DrawKing(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
+		/*DrawKing(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
 		{
 		    CurrentAStarGredyMax = CurrentAStarGredy;
 		    MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
@@ -66,7 +66,7 @@ namespace RefrigtzDLL
 		    AStarGreedyHuristicT = AStarGreedyHuris;
 		    ArrangmentsChanged = Arrangments;
 		}
-		
+		*/
 		//Constructor 2.
 		DrawKing(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int **Tab, int Ord, bool TB, int Cur); //, ref AllDraw. THIS
 		//Clone a Copy.

@@ -23,8 +23,13 @@ namespace RefrigtzDLL
 	};
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
 //ORIGINAL LINE: [Serializable] public class QuantumAtamata    : LearningKrinskyAtamata
-	public class QuantumAtamata: public LearningKrinskyAtamata
+	public class QuantumAtamata : public LearningKrinskyAtamata
 	{
+	public:
+
+		QuantumAtamata(int r0, int m0, int k0);
+
+
 	public:
 		std::vector<std::wstring> States;
 		std::vector<unsigned char> StateByte;
@@ -37,14 +42,14 @@ namespace RefrigtzDLL
 	public:
 		LearningKrinskyAtamata ThreeSet[3];
 		int NumberActiveAtamata;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
-//ORIGINAL LINE: public double[] FirstProbibility = nullptr;
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
+//ORIGINAL LINE: public double* FirstProbibility = nullptr;
 		double *FirstProbibility;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
-//ORIGINAL LINE: public double[] SecondProbibility = nullptr;
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
+//ORIGINAL LINE: public double* SecondProbibility = nullptr;
 		double *SecondProbibility;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
-//ORIGINAL LINE: public double[] ThirdProbibility = nullptr;
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
+//ORIGINAL LINE: public double* ThirdProbibility = nullptr;
 		double *ThirdProbibility;
 	public:
 		int A1;
@@ -56,7 +61,7 @@ namespace RefrigtzDLL
 		std::wstring AC;
 
 		std::wstring CurrentState;
-		QuantumAtamata(int r0, int m0, int k0);
+		//QuantumAtamata(int r0, int m0, int k0);
 		void CurrenStateInitialize();
 
 		int FirstAtamataState();

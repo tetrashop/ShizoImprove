@@ -3,7 +3,7 @@
 namespace RefrigtzDLL
 {
 
-	double NewotoonInterpolate::fx0untinxn(double x[], double f[], int n, int i, int j)
+	double NewotoonInterpolate::fx0untinxn(double *x, double *f, int n, int i, int j)
 	{
 		
 			if ((i == j - 1) || (i + 1 == j))
@@ -16,7 +16,7 @@ namespace RefrigtzDLL
 		
 	}
 
-	double *NewotoonInterpolate::px(double x[], double f[], int n)
+	double *NewotoonInterpolate::px(double *x, double *f, int n)
 	{
 		
 			double *s=new double[n];
@@ -41,7 +41,7 @@ namespace RefrigtzDLL
 		
 	}
 
-	double *NewotoonInterpolate::Simplify(double s[], double x[], int i, int j)
+	double *NewotoonInterpolate::Simplify(double *s, double *x, int i, int j)
 	{
 			
 				if (j == i)

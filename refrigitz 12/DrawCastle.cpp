@@ -30,7 +30,7 @@ double DrawCastle::MaxHuristicxB = -20000000000000000;
 		ValuableSelfSupported.clear();
 //		C = nullptr;
 	}
-	void* DrawCastle::operator[](std::size_t idx) { return malloc(idx * sizeof(this)); }
+	void* DrawCastle::operator*(std::size_t idx) { return malloc(idx * sizeof(this)); }
 	bool DrawCastle::MaxFound(bool &MaxNotFound)
 	{
 		try
@@ -68,7 +68,7 @@ double DrawCastle::MaxHuristicxB = -20000000000000000;
 		{
 			try
 			{
-				a += CastleThinking->ReturnHuristic(-1, -1, Order, false);
+				a += CastleThinking.ReturnHuristic(-1, -1, Order, false);
 			}
 			catch (std::exception &t)
 			{
@@ -78,7 +78,7 @@ double DrawCastle::MaxHuristicxB = -20000000000000000;
 
 		return a;
 	}
-
+	/*
 	DrawCastle::DrawCastle(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int **Tab, int Ord, bool TB, int Cur)
 	{
 		InitializeInstanceFields();
@@ -103,7 +103,7 @@ double DrawCastle::MaxHuristicxB = -20000000000000000;
 			}
 		}
 
-		CastleThinking = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(i), static_cast<int>(j), a, Tab, 16, Ord, TB, Cur, 4, 4);
+		CastleThinking = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(i), static_cast<int>(j), a, Tab, 16, Ord, TB, Cur, 4, 4);
 
 		Row = i;
 		Column = j;
@@ -113,8 +113,8 @@ double DrawCastle::MaxHuristicxB = -20000000000000000;
 
 
 	}
-
-	void DrawCastle::Clone(DrawCastle *&AA)
+	*/
+	/*void DrawCastle::Clone(DrawCastle *&AA)
 	{
 		int **Tab;
 		for (int i = 0; i < 8; i++)
@@ -126,37 +126,37 @@ double DrawCastle::MaxHuristicxB = -20000000000000000;
 		}
 		//Initiate a Constructed Brideges an Clone a Copy.
 		AA = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, color, Table, Order, false, Current);
-		AA->ArrangmentsChanged = ArrangmentsChanged;
+		AA.ArrangmentsChanged = ArrangmentsChanged;
 		for (int i = 0; i < AllDraw::CastleMovments; i++)
 		{
 			try
 			{
-				AA->CastleThinking = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
-				CastleThinking->Clone(AA->CastleThinking);
+				AA.CastleThinking = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
+				CastleThinking.Clone(AA.CastleThinking);
 			}
 			catch (std::exception &t)
 			{
 				
 //C# TO C++ CONVERTER WARNING: C# to C++ Converter converted the original 'null' assignment to a call to 'delete', but you should review memory allocation of all pointer variables in the converted code:
-				delete AA->CastleThinking;
+				delete AA.CastleThinking;
 			}
 		}
-		AA->Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii]-new int[8];
+		AA.Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii]-new int[8];
 		for (int ii = 0; ii < 8; ii++)
 		{
 			for (int jj = 0; jj < 8; jj++)
 			{
-				AA->Table[ii][jj] = Tab[ii][jj];
+				AA.Table[ii][jj] = Tab[ii][jj];
 			}
 		}
-		AA->Row = Row;
-		AA->Column = Column;
-		AA->Order = Order;
-		AA->Current = Current;
-		AA->color = color;
+		AA.Row = Row;
+		AA.Column = Column;
+		AA.Order = Order;
+		AA.Current = Current;
+		AA.color = color;
 
 	}
-
+	*/
 	void DrawCastle::DrawCastleOnTable( int CellW, int CellH)
 	{
 		/*try
@@ -181,7 +181,7 @@ double DrawCastle::MaxHuristicxB = -20000000000000000;
 						//lock (O1)
 						{ //Draw an Instant from File of Gray Soldeirs.
 							 //Draw a Gray Castles Instatnt Image On hte Tabe.
-							g->DrawImage(C, Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
+							g.DrawImage(C, Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
 						}
 					}
 					else
@@ -191,7 +191,7 @@ double DrawCastle::MaxHuristicxB = -20000000000000000;
 						//lock (O1)
 						{ //Draw an Instant from File of Gray Soldeirs.
 							 //Draw an Instatnt of Brown Castles On the Table.
-							g->DrawImage(C[1], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
+							g.DrawImage(C[1], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
 						}
 					}
 				}

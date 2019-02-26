@@ -6,7 +6,7 @@
 namespace RefrigtzDLL
 {
 	
-NetworkQuantumLearningKrinskyAtamata *LearniningTable = new NetworkQuantumLearningKrinskyAtamata(3, 3, 3);
+NetworkQuantumLearningKrinskyAtamata ThinkingChess::LearniningTable = NetworkQuantumLearningKrinskyAtamata(3, 3, 3);
 std::wstring ThinkingChess::ActionsString = L"";
 bool ThinkingChess::LearningVarsCheckedMateOccured = false;
 bool ThinkingChess::LearningVarsCheckedMateOccuredOneCheckedMate = false;
@@ -204,12 +204,12 @@ bool ThinkingChess::ThinkingRun = false;
 			HitNumberCastle = new std::vector<int>();
 			HitNumberMinister = new std::vector<int>();
 			HitNumberKing = new std::vector<int>();
-			PenaltyRegardListSolder = new std::vector<QuantumAtamata*>();
-			PenaltyRegardListElefant = new std::vector<QuantumAtamata*>();
-			PenaltyRegardListHourse = new std::vector<QuantumAtamata*>();
-			PenaltyRegardListCastle = new std::vector<QuantumAtamata*>();
-			PenaltyRegardListMinister = new std::vector<QuantumAtamata*>();
-			PenaltyRegardListKing = new std::vector<QuantumAtamata*>();
+			PenaltyRegardListSolder = new std::vector<QuantumAtamat*a>();
+			PenaltyRegardListElefant = new std::vector<QuantumAtamat*a>();
+			PenaltyRegardListHourse = new std::vector<QuantumAtamat*a>();
+			PenaltyRegardListCastle = new std::vector<QuantumAtamat*a>();
+			PenaltyRegardListMinister = new std::vector<QuantumAtamat*a>();
+			PenaltyRegardListKing = new std::vector<QuantumAtamat*a>();
 			AStarGreedy = new std::vector<AllDraw*>();
 			*/
 			//Network  QuantumAtamata   * Book Initiate For Every Clone.
@@ -359,7 +359,7 @@ bool ThinkingChess::ThinkingRun = false;
 			IndexCastle = 0;
 			IndexMinister = 0;
 			IndexKing = 0;
-			Table = new int*[8]; for (int ii = 0; ii < 8; ii++)TableConst[ii] - new int[8];
+			int **Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii] - new int[8];
 			
 			for (int ii = 0; ii < 8; ii++)
 			{
@@ -389,12 +389,12 @@ bool ThinkingChess::ThinkingRun = false;
 			*/
 			//ObjectValueCalculator(TableConst, Row, Column);
 			//SetObjectNumbers(TableConst);
-			/*PenaltyRegardListSolder = std::vector<QuantumAtamata*>();
-			PenaltyRegardListElefant =std::vector<QuantumAtamata*>();
-			PenaltyRegardListHourse = std::vector<QuantumAtamata*>();
-			PenaltyRegardListCastle = std::vector<QuantumAtamata*>();
-			PenaltyRegardListMinister = std::vector<QuantumAtamata*>();
-			PenaltyRegardListKing =  std::vector<QuantumAtamata*>();
+			/*PenaltyRegardListSolder = std::vector<QuantumAtamat*a>();
+			PenaltyRegardListElefant =std::vector<QuantumAtamat*a>();
+			PenaltyRegardListHourse = std::vector<QuantumAtamat*a>();
+			PenaltyRegardListCastle = std::vector<QuantumAtamat*a>();
+			PenaltyRegardListMinister = std::vector<QuantumAtamat*a>();
+			PenaltyRegardListKing =  std::vector<QuantumAtamat*a>();
 			*/
 		}
 	}
@@ -471,7 +471,7 @@ bool ThinkingChess::ThinkingRun = false;
 			//Initaite New Object.
 			if (AA == nullptr)
 			{
-				AA = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column); //, Kind
+				AA = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column); //, Kind
 			}
 			AA->ArrangmentsChanged = ArrangmentsChanged;
 			//When Depth Object is not NULL.
@@ -484,7 +484,7 @@ bool ThinkingChess::ThinkingRun = false;
 					try
 					{
 						//Clone a Copy From Depth Objects.
-						AStarGreedy[i].Clone(AA->AStarGreedy[i]);
+						AStarGreedy.data()[i].Clone(AA->AStarGreedy.data()[i]);
 					}
 					catch (std::exception &tt)
 					{
@@ -503,7 +503,7 @@ bool ThinkingChess::ThinkingRun = false;
 			for (int j = 0; j < RowColumnCastle.size(); j++)
 			{
 				//Add a Clone to New Castle index Objects List.
-				AA->RowColumnCastle..push_back(CloneAList(RowColumnCastle., 2));
+				AA->RowColumnCastle..push_back(CloneAList(RowColumnCastle.data()[j][0], 2));
 			}
 
 			//For All Elephant index List Count.
@@ -580,7 +580,7 @@ bool ThinkingChess::ThinkingRun = false;
 			for (int i = 0; i < TableListHourse.size(); i++)
 			{
 				//Add a Clone of Hourse Table Movement in New List.
-				AA->TableListHourse.push_back(CloneATable(TableListHourse[i]));
+				AA->TableListHourse.push_back(CloneATable(TableListHourse.data()[i]));
 			}
 			//For All King Tables Movment Count.
 			for (int i = 0; i < TableListKing.size(); i++)
@@ -592,13 +592,13 @@ bool ThinkingChess::ThinkingRun = false;
 			for (int i = 0; i < TableListMinister.size(); i++)
 			{
 				//Add a clone To New Minister Table Movment List.
-				AA->TableListMinister.push_back(CloneATable(TableListMinister[i]));
+				AA->TableListMinister.push_back(CloneATable(TableListMinister.data()[i]));
 			}
 			//For All Solder Table Movment Count.
 			for (int i = 0; i < TableListSolder.size(); i++)
 			{
 				//Add a Clone of Table item to New Table List Movments.
-				AA->TableListSolder.push_back(CloneATable(TableListSolder[i]));
+				AA->TableListSolder.push_back(CloneATable(TableListSolder.data()[i]));
 			}
 
 			//For All Solder Husrist List Count.
@@ -2486,7 +2486,7 @@ bool ThinkingChess::ThinkingRun = false;
 		}
 	}
 
-	bool ThinkingChess::ExistValuble(int Table[], std::vector<int*> &ValuableSelfSupported)
+	bool ThinkingChess::ExistValuble(int *Table, std::vector<int*> &ValuableSelfSupported)
 	{
 		//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -2657,8 +2657,8 @@ bool ThinkingChess::ThinkingRun = false;
 		                            Table[RowS, ColS] = 0;
 		                            //Is Dangrous for King.
 		                            A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tab[RowD, ColD], Table, Order * -1, RowD, ColD);
-		                            //if (A.ObjectDangourKingMove(Order, Table, false))
-		                            A.ObjectDangourKingMove(Order, Table, false);
+		                            //if (A->ObjectDangourKingMove(Order, Table, false))
+		                            A->ObjectDangourKingMove(Order, Table, false);
 		                            {
 		                               for (int ij = 0; ij < 8; ij++)
 		                                {
@@ -2675,11 +2675,11 @@ bool ThinkingChess::ThinkingRun = false;
 		                                //lock (ol)
 		                                {
 		                                    //When Before Move such situation is observed calculate huristic count.
-		                                    if (Order == 1 && A.CheckGrayObjectDangour)
+		                                    if (Order == 1 && A->CheckGrayObjectDangour)
 		                                        HA +=// AllDraw.SignKingSafe * 
 		                                            (ObjectValueCalculator(Table, RowS, ColS, RowD, ColD));
 		                                    else
-		                                    if (Order == -1 && A.CheckBrownObjectDangour)
+		                                    if (Order == -1 && A->CheckBrownObjectDangour)
 		                                        HA += //AllDraw.SignKingSafe * 
 		                                            (ObjectValueCalculator(Table, RowS, ColS, RowD, ColD));
 	
@@ -2711,7 +2711,7 @@ bool ThinkingChess::ThinkingRun = false;
 		}
 		double HA = 0;
 		ChessRules *A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tab[RowD][ColD], Table, Order * -1, RowD, ColD);
-		//if (A.ObjectDangourKingMove(Order, Table, false))
+		//if (A->ObjectDangourKingMove(Order, Table, false))
 		A->ObjectDangourKingMove(Order, Table);
 		{
 			for (int ij = 0; ij < 8; ij++)
@@ -2810,8 +2810,8 @@ bool ThinkingChess::ThinkingRun = false;
 			                        Object O3 = new Object();
 			                        //lock (O3)
 			                        {
-			                            //if (A.ObjectDangourKingMove(Order, Table, false))
-			                            A.ObjectDangourKingMove(Order, Table, false);
+			                            //if (A->ObjectDangourKingMove(Order, Table, false))
+			                            A->ObjectDangourKingMove(Order, Table, false);
 			                            {
 			                                int[,] Table1 = new int[8, 8];
 			                                //Clone a Copy.
@@ -2831,10 +2831,10 @@ bool ThinkingChess::ThinkingRun = false;
 			                                Object O4 = new Object();
 			                                //lock (O4)
 			                                {
-			                                    if (Order == -1 && A.CheckGrayObjectDangour)
+			                                    if (Order == -1 && A->CheckGrayObjectDangour)
 			                                        HA += AllDraw.SignKingDangour * (ObjectValueCalculator(Table1,RowS,ColS,RowD,ColD));
 			                                    else
-			                                        if (Order == 1 && A.CheckBrownObjectDangour)
+			                                        if (Order == 1 && A->CheckBrownObjectDangour)
 			                                        HA += AllDraw.SignKingDangour * (ObjectValueCalculator(Table1,RowS,ColS,RowD,ColD));
 	
 	
@@ -2875,7 +2875,7 @@ bool ThinkingChess::ThinkingRun = false;
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 			//lock (O3)
 			{
-				//if (A.ObjectDangourKingMove(Order, Table, false))
+				//if (A->ObjectDangourKingMove(Order, Table, false))
 				A->ObjectDangourKingMove(Order, Table);
 				{
 					int **Table1 = new int*[8];
@@ -3404,7 +3404,7 @@ bool ThinkingChess::ThinkingRun = false;
 				{
 					//And CheckedMated is Occured for gray. return false.
 					Table[ii][jj] = Store;
-					if (AA->CheckMateGray)
+					if (A->CheckMateGray)
 					{
 						return false;
 					}
@@ -3834,7 +3834,7 @@ bool ThinkingChess::ThinkingRun = false;
 				Is[1] = 0;
 				Is[2] = 0;
 				Is[3] = 0;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: int[,] Tab2 = CloneATable(Tabl);
 				int **Tab2 = CloneATable(Tabl);
 				ChessRules *A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged,Tab2[ik][jk], Tab2, Order * -1, ik, jk);
@@ -3869,7 +3869,7 @@ bool ThinkingChess::ThinkingRun = false;
 							}
 							else
 							{
-								//if (A.CheckMateBrown)
+								//if (A->CheckMateBrown)
 								//return Is;
 							}
 						}
@@ -3885,7 +3885,7 @@ bool ThinkingChess::ThinkingRun = false;
 							}
 							else
 							{
-								//if (A.CheckMateGray)
+								//if (A->CheckMateGray)
 								//return Is;
 							}
 						   }
@@ -3902,7 +3902,7 @@ bool ThinkingChess::ThinkingRun = false;
 							}
 							else
 							{
-								//if (A.CheckMateBrown)
+								//if (A->CheckMateBrown)
 								//return Is;
 							}
 						}
@@ -3918,7 +3918,7 @@ bool ThinkingChess::ThinkingRun = false;
 							}
 							else
 							{
-								//if (A.CheckMateGray)
+								//if (A->CheckMateGray)
 								//return Is;
 							}
 						   }
@@ -3939,7 +3939,7 @@ bool ThinkingChess::ThinkingRun = false;
 					//return Is;
 					//For Movements.
 					int Ord = Order * -1;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: int[,] Tab = CloneATable(Tab2);
 					int **Tab = CloneATable(Tab2);
 					int a = color;
@@ -3954,7 +3954,7 @@ bool ThinkingChess::ThinkingRun = false;
 					int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMulMinuse, Depth1 = Depth + 1;
 					bool KindCheckedSelf1 = KindCheckedSelf;
 					//autoO1 = new Object();
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: int* IS = nullptr;
 					int *IS = nullptr;
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -4150,12 +4150,12 @@ bool ThinkingChess::ThinkingRun = false;
 										continue;
 									}
 									int Ord = Order;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: int[,] Tab = CloneATable(Tabl);
 									int **Tab = CloneATable(Tabl);
 									int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
 									bool KindCheckedSelf1 = KindCheckedSelf;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: int* IS = nullptr;
 									int *IS = nullptr;
 									//autoO1 = new Object();
@@ -4208,12 +4208,12 @@ bool ThinkingChess::ThinkingRun = false;
 									continue;
 								}
 								int Ord = Order;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: int[,] Tab = CloneATable(Tabl);
 								int **Tab = CloneATable(Tabl);
 								int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
 								bool KindCheckedSelf1 = KindCheckedSelf;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: int* IS = nullptr;
 								int *IS = nullptr;
 								//autoO1 = new Object();
@@ -4258,12 +4258,12 @@ bool ThinkingChess::ThinkingRun = false;
 									continue;
 								}
 								int Ord = Order;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: int[,] Tab = CloneATable(Tabl);
 								int **Tab = CloneATable(Tabl);
 								int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
 								bool KindCheckedSelf1 = KindCheckedSelf;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: int* IS = nullptr;
 								int *IS = nullptr;
 								//autoO1 = new Object();
@@ -4311,12 +4311,12 @@ bool ThinkingChess::ThinkingRun = false;
 									}
 
 									int Ord = Order;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: int[,] Tab = CloneATable(Tabl);
 									int **Tab = CloneATable(Tabl);
 									int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
 									bool KindCheckedSelf1 = KindCheckedSelf;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: int* IS = nullptr;
 									int *IS = nullptr;
 									//autoO1 = new Object();
@@ -4366,12 +4366,12 @@ bool ThinkingChess::ThinkingRun = false;
 									continue;
 								}
 								int Ord = Order;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: int[,] Tab = CloneATable(Tabl);
 								int **Tab = CloneATable(Tabl);
 								int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
 								bool KindCheckedSelf1 = KindCheckedSelf;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: int* IS = nullptr;
 								int *IS = nullptr;
 								//autoO1 = new Object();
@@ -4415,12 +4415,12 @@ bool ThinkingChess::ThinkingRun = false;
 									continue;
 								}
 								int Ord = Order;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: int[,] Tab = CloneATable(Tabl);
 								int **Tab = CloneATable(Tabl);
 								int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
 								bool KindCheckedSelf1 = KindCheckedSelf;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: int* IS = nullptr;
 								int *IS = nullptr;
 								//autoO1 = new Object();
@@ -4472,12 +4472,12 @@ bool ThinkingChess::ThinkingRun = false;
 										continue;
 									}
 									int Ord = Order;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: int[,] Tab = CloneATable(Tabl);
 									int **Tab = CloneATable(Tabl);
 									int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
 									bool KindCheckedSelf1 = KindCheckedSelf;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: int* IS = nullptr;
 									int *IS = nullptr;
 									//autoO1 = new Object();
@@ -4530,12 +4530,12 @@ bool ThinkingChess::ThinkingRun = false;
 										continue;
 									}
 									int Ord = Order;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: int[,] Tab = CloneATable(Tabl);
 									int **Tab = CloneATable(Tabl);
 									int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
 									bool KindCheckedSelf1 = KindCheckedSelf;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: int* IS = nullptr;
 									int *IS = nullptr;
 									//autoO1 = new Object();
@@ -5446,7 +5446,7 @@ bool ThinkingChess::ThinkingRun = false;
 							//lock (O1)
 							{
 								int i1 = RowS, j1 = ColS, iiii1 = RowD, jjjj1 = ColD;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: int[,] Table1 = CloneATable(Table);
 								int **Table1 = CloneATable(Table);
 								int Ord1 = Ord;
@@ -5458,7 +5458,7 @@ bool ThinkingChess::ThinkingRun = false;
 								}
 
 								int i2 = RowS, j2 = ColS, iiii2 = RowD, jjjj2 = ColD;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: int[,] Table2 = CloneATable(Table);
 								int **Table2 = CloneATable(Table);
 								int Ord2 = Ord;
@@ -5471,7 +5471,7 @@ bool ThinkingChess::ThinkingRun = false;
 								}
 
 								int i3 = RowS, j3 = ColS, iiii3 = RowD, jjjj3 = ColD;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: int[,] Table3 = CloneATable(Table);
 								int **Table3 = CloneATable(Table);
 								int Ord3 = Ord;
@@ -5483,7 +5483,7 @@ bool ThinkingChess::ThinkingRun = false;
 								}
 
 								int i4 = RowS, j4 = ColS, iiii4 = RowD, jjjj4 = ColD;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: int[,] Table4 = CloneATable(Table);
 								int **Table4 = CloneATable(Table);
 								int Ord4 = Ord;
@@ -5495,7 +5495,7 @@ bool ThinkingChess::ThinkingRun = false;
 								}
 
 								int i5 = RowS, j5 = ColS, iiii5 = RowD, jjjj5 = ColD;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: int[,] Table5 = CloneATable(Table);
 								int **Table5 = CloneATable(Table);
 								int Ord5 = Ord;
@@ -5507,7 +5507,7 @@ bool ThinkingChess::ThinkingRun = false;
 								}
 
 								int i6 = RowS, j6 = ColS, iiii6 = RowD, jjjj6 = ColD;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: int[,] Table6 = CloneATable(Table);
 								int **Table6 = CloneATable(Table);
 								int Ord6 = Ord;
@@ -5540,7 +5540,7 @@ bool ThinkingChess::ThinkingRun = false;
 									//lock (O1)
 									{
 										int i1 = RowS, j1 = ColS, iiii1 = RowD, jjjj1 = ColD;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: int[,] Table1 = CloneATable(Table);
 										int **Table1 = CloneATable(Table);
 										int Ord1 = Ord;
@@ -5549,7 +5549,7 @@ bool ThinkingChess::ThinkingRun = false;
 										Huristic[0] += HAA1;
 
 										int i2 = RowS, j2 = ColS, iiii2 = RowD, jjjj2 = ColD;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: int[,] Table2 = CloneATable(Table);
 										int **Table2 = CloneATable(Table);
 										int Ord2 = Ord;
@@ -5559,7 +5559,7 @@ bool ThinkingChess::ThinkingRun = false;
 										Huristic[1] += HAA2;
 
 										int i3 = RowS, j3 = ColS, iiii3 = RowD, jjjj3 = ColD;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: int[,] Table3 = CloneATable(Table);
 										int **Table3 = CloneATable(Table);
 										int Ord3 = Ord;
@@ -5568,7 +5568,7 @@ bool ThinkingChess::ThinkingRun = false;
 										Huristic[2] += HAA3;
 
 										int i4 = RowS, j4 = ColS, iiii4 = RowD, jjjj4 = ColD;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: int[,] Table4 = CloneATable(Table);
 										int **Table4 = CloneATable(Table);
 										int Ord4 = Ord;
@@ -5577,7 +5577,7 @@ bool ThinkingChess::ThinkingRun = false;
 										Huristic[3] += HAA4;
 
 										int i5 = RowS, j5 = ColS, iiii5 = RowD, jjjj5 = ColD;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: int[,] Table5 = CloneATable(Table);
 										int **Table5 = CloneATable(Table);
 										int Ord5 = Ord;
@@ -5586,7 +5586,7 @@ bool ThinkingChess::ThinkingRun = false;
 										Huristic[4] += HAA5;
 
 										int i6 = RowS, j6 = ColS, iiii6 = RowD, jjjj6 = ColD;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: int[,] Table6 = CloneATable(Table);
 										int **Table6 = CloneATable(Table);
 										int Ord6 = Ord;
@@ -6259,7 +6259,7 @@ bool ThinkingChess::ThinkingRun = false;
 		}
 	}
 	/*
-	int ThinkingChess::SolderOnTableCount(DrawSoldier So[], bool Mi, int MaxCount)
+	int ThinkingChess::SolderOnTableCount(DrawSoldier So*, bool Mi, int MaxCount)
 	{
 		//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -6312,7 +6312,7 @@ bool ThinkingChess::ThinkingRun = false;
 		}
 	}
 
-	int ThinkingChess::ElefantOnTableCount(DrawElefant So[], bool Mi, int MaxCount)
+	int ThinkingChess::ElefantOnTableCount(DrawElefant So*, bool Mi, int MaxCount)
 	{
 		//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -6364,7 +6364,7 @@ bool ThinkingChess::ThinkingRun = false;
 		}
 	}
 
-	int ThinkingChess::HourseOnTableCount(DrawHourse So[], bool Mi, int MaxCount)
+	int ThinkingChess::HourseOnTableCount(DrawHourse So*, bool Mi, int MaxCount)
 	{
 		//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -6416,7 +6416,7 @@ bool ThinkingChess::ThinkingRun = false;
 		}
 	}
 
-	int ThinkingChess::CastleOnTableCount(DrawCastle So[], bool Mi, int MaxCount)
+	int ThinkingChess::CastleOnTableCount(DrawCastle So*, bool Mi, int MaxCount)
 	{
 		//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -6468,7 +6468,7 @@ bool ThinkingChess::ThinkingRun = false;
 		}
 	}
 
-	int ThinkingChess::MinisterOnTableCount(DrawMinister So[], bool Mi, int MaxCount)
+	int ThinkingChess::MinisterOnTableCount(DrawMinister So*, bool Mi, int MaxCount)
 	{
 		//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -6518,7 +6518,7 @@ bool ThinkingChess::ThinkingRun = false;
 		}
 	}
 
-	int ThinkingChess::KingOnTableCount(DrawKing So[], bool Mi, int MaxCount)
+	int ThinkingChess::KingOnTableCount(DrawKing So*, bool Mi, int MaxCount)
 	{
 		//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -6587,7 +6587,7 @@ bool ThinkingChess::ThinkingRun = false;
 				{
 					if (ii >= 0 && UsePenaltyRegardMechnisamT)
 					{
-						Hur = ReturnHuristicCalculartor(0, ii, j, Order) * LearniningTable->LearingValue(Row, Column);
+						Hur = ReturnHuristicCalculartor(0, ii, j, Order) * LearniningTable.LearingValue(Row, Column);
 					}
 					else
 					{
@@ -6612,131 +6612,74 @@ bool ThinkingChess::ThinkingRun = false;
 
 	std::wstring ThinkingChess::Alphabet(int RowRealesed)
 	{
-		//autoO = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-		//lock (O)
-		{
-			std::wstring A = L"";
-			if (*(*(RowRealesed)) == 0)
-			{
-				A = L"a";
-			}
-			else
-			{
-				if (*(RowRealesed) == 1)
-				{
+
+		std::wstring A = L"";
+		if (RowRealesed == 0)
+			A = L"a";
+		else
+			if (RowRealesed == 1)
 				A = L"b";
-				}
 			else
-			{
-					if (*(RowRealesed) == 2)
-					{
-				A = L"c";
-					}
-			else
-			{
-						if (*(RowRealesed) == 3)
-						{
-				A = L"d";
-						}
-			else
-			{
-							if (*(RowRealesed) == 4)
-							{
-				A = L"e";
-							}
-			else
-			{
-								if (*(RowRealesed) == 5)
-								{
-				A = L"f";
-								}
-			else
-			{
-									if (*(RowRealesed) == 6)
-									{
-				A = L"g";
-									}
-			else
-			{
-										if (*(RowRealesed) == 7)
-										{
-				A = L"h";
-										}
-			}
-			}
-			}
-			}
-			}
-			}
-			}
-			return A;
-		}
+				if (RowRealesed == 2)
+					A = L"c";
+				else
+					if (RowRealesed == 3)
+						A = L"d";
+					else
+						if (RowRealesed == 4)
+							A = L"e";
+						else
+							if (RowRealesed == 5)
+								A = L"f";
+							else
+								if (RowRealesed == 6)
+									A = L"g";
+								else
+									if (RowRealesed == 7)
+										A = L"h";
+
+
+		return A;
+
 	}
 
 	std::wstring ThinkingChess::Number(int ColumnRealeased)
 	{
-		//autoO = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-		//lock (O)
-		{
 
-			std::wstring A = L"";
-			if (*(ColumnRealeased) == 7)
-			{
-				A = L"0";
-			}
-			else
-			{
-				if (*(ColumnRealeased) == 6)
-				{
+
+		std::wstring A = L"";
+		if (ColumnRealeased == 7)
+			A = L"0";
+		else
+			if (ColumnRealeased == 6)
 				A = L"1";
-				}
 			else
-			{
-					if (*(ColumnRealeased) == 5)
-					{
-				A = L"2";
-					}
-			else
-			{
-						if (*(ColumnRealeased) == 4)
-						{
-				A = L"3";
-						}
-			else
-			{
-							if (*(ColumnRealeased) == 3)
-							{
-				A = L"4";
-							}
-			else
-			{
-								if (*(ColumnRealeased) == 2)
-								{
-				A = L"5";
-								}
-			else
-			{
-									if (*(ColumnRealeased) == 1)
-									{
-				A = L"6";
-									}
-			else
-			{
-										if (*(ColumnRealeased) == 0)
-										{
-				A = L"7";
-										}
-			}
-			}
-			}
-			}
-			}
-			}
-			}
-			return A;
-		}
+				if (ColumnRealeased == 5)
+					A = L"2";
+				else
+					if (ColumnRealeased == 4)
+						A = L"3";
+					else
+						if (ColumnRealeased == 3)
+							A = L"4";
+						else
+							if (ColumnRealeased == 2)
+								A = L"5";
+							else
+								if (ColumnRealeased == 1)
+									A = L"6";
+								else
+									if (ColumnRealeased == 0)
+										A = L"7";
+
+
+
+
+
+
+
+		return A;
+
 	}
 
 	double ThinkingChess::ReturnHuristicCalculartor(int iAstarGready, int ii, int j, int Order)
@@ -6747,11 +6690,11 @@ bool ThinkingChess::ThinkingRun = false;
 		//lock (O)
 		{
 			double Huristic = 0;
-		
-			  if (AStarGreedy.empty())
-			  {
+
+			if (AStarGreedy.empty())
+			{
 				return 0;
-			  }
+			}
 			NumbersOfCurrentBranchesPenalties += NumberOfPenalties;
 			int DummyOrder = Order;
 			if (ii != -1)
@@ -6759,339 +6702,339 @@ bool ThinkingChess::ThinkingRun = false;
 				//return 0;
 				/*SetObjectNumbers(TableConst);
 				//NumbersOfCurrentBranchesPenalties = 0;
-	
+
 				int* iIndex = { -1, -1, -1, -1, -1, -1 }, mIndex = { -1, -1, -1, -1, -1, -1 }, jIndex = { -1, -1, -1, -1, -1, -1 }, Kin = { 1, 2, 3, 4, 5, 6 };
-				double[] Less = new double[6];
+				double* Less = new double[6];
 				if (Order == AllDraw.OrderPlate)
 				{
-				    for (int i = 0; i < 6; i++)
-				    {
-				        Less[i] = new double();
-				        Less[i] = Double.MinValue;
-				    }
+					for (int i = 0; i < 6; i++)
+					{
+						Less[i] = new double();
+						Less[i] = Double.MinValue;
+					}
 				}
 				else
 				{
-				    for (int i = 0; i < 6; i++)
-				    {
-				        Less[i] = new double();
-				        Less[i] = Double.MaxValue;
-				    }
+					for (int i = 0; i < 6; i++)
+					{
+						Less[i] = new double();
+						Less[i] = Double.MaxValue;
+					}
 				}
 				iAstarGready++;
 				//Calculate numbers of current branches penalties.
-	
-				    //When is Gray.
-				    if (Order == 1)
-				    {
-				        //For All Depth Count.
-				        for (int i = 0; i < AStarGreedy.data()[k].Count; i++)
-				        {
-				            //For All solder DrawOn Table Count.
-				            for (int m = 0; m < SolderOnTableCount(ref AStarGreedy.data()[k][i].SolderesOnTable, true, AStarGreedy.data()[k][i].SodierHigh); m++)
-				            for (int m = 0; m < AStarGreedy.data()[k][i].SodierMidle; m++)
-				            {
-				                //When Depth of Solders On Table is Not NULL.
-				                if (AStarGreedy.data()[k][i].SolderesOnTable[m] != null)
-				                {
-				                    if (AStarGreedy.data()[k][i].SolderesOnTable[m].SoldierThinking->IsSupHu)
-				                        continue;
-				                    //Calculate Maximum Huristic in Branch.
-				                    if (AStarGreedy.data()[k][i].SolderesOnTable[m].SoldierThinking->MaxHuristic(ref jIndex, Kin, ref Less, Order *-1))
-				                    {
-				                        iIndex = i;
-				                        mIndex = m;
-				                        Kin = 1;
-				                        //Huristic = Less;
-				                    }
-				                    //else
-				                        //CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
-	
-				                }
-				                //else
-				                    //CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
-	
-	
-				            }
-				            //For All Elephant On Table Count.
-				            for (int m = 0; m < ElefantOnTableCount(ref AStarGreedy.data()[k][i].ElephantOnTable, true, AStarGreedy.data()[k][i].ElefantHigh); m++)
-				            for (int m = 0; m < AStarGreedy.data()[k][i].ElefantMidle; m++)
-				            {
-	
-				                //For All Elephant in Depth Count.
-				                if (AStarGreedy.data()[k][i].ElephantOnTable[m] != null)
-				                {
-				                    if (AStarGreedy.data()[k][i].ElephantOnTable[m].ElefantThinking->IsSupHu)
-				                        continue;
-				                    //Found of Maxmimum in Branch.
-				                    if (AStarGreedy.data()[k][i].ElephantOnTable[m].ElefantThinking->MaxHuristic(ref jIndex[1], Kin[1], ref Less[1], Order *-1))
-				                    {
-				                        iIndex[1] = i;
-				                        mIndex[1] = m;
-				                        Kin[1] = 2;
-				                        //Huristic = Less;
-				                    }
-				                    //else
-				                       // CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
-				                }
-				                //else
-				                    //CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
-	
-	
-				            }
-				            //For All Hourse on Table Count.
-				            for (int m = 0; m < HourseOnTableCount(ref AStarGreedy.data()[k][i].HoursesOnTable, true, AStarGreedy.data()[k][i].HourseHight); m++)
-				            for (int m = 0; m < AStarGreedy.data()[k][i].HourseMidle; m++)
-				            {
-				                //When is HourseOn Table Depth Object is Not NULL.
-				                if (AStarGreedy.data()[k][i].HoursesOnTable[m] != null)
-				                {
-				                    if (AStarGreedy.data()[k][i].HoursesOnTable[m].HourseThinking->IsSupHu)
-				                        continue;
-				                    //Forund of Maximum on on Branch.
-				                    if (AStarGreedy.data()[k][i].HoursesOnTable[m].HourseThinking->MaxHuristic(ref jIndex[2], Kin[2], ref Less[2], Order *-1))
-				                    {
-				                        iIndex[2] = i;
-				                        mIndex[2] = m;
-				                        Kin[2] = 3;
-				                        //Huristic = Less;
-				                    }
-				                    //else
-				                        //CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
-	
-				                }
-				                //else
-				                    //CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
-	
-	
-				            }
-				            //For All Castles on table Count.
-				            for (int m = 0; m < CastleOnTableCount(ref AStarGreedy.data()[k][i].CastlesOnTable, true, AStarGreedy.data()[k][i].CastleHigh); m++)
-				            for (  int m = 0; m < AStarGreedy.data()[k][i].CastleMidle; m++)
-				            {
-				                //When Depth Objects of Hourse Table is Not NULL.
-				                if (AStarGreedy.data()[k][i].CastlesOnTable[m] != null)
-				                {
-				                    if (AStarGreedy.data()[k][i].CastlesOnTable[m].CastleThinking->IsSupHu)
-				                        continue;
-				                    //Found of Maximum Castles Branch.
-				                    if (AStarGreedy.data()[k][i].CastlesOnTable[m].CastleThinking->MaxHuristic(ref jIndex[3], Kin[3], ref Less[3], Order *-1))
-				                    {
-				                        iIndex[3] = i;
-				                        mIndex[3] = m;
-				                        Kin[3] = 4;
-				                        //Huristic = Less;
-				                    }
-				                    //else
-				                        //CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
-	
-				                }
-				                //else
-				                    //CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
-	
-	
-				            }
-				            //For All Minsiter on table count.
-				            for (int m = 0; m < MinisterOnTableCount(ref AStarGreedy.data()[k][i].MinisterOnTable, true, AStarGreedy.data()[k][i].MinisterHigh); m++)
-				            for (int m = 0; m < AStarGreedy.data()[k][i].MinisterMidle; m++)
-				            {
-				                //When Minster of Depth is Not Null.
-				                if (AStarGreedy.data()[k][i].MinisterOnTable[m] != null)
-				                {
-				                    if (AStarGreedy.data()[k][i].MinisterOnTable[m].MinisterThinking->IsSupHu)
-				                        continue;
-				                    //Found of Maximum Minster on table Branches.
-				                    if (AStarGreedy.data()[k][i].MinisterOnTable[m].MinisterThinking->MaxHuristic(ref jIndex[4], Kin[4], ref Less[4], Order *-1))
-				                    {
-				                        iIndex[4] = i;
-				                        mIndex[4] = m;
-				                        Kin[4] = 5;
-				                        //Huristic = Less;
-				                    }
-				                }
-	
-				            }
-				            //For All King on table Count.
-				            for (int m = 0; m < KingOnTableCount(ref AStarGreedy.data()[k][i].KingOnTable, true, AStarGreedy.data()[k][i].KingHigh); m++)
-				            for (int m = 0; m < AStarGreedy.data()[k][i].KingMidle; m++)
-				            {
-				                //When Depth Object of King Table is Not NULL.
-				                if (AStarGreedy.data()[k][i].KingOnTable[m] != null)
-				                {
-				                    if (AStarGreedy.data()[k][i].KingOnTable[m].KingThinking->IsSupHu)
-				                        continue;
-				                    //Found of Maximum on table Branches.
-				                    if (AStarGreedy.data()[k][i].KingOnTable[m].KingThinking->MaxHuristic(ref jIndex[5], Kin[5], ref Less[5], Order *-1))
-				                    {
-				                        iIndex[5] = i;
-				                        mIndex[5] = m;
-				                        Kin[5] = 6;
-				                        //Huristic = Less;
-				                    }
-				                    //else
-				                        //CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName()); ;
-				                }
-				               // else
-				                   // CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
-	
-	
-				            }
-				        }
-	
-				    }
-				    else
-				    {
-				        //For All Depth Variables.
-				        for (int i = 0; i < AStarGreedy.data()[k].Count; i++)
-				        {
-				            //For All Brown Solders on table count.
-				            for (int m = SolderOnTableCount(ref AStarGreedy.data()[k][i].SolderesOnTable, true, AStarGreedy.data()[k][i].SodierHigh); m < SolderOnTableCount(ref AStarGreedy.data()[k][i].SolderesOnTable, false, AStarGreedy.data()[k][i].SodierHigh); m++)
-				            for (int m = AStarGreedy.data()[k][i].SodierMidle; m < AStarGreedy.data()[k][i].SodierHigh; m++)
-				            {
-				                //When solderis on table depth obejcts is nopt null.
-				                if (AStarGreedy.data()[k][i].SolderesOnTable[m] != null)
-				                {
-				                    if (AStarGreedy.data()[k][i].SolderesOnTable[m].SoldierThinking->IsSupHu)
-				                        continue;
-				                    //Found of Maximum on Depth solders on table items.
-				                    if (AStarGreedy.data()[k][i].SolderesOnTable[m].SoldierThinking->MaxHuristic(ref jIndex, Kin, ref Less, Order *-1))
-				                    {
-				                        iIndex = i;
-				                        mIndex = m;
-				                        Kin = 1;
-				                        //Huristic = Less;
-				                    }
-				                    //else
-				                        //CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
-				                }
-				               // else
-				                    //CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
-	
-				            }
-				            //For All Elephant On Table Count.
-				            for (int m = ElefantOnTableCount(ref AStarGreedy.data()[k][i].ElephantOnTable, true, AStarGreedy.data()[k][i].ElefantHigh); m < ElefantOnTableCount(ref AStarGreedy.data()[k][i].ElephantOnTable, false, AStarGreedy.data()[k][i].ElefantHigh); m++)
-				            for (int m = AStarGreedy.data()[k][i].ElefantMidle; m < AStarGreedy.data()[k][i].ElefantHigh; m++)
-				            {
-				                //For All Elephant in Depth Count.
-				                if (AStarGreedy.data()[k][i].ElephantOnTable[m] != null)
-				                {
-				                    if (AStarGreedy.data()[k][i].ElephantOnTable[m].ElefantThinking->IsSupHu)
-				                        continue;
-				                    //Found of Maxmimum in Branch.
-				                    if (AStarGreedy.data()[k][i].ElephantOnTable[m].ElefantThinking->MaxHuristic(ref jIndex[1], Kin[1], ref Less[1], Order *-1))
-				                    {
-				                        iIndex[1] = i;
-				                        mIndex[1] = m;
-				                        Kin[1] = 2;
-				                        //Huristic = Less;
-				                    }
-				                    //else
-				                        //CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
-				                }
-				                //else
-				                    //CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
-	
-	
-				            }
-				            //For All Hourse on Table Count.
-				            for (int m = HourseOnTableCount(ref AStarGreedy.data()[k][i].HoursesOnTable, true, AStarGreedy.data()[k][i].HourseHight); m < HourseOnTableCount(ref AStarGreedy.data()[k][i].HoursesOnTable, false, AStarGreedy.data()[k][i].HourseHight); m++)
-				            for (int m = AStarGreedy.data()[k][i].HourseMidle; m < AStarGreedy.data()[k][i].HourseHight; m++)
-				            {
-				                //When is HourseOn Table Depth Object is Not NULL.
-				                if (AStarGreedy.data()[k][i].HoursesOnTable[m] != null)
-				                {
-				                    if (AStarGreedy.data()[k][i].HoursesOnTable[m].HourseThinking->IsSupHu)
-				                        continue;
-				                    //Forund of Maximum on on Branch.
-				                    if (AStarGreedy.data()[k][i].HoursesOnTable[m].HourseThinking->MaxHuristic(ref jIndex[2], Kin[2], ref Less[2], Order *-1))
-				                    {
-				                        iIndex[2] = i;
-				                        mIndex[2] = m;
-				                        Kin[2] = 3;
-				                        //Huristic = Less;
-				                    }
-				                    //else
-				                        //CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
-				                }
-				                //else
-				                    //CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
-				            }
-				            //For All Castles on table Count.
-				            for (int m = CastleOnTableCount(ref AStarGreedy.data()[k][i].CastlesOnTable, true, AStarGreedy.data()[k][i].CastleHigh); m < CastleOnTableCount(ref AStarGreedy.data()[k][i].CastlesOnTable, false, AStarGreedy.data()[k][i].CastleHigh); m++)
-				            for (int m = AStarGreedy.data()[k][i].CastleMidle; m < AStarGreedy.data()[k][i].CastleHigh; m++)
-				            {
-				                //When Depth Objects of Hourse Table is Not NULL.
-				                if (AStarGreedy.data()[k][i].CastlesOnTable[m] != null)
-				                {
-				                    if (AStarGreedy.data()[k][i].CastlesOnTable[m].CastleThinking->IsSupHu)
-				                        continue;
-				                    //Found of Maximum Castles Branch.
-				                    if (AStarGreedy.data()[k][i].CastlesOnTable[m].CastleThinking->MaxHuristic(ref jIndex[3], Kin[3], ref Less[3], Order *-1))
-				                    {
-				                        iIndex[3] = i;
-				                        mIndex[3] = m;
-				                        Kin[3] = 4;
-				                        //Huristic = Less;
-				                    }
-				                   // else
-				                        //CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
-				                }
-				                //else
-				                    //CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
-	
-				            }
-				            //For All Minsiter on table count.
-				            for (int m = MinisterOnTableCount(ref AStarGreedy.data()[k][i].MinisterOnTable, true, AStarGreedy.data()[k][i].MinisterHigh); m < MinisterOnTableCount(ref AStarGreedy.data()[k][i].MinisterOnTable, false, AStarGreedy.data()[k][i].MinisterHigh); m++)
-				            for (int m = AStarGreedy.data()[k][i].MinisterMidle; m < AStarGreedy.data()[k][i].MinisterHigh; m++)
-				            {
-				                //When Minster of Depth is Not Null.
-				                if (AStarGreedy.data()[k][i].MinisterOnTable[m] != null)
-				                {
-				                    if (AStarGreedy.data()[k][i].MinisterOnTable[m].MinisterThinking->IsSupHu)
-				                        continue;
-				                    //Found of Maximum Minster on table Branches.
-				                    if (AStarGreedy.data()[k][i].MinisterOnTable[m].MinisterThinking->MaxHuristic(ref jIndex[4], Kin[4], ref Less[4], Order *-1))
-				                    {
-				                        iIndex[4] = i;
-				                        mIndex[4] = m;
-				                        Kin[4] = 5;
-				                        //Huristic = Less;
-				                    }
-				                    //else
-				                        //CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
-				                }
-				                //else
-				                    //CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
-	
-				            }
-				            //For All King on table Count.
-				            for (int m = KingOnTableCount(ref AStarGreedy.data()[k][i].KingOnTable, true, AStarGreedy.data()[k][i].KingHigh); m < KingOnTableCount(ref AStarGreedy.data()[k][i].KingOnTable, false, AStarGreedy.data()[k][i].KingHigh); m++)
-				            for (int m = AStarGreedy.data()[k][i].KingMidle; m < AStarGreedy.data()[k][i].KingHigh; m++)
-				            {
-				                //When Minster of Depth is Not Null.
-				                if (AStarGreedy.data()[k][i].KingOnTable[m] != null)
-				                {
-				                    if (AStarGreedy.data()[k][i].KingOnTable[m].KingThinking->IsSupHu)
-				                        continue;
-				                    //When Depth Object of King Table is Not NULL.
-				                    if (AStarGreedy.data()[k][i].KingOnTable[m].KingThinking->MaxHuristic(ref jIndex[5], Kin[5], ref Less[5], Order * -1))
-				                    {
-				                        iIndex[5] = i;
-				                        mIndex[5] = m;
-				                        Kin[5] = 6;
-				                        //Huristic = Less;
-				                    }
-				                    //else
-				                        //CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
-				                }
-				                //else
-				                    //CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
-	
-				            }
-				        }
-	
-				    }
-				    */
+
+					//When is Gray.
+					if (Order == 1)
+					{
+						//For All Depth Count.
+						for (int i = 0; i < AStarGreedy.data()[k].Count; i++)
+						{
+							//For All solder DrawOn Table Count.
+							for (int m = 0; m < SolderOnTableCount(ref AStarGreedy.data()[k][i].SolderesOnTable, true, AStarGreedy.data()[k][i].SodierHigh); m++)
+							for (int m = 0; m < AStarGreedy.data()[k][i].SodierMidle; m++)
+							{
+								//When Depth of Solders On Table is Not NULL.
+								if (AStarGreedy.data()[k][i].SolderesOnTable[m] != null)
+								{
+									if (AStarGreedy.data()[k][i].SolderesOnTable[m].SoldierThinking.IsSupHu)
+										continue;
+									//Calculate Maximum Huristic in Branch.
+									if (AStarGreedy.data()[k][i].SolderesOnTable[m].SoldierThinking.MaxHuristic(ref jIndex, Kin, ref Less, Order *-1))
+									{
+										iIndex = i;
+										mIndex = m;
+										Kin = 1;
+										//Huristic = Less;
+									}
+									//else
+										//CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
+
+								}
+								//else
+									//CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
+
+
+							}
+							//For All Elephant On Table Count.
+							for (int m = 0; m < ElefantOnTableCount(ref AStarGreedy.data()[k][i].ElephantOnTable, true, AStarGreedy.data()[k][i].ElefantHigh); m++)
+							for (int m = 0; m < AStarGreedy.data()[k][i].ElefantMidle; m++)
+							{
+
+								//For All Elephant in Depth Count.
+								if (AStarGreedy.data()[k][i].ElephantOnTable[m] != null)
+								{
+									if (AStarGreedy.data()[k][i].ElephantOnTable[m].ElefantThinking.IsSupHu)
+										continue;
+									//Found of Maxmimum in Branch.
+									if (AStarGreedy.data()[k][i].ElephantOnTable[m].ElefantThinking.MaxHuristic(ref jIndex[1], Kin[1], ref Less[1], Order *-1))
+									{
+										iIndex[1] = i;
+										mIndex[1] = m;
+										Kin[1] = 2;
+										//Huristic = Less;
+									}
+									//else
+									   // CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
+								}
+								//else
+									//CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
+
+
+							}
+							//For All Hourse on Table Count.
+							for (int m = 0; m < HourseOnTableCount(ref AStarGreedy.data()[k][i].HoursesOnTable, true, AStarGreedy.data()[k][i].HourseHight); m++)
+							for (int m = 0; m < AStarGreedy.data()[k][i].HourseMidle; m++)
+							{
+								//When is HourseOn Table Depth Object is Not NULL.
+								if (AStarGreedy.data()[k][i].HoursesOnTable[m] != null)
+								{
+									if (AStarGreedy.data()[k][i].HoursesOnTable[m].HourseThinking.IsSupHu)
+										continue;
+									//Forund of Maximum on on Branch.
+									if (AStarGreedy.data()[k][i].HoursesOnTable[m].HourseThinking.MaxHuristic(ref jIndex[2], Kin[2], ref Less[2], Order *-1))
+									{
+										iIndex[2] = i;
+										mIndex[2] = m;
+										Kin[2] = 3;
+										//Huristic = Less;
+									}
+									//else
+										//CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
+
+								}
+								//else
+									//CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
+
+
+							}
+							//For All Castles on table Count.
+							for (int m = 0; m < CastleOnTableCount(ref AStarGreedy.data()[k][i].CastlesOnTable, true, AStarGreedy.data()[k][i].CastleHigh); m++)
+							for (  int m = 0; m < AStarGreedy.data()[k][i].CastleMidle; m++)
+							{
+								//When Depth Objects of Hourse Table is Not NULL.
+								if (AStarGreedy.data()[k][i].CastlesOnTable[m] != null)
+								{
+									if (AStarGreedy.data()[k][i].CastlesOnTable[m].CastleThinking.IsSupHu)
+										continue;
+									//Found of Maximum Castles Branch.
+									if (AStarGreedy.data()[k][i].CastlesOnTable[m].CastleThinking.MaxHuristic(ref jIndex[3], Kin[3], ref Less[3], Order *-1))
+									{
+										iIndex[3] = i;
+										mIndex[3] = m;
+										Kin[3] = 4;
+										//Huristic = Less;
+									}
+									//else
+										//CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
+
+								}
+								//else
+									//CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
+
+
+							}
+							//For All Minsiter on table count.
+							for (int m = 0; m < MinisterOnTableCount(ref AStarGreedy.data()[k][i].MinisterOnTable, true, AStarGreedy.data()[k][i].MinisterHigh); m++)
+							for (int m = 0; m < AStarGreedy.data()[k][i].MinisterMidle; m++)
+							{
+								//When Minster of Depth is Not Null.
+								if (AStarGreedy.data()[k][i].MinisterOnTable[m] != null)
+								{
+									if (AStarGreedy.data()[k][i].MinisterOnTable[m].MinisterThinking.IsSupHu)
+										continue;
+									//Found of Maximum Minster on table Branches.
+									if (AStarGreedy.data()[k][i].MinisterOnTable[m].MinisterThinking.MaxHuristic(ref jIndex[4], Kin[4], ref Less[4], Order *-1))
+									{
+										iIndex[4] = i;
+										mIndex[4] = m;
+										Kin[4] = 5;
+										//Huristic = Less;
+									}
+								}
+
+							}
+							//For All King on table Count.
+							for (int m = 0; m < KingOnTableCount(ref AStarGreedy.data()[k][i].KingOnTable, true, AStarGreedy.data()[k][i].KingHigh); m++)
+							for (int m = 0; m < AStarGreedy.data()[k][i].KingMidle; m++)
+							{
+								//When Depth Object of King Table is Not NULL.
+								if (AStarGreedy.data()[k][i].KingOnTable[m] != null)
+								{
+									if (AStarGreedy.data()[k][i].KingOnTable[m].KingThinking.IsSupHu)
+										continue;
+									//Found of Maximum on table Branches.
+									if (AStarGreedy.data()[k][i].KingOnTable[m].KingThinking.MaxHuristic(ref jIndex[5], Kin[5], ref Less[5], Order *-1))
+									{
+										iIndex[5] = i;
+										mIndex[5] = m;
+										Kin[5] = 6;
+										//Huristic = Less;
+									}
+									//else
+										//CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName()); ;
+								}
+							   // else
+								   // CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
+
+
+							}
+						}
+
+					}
+					else
+					{
+						//For All Depth Variables.
+						for (int i = 0; i < AStarGreedy.data()[k].Count; i++)
+						{
+							//For All Brown Solders on table count.
+							for (int m = SolderOnTableCount(ref AStarGreedy.data()[k][i].SolderesOnTable, true, AStarGreedy.data()[k][i].SodierHigh); m < SolderOnTableCount(ref AStarGreedy.data()[k][i].SolderesOnTable, false, AStarGreedy.data()[k][i].SodierHigh); m++)
+							for (int m = AStarGreedy.data()[k][i].SodierMidle; m < AStarGreedy.data()[k][i].SodierHigh; m++)
+							{
+								//When solderis on table depth obejcts is nopt null.
+								if (AStarGreedy.data()[k][i].SolderesOnTable[m] != null)
+								{
+									if (AStarGreedy.data()[k][i].SolderesOnTable[m].SoldierThinking.IsSupHu)
+										continue;
+									//Found of Maximum on Depth solders on table items.
+									if (AStarGreedy.data()[k][i].SolderesOnTable[m].SoldierThinking.MaxHuristic(ref jIndex, Kin, ref Less, Order *-1))
+									{
+										iIndex = i;
+										mIndex = m;
+										Kin = 1;
+										//Huristic = Less;
+									}
+									//else
+										//CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
+								}
+							   // else
+									//CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
+
+							}
+							//For All Elephant On Table Count.
+							for (int m = ElefantOnTableCount(ref AStarGreedy.data()[k][i].ElephantOnTable, true, AStarGreedy.data()[k][i].ElefantHigh); m < ElefantOnTableCount(ref AStarGreedy.data()[k][i].ElephantOnTable, false, AStarGreedy.data()[k][i].ElefantHigh); m++)
+							for (int m = AStarGreedy.data()[k][i].ElefantMidle; m < AStarGreedy.data()[k][i].ElefantHigh; m++)
+							{
+								//For All Elephant in Depth Count.
+								if (AStarGreedy.data()[k][i].ElephantOnTable[m] != null)
+								{
+									if (AStarGreedy.data()[k][i].ElephantOnTable[m].ElefantThinking.IsSupHu)
+										continue;
+									//Found of Maxmimum in Branch.
+									if (AStarGreedy.data()[k][i].ElephantOnTable[m].ElefantThinking.MaxHuristic(ref jIndex[1], Kin[1], ref Less[1], Order *-1))
+									{
+										iIndex[1] = i;
+										mIndex[1] = m;
+										Kin[1] = 2;
+										//Huristic = Less;
+									}
+									//else
+										//CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
+								}
+								//else
+									//CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
+
+
+							}
+							//For All Hourse on Table Count.
+							for (int m = HourseOnTableCount(ref AStarGreedy.data()[k][i].HoursesOnTable, true, AStarGreedy.data()[k][i].HourseHight); m < HourseOnTableCount(ref AStarGreedy.data()[k][i].HoursesOnTable, false, AStarGreedy.data()[k][i].HourseHight); m++)
+							for (int m = AStarGreedy.data()[k][i].HourseMidle; m < AStarGreedy.data()[k][i].HourseHight; m++)
+							{
+								//When is HourseOn Table Depth Object is Not NULL.
+								if (AStarGreedy.data()[k][i].HoursesOnTable[m] != null)
+								{
+									if (AStarGreedy.data()[k][i].HoursesOnTable[m].HourseThinking.IsSupHu)
+										continue;
+									//Forund of Maximum on on Branch.
+									if (AStarGreedy.data()[k][i].HoursesOnTable[m].HourseThinking.MaxHuristic(ref jIndex[2], Kin[2], ref Less[2], Order *-1))
+									{
+										iIndex[2] = i;
+										mIndex[2] = m;
+										Kin[2] = 3;
+										//Huristic = Less;
+									}
+									//else
+										//CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
+								}
+								//else
+									//CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
+							}
+							//For All Castles on table Count.
+							for (int m = CastleOnTableCount(ref AStarGreedy.data()[k][i].CastlesOnTable, true, AStarGreedy.data()[k][i].CastleHigh); m < CastleOnTableCount(ref AStarGreedy.data()[k][i].CastlesOnTable, false, AStarGreedy.data()[k][i].CastleHigh); m++)
+							for (int m = AStarGreedy.data()[k][i].CastleMidle; m < AStarGreedy.data()[k][i].CastleHigh; m++)
+							{
+								//When Depth Objects of Hourse Table is Not NULL.
+								if (AStarGreedy.data()[k][i].CastlesOnTable[m] != null)
+								{
+									if (AStarGreedy.data()[k][i].CastlesOnTable[m].CastleThinking.IsSupHu)
+										continue;
+									//Found of Maximum Castles Branch.
+									if (AStarGreedy.data()[k][i].CastlesOnTable[m].CastleThinking.MaxHuristic(ref jIndex[3], Kin[3], ref Less[3], Order *-1))
+									{
+										iIndex[3] = i;
+										mIndex[3] = m;
+										Kin[3] = 4;
+										//Huristic = Less;
+									}
+								   // else
+										//CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
+								}
+								//else
+									//CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
+
+							}
+							//For All Minsiter on table count.
+							for (int m = MinisterOnTableCount(ref AStarGreedy.data()[k][i].MinisterOnTable, true, AStarGreedy.data()[k][i].MinisterHigh); m < MinisterOnTableCount(ref AStarGreedy.data()[k][i].MinisterOnTable, false, AStarGreedy.data()[k][i].MinisterHigh); m++)
+							for (int m = AStarGreedy.data()[k][i].MinisterMidle; m < AStarGreedy.data()[k][i].MinisterHigh; m++)
+							{
+								//When Minster of Depth is Not Null.
+								if (AStarGreedy.data()[k][i].MinisterOnTable[m] != null)
+								{
+									if (AStarGreedy.data()[k][i].MinisterOnTable[m].MinisterThinking.IsSupHu)
+										continue;
+									//Found of Maximum Minster on table Branches.
+									if (AStarGreedy.data()[k][i].MinisterOnTable[m].MinisterThinking.MaxHuristic(ref jIndex[4], Kin[4], ref Less[4], Order *-1))
+									{
+										iIndex[4] = i;
+										mIndex[4] = m;
+										Kin[4] = 5;
+										//Huristic = Less;
+									}
+									//else
+										//CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
+								}
+								//else
+									//CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
+
+							}
+							//For All King on table Count.
+							for (int m = KingOnTableCount(ref AStarGreedy.data()[k][i].KingOnTable, true, AStarGreedy.data()[k][i].KingHigh); m < KingOnTableCount(ref AStarGreedy.data()[k][i].KingOnTable, false, AStarGreedy.data()[k][i].KingHigh); m++)
+							for (int m = AStarGreedy.data()[k][i].KingMidle; m < AStarGreedy.data()[k][i].KingHigh; m++)
+							{
+								//When Minster of Depth is Not Null.
+								if (AStarGreedy.data()[k][i].KingOnTable[m] != null)
+								{
+									if (AStarGreedy.data()[k][i].KingOnTable[m].KingThinking.IsSupHu)
+										continue;
+									//When Depth Object of King Table is Not NULL.
+									if (AStarGreedy.data()[k][i].KingOnTable[m].KingThinking.MaxHuristic(ref jIndex[5], Kin[5], ref Less[5], Order * -1))
+									{
+										iIndex[5] = i;
+										mIndex[5] = m;
+										Kin[5] = 6;
+										//Huristic = Less;
+									}
+									//else
+										//CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
+								}
+								//else
+									//CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
+
+							}
+						}
+
+					}
+					*/
 				if (!IsSupHu)
 				{
 					// int IJ = -1;
@@ -7105,7 +7048,7 @@ bool ThinkingChess::ThinkingRun = false;
 					for (j = 0; HuristicListSolder.size() > 0 && j < HuristicListSolder.size(); j++)
 					{
 						{
-						//if (!ActionStringSetting)
+							//if (!ActionStringSetting)
 							Huristic += HuristicListSolder.data()[j][0] + HuristicListSolder.data()[j][1] + HuristicListSolder.data()[j][2] + HuristicListSolder.data()[j][3] + HuristicListSolder.data()[j][4] + HuristicListSolder.data()[j][5] + HuristicListSolder.data()[j][6] + HuristicListSolder.data()[j][7] + HuristicListSolder.data()[j][8] + HuristicListSolder.data()[j][9];
 							//autoO1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -7129,7 +7072,7 @@ bool ThinkingChess::ThinkingRun = false;
 					for (j = 0; HuristicListElefant.size() > 0 && j < HuristicListElefant.size(); j++)
 					{
 						{
-						//if (!ActionStringSetting)
+							//if (!ActionStringSetting)
 							Huristic += HuristicListElefant.data()[j][0] + HuristicListElefant.data()[j][1] + HuristicListElefant.data()[j][2] + HuristicListElefant.data()[j][3] + HuristicListElefant.data()[j][4] + HuristicListElefant.data()[j][5] + HuristicListElefant.data()[j][6] + HuristicListElefant.data()[j][7] + HuristicListElefant.data()[j][8] + HuristicListElefant.data()[j][9];
 							//autoO1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -7152,7 +7095,7 @@ bool ThinkingChess::ThinkingRun = false;
 					for (j = 0; HuristicListHourse.size() > 0 && j < HuristicListHourse.size(); j++)
 					{
 						{
-						//if (!ActionStringSetting)
+							//if (!ActionStringSetting)
 							Huristic += HuristicListHourse.data()[j][0] + HuristicListHourse.data()[j][1] + HuristicListHourse.data()[j][2] + HuristicListHourse.data()[j][3] + HuristicListHourse.data()[j][4] + HuristicListHourse.data()[j][5] + HuristicListHourse.data()[j][6] + HuristicListHourse.data()[j][7] + HuristicListHourse.data()[j][8] + HuristicListHourse.data()[j][9];
 							//autoO1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -7175,7 +7118,7 @@ bool ThinkingChess::ThinkingRun = false;
 					for (j = 0; HuristicListCastle.size() > 0 && j < HuristicListCastle.size(); j++)
 					{
 						{
-						//if (!ActionStringSetting)
+							//if (!ActionStringSetting)
 							Huristic += HuristicListCastle.data()[j][0] + HuristicListCastle.data()[j][1] + HuristicListCastle.data()[j][2] + HuristicListCastle.data()[j][3] + HuristicListCastle.data()[j][4] + HuristicListCastle.data()[j][5] + HuristicListCastle.data()[j][6] + HuristicListCastle.data()[j][7] + HuristicListCastle.data()[j][8] + HuristicListCastle.data()[j][9];
 							//autoO1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -7198,7 +7141,7 @@ bool ThinkingChess::ThinkingRun = false;
 					for (j = 0; HuristicListMinister.size() > 0 && j < HuristicListMinister.size(); j++)
 					{
 						{
-						//if (!ActionStringSetting)
+							//if (!ActionStringSetting)
 							Huristic += HuristicListMinister.data()[j][0] + HuristicListMinister.data()[j][1] + HuristicListMinister.data()[j][2] + HuristicListMinister.data()[j][3] + HuristicListMinister.data()[j][4] + HuristicListMinister.data()[j][5] + HuristicListMinister.data()[j][6] + HuristicListMinister.data()[j][7] + HuristicListMinister.data()[j][8] + HuristicListMinister.data()[j][9];
 							//autoO1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -7221,7 +7164,7 @@ bool ThinkingChess::ThinkingRun = false;
 					{
 						{
 							{
-							//if (!ActionStringSetting)
+								//if (!ActionStringSetting)
 								Huristic += HuristicListKing.data()[j][0] + HuristicListKing.data()[j][1] + HuristicListKing.data()[j][2] + HuristicListKing.data()[j][3] + HuristicListKing.data()[j][4] + HuristicListKing.data()[j][5] + HuristicListKing.data()[j][6] + HuristicListKing.data()[j][7] + HuristicListKing.data()[j][8] + HuristicListKing.data()[j][9];
 								//autoO1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -7242,131 +7185,131 @@ bool ThinkingChess::ThinkingRun = false;
 						}
 					}
 				}
-				else				
+				else
 					return -DBL_MAX;
-				
+
 				for (int k = 0; k < AStarGreedy.size(); k++)
 				{
 
-					if (AStarGreedy.data()[k]==nullptr)
+					if (AStarGreedy.data()[k] == nullptr)
 					{
 						continue;
 					}
-						if (Order == 1)
+					if (Order == 1)
+					{
+						//Repeate for Solder.
+						for (int m = 0; m < AStarGreedy.data()[k].SodierMidle; m++)
 						{
-							//Repeate for Solder.
-							for (int m = 0; m < AStarGreedy.data()[k].SodierMidle; m++)
+							if (AStarGreedy.data()[k].SolderesOnTable == nullptr || AStarGreedy.data()[k].SolderesOnTable[m] == nullptr)
 							{
-								if (AStarGreedy.data()[k].SolderesOnTable == nullptr || AStarGreedy.data()[k].SolderesOnTable[m] == nullptr)
-								{
-									continue;
-								}
-								Huristic += AStarGreedy.data()[k].SolderesOnTable[m].SoldierThinking->ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+								continue;
 							}
-							//Repeate for Elephant.
-							for (int m = 0; m < AStarGreedy.data()[k].ElefantMidle; m++)
-							{
-								if (AStarGreedy.data()[k].ElephantOnTable == nullptr || AStarGreedy.data()[k].ElephantOnTable[m] == nullptr)
-								{
-									continue;
-								}
-								Huristic += AStarGreedy.data()[k].ElephantOnTable[m].ElefantThinking->ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
-							}
-							//Repeate for Hourse.
-							for (int m = 0; m < AStarGreedy.data()[k].HourseMidle; m++)
-							{
-								if (AStarGreedy.data()[k].HoursesOnTable == nullptr || AStarGreedy.data()[k].HoursesOnTable[m] == nullptr)
-								{
-									continue;
-								}
-								Huristic += AStarGreedy.data()[k].HoursesOnTable[m].HourseThinking->ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
-							}
-							//Repeate for Castles.
-							for (int m = 0; m < AStarGreedy.data()[k].CastleMidle; m++)
-							{
-								if (AStarGreedy.data()[k].CastlesOnTable == nullptr || AStarGreedy.data()[k].CastlesOnTable[m] == nullptr)
-								{
-									continue;
-								}
-								Huristic += AStarGreedy.data()[k].CastlesOnTable[m].CastleThinking->ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
-							}
-							//Repeate for Minstre.
-							for (int m = 0; m < AStarGreedy.data()[k].MinisterMidle; m++)
-							{
-								if (AStarGreedy.data()[k].MinisterOnTable == nullptr || AStarGreedy.data()[k].MinisterOnTable[m] == nullptr)
-								{
-									continue;
-								}
-								Huristic += AStarGreedy.data()[k].MinisterOnTable[m].MinisterThinking->ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
-							}
-							//Repeate for King.
-							for (int m = 0; m < AStarGreedy.data()[k].KingMidle; m++)
-							{
-								if (AStarGreedy.data()[k].KingOnTable == nullptr || AStarGreedy.data()[k].KingOnTable[m] == nullptr)
-								{
-									continue;
-								}
-								Huristic += AStarGreedy.data()[k].KingOnTable[m].KingThinking->ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
-							}
+							Huristic += AStarGreedy.data()[k].SolderesOnTable[m].SoldierThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 						}
-						else
+						//Repeate for Elephant.
+						for (int m = 0; m < AStarGreedy.data()[k].ElefantMidle; m++)
 						{
-							for (int m = AStarGreedy.data()[k].SodierMidle; m < AStarGreedy.data()[k].SodierHigh; m++)
+							if (AStarGreedy.data()[k].ElephantOnTable == nullptr || AStarGreedy.data()[k].ElephantOnTable[m] == nullptr)
 							{
-								if (AStarGreedy.data()[k].SolderesOnTable == nullptr || AStarGreedy.data()[k].SolderesOnTable[m] == nullptr)
-								{
-									continue;
-								}
-								Huristic += AStarGreedy.data()[k].SolderesOnTable[m].SoldierThinking->ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+								continue;
 							}
-							//Repeate for Elephant.
-							for (int m = AStarGreedy.data()[k].ElefantMidle; m < AStarGreedy.data()[k].ElefantHigh; m++)
-							{
-								if (AStarGreedy.data()[k].ElephantOnTable == nullptr || AStarGreedy.data()[k].ElephantOnTable[m] == nullptr)
-								{
-									continue;
-								}
-								Huristic += AStarGreedy.data()[k].ElephantOnTable[m].ElefantThinking->ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
-							}
-							//Repeate for Hourse.
-							for (int m = AStarGreedy.data()[k].HourseMidle; m < AStarGreedy.data()[k].HourseHight; m++)
-							{
-								if (AStarGreedy.data()[k].HoursesOnTable == nullptr || AStarGreedy.data()[k].HoursesOnTable[m] == nullptr)
-								{
-									continue;
-								}
-								Huristic += AStarGreedy.data()[k].HoursesOnTable[m].HourseThinking->ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
-							}
-							//Repeate for Castles.
-							for (int m = AStarGreedy.data()[k].CastleMidle; m < AStarGreedy.data()[k].CastleHigh; m++)
-							{
-								if (AStarGreedy.data()[k].CastlesOnTable == nullptr || AStarGreedy.data()[k].CastlesOnTable[m] == nullptr)
-								{
-									continue;
-								}
-								Huristic += AStarGreedy.data()[k].CastlesOnTable[m].CastleThinking->ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
-							}
-							//Repeate for Minstre.
-							for (int m = AStarGreedy.data()[k].MinisterMidle; m < AStarGreedy.data()[k].MinisterHigh; m++)
-							{
-								if (AStarGreedy.data()[k].MinisterOnTable == nullptr || AStarGreedy.data()[k].MinisterOnTable[m] == nullptr)
-								{
-									continue;
-								}
-								Huristic += AStarGreedy.data()[k].MinisterOnTable[m].MinisterThinking->ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
-							}
-							//Repeate for King.
-							for (int m = AStarGreedy.data()[k].KingMidle; m < AStarGreedy.data()[k].KingHigh; m++)
-							{
-								if (AStarGreedy.data()[k].KingOnTable == nullptr || AStarGreedy.data()[k].KingOnTable[m] == nullptr)
-								{
-									continue;
-								}
-								Huristic += AStarGreedy.data()[k].KingOnTable[m].KingThinking->ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
-							}
+							Huristic += AStarGreedy.data()[k].ElephantOnTable[m].ElefantThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 						}
-					
-				}		
+						//Repeate for Hourse.
+						for (int m = 0; m < AStarGreedy.data()[k].HourseMidle; m++)
+						{
+							if (AStarGreedy.data()[k].HoursesOnTable == nullptr || AStarGreedy.data()[k].HoursesOnTable[m] == nullptr)
+							{
+								continue;
+							}
+							Huristic += AStarGreedy.data()[k].HoursesOnTable[m].HourseThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						}
+						//Repeate for Castles.
+						for (int m = 0; m < AStarGreedy.data()[k].CastleMidle; m++)
+						{
+							if (AStarGreedy.data()[k].CastlesOnTable == nullptr || AStarGreedy.data()[k].CastlesOnTable[m] == nullptr)
+							{
+								continue;
+							}
+							Huristic += AStarGreedy.data()[k].CastlesOnTable[m].CastleThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						}
+						//Repeate for Minstre.
+						for (int m = 0; m < AStarGreedy.data()[k].MinisterMidle; m++)
+						{
+							if (AStarGreedy.data()[k].MinisterOnTable == nullptr || AStarGreedy.data()[k].MinisterOnTable[m] == nullptr)
+							{
+								continue;
+							}
+							Huristic += AStarGreedy.data()[k].MinisterOnTable[m].MinisterThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						}
+						//Repeate for King.
+						for (int m = 0; m < AStarGreedy.data()[k].KingMidle; m++)
+						{
+							if (AStarGreedy.data()[k].KingOnTable == nullptr || AStarGreedy.data()[k].KingOnTable[m] == nullptr)
+							{
+								continue;
+							}
+							Huristic += AStarGreedy.data()[k].KingOnTable[m].KingThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						}
+					}
+					else
+					{
+						for (int m = AStarGreedy.data()[k].SodierMidle; m < AStarGreedy.data()[k].SodierHigh; m++)
+						{
+							if (AStarGreedy.data()[k].SolderesOnTable == nullptr || AStarGreedy.data()[k].SolderesOnTable[m] == nullptr)
+							{
+								continue;
+							}
+							Huristic += AStarGreedy.data()[k].SolderesOnTable[m].SoldierThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						}
+						//Repeate for Elephant.
+						for (int m = AStarGreedy.data()[k].ElefantMidle; m < AStarGreedy.data()[k].ElefantHigh; m++)
+						{
+							if (AStarGreedy.data()[k].ElephantOnTable == nullptr || AStarGreedy.data()[k].ElephantOnTable[m] == nullptr)
+							{
+								continue;
+							}
+							Huristic += AStarGreedy.data()[k].ElephantOnTable[m].ElefantThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						}
+						//Repeate for Hourse.
+						for (int m = AStarGreedy.data()[k].HourseMidle; m < AStarGreedy.data()[k].HourseHight; m++)
+						{
+							if (AStarGreedy.data()[k].HoursesOnTable == nullptr || AStarGreedy.data()[k].HoursesOnTable[m] == nullptr)
+							{
+								continue;
+							}
+							Huristic += AStarGreedy.data()[k].HoursesOnTable[m].HourseThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						}
+						//Repeate for Castles.
+						for (int m = AStarGreedy.data()[k].CastleMidle; m < AStarGreedy.data()[k].CastleHigh; m++)
+						{
+							if (AStarGreedy.data()[k].CastlesOnTable == nullptr || AStarGreedy.data()[k].CastlesOnTable[m] == nullptr)
+							{
+								continue;
+							}
+							Huristic += AStarGreedy.data()[k].CastlesOnTable[m].CastleThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						}
+						//Repeate for Minstre.
+						for (int m = AStarGreedy.data()[k].MinisterMidle; m < AStarGreedy.data()[k].MinisterHigh; m++)
+						{
+							if (AStarGreedy.data()[k].MinisterOnTable == nullptr || AStarGreedy.data()[k].MinisterOnTable[m] == nullptr)
+							{
+								continue;
+							}
+							Huristic += AStarGreedy.data()[k].MinisterOnTable[m].MinisterThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						}
+						//Repeate for King.
+						for (int m = AStarGreedy.data()[k].KingMidle; m < AStarGreedy.data()[k].KingHigh; m++)
+						{
+							if (AStarGreedy.data()[k].KingOnTable == nullptr || AStarGreedy.data()[k].KingOnTable[m] == nullptr)
+							{
+								continue;
+							}
+							Huristic += AStarGreedy.data()[k].KingOnTable[m].KingThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						}
+					}
+
+				}
 
 			}
 			else
@@ -7381,44 +7324,44 @@ bool ThinkingChess::ThinkingRun = false;
 					}
 					else
 					{
-					//When Elephant Kind.
-					if (abs(Kind) == 2 && HuristicListElefant.size() > 0)
-					{
-						Huristic += HuristicListElefant.data()[j][0] + HuristicListElefant.data()[j][1] + HuristicListElefant.data()[j][2] + HuristicListElefant.data()[j][3] + HuristicListElefant.data()[j][4] + HuristicListElefant.data()[j][5] + HuristicListElefant.data()[j][6] + HuristicListElefant.data()[j][7] + HuristicListElefant.data()[j][8] + HuristicListElefant.data()[j][9];
+						//When Elephant Kind.
+						if (abs(Kind) == 2 && HuristicListElefant.size() > 0)
+						{
+							Huristic += HuristicListElefant.data()[j][0] + HuristicListElefant.data()[j][1] + HuristicListElefant.data()[j][2] + HuristicListElefant.data()[j][3] + HuristicListElefant.data()[j][4] + HuristicListElefant.data()[j][5] + HuristicListElefant.data()[j][6] + HuristicListElefant.data()[j][7] + HuristicListElefant.data()[j][8] + HuristicListElefant.data()[j][9];
 
-					}
-					else
-					{
-					//When Hourse Kind.
-					if (abs(Kind) == 3 && HuristicListHourse.size() > 0)
-					{
-						Huristic += HuristicListHourse.data()[j][0] + HuristicListHourse.data()[j][1] + HuristicListHourse.data()[j][2] + HuristicListHourse.data()[j][3] + HuristicListHourse.data()[j][4] + HuristicListHourse.data()[j][5] + HuristicListHourse.data()[j][6] + HuristicListHourse.data()[j][7] + HuristicListHourse.data()[j][8] + HuristicListHourse.data()[j][9];
-					}
-					else
-					{
-					//When Castles Kind.
-					if (abs(Kind) == 4 && HuristicListCastle.size() > 0)
-					{
-						Huristic += HuristicListCastle.data()[j][0] + HuristicListCastle.data()[j][1] + HuristicListCastle.data()[j][2] + HuristicListCastle.data()[j][3] + HuristicListCastle.data()[j][4] + HuristicListCastle.data()[j][5] + HuristicListCastle.data()[j][6] + HuristicListCastle.data()[j][7] + HuristicListCastle.data()[j][8] + HuristicListCastle.data()[j][9];
-					}
-					else
-					{
-					//When Minister Kind.
-					if (abs(Kind) == 5 && HuristicListMinister.size() > 0)
-					{
-						Huristic += HuristicListMinister.data()[j][0] + HuristicListMinister.data()[j][1] + HuristicListMinister.data()[j][2] + HuristicListMinister.data()[j][3] + HuristicListMinister.data()[j][4] + HuristicListMinister.data()[j][5] + HuristicListMinister.data()[j][6] + HuristicListMinister.data()[j][7] + HuristicListMinister.data()[j][8] + HuristicListMinister.data()[j][9];
-					}
-					else
-					{
-					//When King Kind.
-					if (abs(Kind) == 6 && HuristicListKing.size() > 0)
-					{
-						Huristic += HuristicListKing.data()[j][0] + HuristicListKing.data()[j][1] + HuristicListKing.data()[j][2] + HuristicListKing.data()[j][3] + HuristicListKing.data()[j][4] + HuristicListKing.data()[j][5] + HuristicListKing.data()[j][6] + HuristicListKing.data()[j][7] + HuristicListKing.data()[j][8] + HuristicListKing.data()[j][9];
-					}
-					}
-					}
-					}
-					}
+						}
+						else
+						{
+							//When Hourse Kind.
+							if (abs(Kind) == 3 && HuristicListHourse.size() > 0)
+							{
+								Huristic += HuristicListHourse.data()[j][0] + HuristicListHourse.data()[j][1] + HuristicListHourse.data()[j][2] + HuristicListHourse.data()[j][3] + HuristicListHourse.data()[j][4] + HuristicListHourse.data()[j][5] + HuristicListHourse.data()[j][6] + HuristicListHourse.data()[j][7] + HuristicListHourse.data()[j][8] + HuristicListHourse.data()[j][9];
+							}
+							else
+							{
+								//When Castles Kind.
+								if (abs(Kind) == 4 && HuristicListCastle.size() > 0)
+								{
+									Huristic += HuristicListCastle.data()[j][0] + HuristicListCastle.data()[j][1] + HuristicListCastle.data()[j][2] + HuristicListCastle.data()[j][3] + HuristicListCastle.data()[j][4] + HuristicListCastle.data()[j][5] + HuristicListCastle.data()[j][6] + HuristicListCastle.data()[j][7] + HuristicListCastle.data()[j][8] + HuristicListCastle.data()[j][9];
+								}
+								else
+								{
+									//When Minister Kind.
+									if (abs(Kind) == 5 && HuristicListMinister.size() > 0)
+									{
+										Huristic += HuristicListMinister.data()[j][0] + HuristicListMinister.data()[j][1] + HuristicListMinister.data()[j][2] + HuristicListMinister.data()[j][3] + HuristicListMinister.data()[j][4] + HuristicListMinister.data()[j][5] + HuristicListMinister.data()[j][6] + HuristicListMinister.data()[j][7] + HuristicListMinister.data()[j][8] + HuristicListMinister.data()[j][9];
+									}
+									else
+									{
+										//When King Kind.
+										if (abs(Kind) == 6 && HuristicListKing.size() > 0)
+										{
+											Huristic += HuristicListKing.data()[j][0] + HuristicListKing.data()[j][1] + HuristicListKing.data()[j][2] + HuristicListKing.data()[j][3] + HuristicListKing.data()[j][4] + HuristicListKing.data()[j][5] + HuristicListKing.data()[j][6] + HuristicListKing.data()[j][7] + HuristicListKing.data()[j][8] + HuristicListKing.data()[j][9];
+										}
+									}
+								}
+							}
+						}
 					}
 				}
 				else
@@ -7531,62 +7474,62 @@ bool ThinkingChess::ThinkingRun = false;
 			{
 				if (Kind == 2) //Elephant
 				{
-				if (abs(i - ii) == abs(j - jj))
-				{
+					if (abs(i - ii) == abs(j - jj))
+					{
 
-					Validity = true;
+						Validity = true;
+					}
 				}
-				}
-			else
-			{
+				else
+				{
 					if (Kind == 3) //Hourse
 					{
-				if (abs(i - ii) == 1 && abs(j - jj) == 2)
-				{
-					Validity = true;
-				}
-				if (abs(i - ii) == 2 && abs(j - jj) == 1)
-				{
-					Validity = true;
-				}
+						if (abs(i - ii) == 1 && abs(j - jj) == 2)
+						{
+							Validity = true;
+						}
+						if (abs(i - ii) == 2 && abs(j - jj) == 1)
+						{
+							Validity = true;
+						}
 					}
-			else
-			{
+					else
+					{
 						if (Kind == 4) //Castle
 						{
-				if ((i == ii && j != jj) || (i != ii && j == jj))
-				{
-					Validity = true;
-				}
+							if ((i == ii && j != jj) || (i != ii && j == jj))
+							{
+								Validity = true;
+							}
 						}
-			else
-			{
+						else
+						{
 							if (Kind == 5) //Minister
 							{
-				if (((i == ii && j != jj) || (i != ii && j == jj)) || abs(i - ii) == abs(j - jj))
-				{
-					Validity = true;
-				}
+								if (((i == ii && j != jj) || (i != ii && j == jj)) || abs(i - ii) == abs(j - jj))
+								{
+									Validity = true;
+								}
 							}
-			else
-			{
-		  if (Kind == 6) //King
-		  {
-				if (abs(i - ii) <= 1 && abs(j - jj) <= 1)
-				{
-					Validity = true;
+							else
+							{
+								if (Kind == 6) //King
+								{
+									if (abs(i - ii) <= 1 && abs(j - jj) <= 1)
+									{
+										Validity = true;
+									}
+								}
+							}
+						}
+					}
 				}
-		  }
-			}
-			}
-			}
-			}
 			}
 			return Validity;
 		}
 	}
 
-	int ThinkingChess::MaxOfSixHuristic(double Less[])
+	int ThinkingChess::MaxOfSixHuristic(double *Less)
 	{
 		//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -7606,7 +7549,7 @@ bool ThinkingChess::ThinkingRun = false;
 		}
 	}
 
-	int ThinkingChess::MinOfSixHuristic(double Less[])
+	int ThinkingChess::MinOfSixHuristic(double *Less)
 	{
 		//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -7713,7 +7656,7 @@ bool ThinkingChess::ThinkingRun = false;
 					//RowColumn[Index, 0] = RowDestination;
 					//RowColumn[Index, 1] = ColumnDestination;
 					//Index+=1;
-					TableListKingFounded.(CloneATable(TableS));
+					TableListKing.push_back(CloneATable(TableS));
 
 					IndexKing++;
 
@@ -7748,7 +7691,7 @@ bool ThinkingChess::ThinkingRun = false;
 					Hu[8] = HeuristicFromCenter;
 					Hu[9] = HeuristicKingDangour;
 
-					H = std::wstring(L" HAttack:") + ((Hu[0])).ToString() + std::wstring(L" HMove:") + ((Hu[1])).ToString() + std::wstring(L" HSelSup:") + ((Hu[2])).ToString() + std::wstring(L" HCheckedMateDang:") + ((Hu[3])).ToString() + std::wstring(L" HKiller:") + ((Hu[4])).ToString() + std::wstring(L" HReduAttack:") + ((Hu[5])).ToString() + std::wstring(L" HDisFromCurrentEnemyking:") + ((Hu[6])).ToString() + std::wstring(L" HKingSafe:") + ((Hu[7])).ToString() + std::wstring(L" HObjFromCeneter:") + ((Hu[8])).ToString() + std::wstring(L" HKingDang:") + ((Hu[9])).ToString();
+					H = std::wstring(L" HAttack:") + Hu[0].ToString() + std::wstring(L" HMove:") + Hu[1].ToString() + std::wstring(L" HSelSup:") + Hu[2].ToString() + std::wstring(L" HCheckedMateDang:") + Hu[3].ToString() + std::wstring(L" HKiller:") + Hu[4].ToString() + std::wstring(L" HReduAttack:") + Hu[5].ToString() + std::wstring(L" HDisFromCurrentEnemyking:") + Hu[6].ToString() + std::wstring(L" HKingSafe:") + Hu[7].ToString() + std::wstring(L" HObjFromCeneter:") + Hu[8].ToString() + std::wstring(L" HKingDang:") + Hu[9].ToString();
 					HuristicListKing.push_back(Hu);
 
 
@@ -7799,7 +7742,7 @@ bool ThinkingChess::ThinkingRun = false;
 					Hu[8] = HeuristicFromCenterSup;
 					//HeuristicFromCenterSup = 0;
 					Hu[9] = HeuristicKingDangourSup;
-					std::wstring H = std::wstring(L" HAttack:") + ((Hu[0])).ToString() + std::wstring(L" HMove:") + ((Hu[1])).ToString() + std::wstring(L" HSelSup:") + ((Hu[2])).ToString() + std::wstring(L" HCheckedMateDang:") + ((Hu[3])).ToString() + std::wstring(L" HKiller:") + ((Hu[4])).ToString() + std::wstring(L" HReduAttack:") + ((Hu[5])).ToString() + std::wstring(L" HDisFromCurrentEnemyking:") + ((Hu[6])).ToString() + std::wstring(L" HKingSafe:") + ((Hu[7])).ToString() + std::wstring(L" HObjFromCeneter:") + ((Hu[8])).ToString() + std::wstring(L" HKingDang:") + ((Hu[9])).ToString();
+					std::wstring H = std::wstring(L" HAttack:") + Hu[0].ToString() + std::wstring(L" HMove:") + Hu[1].ToString() + std::wstring(L" HSelSup:") + Hu[2].ToString() + std::wstring(L" HCheckedMateDang:") + Hu[3].ToString() + std::wstring(L" HKiller:") + Hu[4].ToString() + std::wstring(L" HReduAttack:") + Hu[5].ToString() + std::wstring(L" HDisFromCurrentEnemyking:") + Hu[6].ToString() + std::wstring(L" HKingSafe:") + Hu[7].ToString() + std::wstring(L" HObjFromCeneter:") + Hu[8].ToString() + std::wstring(L" HKingDang:") + Hu[9].ToString();
 					OutPutAction = std::wstring(L" ") + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + std::wstring(L" With Huristic ") + H;
 					if (Order == 1)
 					{
@@ -7962,10 +7905,10 @@ bool ThinkingChess::ThinkingRun = false;
 				}
 
 				//Calculate Huristic and Add to List and Cal Syntax.
+				std::wstring H = L"";
 				if (!Sup)
 				{
-					std::wstring H = L"";
-
+				
 					double* Hu = new double[10];
 
 					HuristicPenaltyValuePerform(Current, Order, HuristicAttackValue);
@@ -7983,7 +7926,7 @@ bool ThinkingChess::ThinkingRun = false;
 					Hu[7] += HeuristicKingSafe;
 					Hu[8] = HeuristicFromCenter;
 					Hu[9] = HeuristicKingDangour;
-					H = std::wstring(L" HAttack:") + ((Hu[0])).ToString() + std::wstring(L" HMove:") + ((Hu[1])).ToString() + std::wstring(L" HSelSup:") + ((Hu[2])).ToString() + std::wstring(L" HCheckedMateDang:") + ((Hu[3])).ToString() + std::wstring(L" HKiller:") + ((Hu[4])).ToString() + std::wstring(L" HReduAttack:") + ((Hu[5])).ToString() + std::wstring(L" HDisFromCurrentEnemyking:") + ((Hu[6])).ToString() + std::wstring(L" HKingSafe:") + ((Hu[7])).ToString() + std::wstring(L" HObjFromCeneter:") + ((Hu[8])).ToString() + std::wstring(L" HKingDang:") + ((Hu[9])).ToString();
+					H = std::wstring(L" HAttack:") + Hu[0].ToString() + std::wstring(L" HMove:") + Hu[1].ToString() + std::wstring(L" HSelSup:") + Hu[2].ToString() + std::wstring(L" HCheckedMateDang:") + Hu[3].ToString() + std::wstring(L" HKiller:") + Hu[4].ToString() + std::wstring(L" HReduAttack:") + Hu[5].ToString() + std::wstring(L" HDisFromCurrentEnemyking:") + Hu[6].ToString() + std::wstring(L" HKingSafe:") + Hu[7].ToString() + std::wstring(L" HObjFromCeneter:") + Hu[8].ToString() + std::wstring(L" HKingDang:") + Hu[9].ToString();
 					HuristicListMinister.push_back(Hu);
 
 
@@ -8035,7 +7978,7 @@ bool ThinkingChess::ThinkingRun = false;
 				Hu[9] = HeuristicKingDangourSup;
 				//HeuristicKingDangourSup = 0;
 
-				std::wstring H = std::wstring(L" HAttack:") + ((Hu[0])).ToString() + std::wstring(L" HMove:") + ((Hu[1])).ToString() + std::wstring(L" HSelSup:") + ((Hu[2])).ToString() + std::wstring(L" HCheckedMateDang:") + ((Hu[3])).ToString() + std::wstring(L" HKiller:") + ((Hu[4])).ToString() + std::wstring(L" HReduAttack:") + ((Hu[5])).ToString() + std::wstring(L" HDisFromCurrentEnemyking:") + ((Hu[6])).ToString() + std::wstring(L" HKingSafe:") + ((Hu[7])).ToString() + std::wstring(L" HObjFromCeneter:") + ((Hu[8])).ToString() + std::wstring(L" HKingDang:") + ((Hu[9])).ToString();
+				std::wstring H = std::wstring(L" HAttack:") + Hu[0].ToString() + std::wstring(L" HMove:") + Hu[1].ToString() + std::wstring(L" HSelSup:") + Hu[2].ToString() + std::wstring(L" HCheckedMateDang:") + Hu[3].ToString() + std::wstring(L" HKiller:") + Hu[4].ToString() + std::wstring(L" HReduAttack:") + Hu[5].ToString() + std::wstring(L" HDisFromCurrentEnemyking:") + Hu[6].ToString() + std::wstring(L" HKingSafe:") + Hu[7].ToString() + std::wstring(L" HObjFromCeneter:") + Hu[8].ToString() + std::wstring(L" HKingDang:") + Hu[9].ToString();
 				OutPutAction = std::wstring(L" ") + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + std::wstring(L" With Huristic ") + H;
 				if (Order == 1)
 				{
@@ -8077,13 +8020,13 @@ bool ThinkingChess::ThinkingRun = false;
 					for (int j = 0; j < 8; j++)
 					{
 						BREAK = 0;
-						if (Order == 1 && TableS[i]. <= 0)
+						if (Order == 1 && TableS[i][j] <= 0)
 						{
 							continue;
 						}
 						else
 						{
-							if (Order == -1 && TableS[i]. >= 0)
+							if (Order == -1 && TableS[i][j] >= 0)
 							{
 							continue;
 							}
@@ -8532,10 +8475,10 @@ bool ThinkingChess::ThinkingRun = false;
 
 
 				//Calculate Huristic and Add to List and Cal Syntax.
+				std::wstring H = L"";
 				if (!Sup)
 				{
-					std::wstring H = L"";
-
+					
 					double* Hu = new double[10];
 
 					HuristicPenaltyValuePerform(Current, Order, HuristicAttackValue);
@@ -8555,7 +8498,7 @@ bool ThinkingChess::ThinkingRun = false;
 					Hu[9] = HeuristicKingDangour;
 
 
-					H = std::wstring(L" HAttack:") + ((Hu[0])).ToString() + std::wstring(L" HMove:") + ((Hu[1])).ToString() + std::wstring(L" HSelSup:") + ((Hu[2])).ToString() + std::wstring(L" HCheckedMateDang:") + ((Hu[3])).ToString() + std::wstring(L" HKiller:") + ((Hu[4])).ToString() + std::wstring(L" HReduAttack:") + ((Hu[5])).ToString() + std::wstring(L" HDisFromCurrentEnemyking:") + ((Hu[6])).ToString() + std::wstring(L" HKingSafe:") + ((Hu[7])).ToString() + std::wstring(L" HObjFromCeneter:") + ((Hu[8])).ToString() + std::wstring(L" HKingDang:") + ((Hu[9])).ToString();
+					H = std::wstring(L" HAttack:") + Hu[0].ToString() + std::wstring(L" HMove:") + Hu[1].ToString() + std::wstring(L" HSelSup:") + Hu[2].ToString() + std::wstring(L" HCheckedMateDang:") + Hu[3].ToString() + std::wstring(L" HKiller:") + Hu[4].ToString() + std::wstring(L" HReduAttack:") + Hu[5].ToString() + std::wstring(L" HDisFromCurrentEnemyking:") + Hu[6].ToString() + std::wstring(L" HKingSafe:") + Hu[7].ToString() + std::wstring(L" HObjFromCeneter:") + Hu[8].ToString() + std::wstring(L" HKingDang:") + Hu[9].ToString();
 					HuristicListCastle.push_back(Hu);
 				}
 
@@ -8607,7 +8550,7 @@ bool ThinkingChess::ThinkingRun = false;
 				Hu[9] = HeuristicKingDangourSup;
 				//HeuristicKingDangourSup = 0;
 
-				std::wstring H = std::wstring(L" HAttack:") + ((Hu[0])).ToString() + std::wstring(L" HMove:") + ((Hu[1])).ToString() + std::wstring(L" HSelSup:") + ((Hu[2])).ToString() + std::wstring(L" HCheckedMateDang:") + ((Hu[3])).ToString() + std::wstring(L" HKiller:") + ((Hu[4])).ToString() + std::wstring(L" HReduAttack:") + ((Hu[5])).ToString() + std::wstring(L" HDisFromCurrentEnemyking:") + ((Hu[6])).ToString() + std::wstring(L" HKingSafe:") + ((Hu[7])).ToString() + std::wstring(L" HObjFromCeneter:") + ((Hu[8])).ToString() + std::wstring(L" HKingDang:") + ((Hu[9])).ToString();
+				std::wstring H = std::wstring(L" HAttack:") + Hu[0].ToString() + std::wstring(L" HMove:") + Hu[1].ToString() + std::wstring(L" HSelSup:") + Hu[2].ToString() + std::wstring(L" HCheckedMateDang:") + Hu[3].ToString() + std::wstring(L" HKiller:") + Hu[4].ToString() + std::wstring(L" HReduAttack:") + Hu[5].ToString() + std::wstring(L" HDisFromCurrentEnemyking:") + Hu[6].ToString() + std::wstring(L" HKingSafe:") + Hu[7].ToString() + std::wstring(L" HObjFromCeneter:") + Hu[8].ToString() + std::wstring(L" HKingDang:") + Hu[9].ToString();
 				OutPutAction = std::wstring(L" ") + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + std::wstring(L" With Huristic ") + H;
 				if (Order == 1)
 				{
@@ -8759,7 +8702,7 @@ bool ThinkingChess::ThinkingRun = false;
 						Hu[9] = HeuristicKingDangour;
 
 
-						H = std::wstring(L" HAttack:") + ((Hu[0])).ToString() + std::wstring(L" HMove:") + ((Hu[1])).ToString() + std::wstring(L" HSelSup:") + ((Hu[2])).ToString() + std::wstring(L" HCheckedMateDang:") + ((Hu[3])).ToString() + std::wstring(L" HKiller:") + ((Hu[4])).ToString() + std::wstring(L" HReduAttack:") + ((Hu[5])).ToString() + std::wstring(L" HDisFromCurrentEnemyking:") + ((Hu[6])).ToString() + std::wstring(L" HKingSafe:") + ((Hu[7])).ToString() + std::wstring(L" HObjFromCeneter:") + ((Hu[8])).ToString() + std::wstring(L" HKingDang:") + ((Hu[9])).ToString();
+						H = std::wstring(L" HAttack:") + Hu[0].ToString() + std::wstring(L" HMove:") + Hu[1].ToString() + std::wstring(L" HSelSup:") + Hu[2].ToString() + std::wstring(L" HCheckedMateDang:") + Hu[3].ToString() + std::wstring(L" HKiller:") + Hu[4].ToString() + std::wstring(L" HReduAttack:") + Hu[5].ToString() + std::wstring(L" HDisFromCurrentEnemyking:") + Hu[6].ToString() + std::wstring(L" HKingSafe:") + Hu[7].ToString() + std::wstring(L" HObjFromCeneter:") + Hu[8].ToString() + std::wstring(L" HKingDang:") + Hu[9].ToString();
 						HuristicListHourse.push_back(Hu);
 					}
 
@@ -8811,7 +8754,7 @@ bool ThinkingChess::ThinkingRun = false;
 				Hu[9] = HeuristicKingDangourSup;
 				//HeuristicKingDangourSup = 0;
 //C# TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'ToString':
-				std::wstring H = std::wstring(L" HAttack:") + ((Hu[0])).ToString() + std::wstring(L" HMove:") + ((Hu[1])).ToString() + std::wstring(L" HSelSup:") + ((Hu[2])).ToString() + std::wstring(L" HCheckedMateDang:") + ((Hu[3])).ToString() + std::wstring(L" HKiller:") + ((Hu[4])).ToString() + std::wstring(L" HReduAttack:") + ((Hu[5])).ToString() + std::wstring(L" HDisFromCurrentEnemyking:") + ((Hu[6])).ToString() + std::wstring(L" HKingSafe:") + ((Hu[7])).ToString() + std::wstring(L" HObjFromCeneter:") + ((Hu[8])).ToString() + std::wstring(L" HKingDang:") + ((Hu[9])).ToString();
+				std::wstring H = std::wstring(L" HAttack:") + Hu[0].ToString() + std::wstring(L" HMove:") + Hu[1].ToString() + std::wstring(L" HSelSup:") + Hu[2].ToString() + std::wstring(L" HCheckedMateDang:") + Hu[3].ToString() + std::wstring(L" HKiller:") + Hu[4].ToString() + std::wstring(L" HReduAttack:") + Hu[5].ToString() + std::wstring(L" HDisFromCurrentEnemyking:") + Hu[6].ToString() + std::wstring(L" HKingSafe:") + Hu[7].ToString() + std::wstring(L" HObjFromCeneter:") + Hu[8].ToString() + std::wstring(L" HKingDang:") + Hu[9].ToString();
 				OutPutAction = std::wstring(L" ") + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + std::wstring(L" With Huristic ") + H;
 				if (Order == 1)
 				{
@@ -8962,7 +8905,7 @@ bool ThinkingChess::ThinkingRun = false;
 					Hu[9] = HeuristicKingDangour;
 
 					//C# TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'ToString':
-					H = std::wstring(L" HAttack:") + ((Hu[0])).ToString() + std::wstring(L" HMove:") + ((Hu[1])).ToString() + std::wstring(L" HSelSup:") + ((Hu[2])).ToString() + std::wstring(L" HCheckedMateDang:") + ((Hu[3])).ToString() + std::wstring(L" HKiller:") + ((Hu[4])).ToString() + std::wstring(L" HReduAttack:") + ((Hu[5])).ToString() + std::wstring(L" HDisFromCurrentEnemyking:") + ((Hu[6])).ToString() + std::wstring(L" HKingSafe:") + ((Hu[7])).ToString() + std::wstring(L" HObjFromCeneter:") + ((Hu[8])).ToString() + std::wstring(L" HKingDang:") + ((Hu[9])).ToString();
+					H = std::wstring(L" HAttack:") + Hu[0].ToString() + std::wstring(L" HMove:") + Hu[1].ToString() + std::wstring(L" HSelSup:") + Hu[2].ToString() + std::wstring(L" HCheckedMateDang:") + Hu[3].ToString() + std::wstring(L" HKiller:") + Hu[4].ToString() + std::wstring(L" HReduAttack:") + Hu[5].ToString() + std::wstring(L" HDisFromCurrentEnemyking:") + Hu[6].ToString() + std::wstring(L" HKingSafe:") + Hu[7].ToString() + std::wstring(L" HObjFromCeneter:") + Hu[8].ToString() + std::wstring(L" HKingDang:") + Hu[9].ToString();
 					HuristicListElefant.push_back(Hu);
 
 
@@ -9014,7 +8957,7 @@ bool ThinkingChess::ThinkingRun = false;
 					Hu[9] = HeuristicKingDangourSup;
 					//HeuristicKingDangourSup = 0;
 		//C# TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'ToString':
-					std::wstring H = std::wstring(L" HAttack:") + ((Hu[0])).ToString() + std::wstring(L" HMove:") + ((Hu[1])).ToString() + std::wstring(L" HSelSup:") + ((Hu[2])).ToString() + std::wstring(L" HCheckedMateDang:") + ((Hu[3])).ToString() + std::wstring(L" HKiller:") + ((Hu[4])).ToString() + std::wstring(L" HReduAttack:") + ((Hu[5])).ToString() + std::wstring(L" HDisFromCurrentEnemyking:") + ((Hu[6])).ToString() + std::wstring(L" HKingSafe:") + ((Hu[7])).ToString() + std::wstring(L" HObjFromCeneter:") + ((Hu[8])).ToString() + std::wstring(L" HKingDang:") + ((Hu[9])).ToString();
+					std::wstring H = std::wstring(L" HAttack:") + Hu[0].ToString() + std::wstring(L" HMove:") + Hu[1].ToString() + std::wstring(L" HSelSup:") + Hu[2].ToString() + std::wstring(L" HCheckedMateDang:") + Hu[3].ToString() + std::wstring(L" HKiller:") + Hu[4].ToString() + std::wstring(L" HReduAttack:") + Hu[5].ToString() + std::wstring(L" HDisFromCurrentEnemyking:") + Hu[6].ToString() + std::wstring(L" HKingSafe:") + Hu[7].ToString() + std::wstring(L" HObjFromCeneter:") + Hu[8].ToString() + std::wstring(L" HKingDang:") + Hu[9].ToString();
 					OutPutAction = std::wstring(L" ") + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + std::wstring(L" With Huristic ") + H;
 					if (Order == 1)
 					{
@@ -9252,7 +9195,7 @@ bool ThinkingChess::ThinkingRun = false;
 
 
 					}
-					if (AllDraw::OrderPlate == 1 && AA->CheckMateGray) //(AllDraw.OrderPlate == 1 && AA.CheckGray) ||
+					if (AllDraw::OrderPlate == 1 && AA->CheckMateGray) //(AllDraw.OrderPlate == 1 && AA->CheckGray) ||
 					{
 						DoEnemySelf = false;
 
@@ -9432,9 +9375,9 @@ bool ThinkingChess::ThinkingRun = false;
 						if (PDo)
 						{
 
-							for (int ik = 0; ik < abs(TableS[i].); ik++)
+							for (int ik = 0; ik < abs(TableS[i][j]); ik++)
 							{
-								LearniningTable->LearningAlgorithmPenaltyNet(ii, jj);
+								LearniningTable.LearningAlgorithmPenaltyNet(ii, jj);
 							}
 
 							//When previous Move of Enemy goes to Dangoure Current Object.
@@ -9530,9 +9473,9 @@ bool ThinkingChess::ThinkingRun = false;
 						else if (RDo)
 						{
 
-							for (int ik = 0; ik < abs(TableS[i].); ik++)
+							for (int ik = 0; ik < abs(TableS[i][j]); ik++)
 							{
-								LearniningTable->LearningAlgorithmRegardNet(ii, jj);
+								LearniningTable.LearningAlgorithmRegardNet(ii, jj);
 							}
 
 
@@ -9620,10 +9563,10 @@ bool ThinkingChess::ThinkingRun = false;
 					else
 					{
 
-						for (int ik = 0; ik < abs(TableS[i].); ik++)
+						for (int ik = 0; ik < abs(TableS[i][j]); ik++)
 						{
-							LearniningTable->LearningAlgorithmRegardNet(ii, jj);
-							LearniningTable->LearningAlgorithmPenaltyNet(ii, jj);
+							LearniningTable.LearningAlgorithmRegardNet(ii, jj);
+							LearniningTable.LearningAlgorithmPenaltyNet(ii, jj);
 						}
 
 
@@ -9877,7 +9820,7 @@ bool ThinkingChess::ThinkingRun = false;
 								Hu[9] = HeuristicKingDangour;
 
 //C# TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'ToString':
-								H = std::wstring(L" HAttack:") + ((Hu[0])).ToString() + std::wstring(L" HMove:") + ((Hu[1])).ToString() + std::wstring(L" HSelSup:") + ((Hu[2])).ToString() + std::wstring(L" HCheckedMateDang:") + ((Hu[3])).ToString() + std::wstring(L" HKiller:") + ((Hu[4])).ToString() + std::wstring(L" HReduAttack:") + ((Hu[5])).ToString() + std::wstring(L" HDisFromCurrentEnemyking:") + ((Hu[6])).ToString() + std::wstring(L" HKingSafe:") + ((Hu[7])).ToString() + std::wstring(L" HObjFromCeneter:") + ((Hu[8])).ToString() + std::wstring(L" HKingDang:") + ((Hu[9])).ToString();
+								H = std::wstring(L" HAttack:") + Hu[0].ToString() + std::wstring(L" HMove:") + Hu[1].ToString() + std::wstring(L" HSelSup:") + Hu[2].ToString() + std::wstring(L" HCheckedMateDang:") + Hu[3].ToString() + std::wstring(L" HKiller:") + Hu[4].ToString() + std::wstring(L" HReduAttack:") + Hu[5].ToString() + std::wstring(L" HDisFromCurrentEnemyking:") + Hu[6].ToString() + std::wstring(L" HKingSafe:") + Hu[7].ToString() + std::wstring(L" HObjFromCeneter:") + Hu[8].ToString() + std::wstring(L" HKingDang:") + Hu[9].ToString();
 								HuristicListSolder.push_back(Hu);
 							}
 							/*else
@@ -9905,7 +9848,7 @@ bool ThinkingChess::ThinkingRun = false;
 							    HeuristicFromCenterSup = 0;
 							    Hu[9] = HeuristicKingDangour + HeuristicKingDangourSup;
 							    HeuristicKingDangourSup = 0;
-							    H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
+							    H = " HAttack:" + Hu[0].ToString() + " HMove:" + Hu[1].ToString() + " HSelSup:" + Hu[2].ToString() + " HCheckedMateDang:" + Hu[3].ToString() + " HKiller:" + Hu[4].ToString() + " HReduAttack:" + Hu[5].ToString() + " HDisFromCurrentEnemyking:" + Hu[6].ToString() + " HKingSafe:" + Hu[7].ToString() + " HObjFromCeneter:" + Hu[8].ToString() + " HKingDang:" + Hu[9].ToString();
 							    HuristicListSolder.push_back(Hu);
 							    IsSup = false;
 							}*/
@@ -9961,7 +9904,7 @@ bool ThinkingChess::ThinkingRun = false;
 						Hu[9] = HeuristicKingDangourSup;
 						//HeuristicKingDangourSup = 0;
 //C# TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'ToString':
-						std::wstring H = std::wstring(L" HAttack:") + ((Hu[0])).ToString() + std::wstring(L" HMove:") + ((Hu[1])).ToString() + std::wstring(L" HSelSup:") + ((Hu[2])).ToString() + std::wstring(L" HCheckedMateDang:") + ((Hu[3])).ToString() + std::wstring(L" HKiller:") + ((Hu[4])).ToString() + std::wstring(L" HReduAttack:") + ((Hu[5])).ToString() + std::wstring(L" HDisFromCurrentEnemyking:") + ((Hu[6])).ToString() + std::wstring(L" HKingSafe:") + ((Hu[7])).ToString() + std::wstring(L" HObjFromCeneter:") + ((Hu[8])).ToString() + std::wstring(L" HKingDang:") + ((Hu[9])).ToString();
+						std::wstring H = std::wstring(L" HAttack:") + Hu[0].ToString() + std::wstring(L" HMove:") + Hu[1].ToString() + std::wstring(L" HSelSup:") + Hu[2].ToString() + std::wstring(L" HCheckedMateDang:") + Hu[3].ToString() + std::wstring(L" HKiller:") + Hu[4].ToString() + std::wstring(L" HReduAttack:") + Hu[5].ToString() + std::wstring(L" HDisFromCurrentEnemyking:") + Hu[6].ToString() + std::wstring(L" HKingSafe:") + Hu[7].ToString() + std::wstring(L" HObjFromCeneter:") + Hu[8].ToString() + std::wstring(L" HKingDang:") + Hu[9].ToString();
 						OutPutAction = std::wstring(L" ") + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + std::wstring(L" With Huristic ") + H;
 						if (Order == 1)
 						{
@@ -10078,7 +10021,7 @@ bool ThinkingChess::ThinkingRun = false;
 				Hu[8] = HeuristicFromCenter;
 				Hu[9] = HeuristicKingDangour;
 //C# TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'ToString':
-				H = std::wstring(L" HAttack:") + ((Hu[0])).ToString() + std::wstring(L" HMove:") + ((Hu[1])).ToString() + std::wstring(L" HSelSup:") + ((Hu[2])).ToString() + std::wstring(L" HCheckedMateDang:") + ((Hu[3])).ToString() + std::wstring(L" HKiller:") + ((Hu[4])).ToString() + std::wstring(L" HReduAttack:") + ((Hu[5])).ToString() + std::wstring(L" HDisFromCurrentEnemyking:") + ((Hu[6])).ToString() + std::wstring(L" HKingSafe:") + ((Hu[7])).ToString() + std::wstring(L" HObjFromCeneter:") + ((Hu[8])).ToString() + std::wstring(L" HKingDang:") + ((Hu[9])).ToString();
+				H = std::wstring(L" HAttack:") + Hu[0].ToString() + std::wstring(L" HMove:") + Hu[1].ToString() + std::wstring(L" HSelSup:") + Hu[2].ToString() + std::wstring(L" HCheckedMateDang:") + Hu[3].ToString() + std::wstring(L" HKiller:") + Hu[4].ToString() + std::wstring(L" HReduAttack:") + Hu[5].ToString() + std::wstring(L" HDisFromCurrentEnemyking:") + Hu[6].ToString() + std::wstring(L" HKingSafe:") + Hu[7].ToString() + std::wstring(L" HObjFromCeneter:") + Hu[8].ToString() + std::wstring(L" HKingDang:") + Hu[9].ToString();
 				HuristicListKing.push_back(Hu);
 
 			}
@@ -10128,8 +10071,8 @@ bool ThinkingChess::ThinkingRun = false;
 		//lock (OO)
 		{
 
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
-//ORIGINAL LINE: double[] Huriistic = nullptr;
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
+//ORIGINAL LINE: double* Huriistic = nullptr;
 			double *Huriistic = nullptr;
 			double HCheck = double();
 			double HDistance = double();
@@ -10265,7 +10208,7 @@ bool ThinkingChess::ThinkingRun = false;
 		Hu[7] += HeuristicKingSafe;
 		Hu[8] = HeuristicFromCenter;
 		Hu[9] = HeuristicKingDangour;
-		H = std::wstring(L" HAttack:") + ((Hu[0])).ToString() + std::wstring(L" HMove:") + ((Hu[1])).ToString() + std::wstring(L" HSelSup:") + ((Hu[2])).ToString() + std::wstring(L" HCheckedMateDang:") + ((Hu[3])).ToString() + std::wstring(L" HKiller:") + ((Hu[4])).ToString() + std::wstring(L" HReduAttack:") + ((Hu[5])).ToString() + std::wstring(L" HDisFromCurrentEnemyking:") + ((Hu[6])).ToString() + std::wstring(L" HKingSafe:") + ((Hu[7])).ToString() + std::wstring(L" HObjFromCeneter:") + ((Hu[8])).ToString() + std::wstring(L" HKingDang:") + ((Hu[9])).ToString();
+		H = std::wstring(L" HAttack:") + Hu[0].ToString() + std::wstring(L" HMove:") + Hu[1].ToString() + std::wstring(L" HSelSup:") + Hu[2].ToString() + std::wstring(L" HCheckedMateDang:") + Hu[3].ToString() + std::wstring(L" HKiller:") + Hu[4].ToString() + std::wstring(L" HReduAttack:") + Hu[5].ToString() + std::wstring(L" HDisFromCurrentEnemyking:") + Hu[6].ToString() + std::wstring(L" HKingSafe:") + Hu[7].ToString() + std::wstring(L" HObjFromCeneter:") + Hu[8].ToString() + std::wstring(L" HKingDang:") + Hu[9].ToString();
 
 		//autoO7 = new Object();
 		SetObjectNumbersInList(TableS);
@@ -10476,22 +10419,10 @@ bool ThinkingChess::ThinkingRun = false;
 
 	void ThinkingChess::ThinkingElephant(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
 	{
-		//autoO2 = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-		//lock (O2)
-		{
-
-			//autoO1 = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-			//lock (O1)
-			{
-				////Parallel.For(0, 8, i =>
+			////Parallel.For(0, 8, i =>
 				for (int i = 0; i < 8; i++)
 				{
-					//autoO = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-					//lock (O)
-					{
+					
 
 
 						int j = i + jj - ii;
@@ -10503,16 +10434,11 @@ bool ThinkingChess::ThinkingRun = false;
 							}
 						}
 
-					}
-				} //);
-				//==================
-				////Parallel.For(0, 8, i =>
-				for (int i = 0; i < 8; i++)
+					
+				}
+			for (int i = 0; i < 8; i++)
 				{
-					//autoO = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-					//lock (O)
-					{
+					
 
 						int j = i * -1 + ii + jj;
 						if (Scop(ii, jj, i, j, 2))
@@ -10524,10 +10450,9 @@ bool ThinkingChess::ThinkingRun = false;
 						}
 
 						ThinkingAtRun = false;
-					}
-				} //);
-			}
-		}
+					}				
+			
+		
 	}
 
 	void ThinkingChess::ThinkingHourseOne(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
@@ -11072,10 +10997,7 @@ bool ThinkingChess::ThinkingRun = false;
 
 	void ThinkingChess::ThinkingCastleBrown(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
 	{
-		//autoO = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-		//lock (O)
-		{
+		
 			for (int i = ii - 2; i < ii + 2; i++)
 			{
 				while (ThinkingAtRun)
@@ -11103,57 +11025,49 @@ bool ThinkingChess::ThinkingRun = false;
 				ThinkingAtRun = false;
 			}
 
-		}
+		
 	}
 
 	void ThinkingChess::ThinkingKing(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
 	{
-		//autoO1 = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-		//lock (O1)
+
+		int **TableS = new int*[8];
+		for (int h = 0; h < 8; h++)
+			TableS[h] = new int[8];
+		////Parallel.For(ii - 1, ii + 2, i =>
+		for (int i = ii - 1; i < ii + 2; i++)
 		{
-			int **TableS = new int*[8];
-			for (int h = 0; h<8; h++)
-				TableS[h] = new int[8];
-			//autoO = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-			//lock (O)
+			////Parallel.For(jj - 1, jj + 2, j =>
+			for (int j = jj - 1; j < jj + 2; j++)
 			{
-				////Parallel.For(ii - 1, ii + 2, i =>
-				for (int i = ii - 1; i < ii + 2; i++)
+
+
+				if (i == ii && j == jj)
 				{
-					////Parallel.For(jj - 1, jj + 2, j =>
-					for (int j = jj - 1; j < jj + 2; j++)
+					continue;
+				}
+				///Initiate a Local Variables.
+				TableS = new int*[8];
+				for (int h = 0; h < 8; h++)
+					TableS[h] = new int[8];
+				///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
+				QuantumAtamata   Current = QuantumAtamata(3, 3, 3);
+				for (int RowS = 0; RowS < 8; RowS++)
+				{
+					for (int ColS = 0; ColS < 8; ColS++)
 					{
+						TableS[RowS][ColS] = TableConst[RowS][ColS];
+					}
+				}
+				if (Scop(ii, jj, i, j, 6) && abs(TableS[ii][jj]) == 6 && abs(Kind) == 6)
+				{
+					while (ThinkingAtRun)
+					{
+					}
+					Order = ord;
+					KingThinkingChess(LoseOcuuredatChiled, WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
+				}
 
-
-						if (i == ii && j == jj)
-						{
-							continue;
-						}
-						///Initiate a Local Variables.
-						TableS = new int*[8];
-						for (int h = 0; h<8; h++)
-							TableS[h] = new int[8];
-						///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
-						QuantumAtamata   Current = QuantumAtamata(3, 3, 3);
-						for (int RowS = 0; RowS < 8; RowS++)
-						{
-							for (int ColS = 0; ColS < 8; ColS++)
-							{
-								TableS[RowS][ColS] = TableConst[RowS][ColS];
-							}
-						}
-						if (Scop(ii, jj, i, j, 6) && abs(TableS[ii][jj]) == 6 && abs(Kind) == 6)
-						{
-							while (ThinkingAtRun)
-							{
-							}
-							Order = ord;
-							KingThinkingChess(LoseOcuuredatChiled, WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
-						}
-					} //);
-				} //);
 			}
 		}
 	}
@@ -11305,11 +11219,11 @@ bool ThinkingChess::ThinkingRun = false;
 		///
 
 
-		if (Kind == 7)
+		if (Kind == -7)
 			ThinkingCastleBrown(LoseOcuuredatChiled, WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
 		else
 		
-			if (Kind == -7)
+			if (Kind == 7)
 			
 				ThinkingCastleGray(LoseOcuuredatChiled, WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
 			
@@ -11391,207 +11305,146 @@ bool ThinkingChess::ThinkingRun = false;
 		double Val = 1;
 
 		ChessRules *A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[RowS][ColS], Table, Order, RowS, ColS);
-		//autoO1 = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-		//lock (O1)
+
+
+		int a = 1;
+		int aa = 1;
+		if (Order == -1)
 		{
+			a = -1;
+		}
+		if (Order * -1 == -1)
+		{
+			aa = -1;
+		}
 
+
+		if (Scop(RowS, ColS, RowO, ColumnO, abs(Table[RowS][ColS])))
+		{
+			int AAB = 1;
+			int Ord = 0;
+			if (SignEqualSelf(Table[RowS][ColS], Table[RowO][ColumnO], Order, Ord, AAB))
 			{
-			//if (BeginArragmentsOfOrderFinished(Tabl, Order))
-
-
-				int a = 1;
-				int aa = 1;
-				if (Order == -1)
+				if (Support(Table, RowS, ColS, RowO, ColumnO, AAB, Ord))
 				{
-					a = -1;
-				}
-				if (Order * -1 == -1)
-				{
-					aa = -1;
-				}
-				////Parallel.For(0, 8, RowO =>
-				//for (int RowO = 0; RowO < 8; RowO++)
-
-				////Parallel.For(0, 8, ColumnO =>
-				//for (int ColumnO = 0; ColumnO < 8; ColumnO++)
-				{
-					//for (int RowS = 0; RowS < 8; RowS++)
-					////Parallel.For(0, 8, RowS =>
-					{
-						/////Parallel.For(0, 8, ColS =>
-						//for (int ColS = 0; ColS < 8; ColS++)
-						{
-
-
-							//autoO = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-							//lock (O)
-							{
-
-
-								if (Scop(RowS, ColS, RowO, ColumnO, abs(Table[RowS][ColS])))
-								{
-									int AAB = 1;
-									int Ord = 0;
-									/*if (SignSelfEmpty(Table[RowS, ColS], Table[RowO, ColumnO], Order, ref Ord, ref AAB))
-									{
-									    A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[RowS, ColS], Table, Ord, RowS, ColS);
-									    if (A->Rules(RowS, ColS, RowO, ColumnO, AAB, Ord))
-									        Val++;//Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, Table, 1));
-									}
-									else*/
-									if (SignEqualSelf(Table[RowS][ColS], Table[RowO][ColumnO], Order, Ord, AAB))
-									{
-										if (Support(Table, RowS, ColS, RowO, ColumnO, AAB, Ord))
-										{
-											Val++; //Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, Table, 1));
-										}
-										//else
-											//Val--;
-									}
-									else
-									{
-									if (SignNotEqualSelf(Table[RowS][ColS], Table[RowO][ColumnO], Order, Ord, AAB))
-									{
-										if (Attack(Table, RowS, ColS, RowO, ColumnO, AAB, Ord))
-										{
-											Val++; //Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, Table, 1));
-										}
-										//else
-											//Val--;
-									} //when there is self support inc.
-									}
-								}
-								else
-								{
-								if (Scop(RowO, ColumnO, RowS, ColS, abs(Table[RowO][ColumnO])))
-								{
-									int AAB = 1;
-									int Ord = 0;
-									if (SignEnemyEmpty(Table[RowO][ColumnO], Table[RowS][ColS], Order, Ord, AAB))
-									{
-										if (Support(Table, RowO, ColumnO, RowS, ColS, AAB, Ord))
-										{
-											Val--; //Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, Table, 1));
-										}
-										//else
-											//Val--;
-									}
-									else
-									{
-										if (SignNotEqualEnemy(Table[RowO][ColumnO], Table[RowS][ColS], Order, Ord, AAB))
-										{
-										if (Attack(Table, RowO, ColumnO, RowS, ColS, AAB, Ord))
-										{
-											Val--; //Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, Table, 1));
-										}
-										//else
-											//Val++;
-										} //when there is self support inc.                                                                                            else
-									}
-								}
-								}
-							}
-						}
-
-					} //);
-				} //)/\;
-			} //));
-			A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[RowS][ColS], Table, Order, RowS, ColS);
-			if (A->ObjectDangourKingMove(Order, Table, false,RowS,ColS))
-			{
-				if (Order == 1 && A->CheckGrayObjectDangour)
-				{
-					Val--;
+					Val++; //Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, Table, 1));
 				}
 				//else
-					//Val++;
-				if (Order == -1 && A->CheckBrownObjectDangour)
-				{
-					Val--;
-				}
-				//else
-					//Val++;
-				if (Order == -1 && A->CheckGrayObjectDangour)
-				{
-					Val++; //Val += RetrunValValue(RowS, ColS, -1, -1, Table, 1);
-				}
-				//else
-					///Val--;
-				if (Order == 1 && A->CheckBrownObjectDangour)
-				{
-					Val++; //Val += RetrunValValue(RowS, ColS, -1, -1, Table, 1);
-				}
-				///else
 					//Val--;
-
+			}
+			else
+			{
+				if (SignNotEqualSelf(Table[RowS][ColS], Table[RowO][ColumnO], Order, Ord, AAB))
+				{
+					if (Attack(Table, RowS, ColS, RowO, ColumnO, AAB, Ord))
+					{
+						Val++; //Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, Table, 1));
+					}
+					//else
+						//Val--;
+				} //when there is self support inc.
+			}
+		}
+		else
+		{
+			if (Scop(RowO, ColumnO, RowS, ColS, abs(Table[RowO][ColumnO])))
+			{
+				int AAB = 1;
+				int Ord = 0;
+				if (SignEnemyEmpty(Table[RowO][ColumnO], Table[RowS][ColS], Order, Ord, AAB))
+				{
+					if (Support(Table, RowO, ColumnO, RowS, ColS, AAB, Ord))
+					{
+						Val--; //Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, Table, 1));
+					}
+					//else
+						//Val--;
+				}
+				else
+				{
+					if (SignNotEqualEnemy(Table[RowO][ColumnO], Table[RowS][ColS], Order, Ord, AAB))
+					{
+						if (Attack(Table, RowO, ColumnO, RowS, ColS, AAB, Ord))
+						{
+							Val--; //Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, Table, 1));
+						}
+						//else
+							//Val++;
+					} //when there is self support inc.                                                                                            else
+				}
 			}
 
-		   /* if (System.Math.Abs(Table[RowS, ColS]) == 2)
-		    {
-		        Val = Val * 3;
-		    }
-		    else
-		            if (System.Math.Abs(Table[RowS, ColS]) == 3)
-		    {
-		        Val = Val * 3;
-		    }
-		    else
-		                if (System.Math.Abs(Table[RowS, ColS]) == 4)
-		    {
-		        Val = Val * 5;
-		    }
-		    else
-		                    if (System.Math.Abs(Table[RowS, ColS]) == 5)
-		    {
-		        Val = Val * 9;
-		    }
-		    else
-		                    if (System.Math.Abs(Table[RowS, ColS]) == 6)
-		    {
-		        Val = Val * 10;
-		    }
-		    */
 		}
-		//       if (Val < 0)
-		//         Val = 0;
+
+
+
+
+
+
+		A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[RowS][ColS], Table, Order, RowS, ColS);
+		if (A->ObjectDangourKingMove(Order, Table, false, RowS, ColS))
+		{
+			if (Order == 1 && A->CheckGrayObjectDangour)
+			{
+				Val--;
+			}
+			//else
+				//Val++;
+			if (Order == -1 && A->CheckBrownObjectDangour)
+			{
+				Val--;
+			}
+			//else
+				//Val++;
+			if (Order == -1 && A->CheckGrayObjectDangour)
+			{
+				Val++; //Val += RetrunValValue(RowS, ColS, -1, -1, Table, 1);
+			}
+			//else
+				///Val--;
+			if (Order == 1 && A->CheckBrownObjectDangour)
+			{
+				Val++; //Val += RetrunValValue(RowS, ColS, -1, -1, Table, 1);
+			}
+			///else
+				//Val--;
+
+
+		}
+		/* if (System.Math.Abs(Table[RowS, ColS]) == 2)
+		 {
+			 Val = Val * 3;
+		 }
+		 else
+				 if (System.Math.Abs(Table[RowS, ColS]) == 3)
+		 {
+			 Val = Val * 3;
+		 }
+		 else
+					 if (System.Math.Abs(Table[RowS, ColS]) == 4)
+		 {
+			 Val = Val * 5;
+		 }
+		 else
+						 if (System.Math.Abs(Table[RowS, ColS]) == 5)
+		 {
+			 Val = Val * 9;
+		 }
+		 else
+						 if (System.Math.Abs(Table[RowS, ColS]) == 6)
+		 {
+			 Val = Val * 10;
+		 }
+		 */
+
+		 //       if (Val < 0)
+		 //         Val = 0;
 		return Val;
 
 
 
-		/*if (System.Math.Abs(Table[RowS, ColS]) == 1)
-		{
-		    Val = 1;
-		}
-		else
-		if (System.Math.Abs(Table[RowS, ColS]) == 2)
-		{
-		    Val = 3;
-		}
-		else
-		            if (System.Math.Abs(Table[RowS, ColS]) == 3)
-		{
-		    Val = 3;
-		}
-		else
-		                if (System.Math.Abs(Table[RowS, ColS]) == 4)
-		{
-		    Val = 5;
-		}
-		else
-		                    if (System.Math.Abs(Table[RowS, ColS]) == 5)
-		{
-		    Val = 9;
-		}
-		else
-		                    if (System.Math.Abs(Table[RowS, ColS]) == 6)
-		{
-		    Val = 10;
-		}
-		return Val;*/
+		
 	}
-
 	double ThinkingChess::ObjectValueCalculator(int **Table, int RowS, int ColS)
 	{
 		double Val = 1;
@@ -11599,40 +11452,27 @@ bool ThinkingChess::ThinkingRun = false;
 
 
 		if (abs(Table[RowS][ColS]) == 1)
-			Val = 1;
-		
+			Val = 1;		
 		else
-		
-		if (abs(Table[RowS][ColS]) == 2)
-		
-			Val = 3;
-		
-		else
-		
-					if (abs(Table[RowS][ColS]) == 3)
-					
-			Val = 3;
-					
-		else
-		
-						if (abs(Table[RowS][ColS]) == 4)
-						
-			Val = 5;
-						
-		else
-		
-							if (abs(Table[RowS][ColS]) == 5)
-										Val = 9;
-							
-							else
-							{
-								if (abs(Table[RowS][ColS]) == 6)
+			if (abs(Table[RowS][ColS]) == 2)
+				Val = 3;
+			else
+				if (abs(Table[RowS][ColS]) == 3)
+					Val = 3;
+				else
+					if (abs(Table[RowS][ColS]) == 4)
+						Val = 5;
+					else
+						if (abs(Table[RowS][ColS]) == 5)
+							Val = 9;
+						else
 
-									Val = 10;
+							if (abs(Table[RowS][ColS]) == 6)
+								Val = 10;
 
 
-								return Val;
-							}
+		return Val;
+	}
 
 	bool ThinkingChess::SignSelfEmpty(int Obj1, int Obj2, int Order, int &Ord, int &A)
 	{
@@ -11793,7 +11633,7 @@ bool ThinkingChess::ThinkingRun = false;
 		ThinkingAtRun = false;
 		OutPutAction = L"";
 		ThinkingLevel = 0;
-		LearningVarsObject = std::vector<bool[]>();
+		LearningVarsObject = std::vector<bool*>();
 		IsGardHighPriority = false;
 		MovementsAStarGreedyHuristicFoundT = false;
 		IgnoreSelfObjectsT = false;

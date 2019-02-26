@@ -4,15 +4,15 @@
 namespace RefrigtzDLL
 {
 
-	double *Interpolate::Array(double ArrayInput[], int n)
+	double *Interpolate::Array(double *ArrayInput, int n)
 	{
 		//autoo = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 		//lock (o)
 		{
 			double *ArrayOutputA=new double[n];
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
-//ORIGINAL LINE: Double[] ArrayOutput;
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
+//ORIGINAL LINE: Double* ArrayOutput;
 			double *ArrayOutput;
 			double *Array=new double[n];
 			ArrayOutput = Answer(ArrayInput, n);
@@ -24,7 +24,7 @@ namespace RefrigtzDLL
 		}
 	}
 
-	double *Interpolate::Answer(double a[], int n)
+	double *Interpolate::Answer(double *a, int n)
 	{
 		 //autoo = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -87,7 +87,7 @@ namespace RefrigtzDLL
 				{
 					double AS = N[i][j]
 					N[i][j] = N[j][i];
-					N[i][j] = AS;
+					N[j][i] = AS;
 				}
 			}
 			double SAS = 1 / Det(A, n);

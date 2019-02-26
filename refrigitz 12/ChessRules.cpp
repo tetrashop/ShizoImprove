@@ -664,7 +664,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 									//When there is checked or checkmate.
 									if (AAA->CheckMate(Tabl, Order))
 									{
-										//if (AAA.CheckMateGray)
+										//if (AAA->CheckMateGray)
 										if (AAA->CheckMateGray)
 										{
 											CheckGrayObjectDangour = true;
@@ -752,7 +752,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 									//When There is Check or Checkedmate
 									if (AAA->CheckMate(Tabl, Order))
 									{
-										//if (AAA.CheckMateBrown)
+										//if (AAA->CheckMateBrown)
 										if (AAA->CheckMateBrown)
 										{
 											CheckBrownObjectDangour = true;
@@ -909,7 +909,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 									//When there is checked or checkmate.
 									if (AAA->Check(Tabl, Order))
 									{
-										//if (AAA.CheckMateGray)
+										//if (AAA->CheckMateGray)
 										if (AAA->CheckGray)
 										{
 											CheckGrayObjectDangour = true;
@@ -997,7 +997,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 									//When There is Check or Checkedmate
 									if (AAA->Check(Tabl, Order))
 									{
-										//if (AAA.CheckMateBrown)
+										//if (AAA->CheckMateBrown)
 										if (AAA->CheckBrown)
 										{
 											CheckBrownObjectDangour = true;
@@ -1820,7 +1820,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		}
 	}
 
-	bool ChessRules::ArrayInList(std::vector<int> *List, int A[])
+	bool ChessRules::ArrayInList(std::vector<int> *List, int *A)
 	{
 		//Initiate Local Variables.
 		bool Is = false;
@@ -2223,7 +2223,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 				{
 					if (Table[ii][jj] > 0)
 					{
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: bool[,] TableSS = VeryFye(Table, 1, int.Gray, ii, jj);
 						bool **TableSS = VeryFye(Table, 1, 1, ii, jj);
 
@@ -2268,7 +2268,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 				{
 					if (Table[ii][jj] < 0)
 					{
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: bool[,] TableSS = VeryFye(Table, -1, int.Brown, ii, jj);
 						bool **TableSS = VeryFye(Table, -1, -1, ii, jj);
 						for (int iii = 0; iii < 8; iii++)

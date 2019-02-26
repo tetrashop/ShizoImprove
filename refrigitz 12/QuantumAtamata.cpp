@@ -3,7 +3,7 @@
 
 namespace RefrigtzDLL
 {
-	
+
 
 	Bit::Bit()
 	{
@@ -126,18 +126,18 @@ namespace RefrigtzDLL
 		}
 	}
 
-	
-	QuantumAtamata::QuantumAtamata(int r0, int m0, int k0) : LearningKrinskyAtamata(r0, m0, k0)
+
+	QuantumAtamata::QuantumAtamata(int r0, int m0, int k0)
 	{
-		InitializeInstanceFields();
-		//autoo = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-		//lock (o)
-		{
+		
+			InitializeInstanceFields();
+
+
+
 			for (int i = 0; i < 3; i++)
 			{
-				BitState[i] = new Bit();
-				ThreeSet[i] = new LearningKrinskyAtamata(r0, m0, k0);
+				BitState[i] = Bit();
+				ThreeSet[i] = LearningKrinskyAtamata(r0, m0, k0);
 			}
 			States.clear();
 			r = r0;
@@ -146,10 +146,12 @@ namespace RefrigtzDLL
 			FirstProbibility = new double[r];
 			SecondProbibility = new double[r];
 			ThirdProbibility = new double[r];
-		}
+
 	}
 
-	void QuantumAtamata::CurrenStateInitialize()
+		
+
+		void QuantumAtamata::CurrenStateInitialize()
 	{
 		//autoo = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -169,15 +171,15 @@ namespace RefrigtzDLL
 			{
 				if (A1 == 1)
 				{
-				AA = L"|1>,";
+					AA = L"|1>,";
 				}
-			else
-			{
+				else
+				{
 					if (A1 == 2)
 					{
-				AA = L"|2>+|3>,";
+						AA = L"|2>+|3>,";
 					}
-			}
+				}
 			}
 			if (A2 == 0)
 			{
@@ -187,15 +189,15 @@ namespace RefrigtzDLL
 			{
 				if (A2 == 1)
 				{
-				AB = L"|1>,";
+					AB = L"|1>,";
 				}
-			else
-			{
+				else
+				{
 					if (A2 == 2)
 					{
-				AB = L"|2>+|3>,";
+						AB = L"|2>+|3>,";
 					}
-			}
+				}
 			}
 			if (A3 == 0)
 			{
@@ -205,15 +207,15 @@ namespace RefrigtzDLL
 			{
 				if (A3 == 1)
 				{
-				AC = L"|1>,";
+					AC = L"|1>,";
 				}
-			else
-			{
+				else
+				{
 					if (A3 == 2)
 					{
-				AC = L"|2>+|3>,";
+						AC = L"|2>+|3>,";
 					}
-			}
+				}
 			}
 			CurrentState = AA + AB + AC;
 			//  CurrentStateByte = System.Convert.ToByte(CurrentState, 2);
@@ -294,24 +296,24 @@ namespace RefrigtzDLL
 				{
 					if (A3 == 2)
 					{
-					NumberActiveAtamata = 3;
-					for (int i = 0; i < r; i++)
+						NumberActiveAtamata = 3;
+						for (int i = 0; i < r; i++)
+						{
+							FirstProbibility[i] = ThreeSet[2].alpha[i];
+							SecondProbibility[i] = ThreeSet[0].alpha[i];
+							ThirdProbibility[i] = ThreeSet[1].alpha[i];
+						}
+					}
+					else
 					{
-						FirstProbibility[i] = ThreeSet[2].alpha[i];
-						SecondProbibility[i] = ThreeSet[0].alpha[i];
-						ThirdProbibility[i] = ThreeSet[1].alpha[i];
+						NumberActiveAtamata = 3;
+						for (int i = 0; i < r; i++)
+						{
+							FirstProbibility[i] = ThreeSet[0].alpha[i];
+							SecondProbibility[i] = ThreeSet[2].alpha[i];
+							ThirdProbibility[i] = ThreeSet[1].alpha[i];
+						}
 					}
-					}
-				else
-				{
-					NumberActiveAtamata = 3;
-					for (int i = 0; i < r; i++)
-					{
-						FirstProbibility[i] = ThreeSet[0].alpha[i];
-						SecondProbibility[i] = ThreeSet[2].alpha[i];
-						ThirdProbibility[i] = ThreeSet[1].alpha[i];
-					}
-				}
 				}
 			}
 		}
@@ -319,11 +321,7 @@ namespace RefrigtzDLL
 
 	int QuantumAtamata::FirstAtamataState()
 	{
-		//autoo = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-		//lock (o)
-		{
-
+		
 			if (BitState[0].IsZeroZero())
 			{
 				//       BitState.SetZeroZero();
@@ -331,23 +329,20 @@ namespace RefrigtzDLL
 			}
 			else
 			{
-			if (BitState[0].IsZeroOne())
-			{
-				//          BitState.SetZeroOne();
-				return 1; //1 State
-			}
+				if (BitState[0].IsZeroOne())
+				{
+					//          BitState.SetZeroOne();
+					return 1; //1 State
+				}
 			}
 			// BitState.SetOneZero();
 			return 2; //SuperPosition State
-		}
+		
 	}
 
 	int QuantumAtamata::SecondAtamataState()
 	{
-		//autoo = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-		//lock (o)
-		{
+		
 
 			if (BitState[1].IsZeroZero())
 			{
@@ -356,16 +351,16 @@ namespace RefrigtzDLL
 			}
 			else
 			{
-			if (BitState[1].IsZeroOne())
-			{
-				//      BitState[1].SetZeroOne();
-				return 1; //1 State
-			}
+				if (BitState[1].IsZeroOne())
+				{
+					//      BitState[1].SetZeroOne();
+					return 1; //1 State
+				}
 			}
 
 			//   BitState[1].SetOneZero();
 			return 2; //SuperPosition State
-		}
+		
 	}
 
 	int QuantumAtamata::ThirdAtamataState()
@@ -382,11 +377,11 @@ namespace RefrigtzDLL
 			}
 			else
 			{
-			if (BitState[2].IsZeroOne())
-			{
-				//        BitState[2].SetZeroOne();
-				return 1; //1 State
-			}
+				if (BitState[2].IsZeroOne())
+				{
+					//        BitState[2].SetZeroOne();
+					return 1; //1 State
+				}
 			}
 			// BitState[2].SetOneZero();
 			return 2; //SuperPosition State
@@ -412,4 +407,6 @@ namespace RefrigtzDLL
 		AC = L"";
 		CurrentState = L"";
 	}
+
 }
+

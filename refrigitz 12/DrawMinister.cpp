@@ -62,7 +62,7 @@ double DrawMinister::MaxHuristicxM = -20000000000000000;
 		MaxNotFound = true;
 		return false;
 	}
-	void* DrawMinister::operator[](std::size_t idx) { return malloc(idx * sizeof(this)); }
+	void* DrawMinister::operator*(std::size_t idx) { return malloc(idx * sizeof(this)); }
 	double DrawMinister::ReturnHuristic()
 	{
 		double a = 0;
@@ -70,7 +70,7 @@ double DrawMinister::MaxHuristicxM = -20000000000000000;
 		{
 			try
 			{
-				a += MinisterThinking->ReturnHuristic(-1, -1, Order,false);
+				a += MinisterThinking.ReturnHuristic(-1, -1, Order,false);
 			}
 			catch (std::exception &t)
 			{
@@ -103,7 +103,7 @@ double DrawMinister::MaxHuristicxM = -20000000000000000;
 				Table[ii][jj] = Tab[ii][jj];
 			}
 		}
-		MinisterThinking = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(i), static_cast<int>(j), a, Tab, 32, Ord, TB, Cur, 2, 5);
+		MinisterThinking = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(i), static_cast<int>(j), a, Tab, 32, Ord, TB, Cur, 2, 5);
 
 		Row = i;
 		Column = j;
@@ -111,7 +111,7 @@ double DrawMinister::MaxHuristicxM = -20000000000000000;
 		Current = Cur;
 		Order = Ord;
 	}
-
+	/*
 
 	void DrawMinister::Clone(DrawMinister *&AA)
 	{
@@ -125,38 +125,38 @@ double DrawMinister::MaxHuristicxM = -20000000000000000;
 		}
 		//Initiate an Object and Clone a Construction Objectve.
 		AA = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, color, Table, Order, false, Current);
-		AA->ArrangmentsChanged = ArrangmentsChanged;
+		AA.ArrangmentsChanged = ArrangmentsChanged;
 		for (int i = 0; i < AllDraw::MinisterMovments; i++)
 		{
 			try
 			{
-				AA->MinisterThinking = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
-				MinisterThinking->Clone(AA->MinisterThinking[i]);
+				AA.MinisterThinking = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
+				MinisterThinking.Clone(AA.MinisterThinking[i]);
 			}
 			catch (std::exception &t)
 			{
 				
 //C# TO C++ CONVERTER WARNING: C# to C++ Converter converted the original 'null' assignment to a call to 'delete', but you should review memory allocation of all pointer variables in the converted code:
-				delete AA->MinisterThinking[i];
+				delete AA.MinisterThinking[i];
 			}
 
 		}
-		AA->Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii]-new int[8];
+		AA.Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii]-new int[8];
 		for (int ii = 0; ii < 8; ii++)
 		{
 			for (int jj = 0; jj < 8; jj++)
 			{
-				AA->Table[ii][jj] = Tab[ii][jj];
+				AA.Table[ii][jj] = Tab[ii][jj];
 			}
 		}
-		AA->Row = Row;
-		AA->Column = Column;
-		AA->Order = Order;
-		AA->Current = Current;
-		AA->color = color;
+		AA.Row = Row;
+		AA.Column = Column;
+		AA.Order = Order;
+		AA.Current = Current;
+		AA.color = color;
 
 	}
-
+	*/
 	void DrawMinister::DrawMinisterOnTable( int CellW, int CellH)
 	{
 /*		try
@@ -182,7 +182,7 @@ double DrawMinister::MaxHuristicxM = -20000000000000000;
 						//lock (O1)
 						{ //Draw an Instant from File of Gray Soldeirs.
 							 //Draw a Gray Instatnt Minister Image on the Table.
-							g->DrawImage(M, Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
+							g.DrawImage(M, Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
 						}
 					}
 					else
@@ -192,7 +192,7 @@ double DrawMinister::MaxHuristicxM = -20000000000000000;
 						//lock (O1)
 						{ //Draw an Instant from File of Gray Soldeirs.
 							 //Draw a Brown Instatnt Minister Image on the Table.
-							g->DrawImage(M[1], Rectangle(static_cast<int>(Row * CellW), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
+							g.DrawImage(M[1], Rectangle(static_cast<int>(Row * CellW), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
 						}
 					}
 				}

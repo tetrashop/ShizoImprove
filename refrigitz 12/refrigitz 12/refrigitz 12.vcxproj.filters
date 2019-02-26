@@ -82,6 +82,9 @@
     <ClCompile Include="..\LearningKrinskyAtamata.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\refrigitz 12\ArrayOfArrays.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\AllDraw.h">
@@ -139,6 +142,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\LearningKrinskyAtamata.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\refrigitz 12\ArrayOfArrays .h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

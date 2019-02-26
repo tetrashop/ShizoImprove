@@ -61,7 +61,7 @@ double DrawElefant::MaxHuristicxE = -20000000000000000;
 		MaxNotFound = true;
 		return false;
 	}
-	void* DrawElefant::operator[](std::size_t idx) { return malloc(idx * sizeof(this)); }
+	void* DrawElefant::operator*(std::size_t idx) { return malloc(idx * sizeof(this)); }
 	double DrawElefant::ReturnHuristic()
 	{
 		double a = 0;
@@ -69,7 +69,7 @@ double DrawElefant::MaxHuristicxE = -20000000000000000;
 		{
 			try
 			{
-				a += ElefantThinking->ReturnHuristic(-1, -1, Order, false);
+				a += ElefantThinking.ReturnHuristic(-1, -1, Order, false);
 			}
 			catch (std::exception &t)
 			{
@@ -105,7 +105,7 @@ double DrawElefant::MaxHuristicxE = -20000000000000000;
 			}
 		}
 
-		ElefantThinking = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(i), static_cast<int>(j), a, Tab, 16, Ord, TB, Cur, 4, 2);
+		ElefantThinking = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(i), static_cast<int>(j), a, Tab, 16, Ord, TB, Cur, 4, 2);
 
 		Row = i;
 		Column = j;
@@ -116,7 +116,7 @@ double DrawElefant::MaxHuristicxE = -20000000000000000;
 
 	}
 
-
+	/*
 	void DrawElefant::Clone(DrawElefant *&AA)
 	{
 		int **Tab;
@@ -129,37 +129,37 @@ double DrawElefant::MaxHuristicxE = -20000000000000000;
 		}
 		//Initiate a Constructed Object an Clone a Copy.
 		AA = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, color, Table, Order, false, Current);
-		AA->ArrangmentsChanged = ArrangmentsChanged;
+		AA.ArrangmentsChanged = ArrangmentsChanged;
 		for (int i = 0; i < AllDraw::ElefantMovments; i++)
 		{
 			try
 			{
-				AA->ElefantThinking = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
-				ElefantThinking->Clone(AA->ElefantThinking);
+				AA.ElefantThinking = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
+				ElefantThinking.Clone(AA.ElefantThinking);
 			}
 			catch (std::exception &t)
 			{
 				
 //C# TO C++ CONVERTER WARNING: C# to C++ Converter converted the original 'null' assignment to a call to 'delete', but you should review memory allocation of all pointer variables in the converted code:
-				delete AA->ElefantThinking;
+				delete AA.ElefantThinking;
 			}
 		}
-		AA->Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii]-new int[8];
+		AA.Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii]-new int[8];
 		for (int ii = 0; ii < 8; ii++)
 		{
 			for (int jj = 0; jj < 8; jj++)
 			{
-				AA->Table[ii][jj] = Tab[ii][jj];
+				AA.Table[ii][jj] = Tab[ii][jj];
 			}
 		}
-		AA->Row = Row;
-		AA->Column = Column;
-		AA->Order = Order;
-		AA->Current = Current;
-		AA->color = color;
+		AA.Row = Row;
+		AA.Column = Column;
+		AA.Order = Order;
+		AA.Current = Current;
+		AA.color = color;
 
 	}
-
+	*/
 	void DrawElefant::DrawElefantOnTable( int CellW, int CellH)
 	{
 	/*	try
@@ -186,7 +186,7 @@ double DrawElefant::MaxHuristicxE = -20000000000000000;
 						//lock (O1)
 						{ //Draw an Instant from File of Gray Soldeirs.
 							 //Draw an Instatnt Gray Elephant On the Table.
-							g->DrawImage(E, Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
+							g.DrawImage(E, Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
 						}
 					}
 					else
@@ -196,7 +196,7 @@ double DrawElefant::MaxHuristicxE = -20000000000000000;
 						//lock (O1)
 						{ //Draw an Instant from File of Gray Soldeirs.
 							 //Draw an Instatnt Brown Elepehnt On the Table.
-							g->DrawImage(E[1], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
+							g.DrawImage(E[1], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
 						}
 					}
 				}

@@ -15,7 +15,7 @@ namespace RefrigtzDLL
 
 
 	public:
-		void* operator[](std::size_t idx);
+		void* operator*(std::size_t idx);
 		int WinOcuuredatChiled;
 		int LoseOcuuredatChiled;
 		//private readonly object balance//lock = new object();
@@ -36,8 +36,8 @@ namespace RefrigtzDLL
 		bool ArrangmentsChanged;
 		static double MaxHuristicxE;
 		float Row, Column;
-		ThinkingChess *ElefantThinking;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+		ThinkingChess ElefantThinking;
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: public int[,] Table = nullptr;
 		int **Table;
 		int color;
@@ -52,7 +52,7 @@ namespace RefrigtzDLL
 		double ReturnHuristic();
 
 		//Constructor 1.
-		DrawElefant(int CurrentAStarGredy, bool MoveentsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
+		/*DrawElefant(int CurrentAStarGredy, bool MoveentsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
 		{
 		    CurrentAStarGredyMax = CurrentAStarGredy;
 		    MovementsAStarGreedyHuristicFoundT = MoveentsAStarGreedyHuristicTFou;
@@ -63,7 +63,7 @@ namespace RefrigtzDLL
 		    OnlySelfT = OnlySel;
 		    AStarGreedyHuristicT = AStarGreedyHuris;
 		    ArrangmentsChanged = Arrangments;
-		}
+		}*/
 		//Constructor 2.
 		DrawElefant(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int **Tab, int Ord, bool TB, int Cur); //,ref AllDraw. THIS
 		//Clone a Copy.

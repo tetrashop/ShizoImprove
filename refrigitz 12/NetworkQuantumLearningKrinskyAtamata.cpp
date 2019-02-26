@@ -32,7 +32,7 @@ namespace RefrigtzDLL
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 		//lock (o)
 		{
-			Netfi = new LearningKrinskyAtamata*[k0];
+			Netfi = new LearningKrinskyAtamat*[k0];
 			for (int i = 0; i < m0; i++)
 				Netfi[i] =new LearningKrinskyAtamata[m0];
 

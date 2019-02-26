@@ -9,44 +9,44 @@ using namespace std;
  * Ramin Edjlal**************************************************************
  * Drived Classess of Autamata Cellular  Thinking Kernel**************
  * 1394/12/19****************************************************************
- * Crashed with Stack Overflow Exception***************************************RS**0.12**4**Managements and Cuation Programing**********************(+)
- * Drives Caused Memory lack***************************************************RS**0.12**4**Managements and Cuation Programing**********************(+)
- * New Version Cased Stack Overflow********************************************RS**0.12**4**Managements and Cuation Programing**********************(+)
- * Scanning Four Dimension Homes of Thing Existences Taking A lot Of Time******RS**0.12**4**Managements and Cuation Programing**********************(+)
- * All Data in This Scope From AllDraw Become Clear When Scope Changes*********RS**0.12**4**Managements and Cuation Programing**********************(+)
- * Heuristic Work but the Movements And Attack Method Doesn’t work*************RS**0.12**4**Managements and Cuation Programing**********************(+)
- * Probability Heuristic constant Table return*********************************RS**0.12**4**Managements and Cuation Programing**********************(+)
- * Heuristic Working Not Constant Immunity*************************************RS**0.12**4**Managements and Cuation Programing**********************(+)
- * Heuristic Constant Result Mechanism*****************************************RS**0.12**4**Managements and Cuation Programing**********************(+)
- * Things Order and Virtualization Error***************************************RS**0.12**4**Managements and Cuation Programing**********************(+)
- * Misleading Things Order movement********************************************RS**0.12**4**Managements and Cuation Programing**********************(+)
- * Multi Movements (3 ) In Chess Thinking**************************************RS**0.12**4**Managements and Cuation Programing**********************(+)
- * Location of Horse 'Bob' (Gray) After Killer Un logically UnSelfSupported***RS**0.12**4**Managements and Cuation Programing**********************(+)
- * Check Thinking 'Alice' Malfunction*******************************************RS**0.12**4**Managements and Cuation Programing*********************(+)
- * 'CheckMate' By 'Bob' Have Not Been Recognized.***********************************RS**0.12**4**Managements and Cuation Programing*****************(+)
- * 'Check' By 'Bob' Not Recognized.*********************************************RS**0.12**4**Managements and Cuation Programing*********************(+)
- * 'Check' 'Alice' Detected. No ActionsString Was Done.********************************RS**0.12**4**Managements and Cuation Programing*********************(+)
- * 'Check' Mechanism Failure.***************************************************RS**0.12**4**Managements and Cuation Programing*********************(+)
- * Strategy By 'Alice' Changed. 'Check' Not Recognized By 'Alice'.**************RS**0.12**4**Managements and Cuation Programing*********************(+)
- * Heuristic Loop**************************************************************RS**0.12**4**Managements and Cuation Programing**********************(+)
+ * Crashed with Stack Overflow Exception***************************************R**x0.12**4**Managements and Cuation Programing**********************(+)
+ * Drives Caused Memory lack***************************************************R**x0.12**4**Managements and Cuation Programing**********************(+)
+ * New Version Cased Stack Overflow********************************************R**x0.12**4**Managements and Cuation Programing**********************(+)
+ * Scanning Four Dimension Homes of Thing Existences Taking A lot Of Time******R**x0.12**4**Managements and Cuation Programing**********************(+)
+ * All Data in This Scope From AllDraw Become Clear When Scope Change***x******R**x0.12**4**Managements and Cuation Programing**********************(+)
+ * Heuristic Work but the Movements And Attack Method Doesn’t work*************R**x0.12**4**Managements and Cuation Programing**********************(+)
+ * Probability Heuristic constant Table return*********************************R**x0.12**4**Managements and Cuation Programing**********************(+)
+ * Heuristic Working Not Constant Immunity*************************************R**x0.12**4**Managements and Cuation Programing**********************(+)
+ * Heuristic Constant Result Mechanism*****************************************R**x0.12**4**Managements and Cuation Programing**********************(+)
+ * Things Order and Virtualization Error***************************************R**x0.12**4**Managements and Cuation Programing**********************(+)
+ * Misleading Things Order movement********************************************R**x0.12**4**Managements and Cuation Programing**********************(+)
+ * Multi Movements (3 ) In Chess Thinking**************************************R**x0.12**4**Managements and Cuation Programing**********************(+)
+ * Location of Horse 'Bob' (Gray) After Killer Un logically UnSelfSupported***R**x0.12**4**Managements and Cuation Programing**********************(+)
+ * Check Thinking 'Alice' Malfunction*******************************************R**x0.12**4**Managements and Cuation Programing*********************(+)
+ * 'CheckMate' By 'Bob' Have Not Been Recognized.***********************************R**x0.12**4**Managements and Cuation Programing*****************(+)
+ * 'Check' By 'Bob' Not Recognized.*********************************************R**x0.12**4**Managements and Cuation Programing*********************(+)
+ * 'Check' 'Alice' Detected. No ActionsString Was Done.********************************R**x0.12**4**Managements and Cuation Programing*********************(+)
+ * 'Check' Mechanism Failure.***************************************************R**x0.12**4**Managements and Cuation Programing*********************(+)
+ * Strategy By 'Alice' Changed. 'Check' Not Recognized By 'Alice'.**************R**x0.12**4**Managements and Cuation Programing*********************(+)
+ * Heuristic Loop**************************************************************R**x0.12**4**Managements and Cuation Programing**********************(+)
  * 'Check' Mechanism For Penalty Regard Is Malfunction**************************RC**0.88**1**Risk Control*******************************************(*).
- * Things Location Failure. Row and Column of this Objects class Malfunction***RS**0.12**4**Managements and Cuation Programing**********************(+)
- * Malfunction Of Operating Lists in this class.*******************************RS**0.12**4**Managements and Cuation Programing**********************(+)
- * Some Movements of All Possible Movements is not Identified******************RS**0.12**4**Managements and Cuation Programing**********************(+)
- * Malfunction Clone Data To be Copied. List Will be erased********************RS**0.12**4**Managements and Cuation Programing**********************(+)
- * King Cannot Hit UnSelfSupported Enemy Things at Check.***********************RS**0.12**4**Managements and Cuation Programing**********************(+)
- * Thinking Time Taking al lot of time.****************************************RS**0.12**4**Managements and Cuation Programing**********************(+)
- * There is No Reason For Mal Function of Thinking.****************************RS**0.12**4**Managements and Cuation Programing**********************[+]
- * Huristic SelfSupported at horse huristic cal at table content malfunction.**RS**0.12**4**Managements and Cuation Programing**********************[+]
- * No Reason for malfunctioning of table content at huristic SelfSupported.****RS**0.12**4**Managements and Cuation Programing**********************[+]
- * Thinking Finished Misleading.bool Variable of Think Finished Not Work on.***RS**0.12**4**Managements and Cuation Programing**********************(+) 
- * A non Identified King Table List Alice is in List and Unhabitly ignored.****RS**0.12**4**Managements and Cuation Programing**********************(+)
- * The Location of Penalty Regard Mechansim is Misleading.*********************RS**0.12**4**Managements and Cuation Programing**********************(+)
- * Penalty Reagrd List is Empty.No Misleading List of Penalty Regard Mec.******RS**0.12**4**Managements and Cuation Programing**********************(+)
- * No Ilegal Non ObjectDanger and Check By 'Alice' at Current Game in PR Mech.********RS**0.12**4**Managements and Cuation Programing***************(+)
+ * Things Location Failure. Row and Column of this Objects class Malfunction***R**x0.12**4**Managements and Cuation Programing**********************(+)
+ * Malfunction Of Operating Lists in this class.*******************************R**x0.12**4**Managements and Cuation Programing**********************(+)
+ * Some Movements of All Possible Movements is not Identified******************R**x0.12**4**Managements and Cuation Programing**********************(+)
+ * Malfunction Clone Data To be Copied. List Will be erased********************R**x0.12**4**Managements and Cuation Programing**********************(+)
+ * King Cannot Hit UnSelfSupported Enemy Things at Check.***********************R**x0.12**4**Managements and Cuation Programing**********************(+)
+ * Thinking Time Taking al lot of time.****************************************R**x0.12**4**Managements and Cuation Programing**********************(+)
+ * There is No Reason For Mal Function of Thinking.****************************R**x0.12**4**Managements and Cuation Programing**********************[+]
+ * Huristic SelfSupported at horse huristic cal at table content malfunction.**R**x0.12**4**Managements and Cuation Programing**********************[+]
+ * No Reason for malfunctioning of table content at huristic SelfSupported.****R**x0.12**4**Managements and Cuation Programing**********************[+]
+ * Thinking Finished Misleading.bool Variable of Think Finished Not Work on.***R**x0.12**4**Managements and Cuation Programing**********************(+) 
+ * A non Identified King Table List Alice is in List and Unhabitly ignored.****R**x0.12**4**Managements and Cuation Programing**********************(+)
+ * The Location of Penalty Regard Mechansim is Misleading.*********************R**x0.12**4**Managements and Cuation Programing**********************(+)
+ * Penalty Reagrd List is Empty.No Misleading List of Penalty Regard Mec.******R**x0.12**4**Managements and Cuation Programing**********************(+)
+ * No Ilegal Non ObjectDanger and Check By 'Alice' at Current Game in PR Mech.********R**x0.12**4**Managements and Cuation Programing***************(+)
  * Mechansianm For Like Napeloonires KLish CheckMate is Incompletable.**************RC**0.88**1**Risk Control***************************************(*).
  * Ileegal Table Content Ignoring of Objects Kind.*****************************RC**0.88**1**Risk Control********************************************(*).
- * Tree Construction of AStarGready is Uncompleted.Some Nodes Become Empty.****RS**0.12**4**Managements and Cuation Programing**********************<+>
+ * Tree Construction of AStarGready is Uncompleted.Some Nodes Become Empty.****R**x0.12**4**Managements and Cuation Programing**********************<+>
  * All Penalty Leads to 16 Objects Unmovable or Make Penalty But in Reality Non Penalty Exist.******************************************************(+)
  * All Self and Enemy CheckMate Mechanisam is Logical else Mislaeading.*************RC**0.88**1**Risk Control***************************************(*).QC-Ok.
  * Proccess of Thinking Stop Misleading With Error.*********************************RC**0.88**1**Risk Control***************************************{*}.QC-Ok.
@@ -100,7 +100,8 @@ namespace RefrigtzDLL
 	public:
 		bool IsThereMateOfEnemy;
 		bool IsThereMateOfSelf;
-		static NetworkQuantumLearningKrinskyAtamata *LearniningTable;
+		static NetworkQuantumLearningKrinskyAtamata LearniningTable;
+		void CastleThinkingGray(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
 	private:
 		bool ThinkingAtRun;
 	public:
@@ -109,7 +110,7 @@ namespace RefrigtzDLL
 		std::wstring OutPutAction;
 		int ThinkingLevel;
 	public:
-		std::vector<bool[]> LearningVarsObject;
+		std::vector<bool*> LearningVarsObject;
 		static bool LearningVarsCheckedMateOccured;
 		static bool LearningVarsCheckedMateOccuredOneCheckedMate;
 	private:
@@ -180,6 +181,7 @@ namespace RefrigtzDLL
 		bool CheckMateOcuured;
 		int CurrentRow, CurrentColumn;
 	public:
+		int CheckedM;
 		bool IsCheck;
 		int Kind;
 		std::vector<int> HitNumber;
@@ -203,7 +205,7 @@ namespace RefrigtzDLL
 		std::vector<int*> RowColumnCastle;
 		std::vector<int*> RowColumnMinister;
 		std::vector<int*> RowColumnKing;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: public int[,] TableT;
 		int **TableT;
 		std::vector<int> HitNumberSoldier;
@@ -212,7 +214,7 @@ namespace RefrigtzDLL
 		std::vector<int> HitNumberCastle;
 		std::vector<int> HitNumberMinister;
 		std::vector<int> HitNumberKing;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: public int[,] TableConst;
 		int **TableConst;
 		std::vector<int**> TableListSolder;
@@ -238,7 +240,9 @@ namespace RefrigtzDLL
 		int color;
 		int Order;
 		std::vector<AllDraw> AStarGreedy;
+		
 	private:
+		
 		double Value[8][8];
 		bool IgnoreFromCheckandMateHuristic;
 		int CurrentAStarGredyMax;
@@ -291,6 +295,7 @@ namespace RefrigtzDLL
 		bool BeginArragmentsOfOrderFinished(int **Table, int Order);
 		//Constructor
 	public:
+		//void CastleThinkingGray(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
 		ThinkingChess(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, int i, int j, int a, int **Tab, int Ma, int Ord, bool ThinkingBeg, int CurA, int ThingN, int Kin);
 		//Clone A Table
 	private:
@@ -326,7 +331,7 @@ namespace RefrigtzDLL
 		bool InAttackSelfThatNotSupportedAll(int **TableS, int Order, int a, int i, int j, int RowS, int ColS, int ikk, int jkk, int iik, int jjk);
 		//Creation A Complete List of Attacked Self Object(s).
 		bool InAttackSelfThatNotSupportedCalculateValuableAll(int **TableS, int Order, int a, int ij, int ji, int ii, int jj, std::vector<int*> &ValuableSelfSupported);
-		bool ExistValuble(int Table[], std::vector<int*> &ValuableSelfSupported);
+		bool ExistValuble(int *Table, std::vector<int*> &ValuableSelfSupported);
 		bool MaxObjecvts(std::vector<int> &Obj, int Max);
 		//When Current Movment Take Supporte.QC_OK
 		bool IsCurrentMoveTakeSupporte(int **Table, int Order, int a, int i, int j, int ii, int jj);
@@ -383,6 +388,8 @@ namespace RefrigtzDLL
 		double HeuristicDistabceOfCurrentMoveFromEnemyKing(int **Tab, int Order, int RowS, int ColS);
 		double HuristicSoldierFromCenter(int **Table, int aa, int Ord, int ii, int jj, int i, int j);
 		double *HuristicAll(bool Before, int Killed, int **Table, int aa, int Ord, int RowS, int ColS, int RowD, int ColD);
+		//void HuristicPenaltyValuePerform(QuantumAtamata Current, int Order, double &HuristicAttackValue, bool AllDrawClass = false);
+		
 		///Huristic of Movments.
 		double HuristicMovment(bool Before, int **Table, int aa, int Ord, int RowS, int ColS, int RowD, int ColD);
 		///Attack Determination.QC_Ok
@@ -397,17 +404,17 @@ namespace RefrigtzDLL
 		//Setting Numbers of Objects in Current Table boards.
 		//Count of Solders on Table.
 	private:
-		/*int SolderOnTableCount(DrawSoldier So[], bool Mi, int MaxCount);
+		/*int SolderOnTableCount(DrawSoldier So*, bool Mi, int MaxCount);
 		//Elepahnt On Table Count.
-		int ElefantOnTableCount(DrawElefant So[], bool Mi, int MaxCount);
+		int ElefantOnTableCount(DrawElefant So*, bool Mi, int MaxCount);
 		//Calculate Hourse on table.
-		int HourseOnTableCount(DrawHourse So[], bool Mi, int MaxCount);
+		int HourseOnTableCount(DrawHourse So*, bool Mi, int MaxCount);
 		//Calculate Castles Count.
-		int CastleOnTableCount(DrawCastle So[], bool Mi, int MaxCount);
+		int CastleOnTableCount(DrawCastle So*, bool Mi, int MaxCount);
 		//Calculate Minsiter Count.
-		int MinisterOnTableCount(DrawMinister So[], bool Mi, int MaxCount);
+		int MinisterOnTableCount(DrawMinister So*, bool Mi, int MaxCount);
 		//Calculate King on Table.
-		int KingOnTableCount(DrawKing So[], bool Mi, int MaxCount);
+		int KingOnTableCount(DrawKing So*, bool Mi, int MaxCount);
 		*/
 		//Return Huristic.
 	public:
@@ -422,9 +429,9 @@ namespace RefrigtzDLL
 	private:
 		bool Scop(int i, int j, int ii, int jj, int Kind);
 		//Calculate Maximum of Six Max Huristic of Six Kind Objects.
-		int MaxOfSixHuristic(double Less[]);
+		int MaxOfSixHuristic(double *Less);
 		//Calculate Minimum of Six Min Huristic of Six Kind Objects.note the enemy Huristic are negative.
-		int MinOfSixHuristic(double Less[]);
+		int MinOfSixHuristic(double *Less);
 
 
 		void KingThinkingChess(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
@@ -451,8 +458,8 @@ namespace RefrigtzDLL
 
 	public:
 		void CalculateHuristics(bool Before, int Killed, int **TableS, int RowS, int ColS, int RowD, int ColD, int color, double &HuristicAttackValue, double &HuristicMovementValue, double &HuristicSelfSupportedValue, double &HuristicObjectDangourCheckMateValue, double &HuristicKillerValue, double &HuristicReducedAttackValue, double &HeuristicDistabceOfCurrentMoveFromEnemyKingValue, double &HeuristicKingSafe, double &HeuristicFromCenter, double &HeuristicKingDangour);
-	private:
-		void CastleThinkingGray(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
+	//private:
+		//void CastleThinkingGray(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);		
 	public:
 		void HuristicPenaltyValuePerform(QuantumAtamata Current, int Order, double &HuristicAttackValue, bool AllDrawClass = false);
 		void ThinkingSoldierBase(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
@@ -476,8 +483,8 @@ namespace RefrigtzDLL
 		void ThinkingCastle(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
 		void ThinkingMinisterBase(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
 		void ThinkingMinister(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
-		void ThinkingCastleGray(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
-		void ThinkingCastleBrown(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
+		//void CastleThinkingGray(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
+		//void CastleThinkingBrown(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
 		void ThinkingKing(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
 		///Kernel of Thinking
 		void Thinking(int &LoseOcuuredatChiled, int &WinOcuuredatChiled);

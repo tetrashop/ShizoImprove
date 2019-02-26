@@ -37,6 +37,8 @@
 #include "AllDraw.h"
 #include "ChessRules.h"
 #include "HermitInterpolation.h"
+#include "ChessGeneticAlgorithm.h"
+
 
 
 

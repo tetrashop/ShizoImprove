@@ -41,7 +41,7 @@ double DrawKing::MaxHuristicxK = -20000000000000000;
 		{
 			try
 			{
-				a += KingThinking->ReturnHuristic(-1, -1, Order,false);
+				a += KingThinking.ReturnHuristic(-1, -1, Order,false);
 			}
 			catch (std::exception &t)
 			{
@@ -51,7 +51,7 @@ double DrawKing::MaxHuristicxK = -20000000000000000;
 
 		return a;
 	}
-	void* DrawKing::operator[](std::size_t idx) { return malloc(idx * sizeof(this)); }
+	void* DrawKing::operator*(std::size_t idx) { return malloc(idx * sizeof(this)); }
 	bool DrawKing::MaxFound(bool &MaxNotFound)
 	{
 		try
@@ -107,7 +107,7 @@ double DrawKing::MaxHuristicxK = -20000000000000000;
 			}
 		}
 
-		KingThinking = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(i), static_cast<int>(j), a, Tab, 8, Ord, TB, Cur, 2, 6);
+		KingThinking = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(i), static_cast<int>(j), a, Tab, 8, Ord, TB, Cur, 2, 6);
 
 		Row = i;
 		Column = j;
@@ -116,7 +116,7 @@ double DrawKing::MaxHuristicxK = -20000000000000000;
 		Current = Cur;
 	}
 
-	void DrawKing::Clone(DrawKing *&AA)
+	/*void DrawKing::Clone(DrawKing *&AA)
 	{
 		int **Tab;
 		for (int i = 0; i < 8; i++)
@@ -128,34 +128,34 @@ double DrawKing::MaxHuristicxK = -20000000000000000;
 		}
 		//Initiate a Construction Object and Clone a Copy.
 		AA = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, color, Table, Order, false, Current);
-		AA->ArrangmentsChanged = ArrangmentsChanged;
+		AA.ArrangmentsChanged = ArrangmentsChanged;
 			try
 			{
-				AA->KingThinking = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
-				KingThinking->Clone(AA->KingThinking);
+				AA.KingThinking = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
+				KingThinking.Clone(AA.KingThinking);
 			}
 			catch (std::exception &t)
 			{
 				
 //C# TO C++ CONVERTER WARNING: C# to C++ Converter converted the original 'null' assignment to a call to 'delete', but you should review memory allocation of all pointer variables in the converted code:
-				delete AA->KingThinking;
+				delete AA.KingThinking;
 			}
-		AA->Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii]-new int[8];
+		AA.Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii]-new int[8];
 		for (int ii = 0; ii < 8; ii++)
 		{
 			for (int jj = 0; jj < 8; jj++)
 			{
-				AA->Table[ii][jj] = Tab[ii][jj];
+				AA.Table[ii][jj] = Tab[ii][jj];
 			}
 		}
-		AA->Row = Row;
-		AA->Column = Column;
-		AA->Order = Order;
-		AA->Current = Current;
-		AA->color = color;
+		AA.Row = Row;
+		AA.Column = Column;
+		AA.Order = Order;
+		AA.Current = Current;
+		AA.color = color;
 
 	}
-
+	*/
 	void DrawKing::DrawKingOnTable( int CellW, int CellH)
 	{/*
 
@@ -181,7 +181,7 @@ double DrawKing::MaxHuristicxK = -20000000000000000;
 						//lock (O1)
 						{ //Draw an Instant from File of Gray Soldeirs.
 							 //Draw an Instatnt Gray King Image On the Table.
-							g->DrawImage(K, Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
+							g.DrawImage(K, Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
 
 						}
 
@@ -193,7 +193,7 @@ double DrawKing::MaxHuristicxK = -20000000000000000;
 						//lock (O1)
 						{ //Draw an Instant from File of Gray Soldeirs.
 							 //Draw an Instatnt Brown King Image On the Table.
-							g->DrawImage(K[1], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
+							g.DrawImage(K[1], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
 
 						}
 					}

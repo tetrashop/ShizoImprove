@@ -9,8 +9,8 @@ namespace RefrigtzDLL
 	struct Array {
 		T data[N];
 
-		T &operator[](size_t index) { return data[index]; }
-		 T &operator[](size_t index)  { return data[index]; }
+		T &operator*(size_t index) { return data[index]; }
+		 T &operator*(size_t index)  { return data[index]; }
 		T *begin() { return &data[0]; }
 		 T *begin()  { return &data[0]; }
 		T *end() { return &data[N]; }
@@ -45,8 +45,8 @@ namespace RefrigtzDLL
 		static double MaxHuristicxS;
 		float RowS, ColumnS;
 		int color;
-		ThinkingChess *SoldierThinking;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+		ThinkingChess SoldierThinking;
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: public int[,] Table = nullptr;
 		int **Table;
 		int Order;
@@ -59,7 +59,7 @@ namespace RefrigtzDLL
 		~DrawSoldier();
 		bool MaxFound(bool &MaxNotFound);
 		double ReturnHuristic();
-		void* operator[](std::size_t idx);
+		void* operator*(std::size_t idx);
 		static bool KingGrayNotCheckedByQuantumMove;
 
 		//Constructor 1.
