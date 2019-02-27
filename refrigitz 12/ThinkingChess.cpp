@@ -522,7 +522,7 @@ bool ThinkingChess::ThinkingRun = false;
 			for (int j = 0; j < RowColumnKing.size(); j++)
 			{
 				//Add a Clone To New King Object List.
-				AA->RowColumnKing..push_back(CloneAList(RowColumnKing., 2));
+				AA->RowColumnKing..push_back(CloneAList(RowColumnKing.data()[j][0], 2));
 			}
 			//For All Minister index Count.
 			for (int j = 0; j < RowColumnMinister.size(); j++)

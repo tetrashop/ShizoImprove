@@ -213,8 +213,8 @@ namespace RefrigtzDLL
 	public:
 		bool Check(int **Table, int Ord);
 	public:
-		void CheckMateKing(int **Tab, int Ord, bool CheckGrayDummy, bool CheckBrownDummy, int RowK, int ColumnK, bool *ActMove, bool Checked);
-		void CheckMateNotKing(int **Tab, int Ord, bool CheckGrayDummy, bool CheckBrownDummy, bool *ActMove);
+		void CheckMateKing(int **Tab, int Ord, bool CheckGrayDummy, bool CheckBrownDummy, int RowK, int ColumnK, bool ActMove, bool Checked);
+		void CheckMateNotKing(int **Tab, int Ord, bool CheckGrayDummy, bool CheckBrownDummy, bool ActMove);
 		//CheckMate Consideration.QC-OK
 	public:
 		bool CheckMate(int **Tab, int Ord);
