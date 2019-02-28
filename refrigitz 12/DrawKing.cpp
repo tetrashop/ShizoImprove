@@ -51,7 +51,7 @@ double DrawKing::MaxHuristicxK = -20000000000000000;
 
 		return a;
 	}
-	void* DrawKing::operator*(std::size_t idx) { return malloc(idx * sizeof(this)); }
+	//* DrawKing::operator*(std::size_t idx) { return malloc(idx * sizeof(this)); }
 	bool DrawKing::MaxFound(bool MaxNotFound)
 	{
 		//try

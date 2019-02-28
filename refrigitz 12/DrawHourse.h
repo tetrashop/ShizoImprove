@@ -3,6 +3,7 @@
 
 
 #include "stdafx.h"
+//#include "ThinkingChess.h"
 namespace RefrigtzDLL
 {
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:

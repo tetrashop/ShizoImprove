@@ -3,6 +3,7 @@
 //#include "stdafx.h"
 #include "AllDraw.h"
 #include "QuantumAtamatA.h"
+#include "NetworkQuantumLearningKrinskyAtamata.h"
 
 using namespace std;
 

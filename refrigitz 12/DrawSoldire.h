@@ -2,6 +2,7 @@
 
 
 #include "stdafx.h"
+//#include "ThinkingChess.h"
 
 namespace RefrigtzDLL
 {//https://forum.arduino.cc/index.php?topic=565773.0
@@ -57,6 +58,7 @@ namespace RefrigtzDLL
 
 	public:
 		~DrawSoldier();
+		bool MaxFound(bool MaxNotFound);
 		bool MaxFound(bool &MaxNotFound);
 		double ReturnHuristic();
 		void* operator*(std::size_t idx);

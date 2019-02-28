@@ -1,7 +1,7 @@
 ﻿#include "stdafx.h"
-#include "AllDraw.h"
-#include "ChessRules.h"
-#include "ThinkingChess.h"
+//#include "AllDraw.h"
+//#include "ChessRules.h"
+//#include "ThinkingChess.h"
 
 #define nullptr (0)
 

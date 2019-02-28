@@ -1,5 +1,5 @@
 ﻿#include "stdafx.h"
-#include "Interpolate.h"
+//#include "Interpolate.h"
 
 namespace RefrigtzDLL
 {

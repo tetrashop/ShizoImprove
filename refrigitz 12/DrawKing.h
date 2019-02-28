@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "stdafx.h"
+//#include "ThinkingChess.h"
 namespace RefrigtzDLL
 {
 	
@@ -52,6 +53,7 @@ namespace RefrigtzDLL
 		~DrawKing();
 
 		double ReturnHuristic();
+		bool MaxFound(bool MaxNotFound);
 		bool MaxFound(bool &MaxNotFound);
 		//Constructor 1.
 		/*DrawKing(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)

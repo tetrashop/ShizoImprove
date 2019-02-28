@@ -1,5 +1,11 @@
 ﻿#pragma once
 #include "stdafx.h"
+//#include "DrawSoldire.h"
+//#include "DrawElefant.h"
+//#include "DrawHourse.h"
+//#include "DrawCastle.h"
+//#include "DrawMinister.h"
+//#include "DrawKing.h"
 
 
 /*******************************************************************************************

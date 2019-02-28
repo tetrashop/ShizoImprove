@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "stdafx.h"
+//#include "ThinkingChess.h"
 namespace RefrigtzDLL
 {
 	
@@ -22,6 +23,7 @@ namespace RefrigtzDLL
 		std::vector<int> ValuableSelfSupported;
 
 	public:
+		bool MaxFound(bool MaxNotFound);
 		void* operator*(std::size_t idx);
 		static bool KingGrayNotCheckedByQuantumMove;
 		bool MovementsAStarGreedyHuristicFoundT;
