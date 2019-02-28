@@ -153,14 +153,14 @@ namespace RefrigtzDLL
 		//public bool ExistInDestinationEnemy = false;
 		bool ArrangmentsBoard;
 		int CurrentAStarGredyMax;
-		//static void Log(std::exception &ex);
+		//static void Log(std::exception ex);
 	public:
 		ChessRules(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged, int oRDER);
 		ChessRules(int CurrentAStarGredy, int oRDER, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged);
 		//Constructor 
 		ChessRules(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged, int Ki, int **A, int Ord, int i, int j);
 		//Initiate of Rules of Chess Refregitz.
-		bool Rules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, int color, int Ki, bool SelfHomeStatCP = true); //Current Kind. - int. - The Destination Click Column - The Destination Click Row - The First Click Column. - The First Click Row
+		bool Rules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, int color, int Ki, bool SelfHomeStatCP=true); //Current Kind. - int. - The Destination Click Column - The Destination Click Row - The First Click Column. - The First Click Row
 		//Castle King Movment Consideration.
 		bool CastleKing(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, int color, int Ki);
 		//Simulation and Consdtruction of Check.
@@ -182,7 +182,7 @@ namespace RefrigtzDLL
 	public:
 		bool ObjectDangourKingMove(int Order, int **Table, bool DoIgnore, int ii, int jj);
 		//Gray King Founder.
-		bool FindGrayKing(int **Table, int &Row, int &Column);
+		bool FindGrayKing(int **Table, int Row, int Column);
 		//Alpahber Object Consideration.
 	public:
 		static std::wstring ThingsAlphabet(int i);
@@ -197,9 +197,9 @@ namespace RefrigtzDLL
 		
 		//Find a Specific Objects.
 	public:
-		bool FindAThing(int **Table, int &Row, int &Column, int Thing, bool BeMovable, std::vector<int> *List);
+		bool FindAThing(int **Table, int Row, int Column, int Thing, bool BeMovable, std::vector<int> *List);
 		//Brown King Found  Consideration.
-		bool FindBrownKing(int **Table, int &Row, int &Column);
+		bool FindBrownKing(int **Table, int Row, int Column);
 		//A Constraint Check Removed Unused Method.
 		bool CheckRemovableByAttack(int **Table, int Order);
 	public:

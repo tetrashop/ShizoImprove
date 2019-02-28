@@ -21,7 +21,7 @@ function GridView_OnCallback (result, context) {
     var value = new String(result);
     var valsArray = value.split("|");
     var innerHtml = valsArray[4];
-    for (var i = 5; i < valsArray.length; i++) {
+    for (var i = 5; i < valsArray.size(); i++) {
         innerHtml += "|" + valsArray[i];
     }
     context.panelElement.innerHTML = innerHtml;

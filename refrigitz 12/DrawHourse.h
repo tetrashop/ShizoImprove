@@ -46,10 +46,10 @@ namespace RefrigtzDLL
 	private:
 		int CurrentAStarGredyMax;
 
-		//static void Log(std::exception &ex);
+		//static void Log(std::exception ex);
 	public:
 		~DrawHourse();
-		bool MaxFound(bool &MaxNotFound);
+		bool MaxFound(bool MaxNotFound);
 		double ReturnHuristic();
 		//Constructor 1.
 /*	    DrawHourse(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
@@ -68,7 +68,7 @@ namespace RefrigtzDLL
 		//Constructpor 2.
 		DrawHourse(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int **Tab, int Ord, bool TB, int Cur); //,ref AllDraw. THIS
 		//Cloen a Copy.
-		void Clone(DrawHourse *&AA); //, ref AllDraw. THIS
+		void Clone(DrawHourse *AA); //, ref AllDraw. THIS
 		//Draw a Instatnt Hourse on the Table Method.
 		void DrawHourseOnTable( int CellW, int CellH);
 

@@ -19,7 +19,7 @@
 #include <tchar.h>
 #include <cmath>
 #include "stringconverter.h"
-#include "LearningKrinskyAtamata.h"
+#include "LearningKrinskyAtamatA.h"
 #include "stringconverter.h"
 #include "stringconverter.h"
 #include "ThingsConverter.h"
@@ -30,8 +30,8 @@
 #include "DrawCastle.h"
 #include "DrawMinister.h"
 #include "DrawKing.h"
-#include "QuantumAtamata.h"
-#include "NetworkQuantumLearningKrinskyAtamata.h"
+#include "QuantumAtamatA.h"
+#include "NetworkQuantumLearningKrinskyAtamatA.h"
 #include "Interpolate.h"
 #include "NewotoonInterpolate.h"
 #include "AllDraw.h"

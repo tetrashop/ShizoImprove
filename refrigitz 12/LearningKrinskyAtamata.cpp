@@ -1,5 +1,5 @@
 ﻿#include "stdafx.h"
-//#include "QuantumAtamata.h"
+//#include "QuantumAtamatA.h"
 namespace RefrigtzDLL
 {
 
@@ -66,28 +66,28 @@ namespace RefrigtzDLL
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 		//lock (o)
 		{
-			AA.r = r;
-			AA.m = m;
-			AA.k = k;
-			alpha = new double[AA.r];
-			for (int i = 0; i < AA.r; i++)
+			AA->r = r;
+			AA->m = m;
+			AA->k = k;
+			alpha = new double[AA->r];
+			for (int i = 0; i < AA->r; i++)
 			{
-				AA.alpha[i] = alpha[i];
+				AA->alpha[i] = alpha[i];
 			}
-			AA.beta = beta;
-			AA.Failer = Failer;
-			fi = new double[AA.k];
-			for (int i = 0; i < AA.k; i++)
+			AA->beta = beta;
+			AA->Failer = Failer;
+			fi = new double[AA->k];
+			for (int i = 0; i < AA->k; i++)
 			{
-				AA.fi[i] = fi[i];
+				AA->fi[i] = fi[i];
 			}
-			AA.IsPenalty = IsPenalty;
-			AA.IsReward = IsReward;
-			AA.Reward = Reward;
-			AA.Penalty = Penalty;
-			AA.Success = Success;
-			AA.Failer = Failer;
-			AA.State = State;
+			AA->IsPenalty = IsPenalty;
+			AA->IsReward = IsReward;
+			AA->Reward = Reward;
+			AA->Penalty = Penalty;
+			AA->Success = Success;
+			AA->Failer = Failer;
+			AA->State = State;
 			
 		}
 	}
@@ -99,7 +99,7 @@ namespace RefrigtzDLL
 		//lock (o)
 		{
 			Failer++;
-			if (Success < Failer && State < r - 1)
+			if (Success < Failer  State < r - 1)
 			{
 				State++;
 			}
@@ -117,7 +117,7 @@ namespace RefrigtzDLL
 		//lock (o)
 		{
 			Success++;
-			if (Success > Failer && State < r - 1)
+			if (Success > Failer  State < r - 1)
 			{
 				State++;
 			}

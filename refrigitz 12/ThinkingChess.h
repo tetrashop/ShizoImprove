@@ -1,6 +1,8 @@
 ﻿#pragma once
 
-#include "stdafx.h"
+//#include "stdafx.h"
+#include "AllDraw.h"
+#include "QuantumAtamatA.h"
 
 using namespace std;
 
@@ -101,7 +103,7 @@ namespace RefrigtzDLL
 		bool IsThereMateOfEnemy;
 		bool IsThereMateOfSelf;
 		static NetworkQuantumLearningKrinskyAtamata LearniningTable;
-		void CastleThinkingGray(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
+		void CastleThinkingGray(int LoseOcuuredatChiled, int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
 	private:
 		bool ThinkingAtRun;
 	public:
@@ -249,7 +251,7 @@ namespace RefrigtzDLL
 		std::vector<int**> ObjectNumbers;
 
 		///Log of Errors.
-		//static void Log(std::exception &ex);
+		//static void Log(std::exception ex);
 		void SetObjectNumbersInList(int **Tab);
 	public:
 		void SetObjectNumbers(int **TabS);
@@ -295,7 +297,7 @@ namespace RefrigtzDLL
 		bool BeginArragmentsOfOrderFinished(int **Table, int Order);
 		//Constructor
 	public:
-		//void CastleThinkingGray(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
+		//void CastleThinkingGray(int LoseOcuuredatChiled, int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
 		ThinkingChess(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, int i, int j, int a, int **Tab, int Ma, int Ord, bool ThinkingBeg, int CurA, int ThingN, int Kin);
 		//Clone A Table
 	private:
@@ -308,7 +310,7 @@ namespace RefrigtzDLL
 		double GetValue(int i, int j);
 		///Clone a Copy.
 	public:
-		void Clone(ThinkingChess &AA);
+		void Clone(ThinkingChess AA);
 		///Huristic of Attacker.
 	private:
 		double HuristicAttack(bool Before, int **Table, int Ord, int aa, int RowS, int ColS, int RowD, int ColD);
@@ -322,7 +324,7 @@ namespace RefrigtzDLL
 		bool InAttackEnemyThatIsNotSupported(int Kilded, int **Table, int Order, int a, int i, int j, int ii, int jj);
 		//bool InAttackEnemyThatIsNotSupportedAll(bool EnemyIsValuable, int ** Table, int Order, int a, int ij, int ji, int iij, int jji, std::vector<int> ValuableEnemyNotSupported);
 		//When at least one Attacked Self Object return true.
-		//bool InAttackEnemyThatIsNotSupportedAll(bool EnemyIsValuable, int **Table, int Order, int a, int ij, int ji, int iij, int jji, std::vector<int> &ValuableEnemyNotSupported);
+		//bool InAttackEnemyThatIsNotSupportedAll(bool EnemyIsValuable, int **Table, int Order, int a, int ij, int ji, int iij, int jji, std::vector<int> ValuableEnemyNotSupported);
 		//When  there is more than tow self object not supported on atacked by movement return true.
 		int IsNotSafeToMoveAenemeyToAttackMoreThanTowObject(int AttackCount, int **Table, int Order, int i, int j, int ii, int jj);
 		//Supported of Self that is Not Attacks.QC_BAD
@@ -330,9 +332,9 @@ namespace RefrigtzDLL
 		//When there is at least on self object that is not safty.
 		bool InAttackSelfThatNotSupportedAll(int **TableS, int Order, int a, int i, int j, int RowS, int ColS, int ikk, int jkk, int iik, int jjk);
 		//Creation A Complete List of Attacked Self Object(s).
-		bool InAttackSelfThatNotSupportedCalculateValuableAll(int **TableS, int Order, int a, int ij, int ji, int ii, int jj, std::vector<int*> &ValuableSelfSupported);
-		bool ExistValuble(int *Table, std::vector<int*> &ValuableSelfSupported);
-		bool MaxObjecvts(std::vector<int> &Obj, int Max);
+		bool InAttackSelfThatNotSupportedCalculateValuableAll(int **TableS, int Order, int a, int ij, int ji, int ii, int jj, std::vector<int*> ValuableSelfSupported);
+		bool ExistValuble(int *Table, std::vector<int*> ValuableSelfSupported);
+		bool MaxObjecvts(std::vector<int> Obj, int Max);
 		//When Current Movment Take Supporte.QC_OK
 		bool IsCurrentMoveTakeSupporte(int **Table, int Order, int a, int i, int j, int ii, int jj);
 		///Huristic of King safty.
@@ -345,7 +347,7 @@ namespace RefrigtzDLL
 		//If tow int Objects is equal.
 		static bool TableEqual(int Tab1, int Tab2);
 		//Deterimination of Existance of Table in List..
-		static bool ExistTableInList(int **Tab, std::vector<int**> &List, int Index);
+		static bool ExistTableInList(int **Tab, std::vector<int**> List, int Index);
 		///Move Determination.
 		bool Movable(int **Tab, int i, int j, int ii, int jj, int a, int Order);
 		//
@@ -388,7 +390,7 @@ namespace RefrigtzDLL
 		double HeuristicDistabceOfCurrentMoveFromEnemyKing(int **Tab, int Order, int RowS, int ColS);
 		double HuristicSoldierFromCenter(int **Table, int aa, int Ord, int ii, int jj, int i, int j);
 		double *HuristicAll(bool Before, int Killed, int **Table, int aa, int Ord, int RowS, int ColS, int RowD, int ColD);
-		//void HuristicPenaltyValuePerform(QuantumAtamata Current, int Order, double &HuristicAttackValue, bool AllDrawClass = false);
+		//void HuristicPenaltyValuePerform(QuantumAtamata Current, int Order, double HuristicAttackValue, bool AllDrawClass = false);
 		
 		///Huristic of Movments.
 		double HuristicMovment(bool Before, int **Table, int aa, int Ord, int RowS, int ColS, int RowD, int ColD);
@@ -400,7 +402,7 @@ namespace RefrigtzDLL
 		bool Support(int **Tab, int i, int j, int ii, int jj, int a, int Order);
 
 		//Return Msx Huiristic of Child Level.
-		bool MaxHuristic(int &j, int Kin, double &Less, int Order);
+		bool MaxHuristic(int j, int Kin, double Less, int Order);
 		//Setting Numbers of Objects in Current Table boards.
 		//Count of Solders on Table.
 	private:
@@ -434,70 +436,74 @@ namespace RefrigtzDLL
 		int MinOfSixHuristic(double *Less);
 
 
-		void KingThinkingChess(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
+		void KingThinkingChess(int LoseOcuuredatChiled, int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
 		std::wstring CheM(int A);
 
-		void MinisterThinkingChess(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
+		void MinisterThinkingChess(int LoseOcuuredatChiled, int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
 		bool IsPrviousMovemntIsDangrousForCurrent(int **TableS, int Order);
 		//When There is not valuable Object in List Greater than Target Self Object return true.        
-		bool IsObjectValaubleObjectSelf(int i, int j, int Object, std::vector<int*> &ValuableSelfSupported);
+		bool IsObjectValaubleObjectSelf(int i, int j, int Object, std::vector<int*> ValuableSelfSupported);
 		bool IsObjectValaubleObjectEnemy(int i, int j, int Object, std::vector<int> ValuableEnemyNotSupported);
 		bool *SomeLearningVarsCalculator(int **TableS, int ik, int jk, int iik, int jjk);
 		bool *CalculateLearningVars(int Killed, int **TableS, int i, int j, int ii, int jj);
-		void CastlesThinkingChess(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
-		void HourseThinkingChess(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
-		void ElephantThinkingChess(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
+		void CastlesThinkingChess(int LoseOcuuredatChiled, int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
+		void HourseThinkingChess(int LoseOcuuredatChiled, int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
+		void ElephantThinkingChess(int LoseOcuuredatChiled, int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
 		bool EqualitTow(bool PenRegStrore, int kind);
 		bool EqualitOne(QuantumAtamata  Current, int kind);
 		void AddAtList(int kind, QuantumAtamata   Current);
 		void RemoveAtList(int kind);
-    	bool PenaltyMechanisam(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int &CheckedM, int Killed, bool Before, int kind, int **TableS, int ii, int jj, QuantumAtamata  Current, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int i, int j, bool Castle);
-		void SolderThinkingChess(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
-		void CastleThinkingBrown(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
+    	bool PenaltyMechanisam(int LoseOcuuredatChiled, int WinOcuuredatChiled, int CheckedM, int Killed, bool Before, int kind, int **TableS, int ii, int jj, QuantumAtamata  Current, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int i, int j, bool Castle);
+		void SolderThinkingChess(int LoseOcuuredatChiled, int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
+		void CastleThinkingBrown(int LoseOcuuredatChiled, int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
 
 
 	public:
-		void CalculateHuristics(bool Before, int Killed, int **TableS, int RowS, int ColS, int RowD, int ColD, int color, double &HuristicAttackValue, double &HuristicMovementValue, double &HuristicSelfSupportedValue, double &HuristicObjectDangourCheckMateValue, double &HuristicKillerValue, double &HuristicReducedAttackValue, double &HeuristicDistabceOfCurrentMoveFromEnemyKingValue, double &HeuristicKingSafe, double &HeuristicFromCenter, double &HeuristicKingDangour);
+		void CalculateHuristics(bool Before, int Killed, int **TableS, int RowS, int ColS, int RowD, int ColD, int color, double HuristicAttackValue, double HuristicMovementValue, double HuristicSelfSupportedValue, double HuristicObjectDangourCheckMateValue, double HuristicKillerValue, double HuristicReducedAttackValue, double HeuristicDistabceOfCurrentMoveFromEnemyKingValue, double HeuristicKingSafe, double HeuristicFromCenter, double HeuristicKingDangour);
 	//private:
-		//void CastleThinkingGray(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);		
+		//void CastleThinkingGray(int LoseOcuuredatChiled, int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);		
 	public:
-		void HuristicPenaltyValuePerform(QuantumAtamata Current, int Order, double &HuristicAttackValue, bool AllDrawClass = false);
-		void ThinkingSoldierBase(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
-		void ThinkingSoldier(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
-		void ThinkingElephantBase(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
+		bool AttackSelfThatNotSupportedCalculateValuableAll(int **TableS, int Order, int a, int ij, int ji, int ii, int jj, std::vector<int*> ValuableSelfSupported);
+		bool Attack(int **Tab, int i, int j, int ii, int jj, int a, int Order);
+		void HuristicPenaltyValuePerform(QuantumAtamata Current, int Order, double HuristicAttackValue, bool AllDrawClass = false);
+		void ThinkingSoldierBase(int LoseOcuuredatChiled, int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
+		void ThinkingSoldier(int LoseOcuuredatChiled, int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
+		void ThinkingElephantBase(int LoseOcuuredatChiled, int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
 
-		void ThinkingElephant(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
-		void ThinkingHourseOne(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
-		void ThinkingHourseTwo(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
-		void ThinkingHourseThree(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
-		void ThinkingHourseFour(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
-		void ThinkingHourseFive(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
-		void ThinkingHourseSix(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
-		void ThinkingHourseSeven(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
-		void ThinkingHourseEight(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
+		void ThinkingElephant(int LoseOcuuredatChiled, int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
+		void ThinkingHourseOne(int LoseOcuuredatChiled, int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
+		void ThinkingHourseTwo(int LoseOcuuredatChiled, int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
+		void ThinkingHourseThree(int LoseOcuuredatChiled, int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
+		void ThinkingHourseFour(int LoseOcuuredatChiled, int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
+		void ThinkingHourseFive(int LoseOcuuredatChiled, int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
+		void ThinkingHourseSix(int LoseOcuuredatChiled, int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
+		void ThinkingHourseSeven(int LoseOcuuredatChiled, int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
+		void ThinkingHourseEight(int LoseOcuuredatChiled, int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
 
 
-		void ThinkingHourse(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
-		void ThinkingCastleOne(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
-		void ThinkingCastleTow(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
-		void ThinkingCastle(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
-		void ThinkingMinisterBase(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
-		void ThinkingMinister(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
-		//void CastleThinkingGray(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
-		//void CastleThinkingBrown(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
-		void ThinkingKing(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
+		void ThinkingHourse(int LoseOcuuredatChiled, int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
+		void ThinkingCastleOne(int LoseOcuuredatChiled, int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
+		void ThinkingCastleTow(int LoseOcuuredatChiled, int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
+		void ThinkingCastle(int LoseOcuuredatChiled, int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
+		void ThinkingMinisterBase(int LoseOcuuredatChiled, int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
+		void ThinkingMinister(int LoseOcuuredatChiled, int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
+		void ThinkingCastleGray(int  LoseOcuuredatChiled, int  WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
+		void ThinkingCastleBrown(int  LoseOcuuredatChiled, int  WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
+		//void CastleThinkingGray(int LoseOcuuredatChiled, int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
+		//void CastleThinkingBrown(int LoseOcuuredatChiled, int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
+		void ThinkingKing(int LoseOcuuredatChiled, int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
 		///Kernel of Thinking
-		void Thinking(int &LoseOcuuredatChiled, int &WinOcuuredatChiled);
+		void Thinking(int LoseOcuuredatChiled, int WinOcuuredatChiled);
 	private:
 		double RetrunValValue(int RowS, int ColS, int RowO, int ColO, int **Tab, int Sign);
 
 		double ObjectValueCalculator(int **Table, int RowS, int ColS, int RowO, int ColumnO); //, int Order
 		double ObjectValueCalculator(int **Table, int RowS, int ColS); //, int Order
-		bool SignSelfEmpty(int Obj1, int Obj2, int Order, int &Ord, int &A);
-		bool SignEnemyEmpty(int Obj1, int Obj2, int Order, int &Ord, int &A);
-		bool SignNotEqualEnemy(int Obj1, int Obj2, int Order, int &Ord, int &A);
-		bool SignEqualSelf(int Obj1, int Obj2, int Order, int &Ord, int &A);
-		bool SignNotEqualSelf(int Obj1, int Obj2, int Order, int &Ord, int &A);
+		bool SignSelfEmpty(int Obj1, int Obj2, int Order, int Ord, int A);
+		bool SignEnemyEmpty(int Obj1, int Obj2, int Order, int Ord, int A);
+		bool SignNotEqualEnemy(int Obj1, int Obj2, int Order, int Ord, int A);
+		bool SignEqualSelf(int Obj1, int Obj2, int Order, int Ord, int A);
+		bool SignNotEqualSelf(int Obj1, int Obj2, int Order, int Ord, int A);
 		
 
 	private:

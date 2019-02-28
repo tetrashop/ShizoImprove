@@ -65,7 +65,7 @@ Sys.WebForms.Menu = function(options) {
     }
     Sys.WebForms.Menu._domHelper.appendCssClass(this.element, this.displayMode);
     var children = this.element.childNodes;
-    var count = children.length;
+    var count = children.size();
     for (var i = 0; i < count; i++) {
         var node = children[i];
         if (node.nodeType !== 1) {   
@@ -76,12 +76,12 @@ Sys.WebForms.Menu = function(options) {
             topLevelMenuItem = this.parentMenuItem.topLevelMenuItem;
         }
         var menuItem = new Sys.WebForms.MenuItem(this, node, topLevelMenuItem);
-        var previousMenuItem = this.items[this.items.length - 1];
+        var previousMenuItem = this.items[this.items.size() - 1];
         if (previousMenuItem) {
             menuItem.previousSibling = previousMenuItem;
             previousMenuItem.nextSibling = menuItem;
         }
-        this.items[this.items.length] = menuItem;
+        this.items[this.items.size()] = menuItem;
     }
 };
 Sys.WebForms.Menu.prototype = {
@@ -99,7 +99,7 @@ Sys.WebForms.Menu.prototype = {
     },
     doDispose: function() { this.each(function(item) { item.doDispose(); }); },
     each: function(fn) {
-        var count = this.items.length;
+        var count = this.items.size();
         for (var i = 0; i < count; i++) {
             fn(this.items[i]);
         }
@@ -143,7 +143,7 @@ Sys.WebForms.Menu.prototype = {
     },
     isRoot: function() { return this.rootMenu === this; },
     isStatic: function() { return this.displayMode === 'static'; },
-    lastChild: function() { return this.items[this.items.length - 1]; },
+    lastChild: function() { return this.items[this.items.size() - 1]; },
     show: function() { this.element.style.display = 'block'; }
 };
 if (Sys.WebForms.Menu.registerClass) {

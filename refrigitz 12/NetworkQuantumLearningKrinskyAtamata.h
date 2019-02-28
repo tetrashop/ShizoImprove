@@ -2,7 +2,7 @@
 
 #include "stdafx.h"
 /*CopyRight Ramin Edjlal***************************2018*************************
- The Magic Table Game Satte Learing Quantum Atamata.****************************
+ The Magic Table Game Satte Learing Quantum AtamatA->****************************
  *******************************************************************************
  */ 
 
@@ -15,7 +15,7 @@ namespace RefrigtzDLL
 	public:
 		static std::wstring Root;
 	public:
-		//static void Log(std::exception &ex);
+		//static void Log(std::exception ex);
 
 		int r, m, k;
 //C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:

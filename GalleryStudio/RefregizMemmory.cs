@@ -913,7 +913,7 @@ namespace GalleryStudio
 
 
                     //NEWNOD = Node.AllDrawCurrentAccess;
-                    while (DummyFileStream.Position < DummyFileStream.Length)
+                    while (DummyFileStream.Position < DummyFileStream.size())
                     {
                         Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
                         //Dummy.CloneSphycose(Last);
@@ -924,7 +924,7 @@ namespace GalleryStudio
                                 do
                                 {
 
-                                    if (DummyFileStream.Position < DummyFileStream.Length)
+                                    if (DummyFileStream.Position < DummyFileStream.size())
                                         Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
                                     else
                                         break;
@@ -943,7 +943,7 @@ namespace GalleryStudio
                                 {
 
                                     
-                                    if (DummyFileStream.Position < DummyFileStream.Length)
+                                    if (DummyFileStream.Position < DummyFileStream.size())
                                         Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
                                     else
                                         break;
@@ -961,7 +961,7 @@ namespace GalleryStudio
                                 {
 
                                     
-                                    if (DummyFileStream.Position < DummyFileStream.Length)
+                                    if (DummyFileStream.Position < DummyFileStream.size())
                                         Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
                                     else
                                         break;
@@ -979,7 +979,7 @@ namespace GalleryStudio
                                 {
 
                                     
-                                    if (DummyFileStream.Position < DummyFileStream.Length)
+                                    if (DummyFileStream.Position < DummyFileStream.size())
                                         Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
                                     else
                                         break;
@@ -997,7 +997,7 @@ namespace GalleryStudio
                                 {
 
                                     
-                                    if (DummyFileStream.Position < DummyFileStream.Length)
+                                    if (DummyFileStream.Position < DummyFileStream.size())
                                         Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
                                     else
                                         break;
@@ -1015,7 +1015,7 @@ namespace GalleryStudio
                                 {
 
                                     
-                                    if (DummyFileStream.Position < DummyFileStream.Length)
+                                    if (DummyFileStream.Position < DummyFileStream.size())
                                         Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
                                     else
                                         break;
@@ -1058,7 +1058,7 @@ namespace GalleryStudio
 
 
                     //NEWNOD = Node.AllDrawCurrentAccess;
-                    while (DummyFileStream.Position < DummyFileStream.Length)
+                    while (DummyFileStream.Position < DummyFileStream.size())
                     {
                         Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
                         //Dummy.CloneSphycose(Last);
@@ -1069,7 +1069,7 @@ namespace GalleryStudio
                                 do
                                 {
 
-                                    if (DummyFileStream.Position < DummyFileStream.Length)
+                                    if (DummyFileStream.Position < DummyFileStream.size())
                                         Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
                                     else
                                         break;
@@ -1088,7 +1088,7 @@ namespace GalleryStudio
                                 {
 
                                     
-                                    if (DummyFileStream.Position < DummyFileStream.Length)
+                                    if (DummyFileStream.Position < DummyFileStream.size())
                                         Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
                                     else
                                         break;
@@ -1106,7 +1106,7 @@ namespace GalleryStudio
                                 {
 
                                     
-                                    if (DummyFileStream.Position < DummyFileStream.Length)
+                                    if (DummyFileStream.Position < DummyFileStream.size())
                                         Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
                                     else
                                         break;
@@ -1124,7 +1124,7 @@ namespace GalleryStudio
                                 {
 
                                     
-                                    if (DummyFileStream.Position < DummyFileStream.Length)
+                                    if (DummyFileStream.Position < DummyFileStream.size())
                                         Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
                                     else
                                         break;
@@ -1142,7 +1142,7 @@ namespace GalleryStudio
                                 {
 
                                     
-                                    if (DummyFileStream.Position < DummyFileStream.Length)
+                                    if (DummyFileStream.Position < DummyFileStream.size())
                                         Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
                                     else
                                         break;
@@ -1160,7 +1160,7 @@ namespace GalleryStudio
                                 {
 
                                     
-                                    if (DummyFileStream.Position < DummyFileStream.Length)
+                                    if (DummyFileStream.Position < DummyFileStream.size())
                                         Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
                                     else
                                         break;

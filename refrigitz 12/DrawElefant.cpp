@@ -6,9 +6,9 @@ namespace RefrigtzDLL
 
 double DrawElefant::MaxHuristicxE = -20000000000000000;
 
-	/*void DrawElefant::Log(std::exception &ex)
+	/*void DrawElefant::Log(std::exception ex)
 	{
-		try
+		//try
 		{
 			//autoa = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -19,7 +19,7 @@ double DrawElefant::MaxHuristicxE = -20000000000000000;
 				File::AppendAllText(AllDraw::Root + std::wstring(L"\\ErrorProgramRun.txt"), stackTrace + std::wstring(L": On") + DateTime::Now.ToString()); // path of file where stack trace will be stored.
 			}
 		}
-		catch (std::exception &t)
+		//catch(std::exception t)
 		{
 			
 		}
@@ -32,9 +32,9 @@ double DrawElefant::MaxHuristicxE = -20000000000000000;
 //		E = nullptr;
 	}
 
-	bool DrawElefant::MaxFound(bool &MaxNotFound)
+	bool DrawElefant::MaxFound(bool MaxNotFound)
 	{
-		try
+		//try
 		{
 			double a = ReturnHuristic();
 			if (MaxHuristicxE < a)
@@ -53,7 +53,7 @@ double DrawElefant::MaxHuristicxE = -20000000000000000;
 				return true;
 			}
 		}
-		catch (std::exception &t)
+		//catch(std::exception t)
 		{
 			
 
@@ -67,11 +67,11 @@ double DrawElefant::MaxHuristicxE = -20000000000000000;
 		double a = 0;
 		for (int ii = 0; ii < AllDraw::ElefantMovments; ii++)
 		{
-			try
+			//try
 			{
 				a += ElefantThinking.ReturnHuristic(-1, -1, Order, false);
 			}
-			catch (std::exception &t)
+			//catch(std::exception t)
 			{
 				
 			}
@@ -117,7 +117,7 @@ double DrawElefant::MaxHuristicxE = -20000000000000000;
 	}
 
 	/*
-	void DrawElefant::Clone(DrawElefant *&AA)
+	void DrawElefant::Clone(DrawElefant *AA)
 	{
 		int **Tab;
 		for (int i = 0; i < 8; i++)
@@ -129,40 +129,40 @@ double DrawElefant::MaxHuristicxE = -20000000000000000;
 		}
 		//Initiate a Constructed Object an Clone a Copy.
 		AA = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, color, Table, Order, false, Current);
-		AA.ArrangmentsChanged = ArrangmentsChanged;
+		AA->ArrangmentsChanged = ArrangmentsChanged;
 		for (int i = 0; i < AllDraw::ElefantMovments; i++)
 		{
-			try
+			//try
 			{
-				AA.ElefantThinking = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
-				ElefantThinking.Clone(AA.ElefantThinking);
+				AA->ElefantThinking = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
+				ElefantThinking.Clone(AA->ElefantThinking);
 			}
-			catch (std::exception &t)
+			//catch(std::exception t)
 			{
 				
 //C# TO C++ CONVERTER WARNING: C# to C++ Converter converted the original 'null' assignment to a call to 'delete', but you should review memory allocation of all pointer variables in the converted code:
-				delete AA.ElefantThinking;
+				delete AA->ElefantThinking;
 			}
 		}
-		AA.Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii]-new int[8];
+		AA->Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii]-new int[8];
 		for (int ii = 0; ii < 8; ii++)
 		{
 			for (int jj = 0; jj < 8; jj++)
 			{
-				AA.Table[ii][jj] = Tab[ii][jj];
+				AA->Table[ii][jj] = Tab[ii][jj];
 			}
 		}
-		AA.Row = Row;
-		AA.Column = Column;
-		AA.Order = Order;
-		AA.Current = Current;
-		AA.color = color;
+		AA->Row = Row;
+		AA->Column = Column;
+		AA->Order = Order;
+		AA->Current = Current;
+		AA->color = color;
 
 	}
 	*/
 	void DrawElefant::DrawElefantOnTable( int CellW, int CellH)
 	{
-	/*	try
+	/*	//try
 		{
 
 			//autobalance//lockS = new Object();
@@ -177,7 +177,7 @@ double DrawElefant::MaxHuristicxE = -20000000000000000;
 				}
 
 				//Gray int.
-				if ((static_cast<int>(Row) >= 0) &&static_cast<int>(Row) < 8) &&static_cast<int>(Column) >= 0) &&static_cast<int>(Column) < 8))
+				if ((static_cast<int>(Row) >= 0) static_cast<int>(Row) < 8) static_cast<int>(Column) >= 0) static_cast<int>(Column) < 8))
 				{
 					if (Order == 1)
 					{
@@ -202,7 +202,7 @@ double DrawElefant::MaxHuristicxE = -20000000000000000;
 				}
 			}
 		}
-		catch (std::exception &t)
+		//catch(std::exception t)
 		{
 			
 		}

@@ -8,9 +8,9 @@ bool DrawKing::KingGrayNotCheckedByQuantumMove = false;
 bool DrawKing::KingBrownNotCheckedByQuantumMove = false;
 double DrawKing::MaxHuristicxK = -20000000000000000;
 
-	/*void DrawKing::Log(std::exception &ex)
+	/*void DrawKing::Log(std::exception ex)
 	{
-		try
+		//try
 		{
 			//autoa = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -21,7 +21,7 @@ double DrawKing::MaxHuristicxK = -20000000000000000;
 				File::AppendAllText(AllDraw::Root + std::wstring(L"\\ErrorProgramRun.txt"), stackTrace + std::wstring(L": On") + DateTime::Now.ToString()); // path of file where stack trace will be stored.
 			}
 		}
-		catch (std::exception &t)
+		//catch(std::exception t)
 		{
 			
 		}
@@ -39,11 +39,11 @@ double DrawKing::MaxHuristicxK = -20000000000000000;
 		double a = 0;
 		for (int ii = 0; ii < AllDraw::KingMovments; ii++)
 		{
-			try
+			//try
 			{
 				a += KingThinking.ReturnHuristic(-1, -1, Order,false);
 			}
-			catch (std::exception &t)
+			//catch(std::exception t)
 			{
 				
 			}
@@ -52,9 +52,9 @@ double DrawKing::MaxHuristicxK = -20000000000000000;
 		return a;
 	}
 	void* DrawKing::operator*(std::size_t idx) { return malloc(idx * sizeof(this)); }
-	bool DrawKing::MaxFound(bool &MaxNotFound)
+	bool DrawKing::MaxFound(bool MaxNotFound)
 	{
-		try
+		//try
 		{
 			double a = ReturnHuristic();
 			if (MaxHuristicxK < a)
@@ -73,7 +73,7 @@ double DrawKing::MaxHuristicxK = -20000000000000000;
 				return true;
 			}
 		}
-		catch (std::exception &t)
+		//catch(std::exception t)
 		{
 			
 
@@ -116,7 +116,7 @@ double DrawKing::MaxHuristicxK = -20000000000000000;
 		Current = Cur;
 	}
 
-	/*void DrawKing::Clone(DrawKing *&AA)
+	/*void DrawKing::Clone(DrawKing *AA)
 	{
 		int **Tab;
 		for (int i = 0; i < 8; i++)
@@ -128,38 +128,38 @@ double DrawKing::MaxHuristicxK = -20000000000000000;
 		}
 		//Initiate a Construction Object and Clone a Copy.
 		AA = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, color, Table, Order, false, Current);
-		AA.ArrangmentsChanged = ArrangmentsChanged;
-			try
+		AA->ArrangmentsChanged = ArrangmentsChanged;
+			//try
 			{
-				AA.KingThinking = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
-				KingThinking.Clone(AA.KingThinking);
+				AA->KingThinking = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
+				KingThinking.Clone(AA->KingThinking);
 			}
-			catch (std::exception &t)
+			//catch(std::exception t)
 			{
 				
 //C# TO C++ CONVERTER WARNING: C# to C++ Converter converted the original 'null' assignment to a call to 'delete', but you should review memory allocation of all pointer variables in the converted code:
-				delete AA.KingThinking;
+				delete AA->KingThinking;
 			}
-		AA.Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii]-new int[8];
+		AA->Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii]-new int[8];
 		for (int ii = 0; ii < 8; ii++)
 		{
 			for (int jj = 0; jj < 8; jj++)
 			{
-				AA.Table[ii][jj] = Tab[ii][jj];
+				AA->Table[ii][jj] = Tab[ii][jj];
 			}
 		}
-		AA.Row = Row;
-		AA.Column = Column;
-		AA.Order = Order;
-		AA.Current = Current;
-		AA.color = color;
+		AA->Row = Row;
+		AA->Column = Column;
+		AA->Order = Order;
+		AA->Current = Current;
+		AA->color = color;
 
 	}
 	*/
 	void DrawKing::DrawKingOnTable( int CellW, int CellH)
 	{/*
 
-		try
+		//try
 		{
 
 			//autobalance//lockS = new Object();
@@ -172,7 +172,7 @@ double DrawKing::MaxHuristicxK = -20000000000000000;
 					K = Image::FromFile(AllDraw::ImagesSubRoot + std::wstring(L"KG.png"));
 					K[1] = Image::FromFile(AllDraw::ImagesSubRoot + std::wstring(L"KB.png"));
 				}
-				if ((static_cast<int>(Row) >= 0) &&static_cast<int>(Row) < 8) &&static_cast<int>(Column) >= 0) &&static_cast<int>(Column) < 8))
+				if ((static_cast<int>(Row) >= 0) static_cast<int>(Row) < 8) static_cast<int>(Column) >= 0) static_cast<int>(Column) < 8))
 				{ //Gray Order.
 					if (Order == 1)
 					{
@@ -200,7 +200,7 @@ double DrawKing::MaxHuristicxK = -20000000000000000;
 				}
 			}
 		}
-		catch (std::exception &t)
+		//catch(std::exception t)
 		{
 			
 		}

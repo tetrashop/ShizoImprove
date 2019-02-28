@@ -378,7 +378,7 @@ namespace RefrigtzW
 
                     String TableName = Move.ToString();
                     String Zero = "Table";
-                    for (int i = 0; i < 8 - TableName.Length; i++)
+                    for (int i = 0; i < 8 - TableName.size(); i++)
                         Zero += "0";
                     TableName = Zero + TableName;
 
@@ -493,7 +493,7 @@ namespace RefrigtzW
 
                         String TableName = (Move).ToString();
                         String Zero = "Table";
-                        for (int i = 0; i < 8 - TableName.Length; i++)
+                        for (int i = 0; i < 8 - TableName.size(); i++)
                             Zero += "0";
                         TableName = Zero + TableName;
 
@@ -621,7 +621,7 @@ namespace RefrigtzW
                     oleDbCmd.Connection = bookConn;
                     String TableName = Move.ToString();
                     String Zero = "Table";
-                    for (int i = 0; i < 8 - TableName.Length; i++)
+                    for (int i = 0; i < 8 - TableName.size(); i++)
                         Zero += "0";
                     TableName = Zero + TableName;
 
@@ -748,7 +748,7 @@ namespace RefrigtzW
                             oleDbCmd.Connection = bookConn;
                             String TableName = (Move).ToString();
                             String Zero = "Table";
-                            for (int i = 0; i < 8 - TableName.Length; i++)
+                            for (int i = 0; i < 8 - TableName.size(); i++)
                                 Zero += "0";
                             TableName = Zero + TableName;
 
@@ -810,7 +810,7 @@ namespace RefrigtzW
                 oleDbCmd.Connection = bookConn;
                 String TableName = Move.ToString();
                 String Zero = "Table";
-                for (int i = 0; i < 8 - TableName.Length; i++)
+                for (int i = 0; i < 8 - TableName.size(); i++)
                     Zero += "0";
                 TableName = Zero + TableName;
 
@@ -902,7 +902,7 @@ namespace RefrigtzW
                     oleDbCmd.Connection = bookConn;
                     String TableName = (Move).ToString();
                     String Zero = "Table";
-                    for (int i = 0; i < 8 - TableName.Length; i++)
+                    for (int i = 0; i < 8 - TableName.size(); i++)
                         Zero += "0";
                     TableName = Zero + TableName;
 
@@ -1004,7 +1004,7 @@ namespace RefrigtzW
                 oleDbCmd.Connection = bookConn;
                 String TableName = MovmentsNumber.ToString();
                 String Zero = "Table";
-                for (int i = 0; i < 8 - TableName.Length; i++)
+                for (int i = 0; i < 8 - TableName.size(); i++)
                     Zero += "0";
                 TableName = Zero + TableName;
 
@@ -1026,7 +1026,7 @@ namespace RefrigtzW
                 oleDbCmd.Connection = bookConn;
                 String TableName = MovmentsNumber.ToString();
                 String Zero = "Table";
-                for (int i = 0; i < 8 - TableName.Length; i++)
+                for (int i = 0; i < 8 - TableName.size(); i++)
                     Zero += "0";
                 TableName = Zero + TableName;
 

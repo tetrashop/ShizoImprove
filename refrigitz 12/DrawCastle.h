@@ -44,10 +44,10 @@ namespace RefrigtzDLL
 	private:
 		int CurrentAStarGredyMax;
 
-		static void Log(std::exception &ex);
+		static void Log(std::exception ex);
 	public:
 		~DrawCastle();
-		bool MaxFound(bool &MaxNotFound);
+		bool MaxFound(bool MaxNotFound);
 		double ReturnHuristic();
 
 
@@ -67,7 +67,7 @@ namespace RefrigtzDLL
 		//constructor 2.
 		DrawCastle(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int **Tab, int Ord, bool TB, int Cur); //, ref AllDraw. THIS
 		//Clone a Copy.
-		void Clone(DrawCastle *&AA); //, ref AllDraw. THIS
+		void Clone(DrawCastle *AA); //, ref AllDraw. THIS
 		//Draw An Instatnt Brideges Images On the Table Method.
 		void DrawCastleOnTable( int CellW, int CellH);
 

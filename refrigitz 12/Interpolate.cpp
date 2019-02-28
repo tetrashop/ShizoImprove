@@ -85,7 +85,7 @@ namespace RefrigtzDLL
 			{
 				for (int j = i + 1; j < n; j++)
 				{
-					double AS = N[i][j]
+					double AS = N[i][j];
 					N[i][j] = N[j][i];
 					N[j][i] = AS;
 				}
@@ -114,7 +114,7 @@ namespace RefrigtzDLL
 			}
 			if (n == 1)
 			{
-				return A;
+				return A[0][0];
 			}
 			if (n == 2)
 			{

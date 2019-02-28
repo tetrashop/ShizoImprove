@@ -6,9 +6,9 @@ namespace RefrigtzDLL
 
 double DrawSoldier::MaxHuristicxS = -DBL_MAX;
 
-	/*void DrawSoldier::Log(std::exception &ex)
+	/*void DrawSoldier::Log(std::exception ex)
 	{
-		try
+		//try
 		{
 			//autoa = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -19,7 +19,7 @@ double DrawSoldier::MaxHuristicxS = -DBL_MAX;
 				File::AppendAllText(AllDraw::Root + std::wstring(L"\\ErrorProgramRun.txt"), stackTrace + std::wstring(L": On") + DateTime::Now.ToString()); // path of file where stack trace will be stored.
 			}
 		}
-		catch (std::exception &t)
+		//catch(std::exception t)
 		{
 			
 		}
@@ -31,9 +31,9 @@ double DrawSoldier::MaxHuristicxS = -DBL_MAX;
 		ValuableSelfSupported.clear();
 //		S = nullptr;
 	}
-	bool DrawSoldier::MaxFound(bool &MaxNotFound)
+	bool DrawSoldier::MaxFound(bool MaxNotFound)
 	{
-		try
+		//try
 		{
 			double a = ReturnHuristic();
 			if (MaxHuristicxS < a)
@@ -52,7 +52,7 @@ double DrawSoldier::MaxHuristicxS = -DBL_MAX;
 				return true;
 			}
 		}
-		catch (std::exception &t)
+		//catch(std::exception t)
 		{
 			
 
@@ -66,11 +66,11 @@ double DrawSoldier::MaxHuristicxS = -DBL_MAX;
 		double a = 0;
 		for (int ii = 0; ii < AllDraw::SodierMovments; ii++)
 		{
-			try
+			//try
 			{
 				a += SoldierThinking.ReturnHuristic(-1, -1, Order,false);
 			}
-			catch (std::exception &t)
+			//catch(std::exception t)
 			{
 				
 			}
@@ -112,7 +112,7 @@ double DrawSoldier::MaxHuristicxS = -DBL_MAX;
 	}
 	//void* DrawSoldier::operator*(std::size_t idx) { return malloc(idx * sizeof(this)); }
 /*
-	void DrawSoldier::Clone(DrawSoldier *&AA)
+	void DrawSoldier::Clone(DrawSoldier *AA)
 	{
 		int **Tab;
 		for (int i = 0; i < 8; i++)
@@ -125,31 +125,31 @@ double DrawSoldier::MaxHuristicxS = -DBL_MAX;
 		//Initiate a Object and Assignemt of a Clone to Construction of a Copy.
 
 		AA = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, color, Tab, Order, false, Current);
-		AA.ArrangmentsChanged = ArrangmentsChanged;
-			try
+		AA->ArrangmentsChanged = ArrangmentsChanged;
+			//try
 			{
-				AA.SoldierThinking.= ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
-				SoldierThinking.Clone(AA.SoldierThinking.);
+				AA->SoldierThinking.= ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
+				SoldierThinking.Clone(AA->SoldierThinking.);
 			}
-			catch (std::exception &t)
+			//catch(std::exception t)
 			{
 				
 //C# TO C++ CONVERTER WARNING: C# to C++ Converter converted the original 'null' assignment to a call to 'delete', but you should review memory allocation of all pointer variables in the converted code:
-				delete AA.SoldierThinking.;
+				delete AA->SoldierThinking.;
 			}
-		AA.Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii]-new int[8];
+		AA->Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii]-new int[8];
 		for (int ii = 0; ii < 8; ii++)
 		{
 			for (int jj = 0; jj < 8; jj++)
 			{
-				AA.Table[ii][jj] = Tab[ii][jj];
+				AA->Table[ii][jj] = Tab[ii][jj];
 			}
 		}
-		AA.RowS = RowS;
-		AA.ColumnS = ColumnS;
-		AA.Order = Order;
-		AA.Current = Current;
-		AA.color = color;
+		AA->RowS = RowS;
+		AA->ColumnS = ColumnS;
+		AA->Order = Order;
+		AA->Current = Current;
+		AA->color = color;
 
 	}
 
@@ -172,9 +172,9 @@ double DrawSoldier::MaxHuristicxS = -DBL_MAX;
 			{
 
 				//Gray int.
-				if ((static_cast<int>(Row) >= 0) &&static_cast<int>(Row) < 8) &&static_cast<int>(Column) >= 0) &&static_cast<int>(Column) < 8))
+				if ((static_cast<int>(Row) >= 0) static_cast<int>(Row) < 8) static_cast<int>(Column) >= 0) static_cast<int>(Column) < 8))
 				{
-					try
+					//try
 					{
 
 						//If Order is Gray.
@@ -199,7 +199,7 @@ double DrawSoldier::MaxHuristicxS = -DBL_MAX;
 							}
 						}
 					}
-					catch (std::exception &t)
+					//catch(std::exception t)
 					{
 						
 					}
@@ -209,7 +209,7 @@ double DrawSoldier::MaxHuristicxS = -DBL_MAX;
 				{
 					if (ConvertedToMinister)
 					{
-					try
+					//try
 					{
 						//int of Gray.
 						if (Order == 1)
@@ -233,14 +233,14 @@ double DrawSoldier::MaxHuristicxS = -DBL_MAX;
 							}
 						}
 					}
-					catch (std::exception &t)
+					//catch(std::exception t)
 					{
 						
 					}
 					}
 				else if (ConvertedToCastle) //When Castled Converted.
 				{
-					try
+					//try
 					{
 						//int of Gray.
 						if (Order == 1)
@@ -264,7 +264,7 @@ double DrawSoldier::MaxHuristicxS = -DBL_MAX;
 							}
 						}
 					}
-					catch (std::exception &t)
+					//catch(std::exception t)
 					{
 						
 					}
@@ -272,7 +272,7 @@ double DrawSoldier::MaxHuristicxS = -DBL_MAX;
 				else if (ConvertedToHourse) //When Hourse Conversion Occured.
 				{
 
-					try
+					//try
 					{
 						//int of Gray.
 						if (Order == 1)
@@ -294,7 +294,7 @@ double DrawSoldier::MaxHuristicxS = -DBL_MAX;
 							}
 						}
 					}
-					catch (std::exception &t)
+					//catch(std::exception t)
 					{
 						
 					}
@@ -302,7 +302,7 @@ double DrawSoldier::MaxHuristicxS = -DBL_MAX;
 				}
 				else if (ConvertedToElefant) //When Elephant Conversion.
 				{
-					try
+					//try
 					{
 						//int of Gray.
 						if (Order == 1)
@@ -325,7 +325,7 @@ double DrawSoldier::MaxHuristicxS = -DBL_MAX;
 						}
 
 					}
-					catch (std::exception &t)
+					//catch(std::exception t)
 					{
 						
 					}

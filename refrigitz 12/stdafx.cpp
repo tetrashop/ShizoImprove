@@ -11,14 +11,14 @@ int main()
 	// IncreasingThreadPerformance();
 	//Intiate  Program Load and Calling.
 	//Application.EnableVisualStyles();
-	//try
+	////try
 	//{
 
 	//Application.SetCompatibleTextRenderingDefault(false);
 
 	//Application.Run(new Load());
 	//}
-	//catch (Exception t)
+	////catch(Exception t)
 	{
 		//
 	}

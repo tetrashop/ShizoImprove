@@ -6,9 +6,9 @@ namespace RefrigtzDLL
 
 	std::wstring NetworkQuantumLearningKrinskyAtamata::Root = L""; //System::IO::Path::GetDirectoryName(Environment::GetCommandLineArgs());
 
-	/*void NetworkQuantumLearningKrinskyAtamata::Log(std::exception &ex)
+	/*void NetworkQuantumLearningKrinskyAtamata::Log(std::exception ex)
 	{
-		try
+		//try
 		{
 			//autoa = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -19,7 +19,7 @@ namespace RefrigtzDLL
 				File::AppendAllText(Root + std::wstring(L"\\ErrorProgramRun.txt"), stackTrace + std::wstring(L": On") + DateTime::Now.ToString()); // path of file where stack trace will be stored.
 			}
 		}
-		catch (std::exception &t)
+		//catch(std::exception t)
 		{
 			
 		}
@@ -58,12 +58,12 @@ namespace RefrigtzDLL
 		{
 
 			double Hu = 1;
-			try
+			//try
 			{
 				Netfi[Row][Column].LearningAlgorithmRegard();
 				Hu = Netfi[Row][Column].alpha[State];
 			}
-			catch (std::exception &t)
+			//catch(std::exception t)
 			{
 				
 			}
@@ -106,12 +106,12 @@ namespace RefrigtzDLL
 		//lock (o)
 		{
 			double Hu = 1;
-			try
+			//try
 			{
 				Netfi[Row][Column].LearningAlgorithmPenalty();
 				Hu = Netfi[Row][Column].alpha[State];
 			}
-			catch (std::exception &t)
+			//catch(std::exception t)
 			{
 				
 			}
@@ -126,11 +126,11 @@ namespace RefrigtzDLL
 		//lock (o)
 		{
 			double Hu = 1;
-			try
+			//try
 			{
 				Hu = Netfi[Row][Column].alpha[State];
 			}
-			catch (std::exception &t)
+			//catch(std::exception t)
 			{
 				
 			}

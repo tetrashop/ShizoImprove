@@ -5,7 +5,7 @@
 
 /******************************************************************************
  * Ramin Edjlal Copyrights 2015.************************************************
- * Learning Autamata.**********************************************************
+ * Learning AutamatA->**********************************************************
  * The every sum of probability is one.****************************************(*_)
  * four formula .tow for Regard regime and tow for penalty regime.***************(-)
  * Derived Quantum Automata Penalty All Objects of Derived Automat*a***********(-)

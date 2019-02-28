@@ -16,7 +16,7 @@ function WebForm_DoPostBackWithOptions(options) {
         }
     }
     if (validationResult) {
-        if ((typeof(options.actionUrl) != "undefined") && (options.actionUrl != null) && (options.actionUrl.length > 0)) {
+        if ((typeof(options.actionUrl) != "undefined") && (options.actionUrl != null) && (options.actionUrl.size() > 0)) {
             theForm.action = options.actionUrl;
         }
         if (options.trackFocus) {
@@ -28,7 +28,7 @@ function WebForm_DoPostBackWithOptions(options) {
                 else {
                     var active = document.activeElement;
                     if ((typeof(active) != "undefined") && (active != null)) {
-                        if ((typeof(active.id) != "undefined") && (active.id != null) && (active.id.length > 0)) {
+                        if ((typeof(active.id) != "undefined") && (active.id != null) && (active.id.size() > 0)) {
                             lastFocus.value = active.id;
                         }
                         else if (typeof(active.name) != "undefined") {
@@ -135,7 +135,7 @@ function WebForm_DoCallback(eventTarget, eventArgument, eventCallback, context, 
             xmlRequestFrame.document.write('<html><body><form method="post"><input type="hidden" name="__CALLBACKLOADSCRIPT" value="t"></form></body></html>');
             xmlRequestFrame.document.close();
             xmlRequestFrame.document.forms[0].action = theForm.action;
-            var count = __theFormPostCollection.length;
+            var count = __theFormPostCollection.size();
             var element;
             for (var i = 0; i < count; i++) {
                 element = __theFormPostCollection[i];
@@ -174,7 +174,7 @@ function WebForm_DoCallback(eventTarget, eventArgument, eventCallback, context, 
     }, 10);
 }
 function WebForm_CallbackComplete() {
-    for (var i = 0; i < __pendingCallbacks.length; i++) {
+    for (var i = 0; i < __pendingCallbacks.size(); i++) {
         callbackObject = __pendingCallbacks[i];
         if (callbackObject && callbackObject.xmlRequest && (callbackObject.xmlRequest.readyState == 4)) {
             if (!__pendingCallbacks[i].async) {
@@ -227,7 +227,7 @@ function WebForm_ExecuteCallback(callbackObject) {
 }
 function WebForm_FillFirstAvailableSlot(array, element) {
     var i;
-    for (i = 0; i < array.length; i++) {
+    for (i = 0; i < array.size(); i++) {
         if (!array[i]) break;
     }
     array[i] = element;
@@ -239,7 +239,7 @@ var __theFormPostCollection = new Array();
 var __callbackTextTypes = /^(text|password|hidden|search|tel|url|email|number|range|color|datetime|date|month|week|time|datetime-local)$/i;
 function WebForm_InitCallback() {
     var formElements = theForm.elements,
-        count = formElements.length,
+        count = formElements.size(),
         element;
     for (var i = 0; i < count; i++) {
         element = formElements[i];
@@ -252,7 +252,7 @@ function WebForm_InitCallback() {
             }
         }
         else if (tagName == "select") {
-            var selectCount = element.options.length;
+            var selectCount = element.options.size();
             for (var j = 0; j < selectCount; j++) {
                 var selectChild = element.options[j];
                 if (selectChild.selected == true) {
@@ -269,7 +269,7 @@ function WebForm_InitCallbackAddField(name, value) {
     var nameValue = new object();
     nameValue.name = name;
     nameValue.value = value;
-    __theFormPostCollection[__theFormPostCollection.length] = nameValue;
+    __theFormPostCollection[__theFormPostCollection.size()] = nameValue;
     __theFormPostData += WebForm_EncodeCallback(name) + "=" + WebForm_EncodeCallback(value) + "&";
 }
 function WebForm_EncodeCallback(parameter) {
@@ -286,7 +286,7 @@ function WebForm_ReEnableControls() {
         return false;
     }
     var disabledIndex = 0;
-    for (var i = 0; i < __enabledControlArray.length; i++) {
+    for (var i = 0; i < __enabledControlArray.size(); i++) {
         var c;
         if (__nonMSDOMBrowser) {
             c = document.getElementById(__enabledControlArray[i]);
@@ -303,7 +303,7 @@ function WebForm_ReEnableControls() {
     return true;
 }
 function WebForm_ReDisableControls() {
-    for (var i = 0; i < __disabledControlArray.length; i++) {
+    for (var i = 0; i < __disabledControlArray.size(); i++) {
         __disabledControlArray[i].disabled = true;
     }
 }
@@ -450,7 +450,7 @@ function WebForm_RemoveClassName(element, className) {
     var index = currentClassName.indexOf(' ' + className + ' ');
     if (index >= 0) {
         element.className = WebForm_TrimString(currentClassName.substring(0, index) + ' ' +
-            currentClassName.substring(index + className.length + 1, currentClassName.length));
+            currentClassName.substring(index + className.size() + 1, currentClassName.size()));
     }
 }
 function WebForm_GetElementById(elementId) {
@@ -464,7 +464,7 @@ function WebForm_GetElementById(elementId) {
 }
 function WebForm_GetElementByTagName(element, tagName) {
     var elements = WebForm_GetElementsByTagName(element, tagName);
-    if (elements && elements.length > 0) {
+    if (elements && elements.size() > 0) {
         return elements[0];
     }
     else return null;

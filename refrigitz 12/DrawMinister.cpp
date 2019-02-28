@@ -7,9 +7,9 @@ namespace RefrigtzDLL
 
 double DrawMinister::MaxHuristicxM = -20000000000000000;
 
-	/*void DrawMinister::Log(std::exception &ex)
+	/*void DrawMinister::Log(std::exception ex)
 	{
-		try
+		//try
 		{
 			//autoa = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -20,7 +20,7 @@ double DrawMinister::MaxHuristicxM = -20000000000000000;
 				File::AppendAllText(AllDraw::Root + std::wstring(L"\\ErrorProgramRun.txt"), stackTrace + std::wstring(L": On") + DateTime::Now.ToString()); // path of file where stack trace will be stored.
 			}
 		}
-		catch (std::exception &t)
+		//catch(std::exception t)
 		{
 			
 		}
@@ -33,9 +33,9 @@ double DrawMinister::MaxHuristicxM = -20000000000000000;
 //		M = nullptr;
 	}
 
-	bool DrawMinister::MaxFound(bool &MaxNotFound)
+	bool DrawMinister::MaxFound(bool MaxNotFound)
 	{
-		try
+		//try
 		{
 			double a = ReturnHuristic();
 			if (MaxHuristicxM < a)
@@ -54,7 +54,7 @@ double DrawMinister::MaxHuristicxM = -20000000000000000;
 				return true;
 			}
 		}
-		catch (std::exception &t)
+		//catch(std::exception t)
 		{
 			
 
@@ -68,11 +68,11 @@ double DrawMinister::MaxHuristicxM = -20000000000000000;
 		double a = 0;
 		for (int ii = 0; ii < AllDraw::MinisterMovments; ii++)
 		{
-			try
+			//try
 			{
 				a += MinisterThinking.ReturnHuristic(-1, -1, Order,false);
 			}
-			catch (std::exception &t)
+			//catch(std::exception t)
 			{
 				
 			}
@@ -113,7 +113,7 @@ double DrawMinister::MaxHuristicxM = -20000000000000000;
 	}
 	/*
 
-	void DrawMinister::Clone(DrawMinister *&AA)
+	void DrawMinister::Clone(DrawMinister *AA)
 	{
 		int **Tab;
 		for (int i = 0; i < 8; i++)
@@ -125,41 +125,41 @@ double DrawMinister::MaxHuristicxM = -20000000000000000;
 		}
 		//Initiate an Object and Clone a Construction Objectve.
 		AA = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, color, Table, Order, false, Current);
-		AA.ArrangmentsChanged = ArrangmentsChanged;
+		AA->ArrangmentsChanged = ArrangmentsChanged;
 		for (int i = 0; i < AllDraw::MinisterMovments; i++)
 		{
-			try
+			//try
 			{
-				AA.MinisterThinking = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
-				MinisterThinking.Clone(AA.MinisterThinking[i]);
+				AA->MinisterThinking = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
+				MinisterThinking.Clone(AA->MinisterThinking[i]);
 			}
-			catch (std::exception &t)
+			//catch(std::exception t)
 			{
 				
 //C# TO C++ CONVERTER WARNING: C# to C++ Converter converted the original 'null' assignment to a call to 'delete', but you should review memory allocation of all pointer variables in the converted code:
-				delete AA.MinisterThinking[i];
+				delete AA->MinisterThinking[i];
 			}
 
 		}
-		AA.Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii]-new int[8];
+		AA->Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii]-new int[8];
 		for (int ii = 0; ii < 8; ii++)
 		{
 			for (int jj = 0; jj < 8; jj++)
 			{
-				AA.Table[ii][jj] = Tab[ii][jj];
+				AA->Table[ii][jj] = Tab[ii][jj];
 			}
 		}
-		AA.Row = Row;
-		AA.Column = Column;
-		AA.Order = Order;
-		AA.Current = Current;
-		AA.color = color;
+		AA->Row = Row;
+		AA->Column = Column;
+		AA->Order = Order;
+		AA->Current = Current;
+		AA->color = color;
 
 	}
 	*/
 	void DrawMinister::DrawMinisterOnTable( int CellW, int CellH)
 	{
-/*		try
+/*		//try
 		{
 
 			//autobalance//lockS = new Object();
@@ -172,7 +172,7 @@ double DrawMinister::MaxHuristicxM = -20000000000000000;
 					M = Image::FromFile(AllDraw::ImagesSubRoot + std::wstring(L"MG.png"));
 					M[1] = Image::FromFile(AllDraw::ImagesSubRoot + std::wstring(L"MB.png"));
 				} //Gray int.
-				if ((static_cast<int>(Row) >= 0) &&static_cast<int>(Row) < 8) &&static_cast<int>(Column) >= 0) &&static_cast<int>(Column) < 8))
+				if ((static_cast<int>(Row) >= 0) static_cast<int>(Row) < 8) static_cast<int>(Column) >= 0) static_cast<int>(Column) < 8))
 				{
 					//Gray Order.
 					if (Order == 1)
@@ -198,7 +198,7 @@ double DrawMinister::MaxHuristicxM = -20000000000000000;
 				}
 			}
 		}
-		catch (std::exception &t)
+		//catch(std::exception t)
 		{
 			
 		}

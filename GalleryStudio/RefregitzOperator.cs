@@ -77,7 +77,7 @@ namespace GalleryStudio
                 {
                     while (p <= No)
                     {
-                        if (DummyFileStream.Length >= DummyFileStream.Position)
+                        if (DummyFileStream.size() >= DummyFileStream.Position)
                             Dummy = (RefrigtzDLL.AllDraw)Formatters.Deserialize(DummyFileStream);
                         else
                             Dummy = null;

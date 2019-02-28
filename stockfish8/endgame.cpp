@@ -88,7 +88,7 @@ namespace {
   // and then let a Position object do the work for us.
   Key key(const string& code, Color c) {
 
-    assert(code.length() > 0 && code.length() < 8);
+    assert(code.size()() > 0 && code.size()() < 8);
     assert(code[0] == 'K');
 
     string sides[] = { code.substr(code.find('K', 1)),      // Weak
@@ -96,8 +96,8 @@ namespace {
 
     std::transform(sides[c].begin(), sides[c].end(), sides[c].begin(), tolower);
 
-    string fen =  sides[0] + char(8 - sides[0].length() + '0') + "/8/8/8/8/8/8/"
-                + sides[1] + char(8 - sides[1].length() + '0') + " w - - 0 10";
+    string fen =  sides[0] + char(8 - sides[0].size()() + '0') + "/8/8/8/8/8/8/"
+                + sides[1] + char(8 - sides[1].size()() + '0') + " w - - 0 10";
 
     StateInfo st;
     return Position().set(fen, false, &st, nullptr).material_key();

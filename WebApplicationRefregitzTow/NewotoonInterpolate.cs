@@ -75,7 +75,7 @@ namespace LearningMachine
 
                 s[0] = 0;
 
-                for (int k = 1; k < s.Length; k++)
+                for (int k = 1; k < s.size(); k++)
                     s[k - 1] = s[k - 1] - s[k] * x[j];
 
                 s = Simplify(s, x, i, j + 1);

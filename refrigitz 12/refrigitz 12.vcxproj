@@ -155,13 +155,13 @@
     <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\HermitInterpolation.cpp" />
     <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Interpolate.cpp" />
     <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\IsNextEnemyMovementForCheckedMate.cpp" />
-    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\LearningAtamata.cpp" />
-    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\NetworkQuantumLearningKrinskyAtamata.cpp" />
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\LearningAtamatA->cpp" />
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\NetworkQuantumLearningKrinskyAtamatA->cpp" />
     <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\NewotoonInterpolate.cpp" />
     <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\PlatformHelper.cpp" />
     <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Program.cpp" />
-    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\QuantumAtamata.cpp" />
-    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\QuantumLearningAtamata.cpp" />
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\QuantumAtamatA->cpp" />
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\QuantumLearningAtamatA->cpp" />
     <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\ThingsConverter.cpp" />
     <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\ThinkingChess.cpp" />
   </ItemGroup>
@@ -179,13 +179,13 @@
     <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\HermitInterpolation.h" />
     <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Interpolate.h" />
     <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\IsNextEnemyMovementForCheckedMate.h" />
-    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\LearningAtamata.h" />
-    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\NetworkQuantumLearningKrinskyAtamata.h" />
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\LearningAtamatA->h" />
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\NetworkQuantumLearningKrinskyAtamatA->h" />
     <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\NewotoonInterpolate.h" />
     <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\PlatformHelper.h" />
     <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Program.h" />
-    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\QuantumAtamata.h" />
-    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\QuantumLearningAtamata.h" />
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\QuantumAtamatA->h" />
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\QuantumLearningAtamatA->h" />
     <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\stringconverter.h" />
     <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\ThingsConverter.h" />
     <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\ThinkingChess.h" />

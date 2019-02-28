@@ -11,7 +11,7 @@ if ((typeof(window.__smartNav) == "undefined") || (window.__smartNav == null))
         sn.inPost = false;
         try { fd = frames["__hifSmartNav"].document; } catch (e) {return;}
         var fdr = fd.getElementsByTagName("asp_smartnav_rdir");
-        if (fdr.length > 0)
+        if (fdr.size() > 0)
         {
             if ((typeof(sn.sHif) == "undefined") || (sn.sHif == null))
             {
@@ -25,7 +25,7 @@ if ((typeof(window.__smartNav) == "undefined") || (window.__smartNav == null))
         }
         var fdurl = fd.location.href;
         var index = fdurl.indexOf(snSrc);
-        if ((index != -1 && index == fdurl.length-snSrc.length)
+        if ((index != -1 && index == fdurl.size()-snSrc.size())
             || fdurl == "about:blank")
             return;
 		var fdurlb = fdurl.split("?")[0];
@@ -61,18 +61,18 @@ if ((typeof(window.__smartNav) == "undefined") || (window.__smartNav == null))
         var hk = hdm.childNodes;
         var tt = null;
         var i;
-        for (i = hk.length - 1; i>= 0; i--)
+        for (i = hk.size() - 1; i>= 0; i--)
         {
             if (hk[i].tagName == "TITLE")
             {
                 tt = hk[i].outerHTML;
                 continue;
             }
-            if (hk[i].tagName != "BASEFONT" || hk[i].innerHTML.length == 0)
+            if (hk[i].tagName != "BASEFONT" || hk[i].innerHTML.size() == 0)
                 hdm.removeChild(hdm.childNodes[i]);
         }
         var kids = fd.getElementsByTagName("head")[0].childNodes;
-        for (i = 0; i < kids.length; i++)
+        for (i = 0; i < kids.size(); i++)
         {
             var tn = kids[i].tagName;
             var k = document.createElement(tn);
@@ -87,7 +87,7 @@ if ((typeof(window.__smartNav) == "undefined") || (window.__smartNav == null))
                 hdm.insertAdjacentElement("afterbegin", k);
                 continue;
             case "BASEFONT" :
-                if (kids[i].innerHTML.length > 0)
+                if (kids[i].innerHTML.size() > 0)
                     continue;
                 break;
             default:
@@ -116,7 +116,7 @@ if ((typeof(window.__smartNav) == "undefined") || (window.__smartNav == null))
         }
         document.body.innerHTML = s;
         var sc = document.scripts;
-        for (i = 0; i < sc.length; i++)
+        for (i = 0; i < sc.size(); i++)
         {
             sc[i].text = sc[i].text;
         }
@@ -191,7 +191,7 @@ if ((typeof(window.__smartNav) == "undefined") || (window.__smartNav == null))
         if ((typeof(document.activeElement) != "undefined") && (document.activeElement != null))
         {
             var ae = document.activeElement.id;
-            if (ae.length == 0)
+            if (ae.size() == 0)
                 ae = document.activeElement.name;
             sn.ae = ae;
         }
@@ -223,7 +223,7 @@ if ((typeof(window.__smartNav) == "undefined") || (window.__smartNav == null))
     window.__smartNav.attachForm = function()
     {
         var cf = document.forms;
-        for (var i=0; i<cf.length; i++)
+        for (var i=0; i<cf.size(); i++)
         {
             if ((typeof(cf[i].__smartNavEnabled) != "undefined") && (cf[i].__smartNavEnabled != null))
             {
@@ -235,10 +235,10 @@ if ((typeof(window.__smartNav) == "undefined") || (window.__smartNav == null))
         var snfm = window.__smartNav.form;
         if ((typeof(snfm) == "undefined") || (snfm == null)) return false;
         var sft = snfm.target;
-        if (sft.length != 0 && sft.indexOf("__hifSmartNav") != 0) return false;
+        if (sft.size() != 0 && sft.indexOf("__hifSmartNav") != 0) return false;
         var sfc = snfm.action.split("?")[0];
         var url = window.location.href.split("?")[0];
-        if (url.charAt(url.length-1) != '/' && url.lastIndexOf(sfc) + sfc.length != url.length) return false;
+        if (url.charAt(url.size()-1) != '/' && url.lastIndexOf(sfc) + sfc.size() != url.size()) return false;
         if (snfm.__formAttached == true) return true;
         snfm.__formAttached = true;
         snfm.attachEvent("onsubmit", window.__smartNav.init);

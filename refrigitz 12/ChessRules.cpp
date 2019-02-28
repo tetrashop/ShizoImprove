@@ -38,9 +38,9 @@ int ChessRules::CheckBrownRemovableValueColumnj = 0;
 int ChessRules::CheckBrownRemovableValueRowii = 0;
 int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 
-	/*void ChessRules::Log(std::exception &ex)
+	/*void ChessRules::Log(std::exception ex)
 	{
-		try
+		//try
 		{
 			//autoa = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -51,7 +51,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 				File::AppendAllText(AllDraw::Root + std::wstring(L"\\ErrorProgramRun.txt"), stackTrace + std::wstring(L": On") + DateTime::Now.ToString()); // path of file where stack trace will be stored.
 			}
 		}
-		catch (std::exception &t)
+		//catch(std::exception t)
 		{
 			
 		}
@@ -117,14 +117,14 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		Order = Ord;
 	}
 
-	bool ChessRules::Rules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, int color, int Ki, bool SelfHomeStatCP = true)
+	bool ChessRules::Rules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, int color, int Ki, bool SelfHomeStatCP)
 	{
 		//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 		//lock (O)
 		{
 
-			if (Table[RowFirst][ColumnFirst] > 0 && Table[RowSecond][ColumnSecond] > 0)
+			if (Table[RowFirst][ColumnFirst] > 0  Table[RowSecond][ColumnSecond] > 0)
 			{
 				if (!SelfHomeStatCP)
 				{
@@ -140,7 +140,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 				IgnoreSelfObject = false;
 			}
 
-			if (Table[RowFirst][ColumnFirst] < 0 && Table[RowSecond][ColumnSecond] < 0)
+			if (Table[RowFirst][ColumnFirst] < 0  Table[RowSecond][ColumnSecond] < 0)
 			{
 				if (!SelfHomeStatCP)
 				{
@@ -178,13 +178,13 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		{
 			if (Table[RowFirst][ColumnFirst] == 6)
 			{
-				if (abs(RowB - RowSecond) <= 1 && abs(ColumnB - ColumnSecond) <= 1)
+				if (abs(RowB - RowSecond) <= 1  abs(ColumnB - ColumnSecond) <= 1)
 				{
 					return false;
 				}
 			}
 			//Illegal King Foundation.
-			if (abs(RowB - RowG) <= 1 && abs(ColumnB - ColumnG) <= 1)
+			if (abs(RowB - RowG) <= 1  abs(ColumnB - ColumnG) <= 1)
 			{
 				return false;
 			}
@@ -193,13 +193,13 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		{
 			if (Table[RowFirst][ColumnFirst] == -6)
 			{
-				if (abs(RowG - RowSecond) <= 1 && abs(ColumnG - ColumnSecond) <= 1)
+				if (abs(RowG - RowSecond) <= 1  abs(ColumnG - ColumnSecond) <= 1)
 				{
 					return false;
 				}
 			}
 			//Ilegal Kings Foundation.
-			if (abs(RowB - RowG) <= 1 && abs(ColumnB - ColumnG) <= 1)
+			if (abs(RowB - RowG) <= 1  abs(ColumnB - ColumnG) <= 1)
 			{
 				return false;
 			}
@@ -207,13 +207,13 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		}
 		//Determination of Enemy in the Destionation Home.
 		bool ExistInDestinationEnemy = bool();
-		if (((Table[RowFirst][ColumnFirst] > 0) &&(Table[RowSecond][ColumnSecond] < 0) &&Order == 1))
+		if (((Table[RowFirst][ColumnFirst] > 0) (Table[RowSecond][ColumnSecond] < 0) Order == 1))
 		{
 			ExistInDestinationEnemy = true;
 		}
 		else
 		{
-			if ((Table[RowFirst][ColumnFirst] < 0) &&(Table[RowSecond][ColumnSecond] > 0) &&Order == -1)
+			if ((Table[RowFirst][ColumnFirst] < 0) (Table[RowSecond][ColumnSecond] > 0) Order == -1)
 			{
 				ExistInDestinationEnemy = true;
 			}
@@ -225,13 +225,13 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			if (!(ArrangmentsBoard))
 			{
 				//Solders of Gray at Begining.
-				if (ColumnFirst == 1 && Order == 1)
+				if (ColumnFirst == 1  Order == 1)
 				{
 					return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, true, color, ExistInDestinationEnemy, Ki, SelfHomeStatCP);
 				}
 				else //Solder of Brown At Begining.
 				{
-					if (ColumnFirst == 6 &&Order == -1)
+					if (ColumnFirst == 6 Order == -1)
 					{
 						return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, true, color, ExistInDestinationEnemy, Ki, SelfHomeStatCP);
 					}
@@ -244,13 +244,13 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			else
 			{
 				//Solders of Gray at Begining.
-				if (ColumnFirst == 6 &&Order == 1)
+				if (ColumnFirst == 6 Order == 1)
 				{
 					return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, true, color, ExistInDestinationEnemy, Ki, SelfHomeStatCP);
 				}
 				else //Solder of Brown At Begining.
 				{
-					if (ColumnFirst == 1 &&Order == -1)
+					if (ColumnFirst == 1 Order == -1)
 					{
 						return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, true, color, ExistInDestinationEnemy, Ki, SelfHomeStatCP);
 					}
@@ -279,15 +279,15 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 				if (RefrigtzDLL::ChessRules::CastleKingAllowedGray)
 				{
 					//If Column is At First Location.
-					if (ColumnFirst == 0 && ColumnSecond == 0)
+					if (ColumnFirst == 0  ColumnSecond == 0)
 					{
 						//When Kings Moves for Small Kings Castles Movments.
-						if ((RowFirst == RowSecond - 2) &&(RowSecond - 2 >= 0))
+						if ((RowFirst == RowSecond - 2) (RowSecond - 2 >= 0))
 						{
 							//Consideration of Castles King of Gray King.
-							try
+							//try
 							{
-								if ((RowSecond - 1 >= 0) &&(RowSecond + 1 < 8) &&(RowSecond - 2 >= 0) && Table[RowSecond - 2][ColumnSecond] == 6 && Table[RowSecond - 1][ColumnSecond] == 0 && Table[RowSecond][ColumnSecond] == 0 && Table[RowSecond + 1][ColumnSecond] == 4)
+								if ((RowSecond - 1 >= 0) (RowSecond + 1 < 8) (RowSecond - 2 >= 0)  Table[RowSecond - 2][ColumnSecond] == 6  Table[RowSecond - 1][ColumnSecond] == 0  Table[RowSecond][ColumnSecond] == 0  Table[RowSecond + 1][ColumnSecond] == 4)
 								{
 									//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -300,7 +300,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 									return true;
 								}
 							}
-							catch (std::exception &t)
+							//catch(std::exception t)
 							{
 								
 							}
@@ -308,12 +308,12 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 
 						else //For Greates Castles King Movments.
 						{
-							if ((RowFirst == RowSecond + 2) &&(RowSecond + 2 < 8))
+							if ((RowFirst == RowSecond + 2) (RowSecond + 2 < 8))
 							{
 								//Consideration of Castles King M<ovments.
-								try
+								//try
 								{
-									if ((RowSecond + 2 < 8) &&(RowSecond - 1 >= 0) &&(RowSecond + 1 < 8) &&(RowSecond - 2 >= 0) && Table[RowSecond + 2][ColumnSecond] == 6 && Table[RowSecond + 1][ColumnSecond] == 0 && Table[RowSecond][ColumnSecond] == 0 && Table[RowSecond - 1][ColumnSecond] == 0 && Table[RowSecond - 2][ColumnSecond] == 4)
+									if ((RowSecond + 2 < 8) (RowSecond - 1 >= 0) (RowSecond + 1 < 8) (RowSecond - 2 >= 0)  Table[RowSecond + 2][ColumnSecond] == 6  Table[RowSecond + 1][ColumnSecond] == 0  Table[RowSecond][ColumnSecond] == 0  Table[RowSecond - 1][ColumnSecond] == 0  Table[RowSecond - 2][ColumnSecond] == 4)
 									{
 									//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -325,7 +325,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 										return true;
 									}
 								}
-								catch (std::exception &t)
+								//catch(std::exception t)
 								{
 									
 								}
@@ -341,15 +341,15 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 				if (RefrigtzDLL::ChessRules::CastleKingAllowedBrown)
 				{
 					//Column Situation.
-					if (ColumnFirst == 7 && ColumnSecond == 7)
+					if (ColumnFirst == 7  ColumnSecond == 7)
 					{
 						//Small Brown King Castles Consideration.
-						if ((RowFirst == RowSecond - 2) &&(RowSecond - 2 < 8))
+						if ((RowFirst == RowSecond - 2) (RowSecond - 2 < 8))
 						{
-							try
+							//try
 							{
 
-								if ((RowSecond - 1 >= 0) &&(RowSecond + 1 < 8) && Table[RowSecond - 2][ColumnSecond] == -6 && Table[RowSecond - 1][ColumnSecond] == 0 && Table[RowSecond][ColumnSecond] == 0 && Table[RowSecond + 1][ColumnSecond] == -4)
+								if ((RowSecond - 1 >= 0) (RowSecond + 1 < 8)  Table[RowSecond - 2][ColumnSecond] == -6  Table[RowSecond - 1][ColumnSecond] == 0  Table[RowSecond][ColumnSecond] == 0  Table[RowSecond + 1][ColumnSecond] == -4)
 								{
 									//CastleActBrown = true;
 									//autoO1 = new Object();
@@ -361,7 +361,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 									return true;
 								}
 							}
-							catch (std::exception &t)
+							//catch(std::exception t)
 							{
 								
 							}
@@ -369,12 +369,12 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 						}
 						else
 						{
-							if ((RowFirst == RowSecond + 2) &&(RowSecond + 2 < 8))
+							if ((RowFirst == RowSecond + 2) (RowSecond + 2 < 8))
 							{
 							//Brown Kings.Big King Castles Consideration.
-								try
+								//try
 								{
-									if ((RowSecond + 2 < 8) &&(RowSecond - 1 >= 0) &&(RowSecond + 1 < 8) &&(RowSecond - 2 >= 0) && Table[RowSecond + 2][ColumnSecond] == -6 && Table[RowSecond + 1][ColumnSecond] == 0 && Table[RowSecond][ColumnSecond] == 0 && Table[RowSecond - 1][ColumnSecond] == 0 && Table[RowSecond - 2][ColumnSecond] == -4)
+									if ((RowSecond + 2 < 8) (RowSecond - 1 >= 0) (RowSecond + 1 < 8) (RowSecond - 2 >= 0)  Table[RowSecond + 2][ColumnSecond] == -6  Table[RowSecond + 1][ColumnSecond] == 0  Table[RowSecond][ColumnSecond] == 0  Table[RowSecond - 1][ColumnSecond] == 0  Table[RowSecond - 2][ColumnSecond] == -4)
 									{
 									//CastleActBrown = true;
 									//autoO = new Object();
@@ -386,7 +386,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 										return true;
 									}
 								}
-								catch (std::exception &t)
+								//catch(std::exception t)
 								{
 									
 								}
@@ -405,23 +405,23 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 				if (RefrigtzDLL::ChessRules::CastleKingAllowedGray)
 				{
 					//If Column is At First Location.
-					if (ColumnFirst == 7 && ColumnSecond == 7)
+					if (ColumnFirst == 7  ColumnSecond == 7)
 					{
 						//When Kings Moves for Small Kings Castles Movments.
-						if ((RowFirst == RowSecond - 2) &&(RowSecond - 2 >= 0))
+						if ((RowFirst == RowSecond - 2) (RowSecond - 2 >= 0))
 						{
 							//Consideration of Castles King of Gray King.
-							try
+							//try
 							{
 
-								if ((RowSecond - 2 >= 0) &&(RowSecond - 1 >= 0) &&(RowSecond + 1 < 8) && Table[RowSecond - 2][ColumnSecond] == 6 && Table[RowSecond - 1][ColumnSecond] == 0 && Table[RowSecond][ColumnSecond] == 0 && Table[RowSecond + 1][ColumnSecond] == 4)
+								if ((RowSecond - 2 >= 0) (RowSecond - 1 >= 0) (RowSecond + 1 < 8)  Table[RowSecond - 2][ColumnSecond] == 6  Table[RowSecond - 1][ColumnSecond] == 0  Table[RowSecond][ColumnSecond] == 0  Table[RowSecond + 1][ColumnSecond] == 4)
 								{
 									//CastleActGray = true;
 									//SmallKingCastleGray = true;
 									return true;
 								}
 							}
-							catch (std::exception &t)
+							//catch(std::exception t)
 							{
 								
 							}
@@ -429,19 +429,19 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 
 						else //For Greates Castles King Movments.
 						{
-							if (RowFirst == RowSecond + 2 &&(RowSecond + 2 < 8))
+							if (RowFirst == RowSecond + 2 (RowSecond + 2 < 8))
 							{
 								//Consideration of Castles King M<ovments.
-								try
+								//try
 								{
-									if ((RowSecond + 2 < 8) &&(RowSecond - 1 >= 0) &&(RowSecond + 1 < 8) &&(RowSecond - 2 >= 0) && Table[RowSecond + 2][ColumnSecond] == 6 && Table[RowSecond + 1][ColumnSecond] == 0 && Table[RowSecond][ColumnSecond] == 0 && Table[RowSecond - 1][ColumnSecond] == 0 && Table[RowSecond - 2][ColumnSecond] == 4)
+									if ((RowSecond + 2 < 8) (RowSecond - 1 >= 0) (RowSecond + 1 < 8) (RowSecond - 2 >= 0)  Table[RowSecond + 2][ColumnSecond] == 6  Table[RowSecond + 1][ColumnSecond] == 0  Table[RowSecond][ColumnSecond] == 0  Table[RowSecond - 1][ColumnSecond] == 0  Table[RowSecond - 2][ColumnSecond] == 4)
 									{
 										//CastleActGray = true;
 										//BigKingCastleGray = true;
 										return true;
 									}
 								}
-								catch (std::exception &t)
+								//catch(std::exception t)
 								{
 									
 								}
@@ -457,22 +457,22 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 				if (RefrigtzDLL::ChessRules::CastleKingAllowedBrown)
 				{
 					//Column Situation.
-					if (ColumnFirst == 0 && ColumnSecond == 0)
+					if (ColumnFirst == 0  ColumnSecond == 0)
 					{
 						//Small Brown King Castles Consideration.
-						if (RowFirst == RowSecond - 2 &&(RowSecond - 2 > 0))
+						if (RowFirst == RowSecond - 2 (RowSecond - 2 > 0))
 						{
-							try
+							//try
 							{
 
-								if ((RowSecond - 2 >= 0) &&(RowSecond - 1 >= 0) &&(RowSecond + 1 < 8) && Table[RowSecond - 2][ColumnSecond] == -6 && Table[RowSecond - 1][ColumnSecond] == 0 && Table[RowSecond][ColumnSecond] == 0 && Table[RowSecond + 1][ColumnSecond] == -4)
+								if ((RowSecond - 2 >= 0) (RowSecond - 1 >= 0) (RowSecond + 1 < 8)  Table[RowSecond - 2][ColumnSecond] == -6  Table[RowSecond - 1][ColumnSecond] == 0  Table[RowSecond][ColumnSecond] == 0  Table[RowSecond + 1][ColumnSecond] == -4)
 								{
 									//CastleActBrown = true;
 									//SmallKingCastleBrown = true;
 									return true;
 								}
 							}
-							catch (std::exception &t)
+							//catch(std::exception t)
 							{
 								
 							}
@@ -480,19 +480,19 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 						}
 						else
 						{
-							if (RowFirst == RowSecond + 2 &&(RowSecond + 2 < 8))
+							if (RowFirst == RowSecond + 2 (RowSecond + 2 < 8))
 							{
 							//Brown Kings.Big King Castles Consideration.
-								try
+								//try
 								{
-									if ((RowSecond + 2 < 8) &&(RowSecond - 1 >= 0) &&(RowSecond + 1 < 8) &&(RowSecond - 2 >= 0) && Table[RowSecond + 2][ColumnSecond] == -6 && Table[RowSecond + 1][ColumnSecond] == 0 && Table[RowSecond][ColumnSecond] == 0 && Table[RowSecond - 1][ColumnSecond] == 0 && Table[RowSecond - 2][ColumnSecond] == -4)
+									if ((RowSecond + 2 < 8) (RowSecond - 1 >= 0) (RowSecond + 1 < 8) (RowSecond - 2 >= 0)  Table[RowSecond + 2][ColumnSecond] == -6  Table[RowSecond + 1][ColumnSecond] == 0  Table[RowSecond][ColumnSecond] == 0  Table[RowSecond - 1][ColumnSecond] == 0  Table[RowSecond - 2][ColumnSecond] == -4)
 									{
 										//  CastleActBrown = true;
 										//BigKingCastleBrown = true;
 										return true;
 									}
 								}
-								catch (std::exception &t)
+								//catch(std::exception t)
 								{
 									
 								}
@@ -555,13 +555,13 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		if (RowFirst != RowSecond || ColumnFirst != ColumnSecond)
 		{
 			//If the Same Gray int Return Self Home. 
-			if (Table[RowSecond][ColumnSecond] > 0 && Table[RowFirst][ColumnFirst] > 0)
+			if (Table[RowSecond][ColumnSecond] > 0  Table[RowFirst][ColumnFirst] > 0)
 			{
 				NotExistInDestinationSelfHome = true;
 			}
 			else //If The Same int Brown Return Self Home.
 			{
-				if (Table[RowSecond][ColumnSecond] < 0 && Table[RowFirst][ColumnFirst] < 0)
+				if (Table[RowSecond][ColumnSecond] < 0  Table[RowFirst][ColumnFirst] < 0)
 				{
 					NotExistInDestinationSelfHome = true;
 				}
@@ -1075,11 +1075,11 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		Table[RowF][ColumnF] = 0;
 		if (Check(Table, Order))
 		{
-			if (Order == 1 && CheckGray)
+			if (Order == 1  CheckGray)
 			{
 				Achmaz = true;
 			}
-			if (Order == -1 && CheckBrown)
+			if (Order == -1  CheckBrown)
 			{
 				Achmaz = true;
 			}
@@ -1148,11 +1148,11 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 				for (int j = 0; j < 8; j++)
 				{
 					//Ignore of current.
-					if (Order == 1 && Tab[i][i] >= 0)
+					if (Order == 1  Tab[i][i] >= 0)
 					{
 						continue;
 					}
-					if (Order == -1 && Tab[i][i] <= 0)
+					if (Order == -1  Tab[i][i] <= 0)
 					{
 						continue;
 					}
@@ -1162,11 +1162,11 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 						for (int jjj = 0; jjj < 8; jjj++)
 						{
 							//Ignore of enemies.
-							if (Order == 1 && Tab[iii][jjj] <= 0)
+							if (Order == 1  Tab[iii][jjj] <= 0)
 							{
 								continue;
 							}
-							if (Order == -1 && Tab[iii][jjj] >= 0)
+							if (Order == -1  Tab[iii][jjj] >= 0)
 							{
 								continue;
 							}
@@ -1193,7 +1193,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 								Tab[i][j] = 0;
 								if (A->CheckMate(Tab, Order))
 								{
-									if (Order == 1 && A->CheckMateGray)
+									if (Order == 1  A->CheckMateGray)
 									{
 										//For Current.
 										for (int iiii = 0; iiii < 8; iiii++)
@@ -1201,11 +1201,11 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 											for (int jjjj = 0; jjjj < 8; jjjj++)
 											{
 												//Ignore of enemies.
-												if (Order == 1 && Tab[iiii][jjjj] <= 0)
+												if (Order == 1  Tab[iiii][jjjj] <= 0)
 												{
 													continue;
 												}
-												if (Order == -1 && Tab[iiii][jjjj] >= 0)
+												if (Order == -1  Tab[iiii][jjjj] >= 0)
 												{
 													continue;
 												}
@@ -1215,11 +1215,11 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 													for (int jjjjj = 0; jjjjj < 8; jjjjj++)
 													{
 														//Ignore of Current.
-														if (Order == 1 && Tab[iiiii][jjjjj] > 0)
+														if (Order == 1  Tab[iiiii][jjjjj] > 0)
 														{
 															continue;
 														}
-														if (Order == -1 && Tab[iiiii][jjjjj] < 0)
+														if (Order == -1  Tab[iiiii][jjjjj] < 0)
 														{
 															continue;
 														}
@@ -1259,7 +1259,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 									}
 									else
 									{
-										if (Order == -1 && A->CheckMateBrown)
+										if (Order == -1  A->CheckMateBrown)
 										{
 
 											//For Current.
@@ -1268,11 +1268,11 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 												for (int jjjj = 0; jjjj < 8; jjjj++)
 												{
 													//Ignore of enemies.
-													if (Order == 1 && Tab[iiii][jjjj] <= 0)
+													if (Order == 1  Tab[iiii][jjjj] <= 0)
 													{
 														continue;
 													}
-													if (Order == -1 && Tab[iiii][jjjj] >= 0)
+													if (Order == -1  Tab[iiii][jjjj] >= 0)
 													{
 														continue;
 													}
@@ -1282,11 +1282,11 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 														for (int jjjjj = 0; jjjjj < 8; jjjjj++)
 														{
 															//Ignore of Current.
-															if (Order == 1 && Tab[iiiii][jjjjj] > 0)
+															if (Order == 1  Tab[iiiii][jjjjj] > 0)
 															{
 																continue;
 															}
-															if (Order == -1 && Tab[iiiii][jjjjj] < 0)
+															if (Order == -1  Tab[iiiii][jjjjj] < 0)
 															{
 																continue;
 															}
@@ -1345,7 +1345,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		return false;
 	}
 
-	bool ChessRules::FindGrayKing(int **Table, int &Row, int &Column)
+	bool ChessRules::FindGrayKing(int **Table, int Row, int Column)
 	{
 		//For All Home Table.
 		for (int i = 0; i < 8; i++)
@@ -1526,7 +1526,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 				}
 			}
 			//When Solder Converted or Castles King Acts.
-			if (SodierConvert || (CastleKing && Castles))
+			if (SodierConvert || (CastleKing  Castles))
 			{
 				//When Castles Acts.
 				if (CastleKing)
@@ -1666,7 +1666,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 					{
 
 						S += std::wstring(L"+");
-						if (A->CheckBrown && Order == -1)
+						if (A->CheckBrown  Order == -1)
 						{
 							//autoO2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -1677,7 +1677,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 								RefrigtzDLL::ChessRules::CastleKingAllowedBrown = false;
 							}
 						}
-						if (A->CheckGray && Order == 1)
+						if (A->CheckGray  Order == 1)
 						{
 							//autoO2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -1692,7 +1692,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 					else if (AA->CheckGrayObjectDangour || AA->CheckBrownObjectDangour)
 					{
 
-						if (AA->CheckGrayObjectDangour && Order == -1)
+						if (AA->CheckGrayObjectDangour  Order == -1)
 						{
 							//autoO2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -1702,7 +1702,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 
 							}
 						}
-						if (AA->CheckBrownObjectDangour && Order == 1)
+						if (AA->CheckBrownObjectDangour  Order == 1)
 						{
 							//autoO2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -1753,7 +1753,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 				else if (A->CheckBrown || A->CheckGray)
 				{
 					S += std::wstring(L"+");
-					if (A->CheckBrown && Order == -1)
+					if (A->CheckBrown  Order == -1)
 					{
 						//autoO2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -1765,7 +1765,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 
 						}
 					}
-					if (A->CheckGray && Order == 1)
+					if (A->CheckGray  Order == 1)
 					{
 						//autoO2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -1781,7 +1781,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 				else if (AA->CheckGrayObjectDangour || AA->CheckBrownObjectDangour)
 				{
 
-					if (AA->CheckGrayObjectDangour && Order == -1)
+					if (AA->CheckGrayObjectDangour  Order == -1)
 					{
 						//autoO2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -1791,7 +1791,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 
 						}
 					}
-					if (AA->CheckBrownObjectDangour && Order == 1)
+					if (AA->CheckBrownObjectDangour  Order == 1)
 					{
 						//autoO2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -1828,7 +1828,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		for (int i = 0; i < List->size(); i++)
 		{
 			//If Listis Equal Setting of Local Variable Equality.
-			if (A[i] == List[i][0] && A[1] == List[i][1])
+			if (A[i] == List[i][0]  A[1] == List[i][1])
 			{
 				Is = true;
 			}
@@ -1837,7 +1837,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		return Is;
 	}
 
-	bool ChessRules::FindAThing(int **Table, int &Row, int &Column, int Thing, bool BeMovable, std::vector<int> *List)
+	bool ChessRules::FindAThing(int **Table, int Row, int Column, int Thing, bool BeMovable, std::vector<int> *List)
 	{
 		//For All Items In Table Home.
 		for (int i = 0; i < 8; i++)
@@ -1904,7 +1904,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		return false;
 	}
 
-	bool ChessRules::FindBrownKing(int **Table, int &Row, int &Column)
+	bool ChessRules::FindBrownKing(int **Table, int Row, int Column)
 	{
 		//For All Home Table.
 		for (int i = 0; i < 8; i++)
@@ -1961,7 +1961,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 						for (int jj = 0; jj < 8; jj++)
 						{
 							//If Tow How is the Same Continue Traversal Back.
-							if (i == ii && j == jj)
+							if (i == ii  j == jj)
 							{
 								continue;
 							}
@@ -2044,7 +2044,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 						for (int jj = 0; jj < 8; jj++)
 						{
 							//if The Tow Traversal are the ame Continue Traversal Back.
-							if (i == ii && j == jj)
+							if (i == ii  j == jj)
 							{
 								continue;
 							}
@@ -2145,7 +2145,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		{
 			for (int j = 0; j < 8; j++)
 			{
-				if (i == ii && j == jj)
+				if (i == ii  j == jj)
 				{
 					continue;
 				}
@@ -2357,15 +2357,15 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			for (int j = 0; j < 8; j++)
 			{
 				//If The Current Home is the Gray King Continue Traversal Back.
-				if (i == RowK && j == ColumnK)
+				if (i == RowK  j == ColumnK)
 				{
 					continue;
 				}
-				if (Ord == 1 & Tab[i][j] <= 0)
+				if (Ord == 1  Tab[i][j] <= 0)
 				{
 					continue;
 				}
-				if (Ord == -1 & Tab[i][j] >= 0)
+				if (Ord == -1  Tab[i][j] >= 0)
 				{
 					continue;
 				}
@@ -2424,13 +2424,13 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 	bool ChessRules::Check(int **Table, int Ord)
 	{
 		//A player is not required to move their king out of check and the game concludes when there is a 100 % probability that one of the kings has been taken. As a result there is no checkmate.
-		if (DrawKing::KingGrayNotCheckedByQuantumMove && Ord == 1)
+		if (DrawKing::KingGrayNotCheckedByQuantumMove  Ord == 1)
 		{
 			return false;
 		}
 		else
 		{
-			if (DrawKing::KingBrownNotCheckedByQuantumMove && Ord == -1)
+			if (DrawKing::KingBrownNotCheckedByQuantumMove  Ord == -1)
 			{
 			return false;
 			}
@@ -2481,11 +2481,11 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		{
 			for (int j = 0; j < 8; j++)
 			{
-				if (Ord == 1 && Tab[i][j] > 0)
+				if (Ord == 1  Tab[i][j] > 0)
 				{
 					continue;
 				}
-				if (Ord == -1 && Tab[i][j] < 0)
+				if (Ord == -1  Tab[i][j] < 0)
 				{
 					continue;
 				}
@@ -2589,11 +2589,11 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		{
 			for (int j = 0; j < 8; j++)
 			{
-				if (Ord == 1 && Tab[i][j] <= 0)
+				if (Ord == 1  Tab[i][j] <= 0)
 				{
 					continue;
 				}
-				if (Ord == -1 && Tab[i][j] >= 0)
+				if (Ord == -1  Tab[i][j] >= 0)
 				{
 					continue;
 				}
@@ -2612,11 +2612,11 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 
 					for (int jj = 0; jj < 8; jj++)
 					{
-						if (Ord == 1 && Tab[ii][jj] > 0)
+						if (Ord == 1  Tab[ii][jj] > 0)
 						{
 							continue;
 						}
-						if (Ord == -1 && Tab[ii][jj] < 0)
+						if (Ord == -1  Tab[ii][jj] < 0)
 						{
 							continue;
 						}
@@ -2731,7 +2731,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 
 		//Initiate Local and Global  Varibales.
 		int **Table;
-		try
+		//try
 		{
 			for (int i = 0; i < 8; i++)
 			{
@@ -2741,7 +2741,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 				}
 			}
 		}
-		catch (std::exception &t)
+		//catch(std::exception t)
 		{
 			
 			return false;
@@ -2798,7 +2798,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		CheckBrown = CheckBrownDummy;
 
 		//Condition of CheckMate Gray King.
-		if (CheckGray &ActMoveG && ActMoveGF)
+		if (CheckGray ActMoveG  ActMoveGF)
 		{
 			CheckMateGray = true;
 		}
@@ -2838,7 +2838,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		CheckGray = CheckGrayDummy;
 		CheckBrown = CheckBrownDummy;
 		//Condition of Brown CheckMate.
-		if (CheckBrown &ActMoveB && ActMoveGF)
+		if (CheckBrown ActMoveB  ActMoveGF)
 		{
 			CheckMateBrown = true;
 		}
@@ -2872,7 +2872,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		if (Kind != 7)
 		{
 			//Determination of Enemy Existing.
-			if (ExistSelfHome(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, Ki) && SelfHomeStatCP)
+			if (ExistSelfHome(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, Ki)  SelfHomeStatCP)
 			{
 				return false;
 			}
@@ -2881,13 +2881,13 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		/*if (!KingAttacker)
 		{
 		    //Coluld not hit King In Destination Enemy.
-		    if (Order == 1 && Table[RowSecond, ColumnSecond] == -6)
+		    if (Order == 1  Table[RowSecond, ColumnSecond] == -6)
 		        return false;
-		    if (Order == -1 && Table[RowSecond, ColumnSecond] == 6)
+		    if (Order == -1  Table[RowSecond, ColumnSecond] == 6)
 		        return false;
 		}*/
 		//If Source and The Destination are The Same.
-		if (RowFirst == RowSecond && ColumnFirst == ColumnSecond)
+		if (RowFirst == RowSecond  ColumnFirst == ColumnSecond)
 		{
 			return false;
 		}
@@ -2958,7 +2958,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 	{
 		bool Move = false;
 		//When Miniaster Rule is Valid.
-		if (MinisterRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy, Ki) && abs(RowFirst - RowSecond) <= 1 &&abs(ColumnFirst - ColumnSecond) <= 1)
+		if (MinisterRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy, Ki)  abs(RowFirst - RowSecond) <= 1 abs(ColumnFirst - ColumnSecond) <= 1)
 		{
 			//Initiate Local Variable.
 			/* int[,] Tab = new int[8, 8];
@@ -2978,27 +2978,27 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			     if (!PatCheckedInKingRule)
 			     {
 			         //Check Gray State return Non Rule.
-			         if (Order == 1 && CheckGray)
+			         if (Order == 1  CheckGray)
 			             return false;
 			         else//Brown Check State return Non Rule.
-			             if (Order == -1 && CheckBrown)
+			             if (Order == -1  CheckBrown)
 			                 return false;
 			     }
 			     else
 			     {
 			         //Check Gray State return Non Rule.
-			         if (Order == -1 && CheckGray)
+			         if (Order == -1  CheckGray)
 			             return false;
 			         else//Brown Check State return Non Rule.
-			             if (Order == 1 && CheckBrown)
+			             if (Order == 1  CheckBrown)
 			                 return false;
 			     }
 			 }
 	
 			 //Determination of Gray Enemy State Check at Enemy King at Around Existing Return Not Validity.
-			 if (Order == 1 && Table[RowFirst, ColumnFirst] == 6)
+			 if (Order == 1  Table[RowFirst, ColumnFirst] == 6)
 			 {
-			     try
+			     //try
 			     {
 			         if ((RowSecond + 1 < 8)
 			         {
@@ -3006,8 +3006,8 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			                 return false;
 			         }
 			     }
-			     catch (Exception t) {  }
-			     try
+			     //catch(Exception t) {  }
+			     //try
 			     {
 			         if ((ColumnSecond + 1) < 8)
 			         {
@@ -3016,17 +3016,17 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			         }
 			     }
 	
-			     catch (Exception t) {  }
-			     try
+			     //catch(Exception t) {  }
+			     //try
 			     {
-			         if (((RowSecond + 1 < 8) &&(ColumnSecond + 1) < 8))
+			         if (((RowSecond + 1 < 8) (ColumnSecond + 1) < 8))
 			         {
 			             if (Table[RowSecond + 1, ColumnSecond + 1] == -6)
 			                 return false;
 			         }
 			     }
-			     catch (Exception t) {  }
-			     try
+			     //catch(Exception t) {  }
+			     //try
 			     {
 			         if (((RowSecond - 1 >= 0))
 			         {
@@ -3034,8 +3034,8 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			                 return false;
 			         }
 			     }
-			     catch (Exception t) {  }
-			     try
+			     //catch(Exception t) {  }
+			     //try
 			     {
 			         if (ColumnSecond - 1 >= 0)
 			         {
@@ -3043,39 +3043,39 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			                 return false;
 			         }
 			     }
-			     catch (Exception t) {  }
-			     try
+			     //catch(Exception t) {  }
+			     //try
 			     {
-			         if (((RowSecond - 1 >= 0) &&(ColumnSecond - 1) >= 0))
+			         if (((RowSecond - 1 >= 0) (ColumnSecond - 1) >= 0))
 			         {
 			             if (Table[RowSecond - 1, ColumnSecond - 1] == -6)
 			                 return false;
 			         }
 			     }
-			     catch (Exception t) {  }
-			     try
+			     //catch(Exception t) {  }
+			     //try
 			     {
-			         if (((RowSecond + 1 < 8) &&(ColumnSecond - 1) >= 0))
+			         if (((RowSecond + 1 < 8) (ColumnSecond - 1) >= 0))
 			         {
 			             if (Table[RowSecond + 1, ColumnSecond - 1] == -6)
 			                 return false;
 			         }
 			     }
-			     catch (Exception t) {  }
-			     try
+			     //catch(Exception t) {  }
+			     //try
 			     {
-			         if (((RowSecond - 1 >= 0) &&(ColumnSecond + 1) < 8))
+			         if (((RowSecond - 1 >= 0) (ColumnSecond + 1) < 8))
 			         {
 			             if (Table[RowSecond - 1, ColumnSecond + 1] == -6)
 			                 return false;
 			         }
 			     }
-			     catch (Exception t) {  }
+			     //catch(Exception t) {  }
 	
 			 }//Determination of Brown Enemy State Check at Enemy King at Around Existing Return Not Validity.         
-			 else if (Order == -1 && Table[RowFirst, ColumnFirst] == -6)
+			 else if (Order == -1  Table[RowFirst, ColumnFirst] == -6)
 			 {
-			     try
+			     //try
 			     {
 			         if ((RowSecond + 1 < 8)
 			         {
@@ -3083,8 +3083,8 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			                 return false;
 			         }
 			     }
-			     catch (Exception t) {  }
-			     try
+			     //catch(Exception t) {  }
+			     //try
 			     {
 			         if ((ColumnSecond + 1) < 8)
 			         {
@@ -3093,17 +3093,17 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			         }
 			     }
 	
-			     catch (Exception t) {  }
-			     try
+			     //catch(Exception t) {  }
+			     //try
 			     {
-			         if (((RowSecond + 1 < 8) &&(ColumnSecond + 1) < 8))
+			         if (((RowSecond + 1 < 8) (ColumnSecond + 1) < 8))
 			         {
 			             if (Table[RowSecond + 1, ColumnSecond + 1] == 6)
 			                 return false;
 			         }
 			     }
-			     catch (Exception t) {  }
-			     try
+			     //catch(Exception t) {  }
+			     //try
 			     {
 			         if (((RowSecond - 1 >= 0))
 			         {
@@ -3111,8 +3111,8 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			                 return false;
 			         }
 			     }
-			     catch (Exception t) {  }
-			     try
+			     //catch(Exception t) {  }
+			     //try
 			     {
 			         if (ColumnSecond - 1 >= 0)
 			         {
@@ -3120,34 +3120,34 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			                 return false;
 			         }
 			     }
-			     catch (Exception t) {  }
-			     try
+			     //catch(Exception t) {  }
+			     //try
 			     {
-			         if (((RowSecond - 1 >= 0) &&(ColumnSecond - 1) >= 0))
+			         if (((RowSecond - 1 >= 0) (ColumnSecond - 1) >= 0))
 			         {
 			             if (Table[RowSecond - 1, ColumnSecond - 1] == 6)
 			                 return false;
 			         }
 			     }
-			     catch (Exception t) {  }
-			     try
+			     //catch(Exception t) {  }
+			     //try
 			     {
-			         if (((RowSecond + 1 < 8) &&(ColumnSecond - 1) >= 0))
+			         if (((RowSecond + 1 < 8) (ColumnSecond - 1) >= 0))
 			         {
 			             if (Table[RowSecond + 1, ColumnSecond - 1] == 6)
 			                 return false;
 			         }
 			     }
-			     catch (Exception t) {  }
-			     try
+			     //catch(Exception t) {  }
+			     //try
 			     {
-			         if (((RowSecond - 1 >= 0) &&(ColumnSecond + 1) < 8))
+			         if (((RowSecond - 1 >= 0) (ColumnSecond + 1) < 8))
 			         {
 			             if (Table[RowSecond - 1, ColumnSecond + 1] == 6)
 			                 return false;
 			         }
 			     }
-			     catch (Exception t) {  }
+			     //catch(Exception t) {  }
 	
 			 }
 			 */
@@ -3183,7 +3183,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		bool Move = false;
 		bool Act = new bool();	(Act) = false;
 		//If Variation is Only in Row.
-		if (abs(ColumnFirst - ColumnSecond) == 0 && abs(RowFirst - RowSecond) != 0)
+		if (abs(ColumnFirst - ColumnSecond) == 0  abs(RowFirst - RowSecond) != 0)
 		{
 			//Initiate Local Variables.
 			int RowU = RowSecond, RowD = RowFirst;
@@ -3234,7 +3234,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 				//For Variation of Row Home.
 				for (int i = F; i <= G; i++)
 				{
-					if (IgnoreSelfObject && i == RowSecond)
+					if (IgnoreSelfObject  i == RowSecond)
 					{
 						continue;
 					}
@@ -3242,13 +3242,13 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 					if (i != RowFirst)
 					{
 						//When There is Self Home at Home of Gray Return Not Validity.
-						if (Table[i][ColumnFirst] > 0 && Table[RowFirst][ColumnFirst] > 0)
+						if (Table[i][ColumnFirst] > 0  Table[RowFirst][ColumnFirst] > 0)
 						{
 							Move = false;
 							(Act) = true;
 						}
 						//When There is Self Home of Brown Objects Return Not Validity.
-						if (Table[i][ColumnFirst] < 0 && Table[RowFirst][ColumnFirst] < 0)
+						if (Table[i][ColumnFirst] < 0  Table[RowFirst][ColumnFirst] < 0)
 						{
 							(Act) = true;
 							Move = false;
@@ -3258,13 +3258,13 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 						if (i != RowSecond)
 						{
 							//When There is Slef Home at Root Return Not Valididty.
-							if ((Table[i][ColumnFirst] < 0 || Table[i][ColumnFirst] > 0) && Table[RowFirst][ColumnFirst] > 0)
+							if ((Table[i][ColumnFirst] < 0 || Table[i][ColumnFirst] > 0)  Table[RowFirst][ColumnFirst] > 0)
 							{
 								(Act) = true;
 								Move = false;
 							}
 							//When There is Slef Home at Root Return Not Valididty.
-							if ((Table[i][ColumnFirst] > 0 || Table[i][ColumnFirst] < 0) && Table[RowFirst][ColumnFirst] < 0)
+							if ((Table[i][ColumnFirst] > 0 || Table[i][ColumnFirst] < 0)  Table[RowFirst][ColumnFirst] < 0)
 							{
 								(Act) = true;
 								Move = false;
@@ -3281,7 +3281,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 
 		}
 		//When There is Only Column Variation Home Changes.
-		if (abs(ColumnFirst - ColumnSecond) != 0 && abs(RowFirst - RowSecond) == 0)
+		if (abs(ColumnFirst - ColumnSecond) != 0  abs(RowFirst - RowSecond) == 0)
 		{
 			//Initiate Local Variables.
 			int RowU = RowSecond, RowD = RowFirst;
@@ -3332,7 +3332,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			//For All Column Home Variation.
 			for (int j = A; j <= B; j++)
 			{
-				if (IgnoreSelfObject && j == ColumnSecond)
+				if (IgnoreSelfObject  j == ColumnSecond)
 				{
 					continue;
 				}
@@ -3340,13 +3340,13 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 				if (j != ColumnFirst)
 				{
 					//For All Self Home at Root Return Not Validity
-					if (Table[RowFirst][j] > 0 && Table[RowFirst][ColumnFirst] > 0)
+					if (Table[RowFirst][j] > 0  Table[RowFirst][ColumnFirst] > 0)
 					{
 						(Act) = true;
 						Move = false;
 					}
 					//For All Self Home at Root Return Not Validity.                       
-					if (Table[RowFirst][j] < 0 && Table[RowFirst][ColumnFirst] < 0)
+					if (Table[RowFirst][j] < 0  Table[RowFirst][ColumnFirst] < 0)
 					{
 						(Act) = true;
 						Move = false;
@@ -3355,13 +3355,13 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 					if (j != ColumnSecond)
 					{
 						//Existing of Self Home At Root Cuased to Not validity.
-						if ((Table[RowFirst][j] < 0 || Table[RowFirst][j] > 0) && Table[RowFirst][ColumnFirst] > 0)
+						if ((Table[RowFirst][j] < 0 || Table[RowFirst][j] > 0)  Table[RowFirst][ColumnFirst] > 0)
 						{
 							(Act) = true;
 							Move = false;
 						}
 						//Existing of Self Home At Root Cuased to Not validity.
-						if ((Table[RowFirst][j] > 0 || Table[RowFirst][j] < 0) && Table[RowFirst][ColumnFirst] < 0)
+						if ((Table[RowFirst][j] > 0 || Table[RowFirst][j] < 0)  Table[RowFirst][ColumnFirst] < 0)
 						{
 							(Act) = true;
 							Move = false;
@@ -3379,7 +3379,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		}
 
 		//Return Not Validity.
-		/*if (Move && System.Math.Abs(Ki) != 6)
+		/*if (Move  System.Math.Abs(Ki) != 6)
 		{
 		    if (AchmazCheckByMoveByRule(Table, RowFirst, ColumnFirst, RowSecond, ColumnSecond, Order))
 		        Move = false;
@@ -3448,7 +3448,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			{
 				for (int j = A; j <= B; j++)
 				{
-					if (IgnoreSelfObject && i == RowSecond && j == ColumnSecond)
+					if (IgnoreSelfObject  i == RowSecond  j == ColumnSecond)
 					{
 						continue;
 					}
@@ -3459,32 +3459,32 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 						continue;
 					}
 					//If the Current is Not Source Home.
-					if (i != RowFirst && j != ColumnFirst)
+					if (i != RowFirst  j != ColumnFirst)
 					{
 						{
 							//If the Root Contains Self Home Return Not Validity.
-							if (Table[i][j] > 0 && Table[RowFirst][ColumnFirst] > 0)
+							if (Table[i][j] > 0  Table[RowFirst][ColumnFirst] > 0)
 							{
 								(Act) = true;
 								Move = false;
 							}
 							//If The Root Contains Self Home Return Not vALIDITY. 
-							if (Table[i][j] < 0 && Table[RowFirst][ColumnFirst] < 0)
+							if (Table[i][j] < 0  Table[RowFirst][ColumnFirst] < 0)
 							{
 								(Act) = true;
 								Move = false;
 							}
 							//When the Current is Not The Source Home.
-							if (i != RowSecond && j != ColumnSecond)
+							if (i != RowSecond  j != ColumnSecond)
 							{
 								//When the Self ObjectExisting at the Root .
-								if ((Table[i][j] > 0 || Table[i][j] < 0) && Table[RowFirst][ColumnFirst] > 0)
+								if ((Table[i][j] > 0 || Table[i][j] < 0)  Table[RowFirst][ColumnFirst] > 0)
 								{
 									(Act) = true;
 									Move = false;
 								}
 								//When the Self ObjectExisting at the Root .
-								if ((Table[i][j] < 0 || Table[i][j] > 0) && Table[RowFirst][ColumnFirst] < 0)
+								if ((Table[i][j] < 0 || Table[i][j] > 0)  Table[RowFirst][ColumnFirst] < 0)
 								{
 									(Act) = true;
 									Move = false;
@@ -3501,7 +3501,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 				Move = true;
 			}
 		}
-		/*if (Move && System.Math.Abs(Ki) != 6)
+		/*if (Move  System.Math.Abs(Ki) != 6)
 		{
 		    if (AchmazCheckByMoveByRule(Table, RowFirst, ColumnFirst, RowSecond, ColumnSecond, Order))
 		        Move = false;
@@ -3516,13 +3516,13 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 	{
 		bool Move = false;
 		//When L Movament is Occured. 
-		if (abs(ColumnFirst - ColumnSecond) == 2 && abs(RowFirst - RowSecond) == 1)
+		if (abs(ColumnFirst - ColumnSecond) == 2  abs(RowFirst - RowSecond) == 1)
 		{
 			//Retrun Validity.
 			Move = true;
 		}
 		//When Second L Movments Occured.
-		if (abs(ColumnFirst - ColumnSecond) == 1 && abs(RowFirst - RowSecond) == 2)
+		if (abs(ColumnFirst - ColumnSecond) == 1  abs(RowFirst - RowSecond) == 2)
 		{
 			//Return Validity.
 			Move = true;
@@ -3564,13 +3564,13 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		//When Soldier Not Moved in Original Location do
 		if (NotMoved)
 		{
-			if (Order == -1 && Table[RowFirst][ColumnFirst] < 0)
+			if (Order == -1  Table[RowFirst][ColumnFirst] < 0)
 			{
 				//Depend on First Move do For Land Of Islam
-				try
+				//try
 				{
 
-					if ((ColumnFirst + 2 < 8) &&(ColumnFirst + 1 < 8) &&(RowFirst == RowSecond) &&(ColumnSecond == ColumnFirst + 2) &&(Table[RowSecond][ColumnSecond - 1] == 0))
+					if ((ColumnFirst + 2 < 8) (ColumnFirst + 1 < 8) (RowFirst == RowSecond) (ColumnSecond == ColumnFirst + 2) (Table[RowSecond][ColumnSecond - 1] == 0))
 					{
 						//When Destination is The Empty Return Validity Else Return Not Validity.
 						if (Table[RowSecond][ColumnSecond] == 0)
@@ -3584,7 +3584,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 					}
 					else
 					{
-						if ((ColumnFirst + 1 < 8) &&(RowFirst == RowSecond) &&(ColumnSecond == ColumnFirst + 1) &&(Table[RowSecond][ColumnSecond] == 0))
+						if ((ColumnFirst + 1 < 8) (RowFirst == RowSecond) (ColumnSecond == ColumnFirst + 1) (Table[RowSecond][ColumnSecond] == 0))
 						{
 							//When Destination is The Empty Return Validity Else Return Not Validity.
 							if (Table[RowSecond][ColumnSecond] == 0)
@@ -3598,13 +3598,13 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 						}
 						else //Hit Brown Soldier Rulments.
 						{
-							if ((ColumnFirst + 1 < 8) && ColumnSecond == ColumnFirst + 1)
+							if ((ColumnFirst + 1 < 8)  ColumnSecond == ColumnFirst + 1)
 							{
-								if (((RowSecond - 1 < 8) &&(RowFirst == RowSecond - 1) &&ExistInDestinationEnemy) || IgnoreSelfObject)
+								if (((RowSecond - 1 < 8) (RowFirst == RowSecond - 1) ExistInDestinationEnemy) || IgnoreSelfObject)
 								{
 									Move = true;
 								}
-								if (((RowSecond + 1 < 8) &&(RowFirst == RowSecond + 1) &&ExistInDestinationEnemy) || IgnoreSelfObject)								
+								if (((RowSecond + 1 < 8) (RowFirst == RowSecond + 1) ExistInDestinationEnemy) || IgnoreSelfObject)								
 								{
 									Move = true;
 								}
@@ -3613,19 +3613,19 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 						}
 					}
 				}
-				catch (std::exception &t)
+				//catch(std::exception t)
 				{
 					
 				}
 			}
 			else //Gray int.
 			{
-				if (Order == 1 && Table[RowFirst][ColumnFirst] > 0)
+				if (Order == 1  Table[RowFirst][ColumnFirst] > 0)
 				{
 					//Depend Of First Move do For Positivism
-					try
+					//try
 					{
-						if ((ColumnSecond + 2 < 8) &&(ColumnSecond + 1 < 8) &&(RowFirst == RowSecond) &&(ColumnFirst == ColumnSecond + 2) &&(Table[RowSecond][ColumnSecond + 1] == 0))
+						if ((ColumnSecond + 2 < 8) (ColumnSecond + 1 < 8) (RowFirst == RowSecond) (ColumnFirst == ColumnSecond + 2) (Table[RowSecond][ColumnSecond + 1] == 0))
 						{
 							//When Destination is The Empty Return Validity Else Return Not Validity.
 							if (Table[RowSecond][ColumnSecond] == 0)
@@ -3639,7 +3639,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 						}
 						else
 						{
-							if ((ColumnSecond + 1 < 8) &&(RowFirst == RowSecond) &&(ColumnFirst == ColumnSecond + 1) &&(Table[RowSecond][ColumnSecond] == 0))
+							if ((ColumnSecond + 1 < 8) (RowFirst == RowSecond) (ColumnFirst == ColumnSecond + 1) (Table[RowSecond][ColumnSecond] == 0))
 							{
 								//When Destination is The Empty Return Validity Else Return Not Validity.
 								if (Table[RowSecond][ColumnSecond] == 0)
@@ -3653,14 +3653,14 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 							}
 							else //Hit Condition Enemy Movments.
 							{
-								if ((ColumnSecond + 1 < 8) && ColumnFirst == ColumnSecond + 1)
+								if ((ColumnSecond + 1 < 8)  ColumnFirst == ColumnSecond + 1)
 								{
-									if (((RowSecond + 1 < 8) &&(RowFirst == RowSecond + 1) &&ExistInDestinationEnemy) || IgnoreSelfObject)
+									if (((RowSecond + 1 < 8) (RowFirst == RowSecond + 1) ExistInDestinationEnemy) || IgnoreSelfObject)
 									{
 										//Return Validity.
 										Move = true;
 									}
-									if (((RowSecond - 1 >= 0) &&(RowFirst == RowSecond - 1) &&ExistInDestinationEnemy) || IgnoreSelfObject)
+									if (((RowSecond - 1 >= 0) (RowFirst == RowSecond - 1) ExistInDestinationEnemy) || IgnoreSelfObject)
 									{
 										//Return Validity.
 										Move = true;
@@ -3669,7 +3669,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 							}
 						}
 					}
-					catch (std::exception &t)
+					//catch(std::exception t)
 					{
 						
 					}
@@ -3679,12 +3679,12 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		else //If Soldeior Moved Previously.
 		{
 			//For Brown int.
-			if (Order == -1 && Table[RowFirst][ColumnFirst] < 0)
+			if (Order == -1  Table[RowFirst][ColumnFirst] < 0)
 			{
 				//Depend on Second Move do For Land Of Islam
-				try
+				//try
 				{
-					if ((ColumnFirst + 1 < 8) &&(RowFirst == RowSecond) &&(ColumnSecond == ColumnFirst + 1) &&(Table[RowSecond][ColumnSecond] == 0))
+					if ((ColumnFirst + 1 < 8) (RowFirst == RowSecond) (ColumnSecond == ColumnFirst + 1) (Table[RowSecond][ColumnSecond] == 0))
 					{
 						//When Destination is The Empty Return Validity Else Return Not Validity.
 						if (Table[RowSecond][ColumnSecond] == 0)
@@ -3698,13 +3698,13 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 					}
 					else //Hit Brown Soldier Rulments.
 					{
-						if ((ColumnFirst + 1 < 8) && ColumnSecond == ColumnFirst + 1)
+						if ((ColumnFirst + 1 < 8)  ColumnSecond == ColumnFirst + 1)
 						{
-							if (((RowSecond - 1 < 8) &&(RowFirst == RowSecond - 1) &&ExistInDestinationEnemy) || IgnoreSelfObject)
+							if (((RowSecond - 1 < 8) (RowFirst == RowSecond - 1) ExistInDestinationEnemy) || IgnoreSelfObject)
 							{
 								Move = true;
 							}
-							if (((RowSecond + 1 < 8) &&(RowFirst == RowSecond + 1) &&ExistInDestinationEnemy) || IgnoreSelfObject)
+							if (((RowSecond + 1 < 8) (RowFirst == RowSecond + 1) ExistInDestinationEnemy) || IgnoreSelfObject)
 							{
 								Move = true;
 							}
@@ -3712,19 +3712,19 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 						}
 					}
 				}
-				catch (std::exception &t)
+				//catch(std::exception t)
 				{
 					
 				}
 			}
 			else //Gray int.
 			{
-				if (Order == 1 && Table[RowFirst][ColumnFirst] > 0)
+				if (Order == 1  Table[RowFirst][ColumnFirst] > 0)
 				{
 					//Depend Of Second Move do For Positivism Land
-					try
+					//try
 					{
-						if ((ColumnSecond + 1 < 8) &&(RowFirst == RowSecond) &&(ColumnFirst == ColumnSecond + 1) &&(Table[RowSecond][ColumnSecond] == 0))
+						if ((ColumnSecond + 1 < 8) (RowFirst == RowSecond) (ColumnFirst == ColumnSecond + 1) (Table[RowSecond][ColumnSecond] == 0))
 						{
 							//When Destination is The Empty Return Validity Else Return Not Validity.
 							if (Table[RowSecond][ColumnSecond] == 0)
@@ -3738,14 +3738,14 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 						}
 						else //Hit Condition Enemy Movments.
 						{
-							if ((ColumnSecond + 1 < 8) && ColumnFirst == ColumnSecond + 1)
+							if ((ColumnSecond + 1 < 8)  ColumnFirst == ColumnSecond + 1)
 							{
-								if (((RowSecond + 1 < 8) &&(RowFirst == RowSecond + 1) &&ExistInDestinationEnemy) || IgnoreSelfObject)
+								if (((RowSecond + 1 < 8) (RowFirst == RowSecond + 1) ExistInDestinationEnemy) || IgnoreSelfObject)
 								{
 									//Return Validity.
 									Move = true;
 								}
-								if (((RowSecond - 1 >= 0) &&(RowFirst == RowSecond - 1) &&ExistInDestinationEnemy) || IgnoreSelfObject)
+								if (((RowSecond - 1 >= 0) (RowFirst == RowSecond - 1) ExistInDestinationEnemy) || IgnoreSelfObject)
 								{
 									//Return Validity.
 									Move = true;
@@ -3753,7 +3753,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 							}
 						}
 					}
-					catch (std::exception &t)
+					//catch(std::exception t)
 					{
 						
 					}
@@ -3790,13 +3790,13 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		//When Soldier Not Moved in Original Location do
 		if (NotMoved)
 		{
-			if (Order == 1 && Table[RowFirst][ColumnFirst] > 0)
+			if (Order == 1  Table[RowFirst][ColumnFirst] > 0)
 			{
 				//Depend on First Move do For Land Of Islam
-				try
+				//try
 				{
 
-					if ((ColumnFirst + 2 < 8) &&(ColumnFirst + 1 < 8) &&(RowFirst == RowSecond) &&(ColumnSecond == ColumnFirst + 2) &&Table[RowSecond][ColumnSecond - 1] == 0)
+					if ((ColumnFirst + 2 < 8) (ColumnFirst + 1 < 8) (RowFirst == RowSecond) (ColumnSecond == ColumnFirst + 2) Table[RowSecond][ColumnSecond - 1] == 0)
 					{
 						//When Destination is The Empty Return Validity Else Return Not Validity.
 						if (Table[RowSecond][ColumnSecond] == 0)
@@ -3810,7 +3810,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 					}
 					else
 					{
-						if ((ColumnFirst + 1 < 8) &&(RowFirst == RowSecond) &&(ColumnSecond == ColumnFirst + 1) &&(Table[RowSecond][ColumnSecond] == 0))
+						if ((ColumnFirst + 1 < 8) (RowFirst == RowSecond) (ColumnSecond == ColumnFirst + 1) (Table[RowSecond][ColumnSecond] == 0))
 						{
 							//When Destination is The Empty Return Validity Else Return Not Validity.
 							if (Table[RowSecond][ColumnSecond] == 0)
@@ -3824,13 +3824,13 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 						}
 						else //Hit Gray Soldier Rulments.
 						{
-							if ((ColumnFirst + 1 < 8) && ColumnSecond == ColumnFirst + 1)
+							if ((ColumnFirst + 1 < 8)  ColumnSecond == ColumnFirst + 1)
 							{
-								if (((RowSecond - 1 < 8) &&(RowFirst == RowSecond - 1) &&ExistInDestinationEnemy) || IgnoreSelfObject)
+								if (((RowSecond - 1 < 8) (RowFirst == RowSecond - 1) ExistInDestinationEnemy) || IgnoreSelfObject)
 								{
 									Move = true;
 								}
-								if (((RowSecond + 1 < 8) &&(RowFirst == RowSecond + 1) &&ExistInDestinationEnemy) || IgnoreSelfObject)
+								if (((RowSecond + 1 < 8) (RowFirst == RowSecond + 1) ExistInDestinationEnemy) || IgnoreSelfObject)
 								{
 									Move = true;
 								}
@@ -3839,19 +3839,19 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 						}
 					}
 				}
-				catch (std::exception &t)
+				//catch(std::exception t)
 				{
 					
 				}
 			}
 			else //Brown int.
 			{
-				if (Order == -1 && Table[RowFirst][ColumnFirst] < 0)
+				if (Order == -1  Table[RowFirst][ColumnFirst] < 0)
 				{
 					//Depend Of First Move do For Positivism
-					try
+					//try
 					{
-						if ((ColumnSecond + 2 < 8) &&(ColumnSecond + 1 < 8) &&(RowFirst == RowSecond) &&(ColumnFirst == ColumnSecond + 2) &&Table[RowSecond][ColumnSecond + 1] == 0)
+						if ((ColumnSecond + 2 < 8) (ColumnSecond + 1 < 8) (RowFirst == RowSecond) (ColumnFirst == ColumnSecond + 2) Table[RowSecond][ColumnSecond + 1] == 0)
 						{
 							//When Destination is The Empty Return Validity Else Return Not Validity.
 							if (Table[RowSecond][ColumnSecond] == 0)
@@ -3865,7 +3865,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 						}
 						else
 						{
-							if ((ColumnSecond + 1 < 8) &&(RowFirst == RowSecond)  &&(ColumnFirst == ColumnSecond + 1) &&(Table[RowSecond][ColumnSecond] == 0))
+							if ((ColumnSecond + 1 < 8) (RowFirst == RowSecond)  (ColumnFirst == ColumnSecond + 1) (Table[RowSecond][ColumnSecond] == 0))
 							{
 								//When Destination is The Empty Return Validity Else Return Not Validity.
 								if (Table[RowSecond][ColumnSecond] == 0)
@@ -3879,14 +3879,14 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 							}
 							else //Hit Condition Enemy Movments.
 							{
-								if ((ColumnSecond + 1 < 8) && ColumnFirst == ColumnSecond + 1)
+								if ((ColumnSecond + 1 < 8)  ColumnFirst == ColumnSecond + 1)
 								{
-									if (((RowSecond + 1 < 8)  &&(RowFirst == RowSecond + 1) &&ExistInDestinationEnemy) || IgnoreSelfObject)
+									if (((RowSecond + 1 < 8)  (RowFirst == RowSecond + 1) ExistInDestinationEnemy) || IgnoreSelfObject)
 									{
 										//Return Validity.
 										Move = true;
 									}
-									if (((RowSecond - 1 >= 0) &&(RowFirst == RowSecond - 1) &&ExistInDestinationEnemy) || IgnoreSelfObject)
+									if (((RowSecond - 1 >= 0) (RowFirst == RowSecond - 1) ExistInDestinationEnemy) || IgnoreSelfObject)
 									{
 										//Return Validity.
 										Move = true;
@@ -3895,7 +3895,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 							}
 						}
 					}
-					catch (std::exception &t)
+					//catch(std::exception t)
 					{
 						
 					}
@@ -3905,12 +3905,12 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		else //If Soldeior Moved Previously.
 		{
 			//For Gray int.
-			if (Order == 1 && Table[RowFirst][ColumnFirst] > 0)
+			if (Order == 1  Table[RowFirst][ColumnFirst] > 0)
 			{
 				//Depend on Second Move do For Land Of Islam
-				try
+				//try
 				{
-					if ((ColumnFirst + 1 < 8) &&(RowFirst == RowSecond) &&(ColumnSecond == ColumnFirst + 1) &&(Table[RowSecond][ColumnSecond] == 0))
+					if ((ColumnFirst + 1 < 8) (RowFirst == RowSecond) (ColumnSecond == ColumnFirst + 1) (Table[RowSecond][ColumnSecond] == 0))
 					{
 						//When Destination is The Empty Return Validity Else Return Not Validity.
 						if (Table[RowSecond][ColumnSecond] == 0)
@@ -3924,13 +3924,13 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 					}
 					else //Hit Gray Soldier Rulments.
 					{
-						if ((ColumnFirst + 1 < 8) && ColumnSecond == ColumnFirst + 1)
+						if ((ColumnFirst + 1 < 8)  ColumnSecond == ColumnFirst + 1)
 						{
-							if (((RowSecond - 1 < 8) &&(RowFirst == RowSecond - 1) &&ExistInDestinationEnemy) || IgnoreSelfObject)
+							if (((RowSecond - 1 < 8) (RowFirst == RowSecond - 1) ExistInDestinationEnemy) || IgnoreSelfObject)
 							{
 								Move = true;
 							}
-							if (((RowSecond + 1 < 8)  &&(RowFirst == RowSecond + 1) &&ExistInDestinationEnemy) || IgnoreSelfObject)
+							if (((RowSecond + 1 < 8)  (RowFirst == RowSecond + 1) ExistInDestinationEnemy) || IgnoreSelfObject)
 							{
 								Move = true;
 							}
@@ -3938,19 +3938,19 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 						}
 					}
 				}
-				catch (std::exception &t)
+				//catch(std::exception t)
 				{
 					
 				}
 			}
 			else //Brown int.
 			{
-				if (Order == -1 && Table[RowFirst][ColumnFirst] < 0)
+				if (Order == -1  Table[RowFirst][ColumnFirst] < 0)
 				{
 					//Depend Of Second Move do For Positivism Land
-					try
+					//try
 					{
-						if ((ColumnSecond + 1 < 8) &&(RowFirst == RowSecond)  &&(ColumnFirst == ColumnSecond + 1) &&(Table[RowSecond][ColumnSecond] == 0))
+						if ((ColumnSecond + 1 < 8) (RowFirst == RowSecond)  (ColumnFirst == ColumnSecond + 1) (Table[RowSecond][ColumnSecond] == 0))
 						{
 							//When Destination is The Empty Return Validity Else Return Not Validity.
 							if (Table[RowSecond][ColumnSecond] == 0)
@@ -3964,14 +3964,14 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 						}
 						else //Hit Condition Enemy Movments.
 						{
-							if ((ColumnSecond + 1 < 8) && ColumnFirst == ColumnSecond + 1)
+							if ((ColumnSecond + 1 < 8)  ColumnFirst == ColumnSecond + 1)
 							{
-								if (((RowSecond + 1 < 8)  &&(RowFirst == RowSecond + 1) &&ExistInDestinationEnemy) || IgnoreSelfObject)
+								if (((RowSecond + 1 < 8)  (RowFirst == RowSecond + 1) ExistInDestinationEnemy) || IgnoreSelfObject)
 								{
 									//Return Validity.
 									Move = true;
 								}
-								if (((RowSecond - 1 >= 0) &&(RowFirst == RowSecond - 1) &&ExistInDestinationEnemy) || IgnoreSelfObject)
+								if (((RowSecond - 1 >= 0) (RowFirst == RowSecond - 1) ExistInDestinationEnemy) || IgnoreSelfObject)
 								{
 									//Return Validity.
 									Move = true;
@@ -3979,7 +3979,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 							}
 						}
 					}
-					catch (std::exception &t)
+					//catch(std::exception t)
 					{
 						
 					}

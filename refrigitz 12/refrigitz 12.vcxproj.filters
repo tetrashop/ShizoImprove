@@ -61,10 +61,10 @@
     <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\IsNextEnemyMovementForCheckedMate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\LearningAtamata.cpp">
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\LearningAtamatA->cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\NetworkQuantumLearningKrinskyAtamata.cpp">
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\NetworkQuantumLearningKrinskyAtamatA->cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\NewotoonInterpolate.cpp">
@@ -76,10 +76,10 @@
     <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Program.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\QuantumAtamata.cpp">
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\QuantumAtamatA->cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\QuantumLearningAtamata.cpp">
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\QuantumLearningAtamatA->cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\ThingsConverter.cpp">
@@ -129,10 +129,10 @@
     <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\IsNextEnemyMovementForCheckedMate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\LearningAtamata.h">
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\LearningAtamatA->h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\NetworkQuantumLearningKrinskyAtamata.h">
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\NetworkQuantumLearningKrinskyAtamatA->h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\NewotoonInterpolate.h">
@@ -144,10 +144,10 @@
     <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Program.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\QuantumAtamata.h">
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\QuantumAtamatA->h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\QuantumLearningAtamata.h">
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\QuantumLearningAtamatA->h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\stringconverter.h">

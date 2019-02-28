@@ -599,7 +599,7 @@ namespace Refrigtz
                                         }
                                         StreamWriter sw = proc.StandardInput;
                                         string input = fens + "\r\n";
-                                        sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
+                                        sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.size());
                                         sw.Flush();
                                         RowClickP = -1;
                                         ColumnClickP = -1;
@@ -957,7 +957,7 @@ namespace Refrigtz
                                         }
                                         StreamWriter sw = proc.StandardInput;
                                         string input = fens + "\r\n";
-                                        sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
+                                        sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.size());
                                         sw.Flush();
                                         RowClickP = -1;
                                         ColumnClickP = -1;
@@ -1299,7 +1299,7 @@ namespace Refrigtz
                                              }
                                          StreamWriter sw = proc.StandardInput;
                                          string input = fens + "\r\n";
-                                         sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
+                                         sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.size());
                                          sw.Flush();
                                          RowClickP = -1;
                                          ColumnClickP = -1;
@@ -1499,7 +1499,7 @@ namespace Refrigtz
                                                  }
                                              StreamWriter sw = proc.StandardInput;
                                              string input = fens + "\r\n";
-                                             sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
+                                             sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.size());
                                              sw.Flush();
                                              RowClickP = -1;
                                              ColumnClickP = -1;
@@ -1538,7 +1538,7 @@ namespace Refrigtz
                                                  Pre = File.ReadAllText("output.txt");
                                              StreamWriter sw = proc.StandardInput;
                                              string input = "go depth " + comboBoxMaxLevelText + "\r\n";
-                                             sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
+                                             sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.size());
                                              sw.Flush();
                                              WaitOn = true;
                                              do
@@ -1547,7 +1547,7 @@ namespace Refrigtz
                                                  {
                                                      Thread.Sleep(1000);
                                                      input = "wr" + "\r\n";
-                                                     sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
+                                                     sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.size());
                                                      sw.Flush();
                                                      WaitOn = WaitOnMovmentOccured(Pre);
                                                  }
@@ -1627,7 +1627,7 @@ namespace Refrigtz
                                              ColumnRealeased = -1;
                                              sw = proc.StandardInput;
                                              input = fens + "\r\n";
-                                             sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
+                                             sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.size());
                                              sw.Flush();
                                              RefrigtzDLL.AllDraw.TableListAction.Add(Table);
                                              Draw = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound,IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
@@ -2030,7 +2030,7 @@ namespace Refrigtz
                                         }
                                         StreamWriter sw = proc.StandardInput;
                                         string input = fens + "\r\n";
-                                        sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
+                                        sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.size());
                                         sw.Flush();
                                         RowClickP = -1;
                                         ColumnClickP = -1;
@@ -2388,7 +2388,7 @@ namespace Refrigtz
                                         }
                                         StreamWriter sw = proc.StandardInput;
                                         string input = fens + "\r\n";
-                                        sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
+                                        sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.size());
                                         sw.Flush();
                                         RowClickP = -1;
                                         ColumnClickP = -1;
@@ -2730,7 +2730,7 @@ namespace Refrigtz
                                              }
                                          StreamWriter sw = proc.StandardInput;
                                          string input = fens + "\r\n";
-                                         sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
+                                         sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.size());
                                          sw.Flush();
                                          RowClickP = -1;
                                          ColumnClickP = -1;
@@ -2930,7 +2930,7 @@ namespace Refrigtz
                                                  }
                                              StreamWriter sw = proc.StandardInput;
                                              string input = fens + "\r\n";
-                                             sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
+                                             sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.size());
                                              sw.Flush();
                                              RowClickP = -1;
                                              ColumnClickP = -1;
@@ -2969,7 +2969,7 @@ namespace Refrigtz
                                                  Pre = File.ReadAllText("output.txt");
                                              StreamWriter sw = proc.StandardInput;
                                              string input = "go depth " + comboBoxMaxLevelText + "\r\n";
-                                             sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
+                                             sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.size());
                                              sw.Flush();
                                              WaitOn = true;
                                              do
@@ -2978,7 +2978,7 @@ namespace Refrigtz
                                                  {
                                                      Thread.Sleep(1000);
                                                      input = "wr" + "\r\n";
-                                                     sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
+                                                     sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.size());
                                                      sw.Flush();
                                                      WaitOn = WaitOnMovmentOccured(Pre);
                                                  }
@@ -3058,7 +3058,7 @@ namespace Refrigtz
                                              ColumnRealeased = -1;
                                              sw = proc.StandardInput;
                                              input = fens + "\r\n";
-                                             sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
+                                             sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.size());
                                              sw.Flush();
                                              QuantumRefrigiz.AllDraw.TableListAction.Add(Table);
                                              DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound,IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
@@ -4355,10 +4355,10 @@ namespace Refrigtz
                             S = SCoun.Substring(k, SCoun.IndexOf(','));
                             S = S.Replace(",","");
                             QuantumRefrigiz.AllDraw.QuntumTable[i, jj, kk] = System.Convert.ToInt32(S);
-                            k += S.Length + 1;
+                            k += S.size() + 1;
                             L++;
                         }
-                    } while (k < SCoun.Length);
+                    } while (k < SCoun.size());
                 }
             }
             
@@ -4389,7 +4389,7 @@ namespace Refrigtz
 
                     String TableName = Move.ToString();
                     String Zero = "Table";
-                    for (int i = 0; i < 8 - TableName.Length; i++)
+                    for (int i = 0; i < 8 - TableName.size(); i++)
                         Zero += "0";
                     TableName = Zero + TableName;
                     bookConn.Close();
@@ -4576,7 +4576,7 @@ namespace Refrigtz
 
                         String TableName = (Move).ToString();
                         String Zero = "Table";
-                        for (int i = 0; i < 8 - TableName.Length; i++)
+                        for (int i = 0; i < 8 - TableName.size(); i++)
                             Zero += "0";
                         TableName = Zero + TableName;
 
@@ -4789,7 +4789,7 @@ namespace Refrigtz
                     String connParam = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + FileName + ";;Persist Security Info=False; Jet OLEDB:Database Password='!HN#BGHHN&N$G$V4'";
                     String TableName = Move.ToString();
                     String Zero = "Table";
-                    for (int i = 0; i < 8 - TableName.Length; i++)
+                    for (int i = 0; i < 8 - TableName.size(); i++)
                         Zero += "0";
                     TableName = Zero + TableName;
 
@@ -4991,7 +4991,7 @@ namespace Refrigtz
                             String connParam = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + FileName + ";;Persist Security Info=False; Jet OLEDB:Database Password='!HN#BGHHN&N$G$V4'";
                             String TableName = (Move).ToString();
                             String Zero = "Table";
-                            for (int i = 0; i < 8 - TableName.Length; i++)
+                            for (int i = 0; i < 8 - TableName.size(); i++)
                                 Zero += "0";
                             TableName = Zero + TableName;
 
@@ -5059,7 +5059,7 @@ namespace Refrigtz
 
                 String TableName = Move.ToString();
                 String Zero = "Table";
-                for (int i = 0; i < 8 - TableName.Length; i++)
+                for (int i = 0; i < 8 - TableName.size(); i++)
                     Zero += "0";
                 TableName = Zero + TableName;
 
@@ -5104,7 +5104,7 @@ namespace Refrigtz
 
                     String TableName = (Move).ToString();
                     String Zero = "Table";
-                    for (int i = 0; i < 8 - TableName.Length; i++)
+                    for (int i = 0; i < 8 - TableName.size(); i++)
                         Zero += "0";
                     TableName = Zero + TableName;
 
@@ -5158,7 +5158,7 @@ namespace Refrigtz
 
                 String TableName = MovmentsNumber.ToString();
                 String Zero = "Table";
-                for (int i = 0; i < 8 - TableName.Length; i++)
+                for (int i = 0; i < 8 - TableName.size(); i++)
                     Zero += "0";
                 TableName = Zero + TableName;
                 bookConn.Close();
@@ -5175,7 +5175,7 @@ namespace Refrigtz
 
                 String TableName = MovmentsNumber.ToString();
                 String Zero = "Table";
-                for (int i = 0; i < 8 - TableName.Length; i++)
+                for (int i = 0; i < 8 - TableName.size(); i++)
                     Zero += "0";
                 TableName = Zero + TableName;
 
@@ -10150,18 +10150,18 @@ namespace Refrigtz
                     {
                         String fs = ListToString(fenS);
                         int Dum1 = 0, Dum2 = 0, Dum3 = 0, Dum4 = 0, Dum5 = 0, Dum6 = 0;
-                        Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum1, fs.Length - Dum1);
-                        Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum2, fs.Length - Dum2);
-                        Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum3, fs.Length - Dum3);
-                        Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum4, fs.Length - Dum4);
-                        Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum5, fs.Length - Dum5);
-                        Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum6, fs.Length - Dum6);
+                        Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum1, fs.size() - Dum1);
+                        Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum2, fs.size() - Dum2);
+                        Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum3, fs.size() - Dum3);
+                        Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum4, fs.size() - Dum4);
+                        Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum5, fs.size() - Dum5);
+                        Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum6, fs.size() - Dum6);
 
                         Start = Dum1 + Dum2 + Dum3 + Dum4 + Dum5 + Dum6;
 
@@ -10173,18 +10173,18 @@ namespace Refrigtz
                         String S = ((int)RowRealesed).ToString() + "P" + ((int)(7 - ColumnRealeased)).ToString();
                         fs = ListToString(fenS);
 
-                        Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum1, fs.Length - Dum1);
-                        Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum2, fs.Length - Dum2);
-                        Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum3, fs.Length - Dum3);
-                        Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum4, fs.Length - Dum4);
-                        Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum5, fs.Length - Dum5);
-                        Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum6, fs.Length - Dum6);
+                        Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum1, fs.size() - Dum1);
+                        Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum2, fs.size() - Dum2);
+                        Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum3, fs.size() - Dum3);
+                        Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum4, fs.size() - Dum4);
+                        Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum5, fs.size() - Dum5);
+                        Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum6, fs.size() - Dum6);
 
 
                         fs = ListToString(fenS); fenS = new List<char>(fs);
@@ -10195,20 +10195,20 @@ namespace Refrigtz
                         S = "w KQkq " + Alphabet() + Number() + " " + (StockMoveBase).ToString() + " " + ((int)StockMove).ToString() + "\n";
                         fs = ListToString(fenS);
 
-                        Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum1, fs.Length - Dum1);
-                        Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum2, fs.Length - Dum2);
-                        Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum3, fs.Length - Dum3);
-                        Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum4, fs.Length - Dum4);
-                        Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum5, fs.Length - Dum5);
-                        Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum6, fs.Length - Dum6);
+                        Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum1, fs.size() - Dum1);
+                        Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum2, fs.size() - Dum2);
+                        Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum3, fs.size() - Dum3);
+                        Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum4, fs.size() - Dum4);
+                        Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum5, fs.size() - Dum5);
+                        Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum6, fs.size() - Dum6);
                         fs = ListToString(fenS); fenS = new List<char>(fs);
-                        fs = fs.Replace(fs.Substring(fs.IndexOf("b "), fs.Length - fs.IndexOf("b ")), S);
+                        fs = fs.Replace(fs.Substring(fs.IndexOf("b "), fs.size() - fs.IndexOf("b ")), S);
                         fenS = new List<char>(fs);
                         if (MovmentsNumber % 2 == 0 && MovmentsNumber != 0)
                             StockMoveBase++;
@@ -10220,18 +10220,18 @@ namespace Refrigtz
                         {
                             String fs = ListToString(fenS);
                             int Dum1 = 0, Dum2 = 0, Dum3 = 0, Dum4 = 0, Dum5 = 0, Dum6 = 0;
-                            Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum1, fs.Length - Dum1);
-                            Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum2, fs.Length - Dum2);
-                            Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum3, fs.Length - Dum3);
-                            Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum4, fs.Length - Dum4);
-                            Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum5, fs.Length - Dum5);
-                            Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum6, fs.Length - Dum6);
+                            Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum1, fs.size() - Dum1);
+                            Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum2, fs.size() - Dum2);
+                            Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum3, fs.size() - Dum3);
+                            Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum4, fs.size() - Dum4);
+                            Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum5, fs.size() - Dum5);
+                            Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum6, fs.size() - Dum6);
 
                             Start = Dum1 + Dum2 + Dum3 + Dum4 + Dum5 + Dum6;
                             if (fenS[Start + 9 + (int)RowClickP] == 'N')
@@ -10245,37 +10245,37 @@ namespace Refrigtz
                             fs = fs.Insert(Dum1 + Dum2 + Dum3 + Dum4 + Dum5, S);
                             fenS = new List<char>(fs);
 
-                            Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum1, fs.Length - Dum1);
-                            Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum2, fs.Length - Dum2);
-                            Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum3, fs.Length - Dum3);
-                            Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum4, fs.Length - Dum4);
-                            Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum5, fs.Length - Dum5);
-                            Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum6, fs.Length - Dum6);
+                            Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum1, fs.size() - Dum1);
+                            Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum2, fs.size() - Dum2);
+                            Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum3, fs.size() - Dum3);
+                            Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum4, fs.size() - Dum4);
+                            Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum5, fs.size() - Dum5);
+                            Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum6, fs.size() - Dum6);
 
 
                             S = "w KQkq - " + (StockMoveBase).ToString() + " " + ((int)StockMove).ToString() + "\n";
                             fs = ListToString(fenS);
 
-                            Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum1, fs.Length - Dum1);
-                            Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum2, fs.Length - Dum2);
-                            Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum3, fs.Length - Dum3);
-                            Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum4, fs.Length - Dum4);
-                            Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum5, fs.Length - Dum5);
-                            Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum6, fs.Length - Dum6);
+                            Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum1, fs.size() - Dum1);
+                            Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum2, fs.size() - Dum2);
+                            Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum3, fs.size() - Dum3);
+                            Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum4, fs.size() - Dum4);
+                            Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum5, fs.size() - Dum5);
+                            Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum6, fs.size() - Dum6);
                             fs = ListToString(fenS); fenS = new List<char>(fs);
-                            fs = fs.Replace(fs.Substring(fs.IndexOf("b "), fs.Length - fs.IndexOf("b ")), S);
+                            fs = fs.Replace(fs.Substring(fs.IndexOf("b "), fs.size() - fs.IndexOf("b ")), S);
                             fenS = new List<char>(fs);
 
 
@@ -10289,18 +10289,18 @@ namespace Refrigtz
                             {
                                 String fs = ListToString(fenS);
                                 int Dum1 = 0, Dum2 = 0, Dum3 = 0, Dum4 = 0, Dum5 = 0, Dum6 = 0;
-                                Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum1, fs.Length - Dum1);
-                                Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum2, fs.Length - Dum2);
-                                Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum3, fs.Length - Dum3);
-                                Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum4, fs.Length - Dum4);
-                                Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum5, fs.Length - Dum5);
-                                Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum6, fs.Length - Dum6);
+                                Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum1, fs.size() - Dum1);
+                                Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum2, fs.size() - Dum2);
+                                Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum3, fs.size() - Dum3);
+                                Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum4, fs.size() - Dum4);
+                                Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum5, fs.size() - Dum5);
+                                Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum6, fs.size() - Dum6);
 
                                 Start = Dum1 + Dum2 + Dum3 + Dum4 + Dum5 + Dum6;
                                 if (fenS[Start + 9 + (int)RowClickP] == 'B')
@@ -10314,37 +10314,37 @@ namespace Refrigtz
                                 fs = fs.Insert(Dum1 + Dum2 + Dum3 + Dum4 + Dum5, S);
                                 fenS = new List<char>(fs);
 
-                                Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum1, fs.Length - Dum1);
-                                Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum2, fs.Length - Dum2);
-                                Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum3, fs.Length - Dum3);
-                                Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum4, fs.Length - Dum4);
-                                Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum5, fs.Length - Dum5);
-                                Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum6, fs.Length - Dum6);
+                                Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum1, fs.size() - Dum1);
+                                Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum2, fs.size() - Dum2);
+                                Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum3, fs.size() - Dum3);
+                                Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum4, fs.size() - Dum4);
+                                Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum5, fs.size() - Dum5);
+                                Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum6, fs.size() - Dum6);
 
 
                                 S = "w KQkq - " + (StockMoveBase).ToString() + " " + ((int)StockMove).ToString() + "\n";
                                 fs = ListToString(fenS);
 
-                                Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum1, fs.Length - Dum1);
-                                Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum2, fs.Length - Dum2);
-                                Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum3, fs.Length - Dum3);
-                                Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum4, fs.Length - Dum4);
-                                Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum5, fs.Length - Dum5);
-                                Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum6, fs.Length - Dum6);
+                                Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum1, fs.size() - Dum1);
+                                Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum2, fs.size() - Dum2);
+                                Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum3, fs.size() - Dum3);
+                                Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum4, fs.size() - Dum4);
+                                Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum5, fs.size() - Dum5);
+                                Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum6, fs.size() - Dum6);
                                 fs = ListToString(fenS); fenS = new List<char>(fs);
-                                fs = fs.Replace(fs.Substring(fs.IndexOf("b "), fs.Length - fs.IndexOf("b ")), S);
+                                fs = fs.Replace(fs.Substring(fs.IndexOf("b "), fs.size() - fs.IndexOf("b ")), S);
                                 fenS = new List<char>(fs);
 
 
@@ -10359,18 +10359,18 @@ namespace Refrigtz
                                 {
                                     String fs = ListToString(fenS);
                                     int Dum1 = 0, Dum2 = 0, Dum3 = 0, Dum4 = 0, Dum5 = 0, Dum6 = 0;
-                                    Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum1, fs.Length - Dum1);
-                                    Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum2, fs.Length - Dum2);
-                                    Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum3, fs.Length - Dum3);
-                                    Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum4, fs.Length - Dum4);
-                                    Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum5, fs.Length - Dum5);
-                                    Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum6, fs.Length - Dum6);
+                                    Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum1, fs.size() - Dum1);
+                                    Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum2, fs.size() - Dum2);
+                                    Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum3, fs.size() - Dum3);
+                                    Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum4, fs.size() - Dum4);
+                                    Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum5, fs.size() - Dum5);
+                                    Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum6, fs.size() - Dum6);
 
                                     Start = Dum1 + Dum2 + Dum3 + Dum4 + Dum5 + Dum6;
                                     if (fenS[Start + 9 + (int)RowClickP] == 'R')
@@ -10384,37 +10384,37 @@ namespace Refrigtz
                                     fs = fs.Insert(Dum1 + Dum2 + Dum3 + Dum4 + Dum5, S);
                                     fenS = new List<char>(fs);
 
-                                    Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum1, fs.Length - Dum1);
-                                    Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum2, fs.Length - Dum2);
-                                    Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum3, fs.Length - Dum3);
-                                    Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum4, fs.Length - Dum4);
-                                    Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum5, fs.Length - Dum5);
-                                    Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum6, fs.Length - Dum6);
+                                    Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum1, fs.size() - Dum1);
+                                    Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum2, fs.size() - Dum2);
+                                    Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum3, fs.size() - Dum3);
+                                    Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum4, fs.size() - Dum4);
+                                    Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum5, fs.size() - Dum5);
+                                    Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum6, fs.size() - Dum6);
 
 
                                     S = "w KQkq - " + (StockMoveBase).ToString() + " " + ((int)StockMove).ToString() + "\n";
                                     fs = ListToString(fenS);
 
-                                    Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum1, fs.Length - Dum1);
-                                    Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum2, fs.Length - Dum2);
-                                    Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum3, fs.Length - Dum3);
-                                    Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum4, fs.Length - Dum4);
-                                    Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum5, fs.Length - Dum5);
-                                    Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum6, fs.Length - Dum6);
+                                    Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum1, fs.size() - Dum1);
+                                    Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum2, fs.size() - Dum2);
+                                    Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum3, fs.size() - Dum3);
+                                    Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum4, fs.size() - Dum4);
+                                    Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum5, fs.size() - Dum5);
+                                    Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum6, fs.size() - Dum6);
                                     fs = ListToString(fenS); fenS = new List<char>(fs);
-                                    fs = fs.Replace(fs.Substring(fs.IndexOf("b "), fs.Length - fs.IndexOf("b ")), S);
+                                    fs = fs.Replace(fs.Substring(fs.IndexOf("b "), fs.size() - fs.IndexOf("b ")), S);
                                     fenS = new List<char>(fs);
 
 
@@ -10429,18 +10429,18 @@ namespace Refrigtz
                                     {
                                         String fs = ListToString(fenS);
                                         int Dum1 = 0, Dum2 = 0, Dum3 = 0, Dum4 = 0, Dum5 = 0, Dum6 = 0;
-                                        Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum1, fs.Length - Dum1);
-                                        Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum2, fs.Length - Dum2);
-                                        Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum3, fs.Length - Dum3);
-                                        Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum4, fs.Length - Dum4);
-                                        Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum5, fs.Length - Dum5);
-                                        Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum6, fs.Length - Dum6);
+                                        Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum1, fs.size() - Dum1);
+                                        Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum2, fs.size() - Dum2);
+                                        Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum3, fs.size() - Dum3);
+                                        Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum4, fs.size() - Dum4);
+                                        Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum5, fs.size() - Dum5);
+                                        Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum6, fs.size() - Dum6);
 
                                         Start = Dum1 + Dum2 + Dum3 + Dum4 + Dum5 + Dum6;
                                         if (fenS[Start + 9 + (int)RowClickP] == 'Q')
@@ -10454,38 +10454,38 @@ namespace Refrigtz
                                         fs = fs.Insert(Dum1 + Dum2 + Dum3 + Dum4 + Dum5, S);
                                         fenS = new List<char>(fs);
 
-                                        Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum1, fs.Length - Dum1);
-                                        Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum2, fs.Length - Dum2);
-                                        Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum3, fs.Length - Dum3);
-                                        Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum4, fs.Length - Dum4);
-                                        Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum5, fs.Length - Dum5);
-                                        Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum6, fs.Length - Dum6);
+                                        Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum1, fs.size() - Dum1);
+                                        Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum2, fs.size() - Dum2);
+                                        Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum3, fs.size() - Dum3);
+                                        Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum4, fs.size() - Dum4);
+                                        Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum5, fs.size() - Dum5);
+                                        Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum6, fs.size() - Dum6);
 
 
                                         S = "w KQkq - " + (StockMoveBase).ToString() + " " + ((int)StockMove).ToString() + "\n";
                                         fs = ListToString(fenS);
 
-                                        Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum1, fs.Length - Dum1);
-                                        Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum2, fs.Length - Dum2);
-                                        Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum3, fs.Length - Dum3);
-                                        Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum4, fs.Length - Dum4);
-                                        Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum5, fs.Length - Dum5);
-                                        Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum6, fs.Length - Dum6);
+                                        Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum1, fs.size() - Dum1);
+                                        Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum2, fs.size() - Dum2);
+                                        Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum3, fs.size() - Dum3);
+                                        Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum4, fs.size() - Dum4);
+                                        Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum5, fs.size() - Dum5);
+                                        Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum6, fs.size() - Dum6);
 
                                         fs = ListToString(fenS); fenS = new List<char>(fs);
-                                        fs = fs.Replace(fs.Substring(fs.IndexOf("b "), fs.Length - fs.IndexOf("b ")), S);
+                                        fs = fs.Replace(fs.Substring(fs.IndexOf("b "), fs.size() - fs.IndexOf("b ")), S);
                                         fenS = new List<char>(fs);
 
 
@@ -10500,18 +10500,18 @@ namespace Refrigtz
                                         {
                                             String fs = ListToString(fenS);
                                             int Dum1 = 0, Dum2 = 0, Dum3 = 0, Dum4 = 0, Dum5 = 0, Dum6 = 0;
-                                            Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum1, fs.Length - Dum1);
-                                            Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum2, fs.Length - Dum2);
-                                            Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum3, fs.Length - Dum3);
-                                            Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum4, fs.Length - Dum4);
-                                            Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum5, fs.Length - Dum5);
-                                            Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum6, fs.Length - Dum6);
+                                            Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum1, fs.size() - Dum1);
+                                            Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum2, fs.size() - Dum2);
+                                            Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum3, fs.size() - Dum3);
+                                            Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum4, fs.size() - Dum4);
+                                            Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum5, fs.size() - Dum5);
+                                            Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum6, fs.size() - Dum6);
 
                                             Start = Dum1 + Dum2 + Dum3 + Dum4 + Dum5 + Dum6;
                                             if (fenS[Start + 9 + (int)RowClickP] == 'K')
@@ -10525,37 +10525,37 @@ namespace Refrigtz
                                             fs = fs.Insert(Dum1 + Dum2 + Dum3 + Dum4 + Dum5, S);
                                             fenS = new List<char>(fs);
 
-                                            Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum1, fs.Length - Dum1);
-                                            Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum2, fs.Length - Dum2);
-                                            Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum3, fs.Length - Dum3);
-                                            Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum4, fs.Length - Dum4);
-                                            Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum5, fs.Length - Dum5);
-                                            Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum6, fs.Length - Dum6);
+                                            Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum1, fs.size() - Dum1);
+                                            Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum2, fs.size() - Dum2);
+                                            Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum3, fs.size() - Dum3);
+                                            Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum4, fs.size() - Dum4);
+                                            Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum5, fs.size() - Dum5);
+                                            Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum6, fs.size() - Dum6);
 
 
                                             S = "w KQkq - " + (StockMoveBase).ToString() + " " + ((int)StockMove).ToString() + "\n";
                                             fs = ListToString(fenS);
 
-                                            Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum1, fs.Length - Dum1);
-                                            Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum2, fs.Length - Dum2);
-                                            Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum3, fs.Length - Dum3);
-                                            Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum4, fs.Length - Dum4);
-                                            Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum5, fs.Length - Dum5);
-                                            Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum6, fs.Length - Dum6);
+                                            Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum1, fs.size() - Dum1);
+                                            Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum2, fs.size() - Dum2);
+                                            Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum3, fs.size() - Dum3);
+                                            Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum4, fs.size() - Dum4);
+                                            Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum5, fs.size() - Dum5);
+                                            Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum6, fs.size() - Dum6);
                                             fs = ListToString(fenS); fenS = new List<char>(fs);
-                                            fs = fs.Replace(fs.Substring(fs.IndexOf("b "), fs.Length - fs.IndexOf("b ")), S);
+                                            fs = fs.Replace(fs.Substring(fs.IndexOf("b "), fs.size() - fs.IndexOf("b ")), S);
                                             fenS = new List<char>(fs);
 
 
@@ -10574,20 +10574,20 @@ namespace Refrigtz
                         String S = "w K-kq - " + (StockMoveBase).ToString() + " " + ((int)StockMove).ToString() + "\n";
                         fs = ListToString(fenS);
 
-                        Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum1, fs.Length - Dum1);
-                        Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum2, fs.Length - Dum2);
-                        Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum3, fs.Length - Dum3);
-                        Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum4, fs.Length - Dum4);
-                        Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum5, fs.Length - Dum5);
-                        Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum6, fs.Length - Dum6);
+                        Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum1, fs.size() - Dum1);
+                        Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum2, fs.size() - Dum2);
+                        Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum3, fs.size() - Dum3);
+                        Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum4, fs.size() - Dum4);
+                        Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum5, fs.size() - Dum5);
+                        Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum6, fs.size() - Dum6);
                         fs = ListToString(fenS); fenS = new List<char>(fs);
-                        fs = fs.Replace(fs.Substring(fs.IndexOf("b "), fs.Length - fs.IndexOf("b ")), S);
+                        fs = fs.Replace(fs.Substring(fs.IndexOf("b "), fs.size() - fs.IndexOf("b ")), S);
                         fenS = new List<char>(fs);
 
 
@@ -10606,20 +10606,20 @@ namespace Refrigtz
                             String S = "w -Qkq - " + (StockMoveBase).ToString() + " " + ((int)StockMove).ToString() + "\n";
                             fs = ListToString(fenS);
 
-                            Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum1, fs.Length - Dum1);
-                            Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum2, fs.Length - Dum2);
-                            Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum3, fs.Length - Dum3);
-                            Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum4, fs.Length - Dum4);
-                            Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum5, fs.Length - Dum5);
-                            Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum6, fs.Length - Dum6);
+                            Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum1, fs.size() - Dum1);
+                            Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum2, fs.size() - Dum2);
+                            Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum3, fs.size() - Dum3);
+                            Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum4, fs.size() - Dum4);
+                            Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum5, fs.size() - Dum5);
+                            Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum6, fs.size() - Dum6);
                             fs = ListToString(fenS); fenS = new List<char>(fs);
-                            fs = fs.Replace(fs.Substring(fs.IndexOf("b "), fs.Length - fs.IndexOf("b ")), S);
+                            fs = fs.Replace(fs.Substring(fs.IndexOf("b "), fs.size() - fs.IndexOf("b ")), S);
                             fenS = new List<char>(fs);
 
 
@@ -10640,18 +10640,18 @@ namespace Refrigtz
                     {
                         String fs = ListToString(fenS);
                         int Dum1 = 0, Dum2 = 0, Dum3 = 0, Dum4 = 0, Dum5 = 0, Dum6 = 0;
-                        Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum1, fs.Length - Dum1);
-                        Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum2, fs.Length - Dum2);
-                        Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum3, fs.Length - Dum3);
-                        Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum4, fs.Length - Dum4);
-                        Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum5, fs.Length - Dum5);
-                        Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum6, fs.Length - Dum6);
+                        Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum1, fs.size() - Dum1);
+                        Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum2, fs.size() - Dum2);
+                        Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum3, fs.size() - Dum3);
+                        Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum4, fs.size() - Dum4);
+                        Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum5, fs.size() - Dum5);
+                        Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum6, fs.size() - Dum6);
 
                         Start = Dum1;
 
@@ -10661,18 +10661,18 @@ namespace Refrigtz
                             fenS[Start + (int)RowClickP] = System.Convert.ToChar((System.Convert.ToInt32(fenS[Start + (int)RowClickP]) + 1));
 
                         fs = ListToString(fenS);
-                        Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum1, fs.Length - Dum1);
-                        Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum2, fs.Length - Dum2);
-                        Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum3, fs.Length - Dum3);
-                        Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum4, fs.Length - Dum4);
-                        Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum5, fs.Length - Dum5);
-                        Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum6, fs.Length - Dum6);
+                        Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum1, fs.size() - Dum1);
+                        Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum2, fs.size() - Dum2);
+                        Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum3, fs.size() - Dum3);
+                        Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum4, fs.size() - Dum4);
+                        Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum5, fs.size() - Dum5);
+                        Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum6, fs.size() - Dum6);
 
                         String S = ((int)RowRealesed).ToString() + "P" + ((int)(7 - ColumnRealeased)).ToString();
                         fs = ListToString(fenS);
@@ -10680,18 +10680,18 @@ namespace Refrigtz
                         fs = fs.Insert(Dum1 + Dum2, S);
                         fenS = new List<char>(fs);
 
-                        Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum1, fs.Length - Dum1);
-                        Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum2, fs.Length - Dum2);
-                        Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum3, fs.Length - Dum3);
-                        Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum4, fs.Length - Dum4);
-                        Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum5, fs.Length - Dum5);
-                        Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum6, fs.Length - Dum6);
+                        Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum1, fs.size() - Dum1);
+                        Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum2, fs.size() - Dum2);
+                        Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum3, fs.size() - Dum3);
+                        Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum4, fs.size() - Dum4);
+                        Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum5, fs.size() - Dum5);
+                        Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum6, fs.size() - Dum6);
 
 
                         fs = ListToString(fenS); fenS = new List<char>(fs);
@@ -10699,20 +10699,20 @@ namespace Refrigtz
                         S = "b KQkq " + Alphabet() + Number() + " " + (StockMoveBase).ToString() + " " + ((int)StockMove).ToString() + "\n";
                         fs = ListToString(fenS);
 
-                        Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum1, fs.Length - Dum1);
-                        Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum2, fs.Length - Dum2);
-                        Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum3, fs.Length - Dum3);
-                        Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum4, fs.Length - Dum4);
-                        Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum5, fs.Length - Dum5);
-                        Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum6, fs.Length - Dum6);
+                        Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum1, fs.size() - Dum1);
+                        Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum2, fs.size() - Dum2);
+                        Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum3, fs.size() - Dum3);
+                        Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum4, fs.size() - Dum4);
+                        Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum5, fs.size() - Dum5);
+                        Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum6, fs.size() - Dum6);
                         fs = ListToString(fenS);
-                        fs = fs.Replace(fs.Substring(fs.IndexOf("w "), fs.Length - fs.IndexOf("w ") - 1), S);
+                        fs = fs.Replace(fs.Substring(fs.IndexOf("w "), fs.size() - fs.IndexOf("w ") - 1), S);
                         fenS = new List<char>(fs);
                         if (MovmentsNumber % 2 == 0 && MovmentsNumber != 0)
                             StockMoveBase++;
@@ -10724,18 +10724,18 @@ namespace Refrigtz
                         {
                             String fs = ListToString(fenS);
                             int Dum1 = 0, Dum2 = 0, Dum3 = 0, Dum4 = 0, Dum5 = 0, Dum6 = 0;
-                            Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum1, fs.Length - Dum1);
-                            Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum2, fs.Length - Dum2);
-                            Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum3, fs.Length - Dum3);
-                            Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum4, fs.Length - Dum4);
-                            Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum5, fs.Length - Dum5);
-                            Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum6, fs.Length - Dum6);
+                            Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum1, fs.size() - Dum1);
+                            Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum2, fs.size() - Dum2);
+                            Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum3, fs.size() - Dum3);
+                            Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum4, fs.size() - Dum4);
+                            Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum5, fs.size() - Dum5);
+                            Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum6, fs.size() - Dum6);
 
                             Start = Dum1 + Dum2;
                             if (fenS[Start + 9 + (int)RowClickP] == 'n')
@@ -10744,18 +10744,18 @@ namespace Refrigtz
                                 fenS[Start + 9 + (int)RowClickP] = System.Convert.ToChar((System.Convert.ToInt32(fenS[Start + 9 + (int)RowClickP]) + 1));
 
                             fs = ListToString(fenS);
-                            Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum1, fs.Length - Dum1);
-                            Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum2, fs.Length - Dum2);
-                            Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum3, fs.Length - Dum3);
-                            Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum4, fs.Length - Dum4);
-                            Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum5, fs.Length - Dum5);
-                            Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum6, fs.Length - Dum6);
+                            Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum1, fs.size() - Dum1);
+                            Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum2, fs.size() - Dum2);
+                            Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum3, fs.size() - Dum3);
+                            Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum4, fs.size() - Dum4);
+                            Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum5, fs.size() - Dum5);
+                            Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum6, fs.size() - Dum6);
 
                             String S = ((int)RowRealesed).ToString() + "N" + ((int)(7 - ColumnRealeased)).ToString();
                             fs = ListToString(fenS);
@@ -10763,37 +10763,37 @@ namespace Refrigtz
                             fs = fs.Insert(Dum1, S);
                             fenS = new List<char>(fs);
 
-                            Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum1, fs.Length - Dum1);
-                            Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum2, fs.Length - Dum2);
-                            Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum3, fs.Length - Dum3);
-                            Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum4, fs.Length - Dum4);
-                            Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum5, fs.Length - Dum5);
-                            Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum6, fs.Length - Dum6);
+                            Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum1, fs.size() - Dum1);
+                            Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum2, fs.size() - Dum2);
+                            Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum3, fs.size() - Dum3);
+                            Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum4, fs.size() - Dum4);
+                            Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum5, fs.size() - Dum5);
+                            Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum6, fs.size() - Dum6);
 
 
                             S = "b KQkq - " + (StockMoveBase).ToString() + " " + ((int)StockMove).ToString() + "\n";
                             fs = ListToString(fenS);
 
-                            Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum1, fs.Length - Dum1);
-                            Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum2, fs.Length - Dum2);
-                            Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum3, fs.Length - Dum3);
-                            Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum4, fs.Length - Dum4);
-                            Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum5, fs.Length - Dum5);
-                            Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum6, fs.Length - Dum6);
+                            Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum1, fs.size() - Dum1);
+                            Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum2, fs.size() - Dum2);
+                            Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum3, fs.size() - Dum3);
+                            Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum4, fs.size() - Dum4);
+                            Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum5, fs.size() - Dum5);
+                            Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum6, fs.size() - Dum6);
                             fs = ListToString(fenS); fenS = new List<char>(fs);
-                            fs = fs.Replace(fs.Substring(fs.IndexOf("w "), fs.Length - fs.IndexOf("w ") - 1), S);
+                            fs = fs.Replace(fs.Substring(fs.IndexOf("w "), fs.size() - fs.IndexOf("w ") - 1), S);
                             fenS = new List<char>(fs);
 
                             if (MovmentsNumber % 2 == 0 && MovmentsNumber != 0)
@@ -10806,18 +10806,18 @@ namespace Refrigtz
                             {
                                 String fs = ListToString(fenS);
                                 int Dum1 = 0, Dum2 = 0, Dum3 = 0, Dum4 = 0, Dum5 = 0, Dum6 = 0;
-                                Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum1, fs.Length - Dum1);
-                                Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum2, fs.Length - Dum2);
-                                Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum3, fs.Length - Dum3);
-                                Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum4, fs.Length - Dum4);
-                                Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum5, fs.Length - Dum5);
-                                Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum6, fs.Length - Dum6);
+                                Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum1, fs.size() - Dum1);
+                                Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum2, fs.size() - Dum2);
+                                Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum3, fs.size() - Dum3);
+                                Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum4, fs.size() - Dum4);
+                                Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum5, fs.size() - Dum5);
+                                Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum6, fs.size() - Dum6);
 
                                 Start = Dum1 + Dum2;
                                 if (fenS[Start + 9 + (int)RowClickP] == 'b')
@@ -10826,18 +10826,18 @@ namespace Refrigtz
                                     fenS[Start + 9 + (int)RowClickP] = System.Convert.ToChar((System.Convert.ToInt32(fenS[Start + 9 + (int)RowClickP]) + 1));
 
                                 fs = ListToString(fenS);
-                                Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum1, fs.Length - Dum1);
-                                Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum2, fs.Length - Dum2);
-                                Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum3, fs.Length - Dum3);
-                                Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum4, fs.Length - Dum4);
-                                Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum5, fs.Length - Dum5);
-                                Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum6, fs.Length - Dum6);
+                                Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum1, fs.size() - Dum1);
+                                Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum2, fs.size() - Dum2);
+                                Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum3, fs.size() - Dum3);
+                                Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum4, fs.size() - Dum4);
+                                Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum5, fs.size() - Dum5);
+                                Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum6, fs.size() - Dum6);
 
                                 String S = ((int)RowRealesed).ToString() + "B" + ((int)(7 - ColumnRealeased)).ToString();
                                 fs = ListToString(fenS);
@@ -10845,37 +10845,37 @@ namespace Refrigtz
                                 fs = fs.Insert(Dum1, S);
                                 fenS = new List<char>(fs);
 
-                                Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum1, fs.Length - Dum1);
-                                Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum2, fs.Length - Dum2);
-                                Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum3, fs.Length - Dum3);
-                                Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum4, fs.Length - Dum4);
-                                Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum5, fs.Length - Dum5);
-                                Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum6, fs.Length - Dum6);
+                                Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum1, fs.size() - Dum1);
+                                Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum2, fs.size() - Dum2);
+                                Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum3, fs.size() - Dum3);
+                                Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum4, fs.size() - Dum4);
+                                Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum5, fs.size() - Dum5);
+                                Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum6, fs.size() - Dum6);
 
 
                                 S = "b KQkq - " + (StockMoveBase).ToString() + " " + ((int)StockMove).ToString() + "\n";
                                 fs = ListToString(fenS);
 
-                                Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum1, fs.Length - Dum1);
-                                Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum2, fs.Length - Dum2);
-                                Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum3, fs.Length - Dum3);
-                                Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum4, fs.Length - Dum4);
-                                Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum5, fs.Length - Dum5);
-                                Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                fs = fs.Substring(Dum6, fs.Length - Dum6);
+                                Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum1, fs.size() - Dum1);
+                                Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum2, fs.size() - Dum2);
+                                Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum3, fs.size() - Dum3);
+                                Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum4, fs.size() - Dum4);
+                                Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum5, fs.size() - Dum5);
+                                Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                fs = fs.Substring(Dum6, fs.size() - Dum6);
                                 fs = ListToString(fenS); fenS = new List<char>(fs);
-                                fs = fs.Replace(fs.Substring(fs.IndexOf("w "), fs.Length - fs.IndexOf("w ") - 1), S);
+                                fs = fs.Replace(fs.Substring(fs.IndexOf("w "), fs.size() - fs.IndexOf("w ") - 1), S);
                                 fenS = new List<char>(fs);
 
                                 if (MovmentsNumber % 2 == 0 && MovmentsNumber != 0)
@@ -10888,18 +10888,18 @@ namespace Refrigtz
                                 {
                                     String fs = ListToString(fenS);
                                     int Dum1 = 0, Dum2 = 0, Dum3 = 0, Dum4 = 0, Dum5 = 0, Dum6 = 0;
-                                    Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum1, fs.Length - Dum1);
-                                    Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum2, fs.Length - Dum2);
-                                    Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum3, fs.Length - Dum3);
-                                    Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum4, fs.Length - Dum4);
-                                    Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum5, fs.Length - Dum5);
-                                    Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum6, fs.Length - Dum6);
+                                    Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum1, fs.size() - Dum1);
+                                    Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum2, fs.size() - Dum2);
+                                    Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum3, fs.size() - Dum3);
+                                    Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum4, fs.size() - Dum4);
+                                    Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum5, fs.size() - Dum5);
+                                    Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum6, fs.size() - Dum6);
 
                                     Start = Dum1 + Dum2;
                                     if (fenS[Start + 9 + (int)RowClickP] == 'r')
@@ -10908,18 +10908,18 @@ namespace Refrigtz
                                         fenS[Start + 9 + (int)RowClickP] = System.Convert.ToChar((System.Convert.ToInt32(fenS[Start + 9 + (int)RowClickP]) + 1));
 
                                     fs = ListToString(fenS);
-                                    Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum1, fs.Length - Dum1);
-                                    Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum2, fs.Length - Dum2);
-                                    Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum3, fs.Length - Dum3);
-                                    Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum4, fs.Length - Dum4);
-                                    Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum5, fs.Length - Dum5);
-                                    Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum6, fs.Length - Dum6);
+                                    Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum1, fs.size() - Dum1);
+                                    Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum2, fs.size() - Dum2);
+                                    Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum3, fs.size() - Dum3);
+                                    Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum4, fs.size() - Dum4);
+                                    Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum5, fs.size() - Dum5);
+                                    Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum6, fs.size() - Dum6);
 
                                     String S = ((int)RowRealesed).ToString() + "R" + ((int)(7 - ColumnRealeased)).ToString();
                                     fs = ListToString(fenS);
@@ -10927,37 +10927,37 @@ namespace Refrigtz
                                     fs = fs.Insert(Dum1, S);
                                     fenS = new List<char>(fs);
 
-                                    Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum1, fs.Length - Dum1);
-                                    Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum2, fs.Length - Dum2);
-                                    Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum3, fs.Length - Dum3);
-                                    Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum4, fs.Length - Dum4);
-                                    Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum5, fs.Length - Dum5);
-                                    Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum6, fs.Length - Dum6);
+                                    Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum1, fs.size() - Dum1);
+                                    Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum2, fs.size() - Dum2);
+                                    Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum3, fs.size() - Dum3);
+                                    Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum4, fs.size() - Dum4);
+                                    Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum5, fs.size() - Dum5);
+                                    Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum6, fs.size() - Dum6);
 
 
                                     S = "b KQkq - " + (StockMoveBase).ToString() + " " + ((int)StockMove).ToString() + "\n";
                                     fs = ListToString(fenS);
 
-                                    Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum1, fs.Length - Dum1);
-                                    Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum2, fs.Length - Dum2);
-                                    Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum3, fs.Length - Dum3);
-                                    Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum4, fs.Length - Dum4);
-                                    Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum5, fs.Length - Dum5);
-                                    Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                    fs = fs.Substring(Dum6, fs.Length - Dum6);
+                                    Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum1, fs.size() - Dum1);
+                                    Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum2, fs.size() - Dum2);
+                                    Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum3, fs.size() - Dum3);
+                                    Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum4, fs.size() - Dum4);
+                                    Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum5, fs.size() - Dum5);
+                                    Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                    fs = fs.Substring(Dum6, fs.size() - Dum6);
                                     fs = ListToString(fenS); fenS = new List<char>(fs);
-                                    fs = fs.Replace(fs.Substring(fs.IndexOf("w "), fs.Length - fs.IndexOf("w ") - 1), S);
+                                    fs = fs.Replace(fs.Substring(fs.IndexOf("w "), fs.size() - fs.IndexOf("w ") - 1), S);
                                     fenS = new List<char>(fs);
 
                                     if (MovmentsNumber % 2 == 0 && MovmentsNumber != 0)
@@ -10970,18 +10970,18 @@ namespace Refrigtz
                                     {
                                         String fs = ListToString(fenS);
                                         int Dum1 = 0, Dum2 = 0, Dum3 = 0, Dum4 = 0, Dum5 = 0, Dum6 = 0;
-                                        Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum1, fs.Length - Dum1);
-                                        Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum2, fs.Length - Dum2);
-                                        Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum3, fs.Length - Dum3);
-                                        Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum4, fs.Length - Dum4);
-                                        Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum5, fs.Length - Dum5);
-                                        Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum6, fs.Length - Dum6);
+                                        Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum1, fs.size() - Dum1);
+                                        Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum2, fs.size() - Dum2);
+                                        Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum3, fs.size() - Dum3);
+                                        Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum4, fs.size() - Dum4);
+                                        Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum5, fs.size() - Dum5);
+                                        Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum6, fs.size() - Dum6);
 
                                         Start = Dum1 + Dum2;
                                         if (fenS[Start + 9 + (int)RowClickP] == 'q')
@@ -10991,18 +10991,18 @@ namespace Refrigtz
 
 
                                         fs = ListToString(fenS);
-                                        Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum1, fs.Length - Dum1);
-                                        Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum2, fs.Length - Dum2);
-                                        Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum3, fs.Length - Dum3);
-                                        Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum4, fs.Length - Dum4);
-                                        Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum5, fs.Length - Dum5);
-                                        Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum6, fs.Length - Dum6);
+                                        Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum1, fs.size() - Dum1);
+                                        Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum2, fs.size() - Dum2);
+                                        Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum3, fs.size() - Dum3);
+                                        Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum4, fs.size() - Dum4);
+                                        Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum5, fs.size() - Dum5);
+                                        Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum6, fs.size() - Dum6);
 
                                         String S = ((int)RowRealesed).ToString() + "Q" + ((int)(7 - ColumnRealeased)).ToString();
                                         fs = ListToString(fenS);
@@ -11010,37 +11010,37 @@ namespace Refrigtz
                                         fs = fs.Insert(Dum1, S);
                                         fenS = new List<char>(fs);
 
-                                        Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum1, fs.Length - Dum1);
-                                        Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum2, fs.Length - Dum2);
-                                        Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum3, fs.Length - Dum3);
-                                        Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum4, fs.Length - Dum4);
-                                        Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum5, fs.Length - Dum5);
-                                        Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum6, fs.Length - Dum6);
+                                        Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum1, fs.size() - Dum1);
+                                        Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum2, fs.size() - Dum2);
+                                        Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum3, fs.size() - Dum3);
+                                        Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum4, fs.size() - Dum4);
+                                        Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum5, fs.size() - Dum5);
+                                        Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum6, fs.size() - Dum6);
 
 
                                         S = "b KQkq - " + (StockMoveBase).ToString() + " " + ((int)StockMove).ToString() + "\n";
                                         fs = ListToString(fenS);
 
-                                        Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum1, fs.Length - Dum1);
-                                        Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum2, fs.Length - Dum2);
-                                        Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum3, fs.Length - Dum3);
-                                        Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum4, fs.Length - Dum4);
-                                        Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum5, fs.Length - Dum5);
-                                        Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                        fs = fs.Substring(Dum6, fs.Length - Dum6);
+                                        Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum1, fs.size() - Dum1);
+                                        Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum2, fs.size() - Dum2);
+                                        Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum3, fs.size() - Dum3);
+                                        Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum4, fs.size() - Dum4);
+                                        Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum5, fs.size() - Dum5);
+                                        Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                        fs = fs.Substring(Dum6, fs.size() - Dum6);
                                         fs = ListToString(fenS); fenS = new List<char>(fs);
-                                        fs = fs.Replace(fs.Substring(fs.IndexOf("w "), fs.Length - fs.IndexOf("w ") - 1), S);
+                                        fs = fs.Replace(fs.Substring(fs.IndexOf("w "), fs.size() - fs.IndexOf("w ") - 1), S);
                                         fenS = new List<char>(fs);
 
                                         if (MovmentsNumber % 2 == 0 && MovmentsNumber != 0)
@@ -11053,18 +11053,18 @@ namespace Refrigtz
                                         {
                                             String fs = ListToString(fenS);
                                             int Dum1 = 0, Dum2 = 0, Dum3 = 0, Dum4 = 0, Dum5 = 0, Dum6 = 0;
-                                            Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum1, fs.Length - Dum1);
-                                            Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum2, fs.Length - Dum2);
-                                            Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum3, fs.Length - Dum3);
-                                            Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum4, fs.Length - Dum4);
-                                            Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum5, fs.Length - Dum5);
-                                            Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum6, fs.Length - Dum6);
+                                            Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum1, fs.size() - Dum1);
+                                            Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum2, fs.size() - Dum2);
+                                            Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum3, fs.size() - Dum3);
+                                            Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum4, fs.size() - Dum4);
+                                            Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum5, fs.size() - Dum5);
+                                            Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum6, fs.size() - Dum6);
 
                                             Start = Dum1 + Dum2;
                                             if (fenS[Start + 9 + (int)RowClickP] == 'k')
@@ -11073,18 +11073,18 @@ namespace Refrigtz
                                                 fenS[Start + 9 + (int)RowClickP] = System.Convert.ToChar((System.Convert.ToInt32(fenS[Start + 9 + (int)RowClickP]) + 1));
 
                                             fs = ListToString(fenS);
-                                            Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum1, fs.Length - Dum1);
-                                            Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum2, fs.Length - Dum2);
-                                            Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum3, fs.Length - Dum3);
-                                            Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum4, fs.Length - Dum4);
-                                            Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum5, fs.Length - Dum5);
-                                            Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum6, fs.Length - Dum6);
+                                            Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum1, fs.size() - Dum1);
+                                            Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum2, fs.size() - Dum2);
+                                            Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum3, fs.size() - Dum3);
+                                            Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum4, fs.size() - Dum4);
+                                            Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum5, fs.size() - Dum5);
+                                            Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum6, fs.size() - Dum6);
 
                                             String S = ((int)RowRealesed).ToString() + "K" + ((int)(7 - ColumnRealeased)).ToString();
                                             fs = ListToString(fenS);
@@ -11092,37 +11092,37 @@ namespace Refrigtz
                                             fs = fs.Insert(Dum1, S);
                                             fenS = new List<char>(fs);
 
-                                            Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum1, fs.Length - Dum1);
-                                            Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum2, fs.Length - Dum2);
-                                            Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum3, fs.Length - Dum3);
-                                            Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum4, fs.Length - Dum4);
-                                            Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum5, fs.Length - Dum5);
-                                            Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum6, fs.Length - Dum6);
+                                            Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum1, fs.size() - Dum1);
+                                            Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum2, fs.size() - Dum2);
+                                            Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum3, fs.size() - Dum3);
+                                            Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum4, fs.size() - Dum4);
+                                            Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum5, fs.size() - Dum5);
+                                            Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum6, fs.size() - Dum6);
 
 
                                             S = "b KQkq - " + (StockMoveBase).ToString() + " " + ((int)StockMove).ToString() + "\n";
                                             fs = ListToString(fenS);
 
-                                            Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum1, fs.Length - Dum1);
-                                            Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum2, fs.Length - Dum2);
-                                            Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum3, fs.Length - Dum3);
-                                            Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum4, fs.Length - Dum4);
-                                            Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum5, fs.Length - Dum5);
-                                            Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                                            fs = fs.Substring(Dum6, fs.Length - Dum6);
+                                            Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum1, fs.size() - Dum1);
+                                            Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum2, fs.size() - Dum2);
+                                            Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum3, fs.size() - Dum3);
+                                            Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum4, fs.size() - Dum4);
+                                            Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum5, fs.size() - Dum5);
+                                            Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                                            fs = fs.Substring(Dum6, fs.size() - Dum6);
                                             fs = ListToString(fenS); fenS = new List<char>(fs);
-                                            fs = fs.Replace(fs.Substring(fs.IndexOf("w "), fs.Length - fs.IndexOf("w ") - 1), S);
+                                            fs = fs.Replace(fs.Substring(fs.IndexOf("w "), fs.size() - fs.IndexOf("w ") - 1), S);
                                             fenS = new List<char>(fs);
 
                                             if (MovmentsNumber % 2 == 0 && MovmentsNumber != 0)
@@ -11140,20 +11140,20 @@ namespace Refrigtz
                         String S = "b KQk- - " + (StockMoveBase).ToString() + " " + ((int)StockMove).ToString() + "\n";
                         fs = ListToString(fenS);
 
-                        Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum1, fs.Length - Dum1);
-                        Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum2, fs.Length - Dum2);
-                        Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum3, fs.Length - Dum3);
-                        Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum4, fs.Length - Dum4);
-                        Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum5, fs.Length - Dum5);
-                        Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                        fs = fs.Substring(Dum6, fs.Length - Dum6);
+                        Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum1, fs.size() - Dum1);
+                        Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum2, fs.size() - Dum2);
+                        Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum3, fs.size() - Dum3);
+                        Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum4, fs.size() - Dum4);
+                        Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum5, fs.size() - Dum5);
+                        Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                        fs = fs.Substring(Dum6, fs.size() - Dum6);
                         fs = ListToString(fenS); fenS = new List<char>(fs);
-                        fs = fs.Replace(fs.Substring(fs.IndexOf("w "), fs.Length - fs.IndexOf("w ")), S);
+                        fs = fs.Replace(fs.Substring(fs.IndexOf("w "), fs.size() - fs.IndexOf("w ")), S);
                         fenS = new List<char>(fs);
 
 
@@ -11172,20 +11172,20 @@ namespace Refrigtz
                             String S = "b KQ-q - " + (StockMoveBase).ToString() + " " + ((int)StockMove).ToString() + "\n";
                             fs = ListToString(fenS);
 
-                            Dum1 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum1, fs.Length - Dum1);
-                            Dum2 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum2, fs.Length - Dum2);
-                            Dum3 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum3, fs.Length - Dum3);
-                            Dum4 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum4, fs.Length - Dum4);
-                            Dum5 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum5, fs.Length - Dum5);
-                            Dum6 = fs.Substring(0, fs.IndexOf("/")).Length + 1;
-                            fs = fs.Substring(Dum6, fs.Length - Dum6);
+                            Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum1, fs.size() - Dum1);
+                            Dum2 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum2, fs.size() - Dum2);
+                            Dum3 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum3, fs.size() - Dum3);
+                            Dum4 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum4, fs.size() - Dum4);
+                            Dum5 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum5, fs.size() - Dum5);
+                            Dum6 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
+                            fs = fs.Substring(Dum6, fs.size() - Dum6);
                             fs = ListToString(fenS); fenS = new List<char>(fs);
-                            fs = fs.Replace(fs.Substring(fs.IndexOf("w "), fs.Length - fs.IndexOf("w ")), S);
+                            fs = fs.Replace(fs.Substring(fs.IndexOf("w "), fs.size() - fs.IndexOf("w ")), S);
                             fenS = new List<char>(fs);
 
 
@@ -11277,7 +11277,7 @@ namespace Refrigtz
                                             if (A[2] == 'h')
                     RowRealesed = 7;
                 ColumnRealeased = 7 - ((System.Convert.ToInt32(A[3]) - 48) - 1);
-                if (A.Length == 5)
+                if (A.size() == 5)
                 {
                     if (A[4] == 'p')
                         return -1;
@@ -11754,7 +11754,7 @@ namespace Refrigtz
                 Pre = File.ReadAllText("output.txt");
             StreamWriter sw = proc.StandardInput;
             string input = "go depth " + comboBoxMaxLevelText + "\r\n";
-            sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
+            sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.size());
             sw.Flush();
             String wr = "";
             WaitOn = true;
@@ -11765,7 +11765,7 @@ namespace Refrigtz
                 {
                     Thread.Sleep(100);
                     input = "wr" + "\r\n";
-                    sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
+                    sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.size());
                     sw.Flush();
                     Thread.Sleep(100);
 
@@ -11851,7 +11851,7 @@ namespace Refrigtz
             ColumnRealeased = -1;
             sw = proc.StandardInput;
             input = fens + "\r\n";
-            sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
+            sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.size());
             sw.Flush();
 
             if (OrderPlate == 1)
@@ -11970,7 +11970,7 @@ namespace Refrigtz
             }
             StreamWriter sw = proc.StandardInput;
             string input = fens + "\r\n";
-            sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
+            sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.size());
             sw.Flush();
             RowClickP = -1;
             ColumnClickP = -1;
@@ -12131,7 +12131,7 @@ namespace Refrigtz
                      }
                  StreamWriter sw = proc.StandardInput;
                  string input = fens + "\r\n";
-                 sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
+                 sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.size());
                  sw.Flush();
                  RowClickP = -1;
                  ColumnClickP = -1;
@@ -12156,7 +12156,7 @@ namespace Refrigtz
                     StreamWriter sw = proc.StandardInput;
                     sw = proc.StandardInput;
                     String input = fens + "\r\n";
-                    sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
+                    sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.size());
                     sw.Flush();
                      */
                     (new TakeRoot()).Save(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
@@ -12177,11 +12177,11 @@ namespace Refrigtz
         {
 
             List<int[]> TagList = new List<int[]>();
-            for (int i = 0; i < Tag.Length; i++)
+            for (int i = 0; i < Tag.size(); i++)
             {
-                if (i + 1 < Tag.Length)
+                if (i + 1 < Tag.size())
                 {
-                    for (int j = i + 1; j < i + RefrigtzDLL.AllDraw.MaxAStarGreedy.ToString().Length + 1; j++)
+                    for (int j = i + 1; j < i + RefrigtzDLL.AllDraw.MaxAStarGreedy.ToString().size() + 1; j++)
                     {
                         try
                         {

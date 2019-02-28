@@ -4789,7 +4789,7 @@ if (Kind == 2)
                                                 AllDraw.NextColumn = SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][1];
 
 
-                                                Less = SolderesOnTable[i].SoldierThinking[k].NumberOfPenalties;
+                                                Less = (SolderesOnTable[i].SoldierThinking[k].NumberOfPenalties);
                                             }
 
 
@@ -4954,7 +4954,7 @@ if (Kind == 2)
                                                         AllDraw.NextColumn = SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][1];
                                                     }
 
-                                                    Less = SolderesOnTable[i].SoldierThinking[k].NumberOfPenalties;
+                                                    Less = (SolderesOnTable[i].SoldierThinking[k].NumberOfPenalties);
 
 
                                                     TableHuristic = SolderesOnTable[i].SoldierThinking[k].TableListSolder[j];
@@ -5152,7 +5152,7 @@ if (Kind == 2)
 
 
                                                 Act = true;
-                                                Less = ElephantOnTable[i].ElefantThinking[k].NumberOfPenalties; ;
+                                                Less = (ElephantOnTable[i].ElefantThinking[k].NumberOfPenalties); 
                                             }
                                             TableHuristic = ElephantOnTable[i].ElefantThinking[k].TableListElefant[j];
                                             if (ElephantOnTable[i].WinOcuuredatChiled >= 1 || ElephantOnTable[i].WinOcuuredatChiled >= 2 || ElephantOnTable[i].WinOcuuredatChiled >= 3)
@@ -5281,7 +5281,7 @@ if (Kind == 2)
                                                         AllDraw.NextColumn = ElephantOnTable[i].ElefantThinking[k].RowColumnElefant[j][1];
                                                     }
                                                     Act = true;
-                                                    Less = ElephantOnTable[i].ElefantThinking[k].NumberOfPenalties;
+                                                    Less = (ElephantOnTable[i].ElefantThinking[k].NumberOfPenalties);
                                                     TableHuristic = ElephantOnTable[i].ElefantThinking[k].TableListElefant[j];
                                                 }
                                             }
@@ -5402,7 +5402,7 @@ if (Kind == 2)
                                                 AllDraw.NextColumn = HoursesOnTable[i].HourseThinking[k].RowColumnHourse[j][1];
 
                                                 Act = true;
-                                                Less = HoursesOnTable[i].HourseThinking[k].NumberOfPenalties;
+                                                Less = (HoursesOnTable[i].HourseThinking[k].NumberOfPenalties);
                                             }
                                             TableHuristic = HoursesOnTable[i].HourseThinking[k].TableListHourse[j];
                                             RegardOccurred = true;
@@ -5531,7 +5531,7 @@ if (Kind == 2)
                                                         AllDraw.NextColumn = HoursesOnTable[i].HourseThinking[k].RowColumnHourse[j][1];
                                                     }
                                                     Act = true;
-                                                    Less = HoursesOnTable[i].HourseThinking[k].NumberOfPenalties;
+                                                    Less = (HoursesOnTable[i].HourseThinking[k].NumberOfPenalties);
                                                     TableHuristic = HoursesOnTable[i].HourseThinking[k].TableListHourse[j];
 
                                                 }
@@ -5663,7 +5663,7 @@ if (Kind == 2)
                                                 AllDraw.NextColumn = CastlesOnTable[i].CastleThinking[k].RowColumnCastle[j][1];
 
                                                 Act = true;
-                                                Less = CastlesOnTable[i].CastleThinking[k].NumberOfPenalties;
+                                                Less = (CastlesOnTable[i].CastleThinking[k].NumberOfPenalties);
                                             }
                                             TableHuristic = CastlesOnTable[i].CastleThinking[k].TableListCastle[j];
                                             RegardOccurred = true;
@@ -5787,7 +5787,7 @@ if (Kind == 2)
                                                         AllDraw.NextColumn = CastlesOnTable[i].CastleThinking[k].RowColumnCastle[j][1];
                                                     }
                                                     Act = true;
-                                                    Less = CastlesOnTable[i].CastleThinking[k].NumberOfPenalties;
+                                                    Less = (CastlesOnTable[i].CastleThinking[k].NumberOfPenalties);
                                                     TableHuristic = CastlesOnTable[i].CastleThinking[k].TableListCastle[j];
 
                                                 }
@@ -5913,7 +5913,7 @@ if (Kind == 2)
                                             AllDraw.NextColumn = MinisterOnTable[i].MinisterThinking[k].RowColumnMinister[j][1];
 
                                             Act = true;
-                                            Less = MinisterOnTable[i].MinisterThinking[k].NumberOfPenalties;
+                                            Less = (MinisterOnTable[i].MinisterThinking[k].NumberOfPenalties);
                                         }
                                         TableHuristic = MinisterOnTable[i].MinisterThinking[k].TableListMinister[j];
                                         RegardOccurred = true;
@@ -6039,7 +6039,7 @@ if (Kind == 2)
                                                     AllDraw.NextColumn = MinisterOnTable[i].MinisterThinking[k].RowColumnMinister[j][1];
                                                 }
                                                 Act = true;
-                                                Less = MinisterOnTable[i].MinisterThinking[k].NumberOfPenalties;
+                                                Less = (MinisterOnTable[i].MinisterThinking[k].NumberOfPenalties);
                                                 TableHuristic = MinisterOnTable[i].MinisterThinking[k].TableListMinister[j];
 
                                             }
@@ -6163,7 +6163,7 @@ if (Kind == 2)
                                                 AllDraw.NextColumn = KingOnTable[i].KingThinking[k].RowColumnKing[j][1];
 
                                                 Act = true;
-                                                Less = KingOnTable[i].KingThinking[k].NumberOfPenalties;
+                                                Less = (KingOnTable[i].KingThinking[k].NumberOfPenalties);
                                             }
                                             TableHuristic = KingOnTable[i].KingThinking[k].TableListKing[j];
                                             RegardOccurred = true;
@@ -6292,7 +6292,7 @@ if (Kind == 2)
                                                         AllDraw.NextColumn = KingOnTable[i].KingThinking[k].RowColumnKing[j][1];
                                                     }
                                                     Act = true;
-                                                    Less = KingOnTable[i].KingThinking[k].NumberOfPenalties;
+                                                    Less = (KingOnTable[i].KingThinking[k].NumberOfPenalties);
                                                     TableHuristic = KingOnTable[i].KingThinking[k].TableListKing[j];
                                                 }
 
@@ -6504,7 +6504,7 @@ if (Kind == 2)
                                             AllDraw.NextColumn = SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][1];
 
 
-                                            Less = SolderesOnTable[i].SoldierThinking[k].NumberOfPenalties;
+                                            Less = (SolderesOnTable[i].SoldierThinking[k].NumberOfPenalties);
                                         }
 
 
@@ -6879,7 +6879,7 @@ if (Kind == 2)
 
 
                                             Act = true;
-                                            Less = ElephantOnTable[i].ElefantThinking[k].NumberOfPenalties; ;
+                                            Less = (ElephantOnTable[i].ElefantThinking[k].NumberOfPenalties); ;
                                         }
                                         TableHuristic = ElephantOnTable[i].ElefantThinking[k].TableListElefant[j];
                                         StringHuristics(2, 2, AA, Do, ElephantOnTable[i].WinOcuuredatChiled, ElephantOnTable[i].LoseOcuuredatChiled);
@@ -7158,7 +7158,7 @@ if (Kind == 2)
                                             AllDraw.NextColumn = HoursesOnTable[i].HourseThinking[k].RowColumnHourse[j][1];
 
                                             Act = true;
-                                            Less = HoursesOnTable[i].HourseThinking[k].NumberOfPenalties;
+                                            Less = (HoursesOnTable[i].HourseThinking[k].NumberOfPenalties);
                                         }
                                         TableHuristic = HoursesOnTable[i].HourseThinking[k].TableListHourse[j];
                                         RegardOccurred = true;
@@ -7425,7 +7425,7 @@ if (Kind == 2)
                                             AllDraw.NextColumn = CastlesOnTable[i].CastleThinking[k].RowColumnCastle[j][1];
 
                                             Act = true;
-                                            Less = CastlesOnTable[i].CastleThinking[k].NumberOfPenalties;
+                                            Less = (CastlesOnTable[i].CastleThinking[k].NumberOfPenalties);
                                         }
                                         TableHuristic = CastlesOnTable[i].CastleThinking[k].TableListCastle[j];
                                         RegardOccurred = true;
@@ -7692,7 +7692,7 @@ if (Kind == 2)
                                         AllDraw.NextColumn = MinisterOnTable[i].MinisterThinking[k].RowColumnMinister[j][1];
 
                                         Act = true;
-                                        Less = MinisterOnTable[i].MinisterThinking[k].NumberOfPenalties;
+                                        Less = (MinisterOnTable[i].MinisterThinking[k].NumberOfPenalties);
                                     }
                                     TableHuristic = MinisterOnTable[i].MinisterThinking[k].TableListMinister[j];
                                     RegardOccurred = true;
@@ -7954,7 +7954,7 @@ if (Kind == 2)
                                             AllDraw.NextColumn = KingOnTable[i].KingThinking[k].RowColumnKing[j][1];
 
                                             Act = true;
-                                            Less = KingOnTable[i].KingThinking[k].NumberOfPenalties;
+                                            Less = (KingOnTable[i].KingThinking[k].NumberOfPenalties);
                                         }
                                         TableHuristic = KingOnTable[i].KingThinking[k].TableListKing[j];
                                         RegardOccurred = true;
@@ -8255,7 +8255,7 @@ if (Kind == 2)
                                             AllDraw.NextRow = SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][0];
                                             AllDraw.NextColumn = SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][1];
 
-                                            Less = SolderesOnTable[i].SoldierThinking[k].NumberOfPenalties;
+                                            Less = (SolderesOnTable[i].SoldierThinking[k].NumberOfPenalties);
                                         }
 
 
@@ -8373,7 +8373,7 @@ if (Kind == 2)
                                             RW6 = -1;
                                             CL6 = -1;
                                             Ki6 = -1;
-                                            MaxLess1 = SolderesOnTable[RW1].SoldierThinking[CL1].NumberOfPenalties;
+                                            MaxLess1 = (SolderesOnTable[RW1].SoldierThinking[CL1].NumberOfPenalties);
                                             if (MaxLess1 > MaxLess2)
                                                 MaxLess2 = -1;
                                             if (MaxLess1 > MaxLess3)
@@ -8413,7 +8413,7 @@ if (Kind == 2)
                                                     AllDraw.NextColumn = SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][1];
                                                 }
 
-                                                Less = SolderesOnTable[i].SoldierThinking[k].NumberOfPenalties;
+                                                Less = (SolderesOnTable[i].SoldierThinking[k].NumberOfPenalties);
 
 
                                                 TableHuristic = SolderesOnTable[i].SoldierThinking[k].TableListSolder[j];
@@ -8607,7 +8607,7 @@ if (Kind == 2)
 
 
                                             Act = true;
-                                            Less = ElephantOnTable[i].ElefantThinking[k].NumberOfPenalties;
+                                            Less = (ElephantOnTable[i].ElefantThinking[k].NumberOfPenalties);
                                         }
                                         TableHuristic = ElephantOnTable[i].ElefantThinking[k].TableListElefant[j];
                                         RegardOccurred = true;
@@ -8733,7 +8733,7 @@ if (Kind == 2)
                                                 }
 
                                                 Act = true;
-                                                Less = ElephantOnTable[i].ElefantThinking[k].NumberOfPenalties;
+                                                Less = (ElephantOnTable[i].ElefantThinking[k].NumberOfPenalties);
                                                 TableHuristic = ElephantOnTable[i].ElefantThinking[k].TableListElefant[j];
 
                                             }
@@ -8863,7 +8863,7 @@ if (Kind == 2)
 
 
                                             Act = true;
-                                            Less = HoursesOnTable[i].HourseThinking[k].NumberOfPenalties;
+                                            Less = (HoursesOnTable[i].HourseThinking[k].NumberOfPenalties);
                                         }
                                         TableHuristic = HoursesOnTable[i].HourseThinking[k].TableListHourse[j];
                                         RegardOccurred = true;
@@ -8953,7 +8953,7 @@ if (Kind == 2)
                                             RW6 = -1;
                                             CL6 = -1;
                                             Ki6 = -1;
-                                            MaxLess3 = HoursesOnTable[RW3].HourseThinking[CL3].NumberOfPenalties;
+                                            MaxLess3 = (HoursesOnTable[RW3].HourseThinking[CL3].NumberOfPenalties);
                                             if (MaxLess3 > MaxLess1)
                                                 MaxLess1 = -1;
                                             if (MaxLess3 > MaxLess2)
@@ -8993,7 +8993,7 @@ if (Kind == 2)
                                                 }
 
                                                 Act = true;
-                                                Less = HoursesOnTable[i].HourseThinking[k].NumberOfPenalties;
+                                                Less = (HoursesOnTable[i].HourseThinking[k].NumberOfPenalties);
                                                 TableHuristic = HoursesOnTable[i].HourseThinking[k].TableListHourse[j];
 
                                             }
@@ -9122,7 +9122,7 @@ if (Kind == 2)
                                             AllDraw.NextRow = CastlesOnTable[i].CastleThinking[k].RowColumnCastle[j][0];
                                             AllDraw.NextColumn = CastlesOnTable[i].CastleThinking[k].RowColumnCastle[j][1];
                                             Act = true;
-                                            Less = CastlesOnTable[i].CastleThinking[k].NumberOfPenalties;
+                                            Less = (CastlesOnTable[i].CastleThinking[k].NumberOfPenalties);
                                         }
                                         TableHuristic = CastlesOnTable[i].CastleThinking[k].TableListCastle[j];
                                         RegardOccurred = true;
@@ -9245,7 +9245,7 @@ if (Kind == 2)
                                                 }
 
                                                 Act = true;
-                                                Less = CastlesOnTable[i].CastleThinking[k].NumberOfPenalties;
+                                                Less = (CastlesOnTable[i].CastleThinking[k].NumberOfPenalties);
                                                 TableHuristic = CastlesOnTable[i].CastleThinking[k].TableListCastle[j];
 
                                             }
@@ -9373,7 +9373,7 @@ if (Kind == 2)
 
 
                                             Act = true;
-                                            Less = MinisterOnTable[i].MinisterThinking[k].NumberOfPenalties;
+                                            Less = (MinisterOnTable[i].MinisterThinking[k].NumberOfPenalties);
                                         }
                                         TableHuristic = MinisterOnTable[i].MinisterThinking[k].TableListMinister[j];
                                         RegardOccurred = true;
@@ -9498,7 +9498,7 @@ if (Kind == 2)
                                                 }
 
                                                 Act = true;
-                                                Less = MinisterOnTable[i].MinisterThinking[k].NumberOfPenalties;
+                                                Less = (MinisterOnTable[i].MinisterThinking[k].NumberOfPenalties);
                                                 TableHuristic = MinisterOnTable[i].MinisterThinking[k].TableListMinister[j];
 
                                             }
@@ -9628,7 +9628,7 @@ if (Kind == 2)
 
 
                                             Act = true;
-                                            Less = KingOnTable[i].KingThinking[k].NumberOfPenalties;
+                                            Less = (KingOnTable[i].KingThinking[k].NumberOfPenalties);
                                         }
                                         TableHuristic = KingOnTable[i].KingThinking[k].TableListKing[j];
                                         RegardOccurred = true;
@@ -9754,7 +9754,7 @@ if (Kind == 2)
                                                 }
 
                                                 Act = true;
-                                                Less = KingOnTable[i].KingThinking[k].NumberOfPenalties;
+                                                Less = (KingOnTable[i].KingThinking[k].NumberOfPenalties);
                                                 TableHuristic = KingOnTable[i].KingThinking[k].TableListKing[j];
 
                                             }
@@ -19512,11 +19512,11 @@ if (Kind == 5)
             {
 
                 List<int[]> TagList = new List<int[]>();
-                for (int i = 0; i < Tag.Length; i++)
+                for (int i = 0; i < Tag.size(); i++)
                 {
-                    if (i + 1 < Tag.Length)
+                    if (i + 1 < Tag.size())
                     {
-                        for (int j = i + 1; j < i + RefrigtzDLL.AllDraw.MaxAStarGreedy.ToString().Length + 1; j++)
+                        for (int j = i + 1; j < i + RefrigtzDLL.AllDraw.MaxAStarGreedy.ToString().size() + 1; j++)
                         {
                             try
                             {
