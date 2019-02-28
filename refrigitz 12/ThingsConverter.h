@@ -4,7 +4,7 @@
 namespace RefrigtzDLL
 {
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
-//ORIGINAL LINE: [Serializable] public class ThingsConverter
+//ORIGINAL LINE: [Serializable] class ThingsConverter
 	class ThingsConverter
 	{
 		//Initiate Global Variables.
@@ -29,11 +29,11 @@ namespace RefrigtzDLL
 		int color;
 		int Order;
 		int Current;
-		//AllDraw. THIS;
+		//AllDraw:: THIS;
 	public:
 		ThingsConverter();
 		//Constructor
-		ThingsConverter(bool Arrangments, int i, int j, int a, int **Tab, int Ord, bool TB, int Cur); //,ref AllDraw. THI
+		ThingsConverter(bool Arrangments, int i, int j, int a, int **Tab, int Ord, bool TB, int Cur); //,ref AllDraw:: THI
 		//Convert Operation of Randomly All State Method.
 		bool ConvertOperation(int i, int j, int a, int **Tab, int Ord, bool TB, int Cur);
 

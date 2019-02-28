@@ -17,7 +17,7 @@ namespace RefrigtzDLL
 		 T *end()  { return &data[N]; }
 	};*/
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
-//ORIGINAL LINE: [Serializable] public class DrawSoldier : ThingsConverter
+//ORIGINAL LINE: [Serializable] class DrawSoldier : ThingsConverter
 	class DrawSoldier : public ThingsConverter
 	{
 
@@ -77,9 +77,9 @@ namespace RefrigtzDLL
 		 }
 		*/
 		//Constructor 2.
-		DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int **Tab, int Ord, bool TB, int Cur); //, ref AllDraw. THIS
+		DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int **Tab, int Ord, bool TB, int Cur); //, ref AllDraw:: THIS
 		//Clone a Copy Method.
-		void Clone(DrawSoldier *&AA); //, ref AllDraw. THIS
+		void Clone(DrawSoldier *&AA); //, ref AllDraw:: THIS
 		//Drawing Soldiers On the Table Method..
 		void DrawSoldierOnTable( int CellW, int CellH);
 

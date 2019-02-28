@@ -360,7 +360,7 @@ bool ThinkingChess::ThinkingRun = false;
 			IndexCastle = 0;
 			IndexMinister = 0;
 			IndexKing = 0;
-			int **Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii] - new int[8];
+			int **Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii] = new int[8];
 			
 			for (int ii = 0; ii < 8; ii++)
 			{
@@ -498,7 +498,7 @@ bool ThinkingChess::ThinkingRun = false;
 
 			{
 				//Add a Clone To New Solder indexx Object.
-				AA->RowColumnSoldier.push_back(CloneAList(RowColumnSoldier.data(), 2));
+				AA->RowColumnSoldier.push_back(CloneAList(RowColumnSoldier.data()[j], 2));
 			}
 			//For All Castle List Count.
 			for (int j = 0; j < RowColumnCastle.size(); j++)
@@ -2677,11 +2677,11 @@ bool ThinkingChess::ThinkingRun = false;
 		                                {
 		                                    //When Before Move such situation is observed calculate huristic count.
 		                                    if (Order == 1 && A->CheckGrayObjectDangour)
-		                                        HA +=// AllDraw.SignKingSafe * 
+		                                        HA +=// AllDraw::SignKingSafe * 
 		                                            (ObjectValueCalculator(Table, RowS, ColS, RowD, ColD));
 		                                    else
 		                                    if (Order == -1 && A->CheckBrownObjectDangour)
-		                                        HA += //AllDraw.SignKingSafe * 
+		                                        HA += //AllDraw::SignKingSafe * 
 		                                            (ObjectValueCalculator(Table, RowS, ColS, RowD, ColD));
 	
 		                                }               
@@ -2833,10 +2833,10 @@ bool ThinkingChess::ThinkingRun = false;
 			                                //lock (O4)
 			                                {
 			                                    if (Order == -1 && A->CheckGrayObjectDangour)
-			                                        HA += AllDraw.SignKingDangour * (ObjectValueCalculator(Table1,RowS,ColS,RowD,ColD));
+			                                        HA += AllDraw::SignKingDangour * (ObjectValueCalculator(Table1,RowS,ColS,RowD,ColD));
 			                                    else
 			                                        if (Order == 1 && A->CheckBrownObjectDangour)
-			                                        HA += AllDraw.SignKingDangour * (ObjectValueCalculator(Table1,RowS,ColS,RowD,ColD));
+			                                        HA += AllDraw::SignKingDangour * (ObjectValueCalculator(Table1,RowS,ColS,RowD,ColD));
 	
 	
 			                                }
@@ -2891,13 +2891,13 @@ bool ThinkingChess::ThinkingRun = false;
 					{
 						if (Order == -1 && A->CheckGrayObjectDangour)
 						{
-							HA += (ObjectValueCalculator(Table1, RowS, ColS, RowD, ColD)); // AllDraw.SignKingDangour *
+							HA += (ObjectValueCalculator(Table1, RowS, ColS, RowD, ColD)); // AllDraw::SignKingDangour *
 						}
 						else
 						{
 							if (Order == 1 && A->CheckBrownObjectDangour)
 							{
-							HA += (ObjectValueCalculator(Table1, RowS, ColS, RowD, ColD)); // AllDraw.SignKingDangour *
+							HA += (ObjectValueCalculator(Table1, RowS, ColS, RowD, ColD)); // AllDraw::SignKingDangour *
 							}
 						}
 
@@ -4125,12 +4125,12 @@ bool ThinkingChess::ThinkingRun = false;
 						if (abs(Tabl[ik][jk]) == 1)
 						{
 							//For Current Home
-							for (int iki = ik - 2; iki < ik + 3; iki++)
+							for (int iki = ik-2; iki < ik + 3; iki++)
 							{
-								for (int jki = jk - 2; jki < jk + 3; jki++)
+								for (int jki = jk-2; jki < jk + 3; jki++)
 
-								////Parallel.For(ik - 2, ik + 3, iki =>
-								////Parallel.For(jk - 2, jk + 3, jki =>
+								////Parallel.For(ik-2, ik + 3, iki =>
+								////Parallel.For(jk-2, jk + 3, jki =>
 								// init subtotal
 								{
 									if (!Scop(ik, jk, iki, jki, 1))
@@ -4189,7 +4189,7 @@ bool ThinkingChess::ThinkingRun = false;
 							////Parallel.For(0, 8, iki =>
 							for (int iki = 0; iki < 8; iki++)
 							{
-								int jki = iki + jk - ik;
+								int jki = iki + jk-ik;
 								if (!Scop(ik, jk, iki, jki, 2))
 								{
 									continue;
@@ -4290,11 +4290,11 @@ bool ThinkingChess::ThinkingRun = false;
 						if (abs(Tabl[ik][jk]) == 3)
 						{
 							//For Current Home
-							////Parallel.For(ik - 2, ik + 3, iki =>
-							////Parallel.For(jk - 2, jk + 3, jki =>
-							for (int iki = ik - 2; iki < ik + 3; iki++)
+							////Parallel.For(ik-2, ik + 3, iki =>
+							////Parallel.For(jk-2, jk + 3, jki =>
+							for (int iki = ik-2; iki < ik + 3; iki++)
 							{
-								for (int jki = jk - 2; jki < jk + 3; jki++)
+								for (int jki = jk-2; jki < jk + 3; jki++)
 
 								{
 									if (!Scop(ik, jk, iki, jki, 3))
@@ -4505,11 +4505,11 @@ bool ThinkingChess::ThinkingRun = false;
 						if (abs(Tabl[ik][jk]) == 6)
 						{
 							//For Current Home
-							////Parallel.For(ik - 1, ik + 2, iki =>
-							////Parallel.For(jk - 1, jk + 2, jki =>
-							for (int iki = ik - 1; iki < ik + 2; iki++)
+							////Parallel.For(ik-1, ik + 2, iki =>
+							////Parallel.For(jk-1, jk + 2, jki =>
+							for (int iki = ik-1; iki < ik + 2; iki++)
 							{
-								for (int jki = jk - 1; jki < jk + 2; jki++)
+								for (int jki = jk-1; jki < jk + 2; jki++)
 
 								{
 									if (!Scop(ik, jk, iki, jki, 6))
@@ -4848,7 +4848,7 @@ bool ThinkingChess::ThinkingRun = false;
 		//lock (O)
 		{
 			double HA = 0;
-			//int DummyOrder = AllDraw.OrderPlate;
+			//int DummyOrder = AllDraw::OrderPlate;
 			int DummyOrder = Order;
 			int DummyCurrentOrder = ChessRules::CurrentOrder;
 			//double ObjectDangour = 1;
@@ -4858,7 +4858,7 @@ bool ThinkingChess::ThinkingRun = false;
 			double CheckMate = 100000;
 			//When is self objects order divide valuse by 100
 			//Becuse reduce from danger is most favareable of caused to enemy attack
-			/*if (Order == AllDraw.OrderPlate)
+			/*if (Order == AllDraw::OrderPlate)
 			{
 			    ObjectDangour = 0.01;
 			    Check = 100;
@@ -5190,42 +5190,42 @@ bool ThinkingChess::ThinkingRun = false;
 				//When Soldier.
 				if (abs(Tab[RowS][ColS]) == 1)
 				{
-					Dis = AllDraw::SignDistance * sqrt(pow(RowS - RowG, 2) + pow(ColS - ColumnG, 2));
+					Dis = AllDraw::SignDistance * sqrt(pow(RowS-RowG, 2) + pow(ColS-ColumnG, 2));
 				}
 				else
 				{
 					//When Elephant.
 					if (abs(Tab[RowS][ColS]) == 2)
 					{
-					Dis = AllDraw::SignDistance * sqrt(pow(RowS - RowG, 2) + pow(ColS - ColumnG, 2));
+					Dis = AllDraw::SignDistance * sqrt(pow(RowS-RowG, 2) + pow(ColS-ColumnG, 2));
 					}
 				else
 				{
 						//When Hourse.
 						if (abs(Tab[RowS][ColS]) == 3)
 						{
-					Dis = AllDraw::SignDistance * sqrt(pow(RowS - RowG, 2) + pow(ColS - ColumnG, 2));
+					Dis = AllDraw::SignDistance * sqrt(pow(RowS-RowG, 2) + pow(ColS-ColumnG, 2));
 						}
 				else
 				{
 							//When Castles.
 							if (abs(Tab[RowS][ColS]) == 4)
 							{
-					Dis = AllDraw::SignDistance * sqrt(pow(RowS - RowG, 2) + pow(ColS - ColumnG, 2));
+					Dis = AllDraw::SignDistance * sqrt(pow(RowS-RowG, 2) + pow(ColS-ColumnG, 2));
 							}
 				else
 				{
 								//When minister.
 								if (abs(Tab[RowS][ColS]) == 5)
 								{
-					Dis = AllDraw::SignDistance * sqrt(pow(RowS - RowG, 2) + pow(ColS - ColumnG, 2));
+					Dis = AllDraw::SignDistance * sqrt(pow(RowS-RowG, 2) + pow(ColS-ColumnG, 2));
 								}
 				else
 				{
 									//When King.
 									if (abs(Tab[RowS][ColS]) == 6)
 									{
-					Dis = AllDraw::SignDistance * sqrt(pow(RowS - RowG, 2) + pow(ColS - ColumnG, 2));
+					Dis = AllDraw::SignDistance * sqrt(pow(RowS-RowG, 2) + pow(ColS-ColumnG, 2));
 									}
 				}
 				}
@@ -5242,40 +5242,40 @@ bool ThinkingChess::ThinkingRun = false;
 				//When Soldier.
 				if (abs(Tab[RowS][ColS]) == 1)
 				{
-					Dis = AllDraw::SignDistance * sqrt(pow(RowS - RowB, 2) + pow(ColS - ColumnB, 2));
+					Dis = AllDraw::SignDistance * sqrt(pow(RowS-RowB, 2) + pow(ColS-ColumnB, 2));
 				}
 				else
 				{
 					//When Elephant.
 					if (abs(Tab[RowS][ColS]) == 2)
 					{
-					Dis = AllDraw::SignDistance * sqrt(pow(RowS - RowB, 2) + pow(ColS - ColumnB, 2));
+					Dis = AllDraw::SignDistance * sqrt(pow(RowS-RowB, 2) + pow(ColS-ColumnB, 2));
 					}
 				else
 				{
 						//When Hourse.
 						if (abs(Tab[RowS][ColS]) == 3)
 						{
-					Dis = AllDraw::SignDistance * sqrt(pow(RowS - RowB, 2) + pow(ColS - ColumnB, 2));
+					Dis = AllDraw::SignDistance * sqrt(pow(RowS-RowB, 2) + pow(ColS-ColumnB, 2));
 						}
 				else
 				{
 							//When Castles.
 							if (abs(Tab[RowS][ColS]) == 4)
 							{
-					Dis = AllDraw::SignDistance * sqrt(pow(RowS - RowB, 2) + pow(ColS - ColumnB, 2));
+					Dis = AllDraw::SignDistance * sqrt(pow(RowS-RowB, 2) + pow(ColS-ColumnB, 2));
 							}
 				else
 				{
 								//When Minister.
 								if (abs(Tab[RowS][ColS]) == 5)
 								{
-					Dis = AllDraw::SignDistance * sqrt(pow(RowS - RowB, 2) + pow(ColS - ColumnB, 2));
+					Dis = AllDraw::SignDistance * sqrt(pow(RowS-RowB, 2) + pow(ColS-ColumnB, 2));
 								}
 				else
 				{
 					//When King.
-					Dis = AllDraw::SignDistance * sqrt(pow(RowS - RowB, 2) + pow(ColS - ColumnB, 2));
+					Dis = AllDraw::SignDistance * sqrt(pow(RowS-RowB, 2) + pow(ColS-ColumnB, 2));
 				}
 				}
 				}
@@ -5307,12 +5307,12 @@ bool ThinkingChess::ThinkingRun = false;
 						{
 							if (i < 4 && j < 4)
 							{
-								HA += ((-1) * sqrt(pow(i - 3, 2) + pow(j - 3, 2)));
+								HA += ((-1) * sqrt(pow(i-3, 2) + pow(j-3, 2)));
 
 							}
 							if (i < 4 && j >= 4)
 							{
-								HA += ((-1)*sqrt(pow(i - 3, 2) + pow(j - 4, 2)));
+								HA += ((-1)*sqrt(pow(i-3, 2) + pow(j-4, 2)));
 							}
 
 						}
@@ -5320,11 +5320,11 @@ bool ThinkingChess::ThinkingRun = false;
 						{
 							if (i >= 4 && j < 4)
 							{
-								HA += ((-1)*sqrt(pow(i - 4, 2) + pow(j - 3, 2)));
+								HA += ((-1)*sqrt(pow(i-4, 2) + pow(j-3, 2)));
 							}
 							if (i >= 4 && j >= 4)
 							{
-								HA += ((-1)*sqrt(pow(i - 4, 2) + pow(j - 4, 2)));
+								HA += ((-1)*sqrt(pow(i-4, 2) + pow(j-4, 2)));
 							}
 						}
 					}
@@ -5334,11 +5334,11 @@ bool ThinkingChess::ThinkingRun = false;
 						{
 							if (i < 4 && j < 4)
 							{
-								HA += ((-1)*sqrt(pow(i - 3, 2) + pow(j - 3, 2)));
+								HA += ((-1)*sqrt(pow(i-3, 2) + pow(j-3, 2)));
 							}
 							if (i < 4 && j >= 4)
 							{
-								HA += ((-1)*sqrt(pow(i - 3, 2) + pow(j - 4, 2)));
+								HA += ((-1)*sqrt(pow(i-3, 2) + pow(j-4, 2)));
 							}
 
 						}
@@ -5346,11 +5346,11 @@ bool ThinkingChess::ThinkingRun = false;
 						{
 							if (i >= 4 && j < 4)
 							{
-								HA += ((-1)*sqrt(pow(i - 4, 2) + pow(j - 3, 2)));
+								HA += ((-1)*sqrt(pow(i-4, 2) + pow(j-3, 2)));
 							}
 							if (i >= 4 && j >= 4)
 							{
-								HA += ((-1)*sqrt(pow(i - 4, 2) + pow(j - 4, 2)));
+								HA += ((-1)*sqrt(pow(i-4, 2) + pow(j-4, 2)));
 							}
 						}
 					}
@@ -5366,11 +5366,11 @@ bool ThinkingChess::ThinkingRun = false;
 						{
 							if (ii < 4 && jj < 4)
 							{
-								HA += ((-1)*sqrt(pow(ii - 3, 2) + pow(jj - 3, 2)));
+								HA += ((-1)*sqrt(pow(ii-3, 2) + pow(jj-3, 2)));
 							}
 							if (ii < 4 && jj >= 4)
 							{
-								HA += ((-1)*sqrt(pow(ii - 3, 2) + pow(jj - 4, 2)));
+								HA += ((-1)*sqrt(pow(ii-3, 2) + pow(jj-4, 2)));
 							}
 
 						}
@@ -5378,11 +5378,11 @@ bool ThinkingChess::ThinkingRun = false;
 						{
 							if (ii >= 4 && jj < 4)
 							{
-								HA += ((-1)*sqrt(pow(ii - 4, 2) + pow(jj - 3, 2)));
+								HA += ((-1)*sqrt(pow(ii-4, 2) + pow(jj-3, 2)));
 							}
 							if (ii >= 4 && jj >= 4)
 							{
-								HA += ((-1)*sqrt(pow(ii - 4, 2) + pow(jj - 4, 2)));
+								HA += ((-1)*sqrt(pow(ii-4, 2) + pow(jj-4, 2)));
 							}
 						}
 					}
@@ -5392,11 +5392,11 @@ bool ThinkingChess::ThinkingRun = false;
 						{
 							if (ii < 4 && jj < 4)
 							{
-								HA += ((-1)*sqrt(pow(ii - 3, 2) + pow(jj - 3, 2)));
+								HA += ((-1)*sqrt(pow(ii-3, 2) + pow(jj-3, 2)));
 							}
 							if (ii < 4 && jj >= 4)
 							{
-								HA += ((-1)*sqrt(pow(ii - 3, 2) + pow(jj - 4, 2)));
+								HA += ((-1)*sqrt(pow(ii-3, 2) + pow(jj-4, 2)));
 							}
 
 						}
@@ -5404,11 +5404,11 @@ bool ThinkingChess::ThinkingRun = false;
 						{
 							if (ii >= 4 && jj < 4)
 							{
-								HA += ((-1)*sqrt(pow(ii - 4, 2) + pow(jj - 3, 2)));
+								HA += ((-1)*sqrt(pow(ii-4, 2) + pow(jj-3, 2)));
 							}
 							if (ii >= 4 && jj >= 4)
 							{
-								HA += ((-1)*sqrt(pow(ii - 4, 2) + pow(jj - 4, 2)));
+								HA += ((-1)*sqrt(pow(ii-4, 2) + pow(jj-4, 2)));
 							}
 						}
 					}
@@ -5565,7 +5565,7 @@ bool ThinkingChess::ThinkingRun = false;
 										int **Table3 = CloneATable(Table);
 										int Ord3 = Ord;
 										int aa3 = aa;
-										double HAA3 = HuristicMovment(Before, Table3, aa3, Ord3, i3, j3, iiii3, jjjj3);
+										double HAA3 = HuristicMovment(Before, Table3, aa3, Ord3, i3, j3, iiii3, jjjj);
 										Huristic[2] += HAA3;
 
 										int i4 = RowS, j4 = ColS, iiii4 = RowD, jjjj4 = ColD;
@@ -6595,7 +6595,7 @@ bool ThinkingChess::ThinkingRun = false;
 		//Optimization depend of numbers of unpealties nodes quefficient.  
 		if (UsePenaltyRegardMechnisamT)
 		{
-			return Hur * (static_cast<double>(NumbersOfAllNode - NumbersOfCurrentBranchesPenalties) / static_cast<double>(NumbersOfAllNode));
+			return Hur * (static_cast<double>(NumbersOfAllNode.NumbersOfCurrentBranchesPenalties) / static_cast<double>(NumbersOfAllNode));
 		}
 		return Hur;
 
@@ -7035,7 +7035,7 @@ bool ThinkingChess::ThinkingRun = false;
 				}
 			}
 
-			if (abs(i - ii) <= 2 && abs(j - jj) <= 2)
+			if (abs(i.ii) <= 2 && abs(j.jj) <= 2)
 
 			{
 				Validity = true;
@@ -7045,7 +7045,7 @@ bool ThinkingChess::ThinkingRun = false;
 		{
 			if (Kind == 2) //Elephant
 			{
-				if (abs(i - ii) == abs(j - jj))
+				if (abs(i.ii) == abs(j.jj))
 				{
 
 					Validity = true;
@@ -7055,11 +7055,11 @@ bool ThinkingChess::ThinkingRun = false;
 			{
 				if (Kind == 3) //Hourse
 				{
-					if (abs(i - ii) == 1 && abs(j - jj) == 2)
+					if (abs(i.ii) == 1 && abs(j.jj) == 2)
 					{
 						Validity = true;
 					}
-					if (abs(i - ii) == 2 && abs(j - jj) == 1)
+					if (abs(i.ii) == 2 && abs(j.jj) == 1)
 					{
 						Validity = true;
 					}
@@ -7077,7 +7077,7 @@ bool ThinkingChess::ThinkingRun = false;
 					{
 						if (Kind == 5) //Minister
 						{
-							if (((i == ii && j != jj) || (i != ii && j == jj)) || abs(i - ii) == abs(j - jj))
+							if (((i == ii && j != jj) || (i != ii && j == jj)) || abs(i.ii) == abs(j.jj))
 							{
 								Validity = true;
 							}
@@ -7086,7 +7086,7 @@ bool ThinkingChess::ThinkingRun = false;
 						{
 							if (Kind == 6) //King
 							{
-								if (abs(i - ii) <= 1 && abs(j - jj) <= 1)
+								if (abs(i.ii) <= 1 && abs(j.jj) <= 1)
 								{
 									Validity = true;
 								}
@@ -8760,7 +8760,7 @@ bool ThinkingChess::ThinkingRun = false;
 
 
 					}
-					if (AllDraw::OrderPlate == 1 && AA->CheckMateGray) //(AllDraw.OrderPlate == 1 && AA->CheckGray) ||
+					if (AllDraw::OrderPlate == 1 && AA->CheckMateGray) //(AllDraw::OrderPlate == 1 && AA->CheckGray) ||
 					{
 						DoEnemySelf = false;
 
@@ -9538,8 +9538,8 @@ bool ThinkingChess::ThinkingRun = false;
 			int Killed = 0;
 			if (RowDestination < RowSource)
 			{
-				TableS[RowSource - 1][ColumnDestination] = -4;
-				TableS[RowSource - 2][ColumnDestination] = -6;
+				TableS[RowSource.1][ColumnDestination] = -4;
+				TableS[RowSource.2][ColumnDestination] = -6;
 				TableS[RowSource][ColumnSource] = 0;
 				//TableS[0, ColumnSource] = 0;
 
@@ -9717,8 +9717,8 @@ bool ThinkingChess::ThinkingRun = false;
 		int Killed = 0;
 		if (RowDestination < RowSource)
 		{
-			TableS[RowSource - 1][ColumnDestination] = 4;
-			TableS[RowSource - 2][ColumnDestination] = 6;
+			TableS[RowSource.1][ColumnDestination] = 4;
+			TableS[RowSource.2][ColumnDestination] = 6;
 			TableS[RowSource][ColumnSource] = 0;
 			//TableS[0, ColumnSource] = 0;
 
@@ -9846,7 +9846,7 @@ bool ThinkingChess::ThinkingRun = false;
 		}
 		else
 		{
-			if ((LearningVarsObject[LearningVarsObject.size() - 1][1] && !LearningVarsObject[LearningVarsObject.size() - 1][4]))
+			if ((LearningVarsObject[LearningVarsObject.size().1][1] && !LearningVarsObject[LearningVarsObject.size().1][4]))
 			{
 				if (AllDraw::OrderPlate == Order)
 				{
@@ -9921,11 +9921,11 @@ bool ThinkingChess::ThinkingRun = false;
 	void ThinkingChess::ThinkingSoldier(int LoseOcuuredatChiled, int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
 	{
 
-		////Parallel.For(ii - 2, ii + 3, i =>
-		for (int i = ii - 2; i < ii + 3; i++)
+		////Parallel.For(ii.2, ii + 3, i =>
+		for (int i = ii.2; i < ii + 3; i++)
 		{
-			////Parallel.For(jj - 2, jj + 3, j =>
-			for (int j = jj - 2; j < jj + 3; j++)
+			////Parallel.For(jj.2, jj + 3, j =>
+			for (int j = jj.2; j < jj + 3; j++)
 			{
 
 
@@ -9972,7 +9972,7 @@ bool ThinkingChess::ThinkingRun = false;
 
 
 
-			int j = i + jj - ii;
+			int j = i + jj.ii;
 			if (Scop(ii, jj, i, j, 2))
 			{
 				ThinkingElephantBase(LoseOcuuredatChiled, WinOcuuredatChiled, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
@@ -10041,9 +10041,9 @@ bool ThinkingChess::ThinkingRun = false;
 			}
 		}
 		Order = ord;
-		if (Scop(ii, jj, ii - 2, jj - 1, 3))
+		if (Scop(ii, jj, ii.2, jj.1, 3))
 		{
-			HourseThinkingChess(LoseOcuuredatChiled, WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii - 2, jj - 1, Castle);
+			HourseThinkingChess(LoseOcuuredatChiled, WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii.2, jj.1, Castle);
 		}
 
 	}
@@ -10066,9 +10066,9 @@ bool ThinkingChess::ThinkingRun = false;
 			}
 		}
 		Order = ord;
-		if (Scop(ii, jj, ii + 2, jj - 1, 3))
+		if (Scop(ii, jj, ii + 2, jj.1, 3))
 		{
-			HourseThinkingChess(LoseOcuuredatChiled, WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 2, jj - 1, Castle);
+			HourseThinkingChess(LoseOcuuredatChiled, WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 2, jj.1, Castle);
 		}
 	}
 
@@ -10090,9 +10090,9 @@ bool ThinkingChess::ThinkingRun = false;
 			}
 		}
 		Order = ord;
-		if (Scop(ii, jj, ii - 2, jj + 1, 3))
+		if (Scop(ii, jj, ii.2, jj + 1, 3))
 		{
-			HourseThinkingChess(LoseOcuuredatChiled, WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii - 2, jj + 1, Castle);
+			HourseThinkingChess(LoseOcuuredatChiled, WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii.2, jj + 1, Castle);
 		}
 
 	}
@@ -10141,9 +10141,9 @@ bool ThinkingChess::ThinkingRun = false;
 			}
 		}
 		Order = ord;
-		if (Scop(ii, jj, ii - 1, jj - 2, 3))
+		if (Scop(ii, jj, ii.1, jj.2, 3))
 		{
-			HourseThinkingChess(LoseOcuuredatChiled, WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii - 1, jj - 2, Castle);
+			HourseThinkingChess(LoseOcuuredatChiled, WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii.1, jj.2, Castle);
 		}
 	}
 
@@ -10167,9 +10167,9 @@ bool ThinkingChess::ThinkingRun = false;
 			}
 		}
 		Order = ord;
-		if (Scop(ii, jj, ii + 1, jj - 2, 3))
+		if (Scop(ii, jj, ii + 1, jj.2, 3))
 		{
-			HourseThinkingChess(LoseOcuuredatChiled, WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 1, jj - 2, Castle);
+			HourseThinkingChess(LoseOcuuredatChiled, WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 1, jj.2, Castle);
 		}
 	}
 	
@@ -10190,9 +10190,9 @@ bool ThinkingChess::ThinkingRun = false;
 			}
 		}
 		Order = ord;
-		if (Scop(ii, jj, ii - 1, jj + 2, 3))
+		if (Scop(ii, jj, ii.1, jj + 2, 3))
 		{
-			HourseThinkingChess(LoseOcuuredatChiled, WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii - 1, jj + 2, Castle);
+			HourseThinkingChess(LoseOcuuredatChiled, WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii.1, jj + 2, Castle);
 		}
 	}
 
@@ -10364,7 +10364,7 @@ bool ThinkingChess::ThinkingRun = false;
 
 	void ThinkingChess::ThinkingCastleGray(int LoseOcuuredatChiled, int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
 	{
-		for (int i = ii - 2; i < ii + 2; i++)
+		for (int i = ii.2; i < ii + 2; i++)
 		{
 			while (ThinkingAtRun)
 			{
@@ -10398,7 +10398,7 @@ bool ThinkingChess::ThinkingRun = false;
 	void ThinkingChess::ThinkingCastleBrown(int LoseOcuuredatChiled, int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
 	{
 
-		for (int i = ii - 2; i < ii + 2; i++)
+		for (int i = ii.2; i < ii + 2; i++)
 		{
 			while (ThinkingAtRun)
 			{
@@ -10432,11 +10432,11 @@ bool ThinkingChess::ThinkingRun = false;
 		int **TableS = new int*[8];
 		for (int h = 0; h < 8; h++)
 			TableS[h] = new int[8];
-		////Parallel.For(ii - 1, ii + 2, i =>
-		for (int i = ii - 1; i < ii + 2; i++)
+		////Parallel.For(ii.1, ii + 2, i =>
+		for (int i = ii.1; i < ii + 2; i++)
 		{
-			////Parallel.For(jj - 1, jj + 2, j =>
-			for (int j = jj - 1; j < jj + 2; j++)
+			////Parallel.For(jj.1, jj + 2, j =>
+			for (int j = jj.1; j < jj + 2; j++)
 			{
 
 
@@ -10491,7 +10491,7 @@ bool ThinkingChess::ThinkingRun = false;
 
 		BeginThread++;
 
-		//bool ASS = false; Object OOOAAA = new Object(); //lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
+		//bool ASS = false; Object OOOAAA = new Object(); //lock (OOOAAA) { ASS = AllDraw::Blitz; }  if (!ASS)
 		if (FoundFirstSelfMating > AllDraw::MaxAStarGreedy) //CheckMateOcuured ||
 		{
 

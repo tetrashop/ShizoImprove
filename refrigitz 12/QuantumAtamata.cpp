@@ -76,7 +76,7 @@ namespace RefrigtzDLL
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 		//lock (o)
 		{
-			if (Bits == false  Bits[1] == false)
+			if (Bits[0] == false && Bits[1] == false)
 			{
 				return true;
 			}
@@ -90,7 +90,7 @@ namespace RefrigtzDLL
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 		//lock (o)
 		{
-			if (Bits[0] == true  Bits[1] == false)
+			if (Bits[0] == true && Bits[1] == false)
 			{
 				return true;
 			}
@@ -104,7 +104,7 @@ namespace RefrigtzDLL
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 		//lock (o)
 		{
-			if (Bits == false  Bits[1] == true)
+			if (Bits[0] == false && Bits[1] == true)
 			{
 				return true;
 			}
@@ -118,7 +118,7 @@ namespace RefrigtzDLL
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 		//lock (o)
 		{
-			if (Bits[0] == true  Bits[1] == true)
+			if (Bits[0] == true && Bits[1] == true)
 			{
 				return true;
 			}

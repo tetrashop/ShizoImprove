@@ -88,7 +88,7 @@
 namespace RefrigtzDLL
 {
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
-//ORIGINAL LINE: [Serializable] public class ChessRules
+//ORIGINAL LINE: [Serializable] class ChessRules
 	class ChessRules
 	{
 	public:
@@ -160,7 +160,7 @@ namespace RefrigtzDLL
 		//Constructor 
 		ChessRules(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged, int Ki, int **A, int Ord, int i, int j);
 		//Initiate of Rules of Chess Refregitz.
-		bool Rules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, int color, int Ki, bool SelfHomeStatCP=true); //Current Kind. - int. - The Destination Click Column - The Destination Click Row - The First Click Column. - The First Click Row
+		bool Rules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, int color, int Ki, bool SelfHomeStatCP=true); //Current Kind..int..The Destination Click Column.The Destination Click Row.The First Click Column..The First Click Row
 		//Castle King Movment Consideration.
 		bool CastleKing(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, int color, int Ki);
 		//Simulation and Consdtruction of Check.

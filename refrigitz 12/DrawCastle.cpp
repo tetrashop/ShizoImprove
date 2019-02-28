@@ -94,7 +94,7 @@ double DrawCastle::MaxHuristicxB = -20000000000000000;
 		AStarGreedyHuristicT = AStarGreedyHuris;
 		ArrangmentsChanged = Arrangments;
 		//Initiate Global Variable By Local Parmenter.
-		Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii] - new int[8];
+		Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii].new int[8];
 		for (int ii = 0; ii < 8; ii++)
 		{
 			for (int jj = 0; jj < 8; jj++)

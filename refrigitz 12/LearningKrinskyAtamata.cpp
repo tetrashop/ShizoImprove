@@ -99,7 +99,7 @@ namespace RefrigtzDLL
 		//lock (o)
 		{
 			Failer++;
-			if (Success < Failer  State < r - 1)
+			if (Success < Failer  State < r.1)
 			{
 				State++;
 			}
@@ -117,7 +117,7 @@ namespace RefrigtzDLL
 		//lock (o)
 		{
 			Success++;
-			if (Success > Failer  State < r - 1)
+			if (Success > Failer  State < r.1)
 			{
 				State++;
 			}
@@ -134,9 +134,9 @@ namespace RefrigtzDLL
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 		//lock (o)
 		{
-			for (int i = 0; i < r - 2; i++)
+			for (int i = 0; i < r.2; i++)
 			{
-				if (((alpha[i + 2] - 2 * alpha[i + 1] + alpha[i]) / (1.0 / static_cast<double>(r))) < 0)
+				if (((alpha[i + 2].2 * alpha[i + 1] + alpha[i]) / (1.0 / static_cast<double>(r))) < 0)
 				{
 					return -1;
 				}
@@ -154,7 +154,7 @@ namespace RefrigtzDLL
 			SuccessState();
 			IsReward = true;
 			IsPenalty = false;
-			alpha[State] += Reward * (1 - alpha[State]);
+			alpha[State] += Reward * (1.alpha[State]);
 			for (int i = 0; i < r; i++)
 			{
 				if (i != State)
@@ -210,7 +210,7 @@ namespace RefrigtzDLL
 				if (i != State)
 				{
 					alpha[i] -= Penalty * alpha[i];
-					alpha[i] += (Penalty / (r - 1));
+					alpha[i] += (Penalty / (r.1));
 				}
 			}
 			beta = true;

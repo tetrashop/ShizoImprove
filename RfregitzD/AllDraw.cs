@@ -19512,11 +19512,11 @@ if (Kind == 5)
             {
 
                 List<int[]> TagList = new List<int[]>();
-                for (int i = 0; i < Tag.size(); i++)
+                for (int i = 0; i < Tag.Length; i++)
                 {
-                    if (i + 1 < Tag.size())
+                    if (i + 1 < Tag.Length)
                     {
-                        for (int j = i + 1; j < i + RefrigtzDLL.AllDraw.MaxAStarGreedy.ToString().size() + 1; j++)
+                        for (int j = i + 1; j < i + RefrigtzDLL.AllDraw.MaxAStarGreedy.ToString().Length + 1; j++)
                         {
                             try
                             {

@@ -22,13 +22,13 @@
     <None Include="C:\Users\TechnologyLover\Desktop\New folder\packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\AllDraw.cpp">
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\AllDraw::cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\ChessGeneticAlgorithm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\ChessRules.cpp">
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\ChessRules::cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\CodeClass.cpp">
@@ -90,13 +90,13 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\AllDraw.h">
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\AllDraw::h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\ChessGeneticAlgorithm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\ChessRules.h">
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\ChessRules::h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\CodeClass.h">

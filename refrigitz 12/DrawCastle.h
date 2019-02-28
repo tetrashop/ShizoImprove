@@ -5,7 +5,7 @@ namespace RefrigtzDLL
 {
 	
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
-//ORIGINAL LINE: [Serializable] public class DrawCastle
+//ORIGINAL LINE: [Serializable] class DrawCastle
 	class DrawCastle
 	{
 
@@ -65,9 +65,9 @@ namespace RefrigtzDLL
 	        ArrangmentsChanged = Arrangments;
 	    }*/
 		//constructor 2.
-		DrawCastle(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int **Tab, int Ord, bool TB, int Cur); //, ref AllDraw. THIS
+		DrawCastle(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int **Tab, int Ord, bool TB, int Cur); //, ref AllDraw:: THIS
 		//Clone a Copy.
-		void Clone(DrawCastle *AA); //, ref AllDraw. THIS
+		void Clone(DrawCastle *AA); //, ref AllDraw:: THIS
 		//Draw An Instatnt Brideges Images On the Table Method.
 		void DrawCastleOnTable( int CellW, int CellH);
 

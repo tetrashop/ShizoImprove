@@ -9,7 +9,7 @@
 namespace RefrigtzDLL
 {
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
-//ORIGINAL LINE: [Serializable] public class NetworkQuantumLearningKrinskyAtamata : LearningKrinskyAtamata
+//ORIGINAL LINE: [Serializable] class NetworkQuantumLearningKrinskyAtamata : LearningKrinskyAtamata
 	class NetworkQuantumLearningKrinskyAtamata : public LearningKrinskyAtamata
 	{
 	public:

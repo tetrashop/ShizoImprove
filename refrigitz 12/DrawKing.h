@@ -4,7 +4,7 @@ namespace RefrigtzDLL
 {
 	
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
-//ORIGINAL LINE: [Serializable] public class DrawKing
+//ORIGINAL LINE: [Serializable] class DrawKing
 	class DrawKing
 	{
 
@@ -68,9 +68,9 @@ namespace RefrigtzDLL
 		}
 		*/
 		//Constructor 2.
-		DrawKing(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int **Tab, int Ord, bool TB, int Cur); //, ref AllDraw. THIS
+		DrawKing(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int **Tab, int Ord, bool TB, int Cur); //, ref AllDraw:: THIS
 		//Clone a Copy.
-		void Clone(DrawKing *&AA); //, ref AllDraw. THIS
+		void Clone(DrawKing *&AA); //, ref AllDraw:: THIS
 		//Draw an Instatnt King on the Table Method.
 		void DrawKingOnTable( int CellW, int CellH);
 

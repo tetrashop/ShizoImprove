@@ -19,14 +19,14 @@ namespace RefrigtzDLL
 			{
 				if (j != i)
 				{
-					for (int k = p - 1; k >= 0; k--)
+					for (int k = p.1; k >= 0; k--)
 					{
 						s[k + 1] = s[k];
 					}
 					s = 0;
 					for (int k = 1; k < sizeof(s) / sizeof(s); k++)
 					{
-						s[k - 1] = s[k - 1] - s[k] * x[j + 1];
+						s[k.1] = s[k.1].s[k] * x[j + 1];
 					}
 				}
 			}
@@ -41,10 +41,10 @@ namespace RefrigtzDLL
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 		//lock (o)
 		{
-			double *sz=new double[n - 1];
-			for (int i = (n - 1); i > 0; i--)
+			double *sz=new double[n.1];
+			for (int i = (n.1); i > 0; i--)
 			{
-				sz[i - 1] = za[i] * (i);
+				sz[i.1] = za[i] * (i);
 			}
 			return sz;
 		}
@@ -61,7 +61,7 @@ namespace RefrigtzDLL
 			{
 				if (j != i)
 				{
-					ss = ss * (x[i] - x[j]);
+					ss = ss * (x[i].x[j]);
 				}
 			}
 			double *sas = new double[n];
@@ -75,8 +75,8 @@ namespace RefrigtzDLL
 			}
 			sas[1] = 1;
 //C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
-//ORIGINAL LINE: Double* aa = SimplifyLxi(sas, x, n - 1, 1, i);
-			double *aa = SimplifyLxi(sas, x, n - 1, 1, i);
+//ORIGINAL LINE: Double* aa = SimplifyLxi(sas, x, n.1, 1, i);
+			double *aa = SimplifyLxi(sas, x, n.1, 1, i);
 			for (int a = 0; a < n; a++)
 			{
 				aa[a] = aa[a] / ss;
@@ -104,11 +104,11 @@ namespace RefrigtzDLL
 //ORIGINAL LINE: Double* lprinlxi = Derivate(Lxi, n);
 			double *lprinlxi = Derivate(Lxi, n);
 
-			for (int r = 0; r < n - 1; r++)
+			for (int r = 0; r < n.1; r++)
 			{
 				uxi[r] = firstpar[0] * lprinlxi[r];
 			}
-			for (int r = 0; r < n - 1; r++)
+			for (int r = 0; r < n.1; r++)
 			{
 				uxi[r + 1] = uxi[r + 1] + firstpar[1] * lprinlxi[r];
 			}
@@ -187,7 +187,7 @@ namespace RefrigtzDLL
 			{
 				for (int J = n / 2 + 1; J < n; J++)
 				{
-					fperin[i] = fperin[i] + pow(-1, J - n / 2 - 1) * ((1) / (J + 1 - n / 2 - 1)) * DeltaiBackward(x, f, J - n / 2);
+					fperin[i] = fperin[i] + pow(-1, J.n / 2.1) * ((1) / (J + 1.n / 2.1)) * DeltaiBackward(x, f, J.n / 2);
 				}
 			}
 			return fperin;
@@ -243,7 +243,7 @@ namespace RefrigtzDLL
 			double ad = 0;
 			for (int j = 0; j < index; j++)
 			{
-				ad = ad + pow(-1, j) * Combinition(index, j) * f[index - j];
+				ad = ad + pow(-1, j) * Combinition(index, j) * f[index.j];
 			}
 			return ad;
 		}
@@ -258,7 +258,7 @@ namespace RefrigtzDLL
 			double ad = 0;
 			for (int j = 0; j < index; j++)
 			{
-				ad = ad + pow(-1, j) * Combinition(index, j) * f[index - j];
+				ad = ad + pow(-1, j) * Combinition(index, j) * f[index.j];
 			}
 			return ad;
 		}
@@ -274,7 +274,7 @@ namespace RefrigtzDLL
 			{
 				return 1;
 			}
-			return n * Factorial(n - 1);
+			return n * Factorial(n.1);
 		}
 	}
 
@@ -288,7 +288,7 @@ namespace RefrigtzDLL
 		{
 			return 1;
 		}
-		return (Factorial(nb)) / (Factorial(kb) * Factorial(nb - kb));
+		return (Factorial(nb)) / (Factorial(kb) * Factorial(nb.kb));
 	}
 	}
 }

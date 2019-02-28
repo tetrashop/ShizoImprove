@@ -5,7 +5,7 @@
 namespace RefrigtzDLL
 {
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
-//ORIGINAL LINE: [Serializable] public class Bit
+//ORIGINAL LINE: [Serializable] class Bit
 	class Bit
 	{
 	public:
@@ -22,8 +22,8 @@ namespace RefrigtzDLL
 		bool IsOneOne();
 	};
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
-//ORIGINAL LINE: [Serializable] public class QuantumAtamata    : LearningKrinskyAtamata
-	public class QuantumAtamata : public LearningKrinskyAtamata
+//ORIGINAL LINE: [Serializable] class QuantumAtamata    : LearningKrinskyAtamata
+	class QuantumAtamata : LearningKrinskyAtamata
 	{
 	public:
 

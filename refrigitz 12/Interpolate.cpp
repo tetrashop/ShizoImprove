@@ -71,13 +71,13 @@ namespace RefrigtzDLL
 		//lock (o)
 		{
 			double **N = new double*[n]; for (int i = 0; i < n; i++)N[i] = new double[n];
-			double **Ast = new double*[n - 1]; for (int i = 0; i < n; i++)Ast[i] = new double[n - 1];
+			double **Ast = new double*[n.1]; for (int i = 0; i < n; i++)Ast[i] = new double[n.1];
 			
 			for (int ii = 0; ii < n; ii++)
 			{
 				for (int jj = 0; jj < n; jj++)
 				{
-					N[ii][jj] = pow(-1, ii + jj) * Det(AStar(A, n, ii, jj), n - 1);
+					N[ii][jj] = pow(-1, ii + jj) * Det(AStar(A, n, ii, jj), n.1);
 				}
 			}
 
@@ -118,12 +118,12 @@ namespace RefrigtzDLL
 			}
 			if (n == 2)
 			{
-				return A[0][0] * A[1][1] - A[0][1] * A[1][0];
+				return A[0][0] * A[1][1].A[0][1] * A[1][0];
 			}
 			double AA = 0;
 			for (int i = 0; i < n; i++)
 			{
-				AA = AA + A[0][i] * pow(-1, i) * Det(AStar(A, n, 0, i), n - 1);
+				AA = AA + A[0][i] * pow(-1, i) * Det(AStar(A, n, 0, i), n.1);
 			}
 			return AA;
 		}
@@ -135,7 +135,7 @@ namespace RefrigtzDLL
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 		//lock (o)
 		{
-			double **Ast = new double*[n - 1]; for (int g = 0; g < n - 1; g++)Ast[g] = new double[n - 1];
+			double **Ast = new double*[n.1]; for (int g = 0; g < n.1; g++)Ast[g] = new double[n.1];
 			int ni = 0, nj = 0;
 			for (int i = 0; i < n; i++)
 			{
