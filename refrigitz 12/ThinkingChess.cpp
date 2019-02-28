@@ -5565,7 +5565,7 @@ bool ThinkingChess::ThinkingRun = false;
 										int **Table3 = CloneATable(Table);
 										int Ord3 = Ord;
 										int aa3 = aa;
-										double HAA3 = HuristicMovment(Before, Table3, aa3, Ord3, i3, j3, iiii3, jjjj);
+										double HAA3 = HuristicMovment(Before, Table3, aa3, Ord3, i3, j3, iiii3, jjjj3);
 										Huristic[2] += HAA3;
 
 										int i4 = RowS, j4 = ColS, iiii4 = RowD, jjjj4 = ColD;

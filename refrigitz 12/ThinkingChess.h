@@ -464,8 +464,6 @@ namespace RefrigtzDLL
 		//void CastleThinkingGray(int LoseOcuuredatChiled, int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);		
 	public:
 		bool AttackSelfThatNotSupportedCalculateValuableAll(int **TableS, int Order, int a, int ij, int ji, int ii, int jj, std::vector<int*> ValuableSelfSupported);
-		bool Attack(int **Tab, int i, int j, int ii, int jj, int a, int Order);
-		void HuristicPenaltyValuePerform(QuantumAtamata Current, int Order, double HuristicAttackValue, bool AllDrawClass = false);
 		void ThinkingSoldierBase(int LoseOcuuredatChiled, int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
 		void ThinkingSoldier(int LoseOcuuredatChiled, int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
 		void ThinkingElephantBase(int LoseOcuuredatChiled, int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);

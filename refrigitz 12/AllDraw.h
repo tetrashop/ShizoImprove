@@ -486,8 +486,7 @@ if (Kind == 2)
 		//When Penalty Regard Branches expanded to sub branches.
 		
 	public:
-		void MakePenaltyAllCheckMateBranches(AllDraw A, int Order);
-		AllDraw RemovePenalltyFromFirstBranches(int Order);
+			AllDraw RemovePenalltyFromFirstBranches(int Order);
 		AllDraw FoundOfLeafDepenOfKind(int Kind, AllDraw& Leaf, bool & Found, int Order, int  OrderLeaf);
 		AllDraw FoundOfCurrentTableNode(int **Tab, int Order, AllDraw &THIS, bool &Found);
 		bool IsFoundOfLeafDepenOfKindhaveVictory(int Kind, bool &Found, int Order);
@@ -548,7 +547,6 @@ if (Kind == 2)
 		//Parallel.ForEach(tH, items => Task.WaitAny(items));
 		void ServeISSup(int Order, int Kind, int ii);
 		void InitiateAStarGreedyt(int iAStarGreedy, int ii, int jj, int a, int** Tab, int Order, bool TB, int FOUND, int LeafAStarGreedy);
-		void  InitiateAStarGreedytSodlerGray(int iii, int jjj, int **Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy);
 		void    InitiateAStarGreedytElephantGray(int iii, int jjj, int **Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy);		
 		void InitiateAStarGreedythHourseGray(int iii, int jjj, int **Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy);
 		void InitiateAStarGreedythCastleGray(int iii, int jjj, int **Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy);		
