@@ -430,7 +430,7 @@ bool ThingsConverter::ActOfClickEqualTow = false;
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 				//lock (O)
 				{
-					TableConverted = new int*[8]; for (int ii = 0; ii < 8; ii++)TableConverted[ii].new int[8];
+					TableConverted = new int*[8]; for (int ii = 0; ii < 8; ii++)TableConverted[ii] = new int[8];
 					 
 					for (int iii = 0; iii < 8; iii++)
 					{
