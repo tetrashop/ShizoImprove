@@ -160,7 +160,7 @@
     <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\NewotoonInterpolate.cpp" />
     <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\PlatformHelper.cpp" />
     <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Program.cpp" />
-    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\QuantumAtamatA->cpp" />
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\LearningKrinskyAtamata->cpp" />
     <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\QuantumLearningAtamatA->cpp" />
     <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\ThingsConverter.cpp" />
     <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\ThinkingChess.cpp" />
@@ -184,7 +184,7 @@
     <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\NewotoonInterpolate.h" />
     <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\PlatformHelper.h" />
     <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Program.h" />
-    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\QuantumAtamatA->h" />
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\LearningKrinskyAtamata->h" />
     <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\QuantumLearningAtamatA->h" />
     <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\stringconverter.h" />
     <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\ThingsConverter.h" />

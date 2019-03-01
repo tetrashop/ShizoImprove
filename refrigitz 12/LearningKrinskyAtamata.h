@@ -31,7 +31,6 @@ namespace RefrigtzDLL
 		int r;
 		int m;
 		int k;
-		int** _arrayofarrays;
 	private:
 		
 	public:
@@ -53,24 +52,11 @@ namespace RefrigtzDLL
 		int State;
 		//int State = 1;
 	public:
-		class Proxy {
-		public:
-			Proxy(int* _array) : _array(_array) { }
-
-			int operator*(int index) {
-				return _array[index];
-			}
-		private:
-			int* _array;
-		};
-
-		Proxy operator*(int index) {
-			return Proxy(_arrayofarrays[index]);
-		}
+		
 		void Initiate();
 		
 		
-		//void Clone(QuantumAtamata  *AA);
+		//void Clone(LearningKrinskyAtamata  *AA);
 
 		void FailureState();
 		void SuccessState();
@@ -83,6 +69,7 @@ namespace RefrigtzDLL
 
 	public:
 		LearningKrinskyAtamata(int r0, int m0, int k0);
+		void CurrenStateInitialize();
 		LearningKrinskyAtamata()
 		{
 		}

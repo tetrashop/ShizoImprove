@@ -5,78 +5,9 @@ namespace RefrigtzDLL
 {
 
 
-	Bit::Bit()
-	{
-		Bits[0] = false;
-		Bits[1] = false;
-	}
-
-	bool *Bit::GetBits()
-	{
-			return Bits;
-	}
-
-	void Bit::SetZeroZero()
-	{
-			Bits[0] = false;
-			Bits[1] = false;
-	}
-
-	void Bit::SetZeroOne()
-	{
-			Bits[0] = true;
-			Bits[1] = false;
-	}
-
-	void Bit::SetOneZero()
-	{
-			Bits[0] = false;
-			Bits[1] = true;
-	}
-
-	void Bit::SetOneOne()
-	{
-			Bits[0] = true;
-			Bits[1] = true;
-	}
-
-	bool Bit::IsZeroZero()
-	{
-		if (Bits[0] == false && Bits[1] == false)
-		{
-			return true;
-		}
-		return false;
-	}
 	
-	bool Bit::IsZeroOne()
-	{
-		if (Bits[0] == true && Bits[1] == false)
-		{
-			return true;
-		}
-		return false;
-	}
-	
-	bool Bit::IsOneZero()
-	{
-		if (Bits[0] == false && Bits[1] == true)
-		{
-			return true;
-		}
-		return false;
-	}
-	
-	bool Bit::IsOneOne()
-	{
-		if (Bits[0] == true && Bits[1] == true)
-		{
-			return true;
-		}
-		return false;
-	}
 
-	QuantumAtamata::QuantumAtamata(int r0, int m0, int k0)
+	LearningKrinskyAtamata::LearningKrinskyAtamata(int r0, int m0, int k0)
 	{
 
 		InitializeInstanceFields();
@@ -99,7 +30,7 @@ namespace RefrigtzDLL
 
 
 
-	void QuantumAtamata::CurrenStateInitialize()
+	void LearningKrinskyAtamata::CurrenStateInitialize()
 	{
 
 		A1 = FirstAtamataState();
@@ -266,7 +197,7 @@ namespace RefrigtzDLL
 
 
 
-	int QuantumAtamata::FirstAtamataState()
+	int LearningKrinskyAtamata::FirstAtamataState()
 	{
 
 		if (BitState[0].IsZeroZero())
@@ -287,7 +218,7 @@ namespace RefrigtzDLL
 
 	}
 
-	int QuantumAtamata::SecondAtamataState()
+	int LearningKrinskyAtamata::SecondAtamataState()
 	{
 
 
@@ -310,7 +241,7 @@ namespace RefrigtzDLL
 
 	}
 
-	int QuantumAtamata::ThirdAtamataState()
+	int LearningKrinskyAtamata::ThirdAtamataState()
 	{
 
 
@@ -332,7 +263,7 @@ namespace RefrigtzDLL
 
 	}
 
-	void QuantumAtamata::InitializeInstanceFields()
+	void LearningKrinskyAtamata::InitializeInstanceFields()
 	{
 		States = std::vector<std::wstring>();
 		StateByte = std::vector<unsigned char>();
@@ -351,7 +282,7 @@ namespace RefrigtzDLL
 		AC = L"";
 		CurrentState = L"";
 	}
-	QuantumAtamata::~QuantumAtamata()
+	LearningKrinskyAtamata::~LearningKrinskyAtamata()
 	{
 		delete[] FirstProbibility;
 		delete[] SecondProbibility;

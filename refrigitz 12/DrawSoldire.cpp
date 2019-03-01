@@ -4,8 +4,8 @@
 
 namespace RefrigtzDLL
 {
-	inline bool operator==( DrawSoldier& lhs,  DrawSoldier& rhs) { return (lhs == rhs); }
-	inline bool operator!=( DrawSoldier& lhs,  DrawSoldier& rhs) { return !(lhs == rhs); }
+	inline bool operator==(const  DrawSoldier& lhs,  DrawSoldier& rhs) { return  (lhs == rhs); }
+	inline bool operator!=(const  DrawSoldier& lhs,  DrawSoldier& rhs) { return !(lhs == rhs); }
 
 double DrawSoldier::MaxHuristicxS = -DBL_MAX;
 

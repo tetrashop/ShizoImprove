@@ -333,9 +333,8 @@ namespace RefrigtzDLL
 		int Move;
 		static int MouseClick;
 	public:
-		int *AStarGreedyIndex;
-		void* operator*(std::size_t idx);
-		/*
+		
+			/*
 		template <class T, size_t N>
 struct Array {
     T data[N];
@@ -350,12 +349,12 @@ struct Array {
 	public:
 		std::vector<int**> TableList;
 		int AStarGreedyInt;
-		DrawSoldier *SolderesOnTable;;
-		DrawElefant *ElephantOnTable;
-		DrawHourse *HoursesOnTable;
-		DrawCastle *CastlesOnTable;
-		DrawMinister *MinisterOnTable;
-		DrawKing *KingOnTable;
+		DrawSoldier SolderesOnTable[16];
+		DrawElefant ElephantOnTable[4];
+		DrawHourse HoursesOnTable[4];
+		DrawCastle CastlesOnTable[4];
+		DrawMinister MinisterOnTable[2];
+		DrawKing KingOnTable[2];
 	public:
 		std::vector<double*> MaxHuristicAStarGreedytBackWard;
 		static  int MaxSoldeirFounded;
@@ -389,6 +388,7 @@ struct Array {
 		float *FoundLocationOfObject(int **Tabl, int Kind, bool IsGray);
 		//Constructor
 	public:
+		bool IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckMate, int ForCheckMate, int AStarGreedyInt);
 		void MakePenaltyAllCheckMateBranches(AllDraw A, int Order);
 		std::vector<std::vector<double>> FoundOfBestMovments(int AStarGreedyInt, std::vector<double> i, std::vector<double> j, std::vector<double> k, AllDraw Dummy, int a, int Order);
 		bool TableZero(int ** Ta);
@@ -405,15 +405,11 @@ struct Array {
 		void IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base);
 		AllDraw(int Order, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments);
 		//Clone Copy Method
-		void Clone(AllDraw& AA);
+		//void Clone(AllDraw& AA);
 //		int SumOfObjects(AllDraw A, int Order);
 		//aBlanck Constructor
 		AllDraw(int Order, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, AllDraw THi);
 		
-		AllDraw()
-		{
-		
-		}
 		//Check For Thinking Of Current Item Movments Finished.
 		bool KingDan(int** Tab, int Order);
 		//int** Initiate(int ii, int jj, int a, int** Table, int Order, bool TB, bool FOUND, int LeafAStarGreedy, bool SetDept = false);
@@ -490,7 +486,6 @@ if (Kind == 2)
 		void BeginIndexFoundingMaxLessofMaxList(int ListIndex, std::vector<double> Founded, double LessB);
 		//Method for Check of Existence of Checkmate less than for checked mate.
 	private:
-		bool IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckMate, int ForCheckMate, int AStarGreedyInt);
 		//When Penalty Regard Branches expanded to sub branches.
 		
 	public:

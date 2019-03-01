@@ -76,7 +76,7 @@
     <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\Program.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\QuantumAtamatA->cpp">
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\LearningKrinskyAtamata->cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\QuantumLearningAtamatA->cpp">
@@ -144,7 +144,7 @@
     <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\Program.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\QuantumAtamatA->h">
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\LearningKrinskyAtamata->h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\QuantumLearningAtamatA->h">

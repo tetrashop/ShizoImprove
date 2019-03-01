@@ -4,8 +4,8 @@
 
 namespace RefrigtzDLL
 {
-	inline bool operator==( DrawElefant& lhs,  std::nullptr_t& rhs) { return (lhs == rhs); }
-	inline bool operator!=( DrawElefant& lhs,  std::nullptr_t& rhs) { return !(lhs == rhs); }
+	inline bool operator==(const  DrawElefant& lhs,  const std::nullptr_t& rhs) { return  (lhs == rhs); }
+	inline bool operator!=(const  DrawElefant& lhs,  const std::nullptr_t& rhs) { return !(lhs == rhs); }
 
 double DrawElefant::MaxHuristicxE = -20000000000000000;
 

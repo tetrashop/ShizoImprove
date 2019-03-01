@@ -5,8 +5,8 @@
 
 namespace RefrigtzDLL
 {
-	inline bool operator==( DrawMinister& lhs,  std::nullptr_t& rhs) { return (lhs == rhs); }
-	inline bool operator!=( DrawMinister& lhs,  std::nullptr_t& rhs) { return !(lhs == rhs); }
+	inline bool operator==(const  DrawMinister& lhs,  const std::nullptr_t& rhs) { return  (lhs == rhs); }
+	inline bool operator!=(const  DrawMinister& lhs,  const std::nullptr_t& rhs) { return !(lhs == rhs); }
 
 
 double DrawMinister::MaxHuristicxM = -20000000000000000;

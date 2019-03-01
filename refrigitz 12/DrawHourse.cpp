@@ -4,8 +4,8 @@
 
 namespace RefrigtzDLL
 {
-	inline bool operator==( DrawHourse& lhs, std::nullptr_t& rhs) { return (lhs == rhs); }
-	inline bool operator!=( DrawHourse& lhs, std::nullptr_t& rhs) { return !(lhs == rhs); }
+	inline bool operator==(const  DrawHourse& lhs, const std::nullptr_t& rhs) { return  (lhs == rhs); }
+	inline bool operator!=(const  DrawHourse& lhs, const std::nullptr_t& rhs) { return !(lhs == rhs); }
 
 double DrawHourse::MaxHuristicxH = -20000000000000000;
 

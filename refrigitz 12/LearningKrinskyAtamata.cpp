@@ -1,5 +1,5 @@
 ﻿#include "stdafx.h"
-//#include "QuantumAtamatA.h"
+//#include "LearningKrinskyAtamata.h"
 namespace RefrigtzDLL
 {
 
@@ -54,13 +54,10 @@ namespace RefrigtzDLL
 			Penalty = 1.0 / static_cast<double>(r);
 		}
 
-		_arrayofarrays = new int*[10];
-		for (int i = 0; i < 10; ++i)
-			_arrayofarrays[i] = new int[10];
 
 	}
 	/*
-	void LearningKrinskyAtamata::Clone(QuantumAtamata   *AA)
+	void LearningKrinskyAtamata::Clone(LearningKrinskyAtamata   *AA)
 	{
 		//autoo = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -181,7 +178,7 @@ namespace RefrigtzDLL
 		}
 	}
 
-	virtual double LearningKrinskyAtamata::IsPenaltyAction()
+	double LearningKrinskyAtamata::IsPenaltyAction()
 	{
 		//autoo = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -195,7 +192,7 @@ namespace RefrigtzDLL
 		}
 	}
 
-	virtual double LearningKrinskyAtamata::LearningAlgorithmPenalty()
+	double LearningKrinskyAtamata::LearningAlgorithmPenalty()
 	{
 		//autoo = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:

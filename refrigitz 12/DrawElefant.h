@@ -68,8 +68,6 @@ namespace RefrigtzDLL
 		}*/
 		//Constructor 2.
 		DrawElefant(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int **Tab, int Ord, bool TB, int Cur); //,ref AllDraw:: THIS
-		DrawElefant()
-		{}
 
 		//Clone a Copy.
 		//void Clone(DrawElefant *AA); //, ref AllDraw:: THIS

@@ -71,9 +71,6 @@ namespace RefrigtzDLL
 		*/
 		//Constructor 2.
 		DrawKing(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int **Tab, int Ord, bool TB, int Cur); //, ref AllDraw:: THIS
-		DrawKing()
-		{
-		}
 		//Clone a Copy.
 	
 		//void Clone(DrawKing *&AA); //, ref AllDraw:: THIS

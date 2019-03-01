@@ -69,10 +69,6 @@ namespace RefrigtzDLL
 	*/   
 		//Constructpor 2.
 		DrawHourse(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int **Tab, int Ord, bool TB, int Cur); //,ref AllDraw:: THIS
-		DrawHourse()
-		{
-
-		}
 
 		//Cloen a Copy.
 		//void Clone(DrawHourse *AA); //, ref AllDraw:: THIS

@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include "stdafx.h"
+#include "stdafx.h"
 
 using namespace std;
 
@@ -79,6 +80,7 @@ using namespace std;
 
 namespace RefrigtzDLL
 {
+	template<typename T>
 		
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
 //ORIGINAL LINE: [Serializable] class ThinkingChess
@@ -103,10 +105,9 @@ namespace RefrigtzDLL
 		//Initiate Global and Static Variables. 
 	public:
 		bool IsThereMateOfEnemy;
-		bool IsThereMateOfSelf;
-		static NetworkQuantumLearningKrinskyAtamata LearniningTable;
+		bool IsThereMateOfSelf;		
 		void CastleThinkingGray(int LoseOcuuredatChiled, int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
-		void HuristicPenaltyValuePerform(QuantumAtamata Current, int Order, double HuristicAttackValue, bool AllDrawClass);
+		void HuristicPenaltyValuePerform(LearningKrinskyAtamata Current, int Order, double HuristicAttackValue, bool AllDrawClass);
 	private:
 		bool ThinkingAtRun;
 	public:
@@ -234,12 +235,12 @@ namespace RefrigtzDLL
 		std::vector<double*> HuristicListCastle;
 		std::vector<double*> HuristicListMinister;
 		std::vector<double*> HuristicListKing;
-		std::vector<QuantumAtamata> PenaltyRegardListSolder;
-		std::vector<QuantumAtamata> PenaltyRegardListElefant;
-		std::vector<QuantumAtamata> PenaltyRegardListHourse;		
-		std::vector<QuantumAtamata> PenaltyRegardListCastle;
-		std::vector<QuantumAtamata> PenaltyRegardListMinister;
-		std::vector<QuantumAtamata> PenaltyRegardListKing;
+		std::vector<LearningKrinskyAtamata> PenaltyRegardListSolder;
+		std::vector<LearningKrinskyAtamata> PenaltyRegardListElefant;
+		std::vector<LearningKrinskyAtamata> PenaltyRegardListHourse;		
+		std::vector<LearningKrinskyAtamata> PenaltyRegardListCastle;
+		std::vector<LearningKrinskyAtamata> PenaltyRegardListMinister;
+		std::vector<LearningKrinskyAtamata> PenaltyRegardListKing;
 		int Max;
 		int Row, Column;
 		int color;
@@ -260,8 +261,6 @@ namespace RefrigtzDLL
 		void SetObjectNumbers(int **TabS);
 		//Constructor
 		ThinkingChess(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, int i, int j);
-		ThinkingChess()
-		{}
 		/*double SetObjectValue(int[,] Tab, int Row, int Column)
 		{
 		    Object o = new Object();
@@ -337,7 +336,7 @@ namespace RefrigtzDLL
 		//When there is at least on self object that is not safty.
 		bool InAttackSelfThatNotSupportedAll(int **TableS, int Order, int a, int i, int j, int RowS, int ColS, int ikk, int jkk, int iik, int jjk);
 		//Creation A Complete List of Attacked Self Object(s).
-		//bool InAttackSelfThatNotSupportedCalculateValuableAll(int **TableS, int Order, int a, int ij, int ji, int ii, int jj, std::vector<int*> ValuableSelfSupported);
+		bool InAttackSelfThatNotSupportedCalculateValuableAll(int **TableS, int Order, int a, int ij, int ji, int ii, int jj, std::vector<int*> ValuableSelfSupported);
 		bool ExistValuble(int *Table, std::vector<int*> ValuableSelfSupported);
 		bool MaxObjecvts(std::vector<int> Obj, int Max);
 		//When Current Movment Take Supporte.QC_OK
@@ -395,7 +394,7 @@ namespace RefrigtzDLL
 		double HeuristicDistabceOfCurrentMoveFromEnemyKing(int **Tab, int Order, int RowS, int ColS);
 		double HuristicSoldierFromCenter(int **Table, int aa, int Ord, int ii, int jj, int i, int j);
 		double *HuristicAll(bool Before, int Killed, int **Table, int aa, int Ord, int RowS, int ColS, int RowD, int ColD);
-		//void HuristicPenaltyValuePerform(QuantumAtamata Current, int Order, double HuristicAttackValue, bool AllDrawClass = false);
+		//void HuristicPenaltyValuePerform(LearningKrinskyAtamata Current, int Order, double HuristicAttackValue, bool AllDrawClass = false);
 		
 		///Huristic of Movments.
 		double HuristicMovment(bool Before, int **Table, int aa, int Ord, int RowS, int ColS, int RowD, int ColD);
@@ -455,10 +454,10 @@ namespace RefrigtzDLL
 		void HourseThinkingChess(int LoseOcuuredatChiled, int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
 		void ElephantThinkingChess(int LoseOcuuredatChiled, int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
 		bool EqualitTow(bool PenRegStrore, int kind);
-		bool EqualitOne(QuantumAtamata  Current, int kind);
-		void AddAtList(int kind, QuantumAtamata   Current);
+		bool EqualitOne(LearningKrinskyAtamata  Current, int kind);
+		void AddAtList(int kind, LearningKrinskyAtamata   Current);
 		void RemoveAtList(int kind);
-    	bool PenaltyMechanisam(int LoseOcuuredatChiled, int WinOcuuredatChiled, int CheckedM, int Killed, bool Before, int kind, int **TableS, int ii, int jj, QuantumAtamata  Current, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int i, int j, bool Castle);
+    	bool PenaltyMechanisam(int LoseOcuuredatChiled, int WinOcuuredatChiled, int CheckedM, int Killed, bool Before, int kind, int **TableS, int ii, int jj, LearningKrinskyAtamata  Current, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int i, int j, bool Castle);
 		void SolderThinkingChess(int LoseOcuuredatChiled, int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
 		void CastleThinkingBrown(int LoseOcuuredatChiled, int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
 

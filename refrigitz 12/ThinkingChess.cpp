@@ -8,7 +8,6 @@
 namespace RefrigtzDLL
 {
 
-	NetworkQuantumLearningKrinskyAtamata LearniningTable = NetworkQuantumLearningKrinskyAtamata(3, 3, 3);
 std::wstring ThinkingChess::ActionsString = L"";
 bool ThinkingChess::LearningVarsCheckedMateOccured = false;
 bool ThinkingChess::LearningVarsCheckedMateOccuredOneCheckedMate = false;
@@ -229,7 +228,7 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 			PenaltyRegardListKing = new std::vector<QuantumAtamat*a>();
 			AStarGreedy = new std::vector<AllDraw>();
 			*/
-			//Network  QuantumAtamata   * Book Initiate For Every Clone.
+			//Network  LearningKrinskyAtamata   * Book Initiate For Every Clone.
 			//ObjectValueCalculator(TableConst);
 			
 
@@ -357,12 +356,12 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 			HitNumberCastle = new List<int>();
 			HitNumberMinister = new List<int>();
 			HitNumberKing = new List<int>();
-			PenaltyRegardListSolder = new List<QuantumAtamata  >();
-			PenaltyRegardListElefant = new List<QuantumAtamata  >();
-			PenaltyRegardListHourse = new List<QuantumAtamata  >();
-			PenaltyRegardListCastle = new List<QuantumAtamata  >();
-			PenaltyRegardListMinister = new List<QuantumAtamata  >();
-			PenaltyRegardListKing = new List<QuantumAtamata  >();
+			PenaltyRegardListSolder = new List<LearningKrinskyAtamata  >();
+			PenaltyRegardListElefant = new List<LearningKrinskyAtamata  >();
+			PenaltyRegardListHourse = new List<LearningKrinskyAtamata  >();
+			PenaltyRegardListCastle = new List<LearningKrinskyAtamata  >();
+			PenaltyRegardListMinister = new List<LearningKrinskyAtamata  >();
+			PenaltyRegardListKing = new List<LearningKrinskyAtamata  >();
 			*/
 			Row = i;
 			Column = j;
@@ -501,7 +500,7 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 					//try
 					{
 						//Clone a Copy From Depth Objects.
-						AStarGreedy.data()[i][j]Clone(AA->AStarGreedy.data()[i]);
+						(AStarGreedy.data())[i][j]Clone(AA->(AStarGreedy.data())[i]);
 					}
 					//catch(std::exception &tt)
 					{
@@ -655,15 +654,15 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 				AA->HuristicListKing.push_back(CloneAList(HuristicListKing[i], 4));
 			}
 			//Initiate and create Penalty Solder List.
-			//AA->PenaltyRegardListSolder = std::vector<QuantumAtamata  >();
+			//AA->PenaltyRegardListSolder = std::vector<LearningKrinskyAtamata  >();
 			//For All Solder Penalty List Count.
 			if (Kind == 1)
 			{
-				//AA->PenaltyRegardListSolder = std::vector<QuantumAtamata  >();
+				//AA->PenaltyRegardListSolder = std::vector<LearningKrinskyAtamata  >();
 				for (int i = 0; i < PenaltyRegardListSolder.size(); i++)
 				{
-					//Initiate a new  QuantumAtamata   * Object
-					//QuantumAtamata   Current = QuantumAtamata(3, 3, 3);
+					//Initiate a new  LearningKrinskyAtamata   * Object
+					//LearningKrinskyAtamata   Current = LearningKrinskyAtamata(3, 3, 3);
 					//Add New Object Create to New Penalty Solder List.
 					AA->PenaltyRegardListSolder.push_back(PenaltyRegardListSolder[i]);
 				}
@@ -673,12 +672,12 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 				if (Kind == 2)
 				{
 					//Initaite and Create Elephant Penalty List Object.
-					//AA->PenaltyRegardListElefant = std::vector<QuantumAtamata  >();
+					//AA->PenaltyRegardListElefant = std::vector<LearningKrinskyAtamata  >();
 					//For All Elepahtn Penalty List Count.
 					for (int i = 0; i < PenaltyRegardListElefant.size(); i++)
 					{
-						//Initiate a new  QuantumAtamata   * Object
-						//QuantumAtamata   Current = QuantumAtamata(3, 3, 3);
+						//Initiate a new  LearningKrinskyAtamata   * Object
+						//LearningKrinskyAtamata   Current = LearningKrinskyAtamata(3, 3, 3);
 						//Clone a Copy Of Penalty Elephant.
 						AA->PenaltyRegardListElefant.push_back(PenaltyRegardListElefant[i]);
 						//Add New Object Create to New Penalty Elephant List.
@@ -692,12 +691,12 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 					{
 
 						//Initaite and Create Hourse Penalty List Object.
-						//AA->PenaltyRegardListHourse = std::vector<QuantumAtamata  >();
+						//AA->PenaltyRegardListHourse = std::vector<LearningKrinskyAtamata  >();
 						//For All Solder Hourse List Count.
 						for (int i = 0; i < PenaltyRegardListHourse.size(); i++)
 						{
-							//Initiate a new  QuantumAtamata   * Object
-							//QuantumAtamata   Current = QuantumAtamata(3, 3, 3);
+							//Initiate a new  LearningKrinskyAtamata   * Object
+							//LearningKrinskyAtamata   Current = LearningKrinskyAtamata(3, 3, 3);
 							//Clone a Copy Of Penalty Hourse.
 							//PenaltyRegardListHourse[i][j]Clone(ref Current);
 							//Add New Object Create to New Penalty Hourse List.
@@ -711,12 +710,12 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 						{
 
 							//Initaite and Create Castles Penalty List Object.
-							//AA->PenaltyRegardListCastle = std::vector<QuantumAtamata  >();
+							//AA->PenaltyRegardListCastle = std::vector<LearningKrinskyAtamata  >();
 							//For All Solder Castle List Count.
 							for (int i = 0; i < PenaltyRegardListCastle.size(); i++)
 							{
-								//Initiate a new  QuantumAtamata   * Object
-								//QuantumAtamata   Current = QuantumAtamata(3, 3, 3);
+								//Initiate a new  LearningKrinskyAtamata   * Object
+								//LearningKrinskyAtamata   Current = LearningKrinskyAtamata(3, 3, 3);
 								//Clone a Copy Of Penalty Castles.
 								//PenaltyRegardListCastle[i][j]Clone(ref Current);
 								//Add New Object Create to New Penalty Castles List.
@@ -729,12 +728,12 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 							{
 
 								//Initaite and Create Minister Penalty List Object.
-								//AA->PenaltyRegardListMinister = std::vector<QuantumAtamata  >();
+								//AA->PenaltyRegardListMinister = std::vector<LearningKrinskyAtamata  >();
 								//For All Solder Minster List Count.
 								for (int i = 0; i < PenaltyRegardListMinister.size(); i++)
 								{
-									//Initiate a new  QuantumAtamata   * Object
-									//QuantumAtamata   Current = QuantumAtamata(3, 3, 3);
+									//Initiate a new  LearningKrinskyAtamata   * Object
+									//LearningKrinskyAtamata   Current = LearningKrinskyAtamata(3, 3, 3);
 									//Clone a Copy Of Penalty Minsiter.
 									//PenaltyRegardListMinister[i][j]Clone(ref Current);
 									//Add New Object Create to New Penalty Minsietr List.
@@ -747,12 +746,12 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 								{
 
 									//Initaite and Create King Penalty List Object.
-									//AA->PenaltyRegardListKing = std::vector<QuantumAtamata  >();
+									//AA->PenaltyRegardListKing = std::vector<LearningKrinskyAtamata  >();
 									//For All Solder King List Count.
 									for (int i = 0; i < PenaltyRegardListKing.size(); i++)
 									{
-										//Initiate a new  QuantumAtamata   * Object
-										//QuantumAtamata   Current = QuantumAtamata(3, 3, 3);
+										//Initiate a new  LearningKrinskyAtamata   * Object
+										//LearningKrinskyAtamata   Current = LearningKrinskyAtamata(3, 3, 3);
 										//Clone a Copy Of Penalty King.
 										//PenaltyRegardListKing[i][j]Clone(ref Current);
 										//Add New Object Create to New Penalty King List.
@@ -6596,7 +6595,7 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 		{
 			if (ii >= 0 && UsePenaltyRegardMechnisamT)
 			{
-				Hur = ReturnHuristicCalculartor(0, ii, j, Order) * LearniningTable.LearingValue(Row, Column);
+				Hur = ReturnHuristicCalculartor(0, ii, j, Order) ;
 			}
 			else
 			{
@@ -6715,11 +6714,11 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 					ActionsString = std::wstring(L" ") + Alphabet(Row) + Number(Column) + Alphabet(RowColumnSoldier.data()[j][0]) + Number(RowColumnSoldier.data()[j][1]);
 					if (Order == 1)
 					{
-						AllDraw::OutPut += std::wstring(L"\r\nHuristic Soldier AStarGreedy.data()[k] By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut += std::wstring(L"\r\nHuristic Soldier ((AStarGreedy.data())[k]) By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 					else
 					{
-						AllDraw::OutPut += std::wstring(L"\r\nHuristic Soldier AStarGreedy.data()[k] By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut += std::wstring(L"\r\nHuristic Soldier ((AStarGreedy.data())[k]) By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 				}
 
@@ -6732,11 +6731,11 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 					ActionsString = std::wstring(L" ") + Alphabet(Row) + Number(Column) + Alphabet(RowColumnElefant.data()[j][0]) + Number(RowColumnElefant.data()[j][1]);
 					if (Order == 1)
 					{
-						AllDraw::OutPut += std::wstring(L"\r\nHuristic Elephant AStarGreedy.data()[k] By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut += std::wstring(L"\r\nHuristic Elephant ((AStarGreedy.data())[k]) By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 					else
 					{
-						AllDraw::OutPut += std::wstring(L"\r\nHuristic Elephant AStarGreedy.data()[k] By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut += std::wstring(L"\r\nHuristic Elephant ((AStarGreedy.data())[k]) By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 				}
 				for (j = 0; HuristicListHourse.size() > 0 && j < HuristicListHourse.size(); j++)
@@ -6746,11 +6745,11 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 					ActionsString = std::wstring(L" ") + Alphabet(Row) + Number(Column) + Alphabet(RowColumnHourse.data()[j][0]) + Number(RowColumnHourse.data()[j][1]);
 					if (Order == 1)
 					{
-						AllDraw::OutPut += std::wstring(L"\r\nHuristic Hourse AStarGreedy.data()[k] By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut += std::wstring(L"\r\nHuristic Hourse ((AStarGreedy.data())[k]) By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 					else
 					{
-						AllDraw::OutPut += std::wstring(L"\r\nHuristic Hourse AStarGreedy.data()[k] By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut += std::wstring(L"\r\nHuristic Hourse ((AStarGreedy.data())[k]) By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 				}
 				for (j = 0; HuristicListCastle.size() > 0 && j < HuristicListCastle.size(); j++)
@@ -6759,11 +6758,11 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 					ActionsString = std::wstring(L" ") + Alphabet(Row) + Number(Column) + Alphabet(RowColumnCastle.data()[j][0]) + Number(RowColumnCastle.data()[j][1]);
 					if (Order == 1)
 					{
-						AllDraw::OutPut += std::wstring(L"\r\nHuristic Castle AStarGreedy.data()[k] By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut += std::wstring(L"\r\nHuristic Castle ((AStarGreedy.data())[k]) By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 					else
 					{
-						AllDraw::OutPut += std::wstring(L"\r\nHuristic Castle AStarGreedy.data()[k] By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut += std::wstring(L"\r\nHuristic Castle ((AStarGreedy.data())[k]) By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 
 				}
@@ -6773,11 +6772,11 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 					ActionsString = std::wstring(L" ") + Alphabet(Row) + Number(Column) + Alphabet(RowColumnMinister.data()[j][0]) + Number(RowColumnMinister.data()[j][1]);
 					if (Order == 1)
 					{
-						AllDraw::OutPut += std::wstring(L"\r\nHuristic Minister AStarGreedy.data()[k] By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut += std::wstring(L"\r\nHuristic Minister ((AStarGreedy.data())[k]) By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 					else
 					{
-						AllDraw::OutPut += std::wstring(L"\r\nHuristic Minister AStarGreedy.data()[k] By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut += std::wstring(L"\r\nHuristic Minister ((AStarGreedy.data())[k]) By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 				}
 				for (j = 0; HuristicListKing.size() > 0 && j < HuristicListKing.size(); j++)
@@ -6786,11 +6785,11 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 					ActionsString = std::wstring(L" ") + Alphabet(Row) + Number(Column) + Alphabet(RowColumnKing.data()[j][0]) + Number(RowColumnKing.data()[j][1]);
 					if (Order == 1)
 					{
-						AllDraw::OutPut += std::wstring(L"\r\nHuristic King AStarGreedy.data()[k] By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut += std::wstring(L"\r\nHuristic King ((AStarGreedy.data())[k]) By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 					else
 					{
-						AllDraw::OutPut += std::wstring(L"\r\nHuristic King AStarGreedy.data()[k] By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut += std::wstring(L"\r\nHuristic King ((AStarGreedy.data())[k]) By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 				}
 			}
@@ -6801,121 +6800,121 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 			for (int k = 0; k < AStarGreedy.size(); k++)
 			{
 
-				if (AStarGreedy.data()[k] == nullptr)
+				if (((AStarGreedy.data())[k]) == nullptr)
 				{
 					continue;
 				}
 				if (Order == 1)
 				{
 					//Repeate for Solder.
-					for (int m = 0; m < AStarGreedy.data()[k].SodierMidle; m++)
+					for (int m = 0; m < ((AStarGreedy.data())[k]).SodierMidle; m++)
 					{
-						if (AStarGreedy.data()[k].SolderesOnTable == nullptr || AStarGreedy.data()[k].SolderesOnTable[m] == nullptr)
+						if (((AStarGreedy.data())[k]).SolderesOnTable == nullptr || ((AStarGreedy.data())[k]).SolderesOnTable[m] == nullptr)
 						{
 							continue;
 						}
-						Huristic += AStarGreedy.data()[k].SolderesOnTable[m].SoldierThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += ((AStarGreedy.data())[k]).SolderesOnTable[m].SoldierThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for Elephant.
-					for (int m = 0; m < AStarGreedy.data()[k].ElefantMidle; m++)
+					for (int m = 0; m < ((AStarGreedy.data())[k]).ElefantMidle; m++)
 					{
-						if (AStarGreedy.data()[k].ElephantOnTable == nullptr || AStarGreedy.data()[k].ElephantOnTable[m] == nullptr)
+						if (((AStarGreedy.data())[k]).ElephantOnTable == nullptr || ((AStarGreedy.data())[k]).ElephantOnTable[m] == nullptr)
 						{
 							continue;
 						}
-						Huristic += AStarGreedy.data()[k].ElephantOnTable[m].ElefantThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += ((AStarGreedy.data())[k]).ElephantOnTable[m].ElefantThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for Hourse.
-					for (int m = 0; m < AStarGreedy.data()[k].HourseMidle; m++)
+					for (int m = 0; m < ((AStarGreedy.data())[k]).HourseMidle; m++)
 					{
-						if (AStarGreedy.data()[k].HoursesOnTable == nullptr || AStarGreedy.data()[k].HoursesOnTable[m] == nullptr)
+						if (((AStarGreedy.data())[k]).HoursesOnTable == nullptr || ((AStarGreedy.data())[k]).HoursesOnTable[m] == nullptr)
 						{
 							continue;
 						}
-						Huristic += AStarGreedy.data()[k].HoursesOnTable[m].HourseThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += ((AStarGreedy.data())[k]).HoursesOnTable[m].HourseThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for Castles.
-					for (int m = 0; m < AStarGreedy.data()[k].CastleMidle; m++)
+					for (int m = 0; m < ((AStarGreedy.data())[k]).CastleMidle; m++)
 					{
-						if (AStarGreedy.data()[k].CastlesOnTable == nullptr || AStarGreedy.data()[k].CastlesOnTable[m] == nullptr)
+						if (((AStarGreedy.data())[k]).CastlesOnTable == nullptr || ((AStarGreedy.data())[k]).CastlesOnTable[m] == nullptr)
 						{
 							continue;
 						}
-						Huristic += AStarGreedy.data()[k].CastlesOnTable[m].CastleThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += ((AStarGreedy.data())[k]).CastlesOnTable[m].CastleThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for Minstre.
-					for (int m = 0; m < AStarGreedy.data()[k].MinisterMidle; m++)
+					for (int m = 0; m < ((AStarGreedy.data())[k]).MinisterMidle; m++)
 					{
-						if (AStarGreedy.data()[k].MinisterOnTable == nullptr || AStarGreedy.data()[k].MinisterOnTable[m] == nullptr)
+						if (((AStarGreedy.data())[k]).MinisterOnTable == nullptr || ((AStarGreedy.data())[k]).MinisterOnTable[m] == nullptr)
 						{
 							continue;
 						}
-						Huristic += AStarGreedy.data()[k].MinisterOnTable[m].MinisterThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += ((AStarGreedy.data())[k]).MinisterOnTable[m].MinisterThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for King.
-					for (int m = 0; m < AStarGreedy.data()[k].KingMidle; m++)
+					for (int m = 0; m < ((AStarGreedy.data())[k]).KingMidle; m++)
 					{
-						if (AStarGreedy.data()[k].KingOnTable == nullptr || AStarGreedy.data()[k].KingOnTable[m] == nullptr)
+						if (((AStarGreedy.data())[k]).KingOnTable == nullptr || ((AStarGreedy.data())[k]).KingOnTable[m] == nullptr)
 						{
 							continue;
 						}
-						Huristic += AStarGreedy.data()[k].KingOnTable[m].KingThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += ((AStarGreedy.data())[k]).KingOnTable[m].KingThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 				}
 				else
 				{
-					for (int m = AStarGreedy.data()[k].SodierMidle; m < AStarGreedy.data()[k].SodierHigh; m++)
+					for (int m = ((AStarGreedy.data())[k]).SodierMidle; m < ((AStarGreedy.data())[k]).SodierHigh; m++)
 					{
-						if (AStarGreedy.data()[k].SolderesOnTable == nullptr || AStarGreedy.data()[k].SolderesOnTable[m] == nullptr)
+						if (((AStarGreedy.data())[k]).SolderesOnTable == nullptr || ((AStarGreedy.data())[k]).SolderesOnTable[m] == nullptr)
 						{
 							continue;
 						}
-						Huristic += AStarGreedy.data()[k].SolderesOnTable[m].SoldierThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += ((AStarGreedy.data())[k]).SolderesOnTable[m].SoldierThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for Elephant.
-					for (int m = AStarGreedy.data()[k].ElefantMidle; m < AStarGreedy.data()[k].ElefantHigh; m++)
+					for (int m = ((AStarGreedy.data())[k]).ElefantMidle; m < ((AStarGreedy.data())[k]).ElefantHigh; m++)
 					{
-						if (AStarGreedy.data()[k].ElephantOnTable == nullptr || AStarGreedy.data()[k].ElephantOnTable[m] == nullptr)
+						if (((AStarGreedy.data())[k]).ElephantOnTable == nullptr || ((AStarGreedy.data())[k]).ElephantOnTable[m] == nullptr)
 						{
 							continue;
 						}
-						Huristic += AStarGreedy.data()[k].ElephantOnTable[m].ElefantThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += ((AStarGreedy.data())[k]).ElephantOnTable[m].ElefantThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for Hourse.
-					for (int m = AStarGreedy.data()[k].HourseMidle; m < AStarGreedy.data()[k].HourseHight; m++)
+					for (int m = ((AStarGreedy.data())[k]).HourseMidle; m < ((AStarGreedy.data())[k]).HourseHight; m++)
 					{
-						if (AStarGreedy.data()[k].HoursesOnTable == nullptr || AStarGreedy.data()[k].HoursesOnTable[m] == nullptr)
+						if (((AStarGreedy.data())[k]).HoursesOnTable == nullptr || ((AStarGreedy.data())[k]).HoursesOnTable[m] == nullptr)
 						{
 							continue;
 						}
-						Huristic += AStarGreedy.data()[k].HoursesOnTable[m].HourseThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += ((AStarGreedy.data())[k]).HoursesOnTable[m].HourseThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for Castles.
-					for (int m = AStarGreedy.data()[k].CastleMidle; m < AStarGreedy.data()[k].CastleHigh; m++)
+					for (int m = ((AStarGreedy.data())[k]).CastleMidle; m < ((AStarGreedy.data())[k]).CastleHigh; m++)
 					{
-						if (AStarGreedy.data()[k].CastlesOnTable == nullptr || AStarGreedy.data()[k].CastlesOnTable[m] == nullptr)
+						if (((AStarGreedy.data())[k]).CastlesOnTable == nullptr || ((AStarGreedy.data())[k]).CastlesOnTable[m] == nullptr)
 						{
 							continue;
 						}
-						Huristic += AStarGreedy.data()[k].CastlesOnTable[m].CastleThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += ((AStarGreedy.data())[k]).CastlesOnTable[m].CastleThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for Minstre.
-					for (int m = AStarGreedy.data()[k].MinisterMidle; m < AStarGreedy.data()[k].MinisterHigh; m++)
+					for (int m = ((AStarGreedy.data())[k]).MinisterMidle; m < ((AStarGreedy.data())[k]).MinisterHigh; m++)
 					{
-						if (AStarGreedy.data()[k].MinisterOnTable == nullptr || AStarGreedy.data()[k].MinisterOnTable[m] == nullptr)
+						if (((AStarGreedy.data())[k]).MinisterOnTable == nullptr || ((AStarGreedy.data())[k]).MinisterOnTable[m] == nullptr)
 						{
 							continue;
 						}
-						Huristic += AStarGreedy.data()[k].MinisterOnTable[m].MinisterThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += ((AStarGreedy.data())[k]).MinisterOnTable[m].MinisterThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for King.
-					for (int m = AStarGreedy.data()[k].KingMidle; m < AStarGreedy.data()[k].KingHigh; m++)
+					for (int m = ((AStarGreedy.data())[k]).KingMidle; m < ((AStarGreedy.data())[k]).KingHigh; m++)
 					{
-						if (AStarGreedy.data()[k].KingOnTable == nullptr || AStarGreedy.data()[k].KingOnTable[m] == nullptr)
+						if (((AStarGreedy.data())[k]).KingOnTable == nullptr || ((AStarGreedy.data())[k]).KingOnTable[m] == nullptr)
 						{
 							continue;
 						}
-						Huristic += AStarGreedy.data()[k].KingOnTable[m].KingThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += ((AStarGreedy.data())[k]).KingOnTable[m].KingThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 				}
 			}
@@ -7171,7 +7170,7 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 		{
 			//try
 			{
-				QuantumAtamata   Current = QuantumAtamata(3, 3, 3);
+				LearningKrinskyAtamata   Current = LearningKrinskyAtamata(3, 3, 3);
 				ThinkingAtRun = true;
 				int CheckedM = 0;
 
@@ -7407,7 +7406,7 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 			if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[RowSource][ColumnSource], TableS, Order, RowSource, ColumnSource))->Rules(RowSource, ColumnSource, RowDestination, ColumnDestination, color, TableS[RowSource][ColumnSource], false))
 			{
 
-				QuantumAtamata   Current = QuantumAtamata(3, 3, 3);
+				LearningKrinskyAtamata   Current = LearningKrinskyAtamata(3, 3, 3);
 				ThinkingAtRun = true;
 				int CheckedM = 0;
 
@@ -7975,7 +7974,7 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 			{
 
 
-				QuantumAtamata   Current = QuantumAtamata(3, 3, 3);
+				LearningKrinskyAtamata   Current = LearningKrinskyAtamata(3, 3, 3);
 				ThinkingAtRun = true;
 				int CheckedM = 0;
 
@@ -8179,7 +8178,7 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 			if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[RowSource][ColumnSource], TableS, Order, RowSource, ColumnSource))->Rules(RowSource, ColumnSource, RowDestination, ColumnDestination, color, TableS[RowSource][ColumnSource], false))
 			{
 
-				QuantumAtamata   Current = QuantumAtamata(3, 3, 3);
+				LearningKrinskyAtamata   Current = LearningKrinskyAtamata(3, 3, 3);
 				ThinkingAtRun = true;
 				int CheckedM = 0;
 
@@ -8382,7 +8381,7 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 			if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[RowSource][ColumnSource], TableS, Order, RowSource, ColumnSource))->Rules(RowSource, ColumnSource, RowDestination, ColumnDestination, color, TableS[RowSource][ColumnSource], false))
 			{
 
-				QuantumAtamata   Current = QuantumAtamata(3, 3, 3);
+				LearningKrinskyAtamata   Current = LearningKrinskyAtamata(3, 3, 3);
 				ThinkingAtRun = true;
 				int CheckedM = 0;
 
@@ -8608,7 +8607,7 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 		return Equality;
 
 	}
-	bool ThinkingChess::EqualitOne(QuantumAtamata   Current, int kind)
+	bool ThinkingChess::EqualitOne(LearningKrinskyAtamata   Current, int kind)
 	{
 
 		bool Equality = false;
@@ -8652,7 +8651,7 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 
 	}
 
-	void ThinkingChess::AddAtList(int kind, QuantumAtamata Current)
+	void ThinkingChess::AddAtList(int kind, LearningKrinskyAtamata Current)
 	{
 
 
@@ -8717,12 +8716,12 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 									PenaltyRegardListKing.pop_back();								
 	}
 
-	bool ThinkingChess::PenaltyMechanisam(int LoseOcuuredatChiled, int WinOcuuredatChiled, int CheckedM, int Killed, bool Before, int kind, int **TableS, int ii, int jj, QuantumAtamata Current, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int i, int j, bool Castle)
+	bool ThinkingChess::PenaltyMechanisam(int LoseOcuuredatChiled, int WinOcuuredatChiled, int CheckedM, int Killed, bool Before, int kind, int **TableS, int ii, int jj, LearningKrinskyAtamata Current, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int i, int j, bool Castle)
 	{
 		
 			bool RETURN = false;
 			//autoO3 = new Object();
-			ChessRules AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[ii][jj], TableS, AllDraw::OrderPlate, ii, jj);
+			ChessRules AA = ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[ii][jj], TableS, AllDraw::OrderPlate, ii, jj);
 			
 				if (!UsePenaltyRegardMechnisamT)
 				{
@@ -9270,7 +9269,7 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 			{
 				//try
 				{
-					QuantumAtamata   Current = QuantumAtamata(3, 3, 3);
+					LearningKrinskyAtamata   Current = LearningKrinskyAtamata(3, 3, 3);
 					ThinkingAtRun = true;
 					int CheckedM = 0;
 
@@ -9528,7 +9527,7 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 			double HeuristicKingSafe = double();
 			double HeuristicFromCenter = double();
 			double HeuristicKingDangour = double();
-			QuantumAtamata   Current = QuantumAtamata(3, 3, 3);
+			LearningKrinskyAtamata   Current = LearningKrinskyAtamata(3, 3, 3);
 			ThinkingAtRun = true;
 			int CheckedM = 0;
 			Order = DummyOrder;
@@ -9719,7 +9718,7 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 		double HeuristicFromCenter = double();
 		double HeuristicKingDangour = double();
 
-		QuantumAtamata   Current = QuantumAtamata(3, 3, 3);
+		LearningKrinskyAtamata   Current = LearningKrinskyAtamata(3, 3, 3);
 		ThinkingAtRun = true;
 		int CheckedM = 0;
 		Order = DummyOrder;
@@ -9815,7 +9814,7 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 	}
 
 
-	void ThinkingChess::HuristicPenaltyValuePerform(QuantumAtamata Current, int Order, double HuristicAttackValue, bool AllDrawClass = false)
+	void ThinkingChess::HuristicPenaltyValuePerform(LearningKrinskyAtamata Current, int Order, double HuristicAttackValue, bool AllDrawClass = false)
 	{
 
 
@@ -9916,7 +9915,7 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 		///Initiate a Local Variables.
 
 		///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
-		QuantumAtamata   Current = QuantumAtamata(3, 3, 3);
+		LearningKrinskyAtamata   Current = LearningKrinskyAtamata(3, 3, 3);
 		for (int RowS = 0; RowS < 8; RowS++)
 		{
 			for (int ColS = 0; ColS < 8; ColS++)
@@ -9964,7 +9963,7 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 		///Initiate a Local Variables.
 
 		///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
-		QuantumAtamata   Current = QuantumAtamata(3, 3, 3);
+		LearningKrinskyAtamata   Current = LearningKrinskyAtamata(3, 3, 3);
 
 		for (int RowS = 0; RowS < 8; RowS++)
 		{
@@ -10028,7 +10027,7 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 		///Initiate a Local Variables.
 
 		///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
-		QuantumAtamata   Current = QuantumAtamata(3, 3, 3);
+		LearningKrinskyAtamata   Current = LearningKrinskyAtamata(3, 3, 3);
 
 		Order = ord;
 		if (Scop(ii, jj, ii + 2, jj + 1, 3))
@@ -10048,7 +10047,7 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 		///Initiate a Local Variables.
 
 		///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
-		QuantumAtamata   Current = QuantumAtamata(3, 3, 3);
+		LearningKrinskyAtamata   Current = LearningKrinskyAtamata(3, 3, 3);
 		for (int RowS = 0; RowS < 8; RowS++)
 		{
 			for (int ColS = 0; ColS < 8; ColS++)
@@ -10073,7 +10072,7 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 		///Initiate a Local Variables.
 
 		///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
-		QuantumAtamata   Current = QuantumAtamata(3, 3, 3);
+		LearningKrinskyAtamata   Current = LearningKrinskyAtamata(3, 3, 3);
 		for (int RowS = 0; RowS < 8; RowS++)
 		{
 			for (int ColS = 0; ColS < 8; ColS++)
@@ -10097,7 +10096,7 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 		///Initiate a Local Variables.
 
 		///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
-		QuantumAtamata   Current = QuantumAtamata(3, 3, 3);
+		LearningKrinskyAtamata   Current = LearningKrinskyAtamata(3, 3, 3);
 		for (int RowS = 0; RowS < 8; RowS++)
 		{
 			for (int ColS = 0; ColS < 8; ColS++)
@@ -10123,7 +10122,7 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 		///Initiate a Local Variables.
 
 		///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
-		QuantumAtamata   Current = QuantumAtamata(3, 3, 3);
+		LearningKrinskyAtamata   Current = LearningKrinskyAtamata(3, 3, 3);
 		for (int RowS = 0; RowS < 8; RowS++)
 		{
 			for (int ColS = 0; ColS < 8; ColS++)
@@ -10148,7 +10147,7 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 		///Initiate a Local Variables.
 
 		///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
-		QuantumAtamata   Current = QuantumAtamata(3, 3, 3);
+		LearningKrinskyAtamata   Current = LearningKrinskyAtamata(3, 3, 3);
 		for (int RowS = 0; RowS < 8; RowS++)
 		{
 			for (int ColS = 0; ColS < 8; ColS++)
@@ -10174,7 +10173,7 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 		///Initiate a Local Variables.
 
 		///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
-		QuantumAtamata   Current = QuantumAtamata(3, 3, 3);
+		LearningKrinskyAtamata   Current = LearningKrinskyAtamata(3, 3, 3);
 		for (int RowS = 0; RowS < 8; RowS++)
 		{
 			for (int ColS = 0; ColS < 8; ColS++)
@@ -10197,7 +10196,7 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 		///Initiate a Local Variables.
 
 		///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
-		QuantumAtamata   Current = QuantumAtamata(3, 3, 3);
+		LearningKrinskyAtamata   Current = LearningKrinskyAtamata(3, 3, 3);
 		for (int RowS = 0; RowS < 8; RowS++)
 		{
 			for (int ColS = 0; ColS < 8; ColS++)
@@ -10270,7 +10269,7 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 			///Initiate a Local Variables.
 			int **TableS = new int*[8]; for (int h = 0; h < 8; h++)TableS[h] = new int[8];
 			///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
-			QuantumAtamata   Current = QuantumAtamata(3, 3, 3);
+			LearningKrinskyAtamata   Current = LearningKrinskyAtamata(3, 3, 3);
 			for (int RowS = 0; RowS < 8; RowS++)
 			{
 				for (int ColS = 0; ColS < 8; ColS++)
@@ -10300,7 +10299,7 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 			///Initiate a Local Variables.
 			int **TableS = new int*[8]; for (int h = 0; h < 8; h++)TableS[h] = new int[8];
 			///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
-			QuantumAtamata   Current = QuantumAtamata(3, 3, 3);
+			LearningKrinskyAtamata   Current = LearningKrinskyAtamata(3, 3, 3);
 			for (int RowS = 0; RowS < 8; RowS++)
 			{
 				for (int ColS = 0; ColS < 8; ColS++)
@@ -10339,7 +10338,7 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 		///Initiate a Local Variables.
 		int **TableS = new int*[8]; for (int h = 0; h < 8; h++)TableS[h] = new int[8];
 		///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
-		QuantumAtamata   Current = QuantumAtamata(3, 3, 3);
+		LearningKrinskyAtamata   Current = LearningKrinskyAtamata(3, 3, 3);
 		while (ThinkingAtRun)
 		{
 		}
@@ -10393,7 +10392,7 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 			int **TableS = new int*[8]; for (int h = 0; h < 8; h++)TableS[h] = new int[8];
 
 			///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
-			QuantumAtamata   Current = QuantumAtamata(3, 3, 3);
+			LearningKrinskyAtamata   Current = LearningKrinskyAtamata(3, 3, 3);
 			for (int RowS = 0; RowS < 8; RowS++)
 			{
 				for (int ColS = 0; ColS < 8; ColS++)
@@ -10426,7 +10425,7 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 			for (int h = 0; h < 8; h++)
 				TableS[h] = new int[8];
 			///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
-			QuantumAtamata   Current = QuantumAtamata(3, 3, 3);
+			LearningKrinskyAtamata   Current = LearningKrinskyAtamata(3, 3, 3);
 			for (int RowS = 0; RowS < 8; RowS++)
 			{
 				for (int ColS = 0; ColS < 8; ColS++)
@@ -10465,7 +10464,7 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 				for (int h = 0; h < 8; h++)
 					TableS[h] = new int[8];
 				///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
-				QuantumAtamata   Current = QuantumAtamata(3, 3, 3);
+				LearningKrinskyAtamata   Current = LearningKrinskyAtamata(3, 3, 3);
 				for (int RowS = 0; RowS < 8; RowS++)
 				{
 					for (int ColS = 0; ColS < 8; ColS++)
@@ -10574,7 +10573,7 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 			TableS[ik] = new int[8];
 
 		///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
-		QuantumAtamata Current = QuantumAtamata(3, 3, 3);
+		LearningKrinskyAtamata Current = LearningKrinskyAtamata(3, 3, 3);
 		///Most Dot Net FrameWork Hot Path
 		///Create A Clone of Current Table Constant in ThinkingChess Object Tasble.
 		for (int RowS = 0; RowS < 8; RowS++)
@@ -11119,12 +11118,12 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 		HuristicListCastle = std::vector<double*>();
 		HuristicListMinister = std::vector<double*>();
 		HuristicListKing = std::vector<double*>();
-		/*PenaltyRegardListSolder = std::vector<QuantumAtamata  >();
-		PenaltyRegardListElefant = std::vector<QuantumAtamata  >();
-		PenaltyRegardListHourse = std::vector<QuantumAtamata  >();
-		PenaltyRegardListCastle = std::vector<QuantumAtamata  >();
-		PenaltyRegardListMinister = std::vector<QuantumAtamata  >();
-		PenaltyRegardListKing = std::vector<QuantumAtamata  >();
+		/*PenaltyRegardListSolder = std::vector<LearningKrinskyAtamata  >();
+		PenaltyRegardListElefant = std::vector<LearningKrinskyAtamata  >();
+		PenaltyRegardListHourse = std::vector<LearningKrinskyAtamata  >();
+		PenaltyRegardListCastle = std::vector<LearningKrinskyAtamata  >();
+		PenaltyRegardListMinister = std::vector<LearningKrinskyAtamata  >();
+		PenaltyRegardListKing = std::vector<LearningKrinskyAtamata  >();
 		*/
 		Max = 0;
 		Row = 0;

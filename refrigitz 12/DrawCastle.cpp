@@ -3,8 +3,8 @@
 
 namespace RefrigtzDLL
 {
-	inline bool operator==( DrawCastle& lhs,  std::nullptr_t& rhs) { return (lhs == rhs); }
-	inline bool operator!=( DrawCastle& lhs,  std::nullptr_t& rhs) { return !(lhs == rhs); }
+	inline bool operator==(const  DrawCastle& lhs,  const std::nullptr_t& rhs) { return  (lhs == rhs); }
+	inline bool operator!=(const  DrawCastle& lhs,  const std::nullptr_t& rhs) { return !(lhs == rhs); }
 
 double DrawCastle::MaxHuristicxB = -20000000000000000;
 

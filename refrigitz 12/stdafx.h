@@ -18,7 +18,6 @@
 #include <stdio.h>
 #include <tchar.h>
 #include <cmath>
-//#include "stringconverter.h"
 #include "LearningKrinskyAtamatA.h"
 #include "StringConverterHelper.h"
 #include "ThingsConverter.h"
@@ -29,14 +28,8 @@
 #include "DrawCastle.h"
 #include "DrawMinister.h"
 #include "DrawKing.h"
-#include "QuantumAtamatA.h"
-#include "NetworkQuantumLearningKrinskyAtamata.h"
-#include "Interpolate.h"
-#include "NewotoonInterpolate.h"
 #include "AllDraw.h"
 #include "ChessRules.h"
-#include "HermitInterpolation.h"
-#include "ChessGeneticAlgorithm.h"
 #include "ThinkingChess.h"
 
 
