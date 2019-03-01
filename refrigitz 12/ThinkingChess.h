@@ -1,9 +1,6 @@
 ﻿#pragma once
 
-//#include "stdafx.h"
-#include "AllDraw.h"
-#include "QuantumAtamatA.h"
-#include "NetworkQuantumLearningKrinskyAtamata.h"
+#include "stdafx.h"
 
 using namespace std;
 
@@ -77,8 +74,12 @@ using namespace std;
  * **************************************************************************(+:Sum(26)) (*:Sum(1)) 5:(+:Sum(3)) 6.(+:Sum0.12**4**Managements and Cuation Programing**********************(+)) 7.(:Sum(1))
  * **************************************************************************
  */
+
+
+
 namespace RefrigtzDLL
 {
+		
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
 //ORIGINAL LINE: [Serializable] class ThinkingChess
 	class ThinkingChess
@@ -105,6 +106,7 @@ namespace RefrigtzDLL
 		bool IsThereMateOfSelf;
 		static NetworkQuantumLearningKrinskyAtamata LearniningTable;
 		void CastleThinkingGray(int LoseOcuuredatChiled, int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
+		void HuristicPenaltyValuePerform(QuantumAtamata Current, int Order, double HuristicAttackValue, bool AllDrawClass);
 	private:
 		bool ThinkingAtRun;
 	public:
@@ -118,8 +120,8 @@ namespace RefrigtzDLL
 		static bool LearningVarsCheckedMateOccuredOneCheckedMate;
 	private:
 		bool IsGardHighPriority;
-		static const int ThresholdBlitz = 10000;
-		static const int ThresholdFullGame = 20000;
+		static  int ThresholdBlitz ;
+		static  int ThresholdFullGame;
 	public:
 		static double MaxHuristicx;
 		bool MovementsAStarGreedyHuristicFoundT;
@@ -258,6 +260,8 @@ namespace RefrigtzDLL
 		void SetObjectNumbers(int **TabS);
 		//Constructor
 		ThinkingChess(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, int i, int j);
+		ThinkingChess()
+		{}
 		/*double SetObjectValue(int[,] Tab, int Row, int Column)
 		{
 		    Object o = new Object();
@@ -295,7 +299,7 @@ namespace RefrigtzDLL
 
 		//determine When Arrangment of Table Objects is Validated at Begin.
 	private:
-		bool BeginArragmentsOfOrderFinished(int **Table, int Order);
+		//bool BeginArragmentsOfOrderFinished(int **Table, int Order);
 		//Constructor
 	public:
 		//void CastleThinkingGray(int LoseOcuuredatChiled, int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
@@ -311,7 +315,7 @@ namespace RefrigtzDLL
 		double GetValue(int i, int j);
 		///Clone a Copy.
 	public:
-		void Clone(ThinkingChess AA);
+		//void Clone(ThinkingChess AA);
 		///Huristic of Attacker.
 	private:
 		double HuristicAttack(bool Before, int **Table, int Ord, int aa, int RowS, int ColS, int RowD, int ColD);
@@ -333,7 +337,7 @@ namespace RefrigtzDLL
 		//When there is at least on self object that is not safty.
 		bool InAttackSelfThatNotSupportedAll(int **TableS, int Order, int a, int i, int j, int RowS, int ColS, int ikk, int jkk, int iik, int jjk);
 		//Creation A Complete List of Attacked Self Object(s).
-		bool InAttackSelfThatNotSupportedCalculateValuableAll(int **TableS, int Order, int a, int ij, int ji, int ii, int jj, std::vector<int*> ValuableSelfSupported);
+		//bool InAttackSelfThatNotSupportedCalculateValuableAll(int **TableS, int Order, int a, int ij, int ji, int ii, int jj, std::vector<int*> ValuableSelfSupported);
 		bool ExistValuble(int *Table, std::vector<int*> ValuableSelfSupported);
 		bool MaxObjecvts(std::vector<int> Obj, int Max);
 		//When Current Movment Take Supporte.QC_OK
@@ -458,13 +462,13 @@ namespace RefrigtzDLL
 		void SolderThinkingChess(int LoseOcuuredatChiled, int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
 		void CastleThinkingBrown(int LoseOcuuredatChiled, int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
 
-
-	public:
+	public:		
 		void CalculateHuristics(bool Before, int Killed, int **TableS, int RowS, int ColS, int RowD, int ColD, int color, double HuristicAttackValue, double HuristicMovementValue, double HuristicSelfSupportedValue, double HuristicObjectDangourCheckMateValue, double HuristicKillerValue, double HuristicReducedAttackValue, double HeuristicDistabceOfCurrentMoveFromEnemyKingValue, double HeuristicKingSafe, double HeuristicFromCenter, double HeuristicKingDangour);
+
 	//private:
 		//void CastleThinkingGray(int LoseOcuuredatChiled, int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);		
 	public:
-		bool AttackSelfThatNotSupportedCalculateValuableAll(int **TableS, int Order, int a, int ij, int ji, int ii, int jj, std::vector<int*> ValuableSelfSupported);
+		//bool AttackSelfThatNotSupportedCalculateValuableAll(int **TableS, int Order, int a, int ij, int ji, int ii, int jj, std::vector<int*> ValuableSelfSupported);
 		void ThinkingSoldierBase(int LoseOcuuredatChiled, int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
 		void ThinkingSoldier(int LoseOcuuredatChiled, int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
 		void ThinkingElephantBase(int LoseOcuuredatChiled, int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);

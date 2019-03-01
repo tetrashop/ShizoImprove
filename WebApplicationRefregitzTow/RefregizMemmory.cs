@@ -532,7 +532,7 @@ namespace RefrigtzW
                  
 
                     //NEWNOD = Node.AllDrawCurrentAccess;
-                    while (DummyFileStream.Position < DummyFileStream.size())
+                    while (DummyFileStream.Position < DummyFileStream.Length)
                     {
                         Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
                         //Dummy.CloneSphycose(Last);
@@ -543,7 +543,7 @@ namespace RefrigtzW
                                 do
                                 {
 
-                                    if (DummyFileStream.Position < DummyFileStream.size())
+                                    if (DummyFileStream.Position < DummyFileStream.Length)
                                         Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
                                     else
                                         break;
@@ -562,7 +562,7 @@ namespace RefrigtzW
                                 {
 
                                     
-                                    if (DummyFileStream.Position < DummyFileStream.size())
+                                    if (DummyFileStream.Position < DummyFileStream.Length)
                                         Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
                                     else
                                         break;
@@ -580,7 +580,7 @@ namespace RefrigtzW
                                 {
 
                                     
-                                    if (DummyFileStream.Position < DummyFileStream.size())
+                                    if (DummyFileStream.Position < DummyFileStream.Length)
                                         Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
                                     else
                                         break;
@@ -598,7 +598,7 @@ namespace RefrigtzW
                                 {
 
                                     
-                                    if (DummyFileStream.Position < DummyFileStream.size())
+                                    if (DummyFileStream.Position < DummyFileStream.Length)
                                         Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
                                     else
                                         break;
@@ -616,7 +616,7 @@ namespace RefrigtzW
                                 {
 
                                     
-                                    if (DummyFileStream.Position < DummyFileStream.size())
+                                    if (DummyFileStream.Position < DummyFileStream.Length)
                                         Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
                                     else
                                         break;
@@ -634,7 +634,7 @@ namespace RefrigtzW
                                 {
 
                                     
-                                    if (DummyFileStream.Position < DummyFileStream.size())
+                                    if (DummyFileStream.Position < DummyFileStream.Length)
                                         Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
                                     else
                                         break;

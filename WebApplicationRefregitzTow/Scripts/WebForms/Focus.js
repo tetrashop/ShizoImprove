@@ -9,7 +9,7 @@ function WebForm_FindFirstFocusableChild(control) {
     }
     var children = control.childNodes;
     if (children) {
-        for (var i = 0; i < children.size(); i++) {
+        for (var i = 0; i < children.Length; i++) {
             try {
                 if (WebForm_CanFocus(children[i])) {
                     return children[i];

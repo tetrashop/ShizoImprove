@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "stdafx.h"
-//#include "ThinkingChess.h"
+
+
 namespace RefrigtzDLL
 {
 	
@@ -67,12 +68,17 @@ namespace RefrigtzDLL
 		}*/
 
 				//Constructor 2.
+
 		DrawMinister(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int **Tab, int Ord, bool TB, int Cur); //, ref AllDraw:: THIS
+		DrawMinister()
+		{}
+	
+
 		//Clone a Copy.
-		void Clone(DrawMinister *&AA); //, ref AllDraw:: THIS
+		//void Clone(DrawMinister *&AA); //, ref AllDraw:: THIS
 		//Draw an Mnister on the Table.
 		void DrawMinisterOnTable( int CellW, int CellH);
-
+		
 	private:
 		void InitializeInstanceFields();
 	};

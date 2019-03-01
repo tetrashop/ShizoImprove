@@ -22,6 +22,7 @@
 
 namespace RefrigtzDLL
 {
+	
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
 //ORIGINAL LINE: [Serializable] class LearningKrinskyAtamata
 	class LearningKrinskyAtamata
@@ -75,13 +76,16 @@ namespace RefrigtzDLL
 		void SuccessState();
 		int IsSecondDerivitionIsPositive();
 		double LearningAlgorithmRegard();
-		int IsRewardAction();
+		 double IsRewardAction();
 
 		double IsPenaltyAction();
 		double LearningAlgorithmPenalty();
 
 	public:
 		LearningKrinskyAtamata(int r0, int m0, int k0);
+		LearningKrinskyAtamata()
+		{
+		}
 		void InitializeInstanceFields();
 	};
 }

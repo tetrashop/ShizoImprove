@@ -5,60 +5,60 @@ namespace RefrigtzDLL
 
 	void LearningKrinskyAtamata::Initiate()
 	{
-		
-			IsPenalty = false;
-			IsReward = false;
-		
+
+		IsPenalty = false;
+		IsReward = false;
+
 	}
 
 	LearningKrinskyAtamata::LearningKrinskyAtamata(int r0, int m0, int k0)
 	{
-		
+
 		InitializeInstanceFields();
-		
-			IsReward = bool();
-			IsPenalty = bool();
-			IsReward = false;
-			IsPenalty = false;
-			Success = int();
-			State = int();
-			beta = bool();
-			beta = true;
-			Reward = double();
-			Penalty = double();
-			r = int();
-			m = int();
-			k = int();
+
+		IsReward = bool();
+		IsPenalty = bool();
+		IsReward = false;
+		IsPenalty = false;
+		Success = int();
+		State = int();
+		beta = bool();
+		beta = true;
+		Reward = double();
+		Penalty = double();
+		r = int();
+		m = int();
+		k = int();
 
 
-			if (r0 >= m0)
+		if (r0 >= m0)
+		{
+			r = r0;
+			m = m0;
+			k = k0;
+			alpha = new double[r];
+			fi = new double[k];
+			fi = new double[r];
+			for (int i = 0; i < r; i++)
 			{
-				r = r0;
-				m = m0;
-				k = k0;
-				alpha = new double[r];
-				fi = new double[k];
-				fi = new double[r];
-				for (int i = 0; i < r; i++)
-				{
-					alpha[i] = 1.0 / static_cast<double>(r);
-				}
-				for (int i = 0; i < k; i++)
-				{
-					fi[i] = 1.0 / static_cast<double>(k);
-				}
-
-				//Reward[i] = (double)(new Random()).Next(0, 100000) / 100000.0;
-				Reward = 1.0 / static_cast<double>(r);
-				//Penalty[i] = (double)(new Random()).Next(0, 100000) / 100000.0;
-				Penalty = 1.0 / static_cast<double>(r);
+				alpha[i] = 1.0 / static_cast<double>(r);
+			}
+			for (int i = 0; i < k; i++)
+			{
+				fi[i] = 1.0 / static_cast<double>(k);
 			}
 
-			_arrayofarrays = new int*[10];
-			for (int i = 0; i < 10; ++i)
-				_arrayofarrays[i] = new int[10];
-
+			//Reward[i] = (double)(new Random()).Next(0, 100000) / 100000.0;
+			Reward = 1.0 / static_cast<double>(r);
+			//Penalty[i] = (double)(new Random()).Next(0, 100000) / 100000.0;
+			Penalty = 1.0 / static_cast<double>(r);
 		}
+
+		_arrayofarrays = new int*[10];
+		for (int i = 0; i < 10; ++i)
+			_arrayofarrays[i] = new int[10];
+
+	}
 	/*
 	void LearningKrinskyAtamata::Clone(QuantumAtamata   *AA)
 	{
@@ -88,7 +88,7 @@ namespace RefrigtzDLL
 			AA->Success = Success;
 			AA->Failer = Failer;
 			AA->State = State;
-			
+
 		}
 	}
 	*/
@@ -134,9 +134,9 @@ namespace RefrigtzDLL
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 		//lock (o)
 		{
-			for (int i = 0; i < r-2; i++)
+			for (int i = 0; i < r - 2; i++)
 			{
-				if (((alpha[i + 2]-2 * alpha[i + 1] + alpha[i]) / (1.0 / static_cast<double>(r))) < 0)
+				if (((alpha[i + 2] - 2 * alpha[i + 1] + alpha[i]) / (1.0 / static_cast<double>(r))) < 0)
 				{
 					return -1;
 				}
@@ -145,7 +145,7 @@ namespace RefrigtzDLL
 		}
 	}
 
-	double LearningKrinskyAtamata::LearningAlgorithmRegard()
+	virtual double LearningKrinskyAtamata::LearningAlgorithmRegard()
 	{
 		//autoo = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -154,7 +154,7 @@ namespace RefrigtzDLL
 			SuccessState();
 			IsReward = true;
 			IsPenalty = false;
-			alpha[State] += Reward * (1.alpha[State]);
+			alpha[State] += Reward * (1 - alpha[State]);
 			for (int i = 0; i < r; i++)
 			{
 				if (i != State)
@@ -167,7 +167,7 @@ namespace RefrigtzDLL
 		}
 	}
 
-	int LearningKrinskyAtamata::IsRewardAction()
+	virtual double LearningKrinskyAtamata::IsRewardAction()
 	{
 		//autoo = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -181,7 +181,7 @@ namespace RefrigtzDLL
 		}
 	}
 
-	double LearningKrinskyAtamata::IsPenaltyAction()
+	virtual double LearningKrinskyAtamata::IsPenaltyAction()
 	{
 		//autoo = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -195,7 +195,7 @@ namespace RefrigtzDLL
 		}
 	}
 
-	double LearningKrinskyAtamata::LearningAlgorithmPenalty()
+	virtual double LearningKrinskyAtamata::LearningAlgorithmPenalty()
 	{
 		//autoo = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:

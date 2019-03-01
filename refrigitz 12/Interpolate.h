@@ -27,6 +27,10 @@ namespace RefrigtzDLL
 	public:
 		static double *Array(double *ArrayInput, int n);
    public:
+	   Interpolate()
+	   {
+	   
+	   }
 	   static double *Answer(double *a, int n);
 		static double **AMinuseOne(double **A, int n);
 		static double Det(double **A, int n);

@@ -1,8 +1,11 @@
-﻿#include "stdafx.h"
+﻿#pragma once
+#include "stdafx.h"
 
 
 namespace RefrigtzDLL
 {
+	inline bool operator==( DrawElefant& lhs,  std::nullptr_t& rhs) { return (lhs == rhs); }
+	inline bool operator!=( DrawElefant& lhs,  std::nullptr_t& rhs) { return !(lhs == rhs); }
 
 double DrawElefant::MaxHuristicxE = -20000000000000000;
 

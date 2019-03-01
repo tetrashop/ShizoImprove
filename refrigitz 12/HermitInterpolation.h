@@ -18,6 +18,9 @@ namespace RefrigtzDLL
 	public:
 		static double *PxHermit(double *x, double *f, int n);
 	public:
+		HermitInterpolation() 
+		{
+		}
 		static double DetaIorward(double *x, double *f, int index);
 		static double DeltaiBackward(double *x, double *f, int index);
 		static int Factorial(int n);

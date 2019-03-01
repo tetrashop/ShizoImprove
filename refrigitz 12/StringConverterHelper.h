@@ -11,9 +11,16 @@
 
 class StringConverterHelper
 {
+	
 public:
+	
+	
+	StringConverterHelper()
+	{
+	
+	}
 	template<typename T>
-	static std::wstring toString( T subject)
+	static std::wstring toString(T subject)
 	{
 		std::wostringstream ss;
 		ss << subject;

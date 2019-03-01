@@ -18,6 +18,9 @@ namespace RefrigtzDLL
 	public:
 		static double *px(double *x, double *f, int n);
 	public:
+		NewotoonInterpolate() 
+		{
+		}
 		static double *Simplify(double *s, double *x, int i, int j);
 		/*public static bool test(Double* x, Double* f, int n,Double x0)
 		{

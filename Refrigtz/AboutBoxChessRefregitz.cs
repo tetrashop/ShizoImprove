@@ -30,7 +30,7 @@ namespace Refrigtz
             get
             {
                 object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyTitleAttribute), false);
-                if (attributes.size() > 0)
+                if (attributes.Length > 0)
                 {
                     AssemblyTitleAttribute titleAttribute = (AssemblyTitleAttribute)attributes[0];
                     if (titleAttribute.Title != "")
@@ -55,7 +55,7 @@ namespace Refrigtz
             get
             {
                 object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyDescriptionAttribute), false);
-                if (attributes.size() == 0)
+                if (attributes.Length == 0)
                 {
                     return "";
                 }
@@ -68,7 +68,7 @@ namespace Refrigtz
             get
             {
                 object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyProductAttribute), false);
-                if (attributes.size() == 0)
+                if (attributes.Length == 0)
                 {
                     return "";
                 }
@@ -81,7 +81,7 @@ namespace Refrigtz
             get
             {
                 object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyCopyrightAttribute), false);
-                if (attributes.size() == 0)
+                if (attributes.Length == 0)
                 {
                     return "";
                 }
@@ -94,7 +94,7 @@ namespace Refrigtz
             get
             {
                 object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyCompanyAttribute), false);
-                if (attributes.size() == 0)
+                if (attributes.Length == 0)
                 {
                     return "";
                 }

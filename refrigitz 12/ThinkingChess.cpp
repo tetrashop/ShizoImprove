@@ -1,20 +1,14 @@
 ﻿#include "stdafx.h"
 //#include "AllDraw.h"
-//#include "DrawSoldire.h"
-//#include "DrawElefant.h"
-//#include "DrawHourse.h"
-//#include "DrawCastle.h"
-//#include "DrawMinister.h"
-//#include "DrawKing.h"
 
 
-//#define nullptr (0)
+////#define nullptr (0)
 
 
 namespace RefrigtzDLL
 {
-	
-NetworkQuantumLearningKrinskyAtamata LearniningTable = NetworkQuantumLearningKrinskyAtamata(3, 3, 3);
+
+	NetworkQuantumLearningKrinskyAtamata LearniningTable = NetworkQuantumLearningKrinskyAtamata(3, 3, 3);
 std::wstring ThinkingChess::ActionsString = L"";
 bool ThinkingChess::LearningVarsCheckedMateOccured = false;
 bool ThinkingChess::LearningVarsCheckedMateOccuredOneCheckedMate = false;
@@ -51,6 +45,21 @@ bool ThinkingChess::ThinkingRun = false;
 		}
 	}
 	*/
+inline bool operator==(AllDraw& lhs, std::nullptr_t& rhs) { return (lhs == rhs); }
+inline bool operator!=(AllDraw& lhs, std::nullptr_t& rhs) { return !(lhs == rhs); }
+inline bool operator==(DrawCastle& lhs, std::nullptr_t& rhs) { return (lhs == rhs); }
+inline bool operator!=(DrawCastle& lhs, std::nullptr_t& rhs) { return !(lhs == rhs); }
+inline bool operator==(DrawElefant& lhs, std::nullptr_t& rhs) { return (lhs == rhs); }
+inline bool operator!=(DrawElefant& lhs, std::nullptr_t& rhs) { return !(lhs == rhs); }
+inline bool operator==(DrawHourse& lhs, std::nullptr_t& rhs) { return (lhs == rhs); }
+inline bool operator!=(DrawHourse& lhs, std::nullptr_t& rhs) { return !(lhs == rhs); }
+inline bool operator==(DrawMinister& lhs, std::nullptr_t& rhs) { return (lhs == rhs); }
+inline bool operator!=(DrawMinister& lhs, std::nullptr_t& rhs) { return !(lhs == rhs); }
+inline bool operator==(DrawKing& lhs, std::nullptr_t& rhs) { return (lhs == rhs); }
+inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs); }
+inline bool operator==(ThinkingChess& lhs, std::nullptr_t& rhs) { return (lhs == rhs); }
+inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs == rhs); }
+
 	void ThinkingChess::SetObjectNumbersInList(int **Tab)
 	{
 		SetObjectNumbers(Tab);
@@ -226,7 +235,7 @@ bool ThinkingChess::ThinkingRun = false;
 
 		}
 	}
-
+/*
 	bool ThinkingChess::BeginArragmentsOfOrderFinished(int **Table, int Order)
 	{
 		//autoO = new Object();
@@ -305,7 +314,7 @@ bool ThinkingChess::ThinkingRun = false;
 			return false;
 		}
 	}
-
+	*/
 	ThinkingChess::ThinkingChess(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, int i, int j, int a, int **Tab, int Ma, int Ord, bool ThinkingBeg, int CurA, int ThingN, int Kin)
 	{
 		InitializeInstanceFields();
@@ -2322,7 +2331,7 @@ bool ThinkingChess::ThinkingRun = false;
 			return true;
 		}
 	}
-
+/*
 	bool ThinkingChess::AttackSelfThatNotSupportedCalculateValuableAll(int **TableS, int Order, int a, int ij, int ji, int ii, int jj, std::vector<int*> ValuableSelfSupported)
 	{
 		//autoO = new Object();
@@ -2493,7 +2502,7 @@ bool ThinkingChess::ThinkingRun = false;
 			return false;
 		}
 	}
-
+	*/
 	bool ThinkingChess::ExistValuble(int *Table, std::vector<int*> ValuableSelfSupported)
 	{
 		//autoO = new Object();
@@ -6602,7 +6611,7 @@ bool ThinkingChess::ThinkingRun = false;
 		//Optimization depend of numbers of unpealties nodes quefficient.  
 		if (UsePenaltyRegardMechnisamT)
 		{
-			return Hur * (static_cast<double>(NumbersOfAllNode.NumbersOfCurrentBranchesPenalties) / static_cast<double>(NumbersOfAllNode));
+			return Hur * (static_cast<double>(NumbersOfAllNode-NumbersOfCurrentBranchesPenalties) / static_cast<double>(NumbersOfAllNode));
 		}
 		return Hur;
 
@@ -7042,7 +7051,7 @@ bool ThinkingChess::ThinkingRun = false;
 				}
 			}
 
-			if (abs(i.ii) <= 2 && abs(j.jj) <= 2)
+			if (abs(i-ii) <= 2 && abs(j-jj) <= 2)
 
 			{
 				Validity = true;
@@ -7052,7 +7061,7 @@ bool ThinkingChess::ThinkingRun = false;
 		{
 			if (Kind == 2) //Elephant
 			{
-				if (abs(i.ii) == abs(j.jj))
+				if (abs(i-ii) == abs(j-jj))
 				{
 
 					Validity = true;
@@ -7062,11 +7071,11 @@ bool ThinkingChess::ThinkingRun = false;
 			{
 				if (Kind == 3) //Hourse
 				{
-					if (abs(i.ii) == 1 && abs(j.jj) == 2)
+					if (abs(i-ii) == 1 && abs(j-jj) == 2)
 					{
 						Validity = true;
 					}
-					if (abs(i.ii) == 2 && abs(j.jj) == 1)
+					if (abs(i-ii) == 2 && abs(j-jj) == 1)
 					{
 						Validity = true;
 					}
@@ -7084,7 +7093,7 @@ bool ThinkingChess::ThinkingRun = false;
 					{
 						if (Kind == 5) //Minister
 						{
-							if (((i == ii && j != jj) || (i != ii && j == jj)) || abs(i.ii) == abs(j.jj))
+							if (((i == ii && j != jj) || (i != ii && j == jj)) || abs(i-ii) == abs(j-jj))
 							{
 								Validity = true;
 							}
@@ -7093,7 +7102,7 @@ bool ThinkingChess::ThinkingRun = false;
 						{
 							if (Kind == 6) //King
 							{
-								if (abs(i.ii) <= 1 && abs(j.jj) <= 1)
+								if (abs(i-ii) <= 1 && abs(j-jj) <= 1)
 								{
 									Validity = true;
 								}
@@ -8713,7 +8722,7 @@ bool ThinkingChess::ThinkingRun = false;
 		
 			bool RETURN = false;
 			//autoO3 = new Object();
-			ChessRules *AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[ii][jj], TableS, AllDraw::OrderPlate, ii, jj);
+			ChessRules AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[ii][jj], TableS, AllDraw::OrderPlate, ii, jj);
 			
 				if (!UsePenaltyRegardMechnisamT)
 				{
@@ -8723,9 +8732,9 @@ bool ThinkingChess::ThinkingRun = false;
 				//Consideration to go to Check.  
 
 				//if (!UsePenaltyRegardMechnisamT)
-				AA->CheckMate(TableS, AllDraw::OrderPlate);
+				AA.CheckMate(TableS, AllDraw::OrderPlate);
 				
-					if (AllDraw::OrderPlate == 1 && AA->CheckMateBrown)
+					if (AllDraw::OrderPlate == 1 && AA.CheckMateBrown)
 					{
 
 						IsThereMateOfEnemy = true;
@@ -8737,7 +8746,7 @@ bool ThinkingChess::ThinkingRun = false;
 						CheckedM = 3;
 						return true;
 					}
-					if (AllDraw::OrderPlate == -1 && AA->CheckMateGray)
+					if (AllDraw::OrderPlate == -1 && AA.CheckMateGray)
 					{
 						DoEnemySelf = false;
 
@@ -8752,7 +8761,7 @@ bool ThinkingChess::ThinkingRun = false;
 						return true;
 
 					}
-					if (AllDraw::OrderPlate == -1 && AA->CheckMateBrown)
+					if (AllDraw::OrderPlate == -1 && AA.CheckMateBrown)
 					{
 
 						IsThereMateOfSelf = true;
@@ -8767,7 +8776,7 @@ bool ThinkingChess::ThinkingRun = false;
 
 
 					}
-					if (AllDraw::OrderPlate == 1 && AA->CheckMateGray) //(AllDraw::OrderPlate == 1 && AA->CheckGray) ||
+					if (AllDraw::OrderPlate == 1 && AA.CheckMateGray) //(AllDraw::OrderPlate == 1 && AA.CheckGray) ||
 					{
 						DoEnemySelf = false;
 
@@ -8785,32 +8794,32 @@ bool ThinkingChess::ThinkingRun = false;
 				
 
 
-					if (Order == 1 && AA->CheckMateBrown)
+					if (Order == 1 && AA.CheckMateBrown)
 					{
 						DoEnemySelf = false;
 						EnemyCheckMateActionsString = true;
 						CheckedM = -2;
 					}
-					if (Order == -1 && AA->CheckMateGray)
+					if (Order == -1 && AA.CheckMateGray)
 					{
 						DoEnemySelf = false;
 						EnemyCheckMateActionsString = true;
 						CheckedM = -2;
 					}
-					if (Order == 1 && AA->CheckMateGray)
+					if (Order == 1 && AA.CheckMateGray)
 					{
 
 						EnemyCheckMateActionsString = false;
 						CheckedM = -2;
 					}
-					if (Order == -1 && AA->CheckMateBrown)
+					if (Order == -1 && AA.CheckMateBrown)
 					{
 
 						EnemyCheckMateActionsString = false;
 						CheckedM = -2;
 					}
 
-					if (Order == 1 && AA->CheckGray)
+					if (Order == 1 && AA.CheckGray)
 					{
 						
 							NumberOfPenalties++;
@@ -8819,7 +8828,7 @@ bool ThinkingChess::ThinkingRun = false;
 					}
 					else
 					{
-						if (Order == -1 && AA->CheckBrown)
+						if (Order == -1 && AA.CheckBrown)
 						{
 
 							NumberOfPenalties++;
@@ -8949,7 +8958,7 @@ bool ThinkingChess::ThinkingRun = false;
 
 							for (int ik = 0; ik < abs(TableS[i][j]); ik++)
 							{
-								LearniningTable.LearningAlgorithmPenaltyNet(ii, jj);
+								LearniningTable.LearningAlgorithmPenalty(ii, jj);
 							}
 
 							//When previous Move of Enemy goes to Dangoure Current Object.
@@ -9047,7 +9056,7 @@ bool ThinkingChess::ThinkingRun = false;
 
 							for (int ik = 0; ik < abs(TableS[i][j]); ik++)
 							{
-								LearniningTable.LearningAlgorithmRegardNet(ii, jj);
+								LearniningTable.LearningAlgorithmRegard(ii, jj);
 							}
 
 
@@ -9137,8 +9146,8 @@ bool ThinkingChess::ThinkingRun = false;
 
 						for (int ik = 0; ik < abs(TableS[i][j]); ik++)
 						{
-							LearniningTable.LearningAlgorithmRegardNet(ii, jj);
-							LearniningTable.LearningAlgorithmPenaltyNet(ii, jj);
+							LearniningTable.LearningAlgorithmRegard(ii, jj);
+							LearniningTable.LearningAlgorithmPenalty(ii, jj);
 						}
 
 
@@ -9545,8 +9554,8 @@ bool ThinkingChess::ThinkingRun = false;
 			int Killed = 0;
 			if (RowDestination < RowSource)
 			{
-				TableS[RowSource.1][ColumnDestination] = -4;
-				TableS[RowSource.2][ColumnDestination] = -6;
+				TableS[RowSource-1][ColumnDestination] = -4;
+				TableS[RowSource-2][ColumnDestination] = -6;
 				TableS[RowSource][ColumnSource] = 0;
 				//TableS[0, ColumnSource] = 0;
 
@@ -9724,8 +9733,8 @@ bool ThinkingChess::ThinkingRun = false;
 		int Killed = 0;
 		if (RowDestination < RowSource)
 		{
-			TableS[RowSource.1][ColumnDestination] = 4;
-			TableS[RowSource.2][ColumnDestination] = 6;
+			TableS[RowSource-1][ColumnDestination] = 4;
+			TableS[RowSource-2][ColumnDestination] = 6;
 			TableS[RowSource][ColumnSource] = 0;
 			//TableS[0, ColumnSource] = 0;
 
@@ -9853,7 +9862,7 @@ bool ThinkingChess::ThinkingRun = false;
 		}
 		else
 		{
-			if ((LearningVarsObject[LearningVarsObject.size().1][1] && !LearningVarsObject[LearningVarsObject.size().1][4]))
+			if ((LearningVarsObject[LearningVarsObject.size()-1][1] && !LearningVarsObject[LearningVarsObject.size()-1][4]))
 			{
 				if (AllDraw::OrderPlate == Order)
 				{
@@ -9928,11 +9937,11 @@ bool ThinkingChess::ThinkingRun = false;
 	void ThinkingChess::ThinkingSoldier(int LoseOcuuredatChiled, int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
 	{
 
-		////Parallel.For(ii.2, ii + 3, i =>
-		for (int i = ii.2; i < ii + 3; i++)
+		////Parallel.For(ii-2, ii + 3, i =>
+		for (int i = ii-2; i < ii + 3; i++)
 		{
-			////Parallel.For(jj.2, jj + 3, j =>
-			for (int j = jj.2; j < jj + 3; j++)
+			////Parallel.For(jj-2, jj + 3, j =>
+			for (int j = jj-2; j < jj + 3; j++)
 			{
 
 
@@ -9979,7 +9988,7 @@ bool ThinkingChess::ThinkingRun = false;
 
 
 
-			int j = i + jj.ii;
+			int j = i + jj - ii;
 			if (Scop(ii, jj, i, j, 2))
 			{
 				ThinkingElephantBase(LoseOcuuredatChiled, WinOcuuredatChiled, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
@@ -10048,9 +10057,9 @@ bool ThinkingChess::ThinkingRun = false;
 			}
 		}
 		Order = ord;
-		if (Scop(ii, jj, ii.2, jj.1, 3))
+		if (Scop(ii, jj, ii-2, jj-1, 3))
 		{
-			HourseThinkingChess(LoseOcuuredatChiled, WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii.2, jj.1, Castle);
+			HourseThinkingChess(LoseOcuuredatChiled, WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii-2, jj-1, Castle);
 		}
 
 	}
@@ -10073,9 +10082,9 @@ bool ThinkingChess::ThinkingRun = false;
 			}
 		}
 		Order = ord;
-		if (Scop(ii, jj, ii + 2, jj.1, 3))
+		if (Scop(ii, jj, ii + 2, jj-1, 3))
 		{
-			HourseThinkingChess(LoseOcuuredatChiled, WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 2, jj.1, Castle);
+			HourseThinkingChess(LoseOcuuredatChiled, WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 2, jj-1, Castle);
 		}
 	}
 
@@ -10097,9 +10106,9 @@ bool ThinkingChess::ThinkingRun = false;
 			}
 		}
 		Order = ord;
-		if (Scop(ii, jj, ii.2, jj + 1, 3))
+		if (Scop(ii, jj, ii-2, jj + 1, 3))
 		{
-			HourseThinkingChess(LoseOcuuredatChiled, WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii.2, jj + 1, Castle);
+			HourseThinkingChess(LoseOcuuredatChiled, WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii-2, jj + 1, Castle);
 		}
 
 	}
@@ -10148,9 +10157,9 @@ bool ThinkingChess::ThinkingRun = false;
 			}
 		}
 		Order = ord;
-		if (Scop(ii, jj, ii.1, jj.2, 3))
+		if (Scop(ii, jj, ii-1, jj-2, 3))
 		{
-			HourseThinkingChess(LoseOcuuredatChiled, WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii.1, jj.2, Castle);
+			HourseThinkingChess(LoseOcuuredatChiled, WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii-1, jj-2, Castle);
 		}
 	}
 
@@ -10174,9 +10183,9 @@ bool ThinkingChess::ThinkingRun = false;
 			}
 		}
 		Order = ord;
-		if (Scop(ii, jj, ii + 1, jj.2, 3))
+		if (Scop(ii, jj, ii + 1, jj-2, 3))
 		{
-			HourseThinkingChess(LoseOcuuredatChiled, WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 1, jj.2, Castle);
+			HourseThinkingChess(LoseOcuuredatChiled, WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 1, jj-2, Castle);
 		}
 	}
 	
@@ -10197,9 +10206,9 @@ bool ThinkingChess::ThinkingRun = false;
 			}
 		}
 		Order = ord;
-		if (Scop(ii, jj, ii.1, jj + 2, 3))
+		if (Scop(ii, jj, ii-1, jj + 2, 3))
 		{
-			HourseThinkingChess(LoseOcuuredatChiled, WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii.1, jj + 2, Castle);
+			HourseThinkingChess(LoseOcuuredatChiled, WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii-1, jj + 2, Castle);
 		}
 	}
 
@@ -10371,7 +10380,7 @@ bool ThinkingChess::ThinkingRun = false;
 
 	void ThinkingChess::ThinkingCastleGray(int LoseOcuuredatChiled, int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
 	{
-		for (int i = ii.2; i < ii + 2; i++)
+		for (int i = ii-2; i < ii + 2; i++)
 		{
 			while (ThinkingAtRun)
 			{
@@ -10405,7 +10414,7 @@ bool ThinkingChess::ThinkingRun = false;
 	void ThinkingChess::ThinkingCastleBrown(int LoseOcuuredatChiled, int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
 	{
 
-		for (int i = ii.2; i < ii + 2; i++)
+		for (int i = ii-2; i < ii + 2; i++)
 		{
 			while (ThinkingAtRun)
 			{
@@ -10439,11 +10448,11 @@ bool ThinkingChess::ThinkingRun = false;
 		int **TableS = new int*[8];
 		for (int h = 0; h < 8; h++)
 			TableS[h] = new int[8];
-		////Parallel.For(ii.1, ii + 2, i =>
-		for (int i = ii.1; i < ii + 2; i++)
+		////Parallel.For(ii-1, ii + 2, i =>
+		for (int i = ii-1; i < ii + 2; i++)
 		{
-			////Parallel.For(jj.1, jj + 2, j =>
-			for (int j = jj.1; j < jj + 2; j++)
+			////Parallel.For(jj-1, jj + 2, j =>
+			for (int j = jj-1; j < jj + 2; j++)
 			{
 
 

@@ -103,14 +103,14 @@ function WebPart_UpdatePosition() {
 }
 function Zone(zoneElement, zoneIndex, uniqueID, isVertical, allowLayoutChange, highlightColor) {
     var webPartTable = null;
-    if (zoneElement.rows.size() == 1) {
+    if (zoneElement.rows.Length == 1) {
         webPartTableContainer = zoneElement.rows[0].cells[0];
     }
     else {
         webPartTableContainer = zoneElement.rows[1].cells[0];
     }
     var i;
-    for (i = 0; i < webPartTableContainer.childNodes.size(); i++) {
+    for (i = 0; i < webPartTableContainer.childNodes.Length; i++) {
         var node = webPartTableContainer.childNodes[i];
         if (node.tagName == "TABLE") {
             webPartTable = node;
@@ -130,12 +130,12 @@ function Zone(zoneElement, zoneIndex, uniqueID, isVertical, allowLayoutChange, h
     this.dropCueElements = new Array();
     if (webPartTable != null) {
         if (isVertical) {
-            for (i = 0; i < webPartTable.rows.size(); i += 2) {
+            for (i = 0; i < webPartTable.rows.Length; i += 2) {
                 this.dropCueElements[i / 2] = webPartTable.rows[i].cells[0].childNodes[0];
             }
         }
         else {
-            for (i = 0; i < webPartTable.rows[0].cells.size(); i += 2) {
+            for (i = 0; i < webPartTable.rows[0].cells.Length; i += 2) {
                 this.dropCueElements[i / 2] = webPartTable.rows[0].cells[i].childNodes[0];
             }
         }
@@ -150,7 +150,7 @@ function Zone(zoneElement, zoneIndex, uniqueID, isVertical, allowLayoutChange, h
     webPartTable.attachEvent("ondrop", Zone_OnDrop);
 }
 function Zone_Dispose() {
-    for (var i = 0; i < this.webParts.size(); i++) {
+    for (var i = 0; i < this.webParts.Length; i++) {
         this.webParts[i].Dispose();
     }
     this.webPartTable.__zone = null;
@@ -191,7 +191,7 @@ function Zone_GetParentZoneElement(containedElement) {
 }
 function Zone_AddWebPart(webPartElement, webPartTitleElement, allowZoneChange) {
     var webPart = null;
-    var zoneIndex = this.webParts.size();
+    var zoneIndex = this.webParts.Length;
     if (this.allowLayoutChange && __wpm.IsDragDropEnabled()) {
         webPart = new WebPart(webPartElement, webPartTitleElement, this, zoneIndex, allowZoneChange);
     }
@@ -237,7 +237,7 @@ function Zone_GetWebPartIndex(location) {
     }
     var vertical = this.isVertical;
     var webParts = this.webParts;
-    var webPartsCount = webParts.size();
+    var webPartsCount = webParts.Length;
     for (var i = 0; i < webPartsCount; i++) {
         var webPart = webParts[i];
         if (vertical) {
@@ -259,7 +259,7 @@ function Zone_UpdatePosition() {
     this.webPartTableTop = topLeft.y;
     this.webPartTableRight = (this.webPartTable != null) ? topLeft.x + this.webPartTable.offsetWidth : topLeft.x;
     this.webPartTableBottom = (this.webPartTable != null) ? topLeft.y + this.webPartTable.offsetHeight : topLeft.y;
-    for (var i = 0; i < this.webParts.size(); i++) {
+    for (var i = 0; i < this.webParts.Length; i++) {
         this.webParts[i].UpdatePosition();
     }
 }
@@ -417,13 +417,13 @@ function WebPartManager() {
     window.attachEvent("onunload", WebPartManager_Dispose);
 }
 function WebPartManager_Dispose() {
-    for (var i = 0; i < __wpm.zones.size(); i++) {
+    for (var i = 0; i < __wpm.zones.Length; i++) {
         __wpm.zones[i].Dispose();
     }
     window.detachEvent("onunload", WebPartManager_Dispose);
 }
 function WebPartManager_AddZone(zoneElement, uniqueID, isVertical, allowLayoutChange, highlightColor) {
-    var zoneIndex = this.zones.size();
+    var zoneIndex = this.zones.Length;
     var zone = new Zone(zoneElement, zoneIndex, uniqueID, isVertical, allowLayoutChange, highlightColor);
     this.zones[zoneIndex] = zone;
     return zone;
@@ -455,7 +455,7 @@ function WebPartManager_InitiateWebPartDragDrop(webPartElement) {
         webPart.zone.allowDrop = true;
     }
     else {
-        for (var i = 0; i < __wpm.zones.size(); i++) {
+        for (var i = 0; i < __wpm.zones.Length; i++) {
             var zone = __wpm.zones[i];
             if (zone.allowLayoutChange) {
                 zone.allowDrop = true;
@@ -472,7 +472,7 @@ function WebPartManager_CompleteWebPartDragDrop() {
         dragState.dropZoneElement.__zone.ToggleDropCues(false, dragState.dropIndex, false);
     }
     document.body.detachEvent("ondragover", Zone_OnDragOver);
-    for (var i = 0; i < __wpm.zones.size(); i++) {
+    for (var i = 0; i < __wpm.zones.Length; i++) {
         __wpm.zones[i].allowDrop = false;
     }
     this.overlayContainerElement.removeChild(this.overlayContainerElement.firstChild);
@@ -624,7 +624,7 @@ function WebPartManager_ShowHelp(helpUrl, helpMode) {
     }
 }
 function WebPartManager_ExportWebPart(exportUrl, warn, confirmOnly) {
-    if (warn == true && __wpmExportWarning.size() > 0 && this.personalizationScopeShared != true) {
+    if (warn == true && __wpmExportWarning.Length > 0 && this.personalizationScopeShared != true) {
         if (confirm(__wpmExportWarning) == false) {
             return false;
         }
@@ -635,7 +635,7 @@ function WebPartManager_ExportWebPart(exportUrl, warn, confirmOnly) {
     return true;
 }
 function WebPartManager_UpdatePositions() {
-    for (var i = 0; i < this.zones.size(); i++) {
+    for (var i = 0; i < this.zones.Length; i++) {
         this.zones[i].UpdatePosition();
     }
 }

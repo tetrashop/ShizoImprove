@@ -5243,7 +5243,7 @@ if (Kind == 2)
                                                 RW6 = -1;
                                                 CL6 = -1;
                                                 Ki6 = -1;
-                                                MaxLess2 = (ElephantOnTable[RW2].ElefantThinking[CL2].NumberOfPenalties;
+                                                MaxLess2 = (ElephantOnTable[RW2].ElefantThinking[CL2].NumberOfPenalties);
                                                 if (MaxLess2 > MaxLess1)
                                                     MaxLess1 = -1;
                                                 if (MaxLess2 > MaxLess3)
@@ -5492,7 +5492,7 @@ if (Kind == 2)
                                                 RW6 = -1;
                                                 CL6 = -1;
                                                 Ki6 = -1;
-                                                MaxLess3 = (HoursesOnTable[RW3].HourseThinking[CL3].NumberOfPenalties;
+                                                MaxLess3 = (HoursesOnTable[RW3].HourseThinking[CL3].NumberOfPenalties);
                                                 if (MaxLess3 > MaxLess1)
                                                     MaxLess1 = -1;
                                                 if (MaxLess3 > MaxLess2)
@@ -5749,7 +5749,7 @@ if (Kind == 2)
                                                 RW6 = -1;
                                                 CL6 = -1;
                                                 Ki6 = -1;
-                                                MaxLess4 = (CastlesOnTable[RW4].CastleThinking[CL4].NumberOfPenalties;
+                                                MaxLess4 = (CastlesOnTable[RW4].CastleThinking[CL4].NumberOfPenalties);
                                                 if (MaxLess4 > MaxLess1)
                                                     MaxLess1 = -1;
                                                 if (MaxLess4 > MaxLess2)
@@ -6001,7 +6001,7 @@ if (Kind == 2)
                                             RW6 = -1;
                                             CL6 = -1;
                                             Ki6 = -1;
-                                            MaxLess5 = (MinisterOnTable[RW5].MinisterThinking[CL5].NumberOfPenalties;
+                                            MaxLess5 = (MinisterOnTable[RW5].MinisterThinking[CL5].NumberOfPenalties);
                                             if (MaxLess5 > MaxLess1)
                                                 MaxLess1 = -1;
                                             if (MaxLess5 > MaxLess2)
@@ -6254,7 +6254,7 @@ if (Kind == 2)
                                                 RW5 = -1;
                                                 CL5 = -1;
                                                 Ki5 = -1;
-                                                MaxLess6 = (KingOnTable[RW6].KingThinking[CL6].NumberOfPenalties;
+                                                MaxLess6 = (KingOnTable[RW6].KingThinking[CL6].NumberOfPenalties);
                                                 if (MaxLess6 > MaxLess1)
                                                     MaxLess1 = -1;
                                                 if (MaxLess6 > MaxLess2)
@@ -8697,7 +8697,7 @@ if (Kind == 2)
                                             RW6 = -1;
                                             CL6 = -1;
                                             Ki6 = -1;
-                                            MaxLess2 = (ElephantOnTable[RW2].ElefantThinking[CL2].NumberOfPenalties;
+                                            MaxLess2 = (ElephantOnTable[RW2].ElefantThinking[CL2].NumberOfPenalties);
                                             MaxLess1 = -1;
                                             if (MaxLess2 > MaxLess3)
                                                 MaxLess3 = -1;
@@ -9205,7 +9205,7 @@ if (Kind == 2)
                                             RW6 = -1;
                                             CL6 = -1;
                                             Ki6 = -1;
-                                            MaxLess4 = (CastlesOnTable[RW4].CastleThinking[CL4].NumberOfPenalties;
+                                            MaxLess4 = (CastlesOnTable[RW4].CastleThinking[CL4].NumberOfPenalties);
                                             if (MaxLess4 > MaxLess1)
                                                 MaxLess1 = -1;
                                             if (MaxLess4 > MaxLess2)
@@ -9461,7 +9461,7 @@ if (Kind == 2)
                                             RW6 = -1;
                                             CL6 = -1;
                                             Ki6 = -1;
-                                            MaxLess5 = (MinisterOnTable[RW5].MinisterThinking[CL5].NumberOfPenalties;
+                                            MaxLess5 = (MinisterOnTable[RW5].MinisterThinking[CL5].NumberOfPenalties);
                                             if (MaxLess5 > MaxLess1)
                                                 MaxLess1 = -1;
                                             if (MaxLess5 > MaxLess2)
@@ -9717,7 +9717,7 @@ if (Kind == 2)
                                             RW5 = -1;
                                             CL5 = -1;
                                             Ki5 = -1;
-                                            MaxLess6 = (KingOnTable[RW6].KingThinking[CL6].NumberOfPenalties;
+                                            MaxLess6 = (KingOnTable[RW6].KingThinking[CL6].NumberOfPenalties);
                                             if (MaxLess6 > MaxLess1)
                                                 MaxLess1 = -1;
                                             if (MaxLess6 > MaxLess2)
@@ -19497,11 +19497,11 @@ if (Kind == 5)
             {
 
                 List<int[]> TagList = new List<int[]>();
-                for (int i = 0; i < Tag.size(); i++)
+                for (int i = 0; i < Tag.Length; i++)
                 {
-                    if (i + 1 < Tag.size())
+                    if (i + 1 < Tag.Length)
                     {
-                        for (int j = i + 1; j < i + RefrigtzW.AllDraw.MaxAStarGreedy.ToString().size() + 1; j++)
+                        for (int j = i + 1; j < i + RefrigtzW.AllDraw.MaxAStarGreedy.ToString().Length + 1; j++)
                         {
                             try
                             {

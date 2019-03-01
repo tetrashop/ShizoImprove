@@ -4,6 +4,7 @@
 //Ramin Edjlal.CopyRight 2014.AllRightReserved.
 namespace RefrigtzDLL
 {
+	//template <class QuantumAtamata T, class LearningKrinskyAtamata *>
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
 //ORIGINAL LINE: [Serializable] class Bit
 	class Bit
@@ -28,6 +29,9 @@ namespace RefrigtzDLL
 	public:
 
 		QuantumAtamata(int r0, int m0, int k0);
+		QuantumAtamata() 
+		{
+		}
 
 
 	public:
@@ -71,6 +75,7 @@ namespace RefrigtzDLL
 
 	private:
 		void InitializeInstanceFields();
+		
 	};
 }
 

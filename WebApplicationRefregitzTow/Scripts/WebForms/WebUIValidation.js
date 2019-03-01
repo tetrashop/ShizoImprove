@@ -26,7 +26,7 @@ function ValidatorUpdateIsValid() {
 function AllValidatorsValid(validators) {
     if ((typeof(validators) != "undefined") && (validators != null)) {
         var i;
-        for (i = 0; i < validators.size(); i++) {
+        for (i = 0; i < validators.Length; i++) {
             if (!validators[i].isvalid) {
                 return false;
             }
@@ -53,7 +53,7 @@ function ValidatorHookupControl(control, val) {
     }
     if (control.tagName != "INPUT" && control.tagName != "TEXTAREA" && control.tagName != "SELECT") {
         var i;
-        for (i = 0; i < control.childNodes.size(); i++) {
+        for (i = 0; i < control.childNodes.Length; i++) {
             ValidatorHookupControl(control.childNodes[i], val);
         }
         return;
@@ -76,7 +76,7 @@ function ValidatorHookupControl(control, val) {
                     "event = event || window.event; if (!ValidatedTextBoxOnKeyPress(event)) { event.cancelBubble = true; if (event.stopPropagation) event.stopPropagation(); return false; } ");
             }
         }
-        control.Validators[control.Validators.size()] = val;
+        control.Validators[control.Validators.Length] = val;
     }
 }
 function ValidatorHookupEvent(control, eventType, functionPrefix) {
@@ -104,7 +104,7 @@ function ValidatorGetValueRecursive(control)
         return control.value;
     }
     var i, val;
-    for (i = 0; i<control.childNodes.size(); i++) {
+    for (i = 0; i<control.childNodes.Length; i++) {
         val = ValidatorGetValueRecursive(control.childNodes[i]);
         if (val != "") return val;
     }
@@ -116,7 +116,7 @@ function Page_ClientValidate(validationGroup) {
         return true;
     }
     var i;
-    for (i = 0; i < Page_Validators.size(); i++) {
+    for (i = 0; i < Page_Validators.Length; i++) {
         ValidatorValidate(Page_Validators[i], validationGroup, null);
     }
     ValidatorUpdateIsValid();
@@ -159,7 +159,7 @@ function ValidatorOnChange(event) {
         }
     }
     if (vals) {
-        for (var i = 0; i < vals.size(); i++) {
+        for (var i = 0; i < vals.Length; i++) {
             ValidatorValidate(vals[i], null, event);
         }
     }
@@ -237,7 +237,7 @@ function ValidatorSetFocus(val, event) {
         if ((ctrl.tagName.toLowerCase() == "table" && (typeof(__nonMSDOMBrowser) == "undefined" || __nonMSDOMBrowser)) ||
             (ctrl.tagName.toLowerCase() == "span")) {
             var inputElements = ctrl.getElementsByTagName("input");
-            var lastInputElement  = inputElements[inputElements.size() -1];
+            var lastInputElement  = inputElements[inputElements.Length -1];
             if (lastInputElement != null) {
                 ctrl = lastInputElement;
             }
@@ -277,7 +277,7 @@ function ValidatorOnLoad() {
     if (typeof(Page_Validators) == "undefined")
         return;
     var i, val;
-    for (i = 0; i < Page_Validators.size(); i++) {
+    for (i = 0; i < Page_Validators.Length; i++) {
         val = Page_Validators[i];
         if (typeof(val.evaluationfunction) == "string") {
             eval("val.evaluationfunction = " + val.evaluationfunction + ";");
@@ -324,9 +324,9 @@ function ValidatorConvert(op, dataType, val) {
         m = op.match(exp);
         if (m == null)
             return null;
-        if (m[2].size() == 0 && m[3].size() == 0)
+        if (m[2].Length == 0 && m[3].Length == 0)
             return null;
-        cleanInput = (m[1] != null ? m[1] : "") + (m[2].size()>0 ? m[2] : "0") + (m[3].size()>0 ? "." + m[3] : "");
+        cleanInput = (m[1] != null ? m[1] : "") + (m[2].Length>0 ? m[2] : "0") + (m[3].Length>0 ? "." + m[3] : "");
         num = parseFloat(cleanInput);
         return (isNaN(num) ? null : num);
     }
@@ -347,9 +347,9 @@ function ValidatorConvert(op, dataType, val) {
         m = op.match(exp);
         if (m == null)
             return null;
-        if (m[2].size() == 0 && hasDigits && m[5].size() == 0)
+        if (m[2].Length == 0 && hasDigits && m[5].Length == 0)
             return null;
-        cleanInput = (m[1] != null ? m[1] : "") + m[2].replace(new RegExp("(\\" + val.groupchar + ")", "g"), "") + ((hasDigits && m[5].size() > 0) ? "." + m[5] : "");
+        cleanInput = (m[1] != null ? m[1] : "") + m[2].replace(new RegExp("(\\" + val.groupchar + ")", "g"), "") + ((hasDigits && m[5].Length > 0) ? "." + m[5] : "");
         num = parseFloat(cleanInput);
         return (isNaN(num) ? null : num);
     }
@@ -357,10 +357,10 @@ function ValidatorConvert(op, dataType, val) {
         var yearFirstExp = new RegExp("^\\s*((\\d{4})|(\\d{2}))([-/]|\\. ?)(\\d{1,2})\\4(\\d{1,2})\\.?\\s*$");
         m = op.match(yearFirstExp);
         var day, month, year;
-        if (m != null && (((typeof(m[2]) != "undefined") && (m[2].size() == 4)) || val.dateorder == "ymd")) {
+        if (m != null && (((typeof(m[2]) != "undefined") && (m[2].Length == 4)) || val.dateorder == "ymd")) {
             day = m[6];
             month = m[5];
-            year = (m[2].size() == 4) ? m[2] : GetFullYear(parseInt(m[3], 10));
+            year = (m[2].Length == 4) ? m[2] : GetFullYear(parseInt(m[3], 10));
         }
         else {
             if (val.dateorder == "ymd"){
@@ -379,7 +379,7 @@ function ValidatorConvert(op, dataType, val) {
                 day = m[1];
                 month = m[3];
             }
-            year = ((typeof(m[5]) != "undefined") && (m[5].size() == 4)) ? m[5] : GetFullYear(parseInt(m[6], 10));
+            year = ((typeof(m[5]) != "undefined") && (m[5].Length == 4)) ? m[5] : GetFullYear(parseInt(m[6], 10));
         }
         month -= 1;
         var date = new Date(year, month, day);
@@ -418,7 +418,7 @@ function ValidatorCompare(operand1, operand2, operator, val) {
 }
 function CompareValidatorEvaluateIsValid(val) {
     var value = ValidatorGetValue(val.controltovalidate);
-    if (ValidatorTrim(value).size() == 0)
+    if (ValidatorTrim(value).Length == 0)
         return true;
     var compareTo = "";
     if ((typeof(val.controltocompare) != "string") ||
@@ -441,7 +441,7 @@ function CustomValidatorEvaluateIsValid(val) {
     var value = "";
     if (typeof(val.controltovalidate) == "string") {
         value = ValidatorGetValue(val.controltovalidate);
-        if ((ValidatorTrim(value).size() == 0) &&
+        if ((ValidatorTrim(value).Length == 0) &&
             ((typeof(val.validateemptytext) != "string") || (val.validateemptytext != "true"))) {
             return true;
         }
@@ -454,7 +454,7 @@ function CustomValidatorEvaluateIsValid(val) {
 }
 function RegularExpressionValidatorEvaluateIsValid(val) {
     var value = ValidatorGetValue(val.controltovalidate);
-    if (ValidatorTrim(value).size() == 0)
+    if (ValidatorTrim(value).Length == 0)
         return true;
     var rx = new RegExp(val.validationexpression);
     var matches = rx.exec(value);
@@ -469,7 +469,7 @@ function RequiredFieldValidatorEvaluateIsValid(val) {
 }
 function RangeValidatorEvaluateIsValid(val) {
     var value = ValidatorGetValue(val.controltovalidate);
-    if (ValidatorTrim(value).size() == 0)
+    if (ValidatorTrim(value).Length == 0)
         return true;
     return (ValidatorCompare(value, val.minimumvalue, "GreaterThanEqual", val) &&
             ValidatorCompare(value, val.maximumvalue, "LessThanEqual", val));
@@ -479,7 +479,7 @@ function ValidationSummaryOnSubmit(validationGroup) {
         return;
     var summary, sums, s;
     var headerSep, first, pre, post, end;
-    for (sums = 0; sums < Page_ValidationSummaries.size(); sums++) {
+    for (sums = 0; sums < Page_ValidationSummaries.Length; sums++) {
         summary = Page_ValidationSummaries[sums];
         if (!summary) continue;
         summary.style.display = "none";
@@ -519,7 +519,7 @@ function ValidationSummaryOnSubmit(validationGroup) {
                     s += summary.headertext + headerSep;
                 }
                 s += first;
-                for (i=0; i<Page_Validators.size(); i++) {
+                for (i=0; i<Page_Validators.Length; i++) {
                     if (!Page_Validators[i].isvalid && typeof(Page_Validators[i].errormessage) == "string") {
                         s += pre + Page_Validators[i].errormessage + post;
                     }
@@ -533,7 +533,7 @@ function ValidationSummaryOnSubmit(validationGroup) {
                 if (typeof(summary.headertext) == "string") {
                     s += summary.headertext + "\r\n";
                 }
-                var lastValIndex = Page_Validators.size() - 1;
+                var lastValIndex = Page_Validators.Length - 1;
                 for (i=0; i<=lastValIndex; i++) {
                     if (!Page_Validators[i].isvalid && typeof(Page_Validators[i].errormessage) == "string") {
                         switch (summary.displaymode) {
@@ -571,8 +571,8 @@ if (window.jQuery) {
                 attribute,
                 list = {},
                 attributes = element.attributes,
-                length = attributes.size(),
-                prefixLength = prefix.size();
+                length = attributes.Length,
+                prefixLength = prefix.Length;
             prefix = prefix.toLowerCase();
             for (i = 0; i < length; i++) {
                 attribute = attributes[i];
@@ -608,7 +608,7 @@ if (window.jQuery) {
                 if ($.inArray(element, validatorsArray) === -1) {
                     validatorsArray.push(element);
                 }
-            }).size();
+            }).Length;
         }
         function parse(selector) {
             var length = parseSpecificAttribute(selector, dataValidationAttribute, Page_Validators);
@@ -648,11 +648,11 @@ if (window.jQuery) {
                         return;
                     }
                     panels = args.get_panelsUpdated();
-                    for (i = 0; i < panels.size(); i++) {
+                    for (i = 0; i < panels.Length; i++) {
                         valFound += parse(panels[i]);
                     }
                     panels = args.get_panelsCreated();
-                    for (i = 0; i < panels.size(); i++) {
+                    for (i = 0; i < panels.Length; i++) {
                         valFound += parse(panels[i]);
                     }
                     if (valFound) {

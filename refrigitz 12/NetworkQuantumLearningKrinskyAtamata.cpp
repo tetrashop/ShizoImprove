@@ -32,7 +32,7 @@ namespace RefrigtzDLL
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 		//lock (o)
 		{
-			Netfi = new LearningKrinskyAtamat*[k0];
+			Netfi = new LearningKrinskyAtamata*[k0];
 			for (int i = 0; i < m0; i++)
 				Netfi[i] =new LearningKrinskyAtamata[m0];
 
@@ -50,7 +50,7 @@ namespace RefrigtzDLL
 		}
 	}
 
-	double NetworkQuantumLearningKrinskyAtamata::LearningAlgorithmRegardNet(int Row, int Column)
+	double NetworkQuantumLearningKrinskyAtamata::LearningAlgorithmRegard(int Row, int Column)
 	{
 		//autoo = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -71,7 +71,9 @@ namespace RefrigtzDLL
 		}
 	}
 
-	int NetworkQuantumLearningKrinskyAtamata::IsRewardActionNet(int Row, int Column)
+	
+
+	double NetworkQuantumLearningKrinskyAtamata::IsRewardAction(int Row, int Column)
 	{
 		//autoo = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -85,7 +87,7 @@ namespace RefrigtzDLL
 		}
 	}
 
-	double NetworkQuantumLearningKrinskyAtamata::IsPenaltyActionNet(int Row, int Column)
+	double NetworkQuantumLearningKrinskyAtamata::IsPenaltyAction(int Row, int Column)
 	{
 		//autoo = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -99,7 +101,7 @@ namespace RefrigtzDLL
 		}
 	}
 
-	double NetworkQuantumLearningKrinskyAtamata::LearningAlgorithmPenaltyNet(int Row, int Column)
+	double NetworkQuantumLearningKrinskyAtamata::LearningAlgorithmPenalty(int Row, int Column)
 	{
 		//autoo = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -119,12 +121,8 @@ namespace RefrigtzDLL
 		}
 	}
 
-	double NetworkQuantumLearningKrinskyAtamata::LearingValue(int Row, int Column)
+	double NetworkQuantumLearningKrinskyAtamata::LearingValue(int Row, int Column) 
 	{
-		//autoo = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-		//lock (o)
-		{
 			double Hu = 1;
 			//try
 			{
@@ -135,7 +133,7 @@ namespace RefrigtzDLL
 				
 			}
 			return Hu;
-		}
+		
 	}
 
 	void NetworkQuantumLearningKrinskyAtamata::InitializeInstanceFields()

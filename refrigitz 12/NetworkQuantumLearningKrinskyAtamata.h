@@ -25,11 +25,14 @@ namespace RefrigtzDLL
 
 	public:
 		NetworkQuantumLearningKrinskyAtamata(int r0, int m0, int k0);
-		double LearningAlgorithmRegardNet(int Row, int Column);
-		int IsRewardActionNet(int Row, int Column);
+		double LearningAlgorithmRegard(int Row, int Column);
+		NetworkQuantumLearningKrinskyAtamata()
+		{}
+		double IsRewardAction(int Row, int Column) ;
+		double IsRewardAction(int Row, int Column);
 
-		double IsPenaltyActionNet(int Row, int Column);
-		double LearningAlgorithmPenaltyNet(int Row, int Column);
+		double IsPenaltyAction(int Row, int Column);
+		double LearningAlgorithmPenalty(int Row, int Column);
 		double LearingValue(int Row, int Column);
 
 	public:

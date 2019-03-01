@@ -57,7 +57,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		}
 	}*/
 
-	ChessRules::ChessRules(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged, int oRDER)
+/*	ChessRules::ChessRules(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged, int oRDER)
 	{
 		InitializeInstanceFields();
 		CurrentAStarGredyMax = CurrentAStarGredy;
@@ -86,6 +86,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		AStarGreedyHuristicT = AStarGreedyHuris;
 		ArrangmentsBoard = ArrangmentsChanged;
 	}
+	*/
 
 	ChessRules::ChessRules(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged, int Ki, int **A, int Ord, int i, int j)
 	{
@@ -644,9 +645,9 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 								{
 									continue;
 								}
-								RefrigtzDLL::ThinkingChess *AA = new RefrigtzDLL::ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
+								ThinkingChess AA =  ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
 								//When There is Attacked to Gray from Brown.
-								if (AA->Attack(Tab, ii, jj, iii, jjj, -1, Order * -1))
+								if (AA.Attack(Tab, ii, jj, iii, jjj, -1, Order * -1))
 								{
 									//Move.
 									int a = Tab[iii][jjj];
@@ -732,9 +733,9 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 									continue;
 								}
 
-								RefrigtzDLL::ThinkingChess *AA = new RefrigtzDLL::ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
+								ThinkingChess AA =  ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
 								//When There is Attack to Brown.
-								if (AA->Attack(Tab, ii, jj, iii, jjj, 1, Order * -1))
+								if (AA.Attack(Tab, ii, jj, iii, jjj, 1, Order * -1))
 								{
 									//Move
 									int a = Tab[iii][jjj];
@@ -889,9 +890,9 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 								{
 									continue;
 								}
-								RefrigtzDLL::ThinkingChess *AA = new RefrigtzDLL::ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
+								ThinkingChess AA =  ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
 								//When There is Attacked to Gray from Brown.
-								if (AA->Attack(Tab, ii, jj, iii, jjj, -1, Order * -1))
+								if (AA.Attack(Tab, ii, jj, iii, jjj, -1, Order * -1))
 								{
 									//Move.
 									int a = Tab[iii][jjj];
@@ -977,9 +978,9 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 									continue;
 								}
 
-								RefrigtzDLL::ThinkingChess *AA = new RefrigtzDLL::ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
+								ThinkingChess AA =  ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
 								//When There is Attack to Brown.
-								if (AA->Attack(Tab, ii, jj, iii, jjj, 1, Order * -1))
+								if (AA.Attack(Tab, ii, jj, iii, jjj, 1, Order * -1))
 								{
 									//Move
 									int a = Tab[iii][jjj];
@@ -3039,7 +3040,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			     {
 			         if (ColumnSecond.1 >= 0)
 			         {
-			             if (Table[RowSecond, ColumnSecond.1] == -6)
+			             if (Table[RowSecond, ColumnSecond-1] == -6)
 			                 return false;
 			         }
 			     }
@@ -3048,7 +3049,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			     {
 			         if (((RowSecond-1 >= 0) (ColumnSecond.1) >= 0))
 			         {
-			             if (Table[RowSecond-1, ColumnSecond.1] == -6)
+			             if (Table[RowSecond-1, ColumnSecond-1] == -6)
 			                 return false;
 			         }
 			     }
@@ -3057,7 +3058,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			     {
 			         if (((RowSecond + 1 < 8) (ColumnSecond.1) >= 0))
 			         {
-			             if (Table[RowSecond + 1, ColumnSecond.1] == -6)
+			             if (Table[RowSecond + 1, ColumnSecond-1] == -6)
 			                 return false;
 			         }
 			     }
@@ -3116,7 +3117,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			     {
 			         if (ColumnSecond.1 >= 0)
 			         {
-			             if (Table[RowSecond, ColumnSecond.1] == 6)
+			             if (Table[RowSecond, ColumnSecond-1] == 6)
 			                 return false;
 			         }
 			     }
@@ -3125,7 +3126,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			     {
 			         if (((RowSecond-1 >= 0) (ColumnSecond.1) >= 0))
 			         {
-			             if (Table[RowSecond-1, ColumnSecond.1] == 6)
+			             if (Table[RowSecond-1, ColumnSecond-1] == 6)
 			                 return false;
 			         }
 			     }
@@ -3134,7 +3135,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			     {
 			         if (((RowSecond + 1 < 8) (ColumnSecond.1) >= 0))
 			         {
-			             if (Table[RowSecond + 1, ColumnSecond.1] == 6)
+			             if (Table[RowSecond + 1, ColumnSecond-1] == 6)
 			                 return false;
 			         }
 			     }

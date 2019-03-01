@@ -1,11 +1,5 @@
 ﻿#pragma once
 #include "stdafx.h"
-//#include "DrawSoldire.h"
-//#include "DrawElefant.h"
-//#include "DrawHourse.h"
-//#include "DrawCastle.h"
-//#include "DrawMinister.h"
-//#include "DrawKing.h"
 
 
 /*******************************************************************************************
@@ -355,8 +349,8 @@ struct Array {
 };*/
 	public:
 		std::vector<int**> TableList;
-		int AStarGreedy;
-		DrawSoldier *SolderesOnTable;
+		int AStarGreedyInt;
+		DrawSoldier *SolderesOnTable;;
 		DrawElefant *ElephantOnTable;
 		DrawHourse *HoursesOnTable;
 		DrawCastle *CastlesOnTable;
@@ -396,7 +390,7 @@ struct Array {
 		//Constructor
 	public:
 		void MakePenaltyAllCheckMateBranches(AllDraw A, int Order);
-		std::vector<std::vector<double>> FoundOfBestMovments(int AStarGreedy, std::vector<double> i, std::vector<double> j, std::vector<double> k, AllDraw Dummy, int a, int Order);
+		std::vector<std::vector<double>> FoundOfBestMovments(int AStarGreedyInt, std::vector<double> i, std::vector<double> j, std::vector<double> k, AllDraw Dummy, int a, int Order);
 		bool TableZero(int ** Ta);
 		void CheckedMateConfiguratiionSoldier(int Order, int i, bool Regrad);
 		void CheckedMateConfiguratiionElephant(int Order, int i, bool Regrad);
@@ -415,6 +409,11 @@ struct Array {
 //		int SumOfObjects(AllDraw A, int Order);
 		//aBlanck Constructor
 		AllDraw(int Order, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, AllDraw THi);
+		
+		AllDraw()
+		{
+		
+		}
 		//Check For Thinking Of Current Item Movments Finished.
 		bool KingDan(int** Tab, int Order);
 		//int** Initiate(int ii, int jj, int a, int** Table, int Order, bool TB, bool FOUND, int LeafAStarGreedy, bool SetDept = false);
@@ -483,12 +482,15 @@ if (Kind == 2)
 		void SetRowColumnFinishedWait();
 		//Max Index List Of Huristic AStarGreedy First Method.
 	public:
+		
+		
+
 		bool TableEqual(int **t1, int **t2);
 		void FoundOfLeafDepenOfKindAllDraw(int **Table, int Order, int iAStarGreedy, int ii, int jj, int ik, int jjj, bool FOUND, int LeafAStarGreedy);
 		void BeginIndexFoundingMaxLessofMaxList(int ListIndex, std::vector<double> Founded, double LessB);
 		//Method for Check of Existence of Checkmate less than for checked mate.
 	private:
-		bool IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckMate, int ForCheckMate, int AStarGreedy);
+		bool IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckMate, int ForCheckMate, int AStarGreedyInt);
 		//When Penalty Regard Branches expanded to sub branches.
 		
 	public:

@@ -1,8 +1,11 @@
-﻿#include "stdafx.h"
+﻿#pragma once
+#include "stdafx.h"
 
 
 namespace RefrigtzDLL
 {
+	inline bool operator==( DrawKing& lhs,  std::nullptr_t& rhs) { return (lhs == rhs); }
+	inline bool operator!=( DrawKing& lhs,  std::nullptr_t& rhs) { return !(lhs == rhs); }
 
 bool DrawKing::KingGrayNotCheckedByQuantumMove = false;
 bool DrawKing::KingBrownNotCheckedByQuantumMove = false;

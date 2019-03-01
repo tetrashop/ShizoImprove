@@ -2,7 +2,7 @@
 
 
 #include "stdafx.h"
-//#include "ThinkingChess.h"
+
 
 namespace RefrigtzDLL
 {//https://forum.arduino.cc/index.php?topic=565773.0
@@ -61,7 +61,7 @@ namespace RefrigtzDLL
 		bool MaxFound(bool MaxNotFound);
 		bool MaxFound(bool &MaxNotFound);
 		double ReturnHuristic();
-		void* operator*(std::size_t idx);
+		//void* operator*(std::size_t idx);
 		static bool KingGrayNotCheckedByQuantumMove;
 
 		//Constructor 1.
@@ -80,8 +80,12 @@ namespace RefrigtzDLL
 		*/
 		//Constructor 2.
 		DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int **Tab, int Ord, bool TB, int Cur); //, ref AllDraw:: THIS
+		DrawSoldier()
+		{
+		}
+	
 		//Clone a Copy Method.
-		void Clone(DrawSoldier *&AA); //, ref AllDraw:: THIS
+		//void Clone(DrawSoldier *&AA); //, ref AllDraw:: THIS
 		//Drawing Soldiers On the Table Method..
 		void DrawSoldierOnTable( int CellW, int CellH);
 

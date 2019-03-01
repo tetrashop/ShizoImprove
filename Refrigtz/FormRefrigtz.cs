@@ -599,7 +599,7 @@ namespace Refrigtz
                                         }
                                         StreamWriter sw = proc.StandardInput;
                                         string input = fens + "\r\n";
-                                        sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.size());
+                                        sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
                                         sw.Flush();
                                         RowClickP = -1;
                                         ColumnClickP = -1;
@@ -957,7 +957,7 @@ namespace Refrigtz
                                         }
                                         StreamWriter sw = proc.StandardInput;
                                         string input = fens + "\r\n";
-                                        sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.size());
+                                        sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
                                         sw.Flush();
                                         RowClickP = -1;
                                         ColumnClickP = -1;
@@ -2030,7 +2030,7 @@ namespace Refrigtz
                                         }
                                         StreamWriter sw = proc.StandardInput;
                                         string input = fens + "\r\n";
-                                        sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.size());
+                                        sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
                                         sw.Flush();
                                         RowClickP = -1;
                                         ColumnClickP = -1;
@@ -2388,7 +2388,7 @@ namespace Refrigtz
                                         }
                                         StreamWriter sw = proc.StandardInput;
                                         string input = fens + "\r\n";
-                                        sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.size());
+                                        sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
                                         sw.Flush();
                                         RowClickP = -1;
                                         ColumnClickP = -1;
@@ -4355,10 +4355,10 @@ namespace Refrigtz
                             S = SCoun.Substring(k, SCoun.IndexOf(','));
                             S = S.Replace(",","");
                             QuantumRefrigiz.AllDraw.QuntumTable[i, jj, kk] = System.Convert.ToInt32(S);
-                            k += S.size() + 1;
+                            k += S.Length + 1;
                             L++;
                         }
-                    } while (k < SCoun.size());
+                    } while (k < SCoun.Length);
                 }
             }
             
@@ -4389,7 +4389,7 @@ namespace Refrigtz
 
                     String TableName = Move.ToString();
                     String Zero = "Table";
-                    for (int i = 0; i < 8 - TableName.size(); i++)
+                    for (int i = 0; i < 8 - TableName.Length; i++)
                         Zero += "0";
                     TableName = Zero + TableName;
                     bookConn.Close();
@@ -4576,7 +4576,7 @@ namespace Refrigtz
 
                         String TableName = (Move).ToString();
                         String Zero = "Table";
-                        for (int i = 0; i < 8 - TableName.size(); i++)
+                        for (int i = 0; i < 8 - TableName.Length; i++)
                             Zero += "0";
                         TableName = Zero + TableName;
 
@@ -4789,7 +4789,7 @@ namespace Refrigtz
                     String connParam = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + FileName + ";;Persist Security Info=False; Jet OLEDB:Database Password='!HN#BGHHN&N$G$V4'";
                     String TableName = Move.ToString();
                     String Zero = "Table";
-                    for (int i = 0; i < 8 - TableName.size(); i++)
+                    for (int i = 0; i < 8 - TableName.Length; i++)
                         Zero += "0";
                     TableName = Zero + TableName;
 
@@ -4991,7 +4991,7 @@ namespace Refrigtz
                             String connParam = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + FileName + ";;Persist Security Info=False; Jet OLEDB:Database Password='!HN#BGHHN&N$G$V4'";
                             String TableName = (Move).ToString();
                             String Zero = "Table";
-                            for (int i = 0; i < 8 - TableName.size(); i++)
+                            for (int i = 0; i < 8 - TableName.Length; i++)
                                 Zero += "0";
                             TableName = Zero + TableName;
 
@@ -5059,7 +5059,7 @@ namespace Refrigtz
 
                 String TableName = Move.ToString();
                 String Zero = "Table";
-                for (int i = 0; i < 8 - TableName.size(); i++)
+                for (int i = 0; i < 8 - TableName.Length; i++)
                     Zero += "0";
                 TableName = Zero + TableName;
 
@@ -5104,7 +5104,7 @@ namespace Refrigtz
 
                     String TableName = (Move).ToString();
                     String Zero = "Table";
-                    for (int i = 0; i < 8 - TableName.size(); i++)
+                    for (int i = 0; i < 8 - TableName.Length; i++)
                         Zero += "0";
                     TableName = Zero + TableName;
 
@@ -5158,7 +5158,7 @@ namespace Refrigtz
 
                 String TableName = MovmentsNumber.ToString();
                 String Zero = "Table";
-                for (int i = 0; i < 8 - TableName.size(); i++)
+                for (int i = 0; i < 8 - TableName.Length; i++)
                     Zero += "0";
                 TableName = Zero + TableName;
                 bookConn.Close();
@@ -5175,7 +5175,7 @@ namespace Refrigtz
 
                 String TableName = MovmentsNumber.ToString();
                 String Zero = "Table";
-                for (int i = 0; i < 8 - TableName.size(); i++)
+                for (int i = 0; i < 8 - TableName.Length; i++)
                     Zero += "0";
                 TableName = Zero + TableName;
 
@@ -11277,7 +11277,7 @@ namespace Refrigtz
                                             if (A[2] == 'h')
                     RowRealesed = 7;
                 ColumnRealeased = 7 - ((System.Convert.ToInt32(A[3]) - 48) - 1);
-                if (A.size() == 5)
+                if (A.Length == 5)
                 {
                     if (A[4] == 'p')
                         return -1;
@@ -11754,7 +11754,7 @@ namespace Refrigtz
                 Pre = File.ReadAllText("output.txt");
             StreamWriter sw = proc.StandardInput;
             string input = "go depth " + comboBoxMaxLevelText + "\r\n";
-            sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.size());
+            sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
             sw.Flush();
             String wr = "";
             WaitOn = true;
@@ -11765,7 +11765,7 @@ namespace Refrigtz
                 {
                     Thread.Sleep(100);
                     input = "wr" + "\r\n";
-                    sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.size());
+                    sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
                     sw.Flush();
                     Thread.Sleep(100);
 
@@ -11851,7 +11851,7 @@ namespace Refrigtz
             ColumnRealeased = -1;
             sw = proc.StandardInput;
             input = fens + "\r\n";
-            sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.size());
+            sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
             sw.Flush();
 
             if (OrderPlate == 1)
@@ -11970,7 +11970,7 @@ namespace Refrigtz
             }
             StreamWriter sw = proc.StandardInput;
             string input = fens + "\r\n";
-            sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.size());
+            sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
             sw.Flush();
             RowClickP = -1;
             ColumnClickP = -1;
@@ -12177,11 +12177,11 @@ namespace Refrigtz
         {
 
             List<int[]> TagList = new List<int[]>();
-            for (int i = 0; i < Tag.size(); i++)
+            for (int i = 0; i < Tag.Length; i++)
             {
-                if (i + 1 < Tag.size())
+                if (i + 1 < Tag.Length)
                 {
-                    for (int j = i + 1; j < i + RefrigtzDLL.AllDraw.MaxAStarGreedy.ToString().size() + 1; j++)
+                    for (int j = i + 1; j < i + RefrigtzDLL.AllDraw.MaxAStarGreedy.ToString().Length + 1; j++)
                     {
                         try
                         {

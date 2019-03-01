@@ -913,7 +913,7 @@ namespace GalleryStudio
 
 
                     //NEWNOD = Node.AllDrawCurrentAccess;
-                    while (DummyFileStream.Position < DummyFileStream.size())
+                    while (DummyFileStream.Position < DummyFileStream.Length)
                     {
                         Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
                         //Dummy.CloneSphycose(Last);
@@ -1058,7 +1058,7 @@ namespace GalleryStudio
 
 
                     //NEWNOD = Node.AllDrawCurrentAccess;
-                    while (DummyFileStream.Position < DummyFileStream.size())
+                    while (DummyFileStream.Position < DummyFileStream.Length)
                     {
                         Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
                         //Dummy.CloneSphycose(Last);
