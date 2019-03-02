@@ -247,7 +247,7 @@ namespace RefrigtzDLL
 		int color;
 		int Order;
 		
-		std::vector<AllDraw> AStarGreedy;
+		std::vector<AllDraw> AStarGreedy = std::vector<AllDraw>();
 		
 	private:
 		

@@ -492,6 +492,7 @@ AllDraw::AllDraw(int Order, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSe
 		*/
 		//Initiayte Locally Variables.
 	TableList = std::vector<int**>();
+	
 	//APredict = new ChessPerdict(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged//, ref th
 	//    );
 	OrderP = Order;
