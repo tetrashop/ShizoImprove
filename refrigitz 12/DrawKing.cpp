@@ -110,7 +110,7 @@ double DrawKing::MaxHuristicxK = -20000000000000000;
 			}
 		}
 
-		KingThinking = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(i), static_cast<int>(j), a, Tab, 8, Ord, TB, Cur, 2, 6);
+		KingThinking=new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(i), static_cast<int>(j), a, Tab, 8, Ord, TB, Cur, 2, 6);
 
 		Row = i;
 		Column = j;
@@ -134,14 +134,14 @@ double DrawKing::MaxHuristicxK = -20000000000000000;
 		AA->ArrangmentsChanged = ArrangmentsChanged;
 			//try
 			{
-				AA->KingThinking = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
-				KingThinking.Clone(AA->KingThinking);
+				AA->KingThinking=new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
+				KingThinkingClone(AA->KingThinking;
 			}
 			//catch(std::exception t)
 			{
 				
 //C# TO C++ CONVERTER WARNING: C# to C++ Converter converted the original 'null' assignment to a call to 'delete', but you should review memory allocation of all pointer variables in the converted code:
-				delete AA->KingThinking;
+				delete AA->KingThinking
 			}
 		AA->Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii]-new int[8];
 		for (int ii = 0; ii < 8; ii++)

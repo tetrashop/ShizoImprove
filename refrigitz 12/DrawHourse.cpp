@@ -105,7 +105,7 @@ DrawHourse::~DrawHourse()
 				Table[ii][jj] = Tab[ii][jj];
 			}
 		}
-		HourseThinking = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(i), static_cast<int>(j), a, Tab, 8, Ord, TB, Cur, 4, 3);
+		HourseThinking= ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(i), static_cast<int>(j), a, Tab, 8, Ord, TB, Cur, 4, 3);
 
 		Row = i;
 		Column = j;
@@ -132,14 +132,14 @@ DrawHourse::~DrawHourse()
 		{
 			//try
 			{
-				AA->HourseThinking = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
-				HourseThinking.Clone(AA->HourseThinking);
+				AA->HourseThinking= ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
+				HourseThinking.Clone(AA->HourseThinking.;
 			}
 			//catch(std::exception t)
 			{
 				
 //C# TO C++ CONVERTER WARNING: C# to C++ Converter converted the original 'null' assignment to a call to 'delete', but you should review memory allocation of all pointer variables in the converted code:
-				delete AA->HourseThinking;
+				delete AA->HourseThinking.
 			}
 		}
 		AA->Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii]-new int[8];

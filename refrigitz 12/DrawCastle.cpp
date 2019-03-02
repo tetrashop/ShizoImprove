@@ -81,7 +81,7 @@ double DrawCastle::MaxHuristicxB = -20000000000000000;
 
 		return a;
 	}
-	/*
+	
 	DrawCastle::DrawCastle(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int **Tab, int Ord, bool TB, int Cur)
 	{
 		InitializeInstanceFields();
@@ -106,7 +106,7 @@ double DrawCastle::MaxHuristicxB = -20000000000000000;
 			}
 		}
 
-		CastleThinking = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(i), static_cast<int>(j), a, Tab, 16, Ord, TB, Cur, 4, 4);
+		CastleThinking= ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(i), static_cast<int>(j), a, Tab, 16, Ord, TB, Cur, 4, 4);
 
 		Row = i;
 		Column = j;
@@ -116,7 +116,7 @@ double DrawCastle::MaxHuristicxB = -20000000000000000;
 
 
 	}
-	*/
+	
 	/*void DrawCastle::Clone(DrawCastle *AA)
 	{
 		int **Tab;
@@ -134,14 +134,14 @@ double DrawCastle::MaxHuristicxB = -20000000000000000;
 		{
 			//try
 			{
-				AA->CastleThinking = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
-				CastleThinking.Clone(AA->CastleThinking);
+				AA->CastleThinking= ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
+				CastleThinking.Clone(AA->CastleThinking.;
 			}
 			//catch(std::exception t)
 			{
 				
 //C# TO C++ CONVERTER WARNING: C# to C++ Converter converted the original 'null' assignment to a call to 'delete', but you should review memory allocation of all pointer variables in the converted code:
-				delete AA->CastleThinking;
+				delete AA->CastleThinking.
 			}
 		}
 		AA->Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii]-new int[8];

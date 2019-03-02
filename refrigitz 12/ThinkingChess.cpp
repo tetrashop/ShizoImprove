@@ -1,4 +1,5 @@
 ﻿#include "stdafx.h"
+
 //#include "AllDraw.h"
 
 
@@ -7,7 +8,10 @@
 
 namespace RefrigtzDLL
 {
+	inline bool operator==(ThinkingChess& lhs, std::nullptr_t& rhs) { return (lhs == rhs); }
+	inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs == rhs); }
 
+	
 std::wstring ThinkingChess::ActionsString = L"";
 bool ThinkingChess::LearningVarsCheckedMateOccured = false;
 bool ThinkingChess::LearningVarsCheckedMateOccuredOneCheckedMate = false;
@@ -44,7 +48,7 @@ bool ThinkingChess::ThinkingRun = false;
 		}
 	}
 	*/
-inline bool operator==(AllDraw& lhs, std::nullptr_t& rhs) { return (lhs == rhs); }
+/*inline bool operator==(AllDraw& lhs, std::nullptr_t& rhs) { return (lhs == rhs); }
 inline bool operator!=(AllDraw& lhs, std::nullptr_t& rhs) { return !(lhs == rhs); }
 inline bool operator==(DrawCastle& lhs, std::nullptr_t& rhs) { return (lhs == rhs); }
 inline bool operator!=(DrawCastle& lhs, std::nullptr_t& rhs) { return !(lhs == rhs); }
@@ -55,9 +59,7 @@ inline bool operator!=(DrawHourse& lhs, std::nullptr_t& rhs) { return !(lhs == r
 inline bool operator==(DrawMinister& lhs, std::nullptr_t& rhs) { return (lhs == rhs); }
 inline bool operator!=(DrawMinister& lhs, std::nullptr_t& rhs) { return !(lhs == rhs); }
 inline bool operator==(DrawKing& lhs, std::nullptr_t& rhs) { return (lhs == rhs); }
-inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs); }
-inline bool operator==(ThinkingChess& lhs, std::nullptr_t& rhs) { return (lhs == rhs); }
-inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs == rhs); }
+inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs); }*/
 
 	void ThinkingChess::SetObjectNumbersInList(int **Tab)
 	{
@@ -314,6 +316,7 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 		}
 	}
 	*/
+
 	ThinkingChess::ThinkingChess(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, int i, int j, int a, int **Tab, int Ma, int Ord, bool ThinkingBeg, int CurA, int ThingN, int Kin)
 	{
 		InitializeInstanceFields();
@@ -487,7 +490,7 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 			//Initaite New Object.
 			if (AA == nullptr)
 			{
-				AA = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column); //, Kind
+				AA =new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column); //, Kind
 			}
 			AA->ArrangmentsChanged = ArrangmentsChanged;
 			//When Depth Object is not NULL.
@@ -6849,7 +6852,7 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 						{
 							continue;
 						}
-						Huristic += ((AStarGreedy.data())[k]).MinisterOnTable[m].MinisterThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += ((AStarGreedy.data())[k]).MinisterOnTable[m].MinisterThinkin->ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for King.
 					for (int m = 0; m < ((AStarGreedy.data())[k]).KingMidle; m++)
@@ -6905,7 +6908,7 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 						{
 							continue;
 						}
-						Huristic += ((AStarGreedy.data())[k]).MinisterOnTable[m].MinisterThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += ((AStarGreedy.data())[k]).MinisterOnTable[m].MinisterThinkin->ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for King.
 					for (int m = ((AStarGreedy.data())[k]).KingMidle; m < ((AStarGreedy.data())[k]).KingHigh; m++)
@@ -7149,7 +7152,7 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 		
 	}
 
-	void ThinkingChess::KingThinkingChess(int LoseOcuuredatChiled, int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
+	void ThinkingChess::KingThinkinChess(int LoseOcuuredatChiled, int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
 	{
 
 
@@ -10478,7 +10481,7 @@ inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs =
 					{
 					}
 					Order = ord;
-					KingThinkingChess(LoseOcuuredatChiled, WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
+					KingThinkinChess(LoseOcuuredatChiled, WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
 				}
 
 			}

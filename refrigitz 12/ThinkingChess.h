@@ -4,6 +4,7 @@
 #include "stdafx.h"
 
 using namespace std;
+using namespace RefrigtzDLL;
 
 /****************************************************************************
  * Thinking Operation class.*************************************************
@@ -80,7 +81,7 @@ using namespace std;
 
 namespace RefrigtzDLL
 {
-	template<typename T>
+	
 		
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
 //ORIGINAL LINE: [Serializable] class ThinkingChess
@@ -245,6 +246,7 @@ namespace RefrigtzDLL
 		int Row, Column;
 		int color;
 		int Order;
+		
 		std::vector<AllDraw> AStarGreedy;
 		
 	private:
@@ -261,6 +263,9 @@ namespace RefrigtzDLL
 		void SetObjectNumbers(int **TabS);
 		//Constructor
 		ThinkingChess(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, int i, int j);
+		ThinkingChess() 
+		{
+		}
 		/*double SetObjectValue(int[,] Tab, int Row, int Column)
 		{
 		    Object o = new Object();
@@ -440,7 +445,7 @@ namespace RefrigtzDLL
 		int MinOfSixHuristic(double *Less);
 
 
-		void KingThinkingChess(int LoseOcuuredatChiled, int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
+		void KingThinkinChess(int LoseOcuuredatChiled, int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
 		std::wstring CheM(int A);
 
 		void MinisterThinkingChess(int LoseOcuuredatChiled, int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);

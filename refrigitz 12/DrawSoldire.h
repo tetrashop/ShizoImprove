@@ -19,6 +19,7 @@ namespace RefrigtzDLL
 	};*/
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
 //ORIGINAL LINE: [Serializable] class DrawSoldier : ThingsConverter
+	
 	class DrawSoldier : public ThingsConverter
 	{
 
@@ -46,6 +47,7 @@ namespace RefrigtzDLL
 		static double MaxHuristicxS;
 		float RowS, ColumnS;
 		int color;
+		
 		ThinkingChess SoldierThinking;
 //C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: public int[,] Table = nullptr;
@@ -80,6 +82,9 @@ namespace RefrigtzDLL
 		*/
 		//Constructor 2.
 		DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int **Tab, int Ord, bool TB, int Cur); //, ref AllDraw:: THIS
+		DrawSoldier() 
+		{
+		}
 	
 		//Clone a Copy Method.
 		//void Clone(DrawSoldier *&AA); //, ref AllDraw:: THIS

@@ -28,9 +28,12 @@
 #include "DrawCastle.h"
 #include "DrawMinister.h"
 #include "DrawKing.h"
-#include "AllDraw.h"
-#include "ChessRules.h"
 #include "ThinkingChess.h"
+#include "ChessRules.h"
+#include "AllDraw.h"
+
+
+
 
 
 

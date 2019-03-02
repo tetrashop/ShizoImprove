@@ -154,6 +154,7 @@ namespace RefrigtzDLL
 
 	//C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
 	//ORIGINAL LINE: [Serializable] class AllDraw
+
 	class AllDraw
 	{
 	private:
@@ -333,18 +334,18 @@ namespace RefrigtzDLL
 		int Move;
 		static int MouseClick;
 	public:
-		
-			/*
-		template <class T, size_t N>
-struct Array {
-    T data[N];
 
-    T &operator*(size_t index) { return data[index]; }
-     T &operator*(size_t index)  { return data[index]; }
-    T *begin() { return &data[0]; }
-     T *begin()  { return &data[0]; }
-    T *end() { return &data[N]; }
-     T *end()  { return &data[N]; }
+		/*
+	template <class T, size_t N>
+struct Array {
+	T data[N];
+
+	T &operator*(size_t index) { return data[index]; }
+	 T &operator*(size_t index)  { return data[index]; }
+	T *begin() { return &data[0]; }
+	 T *begin()  { return &data[0]; }
+	T *end() { return &data[N]; }
+	 T *end()  { return &data[N]; }
 };*/
 	public:
 		std::vector<int**> TableList;
@@ -388,7 +389,7 @@ struct Array {
 		float *FoundLocationOfObject(int **Tabl, int Kind, bool IsGray);
 		//Constructor
 	public:
-		bool IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckMate, int ForCheckMate, int AStarGreedyInt);
+		//bool IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckMate, int ForCheckMate, int AStarGreedyInt);
 		void MakePenaltyAllCheckMateBranches(AllDraw A, int Order);
 		std::vector<std::vector<double>> FoundOfBestMovments(int AStarGreedyInt, std::vector<double> i, std::vector<double> j, std::vector<double> k, AllDraw Dummy, int a, int Order);
 		bool TableZero(int ** Ta);
@@ -408,8 +409,13 @@ struct Array {
 		//void Clone(AllDraw& AA);
 //		int SumOfObjects(AllDraw A, int Order);
 		//aBlanck Constructor
+
 		AllDraw(int Order, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, AllDraw THi);
-		
+
+		AllDraw()
+		{
+		}
+
 		//Check For Thinking Of Current Item Movments Finished.
 		bool KingDan(int** Tab, int Order);
 		//int** Initiate(int ii, int jj, int a, int** Table, int Order, bool TB, bool FOUND, int LeafAStarGreedy, bool SetDept = false);
@@ -489,7 +495,8 @@ if (Kind == 2)
 		//When Penalty Regard Branches expanded to sub branches.
 		
 	public:
-			AllDraw RemovePenalltyFromFirstBranches(int Order);
+		bool IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckMate, int ForCheckMate, int AStarGreedyInt);
+		AllDraw RemovePenalltyFromFirstBranches(int Order);
 		AllDraw FoundOfLeafDepenOfKind(int Kind, AllDraw& Leaf, bool & Found, int Order, int  OrderLeaf);
 		AllDraw FoundOfCurrentTableNode(int **Tab, int Order, AllDraw &THIS, bool &Found);
 		bool IsFoundOfLeafDepenOfKindhaveVictory(int Kind, bool &Found, int Order);
@@ -539,12 +546,12 @@ if (Kind == 2)
 		int** Initiate(int ii, int jj, int a, int** Table, int Order, bool TB, bool FOUND, int LeafAStarGreedy, bool SetDept);	
 		//void StringHuristics(int Obj, int Sec, bool AA, int Do, int WinOcuuredatChiled, int LoseOcuuredatChiled);
 	private:
-		void InitiateAStarGreedytObjectGray(int iii, int jjj, int **Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy);
+		//void InitiateAStarGreedytObjectGray(int iii, int jjj, int **Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy);
 		int MaxGrayMidle();
 		int MaxBrownHigh();
 		int MinBrownMidle();
-		AllDraw InitiateAStarGreedytObjectBrown(int iii, int jjj, int **Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy); //, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
-		int FoundTableIndex(std::vector<int**> *T, int TAab[8][8]);
+		//AllDraw InitiateAStarGreedytObjectBrown(int iii, int jjj, int **Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy); //, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
+		//int FoundTableIndex(std::vector<int**> *T, int TAab[8][8]);
 		void Serve(int Order);
 		int FoundTableIndex(std::vector<int**> T, int **TAab);
 		//Parallel.ForEach(tH, items => Task.WaitAny(items));
