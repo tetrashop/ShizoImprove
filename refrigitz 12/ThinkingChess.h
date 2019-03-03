@@ -101,7 +101,7 @@ namespace RefrigtzDLL
 		bool IsSup;
 		bool IsSupHu;
 
-	private:
+	public:
 		//StackFrame *callStack;
 		//Initiate Global and Static Variables. 
 	public:
@@ -109,18 +109,18 @@ namespace RefrigtzDLL
 		bool IsThereMateOfSelf;		
 		void CastleThinkingGray(int LoseOcuuredatChiled, int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
 		void HuristicPenaltyValuePerform(LearningKrinskyAtamata Current, int Order, double HuristicAttackValue, bool AllDrawClass);
-	private:
+	public:
 		bool ThinkingAtRun;
 	public:
 		static std::wstring ActionsString;
-	private:
+	public:
 		std::wstring OutPutAction;
 		int ThinkingLevel;
 	public:
 		std::vector<bool*> LearningVarsObject;
 		static bool LearningVarsCheckedMateOccured;
 		static bool LearningVarsCheckedMateOccuredOneCheckedMate;
-	private:
+	public:
 		bool IsGardHighPriority;
 		static  int ThresholdBlitz ;
 		static  int ThresholdFullGame;
@@ -133,11 +133,11 @@ namespace RefrigtzDLL
 		bool PredictHuristicT;
 		bool OnlySelfT;
 		bool AStarGreedyHuristicT;
-	private:
+	public:
 		bool ArrangmentsChanged;
 	public:
 		int NumberOfPenalties;
-	private:
+	public:
 		static int NumbersOfCurrentBranchesPenalties;
 	public:
 		static int NumbersOfAllNode;
@@ -179,12 +179,12 @@ namespace RefrigtzDLL
 		int KingValue;
 		static int BeginThread;
 		static int EndThread;
-	private:
+	public:
 		bool ExistingOfEnemyHiiting;
 		int IgnoreObjectDangour;
 	public:
 		int CheckMateAStarGreedy;
-	private:
+	public:
 		bool CheckMateOcuured;
 		int CurrentRow, CurrentColumn;
 	public:
@@ -246,10 +246,10 @@ namespace RefrigtzDLL
 		int Row, Column;
 		int color;
 		int Order;
-		
+		//< typename T >
 		std::vector<AllDraw> AStarGreedy = std::vector<AllDraw>();
 		
-	private:
+	public:
 		
 		double Value[8][8];
 		bool IgnoreFromCheckandMateHuristic;
@@ -302,14 +302,14 @@ namespace RefrigtzDLL
 		}*/
 
 		//determine When Arrangment of Table Objects is Validated at Begin.
-	private:
+	public:
 		//bool BeginArragmentsOfOrderFinished(int **Table, int Order);
 		//Constructor
 	public:
 		//void CastleThinkingGray(int LoseOcuuredatChiled, int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
 		ThinkingChess(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, int i, int j, int a, int **Tab, int Ma, int Ord, bool ThinkingBeg, int CurA, int ThingN, int Kin);
 		//Clone A Table
-	private:
+	public:
 		int **CloneATable(int **Tab);
 		//Clone A List.  
 		int *CloneAList(int *Tab, int Count);
@@ -321,7 +321,7 @@ namespace RefrigtzDLL
 	public:
 		//void Clone(ThinkingChess AA);
 		///Huristic of Attacker.
-	private:
+	public:
 		double HuristicAttack(bool Before, int **Table, int Ord, int aa, int RowS, int ColS, int RowD, int ColD);
 		double HuristicReducsedAttack(bool Before, int **Table, int Ord, int aa, int RowS, int ColS, int RowD, int ColD);
 		///Value of Object method.
@@ -361,13 +361,13 @@ namespace RefrigtzDLL
 		bool Movable(int **Tab, int i, int j, int ii, int jj, int a, int Order);
 		//
 		//When Oredrs of OrderPalte and Calculation Order is not equal return negative one and else return one.
-	private:
+	public:
 		double SignOrderToPlate(int Order);
 		//Remove Penalties of Unnesserily Nodes.
 	public:
 		bool RemovePenalty(int **Tab, int Order, int i, int j);
 		//Dangouring of current movment fo current Order.
-	private:
+	public:
 		bool InAttackEnemyThatIsNotSupportedAll(bool EnemyIsValuable, int **Table, int Order, int a, int ij, int ji, int iij, int jji, std::vector<int> ValuableEnemyNotSupported);
 		bool IsCurrentStateIsDangreousForCurrentOrder(int **Tabl, int Order, int a, int ii, int jj);
 
@@ -385,7 +385,7 @@ namespace RefrigtzDLL
 	public:
 		double HuristicCheckAndCheckMate(int **Table, int a);
 		//Veryfy and detect Object Value.
-	private:
+	public:
 		int VeryFye(int **Table, int Order, int a);
 		//QC_OK
 		//Numbers of Supporting Current Objects method.
@@ -414,7 +414,7 @@ namespace RefrigtzDLL
 		bool MaxHuristic(int j, int Kin, double Less, int Order);
 		//Setting Numbers of Objects in Current Table boards.
 		//Count of Solders on Table.
-	private:
+	public:
 		/*int SolderOnTableCount(DrawSoldier So*, bool Mi, int MaxCount);
 		//Elepahnt On Table Count.
 		int ElefantOnTableCount(DrawElefant So*, bool Mi, int MaxCount);
@@ -430,14 +430,14 @@ namespace RefrigtzDLL
 		//Return Huristic.
 	public:
 		double ReturnHuristic(int ii, int j, int Order, bool AA);
-	private:
+	public:
 		std::wstring Alphabet(int RowRealesed);
 		std::wstring Number(int ColumnRealeased);
 	public:
 		double ReturnHuristicCalculartor(int iAstarGready, int ii, int j, int Order);
 		//Returrn of Hurestic Tree.QC_Ok.
 		//Scope of Every Objects Movments.
-	private:
+	public:
 		bool Scop(int i, int j, int ii, int jj, int Kind);
 		//Calculate Maximum of Six Max Huristic of Six Kind Objects.
 		int MaxOfSixHuristic(double *Less);
@@ -469,7 +469,7 @@ namespace RefrigtzDLL
 	public:		
 		void CalculateHuristics(bool Before, int Killed, int **TableS, int RowS, int ColS, int RowD, int ColD, int color, double HuristicAttackValue, double HuristicMovementValue, double HuristicSelfSupportedValue, double HuristicObjectDangourCheckMateValue, double HuristicKillerValue, double HuristicReducedAttackValue, double HeuristicDistabceOfCurrentMoveFromEnemyKingValue, double HeuristicKingSafe, double HeuristicFromCenter, double HeuristicKingDangour);
 
-	//private:
+	//public:
 		//void CastleThinkingGray(int LoseOcuuredatChiled, int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);		
 	public:
 		//bool AttackSelfThatNotSupportedCalculateValuableAll(int **TableS, int Order, int a, int ij, int ji, int ii, int jj, std::vector<int*> ValuableSelfSupported);
@@ -501,7 +501,7 @@ namespace RefrigtzDLL
 		void ThinkingKing(int LoseOcuuredatChiled, int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
 		///Kernel of Thinking
 		void Thinking(int LoseOcuuredatChiled, int WinOcuuredatChiled);
-	private:
+	public:
 		double RetrunValValue(int RowS, int ColS, int RowO, int ColO, int **Tab, int Sign);
 
 		double ObjectValueCalculator(int **Table, int RowS, int ColS, int RowO, int ColumnO); //, int Order
@@ -513,7 +513,7 @@ namespace RefrigtzDLL
 		bool SignNotEqualSelf(int Obj1, int Obj2, int Order, int Ord, int A);
 		
 
-	private:
+	public:
 		void InitializeInstanceFields();
 	};
 }

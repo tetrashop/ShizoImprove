@@ -13,8 +13,8 @@ bool ThingsConverter::ActOfClickEqualTow = false;
 	{
 		InitializeInstanceFields();
 	}
-
-	ThingsConverter::ThingsConverter(bool Arrangments, int i, int j, int a, int **Tab, int Ord, bool TB, int Cur)
+	template< typename T >
+	ThingsConverter::ThingsConverter(T Arrangments, T i, T j, T a, T **Tab, T Ord, T TB, T Cur)
 	{
 		//Initite Global Variables with Local Parameter.
 		//THIS = THI;

@@ -7,7 +7,7 @@ namespace RefrigtzDLL
 	inline bool operator==(const  DrawSoldier& lhs,  DrawSoldier& rhs) { return  (lhs == rhs); }
 	inline bool operator!=(const  DrawSoldier& lhs,  DrawSoldier& rhs) { return !(lhs == rhs); }
 
-double DrawSoldier<T>::MaxHuristicxS = -DBL_MAX;
+double MaxHuristicxS = -DBL_MAX;
 
 	/*void DrawSoldier<T>::Log(std::exception ex)
 	{
@@ -28,13 +28,13 @@ double DrawSoldier<T>::MaxHuristicxS = -DBL_MAX;
 		}
 	}
 	*/
-	DrawSoldier<T>::~DrawSoldier()
+	DrawSoldier::~DrawSoldier()
 	{
 		InitializeInstanceFields();
 		ValuableSelfSupported.clear();
 //		S = nullptr;
 	}
-	bool DrawSoldier<T>::MaxFound(bool MaxNotFound)
+	bool DrawSoldier::MaxFound(bool MaxNotFound)
 	{
 		//try
 		{
@@ -64,24 +64,14 @@ double DrawSoldier<T>::MaxHuristicxS = -DBL_MAX;
 		return false;
 	}
 
-	double DrawSoldier<T>::ReturnHuristic()
+	double DrawSoldier::ReturnHuristic()
 	{
 		double a = 0;
-		for (T ii = 0; ii < AllDraw::SodierMovments; ii++)
-		{
-			//try
-			{
-				a += SoldierThinking.ReturnHuristic(-1, -1, Order,false);
-			}
-			//catch(std::exception t)
-			{
-				
-			}
-		}
+		a += SoldierThinking.ReturnHuristic(-1, -1, Order, false);
 		return a;
 	}
 	template< typename T >
-	DrawSoldier<T>::DrawSoldier(T CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, T a, T **Tab, T Ord, bool TB, T Cur) : ThingsConverter<DrawSoldier<T>>(Arrangments, static_cast<T>(i), static_cast<T>(j), a, Tab, Ord, TB, Cur)
+	DrawSoldier<T>::DrawSoldier(T CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, T i, T j, T a, T **Tab, T Ord, bool TB, T Cur) : DrawSoldier<ThingsConverter<T>>(Arrangments, static_cast<T>(i), static_cast<T>(j), a, Tab, Ord, TB, Cur)
 	{
 		InitializeInstanceFields();
 
@@ -158,7 +148,7 @@ double DrawSoldier<T>::MaxHuristicxS = -DBL_MAX;
 
 */
 
-	void DrawSoldier<T>::DrawSoldierOnTable( T CellW, T CellH)
+	void DrawSoldier::DrawSoldierOnTable(T CellW, T CellH)
 	{
 		/*///autobalance//lockS = new Object();
 
@@ -187,7 +177,7 @@ double DrawSoldier<T>::MaxHuristicxS = -DBL_MAX;
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 							//lock (O1)
 							{ //Draw an Instant from File of Gray Soldeirs.
-								g.DrawImage(S, Rectangle(static_cast<T>(Row * static_cast<float>(CellW)), static_cast<T>(Column * static_cast<float>(CellH)), CellW, CellH));
+								g.DrawImage(S, Rectangle(static_cast<T>(Row * static_cast<T>(CellW)), static_cast<T>(Column * static_cast<T>(CellH)), CellW, CellH));
 
 							}
 						}
@@ -198,7 +188,7 @@ double DrawSoldier<T>::MaxHuristicxS = -DBL_MAX;
 							//lock (O1)
 							{ //Draw an Instant from File of Gray Soldeirs.
 								 //Draw an Instatnt of Brown Soldier File On the Table.
-								g.DrawImage(S[1], Rectangle(static_cast<T>(Row * static_cast<float>(CellW)), static_cast<T>(Column * static_cast<float>(CellH)), CellW, CellH));
+								g.DrawImage(S[1], Rectangle(static_cast<T>(Row * static_cast<T>(CellW)), static_cast<T>(Column * static_cast<T>(CellH)), CellW, CellH));
 							}
 						}
 					}
@@ -222,7 +212,7 @@ double DrawSoldier<T>::MaxHuristicxS = -DBL_MAX;
 							//lock (O1)
 							{ //Draw an Instant from File of Gray Soldeirs.
 								 //Draw of Gray Minsister Image File By an Instant.
-								g.DrawImage(DrawMinister::M, Rectangle(static_cast<T>(Row * static_cast<float>(CellW)), static_cast<T>(Column * static_cast<float>(CellH)), CellW, CellH));
+								g.DrawImage(DrawMinister::M, Rectangle(static_cast<T>(Row * static_cast<T>(CellW)), static_cast<T>(Column * static_cast<T>(CellH)), CellW, CellH));
 							}
 						}
 						else
@@ -232,7 +222,7 @@ double DrawSoldier<T>::MaxHuristicxS = -DBL_MAX;
 							//lock (O1)
 							{ //Draw an Instant from File of Gray Soldeirs.
 								 //Draw a Image File on the Table Form n Instatnt One.
-								g.DrawImage(DrawMinister::M[1], Rectangle(static_cast<T>(Row * static_cast<float>(CellW)), static_cast<T>(Column * static_cast<float>(CellH)), CellW, CellH));
+								g.DrawImage(DrawMinister::M[1], Rectangle(static_cast<T>(Row * static_cast<T>(CellW)), static_cast<T>(Column * static_cast<T>(CellH)), CellW, CellH));
 							}
 						}
 					}
@@ -253,7 +243,7 @@ double DrawSoldier<T>::MaxHuristicxS = -DBL_MAX;
 							//lock (O1)
 							{ //Draw an Instant from File of Gray Soldeirs.
 								 //Create on the Inststant of Gray Castles Images.
-								g.DrawImage(DrawCastle::C, Rectangle(static_cast<T>(Row * static_cast<float>(CellW)), static_cast<T>(Column * static_cast<float>(CellH)), CellW, CellH));
+								g.DrawImage(DrawCastle::C, Rectangle(static_cast<T>(Row * static_cast<T>(CellW)), static_cast<T>(Column * static_cast<T>(CellH)), CellW, CellH));
 							}
 						}
 						else
@@ -263,7 +253,7 @@ double DrawSoldier<T>::MaxHuristicxS = -DBL_MAX;
 							//lock (O1)
 							{ //Draw an Instant from File of Gray Soldeirs.
 								 //Creat of an Instant of Brown Image Castles.
-								g.DrawImage(DrawCastle::C[1], Rectangle(static_cast<T>(Row * static_cast<float>(CellW)), static_cast<T>(Column * static_cast<float>(CellH)), CellW, CellH));
+								g.DrawImage(DrawCastle::C[1], Rectangle(static_cast<T>(Row * static_cast<T>(CellW)), static_cast<T>(Column * static_cast<T>(CellH)), CellW, CellH));
 							}
 						}
 					}
@@ -284,7 +274,7 @@ double DrawSoldier<T>::MaxHuristicxS = -DBL_MAX;
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 							//lock (O1)
 							{ //Draw an Instatnt of Gray Hourse Image File.
-								g.DrawImage(DrawHourse::H, Rectangle(static_cast<T>(Row * static_cast<float>(CellW)), static_cast<T>(Column * static_cast<T>(CellH)), CellW, CellH));
+								g.DrawImage(DrawHourse::H, Rectangle(static_cast<T>(Row * static_cast<T>(CellW)), static_cast<T>(Column * static_cast<T>(CellH)), CellW, CellH));
 							}
 						}
 						else
@@ -293,7 +283,7 @@ double DrawSoldier<T>::MaxHuristicxS = -DBL_MAX;
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 							//lock (O1)
 							{ //Creat of an Instatnt Hourse Image File.
-								g.DrawImage(DrawHourse::H[1], Rectangle(static_cast<T>(Row * static_cast<float>(CellW)), static_cast<T>(Column * static_cast<float>(CellH)), CellW, CellH));
+								g.DrawImage(DrawHourse::H[1], Rectangle(static_cast<T>(Row * static_cast<T>(CellW)), static_cast<T>(Column * static_cast<T>(CellH)), CellW, CellH));
 							}
 						}
 					}
@@ -314,7 +304,7 @@ double DrawSoldier<T>::MaxHuristicxS = -DBL_MAX;
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 							//lock (O1)
 							{ //Draw an Instatnt Image of Gray Elephant.
-								g.DrawImage(DrawElefant::E, Rectangle(static_cast<T>(Row * static_cast<float>(CellW)), static_cast<T>(Column * static_cast<float>(CellH)), CellW, CellH));
+								g.DrawImage(DrawElefant::E, Rectangle(static_cast<T>(Row * static_cast<T>(CellW)), static_cast<T>(Column * static_cast<T>(CellH)), CellW, CellH));
 							}
 						}
 						else
@@ -323,7 +313,7 @@ double DrawSoldier<T>::MaxHuristicxS = -DBL_MAX;
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 							//lock (O1)
 							{ //Draw of Instant Image of Brown Elephant.
-								g.DrawImage(DrawElefant::E[1], Rectangle(static_cast<T>(Row * static_cast<float>(CellW)), static_cast<T>(Column * static_cast<float>(CellH)), CellW, CellH));
+								g.DrawImage(DrawElefant::E[1], Rectangle(static_cast<T>(Row * static_cast<T>(CellW)), static_cast<T>(Column * static_cast<T>(CellH)), CellW, CellH));
 							}
 						}
 
@@ -338,11 +328,11 @@ double DrawSoldier<T>::MaxHuristicxS = -DBL_MAX;
 		}*/
 	}
 
-	void DrawSoldier<T>::InitializeInstanceFields()
+	void DrawSoldier::InitializeInstanceFields()
 	{
 		WinOcuuredatChiled = 0;
 		LoseOcuuredatChiled = 0;
-		ValuableSelfSupported = std::vector<T>();
+		ValuableSelfSupported = std::vector<AllDraw>();
 		MovementsAStarGreedyHuristicFoundT = false;
 		IgnoreSelfObjectsT = false;
 		UsePenaltyRegardMechnisamT = true;

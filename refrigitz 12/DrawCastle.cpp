@@ -18,7 +18,7 @@ double DrawCastle::MaxHuristicxB = -20000000000000000;
 			{
 				std::wstring stackTrace = ex.what();
 //C# TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'ToString':
-				File::AppendAllText(AllDraw::Root + std::wstring(L"\\ErrorProgramRun.txt"), stackTrace + std::wstring(L": On") + DateTime::Now.ToString()); // path of file where stack trace will be stored.
+				File::AppendAllText(AllDrwa*::Root + std::wstring(L"\\ErrorProgramRun.txt"), stackTrace + std::wstring(L": On") + DateTime::Now.ToString()); // path of file where stack trace will be stored.
 			}
 		}
 		//catch(std::exception t)
@@ -29,11 +29,11 @@ double DrawCastle::MaxHuristicxB = -20000000000000000;
 
 	DrawCastle::~DrawCastle()
 	{
-		InitializeInstanceFields();
-		ValuableSelfSupported.clear();
+	//	InitializeInstanceFields();
+		//ValuableSelfSupported.clear();
 //		C = nullptr;
 	}
-	void* DrawCastle::operator*(std::size_t idx) { return malloc(idx * sizeof(this)); }
+	//void* DrawCastle::operator*(std::size_t idx) { return malloc(idx * sizeof(this)); }
 	bool DrawCastle::MaxFound(bool MaxNotFound)
 	{
 		//try
@@ -67,7 +67,7 @@ double DrawCastle::MaxHuristicxB = -20000000000000000;
 	double DrawCastle::ReturnHuristic()
 	{
 		double a = 0;
-		for (int ii = 0; ii < AllDraw::CastleMovments; ii++)
+		for (int ii = 0; ii < AllDrwa*::CastleMovments; ii++)
 		{
 			//try
 			{
@@ -130,7 +130,7 @@ double DrawCastle::MaxHuristicxB = -20000000000000000;
 		//Initiate a Constructed Brideges an Clone a Copy.
 		AA = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, color, Table, Order, false, Current);
 		AA->ArrangmentsChanged = ArrangmentsChanged;
-		for (int i = 0; i < AllDraw::CastleMovments; i++)
+		for (int i = 0; i < AllDrwa*::CastleMovments; i++)
 		{
 			//try
 			{
@@ -172,8 +172,8 @@ double DrawCastle::MaxHuristicxB = -20000000000000000;
 
 				if (C == nullptr || C[1] == nullptr)
 				{
-					C = Image::FromFile(AllDraw::ImagesSubRoot + std::wstring(L"BrG.png"));
-					C[1] = Image::FromFile(AllDraw::ImagesSubRoot + std::wstring(L"BrB.png"));
+					C = Image::FromFile(AllDrwa*::ImagesSubRoot + std::wstring(L"BrG.png"));
+					C[1] = Image::FromFile(AllDrwa*::ImagesSubRoot + std::wstring(L"BrB.png"));
 				}
 				if ((static_cast<int>(Row) >= 0) static_cast<int>(Row) < 8) static_cast<int>(Column) >= 0) static_cast<int>(Column) < 8))
 				{ //Gray int.

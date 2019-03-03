@@ -48,7 +48,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			{
 				std::wstring stackTrace = ex.what();
 //C# TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'ToString':
-				File::AppendAllText(AllDraw::Root + std::wstring(L"\\ErrorProgramRun.txt"), stackTrace + std::wstring(L": On") + DateTime::Now.ToString()); // path of file where stack trace will be stored.
+				File::AppendAllText(AllDrwa*::Root + std::wstring(L"\\ErrorProgramRun.txt"), stackTrace + std::wstring(L": On") + DateTime::Now.ToString()); // path of file where stack trace will be stored.
 			}
 		}
 		//catch(std::exception t)
@@ -71,7 +71,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		Order = oRDER;
 		ArrangmentsBoard = ArrangmentsChanged;
 	}
-
+*/
 	ChessRules::ChessRules(int CurrentAStarGredy, int oRDER, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged)
 	{
 		InitializeInstanceFields();
@@ -86,7 +86,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		AStarGreedyHuristicT = AStarGreedyHuris;
 		ArrangmentsBoard = ArrangmentsChanged;
 	}
-	*/
+	
 
 	ChessRules::ChessRules(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged, int Ki, int **A, int Ord, int i, int j)
 	{
@@ -1545,7 +1545,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 							//lock (O)
 							{
-								if (!AllDraw::Stockfish)
+								if (!AllDrwa*::Stockfish)
 								{
 									RefrigtzDLL::ChessRules::SmallKingCastleGray = false;
 									RefrigtzDLL::ChessRules::CastleKingAllowedGray = false;
@@ -1568,7 +1568,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 							//lock (O)
 							{
-								if (!AllDraw::Stockfish)
+								if (!AllDrwa*::Stockfish)
 								{
 									RefrigtzDLL::ChessRules::BigKingCastleGray = false;
 									RefrigtzDLL::ChessRules::CastleKingAllowedGray = false;
@@ -1591,7 +1591,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 							//lock (O)
 							{
-								if (!AllDraw::Stockfish)
+								if (!AllDrwa*::Stockfish)
 								{
 									RefrigtzDLL::ChessRules::SmallKingCastleBrown = false;
 									RefrigtzDLL::ChessRules::CastleKingAllowedBrown = false;
@@ -1615,7 +1615,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 							//lock (O)
 							{
-								if (!AllDraw::Stockfish)
+								if (!AllDrwa*::Stockfish)
 								{
 									RefrigtzDLL::ChessRules::BigKingCastleBrown = false;
 									RefrigtzDLL::ChessRules::CastleKingAllowedBrown = false;
@@ -1808,9 +1808,9 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 
 			}
 			//Separate.
-			if (AllDraw::Less != -DBL_MAX)
+			if (AllDrwa*::Less != -DBL_MAX)
 			{
-				S += std::wstring(L" With Huristic (") + StringConverterHelper::toString(RefrigtzDLL::AllDraw::Less) + std::wstring(L")--");
+				S += std::wstring(L" With Huristic (") + StringConverterHelper::toString(RefrigtzDLL::AllDrwa*::Less) + std::wstring(L")--");
 			}
 			else
 			{
@@ -2257,7 +2257,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 				//lock (On)
 				{
-					AllDraw::EndOfGame = true;
+					AllDrwa*::EndOfGame = true;
 					PatkGray = true;
 				}
 			}
@@ -2301,7 +2301,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 				//lock (On)
 				{
-					AllDraw::EndOfGame = true;
+					AllDrwa*::EndOfGame = true;
 					PatBrown = true;
 				}
 			}
@@ -2856,7 +2856,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 			//lock (On)
 			{
-				AllDraw::EndOfGame = true;
+				AllDrwa*::EndOfGame = true;
 				return true;
 			}
 		}

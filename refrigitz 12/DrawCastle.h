@@ -66,11 +66,11 @@ namespace RefrigtzDLL
 	        ArrangmentsChanged = Arrangments;
 	    }*/
 		//constructor 2.
-		DrawCastle(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int **Tab, int Ord, bool TB, int Cur); //, ref AllDraw:: THIS
+		DrawCastle(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int **Tab, int Ord, bool TB, int Cur); //, ref AllDrwa*:: THIS
 		DrawCastle() {}
 		
 		//Clone a Copy.
-		//void Clone(DrawCastle *AA); //, ref AllDraw:: THIS
+		//void Clone(DrawCastle *AA); //, ref AllDrwa*:: THIS
 		//Draw An Instatnt Brideges Images On the Table Method.
 		void DrawCastleOnTable( int CellW, int CellH);
 

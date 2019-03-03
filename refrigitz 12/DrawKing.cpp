@@ -21,7 +21,7 @@ double DrawKing::MaxHuristicxK = -20000000000000000;
 			{
 				std::wstring stackTrace = ex.what();
 //C# TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'ToString':
-				File::AppendAllText(AllDraw::Root + std::wstring(L"\\ErrorProgramRun.txt"), stackTrace + std::wstring(L": On") + DateTime::Now.ToString()); // path of file where stack trace will be stored.
+				File::AppendAllText(AllDrwa*::Root + std::wstring(L"\\ErrorProgramRun.txt"), stackTrace + std::wstring(L": On") + DateTime::Now.ToString()); // path of file where stack trace will be stored.
 			}
 		}
 		//catch(std::exception t)
@@ -40,7 +40,7 @@ double DrawKing::MaxHuristicxK = -20000000000000000;
 	double DrawKing::ReturnHuristic()
 	{
 		double a = 0;
-		for (int ii = 0; ii < AllDraw::KingMovments; ii++)
+		for (int ii = 0; ii < AllDrwa*::KingMovments; ii++)
 		{
 			//try
 			{
@@ -172,8 +172,8 @@ double DrawKing::MaxHuristicxK = -20000000000000000;
 			{
 				if (K == nullptr || K[1] == nullptr)
 				{
-					K = Image::FromFile(AllDraw::ImagesSubRoot + std::wstring(L"KG.png"));
-					K[1] = Image::FromFile(AllDraw::ImagesSubRoot + std::wstring(L"KB.png"));
+					K = Image::FromFile(AllDrwa*::ImagesSubRoot + std::wstring(L"KG.png"));
+					K[1] = Image::FromFile(AllDrwa*::ImagesSubRoot + std::wstring(L"KB.png"));
 				}
 				if ((static_cast<int>(Row) >= 0) static_cast<int>(Row) < 8) static_cast<int>(Column) >= 0) static_cast<int>(Column) < 8))
 				{ //Gray Order.

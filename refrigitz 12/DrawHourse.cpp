@@ -19,7 +19,7 @@ double DrawHourse::MaxHuristicxH = -20000000000000000;
 			{
 				std::wstring stackTrace = ex.what();
 //C# TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'ToString':
-				File::AppendAllText(AllDraw::Root + std::wstring(L"\\ErrorProgramRun.txt"), stackTrace + std::wstring(L": On") + DateTime::Now.ToString()); // path of file where stack trace will be stored.
+				File::AppendAllText(AllDrwa*::Root + std::wstring(L"\\ErrorProgramRun.txt"), stackTrace + std::wstring(L": On") + DateTime::Now.ToString()); // path of file where stack trace will be stored.
 			}
 		}
 		//catch(std::exception t)
@@ -69,7 +69,7 @@ DrawHourse::~DrawHourse()
 	double DrawHourse::ReturnHuristic()
 	{
 		double a = 0;
-		for (int ii = 0; ii < AllDraw::HourseMovments; ii++)
+		for (int ii = 0; ii < AllDrwa*::HourseMovments; ii++)
 		{
 			//try
 			{
@@ -128,7 +128,7 @@ DrawHourse::~DrawHourse()
 		//Create a Construction Ojects and Initiate a Clone Copy.
 		AA = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, color, Table, Order, false, Current);
 		AA->ArrangmentsChanged = ArrangmentsChanged;
-		for (int i = 0; i < AllDraw::HourseMovments; i++)
+		for (int i = 0; i < AllDrwa*::HourseMovments; i++)
 		{
 			//try
 			{
@@ -170,8 +170,8 @@ DrawHourse::~DrawHourse()
 			{
 				if (H == nullptr || H[1] == nullptr)
 				{
-					H = Image::FromFile(AllDraw::ImagesSubRoot + std::wstring(L"HG.png"));
-					H[1] = Image::FromFile(AllDraw::ImagesSubRoot + std::wstring(L"HB.png"));
+					H = Image::FromFile(AllDrwa*::ImagesSubRoot + std::wstring(L"HG.png"));
+					H[1] = Image::FromFile(AllDrwa*::ImagesSubRoot + std::wstring(L"HB.png"));
 				}
 				if ((static_cast<int>(Row) >= 0) static_cast<int>(Row) < 8) static_cast<int>(Column) >= 0) static_cast<int>(Column) < 8))
 				{ //Gray Order.

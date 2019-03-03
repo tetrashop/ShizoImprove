@@ -5,18 +5,8 @@
 
 
 namespace RefrigtzDLL
-{//https://forum.arduino.cc/index.php?topic=565773.0
-	/*template <class T, size_t N>
-	struct Array {
-		T data[N];
-
-		T &operator*(size_t index) { return data[index]; }
-		 T &operator*(size_t index)  { return data[index]; }
-		T *begin() { return &data[0]; }
-		 T *begin()  { return &data[0]; }
-		T *end() { return &data[N]; }
-		 T *end()  { return &data[N]; }
-	};*/
+{
+	
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
 //ORIGINAL LINE: [Serializable] class DrawSoldier : ThingsConverter
 	
@@ -26,7 +16,8 @@ namespace RefrigtzDLL
 
 
 	public:
-		int WinOcuuredatChiled;
+
+	 	int WinOcuuredatChiled;
 		int LoseOcuuredatChiled;
 		//Iniatate Global Variables.
 		//private readonly object balance//lock = new object();
@@ -92,6 +83,7 @@ namespace RefrigtzDLL
 		void DrawSoldierOnTable( int CellW, int CellH);
 
 	private:
+		void DrawSoldierOnTable(float CellW, float CellH);
 		void InitializeInstanceFields();
 	};
 }

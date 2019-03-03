@@ -22,6 +22,25 @@ namespace RefrigtzDLL
 	inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs); }
 	inline bool operator==(ThinkingChess& lhs, std::nullptr_t& rhs) { return (lhs == rhs); }
 	inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs == rhs); }
+	inline std::wstring& operator+=(std::wstring& out, const std::wstring& course)
+	{
+		std::wstring& lef = std::wstring();
+		lef = out + course; // for example
+		return lef;
+
+	}
+	/*inline std::wstring& operator=(std::wstring&out, const std::wstring& oute)
+	{	
+		
+		out = oute;	
+		return out;
+
+	}*/
+	inline std::wstring& operator+(std::wstring& out, const std::wstring& course)
+	{
+		out = out + course;
+		return out;
+	}
 
 	
 std::wstring ThinkingChess::ActionsString = L"";
@@ -231,8 +250,8 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 			PenaltyRegardListCastle = std::vector<LearningKrinskyAtamata>();
 			PenaltyRegardListMinister = std::vector<LearningKrinskyAtamata>();
 			PenaltyRegardListKing = std::vector<LearningKrinskyAtamata>();
-			AStarGreedy = std::vector<AllDraw>();
-			//Network  LearningKrinskyAtamata   * Book Initiate For Every Clone.
+			//AStarGreedy = std::vector<AllDraw>();
+			///Network  LearningKrinskyAtamata   * Book Initiate For Every Clone.
 			//ObjectValueCalculator(TableConst);			
 
 		
@@ -6719,11 +6738,11 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 					ActionsString = std::wstring(L" ") + Alphabet(Row) + Number(Column) + Alphabet(RowColumnSoldier.data()[j][0]) + Number(RowColumnSoldier.data()[j][1]);
 					if (Order == 1)
 					{
-						AllDraw::OutPut += std::wstring(L"\r\nHuristic Soldier ((AStarGreedy.data())[k]) By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut = std::wstring(L"\r\nHuristic Soldier AStarGreedy.data()[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 					else
 					{
-						AllDraw::OutPut += std::wstring(L"\r\nHuristic Soldier ((AStarGreedy.data())[k]) By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut = std::wstring(L"\r\nHuristic Soldier AStarGreedy.data()[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 				}
 
@@ -6736,11 +6755,11 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 					ActionsString = std::wstring(L" ") + Alphabet(Row) + Number(Column) + Alphabet(RowColumnElefant.data()[j][0]) + Number(RowColumnElefant.data()[j][1]);
 					if (Order == 1)
 					{
-						AllDraw::OutPut += std::wstring(L"\r\nHuristic Elephant ((AStarGreedy.data())[k]) By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut = std::wstring(L"\r\nHuristic Elephant AStarGreedy.data()[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 					else
 					{
-						AllDraw::OutPut += std::wstring(L"\r\nHuristic Elephant ((AStarGreedy.data())[k]) By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut = std::wstring(L"\r\nHuristic Elephant AStarGreedy.data()[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 				}
 				for (j = 0; HuristicListHourse.size() > 0 && j < HuristicListHourse.size(); j++)
@@ -6750,11 +6769,11 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 					ActionsString = std::wstring(L" ") + Alphabet(Row) + Number(Column) + Alphabet(RowColumnHourse.data()[j][0]) + Number(RowColumnHourse.data()[j][1]);
 					if (Order == 1)
 					{
-						AllDraw::OutPut += std::wstring(L"\r\nHuristic Hourse ((AStarGreedy.data())[k]) By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut = std::wstring(L"\r\nHuristic Hourse AStarGreedy.data()[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 					else
 					{
-						AllDraw::OutPut += std::wstring(L"\r\nHuristic Hourse ((AStarGreedy.data())[k]) By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut = std::wstring(L"\r\nHuristic Hourse AStarGreedy.data()[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 				}
 				for (j = 0; HuristicListCastle.size() > 0 && j < HuristicListCastle.size(); j++)
@@ -6763,11 +6782,11 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 					ActionsString = std::wstring(L" ") + Alphabet(Row) + Number(Column) + Alphabet(RowColumnCastle.data()[j][0]) + Number(RowColumnCastle.data()[j][1]);
 					if (Order == 1)
 					{
-						AllDraw::OutPut += std::wstring(L"\r\nHuristic Castle ((AStarGreedy.data())[k]) By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut = std::wstring(L"\r\nHuristic Castle AStarGreedy.data()[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 					else
 					{
-						AllDraw::OutPut += std::wstring(L"\r\nHuristic Castle ((AStarGreedy.data())[k]) By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut = std::wstring(L"\r\nHuristic Castle AStarGreedy.data()[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 
 				}
@@ -6777,11 +6796,11 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 					ActionsString = std::wstring(L" ") + Alphabet(Row) + Number(Column) + Alphabet(RowColumnMinister.data()[j][0]) + Number(RowColumnMinister.data()[j][1]);
 					if (Order == 1)
 					{
-						AllDraw::OutPut += std::wstring(L"\r\nHuristic Minister ((AStarGreedy.data())[k]) By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut = std::wstring(L"\r\nHuristic Minister AStarGreedy.data()[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 					else
 					{
-						AllDraw::OutPut += std::wstring(L"\r\nHuristic Minister ((AStarGreedy.data())[k]) By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut = std::wstring(L"\r\nHuristic Minister AStarGreedy.data()[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 				}
 				for (j = 0; HuristicListKing.size() > 0 && j < HuristicListKing.size(); j++)
@@ -6790,11 +6809,11 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 					ActionsString = std::wstring(L" ") + Alphabet(Row) + Number(Column) + Alphabet(RowColumnKing.data()[j][0]) + Number(RowColumnKing.data()[j][1]);
 					if (Order == 1)
 					{
-						AllDraw::OutPut += std::wstring(L"\r\nHuristic King ((AStarGreedy.data())[k]) By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut = std::wstring(L"\r\nHuristic King AStarGreedy.data()[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 					else
 					{
-						AllDraw::OutPut += std::wstring(L"\r\nHuristic King ((AStarGreedy.data())[k]) By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut = std::wstring(L"\r\nHuristic King AStarGreedy.data()[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 				}
 			}
@@ -6805,121 +6824,121 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 			for (int k = 0; k < AStarGreedy.size(); k++)
 			{
 
-				if (((AStarGreedy.data())[k]) == nullptr)
+				if ((&((AStarGreedy.data())[k])) == nullptr)
 				{
 					continue;
 				}
 				if (Order == 1)
 				{
 					//Repeate for Solder.
-					for (int m = 0; m < ((AStarGreedy.data())[k]).SodierMidle; m++)
+					for (int m = 0; m < AStarGreedy.data()[k].SodierMidle; m++)
 					{
-						if (((AStarGreedy.data())[k]).SolderesOnTable == nullptr || ((AStarGreedy.data())[k]).SolderesOnTable[m] == nullptr)
+						if (AStarGreedy.data()[k].SolderesOnTable == nullptr || (&((AStarGreedy.data())[k]).SolderesOnTable[m]) == nullptr)
 						{
 							continue;
 						}
-						Huristic += ((AStarGreedy.data())[k]).SolderesOnTable[m].SoldierThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy.data()[k].SolderesOnTable[m].SoldierThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for Elephant.
-					for (int m = 0; m < ((AStarGreedy.data())[k]).ElefantMidle; m++)
+					for (int m = 0; m < AStarGreedy.data()[k].ElefantMidle; m++)
 					{
-						if (((AStarGreedy.data())[k]).ElephantOnTable == nullptr || ((AStarGreedy.data())[k]).ElephantOnTable[m] == nullptr)
+						if (AStarGreedy.data()[k].ElephantOnTable == nullptr || (&(((AStarGreedy.data())[k]).ElephantOnTable[m])) == nullptr)
 						{
 							continue;
 						}
-						Huristic += ((AStarGreedy.data())[k]).ElephantOnTable[m].ElefantThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy.data()[k].ElephantOnTable[m].ElefantThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for Hourse.
-					for (int m = 0; m < ((AStarGreedy.data())[k]).HourseMidle; m++)
+					for (int m = 0; m < AStarGreedy.data()[k].HourseMidle; m++)
 					{
-						if (((AStarGreedy.data())[k]).HoursesOnTable == nullptr || ((AStarGreedy.data())[k]).HoursesOnTable[m] == nullptr)
+						if (AStarGreedy.data()[k].HoursesOnTable == nullptr || (&(((AStarGreedy.data())[k]).HoursesOnTable[m])) == nullptr)
 						{
 							continue;
 						}
-						Huristic += ((AStarGreedy.data())[k]).HoursesOnTable[m].HourseThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy.data()[k].HoursesOnTable[m].HourseThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for Castles.
-					for (int m = 0; m < ((AStarGreedy.data())[k]).CastleMidle; m++)
+					for (int m = 0; m < AStarGreedy.data()[k].CastleMidle; m++)
 					{
-						if (((AStarGreedy.data())[k]).CastlesOnTable == nullptr || ((AStarGreedy.data())[k]).CastlesOnTable[m] == nullptr)
+						if (AStarGreedy.data()[k].CastlesOnTable == nullptr || (&(((AStarGreedy.data())[k]).CastlesOnTable[m])) == nullptr)
 						{
 							continue;
 						}
-						Huristic += ((AStarGreedy.data())[k]).CastlesOnTable[m].CastleThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy.data()[k].CastlesOnTable[m].CastleThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for Minstre.
-					for (int m = 0; m < ((AStarGreedy.data())[k]).MinisterMidle; m++)
+					for (int m = 0; m < AStarGreedy.data()[k].MinisterMidle; m++)
 					{
-						if (((AStarGreedy.data())[k]).MinisterOnTable == nullptr || ((AStarGreedy.data())[k]).MinisterOnTable[m] == nullptr)
+						if (AStarGreedy.data()[k].MinisterOnTable == nullptr || (&(((AStarGreedy.data())[k]).MinisterOnTable[m])) == nullptr)
 						{
 							continue;
 						}
-						Huristic += ((AStarGreedy.data())[k]).MinisterOnTable[m].MinisterThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy.data()[k].MinisterOnTable[m].MinisterThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for King.
-					for (int m = 0; m < ((AStarGreedy.data())[k]).KingMidle; m++)
+					for (int m = 0; m < AStarGreedy.data()[k].KingMidle; m++)
 					{
-						if (((AStarGreedy.data())[k]).KingOnTable == nullptr || ((AStarGreedy.data())[k]).KingOnTable[m] == nullptr)
+						if (AStarGreedy.data()[k].KingOnTable == nullptr || (&(((AStarGreedy.data())[k]).KingOnTable[m])) == nullptr)
 						{
 							continue;
 						}
-						Huristic += ((AStarGreedy.data())[k]).KingOnTable[m].KingThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy.data()[k].KingOnTable[m].KingThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 				}
 				else
 				{
-					for (int m = ((AStarGreedy.data())[k]).SodierMidle; m < ((AStarGreedy.data())[k]).SodierHigh; m++)
+					for (int m = AStarGreedy.data()[k].SodierMidle; m < AStarGreedy.data()[k].SodierHigh; m++)
 					{
-						if (((AStarGreedy.data())[k]).SolderesOnTable == nullptr || ((AStarGreedy.data())[k]).SolderesOnTable[m] == nullptr)
+						if (AStarGreedy.data()[k].SolderesOnTable == nullptr || (&((AStarGreedy.data())[k]).SolderesOnTable[m]) == nullptr)
 						{
 							continue;
 						}
-						Huristic += ((AStarGreedy.data())[k]).SolderesOnTable[m].SoldierThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy.data()[k].SolderesOnTable[m].SoldierThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for Elephant.
-					for (int m = ((AStarGreedy.data())[k]).ElefantMidle; m < ((AStarGreedy.data())[k]).ElefantHigh; m++)
+					for (int m = AStarGreedy.data()[k].ElefantMidle; m < AStarGreedy.data()[k].ElefantHigh; m++)
 					{
-						if (((AStarGreedy.data())[k]).ElephantOnTable == nullptr || ((AStarGreedy.data())[k]).ElephantOnTable[m] == nullptr)
+						if (AStarGreedy.data()[k].ElephantOnTable == nullptr || (&(((AStarGreedy.data())[k]).ElephantOnTable[m])) == nullptr)
 						{
 							continue;
 						}
-						Huristic += ((AStarGreedy.data())[k]).ElephantOnTable[m].ElefantThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy.data()[k].ElephantOnTable[m].ElefantThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for Hourse.
-					for (int m = ((AStarGreedy.data())[k]).HourseMidle; m < ((AStarGreedy.data())[k]).HourseHight; m++)
+					for (int m = AStarGreedy.data()[k].HourseMidle; m < AStarGreedy.data()[k].HourseHight; m++)
 					{
-						if (((AStarGreedy.data())[k]).HoursesOnTable == nullptr || ((AStarGreedy.data())[k]).HoursesOnTable[m] == nullptr)
+						if (AStarGreedy.data()[k].HoursesOnTable == nullptr || (&(((AStarGreedy.data())[k]).HoursesOnTable[m])) == nullptr)
 						{
 							continue;
 						}
-						Huristic += ((AStarGreedy.data())[k]).HoursesOnTable[m].HourseThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy.data()[k].HoursesOnTable[m].HourseThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for Castles.
-					for (int m = ((AStarGreedy.data())[k]).CastleMidle; m < ((AStarGreedy.data())[k]).CastleHigh; m++)
+					for (int m = AStarGreedy.data()[k].CastleMidle; m < AStarGreedy.data()[k].CastleHigh; m++)
 					{
-						if (((AStarGreedy.data())[k]).CastlesOnTable == nullptr || ((AStarGreedy.data())[k]).CastlesOnTable[m] == nullptr)
+						if (AStarGreedy.data()[k].CastlesOnTable == nullptr || (&(((AStarGreedy.data())[k]).CastlesOnTable[m])) == nullptr)
 						{
 							continue;
 						}
-						Huristic += ((AStarGreedy.data())[k]).CastlesOnTable[m].CastleThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy.data()[k].CastlesOnTable[m].CastleThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for Minstre.
-					for (int m = ((AStarGreedy.data())[k]).MinisterMidle; m < ((AStarGreedy.data())[k]).MinisterHigh; m++)
+					for (int m = AStarGreedy.data()[k].MinisterMidle; m < AStarGreedy.data()[k].MinisterHigh; m++)
 					{
-						if (((AStarGreedy.data())[k]).MinisterOnTable == nullptr || ((AStarGreedy.data())[k]).MinisterOnTable[m] == nullptr)
+						if (AStarGreedy.data()[k].MinisterOnTable == nullptr || (&(((AStarGreedy.data())[k]).MinisterOnTable[m])) == nullptr)
 						{
 							continue;
 						}
-						Huristic += ((AStarGreedy.data())[k]).MinisterOnTable[m].MinisterThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy.data()[k].MinisterOnTable[m].MinisterThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for King.
-					for (int m = ((AStarGreedy.data())[k]).KingMidle; m < ((AStarGreedy.data())[k]).KingHigh; m++)
+					for (int m = AStarGreedy.data()[k].KingMidle; m < AStarGreedy.data()[k].KingHigh; m++)
 					{
-						if (((AStarGreedy.data())[k]).KingOnTable == nullptr || ((AStarGreedy.data())[k]).KingOnTable[m] == nullptr)
+						if (AStarGreedy.data()[k].KingOnTable == nullptr || (&(((AStarGreedy.data())[k]).KingOnTable[m])) == nullptr)
 						{
 							continue;
 						}
-						Huristic += ((AStarGreedy.data())[k]).KingOnTable[m].KingThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy.data()[k].KingOnTable[m].KingThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 				}
 			}
@@ -7276,7 +7295,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 					Hu[8] = HeuristicFromCenter;
 					Hu[9] = HeuristicKingDangour;
 
-					H = std::wstring(L" HAttack:") + StringConverterHelper::toString(Hu[0]) + std::wstring(L" HMove:") + StringConverterHelper::toString(Hu[1]) + std::wstring(L" HSelSup:") + StringConverterHelper::toString(Hu[2]) + std::wstring(L" HCheckedMateDang:") + StringConverterHelper::toString(Hu[3]) + std::wstring(L" HKiller:") + StringConverterHelper::toString(Hu[4]) + std::wstring(L" HReduAttack:") + StringConverterHelper::toString(Hu[5]) + std::wstring(L" HDisFromCurrentEnemyking:") + StringConverterHelper::toString(Hu[6]) + std::wstring(L" HKingSafe:") + StringConverterHelper::toString(Hu[7]) + std::wstring(L" HObjFromCeneter:") + StringConverterHelper::toString(Hu[8]) + std::wstring(L" HKingDang:") + StringConverterHelper::toString(Hu[9]);
+					H = std::wstring(L" HAttack:") + StringConverterHelper::toString(Hu[0]) + std::wstring(L" HMove:") + StringConverterHelper::toString<int>(Hu[1]) + std::wstring(L" HSelSup:") + StringConverterHelper::toString<int>(Hu[2]) + std::wstring(L" HCheckedMateDang:") + StringConverterHelper::toString<int>(Hu[3]) + std::wstring(L" HKiller:") + StringConverterHelper::toString<int>(Hu[4]) + std::wstring(L" HReduAttack:") + StringConverterHelper::toString<int>(Hu[5]) + std::wstring(L" HDisFromCurrentEnemyking:") + StringConverterHelper::toString<int>(Hu[6]) + std::wstring(L" HKingSafe:") + StringConverterHelper::toString<int>(Hu[7]) + std::wstring(L" HObjFromCeneter:") + StringConverterHelper::toString<int>(Hu[8]) + std::wstring(L" HKingDang:") + StringConverterHelper::toString<int>(Hu[9]);
 					HuristicListKing.push_back(Hu);
 
 
@@ -7285,11 +7304,11 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 					OutPutAction = std::wstring(L" ") + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + std::wstring(L" With Huristic ") + H;
 					if (Order == 1)
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nThinking King AstarGreedy By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+						AllDraw::OutPut = std::wstring(L"\r\nThinking King AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 					}
 					else
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nThinking King AstarGreedy By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+						AllDraw::OutPut = std::wstring(L"\r\nThinking King AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 					}
 					ThinkingLevel++;
 					ThinkingAtRun = false;
@@ -7327,15 +7346,15 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 					Hu[8] = HeuristicFromCenterSup;
 					//HeuristicFromCenterSup = 0;
 					Hu[9] = HeuristicKingDangourSup;
-					std::wstring H = std::wstring(L" HAttack:") + StringConverterHelper::toString(Hu[0]) + std::wstring(L" HMove:") + StringConverterHelper::toString(Hu[1]) + std::wstring(L" HSelSup:") + StringConverterHelper::toString(Hu[2]) + std::wstring(L" HCheckedMateDang:") + StringConverterHelper::toString(Hu[3]) + std::wstring(L" HKiller:") + StringConverterHelper::toString(Hu[4]) + std::wstring(L" HReduAttack:") + StringConverterHelper::toString(Hu[5]) + std::wstring(L" HDisFromCurrentEnemyking:") + StringConverterHelper::toString(Hu[6]) + std::wstring(L" HKingSafe:") + StringConverterHelper::toString(Hu[7]) + std::wstring(L" HObjFromCeneter:") + StringConverterHelper::toString(Hu[8]) + std::wstring(L" HKingDang:") + StringConverterHelper::toString(Hu[9]);
+					std::wstring H = std::wstring(L" HAttack:") + StringConverterHelper::toString<int>(Hu[0]) + std::wstring(L" HMove:") + StringConverterHelper::toString<int>(Hu[1]) + std::wstring(L" HSelSup:") + StringConverterHelper::toString<int>(Hu[2]) + std::wstring(L" HCheckedMateDang:") + StringConverterHelper::toString<int>(Hu[3]) + std::wstring(L" HKiller:") + StringConverterHelper::toString<int>(Hu[4]) + std::wstring(L" HReduAttack:") + StringConverterHelper::toString<int>(Hu[5]) + std::wstring(L" HDisFromCurrentEnemyking:") + StringConverterHelper::toString<int>(Hu[6]) + std::wstring(L" HKingSafe:") + StringConverterHelper::toString<int>(Hu[7]) + std::wstring(L" HObjFromCeneter:") + StringConverterHelper::toString<int>(Hu[8]) + std::wstring(L" HKingDang:") + StringConverterHelper::toString<int>(Hu[9]);
 					OutPutAction = std::wstring(L" ") + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + std::wstring(L" With Huristic ") + H;
 					if (Order == 1)
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nThinking King AstarGreedy By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+						AllDraw::OutPut = std::wstring(L"\r\nThinking King AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 					}
 					else
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nThinking King AstarGreedy By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+						AllDraw::OutPut = std::wstring(L"\r\nThinking King AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 					}
 					ThinkingAtRun = false;
 				}
@@ -7511,7 +7530,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 					Hu[7] += HeuristicKingSafe;
 					Hu[8] = HeuristicFromCenter;
 					Hu[9] = HeuristicKingDangour;
-					H = std::wstring(L" HAttack:") + StringConverterHelper::toString(Hu[0]) + std::wstring(L" HMove:") + StringConverterHelper::toString(Hu[1]) + std::wstring(L" HSelSup:") + StringConverterHelper::toString(Hu[2]) + std::wstring(L" HCheckedMateDang:") + StringConverterHelper::toString(Hu[3]) + std::wstring(L" HKiller:") + StringConverterHelper::toString(Hu[4]) + std::wstring(L" HReduAttack:") + StringConverterHelper::toString(Hu[5]) + std::wstring(L" HDisFromCurrentEnemyking:") + StringConverterHelper::toString(Hu[6]) + std::wstring(L" HKingSafe:") + StringConverterHelper::toString(Hu[7]) + std::wstring(L" HObjFromCeneter:") + StringConverterHelper::toString(Hu[8]) + std::wstring(L" HKingDang:") + StringConverterHelper::toString(Hu[9]);
+					H = std::wstring(L" HAttack:") + StringConverterHelper::toString<int>(Hu[0]) + std::wstring(L" HMove:") + StringConverterHelper::toString<int>(Hu[1]) + std::wstring(L" HSelSup:") + StringConverterHelper::toString<int>(Hu[2]) + std::wstring(L" HCheckedMateDang:") + StringConverterHelper::toString<int>(Hu[3]) + std::wstring(L" HKiller:") + StringConverterHelper::toString<int>(Hu[4]) + std::wstring(L" HReduAttack:") + StringConverterHelper::toString<int>(Hu[5]) + std::wstring(L" HDisFromCurrentEnemyking:") + StringConverterHelper::toString<int>(Hu[6]) + std::wstring(L" HKingSafe:") + StringConverterHelper::toString<int>(Hu[7]) + std::wstring(L" HObjFromCeneter:") + StringConverterHelper::toString<int>(Hu[8]) + std::wstring(L" HKingDang:") + StringConverterHelper::toString<int>(Hu[9]);
 					HuristicListMinister.push_back(Hu);
 
 
@@ -7519,11 +7538,11 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 				OutPutAction = std::wstring(L" ") + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + std::wstring(L" With Huristic ") + H;
 				if (Order == 1)
 				{
-					AllDraw::OutPut = std::wstring(L"\r\nThinking Minister AstarGreedy By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+					AllDraw::OutPut = std::wstring(L"\r\nThinking Minister AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 				}
 				else
 				{
-					AllDraw::OutPut = std::wstring(L"\r\nThinking Minister AstarGreedy By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+					AllDraw::OutPut = std::wstring(L"\r\nThinking Minister AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 				}
 				ThinkingLevel++;
 				ThinkingAtRun = false;
@@ -7563,15 +7582,15 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 				Hu[9] = HeuristicKingDangourSup;
 				//HeuristicKingDangourSup = 0;
 
-				std::wstring H = std::wstring(L" HAttack:") + StringConverterHelper::toString(Hu[0]) + std::wstring(L" HMove:") + StringConverterHelper::toString(Hu[1]) + std::wstring(L" HSelSup:") + StringConverterHelper::toString(Hu[2]) + std::wstring(L" HCheckedMateDang:") + StringConverterHelper::toString(Hu[3]) + std::wstring(L" HKiller:") + StringConverterHelper::toString(Hu[4]) + std::wstring(L" HReduAttack:") + StringConverterHelper::toString(Hu[5]) + std::wstring(L" HDisFromCurrentEnemyking:") + StringConverterHelper::toString(Hu[6]) + std::wstring(L" HKingSafe:") + StringConverterHelper::toString(Hu[7]) + std::wstring(L" HObjFromCeneter:") + StringConverterHelper::toString(Hu[8]) + std::wstring(L" HKingDang:") + StringConverterHelper::toString(Hu[9]);
+				std::wstring H = std::wstring(L" HAttack:") + StringConverterHelper::toString<int>(Hu[0]) + std::wstring(L" HMove:") + StringConverterHelper::toString<int>(Hu[1]) + std::wstring(L" HSelSup:") + StringConverterHelper::toString<int>(Hu[2]) + std::wstring(L" HCheckedMateDang:") + StringConverterHelper::toString<int>(Hu[3]) + std::wstring(L" HKiller:") + StringConverterHelper::toString<int>(Hu[4]) + std::wstring(L" HReduAttack:") + StringConverterHelper::toString<int>(Hu[5]) + std::wstring(L" HDisFromCurrentEnemyking:") + StringConverterHelper::toString<int>(Hu[6]) + std::wstring(L" HKingSafe:") + StringConverterHelper::toString<int>(Hu[7]) + std::wstring(L" HObjFromCeneter:") + StringConverterHelper::toString<int>(Hu[8]) + std::wstring(L" HKingDang:") + StringConverterHelper::toString<int>(Hu[9]);
 				OutPutAction = std::wstring(L" ") + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + std::wstring(L" With Huristic ") + H;
 				if (Order == 1)
 				{
-					AllDraw::OutPut = std::wstring(L"\r\nThinking Minister AstarGreedy By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+					AllDraw::OutPut = std::wstring(L"\r\nThinking Minister AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 				}
 				else
 				{
-					AllDraw::OutPut = std::wstring(L"\r\nThinking Minster AstarGreedy By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+					AllDraw::OutPut = std::wstring(L"\r\nThinking Minster AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 				}
 				ThinkingAtRun = false;
 
@@ -8083,18 +8102,18 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 					Hu[9] = HeuristicKingDangour;
 
 
-					H = std::wstring(L" HAttack:") + StringConverterHelper::toString(Hu[0]) + std::wstring(L" HMove:") + StringConverterHelper::toString(Hu[1]) + std::wstring(L" HSelSup:") + StringConverterHelper::toString(Hu[2]) + std::wstring(L" HCheckedMateDang:") + StringConverterHelper::toString(Hu[3]) + std::wstring(L" HKiller:") + StringConverterHelper::toString(Hu[4]) + std::wstring(L" HReduAttack:") + StringConverterHelper::toString(Hu[5]) + std::wstring(L" HDisFromCurrentEnemyking:") + StringConverterHelper::toString(Hu[6]) + std::wstring(L" HKingSafe:") + StringConverterHelper::toString(Hu[7]) + std::wstring(L" HObjFromCeneter:") + StringConverterHelper::toString(Hu[8]) + std::wstring(L" HKingDang:") + StringConverterHelper::toString(Hu[9]);
+					H = std::wstring(L" HAttack:") + StringConverterHelper::toString<int>(Hu[0]) + std::wstring(L" HMove:") + StringConverterHelper::toString<int>(Hu[1]) + std::wstring(L" HSelSup:") + StringConverterHelper::toString<int>(Hu[2]) + std::wstring(L" HCheckedMateDang:") + StringConverterHelper::toString<int>(Hu[3]) + std::wstring(L" HKiller:") + StringConverterHelper::toString<int>(Hu[4]) + std::wstring(L" HReduAttack:") + StringConverterHelper::toString<int>(Hu[5]) + std::wstring(L" HDisFromCurrentEnemyking:") + StringConverterHelper::toString<int>(Hu[6]) + std::wstring(L" HKingSafe:") + StringConverterHelper::toString<int>(Hu[7]) + std::wstring(L" HObjFromCeneter:") + StringConverterHelper::toString<int>(Hu[8]) + std::wstring(L" HKingDang:") + StringConverterHelper::toString<int>(Hu[9]);
 					HuristicListCastle.push_back(Hu);
 				}
 
 				OutPutAction = std::wstring(L" ") + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + std::wstring(L" With Huristic ") + H;
 				if (Order == 1)
 				{
-					AllDraw::OutPut = std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+					AllDraw::OutPut = std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 				}
 				else
 				{
-					AllDraw::OutPut = std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+					AllDraw::OutPut = std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 				}
 				ThinkingLevel++;
 				ThinkingAtRun = false;
@@ -8135,15 +8154,15 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 				Hu[9] = HeuristicKingDangourSup;
 				//HeuristicKingDangourSup = 0;
 
-				std::wstring H = std::wstring(L" HAttack:") + StringConverterHelper::toString(Hu[0]) + std::wstring(L" HMove:") + StringConverterHelper::toString(Hu[1]) + std::wstring(L" HSelSup:") + StringConverterHelper::toString(Hu[2]) + std::wstring(L" HCheckedMateDang:") + StringConverterHelper::toString(Hu[3]) + std::wstring(L" HKiller:") + StringConverterHelper::toString(Hu[4]) + std::wstring(L" HReduAttack:") + StringConverterHelper::toString(Hu[5]) + std::wstring(L" HDisFromCurrentEnemyking:") + StringConverterHelper::toString(Hu[6]) + std::wstring(L" HKingSafe:") + StringConverterHelper::toString(Hu[7]) + std::wstring(L" HObjFromCeneter:") + StringConverterHelper::toString(Hu[8]) + std::wstring(L" HKingDang:") + StringConverterHelper::toString(Hu[9]);
+				std::wstring H = std::wstring(L" HAttack:") + StringConverterHelper::toString<int>(Hu[0]) + std::wstring(L" HMove:") + StringConverterHelper::toString<int>(Hu[1]) + std::wstring(L" HSelSup:") + StringConverterHelper::toString<int>(Hu[2]) + std::wstring(L" HCheckedMateDang:") + StringConverterHelper::toString<int>(Hu[3]) + std::wstring(L" HKiller:") + StringConverterHelper::toString<int>(Hu[4]) + std::wstring(L" HReduAttack:") + StringConverterHelper::toString<int>(Hu[5]) + std::wstring(L" HDisFromCurrentEnemyking:") + StringConverterHelper::toString<int>(Hu[6]) + std::wstring(L" HKingSafe:") + StringConverterHelper::toString<int>(Hu[7]) + std::wstring(L" HObjFromCeneter:") + StringConverterHelper::toString<int>(Hu[8]) + std::wstring(L" HKingDang:") + StringConverterHelper::toString<int>(Hu[9]);
 				OutPutAction = std::wstring(L" ") + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + std::wstring(L" With Huristic ") + H;
 				if (Order == 1)
 				{
-					AllDraw::OutPut = std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+					AllDraw::OutPut = std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 				}
 				else
 				{
-					AllDraw::OutPut = std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+					AllDraw::OutPut = std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 				}
 			}
 		}
@@ -8287,18 +8306,18 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 						Hu[9] = HeuristicKingDangour;
 
 
-						H = std::wstring(L" HAttack:") + StringConverterHelper::toString(Hu[0]) + std::wstring(L" HMove:") + StringConverterHelper::toString(Hu[1]) + std::wstring(L" HSelSup:") + StringConverterHelper::toString(Hu[2]) + std::wstring(L" HCheckedMateDang:") + StringConverterHelper::toString(Hu[3]) + std::wstring(L" HKiller:") + StringConverterHelper::toString(Hu[4]) + std::wstring(L" HReduAttack:") + StringConverterHelper::toString(Hu[5]) + std::wstring(L" HDisFromCurrentEnemyking:") + StringConverterHelper::toString(Hu[6]) + std::wstring(L" HKingSafe:") + StringConverterHelper::toString(Hu[7]) + std::wstring(L" HObjFromCeneter:") + StringConverterHelper::toString(Hu[8]) + std::wstring(L" HKingDang:") + StringConverterHelper::toString(Hu[9]);
+						H = std::wstring(L" HAttack:") + StringConverterHelper::toString<int>(Hu[0]) + std::wstring(L" HMove:") + StringConverterHelper::toString<int>(Hu[1]) + std::wstring(L" HSelSup:") + StringConverterHelper::toString<int>(Hu[2]) + std::wstring(L" HCheckedMateDang:") + StringConverterHelper::toString<int>(Hu[3]) + std::wstring(L" HKiller:") + StringConverterHelper::toString<int>(Hu[4]) + std::wstring(L" HReduAttack:") + StringConverterHelper::toString<int>(Hu[5]) + std::wstring(L" HDisFromCurrentEnemyking:") + StringConverterHelper::toString<int>(Hu[6]) + std::wstring(L" HKingSafe:") + StringConverterHelper::toString<int>(Hu[7]) + std::wstring(L" HObjFromCeneter:") + StringConverterHelper::toString<int>(Hu[8]) + std::wstring(L" HKingDang:") + StringConverterHelper::toString<int>(Hu[9]);
 						HuristicListHourse.push_back(Hu);
 					}
 
 					OutPutAction = std::wstring(L" ") + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + std::wstring(L" With Huristic ") + H;
 					if (Order == 1)
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nThinking Hourse AstarGreedy By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+						AllDraw::OutPut = std::wstring(L"\r\nThinking Hourse AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 					}
 					else
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nThinking Hourse AstarGreedy By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+						AllDraw::OutPut = std::wstring(L"\r\nThinking Hourse AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 					}
 					ThinkingLevel++;
 					ThinkingAtRun = false;
@@ -8339,15 +8358,15 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 				Hu[9] = HeuristicKingDangourSup;
 				//HeuristicKingDangourSup = 0;
 //C# TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'ToString':
-				std::wstring H = std::wstring(L" HAttack:") + StringConverterHelper::toString(Hu[0]) + std::wstring(L" HMove:") + StringConverterHelper::toString(Hu[1]) + std::wstring(L" HSelSup:") + StringConverterHelper::toString(Hu[2]) + std::wstring(L" HCheckedMateDang:") + StringConverterHelper::toString(Hu[3]) + std::wstring(L" HKiller:") + StringConverterHelper::toString(Hu[4]) + std::wstring(L" HReduAttack:") + StringConverterHelper::toString(Hu[5]) + std::wstring(L" HDisFromCurrentEnemyking:") + StringConverterHelper::toString(Hu[6]) + std::wstring(L" HKingSafe:") + StringConverterHelper::toString(Hu[7]) + std::wstring(L" HObjFromCeneter:") + StringConverterHelper::toString(Hu[8]) + std::wstring(L" HKingDang:") + StringConverterHelper::toString(Hu[9]);
+				std::wstring H = std::wstring(L" HAttack:") + StringConverterHelper::toString<int>(Hu[0]) + std::wstring(L" HMove:") + StringConverterHelper::toString<int>(Hu[1]) + std::wstring(L" HSelSup:") + StringConverterHelper::toString<int>(Hu[2]) + std::wstring(L" HCheckedMateDang:") + StringConverterHelper::toString<int>(Hu[3]) + std::wstring(L" HKiller:") + StringConverterHelper::toString<int>(Hu[4]) + std::wstring(L" HReduAttack:") + StringConverterHelper::toString<int>(Hu[5]) + std::wstring(L" HDisFromCurrentEnemyking:") + StringConverterHelper::toString<int>(Hu[6]) + std::wstring(L" HKingSafe:") + StringConverterHelper::toString<int>(Hu[7]) + std::wstring(L" HObjFromCeneter:") + StringConverterHelper::toString<int>(Hu[8]) + std::wstring(L" HKingDang:") + StringConverterHelper::toString<int>(Hu[9]);
 				OutPutAction = std::wstring(L" ") + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + std::wstring(L" With Huristic ") + H;
 				if (Order == 1)
 				{
-					AllDraw::OutPut = std::wstring(L"\r\nThinking Hourse AstarGreedy By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+					AllDraw::OutPut = std::wstring(L"\r\nThinking Hourse AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 				}
 				else
 				{
-					AllDraw::OutPut = std::wstring(L"\r\nThinking Hourse AstarGreedy By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+					AllDraw::OutPut = std::wstring(L"\r\nThinking Hourse AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 				}
 
 				ThinkingAtRun = false;
@@ -8490,18 +8509,18 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 					Hu[9] = HeuristicKingDangour;
 
 					//C# TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'ToString':
-					H = std::wstring(L" HAttack:") + StringConverterHelper::toString(Hu[0]) + std::wstring(L" HMove:") + StringConverterHelper::toString(Hu[1]) + std::wstring(L" HSelSup:") + StringConverterHelper::toString(Hu[2]) + std::wstring(L" HCheckedMateDang:") + StringConverterHelper::toString(Hu[3]) + std::wstring(L" HKiller:") + StringConverterHelper::toString(Hu[4]) + std::wstring(L" HReduAttack:") + StringConverterHelper::toString(Hu[5]) + std::wstring(L" HDisFromCurrentEnemyking:") + StringConverterHelper::toString(Hu[6]) + std::wstring(L" HKingSafe:") + StringConverterHelper::toString(Hu[7]) + std::wstring(L" HObjFromCeneter:") + StringConverterHelper::toString(Hu[8]) + std::wstring(L" HKingDang:") + StringConverterHelper::toString(Hu[9]);
+					H = std::wstring(L" HAttack:") + StringConverterHelper::toString<int>(Hu[0]) + std::wstring(L" HMove:") + StringConverterHelper::toString<int>(Hu[1]) + std::wstring(L" HSelSup:") + StringConverterHelper::toString<int>(Hu[2]) + std::wstring(L" HCheckedMateDang:") + StringConverterHelper::toString<int>(Hu[3]) + std::wstring(L" HKiller:") + StringConverterHelper::toString<int>(Hu[4]) + std::wstring(L" HReduAttack:") + StringConverterHelper::toString<int>(Hu[5]) + std::wstring(L" HDisFromCurrentEnemyking:") + StringConverterHelper::toString<int>(Hu[6]) + std::wstring(L" HKingSafe:") + StringConverterHelper::toString<int>(Hu[7]) + std::wstring(L" HObjFromCeneter:") + StringConverterHelper::toString<int>(Hu[8]) + std::wstring(L" HKingDang:") + StringConverterHelper::toString<int>(Hu[9]);
 					HuristicListElefant.push_back(Hu);
 
 
 					OutPutAction = std::wstring(L" ") + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + std::wstring(L" With Huristic ") + H;
 					if (Order == 1)
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nThinking Hourse AstarGreedy By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+						AllDraw::OutPut = std::wstring(L"\r\nThinking Hourse AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 					}
 					else
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nThinking Hourse AstarGreedy By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+						AllDraw::OutPut = std::wstring(L"\r\nThinking Hourse AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 					}
 					ThinkingLevel++;
 					ThinkingAtRun = false;
@@ -8542,15 +8561,15 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 					Hu[9] = HeuristicKingDangourSup;
 					//HeuristicKingDangourSup = 0;
 		//C# TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'ToString':
-					std::wstring H = std::wstring(L" HAttack:") + StringConverterHelper::toString(Hu[0]) + std::wstring(L" HMove:") + StringConverterHelper::toString(Hu[1]) + std::wstring(L" HSelSup:") + StringConverterHelper::toString(Hu[2]) + std::wstring(L" HCheckedMateDang:") + StringConverterHelper::toString(Hu[3]) + std::wstring(L" HKiller:") + StringConverterHelper::toString(Hu[4]) + std::wstring(L" HReduAttack:") + StringConverterHelper::toString(Hu[5]) + std::wstring(L" HDisFromCurrentEnemyking:") + StringConverterHelper::toString(Hu[6]) + std::wstring(L" HKingSafe:") + StringConverterHelper::toString(Hu[7]) + std::wstring(L" HObjFromCeneter:") + StringConverterHelper::toString(Hu[8]) + std::wstring(L" HKingDang:") + StringConverterHelper::toString(Hu[9]);
+					std::wstring H = std::wstring(L" HAttack:") + StringConverterHelper::toString<int>(Hu[0]) + std::wstring(L" HMove:") + StringConverterHelper::toString<int>(Hu[1]) + std::wstring(L" HSelSup:") + StringConverterHelper::toString<int>(Hu[2]) + std::wstring(L" HCheckedMateDang:") + StringConverterHelper::toString<int>(Hu[3]) + std::wstring(L" HKiller:") + StringConverterHelper::toString<int>(Hu[4]) + std::wstring(L" HReduAttack:") + StringConverterHelper::toString<int>(Hu[5]) + std::wstring(L" HDisFromCurrentEnemyking:") + StringConverterHelper::toString<int>(Hu[6]) + std::wstring(L" HKingSafe:") + StringConverterHelper::toString<int>(Hu[7]) + std::wstring(L" HObjFromCeneter:") + StringConverterHelper::toString<int>(Hu[8]) + std::wstring(L" HKingDang:") + StringConverterHelper::toString<int>(Hu[9]);
 					OutPutAction = std::wstring(L" ") + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + std::wstring(L" With Huristic ") + H;
 					if (Order == 1)
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nThinking Elephant AstarGreedy By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+						AllDraw::OutPut = std::wstring(L"\r\nThinking Elephant AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 					}
 					else
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nThinking Elephant AstarGreedy By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+						AllDraw::OutPut = std::wstring(L"\r\nThinking Elephant AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 					}
 					ThinkingAtRun = false;
 				}
@@ -9361,7 +9380,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 						Hu[9] = HeuristicKingDangour;
 
 						//C# TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'ToString':
-						H = std::wstring(L" HAttack:") + StringConverterHelper::toString(Hu[0]) + std::wstring(L" HMove:") + StringConverterHelper::toString(Hu[1]) + std::wstring(L" HSelSup:") + StringConverterHelper::toString(Hu[2]) + std::wstring(L" HCheckedMateDang:") + StringConverterHelper::toString(Hu[3]) + std::wstring(L" HKiller:") + StringConverterHelper::toString(Hu[4]) + std::wstring(L" HReduAttack:") + StringConverterHelper::toString(Hu[5]) + std::wstring(L" HDisFromCurrentEnemyking:") + StringConverterHelper::toString(Hu[6]) + std::wstring(L" HKingSafe:") + StringConverterHelper::toString(Hu[7]) + std::wstring(L" HObjFromCeneter:") + StringConverterHelper::toString(Hu[8]) + std::wstring(L" HKingDang:") + StringConverterHelper::toString(Hu[9]);
+						H = std::wstring(L" HAttack:") + StringConverterHelper::toString<int>(Hu[0]) + std::wstring(L" HMove:") + StringConverterHelper::toString<int>(Hu[1]) + std::wstring(L" HSelSup:") + StringConverterHelper::toString<int>(Hu[2]) + std::wstring(L" HCheckedMateDang:") + StringConverterHelper::toString<int>(Hu[3]) + std::wstring(L" HKiller:") + StringConverterHelper::toString<int>(Hu[4]) + std::wstring(L" HReduAttack:") + StringConverterHelper::toString<int>(Hu[5]) + std::wstring(L" HDisFromCurrentEnemyking:") + StringConverterHelper::toString<int>(Hu[6]) + std::wstring(L" HKingSafe:") + StringConverterHelper::toString<int>(Hu[7]) + std::wstring(L" HObjFromCeneter:") + StringConverterHelper::toString<int>(Hu[8]) + std::wstring(L" HKingDang:") + StringConverterHelper::toString<int>(Hu[9]);
 						HuristicListSolder.push_back(Hu);
 					}
 					/*else
@@ -9389,18 +9408,18 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 						HeuristicFromCenterSup = 0;
 						Hu[9] = HeuristicKingDangour + HeuristicKingDangourSup;
 						HeuristicKingDangourSup = 0;
-						H = " HAttack:" + StringConverterHelper::toString(Hu[0]) + " HMove:" + StringConverterHelper::toString(Hu[1]) + " HSelSup:" + StringConverterHelper::toString(Hu[2]) + " HCheckedMateDang:" + StringConverterHelper::toString(Hu[3]) + " HKiller:" + StringConverterHelper::toString(Hu[4]) + " HReduAttack:" + StringConverterHelper::toString(Hu[5]) + " HDisFromCurrentEnemyking:" + StringConverterHelper::toString(Hu[6]) + " HKingSafe:" + StringConverterHelper::toString(Hu[7]) + " HObjFromCeneter:" + StringConverterHelper::toString(Hu[8]) + " HKingDang:" + StringConverterHelper::toString(Hu[9]);
+						H = " HAttack:" + StringConverterHelper::toString<int>(Hu[0]) + " HMove:" + StringConverterHelper::toString<int>(Hu[1]) + " HSelSup:" + StringConverterHelper::toString<int>(Hu[2]) + " HCheckedMateDang:" + StringConverterHelper::toString<int>(Hu[3]) + " HKiller:" + StringConverterHelper::toString<int>(Hu[4]) + " HReduAttack:" + StringConverterHelper::toString<int>(Hu[5]) + " HDisFromCurrentEnemyking:" + StringConverterHelper::toString<int>(Hu[6]) + " HKingSafe:" + StringConverterHelper::toString<int>(Hu[7]) + " HObjFromCeneter:" + StringConverterHelper::toString<int>(Hu[8]) + " HKingDang:" + StringConverterHelper::toString<int>(Hu[9]);
 						HuristicListSolder.push_back(Hu);
 						IsSup = false;
 					}*/
 					OutPutAction = std::wstring(L" ") + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + std::wstring(L" With Huristic ") + H;
 					if (Order == 1)
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nThinking Soldier AstarGreedy By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+						AllDraw::OutPut = std::wstring(L"\r\nThinking Soldier AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 					}
 					else
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nThinking Soldier AstarGreedy By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+						AllDraw::OutPut = std::wstring(L"\r\nThinking Soldier AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 					}
 					ThinkingLevel++;
 					ThinkingAtRun = false;
@@ -9439,15 +9458,15 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 					Hu[9] = HeuristicKingDangourSup;
 					//HeuristicKingDangourSup = 0;
 //C# TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'ToString':
-					std::wstring H = std::wstring(L" HAttack:") + StringConverterHelper::toString(Hu[0]) + std::wstring(L" HMove:") + StringConverterHelper::toString(Hu[1]) + std::wstring(L" HSelSup:") + StringConverterHelper::toString(Hu[2]) + std::wstring(L" HCheckedMateDang:") + StringConverterHelper::toString(Hu[3]) + std::wstring(L" HKiller:") + StringConverterHelper::toString(Hu[4]) + std::wstring(L" HReduAttack:") + StringConverterHelper::toString(Hu[5]) + std::wstring(L" HDisFromCurrentEnemyking:") + StringConverterHelper::toString(Hu[6]) + std::wstring(L" HKingSafe:") + StringConverterHelper::toString(Hu[7]) + std::wstring(L" HObjFromCeneter:") + StringConverterHelper::toString(Hu[8]) + std::wstring(L" HKingDang:") + StringConverterHelper::toString(Hu[9]);
+					std::wstring H = std::wstring(L" HAttack:") + StringConverterHelper::toString<int>(Hu[0]) + std::wstring(L" HMove:") + StringConverterHelper::toString<int>(Hu[1]) + std::wstring(L" HSelSup:") + StringConverterHelper::toString<int>(Hu[2]) + std::wstring(L" HCheckedMateDang:") + StringConverterHelper::toString<int>(Hu[3]) + std::wstring(L" HKiller:") + StringConverterHelper::toString<int>(Hu[4]) + std::wstring(L" HReduAttack:") + StringConverterHelper::toString<int>(Hu[5]) + std::wstring(L" HDisFromCurrentEnemyking:") + StringConverterHelper::toString<int>(Hu[6]) + std::wstring(L" HKingSafe:") + StringConverterHelper::toString<int>(Hu[7]) + std::wstring(L" HObjFromCeneter:") + StringConverterHelper::toString<int>(Hu[8]) + std::wstring(L" HKingDang:") + StringConverterHelper::toString<int>(Hu[9]);
 					OutPutAction = std::wstring(L" ") + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + std::wstring(L" With Huristic ") + H;
 					if (Order == 1)
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nThinking Soldier AstarGreedy By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+						AllDraw::OutPut = std::wstring(L"\r\nThinking Soldier AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 					}
 					else
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nThinking Soldier AstarGreedy By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+						AllDraw::OutPut = std::wstring(L"\r\nThinking Soldier AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 					}
 					ThinkingAtRun = false;
 				}
@@ -9556,7 +9575,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 				Hu[8] = HeuristicFromCenter;
 				Hu[9] = HeuristicKingDangour;
 //C# TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'ToString':
-				H = std::wstring(L" HAttack:") + StringConverterHelper::toString(Hu[0]) + std::wstring(L" HMove:") + StringConverterHelper::toString(Hu[1]) + std::wstring(L" HSelSup:") + StringConverterHelper::toString(Hu[2]) + std::wstring(L" HCheckedMateDang:") + StringConverterHelper::toString(Hu[3]) + std::wstring(L" HKiller:") + StringConverterHelper::toString(Hu[4]) + std::wstring(L" HReduAttack:") + StringConverterHelper::toString(Hu[5]) + std::wstring(L" HDisFromCurrentEnemyking:") + StringConverterHelper::toString(Hu[6]) + std::wstring(L" HKingSafe:") + StringConverterHelper::toString(Hu[7]) + std::wstring(L" HObjFromCeneter:") + StringConverterHelper::toString(Hu[8]) + std::wstring(L" HKingDang:") + StringConverterHelper::toString(Hu[9]);
+				H = std::wstring(L" HAttack:") + StringConverterHelper::toString<int>(Hu[0]) + std::wstring(L" HMove:") + StringConverterHelper::toString<int>(Hu[1]) + std::wstring(L" HSelSup:") + StringConverterHelper::toString<int>(Hu[2]) + std::wstring(L" HCheckedMateDang:") + StringConverterHelper::toString<int>(Hu[3]) + std::wstring(L" HKiller:") + StringConverterHelper::toString<int>(Hu[4]) + std::wstring(L" HReduAttack:") + StringConverterHelper::toString<int>(Hu[5]) + std::wstring(L" HDisFromCurrentEnemyking:") + StringConverterHelper::toString<int>(Hu[6]) + std::wstring(L" HKingSafe:") + StringConverterHelper::toString<int>(Hu[7]) + std::wstring(L" HObjFromCeneter:") + StringConverterHelper::toString<int>(Hu[8]) + std::wstring(L" HKingDang:") + StringConverterHelper::toString<int>(Hu[9]);
 				HuristicListKing.push_back(Hu);
 
 			}
@@ -9570,11 +9589,11 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 				{
 					if (Order == 1)
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString(ThinkingLevel) + std::wstring(L"th Thinking String ") + std::wstring(L"O-O-O") + std::wstring(L" With Huristic ") + H;
+						AllDraw::OutPut = std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + std::wstring(L"O-O-O") + std::wstring(L" With Huristic ") + H;
 					}
 					else
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString(ThinkingLevel) + std::wstring(L"th Thinking String ") + std::wstring(L"O-O-O") + std::wstring(L" With Huristic ") + H;
+						AllDraw::OutPut = std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + std::wstring(L"O-O-O") + std::wstring(L" With Huristic ") + H;
 					}
 					ThinkingLevel++;
 				}
@@ -9582,11 +9601,11 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 				{
 					if (Order == 1)
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString(ThinkingLevel) + std::wstring(L"th Thinking String ") + std::wstring(L"O-O") + std::wstring(L" With Huristic ") + H;
+						AllDraw::OutPut = std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + std::wstring(L"O-O") + std::wstring(L" With Huristic ") + H;
 					}
 					else
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString(ThinkingLevel) + std::wstring(L"th Thinking String ") + std::wstring(L"O-O") + std::wstring(L" With Huristic ") + H;
+						AllDraw::OutPut = std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + std::wstring(L"O-O") + std::wstring(L" With Huristic ") + H;
 					}
 					ThinkingLevel++;
 				}
@@ -9733,7 +9752,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 		Hu[7] += HeuristicKingSafe;
 		Hu[8] = HeuristicFromCenter;
 		Hu[9] = HeuristicKingDangour;
-		H = std::wstring(L" HAttack:") + StringConverterHelper::toString(Hu[0]) + std::wstring(L" HMove:") + StringConverterHelper::toString(Hu[1]) + std::wstring(L" HSelSup:") + StringConverterHelper::toString(Hu[2]) + std::wstring(L" HCheckedMateDang:") + StringConverterHelper::toString(Hu[3]) + std::wstring(L" HKiller:") + StringConverterHelper::toString(Hu[4]) + std::wstring(L" HReduAttack:") + StringConverterHelper::toString(Hu[5]) + std::wstring(L" HDisFromCurrentEnemyking:") + StringConverterHelper::toString(Hu[6]) + std::wstring(L" HKingSafe:") + StringConverterHelper::toString(Hu[7]) + std::wstring(L" HObjFromCeneter:") + StringConverterHelper::toString(Hu[8]) + std::wstring(L" HKingDang:") + StringConverterHelper::toString(Hu[9]);
+		H = std::wstring(L" HAttack:") + StringConverterHelper::toString<int>(Hu[0]) + std::wstring(L" HMove:") + StringConverterHelper::toString<int>(Hu[1]) + std::wstring(L" HSelSup:") + StringConverterHelper::toString<int>(Hu[2]) + std::wstring(L" HCheckedMateDang:") + StringConverterHelper::toString<int>(Hu[3]) + std::wstring(L" HKiller:") + StringConverterHelper::toString<int>(Hu[4]) + std::wstring(L" HReduAttack:") + StringConverterHelper::toString<int>(Hu[5]) + std::wstring(L" HDisFromCurrentEnemyking:") + StringConverterHelper::toString<int>(Hu[6]) + std::wstring(L" HKingSafe:") + StringConverterHelper::toString<int>(Hu[7]) + std::wstring(L" HObjFromCeneter:") + StringConverterHelper::toString<int>(Hu[8]) + std::wstring(L" HKingDang:") + StringConverterHelper::toString<int>(Hu[9]);
 
 		//autoO7 = new Object();
 		SetObjectNumbersInList(TableS);
@@ -9741,11 +9760,11 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 		{
 			if (Order == 1)
 			{
-				AllDraw::OutPut = std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString(ThinkingLevel) + std::wstring(L"th Thinking String ") + std::wstring(L"O-O-O") + std::wstring(L" With Huristic ") + H;
+				AllDraw::OutPut = std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + std::wstring(L"O-O-O") + std::wstring(L" With Huristic ") + H;
 			}
 			else
 			{
-				AllDraw::OutPut = std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString(ThinkingLevel) + std::wstring(L"th Thinking String ") + std::wstring(L"O-O-O") + std::wstring(L" With Huristic ") + H;
+				AllDraw::OutPut = std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + std::wstring(L"O-O-O") + std::wstring(L" With Huristic ") + H;
 			}
 			ThinkingLevel++;
 		}
@@ -9753,11 +9772,11 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 		{
 			if (Order == 1)
 			{
-				AllDraw::OutPut = std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString(ThinkingLevel) + std::wstring(L"th Thinking String ") + std::wstring(L"O-O") + std::wstring(L" With Huristic ") + H;
+				AllDraw::OutPut = std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + std::wstring(L"O-O") + std::wstring(L" With Huristic ") + H;
 			}
 			else
 			{
-				AllDraw::OutPut = std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString(ThinkingLevel) + std::wstring(L"th Thinking String ") + std::wstring(L"O-O") + std::wstring(L" With Huristic ") + H;
+				AllDraw::OutPut = std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + std::wstring(L"O-O") + std::wstring(L" With Huristic ") + H;
 			}
 			ThinkingLevel++;
 		}
@@ -10465,7 +10484,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 		if (FoundFirstSelfMating > AllDraw::MaxAStarGreedy) //CheckMateOcuured ||
 		{
 
-			AllDraw::OutPut = std::wstring(L"\r\nBoundry Condition at Thinking at ") + StringConverterHelper::toString(ThinkingChess::FoundFirstSelfMating) + std::wstring(L" Checkmate SELF");
+			AllDraw::OutPut = std::wstring(L"\r\nBoundry Condition at Thinking at ") + StringConverterHelper::toString<int>(ThinkingChess::FoundFirstSelfMating) + std::wstring(L" Checkmate SELF");
 			ThinkingBegin = false;
 			ThinkingFinished = true;
 			EndThread++;
@@ -10475,7 +10494,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 		if (FoundFirstMating > AllDraw::MaxAStarGreedy) //CheckMateOcuured ||
 		{
 
-			AllDraw::OutPut = std::wstring(L"\r\nBoundry Condition at Thinking at ") + StringConverterHelper::toString(ThinkingChess::FoundFirstMating) + std::wstring(L" Checkmate ENEY");
+			AllDraw::OutPut = std::wstring(L"\r\nBoundry Condition at Thinking at ") + StringConverterHelper::toString<int>(ThinkingChess::FoundFirstMating) + std::wstring(L" Checkmate ENEY");
 			ThinkingBegin = false;
 			ThinkingFinished = true;
 			EndThread++;
@@ -10503,7 +10522,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 		{
 
 
-			AllDraw::OutPut = std::wstring(L"\r\nBoundry Condition at Thinking at ") + StringConverterHelper::toString(ThinkingChess::FoundFirstMating) + std::wstring(L" Checkmate ENEMY");
+			AllDraw::OutPut = std::wstring(L"\r\nBoundry Condition at Thinking at ") + StringConverterHelper::toString<int>(ThinkingChess::FoundFirstMating) + std::wstring(L" Checkmate ENEMY");
 			ThinkingFinished = true;
 			ThinkingBegin = false;
 			EndThread++;
@@ -10514,7 +10533,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 		{
 
 
-			AllDraw::OutPut = std::wstring(L"\r\nBoundry Condition at Thinking at ") + StringConverterHelper::toString(ThinkingChess::FoundFirstSelfMating) + std::wstring(L" Checkmate SLEF");
+			AllDraw::OutPut = std::wstring(L"\r\nBoundry Condition at Thinking at ") + StringConverterHelper::toString<int>(ThinkingChess::FoundFirstSelfMating) + std::wstring(L" Checkmate SLEF");
 			ThinkingFinished = true;
 			ThinkingBegin = false;
 			EndThread++;
@@ -10547,7 +10566,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 		{
 			if (AAA->CheckMateGray || AAA->CheckMateBrown)
 			{
-				AllDraw::OutPut = std::wstring(L"\r\nBoundry Condition at Thinking at ") + StringConverterHelper::toString(ThinkingChess::FoundFirstMating) + std::wstring(L" Checkmate");
+				AllDraw::OutPut = std::wstring(L"\r\nBoundry Condition at Thinking at ") + StringConverterHelper::toString<int>(ThinkingChess::FoundFirstMating) + std::wstring(L" Checkmate");
 				ThinkingFinished = true;
 				CheckMateOcuured = true;
 				if ((AAA->CheckGray && AllDraw::OrderPlate == 1) || (AAA->CheckBrown && AllDraw::OrderPlate == -1) || (AAA->CheckMateGray && AllDraw::OrderPlate == 1) || (AAA->CheckMateBrown && AllDraw::OrderPlate == -1))
@@ -11090,4 +11109,5 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 		CurrentAStarGredyMax = -1;
 		ObjectNumbers = std::vector<int**>();
 	}
-}
+
+	}

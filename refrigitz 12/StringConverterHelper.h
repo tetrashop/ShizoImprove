@@ -1,26 +1,18 @@
 ﻿#pragma once
-#include "stdafx.h"
 
 //----------------------------------------------------------------------------------------
-//	Copyright © 2004.2014 Tangible Software Solutions Inc.
+//	Copyright © 2004 - 2014 Tangible Software Solutions Inc.
 //	This class can be used by anyone provided that the copyright notice remains intact.
 //
 //	This class is used to replace some conversions to or from strings.
 //----------------------------------------------------------------------------------------
-
+#include <sstream>
 
 class StringConverterHelper
 {
-	
 public:
-	
-	
-	StringConverterHelper()
-	{
-	
-	}
 	template<typename T>
-	static std::wstring toString(T subject)
+	static std::wstring toString(const T &subject)
 	{
 		std::wostringstream ss;
 		ss << subject;
@@ -28,7 +20,7 @@ public:
 	}
 
 	template<typename T>
-	static T fromString( std::wstring subject)
+	static T fromString(const std::wstring &subject)
 	{
 		std::wistringstream ss(subject);
 		T target;

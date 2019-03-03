@@ -19,7 +19,7 @@ double DrawElefant::MaxHuristicxE = -20000000000000000;
 			{
 				std::wstring stackTrace = ex.what();
 //C# TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'ToString':
-				File::AppendAllText(AllDraw::Root + std::wstring(L"\\ErrorProgramRun.txt"), stackTrace + std::wstring(L": On") + DateTime::Now.ToString()); // path of file where stack trace will be stored.
+				File::AppendAllText(AllDrwa*::Root + std::wstring(L"\\ErrorProgramRun.txt"), stackTrace + std::wstring(L": On") + DateTime::Now.ToString()); // path of file where stack trace will be stored.
 			}
 		}
 		//catch(std::exception t)
@@ -68,7 +68,7 @@ double DrawElefant::MaxHuristicxE = -20000000000000000;
 	double DrawElefant::ReturnHuristic()
 	{
 		double a = 0;
-		for (int ii = 0; ii < AllDraw::ElefantMovments; ii++)
+		for (int ii = 0; ii < AllDrwa*::ElefantMovments; ii++)
 		{
 			//try
 			{
@@ -133,7 +133,7 @@ double DrawElefant::MaxHuristicxE = -20000000000000000;
 		//Initiate a Constructed Object an Clone a Copy.
 		AA = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, color, Table, Order, false, Current);
 		AA->ArrangmentsChanged = ArrangmentsChanged;
-		for (int i = 0; i < AllDraw::ElefantMovments; i++)
+		for (int i = 0; i < AllDrwa*::ElefantMovments; i++)
 		{
 			//try
 			{
@@ -175,8 +175,8 @@ double DrawElefant::MaxHuristicxE = -20000000000000000;
 			{
 				if (E == nullptr || E[1] == nullptr)
 				{
-					E = Image::FromFile(AllDraw::ImagesSubRoot + std::wstring(L"EG.png"));
-					E[1] = Image::FromFile(AllDraw::ImagesSubRoot + std::wstring(L"EB.png"));
+					E = Image::FromFile(AllDrwa*::ImagesSubRoot + std::wstring(L"EG.png"));
+					E[1] = Image::FromFile(AllDrwa*::ImagesSubRoot + std::wstring(L"EB.png"));
 				}
 
 				//Gray int.

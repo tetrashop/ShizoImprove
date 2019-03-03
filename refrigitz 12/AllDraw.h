@@ -157,7 +157,7 @@ namespace RefrigtzDLL
 
 	class AllDraw
 	{
-	private:
+	public:
 		bool SetDeptIgnore;
 		long long Now;
 		long long Later;
@@ -166,7 +166,7 @@ namespace RefrigtzDLL
 	public:
 		int OrderP;
 		static int DepthIterative;
-	private:
+	public:
 		int PerceptionCount;
 	public:
 		std::wstring OutPutAction;
@@ -174,14 +174,14 @@ namespace RefrigtzDLL
 		static std::wstring ActionString;
 		static bool ActionStringReady;
 		//static variable to be Initiate
-	private:
+	public:
 		std::vector<int> ValuableSelfSupported;
 	public:
 		std::vector<int**> MaxHuristicAStarGreedytBackWardTable;
 		static bool RegardOccurred;
 		static int SuppportCountStaticGray;
 		static int SuppportCountStaticBrown;
-	private:
+	public:
 		int CurrentAStarGredyMax;
 	public:
 		static int TaskBegin;
@@ -206,13 +206,13 @@ namespace RefrigtzDLL
 		static int MaxAStarGreedyHuristicProgress;
 		static bool EndOfGame;
 		//Initiate Variables.        
-	private:
+	public:
 		static  int ThresholdBlitz;
 		static  int ThresholdFullGame;
 	public:
 		bool SetRowColumnFinished;
 		static int MinThinkingTreeDepth;
-	private:
+	public:
 		static int MaxDuringLevelThinkingCreation;
 	public:
 		double MaxHuristicxT;
@@ -223,7 +223,7 @@ namespace RefrigtzDLL
 		bool PredictHuristicT;
 		bool OnlySelfT;
 		bool AStarGreedyHuristicT;
-	private:
+	public:
 		int *Index, *jindex, *Kind;
 	public:
 		bool ArrangmentsChanged;
@@ -231,7 +231,7 @@ namespace RefrigtzDLL
 		static bool FoundATable;
 		static double Less;
 		bool CastlesKing;
-	private:
+	public:
 		std::vector<int**> MaxHuristicAStarGreedytBackWarTable;
 	public:
 		static int increasedProgress;
@@ -294,7 +294,7 @@ namespace RefrigtzDLL
 		int KingMidle;
 		int KingHigh;
 		//ChessPerdict APredict = null;
-	private:
+	public:
 		int RW;
 		int CL;
 		int Ki;
@@ -325,7 +325,7 @@ namespace RefrigtzDLL
 	public:
 		AllDraw	*AStarGreedyString;
 		static int LoopHuristicIndex;
-	private:
+	public:
 		static std::vector<int> RWList;
 		static std::vector<int> ClList;
 		static std::vector<int> KiList;
@@ -374,18 +374,18 @@ struct Array {
 		int SumOfObjects(AllDraw A, int Order);
 		int SumMinusOfObjects(AllDraw A, int Order);
 		//Error Handling
-	private:
+	public:
 		//static void Log(std::exception &ex);
 		//Determine when a QuantumMoveOccured.
 		//Note for before move.At most one quantum moves.
 	public:
 		std::wstring Alphabet(int RowRealesed);
 		static bool IsAQuantumeMoveOccured(bool IsQuantumMove);
-	private:
+	public:
 		void TimeEnd();
 	public:
 		void SetObjectNumbers(int **TabS);
-	private:
+	public:
 		float *FoundLocationOfObject(int **Tabl, int Kind, bool IsGray);
 		//Constructor
 	public:
@@ -409,12 +409,13 @@ struct Array {
 		//void Clone(AllDraw& AA);
 //		int SumOfObjects(AllDraw A, int Order);
 		//aBlanck Constructor
-
+		AllDraw (int Order, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, AllDraw THi);
 		AllDraw(int Order, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, AllDraw THi);
 
 		AllDraw()
 		{
-		}
+		};
+
 
 		//Check For Thinking Of Current Item Movments Finished.
 		bool KingDan(int** Tab, int Order);
@@ -480,7 +481,7 @@ if (Kind == 2)
 		}*/
 		//Rearrange AllDraw Object Content.
 		void SetRowColumn(int index);
-	private:
+	public:
 		void SetRowColumnFinishedWait();
 		//Max Index List Of Huristic AStarGreedy First Method.
 	public:
@@ -491,7 +492,7 @@ if (Kind == 2)
 		void FoundOfLeafDepenOfKindAllDraw(int **Table, int Order, int iAStarGreedy, int ii, int jj, int ik, int jjj, bool FOUND, int LeafAStarGreedy);
 		void BeginIndexFoundingMaxLessofMaxList(int ListIndex, std::vector<double> Founded, double LessB);
 		//Method for Check of Existence of Checkmate less than for checked mate.
-	private:
+	public:
 		//When Penalty Regard Branches expanded to sub branches.
 		
 	public:
@@ -504,7 +505,7 @@ if (Kind == 2)
 		int** CloneATable(int** Tab);
 		int MaxOfSixHuristic(double _1, double _2, double _3, double _4, double _5, double _6);
 		int MinOfSixHuristic(double _1, double _2, double _3, double _4, double _5, double _6);
-	private:
+	public:
 		bool FullGameThinkingTree(int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
 		
 		void StringHuristics(int Obj, int Sec, bool AA, int Do, int WinOcuuredatChiled, int LoseOcuuredatChiled);
@@ -545,7 +546,7 @@ if (Kind == 2)
 		void InitiateAStarGreedytOneNode(int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, int iIndex, int KindIndex, int LeafAStarGreedy);
 		int** Initiate(int ii, int jj, int a, int** Table, int Order, bool TB, bool FOUND, int LeafAStarGreedy, bool SetDept);	
 		//void StringHuristics(int Obj, int Sec, bool AA, int Do, int WinOcuuredatChiled, int LoseOcuuredatChiled);
-	private:
+	public:
 		//void InitiateAStarGreedytObjectGray(int iii, int jjj, int **Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy);
 		int MaxGrayMidle();
 		int MaxBrownHigh();
@@ -612,7 +613,7 @@ if (Kind == 2)
 		void BlitzGameTreeCreationThinkingTreeMinister(int a, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
 		
 		//AllDraw InitiateAStarGreedytObjectGray(int iii, int jjj, int **Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy);
-	private:
+	public:
 		void InitializeInstanceFields();
 		void CheckedMateConfiguratiionCastle(int Order, int ii, bool Regrad);
 		void CheckedMateConfiguratiionMinister(int Order, int i, bool Regrad);
