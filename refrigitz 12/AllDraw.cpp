@@ -10663,7 +10663,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 			{
 				for (int i = 0; i < ElefantMidle; i++)
 				{
-					if (ElephantOnTable[ii] == nullptr)
+					if ((&(ElephantOnTable[ii]) == nullptr))
 					{
 						continue;
 					}
@@ -10708,7 +10708,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 			{
 				for (int i = ElefantMidle; i < ElefantHigh; i++)
 				{
-					if (ElephantOnTable[ii] == nullptr)
+					if ((&(ElephantOnTable[ii]) == nullptr))
 					{
 						continue;
 					}
@@ -10755,7 +10755,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 			{
 				for (int i = 0; i < HourseMidle; i++)
 				{
-					if (HoursesOnTable[ii] == nullptr)
+					if ((&(HoursesOnTable[ii]) == nullptr))
 					{
 						continue;
 					}
@@ -10797,7 +10797,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 			{
 				for (int i = HourseMidle; i < HourseHight; i++)
 				{
-					if (HoursesOnTable[ii] == nullptr)
+					if ((&(HoursesOnTable[ii]) == nullptr))
 					{
 						continue;
 					}
@@ -10841,7 +10841,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 			{
 				for (int i = 0; i < CastleMidle; i++)
 				{
-					if (CastlesOnTable[ii] == nullptr)
+					if ((&(CastlesOnTable[ii]) == nullptr))
 					{
 						continue;
 					}
@@ -10882,7 +10882,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 			{
 				for (int i = CastleMidle; i < CastleHigh; i++)
 				{
-					if (CastlesOnTable[ii] == nullptr)
+					if ((&(CastlesOnTable[ii]) == nullptr))
 					{
 						continue;
 					}
@@ -10928,7 +10928,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 				{
 					for (int i = 0; i < MinisterMidle; i++)
 					{
-						if (MinisterOnTable[ii] == nullptr)
+						if ((&(MinisterOnTable[ii]) == nullptr))
 						{
 							continue;
 						}
@@ -10969,7 +10969,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 				{
 					for (int i = MinisterMidle; i < MinisterHigh; i++)
 					{
-						if (MinisterOnTable[ii] == nullptr)
+						if ((&(MinisterOnTable[ii]) == nullptr))
 						{
 							continue;
 						}
@@ -11015,7 +11015,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 					{
 						for (int i = 0; i < KingMidle; i++)
 						{
-							if (KingOnTable[ii] == nullptr)
+							if ((&(KngOnTable[ii]) == nullptr))
 							{
 								continue;
 							}
@@ -11057,7 +11057,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 					{
 						for (int i = KingMidle; i < KingHigh; i++)
 						{
-							if (KingOnTable[ii] == nullptr)
+							if ((&(KngOnTable[ii]) == nullptr))
 							{
 								continue;
 							}
@@ -11247,7 +11247,7 @@ void AllDraw::InitiateAStarGreedythMinisterGray(int iii, int jjj, int **Table, i
 		Order = DummyOrder;
 		ChessRules::CurrentOrder = DummyCurrentOrder;
 		//For Each Non Exist Gray Minister Objectives.
-		if (MinisterOnTable != nullptr && MinisterOnTable[i])
+		if ((&(MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr))
 		{
 			//Inititate Local Variables By Global Varibales.
 			ii = static_cast<int>(MinisterOnTable[i].Row);
@@ -11504,7 +11504,7 @@ bool AllDraw::FullBoundryConditions(int Current, int Order, int iAStarGreedy)
 	{
 		for (int ikk = 0; ikk < SodierMidle; ikk++)
 		{
-			if (SolderesOnTable[ikk] == nullptr)
+			if ((&(SolderesOnTable[ikk]) == nullptr))
 			{
 				continue;
 			}
@@ -11516,7 +11516,7 @@ bool AllDraw::FullBoundryConditions(int Current, int Order, int iAStarGreedy)
 		}
 		for (int ikk = 0; ikk < ElefantMidle; ikk++)
 		{
-			if (ElephantOnTable[ikk] == nullptr)
+			if ((&(ElephantOnTable[ikk]) == nullptr))
 			{
 				continue;
 			}
@@ -11528,7 +11528,7 @@ bool AllDraw::FullBoundryConditions(int Current, int Order, int iAStarGreedy)
 		}
 		for (int ikk = 0; ikk < HourseMidle; ikk++)
 		{
-			if (HoursesOnTable[ikk] == nullptr)
+			if ((&(HoursesOnTable[ikk]) == nullptr))
 			{
 				continue;
 			}
@@ -11540,7 +11540,7 @@ bool AllDraw::FullBoundryConditions(int Current, int Order, int iAStarGreedy)
 		}
 		for (int ikk = 0; ikk < CastleMidle; ikk++)
 		{
-			if (CastlesOnTable[ikk] == nullptr)
+			if ((&(CastlesOnTable[ikk]) == nullptr))
 			{
 				continue;
 			}
@@ -11552,7 +11552,7 @@ bool AllDraw::FullBoundryConditions(int Current, int Order, int iAStarGreedy)
 		}
 		for (int ikk = 0; ikk < MinisterMidle; ikk++)
 		{
-			if (MinisterOnTable[ikk] == nullptr)
+			if ((&(MinisterOnTable[ikk]) == nullptr))
 			{
 				continue;
 			}
@@ -11564,7 +11564,7 @@ bool AllDraw::FullBoundryConditions(int Current, int Order, int iAStarGreedy)
 		}
 		for (int ikk = 0; ikk < KingMidle; ikk++)
 		{
-			if (KingOnTable[ikk] == nullptr)
+			if ((&(KingOnTable[ikk]) == nullptr))
 			{
 				continue;
 			}
@@ -11592,7 +11592,7 @@ bool AllDraw::FullBoundryConditions(int Current, int Order, int iAStarGreedy)
 	{
 		for (int ikk = SodierMidle; ikk < SodierHigh; ikk++)
 		{
-			if (SolderesOnTable[ikk] == nullptr)
+			if ((&(SolderesOnTable[ikk]) == nullptr))
 			{
 				continue;
 			}
@@ -11604,7 +11604,7 @@ bool AllDraw::FullBoundryConditions(int Current, int Order, int iAStarGreedy)
 		}
 		for (int ikk = ElefantMidle; ikk < ElefantHigh; ikk++)
 		{
-			if (ElephantOnTable[ikk] == nullptr)
+			if ((&(ElephantOnTable[ikk]) == nullptr))
 			{
 				continue;
 			}
@@ -11616,7 +11616,7 @@ bool AllDraw::FullBoundryConditions(int Current, int Order, int iAStarGreedy)
 		}
 		for (int ikk = HourseMidle; ikk < HourseHight; ikk++)
 		{
-			if (HoursesOnTable[ikk] == nullptr)
+			if ((&(HoursesOnTable[ikk]) == nullptr))
 			{
 				continue;
 			}
@@ -11628,7 +11628,7 @@ bool AllDraw::FullBoundryConditions(int Current, int Order, int iAStarGreedy)
 		}
 		for (int ikk = CastleMidle; ikk < CastleHigh; ikk++)
 		{
-			if (CastlesOnTable[ikk] == nullptr)
+			if ((&(CastlesOnTable[ikk]) == nullptr))
 			{
 				continue;
 			}
@@ -11640,7 +11640,7 @@ bool AllDraw::FullBoundryConditions(int Current, int Order, int iAStarGreedy)
 		}
 		for (int ikk = MinisterMidle; ikk < MinisterHigh; ikk++)
 		{
-			if (MinisterOnTable[ikk] == nullptr)
+			if ((&(MinisterOnTable[ikk]) == nullptr))
 			{
 				continue;
 			}
@@ -11652,7 +11652,7 @@ bool AllDraw::FullBoundryConditions(int Current, int Order, int iAStarGreedy)
 		}
 		for (int ikk = KingMidle; ikk < KingHigh; ikk++)
 		{
-			if (KingOnTable[ikk] == nullptr)
+			if ((&(KingOnTable[ikk]) == nullptr))
 			{
 				continue;
 			}
@@ -11862,7 +11862,7 @@ void AllDraw::BlitzGameThinkingTreeSolderGray(double PreviousLessS, int* Index, 
 { //Soldeir
 	for (ik = 0; ik < SodierMidle; ik++)
 	{
-		if (SolderesOnTable == nullptr || SolderesOnTable[ik] == nullptr || SolderesOnTable[ik].SoldierThinking == nullptr || SolderesOnTable[ik].SoldierThinking == nullptr || SolderesOnTable[ik].SoldierThinking.IsSup)
+		if (SolderesOnTable == nullptr || (&(SolderesOnTable[ik]) == nullptr) || (&(SolderesOnTable[ik].SoldierThinking) == nullptr) || (&(SolderesOnTable[ik].SoldierThinking) == nullptr) || SolderesOnTable[ik].SoldierThinking.IsSup)
 		{
 			continue;
 		}
@@ -11917,7 +11917,7 @@ void AllDraw::BlitzGameThinkingTreeElephantGray(double PreviousLessE, int* Index
 { //Elephant
 	for (ik = 0; ik < ElefantMidle; ik++)
 	{
-		if (ElephantOnTable == nullptr || ElephantOnTable[ik] == nullptr || ElephantOnTable[ik].ElefantThinking == nullptr || ElephantOnTable[ik].ElefantThinking == nullptr || ElephantOnTable[ik].ElefantThinking.IsSup)
+		if (ElephantOnTable == nullptr || (&(ElephantOnTable[ik]) == nullptr) || (&(ElephantOnTable[ik].ElefantThinking) == nullptr) || (&(ElephantOnTable[ik].ElefantThinking) == nullptr) || ElephantOnTable[ik].ElefantThinking.IsSup)
 		{
 			continue;
 		}
@@ -11985,7 +11985,7 @@ void AllDraw::BlitzGameThinkingTreeHourseGray(double PreviousLessH, int* Index, 
 	{
 		//try
 		{
-			if (HoursesOnTable == nullptr || HoursesOnTable[ik] == nullptr || HoursesOnTable[ik].HourseThinking == nullptr || HoursesOnTable[ik].HourseThinking == nullptr || HoursesOnTable[ik].HourseThinking.IsSup)
+			if (HoursesOnTable == nullptr || (&(HoursesOnTable[ik]) == nullptr) || (&(HoursesOnTable[ik].HourseThinking) == nullptr) || (&(HoursesOnTable[ik].HourseThinking) == nullptr) || HoursesOnTable[ik].HourseThinking.IsSup)
 			{
 				continue;
 			}
@@ -12058,7 +12058,7 @@ void AllDraw::BlitzGameThinkingTreeCastleGray(double PreviousLessB, int* Index, 
 	{
 		//try
 		{
-			if (CastlesOnTable == nullptr || CastlesOnTable[ik] == nullptr || CastlesOnTable[ik].CastleThinking == nullptr || CastlesOnTable[ik].CastleThinking == nullptr || CastlesOnTable[ik].CastleThinking.IsSup)
+			if (CastlesOnTable == nullptr || (&(CastlesOnTable[ik]) == nullptr) || (&(CastlesOnTable[ik].CastleThinking) == nullptr) || (&(CastlesOnTable[ik].CastleThinking) == nullptr) || CastlesOnTable[ik].CastleThinking.IsSup)
 			{
 				continue;
 			}
@@ -12136,7 +12136,7 @@ void AllDraw::BlitzGameThinkingTreeMinisterGray(double PreviousLessM, int* Index
 	{
 		//try
 		{
-			if (MinisterOnTable == nullptr || MinisterOnTable[ik] == nullptr || MinisterOnTable[ik].MinisterThinking == nullptr || MinisterOnTable[ik].MinisterThinking == nullptr || MinisterOnTable[ik].MinisterThinking.IsSup)
+			if (MinisterOnTable == nullptr || (&(MinisterOnTable[ik]) == nullptr) || (&(MinisterOnTable[ik].MinisterThinking) == nullptr) || (&(MinisterOnTable[ik].MinisterThinking) == nullptr) || MinisterOnTable[ik].MinisterThinking.IsSup)
 			{
 				continue;
 			}
@@ -12215,7 +12215,7 @@ void AllDraw::BlitzGameThinkingTreeKingGray(double PreviousLessK, int* Index, in
 	{
 		//try
 		{
-			if (KingOnTable == nullptr || KingOnTable[ik] == nullptr || KingOnTable[ik].KingThinking == nullptr || KingOnTable[ik].KingThinking == nullptr || KingOnTable[ik].KingThinking.IsSup)
+			if (KingOnTable == nullptr || (&(KingOnTable[ik]) == nullptr) || (&(KingOnTable[ik].KingThinking) == nullptr) || (&(KingOnTable[ik].KingThinking) == nullptr) || KingOnTable[ik].KingThinking.IsSup)
 			{
 				continue;
 			}
@@ -12438,7 +12438,7 @@ void AllDraw::BlitzGameThinkingTreeSolderBrown(double PreviousLessS, int* Index,
 {
 	for (ik = SodierMidle; ik < SodierHigh; ik++)
 	{
-		if (SolderesOnTable == nullptr || SolderesOnTable[ik] == nullptr || SolderesOnTable[ik].SoldierThinking == nullptr || SolderesOnTable[ik].SoldierThinking == nullptr || SolderesOnTable[ik].SoldierThinking.IsSup)
+		if (SolderesOnTable == nullptr || (&(SolderesOnTable[ik]) == nullptr) || (&(SolderesOnTable[ik].SoldierThinking) == nullptr) || (&(SolderesOnTable[ik].SoldierThinking) == nullptr) || SolderesOnTable[ik].SoldierThinking.IsSup)
 		{
 			continue;
 		}
@@ -12504,7 +12504,7 @@ void AllDraw::BlitzGameThinkingTreeElephantBrown(double PreviousLessE, int* Inde
 	{
 		//try
 		{
-			if (ElephantOnTable == nullptr || ElephantOnTable[ik] == nullptr || ElephantOnTable[ik].ElefantThinking == nullptr || ElephantOnTable[ik].ElefantThinking == nullptr || ElephantOnTable[ik].ElefantThinking.IsSup)
+			if (ElephantOnTable == nullptr || (&(ElephantOnTable[ik]) == nullptr) || (&(ElephantOnTable[ik].ElefantThinking) == nullptr) || (&(ElephantOnTable[ik].ElefantThinking) == nullptr) || ElephantOnTable[ik].ElefantThinking.IsSup)
 			{
 				continue;
 			}
@@ -12578,7 +12578,7 @@ void AllDraw::BlitzGameThinkingTreeHourseBrown(double PreviousLessH, int* Index,
 	{
 		//try
 		{
-			if (HoursesOnTable == nullptr || HoursesOnTable[ik] == nullptr || HoursesOnTable[ik].HourseThinking == nullptr || HoursesOnTable[ik].HourseThinking == nullptr || HoursesOnTable[ik].HourseThinking.IsSup)
+			if (HoursesOnTable == nullptr || (&(HoursesOnTable[ik]) == nullptr) || (&(HoursesOnTable[ik].HourseThinking) == nullptr) || (&(HoursesOnTable[ik].HourseThinking) == nullptr) || HoursesOnTable[ik].HourseThinking.IsSup)
 			{
 				continue;
 			}
@@ -12712,7 +12712,7 @@ void AllDraw::BlitzGameThinkingTreeCastleBrown(double PreviousLessB, int* Index,
 	{
 		//try
 		{
-			if (CastlesOnTable == nullptr || CastlesOnTable[ik] == nullptr || CastlesOnTable[ik].CastleThinking == nullptr || CastlesOnTable[ik].CastleThinking == nullptr || CastlesOnTable[ik].CastleThinking.IsSup)
+			if (CastlesOnTable == nullptr || (&(CastlesOnTable[ik]) == nullptr) || (&(CastlesOnTable[ik].CastleThinking) == nullptr) || (&(CastlesOnTable[ik].CastleThinking) == nullptr) || CastlesOnTable[ik].CastleThinking.IsSup)
 			{
 				continue;
 			}
@@ -12792,7 +12792,7 @@ void AllDraw::BlitzGameThinkingTreeMinisterBrown(double PreviousLessM, int* Inde
 	{
 		//try
 		{
-			if (MinisterOnTable == nullptr || MinisterOnTable[ik] == nullptr || MinisterOnTable[ik].MinisterThinking == nullptr || MinisterOnTable[ik].MinisterThinking == nullptr || MinisterOnTable[ik].MinisterThinking.IsSup)
+			if (MinisterOnTable == nullptr || (&(MinisterOnTable[ik]) == nullptr) || (&(MinisterOnTable[ik].MinisterThinking) == nullptr) || (&(MinisterOnTable[ik].MinisterThinking) == nullptr) || MinisterOnTable[ik].MinisterThinking.IsSup)
 			{
 				continue;
 			}
@@ -12853,7 +12853,7 @@ void AllDraw::BlitzGameThinkingTreeKingBrown(double PreviousLessK, int* Index, i
 	{
 		//try
 		{
-			if (KingOnTable == nullptr || KingOnTable[ik] == nullptr || KingOnTable[ik].KingThinking == nullptr || KingOnTable[ik].KingThinking == nullptr || KingOnTable[ik].KingThinking.IsSup)
+			if (KingOnTable == nullptr || (&(KingOnTable[ik]) == nullptr) || (&(KingOnTable[ik].KingThinking) == nullptr) || (&(KingOnTable[ik].KingThinking) == nullptr) || KingOnTable[ik].KingThinking.IsSup)
 			{
 				continue;
 			}
@@ -13426,7 +13426,7 @@ int AllDraw::SumOfObjects(AllDraw A, int Order)
 int AllDraw::SumMinusOfObjects(AllDraw A, int Order)
 {
 	int Sum = 0;
-	if (A == nullptr)
+	if (((&)A == nullptr))
 	{
 		return Sum;
 	}
@@ -13733,7 +13733,7 @@ bool  AllDraw::FullGameThinkingSoldierGray(int a, int Order, int iAStarGreedy, i
 	bool Do = false;
 	for (int ik = 0; ik < SodierMidle; ik++)
 	{
-		if (SolderesOnTable != nullptr && SolderesOnTable[ik] != nullptr && SolderesOnTable[ik].SoldierThinking != nullptr && SolderesOnTable[ik].SoldierThinking != nullptr && (!SolderesOnTable[ik].SoldierThinking.IsSupHu))
+		if (SolderesOnTable != nullptr && (&(SolderesOnTable[ik]) != nullptr) && (&(SolderesOnTable[ik].SoldierThinking) != nullptr) && (&(SolderesOnTable[ik].SoldierThinking) != nullptr) && (!SolderesOnTable[ik].SoldierThinking.IsSupHu))
 		{
 			Do = FullGameThinkingTreeSoldier(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
 		} //);
@@ -13947,7 +13947,7 @@ bool  AllDraw::FullGameThinkingElephantGray(int a, int Order, int iAStarGreedy, 
 	////Parallel.For(0, ElefantMidle, ik =>
 	for (int ik = 0; ik < ElefantMidle; ik++)
 	{
-		if (ElephantOnTable != nullptr && ElephantOnTable[ik] != nullptr && ElephantOnTable[ik].ElefantThinking != nullptr && ElephantOnTable[ik].ElefantThinking != nullptr && (!ElephantOnTable[ik].ElefantThinking.IsSupHu))
+		if (ElephantOnTable != nullptr && ((&ElephantOnTable[ik]) != nullptr) && ((&(ElephantOnTable[ik].ElefantThinking)) != nullptr) && ((&(ElephantOnTable[ik].ElefantThinking)) != nullptr) && (!ElephantOnTable[ik].ElefantThinking.IsSupHu))
 		{
 			Do = FullGameThinkingTreeElephant(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
 		}
@@ -14174,7 +14174,7 @@ bool  AllDraw::FullGameThinkingHourseGray(int a, int Order, int iAStarGreedy, in
 	bool Do = false;
 	for (int ik = 0; ik < HourseMidle; ik++)
 	{
-		if (HoursesOnTable != nullptr && HoursesOnTable[ik] != nullptr && HoursesOnTable[ik].HourseThinking != nullptr && HoursesOnTable[ik].HourseThinking != nullptr && (!HoursesOnTable[ik].HourseThinking.IsSupHu))
+		if (HoursesOnTable != nullptr && (&(HoursesOnTable[ik]) != nullptr) && (&(HoursesOnTable[ik].HourseThinking) != nullptr) && (&(HoursesOnTable[ik].HourseThinking) != nullptr) && (!HoursesOnTable[ik].HourseThinking.IsSupHu))
 		{
 			Do = FullGameThinkingTreeHourse(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
 		}
@@ -14389,7 +14389,7 @@ bool  AllDraw::FullGameThinkingCastleGray(int a, int Order, int iAStarGreedy, in
 
 	for (int ik = 0; ik < CastleMidle; ik++)
 	{
-		if (CastlesOnTable != nullptr && CastlesOnTable[ik] != nullptr && CastlesOnTable[ik].CastleThinking != nullptr && CastlesOnTable[ik].CastleThinking != nullptr && (!CastlesOnTable[ik].CastleThinking.IsSupHu))
+		if (CastlesOnTable != nullptr && (&(CastlesOnTable[ik]) != nullptr) && (&(CastlesOnTable[ik].CastleThinking) != nullptr) && (&(CastlesOnTable[ik].CastleThinking) != nullptr) && (!CastlesOnTable[ik].CastleThinking.IsSupHu))
 		{
 
 			Do = FullGameThinkingTreeCastle(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
@@ -14632,7 +14632,7 @@ bool  AllDraw::FullGameThinkingMinisterGray(int a, int Order, int iAStarGreedy, 
 		////Parallel.For(0, MinisterMidle, ik =>
 	for (int ik = 0; ik < MinisterMidle; ik++)
 	{
-		if (MinisterOnTable != nullptr && MinisterOnTable[ik] != nullptr && MinisterOnTable[ik].MinisterThinking != nullptr && MinisterOnTable[ik].MinisterThinking != nullptr && (!MinisterOnTable[ik].MinisterThinking.IsSupHu))
+		if (MinisterOnTable != nullptr && (&(MinisterOnTable[ik]) != nullptr) && (&(MinisterOnTable[ik].MinisterThinking) != nullptr) && (&(MinisterOnTable[ik].MinisterThinking) != nullptr) && (!MinisterOnTable[ik].MinisterThinking.IsSupHu))
 		{
 			Do = FullGameThinkingTreeMinister(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
 
@@ -14891,7 +14891,7 @@ bool  AllDraw::FullGameThinkingKingGray(int a, int Order, int iAStarGreedy, int 
 		////Parallel.For(0, KingMidle, ik =>
 	for (int ik = 0; ik < KingMidle; ik++)
 	{
-		if (KingOnTable != nullptr && KingOnTable[ik] != nullptr && KingOnTable[ik].KingThinking != nullptr && KingOnTable[ik].KingThinking != nullptr && (!KingOnTable[ik].KingThinking.IsSupHu))
+		if (KingOnTable != nullptr && (&(KingOnTable[ik]) != nullptr) && (&(KingOnTable[ik].KingThinking)  != nullptr) && (&(KingOnTable[ik].KingThinking)  != nullptr) && (!KingOnTable[ik].KingThinking.IsSupHu))
 		{
 
 			Do = FullGameThinkingTreeKing(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
@@ -14907,7 +14907,7 @@ bool  AllDraw::FullGameThinkingSoldierBrown(int a, int Order, int iAStarGreedy, 
 
 	for (int ik = SodierMidle; ik < SodierHigh; ik++)
 	{
-		if (SolderesOnTable != nullptr && SolderesOnTable[ik] != nullptr && SolderesOnTable[ik].SoldierThinking != nullptr && SolderesOnTable[ik].SoldierThinking != nullptr && (!SolderesOnTable[ik].SoldierThinking.IsSupHu))
+		if (SolderesOnTable != nullptr && (&(SolderesOnTable[ik]) != nullptr) && (&(SolderesOnTable[ik].SoldierThinking) != nullptr) && (&(SolderesOnTable[ik].SoldierThinking) != nullptr) && (!SolderesOnTable[ik].SoldierThinking.IsSupHu))
 		{
 			//Soldier.
 
@@ -14926,7 +14926,7 @@ bool  AllDraw::FullGameThinkingElephantBrown(int a, int Order, int iAStarGreedy,
 	//Elephant
 	for (int ik = ElefantMidle; ik < ElefantHigh; ik++)
 	{
-		if (ElephantOnTable != nullptr && ElephantOnTable[ik] != nullptr && ElephantOnTable[ik].ElefantThinking != nullptr && ElephantOnTable[ik].ElefantThinking != nullptr && (!ElephantOnTable[ik].ElefantThinking.IsSupHu))
+		if (ElephantOnTable != nullptr && ((&ElephantOnTable[ik]) != nullptr) && ((&(ElephantOnTable[ik].ElefantThinking)) != nullptr) && ((&(ElephantOnTable[ik].ElefantThinking)) != nullptr) && (!ElephantOnTable[ik].ElefantThinking.IsSupHu))
 		{
 
 			Do = FullGameThinkingTreeElephant(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
@@ -14944,7 +14944,7 @@ bool  AllDraw::FullGameThinkingHourseBrown(int a, int Order, int iAStarGreedy, i
 		////Parallel.For(HourseMidle, HourseHight, ik =>
 	for (int ik = HourseMidle; ik < HourseHight; ik++)
 	{
-		if (HoursesOnTable != nullptr && HoursesOnTable[ik] != nullptr && HoursesOnTable[ik].HourseThinking != nullptr && HoursesOnTable[ik].HourseThinking != nullptr && (!HoursesOnTable[ik].HourseThinking.IsSupHu))
+		if (HoursesOnTable != nullptr && (&(HoursesOnTable[ik]) != nullptr) && (&(HoursesOnTable[ik].HourseThinking) != nullptr) && (&(HoursesOnTable[ik].HourseThinking) != nullptr) && (!HoursesOnTable[ik].HourseThinking.IsSupHu))
 		{
 
 			Do = FullGameThinkingTreeHourse(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
@@ -14961,7 +14961,7 @@ bool  AllDraw::FullGameThinkingCastleBrown(int a, int Order, int iAStarGreedy, i
 	//Castles.
 	for (int ik = CastleMidle; ik < CastleHigh; ik++)
 	{
-		if (CastlesOnTable != nullptr && CastlesOnTable[ik] != nullptr && CastlesOnTable[ik].CastleThinking != nullptr && CastlesOnTable[ik].CastleThinking != nullptr && (!CastlesOnTable[ik].CastleThinking.IsSupHu))
+		if (CastlesOnTable != nullptr && (&(CastlesOnTable[ik]) != nullptr) && (&(CastlesOnTable[ik].CastleThinking) != nullptr) && (&(CastlesOnTable[ik].CastleThinking) != nullptr) && (!CastlesOnTable[ik].CastleThinking.IsSupHu))
 		{
 
 			Do = FullGameThinkingTreeCastle(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
@@ -14980,7 +14980,7 @@ bool  AllDraw::FullGameThinkingMinisterBrown(int a, int Order, int iAStarGreedy,
 
 	for (int ik = MinisterMidle; ik < MinisterHigh; ik++)
 	{
-		if (MinisterOnTable != nullptr && MinisterOnTable[ik] != nullptr && MinisterOnTable[ik].MinisterThinking != nullptr && MinisterOnTable[ik].MinisterThinking != nullptr && (!MinisterOnTable[ik].MinisterThinking.IsSupHu))
+		if (MinisterOnTable != nullptr && (&(MinisterOnTable[ik]) != nullptr) && (&(MinisterOnTable[ik].MinisterThinking) != nullptr) && (&(MinisterOnTable[ik].MinisterThinking) != nullptr) && (!MinisterOnTable[ik].MinisterThinking.IsSupHu))
 		{
 
 			Do = FullGameThinkingTreeMinister(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
@@ -15000,7 +15000,7 @@ bool AllDraw::FullGameThinkingTreeKingBrown(int a, int Order, int iAStarGreedy, 
 	for (int ik = KingMidle; ik < KingHigh; ik++)
 	{
 
-		if (KingOnTable != nullptr && KingOnTable[ik] != nullptr && KingOnTable[ik].KingThinking != nullptr && KingOnTable[ik].KingThinking != nullptr && (!KingOnTable[ik].KingThinking.IsSupHu))
+		if (KingOnTable != nullptr && (&(KingOnTable[ik]) != nullptr) && (&(KingOnTable[ik].KingThinking)  != nullptr) && (&(KingOnTable[ik].KingThinking)  != nullptr) && (!KingOnTable[ik].KingThinking.IsSupHu))
 		{
 			{
 				Do = FullGameThinkingTreeKing(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
@@ -15911,7 +15911,7 @@ void AllDraw::CheckedMateConfiguratiionSoldier(int Order, int i, bool Regrad)
 {
 	for (int j = 0; j < SolderesOnTable[i].SoldierThinking.PenaltyRegardListSolder.size(); j++)
 	{
-		if (SolderesOnTable[i].SoldierThinking.LearningVarsObject.size() == SolderesOnTable[i].SoldierThinking.static_cast<int>(PenaltyRegardListSolder.size()))
+		if (SolderesOnTable[i].SoldierThinking.LearningVarsObject.size() == SolderesOnTable[i].SoldierThinking.PenaltyRegardListSolder.size())
 		{
 			if (SolderesOnTable[i].SoldierThinking.LearningVarsObject[j][1] && (!SolderesOnTable[i].SoldierThinking.LearningVarsObject[j][4]))
 			{
@@ -16584,12 +16584,12 @@ int** AllDraw::Initiate(int ii, int jj, int a, int** Table, int Order, bool TB, 
 	{
 		if (Order == 1)
 		{
-			OutPut = std::wstring(L"\r\nHuristic Find Best Movements AStarGreedy ") + StringConverterHelper::toString(AStarGreedy) + std::wstring(L" By Bob!");
+			OutPut = std::wstring(L"\r\nHuristic Find Best Movements AStarGreedy ") + StringConverterHelper::toString(AStarGreedyInt) + std::wstring(L" By Bob!");
 			//THIS.RefreshBoxText();
 		}
 		else
 		{
-			OutPut = std::wstring(L"\r\nHuristic Find Best Movements AStarGreedy ") + StringConverterHelper::toString(AStarGreedy) + std::wstring(L" By Alice!");
+			OutPut = std::wstring(L"\r\nHuristic Find Best Movements AStarGreedy ") + StringConverterHelper::toString(AStarGreedyInt) + std::wstring(L" By Alice!");
 			//THIS.RefreshBoxText();
 
 		}

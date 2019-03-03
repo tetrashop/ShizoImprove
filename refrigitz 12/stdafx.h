@@ -5,7 +5,6 @@
 
 #pragma once
 
-
 #include "targetver.h"
 
 
@@ -31,8 +30,7 @@
 #include "ThinkingChess.h"
 #include "ChessRules.h"
 #include "AllDraw.h"
-
-
+using namespace RefrigtzDLL;
 
 
 

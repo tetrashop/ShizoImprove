@@ -84,6 +84,7 @@ namespace RefrigtzDLL
 
 	private:
 		void DrawSoldierOnTable(float CellW, float CellH);
+		//void DrawSoldierOnTable(T CellW, T CellH);
 		void InitializeInstanceFields();
 	};
 }

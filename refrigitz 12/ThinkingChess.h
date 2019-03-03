@@ -247,7 +247,7 @@ namespace RefrigtzDLL
 		int color;
 		int Order;
 		//< typename T >
-		std::vector<AllDraw> AStarGreedy = std::vector<AllDraw>();
+        std::vector<RefrigtzDLL::AllDraw> AStarGreedy = std::vector<RefrigtzDLL::AllDraw>();
 		
 	public:
 		
