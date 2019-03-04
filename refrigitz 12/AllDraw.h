@@ -155,7 +155,7 @@ namespace RefrigtzDLL
 	//C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
 	//ORIGINAL LINE: [Serializable] class AllDraw
 
-	class AllDraw
+	public class AllDraw
 	{
 	public:
 		bool SetDeptIgnore;
@@ -408,13 +408,9 @@ struct Array {
 		//Clone Copy Method
 		//void Clone(AllDraw& AA);
 //		int SumOfObjects(AllDraw A, int Order);
-		//aBlanck Constructor
-		AllDraw(int Order, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, AllDraw THi);
+		//aBlanck Constructor		
 		AllDraw(int Order, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, AllDraw THi);
 
-		AllDraw()
-		{
-		};
 
 
 		//Check For Thinking Of Current Item Movments Finished.

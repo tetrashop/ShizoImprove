@@ -1,7 +1,6 @@
 ﻿#pragma once
 
 #include "stdafx.h"
-#include "stdafx.h"
 
 using namespace std;
 using namespace RefrigtzDLL;
@@ -247,7 +246,7 @@ namespace RefrigtzDLL
 		int color;
 		int Order;
 		//< typename T >
-        std::vector<RefrigtzDLL::AllDraw> AStarGreedy = std::vector<RefrigtzDLL::AllDraw>();
+		std::vector<RefrigtzDLL::AllDraw> AStarGreedy;
 		
 	public:
 		
@@ -263,9 +262,6 @@ namespace RefrigtzDLL
 		void SetObjectNumbers(int **TabS);
 		//Constructor
 		ThinkingChess(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, int i, int j);
-		ThinkingChess() 
-		{
-		}
 		/*double SetObjectValue(int[,] Tab, int Row, int Column)
 		{
 		    Object o = new Object();

@@ -71,21 +71,19 @@ namespace RefrigtzDLL
 		     ArrangmentsChanged = Arrangments;
 		 }
 		*/
-		//Constructor 2.
-		DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int **Tab, int Ord, bool TB, int Cur); //, ref AllDraw:: THIS
-		DrawSoldier() 
-		{
-		}
+		//Constructor 2.		
+		DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int** Tab, int Ord, bool TB, int Cur);
 	
 		//Clone a Copy Method.
 		//void Clone(DrawSoldier *&AA); //, ref AllDraw:: THIS
 		//Drawing Soldiers On the Table Method..
 		void DrawSoldierOnTable( int CellW, int CellH);
-
+		
 	private:
 		void DrawSoldierOnTable(float CellW, float CellH);
 		//void DrawSoldierOnTable(T CellW, T CellH);
 		void InitializeInstanceFields();
 	};
+	
 }
 //End of Documentation.

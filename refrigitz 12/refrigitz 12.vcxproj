@@ -142,7 +142,7 @@
     <None Include="C:\Users\TechnologyLover\Desktop\New folder\packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\AllDrwa*::cpp" />
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\AllDraw::cpp" />
     <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\ChessGeneticAlgorithm.cpp" />
     <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\ChessRules::cpp" />
     <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\CodeClass.cpp" />
@@ -166,7 +166,7 @@
     <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\ThinkingChess.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\AllDrwa*::h" />
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\AllDraw::h" />
     <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\ChessGeneticAlgorithm.h" />
     <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\ChessRules::h" />
     <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\CodeClass.h" />

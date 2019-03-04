@@ -142,7 +142,7 @@ namespace RefrigtzDLL
 		}
 	}
 
-	virtual double LearningKrinskyAtamata::LearningAlgorithmRegard()
+	double LearningKrinskyAtamata::LearningAlgorithmRegard()
 	{
 		//autoo = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -164,7 +164,7 @@ namespace RefrigtzDLL
 		}
 	}
 
-	virtual double LearningKrinskyAtamata::IsRewardAction()
+	double LearningKrinskyAtamata::IsRewardAction()
 	{
 		//autoo = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:

@@ -14,7 +14,7 @@
  * Mistuning of Penalty and Regard Data in IsRegard and IsPenalty Value***x****(+)
  * No Reason For Malfunction of Reward and Penalty Mechanism******************(_)
  * 1395/1/2********************************************************************(*:Sum(3)) (_:Sum(4)) (-:Sum(2)) (All Errors:(7))
- * Penalty Regard Action is Useful For One Time Per AllDrwa* Object.************
+ * Penalty Regard Action is Useful For One Time Per AllDraw Object.************
  * No Solution to Overcome to static Behavior Of Quantum Variables Inhererete.*
  ******************************************************************************/
 

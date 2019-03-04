@@ -70,8 +70,8 @@ double MaxHuristicxS = -DBL_MAX;
 		a += SoldierThinking.ReturnHuristic(-1, -1, Order, false);
 		return a;
 	}
-	template< typename T >
-	DrawSoldier<T>::DrawSoldier(T CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, T i, T j, T a, T **Tab, T Ord, bool TB, T Cur) : DrawSoldier<ThingsConverter<T>>(Arrangments, static_cast<T>(i), static_cast<T>(j), a, Tab, Ord, TB, Cur)
+	//template<class T, typename PropTy>
+	DrawSoldier::DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int** Tab, int Ord, bool TB, int Cur) : ThingsConverter(Arrangments, i, j, a, Tab, Ord, TB, Cur)
 	{
 		InitializeInstanceFields();
 
@@ -87,15 +87,15 @@ double MaxHuristicxS = -DBL_MAX;
 		AStarGreedyHuristicT = AStarGreedyHuris;
 		ArrangmentsChanged = Arrangments;
 		//Initiate Global Variables.  
-		Table = new T*[8]; for (T ii = 0; ii < 8; ii++)Table[ii] = new T[8];
-		for (T ii = 0; ii < 8; ii++)
+		Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii] = new T[8];
+		for (int ii = 0; ii < 8; ii++)
 		{
-			for (T jj = 0; jj < 8; jj++)
+			for (int jj = 0; jj < 8; jj++)
 			{
 				Table[ii][jj] = Tab[ii][jj];
 			}
 		}
-		SoldierThinking = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<T>(i), static_cast<T>(j), a, Tab, 4, Ord, TB, Cur, 16, 1);
+		SoldierThinking = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(i), static_cast<int>(j), a, Tab, 4, Ord, TB, Cur, 16, 1);
 		RowS = i;
 		ColumnS = j;
 		color = a;
@@ -148,7 +148,7 @@ double MaxHuristicxS = -DBL_MAX;
 
 */
 
-	void DrawSoldier::DrawSoldierOnTable(T CellW, T CellH)
+	void DrawSoldier::DrawSoldierOnTable(float CellW, float CellH)
 	{
 		/*///autobalance//lockS = new Object();
 

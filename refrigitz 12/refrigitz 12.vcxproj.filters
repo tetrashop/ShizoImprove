@@ -22,7 +22,7 @@
     <None Include="C:\Users\TechnologyLover\Desktop\New folder\packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\AllDrwa*::cpp">
+    <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\AllDraw::cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\TechnologyLover\Desktop\New folder\ChessGeneticAlgorithm.cpp">
@@ -90,7 +90,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\AllDrwa*::h">
+    <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\AllDraw::h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\TechnologyLover\Desktop\New folder\ChessGeneticAlgorithm.h">

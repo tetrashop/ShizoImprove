@@ -21,7 +21,7 @@ double DrawMinister::MaxHuristicxM = -20000000000000000;
 			{
 				std::wstring stackTrace = ex.what();
 //C# TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'ToString':
-				File::AppendAllText(AllDrwa*::Root + std::wstring(L"\\ErrorProgramRun.txt"), stackTrace + std::wstring(L": On") + DateTime::Now.ToString()); // path of file where stack trace will be stored.
+				File::AppendAllText(AllDraw::Root + std::wstring(L"\\ErrorProgramRun.txt"), stackTrace + std::wstring(L": On") + DateTime::Now.ToString()); // path of file where stack trace will be stored.
 			}
 		}
 		//catch(std::exception t)
@@ -70,7 +70,7 @@ double DrawMinister::MaxHuristicxM = -20000000000000000;
 	double DrawMinister::ReturnHuristic()
 	{
 		double a = 0;
-		for (int ii = 0; ii < AllDrwa*::MinisterMovments; ii++)
+		for (int ii = 0; ii < AllDraw::MinisterMovments; ii++)
 		{
 			//try
 			{
@@ -130,7 +130,7 @@ double DrawMinister::MaxHuristicxM = -20000000000000000;
 		//Initiate an Object and Clone a Construction Objectve.
 		AA = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, color, Table, Order, false, Current);
 		AA->ArrangmentsChanged = ArrangmentsChanged;
-		for (int i = 0; i < AllDrwa*::MinisterMovments; i++)
+		for (int i = 0; i < AllDraw::MinisterMovments; i++)
 		{
 			//try
 			{
@@ -173,8 +173,8 @@ double DrawMinister::MaxHuristicxM = -20000000000000000;
 			{
 				if (M == nullptr || M[1] == nullptr)
 				{
-					M = Image::FromFile(AllDrwa*::ImagesSubRoot + std::wstring(L"MG.png"));
-					M[1] = Image::FromFile(AllDrwa*::ImagesSubRoot + std::wstring(L"MB.png"));
+					M = Image::FromFile(AllDraw::ImagesSubRoot + std::wstring(L"MG.png"));
+					M[1] = Image::FromFile(AllDraw::ImagesSubRoot + std::wstring(L"MB.png"));
 				} //Gray int.
 				if ((static_cast<int>(Row) >= 0) static_cast<int>(Row) < 8) static_cast<int>(Column) >= 0) static_cast<int>(Column) < 8))
 				{

@@ -10,6 +10,8 @@ namespace RefrigtzDLL
 {
 	inline bool operator==(AllDraw& lhs, std::nullptr_t& rhs) { return (lhs == rhs); }
 	inline bool operator!=(AllDraw& lhs, std::nullptr_t& rhs) { return !(lhs == rhs); }
+	inline bool operator==(DrawSoldier& lhs, std::nullptr_t& rhs) { return (lhs == rhs); }
+	inline bool operator!=(DrawSoldier& lhs, std::nullptr_t& rhs) { return !(lhs == rhs); }
 	inline bool operator==(DrawCastle& lhs, std::nullptr_t& rhs) { return (lhs == rhs); }
 	inline bool operator!=(DrawCastle& lhs, std::nullptr_t& rhs) { return !(lhs == rhs); }
 	inline bool operator==(DrawElefant& lhs, std::nullptr_t& rhs) { return (lhs == rhs); }
@@ -251,6 +253,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 			PenaltyRegardListMinister = std::vector<LearningKrinskyAtamata>();
 			PenaltyRegardListKing = std::vector<LearningKrinskyAtamata>();
 			//AStarGreedy = std::vector<AllDraw>();
+			AStarGreedy = std::vector<RefrigtzDLL::AllDraw>();
 			///Network  LearningKrinskyAtamata   * Book Initiate For Every Clone.
 			//ObjectValueCalculator(TableConst);			
 
@@ -436,6 +439,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 			PenaltyRegardListMinister = std::vector<LearningKrinskyAtamata>();
 			PenaltyRegardListKing =  std::vector<LearningKrinskyAtamata>();
 			*/
+			AStarGreedy = std::vector<RefrigtzDLL::AllDraw>();
 		}
 	}
 
@@ -511,7 +515,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 			//Initaite New Object.
 			if (AA == nullptr)
 			{
-				AA =new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column); //, Kind
+				AA = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column); //, Kind
 			}
 			AA->ArrangmentsChanged = ArrangmentsChanged;
 			//When Depth Object is not NULL.
@@ -524,7 +528,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 					//try
 					{
 						//Clone a Copy From Depth Objects.
-						(AStarGreedy.data())[i][j]Clone(AA->(AStarGreedy.data())[i]);
+						(AStarGreedy[i][j]Clone(AA->(AStarGreedy[i]);
 					}
 					//catch(std::exception &tt)
 					{
@@ -537,13 +541,13 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 
 			{
 				//Add a Clone To New Solder indexx Object.
-				AA->RowColumnSoldier.push_back(CloneAList(RowColumnSoldier.data()[j], 2));
+				AA->RowColumnSoldier.push_back(CloneAList(RowColumnSoldier[j], 2));
 			}
 			//For All Castle List Count.
 			for (int j = 0; j < RowColumnCastle.size(); j++)
 			{
 				//Add a Clone to New Castle index Objects List.
-				AA->RowColumnCastle..push_back(CloneAList(RowColumnCastle.data()[j][0], 2));
+				AA->RowColumnCastle..push_back(CloneAList(RowColumnCastle[j][0], 2));
 			}
 
 			//For All Elephant index List Count.
@@ -556,13 +560,13 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 			for (int j = 0; j < RowColumnHourse.size(); j++)
 			{
 				//Add a Clone to New Hourse index List.
-				AA->RowColumnHourse..push_back(CloneAList(RowColumnHourse.data()[j][0], 2));
+				AA->RowColumnHourse..push_back(CloneAList(RowColumnHourse[j][0], 2));
 			}
 			//For All King index List Count.
 			for (int j = 0; j < RowColumnKing.size(); j++)
 			{
 				//Add a Clone To New King Object List.
-				AA->RowColumnKing..push_back(CloneAList(RowColumnKing.data()[j][0], 2));
+				AA->RowColumnKing..push_back(CloneAList(RowColumnKing[j][0], 2));
 			}
 			//For All Minister index Count.
 			for (int j = 0; j < RowColumnMinister.size(); j++)
@@ -620,7 +624,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 			for (int i = 0; i < TableListHourse.size(); i++)
 			{
 				//Add a Clone of Hourse Table Movement in New List.
-				AA->TableListHourse.push_back(CloneATable(TableListHourse.data()[i]));
+				AA->TableListHourse.push_back(CloneATable(TableListHourse[i]));
 			}
 			//For All King Tables Movment Count.
 			for (int i = 0; i < TableListKing.size(); i++)
@@ -632,13 +636,13 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 			for (int i = 0; i < TableListMinister.size(); i++)
 			{
 				//Add a clone To New Minister Table Movment List.
-				AA->TableListMinister.push_back(CloneATable(TableListMinister.data()[i]));
+				AA->TableListMinister.push_back(CloneATable(TableListMinister[i]));
 			}
 			//For All Solder Table Movment Count.
 			for (int i = 0; i < TableListSolder.size(); i++)
 			{
 				//Add a Clone of Table item to New Table List Movments.
-				AA->TableListSolder.push_back(CloneATable(TableListSolder.data()[i]));
+				AA->TableListSolder.push_back(CloneATable(TableListSolder[j][i]));
 			}
 
 			//For All Solder Husrist List Count.
@@ -6115,7 +6119,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 			{
 				for (int i = 0; i < PenaltyRegardListSolder.size(); i++)
 				{
-					if (PenaltyRegardListSolder.data()[i].IsPenaltyAction() != 0)
+					if (PenaltyRegardListSolder[i].IsPenaltyAction() != 0)
 					{
 						if (Order == AllDraw::OrderPlate)
 						{
@@ -6147,7 +6151,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 				{
 					for (int i = 0; i < PenaltyRegardListElefant.size(); i++)
 					{
-						if (PenaltyRegardListElefant.data()[i].IsPenaltyAction() != 0)
+						if (PenaltyRegardListElefant[i].IsPenaltyAction() != 0)
 						{
 							if (Order == AllDraw::OrderPlate)
 							{
@@ -6177,7 +6181,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 					{
 						for (int i = 0; i < PenaltyRegardListHourse.size(); i++)
 						{
-							if (PenaltyRegardListHourse.data()[i].IsPenaltyAction() != 0)
+							if (PenaltyRegardListHourse[i].IsPenaltyAction() != 0)
 							{
 								if (Order == AllDraw::OrderPlate)
 								{
@@ -6207,7 +6211,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 						{
 							for (int i = 0; i < PenaltyRegardListCastle.size(); i++)
 							{
-								if (PenaltyRegardListCastle.data()[i].IsPenaltyAction() != 0)
+								if (PenaltyRegardListCastle[i].IsPenaltyAction() != 0)
 								{
 									if (Order == AllDraw::OrderPlate)
 									{
@@ -6236,7 +6240,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 							{
 								for (int i = 0; i < PenaltyRegardListMinister.size(); i++)
 								{
-									if (PenaltyRegardListMinister.data()[i].IsPenaltyAction() != 0)
+									if (PenaltyRegardListMinister[i].IsPenaltyAction() != 0)
 									{
 										if (Order == AllDraw::OrderPlate)
 										{
@@ -6265,7 +6269,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 								{
 									for (int i = 0; i < PenaltyRegardListKing.size(); i++)
 									{
-										if (PenaltyRegardListKing.data()[i].IsPenaltyAction() != 0)
+										if (PenaltyRegardListKing[i].IsPenaltyAction() != 0)
 										{
 											if (Order == AllDraw::OrderPlate)
 											{
@@ -6734,15 +6738,15 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 				for (j = 0; HuristicListSolder.size() > 0 && j < HuristicListSolder.size(); j++)
 				{
 					//if (!ActionStringSetting)
-					Huristic += HuristicListSolder.data()[j][0] + HuristicListSolder.data()[j][1] + HuristicListSolder.data()[j][2] + HuristicListSolder.data()[j][3] + HuristicListSolder.data()[j][4] + HuristicListSolder.data()[j][5] + HuristicListSolder.data()[j][6] + HuristicListSolder.data()[j][7] + HuristicListSolder.data()[j][8] + HuristicListSolder.data()[j][9];
-					ActionsString = std::wstring(L" ") + Alphabet(Row) + Number(Column) + Alphabet(RowColumnSoldier.data()[j][0]) + Number(RowColumnSoldier.data()[j][1]);
+					Huristic += HuristicListSolder[j][0] + HuristicListSolder[j][1] + HuristicListSolder[j][2] + HuristicListSolder[j][3] + HuristicListSolder[j][4] + HuristicListSolder[j][5] + HuristicListSolder[j][6] + HuristicListSolder[j][7] + HuristicListSolder[j][8] + HuristicListSolder[j][9];
+					ActionsString = std::wstring(L" ") + Alphabet(Row) + Number(Column) + Alphabet(RowColumnSoldier[j][0]) + Number(RowColumnSoldier[j][1]);
 					if (Order == 1)
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nHuristic Soldier AStarGreedy.data()[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut = std::wstring(L"\r\nHuristic Soldier AStarGreedy[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 					else
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nHuristic Soldier AStarGreedy.data()[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut = std::wstring(L"\r\nHuristic Soldier AStarGreedy[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 				}
 
@@ -6751,69 +6755,69 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 				for (j = 0; HuristicListElefant.size() > 0 && j < HuristicListElefant.size(); j++)
 				{
 					//if (!ActionStringSetting)
-					Huristic += HuristicListElefant.data()[j][0] + HuristicListElefant.data()[j][1] + HuristicListElefant.data()[j][2] + HuristicListElefant.data()[j][3] + HuristicListElefant.data()[j][4] + HuristicListElefant.data()[j][5] + HuristicListElefant.data()[j][6] + HuristicListElefant.data()[j][7] + HuristicListElefant.data()[j][8] + HuristicListElefant.data()[j][9];
-					ActionsString = std::wstring(L" ") + Alphabet(Row) + Number(Column) + Alphabet(RowColumnElefant.data()[j][0]) + Number(RowColumnElefant.data()[j][1]);
+					Huristic += HuristicListElefant[j][0] + HuristicListElefant[j][1] + HuristicListElefant[j][2] + HuristicListElefant[j][3] + HuristicListElefant[j][4] + HuristicListElefant[j][5] + HuristicListElefant[j][6] + HuristicListElefant[j][7] + HuristicListElefant[j][8] + HuristicListElefant[j][9];
+					ActionsString = std::wstring(L" ") + Alphabet(Row) + Number(Column) + Alphabet(RowColumnElefant[j][0]) + Number(RowColumnElefant[j][1]);
 					if (Order == 1)
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nHuristic Elephant AStarGreedy.data()[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut = std::wstring(L"\r\nHuristic Elephant AStarGreedy[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 					else
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nHuristic Elephant AStarGreedy.data()[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut = std::wstring(L"\r\nHuristic Elephant AStarGreedy[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 				}
 				for (j = 0; HuristicListHourse.size() > 0 && j < HuristicListHourse.size(); j++)
 				{
 					//if (!ActionStringSetting)
-					Huristic += HuristicListHourse.data()[j][0] + HuristicListHourse.data()[j][1] + HuristicListHourse.data()[j][2] + HuristicListHourse.data()[j][3] + HuristicListHourse.data()[j][4] + HuristicListHourse.data()[j][5] + HuristicListHourse.data()[j][6] + HuristicListHourse.data()[j][7] + HuristicListHourse.data()[j][8] + HuristicListHourse.data()[j][9];
-					ActionsString = std::wstring(L" ") + Alphabet(Row) + Number(Column) + Alphabet(RowColumnHourse.data()[j][0]) + Number(RowColumnHourse.data()[j][1]);
+					Huristic += HuristicListHourse[j][0] + HuristicListHourse[j][1] + HuristicListHourse[j][2] + HuristicListHourse[j][3] + HuristicListHourse[j][4] + HuristicListHourse[j][5] + HuristicListHourse[j][6] + HuristicListHourse[j][7] + HuristicListHourse[j][8] + HuristicListHourse[j][9];
+					ActionsString = std::wstring(L" ") + Alphabet(Row) + Number(Column) + Alphabet(RowColumnHourse[j][0]) + Number(RowColumnHourse[j][1]);
 					if (Order == 1)
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nHuristic Hourse AStarGreedy.data()[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut = std::wstring(L"\r\nHuristic Hourse AStarGreedy[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 					else
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nHuristic Hourse AStarGreedy.data()[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut = std::wstring(L"\r\nHuristic Hourse AStarGreedy[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 				}
 				for (j = 0; HuristicListCastle.size() > 0 && j < HuristicListCastle.size(); j++)
 				{
-					Huristic += HuristicListCastle.data()[j][0] + HuristicListCastle.data()[j][1] + HuristicListCastle.data()[j][2] + HuristicListCastle.data()[j][3] + HuristicListCastle.data()[j][4] + HuristicListCastle.data()[j][5] + HuristicListCastle.data()[j][6] + HuristicListCastle.data()[j][7] + HuristicListCastle.data()[j][8] + HuristicListCastle.data()[j][9];
-					ActionsString = std::wstring(L" ") + Alphabet(Row) + Number(Column) + Alphabet(RowColumnCastle.data()[j][0]) + Number(RowColumnCastle.data()[j][1]);
+					Huristic += HuristicListCastle[j][0] + HuristicListCastle[j][1] + HuristicListCastle[j][2] + HuristicListCastle[j][3] + HuristicListCastle[j][4] + HuristicListCastle[j][5] + HuristicListCastle[j][6] + HuristicListCastle[j][7] + HuristicListCastle[j][8] + HuristicListCastle[j][9];
+					ActionsString = std::wstring(L" ") + Alphabet(Row) + Number(Column) + Alphabet(RowColumnCastle[j][0]) + Number(RowColumnCastle[j][1]);
 					if (Order == 1)
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nHuristic Castle AStarGreedy.data()[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut = std::wstring(L"\r\nHuristic Castle AStarGreedy[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 					else
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nHuristic Castle AStarGreedy.data()[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut = std::wstring(L"\r\nHuristic Castle AStarGreedy[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 
 				}
 				for (j = 0; HuristicListMinister.size() > 0 && j < HuristicListMinister.size(); j++)
 				{
-					Huristic += HuristicListMinister.data()[j][0] + HuristicListMinister.data()[j][1] + HuristicListMinister.data()[j][2] + HuristicListMinister.data()[j][3] + HuristicListMinister.data()[j][4] + HuristicListMinister.data()[j][5] + HuristicListMinister.data()[j][6] + HuristicListMinister.data()[j][7] + HuristicListMinister.data()[j][8] + HuristicListMinister.data()[j][9];
-					ActionsString = std::wstring(L" ") + Alphabet(Row) + Number(Column) + Alphabet(RowColumnMinister.data()[j][0]) + Number(RowColumnMinister.data()[j][1]);
+					Huristic += HuristicListMinister[j][0] + HuristicListMinister[j][1] + HuristicListMinister[j][2] + HuristicListMinister[j][3] + HuristicListMinister[j][4] + HuristicListMinister[j][5] + HuristicListMinister[j][6] + HuristicListMinister[j][7] + HuristicListMinister[j][8] + HuristicListMinister[j][9];
+					ActionsString = std::wstring(L" ") + Alphabet(Row) + Number(Column) + Alphabet(RowColumnMinister[j][0]) + Number(RowColumnMinister[j][1]);
 					if (Order == 1)
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nHuristic Minister AStarGreedy.data()[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut = std::wstring(L"\r\nHuristic Minister AStarGreedy[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 					else
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nHuristic Minister AStarGreedy.data()[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut = std::wstring(L"\r\nHuristic Minister AStarGreedy[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 				}
 				for (j = 0; HuristicListKing.size() > 0 && j < HuristicListKing.size(); j++)
 				{
-					Huristic += HuristicListKing.data()[j][0] + HuristicListKing.data()[j][1] + HuristicListKing.data()[j][2] + HuristicListKing.data()[j][3] + HuristicListKing.data()[j][4] + HuristicListKing.data()[j][5] + HuristicListKing.data()[j][6] + HuristicListKing.data()[j][7] + HuristicListKing.data()[j][8] + HuristicListKing.data()[j][9];
-					ActionsString = std::wstring(L" ") + Alphabet(Row) + Number(Column) + Alphabet(RowColumnKing.data()[j][0]) + Number(RowColumnKing.data()[j][1]);
+					Huristic += HuristicListKing[j][0] + HuristicListKing[j][1] + HuristicListKing[j][2] + HuristicListKing[j][3] + HuristicListKing[j][4] + HuristicListKing[j][5] + HuristicListKing[j][6] + HuristicListKing[j][7] + HuristicListKing[j][8] + HuristicListKing[j][9];
+					ActionsString = std::wstring(L" ") + Alphabet(Row) + Number(Column) + Alphabet(RowColumnKing[j][0]) + Number(RowColumnKing[j][1]);
 					if (Order == 1)
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nHuristic King AStarGreedy.data()[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut = std::wstring(L"\r\nHuristic King AStarGreedy[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 					else
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nHuristic King AStarGreedy.data()[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut = std::wstring(L"\r\nHuristic King AStarGreedy[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 				}
 			}
@@ -6824,121 +6828,121 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 			for (int k = 0; k < AStarGreedy.size(); k++)
 			{
 
-				if ((&((AStarGreedy.data())[k])) == nullptr)
+				if ((&(AStarGreedy[k])) == nullptr)
 				{
 					continue;
 				}
 				if (Order == 1)
 				{
 					//Repeate for Solder.
-					for (int m = 0; m < AStarGreedy.data()[k].SodierMidle; m++)
+					for (int m = 0; m < AStarGreedy[k].SodierMidle; m++)
 					{
-						if (AStarGreedy.data()[k].SolderesOnTable == nullptr || (&((AStarGreedy.data())[k]).SolderesOnTable[m]) == nullptr)
+						if (AStarGreedy[k].SolderesOnTable == nullptr || (&(AStarGreedy[k].SolderesOnTable[m]) == nullptr))
 						{
 							continue;
 						}
-						Huristic += AStarGreedy.data()[k].SolderesOnTable[m].SoldierThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy[k].SolderesOnTable[m].SoldierThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for Elephant.
-					for (int m = 0; m < AStarGreedy.data()[k].ElefantMidle; m++)
+					for (int m = 0; m < AStarGreedy[k].ElefantMidle; m++)
 					{
-						if (AStarGreedy.data()[k].ElephantOnTable == nullptr || (&(((AStarGreedy.data())[k]).ElephantOnTable[m])) == nullptr)
+						if (AStarGreedy[k].ElephantOnTable == nullptr || (&(AStarGreedy[k].ElephantOnTable[m]) == nullptr))
 						{
 							continue;
 						}
-						Huristic += AStarGreedy.data()[k].ElephantOnTable[m].ElefantThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy[k].ElephantOnTable[m].ElefantThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for Hourse.
-					for (int m = 0; m < AStarGreedy.data()[k].HourseMidle; m++)
+					for (int m = 0; m < AStarGreedy[k].HourseMidle; m++)
 					{
-						if (AStarGreedy.data()[k].HoursesOnTable == nullptr || (&(((AStarGreedy.data())[k]).HoursesOnTable[m])) == nullptr)
+						if (AStarGreedy[k].HoursesOnTable == nullptr || (&(AStarGreedy[k].HoursesOnTable[m]) == nullptr))
 						{
 							continue;
 						}
-						Huristic += AStarGreedy.data()[k].HoursesOnTable[m].HourseThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy[k].HoursesOnTable[m].HourseThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for Castles.
-					for (int m = 0; m < AStarGreedy.data()[k].CastleMidle; m++)
+					for (int m = 0; m < AStarGreedy[k].CastleMidle; m++)
 					{
-						if (AStarGreedy.data()[k].CastlesOnTable == nullptr || (&(((AStarGreedy.data())[k]).CastlesOnTable[m])) == nullptr)
+						if (AStarGreedy[k].CastlesOnTable == nullptr || (&(AStarGreedy[k].CastlesOnTable[m]) == nullptr))
 						{
 							continue;
 						}
-						Huristic += AStarGreedy.data()[k].CastlesOnTable[m].CastleThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy[k].CastlesOnTable[m].CastleThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for Minstre.
-					for (int m = 0; m < AStarGreedy.data()[k].MinisterMidle; m++)
+					for (int m = 0; m < AStarGreedy[k].MinisterMidle; m++)
 					{
-						if (AStarGreedy.data()[k].MinisterOnTable == nullptr || (&(((AStarGreedy.data())[k]).MinisterOnTable[m])) == nullptr)
+						if (AStarGreedy[k].MinisterOnTable == nullptr || (&(AStarGreedy[k].MinisterOnTable[m])== nullptr))
 						{
 							continue;
 						}
-						Huristic += AStarGreedy.data()[k].MinisterOnTable[m].MinisterThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy[k].MinisterOnTable[m].MinisterThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for King.
-					for (int m = 0; m < AStarGreedy.data()[k].KingMidle; m++)
+					for (int m = 0; m < AStarGreedy[k].KingMidle; m++)
 					{
-						if (AStarGreedy.data()[k].KingOnTable == nullptr || (&(((AStarGreedy.data())[k]).KingOnTable[m])) == nullptr)
+						if (AStarGreedy[k].KingOnTable == nullptr || (&(AStarGreedy[k].KingOnTable[m]) == nullptr))
 						{
 							continue;
 						}
-						Huristic += AStarGreedy.data()[k].KingOnTable[m].KingThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy[k].KingOnTable[m].KingThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 				}
 				else
 				{
-					for (int m = AStarGreedy.data()[k].SodierMidle; m < AStarGreedy.data()[k].SodierHigh; m++)
+					for (int m = AStarGreedy[k].SodierMidle; m < AStarGreedy[k].SodierHigh; m++)
 					{
-						if (AStarGreedy.data()[k].SolderesOnTable == nullptr || (&((AStarGreedy.data())[k]).SolderesOnTable[m]) == nullptr)
+						if (AStarGreedy[k].SolderesOnTable == nullptr || (&(AStarGreedy[k].SolderesOnTable[m]) == nullptr))
 						{
 							continue;
 						}
-						Huristic += AStarGreedy.data()[k].SolderesOnTable[m].SoldierThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy[k].SolderesOnTable[m].SoldierThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for Elephant.
-					for (int m = AStarGreedy.data()[k].ElefantMidle; m < AStarGreedy.data()[k].ElefantHigh; m++)
+					for (int m = AStarGreedy[k].ElefantMidle; m < AStarGreedy[k].ElefantHigh; m++)
 					{
-						if (AStarGreedy.data()[k].ElephantOnTable == nullptr || (&(((AStarGreedy.data())[k]).ElephantOnTable[m])) == nullptr)
+						if (AStarGreedy[k].ElephantOnTable == nullptr || (&(AStarGreedy[k].ElephantOnTable[m]) == nullptr))
 						{
 							continue;
 						}
-						Huristic += AStarGreedy.data()[k].ElephantOnTable[m].ElefantThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy[k].ElephantOnTable[m].ElefantThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for Hourse.
-					for (int m = AStarGreedy.data()[k].HourseMidle; m < AStarGreedy.data()[k].HourseHight; m++)
+					for (int m = AStarGreedy[k].HourseMidle; m < AStarGreedy[k].HourseHight; m++)
 					{
-						if (AStarGreedy.data()[k].HoursesOnTable == nullptr || (&(((AStarGreedy.data())[k]).HoursesOnTable[m])) == nullptr)
+						if (AStarGreedy[k].HoursesOnTable == nullptr || (&(AStarGreedy[k].HoursesOnTable[m]) == nullptr))
 						{
 							continue;
 						}
-						Huristic += AStarGreedy.data()[k].HoursesOnTable[m].HourseThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy[k].HoursesOnTable[m].HourseThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for Castles.
-					for (int m = AStarGreedy.data()[k].CastleMidle; m < AStarGreedy.data()[k].CastleHigh; m++)
+					for (int m = AStarGreedy[k].CastleMidle; m < AStarGreedy[k].CastleHigh; m++)
 					{
-						if (AStarGreedy.data()[k].CastlesOnTable == nullptr || (&(((AStarGreedy.data())[k]).CastlesOnTable[m])) == nullptr)
+						if (AStarGreedy[k].CastlesOnTable == nullptr || (&(AStarGreedy[k].CastlesOnTable[m]) == nullptr))
 						{
 							continue;
 						}
-						Huristic += AStarGreedy.data()[k].CastlesOnTable[m].CastleThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy[k].CastlesOnTable[m].CastleThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for Minstre.
-					for (int m = AStarGreedy.data()[k].MinisterMidle; m < AStarGreedy.data()[k].MinisterHigh; m++)
+					for (int m = AStarGreedy[k].MinisterMidle; m < AStarGreedy[k].MinisterHigh; m++)
 					{
-						if (AStarGreedy.data()[k].MinisterOnTable == nullptr || (&(((AStarGreedy.data())[k]).MinisterOnTable[m])) == nullptr)
+						if (AStarGreedy[k].MinisterOnTable == nullptr || (&(AStarGreedy[k].MinisterOnTable[m]) == nullptr))
 						{
 							continue;
 						}
-						Huristic += AStarGreedy.data()[k].MinisterOnTable[m].MinisterThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy[k].MinisterOnTable[m].MinisterThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for King.
-					for (int m = AStarGreedy.data()[k].KingMidle; m < AStarGreedy.data()[k].KingHigh; m++)
+					for (int m = AStarGreedy[k].KingMidle; m < AStarGreedy[k].KingHigh; m++)
 					{
-						if (AStarGreedy.data()[k].KingOnTable == nullptr || (&(((AStarGreedy.data())[k]).KingOnTable[m])) == nullptr)
+						if (AStarGreedy[k].KingOnTable == nullptr || (&(AStarGreedy[k].KingOnTable[m]) == nullptr))
 						{
 							continue;
 						}
-						Huristic += AStarGreedy.data()[k].KingOnTable[m].KingThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy[k].KingOnTable[m].KingThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 				}
 			}
@@ -6949,28 +6953,28 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 			{
 				//When Solder Kind.
 				if (abs(Kind) == 1 && HuristicListSolder.size() > 0)
-					Huristic += HuristicListSolder.data()[j][0] + HuristicListSolder.data()[j][1] + HuristicListSolder.data()[j][2] + HuristicListSolder.data()[j][3] + HuristicListSolder.data()[j][4] + HuristicListSolder.data()[j][5] + HuristicListSolder.data()[j][6] + HuristicListSolder.data()[j][7] + HuristicListSolder.data()[j][8] + HuristicListSolder.data()[j][9];
+					Huristic += HuristicListSolder[j][0] + HuristicListSolder[j][1] + HuristicListSolder[j][2] + HuristicListSolder[j][3] + HuristicListSolder[j][4] + HuristicListSolder[j][5] + HuristicListSolder[j][6] + HuristicListSolder[j][7] + HuristicListSolder[j][8] + HuristicListSolder[j][9];
 
 				else
 					//When Elephant Kind.
 					if (abs(Kind) == 2 && HuristicListElefant.size() > 0)
-						Huristic += HuristicListElefant.data()[j][0] + HuristicListElefant.data()[j][1] + HuristicListElefant.data()[j][2] + HuristicListElefant.data()[j][3] + HuristicListElefant.data()[j][4] + HuristicListElefant.data()[j][5] + HuristicListElefant.data()[j][6] + HuristicListElefant.data()[j][7] + HuristicListElefant.data()[j][8] + HuristicListElefant.data()[j][9];
+						Huristic += HuristicListElefant[j][0] + HuristicListElefant[j][1] + HuristicListElefant[j][2] + HuristicListElefant[j][3] + HuristicListElefant[j][4] + HuristicListElefant[j][5] + HuristicListElefant[j][6] + HuristicListElefant[j][7] + HuristicListElefant[j][8] + HuristicListElefant[j][9];
 					else
 						//When Hourse Kind.
 						if (abs(Kind) == 3 && HuristicListHourse.size() > 0)
-							Huristic += HuristicListHourse.data()[j][0] + HuristicListHourse.data()[j][1] + HuristicListHourse.data()[j][2] + HuristicListHourse.data()[j][3] + HuristicListHourse.data()[j][4] + HuristicListHourse.data()[j][5] + HuristicListHourse.data()[j][6] + HuristicListHourse.data()[j][7] + HuristicListHourse.data()[j][8] + HuristicListHourse.data()[j][9];
+							Huristic += HuristicListHourse[j][0] + HuristicListHourse[j][1] + HuristicListHourse[j][2] + HuristicListHourse[j][3] + HuristicListHourse[j][4] + HuristicListHourse[j][5] + HuristicListHourse[j][6] + HuristicListHourse[j][7] + HuristicListHourse[j][8] + HuristicListHourse[j][9];
 						else
 							//When Castles Kind.
 							if (abs(Kind) == 4 && HuristicListCastle.size() > 0)
-								Huristic += HuristicListCastle.data()[j][0] + HuristicListCastle.data()[j][1] + HuristicListCastle.data()[j][2] + HuristicListCastle.data()[j][3] + HuristicListCastle.data()[j][4] + HuristicListCastle.data()[j][5] + HuristicListCastle.data()[j][6] + HuristicListCastle.data()[j][7] + HuristicListCastle.data()[j][8] + HuristicListCastle.data()[j][9];
+								Huristic += HuristicListCastle[j][0] + HuristicListCastle[j][1] + HuristicListCastle[j][2] + HuristicListCastle[j][3] + HuristicListCastle[j][4] + HuristicListCastle[j][5] + HuristicListCastle[j][6] + HuristicListCastle[j][7] + HuristicListCastle[j][8] + HuristicListCastle[j][9];
 							else
 								//When Minister Kind.
 								if (abs(Kind) == 5 && HuristicListMinister.size() > 0)
-									Huristic += HuristicListMinister.data()[j][0] + HuristicListMinister.data()[j][1] + HuristicListMinister.data()[j][2] + HuristicListMinister.data()[j][3] + HuristicListMinister.data()[j][4] + HuristicListMinister.data()[j][5] + HuristicListMinister.data()[j][6] + HuristicListMinister.data()[j][7] + HuristicListMinister.data()[j][8] + HuristicListMinister.data()[j][9];
+									Huristic += HuristicListMinister[j][0] + HuristicListMinister[j][1] + HuristicListMinister[j][2] + HuristicListMinister[j][3] + HuristicListMinister[j][4] + HuristicListMinister[j][5] + HuristicListMinister[j][6] + HuristicListMinister[j][7] + HuristicListMinister[j][8] + HuristicListMinister[j][9];
 								else
 									//When King Kind.
 									if (abs(Kind) == 6 && HuristicListKing.size() > 0)
-										Huristic += HuristicListKing.data()[j][0] + HuristicListKing.data()[j][1] + HuristicListKing.data()[j][2] + HuristicListKing.data()[j][3] + HuristicListKing.data()[j][4] + HuristicListKing.data()[j][5] + HuristicListKing.data()[j][6] + HuristicListKing.data()[j][7] + HuristicListKing.data()[j][8] + HuristicListKing.data()[j][9];
+										Huristic += HuristicListKing[j][0] + HuristicListKing[j][1] + HuristicListKing[j][2] + HuristicListKing[j][3] + HuristicListKing[j][4] + HuristicListKing[j][5] + HuristicListKing[j][6] + HuristicListKing[j][7] + HuristicListKing[j][8] + HuristicListKing[j][9];
 
 
 
