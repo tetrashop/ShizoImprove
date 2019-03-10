@@ -29,6 +29,11 @@ double DrawHourse::MaxHuristicxH = -20000000000000000;
 	}
 	
 */
+const DrawHourse& DrawHourse::operator[] (const int index) const
+{
+	return this[index];
+}
+
 DrawHourse::~DrawHourse()
 	{
 		InitializeInstanceFields();

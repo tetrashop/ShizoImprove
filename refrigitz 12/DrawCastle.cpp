@@ -33,6 +33,10 @@ double DrawCastle::MaxHuristicxB = -20000000000000000;
 		//ValuableSelfSupported.clear();
 //		C = nullptr;
 	}
+	const DrawCastle& DrawCastle::operator[] (const int index) const
+	{
+		return this[index];
+	}
 	//void* DrawCastle::operator*(std::size_t idx) { return malloc(idx * sizeof(this)); }
 	bool DrawCastle::MaxFound(bool MaxNotFound)
 	{

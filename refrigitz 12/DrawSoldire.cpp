@@ -29,6 +29,11 @@ double MaxHuristicxS = -DBL_MAX;
 		}
 	}
 	*/
+const DrawSoldier& DrawSoldier::operator[] (const int index) const
+{
+	return this[index];
+}
+
 	DrawSoldier::~DrawSoldier()
 	{
 		InitializeInstanceFields();

@@ -30,6 +30,11 @@ double DrawMinister::MaxHuristicxM = -20000000000000000;
 		}
 	}
 	*/
+const DrawMinister& DrawMinister::operator[] (const int index) const
+{
+	return this[index];
+}
+
 	DrawMinister::~DrawMinister()
 	{
 		InitializeInstanceFields();

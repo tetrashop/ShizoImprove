@@ -11,8 +11,8 @@ namespace RefrigtzDLL
 //ORIGINAL LINE: [Serializable] class DrawHourse
 	class DrawHourse
 	{
+		const DrawHourse& operator[] (const int index) const;
 
-		
 
 
 

@@ -12,6 +12,8 @@ namespace RefrigtzDLL
 
 
 	public:
+		const DrawKing& operator[] (const int index) const;
+
 		////void* operator*(std::size_t idx);
 
 		static bool KingGrayNotCheckedByQuantumMove;

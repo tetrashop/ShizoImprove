@@ -158,30 +158,7 @@ namespace RefrigtzDLL
 	{
 		
 	public:
-		const DrawSoldier& operator[] (const int index) const // for const objects: can only be used for access
-		{
-			return SolderesOnTable[index];
-		}
-		const DrawElefant& operator[] (const int index) const // for const objects: can only be used for access
-		{
-			return ElephantOnTable[index];
-		}
-		const DrawHourse& operator[] (const int index) const // for const objects: can only be used for access
-		{
-			return HoursesOnTable[index];
-		}
-		const DrawCastle& operator[] (const int index) const // for const objects: can only be used for access
-		{
-			return CastlesOnTable[index];
-		}
-		const DrawMinister& operator[] (const int index) const // for const objects: can only be used for access
-		{
-			return  MinisterOnTable[index];
-		}
-		const DrawKing& operator[] (const int index) const // for const objects: can only be used for access
-		{
-			return  KingOnTable[index];
-		}
+		
 		bool SetDeptIgnore;
 		long long Now;
 		long long Later;
@@ -376,12 +353,12 @@ struct Array {
 		int ColumS;
 		std::vector<int**> TableList;
 		int AStarGreedyInt;
-		DrawSoldier SolderesOnTable[16];
-		DrawElefant ElephantOnTable[4];
-		DrawHourse HoursesOnTable[4];
-		DrawCastle CastlesOnTable[4];
-		DrawMinister MinisterOnTable[2];
-		DrawKing KingOnTable[2];
+		DrawSoldier** SolderesOnTable;// [16];
+		DrawElefant** ElephantOnTable;// [4];
+		DrawHourse** HoursesOnTable;// [4];
+		DrawCastle** CastlesOnTable;// [4];
+		DrawMinister** MinisterOnTable;// [2];
+		DrawKing** KingOnTable;// [2];
 		/*std::vector<DrawSoldier> SolderesOnTable;
 		std::vector<DrawElefant> ElephantOnTable;
 		std::vector<DrawHourse> HoursesOnTable;
@@ -412,10 +389,6 @@ struct Array {
 		int SumOfObjects(AllDraw A, int Order);
 		int SumMinusOfObjects(AllDraw A, int Order);
 		//Error Handling
-	public:
-		//static void Log(std::exception &ex);
-		//Determine when a QuantumMoveOccured.
-		//Note for before move.At most one quantum moves.
 	public:
 		std::wstring Alphabet(int RowRealesed);
 		static bool IsAQuantumeMoveOccured(bool IsQuantumMove);	
@@ -452,7 +425,7 @@ struct Array {
 
 
 		//Check For Thinking Of Current Item Movments Finished.
-		bool KingDan(int** Tab, int Order);
+		void BlitzGameThinkingSolderGray(double PreviousLessS, int * Index, int * jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
 		//int** Initiate(int ii, int jj, int a, int** Table, int Order, bool TB, bool FOUND, int LeafAStarGreedy, bool SetDept = false);
 		/*void SetQuantumRowColumn(int Kind, int Section)
 		{
@@ -517,6 +490,7 @@ if (Kind == 2)
 		//Rearrange AllDraw Object Content.
 		void SetRowColumn(int index);
 	public:
+		bool KingDan(int** Tab, int Order);
 		void SetRowColumnFinishedWait();
 		//Max Index List Of Huristic AStarGreedy First Method.
 	public:
@@ -568,6 +542,7 @@ if (Kind == 2)
 
 		//AStarGreedy First Huristic Method.
 	public:
+		void Clone(AllDraw &AA);
 		void Clone(AllDraw * AA);
 		bool AllCurrentAStarGreedyThinkingFinished(AllDraw Dum, int i, int j, int Kind);
 		//int** CloneATable(int** Tab);
@@ -609,14 +584,16 @@ if (Kind == 2)
 
 		bool FullBoundryConditions(int Current, int Order, int iAStarGreedy);
 		void BlitzGameThinkingTreeSolderGray(double PreviousLessS, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
-		void BlitzGameTreeCreationThinkingTreeSolder(int a, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
 		void BlitzGameThinkingTreeElephantGray(double PreviousLessE, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
-		void BlitzGameTreeCreationThinkingTreeHourse(int a, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
 		void BlitzGameThinkingTreeCastleGray(double PreviousLessB, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
 		void BlitzGameThinkingTreeMinisterGray(double PreviousLessM, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
 		void BlitzGameThinkingTreeKingGray(double PreviousLessK, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
-		void BlitzGameTreeCreationThinkingTreeElephant(int a, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
-		void BlitzGameTreeCreationThinkingTreeKing(int a, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
+		void BlitzGameTreeCreationThinkingSolder(int a, int * Index, int * jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
+		void BlitzGameTreeCreationThinkingElephant(int a, int * Index, int * jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
+		void BlitzGameTreeCreationThinkingHourse(int a, int * Index, int * jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
+		void BlitzGameTreeCreationThinkingCastle(int a, int * Index, int * jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
+		void BlitzGameTreeCreationThinkingMinister(int a, int * Index, int * jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
+		void BlitzGameTreeCreationThinkingKing(int a, int * Index, int * jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
 		void BlitzGameThinkingTreeSolderBrown(double PreviousLessS, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
 		void BlitzGameThinkingTreeElephantBrown(double PreviousLessE, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
 		void BlitzGameThinkingTreeHourseBrown(double PreviousLessH, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
@@ -624,7 +601,6 @@ if (Kind == 2)
 		void BlitzGameThinkingTreeMinisterBrown(double PreviousLessM, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
 		void BlitzGameThinkingTreeKingBrown(double PreviousLessK, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
 		void BlitzGameThinkingTree(int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
-		void BlitzGameTreeCreationThinkingTreeCastle(int a, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
 		void BlitzGameThinkingTreeHourseGray(double PreviousLessH, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
 
 		int  FullGameMakimgBlitz(int* Index, int* jIndex, int Order, int LeafAStarGreedy);
@@ -647,9 +623,8 @@ if (Kind == 2)
 		bool FullGameThinkingKingGray(int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
 		bool FullGameThinkingCastleGray(int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
 		bool FullGameThinkingMinisterBrown(int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
-		bool FullGameThinkingTreeKingBrown(int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
-		void BlitzGameTreeCreationThinkingTreeMinister(int a, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
-
+		bool FullGameThinkingKingBrown(int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
+		//void FoundOfLeafDepenOfKind(int **Table, int Order, int iAStarGreedy, int ii, int jj, int ik, int jjj, bool FOUND, int LeafAStarGreedy);
 		//AllDraw InitiateAStarGreedytObjectGray(int iii, int jjj, int **Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy);
 	public:
 		void InitializeInstanceFields();

@@ -29,6 +29,11 @@ double DrawElefant::MaxHuristicxE = -20000000000000000;
 		}
 	}
 	*/
+const DrawElefant& DrawElefant::operator[] (const int index) const
+{
+	return this[index];
+}
+
 	DrawElefant::~DrawElefant()
 	{
 		InitializeInstanceFields();

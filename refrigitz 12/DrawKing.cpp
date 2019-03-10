@@ -36,6 +36,10 @@ double DrawKing::MaxHuristicxK = -20000000000000000;
 		ValuableSelfSupported.clear();
 //		K = nullptr;
 	}
+	const DrawKing& DrawKing::operator[] (const int index) const
+	{
+		return this[index];
+	}
 
 	double DrawKing::ReturnHuristic()
 	{

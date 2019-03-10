@@ -27,7 +27,9 @@ namespace RefrigtzDLL
 
 
 	public:
-
+		const DrawSoldier& operator[] (const int index) const;
+		
+		
 	 	int WinOcuuredatChiled;
 		int LoseOcuuredatChiled;
 		//Iniatate Global Variables.

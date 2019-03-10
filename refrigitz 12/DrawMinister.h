@@ -16,6 +16,9 @@ namespace RefrigtzDLL
 
 
 	public:
+		const DrawMinister& operator[] (const int index) const;
+		
+		
 		int WinOcuuredatChiled;
 		int LoseOcuuredatChiled;
 		//private readonly object balance//lock = new object();

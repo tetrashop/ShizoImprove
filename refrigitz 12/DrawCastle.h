@@ -15,7 +15,7 @@ namespace RefrigtzDLL
 
 
 	public:
-		
+		const DrawCastle& operator[] (const int index) const;
 		//void* operator*(std::size_t idx);
 		int WinOcuuredatChiled;
 		int LoseOcuuredatChiled;

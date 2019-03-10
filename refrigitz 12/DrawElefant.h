@@ -17,6 +17,8 @@ namespace RefrigtzDLL
 
 
 	public:
+		const DrawElefant& operator[] (const int index) const;
+
 		//void* operator*(std::size_t idx);
 		int WinOcuuredatChiled;
 		int LoseOcuuredatChiled;
