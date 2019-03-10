@@ -1,6 +1,5 @@
 ﻿#pragma once
 #include "stdafx.h"
-
 namespace RefrigtzDLL
 {
 	
@@ -11,8 +10,9 @@ namespace RefrigtzDLL
 
 
 
+
 	public:
-		//void* operator*(std::size_t idx);
+		////void* operator*(std::size_t idx);
 
 		static bool KingGrayNotCheckedByQuantumMove;
 		static bool KingBrownNotCheckedByQuantumMove;
@@ -57,21 +57,11 @@ namespace RefrigtzDLL
 		bool MaxFound(bool MaxNotFound);
 		bool MaxFound(bool &MaxNotFound);
 		//Constructor 1.
-		/*DrawKing(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
-		{
-		    CurrentAStarGredyMax = CurrentAStarGredy;
-		    MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
-		    IgnoreSelfObjectsT = IgnoreSelfObject;
-		    UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
-		    BestMovmentsT = BestMovment;
-		    PredictHuristicT = PredictHurist;
-		    OnlySelfT = OnlySel;
-		    AStarGreedyHuristicT = AStarGreedyHuris;
-		    ArrangmentsChanged = Arrangments;
-		}
-		*/
+		DrawKing(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments);
+
 		//Constructor 2.
 		DrawKing(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int **Tab, int Ord, bool TB, int Cur); //, ref AllDraw:: THIS
+		void Clone(DrawKing * AA);
 		//Clone a Copy.
 	
 		//void Clone(DrawKing *&AA); //, ref AllDraw:: THIS

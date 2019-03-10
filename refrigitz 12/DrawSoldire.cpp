@@ -1,11 +1,12 @@
 ﻿#pragma once
-#include "stdafx.h"
+
+#include "DrawSoldire.h"
 
 
 namespace RefrigtzDLL
 {
-	inline bool operator==(const  DrawSoldier& lhs,  DrawSoldier& rhs) { return  (lhs == rhs); }
-	inline bool operator!=(const  DrawSoldier& lhs,  DrawSoldier& rhs) { return !(lhs == rhs); }
+//	inline bool operator==( const DrawSoldier& lhs,  DrawSoldier& rhs) { return  (lhs == rhs); }
+//	inline bool operator!=( const DrawSoldier& lhs,  DrawSoldier& rhs) { return !(lhs == rhs); }
 
 double MaxHuristicxS = -DBL_MAX;
 
@@ -70,12 +71,25 @@ double MaxHuristicxS = -DBL_MAX;
 		a += SoldierThinking.ReturnHuristic(-1, -1, Order, false);
 		return a;
 	}
+	DrawSoldier::DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments) :ThingsConverter()
+	{
+		CurrentAStarGredyMax = CurrentAStarGredy;
+		MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
+		IgnoreSelfObjectsT = IgnoreSelfObject;
+		UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
+		BestMovmentsT = BestMovment;
+		PredictHuristicT = PredictHurist;
+		OnlySelfT = OnlySel;
+		AStarGreedyHuristicT = AStarGreedyHuris;
+		ArrangmentsChanged = Arrangments;
+	}
+
 	//template<class T, typename PropTy>
 	DrawSoldier::DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int** Tab, int Ord, bool TB, int Cur) : ThingsConverter(Arrangments, i, j, a, Tab, Ord, TB, Cur)
 	{
 		InitializeInstanceFields();
 
-
+		
 
 		CurrentAStarGredyMax = CurrentAStarGredy;
 		MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
@@ -87,7 +101,7 @@ double MaxHuristicxS = -DBL_MAX;
 		AStarGreedyHuristicT = AStarGreedyHuris;
 		ArrangmentsChanged = Arrangments;
 		//Initiate Global Variables.  
-		Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii] = new T[8];
+		Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii] = new int[8];
 		for (int ii = 0; ii < 8; ii++)
 		{
 			for (int jj = 0; jj < 8; jj++)
@@ -104,13 +118,13 @@ double MaxHuristicxS = -DBL_MAX;
 
 	}
 	//void* DrawSoldier<T>::operator*(std::size_t idx) { return malloc(idx * sizeof(this)); }
-/*
-	void DrawSoldier<T>::Clone(DrawSoldier *AA)
+
+	void DrawSoldier::Clone(DrawSoldier *AA)
 	{
-		T **Tab;
-		for (T i = 0; i < 8; i++)
+		int **Tab;
+		for (int i = 0; i < 8; i++)
 		{
-			for (T j = 0; j < 8; j++)
+			for (int j = 0; j < 8; j++)
 			{
 				Tab[i][j] = Table[i][j];
 			}
@@ -119,21 +133,12 @@ double MaxHuristicxS = -DBL_MAX;
 
 		AA = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, color, Tab, Order, false, Current);
 		AA->ArrangmentsChanged = ArrangmentsChanged;
-			//try
-			{
-				AA->SoldierThinking.= ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<T>(Row), static_cast<T>(Column));
-				SoldierThinking.Clone(AA->SoldierThinking.);
-			}
-			//catch(std::exception t)
-			{
-				
-//C# TO C++ CONVERTER WARNING: C# to C++ Converter converted the original 'null' assignment to a call to 'delete', but you should review memory allocation of all poTer variables in the converted code:
-				delete AA->SoldierThinking.;
-			}
-		AA->Table = new T*[8]; for (T ii = 0; ii < 8; ii++)Table[ii]-new T[8];
-		for (T ii = 0; ii < 8; ii++)
+		AA->SoldierThinking = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
+		SoldierThinking.Clone(AA->SoldierThinking);
+		AA->Table = new int*[8]; for (int ii = 0; ii < 8; ii++)AA->Table[ii] - new int[8];
+		for (int ii = 0; ii < 8; ii++)
 		{
-			for (T jj = 0; jj < 8; jj++)
+			for (int jj = 0; jj < 8; jj++)
 			{
 				AA->Table[ii][jj] = Tab[ii][jj];
 			}
@@ -146,7 +151,7 @@ double MaxHuristicxS = -DBL_MAX;
 
 	}
 
-*/
+
 
 	void DrawSoldier::DrawSoldierOnTable(float CellW, float CellH)
 	{
@@ -332,7 +337,7 @@ double MaxHuristicxS = -DBL_MAX;
 	{
 		WinOcuuredatChiled = 0;
 		LoseOcuuredatChiled = 0;
-		ValuableSelfSupported = std::vector<AllDraw>();
+		//ValuableSelfSupported = std::vector<AllDraw>();
 		MovementsAStarGreedyHuristicFoundT = false;
 		IgnoreSelfObjectsT = false;
 		UsePenaltyRegardMechnisamT = true;

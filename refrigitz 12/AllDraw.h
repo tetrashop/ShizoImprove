@@ -1,7 +1,5 @@
-﻿#pragma once
+﻿//#pragma once
 #include "stdafx.h"
-
-
 /*******************************************************************************************
  * Initiate and Decision making class.******************************************************
  * Ramin Edjlal*****************************************************************************
@@ -152,12 +150,38 @@ namespace RefrigtzDLL
 {
 
 
+	
 	//C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
 	//ORIGINAL LINE: [Serializable] class AllDraw
 
 	public class AllDraw
 	{
+		
 	public:
+		const DrawSoldier& operator[] (const int index) const // for const objects: can only be used for access
+		{
+			return SolderesOnTable[index];
+		}
+		const DrawElefant& operator[] (const int index) const // for const objects: can only be used for access
+		{
+			return ElephantOnTable[index];
+		}
+		const DrawHourse& operator[] (const int index) const // for const objects: can only be used for access
+		{
+			return HoursesOnTable[index];
+		}
+		const DrawCastle& operator[] (const int index) const // for const objects: can only be used for access
+		{
+			return CastlesOnTable[index];
+		}
+		const DrawMinister& operator[] (const int index) const // for const objects: can only be used for access
+		{
+			return  MinisterOnTable[index];
+		}
+		const DrawKing& operator[] (const int index) const // for const objects: can only be used for access
+		{
+			return  KingOnTable[index];
+		}
 		bool SetDeptIgnore;
 		long long Now;
 		long long Later;
@@ -348,6 +372,8 @@ struct Array {
 	 T *end()  { return &data[N]; }
 };*/
 	public:
+		int RowS;
+		int ColumS;
 		std::vector<int**> TableList;
 		int AStarGreedyInt;
 		DrawSoldier SolderesOnTable[16];
@@ -356,6 +382,18 @@ struct Array {
 		DrawCastle CastlesOnTable[4];
 		DrawMinister MinisterOnTable[2];
 		DrawKing KingOnTable[2];
+		/*std::vector<DrawSoldier> SolderesOnTable;
+		std::vector<DrawElefant> ElephantOnTable;
+		std::vector<DrawHourse> HoursesOnTable;
+		std::vector<DrawCastle> CastlesOnTable;
+		std::vector<DrawMinister> MinisterOnTable;
+		std::vector<DrawKing> KingOnTable;*/
+		/*DrawSoldier SolderesOnTable[16];
+		DrawElefant ElephantOnTable[4];
+		DrawHourse HoursesOnTable[4];
+		DrawCastle CastlesOnTable[4];
+		DrawMinister MinisterOnTable[2];
+		DrawKing KingOnTable[2];*/
 	public:
 		std::vector<double*> MaxHuristicAStarGreedytBackWard;
 		static  int MaxSoldeirFounded;
@@ -380,23 +418,23 @@ struct Array {
 		//Note for before move.At most one quantum moves.
 	public:
 		std::wstring Alphabet(int RowRealesed);
-		static bool IsAQuantumeMoveOccured(bool IsQuantumMove);
-	public:
-		void TimeEnd();
+		static bool IsAQuantumeMoveOccured(bool IsQuantumMove);	
 	public:
 		void SetObjectNumbers(int **TabS);
 	public:
 		float *FoundLocationOfObject(int **Tabl, int Kind, bool IsGray);
 		//Constructor
 	public:
-		//bool IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckMate, int ForCheckMate, int AStarGreedyInt);
+		
 		void MakePenaltyAllCheckMateBranches(AllDraw A, int Order);
+		void FoundOfLeafDepenOfKind(int **Table, int Order, int iAStarGreedy, int ii, int jj, int ik, int jjj, bool FOUND, int LeafAStarGreedy);
+		//bool IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckMate, int ForCheckMate, int AStarGreedyInt);
 		std::vector<std::vector<double>> FoundOfBestMovments(int AStarGreedyInt, std::vector<double> i, std::vector<double> j, std::vector<double> k, AllDraw Dummy, int a, int Order);
 		bool TableZero(int ** Ta);
 		void CheckedMateConfiguratiionSoldier(int Order, int i, bool Regrad);
 		void CheckedMateConfiguratiionElephant(int Order, int i, bool Regrad);
 		void CheckedMateConfiguratiionHourse(int Order, int i, bool Regrad);
-		AllDraw CopyRemeiningItems(AllDraw ADummy, int Order);
+		//AllDraw CopyRemeiningItems(AllDraw ADummy, int Order);
 		void CheckedMateConfiguratiion(int Order);
 		void SemaphoreExxedTime(int time, int Kind);
 		//int SumOfObjects(AllDraw A, int Order);
@@ -404,7 +442,7 @@ struct Array {
 		std::vector<int*> WhereNumbers(std::wstring Tag);
 		std::wstring CreateHtmlTag(std::wstring Tag);
 		void IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base);
-		AllDraw(int Order, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments);
+		AllDraw(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int** Tab, int Ord, bool TB, int Cur);
 		//Clone Copy Method
 		//void Clone(AllDraw& AA);
 //		int SumOfObjects(AllDraw A, int Order);
@@ -475,7 +513,7 @@ if (Kind == 2)
 			}
 
 		}*/
-		bool AllCurrentAStarGreedyIntThinkingFinished(AllDraw Dum, int i, int j, int Kind);
+		//bool AllCurrentAStarGreedyIntThinkingFinished(AllDraw Dum, int i, int j, int Kind);
 		//Rearrange AllDraw Object Content.
 		void SetRowColumn(int index);
 	public:
@@ -486,14 +524,14 @@ if (Kind == 2)
 
 
 		bool TableEqual(int **t1, int **t2);
-		void FoundOfLeafDepenOfKindAllDraw(int **Table, int Order, int iAStarGreedy, int ii, int jj, int ik, int jjj, bool FOUND, int LeafAStarGreedy);
+		//void FoundOfLeafDepenOfKindAllDraw(int **Table, int Order, int iAStarGreedy, int ii, int jj, int ik, int jjj, bool FOUND, int LeafAStarGreedy);
 		void BeginIndexFoundingMaxLessofMaxList(int ListIndex, std::vector<double> Founded, double LessB);
 		//Method for Check of Existence of Checkmate less than for checked mate.
 	public:
 		//When Penalty Regard Branches expanded to sub branches.
 
 	public:
-		bool IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckMate, int ForCheckMate, int AStarGreedyInt);
+		bool IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckMate, int ForCheckMate, int AStarGreedyInt);		
 		AllDraw RemovePenalltyFromFirstBranches(int Order);
 		AllDraw FoundOfLeafDepenOfKind(int Kind, AllDraw& Leaf, bool & Found, int Order, int  OrderLeaf);
 		AllDraw FoundOfCurrentTableNode(int **Tab, int Order, AllDraw &THIS, bool &Found);
@@ -503,8 +541,7 @@ if (Kind == 2)
 		int MaxOfSixHuristic(double _1, double _2, double _3, double _4, double _5, double _6);
 		int MinOfSixHuristic(double _1, double _2, double _3, double _4, double _5, double _6);
 	public:
-		bool FullGameThinkingTree(int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
-
+		
 		void StringHuristics(int Obj, int Sec, bool AA, int Do, int WinOcuuredatChiled, int LoseOcuuredatChiled);
 		int **HuristicAStarGreadySearchSoldier(int **TableHuristic, int i, int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool Act);
 
@@ -531,6 +568,7 @@ if (Kind == 2)
 
 		//AStarGreedy First Huristic Method.
 	public:
+		void Clone(AllDraw * AA);
 		bool AllCurrentAStarGreedyThinkingFinished(AllDraw Dum, int i, int j, int Kind);
 		//int** CloneATable(int** Tab);
 		int **HuristicAStarGreedySearch(int AStarGreedyi, int a, int Order, bool CurrentTableHuristic);
@@ -570,6 +608,7 @@ if (Kind == 2)
 		//AlDraw InitiateAStarGreedyt(int Order, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int i, int j, int ii, int jj, int **Table, int a, bool TB, bool FOUND, int LeafAStarGreedy);
 
 		bool FullBoundryConditions(int Current, int Order, int iAStarGreedy);
+		void BlitzGameThinkingTreeSolderGray(double PreviousLessS, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
 		void BlitzGameTreeCreationThinkingTreeSolder(int a, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
 		void BlitzGameThinkingTreeElephantGray(double PreviousLessE, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
 		void BlitzGameTreeCreationThinkingTreeHourse(int a, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
@@ -587,23 +626,24 @@ if (Kind == 2)
 		void BlitzGameThinkingTree(int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
 		void BlitzGameTreeCreationThinkingTreeCastle(int a, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
 		void BlitzGameThinkingTreeHourseGray(double PreviousLessH, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
-		void BlitzGameThinkingTreeSolderGray(double PreviousLessS, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
-		bool FullGameThinkingHourseGray(int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
 
 		int  FullGameMakimgBlitz(int* Index, int* jIndex, int Order, int LeafAStarGreedy);
+		bool FullGameThinkingTree(int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
 		bool FullGameThinkingSoldier(int ik, int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
 		bool FullGameThinkingSoldierGray(int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
+		bool FullGameThinkingSoldierBrowm(int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
 		bool FullGameThinkingElephant(int ik, int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
 		bool FullGameThinkingElephantGray(int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
+		bool FullGameThinkingElephantBrown(int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
 		bool FullGameThinkingHourse(int ik, int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
+		bool FullGameThinkingHourseGray(int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
+		bool FullGameThinkingHourseBrown(int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
 		bool FullGameThinkingCastle(int ik, int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
 		bool FullGameThinkingMinister(int ik, int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
 		bool FullGameThinkingMinisterGray(int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
 		bool FullGameThinkingKing(int ik, int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
 		bool FullGameThinkingSoldierBrown(int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
-		bool FullGameThinkingElephantBrown(int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
 		bool FullGameThinkingCastleBrown(int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
-		bool FullGameThinkingHourseBrown(int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
 		bool FullGameThinkingKingGray(int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
 		bool FullGameThinkingCastleGray(int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
 		bool FullGameThinkingMinisterBrown(int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);

@@ -1,4 +1,6 @@
-﻿#include "stdafx.h"
+﻿
+#include "ThingsConverter.h"
+#include "AllDraw.h"
 
 
 namespace RefrigtzDLL
@@ -13,8 +15,8 @@ bool ThingsConverter::ActOfClickEqualTow = false;
 	{
 		InitializeInstanceFields();
 	}
-	template< typename T >
-	ThingsConverter::ThingsConverter(T Arrangments, T i, T j, T a, T **Tab, T Ord, T TB, T Cur)
+	//template< typename T >
+	ThingsConverter::ThingsConverter(int Arrangments, int i, int j, int a, int **Tab, int Ord, bool TB, int Cur)
 	{
 		//Initite Global Variables with Local Parameter.
 		//THIS = THI;

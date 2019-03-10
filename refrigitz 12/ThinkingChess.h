@@ -2,9 +2,6 @@
 
 #include "stdafx.h"
 
-using namespace std;
-using namespace RefrigtzDLL;
-
 /****************************************************************************
  * Thinking Operation class.*************************************************
  * Ramin Edjlal**************************************************************
@@ -107,7 +104,7 @@ namespace RefrigtzDLL
 		bool IsThereMateOfEnemy;
 		bool IsThereMateOfSelf;		
 		void CastleThinkingGray(int LoseOcuuredatChiled, int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
-		void HuristicPenaltyValuePerform(LearningKrinskyAtamata Current, int Order, double HuristicAttackValue, bool AllDrawClass);
+		void HuristicPenaltyValuePerform(LearningKrinskyAtamata Current, int Order, double HuristicAttackValue, bool AllDrawClass = false);
 	public:
 		bool ThinkingAtRun;
 	public:
@@ -246,7 +243,7 @@ namespace RefrigtzDLL
 		int color;
 		int Order;
 		//< typename T >
-		std::vector<RefrigtzDLL::AllDraw> AStarGreedy;
+		std::vector<AllDraw> AStarGreedy;
 		
 	public:
 		
@@ -313,6 +310,7 @@ namespace RefrigtzDLL
 		double *CloneAList(double *Tab, int Count);
 		//Gwt Value of Book Netwrok  Atamtat at Every Need time form parameters index.
 		double GetValue(int i, int j);
+		void Clone(ThinkingChess & AA);
 		///Clone a Copy.
 	public:
 		//void Clone(ThinkingChess AA);
@@ -395,7 +393,7 @@ namespace RefrigtzDLL
 		double HeuristicDistabceOfCurrentMoveFromEnemyKing(int **Tab, int Order, int RowS, int ColS);
 		double HuristicSoldierFromCenter(int **Table, int aa, int Ord, int ii, int jj, int i, int j);
 		double *HuristicAll(bool Before, int Killed, int **Table, int aa, int Ord, int RowS, int ColS, int RowD, int ColD);
-		//void HuristicPenaltyValuePerform(LearningKrinskyAtamata Current, int Order, double HuristicAttackValue, bool AllDrawClass = false);
+		//void HuristicPenaltyValuePerform(LearningKrinskyAtamata Current, int Order, double HuristicAttackValue, bool AllDraw Class = false);
 		
 		///Huristic of Movments.
 		double HuristicMovment(bool Before, int **Table, int aa, int Ord, int RowS, int ColS, int RowD, int ColD);

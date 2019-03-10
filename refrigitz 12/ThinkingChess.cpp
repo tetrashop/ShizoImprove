@@ -1,6 +1,9 @@
-﻿#include "stdafx.h"
+﻿#pragma once
 using namespace std;
-//#include "AllDraw.h"
+
+#include "ThinkingChess.h"
+
+
 
 
 ////#define nullptr (0)
@@ -8,23 +11,23 @@ using namespace std;
 
 namespace RefrigtzDLL
 {
-	inline bool operator==(AllDraw& lhs, std::nullptr_t& rhs) { return (lhs == rhs); }
-	inline bool operator!=(AllDraw& lhs, std::nullptr_t& rhs) { return !(lhs == rhs); }
-	inline bool operator==(DrawSoldier& lhs, std::nullptr_t& rhs) { return (lhs == rhs); }
-	inline bool operator!=(DrawSoldier& lhs, std::nullptr_t& rhs) { return !(lhs == rhs); }
-	inline bool operator==(DrawCastle& lhs, std::nullptr_t& rhs) { return (lhs == rhs); }
-	inline bool operator!=(DrawCastle& lhs, std::nullptr_t& rhs) { return !(lhs == rhs); }
-	inline bool operator==(DrawElefant& lhs, std::nullptr_t& rhs) { return (lhs == rhs); }
-	inline bool operator!=(DrawElefant& lhs, std::nullptr_t& rhs) { return !(lhs == rhs); }
-	inline bool operator==(DrawHourse& lhs, std::nullptr_t& rhs) { return (lhs == rhs); }
-	inline bool operator!=(DrawHourse& lhs, std::nullptr_t& rhs) { return !(lhs == rhs); }
-	inline bool operator==(DrawMinister& lhs, std::nullptr_t& rhs) { return (lhs == rhs); }
-	inline bool operator!=(DrawMinister& lhs, std::nullptr_t& rhs) { return !(lhs == rhs); }
-	inline bool operator==(DrawKing& lhs, std::nullptr_t& rhs) { return (lhs == rhs); }
-	inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs); }
-	inline bool operator==(ThinkingChess& lhs, std::nullptr_t& rhs) { return (lhs == rhs); }
-	inline bool operator!=(ThinkingChess& lhs, std::nullptr_t& rhs) { return !(lhs == rhs); }
-	inline std::wstring& operator+=(std::wstring& out, const std::wstring& course)
+	inline bool operator==(const AllDraw& lhs, const std::nullptr_t rhs) { return (lhs == rhs); }
+	inline bool operator!=(const AllDraw& lhs, const std::nullptr_t rhs) { return !(lhs == rhs); }
+	inline bool operator==(const DrawSoldier& lhs, const std::nullptr_t rhs) { return (lhs == rhs); }
+	inline bool operator!=(const DrawSoldier& lhs, const std::nullptr_t rhs) { return !(lhs == rhs); }
+	inline bool operator==(const DrawCastle& lhs, const std::nullptr_t rhs) { return (lhs == rhs); }
+	inline bool operator!=(const DrawCastle& lhs, const std::nullptr_t rhs) { return !(lhs == rhs); }
+	inline bool operator==(const DrawElefant& lhs, const std::nullptr_t rhs) { return (lhs == rhs); }
+	inline bool operator!=(const DrawElefant& lhs, const std::nullptr_t rhs) { return !(lhs == rhs); }
+	inline bool operator==(const DrawHourse& lhs, const std::nullptr_t rhs) { return (lhs == rhs); }
+	inline bool operator!=(const DrawHourse& lhs, const std::nullptr_t rhs) { return !(lhs == rhs); }
+	inline bool operator==(const DrawMinister& lhs, const std::nullptr_t rhs) { return (lhs == rhs); }
+	inline bool operator!=(const DrawMinister& lhs, const std::nullptr_t rhs) { return !(lhs == rhs); }
+	inline bool operator==(const DrawKing& lhs, const std::nullptr_t rhs) { return (lhs == rhs); }
+	inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !(lhs == rhs); }
+	inline bool operator==(const ThinkingChess& lhs, const std::nullptr_t rhs) { return (lhs == rhs); }
+	inline bool operator!=(const ThinkingChess& lhs, const std::nullptr_t rhs) { return !(lhs == rhs); }
+	inline std::wstring& operator+=(const std::wstring& out, const std::wstring& course)
 	{
 		std::wstring& lef = std::wstring();
 		lef = out + course; // for example
@@ -81,18 +84,18 @@ bool ThinkingChess::ThinkingRun = false;
 		}
 	}
 	*/
-/*inline bool operator==(AllDraw& lhs, std::nullptr_t& rhs) { return (lhs == rhs); }
-inline bool operator!=(AllDraw& lhs, std::nullptr_t& rhs) { return !(lhs == rhs); }
-inline bool operator==(DrawCastle& lhs, std::nullptr_t& rhs) { return (lhs == rhs); }
-inline bool operator!=(DrawCastle& lhs, std::nullptr_t& rhs) { return !(lhs == rhs); }
-inline bool operator==(DrawElefant& lhs, std::nullptr_t& rhs) { return (lhs == rhs); }
-inline bool operator!=(DrawElefant& lhs, std::nullptr_t& rhs) { return !(lhs == rhs); }
-inline bool operator==(DrawHourse& lhs, std::nullptr_t& rhs) { return (lhs == rhs); }
-inline bool operator!=(DrawHourse& lhs, std::nullptr_t& rhs) { return !(lhs == rhs); }
-inline bool operator==(DrawMinister& lhs, std::nullptr_t& rhs) { return (lhs == rhs); }
-inline bool operator!=(DrawMinister& lhs, std::nullptr_t& rhs) { return !(lhs == rhs); }
-inline bool operator==(DrawKing& lhs, std::nullptr_t& rhs) { return (lhs == rhs); }
-inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs); }*/
+/*inline bool operator==(const AllDraw& lhs, const std::nullptr_t rhs) { return (lhs == rhs); }
+inline bool operator!=(const AllDraw& lhs, const std::nullptr_t rhs) { return !(lhs == rhs); }
+inline bool operator==(const DrawCastle& lhs, const std::nullptr_t rhs) { return (lhs == rhs); }
+inline bool operator!=(const DrawCastle& lhs, const std::nullptr_t rhs) { return !(lhs == rhs); }
+inline bool operator==(const DrawElefant& lhs, const std::nullptr_t rhs) { return (lhs == rhs); }
+inline bool operator!=(const DrawElefant& lhs, const std::nullptr_t rhs) { return !(lhs == rhs); }
+inline bool operator==(const DrawHourse& lhs, const std::nullptr_t rhs) { return (lhs == rhs); }
+inline bool operator!=(const DrawHourse& lhs, const std::nullptr_t rhs) { return !(lhs == rhs); }
+inline bool operator==(const DrawMinister& lhs, const std::nullptr_t rhs) { return (lhs == rhs); }
+inline bool operator!=(const DrawMinister& lhs, const std::nullptr_t rhs) { return !(lhs == rhs); }
+inline bool operator==(const DrawKing& lhs, const std::nullptr_t rhs) { return (lhs == rhs); }
+inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !(lhs == rhs); }*/
 
 	void ThinkingChess::SetObjectNumbersInList(int **Tab)
 	{
@@ -253,7 +256,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 			PenaltyRegardListMinister = std::vector<LearningKrinskyAtamata>();
 			PenaltyRegardListKing = std::vector<LearningKrinskyAtamata>();
 			//AStarGreedy = std::vector<AllDraw>();
-			AStarGreedy = std::vector<RefrigtzDLL::AllDraw>();
+			AStarGreedy = std::vector<AllDraw>();
 			///Network  LearningKrinskyAtamata   * Book Initiate For Every Clone.
 			//ObjectValueCalculator(TableConst);			
 
@@ -439,7 +442,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 			PenaltyRegardListMinister = std::vector<LearningKrinskyAtamata>();
 			PenaltyRegardListKing =  std::vector<LearningKrinskyAtamata>();
 			*/
-			AStarGreedy = std::vector<RefrigtzDLL::AllDraw>();
+			AStarGreedy = std::vector<AllDraw>();
 		}
 	}
 
@@ -504,7 +507,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 			//return 1;
 		}
 	}
-	/*
+	
 	void ThinkingChess::Clone(ThinkingChess &AA)
 	{
 		//autoO = new Object();
@@ -517,18 +520,18 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 			{
 				AA = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column); //, Kind
 			}
-			AA->ArrangmentsChanged = ArrangmentsChanged;
+			AA.ArrangmentsChanged = ArrangmentsChanged;
 			//When Depth Object is not NULL.
 			if (AStarGreedy.size() != 0)
 			{
-				AA->AStarGreedy = new std::vector<AllDraw>();
+				AA.AStarGreedy = std::vector<AllDraw>();
 				//For All Depth(s).
 				for (int i = 0; i < AStarGreedy.size(); i++)
 				{
 					//try
 					{
 						//Clone a Copy From Depth Objects.
-						(AStarGreedy[i][j]Clone(AA->(AStarGreedy[i]);
+						AStarGreedy[i].Clone(&(AA.AStarGreedy[i]));
 					}
 					//catch(std::exception &tt)
 					{
@@ -541,46 +544,46 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 
 			{
 				//Add a Clone To New Solder indexx Object.
-				AA->RowColumnSoldier.push_back(CloneAList(RowColumnSoldier[j], 2));
+				AA.RowColumnSoldier.push_back(CloneAList(RowColumnSoldier[j], 2));
 			}
 			//For All Castle List Count.
 			for (int j = 0; j < RowColumnCastle.size(); j++)
 			{
 				//Add a Clone to New Castle index Objects List.
-				AA->RowColumnCastle..push_back(CloneAList(RowColumnCastle[j][0], 2));
+				AA.RowColumnCastle.push_back(CloneAList(RowColumnCastle[j], 2));
 			}
 
 			//For All Elephant index List Count.
 			for (int j = 0; j < RowColumnElefant.size(); j++)
 			{
 				//Add a Clone to New Elephant Object List.
-				AA->RowColumnElefant..push_back(CloneAList(RowColumnElefant., 2));
+				AA.RowColumnElefant.push_back(CloneAList(RowColumnElefant[j], 2));
 			}
 			//For All Hourse index List Count.
 			for (int j = 0; j < RowColumnHourse.size(); j++)
 			{
 				//Add a Clone to New Hourse index List.
-				AA->RowColumnHourse..push_back(CloneAList(RowColumnHourse[j][0], 2));
+				AA.RowColumnHourse.push_back(CloneAList(RowColumnHourse[j], 2));
 			}
 			//For All King index List Count.
 			for (int j = 0; j < RowColumnKing.size(); j++)
 			{
 				//Add a Clone To New King Object List.
-				AA->RowColumnKing..push_back(CloneAList(RowColumnKing[j][0], 2));
+				AA.RowColumnKing.push_back(CloneAList(RowColumnKing[j], 2));
 			}
 			//For All Minister index Count.
 			for (int j = 0; j < RowColumnMinister.size(); j++)
 			{
 				//Add a Clone To Minister New index List.
-				AA->RowColumnMinister..push_back(CloneAList(RowColumnMinister., 2));
+				AA.RowColumnMinister.push_back(CloneAList(RowColumnMinister[j], 2));
 			}
 			//Assgine thread.
-			//AA->t = t;
+			//AA.t = t;
 			//Create and Initiate new Table Object.
-			AA->TableT = new int*[8]; for (int i = 0; i < 8; i++)AA->TableT[i] = new  int[8];
+			AA.TableT = new int*[8]; for (int i = 0; i < 8; i++)AA.TableT[i] = new  int[8];
 
 			//Create and Initaite New Table Object.
-			AA->Table = new int*[8]; for (int i = 0; i < 8; i++)AA->TableConst[i] = new int[8];
+			//AA.Table = new int*[8]; for (int i = 0; i < 8; i++)AA.TableConst[i] = new int[8];
 
 			//if Table is not NULL>
 			if (TableT != nullptr)
@@ -591,12 +594,12 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 					for (int j = 0; j < 8; j++)
 					{
 						//Assgine Table items in New Table Object.
-						AA->TableT[i][j] = TableT[i][j];
+						AA.TableT[i][j] = TableT[i][j];
 					}
 				}
 			}
 			//If Table is Not Null.
-			if (Table != nullptr)
+			if (TableConst != nullptr)
 			{
 				//For All Items in Table Object.
 				for (int i = 0; i < 8; i++)
@@ -604,7 +607,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 					for (int j = 0; j < 8; j++)
 					{
 						//Assignm Items in New Table Object.
-						AA->TableConst[i][j] = TableConst[i][j];
+						AA.TableConst[i][j] = TableConst[i][j];
 					}
 				}
 			}
@@ -612,87 +615,87 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 			for (int i = 0; i < TableListCastle.size(); i++)
 			{
 				//Add aclon of a Table in New Briges Table List.
-				AA->TableListCastle.push_back(CloneATable(TableListCastle[i]));
+				AA.TableListCastle.push_back(CloneATable(TableListCastle[i]));
 			}
 			//For All Table List Movements in  Elephant Objects 
 			for (int i = 0; i < TableListElefant.size(); i++)
 			{
 				//Add a Clone of Tables in Elephant Mevments Obejcts List To New One.
-				AA->TableListElefant.push_back(CloneATable(TableListElefant[i]));
+				AA.TableListElefant.push_back(CloneATable(TableListElefant[i]));
 			}
 			//For All Hourse Table Movemnts items.
 			for (int i = 0; i < TableListHourse.size(); i++)
 			{
 				//Add a Clone of Hourse Table Movement in New List.
-				AA->TableListHourse.push_back(CloneATable(TableListHourse[i]));
+				AA.TableListHourse.push_back(CloneATable(TableListHourse[i]));
 			}
 			//For All King Tables Movment Count.
 			for (int i = 0; i < TableListKing.size(); i++)
 			{
 				//Add a Clone To New King Table List.
-				AA->TableListKing.push_back(CloneATable(TableListKing[i]));
+				AA.TableListKing.push_back(CloneATable(TableListKing[i]));
 			}
 			//For All Minister Table Movment Items.
 			for (int i = 0; i < TableListMinister.size(); i++)
 			{
 				//Add a clone To New Minister Table Movment List.
-				AA->TableListMinister.push_back(CloneATable(TableListMinister[i]));
+				AA.TableListMinister.push_back(CloneATable(TableListMinister[i]));
 			}
 			//For All Solder Table Movment Count.
 			for (int i = 0; i < TableListSolder.size(); i++)
 			{
 				//Add a Clone of Table item to New Table List Movments.
-				AA->TableListSolder.push_back(CloneATable(TableListSolder[j][i]));
+				AA.TableListSolder.push_back(CloneATable(TableListSolder[i]));
 			}
 
 			//For All Solder Husrist List Count.
 			for (int i = 0; i < HuristicListSolder.size(); i++)
 			{
 				//Ad a Clone of Hueristic Solders To New List.
-				AA->HuristicListSolder.push_back(CloneAList(HuristicListSolder[i], 4));
+				AA.HuristicListSolder.push_back(CloneAList(HuristicListSolder[i], 4));
 			}
 			//For All Elephant Huristic List Count. 
 			for (int i = 0; i < HuristicListElefant.size(); i++)
 			{
 				//Add A Clone of Copy to New Elephant Huristic List.
-				AA->HuristicListElefant.push_back(CloneAList(HuristicListElefant[i], 4));
+				AA.HuristicListElefant.push_back(CloneAList(HuristicListElefant[i], 4));
 			}
 			//For All Hours Huristic Hourse Count.
 			for (int i = 0; i < HuristicListHourse.size(); i++)
 			{
 				//Add a Clone of Copy To New Housre Huristic List.
-				AA->HuristicListHourse.push_back(CloneAList(HuristicListHourse[i], 4));
+				AA.HuristicListHourse.push_back(CloneAList(HuristicListHourse[i], 4));
 			}
 			//For All Castles Huristic List Count.
 			for (int i = 0; i < HuristicListCastle.size(); i++)
 			{
 				//Add a Clone of Copy to New Castles Huristic List.
-				AA->HuristicListCastle.push_back(CloneAList(HuristicListCastle[i], 4));
+				AA.HuristicListCastle.push_back(CloneAList(HuristicListCastle[i], 4));
 			}
 			//For All Minister Huristic List Count.
 			for (int i = 0; i < HuristicListMinister.size(); i++)
 			{
 				//Add a Clone of Copy to New Minister List.
-				AA->HuristicListMinister.push_back(CloneAList(HuristicListMinister[i], 4));
+				AA.HuristicListMinister.push_back(CloneAList(HuristicListMinister[i], 4));
 			}
 			//For All King Husrict List Items.
 			for (int i = 0; i < HuristicListKing.size(); i++)
 			{
 				//Add a Clone of Copy to New King Hursitic List.
-				AA->HuristicListKing.push_back(CloneAList(HuristicListKing[i], 4));
+				AA.HuristicListKing.push_back(CloneAList(HuristicListKing[i], 4));
 			}
 			//Initiate and create Penalty Solder List.
-			//AA->PenaltyRegardListSolder = std::vector<LearningKrinskyAtamata  >();
+			//AA.PenaltyRegardListSolder = std::vector<LearningKrinskyAtamata  >();
 			//For All Solder Penalty List Count.
 			if (Kind == 1)
 			{
-				//AA->PenaltyRegardListSolder = std::vector<LearningKrinskyAtamata  >();
+				//AA.PenaltyRegardListSolder = std::vector<LearningKrinskyAtamata  >();
 				for (int i = 0; i < PenaltyRegardListSolder.size(); i++)
 				{
 					//Initiate a new  LearningKrinskyAtamata   * Object
 					//LearningKrinskyAtamata   Current = LearningKrinskyAtamata(3, 3, 3);
 					//Add New Object Create to New Penalty Solder List.
-					AA->PenaltyRegardListSolder.push_back(PenaltyRegardListSolder[i]);
+					AA.PenaltyRegardListSolder.push_back(PenaltyRegardListSolder[i]);
 				}
 			}
 			else
@@ -700,16 +703,16 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 				if (Kind == 2)
 				{
 					//Initaite and Create Elephant Penalty List Object.
-					//AA->PenaltyRegardListElefant = std::vector<LearningKrinskyAtamata  >();
+					//AA.PenaltyRegardListElefant = std::vector<LearningKrinskyAtamata  >();
 					//For All Elepahtn Penalty List Count.
 					for (int i = 0; i < PenaltyRegardListElefant.size(); i++)
 					{
 						//Initiate a new  LearningKrinskyAtamata   * Object
 						//LearningKrinskyAtamata   Current = LearningKrinskyAtamata(3, 3, 3);
 						//Clone a Copy Of Penalty Elephant.
-						AA->PenaltyRegardListElefant.push_back(PenaltyRegardListElefant[i]);
+						AA.PenaltyRegardListElefant.push_back(PenaltyRegardListElefant[i]);
 						//Add New Object Create to New Penalty Elephant List.
-						//AA->PenaltyRegardListElefant.push_back(Current);
+						//AA.PenaltyRegardListElefant.push_back(Current);
 					}
 
 				}
@@ -719,7 +722,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 					{
 
 						//Initaite and Create Hourse Penalty List Object.
-						//AA->PenaltyRegardListHourse = std::vector<LearningKrinskyAtamata  >();
+						//AA.PenaltyRegardListHourse = std::vector<LearningKrinskyAtamata  >();
 						//For All Solder Hourse List Count.
 						for (int i = 0; i < PenaltyRegardListHourse.size(); i++)
 						{
@@ -728,7 +731,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 							//Clone a Copy Of Penalty Hourse.
 							//PenaltyRegardListHourse[i][j]Clone(ref Current);
 							//Add New Object Create to New Penalty Hourse List.
-							AA->PenaltyRegardListHourse.push_back(PenaltyRegardListHourse[i]);
+							AA.PenaltyRegardListHourse.push_back(PenaltyRegardListHourse[i]);
 						}
 
 					}
@@ -738,7 +741,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 						{
 
 							//Initaite and Create Castles Penalty List Object.
-							//AA->PenaltyRegardListCastle = std::vector<LearningKrinskyAtamata  >();
+							//AA.PenaltyRegardListCastle = std::vector<LearningKrinskyAtamata  >();
 							//For All Solder Castle List Count.
 							for (int i = 0; i < PenaltyRegardListCastle.size(); i++)
 							{
@@ -747,7 +750,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 								//Clone a Copy Of Penalty Castles.
 								//PenaltyRegardListCastle[i][j]Clone(ref Current);
 								//Add New Object Create to New Penalty Castles List.
-								AA->PenaltyRegardListCastle.push_back(PenaltyRegardListCastle[i]);
+								AA.PenaltyRegardListCastle.push_back(PenaltyRegardListCastle[i]);
 							}
 						}
 						else
@@ -756,7 +759,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 							{
 
 								//Initaite and Create Minister Penalty List Object.
-								//AA->PenaltyRegardListMinister = std::vector<LearningKrinskyAtamata  >();
+								//AA.PenaltyRegardListMinister = std::vector<LearningKrinskyAtamata  >();
 								//For All Solder Minster List Count.
 								for (int i = 0; i < PenaltyRegardListMinister.size(); i++)
 								{
@@ -765,7 +768,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 									//Clone a Copy Of Penalty Minsiter.
 									//PenaltyRegardListMinister[i][j]Clone(ref Current);
 									//Add New Object Create to New Penalty Minsietr List.
-									AA->PenaltyRegardListMinister.push_back(PenaltyRegardListMinister[i]);
+									AA.PenaltyRegardListMinister.push_back(PenaltyRegardListMinister[i]);
 								}
 							}
 							else
@@ -774,7 +777,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 								{
 
 									//Initaite and Create King Penalty List Object.
-									//AA->PenaltyRegardListKing = std::vector<LearningKrinskyAtamata  >();
+									//AA.PenaltyRegardListKing = std::vector<LearningKrinskyAtamata  >();
 									//For All Solder King List Count.
 									for (int i = 0; i < PenaltyRegardListKing.size(); i++)
 									{
@@ -783,7 +786,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 										//Clone a Copy Of Penalty King.
 										//PenaltyRegardListKing[i][j]Clone(ref Current);
 										//Add New Object Create to New Penalty King List.
-										AA->PenaltyRegardListKing.push_back(PenaltyRegardListKing[i]);
+										AA.PenaltyRegardListKing.push_back(PenaltyRegardListKing[i]);
 									}
 								}
 							}
@@ -792,39 +795,39 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 				}
 			}
 			//Iniktiate Same Obejcts to New Same Obejcts.
-			AA->AStarGreedy = AStarGreedy;
-			AA->CastleValue = CastleValue;
-			AA->color = color;
-			AA->Column = Column;
-			AA->CurrentArray = CurrentArray;
-			AA->CurrentColumn = CurrentColumn;
-			AA->CurrentRow = CurrentRow;
-			AA->ElefantValue = ElefantValue;
-			AA->ExistingOfEnemyHiiting = ExistingOfEnemyHiiting;
-			AA->HourseValue = HourseValue;
-			AA->IgnoreObjectDangour = IgnoreObjectDangour;
-			AA->IndexCastle = IndexCastle;
-			AA->IndexElefant = IndexElefant;
-			AA->IndexHourse = IndexHourse;
-			AA->IndexKing = IndexKing;
-			AA->IndexMinister = IndexMinister;
-			AA->IndexSoldier = IndexSoldier;
-			AA->IsCheck = IsCheck;
-			AA->Kind = Kind;
-			AA->KingValue = KingValue;
-			AA->CheckMateAStarGreedy = CheckMateAStarGreedy;
-			AA->CheckMateOcuured = CheckMateOcuured;
-			AA->Max = Max;
-			AA->MinisterValue = MinisterValue;
-			AA->Order = Order;
-			AA->Row = Row;
-			AA->SodierValue = SodierValue;
-			AA->ThingsNumber = ThingsNumber;
-			AA->ThinkingBegin = ThinkingBegin;
-			AA->ThinkingFinished = ThinkingFinished;
+			AA.AStarGreedy = AStarGreedy;
+			AA.CastleValue = CastleValue;
+			AA.color = color;
+			AA.Column = Column;
+			AA.CurrentArray = CurrentArray;
+			AA.CurrentColumn = CurrentColumn;
+			AA.CurrentRow = CurrentRow;
+			AA.ElefantValue = ElefantValue;
+			AA.ExistingOfEnemyHiiting = ExistingOfEnemyHiiting;
+			AA.HourseValue = HourseValue;
+			AA.IgnoreObjectDangour = IgnoreObjectDangour;
+			AA.IndexCastle = IndexCastle;
+			AA.IndexElefant = IndexElefant;
+			AA.IndexHourse = IndexHourse;
+			AA.IndexKing = IndexKing;
+			AA.IndexMinister = IndexMinister;
+			AA.IndexSoldier = IndexSoldier;
+			AA.IsCheck = IsCheck;
+			AA.Kind = Kind;
+			AA.KingValue = KingValue;
+			AA.CheckMateAStarGreedy = CheckMateAStarGreedy;
+			AA.CheckMateOcuured = CheckMateOcuured;
+			AA.Max = Max;
+			AA.MinisterValue = MinisterValue;
+			AA.Order = Order;
+			AA.Row = Row;
+			AA.SodierValue = SodierValue;
+			AA.ThingsNumber = ThingsNumber;
+			AA.ThinkingBegin = ThinkingBegin;
+			AA.ThinkingFinished = ThinkingFinished;
 		}
 	}
-	*/
+	
 	double ThinkingChess::HuristicAttack(bool Before, int **Table, int Ord, int aa, int RowS, int ColS, int RowD, int ColD)
 	{
 		//autoO = new Object();
@@ -6837,16 +6840,15 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 					//Repeate for Solder.
 					for (int m = 0; m < AStarGreedy[k].SodierMidle; m++)
 					{
-						if (AStarGreedy[k].SolderesOnTable == nullptr || (&(AStarGreedy[k].SolderesOnTable[m]) == nullptr))
+						if ((&(AStarGreedy[k].SolderesOnTable) == nullptr) || (&(AStarGreedy[k].SolderesOnTable[m]) == nullptr))
 						{
 							continue;
 						}
-						Huristic += AStarGreedy[k].SolderesOnTable[m].SoldierThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
-					}
+						Huristic += AStarGreedy[k].SolderesOnTable[m].SoldierThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);					}
 					//Repeate for Elephant.
 					for (int m = 0; m < AStarGreedy[k].ElefantMidle; m++)
 					{
-						if (AStarGreedy[k].ElephantOnTable == nullptr || (&(AStarGreedy[k].ElephantOnTable[m]) == nullptr))
+						if ((&(AStarGreedy[k].ElephantOnTable) == nullptr) || (&(AStarGreedy[k].ElephantOnTable[m]) == nullptr))
 						{
 							continue;
 						}
@@ -6855,7 +6857,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 					//Repeate for Hourse.
 					for (int m = 0; m < AStarGreedy[k].HourseMidle; m++)
 					{
-						if (AStarGreedy[k].HoursesOnTable == nullptr || (&(AStarGreedy[k].HoursesOnTable[m]) == nullptr))
+						if ((&(AStarGreedy[k].HoursesOnTable) == nullptr) || (&(AStarGreedy[k].HoursesOnTable[m]) == nullptr))
 						{
 							continue;
 						}
@@ -6864,7 +6866,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 					//Repeate for Castles.
 					for (int m = 0; m < AStarGreedy[k].CastleMidle; m++)
 					{
-						if (AStarGreedy[k].CastlesOnTable == nullptr || (&(AStarGreedy[k].CastlesOnTable[m]) == nullptr))
+						if ((&(AStarGreedy[k].CastlesOnTable) == nullptr) || (&(AStarGreedy[k].CastlesOnTable[m]) == nullptr))
 						{
 							continue;
 						}
@@ -6873,7 +6875,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 					//Repeate for Minstre.
 					for (int m = 0; m < AStarGreedy[k].MinisterMidle; m++)
 					{
-						if (AStarGreedy[k].MinisterOnTable == nullptr || (&(AStarGreedy[k].MinisterOnTable[m])== nullptr))
+						if ((&(AStarGreedy[k].MinisterOnTable) == nullptr) || (&(AStarGreedy[k].MinisterOnTable[m])== nullptr))
 						{
 							continue;
 						}
@@ -6882,7 +6884,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 					//Repeate for King.
 					for (int m = 0; m < AStarGreedy[k].KingMidle; m++)
 					{
-						if (AStarGreedy[k].KingOnTable == nullptr || (&(AStarGreedy[k].KingOnTable[m]) == nullptr))
+						if ((&(AStarGreedy[k].KingOnTable) == nullptr) ||(&(AStarGreedy[k].KingOnTable[m]) == nullptr))
 						{
 							continue;
 						}
@@ -6893,7 +6895,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 				{
 					for (int m = AStarGreedy[k].SodierMidle; m < AStarGreedy[k].SodierHigh; m++)
 					{
-						if (AStarGreedy[k].SolderesOnTable == nullptr || (&(AStarGreedy[k].SolderesOnTable[m]) == nullptr))
+						if ((&(AStarGreedy[k].SolderesOnTable) == nullptr) || (&(AStarGreedy[k].SolderesOnTable[m]) == nullptr))
 						{
 							continue;
 						}
@@ -6902,7 +6904,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 					//Repeate for Elephant.
 					for (int m = AStarGreedy[k].ElefantMidle; m < AStarGreedy[k].ElefantHigh; m++)
 					{
-						if (AStarGreedy[k].ElephantOnTable == nullptr || (&(AStarGreedy[k].ElephantOnTable[m]) == nullptr))
+						if ((&(AStarGreedy[k].ElephantOnTable) == nullptr) || (&(AStarGreedy[k].ElephantOnTable[m]) == nullptr))
 						{
 							continue;
 						}
@@ -6911,7 +6913,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 					//Repeate for Hourse.
 					for (int m = AStarGreedy[k].HourseMidle; m < AStarGreedy[k].HourseHight; m++)
 					{
-						if (AStarGreedy[k].HoursesOnTable == nullptr || (&(AStarGreedy[k].HoursesOnTable[m]) == nullptr))
+						if ((&(AStarGreedy[k].HoursesOnTable) == nullptr) || (&(AStarGreedy[k].HoursesOnTable[m]) == nullptr))
 						{
 							continue;
 						}
@@ -6920,7 +6922,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 					//Repeate for Castles.
 					for (int m = AStarGreedy[k].CastleMidle; m < AStarGreedy[k].CastleHigh; m++)
 					{
-						if (AStarGreedy[k].CastlesOnTable == nullptr || (&(AStarGreedy[k].CastlesOnTable[m]) == nullptr))
+						if ((&(AStarGreedy[k].CastlesOnTable) == nullptr) || (&(AStarGreedy[k].CastlesOnTable[m]) == nullptr))
 						{
 							continue;
 						}
@@ -6929,7 +6931,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 					//Repeate for Minstre.
 					for (int m = AStarGreedy[k].MinisterMidle; m < AStarGreedy[k].MinisterHigh; m++)
 					{
-						if (AStarGreedy[k].MinisterOnTable == nullptr || (&(AStarGreedy[k].MinisterOnTable[m]) == nullptr))
+						if ((&(AStarGreedy[k].MinisterOnTable) == nullptr) || AStarGreedy[k].MinisterOnTable[m] == nullptr)
 						{
 							continue;
 						}
@@ -6938,7 +6940,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 					//Repeate for King.
 					for (int m = AStarGreedy[k].KingMidle; m < AStarGreedy[k].KingHigh; m++)
 					{
-						if (AStarGreedy[k].KingOnTable == nullptr || (&(AStarGreedy[k].KingOnTable[m]) == nullptr))
+						if ((&(AStarGreedy[k].KingOnTable) == nullptr) ||(&(AStarGreedy[k].KingOnTable[m]) == nullptr))
 						{
 							continue;
 						}
@@ -9632,15 +9634,15 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 		double HFromCenter = 0;
 		int **TableSS = CloneATable(TableS);
 		Huriistic = HuristicAll(Before, Killed, TableSS, color, Order, RowS, ColS, RowD, ColD);
-		int **TableSS = CloneATable(TableS);
+		TableSS = CloneATable(TableS);
 		HCheck = HuristicCheckAndCheckMate(TableSS, color);
-		int **TableSS = CloneATable(TableS);
+		TableSS = CloneATable(TableS);
 		HDistance = HeuristicDistabceOfCurrentMoveFromEnemyKing(TableSS, Order, RowS, ColS);
-		int **TableSS = CloneATable(TableS);
+		TableSS = CloneATable(TableS);
 		HKingSafe = HeuristicKingSafety(TableSS, Order, color, RowS, ColS, RowD, ColD, CurrentAStarGredyMax);
-		int **TableSS = CloneATable(TableS);
+		TableSS = CloneATable(TableS);
 		HKingDangour = HeuristicKingDangourous(TableSS, Order, color, RowS, ColS, RowD, ColD, CurrentAStarGredyMax);
-		int **TableSS = CloneATable(TableS);
+		TableSS = CloneATable(TableS);
 		HFromCenter = HuristicSoldierFromCenter(TableSS, color, Order, RowS, ColS, RowD, ColD);
 
 		HDistance /= 10;
@@ -9791,6 +9793,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 		ThinkingAtRun = false;
 	}
 
+	
 
 	void ThinkingChess::HuristicPenaltyValuePerform(LearningKrinskyAtamata Current, int Order, double HuristicAttackValue, bool AllDrawClass = false)
 	{
@@ -10546,7 +10549,7 @@ inline bool operator!=(DrawKing& lhs, std::nullptr_t& rhs) { return !(lhs == rhs
 		}
 		IgnoreObjectDangour = -1;
 		///Initiate a Local Variables.
-		int **TableS = new int*[8];
+		TableS = new int*[8];
 		for (int ik = 0; ik < 8; ik++)
 			TableS[ik] = new int[8];
 

@@ -56,14 +56,14 @@
  * Syntax Error At Genetic Algorithm By Bob.*************************************R***x**0.12**4**Managements and Cuation Programing**(+)
  * 1394/12/20********************************************************************R***x**0.12**4**Managements and Cuation Programing**(+:Sum(48)) (_ :Sum(1)) (-:Sum(5)) (*:Sum(2))
  * Chess Syntax MalFunction.*****************************************************R***x**0.12**4**Managements and Cuation Programing**[+]
- * Chess Rules Non Soldier Colud Not been Detected. For AStarGreedy Fist Algorithm.*****R***x**0.12**4**Managements and Cuation Programing**{+}
+ * Chess Rules Non Soldier Colud Not been Detected. For (AStarGreedy.data()) Fist Algorithm.*****R***x**0.12**4**Managements and Cuation Programing**{+}
  * 'Check' Released isolatly.'Check' of Brown (Alice) No Matched Realesed.*********R***x**0.12**4**Managements and Cuation Programing**<+>
  * 'Check' Not Detected By Bob.***************************************************R***x**0.12**4**Managements and Cuation Programing**<+>
  * Bob Cloud not Remove 'Check'.**************************************************R***x**0.12**4**Managements and Cuation Programing**<+>
  * Bob Colud not Move.No Check asnd CheckMate.*****************************************R***x**0.12**4**Managements and Cuation Programing**<+>
  * Kings Have been Realeased Attacked.By Alice and Bob.**************************R***x**0.12**4**Managements and Cuation Programing**<+>
  * ObjectDanger kings Not work!********************************************************CU*****0.88**1**Risk Control************************<*>QC-OK.
- * Chess Rules of Movments AStarGreedy First caused to Databse MalFunction.*************CU*****0.88**1**Risk Control************************(*)QC-OK.
+ * Chess Rules of Movments (AStarGreedy.data()) First caused to Databse MalFunction.*************CU*****0.88**1**Risk Control************************(*)QC-OK.
  * Mal Function of Table.Table zero.!********************************************R***x**0.12**4**Managements and Cuation Programing**(+)
  * Timer of Bob and Alice do not works!******************************************CU*****0.88**1**Risk Control************************(*)QC-OK.
  * Not Right of Penalty Regard Mechansim.Misleading of Operations.***************R***x**0.12**4**Managements and Cuation Programing**(+)
@@ -156,7 +156,6 @@ namespace RefrigtzDLL
 		//static void Log(std::exception ex);
 	public:
 		ChessRules(int CurrentAStarGredy, int oRDER, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged);
-//		ChessRules(int CurrentAStarGredy, int oRDER, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged);
 		//Constructor 
 		ChessRules(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged, int Ki, int **A, int Ord, int i, int j);
 		//Initiate of Rules of Chess Refregitz.

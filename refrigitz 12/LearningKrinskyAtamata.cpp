@@ -1,5 +1,5 @@
-﻿#include "stdafx.h"
-//#include "LearningKrinskyAtamata.h"
+﻿#include "LearningKrinskyAtamata.h"
+
 namespace RefrigtzDLL
 {
 
@@ -56,7 +56,7 @@ namespace RefrigtzDLL
 
 
 	}
-	/*
+	
 	void LearningKrinskyAtamata::Clone(LearningKrinskyAtamata   *AA)
 	{
 		//autoo = new Object();
@@ -88,7 +88,7 @@ namespace RefrigtzDLL
 
 		}
 	}
-	*/
+	
 	void LearningKrinskyAtamata::FailureState()
 	{
 		//autoo = new Object();

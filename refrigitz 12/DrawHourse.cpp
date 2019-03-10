@@ -1,11 +1,11 @@
 ﻿#pragma once
-#include "stdafx.h"
+#include "DrawHourse.h"
 
 
 namespace RefrigtzDLL
 {
-	inline bool operator==(const  DrawHourse& lhs, const std::nullptr_t& rhs) { return  (lhs == rhs); }
-	inline bool operator!=(const  DrawHourse& lhs, const std::nullptr_t& rhs) { return !(lhs == rhs); }
+//	inline bool operator==(const DrawHourse& lhs, const std::nullptr_t& rhs) { return  (lhs == rhs); }
+	//inline bool operator!=(const DrawHourse& lhs, const std::nullptr_t& rhs) { return !(lhs == rhs); }
 
 double DrawHourse::MaxHuristicxH = -20000000000000000;
 
@@ -35,7 +35,7 @@ DrawHourse::~DrawHourse()
 		ValuableSelfSupported.clear();
 //		H = nullptr;
 	}
-	void* DrawHourse::operator*(std::size_t idx) { return malloc(idx * sizeof(this)); }
+	//void* DrawHourse::operator*(std::size_t idx) { return malloc(idx * sizeof(this)); }
 	bool DrawHourse::MaxFound(bool MaxNotFound)
 	{
 		//try
@@ -82,7 +82,18 @@ DrawHourse::~DrawHourse()
 		}
 		return a;
 	}
-
+	DrawHourse::DrawHourse(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
+	{
+		CurrentAStarGredyMax = CurrentAStarGredy;
+		MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
+		IgnoreSelfObjectsT = IgnoreSelfObject;
+		UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
+		BestMovmentsT = BestMovment;
+		PredictHuristicT = PredictHurist;
+		OnlySelfT = OnlySel;
+		AStarGreedyHuristicT = AStarGreedyHuris;
+		ArrangmentsChanged = Arrangments;
+	}
 	DrawHourse::DrawHourse(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int **Tab, int Ord, bool TB, int Cur)
 	{
 
@@ -115,7 +126,7 @@ DrawHourse::~DrawHourse()
 
 	}
 
-	/*void DrawHourse::Clone(DrawHourse *AA)
+	void DrawHourse::Clone(DrawHourse *AA)
 	{
 		int **Tab;
 		for (int i = 0; i < 8; i++)
@@ -130,19 +141,10 @@ DrawHourse::~DrawHourse()
 		AA->ArrangmentsChanged = ArrangmentsChanged;
 		for (int i = 0; i < AllDraw::HourseMovments; i++)
 		{
-			//try
-			{
 				AA->HourseThinking= ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
-				HourseThinking.Clone(AA->HourseThinking.;
-			}
-			//catch(std::exception t)
-			{
-				
-//C# TO C++ CONVERTER WARNING: C# to C++ Converter converted the original 'null' assignment to a call to 'delete', but you should review memory allocation of all pointer variables in the converted code:
-				delete AA->HourseThinking.
-			}
+				HourseThinking.Clone(AA->HourseThinking);
 		}
-		AA->Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii]-new int[8];
+		AA->Table = new int*[8]; for (int ii = 0; ii < 8; ii++)AA->Table[ii]-new int[8];
 		for (int ii = 0; ii < 8; ii++)
 		{
 			for (int jj = 0; jj < 8; jj++)
@@ -157,10 +159,10 @@ DrawHourse::~DrawHourse()
 		AA->color = color;
 
 	}
-	*/
+	
 	void DrawHourse::DrawHourseOnTable( int CellW, int CellH)
-	{
-	/*	//try
+	{/*
+		//try
 		{
 
 			//autobalance//lockS = new Object();

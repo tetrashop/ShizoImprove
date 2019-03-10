@@ -2,8 +2,8 @@
 
 
 
-#include "stdafx.h"
 
+#include "stdafx.h"
 
 namespace RefrigtzDLL
 {
@@ -12,11 +12,12 @@ namespace RefrigtzDLL
 	class DrawHourse
 	{
 
+		
 
 
 
 	public:
-		void* operator*(std::size_t idx);
+		//void* operator*(std::size_t idx);
 
 		int WinOcuuredatChiled;
 		int LoseOcuuredatChiled;
@@ -55,21 +56,11 @@ namespace RefrigtzDLL
 		bool MaxFound(bool MaxNotFound);
 		double ReturnHuristic();
 		//Constructor 1.
-/*	    DrawHourse(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
-	    {
-	        CurrentAStarGredyMax = CurrentAStarGredy;
-	        MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
-	        IgnoreSelfObjectsT = IgnoreSelfObject;
-	        UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
-	        BestMovmentsT = BestMovment;
-	        PredictHuristicT = PredictHurist;
-	        OnlySelfT = OnlySel;
-	        AStarGreedyHuristicT = AStarGreedyHuris;
-	        ArrangmentsChanged = Arrangments;
-	    }
-	*/   
-		//Constructpor 2.
+		DrawHourse(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments);
+	    //Constructpor 2.
 		DrawHourse(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int **Tab, int Ord, bool TB, int Cur); //,ref AllDraw:: THIS
+
+		void Clone(DrawHourse * AA);
 
 		//Cloen a Copy.
 		//void Clone(DrawHourse *AA); //, ref AllDraw:: THIS

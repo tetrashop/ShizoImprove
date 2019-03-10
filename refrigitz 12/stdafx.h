@@ -7,7 +7,7 @@
 
 #include "targetver.h"
 
-
+#include <sstream>
 #include <vector>
 #include <cmath>
 #include <float.h>
@@ -30,6 +30,7 @@
 #include "ThinkingChess.h"
 #include "ChessRules.h"
 #include "AllDraw.h"
+
 using namespace RefrigtzDLL;
 
 

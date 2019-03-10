@@ -5,16 +5,18 @@
 namespace RefrigtzDLL
 {
 	
+
+
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
 //ORIGINAL LINE: [Serializable] class DrawCastle
 	class DrawCastle
 	{
-
-
+		
 
 
 	public:
-		void* operator*(std::size_t idx);
+		
+		//void* operator*(std::size_t idx);
 		int WinOcuuredatChiled;
 		int LoseOcuuredatChiled;
 		//private readonly object balance//lock = new object();
@@ -53,20 +55,12 @@ namespace RefrigtzDLL
 
 
 		//Constructor 1.
-	  /*  DrawCastle(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
-	    {
-	        CurrentAStarGredyMax = CurrentAStarGredy;
-	        MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
-	        IgnoreSelfObjectsT = IgnoreSelfObject;
-	        UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
-	        BestMovmentsT = BestMovment;
-	        PredictHuristicT = PredictHurist;
-	        OnlySelfT = OnlySel;
-	        AStarGreedyHuristicT = AStarGreedyHuris;
-	        ArrangmentsChanged = Arrangments;
-	    }*/
+		DrawCastle(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments);
+	    
 		//constructor 2.
 		DrawCastle(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int **Tab, int Ord, bool TB, int Cur); //, ref AllDraw:: THIS
+
+		void Clone(DrawCastle * AA);
 		
 		//Clone a Copy.
 		//void Clone(DrawCastle *AA); //, ref AllDraw:: THIS

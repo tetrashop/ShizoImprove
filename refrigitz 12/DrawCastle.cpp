@@ -1,10 +1,10 @@
 ﻿#pragma once
-#include "stdafx.h"
 
+#include "DrawCastle.h"
 namespace RefrigtzDLL
 {
-	inline bool operator==(const  DrawCastle& lhs,  const std::nullptr_t& rhs) { return  (lhs == rhs); }
-	inline bool operator!=(const  DrawCastle& lhs,  const std::nullptr_t& rhs) { return !(lhs == rhs); }
+	inline bool operator==(const DrawCastle& lhs,  const std::nullptr_t& rhs) { return  (lhs == rhs); }
+	inline bool operator!=(const DrawCastle& lhs,  const std::nullptr_t& rhs) { return !(lhs == rhs); }
 
 double DrawCastle::MaxHuristicxB = -20000000000000000;
 
@@ -81,7 +81,18 @@ double DrawCastle::MaxHuristicxB = -20000000000000000;
 
 		return a;
 	}
-	
+	DrawCastle::DrawCastle(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
+	{
+		CurrentAStarGredyMax = CurrentAStarGredy;
+		MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
+		IgnoreSelfObjectsT = IgnoreSelfObject;
+		UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
+		BestMovmentsT = BestMovment;
+		PredictHuristicT = PredictHurist;
+		OnlySelfT = OnlySel;
+		AStarGreedyHuristicT = AStarGreedyHuris;
+		ArrangmentsChanged = Arrangments;
+	}
 	DrawCastle::DrawCastle(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int **Tab, int Ord, bool TB, int Cur)
 	{
 		InitializeInstanceFields();
@@ -117,7 +128,7 @@ double DrawCastle::MaxHuristicxB = -20000000000000000;
 
 	}
 	
-	/*void DrawCastle::Clone(DrawCastle *AA)
+	void DrawCastle::Clone(DrawCastle *AA)
 	{
 		int **Tab;
 		for (int i = 0; i < 8; i++)
@@ -132,19 +143,11 @@ double DrawCastle::MaxHuristicxB = -20000000000000000;
 		AA->ArrangmentsChanged = ArrangmentsChanged;
 		for (int i = 0; i < AllDraw::CastleMovments; i++)
 		{
-			//try
-			{
 				AA->CastleThinking= ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
-				CastleThinking.Clone(AA->CastleThinking.;
-			}
-			//catch(std::exception t)
-			{
-				
-//C# TO C++ CONVERTER WARNING: C# to C++ Converter converted the original 'null' assignment to a call to 'delete', but you should review memory allocation of all pointer variables in the converted code:
-				delete AA->CastleThinking.
-			}
+				CastleThinking.Clone(AA->CastleThinking);
+			
 		}
-		AA->Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii]-new int[8];
+		AA->Table = new int*[8]; for (int ii = 0; ii < 8; ii++) AA->Table[ii] - new int[8];
 		for (int ii = 0; ii < 8; ii++)
 		{
 			for (int jj = 0; jj < 8; jj++)
@@ -159,7 +162,7 @@ double DrawCastle::MaxHuristicxB = -20000000000000000;
 		AA->color = color;
 
 	}
-	*/
+	
 	void DrawCastle::DrawCastleOnTable( int CellW, int CellH)
 	{
 		/*//try

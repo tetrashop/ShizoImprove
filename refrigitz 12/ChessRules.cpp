@@ -1,5 +1,6 @@
-﻿#include "stdafx.h"
-
+﻿
+#include "ChessRules.h"
+//#include "AllDraw.h
 
 namespace RefrigtzDLL
 {
@@ -118,7 +119,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		Order = Ord;
 	}
 
-	bool ChessRules::Rules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, int color, int Ki, bool SelfHomeStatCP=true)
+	bool ChessRules::Rules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, int color, int Ki, bool SelfHomeStatCP = true)
 	{
 		//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -277,7 +278,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			if (Order == 1)
 			{
 				//When Gray Castles Not Act.
-				if (RefrigtzDLL::ChessRules::CastleKingAllowedGray)
+				if (ChessRules::CastleKingAllowedGray)
 				{
 					//If Column is At First Location.
 					if (ColumnFirst == 0 && ColumnSecond == 0)
@@ -339,7 +340,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			else //Order of Brown.
 			{
 				//When Brown Castles King Not Occured.
-				if (RefrigtzDLL::ChessRules::CastleKingAllowedBrown)
+				if (ChessRules::CastleKingAllowedBrown)
 				{
 					//Column Situation.
 					if (ColumnFirst == 7 && ColumnSecond == 7)
@@ -403,7 +404,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			if (Order == 1)
 			{
 				//When Gray Castles Not Act.
-				if (RefrigtzDLL::ChessRules::CastleKingAllowedGray)
+				if (ChessRules::CastleKingAllowedGray)
 				{
 					//If Column is At First Location.
 					if (ColumnFirst == 7 && ColumnSecond == 7)
@@ -455,7 +456,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			else //Order of Brown.
 			{
 				//When Brown Castles King Not Occured.
-				if (RefrigtzDLL::ChessRules::CastleKingAllowedBrown)
+				if (ChessRules::CastleKingAllowedBrown)
 				{
 					//Column Situation.
 					if (ColumnFirst == 0 && ColumnSecond == 0)
@@ -610,7 +611,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		    return true;
 	
 		}*/
-		int CDummy = RefrigtzDLL::ChessRules::CurrentOrder;
+		int CDummy = ChessRules::CurrentOrder;
 		int COrder = Order;
 		if (Order == 1)
 		{
@@ -661,7 +662,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 											Tabl[h][g] = Tab[h][g];
 										}
 									}
-									RefrigtzDLL::ChessRules *AAA = new RefrigtzDLL::ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tabl[iii][jjj], Tabl, Order, iii, jjj);
+									ChessRules *AAA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tabl[iii][jjj], Tabl, Order, iii, jjj);
 									//When there is checked or checkmate.
 									if (AAA->CheckMate(Tabl, Order))
 									{
@@ -749,7 +750,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 											Tabl[h][g] = Tab[h][g];
 										}
 									}
-									RefrigtzDLL::ChessRules *AAA = new RefrigtzDLL::ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tabl[iii][jjj], Tabl, Order, iii, jjj);
+									ChessRules *AAA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tabl[iii][jjj], Tabl, Order, iii, jjj);
 									//When There is Check or Checkedmate
 									if (AAA->CheckMate(Tabl, Order))
 									{
@@ -799,14 +800,14 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		if (CheckBrownObjectDangour || CheckGrayObjectDangour)
 		{
 			//Iniaate Global Check Variable By Local Variables.
-			RefrigtzDLL::ChessRules::CurrentOrder = CDummy;
+			ChessRules::CurrentOrder = CDummy;
 			Order = COrder;
 			CheckGray = CheckGrayDummy;
 			CheckBrown = CheckBrownDummy;
 			//Achamz is Validity.
 			return true;
 		}
-		RefrigtzDLL::ChessRules::CurrentOrder = CDummy;
+		ChessRules::CurrentOrder = CDummy;
 		Order = COrder;
 
 		//Iniatiate Of Global Varibales By Local Variables.
@@ -855,7 +856,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		    return true;
 	
 		}*/
-		int CDummy = RefrigtzDLL::ChessRules::CurrentOrder;
+		int CDummy = ChessRules::CurrentOrder;
 		int COrder = Order;
 		if (Order == 1)
 		{
@@ -906,7 +907,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 											Tabl[h][g] = Tab[h][g];
 										}
 									}
-									RefrigtzDLL::ChessRules *AAA = new RefrigtzDLL::ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tabl[iii][jjj], Tabl, Order, iii, jjj);
+									ChessRules *AAA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tabl[iii][jjj], Tabl, Order, iii, jjj);
 									//When there is checked or checkmate.
 									if (AAA->Check(Tabl, Order))
 									{
@@ -994,7 +995,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 											Tabl[h][g] = Tab[h][g];
 										}
 									}
-									RefrigtzDLL::ChessRules *AAA = new RefrigtzDLL::ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tabl[iii][jjj], Tabl, Order, iii, jjj);
+									ChessRules *AAA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tabl[iii][jjj], Tabl, Order, iii, jjj);
 									//When There is Check or Checkedmate
 									if (AAA->Check(Tabl, Order))
 									{
@@ -1044,14 +1045,14 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		if (CheckBrownObjectDangour || CheckGrayObjectDangour)
 		{
 			//Iniaate Global Check Variable By Local Variables.
-			RefrigtzDLL::ChessRules::CurrentOrder = CDummy;
+			ChessRules::CurrentOrder = CDummy;
 			Order = COrder;
 			CheckGray = CheckGrayDummy;
 			CheckBrown = CheckBrownDummy;
 			//Achamz is Validity.
 			return true;
 		}
-		RefrigtzDLL::ChessRules::CurrentOrder = CDummy;
+		ChessRules::CurrentOrder = CDummy;
 		Order = COrder;
 
 		//Iniatiate Of Global Varibales By Local Variables.
@@ -1111,7 +1112,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		{
 			if (DoIgnore)
 			{
-				RefrigtzDLL::ChessRules::CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = true;
+				ChessRules::CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = true;
 			}
 		}
 
@@ -1134,14 +1135,14 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			return true;
 
 		}
-		int CDummy = RefrigtzDLL::ChessRules::CurrentOrder;
+		int CDummy = ChessRules::CurrentOrder;
 		int COrder = Order;
 
 		//Location of King Gary
 
 		{
 			//Iniatite Global Varibales.
-			RefrigtzDLL::ChessRules::CurrentOrder = -1;
+			ChessRules::CurrentOrder = -1;
 			Order = -1;
 			//For Enemies.
 			for (int i = 0; i < 8; i++)
@@ -1181,7 +1182,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 									Tab[ik][jk] = Table[ik][jk];
 								}
 							}
-							RefrigtzDLL::ChessRules *A = new RefrigtzDLL::ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tab[i][j], Tab, Order * -1, i, j);
+							ChessRules *A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tab[i][j], Tab, Order * -1, i, j);
 							int a = 1;
 							if (Order * -1 == -1)
 							{
@@ -1234,7 +1235,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 														Tab[iii][jjj] = Tab[i][j];
 														Tab[i][j] = 0;
 
-														A = new RefrigtzDLL::ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tab[iiii][jjjj], Tab, Order, iiii, jjjj);
+														A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tab[iiii][jjjj], Tab, Order, iiii, jjjj);
 														if (A->Rules(iiii, jjjj, iiiii, jjjjj, a, Tab[i][j]))
 														{
 															Tab[iiiii][jjjjj] = Tab[iiii][jjjj];
@@ -1247,7 +1248,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 																CheckMateBrown = A->CheckMateBrown;
 																CheckGrayObjectDangour = A->CheckGrayObjectDangour;
 																CheckBrownObjectDangour = A->CheckBrownObjectDangour;
-																RefrigtzDLL::ChessRules::CurrentOrder = CDummy;
+																ChessRules::CurrentOrder = CDummy;
 																Order = COrder;
 																return true;
 															}
@@ -1301,7 +1302,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 															Tab[iii][jjj] = Tab[i][j];
 															Tab[i][j] = 0;
 
-															A = new RefrigtzDLL::ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tab[iiii][jjjj], Tab, Order, iiii, jjjj);
+															A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tab[iiii][jjjj], Tab, Order, iiii, jjjj);
 															if (A->Rules(iiii, jjjj, iiiii, jjjjj, a, Tab[i][j]))
 															{
 																Tab[iiiii][jjjjj] = Tab[iiii][jjjj];
@@ -1314,7 +1315,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 																	CheckMateBrown = A->CheckMateBrown;
 																	CheckGrayObjectDangour = A->CheckGrayObjectDangour;
 																	CheckBrownObjectDangour = A->CheckBrownObjectDangour;
-																	RefrigtzDLL::ChessRules::CurrentOrder = CDummy;
+																	ChessRules::CurrentOrder = CDummy;
 																	Order = COrder;
 																	return true;
 																}
@@ -1338,7 +1339,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 
 		}
 
-		RefrigtzDLL::ChessRules::CurrentOrder = CDummy;
+		ChessRules::CurrentOrder = CDummy;
 		Order = COrder;
 
 		//Iniatiate Of Global Varibales By Local Variables.
@@ -1478,9 +1479,9 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 
 
 			//Consider CheckMate Condition of Table.
-			RefrigtzDLL::ChessRules *A = new RefrigtzDLL::ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, Arrange, 1, Tab, 1, Row, Column);
-			RefrigtzDLL::ChessRules *AA = new RefrigtzDLL::ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, Arrange, 1, Tab, 1, Row, Column);
-			RefrigtzDLL::ChessRules *AAA = new RefrigtzDLL::ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, Arrange, 1, Tab, 1, Row, Column);
+			ChessRules *A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, Arrange, 1, Tab, 1, Row, Column);
+			ChessRules *AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, Arrange, 1, Tab, 1, Row, Column);
+			ChessRules *AAA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, Arrange, 1, Tab, 1, Row, Column);
 			A->CheckMate(Tab, Order);
 			AA->ObjectDangourKingMove(Order, Tab, false);
 			int a = 1;
@@ -1495,9 +1496,9 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 				//lock (O2)
 				{
-					RefrigtzDLL::ChessRules::CastleKingAllowedGray = false;
-					RefrigtzDLL::ChessRules::CastleActGray = true;
-					RefrigtzDLL::ThinkingChess::KingMaovableGray = true;
+					ChessRules::CastleKingAllowedGray = false;
+					ChessRules::CastleActGray = true;
+					ThinkingChess::KingMaovableGray = true;
 				}
 			}
 			else if (A->CheckBrown)
@@ -1506,22 +1507,22 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 				//lock (O2)
 				{
-					RefrigtzDLL::ChessRules::CastleActBrown = true;
-					RefrigtzDLL::ChessRules::CastleKingAllowedBrown = false;
-					RefrigtzDLL::ThinkingChess::KingMaovableBrown = true;
+					ChessRules::CastleActBrown = true;
+					ChessRules::CastleKingAllowedBrown = false;
+					ThinkingChess::KingMaovableBrown = true;
 				}
 			}
 			bool Castles = false;
 			if (Order == 1)
 			{
-				if (RefrigtzDLL::ChessRules::SmallKingCastleGray || RefrigtzDLL::ChessRules::BigKingCastleGray)
+				if (ChessRules::SmallKingCastleGray || ChessRules::BigKingCastleGray)
 				{
 					Castles = true;
 				}
 			}
 			if (Order == -1)
 			{
-				if (RefrigtzDLL::ChessRules::SmallKingCastleBrown || RefrigtzDLL::ChessRules::BigKingCastleBrown)
+				if (ChessRules::SmallKingCastleBrown || ChessRules::BigKingCastleBrown)
 				{
 					Castles = true;
 				}
@@ -1533,13 +1534,13 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 				if (CastleKing)
 				{
 					//Castles Brown King.
-					if (RefrigtzDLL::ChessRules::SmallKingCastleGray)
+					if (ChessRules::SmallKingCastleGray)
 					{
 						//autoO2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 						//lock (O2)
 						{
-							RefrigtzDLL::ThinkingChess::KingMaovableGray = true;
+							ThinkingChess::KingMaovableGray = true;
 							S += std::wstring(L"Gray-BK-S");
 							//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -1547,15 +1548,15 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 							{
 								if (!AllDraw::Stockfish)
 								{
-									RefrigtzDLL::ChessRules::SmallKingCastleGray = false;
-									RefrigtzDLL::ChessRules::CastleKingAllowedGray = false;
+									ChessRules::SmallKingCastleGray = false;
+									ChessRules::CastleKingAllowedGray = false;
 								}
 							}
 						}
 					}
 					else
 					{
-						if (RefrigtzDLL::ChessRules::BigKingCastleGray)
+						if (ChessRules::BigKingCastleGray)
 						{
 					//Castles Brown King.                    
 						//autoO2 = new Object();
@@ -1563,22 +1564,22 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 						//lock (O2)
 						{
 							S += std::wstring(L"Gray-BK-B");
-							RefrigtzDLL::ThinkingChess::KingMaovableGray = true;
+							ThinkingChess::KingMaovableGray = true;
 							//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 							//lock (O)
 							{
 								if (!AllDraw::Stockfish)
 								{
-									RefrigtzDLL::ChessRules::BigKingCastleGray = false;
-									RefrigtzDLL::ChessRules::CastleKingAllowedGray = false;
+									ChessRules::BigKingCastleGray = false;
+									ChessRules::CastleKingAllowedGray = false;
 								}
 							}
 						}
 						}
 					else
 					{
-							if (RefrigtzDLL::ChessRules::SmallKingCastleBrown)
+							if (ChessRules::SmallKingCastleBrown)
 							{
 					//Castles Brown King.                    
 						//autoO2 = new Object();
@@ -1586,22 +1587,22 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 						//lock (O2)
 						{
 							S += std::wstring(L"Brown-BK-S");
-							RefrigtzDLL::ThinkingChess::KingMaovableBrown = true;
+							ThinkingChess::KingMaovableBrown = true;
 							//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 							//lock (O)
 							{
 								if (!AllDraw::Stockfish)
 								{
-									RefrigtzDLL::ChessRules::SmallKingCastleBrown = false;
-									RefrigtzDLL::ChessRules::CastleKingAllowedBrown = false;
+									ChessRules::SmallKingCastleBrown = false;
+									ChessRules::CastleKingAllowedBrown = false;
 								}
 							}
 						}
 							}
 					else
 					{
-								if (RefrigtzDLL::ChessRules::BigKingCastleBrown)
+								if (ChessRules::BigKingCastleBrown)
 								{
 					//Castles Brown King.                    
 
@@ -1610,15 +1611,15 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 						//lock (O2)
 						{
 							S += std::wstring(L"Brown-BK-B");
-							RefrigtzDLL::ThinkingChess::KingMaovableBrown = true;
+							ThinkingChess::KingMaovableBrown = true;
 							//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 							//lock (O)
 							{
 								if (!AllDraw::Stockfish)
 								{
-									RefrigtzDLL::ChessRules::BigKingCastleBrown = false;
-									RefrigtzDLL::ChessRules::CastleKingAllowedBrown = false;
+									ChessRules::BigKingCastleBrown = false;
+									ChessRules::CastleKingAllowedBrown = false;
 								}
 							}
 						}
@@ -1673,9 +1674,9 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 							//lock (O2)
 							{
-								RefrigtzDLL::ThinkingChess::KingMaovableBrown = true;
-								RefrigtzDLL::ChessRules::BigKingCastleBrown = false;
-								RefrigtzDLL::ChessRules::CastleKingAllowedBrown = false;
+								ThinkingChess::KingMaovableBrown = true;
+								ChessRules::BigKingCastleBrown = false;
+								ChessRules::CastleKingAllowedBrown = false;
 							}
 						}
 						if (A->CheckGray  &&Order == 1)
@@ -1684,9 +1685,9 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 							//lock (O2)
 							{
-								RefrigtzDLL::ThinkingChess::KingMaovableGray = true;
-								RefrigtzDLL::ChessRules::BigKingCastleGray = false;
-								RefrigtzDLL::ChessRules::CastleKingAllowedGray = false;
+								ThinkingChess::KingMaovableGray = true;
+								ChessRules::BigKingCastleGray = false;
+								ChessRules::CastleKingAllowedGray = false;
 							}
 						}
 					}
@@ -1699,7 +1700,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 							//lock (O2)
 							{
-								RefrigtzDLL::ThinkingChess::KingMaovableBrown = true;
+								ThinkingChess::KingMaovableBrown = true;
 
 							}
 						}
@@ -1709,7 +1710,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 							//lock (O2)
 							{
-								RefrigtzDLL::ThinkingChess::KingMaovableGray = true;
+								ThinkingChess::KingMaovableGray = true;
 
 							}
 						}
@@ -1760,9 +1761,9 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 						//lock (O2)
 						{
-							RefrigtzDLL::ChessRules::BigKingCastleBrown = false;
-							RefrigtzDLL::ChessRules::CastleKingAllowedBrown = false;
-							RefrigtzDLL::ThinkingChess::KingMaovableGray = true;
+							ChessRules::BigKingCastleBrown = false;
+							ChessRules::CastleKingAllowedBrown = false;
+							ThinkingChess::KingMaovableGray = true;
 
 						}
 					}
@@ -1772,9 +1773,9 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 						//lock (O2)
 						{
-							RefrigtzDLL::ChessRules::BigKingCastleGray = false;
-							RefrigtzDLL::ChessRules::CastleKingAllowedGray = false;
-							RefrigtzDLL::ThinkingChess::KingMaovableGray = true;
+							ChessRules::BigKingCastleGray = false;
+							ChessRules::CastleKingAllowedGray = false;
+							ThinkingChess::KingMaovableGray = true;
 
 						}
 					}
@@ -1788,7 +1789,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 						//lock (O2)
 						{
-							RefrigtzDLL::ThinkingChess::KingMaovableBrown = true;
+							ThinkingChess::KingMaovableBrown = true;
 
 						}
 					}
@@ -1798,7 +1799,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 						//lock (O2)
 						{
-							RefrigtzDLL::ThinkingChess::KingMaovableGray = true;
+							ThinkingChess::KingMaovableGray = true;
 
 						}
 					}
@@ -1810,7 +1811,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			//Separate.
 			if (AllDraw::Less != -DBL_MAX)
 			{
-				S += std::wstring(L" With Huristic (") + StringConverterHelper::toString(RefrigtzDLL::AllDraw::Less) + std::wstring(L")--");
+				S += std::wstring(L" With Huristic (") + StringConverterHelper::toString(AllDraw::Less) + std::wstring(L")--");
 			}
 			else
 			{
@@ -1880,7 +1881,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 							for (int jj = 0; jj < 8; jj++)
 							{
 								//If First Home is Movable to Second Home.
-								if ((new RefrigtzDLL::ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, i, j))->Movable(Table, i, j, ii, jj, A, Order))
+								if ((new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, i, j))->Movable(Table, i, j, ii, jj, A, Order))
 								{
 									//If Array Exist in Home.
 									if (ArrayInList(List, AA))
@@ -1983,7 +1984,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 										}
 									}
 									//If Is Movable.
-									if ((new RefrigtzDLL::ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, i, j))->Movable(Tab, i, j, ii, jj, -1, -1))
+									if ((new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, i, j))->Movable(Tab, i, j, ii, jj, -1, -1))
 									{
 										//Clone a Copy.
 										for (int iii = 0; iii < 8; iii++)
@@ -2066,7 +2067,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 										}
 									}
 									//Moveable Movemnts in the Tow Traversal Kind.
-									if ((new RefrigtzDLL::ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, i, j))->Movable(Tab, i, j, ii, jj, 1, 1))
+									if ((new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, i, j))->Movable(Tab, i, j, ii, jj, 1, 1))
 									{
 										for (int iii = 0; iii < 8; iii++)
 										{
@@ -2128,14 +2129,14 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 
 	bool **ChessRules::VeryFye(int **Table, int Order, int a, int ii, int jj)
 	{
-		int Cdummy = RefrigtzDLL::ChessRules::CurrentOrder;
+		int Cdummy = ChessRules::CurrentOrder;
 		if (Order == 1)
 		{
-			RefrigtzDLL::ChessRules::CurrentOrder = 1;
+			ChessRules::CurrentOrder = 1;
 		}
 		else
 		{
-			RefrigtzDLL::ChessRules::CurrentOrder = -1;
+			ChessRules::CurrentOrder = -1;
 		}
 		bool **Tab = new bool*[8];
 		for (int i = 0; i < 8; i++)
@@ -2152,17 +2153,17 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 				}
 
 
-				if ((new RefrigtzDLL::ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[ii][jj], Table, Order, ii, jj))->Rules(ii, jj, i, j, a, Table[ii][jj]))
+				if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[ii][jj], Table, Order, ii, jj))->Rules(ii, jj, i, j, a, Table[ii][jj]))
 				{
 					Tab[i][j] = true;
 				}
-				if ((new RefrigtzDLL::ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[ii][jj], Table, Order, ii, jj))->Rules(ii, jj, i, j, a, Table[ii][jj]))
+				if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[ii][jj], Table, Order, ii, jj))->Rules(ii, jj, i, j, a, Table[ii][jj]))
 				{
 					Tab[i][j] = true;
 				}
 			}
 		}
-		RefrigtzDLL::ChessRules::CurrentOrder = Cdummy;
+		ChessRules::CurrentOrder = Cdummy;
 		return Tab;
 	}
 
@@ -2371,8 +2372,8 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 					continue;
 				}
 				//Initiate Global Variables.
-				int Dummt = RefrigtzDLL::ChessRules::CurrentOrder;
-				RefrigtzDLL::ChessRules::CurrentOrder = -1;
+				int Dummt = ChessRules::CurrentOrder;
+				ChessRules::CurrentOrder = -1;
 				//Clone a Copy.
 				for (int ii = 0; ii < 8; ii++)
 				{
@@ -2387,7 +2388,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 				{
 					a = -1;
 				}
-				RefrigtzDLL::ChessRules *A = new RefrigtzDLL::ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[i][j], Table, Ord, i, j);
+				ChessRules *A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[i][j], Table, Ord, i, j);
 				if (Ord == 1)
 				{
 					//Menen Parameter is Moveble to Second Parameters Location returm Movable.
@@ -2410,7 +2411,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 				}
 
 				//Initiate Global Variables.
-				RefrigtzDLL::ChessRules::CurrentOrder = Dummt;
+				ChessRules::CurrentOrder = Dummt;
 
 
 			}
@@ -2438,12 +2439,12 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		}
 		int DummyOrder = Ord;
 		//Initiate Local and Global Briables.
-		bool Store = RefrigtzDLL::ChessRules::CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing;
+		bool Store = ChessRules::CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing;
 		//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 		//lock (O)
 		{
-			RefrigtzDLL::ChessRules::CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = false;
+			ChessRules::CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = false;
 		}
 		CheckGray = false;
 		CheckBrown = false;
@@ -2498,14 +2499,14 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 				if (Checked)
 				{
 					//Initiate Global Variables.
-					RefrigtzDLL::ChessRules::CurrentOrder = 1;
+					ChessRules::CurrentOrder = 1;
 					//Ig Gray King is Movable to First Home Table.
 					int a = 1;
 					if (Ord == -1)
 					{
 						a = -1;
 					}
-					RefrigtzDLL::ChessRules *A = new RefrigtzDLL::ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[RowK][ColumnK], Table, Ord, RowK, ColumnK);
+					ChessRules *A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[RowK][ColumnK], Table, Ord, RowK, ColumnK);
 					Order = DummyOrder;
 					///Table[ii, jj] = 0;
 					//Menen Parameter is Moveble to Second Parameters Location returm Movable.
@@ -2634,7 +2635,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 						{
 							a = -1;
 						}
-						RefrigtzDLL::ChessRules *A = new RefrigtzDLL::ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[i][j], Table, Ord, i, j);
+						ChessRules *A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[i][j], Table, Ord, i, j);
 						///Table[ii, jj] = 0;
 						//Menen Parameter is Moveble to Second Parameters Location returm Movable.
 						if (A->Rules(i, j, ii, jj, a, Ord))
@@ -2647,7 +2648,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 							Table[ii][jj] = Table[i][j];
 							Table[i][j] = 0;
 							//If Check.
-							A = new RefrigtzDLL::ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[ii][jj], Table, Ord, ii, jj);
+							A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[ii][jj], Table, Ord, ii, jj);
 							if (A->Check(Table, Ord))
 							{
 								Order = DummyOrder;
@@ -2773,7 +2774,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 				Table[i][j] = Tab[i][j];
 			}
 		}
-		RefrigtzDLL::ChessRules *A = new RefrigtzDLL::ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[RowG][ColumnG], Table, Ord, RowG, ColumnG);
+		ChessRules *A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[RowG][ColumnG], Table, Ord, RowG, ColumnG);
 
 		//Found of Gray King.
 		if (FindGrayKing(Table, RowG, ColumnG))
@@ -2808,7 +2809,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		(ActMoveB) = true;
 		(ActMoveGF) = true;
 
-		RefrigtzDLL::ChessRules *AA = new RefrigtzDLL::ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[RowB][ColumnB], Table, Ord, RowB, ColumnB);
+		ChessRules *AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[RowB][ColumnB], Table, Ord, RowB, ColumnB);
 		for (int i = 0; i < 8; i++)
 		{
 			for (int j = 0; j < 8; j++)

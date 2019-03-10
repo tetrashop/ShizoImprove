@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "stdafx.h"
+#include <sstream>
 
 namespace RefrigtzDLL
 {
@@ -34,7 +34,7 @@ namespace RefrigtzDLL
 	public:
 		ThingsConverter();
 		//Constructor
-		ThingsConverter(bool Arrangments, int i, int j, int a, int **Tab, int Ord, bool TB, int Cur); //,ref AllDraw:: THI
+		ThingsConverter(int Arrangments, int i, int j, int a, int **Tab, int Ord, bool TB, int Cur);
 		//Convert Operation of Randomly All State Method.
 		bool ConvertOperation(int i, int j, int a, int **Tab, int Ord, bool TB, int Cur);
 

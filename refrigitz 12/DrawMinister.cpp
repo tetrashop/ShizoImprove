@@ -1,12 +1,12 @@
 ﻿#pragma once
-#include "stdafx.h"
 
+#include "DrawMinister.h";
 
 
 namespace RefrigtzDLL
 {
-	inline bool operator==(const  DrawMinister& lhs,  const std::nullptr_t& rhs) { return  (lhs == rhs); }
-	inline bool operator!=(const  DrawMinister& lhs,  const std::nullptr_t& rhs) { return !(lhs == rhs); }
+//	inline bool operator==(const DrawMinister& lhs,  const std::nullptr_t& rhs) { return  (lhs == rhs); }
+	//inline bool operator!=(const DrawMinister& lhs,  const std::nullptr_t& rhs) { return !(lhs == rhs); }
 
 
 double DrawMinister::MaxHuristicxM = -20000000000000000;
@@ -66,7 +66,7 @@ double DrawMinister::MaxHuristicxM = -20000000000000000;
 		MaxNotFound = true;
 		return false;
 	}
-	void* DrawMinister::operator*(std::size_t idx) { return malloc(idx * sizeof(this)); }
+	//void* DrawMinister::operator*(std::size_t idx) { return malloc(idx * sizeof(this)); }
 	double DrawMinister::ReturnHuristic()
 	{
 		double a = 0;
@@ -83,8 +83,20 @@ double DrawMinister::MaxHuristicxM = -20000000000000000;
 		}
 		return a;
 	}
+	DrawMinister::DrawMinister(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
+	{
+		CurrentAStarGredyMax = CurrentAStarGredy;
+		MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
+		IgnoreSelfObjectsT = IgnoreSelfObject;
+		UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
+		BestMovmentsT = BestMovment;
+		PredictHuristicT = PredictHurist;
+		OnlySelfT = OnlySel;
+		AStarGreedyHuristicT = AStarGreedyHuris;
+		ArrangmentsChanged = Arrangments;
+	}
 
-	DrawMinister::DrawMinister(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int **Tab, int Ord, bool TB, int Cur)
+	DrawMinister::DrawMinister(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int** Tab, int Ord, bool TB, int Cur)
 	{
 		InitializeInstanceFields();
 
@@ -115,7 +127,7 @@ double DrawMinister::MaxHuristicxM = -20000000000000000;
 		Current = Cur;
 		Order = Ord;
 	}
-	/*
+	
 
 	void DrawMinister::Clone(DrawMinister *AA)
 	{
@@ -160,7 +172,7 @@ double DrawMinister::MaxHuristicxM = -20000000000000000;
 		AA->color = color;
 
 	}
-	*/
+	
 	void DrawMinister::DrawMinisterOnTable( int CellW, int CellH)
 	{
 /*		//try

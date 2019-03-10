@@ -1,6 +1,5 @@
 ﻿#pragma once
 
-#include "stdafx.h"
 
 
 /******************************************************************************
@@ -69,6 +68,7 @@ namespace RefrigtzDLL
 
 	public:
 		LearningKrinskyAtamata(int r0, int m0, int k0);
+		void Clone(LearningKrinskyAtamata * AA);
 		void CurrenStateInitialize();
 		LearningKrinskyAtamata()
 		{

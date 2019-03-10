@@ -1,11 +1,12 @@
 ﻿#pragma once
-#include "stdafx.h"
+
+#include "DrawElefant.h"
 
 
 namespace RefrigtzDLL
 {
-	inline bool operator==(const  DrawElefant& lhs,  const std::nullptr_t& rhs) { return  (lhs == rhs); }
-	inline bool operator!=(const  DrawElefant& lhs,  const std::nullptr_t& rhs) { return !(lhs == rhs); }
+	inline bool operator==(const DrawElefant& lhs,  const std::nullptr_t& rhs) { return  (lhs == rhs); }
+	inline bool operator!=(const DrawElefant& lhs,  const std::nullptr_t& rhs) { return !(lhs == rhs); }
 
 double DrawElefant::MaxHuristicxE = -20000000000000000;
 
@@ -64,7 +65,7 @@ double DrawElefant::MaxHuristicxE = -20000000000000000;
 		MaxNotFound = true;
 		return false;
 	}
-	void* DrawElefant::operator*(std::size_t idx) { return malloc(idx * sizeof(this)); }
+	//void* DrawElefant::operator*(std::size_t idx) { return malloc(idx * sizeof(this)); }
 	double DrawElefant::ReturnHuristic()
 	{
 		double a = 0;
@@ -81,6 +82,18 @@ double DrawElefant::MaxHuristicxE = -20000000000000000;
 		}
 
 		return a;
+	}
+	DrawElefant::DrawElefant(int CurrentAStarGredy, bool MoveentsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
+	{
+		CurrentAStarGredyMax = CurrentAStarGredy;
+		MovementsAStarGreedyHuristicFoundT = MoveentsAStarGreedyHuristicTFou;
+		IgnoreSelfObjectsT = IgnoreSelfObject;
+		UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
+		BestMovmentsT = BestMovment;
+		PredictHuristicT = PredictHurist;
+		OnlySelfT = OnlySel;
+		AStarGreedyHuristicT = AStarGreedyHuris;
+		ArrangmentsChanged = Arrangments;
 	}
 
 	DrawElefant::DrawElefant(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int **Tab, int Ord, bool TB, int Cur)
@@ -119,7 +132,7 @@ double DrawElefant::MaxHuristicxE = -20000000000000000;
 
 	}
 
-	/*
+	
 	void DrawElefant::Clone(DrawElefant *AA)
 	{
 		int **Tab;
@@ -135,19 +148,12 @@ double DrawElefant::MaxHuristicxE = -20000000000000000;
 		AA->ArrangmentsChanged = ArrangmentsChanged;
 		for (int i = 0; i < AllDraw::ElefantMovments; i++)
 		{
-			//try
-			{
+			
 				AA->ElefantThinking= ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
-				ElefantThinkingClone(AA->ElefantThinking;
-			}
-			//catch(std::exception t)
-			{
-				
-//C# TO C++ CONVERTER WARNING: C# to C++ Converter converted the original 'null' assignment to a call to 'delete', but you should review memory allocation of all pointer variables in the converted code:
-				delete AA->ElefantThinking
-			}
+				ElefantThinking.Clone(AA->ElefantThinking);
+			
 		}
-		AA->Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii]-new int[8];
+		AA->Table = new int*[8]; for (int ii = 0; ii < 8; ii++)AA->Table[ii] - new int[8];
 		for (int ii = 0; ii < 8; ii++)
 		{
 			for (int jj = 0; jj < 8; jj++)
@@ -162,7 +168,7 @@ double DrawElefant::MaxHuristicxE = -20000000000000000;
 		AA->color = color;
 
 	}
-	*/
+	
 	void DrawElefant::DrawElefantOnTable( int CellW, int CellH)
 	{
 	/*	//try

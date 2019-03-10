@@ -1,7 +1,17 @@
 ﻿#pragma once
 
+#include "ThinkingChess.h"
+#include "ThingsConverter.h"
 
-#include "stdafx.h"
+#include <vector>
+#include <cmath>
+#include <float.h>
+#include <stdexcept>
+#include <sstream>
+#include <string>
+#include <stdio.h>
+#include <tchar.h>
+#include <cmath>
 
 
 namespace RefrigtzDLL
@@ -12,6 +22,7 @@ namespace RefrigtzDLL
 	
 	class DrawSoldier : public ThingsConverter
 	{
+
 
 
 
@@ -54,30 +65,21 @@ namespace RefrigtzDLL
 		bool MaxFound(bool MaxNotFound);
 		bool MaxFound(bool &MaxNotFound);
 		double ReturnHuristic();
-		//void* operator*(std::size_t idx);
+		////void* operator*(std::size_t idx);
 		static bool KingGrayNotCheckedByQuantumMove;
 
 		//Constructor 1.
-		/*DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments):ThingsConverter()
-		 {
-		     CurrentAStarGredyMax = CurrentAStarGredy;
-		     MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
-		     IgnoreSelfObjectsT = IgnoreSelfObject;
-		     UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
-		     BestMovmentsT = BestMovment;
-		     PredictHuristicT = PredictHurist;
-		     OnlySelfT = OnlySel;
-		     AStarGreedyHuristicT = AStarGreedyHuris;
-		     ArrangmentsChanged = Arrangments;
-		 }
-		*/
+		DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments);
+
 		//Constructor 2.		
 		DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int** Tab, int Ord, bool TB, int Cur);
+		void Clone(DrawSoldier * AA);
+		// :ThingsConverter(Arrangments, i, j, a, Tab, Ord, TB, Cur);
 	
 		//Clone a Copy Method.
 		//void Clone(DrawSoldier *&AA); //, ref AllDraw:: THIS
 		//Drawing Soldiers On the Table Method..
-		void DrawSoldierOnTable( int CellW, int CellH);
+		//void DrawSoldierOnTable( int CellW, int CellH);
 		
 	private:
 		void DrawSoldierOnTable(float CellW, float CellH);
