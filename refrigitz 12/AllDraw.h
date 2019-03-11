@@ -154,7 +154,7 @@ namespace RefrigtzDLL
 	//C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
 	//ORIGINAL LINE: [Serializable] class AllDraw
 
-	public class AllDraw
+	class AllDraw
 	{
 		
 	public:
@@ -349,6 +349,8 @@ struct Array {
 	 T *end()  { return &data[N]; }
 };*/
 	public:
+		static int MinThinkingDepth;
+		int CurS;
 		int RowS;
 		int ColumS;
 		std::vector<int**> TableList;
@@ -416,6 +418,7 @@ struct Array {
 		std::wstring CreateHtmlTag(std::wstring Tag);
 		void IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base);
 		AllDraw(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int** Tab, int Ord, bool TB, int Cur);
+		AllDraw(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments);
 		//Clone Copy Method
 		//void Clone(AllDraw& AA);
 //		int SumOfObjects(AllDraw A, int Order);
@@ -425,7 +428,7 @@ struct Array {
 
 
 		//Check For Thinking Of Current Item Movments Finished.
-		void BlitzGameThinkingSolderGray(double PreviousLessS, int * Index, int * jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
+		//void BlitzGameThinkingSolderGray(double PreviousLessS, int * Index, int * jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
 		//int** Initiate(int ii, int jj, int a, int** Table, int Order, bool TB, bool FOUND, int LeafAStarGreedy, bool SetDept = false);
 		/*void SetQuantumRowColumn(int Kind, int Section)
 		{
@@ -507,8 +510,9 @@ if (Kind == 2)
 	public:
 		bool IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckMate, int ForCheckMate, int AStarGreedyInt);		
 		AllDraw RemovePenalltyFromFirstBranches(int Order);
-		AllDraw FoundOfLeafDepenOfKind(int Kind, AllDraw& Leaf, bool & Found, int Order, int  OrderLeaf);
+		AllDraw* FoundOfLeafDepenOfKind(int Kind, AllDraw* Leaf, bool & Found, int Order, int  OrderLeaf);
 		AllDraw FoundOfCurrentTableNode(int **Tab, int Order, AllDraw &THIS, bool &Found);
+		
 		bool IsFoundOfLeafDepenOfKindhaveVictory(int Kind, bool &Found, int Order);
 		void MakeRegardAllCheckMateBranches(AllDraw A, int Order);
 		int** CloneATable(int** Tab);
@@ -542,14 +546,13 @@ if (Kind == 2)
 
 		//AStarGreedy First Huristic Method.
 	public:
-		void Clone(AllDraw &AA);
 		void Clone(AllDraw * AA);
 		bool AllCurrentAStarGreedyThinkingFinished(AllDraw Dum, int i, int j, int Kind);
 		//int** CloneATable(int** Tab);
 		int **HuristicAStarGreedySearch(int AStarGreedyi, int a, int Order, bool CurrentTableHuristic);
-		int **HuristicAStarGreedySearchPenalties(int AStarGreedyi, int a, int Order, bool CurrentTableHuristic);
+		//int **HuristicAStarGreedySearchPenalties(int AStarGreedyi, int a, int Order, bool CurrentTableHuristic);
 		//Genethic Algorithm Game Method.
-		void InitiateGenetic(int ii, int jj, int a, int **Table, int Order, bool TB);
+		//void InitiateGenetic(int ii, int jj, int a, int **Table, int Order, bool TB);
 		void InitiateAStarGreedytSodlerGray(int iii, int jjj, int **Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy);
 
 		//AStarGreedy First Initiat Thinking Main Method.
@@ -557,7 +560,7 @@ if (Kind == 2)
 		int** Initiate(int ii, int jj, int a, int** Table, int Order, bool TB, bool FOUND, int LeafAStarGreedy, bool SetDept);
 		//void StringHuristics(int Obj, int Sec, bool AA, int Do, int WinOcuuredatChiled, int LoseOcuuredatChiled);
 	public:
-		int ** HuristicAStarGreedyIntSearch(int AStarGreedyInti, int a, int Order, bool CurrentTableHuristic);
+		//int ** HuristicAStarGreedyIntSearch(int AStarGreedyInti, int a, int Order, bool CurrentTableHuristic);
 		//void InitiateAStarGreedytObjectGray(int iii, int jjj, int **Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy);
 		int MaxGrayMidle();
 		int MaxBrownHigh();
