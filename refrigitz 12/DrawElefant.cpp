@@ -1,7 +1,4 @@
-﻿#pragma once
-
-#include "DrawElefant.h"
-
+﻿#include "DrawElefant.h"
 
 namespace RefrigtzDLL
 {
@@ -154,8 +151,8 @@ const DrawElefant& DrawElefant::operator[] (const int index) const
 		for (int i = 0; i < AllDraw::ElefantMovments; i++)
 		{
 			
-				AA->ElefantThinking= ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
-				ElefantThinking.Clone(AA->ElefantThinking);
+				AA.ElefantThinking= ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
+				ElefantThinking.Clone(AA.ElefantThinking);
 			
 		}
 		AA->Table = new int*[8]; for (int ii = 0; ii < 8; ii++)AA->Table[ii] - new int[8];

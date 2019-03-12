@@ -1,17 +1,11 @@
 ﻿#pragma once
 
-#include "ThinkingChess.h"
 #include "ThingsConverter.h"
-
-#include <vector>
-#include <cmath>
-#include <float.h>
-#include <stdexcept>
-#include <sstream>
+#include "AllDraw.h"
+#include "ThinkingChess.h"
 #include <string>
-#include <stdio.h>
-#include <tchar.h>
-#include <cmath>
+#include <vector>
+#include <stdexcept>
 
 
 namespace RefrigtzDLL

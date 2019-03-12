@@ -1,6 +1,4 @@
-﻿#pragma once
-#include "DrawKing.h"
-//#include "AllDraw.h"
+﻿#include "DrawKing.h"
 
 namespace RefrigtzDLL
 {
@@ -148,8 +146,8 @@ double DrawKing::MaxHuristicxK = -20000000000000000;
 		//Initiate a Construction Object and Clone a Copy.
 		AA = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, color, Table, Order, false, Current);
 		AA->ArrangmentsChanged = ArrangmentsChanged;
-		AA->KingThinking = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
-		KingThinking.Clone(AA->KingThinking);
+		AA.KingThinking = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
+		KingThinking.Clone(AA.KingThinking);
 
 
 		AA->Table = new int*[8]; for (int ii = 0; ii < 8; ii++)AA->Table[ii] - new int[8];

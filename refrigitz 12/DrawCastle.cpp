@@ -1,6 +1,5 @@
-﻿#pragma once
+﻿#include "DrawCastle.h"
 
-#include "DrawCastle.h"
 namespace RefrigtzDLL
 {
 	inline bool operator==(const DrawCastle& lhs,  const std::nullptr_t& rhs) { return  (lhs == rhs); }
@@ -147,8 +146,8 @@ double DrawCastle::MaxHuristicxB = -20000000000000000;
 		AA->ArrangmentsChanged = ArrangmentsChanged;
 		for (int i = 0; i < AllDraw::CastleMovments; i++)
 		{
-				AA->CastleThinking= ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
-				CastleThinking.Clone(AA->CastleThinking);
+				AA.CastleThinking= ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
+				CastleThinking.Clone(AA.CastleThinking);
 			
 		}
 		AA->Table = new int*[8]; for (int ii = 0; ii < 8; ii++) AA->Table[ii] - new int[8];

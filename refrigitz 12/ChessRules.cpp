@@ -1,6 +1,8 @@
 ﻿
 #include "ChessRules.h"
-//#include "AllDraw.h
+#include "AllDraw.h"
+#include "ThinkingChess.h"
+#include "DrawKing.h"
 
 namespace RefrigtzDLL
 {

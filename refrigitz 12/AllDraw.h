@@ -1,5 +1,18 @@
-﻿//#pragma once
-#include "stdafx.h"
+﻿
+#pragma once
+
+#include "DrawSoldire.h"
+#include "DrawElefant.h"
+#include "DrawHourse.h"
+#include "DrawCastle.h"
+#include "DrawMinister.h"
+#include "DrawKing.h"
+#include <string>
+#include <vector>
+#include <cmath>
+#include <float.h>
+#include <stdexcept>
+#include "StringConverterHelper.h"
 /*******************************************************************************************
  * Initiate and Decision making class.******************************************************
  * Ramin Edjlal*****************************************************************************
@@ -355,12 +368,12 @@ struct Array {
 		int ColumS;
 		std::vector<int**> TableList;
 		int AStarGreedyInt;
-		DrawSoldier** SolderesOnTable;// [16];
-		DrawElefant** ElephantOnTable;// [4];
-		DrawHourse** HoursesOnTable;// [4];
-		DrawCastle** CastlesOnTable;// [4];
-		DrawMinister** MinisterOnTable;// [2];
-		DrawKing** KingOnTable;// [2];
+		std::vector<DrawSoldier> SolderesOnTable;// [16];
+		std::vector<DrawElefant> ElephantOnTable;// [4];
+		std::vector<DrawHourse> HoursesOnTable;// [4];
+		std::vector<DrawCastle> CastlesOnTable;// [4];
+		std::vector<DrawMinister> MinisterOnTable;// [2];
+		std::vector<DrawKing> KingOnTable;// [2];
 		/*std::vector<DrawSoldier> SolderesOnTable;
 		std::vector<DrawElefant> ElephantOnTable;
 		std::vector<DrawHourse> HoursesOnTable;
@@ -423,7 +436,7 @@ struct Array {
 		//void Clone(AllDraw& AA);
 //		int SumOfObjects(AllDraw A, int Order);
 		//aBlanck Constructor		
-		AllDraw(int Order, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, AllDraw THi);
+		//AllDraw(int Order, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, AllDraw THi);
 
 
 

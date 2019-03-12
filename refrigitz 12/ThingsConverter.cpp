@@ -1,5 +1,4 @@
-﻿
-#include "ThingsConverter.h"
+﻿#include "ThingsConverter.h"
 #include "AllDraw.h"
 
 

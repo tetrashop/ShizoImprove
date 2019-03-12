@@ -1,7 +1,11 @@
 ﻿#pragma once
 
+#include "AllDraw.h"
+#include "ThinkingChess.h"
+#include <string>
+#include <vector>
+#include <stdexcept>
 
-#include "stdafx.h"
 
 namespace RefrigtzDLL
 {

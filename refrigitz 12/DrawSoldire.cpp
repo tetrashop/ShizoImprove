@@ -1,7 +1,8 @@
-﻿#pragma once
-
-#include "DrawSoldire.h"
-
+﻿#include "DrawSoldire.h"
+#include "DrawMinister.h"
+#include "DrawCastle.h"
+#include "DrawHourse.h"
+#include "DrawElefant.h"
 
 namespace RefrigtzDLL
 {
@@ -76,6 +77,7 @@ const DrawSoldier& DrawSoldier::operator[] (const int index) const
 		a += SoldierThinking.ReturnHuristic(-1, -1, Order, false);
 		return a;
 	}
+	
 	DrawSoldier::DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments) :ThingsConverter()
 	{
 		CurrentAStarGredyMax = CurrentAStarGredy;
@@ -138,8 +140,8 @@ const DrawSoldier& DrawSoldier::operator[] (const int index) const
 
 		AA = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, color, Tab, Order, false, Current);
 		AA->ArrangmentsChanged = ArrangmentsChanged;
-		AA->SoldierThinking = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
-		SoldierThinking.Clone(AA->SoldierThinking);
+		AA.SoldierThinking = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
+		SoldierThinking.Clone(AA.SoldierThinking);
 		AA->Table = new int*[8]; for (int ii = 0; ii < 8; ii++)AA->Table[ii] - new int[8];
 		for (int ii = 0; ii < 8; ii++)
 		{

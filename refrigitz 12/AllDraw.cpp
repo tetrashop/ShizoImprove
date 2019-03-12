@@ -1,7 +1,10 @@
-﻿
-#include "AllDraw.h"
-
-
+﻿#include "AllDraw.h"
+#include "ChessRules.h"
+#include "ThinkingChess.h"
+#include "ThingsConverter.h"
+//#include "CodeClass.h"
+//#include "ChessGeneticAlgorithm.h"
+//#include "PlatformHelper.h"
 
 namespace RefrigtzDLL
 {
@@ -20,7 +23,7 @@ namespace RefrigtzDLL
 	inline bool operator!=(const DrawMinister& lhs, const std::nullptr_t& rhs) { return !(lhs == rhs); }
 	inline bool operator==(const DrawKing& lhs, const std::nullptr_t& rhs) { return (lhs == rhs); }
 	inline bool operator!=(const DrawKing& lhs, const std::nullptr_t& rhs) { return !(lhs == rhs); }
-
+	
 //template<typename T>
 int  AllDraw::DepthIterative = 0;
 std::wstring AllDraw::OutPut = L"";
@@ -208,12 +211,12 @@ AllDraw::AllDraw(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, b
 	//AStarGreedyIndex = new int[20];
 	AStarGreedyInt = 0;
 	MaxDuringLevelThinkingCreation = StringConverterHelper::fromString<int>(AllDraw::THIScomboBoxMaxLevelText);
-	SolderesOnTable = new DrawSoldier*[SodierHigh];
-	ElephantOnTable = new DrawElefant*[ElefantHigh];
-	HoursesOnTable = new DrawHourse*[HourseHight];
-	CastlesOnTable = new DrawCastle*[CastleHigh];
-	MinisterOnTable = new DrawMinister*[MinisterHigh];
-	KingOnTable = new DrawKing*[KingHigh];
+	SolderesOnTable = new DrawSoldier[SodierHigh];
+	ElephantOnTable = new DrawElefant[ElefantHigh];
+	HoursesOnTable = new DrawHourse[HourseHight];
+	CastlesOnTable = new DrawCastle[CastleHigh];
+	MinisterOnTable = new DrawMinister[MinisterHigh];
+	KingOnTable = new DrawKing[KingHigh];
 
 	/*SolderesOnTable = DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
 	SolderesOnTable= new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
@@ -223,17 +226,17 @@ AllDraw::AllDraw(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, b
 	KingOnTable = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
 	*/
 	for (int i = 0; i < SodierHigh; i++)
-		SolderesOnTable[i] = new DrawSoldier(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments, i, j, a, Tab, Ord, TB, Cur);
+		SolderesOnTable[i] = DrawSoldier(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments, i, j, a, Tab, Ord, TB, Cur);
 	for (int i = 0; i < ElefantHigh; i++)
-		ElephantOnTable[i] = new DrawElefant(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments, i, j, a, Tab, Ord, TB, Cur);
+		ElephantOnTable[i] = DrawElefant(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments, i, j, a, Tab, Ord, TB, Cur);
 	for (int i = 0; i < HourseHight; i++)
-		HoursesOnTable[i] = new DrawHourse(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments, i, j, a, Tab, Ord, TB, Cur);
+		HoursesOnTable[i] = DrawHourse(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments, i, j, a, Tab, Ord, TB, Cur);
 	for (int i = 0; i < CastleMidle; i++)
-		CastlesOnTable[i] = new DrawCastle(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments, i, j, a, Tab, Ord, TB, Cur);
+		CastlesOnTable[i] = DrawCastle(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments, i, j, a, Tab, Ord, TB, Cur);
 	for (int i = 0; i <MinisterHigh; i++)
-		MinisterOnTable[i] = new DrawMinister(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments, i, j, a, Tab, Ord, TB, Cur);
+		MinisterOnTable[i] =DrawMinister(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments, i, j, a, Tab, Ord, TB, Cur);
 	for (int i = 0; i < KingHigh; i++)
-		KingOnTable[i] = new DrawKing(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments, i, j, a, Tab, Ord, TB, Cur);
+		KingOnTable[i] =  DrawKing(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments, i, j, a, Tab, Ord, TB, Cur);
 
 }
 AllDraw::AllDraw(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
@@ -606,7 +609,7 @@ float *AllDraw::FoundLocationOfObject(int **Tabl, int Kind, bool IsGray)
 			{
 				//try
 				{
-					SolderesOnTable[i]->Clone(AA->SolderesOnTable[i]);
+					SolderesOnTable[i].Clone(AA->SolderesOnTable[i]);
 				}
 				//catch(std::exception &t)
 				{
@@ -618,7 +621,7 @@ float *AllDraw::FoundLocationOfObject(int **Tabl, int Kind, bool IsGray)
 			{
 				//try
 				{
-					SolderesOnTable[i]->Clone((AA->SolderesOnTable[i]));
+					SolderesOnTable[i].Clone((AA->SolderesOnTable[i]));
 
 				}
 				//catch(std::exception &t)
@@ -631,7 +634,7 @@ float *AllDraw::FoundLocationOfObject(int **Tabl, int Kind, bool IsGray)
 			{
 				//try
 				{
-					HoursesOnTable[i]->Clone((AA->HoursesOnTable[i]));
+					HoursesOnTable[i].Clone((AA->HoursesOnTable[i]));
 
 				}
 				//catch(std::exception &t)
@@ -644,7 +647,7 @@ float *AllDraw::FoundLocationOfObject(int **Tabl, int Kind, bool IsGray)
 			{
 				//try
 				{
-					CastlesOnTable[i]->Clone((AA->CastlesOnTable[i]));
+					CastlesOnTable[i].Clone((AA->CastlesOnTable[i]));
 
 				}
 				//catch(std::exception &t)
@@ -657,7 +660,7 @@ float *AllDraw::FoundLocationOfObject(int **Tabl, int Kind, bool IsGray)
 			{
 				//try
 				{
-					MinisterOnTable[i]->Clone((AA->MinisterOnTable[i]));
+					MinisterOnTable[i].Clone((AA->MinisterOnTable[i]));
 
 				}
 				//catch(std::exception &t)
@@ -670,7 +673,7 @@ float *AllDraw::FoundLocationOfObject(int **Tabl, int Kind, bool IsGray)
 			{
 				//try
 				{
-					KingOnTable[i]->Clone((AA->KingOnTable[i]));
+					KingOnTable[i].Clone((AA->KingOnTable[i]));
 
 				}
 				//catch(std::exception &t)
@@ -704,7 +707,7 @@ bool AllDraw::AllCurrentAStarGreedyThinkingFinished(AllDraw Dum, int i, int j, i
 	if (Kind == 1)
 	{
 
-		if (Dum.SolderesOnTable[i]->SoldierThinking.ThinkingFinished)
+		if (Dum.SolderesOnTable[i].SoldierThinking.ThinkingFinished)
 		{
 			return true;
 		}
@@ -712,7 +715,7 @@ bool AllDraw::AllCurrentAStarGreedyThinkingFinished(AllDraw Dum, int i, int j, i
 	//For Elephant
 	else if (Kind == 2)
 	{
-		if (Dum.ElephantOnTable[i]->ElefantThinking.ThinkingFinished)
+		if (Dum.ElephantOnTable[i].ElefantThinking.ThinkingFinished)
 		{
 			return true;
 		}
@@ -720,7 +723,7 @@ bool AllDraw::AllCurrentAStarGreedyThinkingFinished(AllDraw Dum, int i, int j, i
 	//For Hourse.
 	else if (Kind == 3)
 	{
-		if (Dum.HoursesOnTable[i]->HourseThinking.ThinkingFinished)
+		if (Dum.HoursesOnTable[i].HourseThinking.ThinkingFinished)
 		{
 			return true;
 		}
@@ -728,7 +731,7 @@ bool AllDraw::AllCurrentAStarGreedyThinkingFinished(AllDraw Dum, int i, int j, i
 	//For Castles.
 	else if (Kind == 4)
 	{
-		if (Dum.CastlesOnTable[i]->CastleThinking.ThinkingFinished)
+		if (Dum.CastlesOnTable[i].CastleThinking.ThinkingFinished)
 		{
 			return true;
 		}
@@ -736,7 +739,7 @@ bool AllDraw::AllCurrentAStarGreedyThinkingFinished(AllDraw Dum, int i, int j, i
 	//For Minsters.
 	else if (Kind == 5)
 	{
-		if (Dum.MinisterOnTable[i]->MinisterThinking.ThinkingFinished)
+		if (Dum.MinisterOnTable[i].MinisterThinking.ThinkingFinished)
 		{
 			return true;
 		}
@@ -744,7 +747,7 @@ bool AllDraw::AllCurrentAStarGreedyThinkingFinished(AllDraw Dum, int i, int j, i
 	//For Kings.
 	else if (Kind == 6)
 	{
-		if (Dum.KingOnTable[i]->KingThinking.ThinkingFinished)
+		if (Dum.KingOnTable[i].KingThinking.ThinkingFinished)
 		{
 			return true;
 		}
@@ -1388,11 +1391,11 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 		//For Solderis.
 		for (int i = 0; i < SodierMidle; i++)
 		{
-			for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i]->SoldierThinking) != nullptr) && j < SolderesOnTable[i]->SoldierThinking.TableListSolder.size(); j++)
+			for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && j < SolderesOnTable[i].SoldierThinking.TableListSolder.size(); j++)
 			{
 
 				//When there is Brown checked mate.
-				if (SolderesOnTable[i]->SoldierThinking.CheckMateAStarGreedy == -1)
+				if (SolderesOnTable[i].SoldierThinking.CheckMateAStarGreedy == -1)
 				{
 					//Set.
 					ForCheckMate = AStarGreedyInt;
@@ -1407,7 +1410,7 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 				else
 				{
 					//When there is Gray Checked mate.
-					if (SolderesOnTable[i]->SoldierThinking.CheckMateAStarGreedy == 1)
+					if (SolderesOnTable[i].SoldierThinking.CheckMateAStarGreedy == 1)
 					{
 						ForCheckMate = AStarGreedyInt;
 						if (ForCheckMate >= 0)
@@ -1420,20 +1423,20 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 					}
 				}
 				Order *= -1;
-				for (int ii = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i]->SoldierThinking) != nullptr) && ii < SolderesOnTable[i]->SoldierThinking.AStarGreedy.size(); ii++)
+				for (int ii = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && ii < SolderesOnTable[i].SoldierThinking.AStarGreedy.size(); ii++)
 				{
-					AA = AA || SolderesOnTable[i]->SoldierThinking.AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
+					AA = AA || SolderesOnTable[i].SoldierThinking.AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
 				}
 				Order = CDummy;
 			}
 		}
 		for (int i = 0; i < ElefantMidle; i++)
 		{
-			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i]->ElefantThinking) != nullptr) && j < ElephantOnTable[i]->ElefantThinking.TableListElefant.size(); j++)
+			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && j < ElephantOnTable[i].ElefantThinking.TableListElefant.size(); j++)
 			{
 
 				//When there is Brown checked mate.
-				if (ElephantOnTable[i]->ElefantThinking.CheckMateAStarGreedy == -1)
+				if (ElephantOnTable[i].ElefantThinking.CheckMateAStarGreedy == -1)
 				{
 					ForCheckMate = AStarGreedyInt;
 					if (ToCheckMate >= 0)
@@ -1450,7 +1453,7 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 				else
 				{
 					//When there is Gray Checked mate.
-					if (ElephantOnTable[i]->ElefantThinking.CheckMateAStarGreedy == 1)
+					if (ElephantOnTable[i].ElefantThinking.CheckMateAStarGreedy == 1)
 					{
 						ForCheckMate = AStarGreedyInt;
 						if (ForCheckMate >= 0)
@@ -1463,20 +1466,20 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 					}
 				}
 				Order *= -1;
-				for (int ii = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i]->ElefantThinking) != nullptr) && ii < ElephantOnTable[i]->ElefantThinking.AStarGreedy.size();ii++)
+				for (int ii = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && ii < ElephantOnTable[i].ElefantThinking.AStarGreedy.size();ii++)
 				{
-					AA = AA || ElephantOnTable[i]->ElefantThinking.AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
+					AA = AA || ElephantOnTable[i].ElefantThinking.AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
 				}
 				Order = CDummy;
 			}
 		}
 		for (int i = 0; i < HourseMidle; i++)
 		{
-			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i]->HourseThinking) != nullptr) && j < HoursesOnTable[i]->HourseThinking.TableListHourse.size(); j++)
+			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && j < HoursesOnTable[i].HourseThinking.TableListHourse.size(); j++)
 			{
 
 				//When there is Brown checked mate.
-				if (HoursesOnTable[i]->HourseThinking.CheckMateAStarGreedy == -1)
+				if (HoursesOnTable[i].HourseThinking.CheckMateAStarGreedy == -1)
 				{
 					ForCheckMate = AStarGreedyInt;
 					if (ToCheckMate >= 0)
@@ -1490,7 +1493,7 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 				else
 				{
 					//When there is Gray Checked mate.
-					if (HoursesOnTable[i]->HourseThinking.CheckMateAStarGreedy == 1)
+					if (HoursesOnTable[i].HourseThinking.CheckMateAStarGreedy == 1)
 					{
 						ForCheckMate = AStarGreedyInt;
 						if (ForCheckMate >= 0)
@@ -1503,21 +1506,21 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 					}
 				}
 				Order *= -1;
-				for (int ii = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i]->HourseThinking) != nullptr) && ii < HoursesOnTable[i]->HourseThinking.AStarGreedy.size();ii++)
+				for (int ii = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && ii < HoursesOnTable[i].HourseThinking.AStarGreedy.size();ii++)
 				{
-					AA = AA || HoursesOnTable[i]->HourseThinking.AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
+					AA = AA || HoursesOnTable[i].HourseThinking.AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
 				}
 				Order = CDummy;
 			}
 		}
 		for (int i = 0; i < CastleMidle; i++)
 		{
-			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i]->CastleThinking) != nullptr) && j < CastlesOnTable[i]->CastleThinking.TableListCastle.size(); j++)
+			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && j < CastlesOnTable[i].CastleThinking.TableListCastle.size(); j++)
 			{
 
 				{
 					//When there is Brown checked mate.
-					if (CastlesOnTable[i]->CastleThinking.CheckMateAStarGreedy == -1)
+					if (CastlesOnTable[i].CastleThinking.CheckMateAStarGreedy == -1)
 					{
 						ForCheckMate = AStarGreedyInt;
 						if (ToCheckMate >= 0)
@@ -1531,7 +1534,7 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 					else
 					{
 						//When there is Gray Checked mate.
-						if (CastlesOnTable[i]->CastleThinking.CheckMateAStarGreedy == 1)
+						if (CastlesOnTable[i].CastleThinking.CheckMateAStarGreedy == 1)
 						{
 							ForCheckMate = AStarGreedyInt;
 							if (ForCheckMate >= 0)
@@ -1545,20 +1548,20 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 					}
 				}
 				Order *= -1;
-				for (int ii = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i]->CastleThinking) != nullptr) && ii <CastlesOnTable[i]->CastleThinking.AStarGreedy.size();ii++)
+				for (int ii = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && ii <CastlesOnTable[i].CastleThinking.AStarGreedy.size();ii++)
 				{
-					AA = AA || CastlesOnTable[i]->CastleThinking.AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
+					AA = AA || CastlesOnTable[i].CastleThinking.AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
 				}
 				Order = CDummy;
 			}
 		}
 		for (int i = 0; i < MinisterMidle; i++)
 		{
-			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i]->MinisterThinking) != nullptr) && j <MinisterOnTable[i]->MinisterThinking.TableListMinister.size(); j++)
+			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && j <MinisterOnTable[i].MinisterThinking.TableListMinister.size(); j++)
 			{
 
 				//When there is Brown checked mate.
-				if (MinisterOnTable[i]->MinisterThinking.CheckMateAStarGreedy == -1)
+				if (MinisterOnTable[i].MinisterThinking.CheckMateAStarGreedy == -1)
 				{
 					ForCheckMate = AStarGreedyInt;
 					if (ToCheckMate >= 0)
@@ -1572,7 +1575,7 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 				else
 				{
 					//When there is Gray Checked mate.
-					if (MinisterOnTable[i]->MinisterThinking.CheckMateAStarGreedy == 1)
+					if (MinisterOnTable[i].MinisterThinking.CheckMateAStarGreedy == 1)
 					{
 						ForCheckMate = AStarGreedyInt;
 						if (ForCheckMate >= 0)
@@ -1587,20 +1590,20 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 					}
 				}
 				Order *= -1;
-				for (int ii = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i]->MinisterThinking) != nullptr) && ii <MinisterOnTable[i]->MinisterThinking.AStarGreedy.size();ii++)
+				for (int ii = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && ii <MinisterOnTable[i].MinisterThinking.AStarGreedy.size();ii++)
 				{
-					AA = AA || MinisterOnTable[i]->MinisterThinking.AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
+					AA = AA || MinisterOnTable[i].MinisterThinking.AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
 				}
 				Order = CDummy;
 			}
 		}	
 		for (int i = 0; i < KingMidle; i++)
 		{
-			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i]->KingThinking) != nullptr) && j < KingOnTable[i]->KingThinking.TableListKing.size(); j++)
+			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && j < KingOnTable[i].KingThinking.TableListKing.size(); j++)
 			{
 
 				//When there is Brown checked mate.
-				if (KingOnTable[i]->KingThinking.CheckMateAStarGreedy == -1)
+				if (KingOnTable[i].KingThinking.CheckMateAStarGreedy == -1)
 				{
 					ForCheckMate = AStarGreedyInt;
 					if (ToCheckMate >= 0)
@@ -1614,7 +1617,7 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 				else
 				{
 					//When there is Gray Checked mate.
-					if (KingOnTable[i]->KingThinking.CheckMateAStarGreedy == 1)
+					if (KingOnTable[i].KingThinking.CheckMateAStarGreedy == 1)
 					{
 						ForCheckMate = AStarGreedyInt;
 						if (ForCheckMate >= 0)
@@ -1627,9 +1630,9 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 					}
 				}
 				Order *= -1;
-				for (int ii = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i]->KingThinking) != nullptr) && ii < KingOnTable[i]->KingThinking.AStarGreedy.size();ii++)
+				for (int ii = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && ii < KingOnTable[i].KingThinking.AStarGreedy.size();ii++)
 				{
-					AA = AA || KingOnTable[i]->KingThinking.AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
+					AA = AA || KingOnTable[i].KingThinking.AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
 				}
 				Order = CDummy;
 			}
@@ -1640,12 +1643,12 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 		//ChessRules::CurrentOrder = -1;
 		for (int i = SodierMidle; i < SodierHigh; i++)
 		{
-			for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i]->SoldierThinking) != nullptr) && j< SolderesOnTable[i]->SoldierThinking.TableListSolder.size(); j++)
+			for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && j< SolderesOnTable[i].SoldierThinking.TableListSolder.size(); j++)
 			{
 
 				{
 					//When there is Brown checked mate.
-					if (SolderesOnTable[i]->SoldierThinking.CheckMateAStarGreedy == -1)
+					if (SolderesOnTable[i].SoldierThinking.CheckMateAStarGreedy == -1)
 					{
 						ForCheckMate = AStarGreedyInt;
 						if (ToCheckMate >= 0)
@@ -1659,7 +1662,7 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 					else
 					{
 						//When there is Gray Checked mate.
-						if (SolderesOnTable[i]->SoldierThinking.CheckMateAStarGreedy == 1)
+						if (SolderesOnTable[i].SoldierThinking.CheckMateAStarGreedy == 1)
 						{
 							ForCheckMate = AStarGreedyInt;
 							if (ForCheckMate >= 0)
@@ -1673,20 +1676,20 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 					}
 				}
 				Order *= -1;
-				for (int ii = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i]->SoldierThinking) != nullptr) && ii < SolderesOnTable[i]->SoldierThinking.AStarGreedy.size(); ii++)
+				for (int ii = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && ii < SolderesOnTable[i].SoldierThinking.AStarGreedy.size(); ii++)
 				{
-					AA = AA || SolderesOnTable[i]->SoldierThinking.AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
+					AA = AA || SolderesOnTable[i].SoldierThinking.AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
 				}
 				Order = CDummy;
 			}
 		}
 		for (int i = ElefantMidle; i < ElefantHigh; i++)
 		{
-			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i]->ElefantThinking) != nullptr) && j < ElephantOnTable[i]->ElefantThinking.TableListElefant.size(); j++)
+			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && j < ElephantOnTable[i].ElefantThinking.TableListElefant.size(); j++)
 			{
 
 				//When there is Brown checked mate.
-				if (ElephantOnTable[i]->ElefantThinking.CheckMateAStarGreedy == -1)
+				if (ElephantOnTable[i].ElefantThinking.CheckMateAStarGreedy == -1)
 				{
 					ForCheckMate = AStarGreedyInt;
 					if (ToCheckMate >= 0)
@@ -1700,7 +1703,7 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 				else
 				{
 					//When there is Gray Checked mate.
-					if (ElephantOnTable[i]->ElefantThinking.CheckMateAStarGreedy == 1)
+					if (ElephantOnTable[i].ElefantThinking.CheckMateAStarGreedy == 1)
 					{
 						ForCheckMate = AStarGreedyInt;
 						if (ForCheckMate >= 0)
@@ -1713,19 +1716,19 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 					}
 				}
 				Order *= -1;
-				for (int ii = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i]->ElefantThinking) != nullptr) && ii < ElephantOnTable[i]->ElefantThinking.AStarGreedy.size();ii++)
+				for (int ii = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && ii < ElephantOnTable[i].ElefantThinking.AStarGreedy.size();ii++)
 				{
-					AA = AA || ElephantOnTable[i]->ElefantThinking.AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
+					AA = AA || ElephantOnTable[i].ElefantThinking.AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
 				}
 				Order = CDummy;
 			}
 		}
 		for (int i = HourseMidle; i < HourseHight; i++)
 		{
-			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i]->HourseThinking) != nullptr) && j < HoursesOnTable[i]->HourseThinking.TableListHourse.size(); j++)
+			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && j < HoursesOnTable[i].HourseThinking.TableListHourse.size(); j++)
 			{
 
-				if (HoursesOnTable[i]->HourseThinking.CheckMateAStarGreedy == -1)
+				if (HoursesOnTable[i].HourseThinking.CheckMateAStarGreedy == -1)
 				{
 					ForCheckMate = AStarGreedyInt;
 					if (ToCheckMate >= 0)
@@ -1739,7 +1742,7 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 				else
 				{
 					//When there is Gray Checked mate.
-					if (HoursesOnTable[i]->HourseThinking.CheckMateAStarGreedy == 1)
+					if (HoursesOnTable[i].HourseThinking.CheckMateAStarGreedy == 1)
 					{
 						ForCheckMate = AStarGreedyInt;
 						if (ForCheckMate >= 0)
@@ -1752,20 +1755,20 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 					}
 				}
 				Order *= -1;
-				for (int ii = 0; (KingOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i]->HourseThinking) != nullptr) && ii < HoursesOnTable[i]->HourseThinking.AStarGreedy.size(); ii++)
+				for (int ii = 0; (KingOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && ii < HoursesOnTable[i].HourseThinking.AStarGreedy.size(); ii++)
 				{
-					AA = AA || HoursesOnTable[i]->HourseThinking.AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
+					AA = AA || HoursesOnTable[i].HourseThinking.AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
 				}
 				Order = CDummy;
 			}
 		}
 		for (int i = CastleMidle; i < CastleHigh; i++)
 		{
-			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i]->CastleThinking) != nullptr) &&j<CastlesOnTable[i]->CastleThinking.TableListCastle.size(); j++)
+			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) &&j<CastlesOnTable[i].CastleThinking.TableListCastle.size(); j++)
 			{
 
 				//When there is Brown checked mate.
-				if (CastlesOnTable[i]->CastleThinking.CheckMateAStarGreedy == -1)
+				if (CastlesOnTable[i].CastleThinking.CheckMateAStarGreedy == -1)
 				{
 					ForCheckMate = AStarGreedyInt;
 					if (ToCheckMate >= 0)
@@ -1779,7 +1782,7 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 				else
 				{
 					//When there is Gray Checked mate.
-					if (CastlesOnTable[i]->CastleThinking.CheckMateAStarGreedy == 1)
+					if (CastlesOnTable[i].CastleThinking.CheckMateAStarGreedy == 1)
 					{
 						ForCheckMate = AStarGreedyInt;
 						if (ForCheckMate >= 0)
@@ -1792,20 +1795,20 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 					}
 				}
 				Order *= -1;
-				for (int ii = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i]->CastleThinking) != nullptr) && ii < CastlesOnTable[i]->CastleThinking.AStarGreedy.size();ii++)
+				for (int ii = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && ii < CastlesOnTable[i].CastleThinking.AStarGreedy.size();ii++)
 				{
-					AA = AA || CastlesOnTable[i]->CastleThinking.AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
+					AA = AA || CastlesOnTable[i].CastleThinking.AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
 				}
 				Order = CDummy;
 			}
 		}
 		for (int i = MinisterMidle; i < MinisterHigh; i++)
 		{
-			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i]->MinisterThinking) != nullptr) &&j < MinisterOnTable[i]->MinisterThinking.TableListMinister.size(); j++)
+			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) &&j < MinisterOnTable[i].MinisterThinking.TableListMinister.size(); j++)
 			{
 
 				//When there is Brown checked mate.
-				if (MinisterOnTable[i]->MinisterThinking.CheckMateAStarGreedy == -1)
+				if (MinisterOnTable[i].MinisterThinking.CheckMateAStarGreedy == -1)
 				{
 					ForCheckMate = AStarGreedyInt;
 					if (ToCheckMate >= 0)
@@ -1819,7 +1822,7 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 				else
 				{
 					//When there is Gray Checked mate.
-					if (MinisterOnTable[i]->MinisterThinking.CheckMateAStarGreedy == 1)
+					if (MinisterOnTable[i].MinisterThinking.CheckMateAStarGreedy == 1)
 					{
 						ForCheckMate = AStarGreedyInt;
 						if (ForCheckMate >= 0)
@@ -1833,21 +1836,21 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 				}
 
 				Order *= -1;
-				for (int ii = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i]->MinisterThinking) != nullptr) && ii < MinisterOnTable[i]->MinisterThinking.AStarGreedy.size();ii++)
+				for (int ii = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && ii < MinisterOnTable[i].MinisterThinking.AStarGreedy.size();ii++)
 				{
-					AA = AA || MinisterOnTable[i]->MinisterThinking.AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
+					AA = AA || MinisterOnTable[i].MinisterThinking.AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
 				}
 				Order = CDummy;
 			}
 		}
 		for (int i = KingMidle; i < KingHigh; i++)
 		{
-			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i]->KingThinking) != nullptr) && j < KingOnTable[i]->KingThinking.TableListKing.size(); j++)
+			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && j < KingOnTable[i].KingThinking.TableListKing.size(); j++)
 			{
 
 				{
 					//When there is Brown checked mate.
-					if (KingOnTable[i]->KingThinking.CheckMateAStarGreedy == -1)
+					if (KingOnTable[i].KingThinking.CheckMateAStarGreedy == -1)
 					{
 						ForCheckMate = AStarGreedyInt;
 						if (ToCheckMate >= 0)
@@ -1861,7 +1864,7 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 					else
 					{
 						//When there is Gray Checked mate.
-						if (KingOnTable[i]->KingThinking.CheckMateAStarGreedy == 1)
+						if (KingOnTable[i].KingThinking.CheckMateAStarGreedy == 1)
 						{
 							ForCheckMate = AStarGreedyInt;
 							if (ForCheckMate >= 0)
@@ -1876,9 +1879,9 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 
 				}
 				Order *= -1;
-				for (int ii = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i]->KingThinking) != nullptr) && ii < KingOnTable[i]->KingThinking.AStarGreedy.size();ii++)
+				for (int ii = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && ii < KingOnTable[i].KingThinking.AStarGreedy.size();ii++)
 				{
-					AA = AA || KingOnTable[i]->KingThinking.AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
+					AA = AA || KingOnTable[i].KingThinking.AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
 				}
 				Order = CDummy;
 			}
@@ -1905,13 +1908,13 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 		//For  Soldeirs.
 		for (int i = 0; i < SodierMidle; i++)
 		{
-			for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i]->SoldierThinking) != nullptr) && j < SolderesOnTable[i]->SoldierThinking.TableListSolder.size(); j++)
+			for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && j < SolderesOnTable[i].SoldierThinking.TableListSolder.size(); j++)
 			{
 		
 					//Create Rules Objects For Soldiers.
-					AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, SolderesOnTable[i]->SoldierThinking.TableListSolder[j][SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][0]][SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][1]], SolderesOnTable[i]->SoldierThinking.TableListSolder[j], Order, SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][0], SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][1]);
+					AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, SolderesOnTable[i].SoldierThinking.TableListSolder[j][SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][0]][SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][1]], SolderesOnTable[i].SoldierThinking.TableListSolder[j], Order, SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][1]);
 					//When CheckMate Occured for Current Sodiers
-					if (AA->CheckMate(SolderesOnTable[i]->SoldierThinking.TableListSolder[j], Order))
+					if (AA->CheckMate(SolderesOnTable[i].SoldierThinking.TableListSolder[j], Order))
 					{
 						//When Self CheckMate
 						if (AllDraw::OrderPlate == 1 && AA->CheckMateGray)
@@ -1919,7 +1922,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 							//Return Ignore
 							(Do) = -1;
 							//Set Superposition.
-							SolderesOnTable[i]->SoldierThinking.CheckMateAStarGreedy = -1;
+							SolderesOnTable[i].SoldierThinking.CheckMateAStarGreedy = -1;
 							//Penalty Subbranchs.
 							MakePenaltyAllCheckMateBranches(Base, AllDraw::OrderPlate);
 						}
@@ -1933,7 +1936,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 								//Regard Subbranchs.
 								MakeRegardAllCheckMateBranches(Base, AllDraw::OrderPlate);
 								//Set Superpostion.
-								SolderesOnTable[i]->SoldierThinking.CheckMateAStarGreedy = 1;
+								SolderesOnTable[i].SoldierThinking.CheckMateAStarGreedy = 1;
 							}
 						}
 					}
@@ -1942,9 +1945,9 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 					Order *= -1;
 					ChessRules::CurrentOrder *= -1;
 					//For Subbranchs.
-					for (int ii = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i]->SoldierThinking) != nullptr) && ii < SolderesOnTable[i]->SoldierThinking.AStarGreedy.size();ii++)
+					for (int ii = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && ii < SolderesOnTable[i].SoldierThinking.AStarGreedy.size();ii++)
 					{
-						SolderesOnTable[i]->SoldierThinking.AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
+						SolderesOnTable[i].SoldierThinking.AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
 					}
 					Order = COrder;
 					ChessRules::CurrentOrder = CDummy;
@@ -1955,13 +1958,13 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 		//For Elephant.
 		for (int i = 0; i < ElefantMidle; i++)
 		{
-			for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i]->ElefantThinking) != nullptr) && j <ElephantOnTable[i]->ElefantThinking.TableListElefant.size(); j++)
+			for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && j <ElephantOnTable[i].ElefantThinking.TableListElefant.size(); j++)
 			{
 
 					//Create Elephant Rules.
-					AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ElephantOnTable[i]->ElefantThinking.TableListElefant[j][ElephantOnTable[i]->ElefantThinking.RowColumnElefant[j][0]][ElephantOnTable[i]->ElefantThinking.RowColumnElefant[j][1]], ElephantOnTable[i]->ElefantThinking.TableListElefant[j], Order, ElephantOnTable[i]->ElefantThinking.RowColumnElefant[j][0], ElephantOnTable[i]->ElefantThinking.RowColumnElefant[j][1]);
+					AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ElephantOnTable[i].ElefantThinking.TableListElefant[j][ElephantOnTable[i].ElefantThinking.RowColumnElefant[j][0]][ElephantOnTable[i].ElefantThinking.RowColumnElefant[j][1]], ElephantOnTable[i].ElefantThinking.TableListElefant[j], Order, ElephantOnTable[i].ElefantThinking.RowColumnElefant[j][0], ElephantOnTable[i].ElefantThinking.RowColumnElefant[j][1]);
 					//When CheckMate Occured for Current Elephant.
-					if (AA->CheckMate(ElephantOnTable[i]->ElefantThinking.TableListElefant[j], Order))
+					if (AA->CheckMate(ElephantOnTable[i].ElefantThinking.TableListElefant[j], Order))
 					{
 						//For Self Order CheckMate.
 						if (AllDraw::OrderPlate == 1 && AA->CheckMateGray)
@@ -1969,7 +1972,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 							//Set Penalty Ignore.
 							(Do) = -1;
 							//Set Superposition.
-							ElephantOnTable[i]->ElefantThinking.CheckMateAStarGreedy = -1;
+							ElephantOnTable[i].ElefantThinking.CheckMateAStarGreedy = -1;
 							//Penalty Subbranchs.
 							MakePenaltyAllCheckMateBranches(Base, AllDraw::OrderPlate);
 						}
@@ -1983,7 +1986,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 								//Regard Subolders.
 								MakeRegardAllCheckMateBranches(Base, AllDraw::OrderPlate);
 								//Set Superposition.
-								ElephantOnTable[i]->ElefantThinking.CheckMateAStarGreedy = 1;
+								ElephantOnTable[i].ElefantThinking.CheckMateAStarGreedy = 1;
 							}
 						}
 					}
@@ -1993,9 +1996,9 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 					Order *= -1;
 					ChessRules::CurrentOrder *= -1;
 					//For Subbranchs.
-					for (int ii = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i]->ElefantThinking) != nullptr) && ii < ElephantOnTable[i]->ElefantThinking.AStarGreedy.size();ii++)
+					for (int ii = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && ii < ElephantOnTable[i].ElefantThinking.AStarGreedy.size();ii++)
 					{
-						ElephantOnTable[i]->ElefantThinking.AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
+						ElephantOnTable[i].ElefantThinking.AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
 					}
 					Order = COrder;
 					ChessRules::CurrentOrder = CDummy;
@@ -2005,14 +2008,14 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 		//For Hourse.
 		for (int i = 0; i < HourseMidle; i++)
 		{
-			for (int j = 0; (HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i]->HourseThinking) != nullptr) && j < HoursesOnTable[i]->HourseThinking.TableListHourse.size(); j++)
+			for (int j = 0; (HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && j < HoursesOnTable[i].HourseThinking.TableListHourse.size(); j++)
 			{
 
 				
 					//Set Hourse Rules Objects.
-					AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, HoursesOnTable[i]->HourseThinking.TableListHourse[j][HoursesOnTable[i]->HourseThinking.RowColumnHourse[j][0]][HoursesOnTable[i]->HourseThinking.RowColumnHourse[j][1]], HoursesOnTable[i]->HourseThinking.TableListHourse[j], Order, HoursesOnTable[i]->HourseThinking.RowColumnHourse[j][0], HoursesOnTable[i]->HourseThinking.RowColumnHourse[j][1]);
+					AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, HoursesOnTable[i].HourseThinking.TableListHourse[j][HoursesOnTable[i].HourseThinking.RowColumnHourse[j][0]][HoursesOnTable[i].HourseThinking.RowColumnHourse[j][1]], HoursesOnTable[i].HourseThinking.TableListHourse[j], Order, HoursesOnTable[i].HourseThinking.RowColumnHourse[j][0], HoursesOnTable[i].HourseThinking.RowColumnHourse[j][1]);
 					//When CheckMate Occured.
-					if (AA->CheckMate(HoursesOnTable[i]->HourseThinking.TableListSolder[j], Order))
+					if (AA->CheckMate(HoursesOnTable[i].HourseThinking.TableListSolder[j], Order))
 					{
 						//For Self CheckMate.
 						if (AllDraw::OrderPlate == 1 && AA->CheckMateGray)
@@ -2020,7 +2023,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 							//Set Ignore.
 							(Do) = -1;
 							//Set Superposition.
-							HoursesOnTable[i]->HourseThinking.CheckMateAStarGreedy = -1;
+							HoursesOnTable[i].HourseThinking.CheckMateAStarGreedy = -1;
 							//Penalty Subbranchs.
 							MakePenaltyAllCheckMateBranches(Base, AllDraw::OrderPlate);
 						}
@@ -2032,7 +2035,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 								//Set Regard.
 								(Do) = 1;
 								//Superposition.
-								HoursesOnTable[i]->HourseThinking.CheckMateAStarGreedy = 1;
+								HoursesOnTable[i].HourseThinking.CheckMateAStarGreedy = 1;
 								//Set Regard For Sub Branches.
 								MakeRegardAllCheckMateBranches(Base, AllDraw::OrderPlate);
 							}
@@ -2044,9 +2047,9 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 					Order *= -1;
 					ChessRules::CurrentOrder *= -1;
 					//Sub branchs For Hourse.
-					for (int ii = 0; (HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i]->HourseThinking) != nullptr) && ii < HoursesOnTable[i]->HourseThinking.AStarGreedy.size();ii++)
+					for (int ii = 0; (HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && ii < HoursesOnTable[i].HourseThinking.AStarGreedy.size();ii++)
 					{
-						HoursesOnTable[i]->HourseThinking.AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
+						HoursesOnTable[i].HourseThinking.AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
 					}
 					Order = COrder;
 					ChessRules::CurrentOrder = CDummy;
@@ -2056,14 +2059,14 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 		//For Gray Briges.
 		for (int i = 0; i < CastleMidle; i++)
 		{
-			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i]->CastleThinking) != nullptr) && j < CastlesOnTable[i]->CastleThinking.TableListCastle.size(); j++)
+			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && j < CastlesOnTable[i].CastleThinking.TableListCastle.size(); j++)
 			{
 
 				
 					//Castles Gray Rules.
-					AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, CastlesOnTable[i]->CastleThinking.TableListCastle[j][CastlesOnTable[i]->CastleThinking.RowColumnCastle[j][0]][CastlesOnTable[i]->CastleThinking.RowColumnCastle[j][1]], CastlesOnTable[i]->CastleThinking.TableListCastle[j], Order, CastlesOnTable[i]->CastleThinking.RowColumnCastle[j][0], CastlesOnTable[i]->CastleThinking.RowColumnCastle[j][1]);
+					AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, CastlesOnTable[i].CastleThinking.TableListCastle[j][CastlesOnTable[i].CastleThinking.RowColumnCastle[j][0]][CastlesOnTable[i].CastleThinking.RowColumnCastle[j][1]], CastlesOnTable[i].CastleThinking.TableListCastle[j], Order, CastlesOnTable[i].CastleThinking.RowColumnCastle[j][0], CastlesOnTable[i].CastleThinking.RowColumnCastle[j][1]);
 					//When Current Gray Castles CheckMate.
-					if (AA->CheckMate(CastlesOnTable[i]->CastleThinking.TableListCastle[j], Order))
+					if (AA->CheckMate(CastlesOnTable[i].CastleThinking.TableListCastle[j], Order))
 					{
 						//For Self CheckMate
 						if (AllDraw::OrderPlate == 1 && AA->CheckMateGray)
@@ -2071,7 +2074,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 							//Set Penalty Ignore.
 							(Do) = -1;
 							//Set Superposition.
-							CastlesOnTable[i]->CastleThinking.CheckMateAStarGreedy = -1;
+							CastlesOnTable[i].CastleThinking.CheckMateAStarGreedy = -1;
 							//Penalty Sub branchs.
 							MakePenaltyAllCheckMateBranches(Base, AllDraw::OrderPlate);
 						}
@@ -2083,7 +2086,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 								//Set Regard.
 								(Do) = 1;
 								//Superpoistion.
-								CastlesOnTable[i]->CastleThinking.CheckMateAStarGreedy = 1;
+								CastlesOnTable[i].CastleThinking.CheckMateAStarGreedy = 1;
 								//Set Regard Subbranchs.
 								MakeRegardAllCheckMateBranches(Base, AllDraw::OrderPlate);
 							}
@@ -2097,9 +2100,9 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 					//For Castles Gray Subbranchs.
 					//try
 					{
-						for (int ii = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i]->CastleThinking) != nullptr) && ii < CastlesOnTable[i]->CastleThinking.AStarGreedy.size();ii++)
+						for (int ii = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && ii < CastlesOnTable[i].CastleThinking.AStarGreedy.size();ii++)
 						{
-							CastlesOnTable[i]->CastleThinking.AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
+							CastlesOnTable[i].CastleThinking.AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
 						}
 					}
 					//catch(std::exception &t)
@@ -2114,14 +2117,14 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 		//For Ministers Gray.
 		for (int i = 0; i < MinisterMidle; i++)
 		{
-			for (int j = 0; ((MinisterOnTable != nullptr)) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i]->MinisterThinking) != nullptr) && j < MinisterOnTable[i]->MinisterThinking.TableListMinister.size(); j++)
+			for (int j = 0; ((MinisterOnTable != nullptr)) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && j < MinisterOnTable[i].MinisterThinking.TableListMinister.size(); j++)
 			{
 
 				
 					//Minister Gray Rules.
-					AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, MinisterOnTable[i]->MinisterThinking.TableListMinister[j][MinisterOnTable[i]->MinisterThinking.RowColumnMinister[j][0]][MinisterOnTable[i]->MinisterThinking.RowColumnMinister[j][1]], MinisterOnTable[i]->MinisterThinking.TableListMinister[j], Order, MinisterOnTable[i]->MinisterThinking.RowColumnMinister[j][0], MinisterOnTable[i]->MinisterThinking.RowColumnMinister[j][1]);
+					AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, MinisterOnTable[i].MinisterThinking.TableListMinister[j][MinisterOnTable[i].MinisterThinking.RowColumnMinister[j][0]][MinisterOnTable[i].MinisterThinking.RowColumnMinister[j][1]], MinisterOnTable[i].MinisterThinking.TableListMinister[j], Order, MinisterOnTable[i].MinisterThinking.RowColumnMinister[j][0], MinisterOnTable[i].MinisterThinking.RowColumnMinister[j][1]);
 					//When M ate Occured in Minister Gray.
-					if (AA->CheckMate(MinisterOnTable[i]->MinisterThinking.TableListMinister[j], Order))
+					if (AA->CheckMate(MinisterOnTable[i].MinisterThinking.TableListMinister[j], Order))
 					{
 						//Self CheckMate.
 						if (AllDraw::OrderPlate == 1 && AA->CheckMateGray)
@@ -2129,7 +2132,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 							//Penalty Ignore.
 							(Do) = -1;
 							//Superpostion.
-							MinisterOnTable[i]->MinisterThinking.CheckMateAStarGreedy = -1;
+							MinisterOnTable[i].MinisterThinking.CheckMateAStarGreedy = -1;
 							//Penalty Subbranchs.
 							MakePenaltyAllCheckMateBranches(Base, AllDraw::OrderPlate);
 						}
@@ -2141,7 +2144,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 								//Regard Setting.
 								(Do) = 1;
 								//Superpoistion.
-								MinisterOnTable[i]->MinisterThinking.CheckMateAStarGreedy = 1;
+								MinisterOnTable[i].MinisterThinking.CheckMateAStarGreedy = 1;
 								//Set Subbranchs Regard.
 								MakeRegardAllCheckMateBranches(Base, AllDraw::OrderPlate);
 							}
@@ -2155,9 +2158,9 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 					//For Gray Ministers Subbranchs.
 					//try
 					{
-						for (int ii = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i]->MinisterThinking) != nullptr) && ii < MinisterOnTable[i]->MinisterThinking.AStarGreedy.size();ii++)
+						for (int ii = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && ii < MinisterOnTable[i].MinisterThinking.AStarGreedy.size();ii++)
 						{
-							MinisterOnTable[i]->MinisterThinking.AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
+							MinisterOnTable[i].MinisterThinking.AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
 						}
 					}
 					//catch(std::exception &t)
@@ -2172,14 +2175,14 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 		//For Gray King.
 		for (int i = 0; i < KingMidle; i++)
 		{
-			for (int j = 0; (KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i]->KingThinking) != nullptr) && j < KingOnTable[i]->KingThinking.TableListKing.size(); j++)
+			for (int j = 0; (KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && j < KingOnTable[i].KingThinking.TableListKing.size(); j++)
 			{
 
 				
 					//Gray King Rules.
-					AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, KingOnTable[i]->KingThinking.TableListKing[j][KingOnTable[i]->KingThinking.RowColumnKing[j][0]][KingOnTable[i]->KingThinking.RowColumnKing[j][1]], KingOnTable[i]->KingThinking.TableListKing[j], Order, KingOnTable[i]->KingThinking.RowColumnKing[j][0], KingOnTable[i]->KingThinking.RowColumnKing[j][1]);
+					AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, KingOnTable[i].KingThinking.TableListKing[j][KingOnTable[i].KingThinking.RowColumnKing[j][0]][KingOnTable[i].KingThinking.RowColumnKing[j][1]], KingOnTable[i].KingThinking.TableListKing[j], Order, KingOnTable[i].KingThinking.RowColumnKing[j][0], KingOnTable[i].KingThinking.RowColumnKing[j][1]);
 					//When CheckMate Occured in King Gray.
-					if (AA->CheckMate(KingOnTable[i]->KingThinking.TableListKing[j], Order))
+					if (AA->CheckMate(KingOnTable[i].KingThinking.TableListKing[j], Order))
 					{
 						//Self CheckMate.
 						if (AllDraw::OrderPlate == 1 && AA->CheckMateGray)
@@ -2187,7 +2190,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 							//Penalty Ignore.
 							(Do) = -1;
 							//Superposition.
-							KingOnTable[i]->KingThinking.CheckMateAStarGreedy = -1;
+							KingOnTable[i].KingThinking.CheckMateAStarGreedy = -1;
 							//Penalty Subbranchs.
 							MakePenaltyAllCheckMateBranches(Base, AllDraw::OrderPlate);
 						}
@@ -2199,7 +2202,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 								//Regard Setting.
 								(Do) = 1;
 								//Superpoistion.
-								KingOnTable[i]->KingThinking.CheckMateAStarGreedy = 1;
+								KingOnTable[i].KingThinking.CheckMateAStarGreedy = 1;
 								//Regard Subbranchs.
 								MakeRegardAllCheckMateBranches(Base, AllDraw::OrderPlate);
 							}
@@ -2213,9 +2216,9 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 					//For King Gray Subbranchs.
 					//try
 					{
-						for (int ii = 0; (KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i]->KingThinking) != nullptr) && ii < KingOnTable[i]->KingThinking.AStarGreedy.size();ii++)
+						for (int ii = 0; (KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && ii < KingOnTable[i].KingThinking.AStarGreedy.size();ii++)
 						{
-							KingOnTable[i]->KingThinking.AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
+							KingOnTable[i].KingThinking.AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
 						}
 					}
 					//catch(std::exception &t)
@@ -2236,14 +2239,14 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 		//For Solders Brown.
 		for (int i = SodierMidle; i < SodierHigh; i++)
 		{
-			for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i]->SoldierThinking) != nullptr) && j < SolderesOnTable[i]->SoldierThinking.TableListSolder.size(); j++)
+			for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && j < SolderesOnTable[i].SoldierThinking.TableListSolder.size(); j++)
 			{
 
 				
 					//Solders Brown Rules.
-					AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, SolderesOnTable[i]->SoldierThinking.TableListSolder[j][SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][0]][SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][1]], SolderesOnTable[i]->SoldierThinking.TableListSolder[j], Order, SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][0], SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][1]);
+					AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, SolderesOnTable[i].SoldierThinking.TableListSolder[j][SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][0]][SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][1]], SolderesOnTable[i].SoldierThinking.TableListSolder[j], Order, SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][1]);
 					//When Solders Brown CheckMate Occured.
-					if (AA->CheckMate(SolderesOnTable[i]->SoldierThinking.TableListSolder[j], Order))
+					if (AA->CheckMate(SolderesOnTable[i].SoldierThinking.TableListSolder[j], Order))
 					{
 						//Self CheckMate.
 						if (AllDraw::OrderPlate == -1 && AA->CheckMateBrown)
@@ -2251,7 +2254,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 							//Ignore Penalty.
 							(Do) = -1;
 							//Supperpoistion.
-							SolderesOnTable[i]->SoldierThinking.CheckMateAStarGreedy = -1;
+							SolderesOnTable[i].SoldierThinking.CheckMateAStarGreedy = -1;
 							//Penalty Subbranchs Soders Brown.
 							MakePenaltyAllCheckMateBranches(Base, AllDraw::OrderPlate);
 						}
@@ -2263,7 +2266,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 								//Set Regard.
 								(Do) = 1;
 								//Superpoition.
-								SolderesOnTable[i]->SoldierThinking.CheckMateAStarGreedy = 1;
+								SolderesOnTable[i].SoldierThinking.CheckMateAStarGreedy = 1;
 								//Penalty Subbranchs.
 								MakeRegardAllCheckMateBranches(Base, AllDraw::OrderPlate);
 							}
@@ -2277,9 +2280,9 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 					//Solders Brown Subbranchs Calling.
 					//try
 					{
-						for (int ii = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i]->SoldierThinking) != nullptr) && ii < SolderesOnTable[i]->SoldierThinking.AStarGreedy.size();ii++)
+						for (int ii = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && ii < SolderesOnTable[i].SoldierThinking.AStarGreedy.size();ii++)
 						{
-							SolderesOnTable[i]->SoldierThinking.AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
+							SolderesOnTable[i].SoldierThinking.AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
 						}
 					}
 					//catch(std::exception &t)
@@ -2294,14 +2297,14 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 		//Elephant Brown 
 		for (int i = ElefantMidle; i < ElefantHigh; i++)
 		{
-			for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i]->ElefantThinking) != nullptr) && j < ElephantOnTable[i]->ElefantThinking.TableListElefant.size(); j++)
+			for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && j < ElephantOnTable[i].ElefantThinking.TableListElefant.size(); j++)
 			{
 
 				
 					//Elephant Brown Rules.
-					AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ElephantOnTable[i]->ElefantThinking.TableListElefant[j][ElephantOnTable[i]->ElefantThinking.RowColumnElefant[j][0]][ElephantOnTable[i]->ElefantThinking.RowColumnElefant[j][1]], ElephantOnTable[i]->ElefantThinking.TableListElefant[j], Order, ElephantOnTable[i]->ElefantThinking.RowColumnElefant[j][0], ElephantOnTable[i]->ElefantThinking.RowColumnElefant[j][1]);
+					AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ElephantOnTable[i].ElefantThinking.TableListElefant[j][ElephantOnTable[i].ElefantThinking.RowColumnElefant[j][0]][ElephantOnTable[i].ElefantThinking.RowColumnElefant[j][1]], ElephantOnTable[i].ElefantThinking.TableListElefant[j], Order, ElephantOnTable[i].ElefantThinking.RowColumnElefant[j][0], ElephantOnTable[i].ElefantThinking.RowColumnElefant[j][1]);
 					//CheckMate Occured in Elephenat Brown.
-					if (AA->CheckMate(ElephantOnTable[i]->ElefantThinking.TableListElefant[j], Order))
+					if (AA->CheckMate(ElephantOnTable[i].ElefantThinking.TableListElefant[j], Order))
 					{
 						//Self CheckMate.
 						if (AllDraw::OrderPlate == -1 && AA->CheckMateBrown)
@@ -2309,7 +2312,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 							//Ignore Penalty.
 							(Do) = -1;
 							//Superpoistion.
-							ElephantOnTable[i]->ElefantThinking.CheckMateAStarGreedy = -1;
+							ElephantOnTable[i].ElefantThinking.CheckMateAStarGreedy = -1;
 							//Penalty Subbranchs.
 							MakePenaltyAllCheckMateBranches(Base, AllDraw::OrderPlate);
 						}
@@ -2321,7 +2324,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 								//Set Regrading.
 								(Do) = 1;
 								//Superposition.
-								ElephantOnTable[i]->ElefantThinking.CheckMateAStarGreedy = 1;
+								ElephantOnTable[i].ElefantThinking.CheckMateAStarGreedy = 1;
 								//Regrad Subbranchs.
 								MakeRegardAllCheckMateBranches(Base, AllDraw::OrderPlate);
 							}
@@ -2335,9 +2338,9 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 					//Subbranchs Elephenat Brown Calling.
 					//try
 					{
-						for (int ii = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i]->ElefantThinking) != nullptr) && ii < ElephantOnTable[i]->ElefantThinking.AStarGreedy.size();ii++)
+						for (int ii = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && ii < ElephantOnTable[i].ElefantThinking.AStarGreedy.size();ii++)
 						{
-							ElephantOnTable[i]->ElefantThinking.AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
+							ElephantOnTable[i].ElefantThinking.AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
 						}
 					}
 					//catch(std::exception &t)
@@ -2352,13 +2355,13 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 		//Hourse Brown 
 		for (int i = HourseMidle; i < HourseHight; i++)
 		{
-			for (int j = 0; (HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i]->HourseThinking) != nullptr) && j < HoursesOnTable[i]->HourseThinking.TableListHourse.size(); j++)
+			for (int j = 0; (HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && j < HoursesOnTable[i].HourseThinking.TableListHourse.size(); j++)
 			{
 
 					//Hourse Brown Rules.
-					AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, HoursesOnTable[i]->HourseThinking.TableListHourse[j][HoursesOnTable[i]->HourseThinking.RowColumnHourse[j][0]][HoursesOnTable[i]->HourseThinking.RowColumnHourse[j][1]], HoursesOnTable[i]->HourseThinking.TableListHourse[j], Order, HoursesOnTable[i]->HourseThinking.RowColumnHourse[j][0], HoursesOnTable[i]->HourseThinking.RowColumnHourse[j][1]);
+					AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, HoursesOnTable[i].HourseThinking.TableListHourse[j][HoursesOnTable[i].HourseThinking.RowColumnHourse[j][0]][HoursesOnTable[i].HourseThinking.RowColumnHourse[j][1]], HoursesOnTable[i].HourseThinking.TableListHourse[j], Order, HoursesOnTable[i].HourseThinking.RowColumnHourse[j][0], HoursesOnTable[i].HourseThinking.RowColumnHourse[j][1]);
 					//When Hourse Broin CheckMate Ocuucred.
-					if (AA->CheckMate(HoursesOnTable[i]->HourseThinking.TableListSolder[j], Order))
+					if (AA->CheckMate(HoursesOnTable[i].HourseThinking.TableListSolder[j], Order))
 					{
 						//Self CheckMate.
 						if (AllDraw::OrderPlate == -1 && AA->CheckMateBrown)
@@ -2366,7 +2369,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 							//Ignore Penalty.
 							(Do) = -1;
 							//Superposition.
-							HoursesOnTable[i]->HourseThinking.CheckMateAStarGreedy = -1;
+							HoursesOnTable[i].HourseThinking.CheckMateAStarGreedy = -1;
 							//Penalty Subbranchs.
 							MakePenaltyAllCheckMateBranches(Base, AllDraw::OrderPlate);
 						}
@@ -2378,7 +2381,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 								//Set Regrad.
 								(Do) = 1;
 								//Superposition.
-								HoursesOnTable[i]->HourseThinking.CheckMateAStarGreedy = 1;
+								HoursesOnTable[i].HourseThinking.CheckMateAStarGreedy = 1;
 								//Regrad Subbranchs.
 								MakeRegardAllCheckMateBranches(Base, AllDraw::OrderPlate);
 							}
@@ -2392,9 +2395,9 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 					//Hourse Brown Calling Subbranchs.
 					//try
 					{
-						for (int ii = 0; (HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i]->HourseThinking) != nullptr) && ii < HoursesOnTable[i]->HourseThinking.AStarGreedy.size();ii++)
+						for (int ii = 0; (HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && ii < HoursesOnTable[i].HourseThinking.AStarGreedy.size();ii++)
 						{
-							HoursesOnTable[i]->HourseThinking.AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
+							HoursesOnTable[i].HourseThinking.AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
 						}
 					}
 					//catch(std::exception &t)
@@ -2409,14 +2412,14 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 		//Castles Brown 
 		for (int i = CastleMidle; i < CastleHigh; i++)
 		{
-			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i]->CastleThinking) != nullptr) && j < CastlesOnTable[i]->CastleThinking.TableListCastle.size(); j++)
+			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && j < CastlesOnTable[i].CastleThinking.TableListCastle.size(); j++)
 			{
 
 				
 					//Castles Brown Rules.
-					AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, CastlesOnTable[i]->CastleThinking.TableListCastle[j][CastlesOnTable[i]->CastleThinking.RowColumnCastle[j][0]][CastlesOnTable[i]->CastleThinking.RowColumnCastle[j][1]], CastlesOnTable[i]->CastleThinking.TableListCastle[j], Order, CastlesOnTable[i]->CastleThinking.RowColumnCastle[j][0], CastlesOnTable[i]->CastleThinking.RowColumnCastle[j][1]);
+					AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, CastlesOnTable[i].CastleThinking.TableListCastle[j][CastlesOnTable[i].CastleThinking.RowColumnCastle[j][0]][CastlesOnTable[i].CastleThinking.RowColumnCastle[j][1]], CastlesOnTable[i].CastleThinking.TableListCastle[j], Order, CastlesOnTable[i].CastleThinking.RowColumnCastle[j][0], CastlesOnTable[i].CastleThinking.RowColumnCastle[j][1]);
 					//When Brown Castles CheckMate Occured.
-					if (AA->CheckMate(CastlesOnTable[i]->CastleThinking.TableListCastle[j], Order))
+					if (AA->CheckMate(CastlesOnTable[i].CastleThinking.TableListCastle[j], Order))
 					{
 						//Self CheckMate.
 						if (AllDraw::OrderPlate == -1 && AA->CheckMateBrown)
@@ -2424,7 +2427,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 							//Ignore CheckMate.
 							(Do) = -1;
 							//Superpoistion.
-							CastlesOnTable[i]->CastleThinking.CheckMateAStarGreedy = -1;
+							CastlesOnTable[i].CastleThinking.CheckMateAStarGreedy = -1;
 							//Subbranchs Penalty.
 							MakePenaltyAllCheckMateBranches(Base, AllDraw::OrderPlate);
 						}
@@ -2436,7 +2439,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 								//Set Regard.
 								(Do) = 1;
 								//Superpoistion.
-								CastlesOnTable[i]->CastleThinking.CheckMateAStarGreedy = 1;
+								CastlesOnTable[i].CastleThinking.CheckMateAStarGreedy = 1;
 								//Regard Subbranchs.
 								MakeRegardAllCheckMateBranches(Base, AllDraw::OrderPlate);
 							}
@@ -2450,9 +2453,9 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 					//Brown Castles Calling Subbranches.
 					//try
 					{
-						for (int ii = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i]->CastleThinking) != nullptr) && ii < CastlesOnTable[i]->CastleThinking.AStarGreedy.size();ii++)
+						for (int ii = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && ii < CastlesOnTable[i].CastleThinking.AStarGreedy.size();ii++)
 						{
-							CastlesOnTable[i]->CastleThinking.AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
+							CastlesOnTable[i].CastleThinking.AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
 						}
 					}
 					//catch(std::exception &t)
@@ -2467,14 +2470,14 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 		//Minister Brown 
 		for (int i = MinisterMidle; i < MinisterHigh; i++)
 		{
-			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i]->MinisterThinking) != nullptr) && j < MinisterOnTable[i]->MinisterThinking.TableListMinister.size(); j++)
+			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && j < MinisterOnTable[i].MinisterThinking.TableListMinister.size(); j++)
 			{
 
 				
 					//Minister Brown Rules.
-					AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, MinisterOnTable[i]->MinisterThinking.TableListMinister[j][MinisterOnTable[i]->MinisterThinking.RowColumnMinister[j][0]][MinisterOnTable[i]->MinisterThinking.RowColumnMinister[j][1]], MinisterOnTable[i]->MinisterThinking.TableListMinister[j], Order, MinisterOnTable[i]->MinisterThinking.RowColumnMinister[j][0], MinisterOnTable[i]->MinisterThinking.RowColumnMinister[j][1]);
+					AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, MinisterOnTable[i].MinisterThinking.TableListMinister[j][MinisterOnTable[i].MinisterThinking.RowColumnMinister[j][0]][MinisterOnTable[i].MinisterThinking.RowColumnMinister[j][1]], MinisterOnTable[i].MinisterThinking.TableListMinister[j], Order, MinisterOnTable[i].MinisterThinking.RowColumnMinister[j][0], MinisterOnTable[i].MinisterThinking.RowColumnMinister[j][1]);
 					//When Minister Borwn CheckMate Occcured.
-					if (AA->CheckMate(MinisterOnTable[i]->MinisterThinking.TableListMinister[j], Order))
+					if (AA->CheckMate(MinisterOnTable[i].MinisterThinking.TableListMinister[j], Order))
 					{
 						//Self CheckMate.
 						if (AllDraw::OrderPlate == -1 && AA->CheckMateBrown)
@@ -2482,7 +2485,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 							//Set Ignore.
 							(Do) = -1;
 							//Superpoistion.
-							MinisterOnTable[i]->MinisterThinking.CheckMateAStarGreedy = -1;
+							MinisterOnTable[i].MinisterThinking.CheckMateAStarGreedy = -1;
 							//Penalty Subbranches.
 							MakePenaltyAllCheckMateBranches(Base, AllDraw::OrderPlate);
 						}
@@ -2494,7 +2497,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 								//Set Regard.
 								(Do) = 1;
 								//Superposition.
-								MinisterOnTable[i]->MinisterThinking.CheckMateAStarGreedy = 1;
+								MinisterOnTable[i].MinisterThinking.CheckMateAStarGreedy = 1;
 								//Regard SubBranches.
 								MakeRegardAllCheckMateBranches(Base, AllDraw::OrderPlate);
 							}
@@ -2508,9 +2511,9 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 					//Minister Brown SubBranches Calling.
 					//try
 					{
-						for (int ii = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i]->MinisterThinking) != nullptr) && ii < MinisterOnTable[i]->MinisterThinking.AStarGreedy.size();ii++)
+						for (int ii = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && ii < MinisterOnTable[i].MinisterThinking.AStarGreedy.size();ii++)
 						{
-							MinisterOnTable[i]->MinisterThinking.AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
+							MinisterOnTable[i].MinisterThinking.AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
 						}
 					}
 					//catch(std::exception &t)
@@ -2525,14 +2528,14 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 		//King Brown
 		for (int i = KingMidle; i < KingHigh; i++)
 		{
-			for (int j = 0; (KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i]->KingThinking) != nullptr) && j < KingOnTable[i]->KingThinking.TableListKing.size(); j++)
+			for (int j = 0; (KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && j < KingOnTable[i].KingThinking.TableListKing.size(); j++)
 			{
 
 				
 					//King Brown Rules.
-					AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, KingOnTable[i]->KingThinking.TableListKing[j][KingOnTable[i]->KingThinking.RowColumnKing[j][0]][KingOnTable[i]->KingThinking.RowColumnKing[j][1]], KingOnTable[i]->KingThinking.TableListKing[j], Order, KingOnTable[i]->KingThinking.RowColumnKing[j][0], KingOnTable[i]->KingThinking.RowColumnKing[j][1]);
+					AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, KingOnTable[i].KingThinking.TableListKing[j][KingOnTable[i].KingThinking.RowColumnKing[j][0]][KingOnTable[i].KingThinking.RowColumnKing[j][1]], KingOnTable[i].KingThinking.TableListKing[j], Order, KingOnTable[i].KingThinking.RowColumnKing[j][0], KingOnTable[i].KingThinking.RowColumnKing[j][1]);
 					//When King Brown Rules CheckMate Occcured.
-					if (AA->CheckMate(KingOnTable[i]->KingThinking.TableListKing[j], Order))
+					if (AA->CheckMate(KingOnTable[i].KingThinking.TableListKing[j], Order))
 					{
 						//Self CheckMate.
 						if (AllDraw::OrderPlate == -1 && AA->CheckMateBrown)
@@ -2540,7 +2543,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 							//Set Ignore.
 							(Do) = -1;
 							//Superposition.
-							KingOnTable[i]->KingThinking.CheckMateAStarGreedy = -1;
+							KingOnTable[i].KingThinking.CheckMateAStarGreedy = -1;
 							//Penalty SubBranches.
 							MakePenaltyAllCheckMateBranches(Base, AllDraw::OrderPlate);
 						}
@@ -2552,7 +2555,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 								//Set Regard.
 								(Do) = 1;
 								//Superposition.
-								KingOnTable[i]->KingThinking.CheckMateAStarGreedy = 1;
+								KingOnTable[i].KingThinking.CheckMateAStarGreedy = 1;
 								//Regard Subbranches.
 								MakeRegardAllCheckMateBranches(Base, AllDraw::OrderPlate);
 							}
@@ -2567,9 +2570,9 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 					//King Brown Subbranches Calling.
 					//try
 					{
-						for (int ii = 0; (KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i]->KingThinking) != nullptr) && ii < KingOnTable[i]->KingThinking.AStarGreedy.size();ii++)
+						for (int ii = 0; (KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && ii < KingOnTable[i].KingThinking.AStarGreedy.size();ii++)
 						{
-							KingOnTable[i]->KingThinking.AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
+							KingOnTable[i].KingThinking.AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
 						}
 					}
 					//catch(std::exception &t)
@@ -2595,11 +2598,11 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 
 		for (int i = 0; i < SodierMidle; i++)
 		{
-			for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i]->SoldierThinking) != nullptr) && j < SolderesOnTable[i]->SoldierThinking.TableListSolder.size(); j++)
+			for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && j < SolderesOnTable[i].SoldierThinking.TableListSolder.size(); j++)
 			{
 				//try
 				//{
-					SolderesOnTable[i]->SoldierThinking.PenaltyRegardListSolder[i].LearningAlgorithmPenalty();
+					SolderesOnTable[i].SoldierThinking.PenaltyRegardListSolder[i].LearningAlgorithmPenalty();
 				//}
 				//catch(std::exception &t)
 				///{
@@ -2607,9 +2610,9 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 				//}
 				Order *= -1;
 				ChessRules::CurrentOrder *= -1;
-				for (int ii = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i]->SoldierThinking) != nullptr) && ii < SolderesOnTable[i]->SoldierThinking.AStarGreedy.size();ii++)
+				for (int ii = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && ii < SolderesOnTable[i].SoldierThinking.AStarGreedy.size();ii++)
 				{
-					MakePenaltyAllCheckMateBranches(SolderesOnTable[i]->SoldierThinking.AStarGreedy[ii], Order);
+					MakePenaltyAllCheckMateBranches(SolderesOnTable[i].SoldierThinking.AStarGreedy[ii], Order);
 				}
 				Order = COrder;
 				ChessRules::CurrentOrder = CDummy;
@@ -2617,12 +2620,12 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = 0; i < ElefantMidle; i++)
 		{
-			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i]->ElefantThinking) != nullptr) && j < ElephantOnTable[i]->ElefantThinking.TableListElefant.size(); j++)
+			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && j < ElephantOnTable[i].ElefantThinking.TableListElefant.size(); j++)
 			{
 
 				//try
 				//{
-					ElephantOnTable[i]->ElefantThinking.PenaltyRegardListElefant[j].LearningAlgorithmPenalty();
+					ElephantOnTable[i].ElefantThinking.PenaltyRegardListElefant[j].LearningAlgorithmPenalty();
 				//}
 				//catch(std::exception &t)
 				//{
@@ -2633,9 +2636,9 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				//{
-					for (int ii = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i]->ElefantThinking) != nullptr) && ii < ElephantOnTable[i]->ElefantThinking.AStarGreedy.size();ii++)
+					for (int ii = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && ii < ElephantOnTable[i].ElefantThinking.AStarGreedy.size();ii++)
 					{
-						MakePenaltyAllCheckMateBranches(ElephantOnTable[i]->ElefantThinking.AStarGreedy[ii], Order);
+						MakePenaltyAllCheckMateBranches(ElephantOnTable[i].ElefantThinking.AStarGreedy[ii], Order);
 					}
 				//}
 				//catch(std::exception &t)
@@ -2648,11 +2651,11 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = 0; i < HourseMidle; i++)
 		{
-			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i]->HourseThinking) != nullptr) && j < HoursesOnTable[i]->HourseThinking.TableListHourse.size(); j++)
+			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && j < HoursesOnTable[i].HourseThinking.TableListHourse.size(); j++)
 			{
 				//try
 				//{
-					HoursesOnTable[i]->HourseThinking.PenaltyRegardListHourse[j].LearningAlgorithmPenalty();
+					HoursesOnTable[i].HourseThinking.PenaltyRegardListHourse[j].LearningAlgorithmPenalty();
 
 				//}
 				//catch(std::exception &t)
@@ -2664,9 +2667,9 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				//{
-					for (int ii = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i]->HourseThinking) != nullptr) && ii < HoursesOnTable[i]->HourseThinking.AStarGreedy.size();ii++)
+					for (int ii = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && ii < HoursesOnTable[i].HourseThinking.AStarGreedy.size();ii++)
 					{
-						MakePenaltyAllCheckMateBranches(HoursesOnTable[i]->HourseThinking.AStarGreedy[ii], Order);
+						MakePenaltyAllCheckMateBranches(HoursesOnTable[i].HourseThinking.AStarGreedy[ii], Order);
 					}
 				//}
 				//catch(std::exception &t)
@@ -2679,11 +2682,11 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = 0; i < CastleMidle; i++)
 		{
-			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i]->CastleThinking) != nullptr) && j < CastlesOnTable[i]->CastleThinking.TableListCastle.size(); j++)
+			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && j < CastlesOnTable[i].CastleThinking.TableListCastle.size(); j++)
 			{
 				//try
 				//{
-					CastlesOnTable[i]->CastleThinking.PenaltyRegardListCastle[j].LearningAlgorithmPenalty();
+					CastlesOnTable[i].CastleThinking.PenaltyRegardListCastle[j].LearningAlgorithmPenalty();
 				//}
 				//catch(std::exception &t)
 				//{
@@ -2694,9 +2697,9 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				//{
-					for (int ii = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i]->CastleThinking) != nullptr) && ii < CastlesOnTable[i]->CastleThinking.AStarGreedy.size();ii++)
+					for (int ii = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && ii < CastlesOnTable[i].CastleThinking.AStarGreedy.size();ii++)
 					{
-						MakePenaltyAllCheckMateBranches(CastlesOnTable[i]->CastleThinking.AStarGreedy[ii], Order);
+						MakePenaltyAllCheckMateBranches(CastlesOnTable[i].CastleThinking.AStarGreedy[ii], Order);
 					}
 				//}
 				//catch(std::exception &t)
@@ -2709,11 +2712,11 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = 0; i < MinisterMidle; i++)
 		{
-			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i]->MinisterThinking) != nullptr) && j < MinisterOnTable[i]->MinisterThinking.TableListMinister.size(); j++)
+			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && j < MinisterOnTable[i].MinisterThinking.TableListMinister.size(); j++)
 			{
 				//try
 				//{
-					MinisterOnTable[i]->MinisterThinking.PenaltyRegardListMinister[j].LearningAlgorithmPenalty();
+					MinisterOnTable[i].MinisterThinking.PenaltyRegardListMinister[j].LearningAlgorithmPenalty();
 				//}
 				//catch(std::exception &t)
 				//{
@@ -2724,9 +2727,9 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				//{
-					for (int ii = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i]->MinisterThinking) != nullptr) && ii < MinisterOnTable[i]->MinisterThinking.AStarGreedy.size();ii++)
+					for (int ii = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && ii < MinisterOnTable[i].MinisterThinking.AStarGreedy.size();ii++)
 					{
-						MakePenaltyAllCheckMateBranches(MinisterOnTable[i]->MinisterThinking.AStarGreedy[ii], Order);
+						MakePenaltyAllCheckMateBranches(MinisterOnTable[i].MinisterThinking.AStarGreedy[ii], Order);
 					}
 				//}
 				//catch(std::exception &t)
@@ -2739,11 +2742,11 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = 0; i < KingMidle; i++)
 		{
-			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i]->KingThinking) != nullptr) && j < KingOnTable[i]->KingThinking.TableListKing.size(); j++)
+			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && j < KingOnTable[i].KingThinking.TableListKing.size(); j++)
 			{
 				//try
 				//{
-					KingOnTable[i]->KingThinking.PenaltyRegardListKing[j].LearningAlgorithmPenalty();
+					KingOnTable[i].KingThinking.PenaltyRegardListKing[j].LearningAlgorithmPenalty();
 				//}
 				//catch(std::exception &t)
 				//{
@@ -2754,9 +2757,9 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				//{
-					for (int ii = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i]->KingThinking) != nullptr) && ii <KingOnTable[i]->KingThinking.AStarGreedy.size(); ii++)
+					for (int ii = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && ii <KingOnTable[i].KingThinking.AStarGreedy.size(); ii++)
 					{
-						MakePenaltyAllCheckMateBranches(KingOnTable[i]->KingThinking.AStarGreedy[ii], Order);
+						MakePenaltyAllCheckMateBranches(KingOnTable[i].KingThinking.AStarGreedy[ii], Order);
 					}
 				//}
 				//catch(std::exception &t)
@@ -2772,11 +2775,11 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 	{
 		for (int i = SodierMidle; i < SodierHigh; i++)
 		{
-			for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i]->SoldierThinking) != nullptr) && j < SolderesOnTable[i]->SoldierThinking.TableListSolder.size(); j++)
+			for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && j < SolderesOnTable[i].SoldierThinking.TableListSolder.size(); j++)
 			{
 				//try
 				{
-					SolderesOnTable[i]->SoldierThinking.PenaltyRegardListSolder[i].LearningAlgorithmPenalty();
+					SolderesOnTable[i].SoldierThinking.PenaltyRegardListSolder[i].LearningAlgorithmPenalty();
 				}
 				//catch(std::exception &t)
 				{
@@ -2786,9 +2789,9 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				//{
-					for (int ii = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i]->SoldierThinking) != nullptr) && ii < SolderesOnTable[i]->SoldierThinking.AStarGreedy.size();ii++)
+					for (int ii = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && ii < SolderesOnTable[i].SoldierThinking.AStarGreedy.size();ii++)
 					{
-						MakePenaltyAllCheckMateBranches(SolderesOnTable[i]->SoldierThinking.AStarGreedy[ii], Order);
+						MakePenaltyAllCheckMateBranches(SolderesOnTable[i].SoldierThinking.AStarGreedy[ii], Order);
 					}
 				//}
 				//catch(std::exception &t)
@@ -2801,11 +2804,11 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = ElefantMidle; i < ElefantHigh; i++)
 		{
-			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i]->ElefantThinking) != nullptr) && j < ElephantOnTable[i]->ElefantThinking.TableListElefant.size(); j++)
+			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && j < ElephantOnTable[i].ElefantThinking.TableListElefant.size(); j++)
 			{
 				//try
 				//{
-					ElephantOnTable[i]->ElefantThinking.PenaltyRegardListElefant[j].LearningAlgorithmPenalty();
+					ElephantOnTable[i].ElefantThinking.PenaltyRegardListElefant[j].LearningAlgorithmPenalty();
 				//}
 				//catch(std::exception &t)
 				//{
@@ -2816,9 +2819,9 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				//{
-					for (int ii = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i]->ElefantThinking) != nullptr) && ii < ElephantOnTable[i]->ElefantThinking.AStarGreedy.size();ii++)
+					for (int ii = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && ii < ElephantOnTable[i].ElefantThinking.AStarGreedy.size();ii++)
 					{
-						MakePenaltyAllCheckMateBranches(ElephantOnTable[i]->ElefantThinking.AStarGreedy[ii], Order);
+						MakePenaltyAllCheckMateBranches(ElephantOnTable[i].ElefantThinking.AStarGreedy[ii], Order);
 					}
 				//}
 				//catch(std::exception &t)
@@ -2831,11 +2834,11 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = HourseMidle; i < HourseHight; i++)
 		{
-			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i]->HourseThinking) != nullptr) && j < HoursesOnTable[i]->HourseThinking.TableListHourse.size(); j++)
+			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && j < HoursesOnTable[i].HourseThinking.TableListHourse.size(); j++)
 			{
 				//try
 				{
-					HoursesOnTable[i]->HourseThinking.PenaltyRegardListHourse[j].LearningAlgorithmPenalty();
+					HoursesOnTable[i].HourseThinking.PenaltyRegardListHourse[j].LearningAlgorithmPenalty();
 
 				}
 				//catch(std::exception &t)
@@ -2847,9 +2850,9 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				//{
-					for (int ii = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i]->HourseThinking) != nullptr) && ii < HoursesOnTable[i]->HourseThinking.AStarGreedy.size();ii++)
+					for (int ii = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && ii < HoursesOnTable[i].HourseThinking.AStarGreedy.size();ii++)
 					{
-						MakePenaltyAllCheckMateBranches(HoursesOnTable[i]->HourseThinking.AStarGreedy[ii], Order);
+						MakePenaltyAllCheckMateBranches(HoursesOnTable[i].HourseThinking.AStarGreedy[ii], Order);
 					}
 				//}
 				////catch(std::exception &t)
@@ -2862,11 +2865,11 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = CastleMidle; i < CastleHigh; i++)
 		{
-			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i]->CastleThinking) != nullptr) && j < CastlesOnTable[i]->CastleThinking.TableListCastle.size(); j++)
+			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && j < CastlesOnTable[i].CastleThinking.TableListCastle.size(); j++)
 			{
 				//try
 				//{
-					CastlesOnTable[i]->CastleThinking.PenaltyRegardListCastle[j].LearningAlgorithmPenalty();
+					CastlesOnTable[i].CastleThinking.PenaltyRegardListCastle[j].LearningAlgorithmPenalty();
 				//}
 				//catch(std::exception &t)
 				//{
@@ -2877,9 +2880,9 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				//{
-					for (int ii = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i]->CastleThinking) != nullptr) && (ii < CastlesOnTable[i]->CastleThinking.AStarGreedy.size());ii++)
+					for (int ii = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (ii < CastlesOnTable[i].CastleThinking.AStarGreedy.size());ii++)
 					{
-						MakePenaltyAllCheckMateBranches(CastlesOnTable[i]->CastleThinking.AStarGreedy[ii], Order);
+						MakePenaltyAllCheckMateBranches(CastlesOnTable[i].CastleThinking.AStarGreedy[ii], Order);
 					}
 				//}
 				//catch(std::exception &t)
@@ -2892,11 +2895,11 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = MinisterMidle; i < MinisterHigh; i++)
 		{
-			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i]->MinisterThinking) != nullptr) && j < MinisterOnTable[i]->MinisterThinking.TableListMinister.size(); j++)
+			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && j < MinisterOnTable[i].MinisterThinking.TableListMinister.size(); j++)
 			{
 				//try
 				//{
-					MinisterOnTable[i]->MinisterThinking.PenaltyRegardListMinister[j].LearningAlgorithmPenalty();
+					MinisterOnTable[i].MinisterThinking.PenaltyRegardListMinister[j].LearningAlgorithmPenalty();
 				//}
 				//catch(std::exception &t)
 				//{
@@ -2907,9 +2910,9 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				//{
-					for (int ii = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i]->MinisterThinking) != nullptr) && ii < MinisterOnTable[i]->MinisterThinking.AStarGreedy.size();ii++)
+					for (int ii = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && ii < MinisterOnTable[i].MinisterThinking.AStarGreedy.size();ii++)
 					{
-						MakePenaltyAllCheckMateBranches(MinisterOnTable[i]->MinisterThinking.AStarGreedy[ii], Order);
+						MakePenaltyAllCheckMateBranches(MinisterOnTable[i].MinisterThinking.AStarGreedy[ii], Order);
 					}
 				//}
 				//catch(std::exception &t)
@@ -2922,11 +2925,11 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = KingMidle; i < MinisterHigh; i++)
 		{
-			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i]->KingThinking) != nullptr) && j < KingOnTable[i]->KingThinking.TableListKing.size(); j++)
+			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && j < KingOnTable[i].KingThinking.TableListKing.size(); j++)
 			{
 				//try
 				//{
-					KingOnTable[i]->KingThinking.PenaltyRegardListKing[j].LearningAlgorithmPenalty();
+					KingOnTable[i].KingThinking.PenaltyRegardListKing[j].LearningAlgorithmPenalty();
 				//}
 				//catch(std::exception &t)
 				//{
@@ -2937,9 +2940,9 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				//{
-					for (int ii = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i]->KingThinking) != nullptr) && ii < KingOnTable[i]->KingThinking.AStarGreedy.size();ii++)
+					for (int ii = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && ii < KingOnTable[i].KingThinking.AStarGreedy.size();ii++)
 					{
-						MakePenaltyAllCheckMateBranches(KingOnTable[i]->KingThinking.AStarGreedy[ii], Order);
+						MakePenaltyAllCheckMateBranches(KingOnTable[i].KingThinking.AStarGreedy[ii], Order);
 					}
 				//}
 				//catch(std::exception &t)
@@ -2963,15 +2966,15 @@ AllDraw AllDraw::RemovePenalltyFromFirstBranches(int Order)
 
 		for (int i = 0; i < SodierMidle; i++)
 		{
-			for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i]->SoldierThinking) != nullptr) && j < SolderesOnTable[i]->SoldierThinking.TableListSolder.size(); j++)
+			for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && j < SolderesOnTable[i].SoldierThinking.TableListSolder.size(); j++)
 			{
 				UsePenaltyRegardMechnisamT = false;
 				//try
 				{
-					SolderesOnTable[i]->SoldierThinking.PenaltyRegardListSolder[j].Initiate();
-					for (int k = 0; k < SolderesOnTable[i]->SoldierThinking.AStarGreedy.size(); k++)
+					SolderesOnTable[i].SoldierThinking.PenaltyRegardListSolder[j].Initiate();
+					for (int k = 0; k < SolderesOnTable[i].SoldierThinking.AStarGreedy.size(); k++)
 					{
-						SolderesOnTable[i]->SoldierThinking.AStarGreedy[k].RemovePenalltyFromFirstBranches(Order * -1);
+						SolderesOnTable[i].SoldierThinking.AStarGreedy[k].RemovePenalltyFromFirstBranches(Order * -1);
 					}
 				}
 				//catch(std::exception &t)
@@ -2982,16 +2985,16 @@ AllDraw AllDraw::RemovePenalltyFromFirstBranches(int Order)
 		}
 		for (int i = 0; i < ElefantMidle; i++)
 		{
-			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i]->ElefantThinking) != nullptr) && j < ElephantOnTable[i]->ElefantThinking.TableListElefant.size(); j++)
+			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && j < ElephantOnTable[i].ElefantThinking.TableListElefant.size(); j++)
 			{
 				UsePenaltyRegardMechnisamT = false;
 				//try
 				{
 
-					ElephantOnTable[i]->ElefantThinking.PenaltyRegardListElefant[j].Initiate();
-					for (int k = 0; k < ElephantOnTable[i]->ElefantThinking.AStarGreedy.size(); k++)
+					ElephantOnTable[i].ElefantThinking.PenaltyRegardListElefant[j].Initiate();
+					for (int k = 0; k < ElephantOnTable[i].ElefantThinking.AStarGreedy.size(); k++)
 					{
-						ElephantOnTable[i]->ElefantThinking.AStarGreedy[k].RemovePenalltyFromFirstBranches(Order * -1);
+						ElephantOnTable[i].ElefantThinking.AStarGreedy[k].RemovePenalltyFromFirstBranches(Order * -1);
 					}
 
 				}
@@ -3003,15 +3006,15 @@ AllDraw AllDraw::RemovePenalltyFromFirstBranches(int Order)
 		}
 		for (int i = 0; i < HourseMidle; i++)
 		{
-			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i]->HourseThinking) != nullptr) && j < HoursesOnTable[i]->HourseThinking.TableListHourse.size(); j++)
+			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && j < HoursesOnTable[i].HourseThinking.TableListHourse.size(); j++)
 			{
 				UsePenaltyRegardMechnisamT = false;
 				//try
 				{
-					HoursesOnTable[i]->HourseThinking.PenaltyRegardListHourse[j].Initiate();
-					for (int k = 0; k < HoursesOnTable[i]->HourseThinking.AStarGreedy.size(); k++)
+					HoursesOnTable[i].HourseThinking.PenaltyRegardListHourse[j].Initiate();
+					for (int k = 0; k < HoursesOnTable[i].HourseThinking.AStarGreedy.size(); k++)
 					{
-						HoursesOnTable[i]->HourseThinking.AStarGreedy[k].RemovePenalltyFromFirstBranches(Order * -1);
+						HoursesOnTable[i].HourseThinking.AStarGreedy[k].RemovePenalltyFromFirstBranches(Order * -1);
 					}
 				}
 				//catch(std::exception &t)
@@ -3024,16 +3027,16 @@ AllDraw AllDraw::RemovePenalltyFromFirstBranches(int Order)
 		}
 		for (int i = 0; i < CastleMidle; i++)
 		{
-			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i]->CastleThinking) != nullptr) && j < CastlesOnTable[i]->CastleThinking.TableListCastle.size(); j++)
+			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && j < CastlesOnTable[i].CastleThinking.TableListCastle.size(); j++)
 			{
 				UsePenaltyRegardMechnisamT = false;
 				//try
 				{
 
-					CastlesOnTable[i]->CastleThinking.PenaltyRegardListCastle[j].Initiate();
-					for (int k = 0; k < CastlesOnTable[i]->CastleThinking.AStarGreedy.size(); k++)
+					CastlesOnTable[i].CastleThinking.PenaltyRegardListCastle[j].Initiate();
+					for (int k = 0; k < CastlesOnTable[i].CastleThinking.AStarGreedy.size(); k++)
 					{
-						CastlesOnTable[i]->CastleThinking.AStarGreedy[k].RemovePenalltyFromFirstBranches(Order * -1);
+						CastlesOnTable[i].CastleThinking.AStarGreedy[k].RemovePenalltyFromFirstBranches(Order * -1);
 					}
 				}
 				//catch(std::exception &t)
@@ -3045,16 +3048,16 @@ AllDraw AllDraw::RemovePenalltyFromFirstBranches(int Order)
 		}
 		for (int i = 0; i < MinisterMidle; i++)
 		{
-			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i]->MinisterThinking) != nullptr) && j < MinisterOnTable[i]->MinisterThinking.TableListMinister.size(); j++)
+			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && j < MinisterOnTable[i].MinisterThinking.TableListMinister.size(); j++)
 			{
 				UsePenaltyRegardMechnisamT = false;
 				//try
 				{
 
-					MinisterOnTable[i]->MinisterThinking.PenaltyRegardListMinister[j].Initiate();
-					for (int k = 0; k < MinisterOnTable[i]->MinisterThinking.AStarGreedy.size(); k++)
+					MinisterOnTable[i].MinisterThinking.PenaltyRegardListMinister[j].Initiate();
+					for (int k = 0; k < MinisterOnTable[i].MinisterThinking.AStarGreedy.size(); k++)
 					{
-						MinisterOnTable[i]->MinisterThinking.AStarGreedy[k].RemovePenalltyFromFirstBranches(Order * -1);
+						MinisterOnTable[i].MinisterThinking.AStarGreedy[k].RemovePenalltyFromFirstBranches(Order * -1);
 					}
 				}
 				//catch(std::exception &t)
@@ -3066,16 +3069,16 @@ AllDraw AllDraw::RemovePenalltyFromFirstBranches(int Order)
 		}
 		for (int i = 0; i < KingMidle; i++)
 		{
-			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i]->KingThinking) != nullptr) && j < KingOnTable[i]->KingThinking.TableListKing.size(); j++)
+			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && j < KingOnTable[i].KingThinking.TableListKing.size(); j++)
 			{
 				UsePenaltyRegardMechnisamT = false;
 				//try
 				{
 
-					KingOnTable[i]->KingThinking.PenaltyRegardListKing[j].Initiate();
-					for (int k = 0; k < KingOnTable[i]->KingThinking.AStarGreedy.size(); k++)
+					KingOnTable[i].KingThinking.PenaltyRegardListKing[j].Initiate();
+					for (int k = 0; k < KingOnTable[i].KingThinking.AStarGreedy.size(); k++)
 					{
-						KingOnTable[i]->KingThinking.AStarGreedy[k].RemovePenalltyFromFirstBranches(Order * -1);
+						KingOnTable[i].KingThinking.AStarGreedy[k].RemovePenalltyFromFirstBranches(Order * -1);
 					}
 				}
 				//catch(std::exception &t)
@@ -3090,16 +3093,16 @@ AllDraw AllDraw::RemovePenalltyFromFirstBranches(int Order)
 	{
 		for (int i = SodierMidle; i < SodierHigh; i++)
 		{
-			for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i]->SoldierThinking) != nullptr) && j < SolderesOnTable[i]->SoldierThinking.TableListSolder.size(); j++)
+			for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && j < SolderesOnTable[i].SoldierThinking.TableListSolder.size(); j++)
 			{
 				UsePenaltyRegardMechnisamT = false;
 				//try
 				{
 
-					SolderesOnTable[i]->SoldierThinking.PenaltyRegardListSolder[j].Initiate();
-					for (int k = 0; k < SolderesOnTable[i]->SoldierThinking.AStarGreedy.size(); k++)
+					SolderesOnTable[i].SoldierThinking.PenaltyRegardListSolder[j].Initiate();
+					for (int k = 0; k < SolderesOnTable[i].SoldierThinking.AStarGreedy.size(); k++)
 					{
-						SolderesOnTable[i]->SoldierThinking.AStarGreedy[k].RemovePenalltyFromFirstBranches(Order * -1);
+						SolderesOnTable[i].SoldierThinking.AStarGreedy[k].RemovePenalltyFromFirstBranches(Order * -1);
 					}
 				}
 				//catch(std::exception &t)
@@ -3110,16 +3113,16 @@ AllDraw AllDraw::RemovePenalltyFromFirstBranches(int Order)
 		}
 		for (int i = ElefantMidle; i < ElefantHigh; i++)
 		{
-			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i]->ElefantThinking) != nullptr) && j < ElephantOnTable[i]->ElefantThinking.TableListElefant.size(); j++)
+			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && j < ElephantOnTable[i].ElefantThinking.TableListElefant.size(); j++)
 			{
 				UsePenaltyRegardMechnisamT = false;
 				//try
 				{
 
-					ElephantOnTable[i]->ElefantThinking.PenaltyRegardListElefant[j];
-					for (int k = 0; k < ElephantOnTable[i]->ElefantThinking.AStarGreedy.size(); k++)
+					ElephantOnTable[i].ElefantThinking.PenaltyRegardListElefant[j];
+					for (int k = 0; k < ElephantOnTable[i].ElefantThinking.AStarGreedy.size(); k++)
 					{
-						ElephantOnTable[i]->ElefantThinking.AStarGreedy[k].RemovePenalltyFromFirstBranches(Order * -1);
+						ElephantOnTable[i].ElefantThinking.AStarGreedy[k].RemovePenalltyFromFirstBranches(Order * -1);
 					}
 
 				}
@@ -3131,16 +3134,16 @@ AllDraw AllDraw::RemovePenalltyFromFirstBranches(int Order)
 		}
 		for (int i = HourseMidle; i < HourseHight; i++)
 		{
-			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i]->HourseThinking) != nullptr) && j < HoursesOnTable[i]->HourseThinking.TableListHourse.size(); j++)
+			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && j < HoursesOnTable[i].HourseThinking.TableListHourse.size(); j++)
 			{
 				UsePenaltyRegardMechnisamT = false;
 				//try
 				{
 
-					HoursesOnTable[i]->HourseThinking.PenaltyRegardListHourse[j].Initiate();
-					for (int k = 0; k < HoursesOnTable[i]->HourseThinking.AStarGreedy.size(); k++)
+					HoursesOnTable[i].HourseThinking.PenaltyRegardListHourse[j].Initiate();
+					for (int k = 0; k < HoursesOnTable[i].HourseThinking.AStarGreedy.size(); k++)
 					{
-						HoursesOnTable[i]->HourseThinking.AStarGreedy[k].RemovePenalltyFromFirstBranches(Order * -1);
+						HoursesOnTable[i].HourseThinking.AStarGreedy[k].RemovePenalltyFromFirstBranches(Order * -1);
 					}
 
 
@@ -3153,16 +3156,16 @@ AllDraw AllDraw::RemovePenalltyFromFirstBranches(int Order)
 		}
 		for (int i = CastleMidle; i < CastleHigh; i++)
 		{
-			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i]->CastleThinking) != nullptr) && j < CastlesOnTable[i]->CastleThinking.TableListCastle.size(); j++)
+			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && j < CastlesOnTable[i].CastleThinking.TableListCastle.size(); j++)
 			{
 				UsePenaltyRegardMechnisamT = false;
 				//try
 				{
 
-					CastlesOnTable[i]->CastleThinking.PenaltyRegardListCastle[j].Initiate();
-					for (int k = 0; k < CastlesOnTable[i]->CastleThinking.AStarGreedy.size(); k++)
+					CastlesOnTable[i].CastleThinking.PenaltyRegardListCastle[j].Initiate();
+					for (int k = 0; k < CastlesOnTable[i].CastleThinking.AStarGreedy.size(); k++)
 					{
-						CastlesOnTable[i]->CastleThinking.AStarGreedy[k].RemovePenalltyFromFirstBranches(Order * -1);
+						CastlesOnTable[i].CastleThinking.AStarGreedy[k].RemovePenalltyFromFirstBranches(Order * -1);
 					}
 
 				}
@@ -3174,16 +3177,16 @@ AllDraw AllDraw::RemovePenalltyFromFirstBranches(int Order)
 		}
 		for (int i = MinisterMidle; i < MinisterHigh; i++)
 		{
-			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i]->MinisterThinking) != nullptr) && j < MinisterOnTable[i]->MinisterThinking.TableListMinister.size(); j++)
+			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && j < MinisterOnTable[i].MinisterThinking.TableListMinister.size(); j++)
 			{
 				UsePenaltyRegardMechnisamT = false;
 				//try
 				{
 
-					MinisterOnTable[i]->MinisterThinking.PenaltyRegardListMinister[j].Initiate();
-					for (int k = 0; k < MinisterOnTable[i]->MinisterThinking.AStarGreedy.size(); k++)
+					MinisterOnTable[i].MinisterThinking.PenaltyRegardListMinister[j].Initiate();
+					for (int k = 0; k < MinisterOnTable[i].MinisterThinking.AStarGreedy.size(); k++)
 					{
-						MinisterOnTable[i]->MinisterThinking.AStarGreedy[k].RemovePenalltyFromFirstBranches(Order * -1);
+						MinisterOnTable[i].MinisterThinking.AStarGreedy[k].RemovePenalltyFromFirstBranches(Order * -1);
 					}
 
 				}
@@ -3195,15 +3198,15 @@ AllDraw AllDraw::RemovePenalltyFromFirstBranches(int Order)
 		}
 		for (int i = KingMidle; i < KingHigh; i++)
 		{
-			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i]->KingThinking) != nullptr) && j < KingOnTable[i]->KingThinking.TableListKing.size(); j++)
+			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && j < KingOnTable[i].KingThinking.TableListKing.size(); j++)
 			{
 				UsePenaltyRegardMechnisamT = false;
 				//try
 				{
-					KingOnTable[i]->KingThinking.PenaltyRegardListKing[j].Initiate();
-					for (int k = 0; k < KingOnTable[i]->KingThinking.AStarGreedy.size(); k++)
+					KingOnTable[i].KingThinking.PenaltyRegardListKing[j].Initiate();
+					for (int k = 0; k < KingOnTable[i].KingThinking.AStarGreedy.size(); k++)
 					{
-						KingOnTable[i]->KingThinking.AStarGreedy[k].RemovePenalltyFromFirstBranches(Order * -1);
+						KingOnTable[i].KingThinking.AStarGreedy[k].RemovePenalltyFromFirstBranches(Order * -1);
 					}
 
 				}
@@ -3236,25 +3239,25 @@ AllDraw AllDraw::FoundOfCurrentTableNode(int **Tab, int Order, AllDraw&THIS, boo
 
 			for (int i = 0; i < SodierMidle; i++)
 			{
-				for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i]->SoldierThinking) != nullptr) && j < SolderesOnTable[i]->SoldierThinking.TableListSolder.size(); j++)
+				for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && j < SolderesOnTable[i].SoldierThinking.TableListSolder.size(); j++)
 				{
 
 					//try
 					{
-						if (ThinkingChess::TableEqual(SolderesOnTable[i]->SoldierThinking.TableListSolder[j], Tab))
+						if (ThinkingChess::TableEqual(SolderesOnTable[i].SoldierThinking.TableListSolder[j], Tab))
 						{
-							if (SolderesOnTable[i]->SoldierThinking.AStarGreedy.size() > j && SolderesOnTable[i]->SoldierThinking.AStarGreedy.size() > 0)
+							if (SolderesOnTable[i].SoldierThinking.AStarGreedy.size() > j && SolderesOnTable[i].SoldierThinking.AStarGreedy.size() > 0)
 							{
-								THIS = SolderesOnTable[i]->SoldierThinking.AStarGreedy[j];
+								THIS = SolderesOnTable[i].SoldierThinking.AStarGreedy[j];
 								Found = true;
 								return THIS;
 							}
 						}
 						else
 						{
-							for (int ii = 0; ii < SolderesOnTable[i]->SoldierThinking.AStarGreedy.size();ii++)
+							for (int ii = 0; ii < SolderesOnTable[i].SoldierThinking.AStarGreedy.size();ii++)
 							{
-								SolderesOnTable[i]->SoldierThinking.AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, THIS, Found);
+								SolderesOnTable[i].SoldierThinking.AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, THIS, Found);
 							}
 						}
 
@@ -3268,25 +3271,25 @@ AllDraw AllDraw::FoundOfCurrentTableNode(int **Tab, int Order, AllDraw&THIS, boo
 			}
 			for (int i = 0; i < ElefantMidle; i++)
 			{
-				for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i]->ElefantThinking) != nullptr) && j < ElephantOnTable[i]->ElefantThinking.TableListElefant.size(); j++)
+				for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && j < ElephantOnTable[i].ElefantThinking.TableListElefant.size(); j++)
 				{
 					//try
 					{
 
-						if (ThinkingChess::TableEqual(ElephantOnTable[i]->ElefantThinking.TableListElefant[j], Tab))
+						if (ThinkingChess::TableEqual(ElephantOnTable[i].ElefantThinking.TableListElefant[j], Tab))
 						{
-							if (ElephantOnTable[i]->ElefantThinking.AStarGreedy.size() > j && ElephantOnTable[i]->ElefantThinking.AStarGreedy.size() > 0)
+							if (ElephantOnTable[i].ElefantThinking.AStarGreedy.size() > j && ElephantOnTable[i].ElefantThinking.AStarGreedy.size() > 0)
 							{
-								THIS = ElephantOnTable[i]->ElefantThinking.AStarGreedy[j];
+								THIS = ElephantOnTable[i].ElefantThinking.AStarGreedy[j];
 								Found = true;
 								return THIS;
 							}
 						}
 						else
 						{
-							for (int ii = 0; ii < ElephantOnTable[i]->ElefantThinking.AStarGreedy.size();ii++)
+							for (int ii = 0; ii < ElephantOnTable[i].ElefantThinking.AStarGreedy.size();ii++)
 							{
-								ElephantOnTable[i]->ElefantThinking.AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, THIS, Found);
+								ElephantOnTable[i].ElefantThinking.AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, THIS, Found);
 							}
 						}
 
@@ -3300,24 +3303,24 @@ AllDraw AllDraw::FoundOfCurrentTableNode(int **Tab, int Order, AllDraw&THIS, boo
 			}
 			for (int i = 0; i < HourseMidle; i++)
 			{
-				for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i]->HourseThinking) != nullptr) && j < HoursesOnTable[i]->HourseThinking.TableListHourse.size(); j++)
+				for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && j < HoursesOnTable[i].HourseThinking.TableListHourse.size(); j++)
 				{
 					//try
 					{
-						if (ThinkingChess::TableEqual(HoursesOnTable[i]->HourseThinking.TableListHourse[j], Tab))
+						if (ThinkingChess::TableEqual(HoursesOnTable[i].HourseThinking.TableListHourse[j], Tab))
 						{
-							if (HoursesOnTable[i]->HourseThinking.AStarGreedy.size() > j && HoursesOnTable[i]->HourseThinking.AStarGreedy.size() > 0)
+							if (HoursesOnTable[i].HourseThinking.AStarGreedy.size() > j && HoursesOnTable[i].HourseThinking.AStarGreedy.size() > 0)
 							{
-								THIS = HoursesOnTable[i]->HourseThinking.AStarGreedy[j];
+								THIS = HoursesOnTable[i].HourseThinking.AStarGreedy[j];
 								Found = true;
 								return THIS;
 							}
 						}
 						else
 						{
-							for (int ii = 0; ii < HoursesOnTable[i]->HourseThinking.AStarGreedy.size();ii++)
+							for (int ii = 0; ii < HoursesOnTable[i].HourseThinking.AStarGreedy.size();ii++)
 							{
-								HoursesOnTable[i]->HourseThinking.AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, THIS, Found);
+								HoursesOnTable[i].HourseThinking.AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, THIS, Found);
 							}
 						}
 
@@ -3332,24 +3335,24 @@ AllDraw AllDraw::FoundOfCurrentTableNode(int **Tab, int Order, AllDraw&THIS, boo
 			}
 			for (int i = 0; i < CastleMidle; i++)
 			{
-				for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i]->CastleThinking) != nullptr) && j < CastlesOnTable[i]->CastleThinking.TableListCastle.size(); j++)
+				for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && j < CastlesOnTable[i].CastleThinking.TableListCastle.size(); j++)
 				{
 					//try
 					{
-						if (ThinkingChess::TableEqual(CastlesOnTable[i]->CastleThinking.TableListCastle[j], Tab))
+						if (ThinkingChess::TableEqual(CastlesOnTable[i].CastleThinking.TableListCastle[j], Tab))
 						{
-							if (CastlesOnTable[i]->CastleThinking.AStarGreedy.size() > j && CastlesOnTable[i]->CastleThinking.AStarGreedy.size() > 0)
+							if (CastlesOnTable[i].CastleThinking.AStarGreedy.size() > j && CastlesOnTable[i].CastleThinking.AStarGreedy.size() > 0)
 							{
-								THIS = CastlesOnTable[i]->CastleThinking.AStarGreedy[j];
+								THIS = CastlesOnTable[i].CastleThinking.AStarGreedy[j];
 								Found = true;
 								return THIS;
 							}
 						}
 						else
 						{
-							for (int ii = 0; ii < CastlesOnTable[ii]->CastleThinking.AStarGreedy.size();ii++)
+							for (int ii = 0; ii < CastlesOnTable[ii].CastleThinking.AStarGreedy.size();ii++)
 							{
-								CastlesOnTable[i]->CastleThinking.AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, THIS, Found);
+								CastlesOnTable[i].CastleThinking.AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, THIS, Found);
 							}
 						}
 					}
@@ -3362,24 +3365,24 @@ AllDraw AllDraw::FoundOfCurrentTableNode(int **Tab, int Order, AllDraw&THIS, boo
 			}
 			for (int i = 0; i < MinisterMidle; i++)
 			{
-				for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i]->MinisterThinking) != nullptr) && j < MinisterOnTable[i]->MinisterThinking.TableListMinister.size(); j++)
+				for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && j < MinisterOnTable[i].MinisterThinking.TableListMinister.size(); j++)
 				{
 					//try
 					{
-						if (ThinkingChess::TableEqual(MinisterOnTable[i]->MinisterThinking.TableListMinister[j], Tab))
+						if (ThinkingChess::TableEqual(MinisterOnTable[i].MinisterThinking.TableListMinister[j], Tab))
 						{
-							if (MinisterOnTable[i]->MinisterThinking.AStarGreedy.size() > j && MinisterOnTable[i]->MinisterThinking.AStarGreedy.size() > 0)
+							if (MinisterOnTable[i].MinisterThinking.AStarGreedy.size() > j && MinisterOnTable[i].MinisterThinking.AStarGreedy.size() > 0)
 							{
-								THIS = MinisterOnTable[i]->MinisterThinking.AStarGreedy[j];
+								THIS = MinisterOnTable[i].MinisterThinking.AStarGreedy[j];
 								Found = true;
 								return THIS;
 							}
 						}
 						else
 						{
-							for (int ii = 0; ii < MinisterOnTable[i]->MinisterThinking.AStarGreedy.size();ii++)
+							for (int ii = 0; ii < MinisterOnTable[i].MinisterThinking.AStarGreedy.size();ii++)
 							{
-								MinisterOnTable[i]->MinisterThinking.AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, THIS, Found);
+								MinisterOnTable[i].MinisterThinking.AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, THIS, Found);
 							}
 						}
 
@@ -3393,24 +3396,24 @@ AllDraw AllDraw::FoundOfCurrentTableNode(int **Tab, int Order, AllDraw&THIS, boo
 			}
 			for (int i = 0; i < KingMidle; i++)
 			{
-				for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i]->KingThinking) != nullptr) && j < KingOnTable[i]->KingThinking.TableListKing.size(); j++)
+				for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && j < KingOnTable[i].KingThinking.TableListKing.size(); j++)
 				{
 					//try
 					{
-						if (ThinkingChess::TableEqual(KingOnTable[i]->KingThinking.TableListKing[j], Tab))
+						if (ThinkingChess::TableEqual(KingOnTable[i].KingThinking.TableListKing[j], Tab))
 						{
-							if (KingOnTable[i]->KingThinking.AStarGreedy.size() > j && KingOnTable[i]->KingThinking.AStarGreedy.size() > 0)
+							if (KingOnTable[i].KingThinking.AStarGreedy.size() > j && KingOnTable[i].KingThinking.AStarGreedy.size() > 0)
 							{
-								THIS = KingOnTable[i]->KingThinking.AStarGreedy[j];
+								THIS = KingOnTable[i].KingThinking.AStarGreedy[j];
 								Found = true;
 								return THIS;
 							}
 						}
 						else
 						{
-							for (int ii = 0; ii < KingOnTable[i]->KingThinking.AStarGreedy.size();ii++)
+							for (int ii = 0; ii < KingOnTable[i].KingThinking.AStarGreedy.size();ii++)
 							{
-								KingOnTable[i]->KingThinking.AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, THIS, Found);
+								KingOnTable[i].KingThinking.AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, THIS, Found);
 							}
 						}
 
@@ -3427,25 +3430,25 @@ AllDraw AllDraw::FoundOfCurrentTableNode(int **Tab, int Order, AllDraw&THIS, boo
 		{
 			for (int i = SodierMidle; i < SodierHigh; i++)
 			{
-				for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i]->SoldierThinking) != nullptr) && j < SolderesOnTable[i]->SoldierThinking.TableListSolder.size(); j++)
+				for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && j < SolderesOnTable[i].SoldierThinking.TableListSolder.size(); j++)
 				{
 					//try
 					{
 
-						if (ThinkingChess::TableEqual(SolderesOnTable[i]->SoldierThinking.TableListSolder[j], Tab))
+						if (ThinkingChess::TableEqual(SolderesOnTable[i].SoldierThinking.TableListSolder[j], Tab))
 						{
-							if (SolderesOnTable[i]->SoldierThinking.AStarGreedy.size() > j && SolderesOnTable[i]->SoldierThinking.AStarGreedy.size() > 0)
+							if (SolderesOnTable[i].SoldierThinking.AStarGreedy.size() > j && SolderesOnTable[i].SoldierThinking.AStarGreedy.size() > 0)
 							{
-								THIS = SolderesOnTable[i]->SoldierThinking.AStarGreedy[j];
+								THIS = SolderesOnTable[i].SoldierThinking.AStarGreedy[j];
 								Found = true;
 								return THIS;
 							}
 						}
 						else
 						{
-							for (int ii = 0; ii < SolderesOnTable[i]->SoldierThinking.AStarGreedy.size();ii++)
+							for (int ii = 0; ii < SolderesOnTable[i].SoldierThinking.AStarGreedy.size();ii++)
 							{
-								SolderesOnTable[i]->SoldierThinking.AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, THIS, Found);
+								SolderesOnTable[i].SoldierThinking.AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, THIS, Found);
 							}
 						}
 
@@ -3458,25 +3461,25 @@ AllDraw AllDraw::FoundOfCurrentTableNode(int **Tab, int Order, AllDraw&THIS, boo
 			}
 			for (int i = ElefantMidle; i < ElefantHigh; i++)
 			{
-				for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i]->ElefantThinking) != nullptr) && j < ElephantOnTable[i]->ElefantThinking.TableListElefant.size(); j++)
+				for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && j < ElephantOnTable[i].ElefantThinking.TableListElefant.size(); j++)
 				{
 					//try
 					{
 
-						if (ThinkingChess::TableEqual(ElephantOnTable[i]->ElefantThinking.TableListElefant[j], Tab))
+						if (ThinkingChess::TableEqual(ElephantOnTable[i].ElefantThinking.TableListElefant[j], Tab))
 						{
-							if (ElephantOnTable[i]->ElefantThinking.AStarGreedy.size() > j && ElephantOnTable[i]->ElefantThinking.AStarGreedy.size() > 0)
+							if (ElephantOnTable[i].ElefantThinking.AStarGreedy.size() > j && ElephantOnTable[i].ElefantThinking.AStarGreedy.size() > 0)
 							{
-								THIS = ElephantOnTable[i]->ElefantThinking.AStarGreedy[j];
+								THIS = ElephantOnTable[i].ElefantThinking.AStarGreedy[j];
 								Found = true;
 								return THIS;
 							}
 						}
 						else
 						{
-							for (int ii = 0; ii < ElephantOnTable[i]->ElefantThinking.AStarGreedy.size();ii++)
+							for (int ii = 0; ii < ElephantOnTable[i].ElefantThinking.AStarGreedy.size();ii++)
 							{
-								ElephantOnTable[i]->ElefantThinking.AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, THIS, Found);
+								ElephantOnTable[i].ElefantThinking.AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, THIS, Found);
 							}
 						}
 
@@ -3489,25 +3492,25 @@ AllDraw AllDraw::FoundOfCurrentTableNode(int **Tab, int Order, AllDraw&THIS, boo
 			}
 			for (int i = HourseMidle; i < HourseHight; i++)
 			{
-				for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i]->HourseThinking) != nullptr) && j < HoursesOnTable[i]->HourseThinking.TableListHourse.size(); j++)
+				for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && j < HoursesOnTable[i].HourseThinking.TableListHourse.size(); j++)
 				{
 					//try
 					{
 
-						if (ThinkingChess::TableEqual(HoursesOnTable[i]->HourseThinking.TableListHourse[j], Tab))
+						if (ThinkingChess::TableEqual(HoursesOnTable[i].HourseThinking.TableListHourse[j], Tab))
 						{
-							if (HoursesOnTable[i]->HourseThinking.AStarGreedy.size() > j && HoursesOnTable[i]->HourseThinking.AStarGreedy.size() > 0)
+							if (HoursesOnTable[i].HourseThinking.AStarGreedy.size() > j && HoursesOnTable[i].HourseThinking.AStarGreedy.size() > 0)
 							{
-								THIS = HoursesOnTable[i]->HourseThinking.AStarGreedy[j];
+								THIS = HoursesOnTable[i].HourseThinking.AStarGreedy[j];
 								Found = true;
 								return THIS;
 							}
 						}
 						else
 						{
-							for (int ii = 0; ii < HoursesOnTable[i]->HourseThinking.AStarGreedy.size();ii++)
+							for (int ii = 0; ii < HoursesOnTable[i].HourseThinking.AStarGreedy.size();ii++)
 							{
-								HoursesOnTable[i]->HourseThinking.AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, THIS, Found);
+								HoursesOnTable[i].HourseThinking.AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, THIS, Found);
 							}
 						}
 
@@ -3521,25 +3524,25 @@ AllDraw AllDraw::FoundOfCurrentTableNode(int **Tab, int Order, AllDraw&THIS, boo
 			}
 			for (int i = CastleMidle; i < CastleHigh; i++)
 			{
-				for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i]->CastleThinking) != nullptr) && j < CastlesOnTable[i]->CastleThinking.TableListCastle.size(); j++)
+				for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && j < CastlesOnTable[i].CastleThinking.TableListCastle.size(); j++)
 				{
 					//try
 					{
 
-						if (ThinkingChess::TableEqual(CastlesOnTable[i]->CastleThinking.TableListCastle[j], Tab))
+						if (ThinkingChess::TableEqual(CastlesOnTable[i].CastleThinking.TableListCastle[j], Tab))
 						{
-							if (CastlesOnTable[i]->CastleThinking.AStarGreedy.size() > j && CastlesOnTable[i]->CastleThinking.AStarGreedy.size() > 0)
+							if (CastlesOnTable[i].CastleThinking.AStarGreedy.size() > j && CastlesOnTable[i].CastleThinking.AStarGreedy.size() > 0)
 							{
-								THIS = CastlesOnTable[i]->CastleThinking.AStarGreedy[j];
+								THIS = CastlesOnTable[i].CastleThinking.AStarGreedy[j];
 								Found = true;
 								return THIS;
 							}
 						}
 						else
 						{
-							for (int ii = 0; ii < CastlesOnTable[ii]->CastleThinking.AStarGreedy.size();ii++)
+							for (int ii = 0; ii < CastlesOnTable[ii].CastleThinking.AStarGreedy.size();ii++)
 							{
-								CastlesOnTable[ii]->CastleThinking.AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, THIS, Found);
+								CastlesOnTable[ii].CastleThinking.AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, THIS, Found);
 							}
 						}
 
@@ -3552,24 +3555,24 @@ AllDraw AllDraw::FoundOfCurrentTableNode(int **Tab, int Order, AllDraw&THIS, boo
 			}
 			for (int i = MinisterMidle; i < MinisterHigh; i++)
 			{
-				for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i]->MinisterThinking) != nullptr) && j < MinisterOnTable[i]->MinisterThinking.TableListMinister.size(); j++)
+				for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && j < MinisterOnTable[i].MinisterThinking.TableListMinister.size(); j++)
 				{
 					//try
 					{
-						if (ThinkingChess::TableEqual(MinisterOnTable[i]->MinisterThinking.TableListMinister[j], Tab))
+						if (ThinkingChess::TableEqual(MinisterOnTable[i].MinisterThinking.TableListMinister[j], Tab))
 						{
-							if (MinisterOnTable[i]->MinisterThinking.AStarGreedy.size() > j && MinisterOnTable[i]->MinisterThinking.AStarGreedy.size() > 0)
+							if (MinisterOnTable[i].MinisterThinking.AStarGreedy.size() > j && MinisterOnTable[i].MinisterThinking.AStarGreedy.size() > 0)
 							{
-								THIS = MinisterOnTable[i]->MinisterThinking.AStarGreedy[j];
+								THIS = MinisterOnTable[i].MinisterThinking.AStarGreedy[j];
 								Found = true;
 								return THIS;
 							}
 						}
 						else
 						{
-							for (int ii = 0; ii < MinisterOnTable[i]->MinisterThinking.AStarGreedy.size();ii++)
+							for (int ii = 0; ii < MinisterOnTable[i].MinisterThinking.AStarGreedy.size();ii++)
 							{
-								MinisterOnTable[i]->MinisterThinking.AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, THIS, Found);
+								MinisterOnTable[i].MinisterThinking.AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, THIS, Found);
 							}
 						}
 
@@ -3582,24 +3585,24 @@ AllDraw AllDraw::FoundOfCurrentTableNode(int **Tab, int Order, AllDraw&THIS, boo
 			}
 			for (int i = KingMidle; i < KingHigh; i++)
 			{
-				for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i]->KingThinking) != nullptr) && j < KingOnTable[i]->KingThinking.TableListKing.size(); j++)
+				for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && j < KingOnTable[i].KingThinking.TableListKing.size(); j++)
 				{
 					//try
 					{
-						if (ThinkingChess::TableEqual(KingOnTable[i]->KingThinking.TableListKing[j], Tab))
+						if (ThinkingChess::TableEqual(KingOnTable[i].KingThinking.TableListKing[j], Tab))
 						{
-							if (KingOnTable[i]->KingThinking.AStarGreedy.size() > j && KingOnTable[i]->KingThinking.AStarGreedy.size() > 0)
+							if (KingOnTable[i].KingThinking.AStarGreedy.size() > j && KingOnTable[i].KingThinking.AStarGreedy.size() > 0)
 							{
-								THIS = KingOnTable[i]->KingThinking.AStarGreedy[j];
+								THIS = KingOnTable[i].KingThinking.AStarGreedy[j];
 								Found = true;
 								return THIS;
 							}
 						}
 						else
 						{
-							for (int ii = 0; ii < KingOnTable[i]->KingThinking.AStarGreedy.size();ii++)
+							for (int ii = 0; ii < KingOnTable[i].KingThinking.AStarGreedy.size();ii++)
 							{
-								KingOnTable[i]->KingThinking.AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, THIS, Found);
+								KingOnTable[i].KingThinking.AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, THIS, Found);
 							}
 						}
 
@@ -3628,12 +3631,12 @@ AllDraw* AllDraw::FoundOfLeafDepenOfKind(int Kind, AllDraw *Leaf, bool &Found, i
 
 		for (int i = 0; i < SodierMidle; i++)
 		{
-			for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i]->SoldierThinking) != nullptr) && j < SolderesOnTable[i]->SoldierThinking.TableListSolder.size(); j++)
+			for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && j < SolderesOnTable[i].SoldierThinking.TableListSolder.size(); j++)
 			{
 
 				//try
 				{
-					if (SolderesOnTable[i]->SoldierThinking.IsThereMateOfEnemy || SolderesOnTable[i]->SoldierThinking.AStarGreedy.empty() && Kind == 1)
+					if (SolderesOnTable[i].SoldierThinking.IsThereMateOfEnemy || SolderesOnTable[i].SoldierThinking.AStarGreedy.empty() && Kind == 1)
 					{
 						Found = true;
 						this->Clone(Leaf);
@@ -3642,9 +3645,9 @@ AllDraw* AllDraw::FoundOfLeafDepenOfKind(int Kind, AllDraw *Leaf, bool &Found, i
 					}
 					else
 					{
-						for (int ii = 0; ii < SolderesOnTable[i]->SoldierThinking.AStarGreedy.size()- 1; ii++)
+						for (int ii = 0; ii < SolderesOnTable[i].SoldierThinking.AStarGreedy.size()- 1; ii++)
 						{
-							SolderesOnTable[i]->SoldierThinking.AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, Leaf, Found, Order * -1, OrderLeaf);
+							SolderesOnTable[i].SoldierThinking.AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, Leaf, Found, Order * -1, OrderLeaf);
 						}
 					}
 
@@ -3658,11 +3661,11 @@ AllDraw* AllDraw::FoundOfLeafDepenOfKind(int Kind, AllDraw *Leaf, bool &Found, i
 		}
 		for (int i = 0; i < ElefantMidle; i++)
 		{
-			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i]->ElefantThinking) != nullptr) && j < ElephantOnTable[i]->ElefantThinking.TableListElefant.size(); j++)
+			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && j < ElephantOnTable[i].ElefantThinking.TableListElefant.size(); j++)
 			{
 				//try
 				{
-					if (ElephantOnTable[i]->ElefantThinking.AStarGreedy.empty() && Kind == 2)
+					if (ElephantOnTable[i].ElefantThinking.AStarGreedy.empty() && Kind == 2)
 					{
 						Found = true;
 						this->Clone(Leaf);
@@ -3670,9 +3673,9 @@ AllDraw* AllDraw::FoundOfLeafDepenOfKind(int Kind, AllDraw *Leaf, bool &Found, i
 					}
 					else
 					{
-						for (int ii = 0; ii < ElephantOnTable[i]->ElefantThinking.AStarGreedy.size()- 1; ii++)
+						for (int ii = 0; ii < ElephantOnTable[i].ElefantThinking.AStarGreedy.size()- 1; ii++)
 						{
-							ElephantOnTable[i]->ElefantThinking.AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, Leaf, Found, Order * -1, OrderLeaf);
+							ElephantOnTable[i].ElefantThinking.AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, Leaf, Found, Order * -1, OrderLeaf);
 						}
 					}
 
@@ -3686,11 +3689,11 @@ AllDraw* AllDraw::FoundOfLeafDepenOfKind(int Kind, AllDraw *Leaf, bool &Found, i
 		}
 		for (int i = 0; i < HourseMidle; i++)
 		{
-			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i]->HourseThinking) != nullptr) && j < HoursesOnTable[i]->HourseThinking.TableListHourse.size(); j++)
+			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && j < HoursesOnTable[i].HourseThinking.TableListHourse.size(); j++)
 			{
 				//try
 				{
-					if (HoursesOnTable[i]->HourseThinking.AStarGreedy.empty() && Kind == 3)
+					if (HoursesOnTable[i].HourseThinking.AStarGreedy.empty() && Kind == 3)
 					{
 						Found = true;
 						this->Clone(Leaf);
@@ -3698,9 +3701,9 @@ AllDraw* AllDraw::FoundOfLeafDepenOfKind(int Kind, AllDraw *Leaf, bool &Found, i
 					}
 					else
 					{
-						for (int ii = 0; ii < HoursesOnTable[i]->HourseThinking.AStarGreedy.size()- 1; ii++)
+						for (int ii = 0; ii < HoursesOnTable[i].HourseThinking.AStarGreedy.size()- 1; ii++)
 						{
-							HoursesOnTable[i]->HourseThinking.AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, Leaf, Found, Order * -1, OrderLeaf);
+							HoursesOnTable[i].HourseThinking.AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, Leaf, Found, Order * -1, OrderLeaf);
 						}
 					}
 
@@ -3715,11 +3718,11 @@ AllDraw* AllDraw::FoundOfLeafDepenOfKind(int Kind, AllDraw *Leaf, bool &Found, i
 		}
 		for (int i = 0; i < CastleMidle; i++)
 		{
-			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i]->CastleThinking) != nullptr) && j < CastlesOnTable[i]->CastleThinking.TableListCastle.size(); j++)
+			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && j < CastlesOnTable[i].CastleThinking.TableListCastle.size(); j++)
 			{
 				//try
 				{
-					if (CastlesOnTable[i]->CastleThinking.AStarGreedy.empty() && Kind == 4)
+					if (CastlesOnTable[i].CastleThinking.AStarGreedy.empty() && Kind == 4)
 					{
 						Found = true;
 						this->Clone(Leaf);
@@ -3727,9 +3730,9 @@ AllDraw* AllDraw::FoundOfLeafDepenOfKind(int Kind, AllDraw *Leaf, bool &Found, i
 					}
 					else
 					{
-						for (int ii = 0; ii < CastlesOnTable[i]->CastleThinking.AStarGreedy.size()- 1; ii++)
+						for (int ii = 0; ii < CastlesOnTable[i].CastleThinking.AStarGreedy.size()- 1; ii++)
 						{
-							CastlesOnTable[i]->CastleThinking.AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, Leaf, Found, Order * -1, OrderLeaf);
+							CastlesOnTable[i].CastleThinking.AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, Leaf, Found, Order * -1, OrderLeaf);
 						}
 					}
 				}
@@ -3742,11 +3745,11 @@ AllDraw* AllDraw::FoundOfLeafDepenOfKind(int Kind, AllDraw *Leaf, bool &Found, i
 		}
 		for (int i = 0; i < MinisterMidle; i++)
 		{
-			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i]->MinisterThinking) != nullptr) && j < MinisterOnTable[i]->MinisterThinking.TableListMinister.size(); j++)
+			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && j < MinisterOnTable[i].MinisterThinking.TableListMinister.size(); j++)
 			{
 				//try
 				{
-					if (MinisterOnTable[i]->MinisterThinking.AStarGreedy.empty() && Kind == 5)
+					if (MinisterOnTable[i].MinisterThinking.AStarGreedy.empty() && Kind == 5)
 					{
 						Found = true;
 						this->Clone(Leaf);
@@ -3754,9 +3757,9 @@ AllDraw* AllDraw::FoundOfLeafDepenOfKind(int Kind, AllDraw *Leaf, bool &Found, i
 					}
 					else
 					{
-						for (int ii = 0; ii < MinisterOnTable[i]->MinisterThinking.AStarGreedy.size()- 1; ii++)
+						for (int ii = 0; ii < MinisterOnTable[i].MinisterThinking.AStarGreedy.size()- 1; ii++)
 						{
-							MinisterOnTable[i]->MinisterThinking.AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, Leaf, Found, Order * -1, OrderLeaf);
+							MinisterOnTable[i].MinisterThinking.AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, Leaf, Found, Order * -1, OrderLeaf);
 						}
 					}
 
@@ -3770,11 +3773,11 @@ AllDraw* AllDraw::FoundOfLeafDepenOfKind(int Kind, AllDraw *Leaf, bool &Found, i
 		}
 		for (int i = 0; i < KingMidle; i++)
 		{
-			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i]->KingThinking) != nullptr) && j < KingOnTable[i]->KingThinking.TableListKing.size(); j++)
+			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && j < KingOnTable[i].KingThinking.TableListKing.size(); j++)
 			{
 				//try
 				{
-					if (KingOnTable[i]->KingThinking.AStarGreedy.empty() && Kind == 6)
+					if (KingOnTable[i].KingThinking.AStarGreedy.empty() && Kind == 6)
 					{
 						Found = true;
 						this->Clone(Leaf);
@@ -3782,9 +3785,9 @@ AllDraw* AllDraw::FoundOfLeafDepenOfKind(int Kind, AllDraw *Leaf, bool &Found, i
 					}
 					else
 					{
-						for (int ii = 0; ii < KingOnTable[i]->KingThinking.AStarGreedy.size()- 1; ii++)
+						for (int ii = 0; ii < KingOnTable[i].KingThinking.AStarGreedy.size()- 1; ii++)
 						{
-							KingOnTable[i]->KingThinking.AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, Leaf, Found, Order * -1, OrderLeaf);
+							KingOnTable[i].KingThinking.AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, Leaf, Found, Order * -1, OrderLeaf);
 						}
 					}
 
@@ -3801,12 +3804,12 @@ AllDraw* AllDraw::FoundOfLeafDepenOfKind(int Kind, AllDraw *Leaf, bool &Found, i
 	{
 		for (int i = SodierMidle; i < SodierHigh; i++)
 		{
-			for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i]->SoldierThinking) != nullptr) && j < SolderesOnTable[i]->SoldierThinking.TableListSolder.size(); j++)
+			for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && j < SolderesOnTable[i].SoldierThinking.TableListSolder.size(); j++)
 			{
 				//try
 				{
 
-					if (SolderesOnTable[i]->SoldierThinking.AStarGreedy.empty() && Kind == 1)
+					if (SolderesOnTable[i].SoldierThinking.AStarGreedy.empty() && Kind == 1)
 					{
 						Found = true;
 						this->Clone(Leaf);
@@ -3814,9 +3817,9 @@ AllDraw* AllDraw::FoundOfLeafDepenOfKind(int Kind, AllDraw *Leaf, bool &Found, i
 					}
 					else
 					{
-						for (int ii = 0; ii < SolderesOnTable[i]->SoldierThinking.AStarGreedy.size()- 1; ii++)
+						for (int ii = 0; ii < SolderesOnTable[i].SoldierThinking.AStarGreedy.size()- 1; ii++)
 						{
-							SolderesOnTable[i]->SoldierThinking.AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, Leaf, Found, Order * -1, OrderLeaf);
+							SolderesOnTable[i].SoldierThinking.AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, Leaf, Found, Order * -1, OrderLeaf);
 						}
 					}
 				}
@@ -3828,12 +3831,12 @@ AllDraw* AllDraw::FoundOfLeafDepenOfKind(int Kind, AllDraw *Leaf, bool &Found, i
 		}
 		for (int i = ElefantMidle; i < ElefantHigh; i++)
 		{
-			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i]->ElefantThinking) != nullptr) && j < ElephantOnTable[i]->ElefantThinking.TableListElefant.size(); j++)
+			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && j < ElephantOnTable[i].ElefantThinking.TableListElefant.size(); j++)
 			{
 				//try
 				{
 
-					if (ElephantOnTable[i]->ElefantThinking.AStarGreedy.empty() && Kind == 2)
+					if (ElephantOnTable[i].ElefantThinking.AStarGreedy.empty() && Kind == 2)
 					{
 						Found = true;
 						this->Clone(Leaf);
@@ -3841,9 +3844,9 @@ AllDraw* AllDraw::FoundOfLeafDepenOfKind(int Kind, AllDraw *Leaf, bool &Found, i
 					}
 					else
 					{
-						for (int ii = 0; ii < ElephantOnTable[i]->ElefantThinking.AStarGreedy.size()- 1; ii++)
+						for (int ii = 0; ii < ElephantOnTable[i].ElefantThinking.AStarGreedy.size()- 1; ii++)
 						{
-							ElephantOnTable[i]->ElefantThinking.AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, Leaf, Found, Order * -1, OrderLeaf);
+							ElephantOnTable[i].ElefantThinking.AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, Leaf, Found, Order * -1, OrderLeaf);
 						}
 					}
 				}
@@ -3855,12 +3858,12 @@ AllDraw* AllDraw::FoundOfLeafDepenOfKind(int Kind, AllDraw *Leaf, bool &Found, i
 		}
 		for (int i = HourseMidle; i < HourseHight; i++)
 		{
-			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i]->HourseThinking) != nullptr) && j < HoursesOnTable[i]->HourseThinking.TableListHourse.size(); j++)
+			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && j < HoursesOnTable[i].HourseThinking.TableListHourse.size(); j++)
 			{
 				//try
 				{
 
-					if (HoursesOnTable[i]->HourseThinking.AStarGreedy.empty() && Kind == 3)
+					if (HoursesOnTable[i].HourseThinking.AStarGreedy.empty() && Kind == 3)
 					{
 						Found = true;
 						this->Clone(Leaf);
@@ -3868,9 +3871,9 @@ AllDraw* AllDraw::FoundOfLeafDepenOfKind(int Kind, AllDraw *Leaf, bool &Found, i
 					}
 					else
 					{
-						for (int ii = 0; ii < HoursesOnTable[i]->HourseThinking.AStarGreedy.size()- 1; ii++)
+						for (int ii = 0; ii < HoursesOnTable[i].HourseThinking.AStarGreedy.size()- 1; ii++)
 						{
-							HoursesOnTable[i]->HourseThinking.AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, Leaf, Found, Order * -1, OrderLeaf);
+							HoursesOnTable[i].HourseThinking.AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, Leaf, Found, Order * -1, OrderLeaf);
 						}
 					}
 				}
@@ -3882,12 +3885,12 @@ AllDraw* AllDraw::FoundOfLeafDepenOfKind(int Kind, AllDraw *Leaf, bool &Found, i
 		}
 		for (int i = CastleMidle; i < CastleHigh; i++)
 		{
-			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i]->CastleThinking) != nullptr) && j < CastlesOnTable[i]->CastleThinking.TableListCastle.size(); j++)
+			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && j < CastlesOnTable[i].CastleThinking.TableListCastle.size(); j++)
 			{
 				//try
 				{
 
-					if (CastlesOnTable[i]->CastleThinking.AStarGreedy.empty() && Kind == 4)
+					if (CastlesOnTable[i].CastleThinking.AStarGreedy.empty() && Kind == 4)
 					{
 						Found = true;
 						this->Clone(Leaf);
@@ -3895,9 +3898,9 @@ AllDraw* AllDraw::FoundOfLeafDepenOfKind(int Kind, AllDraw *Leaf, bool &Found, i
 					}
 					else
 					{
-						for (int ii = 0; ii < CastlesOnTable[i]->CastleThinking.AStarGreedy.size()- 1; ii++)
+						for (int ii = 0; ii < CastlesOnTable[i].CastleThinking.AStarGreedy.size()- 1; ii++)
 						{
-							CastlesOnTable[i]->CastleThinking.AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, Leaf, Found, Order * -1, OrderLeaf);
+							CastlesOnTable[i].CastleThinking.AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, Leaf, Found, Order * -1, OrderLeaf);
 						}
 					}
 
@@ -3910,11 +3913,11 @@ AllDraw* AllDraw::FoundOfLeafDepenOfKind(int Kind, AllDraw *Leaf, bool &Found, i
 		}
 		for (int i = MinisterMidle; i < MinisterHigh; i++)
 		{
-			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i]->MinisterThinking) != nullptr) && j < MinisterOnTable[i]->MinisterThinking.TableListMinister.size(); j++)
+			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && j < MinisterOnTable[i].MinisterThinking.TableListMinister.size(); j++)
 			{
 				//try
 				{
-					if (MinisterOnTable[i]->MinisterThinking.AStarGreedy.empty() && Kind == 5)
+					if (MinisterOnTable[i].MinisterThinking.AStarGreedy.empty() && Kind == 5)
 					{
 						Found = true;
 						this->Clone(Leaf);
@@ -3922,9 +3925,9 @@ AllDraw* AllDraw::FoundOfLeafDepenOfKind(int Kind, AllDraw *Leaf, bool &Found, i
 					}
 					else
 					{
-						for (int ii = 0; ii < MinisterOnTable[i]->MinisterThinking.AStarGreedy.size()- 1; ii++)
+						for (int ii = 0; ii < MinisterOnTable[i].MinisterThinking.AStarGreedy.size()- 1; ii++)
 						{
-							MinisterOnTable[i]->MinisterThinking.AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, Leaf, Found, Order * -1, OrderLeaf);
+							MinisterOnTable[i].MinisterThinking.AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, Leaf, Found, Order * -1, OrderLeaf);
 						}
 					}
 
@@ -3937,11 +3940,11 @@ AllDraw* AllDraw::FoundOfLeafDepenOfKind(int Kind, AllDraw *Leaf, bool &Found, i
 		}
 		for (int i = KingMidle; i < KingHigh; i++)
 		{
-			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i]->KingThinking) != nullptr) && j < KingOnTable[i]->KingThinking.TableListKing.size(); j++)
+			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && j < KingOnTable[i].KingThinking.TableListKing.size(); j++)
 			{
 				//try
 				{
-					if (KingOnTable[i]->KingThinking.AStarGreedy.empty() && Kind == 6)
+					if (KingOnTable[i].KingThinking.AStarGreedy.empty() && Kind == 6)
 					{
 						Found = true;
 						this->Clone(Leaf);
@@ -3950,9 +3953,9 @@ AllDraw* AllDraw::FoundOfLeafDepenOfKind(int Kind, AllDraw *Leaf, bool &Found, i
 					}
 					else
 					{
-						for (int ii = 0; ii < KingOnTable[i]->KingThinking.AStarGreedy.size()- 1; ii++)
+						for (int ii = 0; ii < KingOnTable[i].KingThinking.AStarGreedy.size()- 1; ii++)
 						{
-							KingOnTable[i]->KingThinking.AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, Leaf, Found, Order * -1, OrderLeaf);
+							KingOnTable[i].KingThinking.AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, Leaf, Found, Order * -1, OrderLeaf);
 						}
 					}
 
@@ -3982,21 +3985,21 @@ bool AllDraw::IsFoundOfLeafDepenOfKindhaveVictory(int Kind, bool &Found, int Ord
 
 		for (int i = 0; i < SodierMidle; i++)
 		{
-			for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i]->SoldierThinking) != nullptr) && j < SolderesOnTable[i]->SoldierThinking.TableListSolder.size(); j++)
+			for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && j < SolderesOnTable[i].SoldierThinking.TableListSolder.size(); j++)
 			{
 
 				//try
 				{
-					if (SolderesOnTable[i]->SoldierThinking.IsThereMateOfEnemy && Kind == 1) // && SolderesOnTable[i] .SoldierThinking.AStarGreedy.size() == 0
+					if (SolderesOnTable[i].SoldierThinking.IsThereMateOfEnemy && Kind == 1) // && SolderesOnTable[i] .SoldierThinking.AStarGreedy.size() == 0
 					{
 						Found = true;
 						return true;
 					}
 					else
 					{
-						for (int ii = 0; ii < SolderesOnTable[i]->SoldierThinking.AStarGreedy.size();ii++)
+						for (int ii = 0; ii < SolderesOnTable[i].SoldierThinking.AStarGreedy.size();ii++)
 						{
-							SolderesOnTable[i]->SoldierThinking.AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, Found, Order * -1);
+							SolderesOnTable[i].SoldierThinking.AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, Found, Order * -1);
 						}
 					}
 
@@ -4010,20 +4013,20 @@ bool AllDraw::IsFoundOfLeafDepenOfKindhaveVictory(int Kind, bool &Found, int Ord
 		}
 		for (int i = 0; i < ElefantMidle; i++)
 		{
-			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i]->ElefantThinking) != nullptr) && j < ElephantOnTable[i]->ElefantThinking.TableListElefant.size(); j++)
+			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && j < ElephantOnTable[i].ElefantThinking.TableListElefant.size(); j++)
 			{
 				//try
 				{
-					if (ElephantOnTable[i]->ElefantThinking.IsThereMateOfEnemy && Kind == 2) //&& SolderesOnTable[i]->ElefantThinking.AStarGreedy.size() == 0
+					if (ElephantOnTable[i].ElefantThinking.IsThereMateOfEnemy && Kind == 2) //&& SolderesOnTable[i].ElefantThinking.AStarGreedy.size() == 0
 					{
 						Found = true;
 						return true;
 					}
 					else
 					{
-						for (int ii = 0; ii < ElephantOnTable[i]->ElefantThinking.AStarGreedy.size();ii++)
+						for (int ii = 0; ii < ElephantOnTable[i].ElefantThinking.AStarGreedy.size();ii++)
 						{
-							ElephantOnTable[i]->ElefantThinking.AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, Found, Order * -1);
+							ElephantOnTable[i].ElefantThinking.AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, Found, Order * -1);
 						}
 					}
 
@@ -4037,20 +4040,20 @@ bool AllDraw::IsFoundOfLeafDepenOfKindhaveVictory(int Kind, bool &Found, int Ord
 		}
 		for (int i = 0; i < HourseMidle; i++)
 		{
-			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i]->HourseThinking) != nullptr) && j < HoursesOnTable[i]->HourseThinking.TableListHourse.size(); j++)
+			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && j < HoursesOnTable[i].HourseThinking.TableListHourse.size(); j++)
 			{
 				//try
 				{
-					if (HoursesOnTable[i]->HourseThinking.IsThereMateOfEnemy && Kind == 3) //&& HoursesOnTable[i]->HourseThinking.AStarGreedy.size() == 0
+					if (HoursesOnTable[i].HourseThinking.IsThereMateOfEnemy && Kind == 3) //&& HoursesOnTable[i].HourseThinking.AStarGreedy.size() == 0
 					{
 						Found = true;
 						return true;
 					}
 					else
 					{
-						for (int ii = 0; ii < HoursesOnTable[i]->HourseThinking.AStarGreedy.size();ii++)
+						for (int ii = 0; ii < HoursesOnTable[i].HourseThinking.AStarGreedy.size();ii++)
 						{
-							HoursesOnTable[i]->HourseThinking.AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, Found, Order * -1);
+							HoursesOnTable[i].HourseThinking.AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, Found, Order * -1);
 						}
 					}
 
@@ -4065,20 +4068,20 @@ bool AllDraw::IsFoundOfLeafDepenOfKindhaveVictory(int Kind, bool &Found, int Ord
 		}
 		for (int i = 0; i < CastleMidle; i++)
 		{
-			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i]->CastleThinking) != nullptr) && j < CastlesOnTable[i]->CastleThinking.TableListCastle.size(); j++)
+			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && j < CastlesOnTable[i].CastleThinking.TableListCastle.size(); j++)
 			{
 				//try
 				{
-					if (CastlesOnTable[i]->CastleThinking.IsThereMateOfEnemy && Kind == 4) //&& CastlesOnTable[ii]->CastleThinking.AStarGreedy.size() == 0
+					if (CastlesOnTable[i].CastleThinking.IsThereMateOfEnemy && Kind == 4) //&& CastlesOnTable[ii].CastleThinking.AStarGreedy.size() == 0
 					{
 						Found = true;
 						return true;
 					}
 					else
 					{
-						for (int ii = 0; ii < CastlesOnTable[i]->CastleThinking.AStarGreedy.size();ii++)
+						for (int ii = 0; ii < CastlesOnTable[i].CastleThinking.AStarGreedy.size();ii++)
 						{
-							CastlesOnTable[i]->CastleThinking.AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, Found, Order * -1);
+							CastlesOnTable[i].CastleThinking.AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, Found, Order * -1);
 						}
 					}
 				}
@@ -4091,20 +4094,20 @@ bool AllDraw::IsFoundOfLeafDepenOfKindhaveVictory(int Kind, bool &Found, int Ord
 		}
 		for (int i = 0; i < MinisterMidle; i++)
 		{
-			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i]->MinisterThinking) != nullptr) && j < MinisterOnTable[i]->MinisterThinking.TableListMinister.size(); j++)
+			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && j < MinisterOnTable[i].MinisterThinking.TableListMinister.size(); j++)
 			{
 				//try
 				{
-					if (MinisterOnTable[i]->MinisterThinking.IsThereMateOfEnemy && Kind == 5) //&& MinisterOnTable[i]->MinisterThinking.AStarGreedy.size() == 0
+					if (MinisterOnTable[i].MinisterThinking.IsThereMateOfEnemy && Kind == 5) //&& MinisterOnTable[i].MinisterThinking.AStarGreedy.size() == 0
 					{
 						Found = true;
 						return true;
 					}
 					else
 					{
-						for (int ii = 0; ii < MinisterOnTable[i]->MinisterThinking.AStarGreedy.size();ii++)
+						for (int ii = 0; ii < MinisterOnTable[i].MinisterThinking.AStarGreedy.size();ii++)
 						{
-							MinisterOnTable[i]->MinisterThinking.AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, Found, Order * -1);
+							MinisterOnTable[i].MinisterThinking.AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, Found, Order * -1);
 						}
 					}
 
@@ -4118,20 +4121,20 @@ bool AllDraw::IsFoundOfLeafDepenOfKindhaveVictory(int Kind, bool &Found, int Ord
 		}
 		for (int i = 0; i < KingMidle; i++)
 		{
-			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i]->KingThinking) != nullptr) && j < KingOnTable[i]->KingThinking.TableListKing.size(); j++)
+			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && j < KingOnTable[i].KingThinking.TableListKing.size(); j++)
 			{
 				//try
 				{
-					if (KingOnTable[i]->KingThinking.IsThereMateOfEnemy && Kind == 6) //&& KingOnTable[i]->KingThinking.AStarGreedy.size() == 0
+					if (KingOnTable[i].KingThinking.IsThereMateOfEnemy && Kind == 6) //&& KingOnTable[i].KingThinking.AStarGreedy.size() == 0
 					{
 						Found = true;
 						return true;
 					}
 					else
 					{
-						for (int ii = 0; ii < KingOnTable[i]->KingThinking.AStarGreedy.size();ii++)
+						for (int ii = 0; ii < KingOnTable[i].KingThinking.AStarGreedy.size();ii++)
 						{
-							KingOnTable[i]->KingThinking.AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, Found, Order * -1);
+							KingOnTable[i].KingThinking.AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, Found, Order * -1);
 						}
 					}
 
@@ -4148,21 +4151,21 @@ bool AllDraw::IsFoundOfLeafDepenOfKindhaveVictory(int Kind, bool &Found, int Ord
 	{
 		for (int i = SodierMidle; i < SodierHigh; i++)
 		{
-			for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i]->SoldierThinking) != nullptr) && j < SolderesOnTable[i]->SoldierThinking.TableListSolder.size(); j++)
+			for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && j < SolderesOnTable[i].SoldierThinking.TableListSolder.size(); j++)
 			{
 				//try
 				{
 
-					if (SolderesOnTable[i]->SoldierThinking.IsThereMateOfEnemy && Kind == 1) //&& SolderesOnTable[i] .SoldierThinking.AStarGreedy.size() == 0
+					if (SolderesOnTable[i].SoldierThinking.IsThereMateOfEnemy && Kind == 1) //&& SolderesOnTable[i] .SoldierThinking.AStarGreedy.size() == 0
 					{
 						Found = true;
 						return true;
 					}
 					else
 					{
-						for (int ii = 0; ii < SolderesOnTable[i]->SoldierThinking.AStarGreedy.size();ii++)
+						for (int ii = 0; ii < SolderesOnTable[i].SoldierThinking.AStarGreedy.size();ii++)
 						{
-							SolderesOnTable[i]->SoldierThinking.AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, Found, Order * -1);
+							SolderesOnTable[i].SoldierThinking.AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, Found, Order * -1);
 						}
 					}
 				}
@@ -4174,21 +4177,21 @@ bool AllDraw::IsFoundOfLeafDepenOfKindhaveVictory(int Kind, bool &Found, int Ord
 		}
 		for (int i = ElefantMidle; i < ElefantHigh; i++)
 		{
-			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i]->ElefantThinking) != nullptr) && j < ElephantOnTable[i]->ElefantThinking.TableListElefant.size(); j++)
+			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && j < ElephantOnTable[i].ElefantThinking.TableListElefant.size(); j++)
 			{
 				//try
 				{
 
-					if (ElephantOnTable[i]->ElefantThinking.IsThereMateOfEnemy && Kind == 2) //&& SolderesOnTable[i]->ElefantThinking.AStarGreedy.size() == 0
+					if (ElephantOnTable[i].ElefantThinking.IsThereMateOfEnemy && Kind == 2) //&& SolderesOnTable[i].ElefantThinking.AStarGreedy.size() == 0
 					{
 						Found = true;
 						return true;
 					}
 					else
 					{
-						for (int ii = 0; ii < ElephantOnTable[i]->ElefantThinking.AStarGreedy.size();ii++)
+						for (int ii = 0; ii < ElephantOnTable[i].ElefantThinking.AStarGreedy.size();ii++)
 						{
-							ElephantOnTable[i]->ElefantThinking.AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, Found, Order * -1);
+							ElephantOnTable[i].ElefantThinking.AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, Found, Order * -1);
 						}
 					}
 				}
@@ -4200,21 +4203,21 @@ bool AllDraw::IsFoundOfLeafDepenOfKindhaveVictory(int Kind, bool &Found, int Ord
 		}
 		for (int i = HourseMidle; i < HourseHight; i++)
 		{
-			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i]->HourseThinking) != nullptr) && j < HoursesOnTable[i]->HourseThinking.TableListHourse.size(); j++)
+			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && j < HoursesOnTable[i].HourseThinking.TableListHourse.size(); j++)
 			{
 				//try
 				{
 
-					if (HoursesOnTable[i]->HourseThinking.IsThereMateOfEnemy && Kind == 3) //&& HoursesOnTable[i]->HourseThinking.AStarGreedy.size() == 0
+					if (HoursesOnTable[i].HourseThinking.IsThereMateOfEnemy && Kind == 3) //&& HoursesOnTable[i].HourseThinking.AStarGreedy.size() == 0
 					{
 						Found = true;
 						return true;
 					}
 					else
 					{
-						for (int ii = 0; ii < HoursesOnTable[i]->HourseThinking.AStarGreedy.size();ii++)
+						for (int ii = 0; ii < HoursesOnTable[i].HourseThinking.AStarGreedy.size();ii++)
 						{
-							HoursesOnTable[i]->HourseThinking.AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, Found, Order * -1);
+							HoursesOnTable[i].HourseThinking.AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, Found, Order * -1);
 						}
 					}
 				}
@@ -4226,21 +4229,21 @@ bool AllDraw::IsFoundOfLeafDepenOfKindhaveVictory(int Kind, bool &Found, int Ord
 		}
 		for (int i = CastleMidle; i < CastleHigh; i++)
 		{
-			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i]->CastleThinking) != nullptr) && j < CastlesOnTable[i]->CastleThinking.TableListCastle.size(); j++)
+			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && j < CastlesOnTable[i].CastleThinking.TableListCastle.size(); j++)
 			{
 				//try
 				{
 
-					if (CastlesOnTable[i]->CastleThinking.IsThereMateOfEnemy && Kind == 4) //&& CastlesOnTable[ii]->CastleThinking.AStarGreedy.size() == 0
+					if (CastlesOnTable[i].CastleThinking.IsThereMateOfEnemy && Kind == 4) //&& CastlesOnTable[ii].CastleThinking.AStarGreedy.size() == 0
 					{
 						Found = true;
 						return true;
 					}
 					else
 					{
-						for (int ii = 0; ii < CastlesOnTable[i]->CastleThinking.AStarGreedy.size();ii++)
+						for (int ii = 0; ii < CastlesOnTable[i].CastleThinking.AStarGreedy.size();ii++)
 						{
-							CastlesOnTable[i]->CastleThinking.AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, Found, Order * -1);
+							CastlesOnTable[i].CastleThinking.AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, Found, Order * -1);
 						}
 					}
 
@@ -4253,20 +4256,20 @@ bool AllDraw::IsFoundOfLeafDepenOfKindhaveVictory(int Kind, bool &Found, int Ord
 		}
 		for (int i = MinisterMidle; i < MinisterHigh; i++)
 		{
-			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i]->MinisterThinking) != nullptr) && j < MinisterOnTable[i]->MinisterThinking.TableListMinister.size(); j++)
+			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && j < MinisterOnTable[i].MinisterThinking.TableListMinister.size(); j++)
 			{
 				//try
 				{
-					if (MinisterOnTable[i]->MinisterThinking.IsThereMateOfEnemy && Kind == 5) //&& MinisterOnTable[i]->MinisterThinking.AStarGreedy.size() == 0
+					if (MinisterOnTable[i].MinisterThinking.IsThereMateOfEnemy && Kind == 5) //&& MinisterOnTable[i].MinisterThinking.AStarGreedy.size() == 0
 					{
 						Found = true;
 						return true;
 					}
 					else
 					{
-						for (int ii = 0; ii < MinisterOnTable[i]->MinisterThinking.AStarGreedy.size();ii++)
+						for (int ii = 0; ii < MinisterOnTable[i].MinisterThinking.AStarGreedy.size();ii++)
 						{
-							MinisterOnTable[i]->MinisterThinking.AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, Found, Order * -1);
+							MinisterOnTable[i].MinisterThinking.AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, Found, Order * -1);
 						}
 					}
 
@@ -4279,11 +4282,11 @@ bool AllDraw::IsFoundOfLeafDepenOfKindhaveVictory(int Kind, bool &Found, int Ord
 		}
 		for (int i = KingMidle; i < KingHigh; i++)
 		{
-			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i]->KingThinking) != nullptr) && j < KingOnTable[i]->KingThinking.TableListKing.size(); j++)
+			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && j < KingOnTable[i].KingThinking.TableListKing.size(); j++)
 			{
 				//try
 				{
-					if (KingOnTable[i]->KingThinking.IsThereMateOfEnemy && Kind == 6) //&& KingOnTable[i]->KingThinking.AStarGreedy.size() == 0
+					if (KingOnTable[i].KingThinking.IsThereMateOfEnemy && Kind == 6) //&& KingOnTable[i].KingThinking.AStarGreedy.size() == 0
 					{
 						Found = true;
 						return true;
@@ -4291,9 +4294,9 @@ bool AllDraw::IsFoundOfLeafDepenOfKindhaveVictory(int Kind, bool &Found, int Ord
 					}
 					else
 					{
-						for (int ii = 0; ii < KingOnTable[i]->KingThinking.AStarGreedy.size();ii++)
+						for (int ii = 0; ii < KingOnTable[i].KingThinking.AStarGreedy.size();ii++)
 						{
-							KingOnTable[i]->KingThinking.AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, Found, Order * -1);
+							KingOnTable[i].KingThinking.AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, Found, Order * -1);
 						}
 					}
 
@@ -4323,12 +4326,12 @@ void AllDraw::FoundOfLeafDepenOfKind(int **Table, int Order, int iAStarGreedy, i
 
 		for (int i = 0; i < SodierMidle; i++)
 		{
-			for (int j = 0; (ElephantOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i]->SoldierThinking) != nullptr) && j < SolderesOnTable[i]->SoldierThinking.TableListSolder.size(); j++)
+			for (int j = 0; (ElephantOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && j < SolderesOnTable[i].SoldierThinking.TableListSolder.size(); j++)
 			{
 
 				//try
 				{
-					if (SolderesOnTable[i]->SoldierThinking.AStarGreedy.empty())
+					if (SolderesOnTable[i].SoldierThinking.AStarGreedy.empty())
 					{
 						FullGameFound = true;
 						FullGameThinkingTree(Order, iAStarGreedy, ii, jj, ik, jjj, false, LeafAStarGreedy);
@@ -4336,10 +4339,10 @@ void AllDraw::FoundOfLeafDepenOfKind(int **Table, int Order, int iAStarGreedy, i
 					}
 					else
 					{
-						for (int iii = 0; iii < SolderesOnTable[i]->SoldierThinking.AStarGreedy.size();iii++)
+						for (int iii = 0; iii < SolderesOnTable[i].SoldierThinking.AStarGreedy.size();iii++)
 						{
 							ThinkingChess::NumbersOfAllNode++;
-							SolderesOnTable[i]->SoldierThinking.AStarGreedy[iii].FoundOfLeafDepenOfKind(SolderesOnTable[i]->SoldierThinking.TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+							SolderesOnTable[i].SoldierThinking.AStarGreedy[iii].FoundOfLeafDepenOfKind(SolderesOnTable[i].SoldierThinking.TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
 						}
 					}
 
@@ -4353,21 +4356,21 @@ void AllDraw::FoundOfLeafDepenOfKind(int **Table, int Order, int iAStarGreedy, i
 		}
 		for (int i = 0; i < ElefantMidle; i++)
 		{
-			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i]->ElefantThinking) != nullptr) && j < ElephantOnTable[i]->ElefantThinking.TableListElefant.size(); j++)
+			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && j < ElephantOnTable[i].ElefantThinking.TableListElefant.size(); j++)
 			{
 				//try
 				{
-					if (ElephantOnTable[i]->ElefantThinking.AStarGreedy.empty())
+					if (ElephantOnTable[i].ElefantThinking.AStarGreedy.empty())
 					{
 						FullGameFound = true;
 						FullGameThinkingTree(Order, iAStarGreedy, ii, jj, ik, jjj, false, LeafAStarGreedy);
 					}
 					else
 					{
-						for (int iii = 0; iii < ElephantOnTable[i]->ElefantThinking.AStarGreedy.size();iii++)
+						for (int iii = 0; iii < ElephantOnTable[i].ElefantThinking.AStarGreedy.size();iii++)
 						{
 							ThinkingChess::NumbersOfAllNode++;
-							ElephantOnTable[i]->ElefantThinking.AStarGreedy[iii].FoundOfLeafDepenOfKind(ElephantOnTable[i]->ElefantThinking.TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+							ElephantOnTable[i].ElefantThinking.AStarGreedy[iii].FoundOfLeafDepenOfKind(ElephantOnTable[i].ElefantThinking.TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
 						}
 					}
 
@@ -4381,21 +4384,21 @@ void AllDraw::FoundOfLeafDepenOfKind(int **Table, int Order, int iAStarGreedy, i
 		}
 		for (int i = 0; i < HourseMidle; i++)
 		{
-			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i]->HourseThinking) != nullptr) && j < HoursesOnTable[i]->HourseThinking.TableListHourse.size(); j++)
+			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && j < HoursesOnTable[i].HourseThinking.TableListHourse.size(); j++)
 			{
 				//try
 				{
-					if (HoursesOnTable[i]->HourseThinking.AStarGreedy.empty())
+					if (HoursesOnTable[i].HourseThinking.AStarGreedy.empty())
 					{
 						FullGameFound = true;
 						FullGameThinkingTree(Order, iAStarGreedy, ii, jj, ik, jjj, false, LeafAStarGreedy);
 					}
 					else
 					{
-						for (int iii = 0; iii < HoursesOnTable[i]->HourseThinking.AStarGreedy.size();iii++)
+						for (int iii = 0; iii < HoursesOnTable[i].HourseThinking.AStarGreedy.size();iii++)
 						{
 							ThinkingChess::NumbersOfAllNode++;
-							HoursesOnTable[i]->HourseThinking.AStarGreedy[iii].FoundOfLeafDepenOfKind(HoursesOnTable[i]->HourseThinking.TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+							HoursesOnTable[i].HourseThinking.AStarGreedy[iii].FoundOfLeafDepenOfKind(HoursesOnTable[i].HourseThinking.TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
 						}
 					}
 
@@ -4410,21 +4413,21 @@ void AllDraw::FoundOfLeafDepenOfKind(int **Table, int Order, int iAStarGreedy, i
 		}
 		for (int i = 0; i < CastleMidle; i++)
 		{
-			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i]->CastleThinking) != nullptr) && j < CastlesOnTable[i]->CastleThinking.TableListCastle.size(); j++)
+			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && j < CastlesOnTable[i].CastleThinking.TableListCastle.size(); j++)
 			{
 				//try
 				{
-					if (CastlesOnTable[i]->CastleThinking.AStarGreedy.empty())
+					if (CastlesOnTable[i].CastleThinking.AStarGreedy.empty())
 					{
 						FullGameFound = true;
 						FullGameThinkingTree(Order, iAStarGreedy, ii, jj, ik, jjj, false, LeafAStarGreedy);
 					}
 					else
 					{
-						for (int iii = 0; iii < CastlesOnTable[i]->CastleThinking.AStarGreedy.size();iii++)
+						for (int iii = 0; iii < CastlesOnTable[i].CastleThinking.AStarGreedy.size();iii++)
 						{
 							ThinkingChess::NumbersOfAllNode++;
-							CastlesOnTable[i]->CastleThinking.AStarGreedy[iii].FoundOfLeafDepenOfKind(CastlesOnTable[i]->CastleThinking.TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+							CastlesOnTable[i].CastleThinking.AStarGreedy[iii].FoundOfLeafDepenOfKind(CastlesOnTable[i].CastleThinking.TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
 						}
 					}
 				}
@@ -4437,21 +4440,21 @@ void AllDraw::FoundOfLeafDepenOfKind(int **Table, int Order, int iAStarGreedy, i
 		}
 		for (int i = 0; i < MinisterMidle; i++)
 		{
-			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i]->MinisterThinking) != nullptr) && j < MinisterOnTable[i]->MinisterThinking.TableListMinister.size(); j++)
+			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && j < MinisterOnTable[i].MinisterThinking.TableListMinister.size(); j++)
 			{
 				//try
 				{
-					if (MinisterOnTable[i]->MinisterThinking.AStarGreedy.empty())
+					if (MinisterOnTable[i].MinisterThinking.AStarGreedy.empty())
 					{
 						FullGameFound = true;
 						FullGameThinkingTree(Order, iAStarGreedy, ii, jj, ik, jjj, false, LeafAStarGreedy);
 					}
 					else
 					{
-						for (int iii = 0; iii < MinisterOnTable[i]->MinisterThinking.AStarGreedy.size();iii++)
+						for (int iii = 0; iii < MinisterOnTable[i].MinisterThinking.AStarGreedy.size();iii++)
 						{
 							ThinkingChess::NumbersOfAllNode++;
-							MinisterOnTable[i]->MinisterThinking.AStarGreedy[iii].FoundOfLeafDepenOfKind(MinisterOnTable[i]->MinisterThinking.TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+							MinisterOnTable[i].MinisterThinking.AStarGreedy[iii].FoundOfLeafDepenOfKind(MinisterOnTable[i].MinisterThinking.TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
 						}
 					}
 
@@ -4466,21 +4469,21 @@ void AllDraw::FoundOfLeafDepenOfKind(int **Table, int Order, int iAStarGreedy, i
 		}
 		for (int i = 0; i < KingMidle; i++)
 		{
-			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i]->KingThinking) != nullptr) && j < KingOnTable[i]->KingThinking.TableListKing.size(); j++)
+			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && j < KingOnTable[i].KingThinking.TableListKing.size(); j++)
 			{
 				//try
 				{
-					if (KingOnTable[i]->KingThinking.AStarGreedy.empty())
+					if (KingOnTable[i].KingThinking.AStarGreedy.empty())
 					{
 						FullGameFound = true;
 						FullGameThinkingTree(Order, iAStarGreedy, ii, jj, ik, jjj, false, LeafAStarGreedy);
 					}
 					else
 					{
-						for (int iii = 0; iii < KingOnTable[i]->KingThinking.AStarGreedy.size();iii++)
+						for (int iii = 0; iii < KingOnTable[i].KingThinking.AStarGreedy.size();iii++)
 						{
 							ThinkingChess::NumbersOfAllNode++;
-							KingOnTable[i]->KingThinking.AStarGreedy[iii].FoundOfLeafDepenOfKind(KingOnTable[i]->KingThinking.TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+							KingOnTable[i].KingThinking.AStarGreedy[iii].FoundOfLeafDepenOfKind(KingOnTable[i].KingThinking.TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
 						}
 					}
 
@@ -4497,22 +4500,22 @@ void AllDraw::FoundOfLeafDepenOfKind(int **Table, int Order, int iAStarGreedy, i
 	{
 		for (int i = SodierMidle; i < SodierHigh; i++)
 		{
-			for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i]->SoldierThinking) != nullptr) && j < SolderesOnTable[i]->SoldierThinking.TableListSolder.size(); j++)
+			for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && j < SolderesOnTable[i].SoldierThinking.TableListSolder.size(); j++)
 			{
 				//try
 				{
 
-					if (SolderesOnTable[i]->SoldierThinking.AStarGreedy.empty())
+					if (SolderesOnTable[i].SoldierThinking.AStarGreedy.empty())
 					{
 						FullGameFound = true;
 						FullGameThinkingTree(Order, iAStarGreedy, ii, jj, ik, jjj, false, LeafAStarGreedy);
 					}
 					else
 					{
-						for (int iii = 0; ii < SolderesOnTable[i]->SoldierThinking.AStarGreedy.size();iii++)
+						for (int iii = 0; ii < SolderesOnTable[i].SoldierThinking.AStarGreedy.size();iii++)
 						{
 							ThinkingChess::NumbersOfAllNode++;
-							SolderesOnTable[i]->SoldierThinking.AStarGreedy[iii].FoundOfLeafDepenOfKind(SolderesOnTable[i]->SoldierThinking.TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+							SolderesOnTable[i].SoldierThinking.AStarGreedy[iii].FoundOfLeafDepenOfKind(SolderesOnTable[i].SoldierThinking.TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
 						}
 					}
 				}
@@ -4524,22 +4527,22 @@ void AllDraw::FoundOfLeafDepenOfKind(int **Table, int Order, int iAStarGreedy, i
 		}
 		for (int i = ElefantMidle; i < ElefantHigh; i++)
 		{
-			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i]->ElefantThinking) != nullptr) && j < ElephantOnTable[i]->ElefantThinking.TableListElefant.size(); j++)
+			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && j < ElephantOnTable[i].ElefantThinking.TableListElefant.size(); j++)
 			{
 				//try
 				{
 
-					if (ElephantOnTable[i]->ElefantThinking.AStarGreedy.empty())
+					if (ElephantOnTable[i].ElefantThinking.AStarGreedy.empty())
 					{
 						FullGameFound = true;
 						FullGameThinkingTree(Order, iAStarGreedy, ii, jj, ik, jjj, false, LeafAStarGreedy);
 					}
 					else
 					{
-						for (int iii = 0; iii < ElephantOnTable[i]->ElefantThinking.AStarGreedy.size();iii++)
+						for (int iii = 0; iii < ElephantOnTable[i].ElefantThinking.AStarGreedy.size();iii++)
 						{
 							ThinkingChess::NumbersOfAllNode++;
-							ElephantOnTable[i]->ElefantThinking.AStarGreedy[iii].FoundOfLeafDepenOfKind(ElephantOnTable[i]->ElefantThinking.TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+							ElephantOnTable[i].ElefantThinking.AStarGreedy[iii].FoundOfLeafDepenOfKind(ElephantOnTable[i].ElefantThinking.TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
 						}
 					}
 				}
@@ -4551,22 +4554,22 @@ void AllDraw::FoundOfLeafDepenOfKind(int **Table, int Order, int iAStarGreedy, i
 		}
 		for (int i = HourseMidle; i < HourseHight; i++)
 		{
-			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i]->HourseThinking) != nullptr) && j < HoursesOnTable[i]->HourseThinking.TableListHourse.size(); j++)
+			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && j < HoursesOnTable[i].HourseThinking.TableListHourse.size(); j++)
 			{
 				//try
 				{
 
-					if (HoursesOnTable[i]->HourseThinking.AStarGreedy.empty())
+					if (HoursesOnTable[i].HourseThinking.AStarGreedy.empty())
 					{
 						FullGameFound = true;
 						FullGameThinkingTree(Order, iAStarGreedy, ii, jj, ik, jjj, false, LeafAStarGreedy);
 					}
 					else
 					{
-						for (int iii = 0; iii < HoursesOnTable[i]->HourseThinking.AStarGreedy.size();iii++)
+						for (int iii = 0; iii < HoursesOnTable[i].HourseThinking.AStarGreedy.size();iii++)
 						{
 							ThinkingChess::NumbersOfAllNode++;
-							HoursesOnTable[i]->HourseThinking.AStarGreedy[iii].FoundOfLeafDepenOfKind(HoursesOnTable[i]->HourseThinking.TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+							HoursesOnTable[i].HourseThinking.AStarGreedy[iii].FoundOfLeafDepenOfKind(HoursesOnTable[i].HourseThinking.TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
 						}
 					}
 				}
@@ -4578,22 +4581,22 @@ void AllDraw::FoundOfLeafDepenOfKind(int **Table, int Order, int iAStarGreedy, i
 		}
 		for (int i = CastleMidle; i < CastleHigh; i++)
 		{
-			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i]->CastleThinking) != nullptr) && j < CastlesOnTable[i]->CastleThinking.TableListCastle.size(); j++)
+			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && j < CastlesOnTable[i].CastleThinking.TableListCastle.size(); j++)
 			{
 				//try
 				{
 
-					if (CastlesOnTable[i]->CastleThinking.AStarGreedy.empty())
+					if (CastlesOnTable[i].CastleThinking.AStarGreedy.empty())
 					{
 						FullGameFound = true;
 						FullGameThinkingTree(Order, iAStarGreedy, ii, jj, ik, jjj, false, LeafAStarGreedy);
 					}
 					else
 					{
-						for (int iii = 0; iii < CastlesOnTable[i]->CastleThinking.AStarGreedy.size();iii++)
+						for (int iii = 0; iii < CastlesOnTable[i].CastleThinking.AStarGreedy.size();iii++)
 						{
 							ThinkingChess::NumbersOfAllNode++;
-							CastlesOnTable[i]->CastleThinking.AStarGreedy[iii].FoundOfLeafDepenOfKind(CastlesOnTable[i]->CastleThinking.TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+							CastlesOnTable[i].CastleThinking.AStarGreedy[iii].FoundOfLeafDepenOfKind(CastlesOnTable[i].CastleThinking.TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
 						}
 					}
 
@@ -4606,11 +4609,11 @@ void AllDraw::FoundOfLeafDepenOfKind(int **Table, int Order, int iAStarGreedy, i
 		}
 		for (int i = MinisterMidle; i < MinisterHigh; i++)
 		{
-			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i]->MinisterThinking) != nullptr) && j < MinisterOnTable[i]->MinisterThinking.TableListMinister.size(); j++)
+			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && j < MinisterOnTable[i].MinisterThinking.TableListMinister.size(); j++)
 			{
 				//try
 				{
-					if (MinisterOnTable[i]->MinisterThinking.AStarGreedy.empty())
+					if (MinisterOnTable[i].MinisterThinking.AStarGreedy.empty())
 					{
 
 						FullGameFound = true;
@@ -4618,10 +4621,10 @@ void AllDraw::FoundOfLeafDepenOfKind(int **Table, int Order, int iAStarGreedy, i
 					}
 					else
 					{
-						for (int iii = 0; iii < MinisterOnTable[i]->MinisterThinking.AStarGreedy.size();iii++)
+						for (int iii = 0; iii < MinisterOnTable[i].MinisterThinking.AStarGreedy.size();iii++)
 						{
 							ThinkingChess::NumbersOfAllNode++;
-							MinisterOnTable[i]->MinisterThinking.AStarGreedy[iii].FoundOfLeafDepenOfKind(MinisterOnTable[i]->MinisterThinking.TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+							MinisterOnTable[i].MinisterThinking.AStarGreedy[iii].FoundOfLeafDepenOfKind(MinisterOnTable[i].MinisterThinking.TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
 						}
 					}
 
@@ -4634,21 +4637,21 @@ void AllDraw::FoundOfLeafDepenOfKind(int **Table, int Order, int iAStarGreedy, i
 		}
 		for (int i = KingMidle; i < KingHigh; i++)
 		{
-			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i]->KingThinking) != nullptr) && j < KingOnTable[i]->KingThinking.TableListKing.size(); j++)
+			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && j < KingOnTable[i].KingThinking.TableListKing.size(); j++)
 			{
 				//try
 				{
-					if (KingOnTable[i]->KingThinking.AStarGreedy.empty())
+					if (KingOnTable[i].KingThinking.AStarGreedy.empty())
 					{
 						FullGameFound = true;
 						FullGameThinkingTree(Order, iAStarGreedy, ii, jj, ik, jjj, false, LeafAStarGreedy);
 					}
 					else
 					{
-						for (int iii = 0; iii < KingOnTable[i]->KingThinking.AStarGreedy.size();iii++)
+						for (int iii = 0; iii < KingOnTable[i].KingThinking.AStarGreedy.size();iii++)
 						{
 							ThinkingChess::NumbersOfAllNode++;
-							KingOnTable[i]->KingThinking.AStarGreedy[iii].FoundOfLeafDepenOfKind(KingOnTable[i]->KingThinking.TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+							KingOnTable[i].KingThinking.AStarGreedy[iii].FoundOfLeafDepenOfKind(KingOnTable[i].KingThinking.TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
 						}
 					}
 
@@ -4695,12 +4698,12 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 
 		for (int i = 0; i < SodierMidle; i++)
 		{
-			for (int j = 0; (ElephantOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i]->SoldierThinking) != nullptr) && j < SolderesOnTable[i]->SoldierThinking.TableListSolder.size(); j++)
+			for (int j = 0; (ElephantOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && j < SolderesOnTable[i].SoldierThinking.TableListSolder.size(); j++)
 			{
 
 				//try
 				{
-					SolderesOnTable[i]->SoldierThinking.PenaltyRegardListSolder[i].LearningAlgorithmRegard();
+					SolderesOnTable[i].SoldierThinking.PenaltyRegardListSolder[i].LearningAlgorithmRegard();
 				}
 				//catch(std::exception &t)
 				{
@@ -4710,9 +4713,9 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				{
-					for (int ii = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i]->SoldierThinking) != nullptr) && ii < SolderesOnTable[i]->SoldierThinking.AStarGreedy.size();ii++)
+					for (int ii = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && ii < SolderesOnTable[i].SoldierThinking.AStarGreedy.size();ii++)
 					{
-						MakeRegardAllCheckMateBranches(SolderesOnTable[i]->SoldierThinking.AStarGreedy[ii], Order);
+						MakeRegardAllCheckMateBranches(SolderesOnTable[i].SoldierThinking.AStarGreedy[ii], Order);
 					}
 
 				}
@@ -4726,12 +4729,12 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = 0; i < ElefantMidle; i++)
 		{
-			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i]->ElefantThinking) != nullptr) && j < ElephantOnTable[i]->ElefantThinking.TableListElefant.size(); j++)
+			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && j < ElephantOnTable[i].ElefantThinking.TableListElefant.size(); j++)
 			{
 
 				//try
 				{
-					ElephantOnTable[i]->ElefantThinking.PenaltyRegardListElefant[j].LearningAlgorithmRegard();
+					ElephantOnTable[i].ElefantThinking.PenaltyRegardListElefant[j].LearningAlgorithmRegard();
 
 				}
 				//catch(std::exception &t)
@@ -4742,9 +4745,9 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				{
-					for (int ii = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i]->ElefantThinking) != nullptr) && ii < ElephantOnTable[i]->ElefantThinking.AStarGreedy.size();ii++)
+					for (int ii = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && ii < ElephantOnTable[i].ElefantThinking.AStarGreedy.size();ii++)
 					{
-						MakeRegardAllCheckMateBranches(ElephantOnTable[i]->ElefantThinking.AStarGreedy[ii], Order);
+						MakeRegardAllCheckMateBranches(ElephantOnTable[i].ElefantThinking.AStarGreedy[ii], Order);
 					}
 				}
 				//catch(std::exception &t)
@@ -4757,11 +4760,11 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = 0; i < HourseMidle; i++)
 		{
-			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i]->HourseThinking) != nullptr) && j < HoursesOnTable[i]->HourseThinking.TableListHourse.size(); j++)
+			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && j < HoursesOnTable[i].HourseThinking.TableListHourse.size(); j++)
 			{
 				//try
 				{
-					HoursesOnTable[i]->HourseThinking.PenaltyRegardListHourse[j].LearningAlgorithmRegard();
+					HoursesOnTable[i].HourseThinking.PenaltyRegardListHourse[j].LearningAlgorithmRegard();
 
 				}
 				//catch(std::exception &t)
@@ -4772,9 +4775,9 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				{
-					for (int ii = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i]->HourseThinking) != nullptr) && ii < HoursesOnTable[i]->HourseThinking.AStarGreedy.size();ii++)
+					for (int ii = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && ii < HoursesOnTable[i].HourseThinking.AStarGreedy.size();ii++)
 					{
-						MakeRegardAllCheckMateBranches(HoursesOnTable[i]->HourseThinking.AStarGreedy[ii], Order);
+						MakeRegardAllCheckMateBranches(HoursesOnTable[i].HourseThinking.AStarGreedy[ii], Order);
 					}
 				}
 				//catch(std::exception &t)
@@ -4787,11 +4790,11 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = 0; i < CastleMidle; i++)
 		{
-			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i]->CastleThinking) != nullptr) && j < CastlesOnTable[i]->CastleThinking.TableListCastle.size(); j++)
+			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && j < CastlesOnTable[i].CastleThinking.TableListCastle.size(); j++)
 			{
 				//try
 				{
-					CastlesOnTable[i]->CastleThinking.PenaltyRegardListCastle[j].LearningAlgorithmRegard();
+					CastlesOnTable[i].CastleThinking.PenaltyRegardListCastle[j].LearningAlgorithmRegard();
 				}
 				//catch(std::exception &t)
 				{
@@ -4801,9 +4804,9 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				{
-					for (int ii = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i]->CastleThinking) != nullptr) && ii < CastlesOnTable[i]->CastleThinking.AStarGreedy.size();ii++)
+					for (int ii = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && ii < CastlesOnTable[i].CastleThinking.AStarGreedy.size();ii++)
 					{
-						MakeRegardAllCheckMateBranches(CastlesOnTable[i]->CastleThinking.AStarGreedy[ii], Order);
+						MakeRegardAllCheckMateBranches(CastlesOnTable[i].CastleThinking.AStarGreedy[ii], Order);
 					}
 				}
 				//catch(std::exception &t)
@@ -4816,11 +4819,11 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = 0; i < MinisterMidle; i++)
 		{
-			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i]->MinisterThinking) != nullptr) && j < MinisterOnTable[i]->MinisterThinking.TableListMinister.size(); j++)
+			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && j < MinisterOnTable[i].MinisterThinking.TableListMinister.size(); j++)
 			{
 				//try
 				{
-					MinisterOnTable[i]->MinisterThinking.PenaltyRegardListMinister[j].LearningAlgorithmRegard();
+					MinisterOnTable[i].MinisterThinking.PenaltyRegardListMinister[j].LearningAlgorithmRegard();
 				}
 				//catch(std::exception &t)
 				{
@@ -4831,9 +4834,9 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				{
-					for (int ii = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i]->MinisterThinking) != nullptr) && ii < MinisterOnTable[i]->MinisterThinking.AStarGreedy.size();ii++)
+					for (int ii = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && ii < MinisterOnTable[i].MinisterThinking.AStarGreedy.size();ii++)
 					{
-						MakeRegardAllCheckMateBranches(MinisterOnTable[i]->MinisterThinking.AStarGreedy[ii], Order);
+						MakeRegardAllCheckMateBranches(MinisterOnTable[i].MinisterThinking.AStarGreedy[ii], Order);
 					}
 				}
 				//catch(std::exception &t)
@@ -4846,11 +4849,11 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = 0; i < KingMidle; i++)
 		{
-			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i]->KingThinking) != nullptr) && j < KingOnTable[i]->KingThinking.TableListKing.size(); j++)
+			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && j < KingOnTable[i].KingThinking.TableListKing.size(); j++)
 			{
 				//try
 				{
-					KingOnTable[i]->KingThinking.PenaltyRegardListKing[j].LearningAlgorithmRegard();
+					KingOnTable[i].KingThinking.PenaltyRegardListKing[j].LearningAlgorithmRegard();
 				}
 				//catch(std::exception &t)
 				{
@@ -4860,9 +4863,9 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				{
-					for (int ii = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i]->KingThinking) != nullptr) && ii < KingOnTable[i]->KingThinking.AStarGreedy.size();ii++)
+					for (int ii = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && ii < KingOnTable[i].KingThinking.AStarGreedy.size();ii++)
 					{
-						MakeRegardAllCheckMateBranches(KingOnTable[i]->KingThinking.AStarGreedy[ii], Order);
+						MakeRegardAllCheckMateBranches(KingOnTable[i].KingThinking.AStarGreedy[ii], Order);
 					}
 				}
 				//catch(std::exception &t)
@@ -4878,11 +4881,11 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 	{
 		for (int i = SodierMidle; i < SodierHigh; i++)
 		{
-			for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i]->SoldierThinking) != nullptr) && j < SolderesOnTable[i]->SoldierThinking.TableListSolder.size(); j++)
+			for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && j < SolderesOnTable[i].SoldierThinking.TableListSolder.size(); j++)
 			{
 				//try
 				{
-					SolderesOnTable[i]->SoldierThinking.PenaltyRegardListSolder[i].LearningAlgorithmRegard();
+					SolderesOnTable[i].SoldierThinking.PenaltyRegardListSolder[i].LearningAlgorithmRegard();
 				}
 				//catch(std::exception &t)
 				{
@@ -4892,9 +4895,9 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				{
-					for (int ii = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i]->SoldierThinking) != nullptr) && ii < SolderesOnTable[i]->SoldierThinking.AStarGreedy.size();ii++)
+					for (int ii = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && ii < SolderesOnTable[i].SoldierThinking.AStarGreedy.size();ii++)
 					{
-						MakeRegardAllCheckMateBranches(SolderesOnTable[i]->SoldierThinking.AStarGreedy[ii], Order);
+						MakeRegardAllCheckMateBranches(SolderesOnTable[i].SoldierThinking.AStarGreedy[ii], Order);
 					}
 				}
 				//catch(std::exception &t)
@@ -4907,11 +4910,11 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = ElefantMidle; i < ElefantHigh; i++)
 		{
-			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i]->ElefantThinking) != nullptr) && j < ElephantOnTable[i]->ElefantThinking.TableListElefant.size(); j++)
+			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && j < ElephantOnTable[i].ElefantThinking.TableListElefant.size(); j++)
 			{
 				//try
 				{
-					ElephantOnTable[i]->ElefantThinking.PenaltyRegardListElefant[j].LearningAlgorithmRegard();
+					ElephantOnTable[i].ElefantThinking.PenaltyRegardListElefant[j].LearningAlgorithmRegard();
 
 				}
 				//catch(std::exception &t)
@@ -4922,9 +4925,9 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				{
-					for (int ii = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i]->ElefantThinking) != nullptr) && ii < ElephantOnTable[i]->ElefantThinking.AStarGreedy.size();ii++)
+					for (int ii = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && ii < ElephantOnTable[i].ElefantThinking.AStarGreedy.size();ii++)
 					{
-						MakeRegardAllCheckMateBranches(ElephantOnTable[i]->ElefantThinking.AStarGreedy[ii], Order);
+						MakeRegardAllCheckMateBranches(ElephantOnTable[i].ElefantThinking.AStarGreedy[ii], Order);
 					}
 				}
 				//catch(std::exception &t)
@@ -4937,11 +4940,11 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = HourseMidle; i < HourseHight; i++)
 		{
-			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i]->HourseThinking) != nullptr) && j < HoursesOnTable[i]->HourseThinking.TableListHourse.size(); j++)
+			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && j < HoursesOnTable[i].HourseThinking.TableListHourse.size(); j++)
 			{
 				//try
 				{
-					HoursesOnTable[i]->HourseThinking.PenaltyRegardListHourse[j].LearningAlgorithmRegard();
+					HoursesOnTable[i].HourseThinking.PenaltyRegardListHourse[j].LearningAlgorithmRegard();
 
 				}
 				//catch(std::exception &t)
@@ -4952,9 +4955,9 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				{
-					for (int ii = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i]->HourseThinking) != nullptr) && ii < HoursesOnTable[i]->HourseThinking.AStarGreedy.size();ii++)
+					for (int ii = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && ii < HoursesOnTable[i].HourseThinking.AStarGreedy.size();ii++)
 					{
-						MakeRegardAllCheckMateBranches(HoursesOnTable[i]->HourseThinking.AStarGreedy[ii], Order);
+						MakeRegardAllCheckMateBranches(HoursesOnTable[i].HourseThinking.AStarGreedy[ii], Order);
 					}
 				}
 				//catch(std::exception &t)
@@ -4967,11 +4970,11 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = CastleMidle; i < CastleHigh; i++)
 		{
-			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i]->CastleThinking) != nullptr) && j < CastlesOnTable[i]->CastleThinking.TableListCastle.size(); j++)
+			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && j < CastlesOnTable[i].CastleThinking.TableListCastle.size(); j++)
 			{
 				//try
 				{
-					CastlesOnTable[i]->CastleThinking.PenaltyRegardListCastle[j].LearningAlgorithmRegard();
+					CastlesOnTable[i].CastleThinking.PenaltyRegardListCastle[j].LearningAlgorithmRegard();
 				}
 				//catch(std::exception &t)
 				{
@@ -4981,9 +4984,9 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				{
-					for (int ii = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i]->CastleThinking) != nullptr) && ii < CastlesOnTable[i]->CastleThinking.AStarGreedy.size();ii++)
+					for (int ii = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && ii < CastlesOnTable[i].CastleThinking.AStarGreedy.size();ii++)
 					{
-						MakeRegardAllCheckMateBranches(CastlesOnTable[i]->CastleThinking.AStarGreedy[ii], Order);
+						MakeRegardAllCheckMateBranches(CastlesOnTable[i].CastleThinking.AStarGreedy[ii], Order);
 					}
 				}
 				//catch(std::exception &t)
@@ -4996,11 +4999,11 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = MinisterMidle; i < MinisterHigh; i++)
 		{
-			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i]->MinisterThinking) != nullptr) && j < MinisterOnTable[i]->MinisterThinking.TableListMinister.size(); j++)
+			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && j < MinisterOnTable[i].MinisterThinking.TableListMinister.size(); j++)
 			{
 				//try
 				{
-					MinisterOnTable[i]->MinisterThinking.PenaltyRegardListMinister[j].LearningAlgorithmRegard();
+					MinisterOnTable[i].MinisterThinking.PenaltyRegardListMinister[j].LearningAlgorithmRegard();
 				}
 				//catch(std::exception &t)
 				{
@@ -5010,9 +5013,9 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				{
-					for (int ii = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i]->MinisterThinking) != nullptr) && ii < MinisterOnTable[i]->MinisterThinking.AStarGreedy.size();ii++)
+					for (int ii = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && ii < MinisterOnTable[i].MinisterThinking.AStarGreedy.size();ii++)
 					{
-						MakeRegardAllCheckMateBranches(MinisterOnTable[i]->MinisterThinking.AStarGreedy[ii], Order);
+						MakeRegardAllCheckMateBranches(MinisterOnTable[i].MinisterThinking.AStarGreedy[ii], Order);
 					}
 				}
 				//catch(std::exception &t)
@@ -5025,11 +5028,11 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = KingMidle; i < MinisterHigh; i++)
 		{
-			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i]->KingThinking) != nullptr) && j < KingOnTable[i]->KingThinking.TableListKing.size(); j++)
+			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && j < KingOnTable[i].KingThinking.TableListKing.size(); j++)
 			{
 				//try
 				{
-					KingOnTable[i]->KingThinking.PenaltyRegardListKing[j].LearningAlgorithmRegard();
+					KingOnTable[i].KingThinking.PenaltyRegardListKing[j].LearningAlgorithmRegard();
 				}
 				//catch(std::exception &t)
 				{
@@ -5039,9 +5042,9 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				{
-					for (int ii = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i]->KingThinking) != nullptr) && ii < KingOnTable[i]->KingThinking.AStarGreedy.size();ii++)
+					for (int ii = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && ii < KingOnTable[i].KingThinking.AStarGreedy.size();ii++)
 					{
-						MakeRegardAllCheckMateBranches(KingOnTable[i]->KingThinking.AStarGreedy[ii], Order);
+						MakeRegardAllCheckMateBranches(KingOnTable[i].KingThinking.AStarGreedy[ii], Order);
 					}
 				}
 				//catch(std::exception &t)
@@ -5140,7 +5143,7 @@ int ** AllDraw::HuristicAStarGreadySearchSoldier(int **TableHuristic, int i, int
 	{
 		//When There is an Movment in such situation.
 
-		for (j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && SolderesOnTable != nullptr && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i]->SoldierThinking) != nullptr) && (&(SolderesOnTable[i]->SoldierThinking) != nullptr) && j < SolderesOnTable[i]->SoldierThinking.TableListSolder.size(); j++)
+		for (j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && SolderesOnTable != nullptr && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && j < SolderesOnTable[i].SoldierThinking.TableListSolder.size(); j++)
 		{
 			{
 				//System.Threading.Thread.Sleep(1);
@@ -5149,7 +5152,7 @@ int ** AllDraw::HuristicAStarGreadySearchSoldier(int **TableHuristic, int i, int
 					//For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
 					//if (AllDraw::OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
 					//)
-					if (SolderesOnTable[i]->SoldierThinking.PenaltyRegardListSolder[j].IsPenaltyAction() == 0)
+					if (SolderesOnTable[i].SoldierThinking.PenaltyRegardListSolder[j].IsPenaltyAction() == 0)
 					{
 						continue;
 					}
@@ -5157,9 +5160,9 @@ int ** AllDraw::HuristicAStarGreadySearchSoldier(int **TableHuristic, int i, int
 					int COrder = Order;
 					//try
 					{
-						if (SolderesOnTable[i]->SoldierThinking.AStarGreedy.size() > j)
+						if (SolderesOnTable[i].SoldierThinking.AStarGreedy.size() > j)
 						{
-							SolderesOnTable[i]->SoldierThinking.AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(1, AA, Order * -1);
+							SolderesOnTable[i].SoldierThinking.AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(1, AA, Order * -1);
 						}
 						ChessRules::CurrentOrder *= -1;
 						Order *= -1;
@@ -5182,7 +5185,7 @@ int ** AllDraw::HuristicAStarGreadySearchSoldier(int **TableHuristic, int i, int
 					//)
 
 
-					if ((SolderesOnTable[i]->SoldierThinking.PenaltyRegardListSolder[j].IsPenaltyAction() != 0 && SolderesOnTable[i]->SoldierThinking.PenaltyRegardListSolder[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA || SolderesOnTable[i]->WinOcuuredatChiled >= 1 || SolderesOnTable[i]->WinOcuuredatChiled >= 2 || SolderesOnTable[i]->WinOcuuredatChiled >= 3)
+					if ((SolderesOnTable[i].SoldierThinking.PenaltyRegardListSolder[j].IsPenaltyAction() != 0 && SolderesOnTable[i].SoldierThinking.PenaltyRegardListSolder[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA || SolderesOnTable[i]->WinOcuuredatChiled >= 1 || SolderesOnTable[i]->WinOcuuredatChiled >= 2 || SolderesOnTable[i]->WinOcuuredatChiled >= 3)
 					{
 						//Set Table and Huristic Value and Syntax.
 						(Act) = true;
@@ -5191,17 +5194,17 @@ int ** AllDraw::HuristicAStarGreadySearchSoldier(int **TableHuristic, int i, int
 									//lock (On)
 						{
 
-							AllDraw::LastRow = SolderesOnTable[i]->SoldierThinking.Row;
-							AllDraw::LastColumn = SolderesOnTable[i]->SoldierThinking.Column;
-							AllDraw::NextRow = (SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][0]);
-							AllDraw::NextColumn = (SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][1]);
+							AllDraw::LastRow = SolderesOnTable[i].SoldierThinking.Row;
+							AllDraw::LastColumn = SolderesOnTable[i].SoldierThinking.Column;
+							AllDraw::NextRow = (SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][0]);
+							AllDraw::NextColumn = (SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][1]);
 
 
-							Less = SolderesOnTable[i]->SoldierThinking.NumberOfPenalties;
+							Less = SolderesOnTable[i].SoldierThinking.NumberOfPenalties;
 						}
 
 
-						TableHuristic = SolderesOnTable[i]->SoldierThinking.TableListSolder[j];
+						TableHuristic = SolderesOnTable[i].SoldierThinking.TableListSolder[j];
 
 
 						//autoO = new Object();
@@ -5210,7 +5213,7 @@ int ** AllDraw::HuristicAStarGreadySearchSoldier(int **TableHuristic, int i, int
 						{
 							ThingsConverter::ActOfClickEqualTow = true;
 						}
-						SolderesOnTable[i]->ConvertOperation(SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][0], SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][0], a, SolderesOnTable[i]->SoldierThinking.TableListSolder[j], Order, false, i);
+						SolderesOnTable[i]->ConvertOperation(SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][0], a, SolderesOnTable[i].SoldierThinking.TableListSolder[j], Order, false, i);
 						int Sign = 1;
 						if (a == -1)
 						{
@@ -5224,19 +5227,19 @@ int ** AllDraw::HuristicAStarGreadySearchSoldier(int **TableHuristic, int i, int
 
 							if (SolderesOnTable[i]->ConvertedToMinister)
 							{
-								TableHuristic[SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][0]][SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][1]] = 5 * Sign;
+								TableHuristic[SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][0]][SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][1]] = 5 * Sign;
 							}
 							else if (SolderesOnTable[i]->ConvertedToCastle)
 							{
-								TableHuristic[SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][0]][SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][1]] = 4 * Sign;
+								TableHuristic[SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][0]][SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][1]] = 4 * Sign;
 							}
 							else if (SolderesOnTable[i]->ConvertedToHourse)
 							{
-								TableHuristic[SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][0]][SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][1]] = 3 * Sign;
+								TableHuristic[SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][0]][SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][1]] = 3 * Sign;
 							}
 							else if (SolderesOnTable[i]->ConvertedToElefant)
 							{
-								TableHuristic[SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][0]][SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][1]] = 2 * Sign;
+								TableHuristic[SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][0]][SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][1]] = 2 * Sign;
 							}
 
 
@@ -5261,13 +5264,13 @@ int ** AllDraw::HuristicAStarGreadySearchSoldier(int **TableHuristic, int i, int
 					{
 						if (Order != AllDraw::OrderPlate)
 						{
-							if (SolderesOnTable[i]->SoldierThinking.ReturnHuristic(i, j, Order, AA) > Less)
+							if (SolderesOnTable[i].SoldierThinking.ReturnHuristic(i, j, Order, AA) > Less)
 							{
 								continue;
 							}
 						}
 						//When There is greater Huristic Movments.
-						if (SolderesOnTable[i]->SoldierThinking.ReturnHuristic(i, j, Order, AA) > Less)
+						if (SolderesOnTable[i].SoldierThinking.ReturnHuristic(i, j, Order, AA) > Less)
 						{
 
 							//autoO11 = new Object();
@@ -5282,11 +5285,11 @@ int ** AllDraw::HuristicAStarGreadySearchSoldier(int **TableHuristic, int i, int
 								}
 								//retrive table of current huristic.
 //C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call '//delete*' where appropriate:
-//ORIGINAL LINE: int[,] TableS = SolderesOnTable[i]->SoldierThinking.TableListSolder[j];
-								int **TableS = SolderesOnTable[i]->SoldierThinking.TableListSolder[j];
+//ORIGINAL LINE: int[,] TableS = SolderesOnTable[i].SoldierThinking.TableListSolder[j];
+								int **TableS = SolderesOnTable[i].SoldierThinking.TableListSolder[j];
 								//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call '//delete*' where appropriate:
-								//ORIGINAL LINE: int[,] TableSS = SolderesOnTable[i]->SoldierThinking.TableListSolder[j];
-								int **TableSS = SolderesOnTable[i]->SoldierThinking.TableListSolder[j];
+								//ORIGINAL LINE: int[,] TableSS = SolderesOnTable[i].SoldierThinking.TableListSolder[j];
+								int **TableSS = SolderesOnTable[i].SoldierThinking.TableListSolder[j];
 
 								//checked for Legal Movments ArgumentOutOfRangeException curnt game.
 								if (DynamicAStarGreedytPrograming && !CurrentTableHuristic && AStarGreedyi == 1)
@@ -5312,7 +5315,7 @@ int ** AllDraw::HuristicAStarGreadySearchSoldier(int **TableHuristic, int i, int
 								//When there is not Penalty regard mechanism.
 								//if (!UsePenaltyRegardMechnisamT)
 								{
-									AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 1, TableS, Order, SolderesOnTable[i]->SoldierThinking.Row, SolderesOnTable[i]->SoldierThinking.Column);
+									AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 1, TableS, Order, SolderesOnTable[i].SoldierThinking.Row, SolderesOnTable[i].SoldierThinking.Column);
 									//If there is kish or kshachamaz Order.
 									if (AB->Check(TableS, Order))
 									{
@@ -5360,7 +5363,7 @@ int ** AllDraw::HuristicAStarGreadySearchSoldier(int **TableHuristic, int i, int
 								CL6 = -1;
 								Ki6 = -1;
 								//Set Max of Soldier.
-								MaxLess1 = SolderesOnTable[RW1]->SoldierThinking.ReturnHuristic(i, j, Order, AA);
+								MaxLess1 = SolderesOnTable[RW1].SoldierThinking.ReturnHuristic(i, j, Order, AA);
 								//When Soldeirs is Greater than Others these Set Max.
 								if (MaxLess1 > MaxLess2)
 								{
@@ -5406,17 +5409,17 @@ int ** AllDraw::HuristicAStarGreadySearchSoldier(int **TableHuristic, int i, int
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 												//lock (On)
 									{
-										AllDraw::LastRow = SolderesOnTable[i]->SoldierThinking.Row;
-										AllDraw::LastColumn = SolderesOnTable[i]->SoldierThinking.Column;
-										AllDraw::NextRow = (SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][0]);
-										AllDraw::NextColumn = (SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][1]);
+										AllDraw::LastRow = SolderesOnTable[i].SoldierThinking.Row;
+										AllDraw::LastColumn = SolderesOnTable[i].SoldierThinking.Column;
+										AllDraw::NextRow = (SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][0]);
+										AllDraw::NextColumn = (SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][1]);
 									}
 
-									Less = SolderesOnTable[i]->SoldierThinking.ReturnHuristic(i, j, Order, AA);
+									Less = SolderesOnTable[i].SoldierThinking.ReturnHuristic(i, j, Order, AA);
 
 									StringHuristics(1, 3, AA, Do, SolderesOnTable[i]->WinOcuuredatChiled, SolderesOnTable[i]->LoseOcuuredatChiled);
 
-									TableHuristic = SolderesOnTable[i]->SoldierThinking.TableListSolder[j];
+									TableHuristic = SolderesOnTable[i].SoldierThinking.TableListSolder[j];
 
 
 									//autoO1 = new Object();
@@ -5425,7 +5428,7 @@ int ** AllDraw::HuristicAStarGreadySearchSoldier(int **TableHuristic, int i, int
 									{
 										ThingsConverter::ActOfClickEqualTow = true;
 									}
-									SolderesOnTable[i]->ConvertOperation(SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][0], SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][0], a, SolderesOnTable[i]->SoldierThinking.TableListSolder[j], Order, false, i);
+									SolderesOnTable[i]->ConvertOperation(SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][0], a, SolderesOnTable[i].SoldierThinking.TableListSolder[j], Order, false, i);
 									int Sign = 1;
 									if (a == -1)
 									{
@@ -5437,19 +5440,19 @@ int ** AllDraw::HuristicAStarGreadySearchSoldier(int **TableHuristic, int i, int
 
 										if (SolderesOnTable[i]->ConvertedToMinister)
 										{
-											TableHuristic[SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][0]][SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][1]] = 5 * Sign;
+											TableHuristic[SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][0]][SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][1]] = 5 * Sign;
 										}
 										else if (SolderesOnTable[i]->ConvertedToCastle)
 										{
-											TableHuristic[SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][0]][SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][1]] = 4 * Sign;
+											TableHuristic[SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][0]][SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][1]] = 4 * Sign;
 										}
 										else if (SolderesOnTable[i]->ConvertedToHourse)
 										{
-											TableHuristic[SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][0]][SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][1]] = 3 * Sign;
+											TableHuristic[SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][0]][SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][1]] = 3 * Sign;
 										}
 										else if (SolderesOnTable[i]->ConvertedToElefant)
 										{
-											TableHuristic[SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][0]][SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][1]] = 2 * Sign;
+											TableHuristic[SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][0]][SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][1]] = 2 * Sign;
 										}
 
 
@@ -5573,19 +5576,19 @@ int ** AllDraw::HuristicAStarGreadySearchElephant(int **TableHuristic, int i, in
 
 	for (int k = 0; k < AllDraw::ElefantMovments; k++)
 	{
-		for (j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && ElephantOnTable != nullptr && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i]->ElefantThinking) != nullptr) && (&(ElephantOnTable[i]->ElefantThinking) != nullptr) && j < ElephantOnTable[i]->ElefantThinking.TableListElefant.size(); j++)
+		for (j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && ElephantOnTable != nullptr && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && j < ElephantOnTable[i].ElefantThinking.TableListElefant.size(); j++)
 		{	//For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
 				//if (AllDraw::OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
 				//)
-			if (ElephantOnTable[i]->ElefantThinking.PenaltyRegardListElefant[j].IsPenaltyAction() == 0)
+			if (ElephantOnTable[i].ElefantThinking.PenaltyRegardListElefant[j].IsPenaltyAction() == 0)
 			{
 				continue;
 			}
 			int CDummy = ChessRules::CurrentOrder;
 			int COrder = Order;
-			if (ElephantOnTable[i]->ElefantThinking.AStarGreedy.size() > j)
+			if (ElephantOnTable[i].ElefantThinking.AStarGreedy.size() > j)
 			{
-				ElephantOnTable[i]->ElefantThinking.AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(2, AA, Order * -1);
+				ElephantOnTable[i].ElefantThinking.AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(2, AA, Order * -1);
 			}
 			ChessRules::CurrentOrder *= -1;
 			Order *= -1;
@@ -5600,21 +5603,21 @@ int ** AllDraw::HuristicAStarGreadySearchElephant(int **TableHuristic, int i, in
 			Order = COrder;
 			ChessRules::CurrentOrder = CDummy;
 
-			if ((ElephantOnTable[i]->ElefantThinking.PenaltyRegardListElefant[j].IsPenaltyAction() != 0 && ElephantOnTable[i]->ElefantThinking.PenaltyRegardListElefant[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA || ElephantOnTable[i]->WinOcuuredatChiled >= 1 || ElephantOnTable[i]->WinOcuuredatChiled >= 2 || ElephantOnTable[i]->WinOcuuredatChiled >= 3)
+			if ((ElephantOnTable[i].ElefantThinking.PenaltyRegardListElefant[j].IsPenaltyAction() != 0 && ElephantOnTable[i].ElefantThinking.PenaltyRegardListElefant[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA || ElephantOnTable[i]->WinOcuuredatChiled >= 1 || ElephantOnTable[i]->WinOcuuredatChiled >= 2 || ElephantOnTable[i]->WinOcuuredatChiled >= 3)
 			{
 
 
-				AllDraw::LastRow = ElephantOnTable[i]->ElefantThinking.Row;
-				AllDraw::LastColumn = ElephantOnTable[i]->ElefantThinking.Column;
-				AllDraw::NextRow = (ElephantOnTable[i]->ElefantThinking.RowColumnElefant[j][0]);
-				AllDraw::NextColumn = (ElephantOnTable[i]->ElefantThinking.RowColumnElefant[j][1]);
+				AllDraw::LastRow = ElephantOnTable[i].ElefantThinking.Row;
+				AllDraw::LastColumn = ElephantOnTable[i].ElefantThinking.Column;
+				AllDraw::NextRow = (ElephantOnTable[i].ElefantThinking.RowColumnElefant[j][0]);
+				AllDraw::NextColumn = (ElephantOnTable[i].ElefantThinking.RowColumnElefant[j][1]);
 
 
 				(Act) = true;
-				Less = ElephantOnTable[i]->ElefantThinking.NumberOfPenalties;
+				Less = ElephantOnTable[i].ElefantThinking.NumberOfPenalties;
 
 			}
-			TableHuristic = ElephantOnTable[i]->ElefantThinking.TableListElefant[j];
+			TableHuristic = ElephantOnTable[i].ElefantThinking.TableListElefant[j];
 			StringHuristics(2, 2, AA, Do, ElephantOnTable[i]->WinOcuuredatChiled, ElephantOnTable[i]->LoseOcuuredatChiled);
 			if (ElephantOnTable[i]->WinOcuuredatChiled >= 1 || ElephantOnTable[i]->WinOcuuredatChiled >= 2 || ElephantOnTable[i]->WinOcuuredatChiled >= 3)
 			{
@@ -5633,18 +5636,18 @@ int ** AllDraw::HuristicAStarGreadySearchElephant(int **TableHuristic, int i, in
 		//When There is No Movments in Such Order Enemy continue.
 		if (Order != AllDraw::OrderPlate)
 		{
-			if (ElephantOnTable[i]->ElefantThinking.ReturnHuristic(i, j, Order, AA) > Less)
+			if (ElephantOnTable[i].ElefantThinking.ReturnHuristic(i, j, Order, AA) > Less)
 			{
 				continue;
 			}
 		}
 		//When There is greater Huristic Movments.
 
-		if (ElephantOnTable[i]->ElefantThinking.ReturnHuristic(i, j, Order, AA) > Less)
+		if (ElephantOnTable[i].ElefantThinking.ReturnHuristic(i, j, Order, AA) > Less)
 		{
 
-			int **TableS = ElephantOnTable[i]->ElefantThinking.TableListElefant[j];
-			int **TableSS = ElephantOnTable[i]->ElefantThinking.TableListElefant[j];
+			int **TableS = ElephantOnTable[i].ElefantThinking.TableListElefant[j];
+			int **TableSS = ElephantOnTable[i].ElefantThinking.TableListElefant[j];
 			//checked for Legal Movments ArgumentOutOfRangeException curnt game.
 			if (DynamicAStarGreedytPrograming && !CurrentTableHuristic && AStarGreedyi == 1)
 			{
@@ -5705,7 +5708,7 @@ int ** AllDraw::HuristicAStarGreadySearchElephant(int **TableHuristic, int i, in
 		RW6 = -1;
 		CL6 = -1;
 		Ki6 = -1;
-		MaxLess2 = ElephantOnTable[RW2]->ElefantThinking.ReturnHuristic(RW2, Ki2, Order, false);
+		MaxLess2 = ElephantOnTable[RW2].ElefantThinking.ReturnHuristic(RW2, Ki2, Order, false);
 		if (MaxLess2 > MaxLess1)
 		{
 			MaxLess1 = -1;
@@ -5750,17 +5753,17 @@ int ** AllDraw::HuristicAStarGreadySearchElephant(int **TableHuristic, int i, in
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 											//lock (On)
 			{
-				AllDraw::LastRow = ElephantOnTable[i]->ElefantThinking.Row;
-				AllDraw::LastColumn = ElephantOnTable[i]->ElefantThinking.Column;
-				AllDraw::NextRow = (ElephantOnTable[i]->ElefantThinking.RowColumnElefant[j][0]);
-				AllDraw::NextColumn = (ElephantOnTable[i]->ElefantThinking.RowColumnElefant[j][1]);
+				AllDraw::LastRow = ElephantOnTable[i].ElefantThinking.Row;
+				AllDraw::LastColumn = ElephantOnTable[i].ElefantThinking.Column;
+				AllDraw::NextRow = (ElephantOnTable[i].ElefantThinking.RowColumnElefant[j][0]);
+				AllDraw::NextColumn = (ElephantOnTable[i].ElefantThinking.RowColumnElefant[j][1]);
 			}
 			(Act) = true;
-			Less = ElephantOnTable[i]->ElefantThinking.ReturnHuristic(i, j, Order, AA);
+			Less = ElephantOnTable[i].ElefantThinking.ReturnHuristic(i, j, Order, AA);
 
 			StringHuristics(2, 3, AA, Do, ElephantOnTable[i]->WinOcuuredatChiled, ElephantOnTable[i]->LoseOcuuredatChiled);
 
-			TableHuristic = ElephantOnTable[i]->ElefantThinking.TableListElefant[j];
+			TableHuristic = ElephantOnTable[i].ElefantThinking.TableListElefant[j];
 		}
 	}
 
@@ -5830,7 +5833,7 @@ int ** AllDraw::HuristicAStarGreadySearchHourse(int **TableHuristic, int i, int 
 	{
 		//try
 		{
-			for (j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && HoursesOnTable != nullptr && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i]->HourseThinking) != nullptr) && (&(HoursesOnTable[i]->HourseThinking) != nullptr) && j < HoursesOnTable[i]->HourseThinking.TableListHourse.size(); j++)
+			for (j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && HoursesOnTable != nullptr && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && j < HoursesOnTable[i].HourseThinking.TableListHourse.size(); j++)
 			{
 				{
 					//System.Threading.Thread.Sleep(1);
@@ -5839,7 +5842,7 @@ int ** AllDraw::HuristicAStarGreadySearchHourse(int **TableHuristic, int i, int 
 						//For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
 						//if (AllDraw::OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
 						//)
-						if (HoursesOnTable[i]->HourseThinking.PenaltyRegardListHourse[j].IsPenaltyAction() == 0)
+						if (HoursesOnTable[i].HourseThinking.PenaltyRegardListHourse[j].IsPenaltyAction() == 0)
 						{
 							continue;
 						}
@@ -5847,9 +5850,9 @@ int ** AllDraw::HuristicAStarGreadySearchHourse(int **TableHuristic, int i, int 
 						int COrder = Order;
 						//try
 						{
-							if (HoursesOnTable[i]->HourseThinking.AStarGreedy.size() > j)
+							if (HoursesOnTable[i].HourseThinking.AStarGreedy.size() > j)
 							{
-								HoursesOnTable[i]->HourseThinking.AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(3, AA, Order * -1);
+								HoursesOnTable[i].HourseThinking.AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(3, AA, Order * -1);
 							}
 							ChessRules::CurrentOrder *= -1;
 							Order *= -1;
@@ -5871,21 +5874,21 @@ int ** AllDraw::HuristicAStarGreadySearchHourse(int **TableHuristic, int i, int 
 						//)
 
 
-						if ((HoursesOnTable[i]->HourseThinking.PenaltyRegardListHourse[j].IsPenaltyAction() != 0 && HoursesOnTable[i]->HourseThinking.PenaltyRegardListHourse[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA || HoursesOnTable[i]->WinOcuuredatChiled >= 1 || HoursesOnTable[i]->WinOcuuredatChiled >= 2 || HoursesOnTable[i]->WinOcuuredatChiled >= 3)
+						if ((HoursesOnTable[i].HourseThinking.PenaltyRegardListHourse[j].IsPenaltyAction() != 0 && HoursesOnTable[i].HourseThinking.PenaltyRegardListHourse[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA || HoursesOnTable[i]->WinOcuuredatChiled >= 1 || HoursesOnTable[i]->WinOcuuredatChiled >= 2 || HoursesOnTable[i]->WinOcuuredatChiled >= 3)
 						{
 							//autoOn = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 									//lock (On)
 							{
-								AllDraw::LastRow = HoursesOnTable[i]->HourseThinking.Row;
-								AllDraw::LastColumn = HoursesOnTable[i]->HourseThinking.Column;
-								AllDraw::NextRow = (HoursesOnTable[i]->HourseThinking.RowColumnHourse[j][0]);
-								AllDraw::NextColumn = (HoursesOnTable[i]->HourseThinking.RowColumnHourse[j][1]);
+								AllDraw::LastRow = HoursesOnTable[i].HourseThinking.Row;
+								AllDraw::LastColumn = HoursesOnTable[i].HourseThinking.Column;
+								AllDraw::NextRow = (HoursesOnTable[i].HourseThinking.RowColumnHourse[j][0]);
+								AllDraw::NextColumn = (HoursesOnTable[i].HourseThinking.RowColumnHourse[j][1]);
 
 								(Act) = true;
-								Less = HoursesOnTable[i]->HourseThinking.NumberOfPenalties;
+								Less = HoursesOnTable[i].HourseThinking.NumberOfPenalties;
 							}
-							TableHuristic = HoursesOnTable[i]->HourseThinking.TableListHourse[j];
+							TableHuristic = HoursesOnTable[i].HourseThinking.TableListHourse[j];
 							RegardOccurred = true;
 							//if (Do == 1 || AA)
 							//return TableHuristic;
@@ -5908,13 +5911,13 @@ int ** AllDraw::HuristicAStarGreadySearchHourse(int **TableHuristic, int i, int 
 							//When There is No Movments in Such Order Enemy continue.
 							if (Order != AllDraw::OrderPlate)
 							{
-								if (HoursesOnTable[i]->HourseThinking.ReturnHuristic(i, j, Order, AA) > Less)
+								if (HoursesOnTable[i].HourseThinking.ReturnHuristic(i, j, Order, AA) > Less)
 								{
 									continue;
 								}
 							}
 							//When There is greater Huristic Movments.
-							if (HoursesOnTable[i]->HourseThinking.ReturnHuristic(i, j, Order, AA) > Less)
+							if (HoursesOnTable[i].HourseThinking.ReturnHuristic(i, j, Order, AA) > Less)
 							{
 								//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -5924,11 +5927,11 @@ int ** AllDraw::HuristicAStarGreadySearchHourse(int **TableHuristic, int i, int 
 								}
 								//retrive table of current huristic.
 //C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call '//delete*' where appropriate:
-//ORIGINAL LINE: int[,] TableS = HoursesOnTable[i]->HourseThinking.TableListHourse[j];
-								int **TableS = HoursesOnTable[i]->HourseThinking.TableListHourse[j];
+//ORIGINAL LINE: int[,] TableS = HoursesOnTable[i].HourseThinking.TableListHourse[j];
+								int **TableS = HoursesOnTable[i].HourseThinking.TableListHourse[j];
 								//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call '//delete*' where appropriate:
-								//ORIGINAL LINE: int[,] TableSS = HoursesOnTable[i]->HourseThinking.TableListHourse[j];
-								int **TableSS = HoursesOnTable[i]->HourseThinking.TableListHourse[j];
+								//ORIGINAL LINE: int[,] TableSS = HoursesOnTable[i].HourseThinking.TableListHourse[j];
+								int **TableSS = HoursesOnTable[i].HourseThinking.TableListHourse[j];
 								{
 									//checked for Legal Movments ArgumentOutOfRangeException curnt game.
 									if (DynamicAStarGreedytPrograming && !CurrentTableHuristic && AStarGreedyi == 1)
@@ -5954,7 +5957,7 @@ int ** AllDraw::HuristicAStarGreadySearchHourse(int **TableHuristic, int i, int 
 									//When there is not Penalty regard mechanism.
 									//if (!UsePenaltyRegardMechnisamT)
 									{
-										AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 3, TableS, Order, HoursesOnTable[i]->HourseThinking.Row, HoursesOnTable[i]->HourseThinking.Column);
+										AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 3, TableS, Order, HoursesOnTable[i].HourseThinking.Row, HoursesOnTable[i].HourseThinking.Column);
 										//If there is kish or kshachamaz Order.
 										if (AB->Check(TableS, Order))
 										{
@@ -6002,7 +6005,7 @@ int ** AllDraw::HuristicAStarGreadySearchHourse(int **TableHuristic, int i, int 
 								RW6 = -1;
 								CL6 = -1;
 								Ki6 = -1;
-								MaxLess3 = HoursesOnTable[RW3]->HourseThinking.ReturnHuristic(RW3, Ki3, Order, false);
+								MaxLess3 = HoursesOnTable[RW3].HourseThinking.ReturnHuristic(RW3, Ki3, Order, false);
 								if (MaxLess3 > MaxLess1)
 								{
 									MaxLess1 = -1;
@@ -6046,15 +6049,15 @@ int ** AllDraw::HuristicAStarGreadySearchHourse(int **TableHuristic, int i, int 
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 											//lock (On)
 									{
-										AllDraw::LastRow = HoursesOnTable[i]->HourseThinking.Row;
-										AllDraw::LastColumn = HoursesOnTable[i]->HourseThinking.Column;
-										AllDraw::NextRow = (HoursesOnTable[i]->HourseThinking.RowColumnHourse[j][0]);
-										AllDraw::NextColumn = (HoursesOnTable[i]->HourseThinking.RowColumnHourse[j][1]);
+										AllDraw::LastRow = HoursesOnTable[i].HourseThinking.Row;
+										AllDraw::LastColumn = HoursesOnTable[i].HourseThinking.Column;
+										AllDraw::NextRow = (HoursesOnTable[i].HourseThinking.RowColumnHourse[j][0]);
+										AllDraw::NextColumn = (HoursesOnTable[i].HourseThinking.RowColumnHourse[j][1]);
 									}
 
 									(Act) = true;
-									Less = HoursesOnTable[i]->HourseThinking.ReturnHuristic(i, j, Order, AA);
-									TableHuristic = HoursesOnTable[i]->HourseThinking.TableListHourse[j];
+									Less = HoursesOnTable[i].HourseThinking.ReturnHuristic(i, j, Order, AA);
+									TableHuristic = HoursesOnTable[i].HourseThinking.TableListHourse[j];
 
 									StringHuristics(3, 3, AA, Do, HoursesOnTable[i]->WinOcuuredatChiled, HoursesOnTable[i]->LoseOcuuredatChiled);
 								}
@@ -6146,7 +6149,7 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 			{
 				//try
 				{
-					for (j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i]->CastleThinking) != nullptr) && (&(CastlesOnTable[i]->CastleThinking) != nullptr) && j < CastlesOnTable[i]->CastleThinking.TableListCastle.size(); j++)
+					for (j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && j < CastlesOnTable[i].CastleThinking.TableListCastle.size(); j++)
 					{
 						{
 						//System.Threading.Thread.Sleep(1);
@@ -6155,7 +6158,7 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 								//For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
 								//if (AllDraw::OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
 								//)
-								if (CastlesOnTable[i]->CastleThinking.PenaltyRegardListCastle[j].IsPenaltyAction() == 0)
+								if (CastlesOnTable[i].CastleThinking.PenaltyRegardListCastle[j].IsPenaltyAction() == 0)
 								{
 									continue;
 								}
@@ -6163,9 +6166,9 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 								int COrder = Order;
 								//try
 								{
-									if (CastlesOnTable[i]->CastleThinking.AStarGreedy.size() > j)
+									if (CastlesOnTable[i].CastleThinking.AStarGreedy.size() > j)
 									{
-										CastlesOnTable[i]->CastleThinking.AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(4, AA, Order * -1);
+										CastlesOnTable[i].CastleThinking.AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(4, AA, Order * -1);
 									}
 									ChessRules::CurrentOrder *= -1;
 									Order *= -1;
@@ -6186,22 +6189,22 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 								//)
 
 
-								if ((CastlesOnTable[i]->CastleThinking.PenaltyRegardListCastle[j].IsPenaltyAction() != 0 && CastlesOnTable[i]->CastleThinking.PenaltyRegardListCastle[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA || CastlesOnTable[i]->WinOcuuredatChiled >= 1 || CastlesOnTable[i]->WinOcuuredatChiled >= 2 || CastlesOnTable[i]->WinOcuuredatChiled >= 3)
+								if ((CastlesOnTable[i].CastleThinking.PenaltyRegardListCastle[j].IsPenaltyAction() != 0 && CastlesOnTable[i].CastleThinking.PenaltyRegardListCastle[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA || CastlesOnTable[i]->WinOcuuredatChiled >= 1 || CastlesOnTable[i]->WinOcuuredatChiled >= 2 || CastlesOnTable[i]->WinOcuuredatChiled >= 3)
 								{
 
 									//autoOn = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 									//lock (On)
 									{
-										AllDraw::LastRow = CastlesOnTable[i]->CastleThinking.Row;
-										AllDraw::LastColumn = CastlesOnTable[i]->CastleThinking.Column;
-										AllDraw::NextRow = (CastlesOnTable[i]->CastleThinking.RowColumnCastle[j][0]);
-										AllDraw::NextColumn =( CastlesOnTable[i]->CastleThinking.RowColumnCastle[j][1]);
+										AllDraw::LastRow = CastlesOnTable[i].CastleThinking.Row;
+										AllDraw::LastColumn = CastlesOnTable[i].CastleThinking.Column;
+										AllDraw::NextRow = (CastlesOnTable[i].CastleThinking.RowColumnCastle[j][0]);
+										AllDraw::NextColumn =( CastlesOnTable[i].CastleThinking.RowColumnCastle[j][1]);
 
 										(Act) = true;
-										Less = CastlesOnTable[i]->CastleThinking.NumberOfPenalties;
+										Less = CastlesOnTable[i].CastleThinking.NumberOfPenalties;
 									}
-									TableHuristic = CastlesOnTable[i]->CastleThinking.TableListCastle[j];
+									TableHuristic = CastlesOnTable[i].CastleThinking.TableListCastle[j];
 									RegardOccurred = true;
 									StringHuristics(4, 2, AA, Do, CastlesOnTable[i]->WinOcuuredatChiled, CastlesOnTable[i]->LoseOcuuredatChiled);
 									if (CastlesOnTable[i]->WinOcuuredatChiled >= 1 || CastlesOnTable[i]->WinOcuuredatChiled >= 2 || CastlesOnTable[i]->WinOcuuredatChiled >= 3)
@@ -6222,13 +6225,13 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 									//When There is No Movments in Such Order Enemy continue.
 									if (Order != AllDraw::OrderPlate)
 									{
-										if (CastlesOnTable[i]->CastleThinking.ReturnHuristic(i, j, Order, AA) > Less)
+										if (CastlesOnTable[i].CastleThinking.ReturnHuristic(i, j, Order, AA) > Less)
 										{
 											continue;
 										}
 									}
 									//When There is greater Huristic Movments.
-									if (CastlesOnTable[i]->CastleThinking.ReturnHuristic(i, j, Order, AA) > Less)
+									if (CastlesOnTable[i].CastleThinking.ReturnHuristic(i, j, Order, AA) > Less)
 									{
 										//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -6240,11 +6243,11 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 
 										//retrive table of current huristic.
 //C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call '//delete*' where appropriate:
-//ORIGINAL LINE: int[,] TableS = CastlesOnTable[i]->CastleThinking.TableListCastle[j];
-										int **TableS = CastlesOnTable[i]->CastleThinking.TableListCastle[j];
+//ORIGINAL LINE: int[,] TableS = CastlesOnTable[i].CastleThinking.TableListCastle[j];
+										int **TableS = CastlesOnTable[i].CastleThinking.TableListCastle[j];
 //C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call '//delete*' where appropriate:
-//ORIGINAL LINE: int[,] TableSS = CastlesOnTable[i]->CastleThinking.TableListCastle[j];
-										int **TableSS = CastlesOnTable[i]->CastleThinking.TableListCastle[j];
+//ORIGINAL LINE: int[,] TableSS = CastlesOnTable[i].CastleThinking.TableListCastle[j];
+										int **TableSS = CastlesOnTable[i].CastleThinking.TableListCastle[j];
 										//checked for Legal Movments ArgumentOutOfRangeException curnt game.
 										if (DynamicAStarGreedytPrograming && !CurrentTableHuristic && AStarGreedyi == 1)
 										{
@@ -6270,7 +6273,7 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 										//When there is not Penalty regard mechanism.
 										//if (!UsePenaltyRegardMechnisamT)
 										{
-											AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 4, TableS, Order, CastlesOnTable[i]->CastleThinking.Row, CastlesOnTable[i]->CastleThinking.Column);
+											AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 4, TableS, Order, CastlesOnTable[i].CastleThinking.Row, CastlesOnTable[i].CastleThinking.Column);
 											//If there is kish or kshachamaz Order.
 											if (AB->Check(TableS, Order))
 											{
@@ -6315,7 +6318,7 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 										RW6 = -1;
 										CL6 = -1;
 										Ki6 = -1;
-										MaxLess4 = CastlesOnTable[RW4]->CastleThinking.ReturnHuristic(RW4, Ki4, Order, false);
+										MaxLess4 = CastlesOnTable[RW4].CastleThinking.ReturnHuristic(RW4, Ki4, Order, false);
 										if (MaxLess4 > MaxLess1)
 										{
 											MaxLess1 = -1;
@@ -6361,15 +6364,15 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 											//lock (On)
 											{
-												AllDraw::LastRow = CastlesOnTable[i]->CastleThinking.Row;
-												AllDraw::LastColumn = CastlesOnTable[i]->CastleThinking.Column;
-												AllDraw::NextRow = (CastlesOnTable[i]->CastleThinking.RowColumnCastle[j][0]);
-												AllDraw::NextColumn =( CastlesOnTable[i]->CastleThinking.RowColumnCastle[j][1]);
+												AllDraw::LastRow = CastlesOnTable[i].CastleThinking.Row;
+												AllDraw::LastColumn = CastlesOnTable[i].CastleThinking.Column;
+												AllDraw::NextRow = (CastlesOnTable[i].CastleThinking.RowColumnCastle[j][0]);
+												AllDraw::NextColumn =( CastlesOnTable[i].CastleThinking.RowColumnCastle[j][1]);
 											}
 
 											(Act) = true;
-											Less = CastlesOnTable[i]->CastleThinking.ReturnHuristic(i, j, Order, AA);
-											TableHuristic = CastlesOnTable[i]->CastleThinking.TableListCastle[j];
+											Less = CastlesOnTable[i].CastleThinking.ReturnHuristic(i, j, Order, AA);
+											TableHuristic = CastlesOnTable[i].CastleThinking.TableListCastle[j];
 
 											StringHuristics(4, 3, AA, Do, CastlesOnTable[i]->WinOcuuredatChiled, CastlesOnTable[i]->LoseOcuuredatChiled);
 										}
@@ -6454,10 +6457,10 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 
 		for (int k = 0; k < AllDraw::MinisterMovments; k++)
 		{
-			for (j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i]->MinisterThinking) != nullptr) && (&(MinisterOnTable[i]->MinisterThinking) != nullptr) && j < MinisterOnTable[i]->MinisterThinking.TableListMinister.size(); j++)
+			for (j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && j < MinisterOnTable[i].MinisterThinking.TableListMinister.size(); j++)
 			{
 				{
-					if (MinisterOnTable[i]->MinisterThinking.PenaltyRegardListMinister[j].IsPenaltyAction() == 0)
+					if (MinisterOnTable[i].MinisterThinking.PenaltyRegardListMinister[j].IsPenaltyAction() == 0)
 					{
 						continue;
 					}
@@ -6465,9 +6468,9 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 					int COrder = Order;
 					//try
 					{
-						if (MinisterOnTable[i]->MinisterThinking.AStarGreedy.size() > j)
+						if (MinisterOnTable[i].MinisterThinking.AStarGreedy.size() > j)
 						{
-							MinisterOnTable[i]->MinisterThinking.AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(5, AA, Order * -1);
+							MinisterOnTable[i].MinisterThinking.AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(5, AA, Order * -1);
 						}
 						ChessRules::CurrentOrder *= -1;
 						Order *= -1;
@@ -6488,18 +6491,18 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 
 
 
-					if ((MinisterOnTable[i]->MinisterThinking.PenaltyRegardListMinister[j].IsPenaltyAction() != 0 && MinisterOnTable[i]->MinisterThinking.PenaltyRegardListMinister[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA || MinisterOnTable[i]->WinOcuuredatChiled >= 1 || MinisterOnTable[i]->WinOcuuredatChiled >= 2 || MinisterOnTable[i]->WinOcuuredatChiled >= 3)
+					if ((MinisterOnTable[i].MinisterThinking.PenaltyRegardListMinister[j].IsPenaltyAction() != 0 && MinisterOnTable[i].MinisterThinking.PenaltyRegardListMinister[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA || MinisterOnTable[i]->WinOcuuredatChiled >= 1 || MinisterOnTable[i]->WinOcuuredatChiled >= 2 || MinisterOnTable[i]->WinOcuuredatChiled >= 3)
 							{
 
-							AllDraw::LastRow = MinisterOnTable[i]->MinisterThinking.Row;
-							AllDraw::LastColumn = MinisterOnTable[i]->MinisterThinking.Column;
-							AllDraw::NextRow = (MinisterOnTable[i]->MinisterThinking.RowColumnMinister[j][0]);
-							AllDraw::NextColumn =( MinisterOnTable[i]->MinisterThinking.RowColumnMinister[j][1]);
+							AllDraw::LastRow = MinisterOnTable[i].MinisterThinking.Row;
+							AllDraw::LastColumn = MinisterOnTable[i].MinisterThinking.Column;
+							AllDraw::NextRow = (MinisterOnTable[i].MinisterThinking.RowColumnMinister[j][0]);
+							AllDraw::NextColumn =( MinisterOnTable[i].MinisterThinking.RowColumnMinister[j][1]);
 
 							(Act) = true;
-							Less = MinisterOnTable[i]->MinisterThinking.NumberOfPenalties;
+							Less = MinisterOnTable[i].MinisterThinking.NumberOfPenalties;
 
-							TableHuristic = MinisterOnTable[i]->MinisterThinking.TableListMinister[j];
+							TableHuristic = MinisterOnTable[i].MinisterThinking.TableListMinister[j];
 							RegardOccurred = true;
 							StringHuristics(5, 2, AA, Do, MinisterOnTable[i]->WinOcuuredatChiled, MinisterOnTable[i]->LoseOcuuredatChiled);
 							if (MinisterOnTable[i]->WinOcuuredatChiled >= 1 || MinisterOnTable[i]->WinOcuuredatChiled >= 2 || MinisterOnTable[i]->WinOcuuredatChiled >= 3)
@@ -6514,16 +6517,16 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 
 					if (Order != AllDraw::OrderPlate)
 					{
-						if (MinisterOnTable[i]->MinisterThinking.ReturnHuristic(i, j, Order, AA) > Less)
+						if (MinisterOnTable[i].MinisterThinking.ReturnHuristic(i, j, Order, AA) > Less)
 						{
 							continue;
 						}
 					}
-					if (MinisterOnTable[i]->MinisterThinking.ReturnHuristic(i, j, Order, AA) > Less)
+					if (MinisterOnTable[i].MinisterThinking.ReturnHuristic(i, j, Order, AA) > Less)
 					{
 
-						int **TableS = MinisterOnTable[i]->MinisterThinking.TableListMinister[j];
-						int **TableSS = MinisterOnTable[i]->MinisterThinking.TableListMinister[j];
+						int **TableS = MinisterOnTable[i].MinisterThinking.TableListMinister[j];
+						int **TableSS = MinisterOnTable[i].MinisterThinking.TableListMinister[j];
 						if (DynamicAStarGreedytPrograming && !CurrentTableHuristic && AStarGreedyi == 1)
 						{
 							//try
@@ -6544,7 +6547,7 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 							}
 
 						}
-						ChessRules AB =  ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 5, TableS, Order, MinisterOnTable[i]->MinisterThinking.Row, MinisterOnTable[i]->MinisterThinking.Column);
+						ChessRules AB =  ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 5, TableS, Order, MinisterOnTable[i].MinisterThinking.Row, MinisterOnTable[i].MinisterThinking.Column);
 						//If there is kish or kshachamaz Order.
 						if (AB.Check(TableS, Order))
 						{
@@ -6588,7 +6591,7 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 						RW6 = -1;
 						CL6 = -1;
 						Ki6 = -1;
-						MaxLess5 = MinisterOnTable[RW5]->MinisterThinking.ReturnHuristic(RW5, Ki5, Order, false);
+						MaxLess5 = MinisterOnTable[RW5].MinisterThinking.ReturnHuristic(RW5, Ki5, Order, false);
 						if (MaxLess5 > MaxLess1)
 						{
 							MaxLess1 = -1;
@@ -6626,15 +6629,15 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 							}
 
 
-							AllDraw::LastRow = MinisterOnTable[i]->MinisterThinking.Row;
-							AllDraw::LastColumn = MinisterOnTable[i]->MinisterThinking.Column;
-							AllDraw::NextRow = (MinisterOnTable[i]->MinisterThinking.RowColumnMinister[j][0]);
-							AllDraw::NextColumn =( MinisterOnTable[i]->MinisterThinking.RowColumnMinister[j][1]);
+							AllDraw::LastRow = MinisterOnTable[i].MinisterThinking.Row;
+							AllDraw::LastColumn = MinisterOnTable[i].MinisterThinking.Column;
+							AllDraw::NextRow = (MinisterOnTable[i].MinisterThinking.RowColumnMinister[j][0]);
+							AllDraw::NextColumn =( MinisterOnTable[i].MinisterThinking.RowColumnMinister[j][1]);
 
 
 							(Act) = true;
-							Less = MinisterOnTable[i]->MinisterThinking.ReturnHuristic(i, j, Order, AA);
-							TableHuristic = MinisterOnTable[i]->MinisterThinking.TableListMinister[j];
+							Less = MinisterOnTable[i].MinisterThinking.ReturnHuristic(i, j, Order, AA);
+							TableHuristic = MinisterOnTable[i].MinisterThinking.TableListMinister[j];
 
 							StringHuristics(5, 3, AA, Do, MinisterOnTable[i]->WinOcuuredatChiled, MinisterOnTable[i]->LoseOcuuredatChiled);
 						}
@@ -6714,7 +6717,7 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 
 		for (int k = 0; k < AllDraw::KingMovments; k++)
 		{
-			for (j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) &&(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i]->KingThinking) != nullptr) && (&(KingOnTable[i]->KingThinking) != nullptr) && j < KingOnTable[i]->KingThinking.TableListKing.size(); j++)
+			for (j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) &&(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && j < KingOnTable[i].KingThinking.TableListKing.size(); j++)
 			{
 				{
 					//System.Threading.Thread.Sleep(1);
@@ -6723,7 +6726,7 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 						//For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
 						//if (AllDraw::OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
 						//)
-						if (KingOnTable[i]->KingThinking.PenaltyRegardListKing[j].IsPenaltyAction() == 0)
+						if (KingOnTable[i].KingThinking.PenaltyRegardListKing[j].IsPenaltyAction() == 0)
 						{
 							continue;
 						}
@@ -6731,9 +6734,9 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 						int COrder = Order;
 						//try
 						{
-							if (KingOnTable[i]->KingThinking.AStarGreedy.size() > j)
+							if (KingOnTable[i].KingThinking.AStarGreedy.size() > j)
 							{
-								KingOnTable[i]->KingThinking.AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(6, AA, Order * -1);
+								KingOnTable[i].KingThinking.AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(6, AA, Order * -1);
 							}
 							ChessRules::CurrentOrder *= -1;
 							Order *= -1;
@@ -6756,21 +6759,21 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 
 
 
-						if ((KingOnTable[i]->KingThinking.PenaltyRegardListKing[j].IsPenaltyAction() != 0 && KingOnTable[i]->KingThinking.PenaltyRegardListKing[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA || KingOnTable[i]->WinOcuuredatChiled >= 1 || KingOnTable[i]->WinOcuuredatChiled >= 2 || KingOnTable[i]->WinOcuuredatChiled >= 3)
+						if ((KingOnTable[i].KingThinking.PenaltyRegardListKing[j].IsPenaltyAction() != 0 && KingOnTable[i].KingThinking.PenaltyRegardListKing[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA || KingOnTable[i]->WinOcuuredatChiled >= 1 || KingOnTable[i]->WinOcuuredatChiled >= 2 || KingOnTable[i]->WinOcuuredatChiled >= 3)
 						{
 							//autoOn = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 									//lock (On)
 							{
-								AllDraw::LastRow = KingOnTable[i]->KingThinking.Row;
-								AllDraw::LastColumn = KingOnTable[i]->KingThinking.Column;
-								AllDraw::NextRow = (KingOnTable[i]->KingThinking.RowColumnKing[j][0]);
-								AllDraw::NextColumn = (KingOnTable[i]->KingThinking.RowColumnKing[j][1]);
+								AllDraw::LastRow = KingOnTable[i].KingThinking.Row;
+								AllDraw::LastColumn = KingOnTable[i].KingThinking.Column;
+								AllDraw::NextRow = (KingOnTable[i].KingThinking.RowColumnKing[j][0]);
+								AllDraw::NextColumn = (KingOnTable[i].KingThinking.RowColumnKing[j][1]);
 
 								(Act) = true;
-								Less = KingOnTable[i]->KingThinking.NumberOfPenalties;
+								Less = KingOnTable[i].KingThinking.NumberOfPenalties;
 							}
-							TableHuristic = KingOnTable[i]->KingThinking.TableListKing[j];
+							TableHuristic = KingOnTable[i].KingThinking.TableListKing[j];
 							RegardOccurred = true;
 							StringHuristics(6, 2, AA, Do, KingOnTable[i]->WinOcuuredatChiled, KingOnTable[i]->LoseOcuuredatChiled);
 
@@ -6792,13 +6795,13 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 							//When There is No Movments in Such Order Enemy continue.
 							if (Order != AllDraw::OrderPlate)
 							{
-								if (KingOnTable[i]->KingThinking.ReturnHuristic(i, j, Order, AA) > Less)
+								if (KingOnTable[i].KingThinking.ReturnHuristic(i, j, Order, AA) > Less)
 								{
 									continue;
 								}
 							}
 							//When There is greater Huristic Movments.
-							if (KingOnTable[i]->KingThinking.ReturnHuristic(i, j, Order, AA) > Less)
+							if (KingOnTable[i].KingThinking.ReturnHuristic(i, j, Order, AA) > Less)
 							{
 								//autoOO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -6810,11 +6813,11 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 
 								//retrive table of current huristic.
 //C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call '//delete*' where appropriate:
-//ORIGINAL LINE: int[,] TableS = KingOnTable[i]->KingThinking.TableListKing[j];
-								int **TableS = KingOnTable[i]->KingThinking.TableListKing[j];
+//ORIGINAL LINE: int[,] TableS = KingOnTable[i].KingThinking.TableListKing[j];
+								int **TableS = KingOnTable[i].KingThinking.TableListKing[j];
 								//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call '//delete*' where appropriate:
-								//ORIGINAL LINE: int[,] TableSS = KingOnTable[i]->KingThinking.TableListKing[j];
-								int **TableSS = KingOnTable[i]->KingThinking.TableListKing[j];
+								//ORIGINAL LINE: int[,] TableSS = KingOnTable[i].KingThinking.TableListKing[j];
+								int **TableSS = KingOnTable[i].KingThinking.TableListKing[j];
 								//checked for Legal Movments ArgumentOutOfRangeException curnt game.
 								if (DynamicAStarGreedytPrograming && !CurrentTableHuristic && AStarGreedyi == 1)
 								{
@@ -6838,7 +6841,7 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 								//When there is not Penalty regard mechanism.
 								//if (!UsePenaltyRegardMechnisamT)
 								{
-									AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 6, TableS, Order, KingOnTable[i]->KingThinking.Row, KingOnTable[i]->KingThinking.Column);
+									AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 6, TableS, Order, KingOnTable[i].KingThinking.Row, KingOnTable[i].KingThinking.Column);
 									//If there is kish or kshachamaz Order.
 									if (AB->Check(TableS, Order))
 									{
@@ -6886,7 +6889,7 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 								RW5 = -1;
 								CL5 = -1;
 								Ki5 = -1;
-								MaxLess6 = KingOnTable[RW6]->KingThinking.ReturnHuristic(RW6, Ki6, Order, false);
+								MaxLess6 = KingOnTable[RW6].KingThinking.ReturnHuristic(RW6, Ki6, Order, false);
 								if (MaxLess6 > MaxLess1)
 								{
 									MaxLess1 = -1;
@@ -6923,14 +6926,14 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 									}
 									//Set Table and Huristic Value and Syntax.
 
-									AllDraw::LastRow = KingOnTable[i]->KingThinking.Row;
-									AllDraw::LastColumn = KingOnTable[i]->KingThinking.Column;
-									AllDraw::NextRow = (KingOnTable[i]->KingThinking.RowColumnKing[j][0]);
-									AllDraw::NextColumn = (KingOnTable[i]->KingThinking.RowColumnKing[j][1]);
+									AllDraw::LastRow = KingOnTable[i].KingThinking.Row;
+									AllDraw::LastColumn = KingOnTable[i].KingThinking.Column;
+									AllDraw::NextRow = (KingOnTable[i].KingThinking.RowColumnKing[j][0]);
+									AllDraw::NextColumn = (KingOnTable[i].KingThinking.RowColumnKing[j][1]);
 
 									(Act) = true;
-									Less = KingOnTable[i]->KingThinking.ReturnHuristic(i, j, Order, AA);
-									TableHuristic = KingOnTable[i]->KingThinking.TableListKing[j];
+									Less = KingOnTable[i].KingThinking.ReturnHuristic(i, j, Order, AA);
+									TableHuristic = KingOnTable[i].KingThinking.TableListKing[j];
 
 									StringHuristics(6, 3, AA, Do, KingOnTable[i]->WinOcuuredatChiled, KingOnTable[i]->LoseOcuuredatChiled);
 								}
@@ -7021,13 +7024,13 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 					//When There is an Movment in such situation.
 					//try
 					{
-						for (j = 0; (SolderesOnTable != nullptr) && SolderesOnTable[i]  != nullptr && SolderesOnTable != nullptr && SolderesOnTable[i]  != nullptr && (&(SolderesOnTable[i]->SoldierThinking) != nullptr) && (&(SolderesOnTable[i]->SoldierThinking) != nullptr) && j < SolderesOnTable[i]->SoldierThinking.TableListSolder.size(); j++)
+						for (j = 0; (SolderesOnTable != nullptr) && SolderesOnTable[i]  != nullptr && SolderesOnTable != nullptr && SolderesOnTable[i]  != nullptr && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && j < SolderesOnTable[i].SoldierThinking.TableListSolder.size(); j++)
 						{
 							//try
 							{
 								//For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
 								////if (AllDraw::OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT)
-								//  if (SolderesOnTable[i]->SoldierThinking.PenaltyRegardListSolder[j].IsPenaltyAction() == 0)
+								//  if (SolderesOnTable[i].SoldierThinking.PenaltyRegardListSolder[j].IsPenaltyAction() == 0)
 								//      continue;
 								int CDummy = ChessRules::CurrentOrder;
 								int COrder = Order;
@@ -7038,9 +7041,9 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 									Do = 0;
 									if (UsePenaltyRegardMechnisamT)
 									{
-										for (int ij = 0; ij < SolderesOnTable[i]->SoldierThinking.AStarGreedy.size() - 1; ij++)
+										for (int ij = 0; ij < SolderesOnTable[i].SoldierThinking.AStarGreedy.size() - 1; ij++)
 										{
-											SolderesOnTable[i]->SoldierThinking.AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, Do, SolderesOnTable[i]->SoldierThinking.AStarGreedy[ij]);
+											SolderesOnTable[i].SoldierThinking.AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, Do, SolderesOnTable[i].SoldierThinking.AStarGreedy[ij]);
 										}
 										Order = COrder;
 										ChessRules::CurrentOrder = CDummy;
@@ -7063,7 +7066,7 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 
 								//if (AllDraw::OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
 								//)
-								if ((SolderesOnTable[i]->SoldierThinking.PenaltyRegardListSolder[j].IsPenaltyAction() != 0 && SolderesOnTable[i]->SoldierThinking.PenaltyRegardListSolder[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA)
+								if ((SolderesOnTable[i].SoldierThinking.PenaltyRegardListSolder[j].IsPenaltyAction() != 0 && SolderesOnTable[i].SoldierThinking.PenaltyRegardListSolder[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA)
 								{
 									//Set Table and Huristic Value and Syntax.
 									(Act) = true;
@@ -7072,16 +7075,16 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 									//lock (o1l)
 									{
 
-										AllDraw::LastRow = SolderesOnTable[i]->SoldierThinking.Row;
-										AllDraw::LastColumn = SolderesOnTable[i]->SoldierThinking.Column;
-										AllDraw::NextRow = (SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][0]);
-										AllDraw::NextColumn =( SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][1]);
+										AllDraw::LastRow = SolderesOnTable[i].SoldierThinking.Row;
+										AllDraw::LastColumn = SolderesOnTable[i].SoldierThinking.Column;
+										AllDraw::NextRow = (SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][0]);
+										AllDraw::NextColumn =( SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][1]);
 
-										Less = SolderesOnTable[i]->SoldierThinking.NumberOfPenalties;
+										Less = SolderesOnTable[i].SoldierThinking.NumberOfPenalties;
 									}
 
 
-									TableHuristic = SolderesOnTable[i]->SoldierThinking.TableListSolder[j];
+									TableHuristic = SolderesOnTable[i].SoldierThinking.TableListSolder[j];
 
 
 									//autoOO = new Object();
@@ -7090,7 +7093,7 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 									{
 										ThingsConverter::ActOfClickEqualTow = true;
 									}
-									SolderesOnTable[i]->ConvertOperation(SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][0], SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][1], a, SolderesOnTable[i]->SoldierThinking.TableListSolder[j], Order, false, i);
+									SolderesOnTable[i]->ConvertOperation(SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][1], a, SolderesOnTable[i].SoldierThinking.TableListSolder[j], Order, false, i);
 									int Sign = 1;
 									if (a == -1)
 									{
@@ -7102,19 +7105,19 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 
 										if (SolderesOnTable[i]->ConvertedToMinister)
 										{
-											TableHuristic[SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][0]][SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][1]] = 5 * Sign;
+											TableHuristic[SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][0]][SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][1]] = 5 * Sign;
 										}
 										else if (SolderesOnTable[i]->ConvertedToCastle)
 										{
-											TableHuristic[SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][0]][SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][1]] = 4 * Sign;
+											TableHuristic[SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][0]][SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][1]] = 4 * Sign;
 										}
 										else if (SolderesOnTable[i]->ConvertedToHourse)
 										{
-											TableHuristic[SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][0]][SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][1]] = 3 * Sign;
+											TableHuristic[SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][0]][SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][1]] = 3 * Sign;
 										}
 										else if (SolderesOnTable[i]->ConvertedToElefant)
 										{
-											TableHuristic[SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][0]][SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][1]] = 2 * Sign;
+											TableHuristic[SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][0]][SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][1]] = 2 * Sign;
 										}
 
 
@@ -7134,13 +7137,13 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 									//When There is No Movments in Such Order Enemy continue.
 									if (Order != AllDraw::OrderPlate)
 									{
-										if (SolderesOnTable[i]->SoldierThinking.NumberOfPenalties < Less)
+										if (SolderesOnTable[i].SoldierThinking.NumberOfPenalties < Less)
 										{
 											continue;
 										}
 									}
 									//When There is greater Huristic Movments.
-									if (SolderesOnTable[i]->SoldierThinking.NumberOfPenalties < Less)
+									if (SolderesOnTable[i].SoldierThinking.NumberOfPenalties < Less)
 									{
 
 										//retrive table of current huristic.
@@ -7150,7 +7153,7 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 										//retrive table of current huristic.
 //C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call '//delete*' where appropriate:
 //ORIGINAL LINE: int[,] TableS = SolderesOnTable[i]->SoldierThinkingPenaltyRegardListSolder[j].
-										int **TableS = SolderesOnTable[i]->SoldierThinking.TableListSolder[j];
+										int **TableS = SolderesOnTable[i].SoldierThinking.TableListSolder[j];
 
 										//checked for Legal Movments ArgumentOutOfRangeException curnt game.
 										if (DynamicAStarGreedytPrograming && !CurrentTableHuristic && AStarGreedyi == 1)
@@ -7175,7 +7178,7 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 										//When there is not Penalty regard mechanism.
 										//if (!UsePenaltyRegardMechnisamT)
 										{
-											AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 1, TableS, Order, SolderesOnTable[i]->SoldierThinking.Row, SolderesOnTable[i]->SoldierThinking.Column);
+											AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 1, TableS, Order, SolderesOnTable[i].SoldierThinking.Row, SolderesOnTable[i].SoldierThinking.Column);
 											//If there is kish or kshachamaz Order.
 											if (AB->Check(TableS, Order))
 											{
@@ -7267,16 +7270,16 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 											//lock (On)
 											{
-												AllDraw::LastRow = SolderesOnTable[i]->SoldierThinking.Row;
-												AllDraw::LastColumn = SolderesOnTable[i]->SoldierThinking.Column;
-												AllDraw::NextRow = (SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][0]);
-												AllDraw::NextColumn =( SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][1]);
+												AllDraw::LastRow = SolderesOnTable[i].SoldierThinking.Row;
+												AllDraw::LastColumn = SolderesOnTable[i].SoldierThinking.Column;
+												AllDraw::NextRow = (SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][0]);
+												AllDraw::NextColumn =( SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][1]);
 											}
 
-											Less = SolderesOnTable[i]->SoldierThinking.NumberOfPenalties;
+											Less = SolderesOnTable[i].SoldierThinking.NumberOfPenalties;
 
 
-											TableHuristic = SolderesOnTable[i]->SoldierThinking.TableListSolder[j];
+											TableHuristic = SolderesOnTable[i].SoldierThinking.TableListSolder[j];
 
 
 											//autoO1 = new Object();
@@ -7285,7 +7288,7 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 											{
 												ThingsConverter::ActOfClickEqualTow = true;
 											}
-											SolderesOnTable[i]->ConvertOperation(SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][0], SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][1], a, SolderesOnTable[i]->SoldierThinking.TableListSolder[j], Order, false, i);
+											SolderesOnTable[i]->ConvertOperation(SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][1], a, SolderesOnTable[i].SoldierThinking.TableListSolder[j], Order, false, i);
 											int Sign = 1;
 											if (a == -1)
 											{
@@ -7297,19 +7300,19 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 
 												if (SolderesOnTable[i]->ConvertedToMinister)
 												{
-													TableHuristic[SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][0]][SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][1]] = 5 * Sign;
+													TableHuristic[SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][0]][SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][1]] = 5 * Sign;
 												}
 												else if (SolderesOnTable[i]->ConvertedToCastle)
 												{
-													TableHuristic[SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][0]][SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][1]] = 4 * Sign;
+													TableHuristic[SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][0]][SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][1]] = 4 * Sign;
 												}
 												else if (SolderesOnTable[i]->ConvertedToHourse)
 												{
-													TableHuristic[SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][0]][SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][1]] = 3 * Sign;
+													TableHuristic[SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][0]][SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][1]] = 3 * Sign;
 												}
 												else if (SolderesOnTable[i]->ConvertedToElefant)
 												{
-													TableHuristic[SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][0]][SolderesOnTable[i]->SoldierThinking.RowColumnSoldier[j][1]] = 2 * Sign;
+													TableHuristic[SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][0]][SolderesOnTable[i].SoldierThinking.RowColumnSoldier[j][1]] = 2 * Sign;
 												}
 
 
@@ -7448,13 +7451,13 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 				{
 					//try
 					{
-						for (j = 0; (SolderesOnTable != nullptr) && (&(SolderesOnTable[i]) != nullptr) && SolderesOnTable != nullptr && (&(SolderesOnTable[i]) != nullptr) && (&(SolderesOnTable[i]->ElefantThinking) != nullptr) && (&(SolderesOnTable[i]->ElefantThinking) != nullptr) && j < SolderesOnTable[i]->ElefantThinking.TableListElefant.size(); j++)
+						for (j = 0; (SolderesOnTable != nullptr) && (&(SolderesOnTable[i]) != nullptr) && SolderesOnTable != nullptr && (&(SolderesOnTable[i]) != nullptr) && (&(SolderesOnTable[i].ElefantThinking) != nullptr) && (&(SolderesOnTable[i].ElefantThinking) != nullptr) && j < SolderesOnTable[i].ElefantThinking.TableListElefant.size(); j++)
 						{
 							//try
 							{
 								//For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
 								////if (AllDraw::OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT)
-								//   if (SolderesOnTable[i]->ElefantThinking.PenaltyRegardListElefant[j].IsPenaltyAction() == 0)
+								//   if (SolderesOnTable[i].ElefantThinking.PenaltyRegardListElefant[j].IsPenaltyAction() == 0)
 								//       continue;
 								int CDummy = ChessRules::CurrentOrder;
 								int COrder = Order;
@@ -7465,9 +7468,9 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 									Do = 0;
 									if (UsePenaltyRegardMechnisamT)
 									{
-										for (int ij = 0; ij < SolderesOnTable[i]->ElefantThinking.AStarGreedy.size() - 1; ij++)
+										for (int ij = 0; ij < SolderesOnTable[i].ElefantThinking.AStarGreedy.size() - 1; ij++)
 										{
-											SolderesOnTable[i]->ElefantThinking.AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, Do, SolderesOnTable[i]->ElefantThinking.AStarGreedy[ij]);
+											SolderesOnTable[i].ElefantThinking.AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, Do, SolderesOnTable[i].ElefantThinking.AStarGreedy[ij]);
 										}
 										Order = COrder;
 										ChessRules::CurrentOrder = CDummy;
@@ -7489,29 +7492,29 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 								ChessRules::CurrentOrder = CDummy;
 								//if (AllDraw::OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
 								//)
-								if ((SolderesOnTable[i]->ElefantThinking.PenaltyRegardListElefant[j].IsPenaltyAction() != 0 && SolderesOnTable[i]->ElefantThinking.PenaltyRegardListElefant[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA)
+								if ((SolderesOnTable[i].ElefantThinking.PenaltyRegardListElefant[j].IsPenaltyAction() != 0 && SolderesOnTable[i].ElefantThinking.PenaltyRegardListElefant[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA)
 								{
 									//autoOn = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 									//lock (On)
 									{
-										AllDraw::LastRow = SolderesOnTable[i]->ElefantThinking.Row;
-										AllDraw::LastColumn = SolderesOnTable[i]->ElefantThinking.Column;
-										AllDraw::NextRow = (SolderesOnTable[i]->ElefantThinking.RowColumnElefant[j][0]);
-										AllDraw::NextColumn =( SolderesOnTable[i]->ElefantThinking.RowColumnElefant[j][1]);
+										AllDraw::LastRow = SolderesOnTable[i].ElefantThinking.Row;
+										AllDraw::LastColumn = SolderesOnTable[i].ElefantThinking.Column;
+										AllDraw::NextRow = (SolderesOnTable[i].ElefantThinking.RowColumnElefant[j][0]);
+										AllDraw::NextColumn =( SolderesOnTable[i].ElefantThinking.RowColumnElefant[j][1]);
 
 
 										(Act) = true;
-										Less = SolderesOnTable[i]->ElefantThinking.NumberOfPenalties;
+										Less = SolderesOnTable[i].ElefantThinking.NumberOfPenalties;
 									}
-									TableHuristic = SolderesOnTable[i]->ElefantThinking.TableListElefant[j];
+									TableHuristic = SolderesOnTable[i].ElefantThinking.TableListElefant[j];
 									RegardOccurred = true;
 									//if (Do == 1 || AA)
 									//return TableHuristic;
 									continue;
 								}
 								//When There is No Movments in Such Order Enemy continue.
-								if (SolderesOnTable[i]->ElefantThinking.PenaltyRegardListElefant[j].IsPenaltyAction() == 0)
+								if (SolderesOnTable[i].ElefantThinking.PenaltyRegardListElefant[j].IsPenaltyAction() == 0)
 								{
 									continue;
 								}
@@ -7522,13 +7525,13 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 									//When There is No Movments in Such Order Enemy continue.
 									if (Order != AllDraw::OrderPlate)
 									{
-										if (SolderesOnTable[i]->ElefantThinking.NumberOfPenalties < Less)
+										if (SolderesOnTable[i].ElefantThinking.NumberOfPenalties < Less)
 										{
 											continue;
 										}
 									}
 									//When There is greater Huristic Movments.
-									if (SolderesOnTable[i]->ElefantThinking.NumberOfPenalties < Less)
+									if (SolderesOnTable[i].ElefantThinking.NumberOfPenalties < Less)
 									{
 
 										//retrive table of current huristic.
@@ -7537,8 +7540,8 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 										//{
 										//retrive table of current huristic.
 //C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call '//delete*' where appropriate:
-//ORIGINAL LINE: int[,] TableS = SolderesOnTable[i]->ElefantThinking.TableListElefant[j];
-										int **TableS = SolderesOnTable[i]->ElefantThinking.TableListElefant[j];
+//ORIGINAL LINE: int[,] TableS = SolderesOnTable[i].ElefantThinking.TableListElefant[j];
+										int **TableS = SolderesOnTable[i].ElefantThinking.TableListElefant[j];
 										//checked for Legal Movments ArgumentOutOfRangeException curnt game.
 										if (DynamicAStarGreedytPrograming && !CurrentTableHuristic && AStarGreedyi == 1)
 										{
@@ -7562,7 +7565,7 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 										//When there is not Penalty regard mechanism.
 										//if (!UsePenaltyRegardMechnisamT)
 										{
-											AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 2, TableS, Order, SolderesOnTable[i]->ElefantThinking.Row, SolderesOnTable[i]->ElefantThinking.Column);
+											AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 2, TableS, Order, SolderesOnTable[i].ElefantThinking.Row, SolderesOnTable[i].ElefantThinking.Column);
 											//If there is kish or kshachamaz Order.
 											if (AB->Check(TableS, Order))
 											{
@@ -7648,15 +7651,15 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 											//lock (On)
 											{
-												AllDraw::LastRow = SolderesOnTable[i]->ElefantThinking.Row;
-												AllDraw::LastColumn = SolderesOnTable[i]->ElefantThinking.Column;
-												AllDraw::NextRow = (SolderesOnTable[i]->ElefantThinking.RowColumnElefant[j][0]);
-												AllDraw::NextColumn =( SolderesOnTable[i]->ElefantThinking.RowColumnElefant[j][1]);
+												AllDraw::LastRow = SolderesOnTable[i].ElefantThinking.Row;
+												AllDraw::LastColumn = SolderesOnTable[i].ElefantThinking.Column;
+												AllDraw::NextRow = (SolderesOnTable[i].ElefantThinking.RowColumnElefant[j][0]);
+												AllDraw::NextColumn =( SolderesOnTable[i].ElefantThinking.RowColumnElefant[j][1]);
 											}
 
 											(Act) = true;
-											Less = SolderesOnTable[i]->ElefantThinking.NumberOfPenalties;
-											TableHuristic = SolderesOnTable[i]->ElefantThinking.TableListElefant[j];
+											Less = SolderesOnTable[i].ElefantThinking.NumberOfPenalties;
+											TableHuristic = SolderesOnTable[i].ElefantThinking.TableListElefant[j];
 
 										}
 									}
@@ -7749,13 +7752,13 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 				{
 					//try
 					{
-						for (j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && HoursesOnTable != nullptr && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i]->HourseThinking) != nullptr) && (&(HoursesOnTable[i]->HourseThinking) != nullptr) && j < HoursesOnTable[i]->HourseThinking.TableListHourse.size(); j++)
+						for (j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && HoursesOnTable != nullptr && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && j < HoursesOnTable[i].HourseThinking.TableListHourse.size(); j++)
 						{
 							//try
 							{
 								//For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
 								////if (AllDraw::OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT)
-								//    if (HoursesOnTable[i]->HourseThinking.PenaltyRegardListHourse[j].IsPenaltyAction() == 0)
+								//    if (HoursesOnTable[i].HourseThinking.PenaltyRegardListHourse[j].IsPenaltyAction() == 0)
 								//        continue;
 								int CDummy = ChessRules::CurrentOrder;
 								int COrder = Order;
@@ -7766,9 +7769,9 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 									Do = 0;
 									if (UsePenaltyRegardMechnisamT)
 									{
-										for (int ij = 0; ij < HoursesOnTable[i]->HourseThinking.AStarGreedy.size() - 1; ij++)
+										for (int ij = 0; ij < HoursesOnTable[i].HourseThinking.AStarGreedy.size() - 1; ij++)
 										{
-											HoursesOnTable[i]->HourseThinking.AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, Do, HoursesOnTable[i]->HourseThinking.AStarGreedy[ij]);
+											HoursesOnTable[i].HourseThinking.AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, Do, HoursesOnTable[i].HourseThinking.AStarGreedy[ij]);
 										}
 										Order = COrder;
 										ChessRules::CurrentOrder = CDummy;
@@ -7790,22 +7793,22 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 								ChessRules::CurrentOrder = CDummy;
 								//if (AllDraw::OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
 								//)
-								if ((HoursesOnTable[i]->HourseThinking.PenaltyRegardListHourse[j].IsPenaltyAction() != 0 && HoursesOnTable[i]->HourseThinking.PenaltyRegardListHourse[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA)
+								if ((HoursesOnTable[i].HourseThinking.PenaltyRegardListHourse[j].IsPenaltyAction() != 0 && HoursesOnTable[i].HourseThinking.PenaltyRegardListHourse[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA)
 								{
 									//autoOn = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 									//lock (On)
 									{
-										AllDraw::LastRow = HoursesOnTable[i]->HourseThinking.Row;
-										AllDraw::LastColumn = HoursesOnTable[i]->HourseThinking.Column;
-										AllDraw::NextRow = (HoursesOnTable[i]->HourseThinking.RowColumnHourse[j][0]);
-										AllDraw::NextColumn =( HoursesOnTable[i]->HourseThinking.RowColumnHourse[j][1]);
+										AllDraw::LastRow = HoursesOnTable[i].HourseThinking.Row;
+										AllDraw::LastColumn = HoursesOnTable[i].HourseThinking.Column;
+										AllDraw::NextRow = (HoursesOnTable[i].HourseThinking.RowColumnHourse[j][0]);
+										AllDraw::NextColumn =( HoursesOnTable[i].HourseThinking.RowColumnHourse[j][1]);
 
 
 										(Act) = true;
-										Less = HoursesOnTable[i]->HourseThinking.NumberOfPenalties;
+										Less = HoursesOnTable[i].HourseThinking.NumberOfPenalties;
 									}
-									TableHuristic = HoursesOnTable[i]->HourseThinking.TableListHourse[j];
+									TableHuristic = HoursesOnTable[i].HourseThinking.TableListHourse[j];
 									RegardOccurred = true;
 									//if (Do == 1 || AA)
 									//return TableHuristic;
@@ -7819,22 +7822,22 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 									//When There is No Movments in Such Order Enemy continue.
 									if (Order != AllDraw::OrderPlate)
 									{
-										if (HoursesOnTable[i]->HourseThinking.NumberOfPenalties < Less)
+										if (HoursesOnTable[i].HourseThinking.NumberOfPenalties < Less)
 
 										{
 											continue;
 										}
 									}
 									//When There is greater Huristic Movments.
-									if (HoursesOnTable[i]->HourseThinking.NumberOfPenalties < Less)
+									if (HoursesOnTable[i].HourseThinking.NumberOfPenalties < Less)
 									{
 
 										//retrive table of current huristic.
 
 										//retrive table of current huristic.
 //C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call '//delete*' where appropriate:
-//ORIGINAL LINE: int[,] TableS = HoursesOnTable[i]->HourseThinking.TableListHourse[j];
-										int **TableS = HoursesOnTable[i]->HourseThinking.TableListHourse[j];
+//ORIGINAL LINE: int[,] TableS = HoursesOnTable[i].HourseThinking.TableListHourse[j];
+										int **TableS = HoursesOnTable[i].HourseThinking.TableListHourse[j];
 										{
 											//checked for Legal Movments ArgumentOutOfRangeException curnt game.
 											if (DynamicAStarGreedytPrograming && !CurrentTableHuristic && AStarGreedyi == 1)
@@ -7860,7 +7863,7 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 											//When there is not Penalty regard mechanism.
 											//if (!UsePenaltyRegardMechnisamT)
 											{
-												AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 3, TableS, Order, HoursesOnTable[i]->HourseThinking.Row, HoursesOnTable[i]->HourseThinking.Column);
+												AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 3, TableS, Order, HoursesOnTable[i].HourseThinking.Row, HoursesOnTable[i].HourseThinking.Column);
 												//If there is kish or kshachamaz Order.
 												if (AB->Check(TableS, Order))
 												{
@@ -7908,7 +7911,7 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 										RW6 = -1;
 										CL6 = -1;
 										Ki6 = -1;
-										MaxLess3 = HoursesOnTable[RW3]->HourseThinking.NumberOfPenalties;
+										MaxLess3 = HoursesOnTable[RW3].HourseThinking.NumberOfPenalties;
 										if (MaxLess3 > MaxLess1)
 										{
 											MaxLess1 = -1;
@@ -7953,15 +7956,15 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 											//lock (On)
 											{
-												AllDraw::LastRow = HoursesOnTable[i]->HourseThinking.Row;
-												AllDraw::LastColumn = HoursesOnTable[i]->HourseThinking.Column;
-												AllDraw::NextRow = (HoursesOnTable[i]->HourseThinking.RowColumnHourse[j][0]);
-												AllDraw::NextColumn =( HoursesOnTable[i]->HourseThinking.RowColumnHourse[j][1]);
+												AllDraw::LastRow = HoursesOnTable[i].HourseThinking.Row;
+												AllDraw::LastColumn = HoursesOnTable[i].HourseThinking.Column;
+												AllDraw::NextRow = (HoursesOnTable[i].HourseThinking.RowColumnHourse[j][0]);
+												AllDraw::NextColumn =( HoursesOnTable[i].HourseThinking.RowColumnHourse[j][1]);
 											}
 
 											(Act) = true;
-											Less = HoursesOnTable[i]->HourseThinking.NumberOfPenalties;
-											TableHuristic = HoursesOnTable[i]->HourseThinking.TableListHourse[j];
+											Less = HoursesOnTable[i].HourseThinking.NumberOfPenalties;
+											TableHuristic = HoursesOnTable[i].HourseThinking.TableListHourse[j];
 
 										}
 									}
@@ -7989,15 +7992,15 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 												//lock (On)
 												{
-													AllDraw::LastRow = HoursesOnTable[RW3]->HourseThinking.Row;
-													AllDraw::LastColumn = HoursesOnTable[RW3]->HourseThinking.Column;
-													AllDraw::NextRow = (HoursesOnTable[RW3]->HourseThinking.RowColumnHourse[j][0]);
-													AllDraw::NextColumn =( HoursesOnTable[RW3]->HourseThinking.RowColumnHourse[j][1]);
+													AllDraw::LastRow = HoursesOnTable[RW3].HourseThinking.Row;
+													AllDraw::LastColumn = HoursesOnTable[RW3].HourseThinking.Column;
+													AllDraw::NextRow = (HoursesOnTable[RW3].HourseThinking.RowColumnHourse[j][0]);
+													AllDraw::NextColumn =( HoursesOnTable[RW3].HourseThinking.RowColumnHourse[j][1]);
 												}
 
 												(Act) = true;
-												Less = HoursesOnTable[RW3]->HourseThinking.ReturnHuristic(RW3, Ki3, Order, false);
-												TableHuristic = HoursesOnTable[RW3]->HourseThinking.TableListHourse[Ki3];
+												Less = HoursesOnTable[RW3].HourseThinking.ReturnHuristic(RW3, Ki3, Order, false);
+												TableHuristic = HoursesOnTable[RW3].HourseThinking.TableListHourse[Ki3];
 												//autoOO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 												//lock (OO)
@@ -8055,13 +8058,13 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 				{
 					//try
 					{
-						for (j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i]->CastleThinking) != nullptr) && (&(HoursesOnTable[i]->HourseThinking) != nullptr) && j < CastlesOnTable[i]->CastleThinking.TableListCastle.size(); j++)
+						for (j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && j < CastlesOnTable[i].CastleThinking.TableListCastle.size(); j++)
 						{
 							//try
 							{
 								//For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
 								////if (AllDraw::OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT)
-								///   if (CastlesOnTable[ii]->CastleThinking.PenaltyRegardListCastle[j].IsPenaltyAction() == 0)
+								///   if (CastlesOnTable[ii].CastleThinking.PenaltyRegardListCastle[j].IsPenaltyAction() == 0)
 								//       continue;
 
 								int CDummy = ChessRules::CurrentOrder;
@@ -8073,9 +8076,9 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 									Do = 0;
 									if (UsePenaltyRegardMechnisamT)
 									{
-										for (int ij = 0; ij < CastlesOnTable[ii]->CastleThinking.AStarGreedy.size() - 1; ij++)
+										for (int ij = 0; ij < CastlesOnTable[ii].CastleThinking.AStarGreedy.size() - 1; ij++)
 										{
-											CastlesOnTable[ii]->CastleThinking.AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, Do, CastlesOnTable[ii]->CastleThinking.AStarGreedy[ij]);
+											CastlesOnTable[ii].CastleThinking.AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, Do, CastlesOnTable[ii].CastleThinking.AStarGreedy[ij]);
 										}
 										Order = COrder;
 										ChessRules::CurrentOrder = CDummy;
@@ -8097,21 +8100,21 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 								ChessRules::CurrentOrder = CDummy;
 								//if (AllDraw::OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
 								//)
-								if ((CastlesOnTable[ii]->CastleThinking.PenaltyRegardListCastle[j].IsPenaltyAction() != 0 && CastlesOnTable[ii]->CastleThinking.PenaltyRegardListCastle[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA)
+								if ((CastlesOnTable[ii].CastleThinking.PenaltyRegardListCastle[j].IsPenaltyAction() != 0 && CastlesOnTable[ii].CastleThinking.PenaltyRegardListCastle[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA)
 								{
 
 									//autoOn = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 									//lock (On)
 									{
-										AllDraw::LastRow = CastlesOnTable[ii]->CastleThinking.Row;
-										AllDraw::LastColumn = CastlesOnTable[ii]->CastleThinking.Column;
-										AllDraw::NextRow = (CastlesOnTable[ii]->CastleThinking.RowColumnCastle[j][0]);
-										AllDraw::NextColumn =( CastlesOnTable[ii]->CastleThinking.RowColumnCastle[j][1]);
+										AllDraw::LastRow = CastlesOnTable[ii].CastleThinking.Row;
+										AllDraw::LastColumn = CastlesOnTable[ii].CastleThinking.Column;
+										AllDraw::NextRow = (CastlesOnTable[ii].CastleThinking.RowColumnCastle[j][0]);
+										AllDraw::NextColumn =( CastlesOnTable[ii].CastleThinking.RowColumnCastle[j][1]);
 										(Act) = true;
-										Less = CastlesOnTable[ii]->CastleThinking.NumberOfPenalties;
+										Less = CastlesOnTable[ii].CastleThinking.NumberOfPenalties;
 									}
-									TableHuristic = CastlesOnTable[ii]->CastleThinking.TableListCastle[j];
+									TableHuristic = CastlesOnTable[ii].CastleThinking.TableListCastle[j];
 									RegardOccurred = true;
 									//if (Do == 1 || AA)
 									//return TableHuristic;
@@ -8123,20 +8126,20 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 								{
 									if (Order != AllDraw::OrderPlate)
 									{
-										if (CastlesOnTable[ii]->CastleThinking.NumberOfPenalties < Less)
+										if (CastlesOnTable[ii].CastleThinking.NumberOfPenalties < Less)
 										{
 											continue;
 										}
 									}
 									//When There is greater Huristic Movments.
-									if (CastlesOnTable[ii]->CastleThinking.NumberOfPenalties < Less)
+									if (CastlesOnTable[ii].CastleThinking.NumberOfPenalties < Less)
 									{
 
 										//retrive table of current huristic.
 										//retrive table of current huristic.
 //C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call '//delete*' where appropriate:
-//ORIGINAL LINE: int[,] TableS = CastlesOnTable[ii]->CastleThinking.TableListCastle[j];
-										int **TableS = CastlesOnTable[ii]->CastleThinking.TableListCastle[j];
+//ORIGINAL LINE: int[,] TableS = CastlesOnTable[ii].CastleThinking.TableListCastle[j];
+										int **TableS = CastlesOnTable[ii].CastleThinking.TableListCastle[j];
 										//checked for Legal Movments ArgumentOutOfRangeException curnt game.
 										if (DynamicAStarGreedytPrograming && !CurrentTableHuristic && AStarGreedyi == 1)
 										{
@@ -8161,7 +8164,7 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 										//When there is not Penalty regard mechanism.
 										//if (!UsePenaltyRegardMechnisamT)
 										{
-											AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 4, TableS, Order, CastlesOnTable[ii]->CastleThinking.Row, CastlesOnTable[ii]->CastleThinking.Column);
+											AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 4, TableS, Order, CastlesOnTable[ii].CastleThinking.Row, CastlesOnTable[ii].CastleThinking.Column);
 											//If there is kish or kshachamaz Order.
 											if (AB->Check(TableS, Order))
 											{
@@ -8207,7 +8210,7 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 										RW6 = -1;
 										CL6 = -1;
 										Ki6 = -1;
-										MaxLess4 = (CastlesOnTable[RW4]->CastleThinking.NumberOfPenalties);
+										MaxLess4 = (CastlesOnTable[RW4].CastleThinking.NumberOfPenalties);
 										if (MaxLess4 > MaxLess1)
 										{
 											MaxLess1 = -1;
@@ -8252,15 +8255,15 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 											//lock (On)
 											{
-												AllDraw::LastRow = CastlesOnTable[ii]->CastleThinking.Row;
-												AllDraw::LastColumn = CastlesOnTable[ii]->CastleThinking.Column;
-												AllDraw::NextRow = (CastlesOnTable[ii]->CastleThinking.RowColumnCastle[j][0]);
-												AllDraw::NextColumn =( CastlesOnTable[ii]->CastleThinking.RowColumnCastle[j][1]);
+												AllDraw::LastRow = CastlesOnTable[ii].CastleThinking.Row;
+												AllDraw::LastColumn = CastlesOnTable[ii].CastleThinking.Column;
+												AllDraw::NextRow = (CastlesOnTable[ii].CastleThinking.RowColumnCastle[j][0]);
+												AllDraw::NextColumn =( CastlesOnTable[ii].CastleThinking.RowColumnCastle[j][1]);
 											}
 
 											(Act) = true;
-											Less = CastlesOnTable[ii]->CastleThinking.NumberOfPenalties;
-											TableHuristic = CastlesOnTable[ii]->CastleThinking.TableListCastle[j];
+											Less = CastlesOnTable[ii].CastleThinking.NumberOfPenalties;
+											TableHuristic = CastlesOnTable[ii].CastleThinking.TableListCastle[j];
 
 										}
 									}
@@ -8288,15 +8291,15 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 												//lock (On)
 												{
-													AllDraw::LastRow = CastlesOnTable[RW4]->CastleThinking.Row;
-													AllDraw::LastColumn = CastlesOnTable[RW4]->CastleThinking.Column;
-													AllDraw::NextRow = (CastlesOnTable[RW4]->CastleThinking.RowColumnCastle[j][0]);
-													AllDraw::NextColumn =( CastlesOnTable[RW4]->CastleThinking.RowColumnCastle[j][1]);
+													AllDraw::LastRow = CastlesOnTable[RW4].CastleThinking.Row;
+													AllDraw::LastColumn = CastlesOnTable[RW4].CastleThinking.Column;
+													AllDraw::NextRow = (CastlesOnTable[RW4].CastleThinking.RowColumnCastle[j][0]);
+													AllDraw::NextColumn =( CastlesOnTable[RW4].CastleThinking.RowColumnCastle[j][1]);
 												}
 
 												(Act) = true;
-												Less = CastlesOnTable[RW4]->CastleThinking.ReturnHuristic(RW4, Ki4, Order, false);
-												TableHuristic = CastlesOnTable[RW4]->CastleThinking.TableListCastle[Ki4];
+												Less = CastlesOnTable[RW4].CastleThinking.ReturnHuristic(RW4, Ki4, Order, false);
+												TableHuristic = CastlesOnTable[RW4].CastleThinking.TableListCastle[Ki4];
 												//autoOO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 												//lock (OO)
@@ -8353,13 +8356,13 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 				{
 					//try
 					{
-						for (j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i]->MinisterThinking) != nullptr) && (&(MinisterOnTable[i]->MinisterThinking) != nullptr) && j < MinisterOnTable[i]->MinisterThinking.TableListMinister.size(); j++)
+						for (j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && j < MinisterOnTable[i].MinisterThinking.TableListMinister.size(); j++)
 						{
 							//try
 							{
 								//For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
 								////if (AllDraw::OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT)
-								////    if(MinisterOnTable[i]->MinisterThinking.PenaltyRegardListMinister[j].IsPenaltyAction() == 0)
+								////    if(MinisterOnTable[i].MinisterThinking.PenaltyRegardListMinister[j].IsPenaltyAction() == 0)
 								//     continue;
 								int CDummy = ChessRules::CurrentOrder;
 								int COrder = Order;
@@ -8370,9 +8373,9 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 									Do = 0;
 									if (UsePenaltyRegardMechnisamT)
 									{
-										for (int ij = 0; ij < MinisterOnTable[i]->MinisterThinking.AStarGreedy.size() - 1; ij++)
+										for (int ij = 0; ij < MinisterOnTable[i].MinisterThinking.AStarGreedy.size() - 1; ij++)
 										{
-											MinisterOnTable[i]->MinisterThinking.AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, Do, MinisterOnTable[i]->MinisterThinking.AStarGreedy[ij]);
+											MinisterOnTable[i].MinisterThinking.AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, Do, MinisterOnTable[i].MinisterThinking.AStarGreedy[ij]);
 										}
 										Order = COrder;
 										ChessRules::CurrentOrder = CDummy;
@@ -8394,23 +8397,23 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 								ChessRules::CurrentOrder = CDummy;
 								//if (AllDraw::OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
 								//)
-								if ((MinisterOnTable[i]->MinisterThinking.PenaltyRegardListMinister[j].IsPenaltyAction() != 0 && MinisterOnTable[i]->MinisterThinking.PenaltyRegardListMinister[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA)
+								if ((MinisterOnTable[i].MinisterThinking.PenaltyRegardListMinister[j].IsPenaltyAction() != 0 && MinisterOnTable[i].MinisterThinking.PenaltyRegardListMinister[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA)
 								{
 
 									//autoOn = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 									//lock (On)
 									{
-										AllDraw::LastRow = MinisterOnTable[i]->MinisterThinking.Row;
-										AllDraw::LastColumn = MinisterOnTable[i]->MinisterThinking.Column;
-										AllDraw::NextRow = (MinisterOnTable[i]->MinisterThinking.RowColumnMinister[j][0]);
-										AllDraw::NextColumn =( MinisterOnTable[i]->MinisterThinking.RowColumnMinister[j][1]);
+										AllDraw::LastRow = MinisterOnTable[i].MinisterThinking.Row;
+										AllDraw::LastColumn = MinisterOnTable[i].MinisterThinking.Column;
+										AllDraw::NextRow = (MinisterOnTable[i].MinisterThinking.RowColumnMinister[j][0]);
+										AllDraw::NextColumn =( MinisterOnTable[i].MinisterThinking.RowColumnMinister[j][1]);
 
 
 										(Act) = true;
-										Less = MinisterOnTable[i]->MinisterThinking.NumberOfPenalties;
+										Less = MinisterOnTable[i].MinisterThinking.NumberOfPenalties;
 									}
-									TableHuristic = MinisterOnTable[i]->MinisterThinking.TableListMinister[j];
+									TableHuristic = MinisterOnTable[i].MinisterThinking.TableListMinister[j];
 									RegardOccurred = true;
 									//if (Do == 1 || AA)
 									//return TableHuristic;
@@ -8423,7 +8426,7 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 									//When There is No Movments in Such Order Enemy continue.
 									if (Order != AllDraw::OrderPlate)
 									{
-										if(MinisterOnTable[i]->MinisterThinking.NumberOfPenalties < Less)
+										if(MinisterOnTable[i].MinisterThinking.NumberOfPenalties < Less)
 										{
 											continue;
 										}
@@ -8431,15 +8434,15 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 
 
 									//When There is greater Huristic Movments.
-									if(MinisterOnTable[i]->MinisterThinking.NumberOfPenalties < Less)
+									if(MinisterOnTable[i].MinisterThinking.NumberOfPenalties < Less)
 
 									{
 									//retrive table of current huristic.
 
 										//retrive table of current huristic.
 //C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call '//delete*' where appropriate:
-//ORIGINAL LINE: int[,] TableS = MinisterOnTable[i]->MinisterThinking.TableListMinister[j];
-										int **TableS = MinisterOnTable[i]->MinisterThinking.TableListMinister[j];
+//ORIGINAL LINE: int[,] TableS = MinisterOnTable[i].MinisterThinking.TableListMinister[j];
+										int **TableS = MinisterOnTable[i].MinisterThinking.TableListMinister[j];
 										//checked for Legal Movments ArgumentOutOfRangeException curnt game.
 										if (DynamicAStarGreedytPrograming && !CurrentTableHuristic && AStarGreedyi == 1)
 										{
@@ -8462,7 +8465,7 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 										}
 										
 											
-												AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 5, TableS, Order, MinisterOnTable[i]->MinisterThinking.Row, MinisterOnTable[i]->MinisterThinking.Column);
+												AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 5, TableS, Order, MinisterOnTable[i].MinisterThinking.Row, MinisterOnTable[i].MinisterThinking.Column);
 												//If there is kish or kshachamaz Order.
 												if (AB->Check(TableS, Order))
 												{
@@ -8505,7 +8508,7 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 										RW6 = -1;
 										CL6 = -1;
 										Ki6 = -1;
-										MaxLess5 = MinisterOnTable[RW5]->MinisterThinking.NumberOfPenalties;
+										MaxLess5 = MinisterOnTable[RW5].MinisterThinking.NumberOfPenalties;
 										if (MaxLess5 > MaxLess1)
 										{
 											MaxLess1 = -1;
@@ -8547,15 +8550,15 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 											//lock (On)
 											{
-												AllDraw::LastRow = MinisterOnTable[i]->MinisterThinking.Row;
-												AllDraw::LastColumn = MinisterOnTable[i]->MinisterThinking.Column;
-												AllDraw::NextRow = (MinisterOnTable[i]->MinisterThinking.RowColumnMinister[j][0]);
-												AllDraw::NextColumn =( MinisterOnTable[i]->MinisterThinking.RowColumnMinister[j][1]);
+												AllDraw::LastRow = MinisterOnTable[i].MinisterThinking.Row;
+												AllDraw::LastColumn = MinisterOnTable[i].MinisterThinking.Column;
+												AllDraw::NextRow = (MinisterOnTable[i].MinisterThinking.RowColumnMinister[j][0]);
+												AllDraw::NextColumn =( MinisterOnTable[i].MinisterThinking.RowColumnMinister[j][1]);
 											}
 
 											(Act) = true;
-											Less = MinisterOnTable[i]->MinisterThinking.NumberOfPenalties;
-											TableHuristic = MinisterOnTable[i]->MinisterThinking.TableListMinister[j];
+											Less = MinisterOnTable[i].MinisterThinking.NumberOfPenalties;
+											TableHuristic = MinisterOnTable[i].MinisterThinking.TableListMinister[j];
 
 										}
 									}
@@ -8583,14 +8586,14 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 												//lock (On)
 												{
-													AllDraw::LastRow = MinisterOnTable[RW5]->MinisterThinking.Row;
-													AllDraw::LastColumn = MinisterOnTable[RW5]->MinisterThinking.Column;
+													AllDraw::LastRow = MinisterOnTable[RW5].MinisterThinking.Row;
+													AllDraw::LastColumn = MinisterOnTable[RW5].MinisterThinking.Column;
 													AllDraw::NextRow = (MinisterOnTable[RW5].MinisterThinking.RowColumnMinister[j][0]);
-													AllDraw::NextColumn =( MinisterOnTable[RW5]->MinisterThinking.RowColumnMinister[j][1]);
+													AllDraw::NextColumn =( MinisterOnTable[RW5].MinisterThinking.RowColumnMinister[j][1]);
 												}
 												(Act) = true;
-												Less = MinisterOnTable[RW5]->MinisterThinking.ReturnHuristic(RW5, Ki5, Order, false);
-												TableHuristic = MinisterOnTable[RW5]->MinisterThinking.TableListMinister[Ki5];
+												Less = MinisterOnTable[RW5].MinisterThinking.ReturnHuristic(RW5, Ki5, Order, false);
+												TableHuristic = MinisterOnTable[RW5].MinisterThinking.TableListMinister[Ki5];
 												//autoOO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 												//lock (OO)
@@ -8648,12 +8651,12 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 				{
 					//try
 					{
-						for (j = 0;(KingOnTable != nullptr)  && (&(KingOnTable[i]) != nullptr) &&(KingOnTable != nullptr)  && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i]->KingThinking) != nullptr) && ((&(KingOnTable[i]->KingThinking) != nullptr)) && j < KingOnTable[i]->KingThinking.TableListKing.size(); j++)
+						for (j = 0;(KingOnTable != nullptr)  && (&(KingOnTable[i]) != nullptr) &&(KingOnTable != nullptr)  && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && ((&(KingOnTable[i].KingThinking) != nullptr)) && j < KingOnTable[i].KingThinking.TableListKing.size(); j++)
 						{
 							//try
 							{
 								//////if (AllDraw::OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT)
-								//    if (KingOnTable[i]->KingThinking.PenaltyRegardListKing[j].IsPenaltyAction() == 0)
+								//    if (KingOnTable[i].KingThinking.PenaltyRegardListKing[j].IsPenaltyAction() == 0)
 								//        continue;
 								int CDummy = ChessRules::CurrentOrder;
 								int COrder = Order;
@@ -8664,9 +8667,9 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 									Do = 0;
 									if (UsePenaltyRegardMechnisamT)
 									{
-										for (int ij = 0; ij < KingOnTable[i]->KingThinking.AStarGreedy.size() - 1; ij++)
+										for (int ij = 0; ij < KingOnTable[i].KingThinking.AStarGreedy.size() - 1; ij++)
 										{
-											KingOnTable[i]->KingThinking.AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, Do, KingOnTable[i]->KingThinking.AStarGreedy[ij]);
+											KingOnTable[i].KingThinking.AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, Do, KingOnTable[i].KingThinking.AStarGreedy[ij]);
 										}
 										Order = COrder;
 										ChessRules::CurrentOrder = CDummy;
@@ -8688,23 +8691,23 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 								ChessRules::CurrentOrder = CDummy;
 								//if (AllDraw::OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
 								//)
-								if ((KingOnTable[i]->KingThinking.PenaltyRegardListKing[j].IsPenaltyAction() != 0 && KingOnTable[i]->KingThinking.PenaltyRegardListKing[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA)
+								if ((KingOnTable[i].KingThinking.PenaltyRegardListKing[j].IsPenaltyAction() != 0 && KingOnTable[i].KingThinking.PenaltyRegardListKing[j].IsRewardAction() == 1 && AStarGreedyi == 1) || Do == 1 || AA)
 								{
 
 									//autoOn = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 									//lock (On)
 									{
-										AllDraw::LastRow = KingOnTable[i]->KingThinking.Row;
-										AllDraw::LastColumn = KingOnTable[i]->KingThinking.Column;
-										AllDraw::NextRow = (KingOnTable[i]->KingThinking.RowColumnKing[j][0]);
-										AllDraw::NextColumn =( KingOnTable[i]->KingThinking.RowColumnKing[j][1]);
+										AllDraw::LastRow = KingOnTable[i].KingThinking.Row;
+										AllDraw::LastColumn = KingOnTable[i].KingThinking.Column;
+										AllDraw::NextRow = (KingOnTable[i].KingThinking.RowColumnKing[j][0]);
+										AllDraw::NextColumn =( KingOnTable[i].KingThinking.RowColumnKing[j][1]);
 
 
 										(Act) = true;
-										Less = KingOnTable[i]->KingThinking.NumberOfPenalties;
+										Less = KingOnTable[i].KingThinking.NumberOfPenalties;
 									}
-									TableHuristic = KingOnTable[i]->KingThinking.TableListKing[j];
+									TableHuristic = KingOnTable[i].KingThinking.TableListKing[j];
 									RegardOccurred = true;
 									//if (Do == 1 || AA)
 									//return TableHuristic;
@@ -8718,7 +8721,7 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 									//When There is No Movments in Such Order Enemy continue.
 									if (Order != AllDraw::OrderPlate)
 									{
-										if (KingOnTable[i]->KingThinking.NumberOfPenalties < Less)
+										if (KingOnTable[i].KingThinking.NumberOfPenalties < Less)
 										{
 											continue;
 										}
@@ -8726,15 +8729,15 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 
 
 									//When There is greater Huristic Movments.
-									if (KingOnTable[i]->KingThinking.NumberOfPenalties < Less)
+									if (KingOnTable[i].KingThinking.NumberOfPenalties < Less)
 									{
 									//retrive table of current huristic.
 
 
 										//retrive table of current huristic.
 //C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call '//delete*' where appropriate:
-//ORIGINAL LINE: int[,] TableS = KingOnTable[i]->KingThinking.TableListKing[j];
-										int **TableS = KingOnTable[i]->KingThinking.TableListKing[j];
+//ORIGINAL LINE: int[,] TableS = KingOnTable[i].KingThinking.TableListKing[j];
+										int **TableS = KingOnTable[i].KingThinking.TableListKing[j];
 										//checked for Legal Movments ArgumentOutOfRangeException curnt game.
 										if (DynamicAStarGreedytPrograming && !CurrentTableHuristic && AStarGreedyi == 1)
 										{
@@ -8759,7 +8762,7 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 										//When there is not Penalty regard mechanism.
 										//if (!UsePenaltyRegardMechnisamT)
 										{
-											AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 6, TableS, Order, KingOnTable[i]->KingThinking.Row, KingOnTable[i]->KingThinking.Column);
+											AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 6, TableS, Order, KingOnTable[i].KingThinking.Row, KingOnTable[i].KingThinking.Column);
 											//If there is kish or kshachamaz Order.
 											if (AB->Check(TableS, Order))
 											{
@@ -8806,7 +8809,7 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 										RW5 = -1;
 										CL5 = -1;
 										Ki5 = -1;
-										MaxLess6 = (KingOnTable[RW6]->KingThinking.NumberOfPenalties);
+										MaxLess6 = (KingOnTable[RW6].KingThinking.NumberOfPenalties);
 										if (MaxLess6 > MaxLess1)
 										{
 											MaxLess1 = -1;
@@ -8848,15 +8851,15 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 											//lock (On)
 											{
-												AllDraw::LastRow = KingOnTable[i]->KingThinking.Row;
-												AllDraw::LastColumn = KingOnTable[i]->KingThinking.Column;
-												AllDraw::NextRow = (KingOnTable[i]->KingThinking.RowColumnKing[j][0]);
-												AllDraw::NextColumn =( KingOnTable[i]->KingThinking.RowColumnKing[j][1]);
+												AllDraw::LastRow = KingOnTable[i].KingThinking.Row;
+												AllDraw::LastColumn = KingOnTable[i].KingThinking.Column;
+												AllDraw::NextRow = (KingOnTable[i].KingThinking.RowColumnKing[j][0]);
+												AllDraw::NextColumn =( KingOnTable[i].KingThinking.RowColumnKing[j][1]);
 											}
 
 											(Act) = true;
-											Less = KingOnTable[i]->KingThinking.NumberOfPenalties;
-											TableHuristic = KingOnTable[i]->KingThinking.TableListKing[j];
+											Less = KingOnTable[i].KingThinking.NumberOfPenalties;
+											TableHuristic = KingOnTable[i].KingThinking.TableListKing[j];
 
 										}
 									}
@@ -8888,15 +8891,15 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 												//lock (On)
 												{
-													AllDraw::LastRow = KingOnTable[RW6]->KingThinking.Row;
-													AllDraw::LastColumn = KingOnTable[RW6]->KingThinking.Column;
-													AllDraw::NextRow = (KingOnTable[RW6]->KingThinking.RowColumnKing[j][0]);
-													AllDraw::NextColumn =( KingOnTable[RW6]->KingThinking.RowColumnKing[j][1]);
+													AllDraw::LastRow = KingOnTable[RW6].KingThinking.Row;
+													AllDraw::LastColumn = KingOnTable[RW6].KingThinking.Column;
+													AllDraw::NextRow = (KingOnTable[RW6].KingThinking.RowColumnKing[j][0]);
+													AllDraw::NextColumn =( KingOnTable[RW6].KingThinking.RowColumnKing[j][1]);
 												}
 
 												(Act) = true;
-												Less = KingOnTable[RW6]->KingThinking.ReturnHuristic(RW6, Ki6, Order, false);
-												TableHuristic = KingOnTable[RW6]->KingThinking.TableListKing[Ki6];
+												Less = KingOnTable[RW6].KingThinking.ReturnHuristic(RW6, Ki6, Order, false);
+												TableHuristic = KingOnTable[RW6].KingThinking.TableListKing[Ki6];
 												//autoOO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 												//lock (OO)
@@ -9361,24 +9364,24 @@ void AllDraw::InitiateAStarGreedytOneNode(int iAStarGreedy, int ii, int jj, int 
 				if (!ASS)
 				{
 					//Thinking of Gray Solder Operation.
-					SolderesOnTable[iIndex]->SoldierThinking.ThinkingBegin = true;
-					SolderesOnTable[iIndex]->SoldierThinking.ThinkingFinished = false;
-					SolderesOnTable[iIndex]->SoldierThinking.Thinking(SolderesOnTable[iIndex]->LoseOcuuredatChiled, SolderesOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(SolderesOnTable[iIndex]->SoldierThinking.Thinking));
-							SolderesOnTable[iIndex]->SoldierThinking.t.Start();
-							if (SolderesOnTable[iIndex]->SoldierThinking.t != null) { Object tttt = new Object(); //lock (tttt)
-								{ tH.push_back(SolderesOnTable[iIndex]->SoldierThinking.t); } }*/
+					SolderesOnTable[iIndex].SoldierThinking.ThinkingBegin = true;
+					SolderesOnTable[iIndex].SoldierThinking.ThinkingFinished = false;
+					SolderesOnTable[iIndex].SoldierThinking.Thinking(SolderesOnTable[iIndex]->LoseOcuuredatChiled, SolderesOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(SolderesOnTable[iIndex].SoldierThinking.Thinking));
+							SolderesOnTable[iIndex].SoldierThinking.t.Start();
+							if (SolderesOnTable[iIndex].SoldierThinking.t != null) { Object tttt = new Object(); //lock (tttt)
+								{ tH.push_back(SolderesOnTable[iIndex].SoldierThinking.t); } }*/
 				}
 				else if (ASS)
 				{
 					//If There is A Soldeir Movments.                                   
 
 						//Thinking of Gray Soldeir Operations.
-					SolderesOnTable[iIndex]->SoldierThinking.ThinkingBegin = true;
-					SolderesOnTable[iIndex]->SoldierThinking.ThinkingFinished = false;
-					SolderesOnTable[iIndex]->SoldierThinking.Thinking(SolderesOnTable[iIndex]->LoseOcuuredatChiled, SolderesOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(SolderesOnTable[iIndex]->SoldierThinking.Thinking));
-							SolderesOnTable[iIndex]->SoldierThinking.t.Start();
-							if (SolderesOnTable[iIndex]->SoldierThinking.t != null) { Object tttt = new Object(); //lock (tttt)
-									{ tH.push_back(SolderesOnTable[iIndex]->SoldierThinking.t); } }*/
+					SolderesOnTable[iIndex].SoldierThinking.ThinkingBegin = true;
+					SolderesOnTable[iIndex].SoldierThinking.ThinkingFinished = false;
+					SolderesOnTable[iIndex].SoldierThinking.Thinking(SolderesOnTable[iIndex]->LoseOcuuredatChiled, SolderesOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(SolderesOnTable[iIndex].SoldierThinking.Thinking));
+							SolderesOnTable[iIndex].SoldierThinking.t.Start();
+							if (SolderesOnTable[iIndex].SoldierThinking.t != null) { Object tttt = new Object(); //lock (tttt)
+									{ tH.push_back(SolderesOnTable[iIndex].SoldierThinking.t); } }*/
 				}
 			}
 			//catch(std::exception &t)
@@ -9407,23 +9410,23 @@ void AllDraw::InitiateAStarGreedytOneNode(int iAStarGreedy, int ii, int jj, int 
 				if (!ASS)
 				{
 					//Operational Thinking Gray Elephant. 
-					ElephantOnTable[iIndex]->ElefantThinking.ThinkingBegin = true;
-					ElephantOnTable[iIndex]->ElefantThinking.ThinkingFinished = false;
-					ElephantOnTable[iIndex]->ElefantThinking.Thinking(ElephantOnTable[iIndex]->LoseOcuuredatChiled, ElephantOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(ElephantOnTable[iIndex]->ElefantThinking.Thinking));
-							ElephantOnTable[iIndex]->ElefantThinking.t.Start();
-							if (ElephantOnTable[iIndex]->ElefantThinking.t != null) { Object tttt = new Object(); //lock (tttt)
-								{ tH.push_back(ElephantOnTable[iIndex]->ElefantThinking.t); } }*/
+					ElephantOnTable[iIndex].ElefantThinking.ThinkingBegin = true;
+					ElephantOnTable[iIndex].ElefantThinking.ThinkingFinished = false;
+					ElephantOnTable[iIndex].ElefantThinking.Thinking(ElephantOnTable[iIndex]->LoseOcuuredatChiled, ElephantOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(ElephantOnTable[iIndex].ElefantThinking.Thinking));
+							ElephantOnTable[iIndex].ElefantThinking.t.Start();
+							if (ElephantOnTable[iIndex].ElefantThinking.t != null) { Object tttt = new Object(); //lock (tttt)
+								{ tH.push_back(ElephantOnTable[iIndex].ElefantThinking.t); } }*/
 				} //If There is Movment Thinking Gary Elphant Object List.
 				else if (ASS)
 				{
 					//For Every Gray Elephant Thinking Movments.
 					//Gray Elephant Object Thinking Operations.
-					ElephantOnTable[iIndex]->ElefantThinking.ThinkingBegin = true;
-					ElephantOnTable[iIndex]->ElefantThinking.ThinkingFinished = false;
-					ElephantOnTable[iIndex]->ElefantThinking.Thinking(ElephantOnTable[iIndex]->LoseOcuuredatChiled, ElephantOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(ElephantOnTable[iIndex]->ElefantThinking.Thinking));
-							ElephantOnTable[iIndex]->ElefantThinking.t.Start();
-							if (ElephantOnTable[iIndex]->ElefantThinking.t != null) { Object tttt = new Object(); //lock (tttt)
-									{ tH.push_back(ElephantOnTable[iIndex]->ElefantThinking.t); } }*/
+					ElephantOnTable[iIndex].ElefantThinking.ThinkingBegin = true;
+					ElephantOnTable[iIndex].ElefantThinking.ThinkingFinished = false;
+					ElephantOnTable[iIndex].ElefantThinking.Thinking(ElephantOnTable[iIndex]->LoseOcuuredatChiled, ElephantOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(ElephantOnTable[iIndex].ElefantThinking.Thinking));
+							ElephantOnTable[iIndex].ElefantThinking.t.Start();
+							if (ElephantOnTable[iIndex].ElefantThinking.t != null) { Object tttt = new Object(); //lock (tttt)
+									{ tH.push_back(ElephantOnTable[iIndex].ElefantThinking.t); } }*/
 				}
 			}
 			//catch(std::exception &t)
@@ -9451,24 +9454,24 @@ void AllDraw::InitiateAStarGreedytOneNode(int iAStarGreedy, int ii, int jj, int 
 				if (!ASS)
 				{
 					//Thinking of Gray Hourse Oprational.
-					HoursesOnTable[iIndex]->HourseThinking.ThinkingBegin = true;
-					HoursesOnTable[iIndex]->HourseThinking.ThinkingFinished = false;
-					HoursesOnTable[iIndex]->HourseThinking.Thinking(HoursesOnTable[iIndex]->LoseOcuuredatChiled, HoursesOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(HoursesOnTable[iIndex]->HourseThinking.Thinking));
-							HoursesOnTable[iIndex]->HourseThinking.t.Start();
-							if (HoursesOnTable[iIndex]->HourseThinking.t != null) { Object tttt = new Object(); //lock (tttt)
-								{ tH.push_back(HoursesOnTable[iIndex]->HourseThinking.t); } }*/
+					HoursesOnTable[iIndex].HourseThinking.ThinkingBegin = true;
+					HoursesOnTable[iIndex].HourseThinking.ThinkingFinished = false;
+					HoursesOnTable[iIndex].HourseThinking.Thinking(HoursesOnTable[iIndex]->LoseOcuuredatChiled, HoursesOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(HoursesOnTable[iIndex].HourseThinking.Thinking));
+							HoursesOnTable[iIndex].HourseThinking.t.Start();
+							if (HoursesOnTable[iIndex].HourseThinking.t != null) { Object tttt = new Object(); //lock (tttt)
+								{ tH.push_back(HoursesOnTable[iIndex].HourseThinking.t); } }*/
 				}
 				else if (ASS) //If Table List Exist int The Thinking.
 				{
 
 					//Thinking Operation of Gray Hourse.
-					HoursesOnTable[iIndex]->HourseThinking.TableT = HoursesOnTable[iIndex]->HourseThinking.TableListHourse[j];
-					HoursesOnTable[iIndex]->HourseThinking.ThinkingBegin = true;
-					HoursesOnTable[iIndex]->HourseThinking.ThinkingFinished = false;
-					HoursesOnTable[iIndex]->HourseThinking.Thinking(HoursesOnTable[iIndex]->LoseOcuuredatChiled, HoursesOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(HoursesOnTable[iIndex]->HourseThinking.Thinking));
-							HoursesOnTable[iIndex]->HourseThinking.t.Start();
-							if (HoursesOnTable[iIndex]->HourseThinking.t != null) { Object tttt = new Object(); //lock (tttt)
-									{ tH.push_back(HoursesOnTable[iIndex]->HourseThinking.t); } }*/
+					HoursesOnTable[iIndex].HourseThinking.TableT = HoursesOnTable[iIndex].HourseThinking.TableListHourse[j];
+					HoursesOnTable[iIndex].HourseThinking.ThinkingBegin = true;
+					HoursesOnTable[iIndex].HourseThinking.ThinkingFinished = false;
+					HoursesOnTable[iIndex].HourseThinking.Thinking(HoursesOnTable[iIndex]->LoseOcuuredatChiled, HoursesOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(HoursesOnTable[iIndex].HourseThinking.Thinking));
+							HoursesOnTable[iIndex].HourseThinking.t.Start();
+							if (HoursesOnTable[iIndex].HourseThinking.t != null) { Object tttt = new Object(); //lock (tttt)
+									{ tH.push_back(HoursesOnTable[iIndex].HourseThinking.t); } }*/
 				}
 			}
 			//catch(std::exception &t)
@@ -9496,25 +9499,25 @@ void AllDraw::InitiateAStarGreedytOneNode(int iAStarGreedy, int ii, int jj, int 
 				{
 					//When There is Possible Thinking Castle of Gray Table
 					//Thinking of Gray Castles Operational.
-					CastlesOnTable[iIndex]->CastleThinking.ThinkingBegin = true;
-					CastlesOnTable[iIndex]->CastleThinking.ThinkingFinished = false;
-					CastlesOnTable[iIndex]->CastleThinking.Thinking(CastlesOnTable[iIndex]->LoseOcuuredatChiled, CastlesOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(CastlesOnTable[iIndex]->CastleThinking.Thinking));
-							CastlesOnTable[iIndex]->CastleThinking.t.Start();
-							if (CastlesOnTable[iIndex]->CastleThinking.t != null) { Object tttt = new Object(); //lock (tttt)
-								{ tH.push_back(CastlesOnTable[iIndex]->CastleThinking.t); } }*/
+					CastlesOnTable[iIndex].CastleThinking.ThinkingBegin = true;
+					CastlesOnTable[iIndex].CastleThinking.ThinkingFinished = false;
+					CastlesOnTable[iIndex].CastleThinking.Thinking(CastlesOnTable[iIndex]->LoseOcuuredatChiled, CastlesOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(CastlesOnTable[iIndex].CastleThinking.Thinking));
+							CastlesOnTable[iIndex].CastleThinking.t.Start();
+							if (CastlesOnTable[iIndex].CastleThinking.t != null) { Object tttt = new Object(); //lock (tttt)
+								{ tH.push_back(CastlesOnTable[iIndex].CastleThinking.t); } }*/
 
 				}
 				else if (ASS)
 				{
 					//When There is Possible Thinking Castle of Gray Table
 					//Thinking of Gray Castles  Objective Movments.
-					CastlesOnTable[iIndex]->CastleThinking.TableT = CastlesOnTable[iIndex]->CastleThinking.TableListCastle[j];
-					CastlesOnTable[iIndex]->CastleThinking.ThinkingBegin = true;
-					CastlesOnTable[iIndex]->CastleThinking.ThinkingFinished = false;
-					CastlesOnTable[iIndex]->CastleThinking.Thinking(CastlesOnTable[iIndex]->LoseOcuuredatChiled, CastlesOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(CastlesOnTable[iIndex]->CastleThinking.Thinking));
-							CastlesOnTable[iIndex]->CastleThinking.t.Start();
-							if (CastlesOnTable[iIndex]->CastleThinking.t != null) { Object tttt = new Object(); //lock (tttt)
-									{ tH.push_back(CastlesOnTable[iIndex]->CastleThinking.t); } }*/
+					CastlesOnTable[iIndex].CastleThinking.TableT = CastlesOnTable[iIndex].CastleThinking.TableListCastle[j];
+					CastlesOnTable[iIndex].CastleThinking.ThinkingBegin = true;
+					CastlesOnTable[iIndex].CastleThinking.ThinkingFinished = false;
+					CastlesOnTable[iIndex].CastleThinking.Thinking(CastlesOnTable[iIndex]->LoseOcuuredatChiled, CastlesOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(CastlesOnTable[iIndex].CastleThinking.Thinking));
+							CastlesOnTable[iIndex].CastleThinking.t.Start();
+							if (CastlesOnTable[iIndex].CastleThinking.t != null) { Object tttt = new Object(); //lock (tttt)
+									{ tH.push_back(CastlesOnTable[iIndex].CastleThinking.t); } }*/
 				}
 			}
 			//catch(std::exception &t)
@@ -9538,23 +9541,23 @@ void AllDraw::InitiateAStarGreedytOneNode(int iAStarGreedy, int ii, int jj, int 
 				if (!ASS)
 				{ //When There is Table Gray Minister Count of Thinking.
 				 //Thinking of Gray Minister Operational.
-					MinisterOnTable[iIndex]->MinisterThinking.ThinkingBegin = true;
-					MinisterOnTable[iIndex]->MinisterThinking.ThinkingFinished = false;
-					MinisterOnTable[iIndex]->MinisterThinking.Thinking(HoursesOnTable[iIndex]->LoseOcuuredatChiled, HoursesOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(MinisterOnTable[iIndex]->MinisterThinking.Thinking));
-							MinisterOnTable[iIndex]->MinisterThinking.t.Start();
-							if (MinisterOnTable[iIndex]->MinisterThinking.t != null) { Object tttt = new Object(); //lock (tttt)
-								{ tH.push_back(MinisterOnTable[iIndex]->MinisterThinking.t); } }*/
+					MinisterOnTable[iIndex].MinisterThinking.ThinkingBegin = true;
+					MinisterOnTable[iIndex].MinisterThinking.ThinkingFinished = false;
+					MinisterOnTable[iIndex].MinisterThinking.Thinking(HoursesOnTable[iIndex]->LoseOcuuredatChiled, HoursesOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(MinisterOnTable[iIndex].MinisterThinking.Thinking));
+							MinisterOnTable[iIndex].MinisterThinking.t.Start();
+							if (MinisterOnTable[iIndex].MinisterThinking.t != null) { Object tttt = new Object(); //lock (tttt)
+								{ tH.push_back(MinisterOnTable[iIndex].MinisterThinking.t); } }*/
 				}
 				else if (ASS) //When There is Table Gray Minister Count of Thinking.
 				{
 					//Thinking.
-					MinisterOnTable[iIndex]->Table = MinisterOnTable[iIndex]->MinisterThinking.TableListMinister[j];
-					MinisterOnTable[iIndex]->MinisterThinking.ThinkingBegin = true;
-					MinisterOnTable[iIndex]->MinisterThinking.ThinkingFinished = false;
-					MinisterOnTable[iIndex]->MinisterThinking.Thinking(HoursesOnTable[iIndex]->LoseOcuuredatChiled, HoursesOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(MinisterOnTable[iIndex]->MinisterThinking.Thinking));
-							MinisterOnTable[iIndex]->MinisterThinking.t.Start();
-							if (MinisterOnTable[iIndex]->MinisterThinking.t != null) { Object tttt = new Object(); //lock (tttt)
-									{ tH.push_back(MinisterOnTable[iIndex]->MinisterThinking.t); } }*/
+					MinisterOnTable[iIndex]->Table = MinisterOnTable[iIndex].MinisterThinking.TableListMinister[j];
+					MinisterOnTable[iIndex].MinisterThinking.ThinkingBegin = true;
+					MinisterOnTable[iIndex].MinisterThinking.ThinkingFinished = false;
+					MinisterOnTable[iIndex].MinisterThinking.Thinking(HoursesOnTable[iIndex]->LoseOcuuredatChiled, HoursesOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(MinisterOnTable[iIndex].MinisterThinking.Thinking));
+							MinisterOnTable[iIndex].MinisterThinking.t.Start();
+							if (MinisterOnTable[iIndex].MinisterThinking.t != null) { Object tttt = new Object(); //lock (tttt)
+									{ tH.push_back(MinisterOnTable[iIndex].MinisterThinking.t); } }*/
 				}
 			}
 			//catch(std::exception &t)
@@ -9580,22 +9583,22 @@ void AllDraw::InitiateAStarGreedytOneNode(int iAStarGreedy, int ii, int jj, int 
 				if (!ASS)
 				{ //When Thinking Gray King Count of Existing Operations.
 				 //Thinking Of Gray King Operatins.
-					KingOnTable[iIndex]->KingThinking.ThinkingBegin = true;
-					KingOnTable[iIndex]->KingThinking.ThinkingFinished = false;
-					KingOnTable[iIndex]->KingThinking.Thinking(HoursesOnTable[iIndex]->LoseOcuuredatChiled, HoursesOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(KingOnTable[iIndex]->KingThinking.Thinking));
-							KingOnTable[iIndex]->KingThinking.t.Start();
-							if (KingOnTable[iIndex]->KingThinking.t != null) { Object tttt = new Object(); //lock (tttt)
-								{ tH.push_back(KingOnTable[iIndex]->KingThinking.t); } }*/
+					KingOnTable[iIndex].KingThinking.ThinkingBegin = true;
+					KingOnTable[iIndex].KingThinking.ThinkingFinished = false;
+					KingOnTable[iIndex].KingThinking.Thinking(HoursesOnTable[iIndex]->LoseOcuuredatChiled, HoursesOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(KingOnTable[iIndex].KingThinking.Thinking));
+							KingOnTable[iIndex].KingThinking.t.Start();
+							if (KingOnTable[iIndex].KingThinking.t != null) { Object tttt = new Object(); //lock (tttt)
+								{ tH.push_back(KingOnTable[iIndex].KingThinking.t); } }*/
 				}
 				else if (ASS) //When Thinking Gray King Count of Existing Operations.
 				{
 					//Gray King Thinking Operations.                                        
-					KingOnTable[iIndex]->KingThinking.ThinkingBegin = true;
-					KingOnTable[iIndex]->KingThinking.ThinkingFinished = false;
-					KingOnTable[iIndex]->KingThinking.Thinking(HoursesOnTable[iIndex]->LoseOcuuredatChiled, HoursesOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(KingOnTable[iIndex]->KingThinking.Thinking));
-							KingOnTable[iIndex]->KingThinking.t.Start();
-							if (KingOnTable[iIndex]->KingThinking.t != null) { Object tttt = new Object(); //lock (tttt)
-								{ tH.push_back(KingOnTable[iIndex]->KingThinking.t); } }*/
+					KingOnTable[iIndex].KingThinking.ThinkingBegin = true;
+					KingOnTable[iIndex].KingThinking.ThinkingFinished = false;
+					KingOnTable[iIndex].KingThinking.Thinking(HoursesOnTable[iIndex]->LoseOcuuredatChiled, HoursesOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(KingOnTable[iIndex].KingThinking.Thinking));
+							KingOnTable[iIndex].KingThinking.t.Start();
+							if (KingOnTable[iIndex].KingThinking.t != null) { Object tttt = new Object(); //lock (tttt)
+								{ tH.push_back(KingOnTable[iIndex].KingThinking.t); } }*/
 				}
 			}
 			//catch(std::exception &t)
@@ -9625,24 +9628,24 @@ void AllDraw::InitiateAStarGreedytOneNode(int iAStarGreedy, int ii, int jj, int 
 				{
 					//Wheen Brown King Object There is Not Continue Traversal Back.
 					//Thinking Operations of Brown Current Objects.
-					SolderesOnTable[iIndex]->SoldierThinking.ThinkingBegin = true;
-					SolderesOnTable[iIndex]->SoldierThinking.ThinkingFinished = false;
-					SolderesOnTable[iIndex]->SoldierThinking.Thinking(SolderesOnTable[iIndex]->LoseOcuuredatChiled, SolderesOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(SolderesOnTable[iIndex]->SoldierThinking.Thinking));
-							SolderesOnTable[iIndex]->SoldierThinking.t.Start();
-							if (SolderesOnTable[iIndex]->SoldierThinking.t != null) { Object tttt = new Object(); //lock (tttt)
-								{ tH.push_back(SolderesOnTable[iIndex]->SoldierThinking.t); } }*/
+					SolderesOnTable[iIndex].SoldierThinking.ThinkingBegin = true;
+					SolderesOnTable[iIndex].SoldierThinking.ThinkingFinished = false;
+					SolderesOnTable[iIndex].SoldierThinking.Thinking(SolderesOnTable[iIndex]->LoseOcuuredatChiled, SolderesOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(SolderesOnTable[iIndex].SoldierThinking.Thinking));
+							SolderesOnTable[iIndex].SoldierThinking.t.Start();
+							if (SolderesOnTable[iIndex].SoldierThinking.t != null) { Object tttt = new Object(); //lock (tttt)
+								{ tH.push_back(SolderesOnTable[iIndex].SoldierThinking.t); } }*/
 
 				}
 
 				else if (ASS) //When There is Current Brown Existing Objective Thinking Movments.
 				{
 					//Thinking of Thinking Brown CurrentTable Objective Operations.
-					SolderesOnTable[iIndex]->SoldierThinking.ThinkingBegin = true;
-					SolderesOnTable[iIndex]->SoldierThinking.ThinkingFinished = false;
-					SolderesOnTable[iIndex]->SoldierThinking.Thinking(SolderesOnTable[iIndex]->LoseOcuuredatChiled, SolderesOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(SolderesOnTable[iIndex]->SoldierThinking.Thinking));
-							SolderesOnTable[iIndex]->SoldierThinking.t.Start();
-							if (SolderesOnTable[iIndex]->SoldierThinking.t != null) { Object tttt = new Object(); //lock (tttt)
-								{ tH.push_back(SolderesOnTable[iIndex]->SoldierThinking.t); } }*/
+					SolderesOnTable[iIndex].SoldierThinking.ThinkingBegin = true;
+					SolderesOnTable[iIndex].SoldierThinking.ThinkingFinished = false;
+					SolderesOnTable[iIndex].SoldierThinking.Thinking(SolderesOnTable[iIndex]->LoseOcuuredatChiled, SolderesOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(SolderesOnTable[iIndex].SoldierThinking.Thinking));
+							SolderesOnTable[iIndex].SoldierThinking.t.Start();
+							if (SolderesOnTable[iIndex].SoldierThinking.t != null) { Object tttt = new Object(); //lock (tttt)
+								{ tH.push_back(SolderesOnTable[iIndex].SoldierThinking.t); } }*/
 
 				}
 			}
@@ -9667,23 +9670,23 @@ void AllDraw::InitiateAStarGreedytOneNode(int iAStarGreedy, int ii, int jj, int 
 					Order = DummyOrder;
 					ChessRules::CurrentOrder = DummyCurrentOrder;
 					//Thinking Operations of Brown Current Objects.
-					ElephantOnTable[iIndex]->ElefantThinking.ThinkingBegin = true;
-					ElephantOnTable[iIndex]->ElefantThinking.ThinkingFinished = false;
-					ElephantOnTable[iIndex]->ElefantThinking.Thinking(ElephantOnTable[iIndex]->LoseOcuuredatChiled, ElephantOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(ElephantOnTable[iIndex]->ElefantThinking.Thinking));
-							ElephantOnTable[iIndex]->ElefantThinking.t.Start();
-							if (ElephantOnTable[iIndex]->ElefantThinking.t != null) { Object tttt = new Object(); //lock (tttt)
-								{ tH.push_back(ElephantOnTable[iIndex]->ElefantThinking.t); } }*/
+					ElephantOnTable[iIndex].ElefantThinking.ThinkingBegin = true;
+					ElephantOnTable[iIndex].ElefantThinking.ThinkingFinished = false;
+					ElephantOnTable[iIndex].ElefantThinking.Thinking(ElephantOnTable[iIndex]->LoseOcuuredatChiled, ElephantOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(ElephantOnTable[iIndex].ElefantThinking.Thinking));
+							ElephantOnTable[iIndex].ElefantThinking.t.Start();
+							if (ElephantOnTable[iIndex].ElefantThinking.t != null) { Object tttt = new Object(); //lock (tttt)
+								{ tH.push_back(ElephantOnTable[iIndex].ElefantThinking.t); } }*/
 				}
 				else if (ASS) //When There is Current Brown Existing Objective Thinking Movments.
 				{
 					//Inititae Local Varibale By Global Gray Elephant Objects Varibales.
 					//Thinking of Thinking Brown CurrentTable Objective Operations.                                                   
-					ElephantOnTable[iIndex]->ElefantThinking.ThinkingBegin = true;
-					ElephantOnTable[iIndex]->ElefantThinking.ThinkingFinished = false;
-					ElephantOnTable[iIndex]->ElefantThinking.Thinking(ElephantOnTable[iIndex]->LoseOcuuredatChiled, ElephantOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(ElephantOnTable[iIndex]->ElefantThinking.Thinking));
-							ElephantOnTable[iIndex]->ElefantThinking.t.Start();
-							if (ElephantOnTable[iIndex]->ElefantThinking.t != null) { Object tttt = new Object(); //lock (tttt)
-								{ tH.push_back(ElephantOnTable[iIndex]->ElefantThinking.t); } }*/
+					ElephantOnTable[iIndex].ElefantThinking.ThinkingBegin = true;
+					ElephantOnTable[iIndex].ElefantThinking.ThinkingFinished = false;
+					ElephantOnTable[iIndex].ElefantThinking.Thinking(ElephantOnTable[iIndex]->LoseOcuuredatChiled, ElephantOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(ElephantOnTable[iIndex].ElefantThinking.Thinking));
+							ElephantOnTable[iIndex].ElefantThinking.t.Start();
+							if (ElephantOnTable[iIndex].ElefantThinking.t != null) { Object tttt = new Object(); //lock (tttt)
+								{ tH.push_back(ElephantOnTable[iIndex].ElefantThinking.t); } }*/
 				}
 			}
 			//catch(std::exception &t)
@@ -9709,24 +9712,24 @@ void AllDraw::InitiateAStarGreedytOneNode(int iAStarGreedy, int ii, int jj, int 
 				if (!ASS)
 				{ //When There is Current Brown Existing Objective Thinking Movments.
 				 //Thinking Operations of Brown Current Objects.
-				 //HoursesOnTable[iIndex]->HourseThinking.TableT = HoursesOnTable[iIndex]->HourseThinking.TableT;
-					HoursesOnTable[iIndex]->HourseThinking.ThinkingBegin = true;
-					HoursesOnTable[iIndex]->HourseThinking.ThinkingFinished = false;
-					HoursesOnTable[iIndex]->HourseThinking.Thinking(HoursesOnTable[iIndex]->LoseOcuuredatChiled, HoursesOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(HoursesOnTable[iIndex]->HourseThinking.Thinking));
-							HoursesOnTable[iIndex]->HourseThinking.t.Start();
-							if (HoursesOnTable[iIndex]->HourseThinking.t != null) { Object tttt = new Object(); //lock (tttt)
-								{ tH.push_back(HoursesOnTable[iIndex]->HourseThinking.t); } }*/
+				 //HoursesOnTable[iIndex].HourseThinking.TableT = HoursesOnTable[iIndex].HourseThinking.TableT;
+					HoursesOnTable[iIndex].HourseThinking.ThinkingBegin = true;
+					HoursesOnTable[iIndex].HourseThinking.ThinkingFinished = false;
+					HoursesOnTable[iIndex].HourseThinking.Thinking(HoursesOnTable[iIndex]->LoseOcuuredatChiled, HoursesOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(HoursesOnTable[iIndex].HourseThinking.Thinking));
+							HoursesOnTable[iIndex].HourseThinking.t.Start();
+							if (HoursesOnTable[iIndex].HourseThinking.t != null) { Object tttt = new Object(); //lock (tttt)
+								{ tH.push_back(HoursesOnTable[iIndex].HourseThinking.t); } }*/
 
 				}
 				else if (ASS) //When There is Current Brown Existing Objective Thinking Movments.
 				{
-					//Thinking of Thinking Brown CurrentTable Objective Operations.                                          SolderesOnTable[iIndex]->SoldierThinking.Table = SolderesOnTable[iIndex]->SoldierThinking.TableListSolder[j];
-					HoursesOnTable[iIndex]->HourseThinking.ThinkingBegin = true;
-					HoursesOnTable[iIndex]->HourseThinking.ThinkingFinished = false;
-					HoursesOnTable[iIndex]->HourseThinking.Thinking(HoursesOnTable[iIndex]->LoseOcuuredatChiled, HoursesOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(HoursesOnTable[iIndex]->HourseThinking.Thinking));
-							HoursesOnTable[iIndex]->HourseThinking.t.Start();
-							if (HoursesOnTable[iIndex]->HourseThinking.t != null) { Object tttt = new Object(); //lock (tttt)
-									{ tH.push_back(HoursesOnTable[iIndex]->HourseThinking.t); } }*/
+					//Thinking of Thinking Brown CurrentTable Objective Operations.                                          SolderesOnTable[iIndex].SoldierThinking.Table = SolderesOnTable[iIndex].SoldierThinking.TableListSolder[j];
+					HoursesOnTable[iIndex].HourseThinking.ThinkingBegin = true;
+					HoursesOnTable[iIndex].HourseThinking.ThinkingFinished = false;
+					HoursesOnTable[iIndex].HourseThinking.Thinking(HoursesOnTable[iIndex]->LoseOcuuredatChiled, HoursesOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(HoursesOnTable[iIndex].HourseThinking.Thinking));
+							HoursesOnTable[iIndex].HourseThinking.t.Start();
+							if (HoursesOnTable[iIndex].HourseThinking.t != null) { Object tttt = new Object(); //lock (tttt)
+									{ tH.push_back(HoursesOnTable[iIndex].HourseThinking.t); } }*/
 
 
 				}
@@ -9757,22 +9760,22 @@ void AllDraw::InitiateAStarGreedytOneNode(int iAStarGreedy, int ii, int jj, int 
 				if (!ASS)
 				{ //When There is Current Brown Existing Objective Thinking Movments.
 				 //Thinking Operations of Brown Current Objects.
-					CastlesOnTable[iIndex]->CastleThinking.ThinkingBegin = true;
-					CastlesOnTable[iIndex]->CastleThinking.ThinkingFinished = false;
-					CastlesOnTable[iIndex]->CastleThinking.Thinking(CastlesOnTable[iIndex]->LoseOcuuredatChiled, CastlesOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(CastlesOnTable[iIndex]->CastleThinking.Thinking));
-							CastlesOnTable[iIndex]->CastleThinking.t.Start();
-							if (CastlesOnTable[iIndex]->CastleThinking.t != null) { Object tttt = new Object(); //lock (tttt)
-								{ tH.push_back(CastlesOnTable[iIndex]->CastleThinking.t); } }*/
+					CastlesOnTable[iIndex].CastleThinking.ThinkingBegin = true;
+					CastlesOnTable[iIndex].CastleThinking.ThinkingFinished = false;
+					CastlesOnTable[iIndex].CastleThinking.Thinking(CastlesOnTable[iIndex]->LoseOcuuredatChiled, CastlesOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(CastlesOnTable[iIndex].CastleThinking.Thinking));
+							CastlesOnTable[iIndex].CastleThinking.t.Start();
+							if (CastlesOnTable[iIndex].CastleThinking.t != null) { Object tttt = new Object(); //lock (tttt)
+								{ tH.push_back(CastlesOnTable[iIndex].CastleThinking.t); } }*/
 				}
 				else if (ASS) //When There is Current Brown Existing Objective Thinking Movments.
 				{
 					//Thinking of Thinking Brown CurrentTable Objective Operations.        
-					CastlesOnTable[iIndex]->CastleThinking.ThinkingBegin = true;
-					CastlesOnTable[iIndex]->CastleThinking.ThinkingFinished = false;
-					CastlesOnTable[iIndex]->CastleThinking.Thinking(CastlesOnTable[iIndex]->LoseOcuuredatChiled, CastlesOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(CastlesOnTable[iIndex]->CastleThinking.Thinking));
-							CastlesOnTable[iIndex]->CastleThinking.t.Start();
-							if (CastlesOnTable[iIndex]->CastleThinking.t != null) { Object tttt = new Object(); //lock (tttt)
-									{ tH.push_back(CastlesOnTable[iIndex]->CastleThinking.t); } }*/
+					CastlesOnTable[iIndex].CastleThinking.ThinkingBegin = true;
+					CastlesOnTable[iIndex].CastleThinking.ThinkingFinished = false;
+					CastlesOnTable[iIndex].CastleThinking.Thinking(CastlesOnTable[iIndex]->LoseOcuuredatChiled, CastlesOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(CastlesOnTable[iIndex].CastleThinking.Thinking));
+							CastlesOnTable[iIndex].CastleThinking.t.Start();
+							if (CastlesOnTable[iIndex].CastleThinking.t != null) { Object tttt = new Object(); //lock (tttt)
+									{ tH.push_back(CastlesOnTable[iIndex].CastleThinking.t); } }*/
 				}
 			}
 			//catch(std::exception &t)
@@ -9797,22 +9800,22 @@ void AllDraw::InitiateAStarGreedytOneNode(int iAStarGreedy, int ii, int jj, int 
 				if (!ASS)
 				{ //When There is Current Brown Existing Objective Thinking Movments.
 				 //Thinking Operations of Brown Current Objects.
-					MinisterOnTable[iIndex]->MinisterThinking.ThinkingBegin = true;
-					MinisterOnTable[iIndex]->MinisterThinking.ThinkingFinished = false;
-					MinisterOnTable[iIndex]->MinisterThinking.Thinking(MinisterOnTable[iIndex]->LoseOcuuredatChiled, MinisterOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(MinisterOnTable[iIndex]->MinisterThinking.Thinking));
-							MinisterOnTable[iIndex]->MinisterThinking.t.Start();
-							if (MinisterOnTable[iIndex]->MinisterThinking.t != null) { Object tttt = new Object(); //lock (tttt)
-								{ tH.push_back(MinisterOnTable[iIndex]->MinisterThinking.t); } }*/
+					MinisterOnTable[iIndex].MinisterThinking.ThinkingBegin = true;
+					MinisterOnTable[iIndex].MinisterThinking.ThinkingFinished = false;
+					MinisterOnTable[iIndex].MinisterThinking.Thinking(MinisterOnTable[iIndex]->LoseOcuuredatChiled, MinisterOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(MinisterOnTable[iIndex].MinisterThinking.Thinking));
+							MinisterOnTable[iIndex].MinisterThinking.t.Start();
+							if (MinisterOnTable[iIndex].MinisterThinking.t != null) { Object tttt = new Object(); //lock (tttt)
+								{ tH.push_back(MinisterOnTable[iIndex].MinisterThinking.t); } }*/
 				}
 				else if (ASS) //When There is Current Brown Existing Objective Thinking Movments.
 				{
-					//Thinking of Thinking Brown CurrentTable Objective Operations.                                          SolderesOnTable[iIndex]->SoldierThinking.Table = SolderesOnTable[iIndex]->SoldierThinking.TableListSolder[j];
-					MinisterOnTable[iIndex]->MinisterThinking.ThinkingBegin = true;
-					MinisterOnTable[iIndex]->MinisterThinking.ThinkingFinished = false;
-					MinisterOnTable[iIndex]->MinisterThinking.Thinking(MinisterOnTable[iIndex]->LoseOcuuredatChiled, MinisterOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(MinisterOnTable[iIndex]->MinisterThinking.Thinking));
-							MinisterOnTable[iIndex]->MinisterThinking.t.Start();
-							if (MinisterOnTable[iIndex]->MinisterThinking.t != null) { Object tttt = new Object(); //lock (tttt)
-									{ tH.push_back(MinisterOnTable[iIndex]->MinisterThinking.t); } }*/
+					//Thinking of Thinking Brown CurrentTable Objective Operations.                                          SolderesOnTable[iIndex].SoldierThinking.Table = SolderesOnTable[iIndex].SoldierThinking.TableListSolder[j];
+					MinisterOnTable[iIndex].MinisterThinking.ThinkingBegin = true;
+					MinisterOnTable[iIndex].MinisterThinking.ThinkingFinished = false;
+					MinisterOnTable[iIndex].MinisterThinking.Thinking(MinisterOnTable[iIndex]->LoseOcuuredatChiled, MinisterOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(MinisterOnTable[iIndex].MinisterThinking.Thinking));
+							MinisterOnTable[iIndex].MinisterThinking.t.Start();
+							if (MinisterOnTable[iIndex].MinisterThinking.t != null) { Object tttt = new Object(); //lock (tttt)
+									{ tH.push_back(MinisterOnTable[iIndex].MinisterThinking.t); } }*/
 
 				}
 			}
@@ -9839,24 +9842,24 @@ void AllDraw::InitiateAStarGreedytOneNode(int iAStarGreedy, int ii, int jj, int 
 				if (!ASS)
 				{ //When There is Current Brown Existing Objective Thinking Movments.
 				 //Thinking Operations of Brown Current Objects.
-					KingOnTable[iIndex]->KingThinking.ThinkingBegin = true;
-					KingOnTable[iIndex]->KingThinking.ThinkingFinished = false;
-					KingOnTable[iIndex]->KingThinking.Thinking(KingOnTable[iIndex]->LoseOcuuredatChiled, KingOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(KingOnTable[iIndex]->KingThinking.Thinking));
-							KingOnTable[iIndex]->KingThinking.t.Start();
-							if (KingOnTable[iIndex]->KingThinking.t != null) { Object tttt = new Object(); //lock (tttt)
-								{ tH.push_back(KingOnTable[iIndex]->KingThinking.t); } }*/
+					KingOnTable[iIndex].KingThinking.ThinkingBegin = true;
+					KingOnTable[iIndex].KingThinking.ThinkingFinished = false;
+					KingOnTable[iIndex].KingThinking.Thinking(KingOnTable[iIndex]->LoseOcuuredatChiled, KingOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(KingOnTable[iIndex].KingThinking.Thinking));
+							KingOnTable[iIndex].KingThinking.t.Start();
+							if (KingOnTable[iIndex].KingThinking.t != null) { Object tttt = new Object(); //lock (tttt)
+								{ tH.push_back(KingOnTable[iIndex].KingThinking.t); } }*/
 
 				}
 				else if (ASS) //When There is Current Brown Existing Objective Thinking Movments.
 				{
 					//Thinking of Thinking Brown CurrentTable Objective Operations.       
-					KingOnTable[iIndex]->KingThinking.TableT = KingOnTable[iIndex]->KingThinking.TableListKing[j];
-					KingOnTable[iIndex]->KingThinking.ThinkingBegin = true;
-					KingOnTable[iIndex]->KingThinking.ThinkingFinished = false;
-					KingOnTable[iIndex]->KingThinking.Thinking(KingOnTable[iIndex]->LoseOcuuredatChiled, KingOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(KingOnTable[iIndex]->KingThinking.Thinking));
-							KingOnTable[iIndex]->KingThinking.t.Start();
-							if (KingOnTable[iIndex]->KingThinking.t != null) { Object tttt = new Object(); //lock (tttt)
-								{ tH.push_back(KingOnTable[iIndex]->KingThinking.t); } }*/
+					KingOnTable[iIndex].KingThinking.TableT = KingOnTable[iIndex].KingThinking.TableListKing[j];
+					KingOnTable[iIndex].KingThinking.ThinkingBegin = true;
+					KingOnTable[iIndex].KingThinking.ThinkingFinished = false;
+					KingOnTable[iIndex].KingThinking.Thinking(KingOnTable[iIndex]->LoseOcuuredatChiled, KingOnTable[iIndex]->WinOcuuredatChiled); /*.t = new Task(new Action(KingOnTable[iIndex].KingThinking.Thinking));
+							KingOnTable[iIndex].KingThinking.t.Start();
+							if (KingOnTable[iIndex].KingThinking.t != null) { Object tttt = new Object(); //lock (tttt)
+								{ tH.push_back(KingOnTable[iIndex].KingThinking.t); } }*/
 
 
 				}
@@ -9876,61 +9879,61 @@ void AllDraw::InitiateAStarGreedytOneNode(int iAStarGreedy, int ii, int jj, int 
 	bool FOUND = false;
 	if (KindIndex == 1 || KindIndex == -1)
 	{
-		SolderesOnTable[iIndex]->SoldierThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-		SolderesOnTable[iIndex]->SoldierThinking.AStarGreedy[SolderesOnTable[iIndex]->SoldierThinking.AStarGreedy.size() - 1].TableList.clear();
-		SolderesOnTable[iIndex]->SoldierThinking.AStarGreedy[SolderesOnTable[iIndex]->SoldierThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(Tab));
-		SolderesOnTable[iIndex]->SoldierThinking.AStarGreedy[SolderesOnTable[iIndex]->SoldierThinking.AStarGreedy.size() - 1].SetRowColumn(0);
-		SolderesOnTable[iIndex]->SoldierThinking.AStarGreedy[SolderesOnTable[iIndex]->SoldierThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, Tab, Order * -1, false, FOUND, LeafAStarGreedy);
+		SolderesOnTable[iIndex].SoldierThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+		SolderesOnTable[iIndex].SoldierThinking.AStarGreedy[SolderesOnTable[iIndex].SoldierThinking.AStarGreedy.size() - 1].TableList.clear();
+		SolderesOnTable[iIndex].SoldierThinking.AStarGreedy[SolderesOnTable[iIndex].SoldierThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(Tab));
+		SolderesOnTable[iIndex].SoldierThinking.AStarGreedy[SolderesOnTable[iIndex].SoldierThinking.AStarGreedy.size() - 1].SetRowColumn(0);
+		SolderesOnTable[iIndex].SoldierThinking.AStarGreedy[SolderesOnTable[iIndex].SoldierThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, Tab, Order * -1, false, FOUND, LeafAStarGreedy);
 	}
 	else
 	{
 		if (KindIndex == 2 || KindIndex == -2)
 		{
-			ElephantOnTable[iIndex]->ElefantThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-			ElephantOnTable[iIndex]->ElefantThinking.AStarGreedy[ElephantOnTable[iIndex]->ElefantThinking.AStarGreedy.size() - 1].TableList.clear();
-			ElephantOnTable[iIndex]->ElefantThinking.AStarGreedy[ElephantOnTable[iIndex]->ElefantThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(Tab));
-			ElephantOnTable[iIndex]->ElefantThinking.AStarGreedy[ElephantOnTable[iIndex]->ElefantThinking.AStarGreedy.size() - 1].SetRowColumn(0);
-			ElephantOnTable[iIndex]->ElefantThinking.AStarGreedy[ElephantOnTable[iIndex]->ElefantThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, Tab, Order * -1, false, FOUND, LeafAStarGreedy);
+			ElephantOnTable[iIndex].ElefantThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+			ElephantOnTable[iIndex].ElefantThinking.AStarGreedy[ElephantOnTable[iIndex].ElefantThinking.AStarGreedy.size() - 1].TableList.clear();
+			ElephantOnTable[iIndex].ElefantThinking.AStarGreedy[ElephantOnTable[iIndex].ElefantThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(Tab));
+			ElephantOnTable[iIndex].ElefantThinking.AStarGreedy[ElephantOnTable[iIndex].ElefantThinking.AStarGreedy.size() - 1].SetRowColumn(0);
+			ElephantOnTable[iIndex].ElefantThinking.AStarGreedy[ElephantOnTable[iIndex].ElefantThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, Tab, Order * -1, false, FOUND, LeafAStarGreedy);
 		}
 		else
 		{
 			if (KindIndex == 3 || KindIndex == -3)
 			{
-				HoursesOnTable[iIndex]->HourseThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-				HoursesOnTable[iIndex]->HourseThinking.AStarGreedy[HoursesOnTable[iIndex]->HourseThinking.AStarGreedy.size() - 1].TableList.clear();
-				HoursesOnTable[iIndex]->HourseThinking.AStarGreedy[HoursesOnTable[iIndex]->HourseThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(Tab));
-				HoursesOnTable[iIndex]->HourseThinking.AStarGreedy[HoursesOnTable[iIndex]->HourseThinking.AStarGreedy.size() - 1].SetRowColumn(0);
-				HoursesOnTable[iIndex]->HourseThinking.AStarGreedy[HoursesOnTable[iIndex]->HourseThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, Tab, Order * -1, false, FOUND, LeafAStarGreedy);
+				HoursesOnTable[iIndex].HourseThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+				HoursesOnTable[iIndex].HourseThinking.AStarGreedy[HoursesOnTable[iIndex].HourseThinking.AStarGreedy.size() - 1].TableList.clear();
+				HoursesOnTable[iIndex].HourseThinking.AStarGreedy[HoursesOnTable[iIndex].HourseThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(Tab));
+				HoursesOnTable[iIndex].HourseThinking.AStarGreedy[HoursesOnTable[iIndex].HourseThinking.AStarGreedy.size() - 1].SetRowColumn(0);
+				HoursesOnTable[iIndex].HourseThinking.AStarGreedy[HoursesOnTable[iIndex].HourseThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, Tab, Order * -1, false, FOUND, LeafAStarGreedy);
 			}
 			else
 			{
 				if (KindIndex == 4 || KindIndex == -4)
 				{
-					CastlesOnTable[iIndex]->CastleThinking.AStarGreedy.push_back[new AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged)];
-					CastlesOnTable[iIndex]->CastleThinking.AStarGreedy[CastlesOnTable[iIndex]->CastleThinking.AStarGreedy.size() - 1].TableList.clear();
-					CastlesOnTable[iIndex]->CastleThinking.AStarGreedy[CastlesOnTable[iIndex]->CastleThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(Tab));
-					CastlesOnTable[iIndex]->CastleThinking.AStarGreedy[CastlesOnTable[iIndex]->CastleThinking.AStarGreedy.size() - 1].SetRowColumn(0);
-					CastlesOnTable[iIndex]->CastleThinking.AStarGreedy[CastlesOnTable[iIndex]->CastleThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, Tab, Order * -1, false, FOUND, LeafAStarGreedy);
+					CastlesOnTable[iIndex].CastleThinking.AStarGreedy.push_back[new AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged)];
+					CastlesOnTable[iIndex].CastleThinking.AStarGreedy[CastlesOnTable[iIndex].CastleThinking.AStarGreedy.size() - 1].TableList.clear();
+					CastlesOnTable[iIndex].CastleThinking.AStarGreedy[CastlesOnTable[iIndex].CastleThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(Tab));
+					CastlesOnTable[iIndex].CastleThinking.AStarGreedy[CastlesOnTable[iIndex].CastleThinking.AStarGreedy.size() - 1].SetRowColumn(0);
+					CastlesOnTable[iIndex].CastleThinking.AStarGreedy[CastlesOnTable[iIndex].CastleThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, Tab, Order * -1, false, FOUND, LeafAStarGreedy);
 				}
 				else
 				{
 					if (KindIndex == 5 || KindIndex == -5)
 					{
-						MinisterOnTable[iIndex]->MinisterThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-						MinisterOnTable[iIndex]->MinisterThinking.AStarGreedy[MinisterOnTable[iIndex]->MinisterThinking.AStarGreedy.size() - 1].TableList.clear();
-						MinisterOnTable[iIndex]->MinisterThinking.AStarGreedy[MinisterOnTable[iIndex]->MinisterThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(Tab));
-						MinisterOnTable[iIndex]->MinisterThinking.AStarGreedy[MinisterOnTable[iIndex]->MinisterThinking.AStarGreedy.size() - 1].SetRowColumn(0);
-						MinisterOnTable[iIndex]->MinisterThinking.AStarGreedy[MinisterOnTable[iIndex]->MinisterThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, Tab, Order * -1, false, FOUND, LeafAStarGreedy);
+						MinisterOnTable[iIndex].MinisterThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+						MinisterOnTable[iIndex].MinisterThinking.AStarGreedy[MinisterOnTable[iIndex].MinisterThinking.AStarGreedy.size() - 1].TableList.clear();
+						MinisterOnTable[iIndex].MinisterThinking.AStarGreedy[MinisterOnTable[iIndex].MinisterThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(Tab));
+						MinisterOnTable[iIndex].MinisterThinking.AStarGreedy[MinisterOnTable[iIndex].MinisterThinking.AStarGreedy.size() - 1].SetRowColumn(0);
+						MinisterOnTable[iIndex].MinisterThinking.AStarGreedy[MinisterOnTable[iIndex].MinisterThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, Tab, Order * -1, false, FOUND, LeafAStarGreedy);
 					}
 					else
 					{
 						if (KindIndex == 6 || KindIndex == -6)
 						{
-							KingOnTable[iIndex]->KingThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-							KingOnTable[iIndex]->KingThinking.AStarGreedy[MinisterOnTable[iIndex]->MinisterThinking.AStarGreedy.size() - 1].TableList.clear();
-							KingOnTable[iIndex]->KingThinking.AStarGreedy[MinisterOnTable[iIndex]->MinisterThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(Tab));
-							KingOnTable[iIndex]->KingThinking.AStarGreedy[MinisterOnTable[iIndex]->MinisterThinking.AStarGreedy.size() - 1].SetRowColumn(0);
-							KingOnTable[iIndex]->KingThinking.AStarGreedy[MinisterOnTable[iIndex]->MinisterThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, Tab, Order * -1, false, FOUND, LeafAStarGreedy);
+							KingOnTable[iIndex].KingThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+							KingOnTable[iIndex].KingThinking.AStarGreedy[MinisterOnTable[iIndex].MinisterThinking.AStarGreedy.size() - 1].TableList.clear();
+							KingOnTable[iIndex].KingThinking.AStarGreedy[MinisterOnTable[iIndex].MinisterThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(Tab));
+							KingOnTable[iIndex].KingThinking.AStarGreedy[MinisterOnTable[iIndex].MinisterThinking.AStarGreedy.size() - 1].SetRowColumn(0);
+							KingOnTable[iIndex].KingThinking.AStarGreedy[MinisterOnTable[iIndex].MinisterThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, Tab, Order * -1, false, FOUND, LeafAStarGreedy);
 						}
 					}
 				}
@@ -10038,15 +10041,15 @@ int  AllDraw::MinBrownMidle()
 					//[i] = DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
 					//If There is no Thinking Movments on Current Object  
 
-					if (SolderesOnTable[i]->SoldierThinking.TableListSolder.empty())
+					if (SolderesOnTable[i].SoldierThinking.TableListSolder.empty())
 					{
 						//For All Movable Gray Solders.
 						for (int j = 0; j < AllDraw::SodierMovments; j++)
 						{
-							SolderesOnTable[i]->SoldierThinking.ThinkingBegin = true;
-							SolderesOnTable[i]->SoldierThinking.ThinkingFinished = false;
-							SolderesOnTable[i]->SoldierThinking.Kind = 1;
-							SolderesOnTable[i]->SoldierThinking.Thinking(SolderesOnTable[i]->LoseOcuuredatChiled, SolderesOnTable[i]->WinOcuuredatChiled);
+							SolderesOnTable[i].SoldierThinking.ThinkingBegin = true;
+							SolderesOnTable[i].SoldierThinking.ThinkingFinished = false;
+							SolderesOnTable[i].SoldierThinking.Kind = 1;
+							SolderesOnTable[i].SoldierThinking.Thinking(SolderesOnTable[i]->LoseOcuuredatChiled, SolderesOnTable[i]->WinOcuuredatChiled);
 						}
 					}
 				}
@@ -10063,21 +10066,21 @@ int  AllDraw::MinBrownMidle()
 					ii = ((int)SolderesOnTable[i]->Row);
 					jj = ((int)SolderesOnTable[i]->Column);
 					//Construction of Thinking Objects By Local Varibales.
-					//if (SolderesOnTable[i]->ElefantThinking.TableListElefant.size() == 0)
+					//if (SolderesOnTable[i].ElefantThinking.TableListElefant.size() == 0)
 						//SolderesOnTable[i] = DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
 					//If There is Not Thinking Objetive List Elephant Gray. 
-					if (SolderesOnTable[i]->ElefantThinking.TableListElefant.size() == 0)
+					if (SolderesOnTable[i].ElefantThinking.TableListElefant.size() == 0)
 					{
 						//For All Possible Movments.
 						////Parallel.For(0, AllDraw::ElefantMovments, j =>
 						for (int j = 0; j < AllDraw::ElefantMovments; j++)
 						{
 							//Operational Thinking Gray Elephant. 
-							SolderesOnTable[i]->ElefantThinking.ThinkingBegin = true;
-							SolderesOnTable[i]->ElefantThinking.ThinkingFinished = false;
-							SolderesOnTable[i]->ElefantThinking.Kind = 2;
-							SolderesOnTable[i]->ElefantThinking.t = new Task(new Action(SolderesOnTable[i]->ElefantThinking.Thinking));
-							SolderesOnTable[i]->ElefantThinking.t.Start();
+							SolderesOnTable[i].ElefantThinking.ThinkingBegin = true;
+							SolderesOnTable[i].ElefantThinking.ThinkingFinished = false;
+							SolderesOnTable[i].ElefantThinking.Kind = 2;
+							SolderesOnTable[i].ElefantThinking.t = new Task(new Action(SolderesOnTable[i].ElefantThinking.Thinking));
+							SolderesOnTable[i].ElefantThinking.t.Start();
 
 
 
@@ -10101,18 +10104,18 @@ int  AllDraw::MinBrownMidle()
 					ii = ((int)HoursesOnTable[i]->Row);
 					jj = ((int)HoursesOnTable[i]->Column);
 					//Construction of Gray Hourse Thinking Objects..
-					//if (HoursesOnTable[i]->HourseThinking.TableListHourse.size() == 0)
+					//if (HoursesOnTable[i].HourseThinking.TableListHourse.size() == 0)
 						//HoursesOnTable[i] = DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
 					//When There is Not HourseList Count. 
-					if (HoursesOnTable[i]->HourseThinking.TableListHourse.size() == 0)
+					if (HoursesOnTable[i].HourseThinking.TableListHourse.size() == 0)
 					{
 						//For All Possible Movments.
 						for (int j = 0; j < AllDraw::HourseMovments; j++)
-							HoursesOnTable[i]->HourseThinking.ThinkingBegin = true;
-						HoursesOnTable[i]->HourseThinking.ThinkingFinished = false;
-						HoursesOnTable[i]->HourseThinking.Kind = 3;
-						HoursesOnTable[i]->HourseThinking.t = new Task(new Action(HoursesOnTable[i]->HourseThinking.Thinking));
-						HoursesOnTable[i]->HourseThinking.t.Start();
+							HoursesOnTable[i].HourseThinking.ThinkingBegin = true;
+						HoursesOnTable[i].HourseThinking.ThinkingFinished = false;
+						HoursesOnTable[i].HourseThinking.Kind = 3;
+						HoursesOnTable[i].HourseThinking.t = new Task(new Action(HoursesOnTable[i].HourseThinking.Thinking));
+						HoursesOnTable[i].HourseThinking.t.Start();
 
 
 					}
@@ -10132,10 +10135,10 @@ int  AllDraw::MinBrownMidle()
 					ii = ((int)CastlesOnTable[ii]->Row);
 					jj = ((int)CastlesOnTable[ii]->Column);
 					//Construction of Thinking Variables By Local Variables.
-					//if (CastlesOnTable[ii]->CastleThinking.TableListCastle.size() == 0)
+					//if (CastlesOnTable[ii].CastleThinking.TableListCastle.size() == 0)
 						//CastlesOnTable[ii] = DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
 					//When Count of Table Castles of Thinking Not Exist Do Operational.
-					if (CastlesOnTable[ii]->CastleThinking.TableListCastle.size() == 0)
+					if (CastlesOnTable[ii].CastleThinking.TableListCastle.size() == 0)
 					{
 						//For All Possible Movments.
 						////Parallel.For(0, AllDraw::CastleMovments, j =>
@@ -10143,10 +10146,10 @@ int  AllDraw::MinBrownMidle()
 						{
 
 							//Thinking of Gray Castles Operational.
-							CastlesOnTable[ii]->CastleThinking.ThinkingBegin = true;
-							CastlesOnTable[ii]->CastleThinking.ThinkingFinished = false;
-							CastlesOnTable[ii]->CastleThinking.Kind = 4;
-							CastlesOnTable[ii]->CastleThinking.Thinking(ref CastlesOnTable[ii]->LoseOcuuredatChiled, ref CastlesOnTable[ii]->WinOcuuredatChiled);
+							CastlesOnTable[ii].CastleThinking.ThinkingBegin = true;
+							CastlesOnTable[ii].CastleThinking.ThinkingFinished = false;
+							CastlesOnTable[ii].CastleThinking.Kind = 4;
+							CastlesOnTable[ii].CastleThinking.Thinking(ref CastlesOnTable[ii]->LoseOcuuredatChiled, ref CastlesOnTable[ii]->WinOcuuredatChiled);
 							
 
 
@@ -10174,16 +10177,16 @@ int  AllDraw::MinBrownMidle()
 						//Construction of Thinking Objects Gray Minister.
 						//MinisterOnTable[i] = DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
 						//If There is Not Minister Of Gray In The Thinking Table List.   
-						if (MinisterOnTable[i]->MinisterThinking.TableListMinister.empty())
+						if (MinisterOnTable[i].MinisterThinking.TableListMinister.empty())
 						{
 							//For All Possible Movments.
 							for (int j = 0; j < AllDraw::MinisterMovments; j++)
 							{
 
-								MinisterOnTable[i]->MinisterThinking.ThinkingBegin = true;
-								MinisterOnTable[i]->MinisterThinking.ThinkingFinished = false;
-								MinisterOnTable[i]->MinisterThinking.Kind = 5;
-								MinisterOnTable[i]->MinisterThinking.Thinking(MinisterOnTable[i]->LoseOcuuredatChiled, MinisterOnTable[i]->WinOcuuredatChiled);
+								MinisterOnTable[i].MinisterThinking.ThinkingBegin = true;
+								MinisterOnTable[i].MinisterThinking.ThinkingFinished = false;
+								MinisterOnTable[i].MinisterThinking.Kind = 5;
+								MinisterOnTable[i].MinisterThinking.Thinking(MinisterOnTable[i]->LoseOcuuredatChiled, MinisterOnTable[i]->WinOcuuredatChiled);
 
 
 
@@ -10211,19 +10214,19 @@ int  AllDraw::MinBrownMidle()
 						ii = static_cast<int>(KingOnTable[i]->Row));
 						jj = static_cast<int>(KingOnTable[i]->Column);
 						//Construction of Gray King Thinking Objects.
-						//if (KingOnTable[i]->KingThinking.TableListKing.size() == 0)
+						//if (KingOnTable[i].KingThinking.TableListKing.size() == 0)
 						//KingOnTable[i] = DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
 						//When There is Not Thinking Table Gray King Movments.
-						if (KingOnTable[i]->KingThinking.TableListKing.empty())
+						if (KingOnTable[i].KingThinking.TableListKing.empty())
 						{
 							//For All Possible Gray King Movments.
 							////Parallel.For(0, AllDraw::KingMovments, j =>
 							for (int j = 0; j < AllDraw::KingMovments; j++)
 							{
-								KingOnTable[i]->KingThinking.ThinkingBegin = true;
-								KingOnTable[i]->KingThinking.ThinkingFinished = false;
-								KingOnTable[i]->KingThinking.Kind = 6;
-								KingOnTable[i]->KingThinking.Thinking(MinisterOnTable[i]->LoseOcuuredatChiled, MinisterOnTable[i]->WinOcuuredatChiled);
+								KingOnTable[i].KingThinking.ThinkingBegin = true;
+								KingOnTable[i].KingThinking.ThinkingFinished = false;
+								KingOnTable[i].KingThinking.Kind = 6;
+								KingOnTable[i].KingThinking.Thinking(MinisterOnTable[i]->LoseOcuuredatChiled, MinisterOnTable[i]->WinOcuuredatChiled);
 							}
 						}
 					}
@@ -10259,15 +10262,15 @@ int  AllDraw::MinBrownMidle()
 					//[i] = DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
 					//If There is no Thinking Movments on Current Object  
 
-					if (SolderesOnTable[i]->SoldierThinking.TableListSolder.empty())
+					if (SolderesOnTable[i].SoldierThinking.TableListSolder.empty())
 					{
 						//For All Movable Gray Solders.
 						for (int j = 0; j < AllDraw::SodierMovments; j++)
 						{
-							SolderesOnTable[i]->SoldierThinking.ThinkingBegin = true;
-							SolderesOnTable[i]->SoldierThinking.ThinkingFinished = false;
-							SolderesOnTable[i]->SoldierThinking.Kind = 1;
-							SolderesOnTable[i]->SoldierThinking.Thinking(SolderesOnTable[i]->LoseOcuuredatChiled, SolderesOnTable[i]->WinOcuuredatChiled);
+							SolderesOnTable[i].SoldierThinking.ThinkingBegin = true;
+							SolderesOnTable[i].SoldierThinking.ThinkingFinished = false;
+							SolderesOnTable[i].SoldierThinking.Kind = 1;
+							SolderesOnTable[i].SoldierThinking.Thinking(SolderesOnTable[i]->LoseOcuuredatChiled, SolderesOnTable[i]->WinOcuuredatChiled);
 
 						}
 					}
@@ -10287,16 +10290,16 @@ int  AllDraw::MinBrownMidle()
 					//Inititae Local Varibale By Global Gray Elephant Objects Varibales.
 					ii = static_cast<int>(SolderesOnTable[i]->Row);
 					jj = static_cast<int>(SolderesOnTable[i]->Column);
-					if (SolderesOnTable[i]->ElefantThinking.TableListElefant.empty())
+					if (SolderesOnTable[i].ElefantThinking.TableListElefant.empty())
 					{
 						//For All Possible Movments.
 						for (int j = 0; j < AllDraw::ElefantMovments; j++)
 						{
 
-							SolderesOnTable[i]->ElefantThinking.ThinkingBegin = true;
-							SolderesOnTable[i]->ElefantThinking.ThinkingFinished = false;
-							SolderesOnTable[i]->ElefantThinking.Kind = 2;
-							SolderesOnTable[i]->ElefantThinking.Thinking(SolderesOnTable[i]->LoseOcuuredatChiled, SolderesOnTable[i]->WinOcuuredatChiled);
+							SolderesOnTable[i].ElefantThinking.ThinkingBegin = true;
+							SolderesOnTable[i].ElefantThinking.ThinkingFinished = false;
+							SolderesOnTable[i].ElefantThinking.Kind = 2;
+							SolderesOnTable[i].ElefantThinking.Thinking(SolderesOnTable[i]->LoseOcuuredatChiled, SolderesOnTable[i]->WinOcuuredatChiled);
 
 						};
 					}
@@ -10319,16 +10322,16 @@ int  AllDraw::MinBrownMidle()
 					jj = static_cast<int>(HoursesOnTable[i]->Column);
 					//Construction of Gray Hourse Thinking Objects..
 					//When There is Not HourseList Count. 
-					if (HoursesOnTable[i]->HourseThinking.TableListHourse.empty())
+					if (HoursesOnTable[i].HourseThinking.TableListHourse.empty())
 					{
 						//For All Possible Movments.
 						for (int j = 0; j < AllDraw::HourseMovments; j++)
 						{
 
-							HoursesOnTable[i]->HourseThinking.ThinkingBegin = true;
-							HoursesOnTable[i]->HourseThinking.ThinkingFinished = false;
-							HoursesOnTable[i]->HourseThinking.Kind = 3;
-							HoursesOnTable[i]->HourseThinking.Thinking(HoursesOnTable[i]->LoseOcuuredatChiled, HoursesOnTable[i]->WinOcuuredatChiled); 
+							HoursesOnTable[i].HourseThinking.ThinkingBegin = true;
+							HoursesOnTable[i].HourseThinking.ThinkingFinished = false;
+							HoursesOnTable[i].HourseThinking.Kind = 3;
+							HoursesOnTable[i].HourseThinking.Thinking(HoursesOnTable[i]->LoseOcuuredatChiled, HoursesOnTable[i]->WinOcuuredatChiled); 
 
 						}
 					}
@@ -10350,10 +10353,10 @@ int  AllDraw::MinBrownMidle()
 					ii = static_cast<int>(CastlesOnTable[ii]->Row);
 					jj = static_cast<int>(CastlesOnTable[ii]->Column);
 					//Construction of Thinking Variables By Local Variables.
-					//if (CastlesOnTable[ii]->CastleThinking.TableListCastle.size() == 0)
+					//if (CastlesOnTable[ii].CastleThinking.TableListCastle.size() == 0)
 					//CastlesOnTable[ii] = DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
 					//When Count of Table Castles of Thinking Not Exist Do Operational.
-					if (CastlesOnTable[ii]->CastleThinking.TableListCastle.empty())
+					if (CastlesOnTable[ii].CastleThinking.TableListCastle.empty())
 					{
 						//For All Possible Movments.
 						////Parallel.For(0, AllDraw::CastleMovments, j =>
@@ -10361,10 +10364,10 @@ int  AllDraw::MinBrownMidle()
 						{
 
 							//Thinking of Gray Castles Operational.
-							CastlesOnTable[ii]->CastleThinking.ThinkingBegin = true;
-							CastlesOnTable[ii]->CastleThinking.ThinkingFinished = false;
-							CastlesOnTable[ii]->CastleThinking.Kind = 4;
-							CastlesOnTable[ii]->CastleThinking.Thinking(CastlesOnTable[ii]->LoseOcuuredatChiled, CastlesOnTable[ii]->WinOcuuredatChiled);
+							CastlesOnTable[ii].CastleThinking.ThinkingBegin = true;
+							CastlesOnTable[ii].CastleThinking.ThinkingFinished = false;
+							CastlesOnTable[ii].CastleThinking.Kind = 4;
+							CastlesOnTable[ii].CastleThinking.Thinking(CastlesOnTable[ii]->LoseOcuuredatChiled, CastlesOnTable[ii]->WinOcuuredatChiled);
 						}
 					}
 
@@ -10387,17 +10390,17 @@ int  AllDraw::MinBrownMidle()
 					ii = static_cast<int>(MinisterOnTable[i]->Row);
 					jj = static_cast<int>(MinisterOnTable[i]->Column);
 					//Construction of Thinking Objects Gray Minister.
-					if (MinisterOnTable[i]->MinisterThinking.TableListMinister.empty())
+					if (MinisterOnTable[i].MinisterThinking.TableListMinister.empty())
 					{
 						//For All Possible Movments.
 						////Parallel.For(0, AllDraw::MinisterMovments, j =>
 						for (int j = 0; j < AllDraw::MinisterMovments; j++)
 						{
 
-							MinisterOnTable[i]->MinisterThinking.ThinkingBegin = true;
-							MinisterOnTable[i]->MinisterThinking.ThinkingFinished = false;
-							MinisterOnTable[i]->MinisterThinking.Kind = 5;
-							MinisterOnTable[i]->MinisterThinking.Thinking(CastlesOnTable[ii]->LoseOcuuredatChiled, CastlesOnTable[ii]->WinOcuuredatChiled);
+							MinisterOnTable[i].MinisterThinking.ThinkingBegin = true;
+							MinisterOnTable[i].MinisterThinking.ThinkingFinished = false;
+							MinisterOnTable[i].MinisterThinking.Kind = 5;
+							MinisterOnTable[i].MinisterThinking.Thinking(CastlesOnTable[ii]->LoseOcuuredatChiled, CastlesOnTable[ii]->WinOcuuredatChiled);
 							;
 						}
 					}
@@ -10417,19 +10420,19 @@ int  AllDraw::MinBrownMidle()
 					ii = static_cast<int>(KingOnTable[i]->Row));
 					jj = static_cast<int>(KingOnTable[i]->Column);
 					//Construction of Gray King Thinking Objects.
-					//if (KingOnTable[i]->KingThinking.TableListKing.size() == 0)
+					//if (KingOnTable[i].KingThinking.TableListKing.size() == 0)
 					//KingOnTable[i] = DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
 					//When There is Not Thinking Table Gray King Movments.
-					if (KingOnTable[i]->KingThinking.TableListKing.empty())
+					if (KingOnTable[i].KingThinking.TableListKing.empty())
 					{
 						//For All Possible Gray King Movments.
 						for (int j = 0; j < AllDraw::KingMovments; j++)
 						{
 
-							KingOnTable[i]->KingThinking.ThinkingBegin = true;
-							KingOnTable[i]->KingThinking.ThinkingFinished = false;
-							KingOnTable[i]->KingThinking.Kind = 6;
-							KingOnTable[i]->KingThinking.Thinking(CastlesOnTable[ii]->LoseOcuuredatChiled, CastlesOnTable[ii]->WinOcuuredatChiled);
+							KingOnTable[i].KingThinking.ThinkingBegin = true;
+							KingOnTable[i].KingThinking.ThinkingFinished = false;
+							KingOnTable[i].KingThinking.Kind = 6;
+							KingOnTable[i].KingThinking.Thinking(CastlesOnTable[ii]->LoseOcuuredatChiled, CastlesOnTable[ii]->WinOcuuredatChiled);
 
 						}
 					}
@@ -10536,7 +10539,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 	{
 		if (Order == 1)
 		{
-			if (SolderesOnTable[ii]->SoldierThinking.IsSup)
+			if (SolderesOnTable[ii].SoldierThinking.IsSup)
 			{
 
 				for (int i = 0; i < SodierMidle; i++)
@@ -10545,40 +10548,40 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 					{
 						continue;
 					}
-					//int j = FoundTableIndex(this[ii].SoldierThinking.TableListSolder, SolderesOnTable[ii]->SoldierThinking.TableConst);
-					for (int j = 0; j < SolderesOnTable[ii]->SoldierThinking.HuristicListSolder.size(); j++)
+					//int j = FoundTableIndex(this[ii].SoldierThinking.TableListSolder, SolderesOnTable[ii].SoldierThinking.TableConst);
+					for (int j = 0; j < SolderesOnTable[ii].SoldierThinking.HuristicListSolder.size(); j++)
 					{
 
-						SolderesOnTable[ii]->SoldierThinking.HuristicListSolder[j][0] += SolderesOnTable[ii]->SoldierThinking.HuristicAttackValueSup;
-						SolderesOnTable[ii]->SoldierThinking.HuristicListSolder[j][1] += SolderesOnTable[ii]->SoldierThinking.HuristicMovementValueSup;
-						SolderesOnTable[ii]->SoldierThinking.HuristicListSolder[j][2] += SolderesOnTable[ii]->SoldierThinking.HuristicSelfSupportedValueSup;
-						SolderesOnTable[ii]->SoldierThinking.HuristicListSolder[j][3] += SolderesOnTable[ii]->SoldierThinking.HuristicObjectDangourCheckMateValueSup;
-						SolderesOnTable[ii]->SoldierThinking.HuristicListSolder[j][4] += SolderesOnTable[ii]->SoldierThinking.HuristicKillerValueSup;
-						SolderesOnTable[ii]->SoldierThinking.HuristicListSolder[j][5] += SolderesOnTable[ii]->SoldierThinking.HuristicReducedAttackValueSup;
-						SolderesOnTable[ii]->SoldierThinking.HuristicListSolder[j][6] += SolderesOnTable[ii]->SoldierThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
-						SolderesOnTable[ii]->SoldierThinking.HuristicListSolder[j][7] += SolderesOnTable[ii]->SoldierThinking.HeuristicKingSafeSup;
-						SolderesOnTable[ii]->SoldierThinking.HuristicListSolder[j][8] += SolderesOnTable[ii]->SoldierThinking.HeuristicFromCenterSup;
-						SolderesOnTable[ii]->SoldierThinking.HuristicListSolder[j][9] += SolderesOnTable[ii]->SoldierThinking.HeuristicKingDangourSup;
+						SolderesOnTable[ii].SoldierThinking.HuristicListSolder[j][0] += SolderesOnTable[ii].SoldierThinking.HuristicAttackValueSup;
+						SolderesOnTable[ii].SoldierThinking.HuristicListSolder[j][1] += SolderesOnTable[ii].SoldierThinking.HuristicMovementValueSup;
+						SolderesOnTable[ii].SoldierThinking.HuristicListSolder[j][2] += SolderesOnTable[ii].SoldierThinking.HuristicSelfSupportedValueSup;
+						SolderesOnTable[ii].SoldierThinking.HuristicListSolder[j][3] += SolderesOnTable[ii].SoldierThinking.HuristicObjectDangourCheckMateValueSup;
+						SolderesOnTable[ii].SoldierThinking.HuristicListSolder[j][4] += SolderesOnTable[ii].SoldierThinking.HuristicKillerValueSup;
+						SolderesOnTable[ii].SoldierThinking.HuristicListSolder[j][5] += SolderesOnTable[ii].SoldierThinking.HuristicReducedAttackValueSup;
+						SolderesOnTable[ii].SoldierThinking.HuristicListSolder[j][6] += SolderesOnTable[ii].SoldierThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+						SolderesOnTable[ii].SoldierThinking.HuristicListSolder[j][7] += SolderesOnTable[ii].SoldierThinking.HeuristicKingSafeSup;
+						SolderesOnTable[ii].SoldierThinking.HuristicListSolder[j][8] += SolderesOnTable[ii].SoldierThinking.HeuristicFromCenterSup;
+						SolderesOnTable[ii].SoldierThinking.HuristicListSolder[j][9] += SolderesOnTable[ii].SoldierThinking.HeuristicKingDangourSup;
 
 						AllDraw::OutPut = L"\r\nServed Soldeir!";
 					}
 				}
-				SolderesOnTable[ii]->SoldierThinking.HuristicAttackValueSup = 0;
-				SolderesOnTable[ii]->SoldierThinking.HuristicMovementValueSup = 0;
-				SolderesOnTable[ii]->SoldierThinking.HuristicSelfSupportedValueSup = 0;
-				SolderesOnTable[ii]->SoldierThinking.HuristicObjectDangourCheckMateValueSup = 0;
-				SolderesOnTable[ii]->SoldierThinking.HuristicKillerValueSup = 0;
-				SolderesOnTable[ii]->SoldierThinking.HuristicReducedAttackValueSup = 0;
-				SolderesOnTable[ii]->SoldierThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
-				SolderesOnTable[ii]->SoldierThinking.HeuristicKingSafeSup = 0;
-				SolderesOnTable[ii]->SoldierThinking.HeuristicFromCenterSup = 0;
-				SolderesOnTable[ii]->SoldierThinking.HeuristicKingDangourSup = 0;
-				SolderesOnTable[ii]->SoldierThinking.IsSup = false;
+				SolderesOnTable[ii].SoldierThinking.HuristicAttackValueSup = 0;
+				SolderesOnTable[ii].SoldierThinking.HuristicMovementValueSup = 0;
+				SolderesOnTable[ii].SoldierThinking.HuristicSelfSupportedValueSup = 0;
+				SolderesOnTable[ii].SoldierThinking.HuristicObjectDangourCheckMateValueSup = 0;
+				SolderesOnTable[ii].SoldierThinking.HuristicKillerValueSup = 0;
+				SolderesOnTable[ii].SoldierThinking.HuristicReducedAttackValueSup = 0;
+				SolderesOnTable[ii].SoldierThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+				SolderesOnTable[ii].SoldierThinking.HeuristicKingSafeSup = 0;
+				SolderesOnTable[ii].SoldierThinking.HeuristicFromCenterSup = 0;
+				SolderesOnTable[ii].SoldierThinking.HeuristicKingDangourSup = 0;
+				SolderesOnTable[ii].SoldierThinking.IsSup = false;
 			}
 		}
 		else
 		{
-			if (SolderesOnTable[ii]->SoldierThinking.IsSup)
+			if (SolderesOnTable[ii].SoldierThinking.IsSup)
 			{
 
 				for (int i = SodierMidle; i < SodierHigh; i++)
@@ -10587,35 +10590,35 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 					{
 						continue;
 					}
-					//int j = FoundTableIndex(this[ii].SoldierThinking.TableListSolder, SolderesOnTable[ii]->SoldierThinking.TableConst);
-					for (int j = 0; j < SolderesOnTable[ii]->SoldierThinking.HuristicListSolder.size(); j++)
+					//int j = FoundTableIndex(this[ii].SoldierThinking.TableListSolder, SolderesOnTable[ii].SoldierThinking.TableConst);
+					for (int j = 0; j < SolderesOnTable[ii].SoldierThinking.HuristicListSolder.size(); j++)
 					{
 
-						SolderesOnTable[ii]->SoldierThinking.HuristicListSolder[j][0] += SolderesOnTable[ii]->SoldierThinking.HuristicAttackValueSup;
-						SolderesOnTable[ii]->SoldierThinking.HuristicListSolder[j][1] += SolderesOnTable[ii]->SoldierThinking.HuristicMovementValueSup;
-						SolderesOnTable[ii]->SoldierThinking.HuristicListSolder[j][2] += SolderesOnTable[ii]->SoldierThinking.HuristicSelfSupportedValueSup;
-						SolderesOnTable[ii]->SoldierThinking.HuristicListSolder[j][3] += SolderesOnTable[ii]->SoldierThinking.HuristicObjectDangourCheckMateValueSup;
-						SolderesOnTable[ii]->SoldierThinking.HuristicListSolder[j][4] += SolderesOnTable[ii]->SoldierThinking.HuristicKillerValueSup;
-						SolderesOnTable[ii]->SoldierThinking.HuristicListSolder[j][5] += SolderesOnTable[ii]->SoldierThinking.HuristicReducedAttackValueSup;
-						SolderesOnTable[ii]->SoldierThinking.HuristicListSolder[j][6] += SolderesOnTable[ii]->SoldierThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
-						SolderesOnTable[ii]->SoldierThinking.HuristicListSolder[j][7] += SolderesOnTable[ii]->SoldierThinking.HeuristicKingSafeSup;
-						SolderesOnTable[ii]->SoldierThinking.HuristicListSolder[j][8] += SolderesOnTable[ii]->SoldierThinking.HeuristicFromCenterSup;
-						SolderesOnTable[ii]->SoldierThinking.HuristicListSolder[j][9] += SolderesOnTable[ii]->SoldierThinking.HeuristicKingDangourSup;
+						SolderesOnTable[ii].SoldierThinking.HuristicListSolder[j][0] += SolderesOnTable[ii].SoldierThinking.HuristicAttackValueSup;
+						SolderesOnTable[ii].SoldierThinking.HuristicListSolder[j][1] += SolderesOnTable[ii].SoldierThinking.HuristicMovementValueSup;
+						SolderesOnTable[ii].SoldierThinking.HuristicListSolder[j][2] += SolderesOnTable[ii].SoldierThinking.HuristicSelfSupportedValueSup;
+						SolderesOnTable[ii].SoldierThinking.HuristicListSolder[j][3] += SolderesOnTable[ii].SoldierThinking.HuristicObjectDangourCheckMateValueSup;
+						SolderesOnTable[ii].SoldierThinking.HuristicListSolder[j][4] += SolderesOnTable[ii].SoldierThinking.HuristicKillerValueSup;
+						SolderesOnTable[ii].SoldierThinking.HuristicListSolder[j][5] += SolderesOnTable[ii].SoldierThinking.HuristicReducedAttackValueSup;
+						SolderesOnTable[ii].SoldierThinking.HuristicListSolder[j][6] += SolderesOnTable[ii].SoldierThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+						SolderesOnTable[ii].SoldierThinking.HuristicListSolder[j][7] += SolderesOnTable[ii].SoldierThinking.HeuristicKingSafeSup;
+						SolderesOnTable[ii].SoldierThinking.HuristicListSolder[j][8] += SolderesOnTable[ii].SoldierThinking.HeuristicFromCenterSup;
+						SolderesOnTable[ii].SoldierThinking.HuristicListSolder[j][9] += SolderesOnTable[ii].SoldierThinking.HeuristicKingDangourSup;
 
 						AllDraw::OutPut = L"\r\nServed Soldeir!";
 					}
 				}
-				SolderesOnTable[ii]->SoldierThinking.HuristicAttackValueSup = 0;
-				SolderesOnTable[ii]->SoldierThinking.HuristicMovementValueSup = 0;
-				SolderesOnTable[ii]->SoldierThinking.HuristicSelfSupportedValueSup = 0;
-				SolderesOnTable[ii]->SoldierThinking.HuristicObjectDangourCheckMateValueSup = 0;
-				SolderesOnTable[ii]->SoldierThinking.HuristicKillerValueSup = 0;
-				SolderesOnTable[ii]->SoldierThinking.HuristicReducedAttackValueSup = 0;
-				SolderesOnTable[ii]->SoldierThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
-				SolderesOnTable[ii]->SoldierThinking.HeuristicKingSafeSup = 0;
-				SolderesOnTable[ii]->SoldierThinking.HeuristicFromCenterSup = 0;
-				SolderesOnTable[ii]->SoldierThinking.HeuristicKingDangourSup = 0;
-				SolderesOnTable[ii]->SoldierThinking.IsSup = false;
+				SolderesOnTable[ii].SoldierThinking.HuristicAttackValueSup = 0;
+				SolderesOnTable[ii].SoldierThinking.HuristicMovementValueSup = 0;
+				SolderesOnTable[ii].SoldierThinking.HuristicSelfSupportedValueSup = 0;
+				SolderesOnTable[ii].SoldierThinking.HuristicObjectDangourCheckMateValueSup = 0;
+				SolderesOnTable[ii].SoldierThinking.HuristicKillerValueSup = 0;
+				SolderesOnTable[ii].SoldierThinking.HuristicReducedAttackValueSup = 0;
+				SolderesOnTable[ii].SoldierThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+				SolderesOnTable[ii].SoldierThinking.HeuristicKingSafeSup = 0;
+				SolderesOnTable[ii].SoldierThinking.HeuristicFromCenterSup = 0;
+				SolderesOnTable[ii].SoldierThinking.HeuristicKingDangourSup = 0;
+				SolderesOnTable[ii].SoldierThinking.IsSup = false;
 			}
 		}
 	}
@@ -10623,7 +10626,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 	{
 		if (Order == 1)
 		{
-			if (ElephantOnTable[ii]->ElefantThinking.IsSup)
+			if (ElephantOnTable[ii].ElefantThinking.IsSup)
 			{
 				for (int i = 0; i < ElefantMidle; i++)
 				{
@@ -10633,42 +10636,42 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 					}
 					{
 						//if (this != null && this != null)
-							//int j = FoundTableIndex(this.ElephantOnTable[ii]->ElefantThinking.TableListElefant, ElephantOnTable[ii]->ElefantThinking.TableConst);
-						for (int j = 0; j < ElephantOnTable[ii]->ElefantThinking.HuristicListElefant.size(); j++)
+							//int j = FoundTableIndex(this.ElephantOnTable[ii].ElefantThinking.TableListElefant, ElephantOnTable[ii].ElefantThinking.TableConst);
+						for (int j = 0; j < ElephantOnTable[ii].ElefantThinking.HuristicListElefant.size(); j++)
 						{
 
-							ElephantOnTable[ii]->ElefantThinking.HuristicListElefant[j][0] += ElephantOnTable[ii]->ElefantThinking.HuristicAttackValueSup;
-							ElephantOnTable[ii]->ElefantThinking.HuristicListElefant[j][1] += ElephantOnTable[ii]->ElefantThinking.HuristicMovementValueSup;
-							ElephantOnTable[ii]->ElefantThinking.HuristicListElefant[j][2] += ElephantOnTable[ii]->ElefantThinking.HuristicSelfSupportedValueSup;
-							ElephantOnTable[ii]->ElefantThinking.HuristicListElefant[j][3] += ElephantOnTable[ii]->ElefantThinking.HuristicObjectDangourCheckMateValueSup;
-							ElephantOnTable[ii]->ElefantThinking.HuristicListElefant[j][4] += ElephantOnTable[ii]->ElefantThinking.HuristicKillerValueSup;
-							ElephantOnTable[ii]->ElefantThinking.HuristicListElefant[j][5] += ElephantOnTable[ii]->ElefantThinking.HuristicReducedAttackValueSup;
-							ElephantOnTable[ii]->ElefantThinking.HuristicListElefant[j][6] += ElephantOnTable[ii]->ElefantThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
-							ElephantOnTable[ii]->ElefantThinking.HuristicListElefant[j][7] += ElephantOnTable[ii]->ElefantThinking.HeuristicKingSafeSup;
-							ElephantOnTable[ii]->ElefantThinking.HuristicListElefant[j][8] += ElephantOnTable[ii]->ElefantThinking.HeuristicFromCenterSup;
-							ElephantOnTable[ii]->ElefantThinking.HuristicListElefant[j][9] += ElephantOnTable[ii]->ElefantThinking.HeuristicKingDangourSup;
+							ElephantOnTable[ii].ElefantThinking.HuristicListElefant[j][0] += ElephantOnTable[ii].ElefantThinking.HuristicAttackValueSup;
+							ElephantOnTable[ii].ElefantThinking.HuristicListElefant[j][1] += ElephantOnTable[ii].ElefantThinking.HuristicMovementValueSup;
+							ElephantOnTable[ii].ElefantThinking.HuristicListElefant[j][2] += ElephantOnTable[ii].ElefantThinking.HuristicSelfSupportedValueSup;
+							ElephantOnTable[ii].ElefantThinking.HuristicListElefant[j][3] += ElephantOnTable[ii].ElefantThinking.HuristicObjectDangourCheckMateValueSup;
+							ElephantOnTable[ii].ElefantThinking.HuristicListElefant[j][4] += ElephantOnTable[ii].ElefantThinking.HuristicKillerValueSup;
+							ElephantOnTable[ii].ElefantThinking.HuristicListElefant[j][5] += ElephantOnTable[ii].ElefantThinking.HuristicReducedAttackValueSup;
+							ElephantOnTable[ii].ElefantThinking.HuristicListElefant[j][6] += ElephantOnTable[ii].ElefantThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+							ElephantOnTable[ii].ElefantThinking.HuristicListElefant[j][7] += ElephantOnTable[ii].ElefantThinking.HeuristicKingSafeSup;
+							ElephantOnTable[ii].ElefantThinking.HuristicListElefant[j][8] += ElephantOnTable[ii].ElefantThinking.HeuristicFromCenterSup;
+							ElephantOnTable[ii].ElefantThinking.HuristicListElefant[j][9] += ElephantOnTable[ii].ElefantThinking.HeuristicKingDangourSup;
 
 							AllDraw::OutPut = L"\r\nServed Elephant!";
 						}
 					}
 				}
-				ElephantOnTable[ii]->ElefantThinking.HuristicAttackValueSup = 0;
-				ElephantOnTable[ii]->ElefantThinking.HuristicMovementValueSup = 0;
-				ElephantOnTable[ii]->ElefantThinking.HuristicSelfSupportedValueSup = 0;
-				ElephantOnTable[ii]->ElefantThinking.HuristicObjectDangourCheckMateValueSup = 0;
-				ElephantOnTable[ii]->ElefantThinking.HuristicKillerValueSup = 0;
-				ElephantOnTable[ii]->ElefantThinking.HuristicReducedAttackValueSup = 0;
-				ElephantOnTable[ii]->ElefantThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
-				ElephantOnTable[ii]->ElefantThinking.HeuristicKingSafeSup = 0;
-				ElephantOnTable[ii]->ElefantThinking.HeuristicFromCenterSup = 0;
-				ElephantOnTable[ii]->ElefantThinking.HeuristicKingDangourSup = 0;
-				ElephantOnTable[ii]->ElefantThinking.IsSup = false;
+				ElephantOnTable[ii].ElefantThinking.HuristicAttackValueSup = 0;
+				ElephantOnTable[ii].ElefantThinking.HuristicMovementValueSup = 0;
+				ElephantOnTable[ii].ElefantThinking.HuristicSelfSupportedValueSup = 0;
+				ElephantOnTable[ii].ElefantThinking.HuristicObjectDangourCheckMateValueSup = 0;
+				ElephantOnTable[ii].ElefantThinking.HuristicKillerValueSup = 0;
+				ElephantOnTable[ii].ElefantThinking.HuristicReducedAttackValueSup = 0;
+				ElephantOnTable[ii].ElefantThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+				ElephantOnTable[ii].ElefantThinking.HeuristicKingSafeSup = 0;
+				ElephantOnTable[ii].ElefantThinking.HeuristicFromCenterSup = 0;
+				ElephantOnTable[ii].ElefantThinking.HeuristicKingDangourSup = 0;
+				ElephantOnTable[ii].ElefantThinking.IsSup = false;
 			}
 		}
 		else
 		{
 
-			if (ElephantOnTable[ii]->ElefantThinking.IsSup)
+			if (ElephantOnTable[ii].ElefantThinking.IsSup)
 			{
 				for (int i = ElefantMidle; i < ElefantHigh; i++)
 				{
@@ -10678,36 +10681,36 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 					}
 					{
 						//if (this != null && this != null)
-							//int j = FoundTableIndex(this.ElephantOnTable[ii]->ElefantThinking.TableListElefant, ElephantOnTable[ii]->ElefantThinking.TableConst);
-						for (int j = 0; j < ElephantOnTable[ii]->ElefantThinking.HuristicListElefant.size(); j++)
+							//int j = FoundTableIndex(this.ElephantOnTable[ii].ElefantThinking.TableListElefant, ElephantOnTable[ii].ElefantThinking.TableConst);
+						for (int j = 0; j < ElephantOnTable[ii].ElefantThinking.HuristicListElefant.size(); j++)
 						{
 
-							ElephantOnTable[ii]->ElefantThinking.HuristicListElefant[j][0] += ElephantOnTable[ii]->ElefantThinking.HuristicAttackValueSup;
-							ElephantOnTable[ii]->ElefantThinking.HuristicListElefant[j][1] += ElephantOnTable[ii]->ElefantThinking.HuristicMovementValueSup;
-							ElephantOnTable[ii]->ElefantThinking.HuristicListElefant[j][2] += ElephantOnTable[ii]->ElefantThinking.HuristicSelfSupportedValueSup;
-							ElephantOnTable[ii]->ElefantThinking.HuristicListElefant[j][3] += ElephantOnTable[ii]->ElefantThinking.HuristicObjectDangourCheckMateValueSup;
-							ElephantOnTable[ii]->ElefantThinking.HuristicListElefant[j][4] += ElephantOnTable[ii]->ElefantThinking.HuristicKillerValueSup;
-							ElephantOnTable[ii]->ElefantThinking.HuristicListElefant[j][5] += ElephantOnTable[ii]->ElefantThinking.HuristicReducedAttackValueSup;
-							ElephantOnTable[ii]->ElefantThinking.HuristicListElefant[j][6] += ElephantOnTable[ii]->ElefantThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
-							ElephantOnTable[ii]->ElefantThinking.HuristicListElefant[j][7] += ElephantOnTable[ii]->ElefantThinking.HeuristicKingSafeSup;
-							ElephantOnTable[ii]->ElefantThinking.HuristicListElefant[j][8] += ElephantOnTable[ii]->ElefantThinking.HeuristicFromCenterSup;
-							ElephantOnTable[ii]->ElefantThinking.HuristicListElefant[j][9] += ElephantOnTable[ii]->ElefantThinking.HeuristicKingDangourSup;
+							ElephantOnTable[ii].ElefantThinking.HuristicListElefant[j][0] += ElephantOnTable[ii].ElefantThinking.HuristicAttackValueSup;
+							ElephantOnTable[ii].ElefantThinking.HuristicListElefant[j][1] += ElephantOnTable[ii].ElefantThinking.HuristicMovementValueSup;
+							ElephantOnTable[ii].ElefantThinking.HuristicListElefant[j][2] += ElephantOnTable[ii].ElefantThinking.HuristicSelfSupportedValueSup;
+							ElephantOnTable[ii].ElefantThinking.HuristicListElefant[j][3] += ElephantOnTable[ii].ElefantThinking.HuristicObjectDangourCheckMateValueSup;
+							ElephantOnTable[ii].ElefantThinking.HuristicListElefant[j][4] += ElephantOnTable[ii].ElefantThinking.HuristicKillerValueSup;
+							ElephantOnTable[ii].ElefantThinking.HuristicListElefant[j][5] += ElephantOnTable[ii].ElefantThinking.HuristicReducedAttackValueSup;
+							ElephantOnTable[ii].ElefantThinking.HuristicListElefant[j][6] += ElephantOnTable[ii].ElefantThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+							ElephantOnTable[ii].ElefantThinking.HuristicListElefant[j][7] += ElephantOnTable[ii].ElefantThinking.HeuristicKingSafeSup;
+							ElephantOnTable[ii].ElefantThinking.HuristicListElefant[j][8] += ElephantOnTable[ii].ElefantThinking.HeuristicFromCenterSup;
+							ElephantOnTable[ii].ElefantThinking.HuristicListElefant[j][9] += ElephantOnTable[ii].ElefantThinking.HeuristicKingDangourSup;
 
 							AllDraw::OutPut = L"\r\nServed Elephant!";
 						}
 					}
 				}
-				ElephantOnTable[ii]->ElefantThinking.HuristicAttackValueSup = 0;
-				ElephantOnTable[ii]->ElefantThinking.HuristicMovementValueSup = 0;
-				ElephantOnTable[ii]->ElefantThinking.HuristicSelfSupportedValueSup = 0;
-				ElephantOnTable[ii]->ElefantThinking.HuristicObjectDangourCheckMateValueSup = 0;
-				ElephantOnTable[ii]->ElefantThinking.HuristicKillerValueSup = 0;
-				ElephantOnTable[ii]->ElefantThinking.HuristicReducedAttackValueSup = 0;
-				ElephantOnTable[ii]->ElefantThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
-				ElephantOnTable[ii]->ElefantThinking.HeuristicKingSafeSup = 0;
-				ElephantOnTable[ii]->ElefantThinking.HeuristicFromCenterSup = 0;
-				ElephantOnTable[ii]->ElefantThinking.HeuristicKingDangourSup = 0;
-				ElephantOnTable[ii]->ElefantThinking.IsSup = false;
+				ElephantOnTable[ii].ElefantThinking.HuristicAttackValueSup = 0;
+				ElephantOnTable[ii].ElefantThinking.HuristicMovementValueSup = 0;
+				ElephantOnTable[ii].ElefantThinking.HuristicSelfSupportedValueSup = 0;
+				ElephantOnTable[ii].ElefantThinking.HuristicObjectDangourCheckMateValueSup = 0;
+				ElephantOnTable[ii].ElefantThinking.HuristicKillerValueSup = 0;
+				ElephantOnTable[ii].ElefantThinking.HuristicReducedAttackValueSup = 0;
+				ElephantOnTable[ii].ElefantThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+				ElephantOnTable[ii].ElefantThinking.HeuristicKingSafeSup = 0;
+				ElephantOnTable[ii].ElefantThinking.HeuristicFromCenterSup = 0;
+				ElephantOnTable[ii].ElefantThinking.HeuristicKingDangourSup = 0;
+				ElephantOnTable[ii].ElefantThinking.IsSup = false;
 			}
 		}
 	}
@@ -10715,7 +10718,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 	{
 		if (Order == 1)
 		{
-			if (HoursesOnTable[ii]->HourseThinking.IsSup)
+			if (HoursesOnTable[ii].HourseThinking.IsSup)
 			{
 				for (int i = 0; i < HourseMidle; i++)
 				{
@@ -10723,41 +10726,41 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 					{
 						continue;
 					}
-					//int j = FoundTableIndex(this.HoursesOnTable[ii]->HourseThinking.TableListHourse, HoursesOnTable[ii]->HourseThinking.TableConst);
-					for (int j = 0; j < HoursesOnTable[ii]->HourseThinking.HuristicListHourse.size(); j++)
+					//int j = FoundTableIndex(this.HoursesOnTable[ii].HourseThinking.TableListHourse, HoursesOnTable[ii].HourseThinking.TableConst);
+					for (int j = 0; j < HoursesOnTable[ii].HourseThinking.HuristicListHourse.size(); j++)
 					{
 
-						HoursesOnTable[ii]->HourseThinking.HuristicListHourse[j][0] += HoursesOnTable[ii]->HourseThinking.HuristicAttackValueSup;
-						HoursesOnTable[ii]->HourseThinking.HuristicListHourse[j][1] += HoursesOnTable[ii]->HourseThinking.HuristicMovementValueSup;
-						HoursesOnTable[ii]->HourseThinking.HuristicListHourse[j][2] += HoursesOnTable[ii]->HourseThinking.HuristicSelfSupportedValueSup;
-						HoursesOnTable[ii]->HourseThinking.HuristicListHourse[j][3] += HoursesOnTable[ii]->HourseThinking.HuristicObjectDangourCheckMateValueSup;
-						HoursesOnTable[ii]->HourseThinking.HuristicListHourse[j][4] += HoursesOnTable[ii]->HourseThinking.HuristicKillerValueSup;
-						HoursesOnTable[ii]->HourseThinking.HuristicListHourse[j][5] += HoursesOnTable[ii]->HourseThinking.HuristicReducedAttackValueSup;
-						HoursesOnTable[ii]->HourseThinking.HuristicListHourse[j][6] += HoursesOnTable[ii]->HourseThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
-						HoursesOnTable[ii]->HourseThinking.HuristicListHourse[j][7] += HoursesOnTable[ii]->HourseThinking.HeuristicKingSafeSup;
-						HoursesOnTable[ii]->HourseThinking.HuristicListHourse[j][8] += HoursesOnTable[ii]->HourseThinking.HeuristicFromCenterSup;
-						HoursesOnTable[ii]->HourseThinking.HuristicListHourse[j][9] += HoursesOnTable[ii]->HourseThinking.HeuristicKingDangourSup;
+						HoursesOnTable[ii].HourseThinking.HuristicListHourse[j][0] += HoursesOnTable[ii].HourseThinking.HuristicAttackValueSup;
+						HoursesOnTable[ii].HourseThinking.HuristicListHourse[j][1] += HoursesOnTable[ii].HourseThinking.HuristicMovementValueSup;
+						HoursesOnTable[ii].HourseThinking.HuristicListHourse[j][2] += HoursesOnTable[ii].HourseThinking.HuristicSelfSupportedValueSup;
+						HoursesOnTable[ii].HourseThinking.HuristicListHourse[j][3] += HoursesOnTable[ii].HourseThinking.HuristicObjectDangourCheckMateValueSup;
+						HoursesOnTable[ii].HourseThinking.HuristicListHourse[j][4] += HoursesOnTable[ii].HourseThinking.HuristicKillerValueSup;
+						HoursesOnTable[ii].HourseThinking.HuristicListHourse[j][5] += HoursesOnTable[ii].HourseThinking.HuristicReducedAttackValueSup;
+						HoursesOnTable[ii].HourseThinking.HuristicListHourse[j][6] += HoursesOnTable[ii].HourseThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+						HoursesOnTable[ii].HourseThinking.HuristicListHourse[j][7] += HoursesOnTable[ii].HourseThinking.HeuristicKingSafeSup;
+						HoursesOnTable[ii].HourseThinking.HuristicListHourse[j][8] += HoursesOnTable[ii].HourseThinking.HeuristicFromCenterSup;
+						HoursesOnTable[ii].HourseThinking.HuristicListHourse[j][9] += HoursesOnTable[ii].HourseThinking.HeuristicKingDangourSup;
 
 						AllDraw::OutPut = L"\r\nServed Hourse!";
 					}
 				}
-				HoursesOnTable[ii]->HourseThinking.HuristicAttackValueSup = 0;
-				HoursesOnTable[ii]->HourseThinking.HuristicMovementValueSup = 0;
-				HoursesOnTable[ii]->HourseThinking.HuristicSelfSupportedValueSup = 0;
-				HoursesOnTable[ii]->HourseThinking.HuristicObjectDangourCheckMateValueSup = 0;
-				HoursesOnTable[ii]->HourseThinking.HuristicKillerValueSup = 0;
-				HoursesOnTable[ii]->HourseThinking.HuristicReducedAttackValueSup = 0;
-				HoursesOnTable[ii]->HourseThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
-				HoursesOnTable[ii]->HourseThinking.HeuristicKingSafeSup = 0;
-				HoursesOnTable[ii]->HourseThinking.HeuristicFromCenterSup = 0;
-				HoursesOnTable[ii]->HourseThinking.HeuristicKingDangourSup = 0;
-				HoursesOnTable[ii]->HourseThinking.IsSup = false;
+				HoursesOnTable[ii].HourseThinking.HuristicAttackValueSup = 0;
+				HoursesOnTable[ii].HourseThinking.HuristicMovementValueSup = 0;
+				HoursesOnTable[ii].HourseThinking.HuristicSelfSupportedValueSup = 0;
+				HoursesOnTable[ii].HourseThinking.HuristicObjectDangourCheckMateValueSup = 0;
+				HoursesOnTable[ii].HourseThinking.HuristicKillerValueSup = 0;
+				HoursesOnTable[ii].HourseThinking.HuristicReducedAttackValueSup = 0;
+				HoursesOnTable[ii].HourseThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+				HoursesOnTable[ii].HourseThinking.HeuristicKingSafeSup = 0;
+				HoursesOnTable[ii].HourseThinking.HeuristicFromCenterSup = 0;
+				HoursesOnTable[ii].HourseThinking.HeuristicKingDangourSup = 0;
+				HoursesOnTable[ii].HourseThinking.IsSup = false;
 			}
 
 		}
 		else
 		{
-			if (HoursesOnTable[ii]->HourseThinking.IsSup)
+			if (HoursesOnTable[ii].HourseThinking.IsSup)
 			{
 				for (int i = HourseMidle; i < HourseHight; i++)
 				{
@@ -10765,35 +10768,35 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 					{
 						continue;
 					}
-					//int j = FoundTableIndex(this.HoursesOnTable[ii]->HourseThinking.TableListHourse, HoursesOnTable[ii]->HourseThinking.TableConst);
-					for (int j = 0; j < HoursesOnTable[ii]->HourseThinking.HuristicListHourse.size(); j++)
+					//int j = FoundTableIndex(this.HoursesOnTable[ii].HourseThinking.TableListHourse, HoursesOnTable[ii].HourseThinking.TableConst);
+					for (int j = 0; j < HoursesOnTable[ii].HourseThinking.HuristicListHourse.size(); j++)
 					{
 
-						HoursesOnTable[ii]->HourseThinking.HuristicListHourse[j][0] += HoursesOnTable[ii]->HourseThinking.HuristicAttackValueSup;
-						HoursesOnTable[ii]->HourseThinking.HuristicListHourse[j][1] += HoursesOnTable[ii]->HourseThinking.HuristicMovementValueSup;
-						HoursesOnTable[ii]->HourseThinking.HuristicListHourse[j][2] += HoursesOnTable[ii]->HourseThinking.HuristicSelfSupportedValueSup;
-						HoursesOnTable[ii]->HourseThinking.HuristicListHourse[j][3] += HoursesOnTable[ii]->HourseThinking.HuristicObjectDangourCheckMateValueSup;
-						HoursesOnTable[ii]->HourseThinking.HuristicListHourse[j][4] += HoursesOnTable[ii]->HourseThinking.HuristicKillerValueSup;
-						HoursesOnTable[ii]->HourseThinking.HuristicListHourse[j][5] += HoursesOnTable[ii]->HourseThinking.HuristicReducedAttackValueSup;
-						HoursesOnTable[ii]->HourseThinking.HuristicListHourse[j][6] += HoursesOnTable[ii]->HourseThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
-						HoursesOnTable[ii]->HourseThinking.HuristicListHourse[j][7] += HoursesOnTable[ii]->HourseThinking.HeuristicKingSafeSup;
-						HoursesOnTable[ii]->HourseThinking.HuristicListHourse[j][8] += HoursesOnTable[ii]->HourseThinking.HeuristicFromCenterSup;
-						HoursesOnTable[ii]->HourseThinking.HuristicListHourse[j][9] += HoursesOnTable[ii]->HourseThinking.HeuristicKingDangourSup;
+						HoursesOnTable[ii].HourseThinking.HuristicListHourse[j][0] += HoursesOnTable[ii].HourseThinking.HuristicAttackValueSup;
+						HoursesOnTable[ii].HourseThinking.HuristicListHourse[j][1] += HoursesOnTable[ii].HourseThinking.HuristicMovementValueSup;
+						HoursesOnTable[ii].HourseThinking.HuristicListHourse[j][2] += HoursesOnTable[ii].HourseThinking.HuristicSelfSupportedValueSup;
+						HoursesOnTable[ii].HourseThinking.HuristicListHourse[j][3] += HoursesOnTable[ii].HourseThinking.HuristicObjectDangourCheckMateValueSup;
+						HoursesOnTable[ii].HourseThinking.HuristicListHourse[j][4] += HoursesOnTable[ii].HourseThinking.HuristicKillerValueSup;
+						HoursesOnTable[ii].HourseThinking.HuristicListHourse[j][5] += HoursesOnTable[ii].HourseThinking.HuristicReducedAttackValueSup;
+						HoursesOnTable[ii].HourseThinking.HuristicListHourse[j][6] += HoursesOnTable[ii].HourseThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+						HoursesOnTable[ii].HourseThinking.HuristicListHourse[j][7] += HoursesOnTable[ii].HourseThinking.HeuristicKingSafeSup;
+						HoursesOnTable[ii].HourseThinking.HuristicListHourse[j][8] += HoursesOnTable[ii].HourseThinking.HeuristicFromCenterSup;
+						HoursesOnTable[ii].HourseThinking.HuristicListHourse[j][9] += HoursesOnTable[ii].HourseThinking.HeuristicKingDangourSup;
 
 						AllDraw::OutPut = L"\r\nServed Hourse!";
 					}
 				}
-				HoursesOnTable[ii]->HourseThinking.HuristicAttackValueSup = 0;
-				HoursesOnTable[ii]->HourseThinking.HuristicMovementValueSup = 0;
-				HoursesOnTable[ii]->HourseThinking.HuristicSelfSupportedValueSup = 0;
-				HoursesOnTable[ii]->HourseThinking.HuristicObjectDangourCheckMateValueSup = 0;
-				HoursesOnTable[ii]->HourseThinking.HuristicKillerValueSup = 0;
-				HoursesOnTable[ii]->HourseThinking.HuristicReducedAttackValueSup = 0;
-				HoursesOnTable[ii]->HourseThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
-				HoursesOnTable[ii]->HourseThinking.HeuristicKingSafeSup = 0;
-				HoursesOnTable[ii]->HourseThinking.HeuristicFromCenterSup = 0;
-				HoursesOnTable[ii]->HourseThinking.HeuristicKingDangourSup = 0;
-				HoursesOnTable[ii]->HourseThinking.IsSup = false;
+				HoursesOnTable[ii].HourseThinking.HuristicAttackValueSup = 0;
+				HoursesOnTable[ii].HourseThinking.HuristicMovementValueSup = 0;
+				HoursesOnTable[ii].HourseThinking.HuristicSelfSupportedValueSup = 0;
+				HoursesOnTable[ii].HourseThinking.HuristicObjectDangourCheckMateValueSup = 0;
+				HoursesOnTable[ii].HourseThinking.HuristicKillerValueSup = 0;
+				HoursesOnTable[ii].HourseThinking.HuristicReducedAttackValueSup = 0;
+				HoursesOnTable[ii].HourseThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+				HoursesOnTable[ii].HourseThinking.HeuristicKingSafeSup = 0;
+				HoursesOnTable[ii].HourseThinking.HeuristicFromCenterSup = 0;
+				HoursesOnTable[ii].HourseThinking.HeuristicKingDangourSup = 0;
+				HoursesOnTable[ii].HourseThinking.IsSup = false;
 			}
 		}
 	}
@@ -10801,7 +10804,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 	{
 		if (Order == 1)
 		{
-			if (CastlesOnTable[ii]->CastleThinking.IsSup)
+			if (CastlesOnTable[ii].CastleThinking.IsSup)
 			{
 				for (int i = 0; i < CastleMidle; i++)
 				{
@@ -10809,40 +10812,40 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 					{
 						continue;
 					}
-					//int j = FoundTableIndex(this.CastlesOnTable[ii]->CastleThinking.TableListCastle, CastlesOnTable[ii]->CastleThinking.TableConst);
-					for (int j = 0; j < CastlesOnTable[ii]->CastleThinking.HuristicListCastle.size(); j++)
+					//int j = FoundTableIndex(this.CastlesOnTable[ii].CastleThinking.TableListCastle, CastlesOnTable[ii].CastleThinking.TableConst);
+					for (int j = 0; j < CastlesOnTable[ii].CastleThinking.HuristicListCastle.size(); j++)
 					{
 
-						CastlesOnTable[ii]->CastleThinking.HuristicListCastle[j][0] += CastlesOnTable[ii]->CastleThinking.HuristicAttackValueSup;
-						CastlesOnTable[ii]->CastleThinking.HuristicListCastle[j][1] += CastlesOnTable[ii]->CastleThinking.HuristicMovementValueSup;
-						CastlesOnTable[ii]->CastleThinking.HuristicListCastle[j][2] += CastlesOnTable[ii]->CastleThinking.HuristicSelfSupportedValueSup;
-						CastlesOnTable[ii]->CastleThinking.HuristicListCastle[j][3] += CastlesOnTable[ii]->CastleThinking.HuristicObjectDangourCheckMateValueSup;
-						CastlesOnTable[ii]->CastleThinking.HuristicListCastle[j][4] += CastlesOnTable[ii]->CastleThinking.HuristicKillerValueSup;
-						CastlesOnTable[ii]->CastleThinking.HuristicListCastle[j][5] += CastlesOnTable[ii]->CastleThinking.HuristicReducedAttackValueSup;
-						CastlesOnTable[ii]->CastleThinking.HuristicListCastle[j][6] += CastlesOnTable[ii]->CastleThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
-						CastlesOnTable[ii]->CastleThinking.HuristicListCastle[j][7] += CastlesOnTable[ii]->CastleThinking.HeuristicKingSafeSup;
-						CastlesOnTable[ii]->CastleThinking.HuristicListCastle[j][8] += CastlesOnTable[ii]->CastleThinking.HeuristicFromCenterSup;
-						CastlesOnTable[ii]->CastleThinking.HuristicListCastle[j][9] += CastlesOnTable[ii]->CastleThinking.HeuristicKingDangourSup;
+						CastlesOnTable[ii].CastleThinking.HuristicListCastle[j][0] += CastlesOnTable[ii].CastleThinking.HuristicAttackValueSup;
+						CastlesOnTable[ii].CastleThinking.HuristicListCastle[j][1] += CastlesOnTable[ii].CastleThinking.HuristicMovementValueSup;
+						CastlesOnTable[ii].CastleThinking.HuristicListCastle[j][2] += CastlesOnTable[ii].CastleThinking.HuristicSelfSupportedValueSup;
+						CastlesOnTable[ii].CastleThinking.HuristicListCastle[j][3] += CastlesOnTable[ii].CastleThinking.HuristicObjectDangourCheckMateValueSup;
+						CastlesOnTable[ii].CastleThinking.HuristicListCastle[j][4] += CastlesOnTable[ii].CastleThinking.HuristicKillerValueSup;
+						CastlesOnTable[ii].CastleThinking.HuristicListCastle[j][5] += CastlesOnTable[ii].CastleThinking.HuristicReducedAttackValueSup;
+						CastlesOnTable[ii].CastleThinking.HuristicListCastle[j][6] += CastlesOnTable[ii].CastleThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+						CastlesOnTable[ii].CastleThinking.HuristicListCastle[j][7] += CastlesOnTable[ii].CastleThinking.HeuristicKingSafeSup;
+						CastlesOnTable[ii].CastleThinking.HuristicListCastle[j][8] += CastlesOnTable[ii].CastleThinking.HeuristicFromCenterSup;
+						CastlesOnTable[ii].CastleThinking.HuristicListCastle[j][9] += CastlesOnTable[ii].CastleThinking.HeuristicKingDangourSup;
 
 						AllDraw::OutPut = L"\r\nServed Castle!";
 					}
 				}
-				CastlesOnTable[ii]->CastleThinking.HuristicAttackValueSup = 0;
-				CastlesOnTable[ii]->CastleThinking.HuristicMovementValueSup = 0;
-				CastlesOnTable[ii]->CastleThinking.HuristicSelfSupportedValueSup = 0;
-				CastlesOnTable[ii]->CastleThinking.HuristicObjectDangourCheckMateValueSup = 0;
-				CastlesOnTable[ii]->CastleThinking.HuristicKillerValueSup = 0;
-				CastlesOnTable[ii]->CastleThinking.HuristicReducedAttackValueSup = 0;
-				CastlesOnTable[ii]->CastleThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
-				CastlesOnTable[ii]->CastleThinking.HeuristicKingSafeSup = 0;
-				CastlesOnTable[ii]->CastleThinking.HeuristicFromCenterSup = 0;
-				CastlesOnTable[ii]->CastleThinking.HeuristicKingDangourSup = 0;
-				CastlesOnTable[ii]->CastleThinking.IsSup = false;
+				CastlesOnTable[ii].CastleThinking.HuristicAttackValueSup = 0;
+				CastlesOnTable[ii].CastleThinking.HuristicMovementValueSup = 0;
+				CastlesOnTable[ii].CastleThinking.HuristicSelfSupportedValueSup = 0;
+				CastlesOnTable[ii].CastleThinking.HuristicObjectDangourCheckMateValueSup = 0;
+				CastlesOnTable[ii].CastleThinking.HuristicKillerValueSup = 0;
+				CastlesOnTable[ii].CastleThinking.HuristicReducedAttackValueSup = 0;
+				CastlesOnTable[ii].CastleThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+				CastlesOnTable[ii].CastleThinking.HeuristicKingSafeSup = 0;
+				CastlesOnTable[ii].CastleThinking.HeuristicFromCenterSup = 0;
+				CastlesOnTable[ii].CastleThinking.HeuristicKingDangourSup = 0;
+				CastlesOnTable[ii].CastleThinking.IsSup = false;
 			}
 		}
 		else
 		{
-			if (CastlesOnTable[ii]->CastleThinking.IsSup)
+			if (CastlesOnTable[ii].CastleThinking.IsSup)
 			{
 				for (int i = CastleMidle; i < CastleHigh; i++)
 				{
@@ -10850,35 +10853,35 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 					{
 						continue;
 					}
-					//int j = FoundTableIndex(this.CastlesOnTable[ii]->CastleThinking.TableListCastle, CastlesOnTable[ii]->CastleThinking.TableConst);
-					for (int j = 0; j < CastlesOnTable[ii]->CastleThinking.HuristicListCastle.size(); j++)
+					//int j = FoundTableIndex(this.CastlesOnTable[ii].CastleThinking.TableListCastle, CastlesOnTable[ii].CastleThinking.TableConst);
+					for (int j = 0; j < CastlesOnTable[ii].CastleThinking.HuristicListCastle.size(); j++)
 					{
 
-						CastlesOnTable[ii]->CastleThinking.HuristicListCastle[j][0] += CastlesOnTable[ii]->CastleThinking.HuristicAttackValueSup;
-						CastlesOnTable[ii]->CastleThinking.HuristicListCastle[j][1] += CastlesOnTable[ii]->CastleThinking.HuristicMovementValueSup;
-						CastlesOnTable[ii]->CastleThinking.HuristicListCastle[j][2] += CastlesOnTable[ii]->CastleThinking.HuristicSelfSupportedValueSup;
-						CastlesOnTable[ii]->CastleThinking.HuristicListCastle[j][3] += CastlesOnTable[ii]->CastleThinking.HuristicObjectDangourCheckMateValueSup;
-						CastlesOnTable[ii]->CastleThinking.HuristicListCastle[j][4] += CastlesOnTable[ii]->CastleThinking.HuristicKillerValueSup;
-						CastlesOnTable[ii]->CastleThinking.HuristicListCastle[j][5] += CastlesOnTable[ii]->CastleThinking.HuristicReducedAttackValueSup;
-						CastlesOnTable[ii]->CastleThinking.HuristicListCastle[j][6] += CastlesOnTable[ii]->CastleThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
-						CastlesOnTable[ii]->CastleThinking.HuristicListCastle[j][7] += CastlesOnTable[ii]->CastleThinking.HeuristicKingSafeSup;
-						CastlesOnTable[ii]->CastleThinking.HuristicListCastle[j][8] += CastlesOnTable[ii]->CastleThinking.HeuristicFromCenterSup;
-						CastlesOnTable[ii]->CastleThinking.HuristicListCastle[j][9] += CastlesOnTable[ii]->CastleThinking.HeuristicKingDangourSup;
+						CastlesOnTable[ii].CastleThinking.HuristicListCastle[j][0] += CastlesOnTable[ii].CastleThinking.HuristicAttackValueSup;
+						CastlesOnTable[ii].CastleThinking.HuristicListCastle[j][1] += CastlesOnTable[ii].CastleThinking.HuristicMovementValueSup;
+						CastlesOnTable[ii].CastleThinking.HuristicListCastle[j][2] += CastlesOnTable[ii].CastleThinking.HuristicSelfSupportedValueSup;
+						CastlesOnTable[ii].CastleThinking.HuristicListCastle[j][3] += CastlesOnTable[ii].CastleThinking.HuristicObjectDangourCheckMateValueSup;
+						CastlesOnTable[ii].CastleThinking.HuristicListCastle[j][4] += CastlesOnTable[ii].CastleThinking.HuristicKillerValueSup;
+						CastlesOnTable[ii].CastleThinking.HuristicListCastle[j][5] += CastlesOnTable[ii].CastleThinking.HuristicReducedAttackValueSup;
+						CastlesOnTable[ii].CastleThinking.HuristicListCastle[j][6] += CastlesOnTable[ii].CastleThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+						CastlesOnTable[ii].CastleThinking.HuristicListCastle[j][7] += CastlesOnTable[ii].CastleThinking.HeuristicKingSafeSup;
+						CastlesOnTable[ii].CastleThinking.HuristicListCastle[j][8] += CastlesOnTable[ii].CastleThinking.HeuristicFromCenterSup;
+						CastlesOnTable[ii].CastleThinking.HuristicListCastle[j][9] += CastlesOnTable[ii].CastleThinking.HeuristicKingDangourSup;
 
 						AllDraw::OutPut = L"\r\nServed Castle!";
 					}
 				}
-				CastlesOnTable[ii]->CastleThinking.HuristicAttackValueSup = 0;
-				CastlesOnTable[ii]->CastleThinking.HuristicMovementValueSup = 0;
-				CastlesOnTable[ii]->CastleThinking.HuristicSelfSupportedValueSup = 0;
-				CastlesOnTable[ii]->CastleThinking.HuristicObjectDangourCheckMateValueSup = 0;
-				CastlesOnTable[ii]->CastleThinking.HuristicKillerValueSup = 0;
-				CastlesOnTable[ii]->CastleThinking.HuristicReducedAttackValueSup = 0;
-				CastlesOnTable[ii]->CastleThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
-				CastlesOnTable[ii]->CastleThinking.HeuristicKingSafeSup = 0;
-				CastlesOnTable[ii]->CastleThinking.HeuristicFromCenterSup = 0;
-				CastlesOnTable[ii]->CastleThinking.HeuristicKingDangourSup = 0;
-				CastlesOnTable[ii]->CastleThinking.IsSup = false;
+				CastlesOnTable[ii].CastleThinking.HuristicAttackValueSup = 0;
+				CastlesOnTable[ii].CastleThinking.HuristicMovementValueSup = 0;
+				CastlesOnTable[ii].CastleThinking.HuristicSelfSupportedValueSup = 0;
+				CastlesOnTable[ii].CastleThinking.HuristicObjectDangourCheckMateValueSup = 0;
+				CastlesOnTable[ii].CastleThinking.HuristicKillerValueSup = 0;
+				CastlesOnTable[ii].CastleThinking.HuristicReducedAttackValueSup = 0;
+				CastlesOnTable[ii].CastleThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+				CastlesOnTable[ii].CastleThinking.HeuristicKingSafeSup = 0;
+				CastlesOnTable[ii].CastleThinking.HeuristicFromCenterSup = 0;
+				CastlesOnTable[ii].CastleThinking.HeuristicKingDangourSup = 0;
+				CastlesOnTable[ii].CastleThinking.IsSup = false;
 			}
 		}
 	}
@@ -10888,7 +10891,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 		{
 			if (Order == 1)
 			{
-				if (MinisterOnTable[ii]->MinisterThinking.IsSup)
+				if (MinisterOnTable[ii].MinisterThinking.IsSup)
 				{
 					for (int i = 0; i < MinisterMidle; i++)
 					{
@@ -10896,40 +10899,40 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 						{
 							continue;
 						}
-						//int j = FoundTableIndex(this.MinisterOnTable[ii]->MinisterThinking.TableListMinister, MinisterOnTable[ii]->MinisterThinking.TableConst);
-						for (int j = 0; j < MinisterOnTable[ii]->MinisterThinking.HuristicListMinister.size(); j++)
+						//int j = FoundTableIndex(this.MinisterOnTable[ii].MinisterThinking.TableListMinister, MinisterOnTable[ii].MinisterThinking.TableConst);
+						for (int j = 0; j < MinisterOnTable[ii].MinisterThinking.HuristicListMinister.size(); j++)
 						{
 
-							MinisterOnTable[ii]->MinisterThinking.HuristicListMinister[j][0] += MinisterOnTable[ii]->MinisterThinking.HuristicAttackValueSup;
-							MinisterOnTable[ii]->MinisterThinking.HuristicListMinister[j][1] += MinisterOnTable[ii]->MinisterThinking.HuristicMovementValueSup;
-							MinisterOnTable[ii]->MinisterThinking.HuristicListMinister[j][2] += MinisterOnTable[ii]->MinisterThinking.HuristicSelfSupportedValueSup;
-							MinisterOnTable[ii]->MinisterThinking.HuristicListMinister[j][3] += MinisterOnTable[ii]->MinisterThinking.HuristicObjectDangourCheckMateValueSup;
-							MinisterOnTable[ii]->MinisterThinking.HuristicListMinister[j][4] += MinisterOnTable[ii]->MinisterThinking.HuristicKillerValueSup;
-							MinisterOnTable[ii]->MinisterThinking.HuristicListMinister[j][5] += MinisterOnTable[ii]->MinisterThinking.HuristicReducedAttackValueSup;
-							MinisterOnTable[ii]->MinisterThinking.HuristicListMinister[j][6] += MinisterOnTable[ii]->MinisterThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
-							MinisterOnTable[ii]->MinisterThinking.HuristicListMinister[j][7] += MinisterOnTable[ii]->MinisterThinking.HeuristicKingSafeSup;
-							MinisterOnTable[ii]->MinisterThinking.HuristicListMinister[j][8] += MinisterOnTable[ii]->MinisterThinking.HeuristicFromCenterSup;
-							MinisterOnTable[ii]->MinisterThinking.HuristicListMinister[j][9] += MinisterOnTable[ii]->MinisterThinking.HeuristicKingDangourSup;
+							MinisterOnTable[ii].MinisterThinking.HuristicListMinister[j][0] += MinisterOnTable[ii].MinisterThinking.HuristicAttackValueSup;
+							MinisterOnTable[ii].MinisterThinking.HuristicListMinister[j][1] += MinisterOnTable[ii].MinisterThinking.HuristicMovementValueSup;
+							MinisterOnTable[ii].MinisterThinking.HuristicListMinister[j][2] += MinisterOnTable[ii].MinisterThinking.HuristicSelfSupportedValueSup;
+							MinisterOnTable[ii].MinisterThinking.HuristicListMinister[j][3] += MinisterOnTable[ii].MinisterThinking.HuristicObjectDangourCheckMateValueSup;
+							MinisterOnTable[ii].MinisterThinking.HuristicListMinister[j][4] += MinisterOnTable[ii].MinisterThinking.HuristicKillerValueSup;
+							MinisterOnTable[ii].MinisterThinking.HuristicListMinister[j][5] += MinisterOnTable[ii].MinisterThinking.HuristicReducedAttackValueSup;
+							MinisterOnTable[ii].MinisterThinking.HuristicListMinister[j][6] += MinisterOnTable[ii].MinisterThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+							MinisterOnTable[ii].MinisterThinking.HuristicListMinister[j][7] += MinisterOnTable[ii].MinisterThinking.HeuristicKingSafeSup;
+							MinisterOnTable[ii].MinisterThinking.HuristicListMinister[j][8] += MinisterOnTable[ii].MinisterThinking.HeuristicFromCenterSup;
+							MinisterOnTable[ii].MinisterThinking.HuristicListMinister[j][9] += MinisterOnTable[ii].MinisterThinking.HeuristicKingDangourSup;
 
 							AllDraw::OutPut = L"\r\nServed Minister!";
 						}
 					}
-					MinisterOnTable[ii]->MinisterThinking.HuristicAttackValueSup = 0;
-					MinisterOnTable[ii]->MinisterThinking.HuristicMovementValueSup = 0;
-					MinisterOnTable[ii]->MinisterThinking.HuristicSelfSupportedValueSup = 0;
-					MinisterOnTable[ii]->MinisterThinking.HuristicObjectDangourCheckMateValueSup = 0;
-					MinisterOnTable[ii]->MinisterThinking.HuristicKillerValueSup = 0;
-					MinisterOnTable[ii]->MinisterThinking.HuristicReducedAttackValueSup = 0;
-					MinisterOnTable[ii]->MinisterThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
-					MinisterOnTable[ii]->MinisterThinking.HeuristicKingSafeSup = 0;
-					MinisterOnTable[ii]->MinisterThinking.HeuristicFromCenterSup = 0;
-					MinisterOnTable[ii]->MinisterThinking.HeuristicKingDangourSup = 0;
-					MinisterOnTable[ii]->MinisterThinking.IsSup = false;
+					MinisterOnTable[ii].MinisterThinking.HuristicAttackValueSup = 0;
+					MinisterOnTable[ii].MinisterThinking.HuristicMovementValueSup = 0;
+					MinisterOnTable[ii].MinisterThinking.HuristicSelfSupportedValueSup = 0;
+					MinisterOnTable[ii].MinisterThinking.HuristicObjectDangourCheckMateValueSup = 0;
+					MinisterOnTable[ii].MinisterThinking.HuristicKillerValueSup = 0;
+					MinisterOnTable[ii].MinisterThinking.HuristicReducedAttackValueSup = 0;
+					MinisterOnTable[ii].MinisterThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+					MinisterOnTable[ii].MinisterThinking.HeuristicKingSafeSup = 0;
+					MinisterOnTable[ii].MinisterThinking.HeuristicFromCenterSup = 0;
+					MinisterOnTable[ii].MinisterThinking.HeuristicKingDangourSup = 0;
+					MinisterOnTable[ii].MinisterThinking.IsSup = false;
 				}
 			}
 			else
 			{
-				if (MinisterOnTable[ii]->MinisterThinking.IsSup)
+				if (MinisterOnTable[ii].MinisterThinking.IsSup)
 				{
 					for (int i = MinisterMidle; i < MinisterHigh; i++)
 					{
@@ -10937,35 +10940,35 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 						{
 							continue;
 						}
-						//int j = FoundTableIndex(this.MinisterOnTable[ii]->MinisterThinking.TableListMinister, MinisterOnTable[ii]->MinisterThinking.TableConst);
-						for (int j = 0; j < MinisterOnTable[ii]->MinisterThinking.HuristicListMinister.size(); j++)
+						//int j = FoundTableIndex(this.MinisterOnTable[ii].MinisterThinking.TableListMinister, MinisterOnTable[ii].MinisterThinking.TableConst);
+						for (int j = 0; j < MinisterOnTable[ii].MinisterThinking.HuristicListMinister.size(); j++)
 						{
 
-							MinisterOnTable[ii]->MinisterThinking.HuristicListMinister[j][0] += MinisterOnTable[ii]->MinisterThinking.HuristicAttackValueSup;
-							MinisterOnTable[ii]->MinisterThinking.HuristicListMinister[j][1] += MinisterOnTable[ii]->MinisterThinking.HuristicMovementValueSup;
-							MinisterOnTable[ii]->MinisterThinking.HuristicListMinister[j][2] += MinisterOnTable[ii]->MinisterThinking.HuristicSelfSupportedValueSup;
-							MinisterOnTable[ii]->MinisterThinking.HuristicListMinister[j][3] += MinisterOnTable[ii]->MinisterThinking.HuristicObjectDangourCheckMateValueSup;
-							MinisterOnTable[ii]->MinisterThinking.HuristicListMinister[j][4] += MinisterOnTable[ii]->MinisterThinking.HuristicKillerValueSup;
-							MinisterOnTable[ii]->MinisterThinking.HuristicListMinister[j][5] += MinisterOnTable[ii]->MinisterThinking.HuristicReducedAttackValueSup;
-							MinisterOnTable[ii]->MinisterThinking.HuristicListMinister[j][6] += MinisterOnTable[ii]->MinisterThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
-							MinisterOnTable[ii]->MinisterThinking.HuristicListMinister[j][7] += MinisterOnTable[ii]->MinisterThinking.HeuristicKingSafeSup;
-							MinisterOnTable[ii]->MinisterThinking.HuristicListMinister[j][8] += MinisterOnTable[ii]->MinisterThinking.HeuristicFromCenterSup;
-							MinisterOnTable[ii]->MinisterThinking.HuristicListMinister[j][9] += MinisterOnTable[ii]->MinisterThinking.HeuristicKingDangourSup;
+							MinisterOnTable[ii].MinisterThinking.HuristicListMinister[j][0] += MinisterOnTable[ii].MinisterThinking.HuristicAttackValueSup;
+							MinisterOnTable[ii].MinisterThinking.HuristicListMinister[j][1] += MinisterOnTable[ii].MinisterThinking.HuristicMovementValueSup;
+							MinisterOnTable[ii].MinisterThinking.HuristicListMinister[j][2] += MinisterOnTable[ii].MinisterThinking.HuristicSelfSupportedValueSup;
+							MinisterOnTable[ii].MinisterThinking.HuristicListMinister[j][3] += MinisterOnTable[ii].MinisterThinking.HuristicObjectDangourCheckMateValueSup;
+							MinisterOnTable[ii].MinisterThinking.HuristicListMinister[j][4] += MinisterOnTable[ii].MinisterThinking.HuristicKillerValueSup;
+							MinisterOnTable[ii].MinisterThinking.HuristicListMinister[j][5] += MinisterOnTable[ii].MinisterThinking.HuristicReducedAttackValueSup;
+							MinisterOnTable[ii].MinisterThinking.HuristicListMinister[j][6] += MinisterOnTable[ii].MinisterThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+							MinisterOnTable[ii].MinisterThinking.HuristicListMinister[j][7] += MinisterOnTable[ii].MinisterThinking.HeuristicKingSafeSup;
+							MinisterOnTable[ii].MinisterThinking.HuristicListMinister[j][8] += MinisterOnTable[ii].MinisterThinking.HeuristicFromCenterSup;
+							MinisterOnTable[ii].MinisterThinking.HuristicListMinister[j][9] += MinisterOnTable[ii].MinisterThinking.HeuristicKingDangourSup;
 
 							AllDraw::OutPut = L"\r\nServed Minister!";
 						}
 					}
-					MinisterOnTable[ii]->MinisterThinking.HuristicAttackValueSup = 0;
-					MinisterOnTable[ii]->MinisterThinking.HuristicMovementValueSup = 0;
-					MinisterOnTable[ii]->MinisterThinking.HuristicSelfSupportedValueSup = 0;
-					MinisterOnTable[ii]->MinisterThinking.HuristicObjectDangourCheckMateValueSup = 0;
-					MinisterOnTable[ii]->MinisterThinking.HuristicKillerValueSup = 0;
-					MinisterOnTable[ii]->MinisterThinking.HuristicReducedAttackValueSup = 0;
-					MinisterOnTable[ii]->MinisterThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
-					MinisterOnTable[ii]->MinisterThinking.HeuristicKingSafeSup = 0;
-					MinisterOnTable[ii]->MinisterThinking.HeuristicFromCenterSup = 0;
-					MinisterOnTable[ii]->MinisterThinking.HeuristicKingDangourSup = 0;
-					MinisterOnTable[ii]->MinisterThinking.IsSup = false;
+					MinisterOnTable[ii].MinisterThinking.HuristicAttackValueSup = 0;
+					MinisterOnTable[ii].MinisterThinking.HuristicMovementValueSup = 0;
+					MinisterOnTable[ii].MinisterThinking.HuristicSelfSupportedValueSup = 0;
+					MinisterOnTable[ii].MinisterThinking.HuristicObjectDangourCheckMateValueSup = 0;
+					MinisterOnTable[ii].MinisterThinking.HuristicKillerValueSup = 0;
+					MinisterOnTable[ii].MinisterThinking.HuristicReducedAttackValueSup = 0;
+					MinisterOnTable[ii].MinisterThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+					MinisterOnTable[ii].MinisterThinking.HeuristicKingSafeSup = 0;
+					MinisterOnTable[ii].MinisterThinking.HeuristicFromCenterSup = 0;
+					MinisterOnTable[ii].MinisterThinking.HeuristicKingDangourSup = 0;
+					MinisterOnTable[ii].MinisterThinking.IsSup = false;
 				}
 			}
 		}
@@ -10975,7 +10978,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 			{
 				if (Order == 1)
 				{
-					if (KingOnTable[ii]->KingThinking.IsSup)
+					if (KingOnTable[ii].KingThinking.IsSup)
 					{
 						for (int i = 0; i < KingMidle; i++)
 						{
@@ -10983,41 +10986,41 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 							{
 								continue;
 							}
-							//int j = FoundTableIndex(this.KingOnTable[ii]->KingThinking.TableListKing, KingOnTable[ii]->KingThinking.TableConst);
-							for (int j = 0; j < KingOnTable[ii]->KingThinking.HuristicListKing.size(); j++)
+							//int j = FoundTableIndex(this.KingOnTable[ii].KingThinking.TableListKing, KingOnTable[ii].KingThinking.TableConst);
+							for (int j = 0; j < KingOnTable[ii].KingThinking.HuristicListKing.size(); j++)
 							{
 
-								KingOnTable[ii]->KingThinking.HuristicListKing[j][0] += KingOnTable[ii]->KingThinking.HuristicAttackValueSup;
-								KingOnTable[ii]->KingThinking.HuristicListKing[j][1] += KingOnTable[ii]->KingThinking.HuristicMovementValueSup;
-								KingOnTable[ii]->KingThinking.HuristicListKing[j][2] += KingOnTable[ii]->KingThinking.HuristicSelfSupportedValueSup;
-								KingOnTable[ii]->KingThinking.HuristicListKing[j][3] += KingOnTable[ii]->KingThinking.HuristicObjectDangourCheckMateValueSup;
-								KingOnTable[ii]->KingThinking.HuristicListKing[j][4] += KingOnTable[ii]->KingThinking.HuristicKillerValueSup;
-								KingOnTable[ii]->KingThinking.HuristicListKing[j][5] += KingOnTable[ii]->KingThinking.HuristicReducedAttackValueSup;
-								KingOnTable[ii]->KingThinking.HuristicListKing[j][6] += KingOnTable[ii]->KingThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
-								KingOnTable[ii]->KingThinking.HuristicListKing[j][7] += KingOnTable[ii]->KingThinking.HeuristicKingSafeSup;
-								KingOnTable[ii]->KingThinking.HuristicListKing[j][8] += KingOnTable[ii]->KingThinking.HeuristicFromCenterSup;
-								KingOnTable[ii]->KingThinking.HuristicListKing[j][9] += KingOnTable[ii]->KingThinking.HeuristicKingDangourSup;
+								KingOnTable[ii].KingThinking.HuristicListKing[j][0] += KingOnTable[ii].KingThinking.HuristicAttackValueSup;
+								KingOnTable[ii].KingThinking.HuristicListKing[j][1] += KingOnTable[ii].KingThinking.HuristicMovementValueSup;
+								KingOnTable[ii].KingThinking.HuristicListKing[j][2] += KingOnTable[ii].KingThinking.HuristicSelfSupportedValueSup;
+								KingOnTable[ii].KingThinking.HuristicListKing[j][3] += KingOnTable[ii].KingThinking.HuristicObjectDangourCheckMateValueSup;
+								KingOnTable[ii].KingThinking.HuristicListKing[j][4] += KingOnTable[ii].KingThinking.HuristicKillerValueSup;
+								KingOnTable[ii].KingThinking.HuristicListKing[j][5] += KingOnTable[ii].KingThinking.HuristicReducedAttackValueSup;
+								KingOnTable[ii].KingThinking.HuristicListKing[j][6] += KingOnTable[ii].KingThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+								KingOnTable[ii].KingThinking.HuristicListKing[j][7] += KingOnTable[ii].KingThinking.HeuristicKingSafeSup;
+								KingOnTable[ii].KingThinking.HuristicListKing[j][8] += KingOnTable[ii].KingThinking.HeuristicFromCenterSup;
+								KingOnTable[ii].KingThinking.HuristicListKing[j][9] += KingOnTable[ii].KingThinking.HeuristicKingDangourSup;
 
 								AllDraw::OutPut = L"\r\nServed King!";
 							}
 						}
-						KingOnTable[ii]->KingThinking.HuristicAttackValueSup = 0;
-						KingOnTable[ii]->KingThinking.HuristicMovementValueSup = 0;
-						KingOnTable[ii]->KingThinking.HuristicSelfSupportedValueSup = 0;
-						KingOnTable[ii]->KingThinking.HuristicObjectDangourCheckMateValueSup = 0;
-						KingOnTable[ii]->KingThinking.HuristicKillerValueSup = 0;
-						KingOnTable[ii]->KingThinking.HuristicReducedAttackValueSup = 0;
-						KingOnTable[ii]->KingThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
-						KingOnTable[ii]->KingThinking.HeuristicKingSafeSup = 0;
-						KingOnTable[ii]->KingThinking.HeuristicFromCenterSup = 0;
-						KingOnTable[ii]->KingThinking.HeuristicKingDangourSup = 0;
+						KingOnTable[ii].KingThinking.HuristicAttackValueSup = 0;
+						KingOnTable[ii].KingThinking.HuristicMovementValueSup = 0;
+						KingOnTable[ii].KingThinking.HuristicSelfSupportedValueSup = 0;
+						KingOnTable[ii].KingThinking.HuristicObjectDangourCheckMateValueSup = 0;
+						KingOnTable[ii].KingThinking.HuristicKillerValueSup = 0;
+						KingOnTable[ii].KingThinking.HuristicReducedAttackValueSup = 0;
+						KingOnTable[ii].KingThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+						KingOnTable[ii].KingThinking.HeuristicKingSafeSup = 0;
+						KingOnTable[ii].KingThinking.HeuristicFromCenterSup = 0;
+						KingOnTable[ii].KingThinking.HeuristicKingDangourSup = 0;
 
-						KingOnTable[ii]->KingThinking.IsSup = false;
+						KingOnTable[ii].KingThinking.IsSup = false;
 					}
 				}
 				else
 				{
-					if (KingOnTable[ii]->KingThinking.IsSup)
+					if (KingOnTable[ii].KingThinking.IsSup)
 					{
 						for (int i = KingMidle; i < KingHigh; i++)
 						{
@@ -11025,36 +11028,36 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 							{
 								continue;
 							}
-							//int j = FoundTableIndex(this.KingOnTable[ii]->KingThinking.TableListKing, KingOnTable[ii]->KingThinking.TableConst);
-							for (int j = 0; j < KingOnTable[ii]->KingThinking.HuristicListKing.size(); j++)
+							//int j = FoundTableIndex(this.KingOnTable[ii].KingThinking.TableListKing, KingOnTable[ii].KingThinking.TableConst);
+							for (int j = 0; j < KingOnTable[ii].KingThinking.HuristicListKing.size(); j++)
 							{
 
-								KingOnTable[ii]->KingThinking.HuristicListKing[j][0] += KingOnTable[ii]->KingThinking.HuristicAttackValueSup;
-								KingOnTable[ii]->KingThinking.HuristicListKing[j][1] += KingOnTable[ii]->KingThinking.HuristicMovementValueSup;
-								KingOnTable[ii]->KingThinking.HuristicListKing[j][2] += KingOnTable[ii]->KingThinking.HuristicSelfSupportedValueSup;
-								KingOnTable[ii]->KingThinking.HuristicListKing[j][3] += KingOnTable[ii]->KingThinking.HuristicObjectDangourCheckMateValueSup;
-								KingOnTable[ii]->KingThinking.HuristicListKing[j][4] += KingOnTable[ii]->KingThinking.HuristicKillerValueSup;
-								KingOnTable[ii]->KingThinking.HuristicListKing[j][5] += KingOnTable[ii]->KingThinking.HuristicReducedAttackValueSup;
-								KingOnTable[ii]->KingThinking.HuristicListKing[j][6] += KingOnTable[ii]->KingThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
-								KingOnTable[ii]->KingThinking.HuristicListKing[j][7] += KingOnTable[ii]->KingThinking.HeuristicKingSafeSup;
-								KingOnTable[ii]->KingThinking.HuristicListKing[j][8] += KingOnTable[ii]->KingThinking.HeuristicFromCenterSup;
-								KingOnTable[ii]->KingThinking.HuristicListKing[j][9] += KingOnTable[ii]->KingThinking.HeuristicKingDangourSup;
+								KingOnTable[ii].KingThinking.HuristicListKing[j][0] += KingOnTable[ii].KingThinking.HuristicAttackValueSup;
+								KingOnTable[ii].KingThinking.HuristicListKing[j][1] += KingOnTable[ii].KingThinking.HuristicMovementValueSup;
+								KingOnTable[ii].KingThinking.HuristicListKing[j][2] += KingOnTable[ii].KingThinking.HuristicSelfSupportedValueSup;
+								KingOnTable[ii].KingThinking.HuristicListKing[j][3] += KingOnTable[ii].KingThinking.HuristicObjectDangourCheckMateValueSup;
+								KingOnTable[ii].KingThinking.HuristicListKing[j][4] += KingOnTable[ii].KingThinking.HuristicKillerValueSup;
+								KingOnTable[ii].KingThinking.HuristicListKing[j][5] += KingOnTable[ii].KingThinking.HuristicReducedAttackValueSup;
+								KingOnTable[ii].KingThinking.HuristicListKing[j][6] += KingOnTable[ii].KingThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+								KingOnTable[ii].KingThinking.HuristicListKing[j][7] += KingOnTable[ii].KingThinking.HeuristicKingSafeSup;
+								KingOnTable[ii].KingThinking.HuristicListKing[j][8] += KingOnTable[ii].KingThinking.HeuristicFromCenterSup;
+								KingOnTable[ii].KingThinking.HuristicListKing[j][9] += KingOnTable[ii].KingThinking.HeuristicKingDangourSup;
 
 								AllDraw::OutPut = L"\r\nServed King!";
 							}
 						}
-						KingOnTable[ii]->KingThinking.HuristicAttackValueSup = 0;
-						KingOnTable[ii]->KingThinking.HuristicMovementValueSup = 0;
-						KingOnTable[ii]->KingThinking.HuristicSelfSupportedValueSup = 0;
-						KingOnTable[ii]->KingThinking.HuristicObjectDangourCheckMateValueSup = 0;
-						KingOnTable[ii]->KingThinking.HuristicKillerValueSup = 0;
-						KingOnTable[ii]->KingThinking.HuristicReducedAttackValueSup = 0;
-						KingOnTable[ii]->KingThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
-						KingOnTable[ii]->KingThinking.HeuristicKingSafeSup = 0;
-						KingOnTable[ii]->KingThinking.HeuristicFromCenterSup = 0;
-						KingOnTable[ii]->KingThinking.HeuristicKingDangourSup = 0;
+						KingOnTable[ii].KingThinking.HuristicAttackValueSup = 0;
+						KingOnTable[ii].KingThinking.HuristicMovementValueSup = 0;
+						KingOnTable[ii].KingThinking.HuristicSelfSupportedValueSup = 0;
+						KingOnTable[ii].KingThinking.HuristicObjectDangourCheckMateValueSup = 0;
+						KingOnTable[ii].KingThinking.HuristicKillerValueSup = 0;
+						KingOnTable[ii].KingThinking.HuristicReducedAttackValueSup = 0;
+						KingOnTable[ii].KingThinking.HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+						KingOnTable[ii].KingThinking.HeuristicKingSafeSup = 0;
+						KingOnTable[ii].KingThinking.HeuristicFromCenterSup = 0;
+						KingOnTable[ii].KingThinking.HeuristicKingDangourSup = 0;
 
-						KingOnTable[ii]->KingThinking.IsSup = false;
+						KingOnTable[ii].KingThinking.IsSup = false;
 					}
 				}
 			}
@@ -11079,17 +11082,17 @@ void AllDraw::InitiateAStarGreedytSodlerGray(int iii, int jjj, int **Table, int 
 			ii = static_cast<int>(SolderesOnTable[i]->Row);
 			jj = static_cast<int>(SolderesOnTable[i]->Column);
 			//Construction of Thinking Gray Soldier By Local Variables.
-			if (SolderesOnTable[i]->SoldierThinking.TableListSolder.empty())
+			if (SolderesOnTable[i].SoldierThinking.TableListSolder.empty())
 			{
 				SolderesOnTable[i] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
 			}
 			//If There is no Thinking Movments on Current Object  
 
-			if (SolderesOnTable[i]->SoldierThinking.TableListSolder.empty())
+			if (SolderesOnTable[i].SoldierThinking.TableListSolder.empty())
 			{
-				SolderesOnTable[i]->SoldierThinking.ThinkingBegin = true;
-				SolderesOnTable[i]->SoldierThinking.ThinkingFinished = false;
-				SolderesOnTable[i]->SoldierThinking.Thinking(SolderesOnTable[i]->LoseOcuuredatChiled, SolderesOnTable[i]->WinOcuuredatChiled);
+				SolderesOnTable[i].SoldierThinking.ThinkingBegin = true;
+				SolderesOnTable[i].SoldierThinking.ThinkingFinished = false;
+				SolderesOnTable[i].SoldierThinking.Thinking(SolderesOnTable[i]->LoseOcuuredatChiled, SolderesOnTable[i]->WinOcuuredatChiled);
 				//ServeISSup(Order,1, i);
 			}
 		}
@@ -11113,16 +11116,16 @@ void AllDraw::InitiateAStarGreedytElephantGray(int iii, int jjj, int **Table, in
 			ii = static_cast<int>(ElephantOnTable[i]->Row);
 			jj = static_cast<int>(ElephantOnTable[i]->Column);
 			//Construction of Thinking Objects By Local Varibales.
-			if (ElephantOnTable[i]->ElefantThinking.TableListElefant.empty())
+			if (ElephantOnTable[i].ElefantThinking.TableListElefant.empty())
 			{
 				ElephantOnTable[i] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
 			}
 			//If There is Not Thinking Objetive List Elephant Gray. 
-			if (ElephantOnTable[i]->ElefantThinking.TableListElefant.empty())
+			if (ElephantOnTable[i].ElefantThinking.TableListElefant.empty())
 			{
-				ElephantOnTable[i]->ElefantThinking.ThinkingBegin = true;
-				ElephantOnTable[i]->ElefantThinking.ThinkingFinished = false;
-				ElephantOnTable[i]->ElefantThinking.Thinking(ElephantOnTable[i]->LoseOcuuredatChiled, ElephantOnTable[i]->WinOcuuredatChiled);
+				ElephantOnTable[i].ElefantThinking.ThinkingBegin = true;
+				ElephantOnTable[i].ElefantThinking.ThinkingFinished = false;
+				ElephantOnTable[i].ElefantThinking.Thinking(ElephantOnTable[i]->LoseOcuuredatChiled, ElephantOnTable[i]->WinOcuuredatChiled);
 				//ServeISSup(Order,2, i);
 
 			}
@@ -11149,16 +11152,16 @@ void AllDraw::InitiateAStarGreedythHourseGray(int iii, int jjj, int **Table, int
 			ii = static_cast<int>(HoursesOnTable[i]->Row);
 			jj = static_cast<int>(HoursesOnTable[i]->Column);
 			//Construction of Gray Hourse Thinking Objects..
-			if (HoursesOnTable[i]->HourseThinking.TableListHourse.empty())
+			if (HoursesOnTable[i].HourseThinking.TableListHourse.empty())
 			{
 				HoursesOnTable[i] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
 			}
 			//When There is Not HourseList Count. 
-			if (HoursesOnTable[i]->HourseThinking.TableListHourse.empty())
+			if (HoursesOnTable[i].HourseThinking.TableListHourse.empty())
 			{
-				HoursesOnTable[i]->HourseThinking.ThinkingBegin = true;
-				HoursesOnTable[i]->HourseThinking.ThinkingFinished = false;
-				HoursesOnTable[i]->HourseThinking.Thinking(HoursesOnTable[i]->LoseOcuuredatChiled, HoursesOnTable[i]->WinOcuuredatChiled);
+				HoursesOnTable[i].HourseThinking.ThinkingBegin = true;
+				HoursesOnTable[i].HourseThinking.ThinkingFinished = false;
+				HoursesOnTable[i].HourseThinking.Thinking(HoursesOnTable[i]->LoseOcuuredatChiled, HoursesOnTable[i]->WinOcuuredatChiled);
 
 
 			}
@@ -11183,17 +11186,17 @@ void AllDraw::InitiateAStarGreedythCastleGray(int iii, int jjj, int **Table, int
 			ii = static_cast<int>(CastlesOnTable[ii]->Row);
 			jj = static_cast<int>(CastlesOnTable[ii]->Column);
 			//Construction of Thinking Variables By Local Variables.
-			if (CastlesOnTable[ii]->CastleThinking.TableListCastle.empty())
+			if (CastlesOnTable[ii].CastleThinking.TableListCastle.empty())
 			{
 				CastlesOnTable[ii] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
 			}
 			//When Count of Table Castles of Thinking Not Exist Do Operational.
-			if (CastlesOnTable[ii]->CastleThinking.TableListCastle.empty())
+			if (CastlesOnTable[ii].CastleThinking.TableListCastle.empty())
 			{
 				//Thinking of Gray Castles Operational.
-				CastlesOnTable[ii]->CastleThinking.ThinkingBegin = true;
-				CastlesOnTable[ii]->CastleThinking.ThinkingFinished = false;
-				CastlesOnTable[ii]->CastleThinking.Thinking(CastlesOnTable[ii]->LoseOcuuredatChiled, CastlesOnTable[ii]->WinOcuuredatChiled);
+				CastlesOnTable[ii].CastleThinking.ThinkingBegin = true;
+				CastlesOnTable[ii].CastleThinking.ThinkingFinished = false;
+				CastlesOnTable[ii].CastleThinking.Thinking(CastlesOnTable[ii]->LoseOcuuredatChiled, CastlesOnTable[ii]->WinOcuuredatChiled);
 				//ServeISSup(Order,4, i);
 
 
@@ -11217,16 +11220,16 @@ void AllDraw::InitiateAStarGreedythMinisterGray(int iii, int jjj, int **Table, i
 			ii = static_cast<int>(MinisterOnTable[i]->Row);
 			jj = static_cast<int>(MinisterOnTable[i]->Column);
 			//Construction of Thinking Objects Gray Minister.
-			if (MinisterOnTable[i]->MinisterThinking.TableListMinister.empty())
+			if (MinisterOnTable[i].MinisterThinking.TableListMinister.empty())
 			{
 				MinisterOnTable[i] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
 			}
 			//If There is Not Minister Of Gray In The Thinking Table List.   
-			if (MinisterOnTable[i]->MinisterThinking.TableListMinister.empty())
+			if (MinisterOnTable[i].MinisterThinking.TableListMinister.empty())
 			{
-				MinisterOnTable[i]->MinisterThinking.ThinkingBegin = true;
-				MinisterOnTable[i]->MinisterThinking.ThinkingFinished = false;
-				MinisterOnTable[i]->MinisterThinking.Thinking(MinisterOnTable[i]->LoseOcuuredatChiled, MinisterOnTable[i]->WinOcuuredatChiled);
+				MinisterOnTable[i].MinisterThinking.ThinkingBegin = true;
+				MinisterOnTable[i].MinisterThinking.ThinkingFinished = false;
+				MinisterOnTable[i].MinisterThinking.Thinking(MinisterOnTable[i]->LoseOcuuredatChiled, MinisterOnTable[i]->WinOcuuredatChiled);
 
 			}
 
@@ -11249,17 +11252,17 @@ void AllDraw::InitiateAStarGreedythKingGray(int iii, int jjjj, int **Table, int 
 			ii = static_cast<int>(KingOnTable[i]->Row);
 			jj = static_cast<int>(KingOnTable[i]->Column);
 			//Construction of Gray King Thinking Objects.
-			if (KingOnTable[i]->KingThinking.TableListKing.empty())
+			if (KingOnTable[i].KingThinking.TableListKing.empty())
 			{
 				KingOnTable[i] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
 			}
 			//When There is Not Thinking Table Gray King Movments.
-			if (KingOnTable[i]->KingThinking.TableListKing.empty())
+			if (KingOnTable[i].KingThinking.TableListKing.empty())
 			{
 				//For All Possible Gray King Movments.
-				KingOnTable[i]->KingThinking.ThinkingBegin = true;
-				KingOnTable[i]->KingThinking.ThinkingFinished = false;
-				KingOnTable[i]->KingThinking.Thinking(KingOnTable[i]->LoseOcuuredatChiled, KingOnTable[i]->WinOcuuredatChiled);
+				KingOnTable[i].KingThinking.ThinkingBegin = true;
+				KingOnTable[i].KingThinking.ThinkingFinished = false;
+				KingOnTable[i].KingThinking.Thinking(KingOnTable[i]->LoseOcuuredatChiled, KingOnTable[i]->WinOcuuredatChiled);
 				//ServeISSup(Order,6, i);
 			}
 		}
@@ -11282,17 +11285,17 @@ void AllDraw::InitiateAStarGreedythSoldierBrown(int iii, int jjj, int **Table, i
 			ii = static_cast<int>(SolderesOnTable[i]->Row);
 			jj = static_cast<int>(SolderesOnTable[i]->Column);
 			//Construction of Thinking Brown Current Objects.
-			if (SolderesOnTable[i]->SoldierThinking.TableListSolder.empty())
+			if (SolderesOnTable[i].SoldierThinking.TableListSolder.empty())
 			{
 				SolderesOnTable[i] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
 			}
 			//When There is Current Brown Object Table List Thinking Objective Movments.
-			if (SolderesOnTable[i]->SoldierThinking.TableListSolder.empty())
+			if (SolderesOnTable[i].SoldierThinking.TableListSolder.empty())
 			{
 				//For Each Brown Possible Movments. 
-				SolderesOnTable[i]->SoldierThinking.ThinkingBegin = true;
-				SolderesOnTable[i]->SoldierThinking.ThinkingFinished = false;
-				SolderesOnTable[i]->SoldierThinking.Thinking(SolderesOnTable[i]->LoseOcuuredatChiled, SolderesOnTable[i]->WinOcuuredatChiled);
+				SolderesOnTable[i].SoldierThinking.ThinkingBegin = true;
+				SolderesOnTable[i].SoldierThinking.ThinkingFinished = false;
+				SolderesOnTable[i].SoldierThinking.Thinking(SolderesOnTable[i]->LoseOcuuredatChiled, SolderesOnTable[i]->WinOcuuredatChiled);
 				//ServeISSup(Order,1, i);
 			}
 
@@ -11313,18 +11316,18 @@ void AllDraw::InitiateAStarGreedythElephantBrown(int iii, int jjj, int **Table, 
 			ii = static_cast<int>(ElephantOnTable[i]->Row);
 			jj = static_cast<int>(ElephantOnTable[i]->Column);
 			//Construction of Thinking Brown Current Objects.
-			if (ElephantOnTable[i]->ElefantThinking.TableListElefant.empty())
+			if (ElephantOnTable[i].ElefantThinking.TableListElefant.empty())
 			{
 				ElephantOnTable[i] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
 			}
 			//When There is Current Brown Object Table List Thinking Objective Movments.
-			if (ElephantOnTable[i]->ElefantThinking.TableListElefant.empty())
+			if (ElephantOnTable[i].ElefantThinking.TableListElefant.empty())
 			{
 				//For Each Brown Possible Movments. 
 						//Thinking Operations of Brown Current Objects.
-				ElephantOnTable[i]->ElefantThinking.ThinkingBegin = true;
-				ElephantOnTable[i]->ElefantThinking.ThinkingFinished = false;
-				ElephantOnTable[i]->ElefantThinking.Thinking(ElephantOnTable[i]->LoseOcuuredatChiled, ElephantOnTable[i]->WinOcuuredatChiled);
+				ElephantOnTable[i].ElefantThinking.ThinkingBegin = true;
+				ElephantOnTable[i].ElefantThinking.ThinkingFinished = false;
+				ElephantOnTable[i].ElefantThinking.Thinking(ElephantOnTable[i]->LoseOcuuredatChiled, ElephantOnTable[i]->WinOcuuredatChiled);
 			}
 
 		}
@@ -11344,18 +11347,18 @@ void AllDraw::InitiateAStarGreedythHourseBrown(int iii, int jjj, int **Table, in
 			ii = static_cast<int>(HoursesOnTable[i]->Row);
 			jj = static_cast<int>(HoursesOnTable[i]->Column);
 			//Construction of Thinking Brown Current Objects.
-			if (HoursesOnTable[i]->HourseThinking.TableListHourse.empty())
+			if (HoursesOnTable[i].HourseThinking.TableListHourse.empty())
 			{
 				HoursesOnTable[i] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
 			}
 			//When There is Current Brown Object Table List Thinking Objective Movments.
-			if (HoursesOnTable[i]->HourseThinking.TableListHourse.empty())
+			if (HoursesOnTable[i].HourseThinking.TableListHourse.empty())
 			{
 				//For Each Brown Possible Movments. 
 						//Thinking Operations of Brown Current Objects.
-				HoursesOnTable[i]->HourseThinking.ThinkingBegin = true;
-				HoursesOnTable[i]->HourseThinking.ThinkingFinished = false;
-				HoursesOnTable[i]->HourseThinking.Thinking(HoursesOnTable[i]->LoseOcuuredatChiled, HoursesOnTable[i]->WinOcuuredatChiled);
+				HoursesOnTable[i].HourseThinking.ThinkingBegin = true;
+				HoursesOnTable[i].HourseThinking.ThinkingFinished = false;
+				HoursesOnTable[i].HourseThinking.Thinking(HoursesOnTable[i]->LoseOcuuredatChiled, HoursesOnTable[i]->WinOcuuredatChiled);
 
 			}
 		}
@@ -11375,17 +11378,17 @@ void AllDraw::InitiateAStarGreedythCastleBrown(int iii, int jjj, int **Table, in
 			ii = static_cast<int>(CastlesOnTable[ii]->Row);
 			jj = static_cast<int>(CastlesOnTable[ii]->Column);
 			//Construction of Thinking Brown Current Objects.
-			if (CastlesOnTable[ii]->CastleThinking.TableListCastle.empty())
+			if (CastlesOnTable[ii].CastleThinking.TableListCastle.empty())
 			{
 				CastlesOnTable[ii] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
 			}
 			//When There is Current Brown Object Table List Thinking Objective Movments.
-			if (CastlesOnTable[ii]->CastleThinking.TableListCastle.empty())
+			if (CastlesOnTable[ii].CastleThinking.TableListCastle.empty())
 			{
 				//Thinking Operations of Brown Current Objects.
-				CastlesOnTable[ii]->CastleThinking.ThinkingBegin = true;
-				CastlesOnTable[ii]->CastleThinking.ThinkingFinished = false;
-				CastlesOnTable[ii]->CastleThinking.Thinking(CastlesOnTable[ii]->LoseOcuuredatChiled, CastlesOnTable[ii]->WinOcuuredatChiled);
+				CastlesOnTable[ii].CastleThinking.ThinkingBegin = true;
+				CastlesOnTable[ii].CastleThinking.ThinkingFinished = false;
+				CastlesOnTable[ii].CastleThinking.Thinking(CastlesOnTable[ii]->LoseOcuuredatChiled, CastlesOnTable[ii]->WinOcuuredatChiled);
 
 			}
 		}
@@ -11406,18 +11409,18 @@ void AllDraw::InitiateAStarGreedythMinisterBrown(int iii, int jjj, int **Table, 
 			ii = static_cast<int>(MinisterOnTable[i]->Row);
 			jj = static_cast<int>(MinisterOnTable[i]->Column);
 			//Construction of Thinking Brown Current Objects.
-			if (MinisterOnTable[i]->MinisterThinking.TableListMinister.empty())
+			if (MinisterOnTable[i].MinisterThinking.TableListMinister.empty())
 			{
 				MinisterOnTable[i] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
 			}
 			//When There is Current Brown Object Table List Thinking Objective Movments.
-			if (MinisterOnTable[i]->MinisterThinking.TableListMinister.empty())
+			if (MinisterOnTable[i].MinisterThinking.TableListMinister.empty())
 			{
 				//For Each Brown Possible Movments. 
 				//Thinking Operations of Brown Current Objects.
-				MinisterOnTable[i]->MinisterThinking.ThinkingBegin = true;
-				MinisterOnTable[i]->MinisterThinking.ThinkingFinished = false;
-				MinisterOnTable[i]->MinisterThinking.Thinking(MinisterOnTable[i]->LoseOcuuredatChiled, MinisterOnTable[i]->WinOcuuredatChiled);
+				MinisterOnTable[i].MinisterThinking.ThinkingBegin = true;
+				MinisterOnTable[i].MinisterThinking.ThinkingFinished = false;
+				MinisterOnTable[i].MinisterThinking.Thinking(MinisterOnTable[i]->LoseOcuuredatChiled, MinisterOnTable[i]->WinOcuuredatChiled);
 			}
 		}
 	}
@@ -11436,20 +11439,20 @@ void AllDraw::InitiateAStarGreedythKingBrown(int iii, int jjj, int **Table, int 
 			ii = static_cast<int>(KingOnTable[i]->Row);
 			jj = static_cast<int>(KingOnTable[i]->Column);
 			//Construction of Thinking Brown Current Objects.
-			if (KingOnTable[i]->KingThinking.TableListKing.empty())
+			if (KingOnTable[i].KingThinking.TableListKing.empty())
 			{
 				KingOnTable[i] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
 			}
 
 
 			//When There is Current Brown Object Table List Thinking Objective Movments.
-			if (KingOnTable[i]->KingThinking.TableListKing.empty())
+			if (KingOnTable[i].KingThinking.TableListKing.empty())
 			{
 				//For Each Brown Possible Movments. 
 				//Thinking Operations of Brown Current Objects.
-				KingOnTable[i]->KingThinking.ThinkingBegin = true;
-				KingOnTable[i]->KingThinking.ThinkingFinished = false;
-				KingOnTable[i]->KingThinking.Thinking(KingOnTable[i]->LoseOcuuredatChiled, KingOnTable[i]->WinOcuuredatChiled);
+				KingOnTable[i].KingThinking.ThinkingBegin = true;
+				KingOnTable[i].KingThinking.ThinkingFinished = false;
+				KingOnTable[i].KingThinking.Thinking(KingOnTable[i]->LoseOcuuredatChiled, KingOnTable[i]->WinOcuuredatChiled);
 
 			}
 		}
@@ -11827,27 +11830,27 @@ void AllDraw::BlitzGameThinkingTreeSolderGray(double PreviousLessS, int* Index, 
 { //Soldeir
 	for (ik = 0; ik < SodierMidle; ik++)
 	{
-		if (SolderesOnTable == nullptr || (&(SolderesOnTable[ik]) == nullptr) || (&(SolderesOnTable[ik]->SoldierThinking) == nullptr) || (&(SolderesOnTable[ik]->SoldierThinking) == nullptr) || SolderesOnTable[ik]->SoldierThinking.IsSup)
+		if (SolderesOnTable == nullptr || (&(SolderesOnTable[ik]) == nullptr) || (&(SolderesOnTable[ik].SoldierThinking) == nullptr) || (&(SolderesOnTable[ik].SoldierThinking) == nullptr) || SolderesOnTable[ik].SoldierThinking.IsSup)
 		{
 			continue;
 		}
-		for (j = 0; j < SolderesOnTable[ik]->SoldierThinking.HuristicListSolder.size(); j++)
+		for (j = 0; j < SolderesOnTable[ik].SoldierThinking.HuristicListSolder.size(); j++)
 		{
 			if (AllDraw::OrderPlate == Order)
 			{
-				if (SolderesOnTable[ik]->SoldierThinking.ReturnHuristic(-1, j, Order, false) < PreviousLessS || (SolderesOnTable[ik]->SoldierThinking.PenaltyRegardListSolder[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+				if (SolderesOnTable[ik].SoldierThinking.ReturnHuristic(-1, j, Order, false) < PreviousLessS || (SolderesOnTable[ik].SoldierThinking.PenaltyRegardListSolder[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 				{
 
 				}
 				else
 				{
-					if (KingDan(SolderesOnTable[ik]->SoldierThinking.TableListSolder[j], Order))
+					if (KingDan(SolderesOnTable[ik].SoldierThinking.TableListSolder[j], Order))
 					{
 
 					}
 					else
 					{
-						PreviousLessS = SolderesOnTable[ik]->SoldierThinking.ReturnHuristic(-1, j, Order, false);
+						PreviousLessS = SolderesOnTable[ik].SoldierThinking.ReturnHuristic(-1, j, Order, false);
 						*(Index) = ik;
 						*(jIndex) = j;
 					}
@@ -11855,19 +11858,19 @@ void AllDraw::BlitzGameThinkingTreeSolderGray(double PreviousLessS, int* Index, 
 			}
 			else
 			{
-				if (SolderesOnTable[ik]->SoldierThinking.ReturnHuristic(-1, j, Order, false) > PreviousLessS || (SolderesOnTable[ik]->SoldierThinking.PenaltyRegardListSolder[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+				if (SolderesOnTable[ik].SoldierThinking.ReturnHuristic(-1, j, Order, false) > PreviousLessS || (SolderesOnTable[ik].SoldierThinking.PenaltyRegardListSolder[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 				{
 
 				}
 				else
 				{
-					if (KingDan(SolderesOnTable[ik]->SoldierThinking.TableListSolder[j], Order))
+					if (KingDan(SolderesOnTable[ik].SoldierThinking.TableListSolder[j], Order))
 					{
 
 					}
 					else
 					{
-						PreviousLessS = SolderesOnTable[ik]->SoldierThinking.ReturnHuristic(-1, j, Order, false);
+						PreviousLessS = SolderesOnTable[ik].SoldierThinking.ReturnHuristic(-1, j, Order, false);
 						*(Index) = ik;
 						*(jIndex) = j;
 					}
@@ -11882,31 +11885,31 @@ void AllDraw::BlitzGameThinkingTreeElephantGray(double PreviousLessE, int* Index
 { //Elephant
 	for (ik = 0; ik < ElefantMidle; ik++)
 	{
-		if (ElephantOnTable == nullptr || (&(ElephantOnTable[ik]) == nullptr) || (&(ElephantOnTable[ik]->ElefantThinking) == nullptr) || (&(ElephantOnTable[ik]->ElefantThinking) == nullptr) || ElephantOnTable[ik]->ElefantThinking.IsSup)
+		if (ElephantOnTable == nullptr || (&(ElephantOnTable[ik]) == nullptr) || (&(ElephantOnTable[ik].ElefantThinking) == nullptr) || (&(ElephantOnTable[ik].ElefantThinking) == nullptr) || ElephantOnTable[ik].ElefantThinking.IsSup)
 		{
 			continue;
 		}
-		for (j = 0; j < ElephantOnTable[ik]->ElefantThinking.HuristicListElefant.size(); j++)
+		for (j = 0; j < ElephantOnTable[ik].ElefantThinking.HuristicListElefant.size(); j++)
 		{
 			if (AllDraw::OrderPlate == Order)
 			{
-				if (ElephantOnTable[ik]->ElefantThinking.ReturnHuristic(-1, j, Order, false) < PreviousLessE || (ElephantOnTable[ik]->ElefantThinking.PenaltyRegardListElefant[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+				if (ElephantOnTable[ik].ElefantThinking.ReturnHuristic(-1, j, Order, false) < PreviousLessE || (ElephantOnTable[ik].ElefantThinking.PenaltyRegardListElefant[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 				{
-					//ElephantOnTable[ik]->ElefantThinking.AStarGreedy = null;
+					//ElephantOnTable[ik].ElefantThinking.AStarGreedy = null;
 					//ElephantOnTable[ik] = null;
 					continue;
 				}
 				else
 				{
-					if (KingDan(ElephantOnTable[ik]->ElefantThinking.TableListElefant[j], Order))
+					if (KingDan(ElephantOnTable[ik].ElefantThinking.TableListElefant[j], Order))
 					{
-						//ElephantOnTable[ik]->ElefantThinking.AStarGreedy = null;
+						//ElephantOnTable[ik].ElefantThinking.AStarGreedy = null;
 						//ElephantOnTable[ik] = null;
 						continue;
 					}
 					else
 					{
-						PreviousLessE = ElephantOnTable[ik]->ElefantThinking.ReturnHuristic(-1, j, Order, false);
+						PreviousLessE = ElephantOnTable[ik].ElefantThinking.ReturnHuristic(-1, j, Order, false);
 						Index[1] = ik;
 						jIndex[1] = j;
 					}
@@ -11914,23 +11917,23 @@ void AllDraw::BlitzGameThinkingTreeElephantGray(double PreviousLessE, int* Index
 			}
 			else
 			{
-				if (ElephantOnTable[ik]->ElefantThinking.ReturnHuristic(-1, j, Order, false) > PreviousLessE || (ElephantOnTable[ik]->ElefantThinking.PenaltyRegardListElefant[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+				if (ElephantOnTable[ik].ElefantThinking.ReturnHuristic(-1, j, Order, false) > PreviousLessE || (ElephantOnTable[ik].ElefantThinking.PenaltyRegardListElefant[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 				{
-					//ElephantOnTable[ik]->ElefantThinking.AStarGreedy = null;
+					//ElephantOnTable[ik].ElefantThinking.AStarGreedy = null;
 					//ElephantOnTable[ik] = null;
 					continue;
 				}
 				else
 				{
-					if (KingDan(ElephantOnTable[ik]->ElefantThinking.TableListElefant[j], Order))
+					if (KingDan(ElephantOnTable[ik].ElefantThinking.TableListElefant[j], Order))
 					{
-						//ElephantOnTable[ik]->ElefantThinking.AStarGreedy = null;
+						//ElephantOnTable[ik].ElefantThinking.AStarGreedy = null;
 						//ElephantOnTable[ik] = null;
 						continue;
 					}
 					else
 					{
-						PreviousLessE = ElephantOnTable[ik]->ElefantThinking.ReturnHuristic(-1, j, Order, false);
+						PreviousLessE = ElephantOnTable[ik].ElefantThinking.ReturnHuristic(-1, j, Order, false);
 						Index[1] = ik;
 						jIndex[1] = j;
 					}
@@ -11950,11 +11953,11 @@ void AllDraw::BlitzGameThinkingTreeHourseGray(double PreviousLessH, int* Index, 
 	{
 		//try
 		{
-			if (HoursesOnTable == nullptr || (&(HoursesOnTable[ik]) == nullptr) || (&(HoursesOnTable[ik]->HourseThinking) == nullptr) || (&(HoursesOnTable[ik]->HourseThinking) == nullptr) || HoursesOnTable[ik]->HourseThinking.IsSup)
+			if (HoursesOnTable == nullptr || (&(HoursesOnTable[ik]) == nullptr) || (&(HoursesOnTable[ik].HourseThinking) == nullptr) || (&(HoursesOnTable[ik].HourseThinking) == nullptr) || HoursesOnTable[ik].HourseThinking.IsSup)
 			{
 				continue;
 			}
-			for (j = 0; j < HoursesOnTable[ik]->HourseThinking.HuristicListHourse.size(); j++)
+			for (j = 0; j < HoursesOnTable[ik].HourseThinking.HuristicListHourse.size(); j++)
 			{
 				//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -11963,21 +11966,21 @@ void AllDraw::BlitzGameThinkingTreeHourseGray(double PreviousLessH, int* Index, 
 
 					if (AllDraw::OrderPlate == Order)
 					{
-						if (HoursesOnTable[ik]->HourseThinking.ReturnHuristic(-1, j, Order, false) < PreviousLessH || (HoursesOnTable[ik]->HourseThinking.PenaltyRegardListHourse[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+						if (HoursesOnTable[ik].HourseThinking.ReturnHuristic(-1, j, Order, false) < PreviousLessH || (HoursesOnTable[ik].HourseThinking.PenaltyRegardListHourse[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 						{
-							//HoursesOnTable[ik]->HourseThinking.AStarGreedy = null;
+							//HoursesOnTable[ik].HourseThinking.AStarGreedy = null;
 							continue;
 						}
 						else
 						{
-							if (KingDan(HoursesOnTable[ik]->HourseThinking.TableListHourse[j], Order))
+							if (KingDan(HoursesOnTable[ik].HourseThinking.TableListHourse[j], Order))
 							{
-								//HoursesOnTable[ik]->HourseThinking.AStarGreedy = null;
+								//HoursesOnTable[ik].HourseThinking.AStarGreedy = null;
 								continue;
 							}
 							else
 							{
-								PreviousLessH = HoursesOnTable[ik]->HourseThinking.ReturnHuristic(-1, j, Order, false);
+								PreviousLessH = HoursesOnTable[ik].HourseThinking.ReturnHuristic(-1, j, Order, false);
 								Index[2] = ik;
 								jIndex[2] = j;
 							}
@@ -11986,21 +11989,21 @@ void AllDraw::BlitzGameThinkingTreeHourseGray(double PreviousLessH, int* Index, 
 					else
 					{
 
-						if (HoursesOnTable[ik]->HourseThinking.ReturnHuristic(-1, j, Order, false) > PreviousLessH || (HoursesOnTable[ik]->HourseThinking.PenaltyRegardListHourse[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+						if (HoursesOnTable[ik].HourseThinking.ReturnHuristic(-1, j, Order, false) > PreviousLessH || (HoursesOnTable[ik].HourseThinking.PenaltyRegardListHourse[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 						{
-							//HoursesOnTable[ik]->HourseThinking.AStarGreedy = null;
+							//HoursesOnTable[ik].HourseThinking.AStarGreedy = null;
 							continue;
 						}
 						else
 						{
-							if (KingDan(HoursesOnTable[ik]->HourseThinking.TableListHourse[j], Order))
+							if (KingDan(HoursesOnTable[ik].HourseThinking.TableListHourse[j], Order))
 							{
-								//HoursesOnTable[ik]->HourseThinking.AStarGreedy = null;
+								//HoursesOnTable[ik].HourseThinking.AStarGreedy = null;
 								continue;
 							}
 							else
 							{
-								PreviousLessH = HoursesOnTable[ik]->HourseThinking.ReturnHuristic(-1, j, Order, false);
+								PreviousLessH = HoursesOnTable[ik].HourseThinking.ReturnHuristic(-1, j, Order, false);
 								Index[2] = ik;
 								jIndex[2] = j;
 							}
@@ -12023,11 +12026,11 @@ void AllDraw::BlitzGameThinkingTreeCastleGray(double PreviousLessB, int* Index, 
 	{
 		//try
 		{
-			if (CastlesOnTable == nullptr || (&(CastlesOnTable[ik]) == nullptr) || (&(CastlesOnTable[ik]->CastleThinking) == nullptr) || (&(CastlesOnTable[ik]->CastleThinking) == nullptr) || CastlesOnTable[ik]->CastleThinking.IsSup)
+			if (CastlesOnTable == nullptr || (&(CastlesOnTable[ik]) == nullptr) || (&(CastlesOnTable[ik].CastleThinking) == nullptr) || (&(CastlesOnTable[ik].CastleThinking) == nullptr) || CastlesOnTable[ik].CastleThinking.IsSup)
 			{
 				continue;
 			}
-			for (j = 0; j < CastlesOnTable[ik]->CastleThinking.HuristicListCastle.size(); j++)
+			for (j = 0; j < CastlesOnTable[ik].CastleThinking.HuristicListCastle.size(); j++)
 			{
 				//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -12035,25 +12038,25 @@ void AllDraw::BlitzGameThinkingTreeCastleGray(double PreviousLessB, int* Index, 
 				{
 					if (AllDraw::OrderPlate == Order)
 					{
-						if (CastlesOnTable[ik]->CastleThinking.ReturnHuristic(-1, j, Order, false) < PreviousLessB || (CastlesOnTable[ik]->CastleThinking.PenaltyRegardListCastle[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+						if (CastlesOnTable[ik].CastleThinking.ReturnHuristic(-1, j, Order, false) < PreviousLessB || (CastlesOnTable[ik].CastleThinking.PenaltyRegardListCastle[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 						{
 
-							//CastlesOnTable[ik]->CastleThinking.AStarGreedy = null;
+							//CastlesOnTable[ik].CastleThinking.AStarGreedy = null;
 							//CastlesOnTable[ik] = null;
 							continue;
 						}
 						else
 						{
-							if (KingDan(CastlesOnTable[ik]->CastleThinking.TableListCastle[j], Order))
+							if (KingDan(CastlesOnTable[ik].CastleThinking.TableListCastle[j], Order))
 							{
 
-								//CastlesOnTable[ik]->CastleThinking.AStarGreedy = null;
+								//CastlesOnTable[ik].CastleThinking.AStarGreedy = null;
 								//CastlesOnTable[ik] = null;
 								continue;
 							}
 							else
 							{
-								PreviousLessB = CastlesOnTable[ik]->CastleThinking.ReturnHuristic(-1, j, Order, false);
+								PreviousLessB = CastlesOnTable[ik].CastleThinking.ReturnHuristic(-1, j, Order, false);
 								Index[3] = ik;
 								jIndex[3] = j;
 							}
@@ -12061,25 +12064,25 @@ void AllDraw::BlitzGameThinkingTreeCastleGray(double PreviousLessB, int* Index, 
 					}
 					else
 					{
-						if (CastlesOnTable[ik]->CastleThinking.ReturnHuristic(-1, j, Order, false) > PreviousLessB || (CastlesOnTable[ik]->CastleThinking.PenaltyRegardListCastle[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+						if (CastlesOnTable[ik].CastleThinking.ReturnHuristic(-1, j, Order, false) > PreviousLessB || (CastlesOnTable[ik].CastleThinking.PenaltyRegardListCastle[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 						{
 
-							//CastlesOnTable[ik]->CastleThinking.AStarGreedy = null;
+							//CastlesOnTable[ik].CastleThinking.AStarGreedy = null;
 							//CastlesOnTable[ik] = null;
 							continue;
 						}
 						else
 						{
-							if (KingDan(CastlesOnTable[ik]->CastleThinking.TableListCastle[j], Order))
+							if (KingDan(CastlesOnTable[ik].CastleThinking.TableListCastle[j], Order))
 							{
 
-								//CastlesOnTable[ik]->CastleThinking.AStarGreedy = null;
+								//CastlesOnTable[ik].CastleThinking.AStarGreedy = null;
 								//CastlesOnTable[ik] = null;
 								continue;
 							}
 							else
 							{
-								PreviousLessB = CastlesOnTable[ik]->CastleThinking.ReturnHuristic(-1, j, Order, false);
+								PreviousLessB = CastlesOnTable[ik].CastleThinking.ReturnHuristic(-1, j, Order, false);
 								Index[3] = ik;
 								jIndex[3] = j;
 							}
@@ -12101,11 +12104,11 @@ void AllDraw::BlitzGameThinkingTreeMinisterGray(double PreviousLessM, int* Index
 	{
 		//try
 		{
-			if (MinisterOnTable == nullptr || (&(MinisterOnTable[ik]) == nullptr) || (&(MinisterOnTable[ik]->MinisterThinking) == nullptr) || (&(MinisterOnTable[ik]->MinisterThinking) == nullptr) || MinisterOnTable[ik]->MinisterThinking.IsSup)
+			if (MinisterOnTable == nullptr || (&(MinisterOnTable[ik]) == nullptr) || (&(MinisterOnTable[ik].MinisterThinking) == nullptr) || (&(MinisterOnTable[ik].MinisterThinking) == nullptr) || MinisterOnTable[ik].MinisterThinking.IsSup)
 			{
 				continue;
 			}
-			for (j = 0; j < MinisterOnTable[ik]->MinisterThinking.HuristicListMinister.size(); j++)
+			for (j = 0; j < MinisterOnTable[ik].MinisterThinking.HuristicListMinister.size(); j++)
 			{
 
 				//autoO = new Object();
@@ -12114,18 +12117,18 @@ void AllDraw::BlitzGameThinkingTreeMinisterGray(double PreviousLessM, int* Index
 				{
 					if (AllDraw::OrderPlate == Order)
 					{
-						if (MinisterOnTable[ik]->MinisterThinking.ReturnHuristic(-1, j, Order, false) < PreviousLessM || (MinisterOnTable[ik]->MinisterThinking.PenaltyRegardListMinister[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+						if (MinisterOnTable[ik].MinisterThinking.ReturnHuristic(-1, j, Order, false) < PreviousLessM || (MinisterOnTable[ik].MinisterThinking.PenaltyRegardListMinister[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 						{
-							// MinisterOnTable[ik]->MinisterThinking.AStarGreedy = null;
+							// MinisterOnTable[ik].MinisterThinking.AStarGreedy = null;
 							// MinisterOnTable[ik] = null;
 
 							// continue;
 						}
 						else
 						{
-							if (KingDan(MinisterOnTable[ik]->MinisterThinking.TableListMinister[j], Order))
+							if (KingDan(MinisterOnTable[ik].MinisterThinking.TableListMinister[j], Order))
 							{
-								// MinisterOnTable[ik]->MinisterThinking.AStarGreedy = null;
+								// MinisterOnTable[ik].MinisterThinking.AStarGreedy = null;
 								// MinisterOnTable[ik] = null;
 
 								// continue;
@@ -12134,24 +12137,24 @@ void AllDraw::BlitzGameThinkingTreeMinisterGray(double PreviousLessM, int* Index
 							{
 								Index[4] = ik;
 								jIndex[4] = j;
-								PreviousLessM = MinisterOnTable[ik]->MinisterThinking.ReturnHuristic(-1, j, Order, false);
+								PreviousLessM = MinisterOnTable[ik].MinisterThinking.ReturnHuristic(-1, j, Order, false);
 							}
 						}
 					}
 					else
 					{
-						if (MinisterOnTable[ik]->MinisterThinking.ReturnHuristic(-1, j, Order, false) > PreviousLessM || (MinisterOnTable[ik]->MinisterThinking.PenaltyRegardListMinister[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+						if (MinisterOnTable[ik].MinisterThinking.ReturnHuristic(-1, j, Order, false) > PreviousLessM || (MinisterOnTable[ik].MinisterThinking.PenaltyRegardListMinister[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 						{
-							// MinisterOnTable[ik]->MinisterThinking.AStarGreedy = null;
+							// MinisterOnTable[ik].MinisterThinking.AStarGreedy = null;
 							// MinisterOnTable[ik] = null;
 
 							// continue;
 						}
 						else
 						{
-							if (KingDan(MinisterOnTable[ik]->MinisterThinking.TableListMinister[j], Order))
+							if (KingDan(MinisterOnTable[ik].MinisterThinking.TableListMinister[j], Order))
 							{
-								// MinisterOnTable[ik]->MinisterThinking.AStarGreedy = null;
+								// MinisterOnTable[ik].MinisterThinking.AStarGreedy = null;
 								// MinisterOnTable[ik] = null;
 
 								// continue;
@@ -12160,7 +12163,7 @@ void AllDraw::BlitzGameThinkingTreeMinisterGray(double PreviousLessM, int* Index
 							{
 								Index[4] = ik;
 								jIndex[4] = j;
-								PreviousLessM = MinisterOnTable[ik]->MinisterThinking.ReturnHuristic(-1, j, Order, false);
+								PreviousLessM = MinisterOnTable[ik].MinisterThinking.ReturnHuristic(-1, j, Order, false);
 							}
 						}
 					}
@@ -12180,11 +12183,11 @@ void AllDraw::BlitzGameThinkingTreeKingGray(double PreviousLessK, int* Index, in
 	{
 		//try
 		{
-			if (KingOnTable == nullptr || (&(KingOnTable[ik]) == nullptr) || (&(KingOnTable[ik]->KingThinking) == nullptr) || (&(KingOnTable[ik]->KingThinking) == nullptr) || KingOnTable[ik]->KingThinking.IsSup)
+			if (KingOnTable == nullptr || (&(KingOnTable[ik]) == nullptr) || (&(KingOnTable[ik].KingThinking) == nullptr) || (&(KingOnTable[ik].KingThinking) == nullptr) || KingOnTable[ik].KingThinking.IsSup)
 			{
 				continue;
 			}
-			for (j = 0; j < KingOnTable[ik]->KingThinking.HuristicListKing.size(); j++)
+			for (j = 0; j < KingOnTable[ik].KingThinking.HuristicListKing.size(); j++)
 			{
 				//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -12192,17 +12195,17 @@ void AllDraw::BlitzGameThinkingTreeKingGray(double PreviousLessK, int* Index, in
 				{
 					if (AllDraw::OrderPlate == Order)
 					{
-						if (KingOnTable[ik]->KingThinking.ReturnHuristic(-1, j, Order, false) < PreviousLessK || (KingOnTable[ik]->KingThinking.PenaltyRegardListKing[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+						if (KingOnTable[ik].KingThinking.ReturnHuristic(-1, j, Order, false) < PreviousLessK || (KingOnTable[ik].KingThinking.PenaltyRegardListKing[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 						{
-							//KingOnTable[ik]->KingThinking.AStarGreedy = null;
+							//KingOnTable[ik].KingThinking.AStarGreedy = null;
 							//KingOnTable[ik] = null;
 							continue;
 						}
 						else
 						{
-							if (KingDan(KingOnTable[ik]->KingThinking.TableListKing[j], Order))
+							if (KingDan(KingOnTable[ik].KingThinking.TableListKing[j], Order))
 							{
-								//KingOnTable[ik]->KingThinking.AStarGreedy = null;
+								//KingOnTable[ik].KingThinking.AStarGreedy = null;
 								//KingOnTable[ik] = null;
 								continue;
 							}
@@ -12210,23 +12213,23 @@ void AllDraw::BlitzGameThinkingTreeKingGray(double PreviousLessK, int* Index, in
 							{
 								Index[5] = ik;
 								jIndex[5] = j;
-								PreviousLessK = KingOnTable[ik]->KingThinking.ReturnHuristic(-1, j, Order, false);
+								PreviousLessK = KingOnTable[ik].KingThinking.ReturnHuristic(-1, j, Order, false);
 							}
 						}
 					}
 					else
 					{
-						if (KingOnTable[ik]->KingThinking.ReturnHuristic(-1, j, Order, false) > PreviousLessK || (KingOnTable[ik]->KingThinking.PenaltyRegardListKing[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+						if (KingOnTable[ik].KingThinking.ReturnHuristic(-1, j, Order, false) > PreviousLessK || (KingOnTable[ik].KingThinking.PenaltyRegardListKing[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 						{
-							//KingOnTable[ik]->KingThinking.AStarGreedy = null;
+							//KingOnTable[ik].KingThinking.AStarGreedy = null;
 							//KingOnTable[ik] = null;
 							continue;
 						}
 						else
 						{
-							if (KingDan(KingOnTable[ik]->KingThinking.TableListKing[j], Order))
+							if (KingDan(KingOnTable[ik].KingThinking.TableListKing[j], Order))
 							{
-								//KingOnTable[ik]->KingThinking.AStarGreedy = null;
+								//KingOnTable[ik].KingThinking.AStarGreedy = null;
 								//KingOnTable[ik] = null;
 								continue;
 							}
@@ -12234,7 +12237,7 @@ void AllDraw::BlitzGameThinkingTreeKingGray(double PreviousLessK, int* Index, in
 							{
 								Index[5] = ik;
 								jIndex[5] = j;
-								PreviousLessK = KingOnTable[ik]->KingThinking.ReturnHuristic(-1, j, Order, false);
+								PreviousLessK = KingOnTable[ik].KingThinking.ReturnHuristic(-1, j, Order, false);
 							}
 						}
 					}
@@ -12258,18 +12261,18 @@ void AllDraw::BlitzGameTreeCreationThinkingSolder(int a, int* Index, int* jIndex
 
 		if (Index[0] != -1)
 		{
-			if (SolderesOnTable[Index[0]]->SoldierThinking.AStarGreedy.empty())
+			if (SolderesOnTable[Index[0]].SoldierThinking.AStarGreedy.empty())
 			{
-				SolderesOnTable[Index[0]]->SoldierThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+				SolderesOnTable[Index[0]].SoldierThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
 			}
-			SolderesOnTable[Index[0]]->SoldierThinking.AStarGreedy[SolderesOnTable[Index[0]]->SoldierThinking.AStarGreedy.size() - 1].TableList.clear();
-			SolderesOnTable[Index[0]]->SoldierThinking.AStarGreedy[SolderesOnTable[Index[0]]->SoldierThinking.AStarGreedy.size() - 1].TableList.push_back(SolderesOnTable[Index[0]]->SoldierThinking.TableListSolder[jIndex[0]]);
-			SolderesOnTable[Index[0]]->SoldierThinking.AStarGreedy[SolderesOnTable[Index[0]]->SoldierThinking.AStarGreedy.size() - 1].SetRowColumn(0);
-			//SolderesOnTable[Index[0]]->SoldierThinking.AStarGreedy[SolderesOnTable[Index[0]]->SoldierThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, SolderesOnTable[Index[0]]->SoldierThinking.TableListSolder[j][jIndex[0]], Order, false);
-			//ParameterizedThreadStart start = new ParameterizedThreadStart(SolderesOnTable[Index[0]]->SoldierThinking.AStarGreedy[SolderesOnTable[Index[0]]->SoldierThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt);
+			SolderesOnTable[Index[0]].SoldierThinking.AStarGreedy[SolderesOnTable[Index[0]].SoldierThinking.AStarGreedy.size() - 1].TableList.clear();
+			SolderesOnTable[Index[0]].SoldierThinking.AStarGreedy[SolderesOnTable[Index[0]].SoldierThinking.AStarGreedy.size() - 1].TableList.push_back(SolderesOnTable[Index[0]].SoldierThinking.TableListSolder[jIndex[0]]);
+			SolderesOnTable[Index[0]].SoldierThinking.AStarGreedy[SolderesOnTable[Index[0]].SoldierThinking.AStarGreedy.size() - 1].SetRowColumn(0);
+			//SolderesOnTable[Index[0]].SoldierThinking.AStarGreedy[SolderesOnTable[Index[0]].SoldierThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, SolderesOnTable[Index[0]].SoldierThinking.TableListSolder[j][jIndex[0]], Order, false);
+			//ParameterizedThreadStart start = new ParameterizedThreadStart(SolderesOnTable[Index[0]].SoldierThinking.AStarGreedy[SolderesOnTable[Index[0]].SoldierThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt);
 			//Task *array_Renamed = Task::Factory.StartNew([&] ()
 			//{
-			SolderesOnTable[Index[0]]->SoldierThinking.AStarGreedy[SolderesOnTable[Index[0]]->SoldierThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, SolderesOnTable[Index[0]]->SoldierThinking.RowColumnSoldier[jIndex[0]][0], SolderesOnTable[Index[0]]->SoldierThinking.RowColumnSoldier[jIndex[0]][1], a, SolderesOnTable[Index[0]]->SoldierThinking.TableListSolder[j], Order, false, FOUND, LeafAStarGreedy);
+			SolderesOnTable[Index[0]].SoldierThinking.AStarGreedy[SolderesOnTable[Index[0]].SoldierThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, SolderesOnTable[Index[0]].SoldierThinking.RowColumnSoldier[jIndex[0]][0], SolderesOnTable[Index[0]].SoldierThinking.RowColumnSoldier[jIndex[0]][1], a, SolderesOnTable[Index[0]].SoldierThinking.TableListSolder[j], Order, false, FOUND, LeafAStarGreedy);
 			//});
 			//autottttt = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -12296,16 +12299,16 @@ void AllDraw::BlitzGameTreeCreationThinkingElephant(int a, int* Index, int* jInd
 	{
 		if (Index[1] != -1)
 		{
-			if (ElephantOnTable[Index[1]]->ElefantThinking.AStarGreedy.empty())
+			if (ElephantOnTable[Index[1]].ElefantThinking.AStarGreedy.empty())
 			{
-				ElephantOnTable[Index[1]]->ElefantThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+				ElephantOnTable[Index[1]].ElefantThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
 			}
-			ElephantOnTable[Index[1]]->ElefantThinking.AStarGreedy[ElephantOnTable[Index[1]]->ElefantThinking.AStarGreedy.size() - 1].TableList.clear();
-			ElephantOnTable[Index[1]]->ElefantThinking.AStarGreedy[ElephantOnTable[Index[1]]->ElefantThinking.AStarGreedy.size() - 1].TableList.push_back(ElephantOnTable[Index[1]]->ElefantThinking.TableListElefant[jIndex[1]]);
-			ElephantOnTable[Index[1]]->ElefantThinking.AStarGreedy[ElephantOnTable[Index[1]]->ElefantThinking.AStarGreedy.size() - 1].SetRowColumn(0);
-			//ElephantOnTable[Index[1]]->ElefantThinking.AStarGreedy[ElephantOnTable[Index[1]]->ElefantThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, ElephantOnTable[Index[1]]->ElefantThinking.TableListElefant[jIndex[1]], Order, false);
-			//ParameterizedThreadStart start = new ParameterizedThreadStart(ElephantOnTable[Index[1]]->ElefantThinking.AStarGreedy[ElephantOnTable[Index[1]]->ElefantThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt);
-			ElephantOnTable[Index[1]]->ElefantThinking.AStarGreedy[ElephantOnTable[Index[1]]->ElefantThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ElephantOnTable[Index[1]]->ElefantThinking.RowColumnElefant[jIndex[1]][0], ElephantOnTable[Index[1]]->ElefantThinking.RowColumnElefant[jIndex[1]][1], a, ElephantOnTable[Index[1]]->ElefantThinking.TableListElefant[jIndex[1]], Order, false, FOUND, LeafAStarGreedy);
+			ElephantOnTable[Index[1]].ElefantThinking.AStarGreedy[ElephantOnTable[Index[1]].ElefantThinking.AStarGreedy.size() - 1].TableList.clear();
+			ElephantOnTable[Index[1]].ElefantThinking.AStarGreedy[ElephantOnTable[Index[1]].ElefantThinking.AStarGreedy.size() - 1].TableList.push_back(ElephantOnTable[Index[1]].ElefantThinking.TableListElefant[jIndex[1]]);
+			ElephantOnTable[Index[1]].ElefantThinking.AStarGreedy[ElephantOnTable[Index[1]].ElefantThinking.AStarGreedy.size() - 1].SetRowColumn(0);
+			//ElephantOnTable[Index[1]].ElefantThinking.AStarGreedy[ElephantOnTable[Index[1]].ElefantThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, ElephantOnTable[Index[1]].ElefantThinking.TableListElefant[jIndex[1]], Order, false);
+			//ParameterizedThreadStart start = new ParameterizedThreadStart(ElephantOnTable[Index[1]].ElefantThinking.AStarGreedy[ElephantOnTable[Index[1]].ElefantThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt);
+			ElephantOnTable[Index[1]].ElefantThinking.AStarGreedy[ElephantOnTable[Index[1]].ElefantThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ElephantOnTable[Index[1]].ElefantThinking.RowColumnElefant[jIndex[1]][0], ElephantOnTable[Index[1]].ElefantThinking.RowColumnElefant[jIndex[1]][1], a, ElephantOnTable[Index[1]].ElefantThinking.TableListElefant[jIndex[1]], Order, false, FOUND, LeafAStarGreedy);
 
 		}
 	}
@@ -12320,15 +12323,15 @@ void AllDraw::BlitzGameTreeCreationThinkingHourse(int a, int* Index, int* jIndex
 	{
 		if (Index[2] != -1)
 		{
-			if (HoursesOnTable[Index[2]]->HourseThinking.AStarGreedy.empty())
+			if (HoursesOnTable[Index[2]].HourseThinking.AStarGreedy.empty())
 			{
-				HoursesOnTable[Index[2]]->HourseThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+				HoursesOnTable[Index[2]].HourseThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
 			}
-			HoursesOnTable[Index[2]]->HourseThinking.AStarGreedy[HoursesOnTable[Index[2]]->HourseThinking.AStarGreedy.size() - 1].TableList.clear();
+			HoursesOnTable[Index[2]].HourseThinking.AStarGreedy[HoursesOnTable[Index[2]].HourseThinking.AStarGreedy.size() - 1].TableList.clear();
 
-			HoursesOnTable[Index[2]]->HourseThinking.AStarGreedy[HoursesOnTable[Index[2]]->HourseThinking.AStarGreedy.size() - 1].TableList.push_back(HoursesOnTable[Index[2]]->HourseThinking.TableListHourse[jIndex[2]]);
-			HoursesOnTable[Index[2]]->HourseThinking.AStarGreedy[HoursesOnTable[Index[2]]->HourseThinking.AStarGreedy.size() - 1].SetRowColumn(0);
-			HoursesOnTable[Index[2]]->HourseThinking.AStarGreedy[HoursesOnTable[Index[2]]->HourseThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, HoursesOnTable[Index[2]]->HourseThinking.RowColumnHourse[jIndex[2]][0], HoursesOnTable[Index[2]]->HourseThinking.RowColumnHourse[jIndex[2]][1], a, HoursesOnTable[Index[2]]->HourseThinking.TableListHourse[jIndex[2]], Order, false, FOUND, LeafAStarGreedy);
+			HoursesOnTable[Index[2]].HourseThinking.AStarGreedy[HoursesOnTable[Index[2]].HourseThinking.AStarGreedy.size() - 1].TableList.push_back(HoursesOnTable[Index[2]].HourseThinking.TableListHourse[jIndex[2]]);
+			HoursesOnTable[Index[2]].HourseThinking.AStarGreedy[HoursesOnTable[Index[2]].HourseThinking.AStarGreedy.size() - 1].SetRowColumn(0);
+			HoursesOnTable[Index[2]].HourseThinking.AStarGreedy[HoursesOnTable[Index[2]].HourseThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, HoursesOnTable[Index[2]].HourseThinking.RowColumnHourse[jIndex[2]][0], HoursesOnTable[Index[2]].HourseThinking.RowColumnHourse[jIndex[2]][1], a, HoursesOnTable[Index[2]].HourseThinking.TableListHourse[jIndex[2]], Order, false, FOUND, LeafAStarGreedy);
 
 		}
 	}
@@ -12343,15 +12346,15 @@ void AllDraw::BlitzGameTreeCreationThinkingCastle(int a, int* Index, int* jIndex
 	{
 		if (Index[3] != -1)
 		{
-			if (CastlesOnTable[Index[3]]->CastleThinking.AStarGreedy.empty())
+			if (CastlesOnTable[Index[3]].CastleThinking.AStarGreedy.empty())
 			{
-				CastlesOnTable[Index[3]]->CastleThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+				CastlesOnTable[Index[3]].CastleThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
 			}
-			CastlesOnTable[Index[3]]->CastleThinking.AStarGreedy[CastlesOnTable[Index[3]]->CastleThinking.AStarGreedy.size() - 1].TableList.clear();
-			CastlesOnTable[Index[3]]->CastleThinking.AStarGreedy[CastlesOnTable[Index[3]]->CastleThinking.AStarGreedy.size() - 1].TableList.push_back(CastlesOnTable[Index[3]]->CastleThinking.TableListCastle[jIndex[3]]);
-			CastlesOnTable[Index[3]]->CastleThinking.AStarGreedy[CastlesOnTable[Index[3]]->CastleThinking.AStarGreedy.size() - 1].SetRowColumn(0);
+			CastlesOnTable[Index[3]].CastleThinking.AStarGreedy[CastlesOnTable[Index[3]].CastleThinking.AStarGreedy.size() - 1].TableList.clear();
+			CastlesOnTable[Index[3]].CastleThinking.AStarGreedy[CastlesOnTable[Index[3]].CastleThinking.AStarGreedy.size() - 1].TableList.push_back(CastlesOnTable[Index[3]].CastleThinking.TableListCastle[jIndex[3]]);
+			CastlesOnTable[Index[3]].CastleThinking.AStarGreedy[CastlesOnTable[Index[3]].CastleThinking.AStarGreedy.size() - 1].SetRowColumn(0);
 
-			CastlesOnTable[Index[3]]->CastleThinking.AStarGreedy[CastlesOnTable[Index[3]]->CastleThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, CastlesOnTable[Index[3]]->CastleThinking.RowColumnCastle[jIndex[3]][0], CastlesOnTable[Index[3]]->CastleThinking.RowColumnCastle[jIndex[3]][1], a, CastlesOnTable[Index[3]]->CastleThinking.TableListCastle[jIndex[3]], Order, false, FOUND, LeafAStarGreedy);
+			CastlesOnTable[Index[3]].CastleThinking.AStarGreedy[CastlesOnTable[Index[3]].CastleThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, CastlesOnTable[Index[3]].CastleThinking.RowColumnCastle[jIndex[3]][0], CastlesOnTable[Index[3]].CastleThinking.RowColumnCastle[jIndex[3]][1], a, CastlesOnTable[Index[3]].CastleThinking.TableListCastle[jIndex[3]], Order, false, FOUND, LeafAStarGreedy);
 		}
 	}
 }
@@ -12364,14 +12367,14 @@ void AllDraw::BlitzGameTreeCreationThinkingMinister(int a, int* Index, int* jInd
 	{
 		if (Index[4] != -1)
 		{
-			if (MinisterOnTable[Index[4]]->MinisterThinking.AStarGreedy.empty())
+			if (MinisterOnTable[Index[4]].MinisterThinking.AStarGreedy.empty())
 			{
-				MinisterOnTable[Index[4]]->MinisterThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+				MinisterOnTable[Index[4]].MinisterThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
 			}
-			MinisterOnTable[Index[4]]->MinisterThinking.AStarGreedy[MinisterOnTable[Index[4]]->MinisterThinking.AStarGreedy.size() - 1].TableList.clear();
-			MinisterOnTable[Index[4]]->MinisterThinking.AStarGreedy[MinisterOnTable[Index[4]]->MinisterThinking.AStarGreedy.size() - 1].TableList.push_back(MinisterOnTable[Index[4]]->MinisterThinking.TableListMinister[jIndex[4]]);
-			MinisterOnTable[Index[4]]->MinisterThinking.AStarGreedy[MinisterOnTable[Index[4]]->MinisterThinking.AStarGreedy.size() - 1].SetRowColumn(0);
-			MinisterOnTable[Index[4]]->MinisterThinking.AStarGreedy[MinisterOnTable[Index[4]]->MinisterThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, MinisterOnTable[Index[4]]->MinisterThinking.RowColumnMinister[jIndex[4]][0], MinisterOnTable[Index[4]]->MinisterThinking.RowColumnMinister[jIndex[4]][1], a, MinisterOnTable[Index[4]]->MinisterThinking.TableListMinister[jIndex[4]], Order, false, FOUND, LeafAStarGreedy);
+			MinisterOnTable[Index[4]].MinisterThinking.AStarGreedy[MinisterOnTable[Index[4]].MinisterThinking.AStarGreedy.size() - 1].TableList.clear();
+			MinisterOnTable[Index[4]].MinisterThinking.AStarGreedy[MinisterOnTable[Index[4]].MinisterThinking.AStarGreedy.size() - 1].TableList.push_back(MinisterOnTable[Index[4]].MinisterThinking.TableListMinister[jIndex[4]]);
+			MinisterOnTable[Index[4]].MinisterThinking.AStarGreedy[MinisterOnTable[Index[4]].MinisterThinking.AStarGreedy.size() - 1].SetRowColumn(0);
+			MinisterOnTable[Index[4]].MinisterThinking.AStarGreedy[MinisterOnTable[Index[4]].MinisterThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, MinisterOnTable[Index[4]].MinisterThinking.RowColumnMinister[jIndex[4]][0], MinisterOnTable[Index[4]].MinisterThinking.RowColumnMinister[jIndex[4]][1], a, MinisterOnTable[Index[4]].MinisterThinking.TableListMinister[jIndex[4]], Order, false, FOUND, LeafAStarGreedy);
 
 		}
 		//Parallel.ForEach(tHA, items => Task.WaitAny(items));
@@ -12386,14 +12389,14 @@ void AllDraw::BlitzGameTreeCreationThinkingKing(int a, int* Index, int* jIndex, 
 	{
 		if (Index[5] != -1)
 		{
-			if (KingOnTable[Index[5]]->KingThinking.AStarGreedy.empty())
+			if (KingOnTable[Index[5]].KingThinking.AStarGreedy.empty())
 			{
-				KingOnTable[Index[5]]->KingThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+				KingOnTable[Index[5]].KingThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
 			}
-			KingOnTable[Index[5]]->KingThinking.AStarGreedy[KingOnTable[Index[5]]->KingThinking.AStarGreedy.size() - 1].TableList.clear();
-			KingOnTable[Index[5]]->KingThinking.AStarGreedy[KingOnTable[Index[5]]->KingThinking.AStarGreedy.size() - 1].TableList.push_back(KingOnTable[Index[5]]->KingThinking.TableListKing[jIndex[5]]);
-			KingOnTable[Index[5]]->KingThinking.AStarGreedy[KingOnTable[Index[5]]->KingThinking.AStarGreedy.size() - 1].SetRowColumn(0);
-			KingOnTable[Index[5]]->KingThinking.AStarGreedy[KingOnTable[Index[5]]->KingThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, KingOnTable[Index[5]]->KingThinking.RowColumnKing[jIndex[5]][0], KingOnTable[Index[5]]->KingThinking.RowColumnKing[jIndex[5]][1], a, KingOnTable[Index[5]]->KingThinking.TableListKing[jIndex[5]], Order, false, FOUND, LeafAStarGreedy);
+			KingOnTable[Index[5]].KingThinking.AStarGreedy[KingOnTable[Index[5]].KingThinking.AStarGreedy.size() - 1].TableList.clear();
+			KingOnTable[Index[5]].KingThinking.AStarGreedy[KingOnTable[Index[5]].KingThinking.AStarGreedy.size() - 1].TableList.push_back(KingOnTable[Index[5]].KingThinking.TableListKing[jIndex[5]]);
+			KingOnTable[Index[5]].KingThinking.AStarGreedy[KingOnTable[Index[5]].KingThinking.AStarGreedy.size() - 1].SetRowColumn(0);
+			KingOnTable[Index[5]].KingThinking.AStarGreedy[KingOnTable[Index[5]].KingThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, KingOnTable[Index[5]].KingThinking.RowColumnKing[jIndex[5]][0], KingOnTable[Index[5]].KingThinking.RowColumnKing[jIndex[5]][1], a, KingOnTable[Index[5]].KingThinking.TableListKing[jIndex[5]], Order, false, FOUND, LeafAStarGreedy);
 
 		}
 		//Parallel.ForEach(tHA, items => Task.WaitAny(items));
@@ -12403,26 +12406,26 @@ void AllDraw::BlitzGameThinkingTreeSolderBrown(double PreviousLessS, int* Index,
 {
 	for (ik = SodierMidle; ik < SodierHigh; ik++)
 	{
-		if (SolderesOnTable == nullptr || (&(SolderesOnTable[ik]) == nullptr) || (&(SolderesOnTable[ik]->SoldierThinking) == nullptr) || (&(SolderesOnTable[ik]->SoldierThinking) == nullptr) || SolderesOnTable[ik]->SoldierThinking.IsSup)
+		if (SolderesOnTable == nullptr || (&(SolderesOnTable[ik]) == nullptr) || (&(SolderesOnTable[ik].SoldierThinking) == nullptr) || (&(SolderesOnTable[ik].SoldierThinking) == nullptr) || SolderesOnTable[ik].SoldierThinking.IsSup)
 		{
 			continue;
 		}
 		//Soldier.
-		for (j = 0; j < SolderesOnTable[ik]->SoldierThinking.HuristicListSolder.size(); j++)
+		for (j = 0; j < SolderesOnTable[ik].SoldierThinking.HuristicListSolder.size(); j++)
 		{
 			if (AllDraw::OrderPlate == Order)
 			{
-				if (SolderesOnTable[ik]->SoldierThinking.ReturnHuristic(-1, j, Order, false) < PreviousLessS || (SolderesOnTable[ik]->SoldierThinking.PenaltyRegardListSolder[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+				if (SolderesOnTable[ik].SoldierThinking.ReturnHuristic(-1, j, Order, false) < PreviousLessS || (SolderesOnTable[ik].SoldierThinking.PenaltyRegardListSolder[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 				{
-					//SolderesOnTable[ik]->SoldierThinking.AStarGreedy = null;
+					//SolderesOnTable[ik].SoldierThinking.AStarGreedy = null;
 					//SolderesOnTable[ik] = null;
 					continue;
 				}
 				else
 				{
-					if (KingDan(SolderesOnTable[ik]->SoldierThinking.TableListSolder[j], Order))
+					if (KingDan(SolderesOnTable[ik].SoldierThinking.TableListSolder[j], Order))
 					{
-						//SolderesOnTable[ik]->SoldierThinking.AStarGreedy = null;
+						//SolderesOnTable[ik].SoldierThinking.AStarGreedy = null;
 						//SolderesOnTable[ik] = null;
 						continue;
 					}
@@ -12430,24 +12433,24 @@ void AllDraw::BlitzGameThinkingTreeSolderBrown(double PreviousLessS, int* Index,
 					{
 						Index[0] = ik;
 						jIndex[0] = j;
-						PreviousLessS = SolderesOnTable[ik]->SoldierThinking.ReturnHuristic(-1, j, Order, false);
+						PreviousLessS = SolderesOnTable[ik].SoldierThinking.ReturnHuristic(-1, j, Order, false);
 
 					}
 				}
 			}
 			else
 			{
-				if (SolderesOnTable[ik]->SoldierThinking.ReturnHuristic(-1, j, Order, false) > PreviousLessS || (SolderesOnTable[ik]->SoldierThinking.PenaltyRegardListSolder[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+				if (SolderesOnTable[ik].SoldierThinking.ReturnHuristic(-1, j, Order, false) > PreviousLessS || (SolderesOnTable[ik].SoldierThinking.PenaltyRegardListSolder[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 				{
-					//SolderesOnTable[ik]->SoldierThinking.AStarGreedy = null;
+					//SolderesOnTable[ik].SoldierThinking.AStarGreedy = null;
 					//SolderesOnTable[ik] = null;
 					continue;
 				}
 				else
 				{
-					if (KingDan(SolderesOnTable[ik]->SoldierThinking.TableListSolder[j], Order))
+					if (KingDan(SolderesOnTable[ik].SoldierThinking.TableListSolder[j], Order))
 					{
-						//SolderesOnTable[ik]->SoldierThinking.AStarGreedy = null;
+						//SolderesOnTable[ik].SoldierThinking.AStarGreedy = null;
 						//SolderesOnTable[ik] = null;
 						continue;
 					}
@@ -12455,7 +12458,7 @@ void AllDraw::BlitzGameThinkingTreeSolderBrown(double PreviousLessS, int* Index,
 					{
 						Index[0] = ik;
 						jIndex[0] = j;
-						PreviousLessS = SolderesOnTable[ik]->SoldierThinking.ReturnHuristic(-1, j, Order, false);
+						PreviousLessS = SolderesOnTable[ik].SoldierThinking.ReturnHuristic(-1, j, Order, false);
 
 					}
 				}
@@ -12469,26 +12472,26 @@ void AllDraw::BlitzGameThinkingTreeElephantBrown(double PreviousLessE, int* Inde
 	{
 		//try
 		{
-			if (ElephantOnTable == nullptr || (&(ElephantOnTable[ik]) == nullptr) || (&(ElephantOnTable[ik]->ElefantThinking) == nullptr) || (&(ElephantOnTable[ik]->ElefantThinking) == nullptr) || ElephantOnTable[ik]->ElefantThinking.IsSup)
+			if (ElephantOnTable == nullptr || (&(ElephantOnTable[ik]) == nullptr) || (&(ElephantOnTable[ik].ElefantThinking) == nullptr) || (&(ElephantOnTable[ik].ElefantThinking) == nullptr) || ElephantOnTable[ik].ElefantThinking.IsSup)
 			{
 				continue;
 			}
-			for (j = 0; j < ElephantOnTable[ik]->ElefantThinking.HuristicListElefant.size(); j++)
+			for (j = 0; j < ElephantOnTable[ik].ElefantThinking.HuristicListElefant.size(); j++)
 			{
 				if (AllDraw::OrderPlate == Order)
 				{
-					if (ElephantOnTable[ik]->ElefantThinking.ReturnHuristic(-1, j, Order, false) < PreviousLessE || (ElephantOnTable[ik]->ElefantThinking.PenaltyRegardListElefant[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+					if (ElephantOnTable[ik].ElefantThinking.ReturnHuristic(-1, j, Order, false) < PreviousLessE || (ElephantOnTable[ik].ElefantThinking.PenaltyRegardListElefant[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 
 					{
-						//ElephantOnTable[ik]->ElefantThinking.AStarGreedy = null;
+						//ElephantOnTable[ik].ElefantThinking.AStarGreedy = null;
 						//ElephantOnTable[ik] = null;
 						continue;
 					}
 					else
 					{
-						if (KingDan(ElephantOnTable[ik]->ElefantThinking.TableListElefant[j], Order))
+						if (KingDan(ElephantOnTable[ik].ElefantThinking.TableListElefant[j], Order))
 						{
-							//ElephantOnTable[ik]->ElefantThinking.AStarGreedy = null;
+							//ElephantOnTable[ik].ElefantThinking.AStarGreedy = null;
 							//ElephantOnTable[ik] = null;
 							continue;
 						}
@@ -12496,24 +12499,24 @@ void AllDraw::BlitzGameThinkingTreeElephantBrown(double PreviousLessE, int* Inde
 						{
 							Index[1] = ik;
 							jIndex[1] = j;
-							PreviousLessE = ElephantOnTable[ik]->ElefantThinking.ReturnHuristic(-1, j, Order, false);
+							PreviousLessE = ElephantOnTable[ik].ElefantThinking.ReturnHuristic(-1, j, Order, false);
 						}
 					}
 				}
 				else
 				{
-					if (ElephantOnTable[ik]->ElefantThinking.ReturnHuristic(-1, j, Order, false) > PreviousLessE || (ElephantOnTable[ik]->ElefantThinking.PenaltyRegardListElefant[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+					if (ElephantOnTable[ik].ElefantThinking.ReturnHuristic(-1, j, Order, false) > PreviousLessE || (ElephantOnTable[ik].ElefantThinking.PenaltyRegardListElefant[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 
 					{
-						//ElephantOnTable[ik]->ElefantThinking.AStarGreedy = null;
+						//ElephantOnTable[ik].ElefantThinking.AStarGreedy = null;
 						//ElephantOnTable[ik] = null;
 						continue;
 					}
 					else
 					{
-						if (KingDan(ElephantOnTable[ik]->ElefantThinking.TableListElefant[j], Order))
+						if (KingDan(ElephantOnTable[ik].ElefantThinking.TableListElefant[j], Order))
 						{
-							//ElephantOnTable[ik]->ElefantThinking.AStarGreedy = null;
+							//ElephantOnTable[ik].ElefantThinking.AStarGreedy = null;
 							//ElephantOnTable[ik] = null;
 							continue;
 						}
@@ -12521,7 +12524,7 @@ void AllDraw::BlitzGameThinkingTreeElephantBrown(double PreviousLessE, int* Inde
 						{
 							Index[1] = ik;
 							jIndex[1] = j;
-							PreviousLessE = ElephantOnTable[ik]->ElefantThinking.ReturnHuristic(-1, j, Order, false);
+							PreviousLessE = ElephantOnTable[ik].ElefantThinking.ReturnHuristic(-1, j, Order, false);
 						}
 					}
 				}
@@ -12543,26 +12546,26 @@ void AllDraw::BlitzGameThinkingTreeHourseBrown(double PreviousLessH, int* Index,
 	{
 		//try
 		{
-			if (HoursesOnTable == nullptr || (&(HoursesOnTable[ik]) == nullptr) || (&(HoursesOnTable[ik]->HourseThinking) == nullptr) || (&(HoursesOnTable[ik]->HourseThinking) == nullptr) || HoursesOnTable[ik]->HourseThinking.IsSup)
+			if (HoursesOnTable == nullptr || (&(HoursesOnTable[ik]) == nullptr) || (&(HoursesOnTable[ik].HourseThinking) == nullptr) || (&(HoursesOnTable[ik].HourseThinking) == nullptr) || HoursesOnTable[ik].HourseThinking.IsSup)
 			{
 				continue;
 			}
-			for (j = 0; j < HoursesOnTable[ik]->HourseThinking.HuristicListHourse.size(); j++)
+			for (j = 0; j < HoursesOnTable[ik].HourseThinking.HuristicListHourse.size(); j++)
 			{
 				if (AllDraw::OrderPlate == Order)
 				{
-					if (HoursesOnTable[ik]->HourseThinking.ReturnHuristic(-1, j, Order, false) < PreviousLessH || (HoursesOnTable[ik]->HourseThinking.PenaltyRegardListHourse[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+					if (HoursesOnTable[ik].HourseThinking.ReturnHuristic(-1, j, Order, false) < PreviousLessH || (HoursesOnTable[ik].HourseThinking.PenaltyRegardListHourse[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 
 					{
-						//HoursesOnTable[ik]->HourseThinking.AStarGreedy = null;
+						//HoursesOnTable[ik].HourseThinking.AStarGreedy = null;
 						//HoursesOnTable[ik] = null;
 						continue;
 					}
 					else
 					{
-						if (KingDan(HoursesOnTable[ik]->HourseThinking.TableListHourse[j], Order))
+						if (KingDan(HoursesOnTable[ik].HourseThinking.TableListHourse[j], Order))
 						{
-							//HoursesOnTable[ik]->HourseThinking.AStarGreedy = null;
+							//HoursesOnTable[ik].HourseThinking.AStarGreedy = null;
 							//HoursesOnTable[ik] = null;
 							continue;
 						}
@@ -12570,7 +12573,7 @@ void AllDraw::BlitzGameThinkingTreeHourseBrown(double PreviousLessH, int* Index,
 						{
 							Index[2] = ik;
 							jIndex[2] = j;
-							PreviousLessH = HoursesOnTable[ik]->HourseThinking.ReturnHuristic(-1, j, Order, false);
+							PreviousLessH = HoursesOnTable[ik].HourseThinking.ReturnHuristic(-1, j, Order, false);
 							;
 						}
 					}
@@ -12578,18 +12581,18 @@ void AllDraw::BlitzGameThinkingTreeHourseBrown(double PreviousLessH, int* Index,
 				}
 				else
 				{
-					if (HoursesOnTable[ik]->HourseThinking.ReturnHuristic(-1, j, Order, false) > PreviousLessH || (HoursesOnTable[ik]->HourseThinking.PenaltyRegardListHourse[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+					if (HoursesOnTable[ik].HourseThinking.ReturnHuristic(-1, j, Order, false) > PreviousLessH || (HoursesOnTable[ik].HourseThinking.PenaltyRegardListHourse[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 
 					{
-						//HoursesOnTable[ik]->HourseThinking.AStarGreedy = null;
+						//HoursesOnTable[ik].HourseThinking.AStarGreedy = null;
 						//HoursesOnTable[ik] = null;
 						continue;
 					}
 					else
 					{
-						if (KingDan(HoursesOnTable[ik]->HourseThinking.TableListHourse[j], Order))
+						if (KingDan(HoursesOnTable[ik].HourseThinking.TableListHourse[j], Order))
 						{
-							//HoursesOnTable[ik]->HourseThinking.AStarGreedy = null;
+							//HoursesOnTable[ik].HourseThinking.AStarGreedy = null;
 							//HoursesOnTable[ik] = null;
 							continue;
 						}
@@ -12597,7 +12600,7 @@ void AllDraw::BlitzGameThinkingTreeHourseBrown(double PreviousLessH, int* Index,
 						{
 							Index[2] = ik;
 							jIndex[2] = j;
-							PreviousLessH = HoursesOnTable[ik]->HourseThinking.ReturnHuristic(-1, j, Order, false);
+							PreviousLessH = HoursesOnTable[ik].HourseThinking.ReturnHuristic(-1, j, Order, false);
 							;
 						}
 					}
@@ -12677,28 +12680,28 @@ void AllDraw::BlitzGameThinkingTreeCastleBrown(double PreviousLessB, int* Index,
 	{
 		//try
 		{
-			if (CastlesOnTable == nullptr || (&(CastlesOnTable[ik]) == nullptr) || (&(CastlesOnTable[ik]->CastleThinking) == nullptr) || (&(CastlesOnTable[ik]->CastleThinking) == nullptr) || CastlesOnTable[ik]->CastleThinking.IsSup)
+			if (CastlesOnTable == nullptr || (&(CastlesOnTable[ik]) == nullptr) || (&(CastlesOnTable[ik].CastleThinking) == nullptr) || (&(CastlesOnTable[ik].CastleThinking) == nullptr) || CastlesOnTable[ik].CastleThinking.IsSup)
 			{
 				continue;
 			}
-			for (j = 0; j < CastlesOnTable[ik]->CastleThinking.HuristicListCastle.size(); j++)
+			for (j = 0; j < CastlesOnTable[ik].CastleThinking.HuristicListCastle.size(); j++)
 			{
 
 				if (AllDraw::OrderPlate == Order)
 				{
-					if (CastlesOnTable[ik]->CastleThinking.ReturnHuristic(-1, j, Order, false) < PreviousLessB || (CastlesOnTable[ik]->CastleThinking.PenaltyRegardListCastle[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+					if (CastlesOnTable[ik].CastleThinking.ReturnHuristic(-1, j, Order, false) < PreviousLessB || (CastlesOnTable[ik].CastleThinking.PenaltyRegardListCastle[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 
 					{
-						//CastlesOnTable[ik]->CastleThinking.AStarGreedy = null;
+						//CastlesOnTable[ik].CastleThinking.AStarGreedy = null;
 						//CastlesOnTable[ik] = null;
 						continue;
 					}
 					else
 					{
-						if (KingDan(CastlesOnTable[ik]->CastleThinking.TableListCastle[j], Order))
+						if (KingDan(CastlesOnTable[ik].CastleThinking.TableListCastle[j], Order))
 						{
 
-							//CastlesOnTable[ik]->CastleThinking.AStarGreedy = null;
+							//CastlesOnTable[ik].CastleThinking.AStarGreedy = null;
 							//CastlesOnTable[ik] = null;
 							continue;
 						}
@@ -12707,7 +12710,7 @@ void AllDraw::BlitzGameThinkingTreeCastleBrown(double PreviousLessB, int* Index,
 						{
 							Index[3] = ik;
 							jIndex[3] = j;
-							PreviousLessB = CastlesOnTable[ik]->CastleThinking.ReturnHuristic(-1, j, Order, false);
+							PreviousLessB = CastlesOnTable[ik].CastleThinking.ReturnHuristic(-1, j, Order, false);
 							;
 						}
 					}
@@ -12715,19 +12718,19 @@ void AllDraw::BlitzGameThinkingTreeCastleBrown(double PreviousLessB, int* Index,
 				}
 				else
 				{
-					if (CastlesOnTable[ik]->CastleThinking.ReturnHuristic(-1, j, Order, false) > PreviousLessB || (CastlesOnTable[ik]->CastleThinking.PenaltyRegardListCastle[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+					if (CastlesOnTable[ik].CastleThinking.ReturnHuristic(-1, j, Order, false) > PreviousLessB || (CastlesOnTable[ik].CastleThinking.PenaltyRegardListCastle[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 
 					{
-						//CastlesOnTable[ik]->CastleThinking.AStarGreedy = null;
+						//CastlesOnTable[ik].CastleThinking.AStarGreedy = null;
 						//CastlesOnTable[ik] = null;
 						continue;
 					}
 					else
 					{
-						if (KingDan(CastlesOnTable[ik]->CastleThinking.TableListCastle[j], Order))
+						if (KingDan(CastlesOnTable[ik].CastleThinking.TableListCastle[j], Order))
 						{
 
-							//CastlesOnTable[ik]->CastleThinking.AStarGreedy = null;
+							//CastlesOnTable[ik].CastleThinking.AStarGreedy = null;
 							//CastlesOnTable[ik] = null;
 							continue;
 						}
@@ -12736,7 +12739,7 @@ void AllDraw::BlitzGameThinkingTreeCastleBrown(double PreviousLessB, int* Index,
 						{
 							Index[3] = ik;
 							jIndex[3] = j;
-							PreviousLessB = CastlesOnTable[ik]->CastleThinking.ReturnHuristic(-1, j, Order, false);
+							PreviousLessB = CastlesOnTable[ik].CastleThinking.ReturnHuristic(-1, j, Order, false);
 							;
 						}
 					}
@@ -12757,47 +12760,47 @@ void AllDraw::BlitzGameThinkingTreeMinisterBrown(double PreviousLessM, int* Inde
 	{
 		//try
 		{
-			if (MinisterOnTable == nullptr || (&(MinisterOnTable[ik]) == nullptr) || (&(MinisterOnTable[ik]->MinisterThinking) == nullptr) || (&(MinisterOnTable[ik]->MinisterThinking) == nullptr) || MinisterOnTable[ik]->MinisterThinking.IsSup)
+			if (MinisterOnTable == nullptr || (&(MinisterOnTable[ik]) == nullptr) || (&(MinisterOnTable[ik].MinisterThinking) == nullptr) || (&(MinisterOnTable[ik].MinisterThinking) == nullptr) || MinisterOnTable[ik].MinisterThinking.IsSup)
 			{
 				continue;
 			}
-			for (j = 0; j < MinisterOnTable[ik]->MinisterThinking.HuristicListMinister.size(); j++)
+			for (j = 0; j < MinisterOnTable[ik].MinisterThinking.HuristicListMinister.size(); j++)
 			{
 				if (AllDraw::OrderPlate == Order)
 				{
-					if (MinisterOnTable[ik]->MinisterThinking.ReturnHuristic(-1, j, Order, false) < PreviousLessM || (MinisterOnTable[ik]->MinisterThinking.PenaltyRegardListMinister[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+					if (MinisterOnTable[ik].MinisterThinking.ReturnHuristic(-1, j, Order, false) < PreviousLessM || (MinisterOnTable[ik].MinisterThinking.PenaltyRegardListMinister[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 
 					{
-						// MinisterOnTable[ik]->MinisterThinking.AStarGreedy = null;
+						// MinisterOnTable[ik].MinisterThinking.AStarGreedy = null;
 						//MinisterOnTable[ik] = null;
 						continue;
 					}
 					else
 					{
-						if (KingDan(MinisterOnTable[ik]->MinisterThinking.TableListMinister[j], Order))
+						if (KingDan(MinisterOnTable[ik].MinisterThinking.TableListMinister[j], Order))
 						{
 							Index[4] = ik;
 							jIndex[4] = j;
-							PreviousLessM = MinisterOnTable[ik]->MinisterThinking.ReturnHuristic(-1, j, Order, false);
+							PreviousLessM = MinisterOnTable[ik].MinisterThinking.ReturnHuristic(-1, j, Order, false);
 							;
 						}
 					}
 				}
 				else
 				{
-					if (MinisterOnTable[ik]->MinisterThinking.ReturnHuristic(-1, j, Order, false) > PreviousLessM || (MinisterOnTable[ik]->MinisterThinking.PenaltyRegardListMinister[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+					if (MinisterOnTable[ik].MinisterThinking.ReturnHuristic(-1, j, Order, false) > PreviousLessM || (MinisterOnTable[ik].MinisterThinking.PenaltyRegardListMinister[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 					{
-						// MinisterOnTable[ik]->MinisterThinking.AStarGreedy = null;
+						// MinisterOnTable[ik].MinisterThinking.AStarGreedy = null;
 						//MinisterOnTable[ik] = null;
 						continue;
 					}
 					else
 					{
-						if (KingDan(MinisterOnTable[ik]->MinisterThinking.TableListMinister[j], Order))
+						if (KingDan(MinisterOnTable[ik].MinisterThinking.TableListMinister[j], Order))
 						{
 							Index[4] = ik;
 							jIndex[4] = j;
-							PreviousLessM = MinisterOnTable[ik]->MinisterThinking.ReturnHuristic(-1, j, Order, false);
+							PreviousLessM = MinisterOnTable[ik].MinisterThinking.ReturnHuristic(-1, j, Order, false);
 							;
 						}
 					}
@@ -12818,25 +12821,25 @@ void AllDraw::BlitzGameThinkingTreeKingBrown(double PreviousLessK, int* Index, i
 	{
 		//try
 		{
-			if (KingOnTable == nullptr || (&(KingOnTable[ik]) == nullptr) || (&(KingOnTable[ik]->KingThinking) == nullptr) || (&(KingOnTable[ik]->KingThinking) == nullptr) || KingOnTable[ik]->KingThinking.IsSup)
+			if (KingOnTable == nullptr || (&(KingOnTable[ik]) == nullptr) || (&(KingOnTable[ik].KingThinking) == nullptr) || (&(KingOnTable[ik].KingThinking) == nullptr) || KingOnTable[ik].KingThinking.IsSup)
 			{
 				continue;
 			}
-			for (j = 0; j < KingOnTable[ik]->KingThinking.HuristicListKing.size(); j++)
+			for (j = 0; j < KingOnTable[ik].KingThinking.HuristicListKing.size(); j++)
 			{
 				if (AllDraw::OrderPlate == Order)
 				{
-					if (KingOnTable[ik]->KingThinking.ReturnHuristic(-1, j, Order, false) < PreviousLessK || (KingOnTable[ik]->KingThinking.PenaltyRegardListKing[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+					if (KingOnTable[ik].KingThinking.ReturnHuristic(-1, j, Order, false) < PreviousLessK || (KingOnTable[ik].KingThinking.PenaltyRegardListKing[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 					{
-						//KingOnTable[ik]->KingThinking.AStarGreedy = null;
+						//KingOnTable[ik].KingThinking.AStarGreedy = null;
 						//KingOnTable[ik] = null;
 						continue;
 					}
 					else
 					{
-						if (KingDan(KingOnTable[ik]->KingThinking.TableListKing[j], Order))
+						if (KingDan(KingOnTable[ik].KingThinking.TableListKing[j], Order))
 						{
-							//KingOnTable[ik]->KingThinking.AStarGreedy = null;
+							//KingOnTable[ik].KingThinking.AStarGreedy = null;
 							//KingOnTable[ik] = null;
 							continue;
 						}
@@ -12844,24 +12847,24 @@ void AllDraw::BlitzGameThinkingTreeKingBrown(double PreviousLessK, int* Index, i
 						{
 							Index[5] = ik;
 							jIndex[5] = j;
-							PreviousLessK = KingOnTable[ik]->KingThinking.ReturnHuristic(-1, j, Order, false);
+							PreviousLessK = KingOnTable[ik].KingThinking.ReturnHuristic(-1, j, Order, false);
 							;
 						}
 					}
 				}
 				else
 				{
-					if (KingOnTable[ik]->KingThinking.ReturnHuristic(-1, j, Order, false) > PreviousLessK || (KingOnTable[ik]->KingThinking.PenaltyRegardListKing[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+					if (KingOnTable[ik].KingThinking.ReturnHuristic(-1, j, Order, false) > PreviousLessK || (KingOnTable[ik].KingThinking.PenaltyRegardListKing[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 					{
-						//KingOnTable[ik]->KingThinking.AStarGreedy = null;
+						//KingOnTable[ik].KingThinking.AStarGreedy = null;
 						//KingOnTable[ik] = null;
 						continue;
 					}
 					else
 					{
-						if (KingDan(KingOnTable[ik]->KingThinking.TableListKing[j], Order))
+						if (KingDan(KingOnTable[ik].KingThinking.TableListKing[j], Order))
 						{
-							//KingOnTable[ik]->KingThinking.AStarGreedy = null;
+							//KingOnTable[ik].KingThinking.AStarGreedy = null;
 							//KingOnTable[ik] = null;
 							continue;
 						}
@@ -12869,7 +12872,7 @@ void AllDraw::BlitzGameThinkingTreeKingBrown(double PreviousLessK, int* Index, i
 						{
 							Index[5] = ik;
 							jIndex[5] = j;
-							PreviousLessK = KingOnTable[ik]->KingThinking.ReturnHuristic(-1, j, Order, false);
+							PreviousLessK = KingOnTable[ik].KingThinking.ReturnHuristic(-1, j, Order, false);
 							;
 						}
 					}
@@ -13493,7 +13496,7 @@ bool  AllDraw::FullGameThinkingSoldier(int ik, int a, int Order, int iAStarGreed
 	bool Do = false;
 	TaskBegin++;
 	int S = 0;
-	while (SolderesOnTable[ik]->SoldierThinking.ThinkingBegin && (!SolderesOnTable[ik]->SoldierThinking.ThinkingFinished))
+	while (SolderesOnTable[ik].SoldierThinking.ThinkingBegin && (!SolderesOnTable[ik].SoldierThinking.ThinkingFinished))
 	{
 
 	}
@@ -13507,11 +13510,11 @@ bool  AllDraw::FullGameThinkingSoldier(int ik, int a, int Order, int iAStarGreed
 
 	}
 
-	for (int j = 0; j < SolderesOnTable[ik]->SoldierThinking.TableListSolder.size(); j++)
+	for (int j = 0; j < SolderesOnTable[ik].SoldierThinking.TableListSolder.size(); j++)
 	{
 		if (AllDraw::OrderPlate == Order)
 		{
-			if (SolderesOnTable[ik]->SoldierThinking.PenaltyRegardListSolder[j].IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT)) //&& SolderesOnTable[ik]->SoldierThinking.PenaltyRegardListSolder[j].IsRewardAction() != 1 ||(!UsePenaltyRegardMechnisamT)
+			if (SolderesOnTable[ik].SoldierThinking.PenaltyRegardListSolder[j].IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT)) //&& SolderesOnTable[ik].SoldierThinking.PenaltyRegardListSolder[j].IsRewardAction() != 1 ||(!UsePenaltyRegardMechnisamT)
 			{
 				if (Blitz)
 				{
@@ -13519,12 +13522,12 @@ bool  AllDraw::FullGameThinkingSoldier(int ik, int a, int Order, int iAStarGreed
 					{
 						if (ik != Index[0])
 						{
-							if (SolderesOnTable[ik]->SoldierThinking.AStarGreedy.empty())
+							if (SolderesOnTable[ik].SoldierThinking.AStarGreedy.empty())
 							{
-								SolderesOnTable[ik]->SoldierThinking.AStarGreedy = std::vector<AllDraw>();
+								SolderesOnTable[ik].SoldierThinking.AStarGreedy = std::vector<AllDraw>();
 							}
-							SolderesOnTable[ik]->SoldierThinking.AStarGreedy.push_back(AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-							SolderesOnTable[ik]->SoldierThinking.AStarGreedy[SolderesOnTable[ik]->SoldierThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+							SolderesOnTable[ik].SoldierThinking.AStarGreedy.push_back(AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+							SolderesOnTable[ik].SoldierThinking.AStarGreedy[SolderesOnTable[ik].SoldierThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 							continue;
 							;
 						}
@@ -13533,12 +13536,12 @@ bool  AllDraw::FullGameThinkingSoldier(int ik, int a, int Order, int iAStarGreed
 						{
 							if (j != jindex[0])
 							{
-								if (SolderesOnTable[ik]->SoldierThinking.AStarGreedy.empty())
+								if (SolderesOnTable[ik].SoldierThinking.AStarGreedy.empty())
 								{
-									SolderesOnTable[ik]->SoldierThinking.AStarGreedy = std::vector<AllDraw>();
+									SolderesOnTable[ik].SoldierThinking.AStarGreedy = std::vector<AllDraw>();
 								}
-								SolderesOnTable[ik]->SoldierThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-								SolderesOnTable[ik]->SoldierThinking.AStarGreedy[SolderesOnTable[ik]->SoldierThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+								SolderesOnTable[ik].SoldierThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+								SolderesOnTable[ik].SoldierThinking.AStarGreedy[SolderesOnTable[ik].SoldierThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 								continue;
 
 							}
@@ -13546,30 +13549,30 @@ bool  AllDraw::FullGameThinkingSoldier(int ik, int a, int Order, int iAStarGreed
 					}
 					else
 					{
-						if (SolderesOnTable[ik]->SoldierThinking.AStarGreedy.empty())
+						if (SolderesOnTable[ik].SoldierThinking.AStarGreedy.empty())
 						{
-							SolderesOnTable[ik]->SoldierThinking.AStarGreedy = std::vector<AllDraw>();
+							SolderesOnTable[ik].SoldierThinking.AStarGreedy = std::vector<AllDraw>();
 						}
-						SolderesOnTable[ik]->SoldierThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-						SolderesOnTable[ik]->SoldierThinking.AStarGreedy[SolderesOnTable[ik]->SoldierThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+						SolderesOnTable[ik].SoldierThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+						SolderesOnTable[ik].SoldierThinking.AStarGreedy[SolderesOnTable[ik].SoldierThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 						continue;
 						;
 					}
 
 				}
-				if (SolderesOnTable[ik]->SoldierThinking.AStarGreedy.empty())
+				if (SolderesOnTable[ik].SoldierThinking.AStarGreedy.empty())
 				{
-					SolderesOnTable[ik]->SoldierThinking.AStarGreedy = std::vector<AllDraw>();
+					SolderesOnTable[ik].SoldierThinking.AStarGreedy = std::vector<AllDraw>();
 				}
-				SolderesOnTable[ik]->SoldierThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-				SolderesOnTable[ik]->SoldierThinking.AStarGreedy[SolderesOnTable[ik]->SoldierThinking.AStarGreedy.size() - 1].TableList.clear();
-				SolderesOnTable[ik]->SoldierThinking.AStarGreedy[SolderesOnTable[ik]->SoldierThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(SolderesOnTable[ik]->SoldierThinking.TableListSolder[j]));
-				SolderesOnTable[ik]->SoldierThinking.AStarGreedy[SolderesOnTable[ik]->SoldierThinking.AStarGreedy.size() - 1].SetRowColumn(0);
-				SolderesOnTable[ik]->SoldierThinking.AStarGreedy[SolderesOnTable[ik]->SoldierThinking.AStarGreedy.size() - 1].SetRowColumnFinishedWait();
+				SolderesOnTable[ik].SoldierThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+				SolderesOnTable[ik].SoldierThinking.AStarGreedy[SolderesOnTable[ik].SoldierThinking.AStarGreedy.size() - 1].TableList.clear();
+				SolderesOnTable[ik].SoldierThinking.AStarGreedy[SolderesOnTable[ik].SoldierThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(SolderesOnTable[ik].SoldierThinking.TableListSolder[j]));
+				SolderesOnTable[ik].SoldierThinking.AStarGreedy[SolderesOnTable[ik].SoldierThinking.AStarGreedy.size() - 1].SetRowColumn(0);
+				SolderesOnTable[ik].SoldierThinking.AStarGreedy[SolderesOnTable[ik].SoldierThinking.AStarGreedy.size() - 1].SetRowColumnFinishedWait();
 			}
-			if (SolderesOnTable[ik]->SoldierThinking.AStarGreedy.size() > 0)
+			if (SolderesOnTable[ik].SoldierThinking.AStarGreedy.size() > 0)
 			{
-				OutPutAction = std::wstring(L" ") + Alphabet(SolderesOnTable[ik]->SoldierThinking.Row) + Number(SolderesOnTable[ik]->SoldierThinking.Column) + Alphabet(SolderesOnTable[ik]->SoldierThinking.RowColumnSoldier[j][0]) + Number(SolderesOnTable[ik]->SoldierThinking.RowColumnSoldier[j][1]);
+				OutPutAction = std::wstring(L" ") + Alphabet(SolderesOnTable[ik].SoldierThinking.Row) + Number(SolderesOnTable[ik].SoldierThinking.Column) + Alphabet(SolderesOnTable[ik].SoldierThinking.RowColumnSoldier[j][0]) + Number(SolderesOnTable[ik].SoldierThinking.RowColumnSoldier[j][1]);
 				if (Order == 1)
 				{
 					OutPut = std::wstring(L"\r\nPerception Soldier AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
@@ -13581,13 +13584,13 @@ bool  AllDraw::FullGameThinkingSoldier(int ik, int a, int Order, int iAStarGreed
 
 				PerceptionCount++;
 				Do = true;
-				int iii = (SolderesOnTable[ik]->SoldierThinking.RowColumnSoldier[j][0]);
-				int jjj = (SolderesOnTable[ik]->SoldierThinking.RowColumnSoldier[j][1]);
+				int iii = (SolderesOnTable[ik].SoldierThinking.RowColumnSoldier[j][0]);
+				int jjj = (SolderesOnTable[ik].SoldierThinking.RowColumnSoldier[j][1]);
 				int aa = a;
-				int **Tab = CloneATable(SolderesOnTable[ik]->SoldierThinking.TableListSolder[j]);
+				int **Tab = CloneATable(SolderesOnTable[ik].SoldierThinking.TableListSolder[j]);
 				int Ord = Order * -1;
-				SolderesOnTable[ik]->SoldierThinking.AStarGreedy[SolderesOnTable[ik]->SoldierThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
-				SolderesOnTable[ik]->SoldierThinking.AStarGreedy[SolderesOnTable[ik]->SoldierThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(SolderesOnTable[ik]->SoldierThinking.TableListSolder[j]), Order*-1, false, FOUND, LeafAStarGreedy);
+				SolderesOnTable[ik].SoldierThinking.AStarGreedy[SolderesOnTable[ik].SoldierThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+				SolderesOnTable[ik].SoldierThinking.AStarGreedy[SolderesOnTable[ik].SoldierThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(SolderesOnTable[ik].SoldierThinking.TableListSolder[j]), Order*-1, false, FOUND, LeafAStarGreedy);
 
 				Do = true;
 			}
@@ -13595,7 +13598,7 @@ bool  AllDraw::FullGameThinkingSoldier(int ik, int a, int Order, int iAStarGreed
 
 		else
 		{
-			if (SolderesOnTable[ik]->SoldierThinking.PenaltyRegardListSolder[j].IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT)) //SolderesOnTable[ik]->SoldierThinking.PenaltyRegardListSolder[j].IsPenaltyAction() != 0 &&
+			if (SolderesOnTable[ik].SoldierThinking.PenaltyRegardListSolder[j].IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT)) //SolderesOnTable[ik].SoldierThinking.PenaltyRegardListSolder[j].IsPenaltyAction() != 0 &&
 			{
 				if (Blitz)
 				{
@@ -13603,12 +13606,12 @@ bool  AllDraw::FullGameThinkingSoldier(int ik, int a, int Order, int iAStarGreed
 					{
 						if (ik != Index[0])
 						{
-							if (SolderesOnTable[ik]->SoldierThinking.AStarGreedy.empty())
+							if (SolderesOnTable[ik].SoldierThinking.AStarGreedy.empty())
 							{
-								SolderesOnTable[ik]->SoldierThinking.AStarGreedy = std::vector<AllDraw>();
+								SolderesOnTable[ik].SoldierThinking.AStarGreedy = std::vector<AllDraw>();
 							}
-							SolderesOnTable[ik]->SoldierThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-							SolderesOnTable[ik]->SoldierThinking.AStarGreedy[SolderesOnTable[ik]->SoldierThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+							SolderesOnTable[ik].SoldierThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+							SolderesOnTable[ik].SoldierThinking.AStarGreedy[SolderesOnTable[ik].SoldierThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 							continue;
 							;
 						}
@@ -13617,12 +13620,12 @@ bool  AllDraw::FullGameThinkingSoldier(int ik, int a, int Order, int iAStarGreed
 						{
 							if (j != jindex[0])
 							{
-								if (SolderesOnTable[ik]->SoldierThinking.AStarGreedy.empty())
+								if (SolderesOnTable[ik].SoldierThinking.AStarGreedy.empty())
 								{
-									SolderesOnTable[ik]->SoldierThinking.AStarGreedy = std::vector<AllDraw>();
+									SolderesOnTable[ik].SoldierThinking.AStarGreedy = std::vector<AllDraw>();
 								}
-								SolderesOnTable[ik]->SoldierThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-								SolderesOnTable[ik]->SoldierThinking.AStarGreedy[SolderesOnTable[ik]->SoldierThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+								SolderesOnTable[ik].SoldierThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+								SolderesOnTable[ik].SoldierThinking.AStarGreedy[SolderesOnTable[ik].SoldierThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 								continue;
 
 							}
@@ -13630,29 +13633,29 @@ bool  AllDraw::FullGameThinkingSoldier(int ik, int a, int Order, int iAStarGreed
 					}
 					else
 					{
-						if (SolderesOnTable[ik]->SoldierThinking.AStarGreedy.empty())
+						if (SolderesOnTable[ik].SoldierThinking.AStarGreedy.empty())
 						{
-							SolderesOnTable[ik]->SoldierThinking.AStarGreedy = std::vector<AllDraw>();
+							SolderesOnTable[ik].SoldierThinking.AStarGreedy = std::vector<AllDraw>();
 						}
-						SolderesOnTable[ik]->SoldierThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-						SolderesOnTable[ik]->SoldierThinking.AStarGreedy[SolderesOnTable[ik]->SoldierThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+						SolderesOnTable[ik].SoldierThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+						SolderesOnTable[ik].SoldierThinking.AStarGreedy[SolderesOnTable[ik].SoldierThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 						continue;
 						;
 					}
 				}
-				if (SolderesOnTable[ik]->SoldierThinking.AStarGreedy.empty())
+				if (SolderesOnTable[ik].SoldierThinking.AStarGreedy.empty())
 				{
-					SolderesOnTable[ik]->SoldierThinking.AStarGreedy = std::vector<AllDraw>();
+					SolderesOnTable[ik].SoldierThinking.AStarGreedy = std::vector<AllDraw>();
 				}
-				SolderesOnTable[ik]->SoldierThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-				SolderesOnTable[ik]->SoldierThinking.AStarGreedy[SolderesOnTable[ik]->SoldierThinking.AStarGreedy.size() - 1].TableList.clear();
-				SolderesOnTable[ik]->SoldierThinking.AStarGreedy[SolderesOnTable[ik]->SoldierThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(SolderesOnTable[ik]->SoldierThinking.TableListSolder[j]));
-				SolderesOnTable[ik]->SoldierThinking.AStarGreedy[SolderesOnTable[ik]->SoldierThinking.AStarGreedy.size() - 1].SetRowColumn(0);
+				SolderesOnTable[ik].SoldierThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+				SolderesOnTable[ik].SoldierThinking.AStarGreedy[SolderesOnTable[ik].SoldierThinking.AStarGreedy.size() - 1].TableList.clear();
+				SolderesOnTable[ik].SoldierThinking.AStarGreedy[SolderesOnTable[ik].SoldierThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(SolderesOnTable[ik].SoldierThinking.TableListSolder[j]));
+				SolderesOnTable[ik].SoldierThinking.AStarGreedy[SolderesOnTable[ik].SoldierThinking.AStarGreedy.size() - 1].SetRowColumn(0);
 			}
-			SolderesOnTable[ik]->SoldierThinking.AStarGreedy[SolderesOnTable[ik]->SoldierThinking.AStarGreedy.size() - 1].SetRowColumnFinishedWait();
-			if (SolderesOnTable[ik]->SoldierThinking.AStarGreedy.size() > 0)
+			SolderesOnTable[ik].SoldierThinking.AStarGreedy[SolderesOnTable[ik].SoldierThinking.AStarGreedy.size() - 1].SetRowColumnFinishedWait();
+			if (SolderesOnTable[ik].SoldierThinking.AStarGreedy.size() > 0)
 			{
-				OutPutAction = std::wstring(L" ") + Alphabet(SolderesOnTable[ik]->SoldierThinking.Row) + Number(SolderesOnTable[ik]->SoldierThinking.Column) + Alphabet(SolderesOnTable[ik]->SoldierThinking.RowColumnSoldier[j][0]) + Number(SolderesOnTable[ik]->SoldierThinking.RowColumnSoldier[j][1]);
+				OutPutAction = std::wstring(L" ") + Alphabet(SolderesOnTable[ik].SoldierThinking.Row) + Number(SolderesOnTable[ik].SoldierThinking.Column) + Alphabet(SolderesOnTable[ik].SoldierThinking.RowColumnSoldier[j][0]) + Number(SolderesOnTable[ik].SoldierThinking.RowColumnSoldier[j][1]);
 				if (Order == 1)
 				{
 					OutPut = std::wstring(L"\r\nPerception Soldier AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
@@ -13664,14 +13667,14 @@ bool  AllDraw::FullGameThinkingSoldier(int ik, int a, int Order, int iAStarGreed
 
 				PerceptionCount++;
 				Do = true;
-				int iii = (SolderesOnTable[ik]->SoldierThinking.RowColumnSoldier[j][0]);
-				int jjj = (SolderesOnTable[ik]->SoldierThinking.RowColumnSoldier[j][1]);
+				int iii = (SolderesOnTable[ik].SoldierThinking.RowColumnSoldier[j][0]);
+				int jjj = (SolderesOnTable[ik].SoldierThinking.RowColumnSoldier[j][1]);
 				int aa = a;
-				int **Tab = CloneATable(SolderesOnTable[ik]->SoldierThinking.TableListSolder[j]);
+				int **Tab = CloneATable(SolderesOnTable[ik].SoldierThinking.TableListSolder[j]);
 				int Ord = Order * -1;
-				SolderesOnTable[ik]->SoldierThinking.AStarGreedy[SolderesOnTable[ik]->SoldierThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+				SolderesOnTable[ik].SoldierThinking.AStarGreedy[SolderesOnTable[ik].SoldierThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 
-				SolderesOnTable[ik]->SoldierThinking.AStarGreedy[SolderesOnTable[ik]->SoldierThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(SolderesOnTable[ik]->SoldierThinking.TableListSolder[j]), Order*-1, false, FOUND, LeafAStarGreedy);
+				SolderesOnTable[ik].SoldierThinking.AStarGreedy[SolderesOnTable[ik].SoldierThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(SolderesOnTable[ik].SoldierThinking.TableListSolder[j]), Order*-1, false, FOUND, LeafAStarGreedy);
 
 				Do = true;
 			}
@@ -13680,13 +13683,13 @@ bool  AllDraw::FullGameThinkingSoldier(int ik, int a, int Order, int iAStarGreed
 	TaskEnd++;
 
 
-	for (int h = 0; h < SolderesOnTable[ik]->SoldierThinking.AStarGreedy.size(); h++)
+	for (int h = 0; h < SolderesOnTable[ik].SoldierThinking.AStarGreedy.size(); h++)
 	{
-		SolderesOnTable[ik]->WinOcuuredatChiled += SumOfObjects(SolderesOnTable[ik]->SoldierThinking.AStarGreedy[h], Order);
+		SolderesOnTable[ik]->WinOcuuredatChiled += SumOfObjects(SolderesOnTable[ik].SoldierThinking.AStarGreedy[h], Order);
 	}
-	for (int h = 0; h < SolderesOnTable[ik]->SoldierThinking.AStarGreedy.size(); h++)
+	for (int h = 0; h < SolderesOnTable[ik].SoldierThinking.AStarGreedy.size(); h++)
 	{
-		SolderesOnTable[ik]->LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[ik]->SoldierThinking.AStarGreedy[h], Order);
+		SolderesOnTable[ik]->LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[ik].SoldierThinking.AStarGreedy[h], Order);
 	}
 
 	return Do;
@@ -13698,7 +13701,7 @@ bool  AllDraw::FullGameThinkingSoldierGray(int a, int Order, int iAStarGreedy, i
 	bool Do = false;
 	for (int ik = 0; ik < SodierMidle; ik++)
 	{
-		if (SolderesOnTable != nullptr && (&(SolderesOnTable[ik]) != nullptr) && (&(SolderesOnTable[ik]->SoldierThinking) != nullptr) && (&(SolderesOnTable[ik]->SoldierThinking) != nullptr) && (!SolderesOnTable[ik]->SoldierThinking.IsSupHu))
+		if (SolderesOnTable != nullptr && (&(SolderesOnTable[ik]) != nullptr) && (&(SolderesOnTable[ik].SoldierThinking) != nullptr) && (&(SolderesOnTable[ik].SoldierThinking) != nullptr) && (!SolderesOnTable[ik].SoldierThinking.IsSupHu))
 		{
 			Do = FullGameThinkingSoldier(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
 		} //);
@@ -13712,7 +13715,7 @@ bool  AllDraw::FullGameThinkingSoldierBrowm(int a, int Order, int iAStarGreedy, 
 	bool Do = false;
 	for (int ik = SodierMidle;ik<SodierHigh ;ik++)
 	{
-		if (SolderesOnTable != nullptr && (&(SolderesOnTable[ik]) != nullptr) && (&(SolderesOnTable[ik]->SoldierThinking) != nullptr) && (&(SolderesOnTable[ik]->SoldierThinking) != nullptr) && (!SolderesOnTable[ik]->SoldierThinking.IsSupHu))
+		if (SolderesOnTable != nullptr && (&(SolderesOnTable[ik]) != nullptr) && (&(SolderesOnTable[ik].SoldierThinking) != nullptr) && (&(SolderesOnTable[ik].SoldierThinking) != nullptr) && (!SolderesOnTable[ik].SoldierThinking.IsSupHu))
 		{
 			Do = FullGameThinkingSoldier(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
 		} //);
@@ -13726,7 +13729,7 @@ bool  AllDraw::FullGameThinkingCastle(int ik, int a, int Order, int iAStarGreedy
 	bool Do = false;
 	TaskBegin++;
 	int S = 0;
-	while (CastlesOnTable[ik]->CastleThinking.ThinkingBegin && (!CastlesOnTable[ik]->CastleThinking.ThinkingFinished))
+	while (CastlesOnTable[ik].CastleThinking.ThinkingBegin && (!CastlesOnTable[ik].CastleThinking.ThinkingFinished))
 	{
 	}
 	if (iAStarGreedy < 0)
@@ -13738,9 +13741,9 @@ bool  AllDraw::FullGameThinkingCastle(int ik, int a, int Order, int iAStarGreedy
 		}
 
 	}
-	for (int j = 0; j < CastlesOnTable[ik]->CastleThinking.TableListElefant.size(); j++)
+	for (int j = 0; j < CastlesOnTable[ik].CastleThinking.TableListElefant.size(); j++)
 	{
-		if (CastlesOnTable[ik]->CastleThinking.PenaltyRegardListElefant[j].IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT)) //&& CastlesOnTable[ik]->CastleThinking.PenaltyRegardListElefant[j].IsRewardAction() != 1 ||(!UsePenaltyRegardMechnisamT)
+		if (CastlesOnTable[ik].CastleThinking.PenaltyRegardListElefant[j].IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT)) //&& CastlesOnTable[ik].CastleThinking.PenaltyRegardListElefant[j].IsRewardAction() != 1 ||(!UsePenaltyRegardMechnisamT)
 		{
 			if (Blitz)
 			{
@@ -13749,12 +13752,12 @@ bool  AllDraw::FullGameThinkingCastle(int ik, int a, int Order, int iAStarGreedy
 
 					if (ik != Index[1])
 					{
-						if (CastlesOnTable[ik]->CastleThinking.AStarGreedy.empty())
+						if (CastlesOnTable[ik].CastleThinking.AStarGreedy.empty())
 						{
-							CastlesOnTable[ik]->CastleThinking.AStarGreedy = std::vector<AllDraw>();
+							CastlesOnTable[ik].CastleThinking.AStarGreedy = std::vector<AllDraw>();
 						}
-						CastlesOnTable[ik]->CastleThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-						CastlesOnTable[ik]->CastleThinking.AStarGreedy[CastlesOnTable[ik]->CastleThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+						CastlesOnTable[ik].CastleThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+						CastlesOnTable[ik].CastleThinking.AStarGreedy[CastlesOnTable[ik].CastleThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 						continue;
 						;
 					}
@@ -13762,12 +13765,12 @@ bool  AllDraw::FullGameThinkingCastle(int ik, int a, int Order, int iAStarGreedy
 					{
 						if (j != jindex[1])
 						{
-							if (CastlesOnTable[ik]->CastleThinking.AStarGreedy.empty())
+							if (CastlesOnTable[ik].CastleThinking.AStarGreedy.empty())
 							{
-								CastlesOnTable[ik]->CastleThinking.AStarGreedy = std::vector<AllDraw>();
+								CastlesOnTable[ik].CastleThinking.AStarGreedy = std::vector<AllDraw>();
 							}
-							CastlesOnTable[ik]->CastleThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-							CastlesOnTable[ik]->CastleThinking.AStarGreedy[CastlesOnTable[ik]->CastleThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+							CastlesOnTable[ik].CastleThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+							CastlesOnTable[ik].CastleThinking.AStarGreedy[CastlesOnTable[ik].CastleThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 							continue;
 
 						}
@@ -13775,31 +13778,31 @@ bool  AllDraw::FullGameThinkingCastle(int ik, int a, int Order, int iAStarGreedy
 				}
 				else
 				{
-					if (CastlesOnTable[ik]->CastleThinking.AStarGreedy.empty())
+					if (CastlesOnTable[ik].CastleThinking.AStarGreedy.empty())
 					{
-						CastlesOnTable[ik]->CastleThinking.AStarGreedy = std::vector<AllDraw>();
+						CastlesOnTable[ik].CastleThinking.AStarGreedy = std::vector<AllDraw>();
 					}
-					CastlesOnTable[ik]->CastleThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-					CastlesOnTable[ik]->CastleThinking.AStarGreedy[CastlesOnTable[ik]->CastleThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+					CastlesOnTable[ik].CastleThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+					CastlesOnTable[ik].CastleThinking.AStarGreedy[CastlesOnTable[ik].CastleThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 					continue;
 
 				}
 
-				if (CastlesOnTable[ik]->CastleThinking.AStarGreedy.empty())
+				if (CastlesOnTable[ik].CastleThinking.AStarGreedy.empty())
 				{
-					CastlesOnTable[ik]->CastleThinking.AStarGreedy = std::vector<AllDraw>();
+					CastlesOnTable[ik].CastleThinking.AStarGreedy = std::vector<AllDraw>();
 				}
 
-				CastlesOnTable[ik]->CastleThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-				CastlesOnTable[ik]->CastleThinking.AStarGreedy[CastlesOnTable[ik]->CastleThinking.AStarGreedy.size() - 1].TableList.clear();
-				CastlesOnTable[ik]->CastleThinking.AStarGreedy[CastlesOnTable[ik]->CastleThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(CastlesOnTable[ik]->CastleThinking.TableListElefant[j]));
-				CastlesOnTable[ik]->CastleThinking.AStarGreedy[CastlesOnTable[ik]->CastleThinking.AStarGreedy.size() - 1].SetRowColumn(0);
-				CastlesOnTable[ik]->CastleThinking.AStarGreedy[CastlesOnTable[ik]->CastleThinking.AStarGreedy.size() - 1].SetRowColumnFinishedWait();
-				//CastlesOnTable[ik]->CastleThinking.AStarGreedy[CastlesOnTable[ik]->CastleThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CastlesOnTable[ik]->CastleThinking.TableListElefant[j], Order, false);
-				//ParameterizedThreadStart start = new ParameterizedThreadStart(CastlesOnTable[ik]->CastleThinking.AStarGreedy[CastlesOnTable[ik]->CastleThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt);
-				if (CastlesOnTable[ik]->CastleThinking.AStarGreedy.size() > 0)
+				CastlesOnTable[ik].CastleThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+				CastlesOnTable[ik].CastleThinking.AStarGreedy[CastlesOnTable[ik].CastleThinking.AStarGreedy.size() - 1].TableList.clear();
+				CastlesOnTable[ik].CastleThinking.AStarGreedy[CastlesOnTable[ik].CastleThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(CastlesOnTable[ik].CastleThinking.TableListElefant[j]));
+				CastlesOnTable[ik].CastleThinking.AStarGreedy[CastlesOnTable[ik].CastleThinking.AStarGreedy.size() - 1].SetRowColumn(0);
+				CastlesOnTable[ik].CastleThinking.AStarGreedy[CastlesOnTable[ik].CastleThinking.AStarGreedy.size() - 1].SetRowColumnFinishedWait();
+				//CastlesOnTable[ik].CastleThinking.AStarGreedy[CastlesOnTable[ik].CastleThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CastlesOnTable[ik].CastleThinking.TableListElefant[j], Order, false);
+				//ParameterizedThreadStart start = new ParameterizedThreadStart(CastlesOnTable[ik].CastleThinking.AStarGreedy[CastlesOnTable[ik].CastleThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt);
+				if (CastlesOnTable[ik].CastleThinking.AStarGreedy.size() > 0)
 				{
-					OutPutAction = std::wstring(L" ") + Alphabet(CastlesOnTable[ik]->CastleThinking.Row) + Number(CastlesOnTable[ik]->CastleThinking.Column) + Alphabet(CastlesOnTable[ik]->CastleThinking.RowColumnElefant[j][0]) + Number(CastlesOnTable[ik]->CastleThinking.RowColumnElefant[j][1]);
+					OutPutAction = std::wstring(L" ") + Alphabet(CastlesOnTable[ik].CastleThinking.Row) + Number(CastlesOnTable[ik].CastleThinking.Column) + Alphabet(CastlesOnTable[ik].CastleThinking.RowColumnElefant[j][0]) + Number(CastlesOnTable[ik].CastleThinking.RowColumnElefant[j][1]);
 					if (Order == 1)
 					{
 						OutPut = std::wstring(L"\r\nPerception Castle AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
@@ -13810,19 +13813,19 @@ bool  AllDraw::FullGameThinkingCastle(int ik, int a, int Order, int iAStarGreedy
 					}
 
 					PerceptionCount++;
-					int iii = (CastlesOnTable[ik]->CastleThinking.RowColumnElefant[j][0]);
-					int jjj = (CastlesOnTable[ik]->CastleThinking.RowColumnElefant[j][1]);
+					int iii = (CastlesOnTable[ik].CastleThinking.RowColumnElefant[j][0]);
+					int jjj = (CastlesOnTable[ik].CastleThinking.RowColumnElefant[j][1]);
 					int aa = a;
-					int **Tab = CloneATable(CastlesOnTable[ik]->CastleThinking.TableListElefant[j]);
+					int **Tab = CloneATable(CastlesOnTable[ik].CastleThinking.TableListElefant[j]);
 					int Ord = Order * -1;
-					CastlesOnTable[ik]->CastleThinking.AStarGreedy[CastlesOnTable[ik]->CastleThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
-					//Task array = Task.Factory.StartNew(() => CastlesOnTable[ik]->CastleThinking.AStarGreedy[CastlesOnTable[ik]->CastleThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(CastlesOnTable[ik]->CastleThinking.TableListElefant[j]), Order, false, FOUND, LeafAStarGreedy));
-					CastlesOnTable[ik]->CastleThinking.AStarGreedy[CastlesOnTable[ik]->CastleThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord*-1, false, FOUND, LeafAStarGreedy);
+					CastlesOnTable[ik].CastleThinking.AStarGreedy[CastlesOnTable[ik].CastleThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+					//Task array = Task.Factory.StartNew(() => CastlesOnTable[ik].CastleThinking.AStarGreedy[CastlesOnTable[ik].CastleThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(CastlesOnTable[ik].CastleThinking.TableListElefant[j]), Order, false, FOUND, LeafAStarGreedy));
+					CastlesOnTable[ik].CastleThinking.AStarGreedy[CastlesOnTable[ik].CastleThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord*-1, false, FOUND, LeafAStarGreedy);
 					Do = true;
 				}
 				else
 				{
-					if (CastlesOnTable[ik]->CastleThinking.PenaltyRegardListElefant[j].IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT)) //CastlesOnTable[ik]->CastleThinking.PenaltyRegardListElefant[j].IsPenaltyAction() != 0 &&
+					if (CastlesOnTable[ik].CastleThinking.PenaltyRegardListElefant[j].IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT)) //CastlesOnTable[ik].CastleThinking.PenaltyRegardListElefant[j].IsPenaltyAction() != 0 &&
 					{
 						{
 							if (Blitz)
@@ -13832,12 +13835,12 @@ bool  AllDraw::FullGameThinkingCastle(int ik, int a, int Order, int iAStarGreedy
 
 									if (ik != Index[1])
 									{
-										if (CastlesOnTable[ik]->CastleThinking.AStarGreedy.empty())
+										if (CastlesOnTable[ik].CastleThinking.AStarGreedy.empty())
 										{
-											CastlesOnTable[ik]->CastleThinking.AStarGreedy = std::vector<AllDraw>();
+											CastlesOnTable[ik].CastleThinking.AStarGreedy = std::vector<AllDraw>();
 										}
-										CastlesOnTable[ik]->CastleThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-										CastlesOnTable[ik]->CastleThinking.AStarGreedy[CastlesOnTable[ik]->CastleThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+										CastlesOnTable[ik].CastleThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+										CastlesOnTable[ik].CastleThinking.AStarGreedy[CastlesOnTable[ik].CastleThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 										continue;
 										;
 									}
@@ -13845,40 +13848,40 @@ bool  AllDraw::FullGameThinkingCastle(int ik, int a, int Order, int iAStarGreedy
 									{
 										if (j != jindex[1])
 										{
-											if (CastlesOnTable[ik]->CastleThinking.AStarGreedy.empty())
+											if (CastlesOnTable[ik].CastleThinking.AStarGreedy.empty())
 											{
-												CastlesOnTable[ik]->CastleThinking.AStarGreedy = std::vector<AllDraw>();
+												CastlesOnTable[ik].CastleThinking.AStarGreedy = std::vector<AllDraw>();
 											}
-											CastlesOnTable[ik]->CastleThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-											CastlesOnTable[ik]->CastleThinking.AStarGreedy[CastlesOnTable[ik]->CastleThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+											CastlesOnTable[ik].CastleThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+											CastlesOnTable[ik].CastleThinking.AStarGreedy[CastlesOnTable[ik].CastleThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 											continue;
 										}
 									}
 								}
 								else
 								{
-									if (CastlesOnTable[ik]->CastleThinking.AStarGreedy.empty())
+									if (CastlesOnTable[ik].CastleThinking.AStarGreedy.empty())
 									{
-										CastlesOnTable[ik]->CastleThinking.AStarGreedy = std::vector<AllDraw>();
+										CastlesOnTable[ik].CastleThinking.AStarGreedy = std::vector<AllDraw>();
 									}
-									CastlesOnTable[ik]->CastleThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-									CastlesOnTable[ik]->CastleThinking.AStarGreedy[CastlesOnTable[ik]->CastleThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+									CastlesOnTable[ik].CastleThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+									CastlesOnTable[ik].CastleThinking.AStarGreedy[CastlesOnTable[ik].CastleThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 									continue;
 									;
 								}
 							}
-							if (CastlesOnTable[ik]->CastleThinking.AStarGreedy.empty())
+							if (CastlesOnTable[ik].CastleThinking.AStarGreedy.empty())
 							{
-								CastlesOnTable[ik]->CastleThinking.AStarGreedy = std::vector<AllDraw>();
+								CastlesOnTable[ik].CastleThinking.AStarGreedy = std::vector<AllDraw>();
 							}
-							CastlesOnTable[ik]->CastleThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-							CastlesOnTable[ik]->CastleThinking.AStarGreedy[CastlesOnTable[ik]->CastleThinking.AStarGreedy.size() - 1].TableList.clear();
-							CastlesOnTable[ik]->CastleThinking.AStarGreedy[CastlesOnTable[ik]->CastleThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(CastlesOnTable[ik]->CastleThinking.TableListElefant[j]));
-							CastlesOnTable[ik]->CastleThinking.AStarGreedy[CastlesOnTable[ik]->CastleThinking.AStarGreedy.size() - 1].SetRowColumn(0);
-							CastlesOnTable[ik]->CastleThinking.AStarGreedy[CastlesOnTable[ik]->CastleThinking.AStarGreedy.size() - 1].SetRowColumnFinishedWait();
-							if (CastlesOnTable[ik]->CastleThinking.AStarGreedy.size() > 0)
+							CastlesOnTable[ik].CastleThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+							CastlesOnTable[ik].CastleThinking.AStarGreedy[CastlesOnTable[ik].CastleThinking.AStarGreedy.size() - 1].TableList.clear();
+							CastlesOnTable[ik].CastleThinking.AStarGreedy[CastlesOnTable[ik].CastleThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(CastlesOnTable[ik].CastleThinking.TableListElefant[j]));
+							CastlesOnTable[ik].CastleThinking.AStarGreedy[CastlesOnTable[ik].CastleThinking.AStarGreedy.size() - 1].SetRowColumn(0);
+							CastlesOnTable[ik].CastleThinking.AStarGreedy[CastlesOnTable[ik].CastleThinking.AStarGreedy.size() - 1].SetRowColumnFinishedWait();
+							if (CastlesOnTable[ik].CastleThinking.AStarGreedy.size() > 0)
 							{
-								OutPutAction = std::wstring(L" ") + Alphabet(CastlesOnTable[ik]->CastleThinking.Row) + Number(CastlesOnTable[ik]->CastleThinking.Column) + Alphabet(CastlesOnTable[ik]->CastleThinking.RowColumnElefant[j][0]) + Number(CastlesOnTable[ik]->CastleThinking.RowColumnElefant[j][1]);
+								OutPutAction = std::wstring(L" ") + Alphabet(CastlesOnTable[ik].CastleThinking.Row) + Number(CastlesOnTable[ik].CastleThinking.Column) + Alphabet(CastlesOnTable[ik].CastleThinking.RowColumnElefant[j][0]) + Number(CastlesOnTable[ik].CastleThinking.RowColumnElefant[j][1]);
 								if (Order == 1)
 								{
 									OutPut = std::wstring(L"\r\nPerception Castle AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
@@ -13889,14 +13892,14 @@ bool  AllDraw::FullGameThinkingCastle(int ik, int a, int Order, int iAStarGreedy
 								}
 
 								PerceptionCount++;
-								int iii = (CastlesOnTable[ik]->CastleThinking.RowColumnElefant[j][0]);
-								int jjj = (CastlesOnTable[ik]->CastleThinking.RowColumnElefant[j][1]);
+								int iii = (CastlesOnTable[ik].CastleThinking.RowColumnElefant[j][0]);
+								int jjj = (CastlesOnTable[ik].CastleThinking.RowColumnElefant[j][1]);
 								int aa = a;
-								int **Tab = CloneATable(CastlesOnTable[ik]->CastleThinking.TableListElefant[j]);
+								int **Tab = CloneATable(CastlesOnTable[ik].CastleThinking.TableListElefant[j]);
 								int Ord = Order * -1;
-								CastlesOnTable[ik]->CastleThinking.AStarGreedy[CastlesOnTable[ik]->CastleThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+								CastlesOnTable[ik].CastleThinking.AStarGreedy[CastlesOnTable[ik].CastleThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 
-								CastlesOnTable[ik]->CastleThinking.AStarGreedy[CastlesOnTable[ik]->CastleThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord*-1, false, FOUND, LeafAStarGreedy);
+								CastlesOnTable[ik].CastleThinking.AStarGreedy[CastlesOnTable[ik].CastleThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord*-1, false, FOUND, LeafAStarGreedy);
 							}
 						}
 					}
@@ -13909,13 +13912,13 @@ bool  AllDraw::FullGameThinkingCastle(int ik, int a, int Order, int iAStarGreedy
 	TaskEnd++;
 
 
-	for (int h = 0; h < CastlesOnTable[ik]->CastleThinking.AStarGreedy.size(); h++)
+	for (int h = 0; h < CastlesOnTable[ik].CastleThinking.AStarGreedy.size(); h++)
 	{
-		CastlesOnTable[ik]->WinOcuuredatChiled += SumOfObjects(CastlesOnTable[ik]->CastleThinking.AStarGreedy[h], Order);
+		CastlesOnTable[ik]->WinOcuuredatChiled += SumOfObjects(CastlesOnTable[ik].CastleThinking.AStarGreedy[h], Order);
 	}
-	for (int h = 0; h < CastlesOnTable[ik]->CastleThinking.AStarGreedy.size(); h++)
+	for (int h = 0; h < CastlesOnTable[ik].CastleThinking.AStarGreedy.size(); h++)
 	{
-		CastlesOnTable[ik]->LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[ik]->CastleThinking.AStarGreedy[h], Order);
+		CastlesOnTable[ik]->LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[ik].CastleThinking.AStarGreedy[h], Order);
 	}
 
 	return Do;
@@ -13926,7 +13929,7 @@ bool  AllDraw::FullGameThinkingElephant(int ik, int a, int Order, int iAStarGree
 	bool Do = false;
 	TaskBegin++;
 	int S = 0;
-	while (ElephantOnTable[ik]->ElefantThinking.ThinkingBegin && (!ElephantOnTable[ik]->ElefantThinking.ThinkingFinished))
+	while (ElephantOnTable[ik].ElefantThinking.ThinkingBegin && (!ElephantOnTable[ik].ElefantThinking.ThinkingFinished))
 	{
 	}
 	if (iAStarGreedy < 0)
@@ -13938,9 +13941,9 @@ bool  AllDraw::FullGameThinkingElephant(int ik, int a, int Order, int iAStarGree
 		}
 
 	}
-	for (int j = 0; j < ElephantOnTable[ik]->ElefantThinking.TableListElefant.size(); j++)
+	for (int j = 0; j < ElephantOnTable[ik].ElefantThinking.TableListElefant.size(); j++)
 	{
-		if (ElephantOnTable[ik]->ElefantThinking.PenaltyRegardListElefant[j].IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT)) //&& ElephantOnTable[ik]->ElefantThinking.PenaltyRegardListElefant[j].IsRewardAction() != 1 ||(!UsePenaltyRegardMechnisamT)
+		if (ElephantOnTable[ik].ElefantThinking.PenaltyRegardListElefant[j].IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT)) //&& ElephantOnTable[ik].ElefantThinking.PenaltyRegardListElefant[j].IsRewardAction() != 1 ||(!UsePenaltyRegardMechnisamT)
 		{
 			if (Blitz)
 			{
@@ -13949,12 +13952,12 @@ bool  AllDraw::FullGameThinkingElephant(int ik, int a, int Order, int iAStarGree
 
 					if (ik != Index[1])
 					{
-						if (ElephantOnTable[ik]->ElefantThinking.AStarGreedy.empty())
+						if (ElephantOnTable[ik].ElefantThinking.AStarGreedy.empty())
 						{
-							ElephantOnTable[ik]->ElefantThinking.AStarGreedy = std::vector<AllDraw>();
+							ElephantOnTable[ik].ElefantThinking.AStarGreedy = std::vector<AllDraw>();
 						}
-						ElephantOnTable[ik]->ElefantThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-						ElephantOnTable[ik]->ElefantThinking.AStarGreedy[ElephantOnTable[ik]->ElefantThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+						ElephantOnTable[ik].ElefantThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+						ElephantOnTable[ik].ElefantThinking.AStarGreedy[ElephantOnTable[ik].ElefantThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 						continue;
 						;
 					}
@@ -13962,12 +13965,12 @@ bool  AllDraw::FullGameThinkingElephant(int ik, int a, int Order, int iAStarGree
 					{
 						if (j != jindex[1])
 						{
-							if (ElephantOnTable[ik]->ElefantThinking.AStarGreedy.empty())
+							if (ElephantOnTable[ik].ElefantThinking.AStarGreedy.empty())
 							{
-								ElephantOnTable[ik]->ElefantThinking.AStarGreedy = std::vector<AllDraw>();
+								ElephantOnTable[ik].ElefantThinking.AStarGreedy = std::vector<AllDraw>();
 							}
-							ElephantOnTable[ik]->ElefantThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-							ElephantOnTable[ik]->ElefantThinking.AStarGreedy[ElephantOnTable[ik]->ElefantThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+							ElephantOnTable[ik].ElefantThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+							ElephantOnTable[ik].ElefantThinking.AStarGreedy[ElephantOnTable[ik].ElefantThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 							continue;
 
 						}
@@ -13975,31 +13978,31 @@ bool  AllDraw::FullGameThinkingElephant(int ik, int a, int Order, int iAStarGree
 				}
 				else
 				{
-					if (ElephantOnTable[ik]->ElefantThinking.AStarGreedy.empty())
+					if (ElephantOnTable[ik].ElefantThinking.AStarGreedy.empty())
 					{
-						ElephantOnTable[ik]->ElefantThinking.AStarGreedy = std::vector<AllDraw>();
+						ElephantOnTable[ik].ElefantThinking.AStarGreedy = std::vector<AllDraw>();
 					}
-					ElephantOnTable[ik]->ElefantThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-					ElephantOnTable[ik]->ElefantThinking.AStarGreedy[ElephantOnTable[ik]->ElefantThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+					ElephantOnTable[ik].ElefantThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+					ElephantOnTable[ik].ElefantThinking.AStarGreedy[ElephantOnTable[ik].ElefantThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 					continue;
 
 				}
 
-				if (ElephantOnTable[ik]->ElefantThinking.AStarGreedy.empty())
+				if (ElephantOnTable[ik].ElefantThinking.AStarGreedy.empty())
 				{
-					ElephantOnTable[ik]->ElefantThinking.AStarGreedy = std::vector<AllDraw>();
+					ElephantOnTable[ik].ElefantThinking.AStarGreedy = std::vector<AllDraw>();
 				}
 
-				ElephantOnTable[ik]->ElefantThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-				ElephantOnTable[ik]->ElefantThinking.AStarGreedy[ElephantOnTable[ik]->ElefantThinking.AStarGreedy.size() - 1].TableList.clear();
-				ElephantOnTable[ik]->ElefantThinking.AStarGreedy[ElephantOnTable[ik]->ElefantThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(ElephantOnTable[ik]->ElefantThinking.TableListElefant[j]));
-				ElephantOnTable[ik]->ElefantThinking.AStarGreedy[ElephantOnTable[ik]->ElefantThinking.AStarGreedy.size() - 1].SetRowColumn(0);
-				ElephantOnTable[ik]->ElefantThinking.AStarGreedy[ElephantOnTable[ik]->ElefantThinking.AStarGreedy.size() - 1].SetRowColumnFinishedWait();
-				//ElephantOnTable[ik]->ElefantThinking.AStarGreedy[ElephantOnTable[ik]->ElefantThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, ElephantOnTable[ik]->ElefantThinking.TableListElefant[j], Order, false);
-				//ParameterizedThreadStart start = new ParameterizedThreadStart(ElephantOnTable[ik]->ElefantThinking.AStarGreedy[ElephantOnTable[ik]->ElefantThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt);
-				if (ElephantOnTable[ik]->ElefantThinking.AStarGreedy.size() > 0)
+				ElephantOnTable[ik].ElefantThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+				ElephantOnTable[ik].ElefantThinking.AStarGreedy[ElephantOnTable[ik].ElefantThinking.AStarGreedy.size() - 1].TableList.clear();
+				ElephantOnTable[ik].ElefantThinking.AStarGreedy[ElephantOnTable[ik].ElefantThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(ElephantOnTable[ik].ElefantThinking.TableListElefant[j]));
+				ElephantOnTable[ik].ElefantThinking.AStarGreedy[ElephantOnTable[ik].ElefantThinking.AStarGreedy.size() - 1].SetRowColumn(0);
+				ElephantOnTable[ik].ElefantThinking.AStarGreedy[ElephantOnTable[ik].ElefantThinking.AStarGreedy.size() - 1].SetRowColumnFinishedWait();
+				//ElephantOnTable[ik].ElefantThinking.AStarGreedy[ElephantOnTable[ik].ElefantThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, ElephantOnTable[ik].ElefantThinking.TableListElefant[j], Order, false);
+				//ParameterizedThreadStart start = new ParameterizedThreadStart(ElephantOnTable[ik].ElefantThinking.AStarGreedy[ElephantOnTable[ik].ElefantThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt);
+				if (ElephantOnTable[ik].ElefantThinking.AStarGreedy.size() > 0)
 				{
-					OutPutAction = std::wstring(L" ") + Alphabet(ElephantOnTable[ik]->ElefantThinking.Row) + Number(ElephantOnTable[ik]->ElefantThinking.Column) + Alphabet(ElephantOnTable[ik]->ElefantThinking.RowColumnElefant[j][0]) + Number(ElephantOnTable[ik]->ElefantThinking.RowColumnElefant[j][1]);
+					OutPutAction = std::wstring(L" ") + Alphabet(ElephantOnTable[ik].ElefantThinking.Row) + Number(ElephantOnTable[ik].ElefantThinking.Column) + Alphabet(ElephantOnTable[ik].ElefantThinking.RowColumnElefant[j][0]) + Number(ElephantOnTable[ik].ElefantThinking.RowColumnElefant[j][1]);
 					if (Order == 1)
 					{
 						OutPut = std::wstring(L"\r\nPerception Elephant AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
@@ -14010,19 +14013,19 @@ bool  AllDraw::FullGameThinkingElephant(int ik, int a, int Order, int iAStarGree
 					}
 
 					PerceptionCount++;
-					int iii = (ElephantOnTable[ik]->ElefantThinking.RowColumnElefant[j][0]);
-					int jjj = (ElephantOnTable[ik]->ElefantThinking.RowColumnElefant[j][1]);
+					int iii = (ElephantOnTable[ik].ElefantThinking.RowColumnElefant[j][0]);
+					int jjj = (ElephantOnTable[ik].ElefantThinking.RowColumnElefant[j][1]);
 					int aa = a;
-					int **Tab = CloneATable(ElephantOnTable[ik]->ElefantThinking.TableListElefant[j]);
+					int **Tab = CloneATable(ElephantOnTable[ik].ElefantThinking.TableListElefant[j]);
 					int Ord = Order * -1;
-					ElephantOnTable[ik]->ElefantThinking.AStarGreedy[ElephantOnTable[ik]->ElefantThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
-					//Task array = Task.Factory.StartNew(() => ElephantOnTable[ik]->ElefantThinking.AStarGreedy[ElephantOnTable[ik]->ElefantThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(ElephantOnTable[ik]->ElefantThinking.TableListElefant[j]), Order, false, FOUND, LeafAStarGreedy));
-					ElephantOnTable[ik]->ElefantThinking.AStarGreedy[ElephantOnTable[ik]->ElefantThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord*-1, false, FOUND, LeafAStarGreedy);
+					ElephantOnTable[ik].ElefantThinking.AStarGreedy[ElephantOnTable[ik].ElefantThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+					//Task array = Task.Factory.StartNew(() => ElephantOnTable[ik].ElefantThinking.AStarGreedy[ElephantOnTable[ik].ElefantThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(ElephantOnTable[ik].ElefantThinking.TableListElefant[j]), Order, false, FOUND, LeafAStarGreedy));
+					ElephantOnTable[ik].ElefantThinking.AStarGreedy[ElephantOnTable[ik].ElefantThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord*-1, false, FOUND, LeafAStarGreedy);
 					Do = true;
 				}
 				else
 				{
-					if (ElephantOnTable[ik]->ElefantThinking.PenaltyRegardListElefant[j].IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT)) //ElephantOnTable[ik]->ElefantThinking.PenaltyRegardListElefant[j].IsPenaltyAction() != 0 &&
+					if (ElephantOnTable[ik].ElefantThinking.PenaltyRegardListElefant[j].IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT)) //ElephantOnTable[ik].ElefantThinking.PenaltyRegardListElefant[j].IsPenaltyAction() != 0 &&
 					{
 						{
 							if (Blitz)
@@ -14032,12 +14035,12 @@ bool  AllDraw::FullGameThinkingElephant(int ik, int a, int Order, int iAStarGree
 
 									if (ik != Index[1])
 									{
-										if (ElephantOnTable[ik]->ElefantThinking.AStarGreedy.empty())
+										if (ElephantOnTable[ik].ElefantThinking.AStarGreedy.empty())
 										{
-											ElephantOnTable[ik]->ElefantThinking.AStarGreedy = std::vector<AllDraw>();
+											ElephantOnTable[ik].ElefantThinking.AStarGreedy = std::vector<AllDraw>();
 										}
-										ElephantOnTable[ik]->ElefantThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-										ElephantOnTable[ik]->ElefantThinking.AStarGreedy[ElephantOnTable[ik]->ElefantThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+										ElephantOnTable[ik].ElefantThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+										ElephantOnTable[ik].ElefantThinking.AStarGreedy[ElephantOnTable[ik].ElefantThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 										continue;
 										;
 									}
@@ -14045,40 +14048,40 @@ bool  AllDraw::FullGameThinkingElephant(int ik, int a, int Order, int iAStarGree
 									{
 										if (j != jindex[1])
 										{
-											if (ElephantOnTable[ik]->ElefantThinking.AStarGreedy.empty())
+											if (ElephantOnTable[ik].ElefantThinking.AStarGreedy.empty())
 											{
-												ElephantOnTable[ik]->ElefantThinking.AStarGreedy = std::vector<AllDraw>();
+												ElephantOnTable[ik].ElefantThinking.AStarGreedy = std::vector<AllDraw>();
 											}
-											ElephantOnTable[ik]->ElefantThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-											ElephantOnTable[ik]->ElefantThinking.AStarGreedy[ElephantOnTable[ik]->ElefantThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+											ElephantOnTable[ik].ElefantThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+											ElephantOnTable[ik].ElefantThinking.AStarGreedy[ElephantOnTable[ik].ElefantThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 											continue;
 										}
 									}
 								}
 								else
 								{
-									if (ElephantOnTable[ik]->ElefantThinking.AStarGreedy.empty())
+									if (ElephantOnTable[ik].ElefantThinking.AStarGreedy.empty())
 									{
-										ElephantOnTable[ik]->ElefantThinking.AStarGreedy = std::vector<AllDraw>();
+										ElephantOnTable[ik].ElefantThinking.AStarGreedy = std::vector<AllDraw>();
 									}
-									ElephantOnTable[ik]->ElefantThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-									ElephantOnTable[ik]->ElefantThinking.AStarGreedy[ElephantOnTable[ik]->ElefantThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+									ElephantOnTable[ik].ElefantThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+									ElephantOnTable[ik].ElefantThinking.AStarGreedy[ElephantOnTable[ik].ElefantThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 									continue;
 									;
 								}
 							}
-							if (ElephantOnTable[ik]->ElefantThinking.AStarGreedy.empty())
+							if (ElephantOnTable[ik].ElefantThinking.AStarGreedy.empty())
 							{
-								ElephantOnTable[ik]->ElefantThinking.AStarGreedy = std::vector<AllDraw>();
+								ElephantOnTable[ik].ElefantThinking.AStarGreedy = std::vector<AllDraw>();
 							}
-							ElephantOnTable[ik]->ElefantThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-							ElephantOnTable[ik]->ElefantThinking.AStarGreedy[ElephantOnTable[ik]->ElefantThinking.AStarGreedy.size() - 1].TableList.clear();
-							ElephantOnTable[ik]->ElefantThinking.AStarGreedy[ElephantOnTable[ik]->ElefantThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(ElephantOnTable[ik]->ElefantThinking.TableListElefant[j]));
-							ElephantOnTable[ik]->ElefantThinking.AStarGreedy[ElephantOnTable[ik]->ElefantThinking.AStarGreedy.size() - 1].SetRowColumn(0);
-							ElephantOnTable[ik]->ElefantThinking.AStarGreedy[ElephantOnTable[ik]->ElefantThinking.AStarGreedy.size() - 1].SetRowColumnFinishedWait();
-							if (ElephantOnTable[ik]->ElefantThinking.AStarGreedy.size() > 0)
+							ElephantOnTable[ik].ElefantThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+							ElephantOnTable[ik].ElefantThinking.AStarGreedy[ElephantOnTable[ik].ElefantThinking.AStarGreedy.size() - 1].TableList.clear();
+							ElephantOnTable[ik].ElefantThinking.AStarGreedy[ElephantOnTable[ik].ElefantThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(ElephantOnTable[ik].ElefantThinking.TableListElefant[j]));
+							ElephantOnTable[ik].ElefantThinking.AStarGreedy[ElephantOnTable[ik].ElefantThinking.AStarGreedy.size() - 1].SetRowColumn(0);
+							ElephantOnTable[ik].ElefantThinking.AStarGreedy[ElephantOnTable[ik].ElefantThinking.AStarGreedy.size() - 1].SetRowColumnFinishedWait();
+							if (ElephantOnTable[ik].ElefantThinking.AStarGreedy.size() > 0)
 							{
-								OutPutAction = std::wstring(L" ") + Alphabet(ElephantOnTable[ik]->ElefantThinking.Row) + Number(ElephantOnTable[ik]->ElefantThinking.Column) + Alphabet(ElephantOnTable[ik]->ElefantThinking.RowColumnElefant[j][0]) + Number(ElephantOnTable[ik]->ElefantThinking.RowColumnElefant[j][1]);
+								OutPutAction = std::wstring(L" ") + Alphabet(ElephantOnTable[ik].ElefantThinking.Row) + Number(ElephantOnTable[ik].ElefantThinking.Column) + Alphabet(ElephantOnTable[ik].ElefantThinking.RowColumnElefant[j][0]) + Number(ElephantOnTable[ik].ElefantThinking.RowColumnElefant[j][1]);
 								if (Order == 1)
 								{
 									OutPut = std::wstring(L"\r\nPerception Elephant AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
@@ -14089,14 +14092,14 @@ bool  AllDraw::FullGameThinkingElephant(int ik, int a, int Order, int iAStarGree
 								}
 
 								PerceptionCount++;
-								int iii = (ElephantOnTable[ik]->ElefantThinking.RowColumnElefant[j][0]);
-								int jjj = (ElephantOnTable[ik]->ElefantThinking.RowColumnElefant[j][1]);
+								int iii = (ElephantOnTable[ik].ElefantThinking.RowColumnElefant[j][0]);
+								int jjj = (ElephantOnTable[ik].ElefantThinking.RowColumnElefant[j][1]);
 								int aa = a;
-								int **Tab = CloneATable(ElephantOnTable[ik]->ElefantThinking.TableListElefant[j]);
+								int **Tab = CloneATable(ElephantOnTable[ik].ElefantThinking.TableListElefant[j]);
 								int Ord = Order * -1;
-								ElephantOnTable[ik]->ElefantThinking.AStarGreedy[ElephantOnTable[ik]->ElefantThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+								ElephantOnTable[ik].ElefantThinking.AStarGreedy[ElephantOnTable[ik].ElefantThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 
-								ElephantOnTable[ik]->ElefantThinking.AStarGreedy[ElephantOnTable[ik]->ElefantThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord*-1, false, FOUND, LeafAStarGreedy);
+								ElephantOnTable[ik].ElefantThinking.AStarGreedy[ElephantOnTable[ik].ElefantThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord*-1, false, FOUND, LeafAStarGreedy);
 							}
 						}
 					}
@@ -14109,13 +14112,13 @@ bool  AllDraw::FullGameThinkingElephant(int ik, int a, int Order, int iAStarGree
 	TaskEnd++;
 
 
-	for (int h = 0; h < ElephantOnTable[ik]->ElefantThinking.AStarGreedy.size(); h++)
+	for (int h = 0; h < ElephantOnTable[ik].ElefantThinking.AStarGreedy.size(); h++)
 	{
-		ElephantOnTable[ik]->WinOcuuredatChiled += SumOfObjects(ElephantOnTable[ik]->ElefantThinking.AStarGreedy[h], Order);
+		ElephantOnTable[ik]->WinOcuuredatChiled += SumOfObjects(ElephantOnTable[ik].ElefantThinking.AStarGreedy[h], Order);
 	}
-	for (int h = 0; h < ElephantOnTable[ik]->ElefantThinking.AStarGreedy.size(); h++)
+	for (int h = 0; h < ElephantOnTable[ik].ElefantThinking.AStarGreedy.size(); h++)
 	{
-		ElephantOnTable[ik]->LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[ik]->ElefantThinking.AStarGreedy[h], Order);
+		ElephantOnTable[ik]->LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[ik].ElefantThinking.AStarGreedy[h], Order);
 	}
 
 	return Do;
@@ -14128,7 +14131,7 @@ bool  AllDraw::FullGameThinkingElephantGray(int a, int Order, int iAStarGreedy, 
 	////Parallel.For(0, ElefantMidle, ik =>
 	for (int ik = 0; ik < ElefantMidle; ik++)
 	{
-		if (SolderesOnTable != nullptr && ((&ElephantOnTable[ik]) != nullptr) && ((&(ElephantOnTable[ik]->ElefantThinking)) != nullptr) && ((&(ElephantOnTable[ik]->ElefantThinking)) != nullptr) && (!ElephantOnTable[ik]->ElefantThinking.IsSupHu))
+		if (SolderesOnTable != nullptr && ((&ElephantOnTable[ik]) != nullptr) && ((&(ElephantOnTable[ik].ElefantThinking)) != nullptr) && ((&(ElephantOnTable[ik].ElefantThinking)) != nullptr) && (!ElephantOnTable[ik].ElefantThinking.IsSupHu))
 		{
 			Do = FullGameThinkingElephant(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
 		}
@@ -14143,7 +14146,7 @@ bool  AllDraw::FullGameThinkingElephantBrown(int a, int Order, int iAStarGreedy,
 	////Parallel.For(0, ElefantMidle, ik =>
 	for (int ik = ElefantMidle; ik<ElefantHigh; ik++)
 	{
-		if (ElephantOnTable != nullptr && ((&ElephantOnTable[ik]) != nullptr) && ((&(ElephantOnTable[ik]->ElefantThinking)) != nullptr) && ((&(ElephantOnTable[ik]->ElefantThinking)) != nullptr) && (!ElephantOnTable[ik]->ElefantThinking.IsSupHu))
+		if (ElephantOnTable != nullptr && ((&ElephantOnTable[ik]) != nullptr) && ((&(ElephantOnTable[ik].ElefantThinking)) != nullptr) && ((&(ElephantOnTable[ik].ElefantThinking)) != nullptr) && (!ElephantOnTable[ik].ElefantThinking.IsSupHu))
 		{
 			Do = FullGameThinkingElephant(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
 		}
@@ -14158,7 +14161,7 @@ bool  AllDraw::FullGameThinkingHourse(int ik, int a, int Order, int iAStarGreedy
 	bool Do = false;
 	TaskBegin++;
 	int S = 0;
-	while (HoursesOnTable[ik]->HourseThinking.ThinkingBegin && (!HoursesOnTable[ik]->HourseThinking.ThinkingFinished))
+	while (HoursesOnTable[ik].HourseThinking.ThinkingBegin && (!HoursesOnTable[ik].HourseThinking.ThinkingFinished))
 	{
 	}
 
@@ -14172,11 +14175,11 @@ bool  AllDraw::FullGameThinkingHourse(int ik, int a, int Order, int iAStarGreedy
 		}
 
 	}
-	for (int j = 0; j < HoursesOnTable[ik]->HourseThinking.TableListHourse.size(); j++)
+	for (int j = 0; j < HoursesOnTable[ik].HourseThinking.TableListHourse.size(); j++)
 	{
 		if (AllDraw::OrderPlate == Order)
 		{
-			if (HoursesOnTable[ik]->HourseThinking.PenaltyRegardListHourse[j].IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT)) //&& HoursesOnTable[ik]->HourseThinking.PenaltyRegardListHourse[j].IsRewardAction() != 1 ||(!UsePenaltyRegardMechnisamT)
+			if (HoursesOnTable[ik].HourseThinking.PenaltyRegardListHourse[j].IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT)) //&& HoursesOnTable[ik].HourseThinking.PenaltyRegardListHourse[j].IsRewardAction() != 1 ||(!UsePenaltyRegardMechnisamT)
 			{
 				{
 					if (Blitz)
@@ -14186,54 +14189,54 @@ bool  AllDraw::FullGameThinkingHourse(int ik, int a, int Order, int iAStarGreedy
 
 							if (ik != Index[2])
 							{
-								if (HoursesOnTable[ik]->HourseThinking.AStarGreedy.empty())
+								if (HoursesOnTable[ik].HourseThinking.AStarGreedy.empty())
 								{
-									HoursesOnTable[ik]->HourseThinking.AStarGreedy = std::vector<AllDraw>();
+									HoursesOnTable[ik].HourseThinking.AStarGreedy = std::vector<AllDraw>();
 								}
-								HoursesOnTable[ik]->HourseThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-								HoursesOnTable[ik]->HourseThinking.AStarGreedy[HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+								HoursesOnTable[ik].HourseThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+								HoursesOnTable[ik].HourseThinking.AStarGreedy[HoursesOnTable[ik].HourseThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 								continue;
 							}
 							else
 							{
 								if (j != jindex[2])
 								{
-									if (HoursesOnTable[ik]->HourseThinking.AStarGreedy.empty())
+									if (HoursesOnTable[ik].HourseThinking.AStarGreedy.empty())
 									{
-										HoursesOnTable[ik]->HourseThinking.AStarGreedy = std::vector<AllDraw>();
+										HoursesOnTable[ik].HourseThinking.AStarGreedy = std::vector<AllDraw>();
 									}
-									HoursesOnTable[ik]->HourseThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-									HoursesOnTable[ik]->HourseThinking.AStarGreedy[HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+									HoursesOnTable[ik].HourseThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+									HoursesOnTable[ik].HourseThinking.AStarGreedy[HoursesOnTable[ik].HourseThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 									continue;
 								}
 							}
 						}
 						else
 						{
-							if (HoursesOnTable[ik]->HourseThinking.AStarGreedy.empty())
+							if (HoursesOnTable[ik].HourseThinking.AStarGreedy.empty())
 							{
-								HoursesOnTable[ik]->HourseThinking.AStarGreedy = std::vector<AllDraw>();
+								HoursesOnTable[ik].HourseThinking.AStarGreedy = std::vector<AllDraw>();
 							}
-							HoursesOnTable[ik]->HourseThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-							HoursesOnTable[ik]->HourseThinking.AStarGreedy[HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+							HoursesOnTable[ik].HourseThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+							HoursesOnTable[ik].HourseThinking.AStarGreedy[HoursesOnTable[ik].HourseThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 							continue;
 						}
 
 
-						if (HoursesOnTable[ik]->HourseThinking.AStarGreedy.empty())
+						if (HoursesOnTable[ik].HourseThinking.AStarGreedy.empty())
 						{
-							HoursesOnTable[ik]->HourseThinking.AStarGreedy = std::vector<AllDraw>();
+							HoursesOnTable[ik].HourseThinking.AStarGreedy = std::vector<AllDraw>();
 						}
-						HoursesOnTable[ik]->HourseThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-						HoursesOnTable[ik]->HourseThinking.AStarGreedy[HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() - 1].TableList.clear();
+						HoursesOnTable[ik].HourseThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+						HoursesOnTable[ik].HourseThinking.AStarGreedy[HoursesOnTable[ik].HourseThinking.AStarGreedy.size() - 1].TableList.clear();
 						;
-						HoursesOnTable[ik]->HourseThinking.AStarGreedy[HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(HoursesOnTable[ik]->HourseThinking.TableListHourse[j]));
-						HoursesOnTable[ik]->HourseThinking.AStarGreedy[HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() - 1].SetRowColumn(0);
-						HoursesOnTable[ik]->HourseThinking.AStarGreedy[HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() - 1].SetRowColumnFinishedWait();
+						HoursesOnTable[ik].HourseThinking.AStarGreedy[HoursesOnTable[ik].HourseThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(HoursesOnTable[ik].HourseThinking.TableListHourse[j]));
+						HoursesOnTable[ik].HourseThinking.AStarGreedy[HoursesOnTable[ik].HourseThinking.AStarGreedy.size() - 1].SetRowColumn(0);
+						HoursesOnTable[ik].HourseThinking.AStarGreedy[HoursesOnTable[ik].HourseThinking.AStarGreedy.size() - 1].SetRowColumnFinishedWait();
 					}
-					if (HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() > 0)
+					if (HoursesOnTable[ik].HourseThinking.AStarGreedy.size() > 0)
 					{
-						OutPutAction = std::wstring(L" ") + Alphabet(HoursesOnTable[ik]->HourseThinking.Row) + Number(HoursesOnTable[ik]->HourseThinking.Column) + Alphabet(HoursesOnTable[ik]->HourseThinking.RowColumnHourse[j][0]) + Number(HoursesOnTable[ik]->HourseThinking.RowColumnHourse[j][1]);
+						OutPutAction = std::wstring(L" ") + Alphabet(HoursesOnTable[ik].HourseThinking.Row) + Number(HoursesOnTable[ik].HourseThinking.Column) + Alphabet(HoursesOnTable[ik].HourseThinking.RowColumnHourse[j][0]) + Number(HoursesOnTable[ik].HourseThinking.RowColumnHourse[j][1]);
 						if (Order == 1)
 						{
 							OutPut = std::wstring(L"\r\nPerception Hourse AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
@@ -14244,13 +14247,13 @@ bool  AllDraw::FullGameThinkingHourse(int ik, int a, int Order, int iAStarGreedy
 						}
 
 						PerceptionCount++;
-						int iii = (HoursesOnTable[ik]->HourseThinking.RowColumnHourse[j][0]);
-						int jjj = (HoursesOnTable[ik]->HourseThinking.RowColumnHourse[j][1]);
+						int iii = (HoursesOnTable[ik].HourseThinking.RowColumnHourse[j][0]);
+						int jjj = (HoursesOnTable[ik].HourseThinking.RowColumnHourse[j][1]);
 						int aa = a;
-						int **Tab = CloneATable(HoursesOnTable[ik]->HourseThinking.TableListHourse[j]);
+						int **Tab = CloneATable(HoursesOnTable[ik].HourseThinking.TableListHourse[j]);
 						int Ord = Order * -1;
-						HoursesOnTable[ik]->HourseThinking.AStarGreedy[HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
-						HoursesOnTable[ik]->HourseThinking.AStarGreedy[HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord*-1, false, FOUND, LeafAStarGreedy);
+						HoursesOnTable[ik].HourseThinking.AStarGreedy[HoursesOnTable[ik].HourseThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+						HoursesOnTable[ik].HourseThinking.AStarGreedy[HoursesOnTable[ik].HourseThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord*-1, false, FOUND, LeafAStarGreedy);
 
 						Do = true;
 					}
@@ -14260,7 +14263,7 @@ bool  AllDraw::FullGameThinkingHourse(int ik, int a, int Order, int iAStarGreedy
 		}
 		else
 		{
-			if (HoursesOnTable[ik]->HourseThinking.PenaltyRegardListHourse[j].IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT)) //HoursesOnTable[ik]->HourseThinking.PenaltyRegardListHourse[j].IsPenaltyAction() != 0 ||(!UsePenaltyRegardMechnisamT)//&&
+			if (HoursesOnTable[ik].HourseThinking.PenaltyRegardListHourse[j].IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT)) //HoursesOnTable[ik].HourseThinking.PenaltyRegardListHourse[j].IsPenaltyAction() != 0 ||(!UsePenaltyRegardMechnisamT)//&&
 			{
 				if (Blitz)
 				{
@@ -14269,54 +14272,54 @@ bool  AllDraw::FullGameThinkingHourse(int ik, int a, int Order, int iAStarGreedy
 
 						if (ik != Index[2])
 						{
-							if (HoursesOnTable[ik]->HourseThinking.AStarGreedy.empty())
+							if (HoursesOnTable[ik].HourseThinking.AStarGreedy.empty())
 							{
-								HoursesOnTable[ik]->HourseThinking.AStarGreedy = std::vector<AllDraw>();
+								HoursesOnTable[ik].HourseThinking.AStarGreedy = std::vector<AllDraw>();
 							}
-							HoursesOnTable[ik]->HourseThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-							HoursesOnTable[ik]->HourseThinking.AStarGreedy[HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+							HoursesOnTable[ik].HourseThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+							HoursesOnTable[ik].HourseThinking.AStarGreedy[HoursesOnTable[ik].HourseThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 							continue;
 						}
 						else
 						{
 							if (j != jindex[2])
 							{
-								if (HoursesOnTable[ik]->HourseThinking.AStarGreedy.empty())
+								if (HoursesOnTable[ik].HourseThinking.AStarGreedy.empty())
 								{
-									HoursesOnTable[ik]->HourseThinking.AStarGreedy = std::vector<AllDraw>();
+									HoursesOnTable[ik].HourseThinking.AStarGreedy = std::vector<AllDraw>();
 								}
-								HoursesOnTable[ik]->HourseThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-								HoursesOnTable[ik]->HourseThinking.AStarGreedy[HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+								HoursesOnTable[ik].HourseThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+								HoursesOnTable[ik].HourseThinking.AStarGreedy[HoursesOnTable[ik].HourseThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 								continue;
 							}
 						}
 					}
 					else
 					{
-						if (HoursesOnTable[ik]->HourseThinking.AStarGreedy.empty())
+						if (HoursesOnTable[ik].HourseThinking.AStarGreedy.empty())
 						{
-							HoursesOnTable[ik]->HourseThinking.AStarGreedy = std::vector<AllDraw>();
+							HoursesOnTable[ik].HourseThinking.AStarGreedy = std::vector<AllDraw>();
 						}
-						HoursesOnTable[ik]->HourseThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-						HoursesOnTable[ik]->HourseThinking.AStarGreedy[HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+						HoursesOnTable[ik].HourseThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+						HoursesOnTable[ik].HourseThinking.AStarGreedy[HoursesOnTable[ik].HourseThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 						continue;
 					}
 
 				}
 
 			}
-			if (HoursesOnTable[ik]->HourseThinking.AStarGreedy.empty())
+			if (HoursesOnTable[ik].HourseThinking.AStarGreedy.empty())
 			{
-				HoursesOnTable[ik]->HourseThinking.AStarGreedy = std::vector<AllDraw>();
+				HoursesOnTable[ik].HourseThinking.AStarGreedy = std::vector<AllDraw>();
 			}
-			HoursesOnTable[ik]->HourseThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-			HoursesOnTable[ik]->HourseThinking.AStarGreedy[HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() - 1].TableList.clear();
-			HoursesOnTable[ik]->HourseThinking.AStarGreedy[HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(HoursesOnTable[ik]->HourseThinking.TableListHourse[j]));
-			HoursesOnTable[ik]->HourseThinking.AStarGreedy[HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() - 1].SetRowColumn(0);
-			HoursesOnTable[ik]->HourseThinking.AStarGreedy[HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() - 1].SetRowColumnFinishedWait();
-			if (HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() > 0)
+			HoursesOnTable[ik].HourseThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+			HoursesOnTable[ik].HourseThinking.AStarGreedy[HoursesOnTable[ik].HourseThinking.AStarGreedy.size() - 1].TableList.clear();
+			HoursesOnTable[ik].HourseThinking.AStarGreedy[HoursesOnTable[ik].HourseThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(HoursesOnTable[ik].HourseThinking.TableListHourse[j]));
+			HoursesOnTable[ik].HourseThinking.AStarGreedy[HoursesOnTable[ik].HourseThinking.AStarGreedy.size() - 1].SetRowColumn(0);
+			HoursesOnTable[ik].HourseThinking.AStarGreedy[HoursesOnTable[ik].HourseThinking.AStarGreedy.size() - 1].SetRowColumnFinishedWait();
+			if (HoursesOnTable[ik].HourseThinking.AStarGreedy.size() > 0)
 			{
-				OutPutAction = std::wstring(L" ") + Alphabet(HoursesOnTable[ik]->HourseThinking.Row) + Number(HoursesOnTable[ik]->HourseThinking.Column) + Alphabet(HoursesOnTable[ik]->HourseThinking.RowColumnHourse[j][0]) + Number(HoursesOnTable[ik]->HourseThinking.RowColumnHourse[j][1]);
+				OutPutAction = std::wstring(L" ") + Alphabet(HoursesOnTable[ik].HourseThinking.Row) + Number(HoursesOnTable[ik].HourseThinking.Column) + Alphabet(HoursesOnTable[ik].HourseThinking.RowColumnHourse[j][0]) + Number(HoursesOnTable[ik].HourseThinking.RowColumnHourse[j][1]);
 				if (Order == 1)
 				{
 					OutPut = std::wstring(L"\r\nPerception Hourse AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
@@ -14327,23 +14330,23 @@ bool  AllDraw::FullGameThinkingHourse(int ik, int a, int Order, int iAStarGreedy
 				}
 
 				PerceptionCount++;
-				int iii = (HoursesOnTable[ik]->HourseThinking.RowColumnHourse[j][0]);
-				int jjj = (HoursesOnTable[ik]->HourseThinking.RowColumnHourse[j][1]);
+				int iii = (HoursesOnTable[ik].HourseThinking.RowColumnHourse[j][0]);
+				int jjj = (HoursesOnTable[ik].HourseThinking.RowColumnHourse[j][1]);
 				int aa = a;
-				int **Tab = CloneATable(HoursesOnTable[ik]->HourseThinking.TableListHourse[j]);
+				int **Tab = CloneATable(HoursesOnTable[ik].HourseThinking.TableListHourse[j]);
 				int Ord = Order * -1;
-				HoursesOnTable[ik]->HourseThinking.AStarGreedy[HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+				HoursesOnTable[ik].HourseThinking.AStarGreedy[HoursesOnTable[ik].HourseThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 
-				//Task array = Task.Factory.StartNew(() => HoursesOnTable[ik]->HourseThinking.AStarGreedy[HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(HoursesOnTable[ik]->HourseThinking.TableListHourse[j]), Order, false, FOUND, LeafAStarGreedy));
-				HoursesOnTable[ik]->HourseThinking.AStarGreedy[HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord*-1, false, FOUND, LeafAStarGreedy);
-				for (int h = 0; h < HoursesOnTable[ik]->HourseThinking.AStarGreedy.size(); h++)
+				//Task array = Task.Factory.StartNew(() => HoursesOnTable[ik].HourseThinking.AStarGreedy[HoursesOnTable[ik].HourseThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(HoursesOnTable[ik].HourseThinking.TableListHourse[j]), Order, false, FOUND, LeafAStarGreedy));
+				HoursesOnTable[ik].HourseThinking.AStarGreedy[HoursesOnTable[ik].HourseThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord*-1, false, FOUND, LeafAStarGreedy);
+				for (int h = 0; h < HoursesOnTable[ik].HourseThinking.AStarGreedy.size(); h++)
 				{
-					HoursesOnTable[ik]->WinOcuuredatChiled += SumOfObjects(HoursesOnTable[ik]->HourseThinking.AStarGreedy[h], Order);
+					HoursesOnTable[ik]->WinOcuuredatChiled += SumOfObjects(HoursesOnTable[ik].HourseThinking.AStarGreedy[h], Order);
 				}
 
-				for (int h = 0; h < HoursesOnTable[ik]->HourseThinking.AStarGreedy.size(); h++)
+				for (int h = 0; h < HoursesOnTable[ik].HourseThinking.AStarGreedy.size(); h++)
 				{
-					HoursesOnTable[ik]->LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[ik]->HourseThinking.AStarGreedy[h], Order);
+					HoursesOnTable[ik]->LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[ik].HourseThinking.AStarGreedy[h], Order);
 				}
 			}
 			Do = true;
@@ -14354,13 +14357,13 @@ bool  AllDraw::FullGameThinkingHourse(int ik, int a, int Order, int iAStarGreedy
 	TaskEnd++;
 
 
-	for (int h = 0; h < HoursesOnTable[ik]->HourseThinking.AStarGreedy.size(); h++)
+	for (int h = 0; h < HoursesOnTable[ik].HourseThinking.AStarGreedy.size(); h++)
 	{
-		HoursesOnTable[ik]->WinOcuuredatChiled += SumOfObjects(HoursesOnTable[ik]->HourseThinking.AStarGreedy[h], Order);
+		HoursesOnTable[ik]->WinOcuuredatChiled += SumOfObjects(HoursesOnTable[ik].HourseThinking.AStarGreedy[h], Order);
 	}
-	for (int h = 0; h < HoursesOnTable[ik]->HourseThinking.AStarGreedy.size(); h++)
+	for (int h = 0; h < HoursesOnTable[ik].HourseThinking.AStarGreedy.size(); h++)
 	{
-		HoursesOnTable[ik]->LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[ik]->HourseThinking.AStarGreedy[h], Order);
+		HoursesOnTable[ik]->LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[ik].HourseThinking.AStarGreedy[h], Order);
 	}
 
 	return Do;
@@ -14370,7 +14373,7 @@ bool  AllDraw::FullGameThinkingHourseGray(int a, int Order, int iAStarGreedy, in
 	bool Do = false;
 	for (int ik = 0; ik < HourseMidle; ik++)
 	{
-		if (HoursesOnTable != nullptr && (&(HoursesOnTable[ik]) != nullptr) && (&(HoursesOnTable[ik]->HourseThinking) != nullptr) && (&(HoursesOnTable[ik]->HourseThinking) != nullptr) && (!HoursesOnTable[ik]->HourseThinking.IsSupHu))
+		if (HoursesOnTable != nullptr && (&(HoursesOnTable[ik]) != nullptr) && (&(HoursesOnTable[ik].HourseThinking) != nullptr) && (&(HoursesOnTable[ik].HourseThinking) != nullptr) && (!HoursesOnTable[ik].HourseThinking.IsSupHu))
 		{
 			Do = FullGameThinkingHourse(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
 		}
@@ -14384,7 +14387,7 @@ bool  AllDraw::FullGameThinkingHourseBrown(int a, int Order, int iAStarGreedy, i
 	bool Do = false;
 	for (int ik = HourseMidle;ik<HourseHight; ik++)
 	{
-		if (HoursesOnTable != nullptr && (&(HoursesOnTable[ik]) != nullptr) && (&(HoursesOnTable[ik]->HourseThinking) != nullptr) && (&(HoursesOnTable[ik]->HourseThinking) != nullptr) && (!HoursesOnTable[ik]->HourseThinking.IsSupHu))
+		if (HoursesOnTable != nullptr && (&(HoursesOnTable[ik]) != nullptr) && (&(HoursesOnTable[ik].HourseThinking) != nullptr) && (&(HoursesOnTable[ik].HourseThinking) != nullptr) && (!HoursesOnTable[ik].HourseThinking.IsSupHu))
 		{
 			Do = FullGameThinkingHourse(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
 		}
@@ -14401,7 +14404,7 @@ bool  AllDraw::FullGameThinkingHourse(int ik, int a, int Order, int iAStarGreedy
 
 	TaskBegin++;
 	int S = 0;
-	while (HoursesOnTable[ik]->HourseThinking.ThinkingBegin && (!HoursesOnTable[ik]->HourseThinking.ThinkingFinished))
+	while (HoursesOnTable[ik].HourseThinking.ThinkingBegin && (!HoursesOnTable[ik].HourseThinking.ThinkingFinished))
 	{
 	}
 	if (iAStarGreedy < 0)
@@ -14414,11 +14417,11 @@ bool  AllDraw::FullGameThinkingHourse(int ik, int a, int Order, int iAStarGreedy
 
 	}
 
-	for (int j = 0; j < HoursesOnTable[ik]->HourseThinking.TableListCastle.size(); j++)
+	for (int j = 0; j < HoursesOnTable[ik].HourseThinking.TableListCastle.size(); j++)
 	{
 		if (AllDraw::OrderPlate == Order)
 		{
-			if (HoursesOnTable[ik]->HourseThinking.PenaltyRegardListCastle[j].IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT)) //&& HoursesOnTable[ik]->HourseThinking.PenaltyRegardListCastle[j].IsRewardAction() != 1 ||(!UsePenaltyRegardMechnisamT)
+			if (HoursesOnTable[ik].HourseThinking.PenaltyRegardListCastle[j].IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT)) //&& HoursesOnTable[ik].HourseThinking.PenaltyRegardListCastle[j].IsRewardAction() != 1 ||(!UsePenaltyRegardMechnisamT)
 			{
 
 				if (Blitz)
@@ -14427,51 +14430,51 @@ bool  AllDraw::FullGameThinkingHourse(int ik, int a, int Order, int iAStarGreedy
 					{
 						if (ik != Index[3])
 						{
-							if (HoursesOnTable[ik]->HourseThinking.AStarGreedy.empty())
+							if (HoursesOnTable[ik].HourseThinking.AStarGreedy.empty())
 							{
-								HoursesOnTable[ik]->HourseThinking.AStarGreedy = std::vector<AllDraw>();
+								HoursesOnTable[ik].HourseThinking.AStarGreedy = std::vector<AllDraw>();
 							}
-							HoursesOnTable[ik]->HourseThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-							HoursesOnTable[ik]->HourseThinking.AStarGreedy[HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+							HoursesOnTable[ik].HourseThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+							HoursesOnTable[ik].HourseThinking.AStarGreedy[HoursesOnTable[ik].HourseThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 							continue;
 						}
 						else
 						{
 							if (j != jindex[3])
 							{
-								if (HoursesOnTable[ik]->HourseThinking.AStarGreedy.empty())
+								if (HoursesOnTable[ik].HourseThinking.AStarGreedy.empty())
 								{
-									HoursesOnTable[ik]->HourseThinking.AStarGreedy = std::vector<AllDraw>();
+									HoursesOnTable[ik].HourseThinking.AStarGreedy = std::vector<AllDraw>();
 								}
-								HoursesOnTable[ik]->HourseThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-								HoursesOnTable[ik]->HourseThinking.AStarGreedy[HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+								HoursesOnTable[ik].HourseThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+								HoursesOnTable[ik].HourseThinking.AStarGreedy[HoursesOnTable[ik].HourseThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 								continue;
 							}
 						}
 					}
 					else
 					{
-						if (HoursesOnTable[ik]->HourseThinking.AStarGreedy.empty())
+						if (HoursesOnTable[ik].HourseThinking.AStarGreedy.empty())
 						{
-							HoursesOnTable[ik]->HourseThinking.AStarGreedy = std::vector<AllDraw>();
+							HoursesOnTable[ik].HourseThinking.AStarGreedy = std::vector<AllDraw>();
 						}
-						HoursesOnTable[ik]->HourseThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-						HoursesOnTable[ik]->HourseThinking.AStarGreedy[HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+						HoursesOnTable[ik].HourseThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+						HoursesOnTable[ik].HourseThinking.AStarGreedy[HoursesOnTable[ik].HourseThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 						continue;
 					}
 				}
-				if (HoursesOnTable[ik]->HourseThinking.AStarGreedy.empty())
+				if (HoursesOnTable[ik].HourseThinking.AStarGreedy.empty())
 				{
-					HoursesOnTable[ik]->HourseThinking.AStarGreedy = std::vector<AllDraw>();
+					HoursesOnTable[ik].HourseThinking.AStarGreedy = std::vector<AllDraw>();
 				}
-				HoursesOnTable[ik]->HourseThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-				HoursesOnTable[ik]->HourseThinking.AStarGreedy[HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() - 1].TableList.clear();
-				HoursesOnTable[ik]->HourseThinking.AStarGreedy[HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(HoursesOnTable[ik]->HourseThinking.TableListCastle[j]));
-				HoursesOnTable[ik]->HourseThinking.AStarGreedy[HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() - 1].SetRowColumn(0);
-				HoursesOnTable[ik]->HourseThinking.AStarGreedy[HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() - 1].SetRowColumnFinishedWait();
-				if (HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() > 0)
+				HoursesOnTable[ik].HourseThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+				HoursesOnTable[ik].HourseThinking.AStarGreedy[HoursesOnTable[ik].HourseThinking.AStarGreedy.size() - 1].TableList.clear();
+				HoursesOnTable[ik].HourseThinking.AStarGreedy[HoursesOnTable[ik].HourseThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(HoursesOnTable[ik].HourseThinking.TableListCastle[j]));
+				HoursesOnTable[ik].HourseThinking.AStarGreedy[HoursesOnTable[ik].HourseThinking.AStarGreedy.size() - 1].SetRowColumn(0);
+				HoursesOnTable[ik].HourseThinking.AStarGreedy[HoursesOnTable[ik].HourseThinking.AStarGreedy.size() - 1].SetRowColumnFinishedWait();
+				if (HoursesOnTable[ik].HourseThinking.AStarGreedy.size() > 0)
 				{
-					OutPutAction = std::wstring(L" ") + Alphabet(HoursesOnTable[ik]->HourseThinking.Row) + Number(HoursesOnTable[ik]->HourseThinking.Column) + Alphabet(HoursesOnTable[ik]->HourseThinking.RowColumnCastle[j][0]) + Number(HoursesOnTable[ik]->HourseThinking.RowColumnCastle[j][1]);
+					OutPutAction = std::wstring(L" ") + Alphabet(HoursesOnTable[ik].HourseThinking.Row) + Number(HoursesOnTable[ik].HourseThinking.Column) + Alphabet(HoursesOnTable[ik].HourseThinking.RowColumnCastle[j][0]) + Number(HoursesOnTable[ik].HourseThinking.RowColumnCastle[j][1]);
 					if (Order == 1)
 					{
 						OutPut = std::wstring(L"\r\nPerception Castle AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
@@ -14482,13 +14485,13 @@ bool  AllDraw::FullGameThinkingHourse(int ik, int a, int Order, int iAStarGreedy
 					}
 
 					PerceptionCount++;
-					int iii = (HoursesOnTable[ik]->HourseThinking.RowColumnCastle[j][0]);
-					int jjj = (HoursesOnTable[ik]->HourseThinking.RowColumnCastle[j][1]);
+					int iii = (HoursesOnTable[ik].HourseThinking.RowColumnCastle[j][0]);
+					int jjj = (HoursesOnTable[ik].HourseThinking.RowColumnCastle[j][1]);
 					int aa = a;
-					int **Tab = CloneATable(HoursesOnTable[ik]->HourseThinking.TableListCastle[j]);
+					int **Tab = CloneATable(HoursesOnTable[ik].HourseThinking.TableListCastle[j]);
 					int Ord = Order * -1;
-					HoursesOnTable[ik]->HourseThinking.AStarGreedy[HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
-					HoursesOnTable[ik]->HourseThinking.AStarGreedy[HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord*-1, false, FOUND, LeafAStarGreedy);
+					HoursesOnTable[ik].HourseThinking.AStarGreedy[HoursesOnTable[ik].HourseThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+					HoursesOnTable[ik].HourseThinking.AStarGreedy[HoursesOnTable[ik].HourseThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord*-1, false, FOUND, LeafAStarGreedy);
 					Do = true;
 				}
 			}
@@ -14498,7 +14501,7 @@ bool  AllDraw::FullGameThinkingHourse(int ik, int a, int Order, int iAStarGreedy
 		}
 		else
 		{
-			if (HoursesOnTable[ik]->HourseThinking.PenaltyRegardListCastle[j].IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT)) //HoursesOnTable[ik]->HourseThinking.PenaltyRegardListCastle[j].IsPenaltyAction() != 0 &&
+			if (HoursesOnTable[ik].HourseThinking.PenaltyRegardListCastle[j].IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT)) //HoursesOnTable[ik].HourseThinking.PenaltyRegardListCastle[j].IsPenaltyAction() != 0 &&
 			{
 
 				if (Blitz)
@@ -14508,52 +14511,52 @@ bool  AllDraw::FullGameThinkingHourse(int ik, int a, int Order, int iAStarGreedy
 					{
 						if (ik != Index[3])
 						{
-							if (HoursesOnTable[ik]->HourseThinking.AStarGreedy.empty())
+							if (HoursesOnTable[ik].HourseThinking.AStarGreedy.empty())
 							{
-								HoursesOnTable[ik]->HourseThinking.AStarGreedy = std::vector<AllDraw>();
+								HoursesOnTable[ik].HourseThinking.AStarGreedy = std::vector<AllDraw>();
 							}
-							HoursesOnTable[ik]->HourseThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-							HoursesOnTable[ik]->HourseThinking.AStarGreedy[HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+							HoursesOnTable[ik].HourseThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+							HoursesOnTable[ik].HourseThinking.AStarGreedy[HoursesOnTable[ik].HourseThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 							continue;
 						}
 						else
 						{
 							if (j != jindex[3])
 							{
-								if (HoursesOnTable[ik]->HourseThinking.AStarGreedy.empty())
+								if (HoursesOnTable[ik].HourseThinking.AStarGreedy.empty())
 								{
-									HoursesOnTable[ik]->HourseThinking.AStarGreedy = std::vector<AllDraw>();
+									HoursesOnTable[ik].HourseThinking.AStarGreedy = std::vector<AllDraw>();
 								}
-								HoursesOnTable[ik]->HourseThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-								HoursesOnTable[ik]->HourseThinking.AStarGreedy[HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+								HoursesOnTable[ik].HourseThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+								HoursesOnTable[ik].HourseThinking.AStarGreedy[HoursesOnTable[ik].HourseThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 								continue;
 							}
 						}
 					}
 					else
 					{
-						if (HoursesOnTable[ik]->HourseThinking.AStarGreedy.empty())
+						if (HoursesOnTable[ik].HourseThinking.AStarGreedy.empty())
 						{
-							HoursesOnTable[ik]->HourseThinking.AStarGreedy = std::vector<AllDraw>();
+							HoursesOnTable[ik].HourseThinking.AStarGreedy = std::vector<AllDraw>();
 						}
-						HoursesOnTable[ik]->HourseThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-						HoursesOnTable[ik]->HourseThinking.AStarGreedy[HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+						HoursesOnTable[ik].HourseThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+						HoursesOnTable[ik].HourseThinking.AStarGreedy[HoursesOnTable[ik].HourseThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 						continue;
 					}
 				}
-				if (HoursesOnTable[ik]->HourseThinking.AStarGreedy.empty())
+				if (HoursesOnTable[ik].HourseThinking.AStarGreedy.empty())
 				{
-					HoursesOnTable[ik]->HourseThinking.AStarGreedy = std::vector<AllDraw>();
+					HoursesOnTable[ik].HourseThinking.AStarGreedy = std::vector<AllDraw>();
 				}
-				HoursesOnTable[ik]->HourseThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-				HoursesOnTable[ik]->HourseThinking.AStarGreedy[HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() - 1].TableList.clear();
-				HoursesOnTable[ik]->HourseThinking.AStarGreedy[HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(HoursesOnTable[ik]->HourseThinking.TableListCastle[j]));
-				HoursesOnTable[ik]->HourseThinking.AStarGreedy[HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() - 1].SetRowColumn(0);
-				HoursesOnTable[ik]->HourseThinking.AStarGreedy[HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() - 1].SetRowColumnFinishedWait();
+				HoursesOnTable[ik].HourseThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+				HoursesOnTable[ik].HourseThinking.AStarGreedy[HoursesOnTable[ik].HourseThinking.AStarGreedy.size() - 1].TableList.clear();
+				HoursesOnTable[ik].HourseThinking.AStarGreedy[HoursesOnTable[ik].HourseThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(HoursesOnTable[ik].HourseThinking.TableListCastle[j]));
+				HoursesOnTable[ik].HourseThinking.AStarGreedy[HoursesOnTable[ik].HourseThinking.AStarGreedy.size() - 1].SetRowColumn(0);
+				HoursesOnTable[ik].HourseThinking.AStarGreedy[HoursesOnTable[ik].HourseThinking.AStarGreedy.size() - 1].SetRowColumnFinishedWait();
 			}
-			if (HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() > 0)
+			if (HoursesOnTable[ik].HourseThinking.AStarGreedy.size() > 0)
 			{
-				OutPutAction = std::wstring(L" ") + Alphabet(HoursesOnTable[ik]->HourseThinking.Row) + Number(HoursesOnTable[ik]->HourseThinking.Column) + Alphabet(HoursesOnTable[ik]->HourseThinking.RowColumnCastle[j][0]) + Number(HoursesOnTable[ik]->HourseThinking.RowColumnCastle[j][1]);
+				OutPutAction = std::wstring(L" ") + Alphabet(HoursesOnTable[ik].HourseThinking.Row) + Number(HoursesOnTable[ik].HourseThinking.Column) + Alphabet(HoursesOnTable[ik].HourseThinking.RowColumnCastle[j][0]) + Number(HoursesOnTable[ik].HourseThinking.RowColumnCastle[j][1]);
 				if (Order == 1)
 				{
 					OutPut = std::wstring(L"\r\nPerception Castle AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
@@ -14564,14 +14567,14 @@ bool  AllDraw::FullGameThinkingHourse(int ik, int a, int Order, int iAStarGreedy
 				}
 
 				PerceptionCount++;
-				int iii = (HoursesOnTable[ik]->HourseThinking.RowColumnCastle[j][0]);
-				int jjj = (HoursesOnTable[ik]->HourseThinking.RowColumnCastle[j][1]);
+				int iii = (HoursesOnTable[ik].HourseThinking.RowColumnCastle[j][0]);
+				int jjj = (HoursesOnTable[ik].HourseThinking.RowColumnCastle[j][1]);
 				int aa = a;
-				int **Tab = CloneATable(HoursesOnTable[ik]->HourseThinking.TableListCastle[j]);
+				int **Tab = CloneATable(HoursesOnTable[ik].HourseThinking.TableListCastle[j]);
 				int Ord = Order * -1;
-				HoursesOnTable[ik]->HourseThinking.AStarGreedy[HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+				HoursesOnTable[ik].HourseThinking.AStarGreedy[HoursesOnTable[ik].HourseThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 
-				HoursesOnTable[ik]->HourseThinking.AStarGreedy[HoursesOnTable[ik]->HourseThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord*-1, false, FOUND, LeafAStarGreedy);
+				HoursesOnTable[ik].HourseThinking.AStarGreedy[HoursesOnTable[ik].HourseThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord*-1, false, FOUND, LeafAStarGreedy);
 				Do = true;
 			}
 		}
@@ -14580,13 +14583,13 @@ bool  AllDraw::FullGameThinkingHourse(int ik, int a, int Order, int iAStarGreedy
 	}
 	TaskEnd++;
 
-	for (int h = 0; h < HoursesOnTable[ik]->HourseThinking.AStarGreedy.size(); h++)
+	for (int h = 0; h < HoursesOnTable[ik].HourseThinking.AStarGreedy.size(); h++)
 	{
-		HoursesOnTable[ik]->WinOcuuredatChiled += SumOfObjects(HoursesOnTable[ik]->HourseThinking.AStarGreedy[h], Order);
+		HoursesOnTable[ik]->WinOcuuredatChiled += SumOfObjects(HoursesOnTable[ik].HourseThinking.AStarGreedy[h], Order);
 	}
-	for (int h = 0; h < HoursesOnTable[ik]->HourseThinking.AStarGreedy.size(); h++)
+	for (int h = 0; h < HoursesOnTable[ik].HourseThinking.AStarGreedy.size(); h++)
 	{
-		HoursesOnTable[ik]->LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[ik]->HourseThinking.AStarGreedy[h], Order);
+		HoursesOnTable[ik]->LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[ik].HourseThinking.AStarGreedy[h], Order);
 	}
 
 	return Do;
@@ -14600,7 +14603,7 @@ bool  AllDraw::FullGameThinkingCastleGray(int a, int Order, int iAStarGreedy, in
 
 	for (int ik = 0; ik < CastleMidle; ik++)
 	{
-		if ((CastlesOnTable != nullptr) && (&(CastlesOnTable[ik]) != nullptr) && (&(CastlesOnTable[ik]->CastleThinking) != nullptr) && (&(CastlesOnTable[ik]->CastleThinking) != nullptr) && (!CastlesOnTable[ik]->CastleThinking.IsSupHu))
+		if ((CastlesOnTable != nullptr) && (&(CastlesOnTable[ik]) != nullptr) && (&(CastlesOnTable[ik].CastleThinking) != nullptr) && (&(CastlesOnTable[ik].CastleThinking) != nullptr) && (!CastlesOnTable[ik].CastleThinking.IsSupHu))
 		{
 
 			Do = FullGameThinkingCastle(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
@@ -14616,7 +14619,7 @@ bool  AllDraw::FullGameThinkingMinister(int ik, int a, int Order, int iAStarGree
 	bool Do = false;
 	TaskBegin++;
 	int S = 0;
-	while (MinisterOnTable[ik]->MinisterThinking.ThinkingBegin && (!MinisterOnTable[ik]->MinisterThinking.ThinkingFinished))
+	while (MinisterOnTable[ik].MinisterThinking.ThinkingBegin && (!MinisterOnTable[ik].MinisterThinking.ThinkingFinished))
 	{
 		//delay(1);
 
@@ -14632,7 +14635,7 @@ bool  AllDraw::FullGameThinkingMinister(int ik, int a, int Order, int iAStarGree
 
 
 	}
-	for (int j = 0; j < MinisterOnTable[ik]->MinisterThinking.TableListMinister.size(); j++)
+	for (int j = 0; j < MinisterOnTable[ik].MinisterThinking.TableListMinister.size(); j++)
 	{
 
 
@@ -14640,7 +14643,7 @@ bool  AllDraw::FullGameThinkingMinister(int ik, int a, int Order, int iAStarGree
 
 		if (AllDraw::OrderPlate == Order)
 		{
-			if (MinisterOnTable[ik]->MinisterThinking.PenaltyRegardListMinister[j].IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT)) //&& MinisterOnTable[ik]->MinisterThinking.PenaltyRegardListMinister[j].IsRewardAction() != 1 ||(!UsePenaltyRegardMechnisamT)
+			if (MinisterOnTable[ik].MinisterThinking.PenaltyRegardListMinister[j].IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT)) //&& MinisterOnTable[ik].MinisterThinking.PenaltyRegardListMinister[j].IsRewardAction() != 1 ||(!UsePenaltyRegardMechnisamT)
 			{
 
 				if (Blitz)
@@ -14649,56 +14652,56 @@ bool  AllDraw::FullGameThinkingMinister(int ik, int a, int Order, int iAStarGree
 					{
 						if (ik != Index[4])
 						{
-							if (MinisterOnTable[ik]->MinisterThinking.AStarGreedy.empty())
+							if (MinisterOnTable[ik].MinisterThinking.AStarGreedy.empty())
 							{
-								MinisterOnTable[ik]->MinisterThinking.AStarGreedy = std::vector<AllDraw>();
+								MinisterOnTable[ik].MinisterThinking.AStarGreedy = std::vector<AllDraw>();
 							}
-							MinisterOnTable[ik]->MinisterThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-							MinisterOnTable[ik]->MinisterThinking.AStarGreedy[MinisterOnTable[ik]->MinisterThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+							MinisterOnTable[ik].MinisterThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+							MinisterOnTable[ik].MinisterThinking.AStarGreedy[MinisterOnTable[ik].MinisterThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 							continue;
 						}
 						else
 						{
 							if (j != jindex[4])
 							{
-								if (MinisterOnTable[ik]->MinisterThinking.AStarGreedy.empty())
+								if (MinisterOnTable[ik].MinisterThinking.AStarGreedy.empty())
 								{
-									MinisterOnTable[ik]->MinisterThinking.AStarGreedy = std::vector<AllDraw>();
+									MinisterOnTable[ik].MinisterThinking.AStarGreedy = std::vector<AllDraw>();
 								}
-								MinisterOnTable[ik]->MinisterThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-								MinisterOnTable[ik]->MinisterThinking.AStarGreedy[MinisterOnTable[ik]->MinisterThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+								MinisterOnTable[ik].MinisterThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+								MinisterOnTable[ik].MinisterThinking.AStarGreedy[MinisterOnTable[ik].MinisterThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 								continue;
 							}
 						}
 					}
 					else
 					{
-						if (MinisterOnTable[ik]->MinisterThinking.AStarGreedy.empty())
+						if (MinisterOnTable[ik].MinisterThinking.AStarGreedy.empty())
 						{
-							MinisterOnTable[ik]->MinisterThinking.AStarGreedy = std::vector<AllDraw>();
+							MinisterOnTable[ik].MinisterThinking.AStarGreedy = std::vector<AllDraw>();
 						}
-						MinisterOnTable[ik]->MinisterThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-						MinisterOnTable[ik]->MinisterThinking.AStarGreedy[MinisterOnTable[ik]->MinisterThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+						MinisterOnTable[ik].MinisterThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+						MinisterOnTable[ik].MinisterThinking.AStarGreedy[MinisterOnTable[ik].MinisterThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 						continue;
 					}
 
 				}
 
-				if (MinisterOnTable[ik]->MinisterThinking.AStarGreedy.empty())
+				if (MinisterOnTable[ik].MinisterThinking.AStarGreedy.empty())
 				{
-					MinisterOnTable[ik]->MinisterThinking.AStarGreedy = std::vector<AllDraw>();
+					MinisterOnTable[ik].MinisterThinking.AStarGreedy = std::vector<AllDraw>();
 				}
-				MinisterOnTable[ik]->MinisterThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-				MinisterOnTable[ik]->MinisterThinking.AStarGreedy[MinisterOnTable[ik]->MinisterThinking.AStarGreedy.size() - 1].TableList.clear();
-				MinisterOnTable[ik]->MinisterThinking.AStarGreedy[MinisterOnTable[ik]->MinisterThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(MinisterOnTable[ik]->MinisterThinking.TableListMinister[j]));
-				MinisterOnTable[ik]->MinisterThinking.AStarGreedy[MinisterOnTable[ik]->MinisterThinking.AStarGreedy.size() - 1].SetRowColumn(0);
-				MinisterOnTable[ik]->MinisterThinking.AStarGreedy[MinisterOnTable[ik]->MinisterThinking.AStarGreedy.size() - 1].SetRowColumnFinishedWait();
-				//MinisterOnTable[ik]->MinisterThinking.AStarGreedy[MinisterOnTable[ik]->MinisterThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, MinisterOnTable[ik]->MinisterThinking.TableListMinister[j], Order, false);
-			//ParameterizedThreadStart start = new ParameterizedThreadStart(MinisterOnTable[ik]->MinisterThinking.AStarGreedy[MinisterOnTable[ik]->MinisterThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt);
-				if (MinisterOnTable[ik]->MinisterThinking.AStarGreedy.size() > 0)
+				MinisterOnTable[ik].MinisterThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+				MinisterOnTable[ik].MinisterThinking.AStarGreedy[MinisterOnTable[ik].MinisterThinking.AStarGreedy.size() - 1].TableList.clear();
+				MinisterOnTable[ik].MinisterThinking.AStarGreedy[MinisterOnTable[ik].MinisterThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(MinisterOnTable[ik].MinisterThinking.TableListMinister[j]));
+				MinisterOnTable[ik].MinisterThinking.AStarGreedy[MinisterOnTable[ik].MinisterThinking.AStarGreedy.size() - 1].SetRowColumn(0);
+				MinisterOnTable[ik].MinisterThinking.AStarGreedy[MinisterOnTable[ik].MinisterThinking.AStarGreedy.size() - 1].SetRowColumnFinishedWait();
+				//MinisterOnTable[ik].MinisterThinking.AStarGreedy[MinisterOnTable[ik].MinisterThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, MinisterOnTable[ik].MinisterThinking.TableListMinister[j], Order, false);
+			//ParameterizedThreadStart start = new ParameterizedThreadStart(MinisterOnTable[ik].MinisterThinking.AStarGreedy[MinisterOnTable[ik].MinisterThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt);
+				if (MinisterOnTable[ik].MinisterThinking.AStarGreedy.size() > 0)
 				{
 
-					OutPutAction = std::wstring(L" ") + Alphabet(MinisterOnTable[ik]->MinisterThinking.Row) + Number(MinisterOnTable[ik]->MinisterThinking.Column) + Alphabet(MinisterOnTable[ik]->MinisterThinking.RowColumnMinister[j][0]) + Number(MinisterOnTable[ik]->MinisterThinking.RowColumnMinister[j][1]);
+					OutPutAction = std::wstring(L" ") + Alphabet(MinisterOnTable[ik].MinisterThinking.Row) + Number(MinisterOnTable[ik].MinisterThinking.Column) + Alphabet(MinisterOnTable[ik].MinisterThinking.RowColumnMinister[j][0]) + Number(MinisterOnTable[ik].MinisterThinking.RowColumnMinister[j][1]);
 					if (Order == 1)
 					{
 						OutPut = std::wstring(L"\r\nPerception Minister AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
@@ -14710,14 +14713,14 @@ bool  AllDraw::FullGameThinkingMinister(int ik, int a, int Order, int iAStarGree
 
 					PerceptionCount++;
 					Do = true;
-					int iii = (MinisterOnTable[ik]->MinisterThinking.RowColumnMinister[j][0]);
-					int jjj = (MinisterOnTable[ik]->MinisterThinking.RowColumnMinister[j][1]);
+					int iii = (MinisterOnTable[ik].MinisterThinking.RowColumnMinister[j][0]);
+					int jjj = (MinisterOnTable[ik].MinisterThinking.RowColumnMinister[j][1]);
 					int aa = a;
-					int **Tab = CloneATable(MinisterOnTable[ik]->MinisterThinking.TableListMinister[j]);
+					int **Tab = CloneATable(MinisterOnTable[ik].MinisterThinking.TableListMinister[j]);
 					int Ord = Order * -1;
-					MinisterOnTable[ik]->MinisterThinking.AStarGreedy[MinisterOnTable[ik]->MinisterThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
-					//Task array = Task.Factory.StartNew(() => MinisterOnTable[ik]->MinisterThinking.AStarGreedy[MinisterOnTable[ik]->MinisterThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(MinisterOnTable[ik]->MinisterThinking.TableListMinister[j]), Order, false, FOUND, LeafAStarGreedy));
-					MinisterOnTable[ik]->MinisterThinking.AStarGreedy[MinisterOnTable[ik]->MinisterThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord*-1, false, FOUND, LeafAStarGreedy);
+					MinisterOnTable[ik].MinisterThinking.AStarGreedy[MinisterOnTable[ik].MinisterThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+					//Task array = Task.Factory.StartNew(() => MinisterOnTable[ik].MinisterThinking.AStarGreedy[MinisterOnTable[ik].MinisterThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(MinisterOnTable[ik].MinisterThinking.TableListMinister[j]), Order, false, FOUND, LeafAStarGreedy));
+					MinisterOnTable[ik].MinisterThinking.AStarGreedy[MinisterOnTable[ik].MinisterThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord*-1, false, FOUND, LeafAStarGreedy);
 
 					Do = true;
 
@@ -14727,7 +14730,7 @@ bool  AllDraw::FullGameThinkingMinister(int ik, int a, int Order, int iAStarGree
 		}
 		else
 		{
-			if (MinisterOnTable[ik]->MinisterThinking.PenaltyRegardListMinister[j].IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT)) //MinisterOnTable[ik]->MinisterThinking.PenaltyRegardListMinister[j].IsPenaltyAction() != 0 &&
+			if (MinisterOnTable[ik].MinisterThinking.PenaltyRegardListMinister[j].IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT)) //MinisterOnTable[ik].MinisterThinking.PenaltyRegardListMinister[j].IsPenaltyAction() != 0 &&
 			{
 				if (Blitz)
 				{
@@ -14735,23 +14738,23 @@ bool  AllDraw::FullGameThinkingMinister(int ik, int a, int Order, int iAStarGree
 					{
 						if (ik != Index[4])
 						{
-							if (MinisterOnTable[ik]->MinisterThinking.AStarGreedy.empty())
+							if (MinisterOnTable[ik].MinisterThinking.AStarGreedy.empty())
 							{
-								MinisterOnTable[ik]->MinisterThinking.AStarGreedy = std::vector<AllDraw>();
+								MinisterOnTable[ik].MinisterThinking.AStarGreedy = std::vector<AllDraw>();
 							}
-							MinisterOnTable[ik]->MinisterThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-							MinisterOnTable[ik]->MinisterThinking.AStarGreedy[MinisterOnTable[ik]->MinisterThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+							MinisterOnTable[ik].MinisterThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+							MinisterOnTable[ik].MinisterThinking.AStarGreedy[MinisterOnTable[ik].MinisterThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 						}
 						else
 						{
 							if (j != jindex[4])
 							{
-								if (MinisterOnTable[ik]->MinisterThinking.AStarGreedy.empty())
+								if (MinisterOnTable[ik].MinisterThinking.AStarGreedy.empty())
 								{
-									MinisterOnTable[ik]->MinisterThinking.AStarGreedy = std::vector<AllDraw>();
+									MinisterOnTable[ik].MinisterThinking.AStarGreedy = std::vector<AllDraw>();
 								}
-								MinisterOnTable[ik]->MinisterThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-								MinisterOnTable[ik]->MinisterThinking.AStarGreedy[MinisterOnTable[ik]->MinisterThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+								MinisterOnTable[ik].MinisterThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+								MinisterOnTable[ik].MinisterThinking.AStarGreedy[MinisterOnTable[ik].MinisterThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 								continue;
 							}
 
@@ -14759,29 +14762,29 @@ bool  AllDraw::FullGameThinkingMinister(int ik, int a, int Order, int iAStarGree
 					}
 					else
 					{
-						if (MinisterOnTable[ik]->MinisterThinking.AStarGreedy.empty())
+						if (MinisterOnTable[ik].MinisterThinking.AStarGreedy.empty())
 						{
-							MinisterOnTable[ik]->MinisterThinking.AStarGreedy = std::vector<AllDraw>();
+							MinisterOnTable[ik].MinisterThinking.AStarGreedy = std::vector<AllDraw>();
 						}
-						MinisterOnTable[ik]->MinisterThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-						MinisterOnTable[ik]->MinisterThinking.AStarGreedy[MinisterOnTable[ik]->MinisterThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+						MinisterOnTable[ik].MinisterThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+						MinisterOnTable[ik].MinisterThinking.AStarGreedy[MinisterOnTable[ik].MinisterThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 					}
 
 
-					if (MinisterOnTable[ik]->MinisterThinking.AStarGreedy.empty())
+					if (MinisterOnTable[ik].MinisterThinking.AStarGreedy.empty())
 					{
-						MinisterOnTable[ik]->MinisterThinking.AStarGreedy = std::vector<AllDraw>();
+						MinisterOnTable[ik].MinisterThinking.AStarGreedy = std::vector<AllDraw>();
 					}
-					MinisterOnTable[ik]->MinisterThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-					MinisterOnTable[ik]->MinisterThinking.AStarGreedy[MinisterOnTable[ik]->MinisterThinking.AStarGreedy.size() - 1].TableList.clear();
-					MinisterOnTable[ik]->MinisterThinking.AStarGreedy[MinisterOnTable[ik]->MinisterThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(MinisterOnTable[ik]->MinisterThinking.TableListMinister[j]));
-					MinisterOnTable[ik]->MinisterThinking.AStarGreedy[MinisterOnTable[ik]->MinisterThinking.AStarGreedy.size() - 1].SetRowColumn(0);
-					MinisterOnTable[ik]->MinisterThinking.AStarGreedy[MinisterOnTable[ik]->MinisterThinking.AStarGreedy.size() - 1].SetRowColumnFinishedWait();
+					MinisterOnTable[ik].MinisterThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+					MinisterOnTable[ik].MinisterThinking.AStarGreedy[MinisterOnTable[ik].MinisterThinking.AStarGreedy.size() - 1].TableList.clear();
+					MinisterOnTable[ik].MinisterThinking.AStarGreedy[MinisterOnTable[ik].MinisterThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(MinisterOnTable[ik].MinisterThinking.TableListMinister[j]));
+					MinisterOnTable[ik].MinisterThinking.AStarGreedy[MinisterOnTable[ik].MinisterThinking.AStarGreedy.size() - 1].SetRowColumn(0);
+					MinisterOnTable[ik].MinisterThinking.AStarGreedy[MinisterOnTable[ik].MinisterThinking.AStarGreedy.size() - 1].SetRowColumnFinishedWait();
 
-					if (MinisterOnTable[ik]->MinisterThinking.AStarGreedy.size() > 0)
+					if (MinisterOnTable[ik].MinisterThinking.AStarGreedy.size() > 0)
 					{
 
-						OutPutAction = std::wstring(L" ") + Alphabet(MinisterOnTable[ik]->MinisterThinking.Row) + Number(MinisterOnTable[ik]->MinisterThinking.Column) + Alphabet(MinisterOnTable[ik]->MinisterThinking.RowColumnMinister[j][0]) + Number(MinisterOnTable[ik]->MinisterThinking.RowColumnMinister[j][1]);
+						OutPutAction = std::wstring(L" ") + Alphabet(MinisterOnTable[ik].MinisterThinking.Row) + Number(MinisterOnTable[ik].MinisterThinking.Column) + Alphabet(MinisterOnTable[ik].MinisterThinking.RowColumnMinister[j][0]) + Number(MinisterOnTable[ik].MinisterThinking.RowColumnMinister[j][1]);
 						if (Order == 1)
 						{
 							OutPut = std::wstring(L"\r\nPerception Minister AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
@@ -14792,15 +14795,15 @@ bool  AllDraw::FullGameThinkingMinister(int ik, int a, int Order, int iAStarGree
 						}
 
 						PerceptionCount++;
-						int iii = (MinisterOnTable[ik]->MinisterThinking.RowColumnMinister[j][0]);
-						int jjj = (MinisterOnTable[ik]->MinisterThinking.RowColumnMinister[j][1]);
+						int iii = (MinisterOnTable[ik].MinisterThinking.RowColumnMinister[j][0]);
+						int jjj = (MinisterOnTable[ik].MinisterThinking.RowColumnMinister[j][1]);
 						int aa = a;
-						int **Tab = CloneATable(MinisterOnTable[ik]->MinisterThinking.TableListMinister[j]);
+						int **Tab = CloneATable(MinisterOnTable[ik].MinisterThinking.TableListMinister[j]);
 						int Ord = Order * -1;
-						MinisterOnTable[ik]->MinisterThinking.AStarGreedy[MinisterOnTable[ik]->MinisterThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+						MinisterOnTable[ik].MinisterThinking.AStarGreedy[MinisterOnTable[ik].MinisterThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 
-						//Task array = Task.Factory.StartNew(() => MinisterOnTable[ik]->MinisterThinking.AStarGreedy[MinisterOnTable[ik]->MinisterThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(MinisterOnTable[ik]->MinisterThinking.TableListMinister[j]), Order, false, FOUND, LeafAStarGreedy));
-						MinisterOnTable[ik]->MinisterThinking.AStarGreedy[MinisterOnTable[ik]->MinisterThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord*-1, false, FOUND, LeafAStarGreedy);
+						//Task array = Task.Factory.StartNew(() => MinisterOnTable[ik].MinisterThinking.AStarGreedy[MinisterOnTable[ik].MinisterThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(MinisterOnTable[ik].MinisterThinking.TableListMinister[j]), Order, false, FOUND, LeafAStarGreedy));
+						MinisterOnTable[ik].MinisterThinking.AStarGreedy[MinisterOnTable[ik].MinisterThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord*-1, false, FOUND, LeafAStarGreedy);
 						//array.Start();
 						/*bool ASS = false; Object OOOAAA = new Object(); //lock (OOOAAA) { ASS = AllDraw::Blitz; }  if (!ASS)
 						{
@@ -14821,13 +14824,13 @@ bool  AllDraw::FullGameThinkingMinister(int ik, int a, int Order, int iAStarGree
 	TaskEnd++;
 
 
-	for (int h = 0; h < MinisterOnTable[ik]->MinisterThinking.AStarGreedy.size(); h++)
+	for (int h = 0; h < MinisterOnTable[ik].MinisterThinking.AStarGreedy.size(); h++)
 	{
-		MinisterOnTable[ik]->WinOcuuredatChiled += SumOfObjects(MinisterOnTable[ik]->MinisterThinking.AStarGreedy[h], Order);
+		MinisterOnTable[ik]->WinOcuuredatChiled += SumOfObjects(MinisterOnTable[ik].MinisterThinking.AStarGreedy[h], Order);
 	}
-	for (int h = 0; h < MinisterOnTable[ik]->MinisterThinking.AStarGreedy.size(); h++)
+	for (int h = 0; h < MinisterOnTable[ik].MinisterThinking.AStarGreedy.size(); h++)
 	{
-		MinisterOnTable[ik]->LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[ik]->MinisterThinking.AStarGreedy[h], Order);
+		MinisterOnTable[ik]->LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[ik].MinisterThinking.AStarGreedy[h], Order);
 	}
 
 	return Do;
@@ -14843,7 +14846,7 @@ bool  AllDraw::FullGameThinkingMinisterGray(int a, int Order, int iAStarGreedy, 
 		////Parallel.For(0, MinisterMidle, ik =>
 	for (int ik = 0; ik < MinisterMidle; ik++)
 	{
-		if ((MinisterOnTable != nullptr) && (&(MinisterOnTable[ik]) != nullptr) && (&(MinisterOnTable[ik]->MinisterThinking) != nullptr) && (&(MinisterOnTable[ik]->MinisterThinking) != nullptr) && (!MinisterOnTable[ik]->MinisterThinking.IsSupHu))
+		if ((MinisterOnTable != nullptr) && (&(MinisterOnTable[ik]) != nullptr) && (&(MinisterOnTable[ik].MinisterThinking) != nullptr) && (&(MinisterOnTable[ik].MinisterThinking) != nullptr) && (!MinisterOnTable[ik].MinisterThinking.IsSupHu))
 		{
 			Do = FullGameThinkingMinister(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
 
@@ -14860,7 +14863,7 @@ bool  AllDraw::FullGameThinkingKing(int ik, int a, int Order, int iAStarGreedy, 
 
 	TaskBegin++;
 	int S = 0;
-	while (KingOnTable[ik]->KingThinking.ThinkingBegin && (!KingOnTable[ik]->KingThinking.ThinkingFinished))
+	while (KingOnTable[ik].KingThinking.ThinkingBegin && (!KingOnTable[ik].KingThinking.ThinkingFinished))
 	{
 		//delay(1);
 		//S += 1;//if (AllDraw::Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdAllDraw::FullGame)break; } 
@@ -14882,18 +14885,18 @@ bool  AllDraw::FullGameThinkingKing(int ik, int a, int Order, int iAStarGreedy, 
 
 	//List<Task> tHA = new List<Task>();
 
-	if (KingOnTable[ik]->KingThinking.TableListKing.empty())
+	if (KingOnTable[ik].KingThinking.TableListKing.empty())
 	{
 		return Do;
 	}
-	// //Parallel.For(0, KingOnTable[ik]->KingThinking.TableListKing.size(), j =>
-	for (int j = 0; j < KingOnTable[ik]->KingThinking.TableListKing.size(); j++)
+	// //Parallel.For(0, KingOnTable[ik].KingThinking.TableListKing.size(), j =>
+	for (int j = 0; j < KingOnTable[ik].KingThinking.TableListKing.size(); j++)
 	{
 
 
 		if (AllDraw::OrderPlate == Order)
 		{
-			if (KingOnTable[ik]->KingThinking.PenaltyRegardListKing[j].IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT)) //&& KingOnTable[ik]->KingThinking.PenaltyRegardListKing[j].IsRewardAction() != 1 ||(!UsePenaltyRegardMechnisamT)
+			if (KingOnTable[ik].KingThinking.PenaltyRegardListKing[j].IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT)) //&& KingOnTable[ik].KingThinking.PenaltyRegardListKing[j].IsRewardAction() != 1 ||(!UsePenaltyRegardMechnisamT)
 			{
 				if (Blitz)
 				{
@@ -14902,55 +14905,55 @@ bool  AllDraw::FullGameThinkingKing(int ik, int a, int Order, int iAStarGreedy, 
 					{
 						if (ik != Index[5])
 						{
-							if (KingOnTable[ik]->KingThinking.AStarGreedy.empty())
+							if (KingOnTable[ik].KingThinking.AStarGreedy.empty())
 							{
-								KingOnTable[ik]->KingThinking.AStarGreedy = std::vector<AllDraw>();
+								KingOnTable[ik].KingThinking.AStarGreedy = std::vector<AllDraw>();
 							}
-							KingOnTable[ik]->KingThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-							KingOnTable[ik]->KingThinking.AStarGreedy[KingOnTable[ik]->KingThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+							KingOnTable[ik].KingThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+							KingOnTable[ik].KingThinking.AStarGreedy[KingOnTable[ik].KingThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 							continue;
 						}
 						else
 						{
 							if (j != jindex[5])
 							{
-								if (KingOnTable[ik]->KingThinking.AStarGreedy.empty())
+								if (KingOnTable[ik].KingThinking.AStarGreedy.empty())
 								{
-									KingOnTable[ik]->KingThinking.AStarGreedy = std::vector<AllDraw>();
+									KingOnTable[ik].KingThinking.AStarGreedy = std::vector<AllDraw>();
 								}
-								KingOnTable[ik]->KingThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-								KingOnTable[ik]->KingThinking.AStarGreedy[KingOnTable[ik]->KingThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+								KingOnTable[ik].KingThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+								KingOnTable[ik].KingThinking.AStarGreedy[KingOnTable[ik].KingThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 								continue;
 							}
 						}
 					}
 					else
 					{
-						if (KingOnTable[ik]->KingThinking.AStarGreedy.empty())
+						if (KingOnTable[ik].KingThinking.AStarGreedy.empty())
 						{
-							KingOnTable[ik]->KingThinking.AStarGreedy = std::vector<AllDraw>();
+							KingOnTable[ik].KingThinking.AStarGreedy = std::vector<AllDraw>();
 						}
-						KingOnTable[ik]->KingThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-						KingOnTable[ik]->KingThinking.AStarGreedy[KingOnTable[ik]->KingThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+						KingOnTable[ik].KingThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+						KingOnTable[ik].KingThinking.AStarGreedy[KingOnTable[ik].KingThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 						continue;
 					}
 
 				}
 
-				if (KingOnTable[ik]->KingThinking.AStarGreedy.empty())
+				if (KingOnTable[ik].KingThinking.AStarGreedy.empty())
 				{
-					KingOnTable[ik]->KingThinking.AStarGreedy = std::vector<AllDraw>();
+					KingOnTable[ik].KingThinking.AStarGreedy = std::vector<AllDraw>();
 				}
-				KingOnTable[ik]->KingThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-				KingOnTable[ik]->KingThinking.AStarGreedy[KingOnTable[ik]->KingThinking.AStarGreedy.size() - 1].TableList.clear();
-				KingOnTable[ik]->KingThinking.AStarGreedy[KingOnTable[ik]->KingThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(KingOnTable[ik]->KingThinking.TableListKing[j]));
-				KingOnTable[ik]->KingThinking.AStarGreedy[KingOnTable[ik]->KingThinking.AStarGreedy.size() - 1].SetRowColumn(0);
-				KingOnTable[ik]->KingThinking.AStarGreedy[KingOnTable[ik]->KingThinking.AStarGreedy.size() - 1].SetRowColumnFinishedWait();
+				KingOnTable[ik].KingThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+				KingOnTable[ik].KingThinking.AStarGreedy[KingOnTable[ik].KingThinking.AStarGreedy.size() - 1].TableList.clear();
+				KingOnTable[ik].KingThinking.AStarGreedy[KingOnTable[ik].KingThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(KingOnTable[ik].KingThinking.TableListKing[j]));
+				KingOnTable[ik].KingThinking.AStarGreedy[KingOnTable[ik].KingThinking.AStarGreedy.size() - 1].SetRowColumn(0);
+				KingOnTable[ik].KingThinking.AStarGreedy[KingOnTable[ik].KingThinking.AStarGreedy.size() - 1].SetRowColumnFinishedWait();
 
-				if (KingOnTable[ik]->KingThinking.AStarGreedy.size() > 0)
+				if (KingOnTable[ik].KingThinking.AStarGreedy.size() > 0)
 				{
 
-					OutPutAction = std::wstring(L" ") + Alphabet(KingOnTable[ik]->KingThinking.Row) + Number(KingOnTable[ik]->KingThinking.Column) + Alphabet(KingOnTable[ik]->KingThinking.RowColumnKing[j][0]) + Number(KingOnTable[ik]->KingThinking.RowColumnKing[j][1]);
+					OutPutAction = std::wstring(L" ") + Alphabet(KingOnTable[ik].KingThinking.Row) + Number(KingOnTable[ik].KingThinking.Column) + Alphabet(KingOnTable[ik].KingThinking.RowColumnKing[j][0]) + Number(KingOnTable[ik].KingThinking.RowColumnKing[j][1]);
 					if (Order == 1)
 					{
 						OutPut = std::wstring(L"\r\nPerception King AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
@@ -14962,15 +14965,15 @@ bool  AllDraw::FullGameThinkingKing(int ik, int a, int Order, int iAStarGreedy, 
 
 					PerceptionCount++;
 
-					int iii = (KingOnTable[ik]->KingThinking.RowColumnKing[j][0]);
-					int jjj = (KingOnTable[ik]->KingThinking.RowColumnKing[j][1]);
+					int iii = (KingOnTable[ik].KingThinking.RowColumnKing[j][0]);
+					int jjj = (KingOnTable[ik].KingThinking.RowColumnKing[j][1]);
 					int aa = a;
-					int **Tab = CloneATable(KingOnTable[ik]->KingThinking.TableListKing[j]);
+					int **Tab = CloneATable(KingOnTable[ik].KingThinking.TableListKing[j]);
 					int Ord = Order * -1;
-					KingOnTable[ik]->KingThinking.AStarGreedy[KingOnTable[ik]->KingThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+					KingOnTable[ik].KingThinking.AStarGreedy[KingOnTable[ik].KingThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 
-					//Task array = Task.Factory.StartNew(() => KingOnTable[ik]->KingThinking.AStarGreedy[KingOnTable[ik]->KingThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(KingOnTable[ik]->KingThinking.TableListKing[j]), Order, false, FOUND, LeafAStarGreedy));
-					KingOnTable[ik]->KingThinking.AStarGreedy[KingOnTable[ik]->KingThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord*-1, false, FOUND, LeafAStarGreedy);
+					//Task array = Task.Factory.StartNew(() => KingOnTable[ik].KingThinking.AStarGreedy[KingOnTable[ik].KingThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(KingOnTable[ik].KingThinking.TableListKing[j]), Order, false, FOUND, LeafAStarGreedy));
+					KingOnTable[ik].KingThinking.AStarGreedy[KingOnTable[ik].KingThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord*-1, false, FOUND, LeafAStarGreedy);
 
 
 
@@ -14981,19 +14984,19 @@ bool  AllDraw::FullGameThinkingKing(int ik, int a, int Order, int iAStarGreedy, 
 		}
 		else
 		{
-			if (KingOnTable[ik]->KingThinking.PenaltyRegardListKing[j].IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT)) //KingOnTable[ik]->KingThinking.PenaltyRegardListKing[j].IsPenaltyAction() != 0 &&
+			if (KingOnTable[ik].KingThinking.PenaltyRegardListKing[j].IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT)) //KingOnTable[ik].KingThinking.PenaltyRegardListKing[j].IsPenaltyAction() != 0 &&
 			{
 				if (Blitz)
 				{
 
 					if (ik != Index[5])
 					{
-						if (KingOnTable[ik]->KingThinking.AStarGreedy.empty())
+						if (KingOnTable[ik].KingThinking.AStarGreedy.empty())
 						{
-							KingOnTable[ik]->KingThinking.AStarGreedy = std::vector<AllDraw>();
+							KingOnTable[ik].KingThinking.AStarGreedy = std::vector<AllDraw>();
 						}
-						KingOnTable[ik]->KingThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-						KingOnTable[ik]->KingThinking.AStarGreedy[KingOnTable[ik]->KingThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+						KingOnTable[ik].KingThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+						KingOnTable[ik].KingThinking.AStarGreedy[KingOnTable[ik].KingThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 						continue;
 					}
 					else
@@ -15001,43 +15004,43 @@ bool  AllDraw::FullGameThinkingKing(int ik, int a, int Order, int iAStarGreedy, 
 					{
 						if (j != jindex[5])
 						{
-							if (KingOnTable[ik]->KingThinking.AStarGreedy.empty())
+							if (KingOnTable[ik].KingThinking.AStarGreedy.empty())
 							{
-								KingOnTable[ik]->KingThinking.AStarGreedy = std::vector<AllDraw>();
+								KingOnTable[ik].KingThinking.AStarGreedy = std::vector<AllDraw>();
 							}
-							KingOnTable[ik]->KingThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-							KingOnTable[ik]->KingThinking.AStarGreedy[KingOnTable[ik]->KingThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+							KingOnTable[ik].KingThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+							KingOnTable[ik].KingThinking.AStarGreedy[KingOnTable[ik].KingThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 							continue;
 						}
 					}
 				}
 				else
 				{
-					if (KingOnTable[ik]->KingThinking.AStarGreedy.empty())
+					if (KingOnTable[ik].KingThinking.AStarGreedy.empty())
 					{
-						KingOnTable[ik]->KingThinking.AStarGreedy = std::vector<AllDraw>();
+						KingOnTable[ik].KingThinking.AStarGreedy = std::vector<AllDraw>();
 					}
-					KingOnTable[ik]->KingThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-					KingOnTable[ik]->KingThinking.AStarGreedy[KingOnTable[ik]->KingThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+					KingOnTable[ik].KingThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+					KingOnTable[ik].KingThinking.AStarGreedy[KingOnTable[ik].KingThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
 					continue;
 				}
 
 
-				if (KingOnTable[ik]->KingThinking.AStarGreedy.empty())
+				if (KingOnTable[ik].KingThinking.AStarGreedy.empty())
 				{
-					KingOnTable[ik]->KingThinking.AStarGreedy = std::vector<AllDraw>();
+					KingOnTable[ik].KingThinking.AStarGreedy = std::vector<AllDraw>();
 				}
-				KingOnTable[ik]->KingThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-				KingOnTable[ik]->KingThinking.AStarGreedy[KingOnTable[ik]->KingThinking.AStarGreedy.size() - 1].TableList.clear();
-				KingOnTable[ik]->KingThinking.AStarGreedy[KingOnTable[ik]->KingThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(KingOnTable[ik]->KingThinking.TableListKing[j]));
-				KingOnTable[ik]->KingThinking.AStarGreedy[KingOnTable[ik]->KingThinking.AStarGreedy.size() - 1].SetRowColumn(0);
-				KingOnTable[ik]->KingThinking.AStarGreedy[KingOnTable[ik]->KingThinking.AStarGreedy.size() - 1].SetRowColumnFinishedWait();
-				//KingOnTable[ik]->KingThinking.AStarGreedy[KingOnTable[ik]->KingThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, KingOnTable[ik]->KingThinking.TableListKing[j], Order, false);
-				//ParameterizedThreadStart start = new ParameterizedThreadStart(KingOnTable[ik]->KingThinking.AStarGreedy[KingOnTable[ik]->KingThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt);
-				if (KingOnTable[ik]->KingThinking.AStarGreedy.size() > 0)
+				KingOnTable[ik].KingThinking.AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+				KingOnTable[ik].KingThinking.AStarGreedy[KingOnTable[ik].KingThinking.AStarGreedy.size() - 1].TableList.clear();
+				KingOnTable[ik].KingThinking.AStarGreedy[KingOnTable[ik].KingThinking.AStarGreedy.size() - 1].TableList.push_back(CloneATable(KingOnTable[ik].KingThinking.TableListKing[j]));
+				KingOnTable[ik].KingThinking.AStarGreedy[KingOnTable[ik].KingThinking.AStarGreedy.size() - 1].SetRowColumn(0);
+				KingOnTable[ik].KingThinking.AStarGreedy[KingOnTable[ik].KingThinking.AStarGreedy.size() - 1].SetRowColumnFinishedWait();
+				//KingOnTable[ik].KingThinking.AStarGreedy[KingOnTable[ik].KingThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, KingOnTable[ik].KingThinking.TableListKing[j], Order, false);
+				//ParameterizedThreadStart start = new ParameterizedThreadStart(KingOnTable[ik].KingThinking.AStarGreedy[KingOnTable[ik].KingThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt);
+				if (KingOnTable[ik].KingThinking.AStarGreedy.size() > 0)
 				{
 
-					OutPutAction = std::wstring(L" ") + Alphabet(KingOnTable[ik]->KingThinking.Row) + Number(KingOnTable[ik]->KingThinking.Column) + Alphabet(KingOnTable[ik]->KingThinking.RowColumnKing[j][0]) + Number(KingOnTable[ik]->KingThinking.RowColumnKing[j][1]);
+					OutPutAction = std::wstring(L" ") + Alphabet(KingOnTable[ik].KingThinking.Row) + Number(KingOnTable[ik].KingThinking.Column) + Alphabet(KingOnTable[ik].KingThinking.RowColumnKing[j][0]) + Number(KingOnTable[ik].KingThinking.RowColumnKing[j][1]);
 					if (Order == 1)
 					{
 						OutPut = std::wstring(L"\r\nPerception King AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
@@ -15048,23 +15051,23 @@ bool  AllDraw::FullGameThinkingKing(int ik, int a, int Order, int iAStarGreedy, 
 					}
 
 					PerceptionCount++;
-					int iii = (KingOnTable[ik]->KingThinking.RowColumnKing[j][0]);
-					int jjj = (KingOnTable[ik]->KingThinking.RowColumnKing[j][1]);
+					int iii = (KingOnTable[ik].KingThinking.RowColumnKing[j][0]);
+					int jjj = (KingOnTable[ik].KingThinking.RowColumnKing[j][1]);
 					int aa = a;
-					int **Tab = CloneATable(KingOnTable[ik]->KingThinking.TableListKing[j]);
+					int **Tab = CloneATable(KingOnTable[ik].KingThinking.TableListKing[j]);
 					int Ord = Order * -1;
-					KingOnTable[ik]->KingThinking.AStarGreedy[KingOnTable[ik]->KingThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
-					//Task array = Task.Factory.StartNew(() => KingOnTable[ik]->KingThinking.AStarGreedy[KingOnTable[ik]->KingThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(KingOnTable[ik]->KingThinking.TableListKing[j]), Order, false, FOUND, LeafAStarGreedy));
-					KingOnTable[ik]->KingThinking.AStarGreedy[KingOnTable[ik]->KingThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord*-1, false, FOUND, LeafAStarGreedy);
-					for (int h = 0; h < KingOnTable[ik]->KingThinking.AStarGreedy.size(); h++)
+					KingOnTable[ik].KingThinking.AStarGreedy[KingOnTable[ik].KingThinking.AStarGreedy.size() - 1].AStarGreedyString = this;
+					//Task array = Task.Factory.StartNew(() => KingOnTable[ik].KingThinking.AStarGreedy[KingOnTable[ik].KingThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(KingOnTable[ik].KingThinking.TableListKing[j]), Order, false, FOUND, LeafAStarGreedy));
+					KingOnTable[ik].KingThinking.AStarGreedy[KingOnTable[ik].KingThinking.AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord*-1, false, FOUND, LeafAStarGreedy);
+					for (int h = 0; h < KingOnTable[ik].KingThinking.AStarGreedy.size(); h++)
 					{
-						KingOnTable[ik]->WinOcuuredatChiled += SumOfObjects(KingOnTable[ik]->KingThinking.AStarGreedy[h], Order);
+						KingOnTable[ik]->WinOcuuredatChiled += SumOfObjects(KingOnTable[ik].KingThinking.AStarGreedy[h], Order);
 					}
 
 					{
-						for (int h = 0; h < KingOnTable[ik]->KingThinking.AStarGreedy.size(); h++)
+						for (int h = 0; h < KingOnTable[ik].KingThinking.AStarGreedy.size(); h++)
 						{
-							KingOnTable[ik]->LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[ik]->KingThinking.AStarGreedy[h], Order);
+							KingOnTable[ik]->LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[ik].KingThinking.AStarGreedy[h], Order);
 						}
 					}
 
@@ -15082,13 +15085,13 @@ bool  AllDraw::FullGameThinkingKing(int ik, int a, int Order, int iAStarGreedy, 
 	TaskEnd++;
 
 
-	for (int h = 0; h < KingOnTable[ik]->KingThinking.AStarGreedy.size(); h++)
+	for (int h = 0; h < KingOnTable[ik].KingThinking.AStarGreedy.size(); h++)
 	{
-		KingOnTable[ik]->WinOcuuredatChiled += SumOfObjects(KingOnTable[ik]->KingThinking.AStarGreedy[h], Order);
+		KingOnTable[ik]->WinOcuuredatChiled += SumOfObjects(KingOnTable[ik].KingThinking.AStarGreedy[h], Order);
 	}
-	for (int h = 0; h < KingOnTable[ik]->KingThinking.AStarGreedy.size(); h++)
+	for (int h = 0; h < KingOnTable[ik].KingThinking.AStarGreedy.size(); h++)
 	{
-		KingOnTable[ik]->LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[ik]->KingThinking.AStarGreedy[h], Order);
+		KingOnTable[ik]->LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[ik].KingThinking.AStarGreedy[h], Order);
 	}
 
 	return Do;
@@ -15102,7 +15105,7 @@ bool  AllDraw::FullGameThinkingKingGray(int a, int Order, int iAStarGreedy, int 
 		////Parallel.For(0, KingMidle, ik =>
 	for (int ik = 0; ik < KingMidle; ik++)
 	{
-		if (KingOnTable != nullptr && (&(KingOnTable[ik]) != nullptr) && (&(KingOnTable[ik]->KingThinking)  != nullptr) && (&(KingOnTable[ik]->KingThinking)  != nullptr) && (!KingOnTable[ik]->KingThinking.IsSupHu))
+		if (KingOnTable != nullptr && (&(KingOnTable[ik]) != nullptr) && (&(KingOnTable[ik].KingThinking)  != nullptr) && (&(KingOnTable[ik].KingThinking)  != nullptr) && (!KingOnTable[ik].KingThinking.IsSupHu))
 		{
 
 			Do = FullGameThinkingKing(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
@@ -15118,7 +15121,7 @@ bool  AllDraw::FullGameThinkingSoldierBrown(int a, int Order, int iAStarGreedy, 
 
 	for (int ik = SodierMidle; ik < SodierHigh; ik++)
 	{
-		if (SolderesOnTable != nullptr && (&(SolderesOnTable[ik]) != nullptr) && (&(SolderesOnTable[ik]->SoldierThinking) != nullptr) && (&(SolderesOnTable[ik]->SoldierThinking) != nullptr) && (!SolderesOnTable[ik]->SoldierThinking.IsSupHu))
+		if (SolderesOnTable != nullptr && (&(SolderesOnTable[ik]) != nullptr) && (&(SolderesOnTable[ik].SoldierThinking) != nullptr) && (&(SolderesOnTable[ik].SoldierThinking) != nullptr) && (!SolderesOnTable[ik].SoldierThinking.IsSupHu))
 		{
 			//Soldier.
 
@@ -15137,7 +15140,7 @@ bool  AllDraw::FullGameThinkingElephantBrown(int a, int Order, int iAStarGreedy,
 	//Elephant
 	for (int ik = ElefantMidle; ik < ElefantHigh; ik++)
 	{
-		if (ElephantOnTable != nullptr && ((&ElephantOnTable[ik]) != nullptr) && ((&(ElephantOnTable[ik]->ElefantThinking)) != nullptr) && ((&(ElephantOnTable[ik]->ElefantThinking)) != nullptr) && (!ElephantOnTable[ik]->ElefantThinking.IsSupHu))
+		if (ElephantOnTable != nullptr && ((&ElephantOnTable[ik]) != nullptr) && ((&(ElephantOnTable[ik].ElefantThinking)) != nullptr) && ((&(ElephantOnTable[ik].ElefantThinking)) != nullptr) && (!ElephantOnTable[ik].ElefantThinking.IsSupHu))
 		{
 
 			Do = FullGameThinkingElephant(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
@@ -15155,7 +15158,7 @@ bool  AllDraw::FullGameThinkingHourseBrown(int a, int Order, int iAStarGreedy, i
 		////Parallel.For(HourseMidle, HourseHight, ik =>
 	for (int ik = HourseMidle; ik < HourseHight; ik++)
 	{
-		if (HoursesOnTable != nullptr && (&(HoursesOnTable[ik]) != nullptr) && (&(HoursesOnTable[ik]->HourseThinking) != nullptr) && (&(HoursesOnTable[ik]->HourseThinking) != nullptr) && (!HoursesOnTable[ik]->HourseThinking.IsSupHu))
+		if (HoursesOnTable != nullptr && (&(HoursesOnTable[ik]) != nullptr) && (&(HoursesOnTable[ik].HourseThinking) != nullptr) && (&(HoursesOnTable[ik].HourseThinking) != nullptr) && (!HoursesOnTable[ik].HourseThinking.IsSupHu))
 		{
 
 			Do = FullGameThinkingHourse(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
@@ -15172,7 +15175,7 @@ bool  AllDraw::FullGameThinkingCastleBrown(int a, int Order, int iAStarGreedy, i
 	//Castles.
 	for (int ik = CastleMidle; ik < CastleHigh; ik++)
 	{
-		if ((CastlesOnTable != nullptr) && (&(CastlesOnTable[ik]) != nullptr) && (&(CastlesOnTable[ik]->CastleThinking) != nullptr) && (&(CastlesOnTable[ik]->CastleThinking) != nullptr) && (!CastlesOnTable[ik]->CastleThinking.IsSupHu))
+		if ((CastlesOnTable != nullptr) && (&(CastlesOnTable[ik]) != nullptr) && (&(CastlesOnTable[ik].CastleThinking) != nullptr) && (&(CastlesOnTable[ik].CastleThinking) != nullptr) && (!CastlesOnTable[ik].CastleThinking.IsSupHu))
 		{
 
 			Do = FullGameThinkingCastle(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
@@ -15191,7 +15194,7 @@ bool  AllDraw::FullGameThinkingMinisterBrown(int a, int Order, int iAStarGreedy,
 
 	for (int ik = MinisterMidle; ik < MinisterHigh; ik++)
 	{
-		if ((MinisterOnTable != nullptr) && (&(MinisterOnTable[ik]) != nullptr) && (&(MinisterOnTable[ik]->MinisterThinking) != nullptr) && (&(MinisterOnTable[ik]->MinisterThinking) != nullptr) && (!MinisterOnTable[ik]->MinisterThinking.IsSupHu))
+		if ((MinisterOnTable != nullptr) && (&(MinisterOnTable[ik]) != nullptr) && (&(MinisterOnTable[ik].MinisterThinking) != nullptr) && (&(MinisterOnTable[ik].MinisterThinking) != nullptr) && (!MinisterOnTable[ik].MinisterThinking.IsSupHu))
 		{
 
 			Do = FullGameThinkingMinister(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
@@ -15211,7 +15214,7 @@ bool AllDraw::FullGameThinkingKingBrown(int a, int Order, int iAStarGreedy, int 
 	for (int ik = KingMidle; ik < KingHigh; ik++)
 	{
 
-		if (KingOnTable != nullptr && (&(KingOnTable[ik]) != nullptr) && (&(KingOnTable[ik]->KingThinking)  != nullptr) && (&(KingOnTable[ik]->KingThinking)  != nullptr) && (!KingOnTable[ik]->KingThinking.IsSupHu))
+		if (KingOnTable != nullptr && (&(KingOnTable[ik]) != nullptr) && (&(KingOnTable[ik].KingThinking)  != nullptr) && (&(KingOnTable[ik].KingThinking)  != nullptr) && (!KingOnTable[ik].KingThinking.IsSupHu))
 		{
 			{
 				Do = FullGameThinkingKing(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
@@ -15926,7 +15929,7 @@ std::vector<std::vector<double>> AllDraw::FoundOfBestMovments(int AStarGreedyInt
 				//try
 				{
 					//Clone a Movments.
-					ADummy::SolderesOnTable[i]->Clone(Dummy.SolderesOnTable[i]);
+					ADummy::SolderesOnTable[i].Clone(Dummy.SolderesOnTable[i]);
 				}
 				//catch(std::exception &t)
 				{
@@ -15941,7 +15944,7 @@ std::vector<std::vector<double>> AllDraw::FoundOfBestMovments(int AStarGreedyInt
 				//try
 				{
 					//Clone a  Movments.
-					ADummy::SolderesOnTable[i]->Clone(Dummy.SolderesOnTable[i]);
+					ADummy::SolderesOnTable[i].Clone(Dummy.SolderesOnTable[i]);
 				}
 				//catch(std::exception &t)
 				{
@@ -15956,7 +15959,7 @@ std::vector<std::vector<double>> AllDraw::FoundOfBestMovments(int AStarGreedyInt
 				//try
 				{
 					//Clone a Movments.
-					ADummy::HoursesOnTable[i]->Clone(Dummy.HoursesOnTable[i]);
+					ADummy::HoursesOnTable[i].Clone(Dummy.HoursesOnTable[i]);
 				}
 				//catch(std::exception &t)
 				{
@@ -15986,7 +15989,7 @@ std::vector<std::vector<double>> AllDraw::FoundOfBestMovments(int AStarGreedyInt
 				//try
 				{
 					//Clone a Movments.
-					ADummy::MinisterOnTable[i]->Clone(Dummy.MinisterOnTable[i]);
+					ADummy::MinisterOnTable[i].Clone(Dummy.MinisterOnTable[i]);
 				}
 				//catch(std::exception &t)
 				{
@@ -16001,7 +16004,7 @@ std::vector<std::vector<double>> AllDraw::FoundOfBestMovments(int AStarGreedyInt
 				//try
 				{
 					//Clone a Movments.
-					ADummy::KingOnTable[i]->Clone(Dummy.KingOnTable[i]);
+					ADummy::KingOnTable[i].Clone(Dummy.KingOnTable[i]);
 				}
 				//catch(std::exception &t)
 				{
@@ -16021,7 +16024,7 @@ std::vector<std::vector<double>> AllDraw::FoundOfBestMovments(int AStarGreedyInt
 					//try
 					{
 						//Clone a Movments.
-						ADummy::SolderesOnTable[i]->Clone(Dummy.SolderesOnTable[i]);
+						ADummy::SolderesOnTable[i].Clone(Dummy.SolderesOnTable[i]);
 					}
 					//catch(std::exception &t)
 					{
@@ -16036,7 +16039,7 @@ std::vector<std::vector<double>> AllDraw::FoundOfBestMovments(int AStarGreedyInt
 					//try
 					{
 						//Clone a Enemy.
-						ADummy::SolderesOnTable[i]->Clone(Dummy.SolderesOnTable[i]);
+						ADummy::SolderesOnTable[i].Clone(Dummy.SolderesOnTable[i]);
 					}
 					//catch(std::exception &t)
 					{
@@ -16051,7 +16054,7 @@ std::vector<std::vector<double>> AllDraw::FoundOfBestMovments(int AStarGreedyInt
 					//try
 					{
 						//Clone a Enemy.
-						ADummy::HoursesOnTable[i]->Clone(Dummy.HoursesOnTable[i]);
+						ADummy::HoursesOnTable[i].Clone(Dummy.HoursesOnTable[i]);
 					}
 					//catch(std::exception &t)
 					{
@@ -16081,7 +16084,7 @@ std::vector<std::vector<double>> AllDraw::FoundOfBestMovments(int AStarGreedyInt
 					//try
 					{
 						//Clone a Enemy.
-						ADummy::MinisterOnTable[i]->Clone(Dummy.MinisterOnTable[i]);
+						ADummy::MinisterOnTable[i].Clone(Dummy.MinisterOnTable[i]);
 					}
 					//catch(std::exception &t)
 					{
@@ -16096,7 +16099,7 @@ std::vector<std::vector<double>> AllDraw::FoundOfBestMovments(int AStarGreedyInt
 					//try
 					{
 						//Clone a Enemy.
-						ADummy::KingOnTable[i]->Clone(Dummy.KingOnTable[i]);
+						ADummy::KingOnTable[i].Clone(Dummy.KingOnTable[i]);
 					}
 					//catch(std::exception &t)
 					{
@@ -16132,18 +16135,18 @@ bool AllDraw::TableZero(int** Ta)
 }
 void AllDraw::CheckedMateConfiguratiionSoldier(int Order, int i, bool Regrad)
 {
-	for (int j = 0; j < SolderesOnTable[i]->SoldierThinking.PenaltyRegardListSolder.size(); j++)
+	for (int j = 0; j < SolderesOnTable[i].SoldierThinking.PenaltyRegardListSolder.size(); j++)
 	{
-		if (SolderesOnTable[i]->SoldierThinking.LearningVarsObject.size() == SolderesOnTable[i]->SoldierThinking.PenaltyRegardListSolder.size())
+		if (SolderesOnTable[i].SoldierThinking.LearningVarsObject.size() == SolderesOnTable[i].SoldierThinking.PenaltyRegardListSolder.size())
 		{
-			if (SolderesOnTable[i]->SoldierThinking.LearningVarsObject[j][1] && (!SolderesOnTable[i]->SoldierThinking.LearningVarsObject[j][4]))
+			if (SolderesOnTable[i].SoldierThinking.LearningVarsObject[j][1] && (!SolderesOnTable[i].SoldierThinking.LearningVarsObject[j][4]))
 			{
-				SolderesOnTable[i]->SoldierThinking.PenaltyRegardListSolder[j].Initiate();
+				SolderesOnTable[i].SoldierThinking.PenaltyRegardListSolder[j].Initiate();
 				if (!Regrad)
 				{
-					SolderesOnTable[i]->SoldierThinking.PenaltyRegardListSolder[j].LearningAlgorithmPenalty();
+					SolderesOnTable[i].SoldierThinking.PenaltyRegardListSolder[j].LearningAlgorithmPenalty();
 				}
-				SolderesOnTable[i]->SoldierThinking.HuristicPenaltyValuePerform(SolderesOnTable[i]->SoldierThinking.PenaltyRegardListSolder[j], Order, SolderesOnTable[i]->SoldierThinking.HuristicListSolder[j][0], true);
+				SolderesOnTable[i].SoldierThinking.HuristicPenaltyValuePerform(SolderesOnTable[i].SoldierThinking.PenaltyRegardListSolder[j], Order, SolderesOnTable[i].SoldierThinking.HuristicListSolder[j][0], true);
 			}
 		}
 	}
@@ -16151,18 +16154,18 @@ void AllDraw::CheckedMateConfiguratiionSoldier(int Order, int i, bool Regrad)
 }
 void AllDraw::CheckedMateConfiguratiionElephant(int Order, int i, bool Regrad)
 {
-	for (int j = 0; j < ElephantOnTable[i]->ElefantThinking.PenaltyRegardListElefant.size(); j++)
+	for (int j = 0; j < ElephantOnTable[i].ElefantThinking.PenaltyRegardListElefant.size(); j++)
 	{
-		if (ElephantOnTable[i]->ElefantThinking.LearningVarsObject.size() == ElephantOnTable[i]->ElefantThinking.PenaltyRegardListElefant.size())
+		if (ElephantOnTable[i].ElefantThinking.LearningVarsObject.size() == ElephantOnTable[i].ElefantThinking.PenaltyRegardListElefant.size())
 		{
-			if (ElephantOnTable[i]->ElefantThinking.LearningVarsObject[j][1] && !ElephantOnTable[i]->ElefantThinking.LearningVarsObject[j][4])
+			if (ElephantOnTable[i].ElefantThinking.LearningVarsObject[j][1] && !ElephantOnTable[i].ElefantThinking.LearningVarsObject[j][4])
 			{
-				ElephantOnTable[i]->ElefantThinking.PenaltyRegardListElefant[j].Initiate();
+				ElephantOnTable[i].ElefantThinking.PenaltyRegardListElefant[j].Initiate();
 				if (!Regrad)
 				{
-					ElephantOnTable[i]->ElefantThinking.PenaltyRegardListElefant[j].LearningAlgorithmPenalty();
+					ElephantOnTable[i].ElefantThinking.PenaltyRegardListElefant[j].LearningAlgorithmPenalty();
 				}
-				ElephantOnTable[i]->ElefantThinking.HuristicPenaltyValuePerform(ElephantOnTable[i]->ElefantThinking.PenaltyRegardListElefant[j], Order, ElephantOnTable[i]->ElefantThinking.HuristicListElefant[j][0], true);
+				ElephantOnTable[i].ElefantThinking.HuristicPenaltyValuePerform(ElephantOnTable[i].ElefantThinking.PenaltyRegardListElefant[j], Order, ElephantOnTable[i].ElefantThinking.HuristicListElefant[j][0], true);
 			}
 		}
 
@@ -16170,21 +16173,21 @@ void AllDraw::CheckedMateConfiguratiionElephant(int Order, int i, bool Regrad)
 }
 void AllDraw::CheckedMateConfiguratiionHourse(int Order, int i, bool Regrad)
 {
-	for (int j = 0; j < HoursesOnTable[i]->HourseThinking.PenaltyRegardListHourse.size(); j++)
+	for (int j = 0; j < HoursesOnTable[i].HourseThinking.PenaltyRegardListHourse.size(); j++)
 	{
-		if (HoursesOnTable[i]->HourseThinking.LearningVarsObject.size() == HoursesOnTable[i]->HourseThinking.PenaltyRegardListHourse.size())
+		if (HoursesOnTable[i].HourseThinking.LearningVarsObject.size() == HoursesOnTable[i].HourseThinking.PenaltyRegardListHourse.size())
 		{
-			if (HoursesOnTable[i]->HourseThinking.LearningVarsObject[j][1] && !HoursesOnTable[i]->HourseThinking.LearningVarsObject[j][4])
+			if (HoursesOnTable[i].HourseThinking.LearningVarsObject[j][1] && !HoursesOnTable[i].HourseThinking.LearningVarsObject[j][4])
 			{
-				HoursesOnTable[i]->HourseThinking.PenaltyRegardListHourse[j].Initiate();
+				HoursesOnTable[i].HourseThinking.PenaltyRegardListHourse[j].Initiate();
 				//if(Regrad)
-				//HoursesOnTable[i]->HourseThinking.PenaltyRegardListHourse[j].LearningAlgorithmRegard();
+				//HoursesOnTable[i].HourseThinking.PenaltyRegardListHourse[j].LearningAlgorithmRegard();
 				//else
 				if (!Regrad)
 				{
-					HoursesOnTable[i]->HourseThinking.PenaltyRegardListHourse[j].LearningAlgorithmPenalty();
+					HoursesOnTable[i].HourseThinking.PenaltyRegardListHourse[j].LearningAlgorithmPenalty();
 				}
-				HoursesOnTable[i]->HourseThinking.HuristicPenaltyValuePerform(HoursesOnTable[i]->HourseThinking.PenaltyRegardListHourse[j], Order, HoursesOnTable[i]->HourseThinking.HuristicListHourse[j][0], true);
+				HoursesOnTable[i].HourseThinking.HuristicPenaltyValuePerform(HoursesOnTable[i].HourseThinking.PenaltyRegardListHourse[j], Order, HoursesOnTable[i].HourseThinking.HuristicListHourse[j][0], true);
 			}
 		}
 	}
@@ -16192,18 +16195,18 @@ void AllDraw::CheckedMateConfiguratiionHourse(int Order, int i, bool Regrad)
 
 void AllDraw::CheckedMateConfiguratiionCastle(int Order, int ii, bool Regrad)
 {
-	for (int j = 0; j < CastlesOnTable[ii]->CastleThinking.PenaltyRegardListCastle.size(); j++)
+	for (int j = 0; j < CastlesOnTable[ii].CastleThinking.PenaltyRegardListCastle.size(); j++)
 	{
-		if (CastlesOnTable[ii]->CastleThinking.LearningVarsObject.size() == CastlesOnTable[ii]->CastleThinking.PenaltyRegardListCastle.size())
+		if (CastlesOnTable[ii].CastleThinking.LearningVarsObject.size() == CastlesOnTable[ii].CastleThinking.PenaltyRegardListCastle.size())
 		{
-			if (CastlesOnTable[ii]->CastleThinking.LearningVarsObject[j][1] && !CastlesOnTable[ii]->CastleThinking.LearningVarsObject[j][4])
+			if (CastlesOnTable[ii].CastleThinking.LearningVarsObject[j][1] && !CastlesOnTable[ii].CastleThinking.LearningVarsObject[j][4])
 			{
-				CastlesOnTable[ii]->CastleThinking.PenaltyRegardListCastle[j].Initiate();
+				CastlesOnTable[ii].CastleThinking.PenaltyRegardListCastle[j].Initiate();
 				if (!Regrad)
 				{
-					CastlesOnTable[ii]->CastleThinking.PenaltyRegardListCastle[j].LearningAlgorithmPenalty();
+					CastlesOnTable[ii].CastleThinking.PenaltyRegardListCastle[j].LearningAlgorithmPenalty();
 				}
-				CastlesOnTable[ii]->CastleThinking.HuristicPenaltyValuePerform(CastlesOnTable[ii]->CastleThinking.PenaltyRegardListCastle[j], Order, CastlesOnTable[ii]->CastleThinking.HuristicListCastle[j][0], true);
+				CastlesOnTable[ii].CastleThinking.HuristicPenaltyValuePerform(CastlesOnTable[ii].CastleThinking.PenaltyRegardListCastle[j], Order, CastlesOnTable[ii].CastleThinking.HuristicListCastle[j][0], true);
 			}
 		}
 	}
@@ -16212,42 +16215,42 @@ void AllDraw::CheckedMateConfiguratiionCastle(int Order, int ii, bool Regrad)
 
 void AllDraw::CheckedMateConfiguratiionMinister(int Order, int i, bool Regrad)
 {
-	for (int j = 0; j < MinisterOnTable[i]->MinisterThinking.PenaltyRegardListMinister.size(); j++)
+	for (int j = 0; j < MinisterOnTable[i].MinisterThinking.PenaltyRegardListMinister.size(); j++)
 	{
-		if (MinisterOnTable[i]->MinisterThinking.LearningVarsObject.size() == MinisterOnTable[i]->MinisterThinking.PenaltyRegardListMinister.size())
+		if (MinisterOnTable[i].MinisterThinking.LearningVarsObject.size() == MinisterOnTable[i].MinisterThinking.PenaltyRegardListMinister.size())
 		{
-			if (MinisterOnTable[i]->MinisterThinking.LearningVarsObject[j][1] && !MinisterOnTable[i]->MinisterThinking.LearningVarsObject[j][4])
+			if (MinisterOnTable[i].MinisterThinking.LearningVarsObject[j][1] && !MinisterOnTable[i].MinisterThinking.LearningVarsObject[j][4])
 			{
-				MinisterOnTable[i]->MinisterThinking.PenaltyRegardListMinister[j].Initiate();
+				MinisterOnTable[i].MinisterThinking.PenaltyRegardListMinister[j].Initiate();
 				//if(Regrad)
-				//MinisterOnTable[i]->MinisterThinking.PenaltyRegardListMinister[j].LearningAlgorithmRegard();
+				//MinisterOnTable[i].MinisterThinking.PenaltyRegardListMinister[j].LearningAlgorithmRegard();
 				//else
 				if (!Regrad)
 				{
-					MinisterOnTable[i]->MinisterThinking.PenaltyRegardListMinister[j].LearningAlgorithmPenalty();
+					MinisterOnTable[i].MinisterThinking.PenaltyRegardListMinister[j].LearningAlgorithmPenalty();
 				}
-				MinisterOnTable[i]->MinisterThinking.HuristicPenaltyValuePerform(MinisterOnTable[i]->MinisterThinking.PenaltyRegardListMinister[j], Order, MinisterOnTable[i]->MinisterThinking.HuristicListMinister[j][0], true);
+				MinisterOnTable[i].MinisterThinking.HuristicPenaltyValuePerform(MinisterOnTable[i].MinisterThinking.PenaltyRegardListMinister[j], Order, MinisterOnTable[i].MinisterThinking.HuristicListMinister[j][0], true);
 			}
 		}
 	}
 }
 void AllDraw::CheckedMateConfiguratiionking(int Order, int i, bool Regrad)
 {
-	for (int j = 0; j < KingOnTable[i]->KingThinking.PenaltyRegardListKing.size(); j++)
+	for (int j = 0; j < KingOnTable[i].KingThinking.PenaltyRegardListKing.size(); j++)
 	{
-		if (KingOnTable[i]->KingThinking.LearningVarsObject.size() == KingOnTable[i]->KingThinking.PenaltyRegardListKing.size())
+		if (KingOnTable[i].KingThinking.LearningVarsObject.size() == KingOnTable[i].KingThinking.PenaltyRegardListKing.size())
 		{
-			if (KingOnTable[i]->KingThinking.LearningVarsObject[j][1] && (!KingOnTable[i]->KingThinking.LearningVarsObject[j][4]))
+			if (KingOnTable[i].KingThinking.LearningVarsObject[j][1] && (!KingOnTable[i].KingThinking.LearningVarsObject[j][4]))
 			{
-				KingOnTable[i]->KingThinking.PenaltyRegardListKing[j].Initiate();
+				KingOnTable[i].KingThinking.PenaltyRegardListKing[j].Initiate();
 				//if(Regrad)
-				//KingOnTable[i]->KingThinking.PenaltyRegardListKing[j].LearningAlgorithmRegard();
+				//KingOnTable[i].KingThinking.PenaltyRegardListKing[j].LearningAlgorithmRegard();
 				//else
 				if (!Regrad)
 				{
-					KingOnTable[i]->KingThinking.PenaltyRegardListKing[j].LearningAlgorithmPenalty();
+					KingOnTable[i].KingThinking.PenaltyRegardListKing[j].LearningAlgorithmPenalty();
 				}
-				KingOnTable[i]->KingThinking.HuristicPenaltyValuePerform(KingOnTable[i]->KingThinking.PenaltyRegardListKing[j], Order, KingOnTable[i]->KingThinking.HuristicListKing[j][0], true);
+				KingOnTable[i].KingThinking.HuristicPenaltyValuePerform(KingOnTable[i].KingThinking.PenaltyRegardListKing[j], Order, KingOnTable[i].KingThinking.HuristicListKing[j][0], true);
 			}
 
 		}

@@ -1,6 +1,4 @@
-﻿#pragma once
-#include "DrawHourse.h"
-
+﻿#include "DrawHourse.h"
 
 namespace RefrigtzDLL
 {
@@ -146,8 +144,8 @@ DrawHourse::~DrawHourse()
 		AA->ArrangmentsChanged = ArrangmentsChanged;
 		for (int i = 0; i < AllDraw::HourseMovments; i++)
 		{
-				AA->HourseThinking= ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
-				HourseThinking.Clone(AA->HourseThinking);
+				AA.HourseThinking= ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
+				HourseThinking.Clone(AA.HourseThinking);
 		}
 		AA->Table = new int*[8]; for (int ii = 0; ii < 8; ii++)AA->Table[ii]-new int[8];
 		for (int ii = 0; ii < 8; ii++)

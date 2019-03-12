@@ -1,7 +1,19 @@
-﻿#pragma once
+﻿
+#pragma once
 
-#include "stdafx.h"
-
+#include "AllDraw.h"
+#include "DrawSoldire.h"
+#include "DrawElefant.h"
+#include "DrawHourse.h"
+#include "DrawCastle.h"
+#include "DrawMinister.h"
+#include "DrawKing.h"
+#include <string>
+#include <vector>
+#include <cmath>
+#include <float.h>
+#include <stdexcept>
+#include "StringConverterHelper.h"
 /****************************************************************************
  * Thinking Operation class.*************************************************
  * Ramin Edjlal**************************************************************
@@ -72,6 +84,18 @@
  * **************************************************************************(+:Sum(26)) (*:Sum(1)) 5:(+:Sum(3)) 6.(+:Sum0.12**4**Managements and Cuation Programing**********************(+)) 7.(:Sum(1))
  * **************************************************************************
  */
+#include "AllDraw.h"
+#include "ChessRules.h"
+#include "ThingsConverter.h"
+#include "ThinkingChess.h"
+#include "DrawSoldire.h"
+#include "DrawElefant.h"
+#include "DrawHourse.h"
+#include "DrawCastle.h"
+#include "DrawMinister.h"
+#include "DrawKing.h"
+#include "StringConverterHelper.h"
+#include "LearningKrinskyAtamatA.h"
 
 
 
@@ -241,8 +265,7 @@ namespace RefrigtzDLL
 		int Max;
 		int Row, Column;
 		int color;
-		int Order;
-		//< typename T >
+		int Order;	
 		std::vector<AllDraw> AStarGreedy;
 		
 	public:

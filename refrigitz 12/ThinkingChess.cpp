@@ -1,12 +1,5 @@
-﻿#pragma once
-using namespace std;
-
-#include "ThinkingChess.h"
-
-
-
-
-////#define nullptr (0)
+﻿#include "ThinkingChess.h"
+#include "ChessRules.h"
 
 
 namespace RefrigtzDLL
@@ -6844,7 +6837,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 						{
 							continue;
 						}
-						Huristic += AStarGreedy[k].SolderesOnTable[m]->SoldierThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);			
+						Huristic += AStarGreedy[k].SolderesOnTable[m].SoldierThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);			
 					}
 					//Repeate for Elephant.
 					for (int m = 0; m < AStarGreedy[k].ElefantMidle; m++)
@@ -6853,7 +6846,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 						{
 							continue;
 						}
-						Huristic += AStarGreedy[k].ElephantOnTable[m]->ElefantThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy[k].ElephantOnTable[m].ElefantThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for Hourse.
 					for (int m = 0; m < AStarGreedy[k].HourseMidle; m++)
@@ -6862,7 +6855,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 						{
 							continue;
 						}
-						Huristic += AStarGreedy[k].HoursesOnTable[m]->HourseThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy[k].HoursesOnTable[m].HourseThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for Castles.
 					for (int m = 0; m < AStarGreedy[k].CastleMidle; m++)
@@ -6871,7 +6864,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 						{
 							continue;
 						}
-						Huristic += AStarGreedy[k].CastlesOnTable[m]->CastleThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy[k].CastlesOnTable[m].CastleThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for Minstre.
 					for (int m = 0; m < AStarGreedy[k].MinisterMidle; m++)
@@ -6880,7 +6873,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 						{
 							continue;
 						}
-						Huristic += AStarGreedy[k].MinisterOnTable[m]->MinisterThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy[k].MinisterOnTable[m].MinisterThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for King.
 					for (int m = 0; m < AStarGreedy[k].KingMidle; m++)
@@ -6889,7 +6882,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 						{
 							continue;
 						}
-						Huristic += AStarGreedy[k].KingOnTable[m]->KingThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy[k].KingOnTable[m].KingThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 				}
 				else
@@ -6900,7 +6893,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 						{
 							continue;
 						}
-						Huristic += AStarGreedy[k].SolderesOnTable[m]->SoldierThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy[k].SolderesOnTable[m].SoldierThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for Elephant.
 					for (int m = AStarGreedy[k].ElefantMidle; m < AStarGreedy[k].ElefantHigh; m++)
@@ -6909,7 +6902,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 						{
 							continue;
 						}
-						Huristic += AStarGreedy[k].ElephantOnTable[m]->ElefantThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy[k].ElephantOnTable[m].ElefantThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for Hourse.
 					for (int m = AStarGreedy[k].HourseMidle; m < AStarGreedy[k].HourseHight; m++)
@@ -6918,7 +6911,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 						{
 							continue;
 						}
-						Huristic += AStarGreedy[k].HoursesOnTable[m]->HourseThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy[k].HoursesOnTable[m].HourseThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for Castles.
 					for (int m = AStarGreedy[k].CastleMidle; m < AStarGreedy[k].CastleHigh; m++)
@@ -6927,7 +6920,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 						{
 							continue;
 						}
-						Huristic += AStarGreedy[k].CastlesOnTable[m]->CastleThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy[k].CastlesOnTable[m].CastleThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for Minstre.
 					for (int m = AStarGreedy[k].MinisterMidle; m < AStarGreedy[k].MinisterHigh; m++)
@@ -6936,7 +6929,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 						{
 							continue;
 						}
-						Huristic += AStarGreedy[k].MinisterOnTable[m]->MinisterThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy[k].MinisterOnTable[m].MinisterThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for King.
 					for (int m = AStarGreedy[k].KingMidle; m < AStarGreedy[k].KingHigh; m++)
@@ -6945,7 +6938,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 						{
 							continue;
 						}
-						Huristic += AStarGreedy[k].KingOnTable[m]->KingThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy[k].KingOnTable[m].KingThinking.ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 				}
 			}
@@ -9888,7 +9881,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 
 	}
 
-
+	
 
 	void ThinkingChess::ThinkingSoldierBase(int LoseOcuuredatChiled, int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
 	{

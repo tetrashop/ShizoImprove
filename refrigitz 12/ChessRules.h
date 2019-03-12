@@ -1,6 +1,12 @@
 ﻿#pragma once
 
-#include "stdafx.h"
+#include <string>
+#include <vector>
+#include <cmath>
+#include <float.h>
+#include <stdexcept>
+#include "StringConverterHelper.h"
+//#include "stdafx.h"
 /***********************************************************************************
  * Every Ruls of objective condition of chess game.*********************************
  * Current Rules Have not Attack Movement***x*************************************R***x**0.12**4**Managements and Cuation Programing**(+)

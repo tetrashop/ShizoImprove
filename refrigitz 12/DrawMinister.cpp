@@ -1,6 +1,4 @@
-﻿#pragma once
-
-#include "DrawMinister.h";
+﻿#include "DrawMinister.h"
 
 
 namespace RefrigtzDLL
@@ -151,14 +149,14 @@ const DrawMinister& DrawMinister::operator[] (const int index) const
 		{
 			//try
 			{
-				AA->MinisterThinking = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
-				MinisterThinking.Clone(AA->MinisterThinking[i]);
+				AA.MinisterThinking = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
+				MinisterThinking.Clone(AA.MinisterThinking[i]);
 			}
 			//catch(std::exception t)
 			{
 				
 //C# TO C++ CONVERTER WARNING: C# to C++ Converter converted the original 'null' assignment to a call to 'delete', but you should review memory allocation of all pointer variables in the converted code:
-				delete AA->MinisterThinking[i];
+				delete AA.MinisterThinking[i];
 			}
 
 		}

@@ -17,8 +17,8 @@
 #include <stdio.h>
 #include <tchar.h>
 #include <cmath>
-#include "LearningKrinskyAtamatA.h"
-#include "StringConverterHelper.h"
+#include "AllDraw.h"
+#include "ChessRules.h"
 #include "ThingsConverter.h"
 #include "ThinkingChess.h"
 #include "DrawSoldire.h"
@@ -27,9 +27,9 @@
 #include "DrawCastle.h"
 #include "DrawMinister.h"
 #include "DrawKing.h"
-#include "ThinkingChess.h"
-#include "ChessRules.h"
-#include "AllDraw.h"
+#include "LearningKrinskyAtamatA.h"
+#include "StringConverterHelper.h"
+
 
 using namespace RefrigtzDLL;
 
