@@ -45,7 +45,7 @@ namespace RefrigtzDLL
 //ORIGINAL LINE: public int[,] Table = nullptr;
 		int **Table;
 		
-		ThinkingChess HourseThinking;
+		ThinkingChess *HourseThinking;
 		int Current;
 		int Order;
 	private:

@@ -266,7 +266,7 @@ namespace RefrigtzDLL
 		int Row, Column;
 		int color;
 		int Order;	
-		std::vector<AllDraw> AStarGreedy;
+		std::vector<AllDraw> *AStarGreedy;
 		
 	public:
 		

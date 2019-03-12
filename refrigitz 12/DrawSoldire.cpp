@@ -74,7 +74,7 @@ const DrawSoldier& DrawSoldier::operator[] (const int index) const
 	double DrawSoldier::ReturnHuristic()
 	{
 		double a = 0;
-		a += SoldierThinking.ReturnHuristic(-1, -1, Order, false);
+		a += SoldierThinking->ReturnHuristic(-1, -1, Order, false);
 		return a;
 	}
 	
@@ -116,7 +116,7 @@ const DrawSoldier& DrawSoldier::operator[] (const int index) const
 				Table[ii][jj] = Tab[ii][jj];
 			}
 		}
-		SoldierThinking = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(i), static_cast<int>(j), a, Tab, 4, Ord, TB, Cur, 16, 1);
+		SoldierThinking =new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(i), static_cast<int>(j), a, Tab, 4, Ord, TB, Cur, 16, 1);
 		RowS = i;
 		ColumnS = j;
 		color = a;
@@ -140,8 +140,8 @@ const DrawSoldier& DrawSoldier::operator[] (const int index) const
 
 		AA = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, color, Tab, Order, false, Current);
 		AA->ArrangmentsChanged = ArrangmentsChanged;
-		AA.SoldierThinking = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
-		SoldierThinking.Clone(AA.SoldierThinking);
+		AA->SoldierThinking =new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
+		SoldierThinking->Clone(AA->SoldierThinking);
 		AA->Table = new int*[8]; for (int ii = 0; ii < 8; ii++)AA->Table[ii] - new int[8];
 		for (int ii = 0; ii < 8; ii++)
 		{

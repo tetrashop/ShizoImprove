@@ -57,7 +57,7 @@ namespace RefrigtzDLL
 		int Current;
 		int Order;
 		
-		ThinkingChess MinisterThinking;
+		ThinkingChess *MinisterThinking;
 	private:
 		int CurrentAStarGredyMax;
 		//static void Log(std::exception &ex);

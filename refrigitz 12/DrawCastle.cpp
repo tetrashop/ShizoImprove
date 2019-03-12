@@ -74,7 +74,7 @@ double DrawCastle::MaxHuristicxB = -20000000000000000;
 		{
 			//try
 			{
-				a += CastleThinking.ReturnHuristic(-1, -1, Order, false);
+				a += CastleThinking->ReturnHuristic(-1, -1, Order, false);
 			}
 			//catch(std::exception t)
 			{
@@ -120,7 +120,7 @@ double DrawCastle::MaxHuristicxB = -20000000000000000;
 			}
 		}
 
-		CastleThinking= ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(i), static_cast<int>(j), a, Tab, 16, Ord, TB, Cur, 4, 4);
+		CastleThinking=new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(i), static_cast<int>(j), a, Tab, 16, Ord, TB, Cur, 4, 4);
 
 		Row = i;
 		Column = j;
@@ -146,8 +146,8 @@ double DrawCastle::MaxHuristicxB = -20000000000000000;
 		AA->ArrangmentsChanged = ArrangmentsChanged;
 		for (int i = 0; i < AllDraw::CastleMovments; i++)
 		{
-				AA.CastleThinking= ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
-				CastleThinking.Clone(AA.CastleThinking);
+				AA->CastleThinking=new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
+				CastleThinking->Clone(AA->CastleThinking);
 			
 		}
 		AA->Table = new int*[8]; for (int ii = 0; ii < 8; ii++) AA->Table[ii] - new int[8];

@@ -77,7 +77,7 @@ const DrawMinister& DrawMinister::operator[] (const int index) const
 		{
 			//try
 			{
-				a += MinisterThinking.ReturnHuristic(-1, -1, Order,false);
+				a += MinisterThinking->ReturnHuristic(-1, -1, Order,false);
 			}
 			//catch(std::exception t)
 			{
@@ -122,7 +122,7 @@ const DrawMinister& DrawMinister::operator[] (const int index) const
 				Table[ii][jj] = Tab[ii][jj];
 			}
 		}
-		MinisterThinking = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(i), static_cast<int>(j), a, Tab, 32, Ord, TB, Cur, 2, 5);
+		MinisterThinking =new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(i), static_cast<int>(j), a, Tab, 32, Ord, TB, Cur, 2, 5);
 
 		Row = i;
 		Column = j;
@@ -149,14 +149,14 @@ const DrawMinister& DrawMinister::operator[] (const int index) const
 		{
 			//try
 			{
-				AA.MinisterThinking = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
-				MinisterThinking.Clone(AA.MinisterThinking[i]);
+				AA->MinisterThinking =new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
+				MinisterThinking->Clone(AA->MinisterThinking[i]);
 			}
 			//catch(std::exception t)
 			{
 				
 //C# TO C++ CONVERTER WARNING: C# to C++ Converter converted the original 'null' assignment to a call to 'delete', but you should review memory allocation of all pointer variables in the converted code:
-				delete AA.MinisterThinking[i];
+				delete AA->MinisterThinking[i];
 			}
 
 		}

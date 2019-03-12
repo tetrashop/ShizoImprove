@@ -368,12 +368,12 @@ struct Array {
 		int ColumS;
 		std::vector<int**> TableList;
 		int AStarGreedyInt;
-		std::vector<DrawSoldier> SolderesOnTable;// [16];
-		std::vector<DrawElefant> ElephantOnTable;// [4];
-		std::vector<DrawHourse> HoursesOnTable;// [4];
-		std::vector<DrawCastle> CastlesOnTable;// [4];
-		std::vector<DrawMinister> MinisterOnTable;// [2];
-		std::vector<DrawKing> KingOnTable;// [2];
+		DrawSoldier **SolderesOnTable;// [16];
+		DrawElefant **ElephantOnTable;// [4];
+		DrawHourse **HoursesOnTable;// [4];
+		DrawCastle **CastlesOnTable;// [4];
+		DrawMinister **MinisterOnTable;// [2];
+		DrawKing **KingOnTable;// [2];
 		/*std::vector<DrawSoldier> SolderesOnTable;
 		std::vector<DrawElefant> ElephantOnTable;
 		std::vector<DrawHourse> HoursesOnTable;

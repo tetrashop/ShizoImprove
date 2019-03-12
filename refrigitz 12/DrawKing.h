@@ -52,7 +52,7 @@ namespace RefrigtzDLL
 //ORIGINAL LINE: public int[,] Table = nullptr;
 		int **Table;
 		
-		ThinkingChess KingThinking;
+		ThinkingChess *KingThinking;
 		int Current;
 		int Order;
 	private:

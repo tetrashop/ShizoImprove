@@ -46,7 +46,7 @@ namespace RefrigtzDLL
 		float RowS, ColumnS;
 		int color;
 		
-		ThinkingChess SoldierThinking;
+		ThinkingChess *SoldierThinking;
 //C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: public int[,] Table = nullptr;
 		int **Table;
