@@ -1,7 +1,7 @@
 ﻿#include "LearningKrinskyAtamata.h"
 
-namespace RefrigtzDLL
-{
+//namespace RefrigtzDLL
+//{
 
 	void LearningKrinskyAtamata::Initiate()
 	{
@@ -229,4 +229,4 @@ namespace RefrigtzDLL
 		Failer = 0;
 		State = 0;
 	}
-}
+//}

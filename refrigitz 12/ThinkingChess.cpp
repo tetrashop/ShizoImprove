@@ -1,9 +1,9 @@
 ﻿#include "ThinkingChess.h"
-#include "ChessRules.h"
 
 
-namespace RefrigtzDLL
-{
+
+//namespace RefrigtzDLL
+//{
 	inline bool operator==(const AllDraw& lhs, const std::nullptr_t rhs) { return (lhs == rhs); }
 	inline bool operator!=(const AllDraw& lhs, const std::nullptr_t rhs) { return !(lhs == rhs); }
 	inline bool operator==(const DrawSoldier& lhs, const std::nullptr_t rhs) { return (lhs == rhs); }
@@ -96,7 +96,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 
 		int **A = new int*[6];
 		for (int i = 0; i < 2; i++)
-			A[i] = new int[2];
+			A[i] =new  int[2];
 
 
 		A[0][0] = SodierMidle;
@@ -249,7 +249,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 			PenaltyRegardListMinister = std::vector<LearningKrinskyAtamata>();
 			PenaltyRegardListKing = std::vector<LearningKrinskyAtamata>();
 			//AStarGreedy = std::vector<AllDraw>();
-			AStarGreedy =new std::vector<AllDraw>();
+			AStarGreedy = std::vector<AllDraw>();
 			///Network  LearningKrinskyAtamata   * Book Initiate For Every Clone.
 			//ObjectValueCalculator(TableConst);			
 
@@ -397,7 +397,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 			IndexCastle = 0;
 			IndexMinister = 0;
 			IndexKing = 0;
-			int **Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii] = new int[8];
+			int **Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii] =new  int[8];
 			
 			for (int ii = 0; ii < 8; ii++)
 			{
@@ -435,7 +435,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 			PenaltyRegardListMinister = std::vector<LearningKrinskyAtamata>();
 			PenaltyRegardListKing =  std::vector<LearningKrinskyAtamata>();
 			*/
-			AStarGreedy =new std::vector<AllDraw>();
+			AStarGreedy = std::vector<AllDraw>();
 		}
 	}
 
@@ -448,7 +448,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 			//Create and new an Object.
 			int **Table = new int*[8];
 			for (int i = 0; i < 8; i++)
-				Table[i] = new int[8];
+				Table[i] =new  int[8];
 
 			//Assigne Parameter To New Objects.
 			for (int i = 0; i < 8; i++)
@@ -501,7 +501,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 		}
 	}
 	
-	void ThinkingChess::Clone(ThinkingChess &AA)
+	void ThinkingChess::Clone(ThinkingChess *AA)
 	{
 		//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -511,20 +511,20 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 			//Initaite New Object.
 			if (AA == nullptr)
 			{
-				AA = ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column); //, Kind
+				AA =new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column); //, Kind
 			}
-			AA.ArrangmentsChanged = ArrangmentsChanged;
+			AA->ArrangmentsChanged = ArrangmentsChanged;
 			//When Depth Object is not NULL.
 			if (AStarGreedy.size() != 0)
 			{
-				AA.AStarGreedy = std::vector<AllDraw>();
+				AA->AStarGreedy = std::vector<AllDraw>();
 				//For All Depth(s).
 				for (int i = 0; i < AStarGreedy.size(); i++)
 				{
 					//try
 					{
 						//Clone a Copy From Depth Objects.
-						AStarGreedy[i].Clone(AA.AStarGreedy[i]);
+						AStarGreedy[i].Clone(AA->AStarGreedy[i]);
 					}
 					//catch(std::exception &tt)
 					{
@@ -537,46 +537,46 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 
 			{
 				//Add a Clone To New Solder indexx Object.
-				AA.RowColumnSoldier.push_back(CloneAList(RowColumnSoldier[j], 2));
+				AA->RowColumnSoldier.push_back(CloneAList(RowColumnSoldier[j], 2));
 			}
 			//For All Castle List Count.
 			for (int j = 0; j < RowColumnCastle.size(); j++)
 			{
 				//Add a Clone to New Castle index Objects List.
-				AA.RowColumnCastle.push_back(CloneAList(RowColumnCastle[j], 2));
+				AA->RowColumnCastle.push_back(CloneAList(RowColumnCastle[j], 2));
 			}
 
 			//For All Elephant index List Count.
 			for (int j = 0; j < RowColumnElefant.size(); j++)
 			{
 				//Add a Clone to New Elephant Object List.
-				AA.RowColumnElefant.push_back(CloneAList(RowColumnElefant[j], 2));
+				AA->RowColumnElefant.push_back(CloneAList(RowColumnElefant[j], 2));
 			}
 			//For All Hourse index List Count.
 			for (int j = 0; j < RowColumnHourse.size(); j++)
 			{
 				//Add a Clone to New Hourse index List.
-				AA.RowColumnHourse.push_back(CloneAList(RowColumnHourse[j], 2));
+				AA->RowColumnHourse.push_back(CloneAList(RowColumnHourse[j], 2));
 			}
 			//For All King index List Count.
 			for (int j = 0; j < RowColumnKing.size(); j++)
 			{
 				//Add a Clone To New King Object List.
-				AA.RowColumnKing.push_back(CloneAList(RowColumnKing[j], 2));
+				AA->RowColumnKing.push_back(CloneAList(RowColumnKing[j], 2));
 			}
 			//For All Minister index Count.
 			for (int j = 0; j < RowColumnMinister.size(); j++)
 			{
 				//Add a Clone To Minister New index List.
-				AA.RowColumnMinister.push_back(CloneAList(RowColumnMinister[j], 2));
+				AA->RowColumnMinister.push_back(CloneAList(RowColumnMinister[j], 2));
 			}
 			//Assgine thread.
-			//AA.t = t;
+			//AA->t = t;
 			//Create and Initiate new Table Object.
-			AA.TableT = new int*[8]; for (int i = 0; i < 8; i++)AA.TableT[i] = new  int[8];
+			AA->TableT = new int*[8]; for (int i = 0; i < 8; i++)AA->TableT[i] = new  int[8];
 
 			//Create and Initaite New Table Object.
-			//AA.Table = new int*[8]; for (int i = 0; i < 8; i++)AA.TableConst[i] = new int[8];
+			//AA->Table = new int*[8]; for (int i = 0; i < 8; i++)AA->TableConst[i] =new  int[8];
 
 			//if Table is not NULL>
 			if (TableT != nullptr)
@@ -587,7 +587,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 					for (int j = 0; j < 8; j++)
 					{
 						//Assgine Table items in New Table Object.
-						AA.TableT[i][j] = TableT[i][j];
+						AA->TableT[i][j] = TableT[i][j];
 					}
 				}
 			}
@@ -600,7 +600,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 					for (int j = 0; j < 8; j++)
 					{
 						//Assignm Items in New Table Object.
-						AA.TableConst[i][j] = TableConst[i][j];
+						AA->TableConst[i][j] = TableConst[i][j];
 					}
 				}
 			}
@@ -608,87 +608,87 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 			for (int i = 0; i < TableListCastle.size(); i++)
 			{
 				//Add aclon of a Table in New Briges Table List.
-				AA.TableListCastle.push_back(CloneATable(TableListCastle[i]));
+				AA->TableListCastle.push_back(CloneATable(TableListCastle[i]));
 			}
 			//For All Table List Movements in  Elephant Objects 
 			for (int i = 0; i < TableListElefant.size(); i++)
 			{
 				//Add a Clone of Tables in Elephant Mevments Obejcts List To New One.
-				AA.TableListElefant.push_back(CloneATable(TableListElefant[i]));
+				AA->TableListElefant.push_back(CloneATable(TableListElefant[i]));
 			}
 			//For All Hourse Table Movemnts items.
 			for (int i = 0; i < TableListHourse.size(); i++)
 			{
 				//Add a Clone of Hourse Table Movement in New List.
-				AA.TableListHourse.push_back(CloneATable(TableListHourse[i]));
+				AA->TableListHourse.push_back(CloneATable(TableListHourse[i]));
 			}
 			//For All King Tables Movment Count.
 			for (int i = 0; i < TableListKing.size(); i++)
 			{
 				//Add a Clone To New King Table List.
-				AA.TableListKing.push_back(CloneATable(TableListKing[i]));
+				AA->TableListKing.push_back(CloneATable(TableListKing[i]));
 			}
 			//For All Minister Table Movment Items.
 			for (int i = 0; i < TableListMinister.size(); i++)
 			{
 				//Add a clone To New Minister Table Movment List.
-				AA.TableListMinister.push_back(CloneATable(TableListMinister[i]));
+				AA->TableListMinister.push_back(CloneATable(TableListMinister[i]));
 			}
 			//For All Solder Table Movment Count.
 			for (int i = 0; i < TableListSolder.size(); i++)
 			{
 				//Add a Clone of Table item to New Table List Movments.
-				AA.TableListSolder.push_back(CloneATable(TableListSolder[i]));
+				AA->TableListSolder.push_back(CloneATable(TableListSolder[i]));
 			}
 
 			//For All Solder Husrist List Count.
 			for (int i = 0; i < HuristicListSolder.size(); i++)
 			{
 				//Ad a Clone of Hueristic Solders To New List.
-				AA.HuristicListSolder.push_back(CloneAList(HuristicListSolder[i], 4));
+				AA->HuristicListSolder.push_back(CloneAList(HuristicListSolder[i], 4));
 			}
 			//For All Elephant Huristic List Count. 
 			for (int i = 0; i < HuristicListElefant.size(); i++)
 			{
 				//Add A Clone of Copy to New Elephant Huristic List.
-				AA.HuristicListElefant.push_back(CloneAList(HuristicListElefant[i], 4));
+				AA->HuristicListElefant.push_back(CloneAList(HuristicListElefant[i], 4));
 			}
 			//For All Hours Huristic Hourse Count.
 			for (int i = 0; i < HuristicListHourse.size(); i++)
 			{
 				//Add a Clone of Copy To New Housre Huristic List.
-				AA.HuristicListHourse.push_back(CloneAList(HuristicListHourse[i], 4));
+				AA->HuristicListHourse.push_back(CloneAList(HuristicListHourse[i], 4));
 			}
 			//For All Castles Huristic List Count.
 			for (int i = 0; i < HuristicListCastle.size(); i++)
 			{
 				//Add a Clone of Copy to New Castles Huristic List.
-				AA.HuristicListCastle.push_back(CloneAList(HuristicListCastle[i], 4));
+				AA->HuristicListCastle.push_back(CloneAList(HuristicListCastle[i], 4));
 			}
 			//For All Minister Huristic List Count.
 			for (int i = 0; i < HuristicListMinister.size(); i++)
 			{
 				//Add a Clone of Copy to New Minister List.
-				AA.HuristicListMinister.push_back(CloneAList(HuristicListMinister[i], 4));
+				AA->HuristicListMinister.push_back(CloneAList(HuristicListMinister[i], 4));
 			}
 			//For All King Husrict List Items.
 			for (int i = 0; i < HuristicListKing.size(); i++)
 			{
 				//Add a Clone of Copy to New King Hursitic List.
-				AA.HuristicListKing.push_back(CloneAList(HuristicListKing[i], 4));
+				AA->HuristicListKing.push_back(CloneAList(HuristicListKing[i], 4));
 			}
 			//Initiate and create Penalty Solder List.
-			//AA.PenaltyRegardListSolder = std::vector<LearningKrinskyAtamata  >();
+			//AA->PenaltyRegardListSolder = std::vector<LearningKrinskyAtamata  >();
 			//For All Solder Penalty List Count.
 			if (Kind == 1)
 			{
-				//AA.PenaltyRegardListSolder = std::vector<LearningKrinskyAtamata  >();
+				//AA->PenaltyRegardListSolder = std::vector<LearningKrinskyAtamata  >();
 				for (int i = 0; i < PenaltyRegardListSolder.size(); i++)
 				{
 					//Initiate a new  LearningKrinskyAtamata   * Object
 					//LearningKrinskyAtamata   Current = LearningKrinskyAtamata(3, 3, 3);
 					//Add New Object Create to New Penalty Solder List.
-					AA.PenaltyRegardListSolder.push_back(PenaltyRegardListSolder[i]);
+					AA->PenaltyRegardListSolder.push_back(PenaltyRegardListSolder[i]);
 				}
 			}
 			else
@@ -696,16 +696,16 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 				if (Kind == 2)
 				{
 					//Initaite and Create Elephant Penalty List Object.
-					//AA.PenaltyRegardListElefant = std::vector<LearningKrinskyAtamata  >();
+					//AA->PenaltyRegardListElefant = std::vector<LearningKrinskyAtamata  >();
 					//For All Elepahtn Penalty List Count.
 					for (int i = 0; i < PenaltyRegardListElefant.size(); i++)
 					{
 						//Initiate a new  LearningKrinskyAtamata   * Object
 						//LearningKrinskyAtamata   Current = LearningKrinskyAtamata(3, 3, 3);
 						//Clone a Copy Of Penalty Elephant.
-						AA.PenaltyRegardListElefant.push_back(PenaltyRegardListElefant[i]);
+						AA->PenaltyRegardListElefant.push_back(PenaltyRegardListElefant[i]);
 						//Add New Object Create to New Penalty Elephant List.
-						//AA.PenaltyRegardListElefant.push_back(Current);
+						//AA->PenaltyRegardListElefant.push_back(Current);
 					}
 
 				}
@@ -715,7 +715,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 					{
 
 						//Initaite and Create Hourse Penalty List Object.
-						//AA.PenaltyRegardListHourse = std::vector<LearningKrinskyAtamata  >();
+						//AA->PenaltyRegardListHourse = std::vector<LearningKrinskyAtamata  >();
 						//For All Solder Hourse List Count.
 						for (int i = 0; i < PenaltyRegardListHourse.size(); i++)
 						{
@@ -724,7 +724,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 							//Clone a Copy Of Penalty Hourse.
 							//PenaltyRegardListHourse[i][j]Clone(ref Current);
 							//Add New Object Create to New Penalty Hourse List.
-							AA.PenaltyRegardListHourse.push_back(PenaltyRegardListHourse[i]);
+							AA->PenaltyRegardListHourse.push_back(PenaltyRegardListHourse[i]);
 						}
 
 					}
@@ -734,7 +734,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 						{
 
 							//Initaite and Create Castles Penalty List Object.
-							//AA.PenaltyRegardListCastle = std::vector<LearningKrinskyAtamata  >();
+							//AA->PenaltyRegardListCastle = std::vector<LearningKrinskyAtamata  >();
 							//For All Solder Castle List Count.
 							for (int i = 0; i < PenaltyRegardListCastle.size(); i++)
 							{
@@ -743,7 +743,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 								//Clone a Copy Of Penalty Castles.
 								//PenaltyRegardListCastle[i][j]Clone(ref Current);
 								//Add New Object Create to New Penalty Castles List.
-								AA.PenaltyRegardListCastle.push_back(PenaltyRegardListCastle[i]);
+								AA->PenaltyRegardListCastle.push_back(PenaltyRegardListCastle[i]);
 							}
 						}
 						else
@@ -752,7 +752,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 							{
 
 								//Initaite and Create Minister Penalty List Object.
-								//AA.PenaltyRegardListMinister = std::vector<LearningKrinskyAtamata  >();
+								//AA->PenaltyRegardListMinister = std::vector<LearningKrinskyAtamata  >();
 								//For All Solder Minster List Count.
 								for (int i = 0; i < PenaltyRegardListMinister.size(); i++)
 								{
@@ -761,7 +761,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 									//Clone a Copy Of Penalty Minsiter.
 									//PenaltyRegardListMinister[i][j]Clone(ref Current);
 									//Add New Object Create to New Penalty Minsietr List.
-									AA.PenaltyRegardListMinister.push_back(PenaltyRegardListMinister[i]);
+									AA->PenaltyRegardListMinister.push_back(PenaltyRegardListMinister[i]);
 								}
 							}
 							else
@@ -770,7 +770,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 								{
 
 									//Initaite and Create King Penalty List Object.
-									//AA.PenaltyRegardListKing = std::vector<LearningKrinskyAtamata  >();
+									//AA->PenaltyRegardListKing = std::vector<LearningKrinskyAtamata  >();
 									//For All Solder King List Count.
 									for (int i = 0; i < PenaltyRegardListKing.size(); i++)
 									{
@@ -779,7 +779,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 										//Clone a Copy Of Penalty King.
 										//PenaltyRegardListKing[i][j]Clone(ref Current);
 										//Add New Object Create to New Penalty King List.
-										AA.PenaltyRegardListKing.push_back(PenaltyRegardListKing[i]);
+										AA->PenaltyRegardListKing.push_back(PenaltyRegardListKing[i]);
 									}
 								}
 							}
@@ -788,36 +788,36 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 				}
 			}
 			//Iniktiate Same Obejcts to New Same Obejcts.
-			AA.AStarGreedy = AStarGreedy;
-			AA.CastleValue = CastleValue;
-			AA.color = color;
-			AA.Column = Column;
-			AA.CurrentArray = CurrentArray;
-			AA.CurrentColumn = CurrentColumn;
-			AA.CurrentRow = CurrentRow;
-			AA.ElefantValue = ElefantValue;
-			AA.ExistingOfEnemyHiiting = ExistingOfEnemyHiiting;
-			AA.HourseValue = HourseValue;
-			AA.IgnoreObjectDangour = IgnoreObjectDangour;
-			AA.IndexCastle = IndexCastle;
-			AA.IndexElefant = IndexElefant;
-			AA.IndexHourse = IndexHourse;
-			AA.IndexKing = IndexKing;
-			AA.IndexMinister = IndexMinister;
-			AA.IndexSoldier = IndexSoldier;
-			AA.IsCheck = IsCheck;
-			AA.Kind = Kind;
-			AA.KingValue = KingValue;
-			AA.CheckMateAStarGreedy = CheckMateAStarGreedy;
-			AA.CheckMateOcuured = CheckMateOcuured;
-			AA.Max = Max;
-			AA.MinisterValue = MinisterValue;
-			AA.Order = Order;
-			AA.Row = Row;
-			AA.SodierValue = SodierValue;
-			AA.ThingsNumber = ThingsNumber;
-			AA.ThinkingBegin = ThinkingBegin;
-			AA.ThinkingFinished = ThinkingFinished;
+			AA->AStarGreedy = AStarGreedy;
+			AA->CastleValue = CastleValue;
+			AA->color = color;
+			AA->Column = Column;
+			AA->CurrentArray = CurrentArray;
+			AA->CurrentColumn = CurrentColumn;
+			AA->CurrentRow = CurrentRow;
+			AA->ElefantValue = ElefantValue;
+			AA->ExistingOfEnemyHiiting = ExistingOfEnemyHiiting;
+			AA->HourseValue = HourseValue;
+			AA->IgnoreObjectDangour = IgnoreObjectDangour;
+			AA->IndexCastle = IndexCastle;
+			AA->IndexElefant = IndexElefant;
+			AA->IndexHourse = IndexHourse;
+			AA->IndexKing = IndexKing;
+			AA->IndexMinister = IndexMinister;
+			AA->IndexSoldier = IndexSoldier;
+			AA->IsCheck = IsCheck;
+			AA->Kind = Kind;
+			AA->KingValue = KingValue;
+			AA->CheckMateAStarGreedy = CheckMateAStarGreedy;
+			AA->CheckMateOcuured = CheckMateOcuured;
+			AA->Max = Max;
+			AA->MinisterValue = MinisterValue;
+			AA->Order = Order;
+			AA->Row = Row;
+			AA->SodierValue = SodierValue;
+			AA->ThingsNumber = ThingsNumber;
+			AA->ThinkingBegin = ThinkingBegin;
+			AA->ThinkingFinished = ThinkingFinished;
 		}
 	}
 	
@@ -2528,10 +2528,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 	*/
 	bool ThinkingChess::ExistValuble(int *Table, std::vector<int*> ValuableSelfSupported)
 	{
-		//autoO = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-		//lock (O)
-		{
+		
 			bool Is = false;
 			for (int i = 0; i < ValuableSelfSupported.size(); i++)
 			{
@@ -2542,15 +2539,12 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 				}
 			}
 			return Is;
-		}
+		
 	}
 
 	bool ThinkingChess::MaxObjecvts(std::vector<int> Obj, int Max)
 	{
-		//autoO = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-		//lock (O)
-		{
+		
 			bool MaxO = true;
 			if (Obj.size() > 0)
 			{
@@ -2586,15 +2580,11 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 				}
 			}
 			return MaxO;
-		}
+		
 	}
 
 	bool ThinkingChess::IsCurrentMoveTakeSupporte(int **Table, int Order, int a, int i, int j, int ii, int jj)
 	{
-		//autoO = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-		//lock (O)
-		{
 			//Initiate Variables.
 			int **Tab;
 			for (int ik = 0; ik < 8; ik++)
@@ -2634,7 +2624,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 				}
 			}
 			return SelfSupported;
-		}
+		
 	}
 
 	double ThinkingChess::HeuristicKingSafety(int **Tab, int Order, int a, int CurrentAStarGredy, int RowS, int ColS, int RowD, int ColD)
@@ -2741,35 +2731,25 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 		{
 			for (int ji = 0; ji < 8; ji++)
 			{
-				//autoO2 = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-				//lock (O2)
-				{
+				
 					Table[ij][ji] = Tab[ij][ji];
-				}
+				
 			}
 		}
 		double HA = 0;
 		ChessRules *A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tab[RowD][ColD], Table, Order * -1, RowD, ColD);
 		//if (A->ObjectDangourKingMove(Order, Table, false))
 		A->ObjectDangourKingMove(Order, Table);
-		{
-			for (int ij = 0; ij < 8; ij++)
+		for (int ij = 0; ij < 8; ij++)
 			{
 				for (int ji = 0; ji < 8; ji++)
 				{
-					//autoO2 = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-					//lock (O2)
-					{
+					
 						Table[ij][ji] = Tab[ij][ji];
-					}
+					
 				}
 			}
-			//autool = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-			//lock (ol)
-			{
+			
 				//When Before Move such situation is observed calculate huristic count.
 				if (Order == 1 && A->CheckGrayObjectDangour)
 				{
@@ -2783,8 +2763,8 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 				}
 				}
 
-			}
-		}
+			
+		
 		return HA;
 	}
 
@@ -2950,10 +2930,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 
 	double ThinkingChess::HuristicSelfSupported(int **Tab, int Ord, int aa, int RowS, int ColS, int RowD, int ColD)
 	{
-	//autoO = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-	//lock (O)
-	{
+	
 		double HuristicSelfSupportedValue = 0;
 		//Initiate Local Vrariables.
 		double HA = 0;
@@ -2961,18 +2938,11 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 		int DummyOrder = Order;
 		int DummyCurrentOrder = ChessRules::CurrentOrder;
 
-		//If There is Not AStarGreedy Huristic Boolean Value.
-		//try
-		{
+		
 			if (!AStarGreedyHuristicT)
 			{
-				//int RowS = RowSS, ColS = ColSS;
-				//For All Self
-				//for (int RowD = 0; RowD < 8; RowD++)
-				{
-					{
-					//for (int ColD = 0; ColD < 8; ColD++)
-
+				
+					
 						//For Current Object Lcation.
 						int Order = int();
 						Order = DumOrder;
@@ -2990,13 +2960,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 						///When Supporte is true. means [RowD,ColD] Supportes [RowS,ColS].
 						///What is Supporte!
 						///Ans:When [RowS,ColS] is Supporte [RowD,ColD] return true when Self is located in [RowD,ColD].
-						//if (Order == 1 && Tab[RowD, ColD] <= 0)
-						//continue;
-						//if (Order == -1 && Tab[RowD, ColD] >= 0)
-						//continue;
-						//if (!Scop(RowS, ColS, RowD, ColD, System.Math.Abs(Tab[RowS, ColS])))
-						//continue;
-						if (Tab[RowD][ColD] < 0 && DummyOrder == -1 && Tab[RowS][ColS] <= 0)
+	   				if (Tab[RowD][ColD] < 0 && DummyOrder == -1 && Tab[RowS][ColS] <= 0)
 						{
 							Order = -1;
 							//autoO1 = new Object();
@@ -3130,8 +3094,8 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 							}
 
 						}
-					}
-				}
+					
+				
 			}
 
 			//For All Homes Table.
@@ -3302,18 +3266,14 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 					}
 				}
 			}
-		}
-		//catch(std::exception &t)
-		{
-			
-		}
+		
 		//Reassignments of Global Orders with Local Begining One.
 		Order = DummyOrder;
 		ChessRules::CurrentOrder = DummyCurrentOrder;
 		Order = DumOrder;
 		return HA * 1;
 	}
-	} ///Identification of Equality
+	 ///Identification of Equality
 
 	bool ThinkingChess::TableEqual(int **Tab1, int **Tab2)
 	{
@@ -5344,7 +5304,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 					{
 						if (Order == 1)
 						{
-							if (i < 4 && j < 4)
+							if (i < 4 && (j < 4))
 							{
 								HA += ((-1) * sqrt(pow(i-3, 2) + pow(j-3, 2)));
 
@@ -5357,7 +5317,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 						}
 						else
 						{
-							if (i >= 4 && j < 4)
+							if (i >= 4 && (j < 4))
 							{
 								HA += ((-1)*sqrt(pow(i-4, 2) + pow(j-3, 2)));
 							}
@@ -5371,7 +5331,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 					{
 						if (Order == -1)
 						{
-							if (i < 4 && j < 4)
+							if (i < 4 && (j < 4))
 							{
 								HA += ((-1)*sqrt(pow(i-3, 2) + pow(j-3, 2)));
 							}
@@ -5383,7 +5343,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 						}
 						else
 						{
-							if (i >= 4 && j < 4)
+							if (i >= 4 && (j < 4))
 							{
 								HA += ((-1)*sqrt(pow(i-4, 2) + pow(j-3, 2)));
 							}
@@ -6100,69 +6060,95 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 
 	bool ThinkingChess::MaxHuristic(int j, int Kin, double Less, int Order)
 	{
-		//autoO = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-		//lock (O)
+
+
+
+
+
+
+		bool Found = false;
+		//When Solders.
+		if (Kin == 1)
 		{
-
-
-
-
-
-			bool Found = false;
-			//When Solders.
-			if (Kin == 1)
+			for (int i = 0; i < PenaltyRegardListSolder.size(); i++)
 			{
-				for (int i = 0; i < PenaltyRegardListSolder.size(); i++)
+				if (PenaltyRegardListSolder[i].IsPenaltyAction() != 0)
 				{
-					if (PenaltyRegardListSolder[i].IsPenaltyAction() != 0)
+					if (Order == AllDraw::OrderPlate)
+					{
+						if (Less > HuristicListSolder[i][0] + HuristicListSolder[i][1] + HuristicListSolder[i][2] + HuristicListSolder[i][3] + HuristicListSolder[i][4] + HuristicListSolder[i][5] + HuristicListSolder[i][6] + HuristicListSolder[i][7] + HuristicListSolder[i][8] + HuristicListSolder[i][9])
+						{
+							Less = HuristicListSolder[i][0] + HuristicListSolder[i][1] + HuristicListSolder[i][2] + HuristicListSolder[i][3] + HuristicListSolder[i][4] + HuristicListSolder[i][5] + HuristicListSolder[i][6] + HuristicListSolder[i][7] + HuristicListSolder[i][8] + HuristicListSolder[i][9];
+							j = i;
+							Found = true;
+						}
+					}
+					else
+					{
+						if (Less < HuristicListSolder[i][0] + HuristicListSolder[i][1] + HuristicListSolder[i][2] + HuristicListSolder[i][3] + HuristicListSolder[i][4] + HuristicListSolder[i][5] + HuristicListSolder[i][6] + HuristicListSolder[i][7] + HuristicListSolder[i][8] + HuristicListSolder[i][9])
+						{
+							Less = HuristicListSolder[i][0] + HuristicListSolder[i][1] + HuristicListSolder[i][2] + HuristicListSolder[i][3] + HuristicListSolder[i][4] + HuristicListSolder[i][5] + HuristicListSolder[i][6] + HuristicListSolder[i][7] + HuristicListSolder[i][8] + HuristicListSolder[i][9];
+							j = i;
+							Found = true;
+						}
+					}
+
+				}
+			}
+		}
+		else //When Elephant.
+			if (Kin == 2)
+			{
+				for (int i = 0; i < PenaltyRegardListElefant.size(); i++)
+				{
+					if (PenaltyRegardListElefant[i].IsPenaltyAction() != 0)
 					{
 						if (Order == AllDraw::OrderPlate)
 						{
-							if (Less > HuristicListSolder[i][0] + HuristicListSolder[i][1] + HuristicListSolder[i][2] + HuristicListSolder[i][3] + HuristicListSolder[i][4] + HuristicListSolder[i][5] + HuristicListSolder[i][6] + HuristicListSolder[i][7] + HuristicListSolder[i][8] + HuristicListSolder[i][9])
+							if (Less > HuristicListElefant[i][0] + HuristicListElefant[i][1] + HuristicListElefant[i][2] + HuristicListElefant[i][3] + HuristicListElefant[i][4] + HuristicListElefant[i][5] + HuristicListElefant[i][6] + HuristicListElefant[i][7] + HuristicListElefant[i][8] + HuristicListElefant[i][9])
 							{
-								Less = HuristicListSolder[i][0] + HuristicListSolder[i][1] + HuristicListSolder[i][2] + HuristicListSolder[i][3] + HuristicListSolder[i][4] + HuristicListSolder[i][5] + HuristicListSolder[i][6] + HuristicListSolder[i][7] + HuristicListSolder[i][8] + HuristicListSolder[i][9];
+								Less = HuristicListElefant[i][0] + HuristicListElefant[i][1] + HuristicListElefant[i][2] + HuristicListElefant[i][3] + HuristicListElefant[i][4] + HuristicListElefant[i][5] + HuristicListElefant[i][6] + HuristicListElefant[i][7] + HuristicListElefant[i][8] + HuristicListElefant[i][9];
 								j = i;
 								Found = true;
 							}
 						}
 						else
 						{
-							if (Less < HuristicListSolder[i][0] + HuristicListSolder[i][1] + HuristicListSolder[i][2] + HuristicListSolder[i][3] + HuristicListSolder[i][4] + HuristicListSolder[i][5] + HuristicListSolder[i][6] + HuristicListSolder[i][7] + HuristicListSolder[i][8] + HuristicListSolder[i][9])
+							if (Less < HuristicListElefant[i][0] + HuristicListElefant[i][1] + HuristicListElefant[i][2] + HuristicListElefant[i][3] + HuristicListElefant[i][4] + HuristicListElefant[i][5] + HuristicListElefant[i][6] + HuristicListElefant[i][7] + HuristicListElefant[i][8] + HuristicListElefant[i][9])
 							{
-								Less = HuristicListSolder[i][0] + HuristicListSolder[i][1] + HuristicListSolder[i][2] + HuristicListSolder[i][3] + HuristicListSolder[i][4] + HuristicListSolder[i][5] + HuristicListSolder[i][6] + HuristicListSolder[i][7] + HuristicListSolder[i][8] + HuristicListSolder[i][9];
+								Less = HuristicListElefant[i][0] + HuristicListElefant[i][1] + HuristicListElefant[i][2] + HuristicListElefant[i][3] + HuristicListElefant[i][4] + HuristicListElefant[i][5] + HuristicListElefant[i][6] + HuristicListElefant[i][7] + HuristicListElefant[i][8] + HuristicListElefant[i][9];
 								j = i;
 								Found = true;
 							}
 						}
 
+
+
 					}
 				}
-
 			}
-
-			else //When Elephant.
+			else //When Hourse.
 			{
-				if (Kin == 2)
+				if (Kin == 3)
 				{
-					for (int i = 0; i < PenaltyRegardListElefant.size(); i++)
+					for (int i = 0; i < PenaltyRegardListHourse.size(); i++)
 					{
-						if (PenaltyRegardListElefant[i].IsPenaltyAction() != 0)
+						if (PenaltyRegardListHourse[i].IsPenaltyAction() != 0)
 						{
 							if (Order == AllDraw::OrderPlate)
 							{
-								if (Less > HuristicListElefant[i][0] + HuristicListElefant[i][1] + HuristicListElefant[i][2] + HuristicListElefant[i][3] + HuristicListElefant[i][4] + HuristicListElefant[i][5] + HuristicListElefant[i][6] + HuristicListElefant[i][7] + HuristicListElefant[i][8] + HuristicListElefant[i][9])
+								if (Less > HuristicListHourse[i][0] + HuristicListHourse[i][1] + HuristicListHourse[i][2] + HuristicListHourse[i][3] + HuristicListHourse[i][4] + HuristicListHourse[i][5] + HuristicListHourse[i][6] + HuristicListHourse[i][7] + HuristicListHourse[i][8] + HuristicListHourse[i][9])
 								{
-									Less = HuristicListElefant[i][0] + HuristicListElefant[i][1] + HuristicListElefant[i][2] + HuristicListElefant[i][3] + HuristicListElefant[i][4] + HuristicListElefant[i][5] + HuristicListElefant[i][6] + HuristicListElefant[i][7] + HuristicListElefant[i][8] + HuristicListElefant[i][9];
+									Less = HuristicListHourse[i][0] + HuristicListHourse[i][1] + HuristicListHourse[i][2] + HuristicListHourse[i][3] + HuristicListHourse[i][4] + HuristicListHourse[i][5] + HuristicListHourse[i][6] + HuristicListHourse[i][7] + HuristicListHourse[i][8] + HuristicListHourse[i][9];
 									j = i;
 									Found = true;
 								}
 							}
 							else
 							{
-								if (Less < HuristicListElefant[i][0] + HuristicListElefant[i][1] + HuristicListElefant[i][2] + HuristicListElefant[i][3] + HuristicListElefant[i][4] + HuristicListElefant[i][5] + HuristicListElefant[i][6] + HuristicListElefant[i][7] + HuristicListElefant[i][8] + HuristicListElefant[i][9])
+								if (Less < HuristicListHourse[i][0] + HuristicListHourse[i][1] + HuristicListHourse[i][2] + HuristicListHourse[i][3] + HuristicListHourse[i][4] + HuristicListHourse[i][5] + HuristicListHourse[i][6] + HuristicListHourse[i][7] + HuristicListHourse[i][8] + HuristicListHourse[i][9])
 								{
-									Less = HuristicListElefant[i][0] + HuristicListElefant[i][1] + HuristicListElefant[i][2] + HuristicListElefant[i][3] + HuristicListElefant[i][4] + HuristicListElefant[i][5] + HuristicListElefant[i][6] + HuristicListElefant[i][7] + HuristicListElefant[i][8] + HuristicListElefant[i][9];
+									Less = HuristicListHourse[i][0] + HuristicListHourse[i][1] + HuristicListHourse[i][2] + HuristicListHourse[i][3] + HuristicListHourse[i][4] + HuristicListHourse[i][5] + HuristicListHourse[i][6] + HuristicListHourse[i][7] + HuristicListHourse[i][8] + HuristicListHourse[i][9];
 									j = i;
 									Found = true;
 								}
@@ -6171,58 +6157,57 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 						}
 					}
 				}
-				else //When Hourse.
+				else //When Castles.
 				{
-					if (Kin == 3)
+					if (Kin == 4)
 					{
-						for (int i = 0; i < PenaltyRegardListHourse.size(); i++)
+						for (int i = 0; i < PenaltyRegardListCastle.size(); i++)
 						{
-							if (PenaltyRegardListHourse[i].IsPenaltyAction() != 0)
+							if (PenaltyRegardListCastle[i].IsPenaltyAction() != 0)
 							{
 								if (Order == AllDraw::OrderPlate)
 								{
-									if (Less > HuristicListHourse[i][0] + HuristicListHourse[i][1] + HuristicListHourse[i][2] + HuristicListHourse[i][3] + HuristicListHourse[i][4] + HuristicListHourse[i][5] + HuristicListHourse[i][6] + HuristicListHourse[i][7] + HuristicListHourse[i][8] + HuristicListHourse[i][9])
+									if (Less > HuristicListCastle[i][0] + HuristicListCastle[i][1] + HuristicListCastle[i][2] + HuristicListCastle[i][3] + HuristicListCastle[i][4] + HuristicListCastle[i][5] + HuristicListCastle[i][6] + HuristicListCastle[i][7] + HuristicListCastle[i][8] + HuristicListCastle[i][9])
 									{
-										Less = HuristicListHourse[i][0] + HuristicListHourse[i][1] + HuristicListHourse[i][2] + HuristicListHourse[i][3] + HuristicListHourse[i][4] + HuristicListHourse[i][5] + HuristicListHourse[i][6] + HuristicListHourse[i][7] + HuristicListHourse[i][8] + HuristicListHourse[i][9];
+										Less = HuristicListCastle[i][0] + HuristicListCastle[i][1] + HuristicListCastle[i][2] + HuristicListCastle[i][3] + HuristicListCastle[i][4] + HuristicListCastle[i][5] + HuristicListCastle[i][6] + HuristicListCastle[i][7] + HuristicListCastle[i][8] + HuristicListCastle[i][9];
 										j = i;
 										Found = true;
 									}
 								}
 								else
 								{
-									if (Less < HuristicListHourse[i][0] + HuristicListHourse[i][1] + HuristicListHourse[i][2] + HuristicListHourse[i][3] + HuristicListHourse[i][4] + HuristicListHourse[i][5] + HuristicListHourse[i][6] + HuristicListHourse[i][7] + HuristicListHourse[i][8] + HuristicListHourse[i][9])
+									if (Less < HuristicListCastle[i][0] + HuristicListCastle[i][1] + HuristicListCastle[i][2] + HuristicListCastle[i][3] + HuristicListCastle[i][4] + HuristicListCastle[i][5] + HuristicListCastle[i][6] + HuristicListCastle[i][7] + HuristicListCastle[i][8] + HuristicListCastle[i][9])
 									{
-										Less = HuristicListHourse[i][0] + HuristicListHourse[i][1] + HuristicListHourse[i][2] + HuristicListHourse[i][3] + HuristicListHourse[i][4] + HuristicListHourse[i][5] + HuristicListHourse[i][6] + HuristicListHourse[i][7] + HuristicListHourse[i][8] + HuristicListHourse[i][9];
+										Less = HuristicListCastle[i][0] + HuristicListCastle[i][1] + HuristicListCastle[i][2] + HuristicListCastle[i][3] + HuristicListCastle[i][4] + HuristicListCastle[i][5] + HuristicListCastle[i][6] + HuristicListCastle[i][7] + HuristicListCastle[i][8] + HuristicListCastle[i][9];
 										j = i;
 										Found = true;
 									}
 								}
-
 							}
 						}
 					}
-					else //When Castles.
+					else //When Minister.
 					{
-						if (Kin == 4)
+						if (Kin == 5)
 						{
-							for (int i = 0; i < PenaltyRegardListCastle.size(); i++)
+							for (int i = 0; i < PenaltyRegardListMinister.size(); i++)
 							{
-								if (PenaltyRegardListCastle[i].IsPenaltyAction() != 0)
+								if (PenaltyRegardListMinister[i].IsPenaltyAction() != 0)
 								{
 									if (Order == AllDraw::OrderPlate)
 									{
-										if (Less > HuristicListCastle[i][0] + HuristicListCastle[i][1] + HuristicListCastle[i][2] + HuristicListCastle[i][3] + HuristicListCastle[i][4] + HuristicListCastle[i][5] + HuristicListCastle[i][6] + HuristicListCastle[i][7] + HuristicListCastle[i][8] + HuristicListCastle[i][9])
+										if (Less > HuristicListMinister[i][0] + HuristicListMinister[i][1] + HuristicListMinister[i][2] + HuristicListMinister[i][3] + HuristicListMinister[i][4] + HuristicListMinister[i][5] + HuristicListMinister[i][6] + HuristicListMinister[i][7] + HuristicListMinister[i][8] + HuristicListMinister[i][9])
 										{
-											Less = HuristicListCastle[i][0] + HuristicListCastle[i][1] + HuristicListCastle[i][2] + HuristicListCastle[i][3] + HuristicListCastle[i][4] + HuristicListCastle[i][5] + HuristicListCastle[i][6] + HuristicListCastle[i][7] + HuristicListCastle[i][8] + HuristicListCastle[i][9];
+											Less = HuristicListMinister[i][0] + HuristicListMinister[i][1] + HuristicListMinister[i][2] + HuristicListMinister[i][3] + HuristicListMinister[i][4] + HuristicListMinister[i][5] + HuristicListMinister[i][6] + HuristicListMinister[i][7] + HuristicListMinister[i][8] + HuristicListMinister[i][9];
 											j = i;
 											Found = true;
 										}
 									}
 									else
 									{
-										if (Less < HuristicListCastle[i][0] + HuristicListCastle[i][1] + HuristicListCastle[i][2] + HuristicListCastle[i][3] + HuristicListCastle[i][4] + HuristicListCastle[i][5] + HuristicListCastle[i][6] + HuristicListCastle[i][7] + HuristicListCastle[i][8] + HuristicListCastle[i][9])
+										if (Less < HuristicListMinister[i][0] + HuristicListMinister[i][1] + HuristicListMinister[i][2] + HuristicListMinister[i][3] + HuristicListMinister[i][4] + HuristicListMinister[i][5] + HuristicListMinister[i][6] + HuristicListMinister[i][7] + HuristicListMinister[i][8] + HuristicListMinister[i][9])
 										{
-											Less = HuristicListCastle[i][0] + HuristicListCastle[i][1] + HuristicListCastle[i][2] + HuristicListCastle[i][3] + HuristicListCastle[i][4] + HuristicListCastle[i][5] + HuristicListCastle[i][6] + HuristicListCastle[i][7] + HuristicListCastle[i][8] + HuristicListCastle[i][9];
+											Less = HuristicListMinister[i][0] + HuristicListMinister[i][1] + HuristicListMinister[i][2] + HuristicListMinister[i][3] + HuristicListMinister[i][4] + HuristicListMinister[i][5] + HuristicListMinister[i][6] + HuristicListMinister[i][7] + HuristicListMinister[i][8] + HuristicListMinister[i][9];
 											j = i;
 											Found = true;
 										}
@@ -6230,73 +6215,44 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 								}
 							}
 						}
-						else //When Minister.
+						else //When King.
 						{
-							if (Kin == 5)
+							if (Kin == 6)
 							{
-								for (int i = 0; i < PenaltyRegardListMinister.size(); i++)
+								for (int i = 0; i < PenaltyRegardListKing.size(); i++)
 								{
-									if (PenaltyRegardListMinister[i].IsPenaltyAction() != 0)
+									if (PenaltyRegardListKing[i].IsPenaltyAction() != 0)
 									{
 										if (Order == AllDraw::OrderPlate)
 										{
-											if (Less > HuristicListMinister[i][0] + HuristicListMinister[i][1] + HuristicListMinister[i][2] + HuristicListMinister[i][3] + HuristicListMinister[i][4] + HuristicListMinister[i][5] + HuristicListMinister[i][6] + HuristicListMinister[i][7] + HuristicListMinister[i][8] + HuristicListMinister[i][9])
+											if (Less > HuristicListKing[i][0] + HuristicListKing[i][1] + HuristicListKing[i][2] + HuristicListKing[i][3] + HuristicListKing[i][4] + HuristicListKing[i][5] + HuristicListKing[i][6] + HuristicListKing[i][7] + HuristicListKing[i][8] + HuristicListKing[i][9])
 											{
-												Less = HuristicListMinister[i][0] + HuristicListMinister[i][1] + HuristicListMinister[i][2] + HuristicListMinister[i][3] + HuristicListMinister[i][4] + HuristicListMinister[i][5] + HuristicListMinister[i][6] + HuristicListMinister[i][7] + HuristicListMinister[i][8] + HuristicListMinister[i][9];
+												Less = HuristicListKing[i][0] + HuristicListKing[i][1] + HuristicListKing[i][2] + HuristicListKing[i][3] + HuristicListKing[i][4] + HuristicListKing[i][5] + HuristicListKing[i][6] + HuristicListKing[i][7] + HuristicListKing[i][8] + HuristicListKing[i][9];
 												j = i;
 												Found = true;
 											}
 										}
 										else
 										{
-											if (Less < HuristicListMinister[i][0] + HuristicListMinister[i][1] + HuristicListMinister[i][2] + HuristicListMinister[i][3] + HuristicListMinister[i][4] + HuristicListMinister[i][5] + HuristicListMinister[i][6] + HuristicListMinister[i][7] + HuristicListMinister[i][8] + HuristicListMinister[i][9])
+											if (Less < HuristicListKing[i][0] + HuristicListKing[i][1] + HuristicListKing[i][2] + HuristicListKing[i][3] + HuristicListKing[i][4] + HuristicListKing[i][5] + HuristicListKing[i][6] + HuristicListKing[i][7] + HuristicListKing[i][8] + HuristicListKing[i][9])
 											{
-												Less = HuristicListMinister[i][0] + HuristicListMinister[i][1] + HuristicListMinister[i][2] + HuristicListMinister[i][3] + HuristicListMinister[i][4] + HuristicListMinister[i][5] + HuristicListMinister[i][6] + HuristicListMinister[i][7] + HuristicListMinister[i][8] + HuristicListMinister[i][9];
+												Less = HuristicListKing[i][0] + HuristicListKing[i][1] + HuristicListKing[i][2] + HuristicListKing[i][3] + HuristicListKing[i][4] + HuristicListKing[i][5] + HuristicListKing[i][6] + HuristicListKing[i][7] + HuristicListKing[i][8] + HuristicListKing[i][9];
 												j = i;
 												Found = true;
 											}
 										}
-									}
-								}
-							}
-							else //When King.
-							{
-								if (Kin == 6)
-								{
-									for (int i = 0; i < PenaltyRegardListKing.size(); i++)
-									{
-										if (PenaltyRegardListKing[i].IsPenaltyAction() != 0)
-										{
-											if (Order == AllDraw::OrderPlate)
-											{
-												if (Less > HuristicListKing[i][0] + HuristicListKing[i][1] + HuristicListKing[i][2] + HuristicListKing[i][3] + HuristicListKing[i][4] + HuristicListKing[i][5] + HuristicListKing[i][6] + HuristicListKing[i][7] + HuristicListKing[i][8] + HuristicListKing[i][9])
-												{
-													Less = HuristicListKing[i][0] + HuristicListKing[i][1] + HuristicListKing[i][2] + HuristicListKing[i][3] + HuristicListKing[i][4] + HuristicListKing[i][5] + HuristicListKing[i][6] + HuristicListKing[i][7] + HuristicListKing[i][8] + HuristicListKing[i][9];
-													j = i;
-													Found = true;
-												}
-											}
-											else
-											{
-												if (Less < HuristicListKing[i][0] + HuristicListKing[i][1] + HuristicListKing[i][2] + HuristicListKing[i][3] + HuristicListKing[i][4] + HuristicListKing[i][5] + HuristicListKing[i][6] + HuristicListKing[i][7] + HuristicListKing[i][8] + HuristicListKing[i][9])
-												{
-													Less = HuristicListKing[i][0] + HuristicListKing[i][1] + HuristicListKing[i][2] + HuristicListKing[i][3] + HuristicListKing[i][4] + HuristicListKing[i][5] + HuristicListKing[i][6] + HuristicListKing[i][7] + HuristicListKing[i][8] + HuristicListKing[i][9];
-													j = i;
-													Found = true;
-												}
-											}
 
 
-										}
 									}
 								}
 							}
 						}
 					}
+
+
 				}
 			}
-			return Found;
-		}
+		return Found;
 	}
 	/*
 	int ThinkingChess::SolderOnTableCount(DrawSoldier So*, bool Mi, int MaxCount)
@@ -6731,7 +6687,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 			{
 				// Calculate Huristic of Current Node.
 			//When Sodleris Kind.
-				for (j = 0; HuristicListSolder.size() > 0 && j < HuristicListSolder.size(); j++)
+				for (j = 0; HuristicListSolder.size() > 0 && (j < HuristicListSolder.size()); j++)
 				{
 					//if (!ActionStringSetting)
 					Huristic += HuristicListSolder[j][0] + HuristicListSolder[j][1] + HuristicListSolder[j][2] + HuristicListSolder[j][3] + HuristicListSolder[j][4] + HuristicListSolder[j][5] + HuristicListSolder[j][6] + HuristicListSolder[j][7] + HuristicListSolder[j][8] + HuristicListSolder[j][9];
@@ -6748,7 +6704,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 
 
 				//When Elephant Kind.
-				for (j = 0; HuristicListElefant.size() > 0 && j < HuristicListElefant.size(); j++)
+				for (j = 0; HuristicListElefant.size() > 0 && (j < HuristicListElefant.size()); j++)
 				{
 					//if (!ActionStringSetting)
 					Huristic += HuristicListElefant[j][0] + HuristicListElefant[j][1] + HuristicListElefant[j][2] + HuristicListElefant[j][3] + HuristicListElefant[j][4] + HuristicListElefant[j][5] + HuristicListElefant[j][6] + HuristicListElefant[j][7] + HuristicListElefant[j][8] + HuristicListElefant[j][9];
@@ -6762,7 +6718,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 						AllDraw::OutPut = std::wstring(L"\r\nHuristic Elephant AStarGreedy[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 				}
-				for (j = 0; HuristicListHourse.size() > 0 && j < HuristicListHourse.size(); j++)
+				for (j = 0; HuristicListHourse.size() > 0 && (j < HuristicListHourse.size()); j++)
 				{
 					//if (!ActionStringSetting)
 					Huristic += HuristicListHourse[j][0] + HuristicListHourse[j][1] + HuristicListHourse[j][2] + HuristicListHourse[j][3] + HuristicListHourse[j][4] + HuristicListHourse[j][5] + HuristicListHourse[j][6] + HuristicListHourse[j][7] + HuristicListHourse[j][8] + HuristicListHourse[j][9];
@@ -6776,7 +6732,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 						AllDraw::OutPut = std::wstring(L"\r\nHuristic Hourse AStarGreedy[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 				}
-				for (j = 0; HuristicListCastle.size() > 0 && j < HuristicListCastle.size(); j++)
+				for (j = 0; HuristicListCastle.size() > 0 && (j < HuristicListCastle.size()); j++)
 				{
 					Huristic += HuristicListCastle[j][0] + HuristicListCastle[j][1] + HuristicListCastle[j][2] + HuristicListCastle[j][3] + HuristicListCastle[j][4] + HuristicListCastle[j][5] + HuristicListCastle[j][6] + HuristicListCastle[j][7] + HuristicListCastle[j][8] + HuristicListCastle[j][9];
 					ActionsString = std::wstring(L" ") + Alphabet(Row) + Number(Column) + Alphabet(RowColumnCastle[j][0]) + Number(RowColumnCastle[j][1]);
@@ -6790,7 +6746,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 					}
 
 				}
-				for (j = 0; HuristicListMinister.size() > 0 && j < HuristicListMinister.size(); j++)
+				for (j = 0; HuristicListMinister.size() > 0 && (j < HuristicListMinister.size()); j++)
 				{
 					Huristic += HuristicListMinister[j][0] + HuristicListMinister[j][1] + HuristicListMinister[j][2] + HuristicListMinister[j][3] + HuristicListMinister[j][4] + HuristicListMinister[j][5] + HuristicListMinister[j][6] + HuristicListMinister[j][7] + HuristicListMinister[j][8] + HuristicListMinister[j][9];
 					ActionsString = std::wstring(L" ") + Alphabet(Row) + Number(Column) + Alphabet(RowColumnMinister[j][0]) + Number(RowColumnMinister[j][1]);
@@ -6803,7 +6759,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 						AllDraw::OutPut = std::wstring(L"\r\nHuristic Minister AStarGreedy[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 				}
-				for (j = 0; HuristicListKing.size() > 0 && j < HuristicListKing.size(); j++)
+				for (j = 0; HuristicListKing.size() > 0 && (j < HuristicListKing.size()); j++)
 				{
 					Huristic += HuristicListKing[j][0] + HuristicListKing[j][1] + HuristicListKing[j][2] + HuristicListKing[j][3] + HuristicListKing[j][4] + HuristicListKing[j][5] + HuristicListKing[j][6] + HuristicListKing[j][7] + HuristicListKing[j][8] + HuristicListKing[j][9];
 					ActionsString = std::wstring(L" ") + Alphabet(Row) + Number(Column) + Alphabet(RowColumnKing[j][0]) + Number(RowColumnKing[j][1]);
@@ -6837,7 +6793,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 						{
 							continue;
 						}
-						Huristic += AStarGreedy[k].SolderesOnTable[m]->SoldierThinking->ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);			
+						Huristic += AStarGreedy[k].SolderesOnTable[m].SoldierThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);			
 					}
 					//Repeate for Elephant.
 					for (int m = 0; m < AStarGreedy[k].ElefantMidle; m++)
@@ -6846,7 +6802,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 						{
 							continue;
 						}
-						Huristic += AStarGreedy[k].ElephantOnTable[m]->ElefantThinking->ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy[k].ElephantOnTable[m].ElefantThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for Hourse.
 					for (int m = 0; m < AStarGreedy[k].HourseMidle; m++)
@@ -6855,7 +6811,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 						{
 							continue;
 						}
-						Huristic += AStarGreedy[k].HoursesOnTable[m]->HourseThinking->ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy[k].HoursesOnTable[m].HourseThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for Castles.
 					for (int m = 0; m < AStarGreedy[k].CastleMidle; m++)
@@ -6864,7 +6820,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 						{
 							continue;
 						}
-						Huristic += AStarGreedy[k].CastlesOnTable[m]->CastleThinking->ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy[k].CastlesOnTable[m].CastleThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for Minstre.
 					for (int m = 0; m < AStarGreedy[k].MinisterMidle; m++)
@@ -6873,7 +6829,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 						{
 							continue;
 						}
-						Huristic += AStarGreedy[k].MinisterOnTable[m]->MinisterThinking->ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy[k].MinisterOnTable[m].MinisterThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for King.
 					for (int m = 0; m < AStarGreedy[k].KingMidle; m++)
@@ -6882,7 +6838,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 						{
 							continue;
 						}
-						Huristic += AStarGreedy[k].KingOnTable[m]->KingThinking->ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy[k].KingOnTable[m].KingThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 				}
 				else
@@ -6893,7 +6849,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 						{
 							continue;
 						}
-						Huristic += AStarGreedy[k].SolderesOnTable[m]->SoldierThinking->ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy[k].SolderesOnTable[m].SoldierThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for Elephant.
 					for (int m = AStarGreedy[k].ElefantMidle; m < AStarGreedy[k].ElefantHigh; m++)
@@ -6902,7 +6858,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 						{
 							continue;
 						}
-						Huristic += AStarGreedy[k].ElephantOnTable[m]->ElefantThinking->ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy[k].ElephantOnTable[m].ElefantThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for Hourse.
 					for (int m = AStarGreedy[k].HourseMidle; m < AStarGreedy[k].HourseHight; m++)
@@ -6911,7 +6867,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 						{
 							continue;
 						}
-						Huristic += AStarGreedy[k].HoursesOnTable[m]->HourseThinking->ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy[k].HoursesOnTable[m].HourseThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for Castles.
 					for (int m = AStarGreedy[k].CastleMidle; m < AStarGreedy[k].CastleHigh; m++)
@@ -6920,7 +6876,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 						{
 							continue;
 						}
-						Huristic += AStarGreedy[k].CastlesOnTable[m]->CastleThinking->ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy[k].CastlesOnTable[m].CastleThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for Minstre.
 					for (int m = AStarGreedy[k].MinisterMidle; m < AStarGreedy[k].MinisterHigh; m++)
@@ -6929,7 +6885,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 						{
 							continue;
 						}
-						Huristic += AStarGreedy[k].MinisterOnTable[m]->MinisterThinking->ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy[k].MinisterOnTable[m].MinisterThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 					//Repeate for King.
 					for (int m = AStarGreedy[k].KingMidle; m < AStarGreedy[k].KingHigh; m++)
@@ -6938,7 +6894,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 						{
 							continue;
 						}
-						Huristic += AStarGreedy[k].KingOnTable[m]->KingThinking->ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+						Huristic += AStarGreedy[k].KingOnTable[m].KingThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
 					}
 				}
 			}
@@ -9789,7 +9745,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 
 	
 
-	void ThinkingChess::HuristicPenaltyValuePerform(LearningKrinskyAtamata Current, int Order, double HuristicAttackValue, bool AllDrawClass = false)
+	void ThinkingChess::HuristicPenaltyValuePerform(LearningKrinskyAtamata Current, int Order, double HuristicAttackValue, bool AllDrawClass)
 	{
 
 
@@ -11111,4 +11067,4 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 		ObjectNumbers = std::vector<int**>();
 	}
 
-	}
+//	}

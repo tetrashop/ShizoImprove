@@ -4,8 +4,8 @@
 #include "ThinkingChess.h"
 #include "DrawKing.h"
 
-namespace RefrigtzDLL
-{
+//namespace RefrigtzDLL
+//{
 	
 int ChessRules::ObjectHittedRow = -1;
 bool ChessRules::SelfHomeStatCP = false;
@@ -60,7 +60,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		}
 	}*/
 
-/*	ChessRules::ChessRules(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged, int oRDER)
+/*	ChessRules::ChessRules((((int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments))));Changed, int oRDER)
 	{
 		InitializeInstanceFields();
 		CurrentAStarGredyMax = CurrentAStarGredy;
@@ -121,7 +121,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		Order = Ord;
 	}
 
-	bool ChessRules::Rules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, int color, int Ki, bool SelfHomeStatCP = true)
+	bool ChessRules::Rules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, int color, int Ki, bool SelfHomeStatCP )
 	{
 		//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -514,7 +514,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		//Initiate a Local Variable.
 		int **tab = new int*[8];
 		for (int i = 0; i < 8; i++)
-			tab[i] = new int[8];
+			tab[i] =new  int[8];
 		//Clone A Copy of Table.
 		for (int i = 0; i < 8; i++)
 		{
@@ -2142,7 +2142,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		}
 		bool **Tab = new bool*[8];
 		for (int i = 0; i < 8; i++)
-			Tab[i] = new bool[8];
+			Tab[i] =new  bool[8];
 		
 
 		for (int i = 0; i < 8; i++)
@@ -4040,4 +4040,4 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		ArrangmentsBoard = false;
 		CurrentAStarGredyMax = -1;
 	}
-}
+//}

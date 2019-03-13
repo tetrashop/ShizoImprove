@@ -1,8 +1,8 @@
 ﻿#include "DrawMinister.h"
 
 
-namespace RefrigtzDLL
-{
+//namespace RefrigtzDLL
+//{
 //	inline bool operator==(const DrawMinister& lhs,  const std::nullptr_t& rhs) { return  (lhs == rhs); }
 	//inline bool operator!=(const DrawMinister& lhs,  const std::nullptr_t& rhs) { return !(lhs == rhs); }
 
@@ -42,30 +42,21 @@ const DrawMinister& DrawMinister::operator[] (const int index) const
 
 	bool DrawMinister::MaxFound(bool MaxNotFound)
 	{
-		//try
-		{
+		
 			double a = ReturnHuristic();
 			if (MaxHuristicxM < a)
 			{
-				//autoO2 = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-				//lock (O2)
-				{
+				
 					MaxNotFound = false;
 					if (ThinkingChess::MaxHuristicx < MaxHuristicxM)
 					{
 						ThinkingChess::MaxHuristicx = a;
 					}
 					MaxHuristicxM = a;
-				}
+				
 				return true;
 			}
-		}
-		//catch(std::exception t)
-		{
-			
-
-		}
+		
 		MaxNotFound = true;
 		return false;
 	}
@@ -75,14 +66,8 @@ const DrawMinister& DrawMinister::operator[] (const int index) const
 		double a = 0;
 		for (int ii = 0; ii < AllDraw::MinisterMovments; ii++)
 		{
-			//try
-			{
-				a += MinisterThinking->ReturnHuristic(-1, -1, Order,false);
-			}
-			//catch(std::exception t)
-			{
-				
-			}
+				a += MinisterThinking[0].ReturnHuristic(-1, -1, Order,false);
+			
 		}
 		return a;
 	}
@@ -114,7 +99,7 @@ const DrawMinister& DrawMinister::operator[] (const int index) const
 		AStarGreedyHuristicT = AStarGreedyHuris;
 		ArrangmentsChanged = Arrangments;
 		//Initiate Global Variables.
-		Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii] = new int[8];
+		Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii] =  new int[8];
 		for (int ii = 0; ii < 8; ii++)
 		{
 			for (int jj = 0; jj < 8; jj++)
@@ -122,7 +107,8 @@ const DrawMinister& DrawMinister::operator[] (const int index) const
 				Table[ii][jj] = Tab[ii][jj];
 			}
 		}
-		MinisterThinking =new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(i), static_cast<int>(j), a, Tab, 32, Ord, TB, Cur, 2, 5);
+		MinisterThinking = std::vector<ThinkingChess>();
+		MinisterThinking.push_back(ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(i), static_cast<int>(j), a, Tab, 32, Ord, TB, Cur, 2, 5));
 
 		Row = i;
 		Column = j;
@@ -132,7 +118,7 @@ const DrawMinister& DrawMinister::operator[] (const int index) const
 	}
 	
 
-	void DrawMinister::Clone(DrawMinister *AA)
+	void DrawMinister::Clone(DrawMinister AA)
 	{
 		int **Tab;
 		for (int i = 0; i < 8; i++)
@@ -143,36 +129,26 @@ const DrawMinister& DrawMinister::operator[] (const int index) const
 			}
 		}
 		//Initiate an Object and Clone a Construction Objectve.
-		AA = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, color, Table, Order, false, Current);
-		AA->ArrangmentsChanged = ArrangmentsChanged;
+		AA =  DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, color, Table, Order, false, Current);
+		AA.ArrangmentsChanged = ArrangmentsChanged;
 		for (int i = 0; i < AllDraw::MinisterMovments; i++)
 		{
-			//try
-			{
-				AA->MinisterThinking =new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
-				MinisterThinking->Clone(AA->MinisterThinking[i]);
-			}
-			//catch(std::exception t)
-			{
-				
-//C# TO C++ CONVERTER WARNING: C# to C++ Converter converted the original 'null' assignment to a call to 'delete', but you should review memory allocation of all pointer variables in the converted code:
-				delete AA->MinisterThinking[i];
-			}
-
+				AA.MinisterThinking.push_back(ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column)));
+			
 		}
-		AA->Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii]-new int[8];
+		AA.Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii]-new int[8];
 		for (int ii = 0; ii < 8; ii++)
 		{
 			for (int jj = 0; jj < 8; jj++)
 			{
-				AA->Table[ii][jj] = Tab[ii][jj];
+				AA.Table[ii][jj] = Tab[ii][jj];
 			}
 		}
-		AA->Row = Row;
-		AA->Column = Column;
-		AA->Order = Order;
-		AA->Current = Current;
-		AA->color = color;
+		AA.Row = Row;
+		AA.Column = Column;
+		AA.Order = Order;
+		AA.Current = Current;
+		AA.color = color;
 
 	}
 	
@@ -244,4 +220,4 @@ const DrawMinister& DrawMinister::operator[] (const int index) const
 		Order = 0;
 		CurrentAStarGredyMax = -1;
 	}
-}
+//}

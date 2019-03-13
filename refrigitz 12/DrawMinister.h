@@ -1,17 +1,18 @@
 ﻿
 #pragma once
-
-#include "AllDraw.h"
+#include "stdafx.h"
+//#include "AllDraw.h"
 #include "ThinkingChess.h"
 #include <string>
 #include <vector>
 #include <stdexcept>
+//#include "stdafx.h"
 
 
 using namespace std;
 
-namespace RefrigtzDLL
-{
+//namespace RefrigtzDLL
+//{
 	
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
 //ORIGINAL LINE: [Serializable] class DrawMinister
@@ -57,7 +58,7 @@ namespace RefrigtzDLL
 		int Current;
 		int Order;
 		
-		ThinkingChess *MinisterThinking;
+		std::vector<ThinkingChess> MinisterThinking;
 	private:
 		int CurrentAStarGredyMax;
 		//static void Log(std::exception &ex);
@@ -74,7 +75,7 @@ namespace RefrigtzDLL
 		DrawMinister(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int **Tab, int Ord, bool TB, int Cur); //, ref AllDraw:: THIS
 	
 
-		void Clone(DrawMinister * AA);
+		void Clone(DrawMinister AA);
 
 		//Clone a Copy.
 		//void Clone(DrawMinister *&AA); //, ref AllDraw:: THIS
@@ -84,6 +85,6 @@ namespace RefrigtzDLL
 	private:
 		void InitializeInstanceFields();
 	};
-}
+//}
 
 //End of Documentation.

@@ -4,8 +4,8 @@
 #include "DrawHourse.h"
 #include "DrawElefant.h"
 
-namespace RefrigtzDLL
-{
+//namespace RefrigtzDLL
+//{
 //	inline bool operator==( const DrawSoldier& lhs,  DrawSoldier& rhs) { return  (lhs == rhs); }
 //	inline bool operator!=( const DrawSoldier& lhs,  DrawSoldier& rhs) { return !(lhs == rhs); }
 
@@ -43,30 +43,21 @@ const DrawSoldier& DrawSoldier::operator[] (const int index) const
 	}
 	bool DrawSoldier::MaxFound(bool MaxNotFound)
 	{
-		//try
-		{
+		
 			double a = ReturnHuristic();
 			if (MaxHuristicxS < a)
 			{
-				//autoO2 = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-				//lock (O2)
-				{
+				
 					MaxNotFound = false;
 					if (ThinkingChess::MaxHuristicx < MaxHuristicxS)
 					{
 						ThinkingChess::MaxHuristicx = a;
 					}
 					MaxHuristicxS = a;
-				}
+				
 				return true;
 			}
-		}
-		//catch(std::exception t)
-		{
-			
-
-		}
+		
 		MaxNotFound = true;
 		return false;
 	}
@@ -74,10 +65,10 @@ const DrawSoldier& DrawSoldier::operator[] (const int index) const
 	double DrawSoldier::ReturnHuristic()
 	{
 		double a = 0;
-		a += SoldierThinking->ReturnHuristic(-1, -1, Order, false);
+		a += SoldierThinking[0].ReturnHuristic(-1, -1, Order, false);
 		return a;
 	}
-	
+	template <template <class> class T>	
 	DrawSoldier::DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments) :ThingsConverter()
 	{
 		CurrentAStarGredyMax = CurrentAStarGredy;
@@ -90,8 +81,6 @@ const DrawSoldier& DrawSoldier::operator[] (const int index) const
 		AStarGreedyHuristicT = AStarGreedyHuris;
 		ArrangmentsChanged = Arrangments;
 	}
-
-	//template<class T, typename PropTy>
 	DrawSoldier::DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int** Tab, int Ord, bool TB, int Cur) : ThingsConverter(Arrangments, i, j, a, Tab, Ord, TB, Cur)
 	{
 		InitializeInstanceFields();
@@ -108,7 +97,7 @@ const DrawSoldier& DrawSoldier::operator[] (const int index) const
 		AStarGreedyHuristicT = AStarGreedyHuris;
 		ArrangmentsChanged = Arrangments;
 		//Initiate Global Variables.  
-		Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii] = new int[8];
+		Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii] =new  int[8];
 		for (int ii = 0; ii < 8; ii++)
 		{
 			for (int jj = 0; jj < 8; jj++)
@@ -116,7 +105,8 @@ const DrawSoldier& DrawSoldier::operator[] (const int index) const
 				Table[ii][jj] = Tab[ii][jj];
 			}
 		}
-		SoldierThinking =new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(i), static_cast<int>(j), a, Tab, 4, Ord, TB, Cur, 16, 1);
+		SoldierThinking = std::vector<ThinkingChess>();
+		SoldierThinking.push_back(ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(i), static_cast<int>(j), a, Tab, 4, Ord, TB, Cur, 16, 1));
 		RowS = i;
 		ColumnS = j;
 		color = a;
@@ -126,7 +116,7 @@ const DrawSoldier& DrawSoldier::operator[] (const int index) const
 	}
 	//void* DrawSoldier<T>::operator*(std::size_t idx) { return malloc(idx * sizeof(this)); }
 
-	void DrawSoldier::Clone(DrawSoldier *AA)
+	void DrawSoldier::Clone(DrawSoldier AA)
 	{
 		int **Tab;
 		for (int i = 0; i < 8; i++)
@@ -138,23 +128,23 @@ const DrawSoldier& DrawSoldier::operator[] (const int index) const
 		}
 		//Initiate a Object and Assignemt of a Clone to Construction of a Copy.
 
-		AA = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, color, Tab, Order, false, Current);
-		AA->ArrangmentsChanged = ArrangmentsChanged;
-		AA->SoldierThinking =new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
-		SoldierThinking->Clone(AA->SoldierThinking);
-		AA->Table = new int*[8]; for (int ii = 0; ii < 8; ii++)AA->Table[ii] - new int[8];
+		AA = DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, RowS, ColumnS, color, Tab, Order, false, Current);
+		AA.ArrangmentsChanged = ArrangmentsChanged;
+		AA.SoldierThinking.push_back(ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(RowS), static_cast<int>(ColumnS)));
+		//RefrigtzDLL::SoldierThinking.Clone(AA.RefrigtzDLL::SoldierThinking);
+		AA.Table = new int*[8]; for (int ii = 0; ii < 8; ii++)AA.Table[ii] - new int[8];
 		for (int ii = 0; ii < 8; ii++)
 		{
 			for (int jj = 0; jj < 8; jj++)
 			{
-				AA->Table[ii][jj] = Tab[ii][jj];
+				AA.Table[ii][jj] = Tab[ii][jj];
 			}
 		}
-		AA->RowS = RowS;
-		AA->ColumnS = ColumnS;
-		AA->Order = Order;
-		AA->Current = Current;
-		AA->color = color;
+		AA.RowS = RowS;
+		AA.ColumnS = ColumnS;
+		AA.Order = Order;
+		AA.Current = Current;
+		AA.color = color;
 
 	}
 
@@ -360,4 +350,4 @@ const DrawSoldier& DrawSoldier::operator[] (const int index) const
 		Current = 0;
 		CurrentAStarGredyMax = -1;
 	}
-}
+//}

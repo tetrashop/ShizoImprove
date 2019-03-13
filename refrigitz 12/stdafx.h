@@ -6,7 +6,7 @@
 #pragma once
 
 #include "targetver.h"
-
+/*
 #include <sstream>
 #include <vector>
 #include <cmath>
@@ -31,9 +31,10 @@
 #include "StringConverterHelper.h"
 
 
-using namespace RefrigtzDLL;
+using //namespace RefrigtzDLL;
 
-
+*/
+#include <stdio.h>
 
 
 

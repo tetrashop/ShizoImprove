@@ -1,7 +1,7 @@
 ﻿#include "DrawHourse.h"
 
-namespace RefrigtzDLL
-{
+//namespace RefrigtzDLL
+//{
 //	inline bool operator==(const DrawHourse& lhs, const std::nullptr_t& rhs) { return  (lhs == rhs); }
 	//inline bool operator!=(const DrawHourse& lhs, const std::nullptr_t& rhs) { return !(lhs == rhs); }
 
@@ -76,7 +76,7 @@ DrawHourse::~DrawHourse()
 		{
 			//try
 			{
-				a += HourseThinking->ReturnHuristic(-1, -1, Order,false);
+				a += HourseThinking[0].ReturnHuristic(-1, -1, Order,false);
 			}
 			//catch(std::exception t)
 			{
@@ -111,7 +111,7 @@ DrawHourse::~DrawHourse()
 		AStarGreedyHuristicT = AStarGreedyHuris;
 		ArrangmentsChanged = Arrangments;
 		//Initiate Global Variable By Local Paramenters.
-		Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii] = new int[8];
+		Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii] =new  int[8];
 		for (int ii = 0; ii < 8; ii++)
 		{
 			for (int jj = 0; jj < 8; jj++)
@@ -119,7 +119,8 @@ DrawHourse::~DrawHourse()
 				Table[ii][jj] = Tab[ii][jj];
 			}
 		}
-		HourseThinking=new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(i), static_cast<int>(j), a, Tab, 8, Ord, TB, Cur, 4, 3);
+		HourseThinking = std::vector<ThinkingChess>();
+		HourseThinking.push_back(ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(i), static_cast<int>(j), a, Tab, 8, Ord, TB, Cur, 4, 3));
 
 		Row = i;
 		Column = j;
@@ -129,7 +130,7 @@ DrawHourse::~DrawHourse()
 
 	}
 
-	void DrawHourse::Clone(DrawHourse *AA)
+	void DrawHourse::Clone(DrawHourse AA)
 	{
 		int **Tab;
 		for (int i = 0; i < 8; i++)
@@ -140,26 +141,27 @@ DrawHourse::~DrawHourse()
 			}
 		}
 		//Create a Construction Ojects and Initiate a Clone Copy.
-		AA = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, color, Table, Order, false, Current);
-		AA->ArrangmentsChanged = ArrangmentsChanged;
+		AA = DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, color, Table, Order, false, Current);
+		AA.ArrangmentsChanged = ArrangmentsChanged;
 		for (int i = 0; i < AllDraw::HourseMovments; i++)
 		{
-				AA->HourseThinking=new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
-				HourseThinking->Clone(AA->HourseThinking);
+			
+				AA.HourseThinking.push_back(ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column)));
+				//HourseThinking.Clone(AA.HourseThinking);
 		}
-		AA->Table = new int*[8]; for (int ii = 0; ii < 8; ii++)AA->Table[ii]-new int[8];
+		AA.Table = new int*[8]; for (int ii = 0; ii < 8; ii++)AA.Table[ii]-new int[8];
 		for (int ii = 0; ii < 8; ii++)
 		{
 			for (int jj = 0; jj < 8; jj++)
 			{
-				AA->Table[ii][jj] = Tab[ii][jj];
+				AA.Table[ii][jj] = Tab[ii][jj];
 			}
 		}
-		AA->Row = Row;
-		AA->Column = Column;
-		AA->Order = Order;
-		AA->Current = Current;
-		AA->color = color;
+		AA.Row = Row;
+		AA.Column = Column;
+		AA.Order = Order;
+		AA.Current = Current;
+		AA.color = color;
 
 	}
 	
@@ -230,4 +232,4 @@ DrawHourse::~DrawHourse()
 		Order = 0;
 		CurrentAStarGredyMax = -1;
 	}
-}
+//}

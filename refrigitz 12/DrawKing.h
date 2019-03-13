@@ -1,14 +1,15 @@
 ﻿
 #pragma once
-
-#include "AllDraw.h"
+#include "stdafx.h"
+//#include "AllDraw.h"
 #include "ThinkingChess.h"
 #include <string>
 #include <vector>
 #include <stdexcept>
 
-namespace RefrigtzDLL
-{
+//#include "stdafx.h"
+//namespace RefrigtzDLL
+//{
 	
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
 //ORIGINAL LINE: [Serializable] class DrawKing
@@ -52,7 +53,7 @@ namespace RefrigtzDLL
 //ORIGINAL LINE: public int[,] Table = nullptr;
 		int **Table;
 		
-		ThinkingChess *KingThinking;
+		std::vector<ThinkingChess> KingThinking;
 		int Current;
 		int Order;
 	private:
@@ -64,13 +65,12 @@ namespace RefrigtzDLL
 
 		double ReturnHuristic();
 		bool MaxFound(bool MaxNotFound);
-		bool MaxFound(bool &MaxNotFound);
 		//Constructor 1.
 		DrawKing(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments);
 
 		//Constructor 2.
 		DrawKing(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int **Tab, int Ord, bool TB, int Cur); //, ref AllDraw:: THIS
-		void Clone(DrawKing * AA);
+		void Clone(DrawKing AA);
 		//Clone a Copy.
 	
 		//void Clone(DrawKing *&AA); //, ref AllDraw:: THIS
@@ -80,5 +80,5 @@ namespace RefrigtzDLL
 	private:
 		void InitializeInstanceFields();
 	};
-}
+//}
 //End of Documentation.

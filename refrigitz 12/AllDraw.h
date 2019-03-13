@@ -1,6 +1,6 @@
 ﻿
 #pragma once
-
+#include "stdafx.h"
 #include "DrawSoldire.h"
 #include "DrawElefant.h"
 #include "DrawHourse.h"
@@ -13,6 +13,7 @@
 #include <float.h>
 #include <stdexcept>
 #include "StringConverterHelper.h"
+//#include "stdafx.h"
 /*******************************************************************************************
  * Initiate and Decision making class.******************************************************
  * Ramin Edjlal*****************************************************************************
@@ -159,8 +160,8 @@
  * 1394/12/19**********************************************************************************************************************************************(*:Sum(4))
  * ********************************************************************************************************************************************************(-:sum(2)) (_:Sum(0)):2:(+:Sum(3)) (-:Sum(1)) (*:Sum(2)) 3: (+:Sum(4)) (*:Sum(1)) 4:(+:Sum(6))  5:(+:Sum(2)) (-:Sum(1)) 6:(+:Sum(6)) (*:Sum(2)) 7.(+:Sum(2)) (*:Sum(1)) 8.(+:Sum(1)) 9.(+:Sum(4)) (*:Sum(1)) (-:Sum(1)) 10.(+:Sum(4)) (*:Sum(2)) 11.(+:Sum(4)) 12.(+:Sum(2)) (*:Sum(2)) 13.(+:Sum(4)) 14.(+:Sum(2)) (*:Sum(1)) 15.(+:Sum(6)) 16.(+:Sum(2)) 17.(QC-OK.:Sum(13))
  */
-namespace RefrigtzDLL
-{
+//namespace RefrigtzDLL
+//{
 
 
 	
@@ -337,7 +338,7 @@ namespace RefrigtzDLL
 		int Ki6;
 		double MaxLess6;
 	public:
-		AllDraw	*AStarGreedyString;
+		AllDraw *AStarGreedyString;
 		static int LoopHuristicIndex;
 	public:
 		static std::vector<int> RWList;
@@ -368,12 +369,12 @@ struct Array {
 		int ColumS;
 		std::vector<int**> TableList;
 		int AStarGreedyInt;
-		DrawSoldier **SolderesOnTable;// [16];
-		DrawElefant **ElephantOnTable;// [4];
-		DrawHourse **HoursesOnTable;// [4];
-		DrawCastle **CastlesOnTable;// [4];
-		DrawMinister **MinisterOnTable;// [2];
-		DrawKing **KingOnTable;// [2];
+		DrawSoldier * SolderesOnTable;// [16];
+		DrawElefant * ElephantOnTable;// [4];
+		DrawHourse * HoursesOnTable;// [4];
+		DrawCastle * CastlesOnTable;// [4];
+		DrawMinister * MinisterOnTable;// [2];
+		DrawKing * KingOnTable; // [2];
 		/*std::vector<DrawSoldier> SolderesOnTable;
 		std::vector<DrawElefant> ElephantOnTable;
 		std::vector<DrawHourse> HoursesOnTable;
@@ -523,8 +524,8 @@ if (Kind == 2)
 	public:
 		bool IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckMate, int ForCheckMate, int AStarGreedyInt);		
 		AllDraw RemovePenalltyFromFirstBranches(int Order);
-		AllDraw* FoundOfLeafDepenOfKind(int Kind, AllDraw* Leaf, bool & Found, int Order, int  OrderLeaf);
-		AllDraw FoundOfCurrentTableNode(int **Tab, int Order, AllDraw &THIS, bool &Found);
+		AllDraw FoundOfLeafDepenOfKind(int Kind, AllDraw Leaf, bool & Found, int Order, int  OrderLeaf);
+		AllDraw FoundOfCurrentTableNode(int **Tab, int Order, AllDraw THIS, bool &Found);
 		
 		bool IsFoundOfLeafDepenOfKindhaveVictory(int Kind, bool &Found, int Order);
 		void MakeRegardAllCheckMateBranches(AllDraw A, int Order);
@@ -559,7 +560,7 @@ if (Kind == 2)
 
 		//AStarGreedy First Huristic Method.
 	public:
-		void Clone(AllDraw * AA);
+		void Clone(AllDraw AA);
 		bool AllCurrentAStarGreedyThinkingFinished(AllDraw Dum, int i, int j, int Kind);
 		//int** CloneATable(int** Tab);
 		int **HuristicAStarGreedySearch(int AStarGreedyi, int a, int Order, bool CurrentTableHuristic);
@@ -651,5 +652,5 @@ if (Kind == 2)
 
 
 	};
-}
+//}
 //End of Documentation.

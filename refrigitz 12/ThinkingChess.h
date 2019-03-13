@@ -1,6 +1,11 @@
 ﻿
 #pragma once
-
+#include "stdafx.h"
+#include <string>
+#include <vector>
+#include <cmath>
+#include <float.h>
+#include <stdexcept>
 #include "AllDraw.h"
 #include "DrawSoldire.h"
 #include "DrawElefant.h"
@@ -8,12 +13,11 @@
 #include "DrawCastle.h"
 #include "DrawMinister.h"
 #include "DrawKing.h"
-#include <string>
-#include <vector>
-#include <cmath>
-#include <float.h>
-#include <stdexcept>
 #include "StringConverterHelper.h"
+#include "LearningKrinskyAtamata.h"
+#include "ChessRules.h"
+
+//#include "stdafx.h"
 /****************************************************************************
  * Thinking Operation class.*************************************************
  * Ramin Edjlal**************************************************************
@@ -84,23 +88,11 @@
  * **************************************************************************(+:Sum(26)) (*:Sum(1)) 5:(+:Sum(3)) 6.(+:Sum0.12**4**Managements and Cuation Programing**********************(+)) 7.(:Sum(1))
  * **************************************************************************
  */
-#include "AllDraw.h"
-#include "ChessRules.h"
-#include "ThingsConverter.h"
-#include "ThinkingChess.h"
-#include "DrawSoldire.h"
-#include "DrawElefant.h"
-#include "DrawHourse.h"
-#include "DrawCastle.h"
-#include "DrawMinister.h"
-#include "DrawKing.h"
-#include "StringConverterHelper.h"
-#include "LearningKrinskyAtamatA.h"
 
 
 
-namespace RefrigtzDLL
-{
+//namespace RefrigtzDLL
+//{
 	
 		
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
@@ -266,7 +258,7 @@ namespace RefrigtzDLL
 		int Row, Column;
 		int color;
 		int Order;	
-		std::vector<AllDraw> *AStarGreedy;
+		std::vector<AllDraw> AStarGreedy;
 		
 	public:
 		
@@ -333,7 +325,7 @@ namespace RefrigtzDLL
 		double *CloneAList(double *Tab, int Count);
 		//Gwt Value of Book Netwrok  Atamtat at Every Need time form parameters index.
 		double GetValue(int i, int j);
-		void Clone(ThinkingChess & AA);
+		void Clone(ThinkingChess * AA);		
 		///Clone a Copy.
 	public:
 		//void Clone(ThinkingChess AA);
@@ -533,6 +525,6 @@ namespace RefrigtzDLL
 	public:
 		void InitializeInstanceFields();
 	};
-}
+//}
 
 //End of Documentation.

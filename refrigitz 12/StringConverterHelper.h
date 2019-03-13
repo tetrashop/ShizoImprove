@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include "stdafx.h"
 #include <sstream>
 //----------------------------------------------------------------------------------------
 //	Copyright © 2004 - 2014 Tangible Software Solutions Inc.

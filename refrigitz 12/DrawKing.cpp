@@ -1,7 +1,7 @@
 ﻿#include "DrawKing.h"
 
-namespace RefrigtzDLL
-{
+//namespace RefrigtzDLL
+//{
 //	inline bool operator==(const DrawKing& lhs, const std::nullptr_t& rhs) { return  (lhs == rhs); }
 //	inline bool operator!=(const DrawKing& lhs, const std::nullptr_t& rhs) { return !(lhs == rhs); }
 
@@ -46,7 +46,7 @@ double DrawKing::MaxHuristicxK = -20000000000000000;
 		{
 			//try
 			{
-				a += KingThinking->ReturnHuristic(-1, -1, Order,false);
+				a += KingThinking[0].ReturnHuristic(-1, -1, Order,false);
 			}
 			//catch(std::exception t)
 			{
@@ -59,30 +59,21 @@ double DrawKing::MaxHuristicxK = -20000000000000000;
 	//* DrawKing::operator*(std::size_t idx) { return malloc(idx * sizeof(this)); }
 	bool DrawKing::MaxFound(bool MaxNotFound)
 	{
-		//try
-		{
+		
 			double a = ReturnHuristic();
 			if (MaxHuristicxK < a)
 			{
-				//autoO2 = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-				//lock (O2)
-				{
+				
 					MaxNotFound = false;
 					if (ThinkingChess::MaxHuristicx < MaxHuristicxK)
 					{
 						ThinkingChess::MaxHuristicx = a;
 					}
 					MaxHuristicxK = a;
-				}
+				
 				return true;
 			}
-		}
-		//catch(std::exception t)
-		{
-			
-
-		}
+		
 		MaxNotFound = true;
 		return false;
 	}
@@ -115,7 +106,7 @@ double DrawKing::MaxHuristicxK = -20000000000000000;
 		AStarGreedyHuristicT = AStarGreedyHuris;
 		ArrangmentsChanged = Arrangments;
 		//Iniatite Global Variables.
-		Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii] = new int[8];
+		Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii] =new  int[8];
 		for (int ii = 0; ii < 8; ii++)
 		{
 			for (int jj = 0; jj < 8; jj++)
@@ -123,8 +114,8 @@ double DrawKing::MaxHuristicxK = -20000000000000000;
 				Table[ii][jj] = Tab[ii][jj];
 			}
 		}
-
-		KingThinking=new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(i), static_cast<int>(j), a, Tab, 8, Ord, TB, Cur, 2, 6);
+		KingThinking = std::vector<ThinkingChess>();
+		KingThinking.push_back(ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(i), static_cast<int>(j), a, Tab, 8, Ord, TB, Cur, 2, 6));
 
 		Row = i;
 		Column = j;
@@ -133,7 +124,7 @@ double DrawKing::MaxHuristicxK = -20000000000000000;
 		Current = Cur;
 	}
 
-	void DrawKing::Clone(DrawKing *AA)
+	void DrawKing::Clone(DrawKing AA)
 	{
 		int **Tab;
 		for (int i = 0; i < 8; i++)
@@ -144,25 +135,25 @@ double DrawKing::MaxHuristicxK = -20000000000000000;
 			}
 		}
 		//Initiate a Construction Object and Clone a Copy.
-		AA = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, color, Table, Order, false, Current);
-		AA->ArrangmentsChanged = ArrangmentsChanged;
-		AA->KingThinking =new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
-		KingThinking->Clone(AA->KingThinking);
+		AA = DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, color, Table, Order, false, Current);
+		AA.ArrangmentsChanged = ArrangmentsChanged;
+		AA.KingThinking.push_back(ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column)));
+		//KingThinking[0].Clone(AA.KingThinking);
 
 
-		AA->Table = new int*[8]; for (int ii = 0; ii < 8; ii++)AA->Table[ii] - new int[8];
+		AA.Table = new int*[8]; for (int ii = 0; ii < 8; ii++)AA.Table[ii] - new int[8];
 		for (int ii = 0; ii < 8; ii++)
 		{
 			for (int jj = 0; jj < 8; jj++)
 			{
-				AA->Table[ii][jj] = Tab[ii][jj];
+				AA.Table[ii][jj] = Tab[ii][jj];
 			}
 		}
-		AA->Row = Row;
-		AA->Column = Column;
-		AA->Order = Order;
-		AA->Current = Current;
-		AA->color = color;
+		AA.Row = Row;
+		AA.Column = Column;
+		AA.Order = Order;
+		AA.Current = Current;
+		AA.color = color;
 
 	}
 	
@@ -237,4 +228,4 @@ double DrawKing::MaxHuristicxK = -20000000000000000;
 		Order = 0;
 		CurrentAStarGredyMax = -1;
 	}
-}
+//}

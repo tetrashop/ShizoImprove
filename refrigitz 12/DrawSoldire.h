@@ -1,15 +1,16 @@
 ﻿#pragma once
-
+#include "stdafx.h"
 #include "ThingsConverter.h"
-#include "AllDraw.h"
+//#include "AllDraw.h"
 #include "ThinkingChess.h"
 #include <string>
 #include <vector>
 #include <stdexcept>
 
+//#include "stdafx.h"
 
-namespace RefrigtzDLL
-{
+//namespace RefrigtzDLL
+//{
 	
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
 //ORIGINAL LINE: [Serializable] class DrawSoldier : ThingsConverter
@@ -46,7 +47,7 @@ namespace RefrigtzDLL
 		float RowS, ColumnS;
 		int color;
 		
-		ThinkingChess *SoldierThinking;
+		std::vector<ThinkingChess> SoldierThinking;
 //C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
 //ORIGINAL LINE: public int[,] Table = nullptr;
 		int **Table;
@@ -59,8 +60,8 @@ namespace RefrigtzDLL
 	public:
 		~DrawSoldier();
 		bool MaxFound(bool MaxNotFound);
-		bool MaxFound(bool &MaxNotFound);
 		double ReturnHuristic();
+		
 		////void* operator*(std::size_t idx);
 		static bool KingGrayNotCheckedByQuantumMove;
 
@@ -68,8 +69,8 @@ namespace RefrigtzDLL
 		DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments);
 
 		//Constructor 2.		
-		DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int** Tab, int Ord, bool TB, int Cur);
-		void Clone(DrawSoldier * AA);
+		DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int ** Tab, int Ord, bool TB, int Cur);
+		void Clone(DrawSoldier AA);
 		// :ThingsConverter(Arrangments, i, j, a, Tab, Ord, TB, Cur);
 	
 		//Clone a Copy Method.
@@ -83,5 +84,5 @@ namespace RefrigtzDLL
 		void InitializeInstanceFields();
 	};
 	
-}
+//}
 //End of Documentation.

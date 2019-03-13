@@ -1,5 +1,5 @@
 ﻿#pragma once
-
+#include "stdafx.h"
 #include <string>
 #include <vector>
 #include <cmath>
@@ -62,14 +62,14 @@
  * Syntax Error At Genetic Algorithm By Bob.*************************************R***x**0.12**4**Managements and Cuation Programing**(+)
  * 1394/12/20********************************************************************R***x**0.12**4**Managements and Cuation Programing**(+:Sum(48)) (_ :Sum(1)) (-:Sum(5)) (*:Sum(2))
  * Chess Syntax MalFunction.*****************************************************R***x**0.12**4**Managements and Cuation Programing**[+]
- * Chess Rules Non Soldier Colud Not been Detected. For (AStarGreedy.data()) Fist Algorithm.*****R***x**0.12**4**Managements and Cuation Programing**{+}
+ * Chess Rules Non Soldier Colud Not been Detected. For (CastleThinking.) Fist Algorithm.*****R***x**0.12**4**Managements and Cuation Programing**{+}
  * 'Check' Released isolatly.'Check' of Brown (Alice) No Matched Realesed.*********R***x**0.12**4**Managements and Cuation Programing**<+>
  * 'Check' Not Detected By Bob.***************************************************R***x**0.12**4**Managements and Cuation Programing**<+>
  * Bob Cloud not Remove 'Check'.**************************************************R***x**0.12**4**Managements and Cuation Programing**<+>
  * Bob Colud not Move.No Check asnd CheckMate.*****************************************R***x**0.12**4**Managements and Cuation Programing**<+>
  * Kings Have been Realeased Attacked.By Alice and Bob.**************************R***x**0.12**4**Managements and Cuation Programing**<+>
  * ObjectDanger kings Not work!********************************************************CU*****0.88**1**Risk Control************************<*>QC-OK.
- * Chess Rules of Movments (AStarGreedy.data()) First caused to Databse MalFunction.*************CU*****0.88**1**Risk Control************************(*)QC-OK.
+ * Chess Rules of Movments (CastleThinking.) First caused to Databse MalFunction.*************CU*****0.88**1**Risk Control************************(*)QC-OK.
  * Mal Function of Table.Table zero.!********************************************R***x**0.12**4**Managements and Cuation Programing**(+)
  * Timer of Bob and Alice do not works!******************************************CU*****0.88**1**Risk Control************************(*)QC-OK.
  * Not Right of Penalty Regard Mechansim.Misleading of Operations.***************R***x**0.12**4**Managements and Cuation Programing**(+)
@@ -91,8 +91,8 @@
  * ************************************************************************************************************************************(+):Sum(1)) 4:(+:Sum(5)) 5.(*:Sum(1)) 6.(+:Sum(2)) (*:Sum(2)) 7.(+:Sum(2)) 8.(*:Sum(3)) 9.(QC-OK.:Sum(7))
  * ********************************************************************************
  */
-namespace RefrigtzDLL
-{
+//namespace RefrigtzDLL
+//{
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
 //ORIGINAL LINE: [Serializable] class ChessRules
 	class ChessRules
@@ -245,6 +245,6 @@ namespace RefrigtzDLL
 	public:
 		void InitializeInstanceFields();
 	};
-}
+//}
 
 //End of Documentation.

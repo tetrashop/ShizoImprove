@@ -1,7 +1,7 @@
 ﻿#include "DrawElefant.h"
 
-namespace RefrigtzDLL
-{
+//namespace RefrigtzDLL
+//{
 	inline bool operator==(const DrawElefant& lhs,  const std::nullptr_t& rhs) { return  (lhs == rhs); }
 	inline bool operator!=(const DrawElefant& lhs,  const std::nullptr_t& rhs) { return !(lhs == rhs); }
 
@@ -75,7 +75,7 @@ const DrawElefant& DrawElefant::operator[] (const int index) const
 		{
 			//try
 			{
-				a += ElefantThinking->ReturnHuristic(-1, -1, Order, false);
+				a += ElefantThinking[0].ReturnHuristic(-1, -1, Order, false);
 			}
 			//catch(std::exception t)
 			{
@@ -122,8 +122,8 @@ const DrawElefant& DrawElefant::operator[] (const int index) const
 				Table[ii][jj] = Tab[ii][jj];
 			}
 		}
-
-		ElefantThinking=new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(i), static_cast<int>(j), a, Tab, 16, Ord, TB, Cur, 4, 2);
+		ElefantThinking = std::vector<ThinkingChess>();
+		ElefantThinking.push_back(ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(i), static_cast<int>(j), a, Tab, 16, Ord, TB, Cur, 4, 2));
 
 		Row = i;
 		Column = j;
@@ -135,7 +135,7 @@ const DrawElefant& DrawElefant::operator[] (const int index) const
 	}
 
 	
-	void DrawElefant::Clone(DrawElefant *AA)
+	void DrawElefant::Clone(DrawElefant AA)
 	{
 		int **Tab;
 		for (int i = 0; i < 8; i++)
@@ -146,28 +146,28 @@ const DrawElefant& DrawElefant::operator[] (const int index) const
 			}
 		}
 		//Initiate a Constructed Object an Clone a Copy.
-		AA = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, color, Table, Order, false, Current);
-		AA->ArrangmentsChanged = ArrangmentsChanged;
+		AA = DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, color, Table, Order, false, Current);
+		AA.ArrangmentsChanged = ArrangmentsChanged;
 		for (int i = 0; i < AllDraw::ElefantMovments; i++)
 		{
 			
-				AA->ElefantThinking=new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column));
-				ElefantThinking->Clone(AA->ElefantThinking);
+				AA.ElefantThinking.push_back(ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column)));
+				//ElefantThinking[0].Clone(AA.ElefantThinking);
 			
 		}
-		AA->Table = new int*[8]; for (int ii = 0; ii < 8; ii++)AA->Table[ii] - new int[8];
+		AA.Table = new int*[8]; for (int ii = 0; ii < 8; ii++)AA.Table[ii] - new int[8];
 		for (int ii = 0; ii < 8; ii++)
 		{
 			for (int jj = 0; jj < 8; jj++)
 			{
-				AA->Table[ii][jj] = Tab[ii][jj];
+				AA.Table[ii][jj] = Tab[ii][jj];
 			}
 		}
-		AA->Row = Row;
-		AA->Column = Column;
-		AA->Order = Order;
-		AA->Current = Current;
-		AA->color = color;
+		AA.Row = Row;
+		AA.Column = Column;
+		AA.Order = Order;
+		AA.Current = Current;
+		AA.color = color;
 
 	}
 	
@@ -240,4 +240,4 @@ const DrawElefant& DrawElefant::operator[] (const int index) const
 		Order = 0;
 		CurrentAStarGredyMax = -1;
 	}
-}
+//}
