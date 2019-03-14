@@ -1,9 +1,15 @@
 ﻿#include "DrawKing.h"
+#include "DrawSoldire.h"
+#include "DrawMinister.h"
+#include "DrawCastle.h"
+#include "DrawHourse.h"
+#include "DrawElefant.h"
+#include "ThinkingChess.h"
 
 //namespace RefrigtzDLL
 //{
-//	inline bool operator==(const DrawKing& lhs, const std::nullptr_t& rhs) { return  (lhs == rhs); }
-//	inline bool operator!=(const DrawKing& lhs, const std::nullptr_t& rhs) { return !(lhs == rhs); }
+    inline bool operator==(const DrawKing& lhs, const std::nullptr_t& rhs) { return  (lhs == rhs); }
+	inline bool operator!=(const DrawKing& lhs, const std::nullptr_t& rhs) { return !(lhs == rhs); }
 
 bool DrawKing::KingGrayNotCheckedByQuantumMove = false;
 bool DrawKing::KingBrownNotCheckedByQuantumMove = false;

@@ -1,4 +1,12 @@
-﻿#include "AllDraw.h"
+﻿class DrawSoldier;
+class DrawElefant;
+class DrawHourse;
+class DrawCastle;
+class DrawMinister;
+class DrawKing;
+//class ThinkingChess;
+//class AllDraw;
+#include "AllDraw.h"
 #include "ChessRules.h"
 #include "ThinkingChess.h"
 #include "ThingsConverter.h"
@@ -9,7 +17,7 @@
 //namespace RefrigtzDLL
 //{
 	
-	inline bool operator==(const AllDraw& lhs, const std::nullptr_t& rhs) { return (lhs == rhs); }
+	/*inline bool operator==(const AllDraw& lhs, const std::nullptr_t& rhs) { return (lhs == rhs); }
 	inline bool operator!=(const AllDraw& lhs, const std::nullptr_t& rhs) { return !(lhs == rhs); }
 	inline bool operator==(const DrawSoldier& lhs, const std::nullptr_t& rhs) { return (lhs == rhs); }
 	inline bool operator!=(const DrawSoldier& lhs, const std::nullptr_t& rhs) { return !(lhs == rhs); }
@@ -23,7 +31,7 @@
 	inline bool operator!=(const DrawMinister& lhs, const std::nullptr_t& rhs) { return !(lhs == rhs); }
 	inline bool operator==(const DrawKing& lhs, const std::nullptr_t& rhs) { return (lhs == rhs); }
 	inline bool operator!=(const DrawKing& lhs, const std::nullptr_t& rhs) { return !(lhs == rhs); }
-	
+	*/
 //template<typename T>
 int  AllDraw::DepthIterative = 0;
 std::wstring AllDraw::OutPut = L"";
@@ -72,7 +80,7 @@ int  AllDraw::MaxAStarGreedy = 1;
 std::vector<int**> AllDraw::TableCurrent = std::vector<int**>();
 bool AllDraw::NoTableFound = false;
 bool AllDraw::DynamicAStarGreedytPrograming = false;
-//std::vector<AllDraw> AllDraw::StoreADraw = std::vector<AllDraw>();
+std::vector<AllDraw> AllDraw::StoreADraw = std::vector<AllDraw>();
 std::vector<int> AllDraw::StoreADrawAStarGreedy = std::vector<int>();
 bool AllDraw::UseDoubleTime = false;
 int  AllDraw::AStarGreedyiLevelMax = 0;
@@ -227,17 +235,17 @@ AllDraw::AllDraw(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, b
 	*/
 	
 	for (int i = 0; i < SodierHigh; i++)
-	SolderesOnTable[i] = DrawSoldier(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments, i, j, a, Tab, Ord, TB, Cur);
+	SolderesOnTable.push_back(DrawSoldier(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments, i, j, a, Tab, Ord, TB, Cur));
 	for (int i = 0; i < ElefantHigh; i++)
-	ElephantOnTable[i] = DrawElefant(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments, i, j, a, Tab, Ord, TB, Cur);
+	ElephantOnTable.push_back(DrawElefant(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments, i, j, a, Tab, Ord, TB, Cur));
 	for (int i = 0; i < HourseHight; i++)
-	HoursesOnTable[i] = DrawHourse(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments, i, j, a, Tab, Ord, TB, Cur);
+	HoursesOnTable.push_back(DrawHourse(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments, i, j, a, Tab, Ord, TB, Cur));
 	for (int i = 0; i < CastleMidle; i++)
-	CastlesOnTable[i] = DrawCastle(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments, i, j, a, Tab, Ord, TB, Cur);
+	CastlesOnTable.push_back(DrawCastle(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments, i, j, a, Tab, Ord, TB, Cur));
 	for (int i = 0; i <MinisterHigh; i++)
-	MinisterOnTable[i] = DrawMinister(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments, i, j, a, Tab, Ord, TB, Cur);
+	MinisterOnTable.push_back(DrawMinister(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments, i, j, a, Tab, Ord, TB, Cur));
 	for (int i = 0; i < KingHigh; i++)
-	KingOnTable[i] =   DrawKing(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments, i, j, a, Tab, Ord, TB, Cur);
+	KingOnTable.push_back(DrawKing(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments, i, j, a, Tab, Ord, TB, Cur));
 	
 }
 AllDraw::AllDraw(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
@@ -355,17 +363,17 @@ AllDraw::AllDraw(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, b
 	
 
 	for (int i = 0; i < SodierHigh; i++)
-		SolderesOnTable[i] = DrawSoldier(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments);
+		SolderesOnTable.push_back(DrawSoldier(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments));
 	for (int i = 0; i < ElefantHigh; i++)
-		ElephantOnTable[i] = DrawElefant(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments);
+		ElephantOnTable.push_back(DrawElefant(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments));
 	for (int i = 0; i < HourseHight; i++)
-		HoursesOnTable[i] = DrawHourse(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments);
+		HoursesOnTable.push_back(DrawHourse(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments));
 	for (int i = 0; i < CastleMidle; i++)
-		CastlesOnTable[i] = DrawCastle(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments);
+		CastlesOnTable.push_back(DrawCastle(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments));
 	for (int i = 0; i <MinisterHigh; i++)
-		MinisterOnTable[i] = DrawMinister(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments);
+		MinisterOnTable.push_back(DrawMinister(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments));
 	for (int i = 0; i < KingHigh; i++)
-		KingOnTable[i] = DrawKing(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments);
+		KingOnTable.push_back(DrawKing(CurrentAStarGredy, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments));
 	
 }
 
@@ -1388,7 +1396,7 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 		//For Solderis.
 		for (int i = 0; i < SodierMidle; i++)
 		{
-			for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
+			for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 			{
 
 				//When there is Brown checked mate.
@@ -1420,7 +1428,7 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 					}
 				}
 				Order *= -1;
-				for (int ii = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.size()); ii++)
+				for (int ii = 0; ((&SolderesOnTable) != nullptr) && (&(SolderesOnTable[i]) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.size()); ii++)
 				{
 					AA = AA || SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
 				}
@@ -1429,7 +1437,7 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 		}
 		for (int i = 0; i < ElefantMidle; i++)
 		{
-			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
+			for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
 			{
 
 				//When there is Brown checked mate.
@@ -1463,7 +1471,7 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 					}
 				}
 				Order *= -1;
-				for (int ii = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.size());ii++)
+				for (int ii = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.size());ii++)
 				{
 					AA = AA || ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
 				}
@@ -1472,7 +1480,7 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 		}
 		for (int i = 0; i < HourseMidle; i++)
 		{
-			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
+			for (int j = 0;((& HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 			{
 
 				//When there is Brown checked mate.
@@ -1503,7 +1511,7 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 					}
 				}
 				Order *= -1;
-				for (int ii = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.size());ii++)
+				for (int ii = 0;((& HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.size());ii++)
 				{
 					AA = AA || HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
 				}
@@ -1512,7 +1520,7 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 		}
 		for (int i = 0; i < CastleMidle; i++)
 		{
-			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
+			for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 			{
 
 				{
@@ -1545,7 +1553,7 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 					}
 				}
 				Order *= -1;
-				for (int ii = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (ii <CastlesOnTable[i].CastleThinking[0].AStarGreedy.size());ii++)
+				for (int ii = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (ii <CastlesOnTable[i].CastleThinking[0].AStarGreedy.size());ii++)
 				{
 					AA = AA || CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
 				}
@@ -1554,7 +1562,7 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 		}
 		for (int i = 0; i < MinisterMidle; i++)
 		{
-			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j <MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
+			for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j <MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
 			{
 
 				//When there is Brown checked mate.
@@ -1587,7 +1595,7 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 					}
 				}
 				Order *= -1;
-				for (int ii = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (ii <MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size());ii++)
+				for (int ii = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (ii <MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size());ii++)
 				{
 					AA = AA || MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
 				}
@@ -1596,7 +1604,7 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 		}	
 		for (int i = 0; i < KingMidle; i++)
 		{
-			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
+			for (int j = 0;((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 			{
 
 				//When there is Brown checked mate.
@@ -1627,7 +1635,7 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 					}
 				}
 				Order *= -1;
-				for (int ii = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (ii < KingOnTable[i].KingThinking[0].AStarGreedy.size());ii++)
+				for (int ii = 0;((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (ii < KingOnTable[i].KingThinking[0].AStarGreedy.size());ii++)
 				{
 					AA = AA || KingOnTable[i].KingThinking[0].AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
 				}
@@ -1640,7 +1648,7 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 		//ChessRules::CurrentOrder = -1;
 		for (int i = SodierMidle; i < SodierHigh; i++)
 		{
-			for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j< SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
+			for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j< SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 			{
 
 				{
@@ -1673,7 +1681,7 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 					}
 				}
 				Order *= -1;
-				for (int ii = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.size()); ii++)
+				for (int ii = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && ((&(SolderesOnTable[i].SoldierThinking)) != nullptr) && (ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.size()); ii++)
 				{
 					AA = AA || SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
 				}
@@ -1682,7 +1690,7 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 		}
 		for (int i = ElefantMidle; i < ElefantHigh; i++)
 		{
-			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
+			for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
 			{
 
 				//When there is Brown checked mate.
@@ -1713,7 +1721,7 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 					}
 				}
 				Order *= -1;
-				for (int ii = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.size());ii++)
+				for (int ii = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.size());ii++)
 				{
 					AA = AA || ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
 				}
@@ -1722,7 +1730,7 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 		}
 		for (int i = HourseMidle; i < HourseHight; i++)
 		{
-			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
+			for (int j = 0;((& HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 			{
 
 				if (HoursesOnTable[i].HourseThinking[0].CheckMateAStarGreedy == -1)
@@ -1752,7 +1760,7 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 					}
 				}
 				Order *= -1;
-				for (int ii = 0; (HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.size()); ii++)
+				for (int ii = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.size()); ii++)
 				{
 					AA = AA || HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
 				}
@@ -1761,7 +1769,7 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 		}
 		for (int i = CastleMidle; i < CastleHigh; i++)
 		{
-			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) &&(j<CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
+			for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) &&(j<CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 			{
 
 				//When there is Brown checked mate.
@@ -1792,7 +1800,7 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 					}
 				}
 				Order *= -1;
-				for (int ii = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.size());ii++)
+				for (int ii = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.size());ii++)
 				{
 					AA = AA || CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
 				}
@@ -1801,7 +1809,7 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 		}
 		for (int i = MinisterMidle; i < MinisterHigh; i++)
 		{
-			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
+			for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
 			{
 
 				//When there is Brown checked mate.
@@ -1833,7 +1841,7 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 				}
 
 				Order *= -1;
-				for (int ii = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size());ii++)
+				for (int ii = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size());ii++)
 				{
 					AA = AA || MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
 				}
@@ -1842,7 +1850,7 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 		}
 		for (int i = KingMidle; i < KingHigh; i++)
 		{
-			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
+			for (int j = 0;((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 			{
 
 				{
@@ -1876,7 +1884,7 @@ bool AllDraw::IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckM
 
 				}
 				Order *= -1;
-				for (int ii = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (ii < KingOnTable[i].KingThinking[0].AStarGreedy.size());ii++)
+				for (int ii = 0;((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (ii < KingOnTable[i].KingThinking[0].AStarGreedy.size());ii++)
 				{
 					AA = AA || KingOnTable[i].KingThinking[0].AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
 				}
@@ -2005,7 +2013,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 		//For Hourse.
 		for (int i = 0; i < HourseMidle; i++)
 		{
-			for (int j = 0; (HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
+			for (int j = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 			{
 
 				
@@ -2044,7 +2052,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 					Order *= -1;
 					ChessRules::CurrentOrder *= -1;
 					//Sub branchs For Hourse.
-					for (int ii = 0; (HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.size());ii++)
+					for (int ii = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.size());ii++)
 					{
 						HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
 					}
@@ -2056,7 +2064,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 		//For Gray Briges.
 		for (int i = 0; i < CastleMidle; i++)
 		{
-			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
+			for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 			{
 
 				
@@ -2097,7 +2105,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 					//For Castles Gray Subbranchs.
 					//try
 					{
-						for (int ii = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.size());ii++)
+						for (int ii = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.size());ii++)
 						{
 							CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
 						}
@@ -2114,7 +2122,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 		//For Ministers Gray.
 		for (int i = 0; i < MinisterMidle; i++)
 		{
-			for (int j = 0; ((MinisterOnTable != nullptr)) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
+			for (int j = 0; (((&MinisterOnTable) != nullptr)) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
 			{
 
 				
@@ -2155,7 +2163,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 					//For Gray Ministers Subbranchs.
 					//try
 					{
-						for (int ii = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size());ii++)
+						for (int ii = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size());ii++)
 						{
 							MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
 						}
@@ -2172,7 +2180,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 		//For Gray King.
 		for (int i = 0; i < KingMidle; i++)
 		{
-			for (int j = 0; (KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
+			for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 			{
 
 				
@@ -2213,7 +2221,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 					//For King Gray Subbranchs.
 					//try
 					{
-						for (int ii = 0; (KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (ii < KingOnTable[i].KingThinking[0].AStarGreedy.size());ii++)
+						for (int ii = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (ii < KingOnTable[i].KingThinking[0].AStarGreedy.size());ii++)
 						{
 							KingOnTable[i].KingThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
 						}
@@ -2352,7 +2360,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 		//Hourse Brown 
 		for (int i = HourseMidle; i < HourseHight; i++)
 		{
-			for (int j = 0; (HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
+			for (int j = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 			{
 
 					//Hourse Brown Rules.
@@ -2392,7 +2400,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 					//Hourse Brown Calling Subbranchs.
 					//try
 					{
-						for (int ii = 0; (HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.size());ii++)
+						for (int ii = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.size());ii++)
 						{
 							HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
 						}
@@ -2409,7 +2417,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 		//Castles Brown 
 		for (int i = CastleMidle; i < CastleHigh; i++)
 		{
-			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
+			for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 			{
 
 				
@@ -2450,7 +2458,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 					//Brown Castles Calling Subbranches.
 					//try
 					{
-						for (int ii = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.size());ii++)
+						for (int ii = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.size());ii++)
 						{
 							CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
 						}
@@ -2467,7 +2475,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 		//Minister Brown 
 		for (int i = MinisterMidle; i < MinisterHigh; i++)
 		{
-			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
+			for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
 			{
 
 				
@@ -2508,7 +2516,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 					//Minister Brown SubBranches Calling.
 					//try
 					{
-						for (int ii = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size());ii++)
+						for (int ii = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size());ii++)
 						{
 							MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
 						}
@@ -2525,7 +2533,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 		//King Brown
 		for (int i = KingMidle; i < KingHigh; i++)
 		{
-			for (int j = 0; (KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
+			for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 			{
 
 				
@@ -2567,7 +2575,7 @@ void AllDraw::IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base)
 					//King Brown Subbranches Calling.
 					//try
 					{
-						for (int ii = 0; (KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (ii < KingOnTable[i].KingThinking[0].AStarGreedy.size());ii++)
+						for (int ii = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (ii < KingOnTable[i].KingThinking[0].AStarGreedy.size());ii++)
 						{
 							KingOnTable[i].KingThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
 						}
@@ -2595,7 +2603,7 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 
 		for (int i = 0; i < SodierMidle; i++)
 		{
-			for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
+			for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 			{
 				//try
 				//{
@@ -2607,7 +2615,7 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 				//}
 				Order *= -1;
 				ChessRules::CurrentOrder *= -1;
-				for (int ii = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.size());ii++)
+				for (int ii = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.size());ii++)
 				{
 					MakePenaltyAllCheckMateBranches(SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii], Order);
 				}
@@ -2617,7 +2625,7 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = 0; i < ElefantMidle; i++)
 		{
-			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
+			for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
 			{
 
 				//try
@@ -2633,7 +2641,7 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				//{
-					for (int ii = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.size());ii++)
+					for (int ii = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.size());ii++)
 					{
 						MakePenaltyAllCheckMateBranches(ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii], Order);
 					}
@@ -2648,7 +2656,7 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = 0; i < HourseMidle; i++)
 		{
-			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
+			for (int j = 0;((& HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 			{
 				//try
 				//{
@@ -2664,7 +2672,7 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				//{
-					for (int ii = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.size());ii++)
+					for (int ii = 0;((& HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.size());ii++)
 					{
 						MakePenaltyAllCheckMateBranches(HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii], Order);
 					}
@@ -2679,7 +2687,7 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = 0; i < CastleMidle; i++)
 		{
-			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
+			for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 			{
 				//try
 				//{
@@ -2694,7 +2702,7 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				//{
-					for (int ii = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.size());ii++)
+					for (int ii = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.size());ii++)
 					{
 						MakePenaltyAllCheckMateBranches(CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii], Order);
 					}
@@ -2709,7 +2717,7 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = 0; i < MinisterMidle; i++)
 		{
-			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
+			for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
 			{
 				//try
 				//{
@@ -2724,7 +2732,7 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				//{
-					for (int ii = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size());ii++)
+					for (int ii = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size());ii++)
 					{
 						MakePenaltyAllCheckMateBranches(MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii], Order);
 					}
@@ -2739,7 +2747,7 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = 0; i < KingMidle; i++)
 		{
-			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
+			for (int j = 0;((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 			{
 				//try
 				//{
@@ -2754,7 +2762,7 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				//{
-					for (int ii = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (ii <KingOnTable[i].KingThinking[0].AStarGreedy.size()); ii++)
+					for (int ii = 0;((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (ii <KingOnTable[i].KingThinking[0].AStarGreedy.size()); ii++)
 					{
 						MakePenaltyAllCheckMateBranches(KingOnTable[i].KingThinking[0].AStarGreedy[ii], Order);
 					}
@@ -2772,7 +2780,7 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 	{
 		for (int i = SodierMidle; i < SodierHigh; i++)
 		{
-			for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
+			for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 			{
 				//try
 				{
@@ -2786,7 +2794,7 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				//{
-					for (int ii = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.size());ii++)
+					for (int ii = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.size());ii++)
 					{
 						MakePenaltyAllCheckMateBranches(SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii], Order);
 					}
@@ -2801,7 +2809,7 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = ElefantMidle; i < ElefantHigh; i++)
 		{
-			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
+			for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
 			{
 				//try
 				//{
@@ -2816,7 +2824,7 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				//{
-					for (int ii = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.size());ii++)
+					for (int ii = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.size());ii++)
 					{
 						MakePenaltyAllCheckMateBranches(ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii], Order);
 					}
@@ -2831,7 +2839,7 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = HourseMidle; i < HourseHight; i++)
 		{
-			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
+			for (int j = 0;((& HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 			{
 				//try
 				{
@@ -2847,7 +2855,7 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				//{
-					for (int ii = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.size());ii++)
+					for (int ii = 0;((& HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.size());ii++)
 					{
 						MakePenaltyAllCheckMateBranches(HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii], Order);
 					}
@@ -2862,7 +2870,7 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = CastleMidle; i < CastleHigh; i++)
 		{
-			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
+			for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 			{
 				//try
 				//{
@@ -2877,7 +2885,7 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				//{
-					for (int ii = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.size());ii++)
+					for (int ii = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.size());ii++)
 					{
 						MakePenaltyAllCheckMateBranches(CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii], Order);
 					}
@@ -2892,7 +2900,7 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = MinisterMidle; i < MinisterHigh; i++)
 		{
-			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
+			for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
 			{
 				//try
 				//{
@@ -2907,7 +2915,7 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				//{
-					for (int ii = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size());ii++)
+					for (int ii = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size());ii++)
 					{
 						MakePenaltyAllCheckMateBranches(MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii], Order);
 					}
@@ -2922,7 +2930,7 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = KingMidle; i < MinisterHigh; i++)
 		{
-			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
+			for (int j = 0;((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 			{
 				//try
 				//{
@@ -2937,7 +2945,7 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				//{
-					for (int ii = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (ii < KingOnTable[i].KingThinking[0].AStarGreedy.size());ii++)
+					for (int ii = 0;((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (ii < KingOnTable[i].KingThinking[0].AStarGreedy.size());ii++)
 					{
 						MakePenaltyAllCheckMateBranches(KingOnTable[i].KingThinking[0].AStarGreedy[ii], Order);
 					}
@@ -2954,7 +2962,7 @@ void AllDraw::MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
 
 }
 
-AllDraw AllDraw::RemovePenalltyFromFirstBranches(int Order)
+void AllDraw::RemovePenalltyFromFirstBranches(int Order)
 {
 
 
@@ -2963,7 +2971,7 @@ AllDraw AllDraw::RemovePenalltyFromFirstBranches(int Order)
 
 		for (int i = 0; i < SodierMidle; i++)
 		{
-			for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
+			for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 			{
 				UsePenaltyRegardMechnisamT = false;
 				//try
@@ -2982,7 +2990,7 @@ AllDraw AllDraw::RemovePenalltyFromFirstBranches(int Order)
 		}
 		for (int i = 0; i < ElefantMidle; i++)
 		{
-			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
+			for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
 			{
 				UsePenaltyRegardMechnisamT = false;
 				//try
@@ -3003,7 +3011,7 @@ AllDraw AllDraw::RemovePenalltyFromFirstBranches(int Order)
 		}
 		for (int i = 0; i < HourseMidle; i++)
 		{
-			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
+			for (int j = 0;((& HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 			{
 				UsePenaltyRegardMechnisamT = false;
 				//try
@@ -3024,7 +3032,7 @@ AllDraw AllDraw::RemovePenalltyFromFirstBranches(int Order)
 		}
 		for (int i = 0; i < CastleMidle; i++)
 		{
-			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
+			for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 			{
 				UsePenaltyRegardMechnisamT = false;
 				//try
@@ -3045,7 +3053,7 @@ AllDraw AllDraw::RemovePenalltyFromFirstBranches(int Order)
 		}
 		for (int i = 0; i < MinisterMidle; i++)
 		{
-			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
+			for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
 			{
 				UsePenaltyRegardMechnisamT = false;
 				//try
@@ -3066,7 +3074,7 @@ AllDraw AllDraw::RemovePenalltyFromFirstBranches(int Order)
 		}
 		for (int i = 0; i < KingMidle; i++)
 		{
-			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
+			for (int j = 0;((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 			{
 				UsePenaltyRegardMechnisamT = false;
 				//try
@@ -3090,7 +3098,7 @@ AllDraw AllDraw::RemovePenalltyFromFirstBranches(int Order)
 	{
 		for (int i = SodierMidle; i < SodierHigh; i++)
 		{
-			for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
+			for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 			{
 				UsePenaltyRegardMechnisamT = false;
 				//try
@@ -3110,7 +3118,7 @@ AllDraw AllDraw::RemovePenalltyFromFirstBranches(int Order)
 		}
 		for (int i = ElefantMidle; i < ElefantHigh; i++)
 		{
-			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
+			for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
 			{
 				UsePenaltyRegardMechnisamT = false;
 				//try
@@ -3131,7 +3139,7 @@ AllDraw AllDraw::RemovePenalltyFromFirstBranches(int Order)
 		}
 		for (int i = HourseMidle; i < HourseHight; i++)
 		{
-			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
+			for (int j = 0;((& HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 			{
 				UsePenaltyRegardMechnisamT = false;
 				//try
@@ -3153,7 +3161,7 @@ AllDraw AllDraw::RemovePenalltyFromFirstBranches(int Order)
 		}
 		for (int i = CastleMidle; i < CastleHigh; i++)
 		{
-			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
+			for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 			{
 				UsePenaltyRegardMechnisamT = false;
 				//try
@@ -3174,7 +3182,7 @@ AllDraw AllDraw::RemovePenalltyFromFirstBranches(int Order)
 		}
 		for (int i = MinisterMidle; i < MinisterHigh; i++)
 		{
-			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
+			for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
 			{
 				UsePenaltyRegardMechnisamT = false;
 				//try
@@ -3195,7 +3203,7 @@ AllDraw AllDraw::RemovePenalltyFromFirstBranches(int Order)
 		}
 		for (int i = KingMidle; i < KingHigh; i++)
 		{
-			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
+			for (int j = 0;((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 			{
 				UsePenaltyRegardMechnisamT = false;
 				//try
@@ -3214,7 +3222,7 @@ AllDraw AllDraw::RemovePenalltyFromFirstBranches(int Order)
 			}
 		}
 	}
-	//return *(this); 
+	return; 
 
 }
 
@@ -3236,7 +3244,7 @@ AllDraw AllDraw::FoundOfCurrentTableNode(int **Tab, int Order, AllDraw THIS, boo
 
 			for (int i = 0; i < SodierMidle; i++)
 			{
-				for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
+				for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 				{
 
 					//try
@@ -3268,7 +3276,7 @@ AllDraw AllDraw::FoundOfCurrentTableNode(int **Tab, int Order, AllDraw THIS, boo
 			}
 			for (int i = 0; i < ElefantMidle; i++)
 			{
-				for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
+				for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
 				{
 					//try
 					{
@@ -3300,7 +3308,7 @@ AllDraw AllDraw::FoundOfCurrentTableNode(int **Tab, int Order, AllDraw THIS, boo
 			}
 			for (int i = 0; i < HourseMidle; i++)
 			{
-				for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
+				for (int j = 0;((& HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 				{
 					//try
 					{
@@ -3332,7 +3340,7 @@ AllDraw AllDraw::FoundOfCurrentTableNode(int **Tab, int Order, AllDraw THIS, boo
 			}
 			for (int i = 0; i < CastleMidle; i++)
 			{
-				for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
+				for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 				{
 					//try
 					{
@@ -3362,7 +3370,7 @@ AllDraw AllDraw::FoundOfCurrentTableNode(int **Tab, int Order, AllDraw THIS, boo
 			}
 			for (int i = 0; i < MinisterMidle; i++)
 			{
-				for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
+				for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
 				{
 					//try
 					{
@@ -3393,7 +3401,7 @@ AllDraw AllDraw::FoundOfCurrentTableNode(int **Tab, int Order, AllDraw THIS, boo
 			}
 			for (int i = 0; i < KingMidle; i++)
 			{
-				for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
+				for (int j = 0;((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 				{
 					//try
 					{
@@ -3427,7 +3435,7 @@ AllDraw AllDraw::FoundOfCurrentTableNode(int **Tab, int Order, AllDraw THIS, boo
 		{
 			for (int i = SodierMidle; i < SodierHigh; i++)
 			{
-				for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
+				for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 				{
 					//try
 					{
@@ -3458,7 +3466,7 @@ AllDraw AllDraw::FoundOfCurrentTableNode(int **Tab, int Order, AllDraw THIS, boo
 			}
 			for (int i = ElefantMidle; i < ElefantHigh; i++)
 			{
-				for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
+				for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
 				{
 					//try
 					{
@@ -3489,7 +3497,7 @@ AllDraw AllDraw::FoundOfCurrentTableNode(int **Tab, int Order, AllDraw THIS, boo
 			}
 			for (int i = HourseMidle; i < HourseHight; i++)
 			{
-				for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
+				for (int j = 0;((& HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 				{
 					//try
 					{
@@ -3521,7 +3529,7 @@ AllDraw AllDraw::FoundOfCurrentTableNode(int **Tab, int Order, AllDraw THIS, boo
 			}
 			for (int i = CastleMidle; i < CastleHigh; i++)
 			{
-				for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
+				for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 				{
 					//try
 					{
@@ -3552,7 +3560,7 @@ AllDraw AllDraw::FoundOfCurrentTableNode(int **Tab, int Order, AllDraw THIS, boo
 			}
 			for (int i = MinisterMidle; i < MinisterHigh; i++)
 			{
-				for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
+				for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
 				{
 					//try
 					{
@@ -3582,7 +3590,7 @@ AllDraw AllDraw::FoundOfCurrentTableNode(int **Tab, int Order, AllDraw THIS, boo
 			}
 			for (int i = KingMidle; i < KingHigh; i++)
 			{
-				for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
+				for (int j = 0;((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 				{
 					//try
 					{
@@ -3628,7 +3636,7 @@ AllDraw AllDraw::FoundOfLeafDepenOfKind(int Kind, AllDraw Leaf, bool &Found, int
 
 		for (int i = 0; i < SodierMidle; i++)
 		{
-			for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
+			for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 			{
 
 				//try
@@ -3658,7 +3666,7 @@ AllDraw AllDraw::FoundOfLeafDepenOfKind(int Kind, AllDraw Leaf, bool &Found, int
 		}
 		for (int i = 0; i < ElefantMidle; i++)
 		{
-			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
+			for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
 			{
 				//try
 				{
@@ -3686,7 +3694,7 @@ AllDraw AllDraw::FoundOfLeafDepenOfKind(int Kind, AllDraw Leaf, bool &Found, int
 		}
 		for (int i = 0; i < HourseMidle; i++)
 		{
-			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
+			for (int j = 0;((& HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 			{
 				//try
 				{
@@ -3715,7 +3723,7 @@ AllDraw AllDraw::FoundOfLeafDepenOfKind(int Kind, AllDraw Leaf, bool &Found, int
 		}
 		for (int i = 0; i < CastleMidle; i++)
 		{
-			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
+			for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 			{
 				//try
 				{
@@ -3742,7 +3750,7 @@ AllDraw AllDraw::FoundOfLeafDepenOfKind(int Kind, AllDraw Leaf, bool &Found, int
 		}
 		for (int i = 0; i < MinisterMidle; i++)
 		{
-			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
+			for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
 			{
 				//try
 				{
@@ -3770,7 +3778,7 @@ AllDraw AllDraw::FoundOfLeafDepenOfKind(int Kind, AllDraw Leaf, bool &Found, int
 		}
 		for (int i = 0; i < KingMidle; i++)
 		{
-			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
+			for (int j = 0;((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 			{
 				//try
 				{
@@ -3801,7 +3809,7 @@ AllDraw AllDraw::FoundOfLeafDepenOfKind(int Kind, AllDraw Leaf, bool &Found, int
 	{
 		for (int i = SodierMidle; i < SodierHigh; i++)
 		{
-			for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
+			for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 			{
 				//try
 				{
@@ -3828,7 +3836,7 @@ AllDraw AllDraw::FoundOfLeafDepenOfKind(int Kind, AllDraw Leaf, bool &Found, int
 		}
 		for (int i = ElefantMidle; i < ElefantHigh; i++)
 		{
-			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
+			for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
 			{
 				//try
 				{
@@ -3855,7 +3863,7 @@ AllDraw AllDraw::FoundOfLeafDepenOfKind(int Kind, AllDraw Leaf, bool &Found, int
 		}
 		for (int i = HourseMidle; i < HourseHight; i++)
 		{
-			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
+			for (int j = 0;((& HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 			{
 				//try
 				{
@@ -3882,7 +3890,7 @@ AllDraw AllDraw::FoundOfLeafDepenOfKind(int Kind, AllDraw Leaf, bool &Found, int
 		}
 		for (int i = CastleMidle; i < CastleHigh; i++)
 		{
-			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
+			for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 			{
 				//try
 				{
@@ -3910,7 +3918,7 @@ AllDraw AllDraw::FoundOfLeafDepenOfKind(int Kind, AllDraw Leaf, bool &Found, int
 		}
 		for (int i = MinisterMidle; i < MinisterHigh; i++)
 		{
-			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
+			for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
 			{
 				//try
 				{
@@ -3937,7 +3945,7 @@ AllDraw AllDraw::FoundOfLeafDepenOfKind(int Kind, AllDraw Leaf, bool &Found, int
 		}
 		for (int i = KingMidle; i < KingHigh; i++)
 		{
-			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
+			for (int j = 0;((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 			{
 				//try
 				{
@@ -3982,7 +3990,7 @@ bool AllDraw::IsFoundOfLeafDepenOfKindhaveVictory(int Kind, bool &Found, int Ord
 
 		for (int i = 0; i < SodierMidle; i++)
 		{
-			for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
+			for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 			{
 
 				//try
@@ -4010,7 +4018,7 @@ bool AllDraw::IsFoundOfLeafDepenOfKindhaveVictory(int Kind, bool &Found, int Ord
 		}
 		for (int i = 0; i < ElefantMidle; i++)
 		{
-			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
+			for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
 			{
 				//try
 				{
@@ -4037,7 +4045,7 @@ bool AllDraw::IsFoundOfLeafDepenOfKindhaveVictory(int Kind, bool &Found, int Ord
 		}
 		for (int i = 0; i < HourseMidle; i++)
 		{
-			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
+			for (int j = 0;((& HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 			{
 				//try
 				{
@@ -4065,7 +4073,7 @@ bool AllDraw::IsFoundOfLeafDepenOfKindhaveVictory(int Kind, bool &Found, int Ord
 		}
 		for (int i = 0; i < CastleMidle; i++)
 		{
-			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
+			for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 			{
 				//try
 				{
@@ -4091,7 +4099,7 @@ bool AllDraw::IsFoundOfLeafDepenOfKindhaveVictory(int Kind, bool &Found, int Ord
 		}
 		for (int i = 0; i < MinisterMidle; i++)
 		{
-			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
+			for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
 			{
 				//try
 				{
@@ -4118,7 +4126,7 @@ bool AllDraw::IsFoundOfLeafDepenOfKindhaveVictory(int Kind, bool &Found, int Ord
 		}
 		for (int i = 0; i < KingMidle; i++)
 		{
-			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
+			for (int j = 0;((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 			{
 				//try
 				{
@@ -4148,7 +4156,7 @@ bool AllDraw::IsFoundOfLeafDepenOfKindhaveVictory(int Kind, bool &Found, int Ord
 	{
 		for (int i = SodierMidle; i < SodierHigh; i++)
 		{
-			for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
+			for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 			{
 				//try
 				{
@@ -4174,7 +4182,7 @@ bool AllDraw::IsFoundOfLeafDepenOfKindhaveVictory(int Kind, bool &Found, int Ord
 		}
 		for (int i = ElefantMidle; i < ElefantHigh; i++)
 		{
-			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
+			for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
 			{
 				//try
 				{
@@ -4200,7 +4208,7 @@ bool AllDraw::IsFoundOfLeafDepenOfKindhaveVictory(int Kind, bool &Found, int Ord
 		}
 		for (int i = HourseMidle; i < HourseHight; i++)
 		{
-			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
+			for (int j = 0;((& HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 			{
 				//try
 				{
@@ -4226,7 +4234,7 @@ bool AllDraw::IsFoundOfLeafDepenOfKindhaveVictory(int Kind, bool &Found, int Ord
 		}
 		for (int i = CastleMidle; i < CastleHigh; i++)
 		{
-			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
+			for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 			{
 				//try
 				{
@@ -4253,7 +4261,7 @@ bool AllDraw::IsFoundOfLeafDepenOfKindhaveVictory(int Kind, bool &Found, int Ord
 		}
 		for (int i = MinisterMidle; i < MinisterHigh; i++)
 		{
-			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
+			for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
 			{
 				//try
 				{
@@ -4279,7 +4287,7 @@ bool AllDraw::IsFoundOfLeafDepenOfKindhaveVictory(int Kind, bool &Found, int Ord
 		}
 		for (int i = KingMidle; i < KingHigh; i++)
 		{
-			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
+			for (int j = 0;((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 			{
 				//try
 				{
@@ -4323,7 +4331,7 @@ void AllDraw::FoundOfLeafDepenOfKind(int **Table, int Order, int iAStarGreedy, i
 
 		for (int i = 0; i < SodierMidle; i++)
 		{
-			for (int j = 0; (ElephantOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
+			for (int j = 0; ((&ElephantOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 			{
 
 				//try
@@ -4353,7 +4361,7 @@ void AllDraw::FoundOfLeafDepenOfKind(int **Table, int Order, int iAStarGreedy, i
 		}
 		for (int i = 0; i < ElefantMidle; i++)
 		{
-			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
+			for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
 			{
 				//try
 				{
@@ -4381,7 +4389,7 @@ void AllDraw::FoundOfLeafDepenOfKind(int **Table, int Order, int iAStarGreedy, i
 		}
 		for (int i = 0; i < HourseMidle; i++)
 		{
-			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
+			for (int j = 0;((& HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 			{
 				//try
 				{
@@ -4410,7 +4418,7 @@ void AllDraw::FoundOfLeafDepenOfKind(int **Table, int Order, int iAStarGreedy, i
 		}
 		for (int i = 0; i < CastleMidle; i++)
 		{
-			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
+			for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 			{
 				//try
 				{
@@ -4437,7 +4445,7 @@ void AllDraw::FoundOfLeafDepenOfKind(int **Table, int Order, int iAStarGreedy, i
 		}
 		for (int i = 0; i < MinisterMidle; i++)
 		{
-			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
+			for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
 			{
 				//try
 				{
@@ -4466,7 +4474,7 @@ void AllDraw::FoundOfLeafDepenOfKind(int **Table, int Order, int iAStarGreedy, i
 		}
 		for (int i = 0; i < KingMidle; i++)
 		{
-			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
+			for (int j = 0;((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 			{
 				//try
 				{
@@ -4497,7 +4505,7 @@ void AllDraw::FoundOfLeafDepenOfKind(int **Table, int Order, int iAStarGreedy, i
 	{
 		for (int i = SodierMidle; i < SodierHigh; i++)
 		{
-			for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
+			for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 			{
 				//try
 				{
@@ -4524,7 +4532,7 @@ void AllDraw::FoundOfLeafDepenOfKind(int **Table, int Order, int iAStarGreedy, i
 		}
 		for (int i = ElefantMidle; i < ElefantHigh; i++)
 		{
-			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
+			for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
 			{
 				//try
 				{
@@ -4551,7 +4559,7 @@ void AllDraw::FoundOfLeafDepenOfKind(int **Table, int Order, int iAStarGreedy, i
 		}
 		for (int i = HourseMidle; i < HourseHight; i++)
 		{
-			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
+			for (int j = 0;((& HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 			{
 				//try
 				{
@@ -4578,7 +4586,7 @@ void AllDraw::FoundOfLeafDepenOfKind(int **Table, int Order, int iAStarGreedy, i
 		}
 		for (int i = CastleMidle; i < CastleHigh; i++)
 		{
-			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
+			for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 			{
 				//try
 				{
@@ -4606,7 +4614,7 @@ void AllDraw::FoundOfLeafDepenOfKind(int **Table, int Order, int iAStarGreedy, i
 		}
 		for (int i = MinisterMidle; i < MinisterHigh; i++)
 		{
-			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
+			for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
 			{
 				//try
 				{
@@ -4634,7 +4642,7 @@ void AllDraw::FoundOfLeafDepenOfKind(int **Table, int Order, int iAStarGreedy, i
 		}
 		for (int i = KingMidle; i < KingHigh; i++)
 		{
-			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
+			for (int j = 0;((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 			{
 				//try
 				{
@@ -4695,7 +4703,7 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 
 		for (int i = 0; i < SodierMidle; i++)
 		{
-			for (int j = 0; (ElephantOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
+			for (int j = 0; ((&ElephantOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 			{
 
 				//try
@@ -4710,7 +4718,7 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				{
-					for (int ii = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.size());ii++)
+					for (int ii = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.size());ii++)
 					{
 						MakeRegardAllCheckMateBranches(SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii], Order);
 					}
@@ -4726,7 +4734,7 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = 0; i < ElefantMidle; i++)
 		{
-			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
+			for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
 			{
 
 				//try
@@ -4742,7 +4750,7 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				{
-					for (int ii = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.size());ii++)
+					for (int ii = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.size());ii++)
 					{
 						MakeRegardAllCheckMateBranches(ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii], Order);
 					}
@@ -4757,7 +4765,7 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = 0; i < HourseMidle; i++)
 		{
-			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
+			for (int j = 0;((& HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 			{
 				//try
 				{
@@ -4772,7 +4780,7 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				{
-					for (int ii = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.size());ii++)
+					for (int ii = 0;((& HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.size());ii++)
 					{
 						MakeRegardAllCheckMateBranches(HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii], Order);
 					}
@@ -4787,7 +4795,7 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = 0; i < CastleMidle; i++)
 		{
-			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
+			for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 			{
 				//try
 				{
@@ -4801,7 +4809,7 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				{
-					for (int ii = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.size());ii++)
+					for (int ii = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.size());ii++)
 					{
 						MakeRegardAllCheckMateBranches(CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii], Order);
 					}
@@ -4816,7 +4824,7 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = 0; i < MinisterMidle; i++)
 		{
-			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
+			for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
 			{
 				//try
 				{
@@ -4831,7 +4839,7 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				{
-					for (int ii = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size());ii++)
+					for (int ii = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size());ii++)
 					{
 						MakeRegardAllCheckMateBranches(MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii], Order);
 					}
@@ -4846,7 +4854,7 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = 0; i < KingMidle; i++)
 		{
-			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
+			for (int j = 0;((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 			{
 				//try
 				{
@@ -4860,7 +4868,7 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				{
-					for (int ii = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (ii < KingOnTable[i].KingThinking[0].AStarGreedy.size());ii++)
+					for (int ii = 0;((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (ii < KingOnTable[i].KingThinking[0].AStarGreedy.size());ii++)
 					{
 						MakeRegardAllCheckMateBranches(KingOnTable[i].KingThinking[0].AStarGreedy[ii], Order);
 					}
@@ -4878,7 +4886,7 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 	{
 		for (int i = SodierMidle; i < SodierHigh; i++)
 		{
-			for (int j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
+			for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 			{
 				//try
 				{
@@ -4892,7 +4900,7 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				{
-					for (int ii = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.size());ii++)
+					for (int ii = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.size());ii++)
 					{
 						MakeRegardAllCheckMateBranches(SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii], Order);
 					}
@@ -4907,7 +4915,7 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = ElefantMidle; i < ElefantHigh; i++)
 		{
-			for (int j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
+			for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
 			{
 				//try
 				{
@@ -4922,7 +4930,7 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				{
-					for (int ii = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.size());ii++)
+					for (int ii = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.size());ii++)
 					{
 						MakeRegardAllCheckMateBranches(ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii], Order);
 					}
@@ -4937,7 +4945,7 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = HourseMidle; i < HourseHight; i++)
 		{
-			for (int j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
+			for (int j = 0;((& HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 			{
 				//try
 				{
@@ -4952,7 +4960,7 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				{
-					for (int ii = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.size());ii++)
+					for (int ii = 0;((& HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.size());ii++)
 					{
 						MakeRegardAllCheckMateBranches(HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii], Order);
 					}
@@ -4967,7 +4975,7 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = CastleMidle; i < CastleHigh; i++)
 		{
-			for (int j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
+			for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 			{
 				//try
 				{
@@ -4981,7 +4989,7 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				{
-					for (int ii = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.size());ii++)
+					for (int ii = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.size());ii++)
 					{
 						MakeRegardAllCheckMateBranches(CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii], Order);
 					}
@@ -4996,7 +5004,7 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = MinisterMidle; i < MinisterHigh; i++)
 		{
-			for (int j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
+			for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
 			{
 				//try
 				{
@@ -5010,7 +5018,7 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				{
-					for (int ii = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size());ii++)
+					for (int ii = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size());ii++)
 					{
 						MakeRegardAllCheckMateBranches(MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii], Order);
 					}
@@ -5025,7 +5033,7 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 		}
 		for (int i = KingMidle; i < MinisterHigh; i++)
 		{
-			for (int j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
+			for (int j = 0;((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 			{
 				//try
 				{
@@ -5039,7 +5047,7 @@ void AllDraw::MakeRegardAllCheckMateBranches(AllDraw A, int Order)
 				ChessRules::CurrentOrder *= -1;
 				//try
 				{
-					for (int ii = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (ii < KingOnTable[i].KingThinking[0].AStarGreedy.size());ii++)
+					for (int ii = 0;((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (ii < KingOnTable[i].KingThinking[0].AStarGreedy.size());ii++)
 					{
 						MakeRegardAllCheckMateBranches(KingOnTable[i].KingThinking[0].AStarGreedy[ii], Order);
 					}
@@ -5140,7 +5148,7 @@ int ** AllDraw::HuristicAStarGreadySearchSoldier(int **TableHuristic, int i, int
 	{
 		//When There is an Movment in such situation.
 
-		for (j = 0; (SolderesOnTable != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && SolderesOnTable != nullptr && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
+		for (j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 		{
 			{
 				//System.Threading.Thread.Sleep(1);
@@ -5573,7 +5581,7 @@ int ** AllDraw::HuristicAStarGreadySearchElephant(int **TableHuristic, int i, in
 
 	for (int k = 0; k < AllDraw::ElefantMovments; k++)
 	{
-		for (j = 0; (ElephantOnTable != nullptr) && (&(ElephantOnTable[i]) != nullptr) && ElephantOnTable != nullptr && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
+		for (j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
 		{	//For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
 				//if (AllDraw::OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
 				//)
@@ -5830,7 +5838,7 @@ int ** AllDraw::HuristicAStarGreadySearchHourse(int **TableHuristic, int i, int 
 	{
 		//try
 		{
-			for (j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && HoursesOnTable != nullptr && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
+			for (j = 0;((& HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 			{
 				{
 					//System.Threading.Thread.Sleep(1);
@@ -6146,7 +6154,7 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 			{
 				//try
 				{
-					for (j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
+					for (j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 					{
 						{
 						//System.Threading.Thread.Sleep(1);
@@ -6454,7 +6462,7 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 
 		for (int k = 0; k < AllDraw::MinisterMovments; k++)
 		{
-			for (j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
+			for (j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
 			{
 				{
 					if (MinisterOnTable[i].MinisterThinking[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0)
@@ -6714,7 +6722,7 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 
 		for (int k = 0; k < AllDraw::KingMovments; k++)
 		{
-			for (j = 0;(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) &&(KingOnTable != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
+			for (j = 0;((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) &&((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 			{
 				{
 					//System.Threading.Thread.Sleep(1);
@@ -7021,7 +7029,7 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 					//When There is an Movment in such situation.
 					//try
 					{
-						for (j = 0; (SolderesOnTable != nullptr) && SolderesOnTable[i]  != nullptr && SolderesOnTable != nullptr && SolderesOnTable[i]  != nullptr && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
+						for (j = 0; ((&SolderesOnTable) != nullptr) && SolderesOnTable[i]  != nullptr && ((&SolderesOnTable) != nullptr) && SolderesOnTable[i]  != nullptr && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 						{
 							//try
 							{
@@ -7448,7 +7456,7 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 				{
 					//try
 					{
-						for (j = 0; (SolderesOnTable != nullptr) && (&(SolderesOnTable[i]) != nullptr) && SolderesOnTable != nullptr && (&(SolderesOnTable[i]) != nullptr) && (&(SolderesOnTable[i].ElefantThinking) != nullptr) && (&(SolderesOnTable[i].ElefantThinking) != nullptr) && (j < SolderesOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
+						for (j = 0; ((&SolderesOnTable) != nullptr) && (&(SolderesOnTable[i]) != nullptr) && ((&SolderesOnTable) != nullptr) && (&(SolderesOnTable[i]) != nullptr) && (&(SolderesOnTable[i].ElefantThinking) != nullptr) && (&(SolderesOnTable[i].ElefantThinking) != nullptr) && (j < SolderesOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
 						{
 							//try
 							{
@@ -7749,7 +7757,7 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 				{
 					//try
 					{
-						for (j = 0;( HoursesOnTable != nullptr) && (&(HoursesOnTable[i]) != nullptr) && HoursesOnTable != nullptr && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
+						for (j = 0;((& HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 						{
 							//try
 							{
@@ -8055,7 +8063,7 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 				{
 					//try
 					{
-						for (j = 0; (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
+						for (j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 						{
 							//try
 							{
@@ -8353,7 +8361,7 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 				{
 					//try
 					{
-						for (j = 0; (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
+						for (j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
 						{
 							//try
 							{
@@ -8648,7 +8656,7 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 				{
 					//try
 					{
-						for (j = 0;(KingOnTable != nullptr)  && (&(KingOnTable[i]) != nullptr) &&(KingOnTable != nullptr)  && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && ((&(KingOnTable[i].KingThinking) != nullptr)) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
+						for (j = 0;((&KingOnTable) != nullptr)  && (&(KingOnTable[i]) != nullptr) &&((&KingOnTable) != nullptr)  && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && ((&(KingOnTable[i].KingThinking) != nullptr)) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 						{
 							//try
 							{
@@ -9906,7 +9914,7 @@ void AllDraw::InitiateAStarGreedytOneNode(int iAStarGreedy, int ii, int jj, int 
 			{
 				if (KindIndex == 4 || KindIndex == -4)
 				{
-					CastlesOnTable[iIndex].CastleThinking[0].AStarGreedy.push_back[new AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged)];
+					CastlesOnTable[iIndex].CastleThinking[0].AStarGreedy.push_back( AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
 					CastlesOnTable[iIndex].CastleThinking[0].AStarGreedy[CastlesOnTable[iIndex].CastleThinking[0].AStarGreedy.size() - 1].TableList.clear();
 					CastlesOnTable[iIndex].CastleThinking[0].AStarGreedy[CastlesOnTable[iIndex].CastleThinking[0].AStarGreedy.size() - 1].TableList.push_back(CloneATable(Tab));
 					CastlesOnTable[iIndex].CastleThinking[0].AStarGreedy[CastlesOnTable[iIndex].CastleThinking[0].AStarGreedy.size() - 1].SetRowColumn(0);
@@ -10028,7 +10036,7 @@ int  AllDraw::MinBrownMidle()
 				Order = DummyOrder;
 				ChessRules::CurrentOrder = DummyCurrentOrder;
 				//If Solders Not Exist Continue and Traversal Back.
-				if (SolderesOnTable != nullptr && ((&(SolderesOnTable[i])) != nullptr))
+				if (((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr))
 				{
 					//Initiate of Local Variables By Global Objective Gray Current Solder.
 					ii = static_cast<int>(SolderesOnTable[i].Row);
@@ -10166,7 +10174,7 @@ int  AllDraw::MinBrownMidle()
 					Order = DummyOrder;
 					ChessRules::CurrentOrder = DummyCurrentOrder;
 					//For Each Non Exist Gray Minister Objectives.
-					if ((MinisterOnTable != nullptr) && MinisterOnTable[i])
+					if (((&MinisterOnTable) != nullptr) && MinisterOnTable[i])
 					{
 						//Inititate Local Variables By Global Varibales.
 						ii = static_cast<int>(MinisterOnTable[i].Row);
@@ -10205,7 +10213,7 @@ int  AllDraw::MinBrownMidle()
 					Order = DummyOrder;
 					ChessRules::CurrentOrder = DummyCurrentOrder;
 					//If There is Not Current Object Continue Traversal Back.
-					if (KingOnTable != nullptr && (&(KingOnTable[i]) != nullptr))
+					if (((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr))
 					{
 						//Initiate Local varibale By Global Objective Varibales.
 						ii = static_cast<int>(KingOnTable[i].Row));
@@ -10249,7 +10257,7 @@ int  AllDraw::MinBrownMidle()
 				Order = DummyOrder;
 				ChessRules::CurrentOrder = DummyCurrentOrder;
 				//If Solders Not Exist Continue and Traversal Back.
-				if (SolderesOnTable != nullptr && ((&(SolderesOnTable[i])) != nullptr))
+				if (((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr))
 				{
 					//Initiate of Local Variables By Global Objective Gray Current Solder.
 					ii = static_cast<int>(SolderesOnTable[i].Row);
@@ -10282,7 +10290,7 @@ int  AllDraw::MinBrownMidle()
 				Order = DummyOrder;
 				ChessRules::CurrentOrder = DummyCurrentOrder;
 				//Ignore of Non Exist Current Elephant Gray Objects.
-				if (SolderesOnTable != nullptr && (&(SolderesOnTable[i]) != nullptr))
+				if (((&SolderesOnTable) != nullptr) && (&(SolderesOnTable[i]) != nullptr))
 				{
 					//Inititae Local Varibale By Global Gray Elephant Objects Varibales.
 					ii = static_cast<int>(SolderesOnTable[i].Row);
@@ -10312,7 +10320,7 @@ int  AllDraw::MinBrownMidle()
 				Order = DummyOrder;
 				ChessRules::CurrentOrder = DummyCurrentOrder;
 				//Ignore of Non Exist Current Gray Hourse Objects.
-				if (HoursesOnTable != nullptr && (&(HoursesOnTable[i]) != nullptr))
+				if (((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr))
 				{
 					//Initiate of Local Variables By Global Gray Hourse Objectives.
 					ii = static_cast<int>(HoursesOnTable[i].Row);
@@ -10344,7 +10352,7 @@ int  AllDraw::MinBrownMidle()
 				Order = DummyOrder;
 				ChessRules::CurrentOrder = DummyCurrentOrder;
 				//When Current Castles Gray Not Exist Continue Traversal Back.
-				if ((CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr))
+				if (((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr))
 				{
 					//Initaiate of Local Varibales By Global Varoiables.
 					ii = static_cast<int>(CastlesOnTable[ii].Row);
@@ -10381,7 +10389,7 @@ int  AllDraw::MinBrownMidle()
 				Order = DummyOrder;
 				ChessRules::CurrentOrder = DummyCurrentOrder;
 				//For Each Non Exist Gray Minister Objectives.
-				if ((MinisterOnTable != nullptr) && MinisterOnTable[i])
+				if (((&MinisterOnTable) != nullptr) && MinisterOnTable[i])
 				{
 					//Inititate Local Variables By Global Varibales.
 					ii = static_cast<int>(MinisterOnTable[i].Row);
@@ -10411,7 +10419,7 @@ int  AllDraw::MinBrownMidle()
 				Order = DummyOrder;
 				ChessRules::CurrentOrder = DummyCurrentOrder;
 				//If There is Not Current Object Continue Traversal Back.
-				if (KingOnTable != nullptr && (&(KingOnTable[i]) != nullptr))
+				if (((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr))
 				{
 					//Initiate Local varibale By Global Objective Varibales.
 					ii = static_cast<int>(KingOnTable[i].Row));
@@ -11073,7 +11081,7 @@ void AllDraw::InitiateAStarGreedytSodlerGray(int iii, int jjj, int **Table, int 
 		Order = DummyOrder;
 		ChessRules::CurrentOrder = DummyCurrentOrder;
 		//If Solders Not Exist Continue and Traversal Back.
-		if (SolderesOnTable != nullptr && &(SolderesOnTable[i]) != nullptr)
+		if (((&SolderesOnTable) != nullptr) && ((&SolderesOnTable[i]) != nullptr))
 		{
 			//Initiate of Local Variables By Global Objective Gray Current Solder.
 			ii = static_cast<int>(SolderesOnTable[i].Row);
@@ -11107,7 +11115,7 @@ void AllDraw::InitiateAStarGreedytElephantGray(int iii, int jjj, int **Table, in
 		Order = DummyOrder;
 		ChessRules::CurrentOrder = DummyCurrentOrder;
 		//Ignore of Non Exist Current Elephant Gray Objects.
-		if (ElephantOnTable != nullptr && (&(ElephantOnTable[i]) != nullptr))
+		if (((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr))
 		{
 			//Inititae Local Varibale By Global Gray Elephant Objects Varibales.
 			ii = static_cast<int>(ElephantOnTable[i].Row);
@@ -11143,7 +11151,7 @@ void AllDraw::InitiateAStarGreedythHourseGray(int iii, int jjj, int **Table, int
 		Order = DummyOrder;
 		ChessRules::CurrentOrder = DummyCurrentOrder;
 		//Ignore of Non Exist Current Gray Hourse Objects.
-		if (HoursesOnTable != nullptr && (&(HoursesOnTable[i]) != nullptr))
+		if (((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr))
 		{
 			//Initiate of Local Variables By Global Gray Hourse Objectives.
 			ii = static_cast<int>(HoursesOnTable[i].Row);
@@ -11177,7 +11185,7 @@ void AllDraw::InitiateAStarGreedythCastleGray(int iii, int jjj, int **Table, int
 		Order = DummyOrder;
 		ChessRules::CurrentOrder = DummyCurrentOrder;
 		//When Current Castles Gray Not Exist Continue Traversal Back.
-		if ((CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr))
+		if (((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr))
 		{
 			//Initaiate of Local Varibales By Global Varoiables.
 			ii = static_cast<int>(CastlesOnTable[ii].Row);
@@ -11243,7 +11251,7 @@ void AllDraw::InitiateAStarGreedythKingGray(int iii, int jjjj, int **Table, int 
 		Order = DummyOrder;
 		ChessRules::CurrentOrder = DummyCurrentOrder;
 		//If There is Not Current Object Continue Traversal Back.
-		if (KingOnTable != nullptr && (&(KingOnTable[i]) != nullptr))
+		if (((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr))
 		{
 			//Initiate Local varibale By Global Objective Varibales.
 			ii = static_cast<int>(KingOnTable[i].Row);
@@ -11276,7 +11284,7 @@ void AllDraw::InitiateAStarGreedythSoldierBrown(int iii, int jjj, int **Table, i
 		Order = DummyOrder;
 		ChessRules::CurrentOrder = DummyCurrentOrder;
 		//Wheen Brown King Object There is Not Continue Traversal Back.
-		if (SolderesOnTable != nullptr && &(SolderesOnTable[i]) != nullptr)
+		if (((&SolderesOnTable) != nullptr) && ((&SolderesOnTable[i]) != nullptr))
 		{
 			//Initiate Local varibale By Global Objective Varibales.
 			ii = static_cast<int>(SolderesOnTable[i].Row);
@@ -11307,7 +11315,7 @@ void AllDraw::InitiateAStarGreedythElephantBrown(int iii, int jjj, int **Table, 
 	{
 		Order = DummyOrder;
 		ChessRules::CurrentOrder = DummyCurrentOrder;
-		if (ElephantOnTable != nullptr && (&(ElephantOnTable[i]) != nullptr))
+		if (((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr))
 		{
 			//Initiate Local varibale By Global Objective Varibales.
 			ii = static_cast<int>(ElephantOnTable[i].Row);
@@ -11338,7 +11346,7 @@ void AllDraw::InitiateAStarGreedythHourseBrown(int iii, int jjj, int **Table, in
 	{
 		Order = DummyOrder;
 		ChessRules::CurrentOrder = DummyCurrentOrder;
-		if (HoursesOnTable != nullptr && (&(HoursesOnTable[i]) != nullptr))
+		if (((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr))
 		{
 			//Initiate Local varibale By Global Objective Varibales.
 			ii = static_cast<int>(HoursesOnTable[i].Row);
@@ -11368,7 +11376,7 @@ void AllDraw::InitiateAStarGreedythCastleBrown(int iii, int jjj, int **Table, in
 	{
 		Order = DummyOrder;
 		ChessRules::CurrentOrder = DummyCurrentOrder;
-		if ((CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr))
+		if (((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr))
 
 		{
 			//Initiate Local varibale By Global Objective Varibales.
@@ -11400,7 +11408,7 @@ void AllDraw::InitiateAStarGreedythMinisterBrown(int iii, int jjj, int **Table, 
 	{
 		Order = DummyOrder;
 		ChessRules::CurrentOrder = DummyCurrentOrder;
-		if ((MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr))
+		if (((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr))
 		{
 			//Initiate Local varibale By Global Objective Varibales.
 			ii = static_cast<int>(MinisterOnTable[i].Row);
@@ -11430,7 +11438,7 @@ void AllDraw::InitiateAStarGreedythKingBrown(int iii, int jjj, int **Table, int 
 	{
 		Order = DummyOrder;
 		ChessRules::CurrentOrder = DummyCurrentOrder;
-		if (KingOnTable != nullptr && (&(KingOnTable[i]) != nullptr))
+		if (((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr))
 		{
 			//Initiate Local varibale By Global Objective Varibales.
 			ii = static_cast<int>(KingOnTable[i].Row);
@@ -11827,7 +11835,7 @@ void AllDraw::BlitzGameThinkingTreeSolderGray(double PreviousLessS, int* Index, 
 { //Soldeir
 	for (ik = 0; ik < SodierMidle; ik++)
 	{
-		if (SolderesOnTable == nullptr || (&(SolderesOnTable[ik]) == nullptr) || (&(SolderesOnTable[ik].SoldierThinking) == nullptr) || (&(SolderesOnTable[ik].SoldierThinking) == nullptr) || SolderesOnTable[ik].SoldierThinking[0].IsSup)
+		if (((&SolderesOnTable) == nullptr) || (&(SolderesOnTable[ik]) == nullptr) || (&(SolderesOnTable[ik].SoldierThinking) == nullptr) || (&(SolderesOnTable[ik].SoldierThinking) == nullptr) || SolderesOnTable[ik].SoldierThinking[0].IsSup)
 		{
 			continue;
 		}
@@ -11882,7 +11890,7 @@ void AllDraw::BlitzGameThinkingTreeElephantGray(double PreviousLessE, int* Index
 { //Elephant
 	for (ik = 0; ik < ElefantMidle; ik++)
 	{
-		if (ElephantOnTable == nullptr || (&(ElephantOnTable[ik]) == nullptr) || (&(ElephantOnTable[ik].ElefantThinking) == nullptr) || (&(ElephantOnTable[ik].ElefantThinking) == nullptr) || ElephantOnTable[ik].ElefantThinking[0].IsSup)
+		if (((&ElephantOnTable) == nullptr) || (&(ElephantOnTable[ik]) == nullptr) || (&(ElephantOnTable[ik].ElefantThinking) == nullptr) || (&(ElephantOnTable[ik].ElefantThinking) == nullptr) || ElephantOnTable[ik].ElefantThinking[0].IsSup)
 		{
 			continue;
 		}
@@ -11947,19 +11955,13 @@ void AllDraw::BlitzGameThinkingTreeElephantGray(double PreviousLessE, int* Index
 void AllDraw::BlitzGameThinkingTreeHourseGray(double PreviousLessH, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
 { //Hourse.
 	for (ik = 0; ik < HourseMidle; ik++)
-	{
-		//try
-		{
-			if (HoursesOnTable == nullptr || (&(HoursesOnTable[ik]) == nullptr) || (&(HoursesOnTable[ik].HourseThinking) == nullptr) || (&(HoursesOnTable[ik].HourseThinking) == nullptr) || HoursesOnTable[ik].HourseThinking[0].IsSup)
+	{	if (((&HoursesOnTable) == nullptr) || (&(HoursesOnTable[ik]) == nullptr) || (&(HoursesOnTable[ik].HourseThinking) == nullptr) || (&(HoursesOnTable[ik].HourseThinking) == nullptr) || HoursesOnTable[ik].HourseThinking[0].IsSup)
 			{
 				continue;
 			}
 			for (j = 0; j < HoursesOnTable[ik].HourseThinking[0].HuristicListHourse.size(); j++)
 			{
-				//autoO = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-					//lock (O)
-				{
+				
 
 					if (AllDraw::OrderPlate == Order)
 					{
@@ -12006,14 +12008,8 @@ void AllDraw::BlitzGameThinkingTreeHourseGray(double PreviousLessH, int* Index, 
 							}
 						}
 					}
-
-				}
-			}
 		}
-		//catch(std::exception &t)
-		{
-
-		}
+		
 	}
 }
 void AllDraw::BlitzGameThinkingTreeCastleGray(double PreviousLessB, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
@@ -12023,7 +12019,7 @@ void AllDraw::BlitzGameThinkingTreeCastleGray(double PreviousLessB, int* Index, 
 	{
 		//try
 		{
-			if (CastlesOnTable == nullptr || (&(CastlesOnTable[ik]) == nullptr) || (&(CastlesOnTable[ik].CastleThinking) == nullptr) || (&(CastlesOnTable[ik].CastleThinking) == nullptr) || CastlesOnTable[ik].CastleThinking[0].IsSup)
+			if (((&CastlesOnTable) == nullptr) || (&(CastlesOnTable[ik]) == nullptr) || (&(CastlesOnTable[ik].CastleThinking) == nullptr) || (&(CastlesOnTable[ik].CastleThinking) == nullptr) || CastlesOnTable[ik].CastleThinking[0].IsSup)
 			{
 				continue;
 			}
@@ -12101,7 +12097,7 @@ void AllDraw::BlitzGameThinkingTreeMinisterGray(double PreviousLessM, int* Index
 	{
 		//try
 		{
-			if (MinisterOnTable == nullptr || (&(MinisterOnTable[ik]) == nullptr) || (&(MinisterOnTable[ik].MinisterThinking) == nullptr) || (&(MinisterOnTable[ik].MinisterThinking) == nullptr) || MinisterOnTable[ik].MinisterThinking[0].IsSup)
+			if (((&MinisterOnTable) == nullptr) || (&(MinisterOnTable[ik]) == nullptr) || (&(MinisterOnTable[ik].MinisterThinking) == nullptr) || (&(MinisterOnTable[ik].MinisterThinking) == nullptr) || MinisterOnTable[ik].MinisterThinking[0].IsSup)
 			{
 				continue;
 			}
@@ -12180,7 +12176,7 @@ void AllDraw::BlitzGameThinkingTreeKingGray(double PreviousLessK, int* Index, in
 	{
 		//try
 		{
-			if (KingOnTable == nullptr || (&(KingOnTable[ik]) == nullptr) || (&(KingOnTable[ik].KingThinking) == nullptr) || (&(KingOnTable[ik].KingThinking) == nullptr) || KingOnTable[ik].KingThinking[0].IsSup)
+			if (((&KingOnTable) == nullptr) || (&(KingOnTable[ik]) == nullptr) || (&(KingOnTable[ik].KingThinking) == nullptr) || (&(KingOnTable[ik].KingThinking) == nullptr) || KingOnTable[ik].KingThinking[0].IsSup)
 			{
 				continue;
 			}
@@ -12403,7 +12399,7 @@ void AllDraw::BlitzGameThinkingTreeSolderBrown(double PreviousLessS, int* Index,
 {
 	for (ik = SodierMidle; ik < SodierHigh; ik++)
 	{
-		if (SolderesOnTable == nullptr || (&(SolderesOnTable[ik]) == nullptr) || (&(SolderesOnTable[ik].SoldierThinking) == nullptr) || (&(SolderesOnTable[ik].SoldierThinking) == nullptr) || SolderesOnTable[ik].SoldierThinking[0].IsSup)
+		if (((&SolderesOnTable) == nullptr) || (&(SolderesOnTable[ik]) == nullptr) || (&(SolderesOnTable[ik].SoldierThinking) == nullptr) || (&(SolderesOnTable[ik].SoldierThinking) == nullptr) || SolderesOnTable[ik].SoldierThinking[0].IsSup)
 		{
 			continue;
 		}
@@ -12469,7 +12465,7 @@ void AllDraw::BlitzGameThinkingTreeElephantBrown(double PreviousLessE, int* Inde
 	{
 		//try
 		{
-			if (ElephantOnTable == nullptr || (&(ElephantOnTable[ik]) == nullptr) || (&(ElephantOnTable[ik].ElefantThinking) == nullptr) || (&(ElephantOnTable[ik].ElefantThinking) == nullptr) || ElephantOnTable[ik].ElefantThinking[0].IsSup)
+			if (((&ElephantOnTable) == nullptr) || (&(ElephantOnTable[ik]) == nullptr) || (&(ElephantOnTable[ik].ElefantThinking) == nullptr) || (&(ElephantOnTable[ik].ElefantThinking) == nullptr) || ElephantOnTable[ik].ElefantThinking[0].IsSup)
 			{
 				continue;
 			}
@@ -12543,7 +12539,7 @@ void AllDraw::BlitzGameThinkingTreeHourseBrown(double PreviousLessH, int* Index,
 	{
 		//try
 		{
-			if (HoursesOnTable == nullptr || (&(HoursesOnTable[ik]) == nullptr) || (&(HoursesOnTable[ik].HourseThinking) == nullptr) || (&(HoursesOnTable[ik].HourseThinking) == nullptr) || HoursesOnTable[ik].HourseThinking[0].IsSup)
+			if (((&ElephantOnTable) == nullptr) || (&(HoursesOnTable[ik]) == nullptr) || (&(HoursesOnTable[ik].HourseThinking) == nullptr) || (&(HoursesOnTable[ik].HourseThinking) == nullptr) || HoursesOnTable[ik].HourseThinking[0].IsSup)
 			{
 				continue;
 			}
@@ -12677,7 +12673,7 @@ void AllDraw::BlitzGameThinkingTreeCastleBrown(double PreviousLessB, int* Index,
 	{
 		//try
 		{
-			if (CastlesOnTable == nullptr || (&(CastlesOnTable[ik]) == nullptr) || (&(CastlesOnTable[ik].CastleThinking) == nullptr) || (&(CastlesOnTable[ik].CastleThinking) == nullptr) || CastlesOnTable[ik].CastleThinking[0].IsSup)
+			if (((&CastlesOnTable) == nullptr) || (&(CastlesOnTable[ik]) == nullptr) || (&(CastlesOnTable[ik].CastleThinking) == nullptr) || (&(CastlesOnTable[ik].CastleThinking) == nullptr) || CastlesOnTable[ik].CastleThinking[0].IsSup)
 			{
 				continue;
 			}
@@ -12757,7 +12753,7 @@ void AllDraw::BlitzGameThinkingTreeMinisterBrown(double PreviousLessM, int* Inde
 	{
 		//try
 		{
-			if (MinisterOnTable == nullptr || (&(MinisterOnTable[ik]) == nullptr) || (&(MinisterOnTable[ik].MinisterThinking) == nullptr) || (&(MinisterOnTable[ik].MinisterThinking) == nullptr) || MinisterOnTable[ik].MinisterThinking[0].IsSup)
+			if (((&MinisterOnTable) == nullptr) || (&(MinisterOnTable[ik]) == nullptr) || (&(MinisterOnTable[ik].MinisterThinking) == nullptr) || (&(MinisterOnTable[ik].MinisterThinking) == nullptr) || MinisterOnTable[ik].MinisterThinking[0].IsSup)
 			{
 				continue;
 			}
@@ -12816,7 +12812,7 @@ void AllDraw::BlitzGameThinkingTreeKingBrown(double PreviousLessK, int* Index, i
 { //King.
 	for (ik = KingMidle; ik < KingHigh; ik++)
 	{
-			if (KingOnTable == nullptr || (&(KingOnTable[ik]) == nullptr) || (&(KingOnTable[ik].KingThinking) == nullptr) || (&(KingOnTable[ik].KingThinking) == nullptr) || KingOnTable[ik].KingThinking[0].IsSup)
+			if (((&CastlesOnTable) == nullptr) || (&(KingOnTable[ik]) == nullptr) || (&(KingOnTable[ik].KingThinking) == nullptr) || (&(KingOnTable[ik].KingThinking) == nullptr) || KingOnTable[ik].KingThinking[0].IsSup)
 			{
 				continue;
 			}
@@ -13692,7 +13688,7 @@ bool  AllDraw::FullGameThinkingSoldierGray(int a, int Order, int iAStarGreedy, i
 	bool Do = false;
 	for (int ik = 0; ik < SodierMidle; ik++)
 	{
-		if (SolderesOnTable != nullptr && (&(SolderesOnTable[ik]) != nullptr) && (&(SolderesOnTable[ik].SoldierThinking) != nullptr) && (&(SolderesOnTable[ik].SoldierThinking) != nullptr) && (!SolderesOnTable[ik].SoldierThinking[0].IsSupHu))
+		if (((&SolderesOnTable) != nullptr) && (&(SolderesOnTable[ik]) != nullptr) && (&(SolderesOnTable[ik].SoldierThinking) != nullptr) && (&(SolderesOnTable[ik].SoldierThinking) != nullptr) && (!SolderesOnTable[ik].SoldierThinking[0].IsSupHu))
 		{
 			Do = FullGameThinkingSoldier(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
 		} //);
@@ -13706,7 +13702,7 @@ bool  AllDraw::FullGameThinkingSoldierBrowm(int a, int Order, int iAStarGreedy, 
 	bool Do = false;
 	for (int ik = SodierMidle;ik<SodierHigh ;ik++)
 	{
-		if (SolderesOnTable != nullptr && (&(SolderesOnTable[ik]) != nullptr) && (&(SolderesOnTable[ik].SoldierThinking) != nullptr) && (&(SolderesOnTable[ik].SoldierThinking) != nullptr) && (!SolderesOnTable[ik].SoldierThinking[0].IsSupHu))
+		if (((&SolderesOnTable) != nullptr) && (&(SolderesOnTable[ik]) != nullptr) && (&(SolderesOnTable[ik].SoldierThinking) != nullptr) && (&(SolderesOnTable[ik].SoldierThinking) != nullptr) && (!SolderesOnTable[ik].SoldierThinking[0].IsSupHu))
 		{
 			Do = FullGameThinkingSoldier(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
 		} //);
@@ -14122,22 +14118,7 @@ bool  AllDraw::FullGameThinkingElephantGray(int a, int Order, int iAStarGreedy, 
 	////Parallel.For(0, ElefantMidle, ik =>
 	for (int ik = 0; ik < ElefantMidle; ik++)
 	{
-		if (SolderesOnTable != nullptr && ((&ElephantOnTable[ik]) != nullptr) && ((&(ElephantOnTable[ik].ElefantThinking)) != nullptr) && ((&(ElephantOnTable[ik].ElefantThinking)) != nullptr) && (!ElephantOnTable[ik].ElefantThinking[0].IsSupHu))
-		{
-			Do = FullGameThinkingElephant(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
-		}
-	}
-
-	return Do;
-}
-
-bool  AllDraw::FullGameThinkingElephantBrown(int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
-{
-	bool Do = false;
-	////Parallel.For(0, ElefantMidle, ik =>
-	for (int ik = ElefantMidle; ik<ElefantHigh; ik++)
-	{
-		if (ElephantOnTable != nullptr && ((&ElephantOnTable[ik]) != nullptr) && ((&(ElephantOnTable[ik].ElefantThinking)) != nullptr) && ((&(ElephantOnTable[ik].ElefantThinking)) != nullptr) && (!ElephantOnTable[ik].ElefantThinking[0].IsSupHu))
+		if (((&SolderesOnTable) != nullptr) && ((&ElephantOnTable[ik]) != nullptr) && ((&(ElephantOnTable[ik].ElefantThinking)) != nullptr) && ((&(ElephantOnTable[ik].ElefantThinking)) != nullptr) && (!ElephantOnTable[ik].ElefantThinking[0].IsSupHu))
 		{
 			Do = FullGameThinkingElephant(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
 		}
@@ -14364,7 +14345,7 @@ bool  AllDraw::FullGameThinkingHourseGray(int a, int Order, int iAStarGreedy, in
 	bool Do = false;
 	for (int ik = 0; ik < HourseMidle; ik++)
 	{
-		if (HoursesOnTable != nullptr && (&(HoursesOnTable[ik]) != nullptr) && (&(HoursesOnTable[ik].HourseThinking) != nullptr) && (&(HoursesOnTable[ik].HourseThinking) != nullptr) && (!HoursesOnTable[ik].HourseThinking[0].IsSupHu))
+		if (((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[ik]) != nullptr) && (&(HoursesOnTable[ik].HourseThinking) != nullptr) && (&(HoursesOnTable[ik].HourseThinking) != nullptr) && (!HoursesOnTable[ik].HourseThinking[0].IsSupHu))
 		{
 			Do = FullGameThinkingHourse(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
 		}
@@ -14376,9 +14357,9 @@ bool  AllDraw::FullGameThinkingHourseGray(int a, int Order, int iAStarGreedy, in
 bool  AllDraw::FullGameThinkingHourseBrown(int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
 {
 	bool Do = false;
-	for (int ik = HourseMidle;ik<HourseHight; ik++)
+	for (int ik = HourseMidle; ik < HourseHight; ik++)
 	{
-		if (HoursesOnTable != nullptr && (&(HoursesOnTable[ik]) != nullptr) && (&(HoursesOnTable[ik].HourseThinking) != nullptr) && (&(HoursesOnTable[ik].HourseThinking) != nullptr) && (!HoursesOnTable[ik].HourseThinking[0].IsSupHu))
+		if (((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[ik]) != nullptr) && (&(HoursesOnTable[ik].HourseThinking) != nullptr) && (&(HoursesOnTable[ik].HourseThinking) != nullptr) && (!HoursesOnTable[ik].HourseThinking[0].IsSupHu))
 		{
 			Do = FullGameThinkingHourse(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
 		}
@@ -14388,205 +14369,6 @@ bool  AllDraw::FullGameThinkingHourseBrown(int a, int Order, int iAStarGreedy, i
 	return Do;
 }
 
-bool  AllDraw::FullGameThinkingHourse(int ik, int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
-{
-
-	bool Do = false;
-
-	TaskBegin++;
-	int S = 0;
-	while (HoursesOnTable[ik].HourseThinking[0].ThinkingBegin && (!HoursesOnTable[ik].HourseThinking[0].ThinkingFinished))
-	{
-	}
-	if (iAStarGreedy < 0)
-	{
-
-		if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
-		{
-			return false;
-		}
-
-	}
-
-	for (int j = 0; j < HoursesOnTable[ik].HourseThinking[0].TableListCastle.size(); j++)
-	{
-		if (AllDraw::OrderPlate == Order)
-		{
-			if (HoursesOnTable[ik].HourseThinking[0].PenaltyRegardListCastle[j].IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT)) //&& HoursesOnTable[ik].HourseThinking[0].PenaltyRegardListCastle[j].IsRewardAction() != 1 ||(!UsePenaltyRegardMechnisamT)
-			{
-
-				if (Blitz)
-				{
-					if (Index[3] != -1)
-					{
-						if (ik != Index[3])
-						{
-							if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy.empty())
-							{
-								HoursesOnTable[ik].HourseThinking[0].AStarGreedy = std::vector<AllDraw>();
-							}
-							HoursesOnTable[ik].HourseThinking[0].AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-							HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size() - 1].AStarGreedyString = this;
-							continue;
-						}
-						else
-						{
-							if (j != jindex[3])
-							{
-								if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy.empty())
-								{
-									HoursesOnTable[ik].HourseThinking[0].AStarGreedy = std::vector<AllDraw>();
-								}
-								HoursesOnTable[ik].HourseThinking[0].AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-								HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size() - 1].AStarGreedyString = this;
-								continue;
-							}
-						}
-					}
-					else
-					{
-						if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy.empty())
-						{
-							HoursesOnTable[ik].HourseThinking[0].AStarGreedy = std::vector<AllDraw>();
-						}
-						HoursesOnTable[ik].HourseThinking[0].AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-						HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size() - 1].AStarGreedyString = this;
-						continue;
-					}
-				}
-				if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy.empty())
-				{
-					HoursesOnTable[ik].HourseThinking[0].AStarGreedy = std::vector<AllDraw>();
-				}
-				HoursesOnTable[ik].HourseThinking[0].AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-				HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size() - 1].TableList.clear();
-				HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size() - 1].TableList.push_back(CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListCastle[j]));
-				HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size() - 1].SetRowColumn(0);
-				HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size() - 1].SetRowColumnFinishedWait();
-				if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size() > 0)
-				{
-					OutPutAction = std::wstring(L" ") + Alphabet(HoursesOnTable[ik].HourseThinking[0].Row) + Number(HoursesOnTable[ik].HourseThinking[0].Column) + Alphabet(HoursesOnTable[ik].HourseThinking[0].RowColumnCastle[j][0]) + Number(HoursesOnTable[ik].HourseThinking[0].RowColumnCastle[j][1]);
-					if (Order == 1)
-					{
-						OutPut = std::wstring(L"\r\nPerception Castle AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
-					}
-					else
-					{
-						OutPut = std::wstring(L"\r\nPerception Castle AstarGreedy By Alice at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
-					}
-
-					PerceptionCount++;
-					int iii = (HoursesOnTable[ik].HourseThinking[0].RowColumnCastle[j][0]);
-					int jjj = (HoursesOnTable[ik].HourseThinking[0].RowColumnCastle[j][1]);
-					int aa = a;
-					int **Tab = CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListCastle[j]);
-					int Ord = Order * -1;
-					HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size() - 1].AStarGreedyString = this;
-					HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord*-1, false, FOUND, LeafAStarGreedy);
-					Do = true;
-				}
-			}
-
-
-
-		}
-		else
-		{
-			if (HoursesOnTable[ik].HourseThinking[0].PenaltyRegardListCastle[j].IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT)) //HoursesOnTable[ik].HourseThinking[0].PenaltyRegardListCastle[j].IsPenaltyAction() != 0 &&
-			{
-
-				if (Blitz)
-				{
-
-					if (Index[3] != -1)
-					{
-						if (ik != Index[3])
-						{
-							if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy.empty())
-							{
-								HoursesOnTable[ik].HourseThinking[0].AStarGreedy = std::vector<AllDraw>();
-							}
-							HoursesOnTable[ik].HourseThinking[0].AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-							HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size() - 1].AStarGreedyString = this;
-							continue;
-						}
-						else
-						{
-							if (j != jindex[3])
-							{
-								if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy.empty())
-								{
-									HoursesOnTable[ik].HourseThinking[0].AStarGreedy = std::vector<AllDraw>();
-								}
-								HoursesOnTable[ik].HourseThinking[0].AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-								HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size() - 1].AStarGreedyString = this;
-								continue;
-							}
-						}
-					}
-					else
-					{
-						if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy.empty())
-						{
-							HoursesOnTable[ik].HourseThinking[0].AStarGreedy = std::vector<AllDraw>();
-						}
-						HoursesOnTable[ik].HourseThinking[0].AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-						HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size() - 1].AStarGreedyString = this;
-						continue;
-					}
-				}
-				if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy.empty())
-				{
-					HoursesOnTable[ik].HourseThinking[0].AStarGreedy = std::vector<AllDraw>();
-				}
-				HoursesOnTable[ik].HourseThinking[0].AStarGreedy.push_back(AllDraw(Order*-1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-				HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size() - 1].TableList.clear();
-				HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size() - 1].TableList.push_back(CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListCastle[j]));
-				HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size() - 1].SetRowColumn(0);
-				HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size() - 1].SetRowColumnFinishedWait();
-			}
-			if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size() > 0)
-			{
-				OutPutAction = std::wstring(L" ") + Alphabet(HoursesOnTable[ik].HourseThinking[0].Row) + Number(HoursesOnTable[ik].HourseThinking[0].Column) + Alphabet(HoursesOnTable[ik].HourseThinking[0].RowColumnCastle[j][0]) + Number(HoursesOnTable[ik].HourseThinking[0].RowColumnCastle[j][1]);
-				if (Order == 1)
-				{
-					OutPut = std::wstring(L"\r\nPerception Castle AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
-				}
-				else
-				{
-					OutPut = std::wstring(L"\r\nPerception Castle AstarGreedy By Alice at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
-				}
-
-				PerceptionCount++;
-				int iii = (HoursesOnTable[ik].HourseThinking[0].RowColumnCastle[j][0]);
-				int jjj = (HoursesOnTable[ik].HourseThinking[0].RowColumnCastle[j][1]);
-				int aa = a;
-				int **Tab = CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListCastle[j]);
-				int Ord = Order * -1;
-				HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size() - 1].AStarGreedyString = this;
-
-				HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord*-1, false, FOUND, LeafAStarGreedy);
-				Do = true;
-			}
-		}
-
-
-	}
-	TaskEnd++;
-
-	for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size(); h++)
-	{
-		HoursesOnTable[ik].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[h], Order);
-	}
-	for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size(); h++)
-	{
-		HoursesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[h], Order);
-	}
-
-	return Do;
-}
-
-
 bool  AllDraw::FullGameThinkingCastleGray(int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
 {
 	bool Do = false;
@@ -14594,7 +14376,7 @@ bool  AllDraw::FullGameThinkingCastleGray(int a, int Order, int iAStarGreedy, in
 
 	for (int ik = 0; ik < CastleMidle; ik++)
 	{
-		if ((CastlesOnTable != nullptr) && (&(CastlesOnTable[ik]) != nullptr) && (&(CastlesOnTable[ik].CastleThinking) != nullptr) && (&(CastlesOnTable[ik].CastleThinking) != nullptr) && (!CastlesOnTable[ik].CastleThinking[0].IsSupHu))
+		if (((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[ik]) != nullptr) && (&(CastlesOnTable[ik].CastleThinking) != nullptr) && (&(CastlesOnTable[ik].CastleThinking) != nullptr) && (!CastlesOnTable[ik].CastleThinking[0].IsSupHu))
 		{
 
 			Do = FullGameThinkingCastle(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
@@ -14837,7 +14619,7 @@ bool  AllDraw::FullGameThinkingMinisterGray(int a, int Order, int iAStarGreedy, 
 		////Parallel.For(0, MinisterMidle, ik =>
 	for (int ik = 0; ik < MinisterMidle; ik++)
 	{
-		if ((MinisterOnTable != nullptr) && (&(MinisterOnTable[ik]) != nullptr) && (&(MinisterOnTable[ik].MinisterThinking) != nullptr) && (&(MinisterOnTable[ik].MinisterThinking) != nullptr) && (!MinisterOnTable[ik].MinisterThinking[0].IsSupHu))
+		if (((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[ik]) != nullptr) && (&(MinisterOnTable[ik].MinisterThinking) != nullptr) && (&(MinisterOnTable[ik].MinisterThinking) != nullptr) && (!MinisterOnTable[ik].MinisterThinking[0].IsSupHu))
 		{
 			Do = FullGameThinkingMinister(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
 
@@ -15096,7 +14878,7 @@ bool  AllDraw::FullGameThinkingKingGray(int a, int Order, int iAStarGreedy, int 
 		////Parallel.For(0, KingMidle, ik =>
 	for (int ik = 0; ik < KingMidle; ik++)
 	{
-		if (KingOnTable != nullptr && (&(KingOnTable[ik]) != nullptr) && (&(KingOnTable[ik].KingThinking)  != nullptr) && (&(KingOnTable[ik].KingThinking)  != nullptr) && (!KingOnTable[ik].KingThinking[0].IsSupHu))
+		if (((&KingOnTable) != nullptr) && (&(KingOnTable[ik]) != nullptr) && (&(KingOnTable[ik].KingThinking)  != nullptr) && (&(KingOnTable[ik].KingThinking)  != nullptr) && (!KingOnTable[ik].KingThinking[0].IsSupHu))
 		{
 
 			Do = FullGameThinkingKing(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
@@ -15112,7 +14894,7 @@ bool  AllDraw::FullGameThinkingSoldierBrown(int a, int Order, int iAStarGreedy, 
 
 	for (int ik = SodierMidle; ik < SodierHigh; ik++)
 	{
-		if (SolderesOnTable != nullptr && (&(SolderesOnTable[ik]) != nullptr) && (&(SolderesOnTable[ik].SoldierThinking) != nullptr) && (&(SolderesOnTable[ik].SoldierThinking) != nullptr) && (!SolderesOnTable[ik].SoldierThinking[0].IsSupHu))
+		if (((&SolderesOnTable) != nullptr) && (&(SolderesOnTable[ik]) != nullptr) && (&(SolderesOnTable[ik].SoldierThinking) != nullptr) && (&(SolderesOnTable[ik].SoldierThinking) != nullptr) && (!SolderesOnTable[ik].SoldierThinking[0].IsSupHu))
 		{
 			//Soldier.
 
@@ -15131,32 +14913,13 @@ bool  AllDraw::FullGameThinkingElephantBrown(int a, int Order, int iAStarGreedy,
 	//Elephant
 	for (int ik = ElefantMidle; ik < ElefantHigh; ik++)
 	{
-		if (ElephantOnTable != nullptr && ((&ElephantOnTable[ik]) != nullptr) && ((&(ElephantOnTable[ik].ElefantThinking)) != nullptr) && ((&(ElephantOnTable[ik].ElefantThinking)) != nullptr) && (!ElephantOnTable[ik].ElefantThinking[0].IsSupHu))
+		if (((&ElephantOnTable) != nullptr) && ((&ElephantOnTable[ik]) != nullptr) && ((&(ElephantOnTable[ik].ElefantThinking)) != nullptr) && ((&(ElephantOnTable[ik].ElefantThinking)) != nullptr) && (!ElephantOnTable[ik].ElefantThinking[0].IsSupHu))
 		{
 
 			Do = FullGameThinkingElephant(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
 
 		}
 	}
-	return Do;
-}
-bool  AllDraw::FullGameThinkingHourseBrown(int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
-{
-	bool Do = false;
-
-	//Hourse.
-
-		////Parallel.For(HourseMidle, HourseHight, ik =>
-	for (int ik = HourseMidle; ik < HourseHight; ik++)
-	{
-		if (HoursesOnTable != nullptr && (&(HoursesOnTable[ik]) != nullptr) && (&(HoursesOnTable[ik].HourseThinking) != nullptr) && (&(HoursesOnTable[ik].HourseThinking) != nullptr) && (!HoursesOnTable[ik].HourseThinking[0].IsSupHu))
-		{
-
-			Do = FullGameThinkingHourse(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
-
-		}
-	}
-
 	return Do;
 }
 bool  AllDraw::FullGameThinkingCastleBrown(int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
@@ -15166,7 +14929,7 @@ bool  AllDraw::FullGameThinkingCastleBrown(int a, int Order, int iAStarGreedy, i
 	//Castles.
 	for (int ik = CastleMidle; ik < CastleHigh; ik++)
 	{
-		if ((CastlesOnTable != nullptr) && (&(CastlesOnTable[ik]) != nullptr) && (&(CastlesOnTable[ik].CastleThinking) != nullptr) && (&(CastlesOnTable[ik].CastleThinking) != nullptr) && (!CastlesOnTable[ik].CastleThinking[0].IsSupHu))
+		if (((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[ik]) != nullptr) && (&(CastlesOnTable[ik].CastleThinking) != nullptr) && (&(CastlesOnTable[ik].CastleThinking) != nullptr) && (!CastlesOnTable[ik].CastleThinking[0].IsSupHu))
 		{
 
 			Do = FullGameThinkingCastle(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
@@ -15185,7 +14948,7 @@ bool  AllDraw::FullGameThinkingMinisterBrown(int a, int Order, int iAStarGreedy,
 
 	for (int ik = MinisterMidle; ik < MinisterHigh; ik++)
 	{
-		if ((MinisterOnTable != nullptr) && (&(MinisterOnTable[ik]) != nullptr) && (&(MinisterOnTable[ik].MinisterThinking) != nullptr) && (&(MinisterOnTable[ik].MinisterThinking) != nullptr) && (!MinisterOnTable[ik].MinisterThinking[0].IsSupHu))
+		if (((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[ik]) != nullptr) && (&(MinisterOnTable[ik].MinisterThinking) != nullptr) && (&(MinisterOnTable[ik].MinisterThinking) != nullptr) && (!MinisterOnTable[ik].MinisterThinking[0].IsSupHu))
 		{
 
 			Do = FullGameThinkingMinister(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
@@ -15205,7 +14968,7 @@ bool AllDraw::FullGameThinkingKingBrown(int a, int Order, int iAStarGreedy, int 
 	for (int ik = KingMidle; ik < KingHigh; ik++)
 	{
 
-		if (KingOnTable != nullptr && (&(KingOnTable[ik]) != nullptr) && (&(KingOnTable[ik].KingThinking)  != nullptr) && (&(KingOnTable[ik].KingThinking)  != nullptr) && (!KingOnTable[ik].KingThinking[0].IsSupHu))
+		if (((&KingOnTable) != nullptr) && (&(KingOnTable[ik]) != nullptr) && (&(KingOnTable[ik].KingThinking)  != nullptr) && (&(KingOnTable[ik].KingThinking)  != nullptr) && (!KingOnTable[ik].KingThinking[0].IsSupHu))
 		{
 			{
 				Do = FullGameThinkingKing(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
@@ -15244,18 +15007,25 @@ bool AllDraw::FullGameThinkingTree(int Order, int iAStarGreedy, int ii, int jj, 
 	{
 
 		//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-					
-		if (Order == 1) a = 1; else a = -1; int ii1 = ii, jj1 = jj, ik11 = ik1, j11 = j1; int Ord1 = Order; int a1 = a; int iAStarGreedy1 = iAStarGreedy;
+		
+		if (Order == 1) 
+			a = 1; 
+		else 
+			a = -1;
+		int ii1 = ii, jj1 = jj, ik11 = ik1, j11 = j1; int Ord1 = Order; int a1 = a; int iAStarGreedy1 = iAStarGreedy;
 		Do |= FullGameThinkingSoldierGray(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy);
 		Order = DummyOrder; ChessRules::CurrentOrder = DummyCurrentOrder;
 
 
-		if (Order == 1) a = 1; else a = -1; int ii1 = ii, jj1 = jj, ik11 = ik1, j11 = j1; int Ord1 = Order; int a1 = a; int iAStarGreedy1 = iAStarGreedy;
-		Do |= FullGameThinkingElephantGray(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy); Order = DummyOrder; ChessRules::CurrentOrder = DummyCurrentOrder;
+		if (Order == 1) 
+			a = 1; 
+		else a = -1;
+		int ii2 = ii, jj2 = jj, ik12 = ik1, j12 = j1;  int Ord2 = Order;int  a2 = a;int iAStarGreedy2 = iAStarGreedy;
+		Do |= FullGameThinkingElephantGray(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND, LeafAStarGreedy); Order = DummyOrder; ChessRules::CurrentOrder = DummyCurrentOrder;
 
 
 
-
+		
 		if (Order == 1)
 			a = 1;
 		else
@@ -15280,6 +15050,7 @@ bool AllDraw::FullGameThinkingTree(int Order, int iAStarGreedy, int ii, int jj, 
 		Do |= FullGameThinkingCastleGray(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND, LeafAStarGreedy);
 		Order = DummyOrder;
 		ChessRules::CurrentOrder = DummyCurrentOrder;
+
 
 		if (Order == 1)
 			a = 1;
@@ -15318,12 +15089,8 @@ bool AllDraw::FullGameThinkingTree(int Order, int iAStarGreedy, int ii, int jj, 
 		Do |= FullGameThinkingSoldierBrown(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy);
 		Order = DummyOrder; ChessRules::CurrentOrder = DummyCurrentOrder;
 
-		if (Order == 1)
-			a = 1;
-		else a = -1;
-		int ii1 = ii, jj1 = jj, ik11 = ik1, j11 = j1; int Ord1 = Order; int a1 = a; int iAStarGreedy1 = iAStarGreedy;
-		Do |= FullGameThinkingElephantBrown(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy);
-		Order = DummyOrder; ChessRules::CurrentOrder = DummyCurrentOrder;
+		if (Order == 1) a = 1; else a = -1; int ii2 = ii, jj2 = jj, ik12 = ik1, j12 = j1;  int Ord2 = Order;int  a2 = a;int iAStarGreedy2 = iAStarGreedy;
+		Do |= FullGameThinkingElephantBrown(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND, LeafAStarGreedy); Order = DummyOrder; ChessRules::CurrentOrder = DummyCurrentOrder;
 
 
 
@@ -15362,18 +15129,17 @@ bool AllDraw::FullGameThinkingTree(int Order, int iAStarGreedy, int ii, int jj, 
 		Do |= FullGameThinkingMinisterBrown(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND, LeafAStarGreedy);
 		Order = DummyOrder;
 		ChessRules::CurrentOrder = DummyCurrentOrder;
-
 		if (Order == 1)
-			a = 1;
+		a = 1;
 		else
 			a = -1;
-		int ii5 = ii, jj5 = jj, ik15 = ik1, j15 = j1;
-		int Ord5 = Order;
-		int a5 = a;
-		int iAStarGreedy5 = iAStarGreedy;
-		Do |= FullGameThinkingKingBrown(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND, LeafAStarGreedy);
-		Order = DummyOrder;
-		ChessRules::CurrentOrder = DummyCurrentOrder;
+			int ii6 = ii, jj6 = jj, ik16 = ik1, j16 = j1;
+			int Ord6 = Order;
+			int a6 = a;
+			int iAStarGreedy6 = iAStarGreedy;
+			Do |= FullGameThinkingKingBrown(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND, LeafAStarGreedy);
+			Order = DummyOrder;
+			ChessRules::CurrentOrder = DummyCurrentOrder;
 	}
 
 
@@ -16257,7 +16023,7 @@ void AllDraw::CheckedMateConfiguratiion(int Order)
 		{
 			for (int i = 0; i < SodierMidle; i++)
 			{
-				if (SolderesOnTable != nullptr && ((&(SolderesOnTable[i])) != nullptr))
+				if (((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr))
 				{
 					//try
 					{
@@ -16272,7 +16038,7 @@ void AllDraw::CheckedMateConfiguratiion(int Order)
 
 			for (int i = 0; i < ElefantMidle; i++)
 			{
-				if (SolderesOnTable != nullptr && (&(SolderesOnTable[i]) != nullptr))
+				if (((&SolderesOnTable) != nullptr) && (&(SolderesOnTable[i]) != nullptr))
 				{
 					//try
 					{
@@ -16286,7 +16052,7 @@ void AllDraw::CheckedMateConfiguratiion(int Order)
 			}
 			for (int i = 0; i < HourseMidle; i++)
 			{
-				if (HoursesOnTable != nullptr && (&(HoursesOnTable[i]) != nullptr))
+				if (((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr))
 				{
 					//try
 					{
@@ -16300,14 +16066,14 @@ void AllDraw::CheckedMateConfiguratiion(int Order)
 			}
 			for (int i = 0; i < CastleMidle; i++)
 			{
-				if ((CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr))
+				if (((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr))
 				{
 					CheckedMateConfiguratiionCastle(Order, i, true);
 				}
 			}
 			for (int i = 0; i < MinisterMidle; i++)
 			{
-				if ((MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr))
+				if (((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr))
 				{
 					//try
 					{
@@ -16321,7 +16087,7 @@ void AllDraw::CheckedMateConfiguratiion(int Order)
 			}
 			for (int i = 0; i < KingMidle; i++)
 			{
-				if (KingOnTable != nullptr && (&(KingOnTable[i]) != nullptr))
+				if (((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr))
 				{
 					//try
 					{
@@ -16338,7 +16104,7 @@ void AllDraw::CheckedMateConfiguratiion(int Order)
 		{
 			for (int i = SodierMidle; i < SodierHigh; i++)
 			{
-				if (SolderesOnTable != nullptr && ((&(SolderesOnTable[i])) != nullptr))
+				if (((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr))
 				{
 					//try
 					{
@@ -16352,7 +16118,7 @@ void AllDraw::CheckedMateConfiguratiion(int Order)
 			}
 			for (int i = ElefantMidle; i < ElefantHigh; i++)
 			{
-				if (SolderesOnTable != nullptr && (&(SolderesOnTable[i]) != nullptr))
+				if (((&SolderesOnTable) != nullptr) && (&(SolderesOnTable[i]) != nullptr))
 				{
 					//try
 					{
@@ -16366,7 +16132,7 @@ void AllDraw::CheckedMateConfiguratiion(int Order)
 			}
 			for (int i = HourseMidle; i < HourseHight; i++)
 			{
-				if (HoursesOnTable != nullptr && (&(HoursesOnTable[i]) != nullptr))
+				if (((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr))
 				{
 					//try
 					{
@@ -16380,7 +16146,7 @@ void AllDraw::CheckedMateConfiguratiion(int Order)
 			}
 			for (int i = CastleMidle; i < CastleHigh; i++)
 			{
-				if ((CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr))
+				if (((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr))
 				{
 					//try
 					{
@@ -16394,7 +16160,7 @@ void AllDraw::CheckedMateConfiguratiion(int Order)
 			}
 			for (int i = MinisterMidle; i < MinisterHigh; i++)
 			{
-				if ((MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr))
+				if (((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr))
 				{
 					//try
 					{
@@ -16408,7 +16174,7 @@ void AllDraw::CheckedMateConfiguratiion(int Order)
 			}
 			for (int i = KingMidle; i < KingHigh; i++)
 			{
-				if (KingOnTable != nullptr && (&(KingOnTable[i]) != nullptr))
+				if (((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr))
 				{
 					//try
 					{
@@ -16430,7 +16196,7 @@ void AllDraw::CheckedMateConfiguratiion(int Order)
 		{
 			for (int i = 0; i < SodierMidle; i++)
 			{
-				if (SolderesOnTable != nullptr && ((&(SolderesOnTable[i])) != nullptr))
+				if (((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr))
 				{
 					//try
 					{
@@ -16444,7 +16210,7 @@ void AllDraw::CheckedMateConfiguratiion(int Order)
 			}
 			for (int i = 0; i < ElefantMidle; i++)
 			{
-				if (SolderesOnTable != nullptr && (&(SolderesOnTable[i]) != nullptr))
+				if (((&SolderesOnTable) != nullptr) && (&(SolderesOnTable[i]) != nullptr))
 				{
 					//try
 					{
@@ -16458,7 +16224,7 @@ void AllDraw::CheckedMateConfiguratiion(int Order)
 			}
 			for (int i = 0; i < HourseMidle; i++)
 			{
-				if (HoursesOnTable != nullptr && (&(HoursesOnTable[i]) != nullptr))
+				if (((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr))
 				{
 					//try
 					{
@@ -16472,7 +16238,7 @@ void AllDraw::CheckedMateConfiguratiion(int Order)
 			}
 			for (int i = 0; i < CastleMidle; i++)
 			{
-				if ((CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr))
+				if (((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr))
 				{
 					//try
 					{
@@ -16486,7 +16252,7 @@ void AllDraw::CheckedMateConfiguratiion(int Order)
 			}
 			for (int i = 0; i < MinisterMidle; i++)
 			{
-				if ((MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr))
+				if (((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr))
 				{
 					//try
 					{
@@ -16500,7 +16266,7 @@ void AllDraw::CheckedMateConfiguratiion(int Order)
 			}
 			for (int i = 0; i < KingMidle; i++)
 			{
-				if (KingOnTable != nullptr && (&(KingOnTable[i]) != nullptr))
+				if (((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr))
 				{
 					//try
 					{
@@ -16517,7 +16283,7 @@ void AllDraw::CheckedMateConfiguratiion(int Order)
 		{
 			for (int i = SodierMidle; i < SodierHigh; i++)
 			{
-				if (SolderesOnTable != nullptr && ((&(SolderesOnTable[i])) != nullptr))
+				if (((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr))
 				{
 					//try
 					{
@@ -16531,7 +16297,7 @@ void AllDraw::CheckedMateConfiguratiion(int Order)
 			}
 			for (int i = ElefantMidle; i < ElefantHigh; i++)
 			{
-				if (SolderesOnTable != nullptr && (&(SolderesOnTable[i]) != nullptr))
+				if (((&SolderesOnTable) != nullptr) && (&(SolderesOnTable[i]) != nullptr))
 				{
 					//try
 					{
@@ -16545,7 +16311,7 @@ void AllDraw::CheckedMateConfiguratiion(int Order)
 			}
 			for (int i = HourseMidle; i < HourseHight; i++)
 			{
-				if (HoursesOnTable != nullptr && (&(HoursesOnTable[i]) != nullptr))
+				if (((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr))
 				{
 					//try
 					{
@@ -16559,7 +16325,7 @@ void AllDraw::CheckedMateConfiguratiion(int Order)
 			}
 			for (int i = CastleMidle; i < CastleHigh; i++)
 			{
-				if ((CastlesOnTable != nullptr) && (&(CastlesOnTable[i]) != nullptr))
+				if (((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr))
 				{
 					//try
 					{
@@ -16573,7 +16339,7 @@ void AllDraw::CheckedMateConfiguratiion(int Order)
 			}
 			for (int i = MinisterMidle; i < MinisterHigh; i++)
 			{
-				if ((MinisterOnTable != nullptr) && (&(MinisterOnTable[i]) != nullptr))
+				if (((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr))
 				{
 					//try
 					{
@@ -16587,7 +16353,7 @@ void AllDraw::CheckedMateConfiguratiion(int Order)
 			}
 			for (int i = KingMidle; i < KingHigh; i++)
 			{
-				if (KingOnTable != nullptr && (&(KingOnTable[i]) != nullptr))
+				if (((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr))
 				{
 					//try
 					{
@@ -16748,7 +16514,7 @@ int** AllDraw::Initiate(int ii, int jj, int a, int** Table, int Order, bool TB, 
 	int iiii = ii, jjjj = jj, Ord = Order;
 	int MaxAStarGreedy1 = 0;
 
-	int MaxAStarGreedy1 = MaxAStarGreedy;
+	MaxAStarGreedy1 = MaxAStarGreedy;
 	int **Tabl = CloneATable(Table);
 	int aaa = a;
 	//InitiateAStarGreedytObject(MaxAStarGreedy1, iiii, jjjj, aaa, Tabl, Ord, false, FOUND, LeafAStarGreedy);

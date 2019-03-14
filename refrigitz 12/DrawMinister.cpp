@@ -1,10 +1,15 @@
 ﻿#include "DrawMinister.h"
-
+#include "DrawSoldire.h"
+#include "DrawMinister.h"
+#include "DrawCastle.h"
+#include "DrawHourse.h"
+#include "DrawElefant.h"
+#include "ThinkingChess.h"
 
 //namespace RefrigtzDLL
 //{
-//	inline bool operator==(const DrawMinister& lhs,  const std::nullptr_t& rhs) { return  (lhs == rhs); }
-	//inline bool operator!=(const DrawMinister& lhs,  const std::nullptr_t& rhs) { return !(lhs == rhs); }
+	inline bool operator==(const DrawMinister& lhs,  const std::nullptr_t& rhs) { return  (lhs == rhs); }
+	inline bool operator!=(const DrawMinister& lhs,  const std::nullptr_t& rhs) { return !(lhs == rhs); }
 
 
 double DrawMinister::MaxHuristicxM = -20000000000000000;

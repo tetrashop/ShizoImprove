@@ -1,18 +1,29 @@
 ﻿
 #pragma once
+
 #include "stdafx.h"
-#include "DrawSoldire.h"
+/*#include "DrawSoldire.h"
 #include "DrawElefant.h"
 #include "DrawHourse.h"
 #include "DrawCastle.h"
 #include "DrawMinister.h"
-#include "DrawKing.h"
+#include "DrawKing.h"*/
+
+class DrawSoldier;
+	class DrawElefant;
+	class DrawHourse;
+	class DrawCastle;
+	class DrawMinister;
+	class DrawKing;
+	class ThinkingChess;
 #include <string>
 #include <vector>
 #include <cmath>
 #include <float.h>
 #include <stdexcept>
 #include "StringConverterHelper.h"
+
+
 //#include "stdafx.h"
 /*******************************************************************************************
  * Initiate and Decision making class.******************************************************
@@ -369,12 +380,12 @@ struct Array {
 		int ColumS;
 		std::vector<int**> TableList;
 		int AStarGreedyInt;
-		DrawSoldier * SolderesOnTable;// [16];
-		DrawElefant * ElephantOnTable;// [4];
-		DrawHourse * HoursesOnTable;// [4];
-		DrawCastle * CastlesOnTable;// [4];
-		DrawMinister * MinisterOnTable;// [2];
-		DrawKing * KingOnTable; // [2];
+		std::vector<DrawSoldier> SolderesOnTable;// [16];
+		std::vector<DrawElefant> ElephantOnTable;// [4];
+		std::vector<DrawHourse> HoursesOnTable;// [4];
+		std::vector<DrawCastle> CastlesOnTable;// [4];
+		std::vector<DrawMinister> MinisterOnTable;// [2];
+		std::vector<DrawKing> KingOnTable; // [2];
 		/*std::vector<DrawSoldier> SolderesOnTable;
 		std::vector<DrawElefant> ElephantOnTable;
 		std::vector<DrawHourse> HoursesOnTable;
@@ -523,7 +534,7 @@ if (Kind == 2)
 
 	public:
 		bool IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckMate, int ForCheckMate, int AStarGreedyInt);		
-		AllDraw RemovePenalltyFromFirstBranches(int Order);
+		void RemovePenalltyFromFirstBranches(int Order);
 		AllDraw FoundOfLeafDepenOfKind(int Kind, AllDraw Leaf, bool & Found, int Order, int  OrderLeaf);
 		AllDraw FoundOfCurrentTableNode(int **Tab, int Order, AllDraw THIS, bool &Found);
 		

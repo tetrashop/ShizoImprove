@@ -1,4 +1,10 @@
 ﻿#include "DrawElefant.h"
+#include "DrawSoldire.h"
+#include "DrawMinister.h"
+#include "DrawCastle.h"
+#include "DrawHourse.h"
+#include "DrawElefant.h"
+#include "ThinkingChess.h"
 
 //namespace RefrigtzDLL
 //{

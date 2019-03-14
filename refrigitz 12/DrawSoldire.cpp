@@ -3,13 +3,14 @@
 #include "DrawCastle.h"
 #include "DrawHourse.h"
 #include "DrawElefant.h"
+#include "ThinkingChess.h"
 
 //namespace RefrigtzDLL
 //{
-//	inline bool operator==( const DrawSoldier& lhs,  DrawSoldier& rhs) { return  (lhs == rhs); }
-//	inline bool operator!=( const DrawSoldier& lhs,  DrawSoldier& rhs) { return !(lhs == rhs); }
+	inline bool operator==( const DrawSoldier& lhs,  DrawSoldier& rhs) { return  (lhs == rhs); }
+	inline bool operator!=( const DrawSoldier& lhs,  DrawSoldier& rhs) { return !(lhs == rhs); }
 
-double MaxHuristicxS = -DBL_MAX;
+double DrawSoldier::MaxHuristicxS = -DBL_MAX;
 
 	/*void DrawSoldier<T>::Log(std::exception ex)
 	{
@@ -68,8 +69,7 @@ const DrawSoldier& DrawSoldier::operator[] (const int index) const
 		a += SoldierThinking[0].ReturnHuristic(-1, -1, Order, false);
 		return a;
 	}
-	template <template <class> class T>	
-	DrawSoldier::DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments) :ThingsConverter()
+	DrawSoldier::DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments) //:ThingsConverter()
 	{
 		CurrentAStarGredyMax = CurrentAStarGredy;
 		MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;

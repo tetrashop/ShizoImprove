@@ -2186,6 +2186,124 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 			}
 		}
 	}
+	bool ThinkingChess::InAttackSelfThatNotSupportedCalculateValuableAll(int** TableS, int Order, int a, int ij, int ji, int ii, int jj, std::vector<int*> ValuableSelfSupported)
+	{
+		
+			//Initiate Variables.
+			int** Tab = new int*[8];
+			for (int ik = 0; ik < 8; ik++)
+				Tab[ik] = new int[8];
+			for (int ik = 0; ik < 8; ik++)
+				for (int jk = 0; jk < 8; jk++)
+					Tab[ik][ jk] = TableS[ik][ jk];
+			int Ord = Order;
+			bool SelfSupported = false;
+			bool InAttackedNotSelfSupported = false;
+
+			bool S = true;
+			//int i = ii, j = jj;
+			//For Self
+			for (int i = 0; i < 8; i++)
+			{
+				for (int j = 0; j < 8; j++)
+				{
+					S = true;
+					//Ignore of Enemy
+					if (Order == 1 && Tab[i, j] <= 0)
+						continue;
+					else
+						if (Order == -1 && Tab[i, j] >= 0)
+							continue;
+					//For Enemy.
+					for (int RowS = 0; RowS < 8; RowS++)
+					{
+						for (int ColS = 0; ColS < 8; ColS++)
+						{
+							//Ignore of Current
+							if (Order == 1 && Tab[RowS][ColS] >= 0)
+								continue;
+							else
+								if (Order == -1 && Tab[RowS][ColS] <= 0)
+									continue;
+							//Enemy
+							a = 1;
+							if (Order * -1 == -1)
+								a = -1;
+							for (int ik = 0; ik < 8; ik++)
+								for (int jk = 0; jk < 8; jk++)
+									Tab[ik][ jk] = TableS[ik][ jk];
+							InAttackedNotSelfSupported = false;
+							SelfSupported = false;
+							S = true;
+							//Wehn an Object of Enemy Attack Self Object
+									if (Attack(Tab, RowS, ColS, i, j, a, Order * -1))
+								{
+									InAttackedNotSelfSupported = true;
+									a = 1;
+									if (Order == -1)
+										a = -1;
+
+									//For Self.
+									for (int RowD = 0; RowD < 8; RowD++)
+									{
+										for (int ColD = 0; ColD < 8; ColD++)
+										{
+											//Ignore of Enemies
+											if (Order == 1 && Tab[RowD, ColD] <= 0)
+												continue;
+											else
+												if (Order == -1 && Tab[RowD, ColD] >= 0)
+													continue;
+											a = 1;
+											if (Order == -1)
+												a = -1;
+											for (int ik = 0; ik < 8; ik++)
+												for (int jk = 0; jk < 8; jk++)
+													Tab[ik][ jk] = TableS[ik][ jk];
+											//When There is Supporter For Attacked Self Object and Is Greater than Attacking Object.
+											if (Support(Tab, RowD, ColD, i, j, a, Order) && (ObjectValueCalculator(Tab, i, j) <= ObjectValueCalculator(Tab, RowS, ColS)))
+											{
+												SelfSupported = true;
+												S = S && true;
+												break;
+
+											}
+										}
+										if (SelfSupported)
+											break;
+									}
+
+									//When a source enemy object attack a destination source object 
+									//a source object is greater than another source object. Is = -1 Is another object valuable.
+									//a source object is less than or equal  than another source object.Is = 1 Is not another object valuable.                                        
+								}
+								if ((!SelfSupported && InAttackedNotSelfSupported))
+								{
+									S = false;
+									if (!S)
+									{
+										int* Valuable = new int[3];
+										//First is Value;Second and Third is Row and Column.
+										Valuable[0] = TableS[i][j];
+										Valuable[1] = i;
+										Valuable[2] = j;
+										if (!ExistValuble(Valuable,  ValuableSelfSupported))
+											ValuableSelfSupported.push_back(Valuable);
+										S = true;
+									}
+								}
+							}
+						}
+					}
+				}
+			
+			Order = Ord;
+			//When There is at last tow SelfNotSupporeted Object.
+			if (ValuableSelfSupported.size() > 1)
+				return true;
+			return false;
+		
+	}
 
 	bool ThinkingChess::InAttackSelfThatNotSupportedAll(int **TableS, int Order, int a, int i, int j, int RowS, int ColS, int ikk, int jkk, int iik, int jjk)
 	{
