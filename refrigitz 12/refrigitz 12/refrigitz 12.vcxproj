@@ -140,7 +140,9 @@
     <Text Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\refrigitz 12\ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\App.config" />
+    <None Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\GalleryStudio_1_TemporaryKey.pfx" />
     <None Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\GalleryStudio_TemporaryKey.pfx" />
     <None Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\packages.config" />
@@ -160,21 +162,10 @@
     <ClCompile Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\DrawKing.cpp" />
     <ClCompile Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\DrawMinister.cpp" />
     <ClCompile Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\DrawSoldire.cpp" />
-    <ClCompile Include="..\LearningKrinskyAtamata.cpp" />
+    <ClCompile Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\LearningKrinskyAtamata.cpp" />
     <ClCompile Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\stdafx.cpp" />
     <ClCompile Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\ThingsConverter.cpp" />
     <ClCompile Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\ThinkingChess.cpp" />
-    <ClCompile Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\bitbase.cpp" />
-    <ClCompile Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\bitboard.cpp" />
-    <ClCompile Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\evaluate.cpp" />
-    <ClCompile Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\main.cpp" />
-    <ClCompile Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\movegen.cpp" />
-    <ClCompile Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\pawns.cpp" />
-    <ClCompile Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\search.cpp" />
-    <ClCompile Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\thread.cpp" />
-    <ClCompile Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\timeman.cpp" />
-    <ClCompile Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\tt.cpp" />
-    <ClCompile Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\uci.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\AllDraw.h" />
@@ -185,22 +176,11 @@
     <ClInclude Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\DrawKing.h" />
     <ClInclude Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\DrawMinister.h" />
     <ClInclude Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\DrawSoldire.h" />
-    <ClInclude Include="..\LearningKrinskyAtamata.h" />
+    <ClInclude Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\LearningKrinskyAtamata.h" />
     <ClInclude Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\stdafx.h" />
-    <ClInclude Include="..\StringConverterHelper.h" />
-    <ClInclude Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\targetver.h" />
+    <ClInclude Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\StringConverterHelper.h" />
     <ClInclude Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\ThingsConverter.h" />
     <ClInclude Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\ThinkingChess.h" />
-    <ClInclude Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\bitboard.h" />
-    <ClInclude Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\evaluate.h" />
-    <ClInclude Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\movegen.h" />
-    <ClInclude Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\pawns.h" />
-    <ClInclude Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\search.h" />
-    <ClInclude Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\thread.h" />
-    <ClInclude Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\timeman.h" />
-    <ClInclude Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\tt.h" />
-    <ClInclude Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\types.h" />
-    <ClInclude Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\uci.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

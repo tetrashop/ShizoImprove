@@ -55,6 +55,9 @@
     <ClCompile Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\DrawSoldire.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\LearningKrinskyAtamata.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -62,42 +65,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\ThinkingChess.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\LearningKrinskyAtamata.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\uci.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\bitboard.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\bitbase.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\search.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\tt.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\thread.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\pawns.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\timeman.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\movegen.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\evaluate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -126,52 +93,19 @@
     <ClInclude Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\DrawSoldire.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\LearningKrinskyAtamata.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\targetver.h">
+    <ClInclude Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\StringConverterHelper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\ThingsConverter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\ThinkingChess.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\LearningKrinskyAtamata.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\StringConverterHelper.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\uci.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\types.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\bitboard.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\search.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\tt.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\thread.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\pawns.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\timeman.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\movegen.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\TechnologyLover\Desktop\Refregitz_Speed_Up_CLASS_LIBRARY_Source_Code_Update\Refregitz\stockfish8\evaluate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
