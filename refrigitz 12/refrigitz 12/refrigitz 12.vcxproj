@@ -166,6 +166,7 @@
     <ClCompile Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\stdafx.cpp" />
     <ClCompile Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\ThingsConverter.cpp" />
     <ClCompile Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\ThinkingChess.cpp" />
+    <ClCompile Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\uci.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\AllDraw.h" />
@@ -181,6 +182,7 @@
     <ClInclude Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\StringConverterHelper.h" />
     <ClInclude Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\ThingsConverter.h" />
     <ClInclude Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\ThinkingChess.h" />
+    <ClInclude Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\uci.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -23,8 +23,8 @@
 
 #include <map>
 #include <string>
-
-#include "types.h"
+#include "AllDraw.h"
+//#include "types.h"
 
 class Position;
 
@@ -46,7 +46,7 @@ class Option {
   typedef void (*OnChange)(const Option&);
 
 public:
-  
+	AllDraw Draw;
   Option(OnChange = nullptr);
   Option(bool v, OnChange = nullptr);
   Option(const char* v, OnChange = nullptr);

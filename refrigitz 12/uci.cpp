@@ -21,30 +21,31 @@
 #include <sstream>
 #include <string>
 #include <fstream>
-#include "evaluate.h"
-#include "movegen.h"
-#include "position.h"
-#include "search.h"
-#include "thread.h"
-#include "timeman.h"
+//#include "evaluate.h"
+//#include "movegen.h"
+//#include "position.h"
+//#include "search.h"
+//#include "thread.h"
+//#include "timeman.h"
 #include "uci.h"
-#include "stdafx.h"
 
+#include "stdafx.h"
+//using namespace refri
 using namespace std;
 
 
 extern void benchmark(const Position& pos, istream& is);
-bool UCI::Option::BestMove;
+//bool UCI::Option::BestMove;
 namespace {
 	
-	string MoveToFrom = "";
+	//string MoveToFrom = "";
   // FEN string of the initial position, normal chess
   const char* StartFEN = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
 
   // A list to keep track of the position states along the setup moves (from the
   // start position to the position just before the search starts). Needed by
   // 'draw by repetition' detection.
-  StateListPtr States(new std::deque<StateInfo>(1));
+ // StateListPtr States(new std::deque<StateInfo>(1));
 
 
  /*
@@ -101,15 +102,15 @@ namespace {
     else
         return;
 
-    States = StateListPtr(new std::deque<StateInfo>(1));
-    pos.set(fen, Options["UCI_Chess960"], &States->back(), Threads.main());
+    //States = StateListPtr(new std::deque<StateInfo>(1));
+    //pos.set(fen, Options["UCI_Chess960"], &States->back(), Threads.main());
 
     // Parse move list (if any)
-    while (is >> token && (m = UCI::to_move(pos, token)) != MOVE_NONE)
+   /* while (is >> token && (m = UCI::to_move(pos, token)) != MOVE_NONE)
     {
         States->push_back(StateInfo());
         pos.do_move(m, States->back(), pos.gives_check(m));
-    }
+    }*/
   }
 
 
@@ -132,8 +133,8 @@ namespace {
 
     if (Options.count(name))
         Options[name] = value;
-    else
-        sync_cout << "No such option: " << name << sync_endl;
+   // else
+    //    sync_cout << "No such option: " << name << sync_endl;
   }
 
 
@@ -143,10 +144,11 @@ namespace {
 
   void go(Position& pos, istringstream& is) {
 
-    Search::LimitsType limits;
+	  //foreign code
+   // Search::LimitsType limits;
     string token;
 
-    limits.startTime = now(); // As early as possible!
+    //limits.startTime = now(); // As early as possible!
 
     while (is >> token)
         if (token == "searchmoves")
@@ -165,7 +167,7 @@ namespace {
         else if (token == "infinite")  limits.infinite = 1;
         else if (token == "ponder")    limits.ponder = 1;
 
-    Threads.start_thinking(pos, States, limits);
+   // Threads.start_thinking(pos, States, limits);
   }
 
 } // namespace
@@ -180,10 +182,10 @@ namespace {
 
 void UCI::loop(int argc, char* argv[]) {
 
-  Position pos;
+  //Position pos;
   string token, cmd;
 
-  pos.set(StartFEN, false, &States->back(), Threads.main());
+ // pos.set(StartFEN, false, &States->back(), Threads.main());
 
   for (int i = 1; i < argc; ++i)
       cmd += std::string(argv[i]) + " ";
@@ -204,10 +206,12 @@ void UCI::loop(int argc, char* argv[]) {
       // switching from pondering to normal search.
       if (    token == "quit"
           ||  token == "stop"
-          || (token == "ponderhit" && Search::Signals.stopOnPonderhit))
+          || (token == "ponderhit" && AllDraw::stopOnPonderhit)
+			  )
       {
-          Search::Signals.stop = true;
-          Threads.main()->start_searching(true); // Could be sleeping
+		  AllDraw::EndOfGame = true;
+		  // Search::Signals.stop = true;
+         // Threads.main()->start_searching(true); // Could be sleeping
       }
       else if (token == "ponderhit")
           Search::Limits.ponder = 0; // Switch to normal search
@@ -303,8 +307,8 @@ string UCI::move(Move m, bool chess960) {
   if (type_of(m) == PROMOTION)
       move += " pnbrqk"[promotion_type(m)];
 
-  if (UCI::Option::BestMove)
-	  MoveToFrom = move;
+  //if (UCI::Option::BestMove)
+	  //MoveToFrom = move;
   return move;
 }
 

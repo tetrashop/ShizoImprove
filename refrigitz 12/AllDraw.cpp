@@ -33,6 +33,7 @@ class DrawKing;
 	inline bool operator!=(const DrawKing& lhs, const std::nullptr_t& rhs) { return !(lhs == rhs); }
 	*/
 //template<typename T>
+bool stopOnPonderhit=true;
 int  AllDraw::DepthIterative = 0;
 std::wstring AllDraw::OutPut = L"";
 std::wstring AllDraw::ActionString = L"";
@@ -11655,6 +11656,8 @@ bool AllDraw::FullBoundryConditions(int Current, int Order, int iAStarGreedy)
 	
 void AllDraw::InitiateAStarGreedyt(int iAStarGreedy, int ii, int jj, int a, int** Tab, int Order, bool TB, int FOUND, int LeafAStarGreedy)
 {
+	if (stopOnPonderhit)
+		return;
 	OrderP = Order;
 	SetObjectNumbers(Tab);
 
@@ -16398,6 +16401,7 @@ void AllDraw::SemaphoreExxedTime(int time, int Kind)
 	//Main Initiate Thinking Method.
 int** AllDraw::Initiate(int ii, int jj, int a, int** Table, int Order, bool TB, bool FOUND, int LeafAStarGreedy, bool SetDept)
 {
+
 	int **TableHuristic;
 	int Current = ChessRules::CurrentOrder;
 	int DummyOrder = Order;

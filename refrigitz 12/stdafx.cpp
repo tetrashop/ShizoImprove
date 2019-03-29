@@ -24,7 +24,7 @@ int main()
 	//{
 		//
 	//}
-	int** Table = {
+	/*int** Table = {
 		{ -4, -1, 0, 0, 0, 0, 1, 4 },
 		{ -3, -1, 0, 0, 0, 0, 1, 3 },
 		{ -2, -1, 0, 0, 0, 0, 1, 2 },
@@ -33,8 +33,8 @@ int main()
 		{ -2, -1, 0, 0, 0, 0, 1, 2 },
 		{ -3, -1, 0, 0, 0, 0, 1, 3 },
 		{ -4, -1, 0, 0, 0, 0, 1, 4 }
-	};
-	AllDraw *t =new AllDraw(0, false, true, false, false, false, false, 0, 1, 0, 0, 1, Table, 1, false, 0);
-	t->Initiate(0, 0, 1, Table, 1, false, false, 0, false);
-	return 0;
+	};*/
+	//AllDraw *t =new AllDraw(0, false, true, false, false, false, false, 0, 1, 0, 0, 1, Table, 1, false, 0);
+	//t->Initiate(0, 0, 1, Table, 1, false, false, 0, false);
+	//return 0;
 }
