@@ -29,7 +29,18 @@
 class Position;
 
 namespace UCI {
-	
+	int Order = 1;
+	AllDraw Draw;
+	int** Table = {
+		{ -4, -1, 0, 0, 0, 0, 1, 4 },
+		{ -3, -1, 0, 0, 0, 0, 1, 3 },
+		{ -2, -1, 0, 0, 0, 0, 1, 2 },
+		{ -5, -1, 0, 0, 0, 0, 1, 5 },
+		{ -6, -1, 0, 0, 0, 0, 1, 6 },
+		{ -2, -1, 0, 0, 0, 0, 1, 2 },
+		{ -3, -1, 0, 0, 0, 0, 1, 3 },
+		{ -4, -1, 0, 0, 0, 0, 1, 4 }
+	};
 class Option;
 
 /// Custom comparator because UCI options should be case insensitive
@@ -46,7 +57,7 @@ class Option {
   typedef void (*OnChange)(const Option&);
 
 public:
-	AllDraw Draw;
+	
   Option(OnChange = nullptr);
   Option(bool v, OnChange = nullptr);
   Option(const char* v, OnChange = nullptr);

@@ -23,8 +23,8 @@
 #include <fstream>
 //#include "evaluate.h"
 //#include "movegen.h"
-//#include "position.h"
-//#include "search.h"
+#include "position.h"
+#include "search.h"
 //#include "thread.h"
 //#include "timeman.h"
 #include "uci.h"
@@ -45,7 +45,7 @@ namespace {
   // A list to keep track of the position states along the setup moves (from the
   // start position to the position just before the search starts). Needed by
   // 'draw by repetition' detection.
- // StateListPtr States(new std::deque<StateInfo>(1));
+  StateListPtr States(new std::deque<StateInfo>(1));
 
 
  /*
@@ -102,15 +102,15 @@ namespace {
     else
         return;
 
-    //States = StateListPtr(new std::deque<StateInfo>(1));
-    //pos.set(fen, Options["UCI_Chess960"], &States->back(), Threads.main());
+    States = StateListPtr(new std::deque<StateInfo>(1));
+    pos.set(fen, Options["UCI_Chess960"], &States->back(), Threads.main());
 
     // Parse move list (if any)
-   /* while (is >> token && (m = UCI::to_move(pos, token)) != MOVE_NONE)
+    while (is >> token && (m = UCI::to_move(pos, token)) != MOVE_NONE)
     {
         States->push_back(StateInfo());
         pos.do_move(m, States->back(), pos.gives_check(m));
-    }*/
+    }
   }
 
 
@@ -145,10 +145,10 @@ namespace {
   void go(Position& pos, istringstream& is) {
 
 	  //foreign code
-   // Search::LimitsType limits;
+    Search::LimitsType limits;
     string token;
 
-    //limits.startTime = now(); // As early as possible!
+   limits.startTime = now(); // As early as possible!
 
     while (is >> token)
         if (token == "searchmoves")
@@ -191,30 +191,42 @@ void UCI::loop(int argc, char* argv[]) {
       cmd += std::string(argv[i]) + " ";
 
   do {
-      if (argc == 1 && !getline(cin, cmd)) // Block here waiting for input or EOF
-          cmd = "quit";
+	  if (argc == 1 && !getline(cin, cmd)) // Block here waiting for input or EOF
+		  cmd = "quit";
 
-      istringstream is(cmd);
+	  istringstream is(cmd);
 
-      token.clear(); // getline() could return empty or blank line
-      is >> skipws >> token;
+	  token.clear(); // getline() could return empty or blank line
+	  is >> skipws >> token;
 
-      // The GUI sends 'ponderhit' to tell us to ponder on the same move the
-      // opponent has played. In case Signals.stopOnPonderhit is set we are
-      // waiting for 'ponderhit' to stop the search (for instance because we
-      // already ran out of time), otherwise we should continue searching but
-      // switching from pondering to normal search.
-      if (    token == "quit"
-          ||  token == "stop"
-          || (token == "ponderhit" && AllDraw::stopOnPonderhit)
-			  )
-      {
+	  // The GUI sends 'ponderhit' to tell us to ponder on the same move the
+	  // opponent has played. In case Signals.stopOnPonderhit is set we are
+	  // waiting for 'ponderhit' to stop the search (for instance because we
+	  // already ran out of time), otherwise we should continue searching but
+	  // switching from pondering to normal search.
+	  if (token == "quit"
+		  || token == "stop"
+		  || (token == "ponderhit" && AllDraw::stopOnPonderhit)
+		  )
+	  {
 		  AllDraw::EndOfGame = true;
-		  // Search::Signals.stop = true;
-         // Threads.main()->start_searching(true); // Could be sleeping
-      }
-      else if (token == "ponderhit")
-          Search::Limits.ponder = 0; // Switch to normal search
+		  //Search::Signals.stop = true;
+		 //Threads.main()->start_searching(true); // Could be sleeping
+	  }
+	  else if (token == "ponderhit")
+	  {
+		  AllDraw::EndOfGame = false; // Switch to normal search
+		  int a = 1;
+		  if (Draw.OrderP == -1)
+		  {
+			  a = -1;
+			  Order = -1;
+		  }
+		  Draw.TableList.clear();
+		  Draw.SetRowColumn(0);
+		  Table = Draw.Initiate(0, 0, a, Table, Order, false, false, 0, false);
+
+	  }
 
       else if (token == "uci")
           sync_cout << "id name " << engine_info(true)
@@ -223,8 +235,30 @@ void UCI::loop(int argc, char* argv[]) {
 
       else if (token == "ucinewgame")
       {
-          Search::clear();
-          Time.availableNodes = 0;
+		  Table = {
+			  { -4, -1, 0, 0, 0, 0, 1, 4 },
+			  { -3, -1, 0, 0, 0, 0, 1, 3 },
+			  { -2, -1, 0, 0, 0, 0, 1, 2 },
+			  { -5, -1, 0, 0, 0, 0, 1, 5 },
+			  { -6, -1, 0, 0, 0, 0, 1, 6 },
+			  { -2, -1, 0, 0, 0, 0, 1, 2 },
+			  { -3, -1, 0, 0, 0, 0, 1, 3 },
+			  { -4, -1, 0, 0, 0, 0, 1, 4 }
+		  };
+		  Order = 1;
+		  AllDraw::EndOfGame = false; // Switch to normal search
+		  int a = 1;
+		  if (Draw.OrderP == -1)
+		  {
+			  Order = -1;
+			  a = -1;
+		  }
+		  Draw.TableList.clear();
+		  Draw.SetRowColumn(0);
+		  Table = Draw.Initiate(0, 0, a, Table, Order, false, false, 0, false);
+
+		  //Search::clear();
+          //Time.availableNodes = 0;
       }
       else if (token == "isready")    sync_cout << "readyok" << sync_endl;
       else if (token == "go")         go(pos, is);

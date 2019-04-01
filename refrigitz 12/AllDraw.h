@@ -398,7 +398,7 @@ struct Array {
 		DrawCastle CastlesOnTable[4];
 		DrawMinister MinisterOnTable[2];
 		DrawKing KingOnTable[2];*/
-	public
+	public:
 		
 		static bool stopOnPonderhit;
 		std::vector<double*> MaxHuristicAStarGreedytBackWard;
