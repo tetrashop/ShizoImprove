@@ -21,12 +21,13 @@
 #include <sstream>
 #include <string>
 #include <fstream>
-//#include "evaluate.h"
-//#include "movegen.h"
+/*#include "evaluate.h"
+#include "movegen.h"
 #include "position.h"
+
+#include "thread.h"
+#include "timeman.h"*/
 #include "search.h"
-//#include "thread.h"
-//#include "timeman.h"
 #include "uci.h"
 
 #include "stdafx.h"
@@ -45,7 +46,7 @@ namespace {
   // A list to keep track of the position states along the setup moves (from the
   // start position to the position just before the search starts). Needed by
   // 'draw by repetition' detection.
-  StateListPtr States(new std::deque<StateInfo>(1));
+  //StateListPtr States(new std::deque<StateInfo>(1));
 
 
  /*
@@ -255,13 +256,16 @@ void UCI::loop(int argc, char* argv[]) {
 		  }
 		  Draw.TableList.clear();
 		  Draw.SetRowColumn(0);
-		  Table = Draw.Initiate(0, 0, a, Table, Order, false, false, 0, false);
+		 
 
 		  //Search::clear();
           //Time.availableNodes = 0;
       }
       else if (token == "isready")    sync_cout << "readyok" << sync_endl;
-      else if (token == "go")         go(pos, is);
+	  else if (token == "go")         //go(pos, is);
+	  {
+		  Table = Draw.Initiate(0, 0, a, Table, Order, false, false, 0, false);
+	  }
       else if (token == "position")   position(pos, is);
       else if (token == "setoption")  setoption(is);
 

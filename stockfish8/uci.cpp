@@ -52,7 +52,7 @@ namespace {
   // The function sets up the position described in the given FEN string ("fen")
   // or the starting position ("startpos") and then makes the moves given in the
   // following move list ("moves").
-  void Write(string input)
+  /*void Write(string input)
   {
 	  try{
 		  std::ofstream out("output.txt");
@@ -82,7 +82,7 @@ namespace {
 		  return;
 	  }
 	  //MoveToFrom = "";
-  }
+  }*/
 
   void position(Position& pos, istringstream& is) {
 
