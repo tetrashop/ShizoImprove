@@ -27,7 +27,7 @@
 
 #include "thread.h"
 #include "timeman.h"*/
-#include "search.h"
+//#include "search.h"
 #include "uci.h"
 
 #include "stdafx.h"
@@ -291,7 +291,7 @@ void UCI::loop(int argc, char* argv[]) {
 
   } while (token != "quit" && argc == 1); // Passed args have one-shot behaviour
 
-  Threads.main()->wait_for_search_finished();
+  //Threads.main()->wait_for_search_finished();
 }
 
 
