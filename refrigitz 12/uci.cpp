@@ -224,15 +224,27 @@ void UCI::loop(int argc, char* argv[]) {
 			  Order = -1;
 		  }
 		  Draw.TableList.clear();
+		  Table = {
+			  { -4, -1, 0, 0, 0, 0, 1, 4 },
+			  { -3, -1, 0, 0, 0, 0, 1, 3 },
+			  { -2, -1, 0, 0, 0, 0, 1, 2 },
+			  { -5, -1, 0, 0, 0, 0, 1, 5 },
+			  { -6, -1, 0, 0, 0, 0, 1, 6 },
+			  { -2, -1, 0, 0, 0, 0, 1, 2 },
+			  { -3, -1, 0, 0, 0, 0, 1, 3 },
+			  { -4, -1, 0, 0, 0, 0, 1, 4 }
+		  };
+		  Draw.TableList.clear();
+		  Draw.TableList.push_back(Table);
 		  Draw.SetRowColumn(0);
 		  Table = Draw.Initiate(0, 0, a, Table, Order, false, false, 0, false);
 
 	  }
 
       else if (token == "uci")
-          sync_cout << "id name " << engine_info(true)
+          cout << "id name " << engine_info(true)
                     << "\n"       << Options
-                    << "\nuciok"  << sync_endl;
+                    << "\nuciok"  << endl;
 
       else if (token == "ucinewgame")
       {
@@ -255,13 +267,14 @@ void UCI::loop(int argc, char* argv[]) {
 			  a = -1;
 		  }
 		  Draw.TableList.clear();
+		  Draw.TableList.push_back(Table);
 		  Draw.SetRowColumn(0);
 		 
 
 		  //Search::clear();
           //Time.availableNodes = 0;
       }
-      else if (token == "isready")    sync_cout << "readyok" << sync_endl;
+      else if (token == "isready")    cout << "readyok" << endl;
 	  else if (token == "go")         //go(pos, is);
 	  {
 		  Table = Draw.Initiate(0, 0, a, Table, Order, false, false, 0, false);
