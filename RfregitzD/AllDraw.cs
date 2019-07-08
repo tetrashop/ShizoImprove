@@ -1,4 +1,4 @@
-﻿/*******************************************************************************************
+/*******************************************************************************************
  * Initiate and Decision making class.******************************************************
  * Ramin Edjlal*****************************************************************************
  * Call Of Constructor From Constructor***************************************************0.12**4**Managements and Cuation Programing**********************(+)
@@ -337,8 +337,7 @@ namespace RefrigtzDLL
         //Error Handling
         static void Log(Exception ex)
         {
-            try
-            {
+            
                 Object a = new Object();
                 lock (a)
                 {
@@ -346,11 +345,7 @@ namespace RefrigtzDLL
                     File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
                 }
             }
-            catch (Exception t)
-            {
-                Log(t);
-            }
-        }
+            
         //Determine when a QuantumMoveOccured.
         //Note for before move.At most one quantum moves.
         public static bool IsAQuantumeMoveOccured(bool IsQuantumMove)
