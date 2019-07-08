@@ -1,4 +1,4 @@
-﻿/*********************************************************************************************
+/*********************************************************************************************
  * tring to predictative orderly movments.****************************************************
  * Ramin Edjlal*******************************************************************************
  * This Class should Predict the Validity Movements Of Current Order an Enemy of Current Order*(_)
@@ -96,8 +96,7 @@ namespace RefrigtzDLL
         //AllDraw. THIS;
         static void Log(Exception ex)
         {
-            try
-            {
+            
                 Object a = new Object();
                 //lock (a)
                 {
@@ -105,8 +104,7 @@ namespace RefrigtzDLL
                     File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
                 }
             }
-            catch (Exception t) { Log(t); }
-        }
+            
         public void SetObjectNumbers(int[,] TabS)
         {
             SodierMidle = 0;

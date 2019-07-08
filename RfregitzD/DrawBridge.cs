@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,13 +30,11 @@ namespace RefrigtzDLL
 
         static void Log(Exception ex)
         {
-            try
-            {
+            
                 string stackTrace = ex.ToString();
                 File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
             }
-            catch (Exception t) { Log(t); }
-        }
+            
         public bool MaxFound(ref bool MaxNotFound)
         {
             try

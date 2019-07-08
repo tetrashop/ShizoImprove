@@ -1,4 +1,4 @@
-﻿/****************************************************************************
+/****************************************************************************
  * Thinking Operation class.*************************************************
  * Ramin Edjlal**************************************************************
  * Drived Classess of Autamata Cellular  Thinking Kernel**************
@@ -226,8 +226,7 @@ namespace RefrigtzDLL
         ///Log of Errors.
         static void Log(Exception ex)
         {
-            try
-            {
+            
                 Object a = new Object();
                 lock (a)
                 {
@@ -237,8 +236,7 @@ namespace RefrigtzDLL
 
                 }
             }
-            catch (Exception t) { Log(t); }
-        }
+            
         void SetObjectNumbersInList(int[,] Tab)
         {
             SetObjectNumbers(Tab);
