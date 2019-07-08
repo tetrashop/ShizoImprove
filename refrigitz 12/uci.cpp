@@ -23,11 +23,12 @@
 #include <fstream>
 /*#include "evaluate.h"
 #include "movegen.h"
-#include "position.h"
 
 #include "thread.h"
 #include "timeman.h"*/
 //#include "search.h"
+#include "position.h"
+
 #include "uci.h"
 
 #include "stdafx.h"

@@ -70,6 +70,12 @@
     <ClCompile Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\uci.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\position.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\bitboard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\AllDraw.h">
@@ -112,6 +118,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\uci.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\position.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\bitboard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz 12\types.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
