@@ -1,4 +1,4 @@
-﻿/***********************************************************************************
+/***********************************************************************************
  * Every Ruls of objective condition of chess game.*********************************
  * Current Rules Have not Attack Movements****************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Ramin Edjlal********************************************************************
@@ -153,8 +153,7 @@ namespace QuantumRefrigiz
         public int CurrentAStarGredyMax = -1;
         static void Log(Exception ex)
         {
-            try
-            {
+            
                 Object a = new Object();
                 lock (a)
                 {
@@ -162,8 +161,7 @@ namespace QuantumRefrigiz
                     File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
                 }
             }
-            catch (Exception t) { Log(t); }
-        }
+            
         public ChessRules(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged, int oRDER)
             
         {
@@ -2112,10 +2110,10 @@ namespace QuantumRefrigiz
         public bool Check(int[,] Table, int Ord)
         {
             //A player is not required to move their king out of check and the game concludes when there is a 100 % probability that one of the kings has been taken. As a result there is no checkmate.
-            if (DrawKing.KingGrayNotCheckedByQuantumMove && Ord == 1)
+            if (DrawKingQ.KingGrayNotCheckedByQuantumMove && Ord == 1)
                 return false;
             else
-                if (DrawKing.KingBrownNotCheckedByQuantumMove && Ord == -1)
+                if (DrawKingQ.KingBrownNotCheckedByQuantumMove && Ord == -1)
                 return false;
             int DummyOrder = Ord;
             //Initiate Local and Global Briables.

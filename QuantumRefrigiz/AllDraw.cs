@@ -1,4 +1,4 @@
-﻿/*******************************************************************************************
+/*******************************************************************************************
  * Initiate and Decision making class.******************************************************
  * Ramin Edjlal*****************************************************************************
  * Call Of Constructor From Constructor***************************************************0.12**4**Managements and Cuation Programing**********************(+)
@@ -195,7 +195,7 @@ namespace QuantumRefrigiz
         public static String ActionString = "";
         public static bool ActionStringReady = false;
         //static variable to be Initiate
-        List<int[]> ValuableSelfSupported = new List<int[]>();
+        List<int[]> ValuableSelfSupportedQ = new List<int[]>();
         public static bool RegardOccurred = false;
         public static int SuppportCountStaticGray = 0;
         public static int SuppportCountStaticBrown = 0;
@@ -341,11 +341,11 @@ namespace QuantumRefrigiz
         public List<int[,]> TableList = new List<int[,]>();
         public int AStarGreedy = 0;
         public DrawSoldier[] SolderesOnTable = new DrawSoldier[16];
-        public DrawElefant[] ElephantOnTable = new DrawElefant[4];
-        public DrawHourse[] HoursesOnTable = new DrawHourse[4];
-        public DrawCastle[] CastlesOnTable = new DrawCastle[4];
-        public DrawMinister[] MinisterOnTable = new DrawMinister[2];
-        public DrawKing[] KingOnTable = new DrawKing[2];
+        public DrawElefantQ[] ElephantOnTable = new DrawElefantQ[4];
+        public DrawHourseQ[] HoursesOnTable = new DrawHourseQ[4];
+        public DrawCastleQ[] CastlesOnTable = new DrawCastleQ[4];
+        public DrawMinisterQ[] MinisterOnTable = new DrawMinisterQ[2];
+        public DrawKingQ[] KingOnTable = new DrawKingQ[2];
         List<double[]> MaxHuristicAStarGreedytBackWard = new List<double[]>();
         const int MaxSoldeirFounded = 2;
         const int MaxElephntFounded = 6;
@@ -360,8 +360,7 @@ namespace QuantumRefrigiz
         //Error Handling
         static void Log(Exception ex)
         {
-            try
-            {
+            
                 Object a = new Object();
                 lock (a)
                 {
@@ -369,11 +368,7 @@ namespace QuantumRefrigiz
                     File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
                 }
             }
-            catch (Exception t)
-            {
-                Log(t);
-            }
-        }
+            
         //Determine when a QuantumMoveOccured.
         //Note for before move.At most one quantum moves.
         public static bool IsAQuantumeMoveOccured(bool IsQuantumMove)
@@ -638,10 +633,10 @@ namespace QuantumRefrigiz
                 AA.PerceptionCount = PerceptionCount;
                 AA.OutPutAction = OutPutAction;
                 //static variable to be Initiate
-                AA.ValuableSelfSupported = new List<int[]>();
+                AA.ValuableSelfSupportedQ = new List<int[]>();
                 for (int i = 0; i < 8; i++)
                     for (int j = 0; j < 8; j++)
-                        AA.ValuableSelfSupported.Add(ValuableSelfSupported[i]);
+                        AA.ValuableSelfSupportedQ.Add(ValuableSelfSupportedQ[i]);
                 AA.CurrentAStarGredyMax = CurrentAStarGredyMax;
                 for (int i = 0; i < 6; i++)
                     AA.Index[i] = Index[i];
@@ -689,7 +684,7 @@ namespace QuantumRefrigiz
                     }
                     catch (Exception t) { Log(t); }
                 }
-                AA.ElephantOnTable = new DrawElefant[ElefantHigh];
+                AA.ElephantOnTable = new DrawElefantQ[ElefantHigh];
                 for (int i = 0; i < ElefantHigh; i++)
                 {
                     try
@@ -699,7 +694,7 @@ namespace QuantumRefrigiz
                     }
                     catch (Exception t) { Log(t); }
                 }
-                AA.HoursesOnTable = new DrawHourse[HourseHight];
+                AA.HoursesOnTable = new DrawHourseQ[HourseHight];
                 for (int i = 0; i < HourseHight; i++)
                 {
                     try
@@ -709,7 +704,7 @@ namespace QuantumRefrigiz
                     }
                     catch (Exception t) { Log(t); }
                 }
-                AA.CastlesOnTable = new DrawCastle[CastleHigh];
+                AA.CastlesOnTable = new DrawCastleQ[CastleHigh];
                 for (int i = 0; i < CastleHigh; i++)
                 {
                     try
@@ -719,7 +714,7 @@ namespace QuantumRefrigiz
                     }
                     catch (Exception t) { Log(t); }
                 }
-                AA.MinisterOnTable = new DrawMinister[MinisterHigh];
+                AA.MinisterOnTable = new DrawMinisterQ[MinisterHigh];
                 for (int i = 0; i < MinisterHigh; i++)
                 {
                     try
@@ -729,7 +724,7 @@ namespace QuantumRefrigiz
                     }
                     catch (Exception t) { Log(t); }
                 }
-                AA.KingOnTable = new DrawKing[KingHigh];
+                AA.KingOnTable = new DrawKingQ[KingHigh];
                 for (int i = 0; i < KingHigh; i++)
                 {
                     try
@@ -1060,11 +1055,11 @@ if (Kind == 2)
                     //Intiate Dummy Variables.
                     //When Conversion Occured.
                     SolderesOnTable = new DrawSoldier[SodierHigh];
-                    ElephantOnTable = new DrawElefant[ElefantHigh];
-                    HoursesOnTable = new DrawHourse[HourseHight];
-                    CastlesOnTable = new DrawCastle[CastleHigh];
-                    MinisterOnTable = new DrawMinister[MinisterHigh];
-                    KingOnTable = new DrawKing[KingHigh];
+                    ElephantOnTable = new DrawElefantQ[ElefantHigh];
+                    HoursesOnTable = new DrawHourseQ[HourseHight];
+                    CastlesOnTable = new DrawCastleQ[CastleHigh];
+                    MinisterOnTable = new DrawMinisterQ[MinisterHigh];
+                    KingOnTable = new DrawKingQ[KingHigh];
 
                     AllDraw.SodierConversionOcuured = false;
 
@@ -1153,7 +1148,7 @@ if (Kind == 2)
                                                 //ElephantOnTable[El1].Dispose();
 
                                             //Construction of Draw Object.
-                                            ElephantOnTable[El1] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, El1);
+                                            ElephantOnTable[El1] = new DrawElefantQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, El1);
                                             ElephantOnTable[El1].IsQuntumMove = ElephantOnTableIsQuantumMove[El1];
                                             //Increament of Gray Index.
                                             El1++;
@@ -1194,7 +1189,7 @@ if (Kind == 2)
                                                 //ElephantOnTable[El2].Dispose();
 
                                             //Construction of Draw Brown Elephant Object. 
-                                            ElephantOnTable[El2] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, El2);
+                                            ElephantOnTable[El2] = new DrawElefantQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, El2);
                                             ElephantOnTable[El2].IsQuntumMove = ElephantOnTableIsQuantumMove[El2];
                                             //Increament of Index.
                                             El2++;
@@ -1242,7 +1237,7 @@ if (Kind == 2)
                                                 //HoursesOnTable[Ho1].Dispose();
 
                                             //Construction of Draw Brown Hourse.
-                                            HoursesOnTable[Ho1] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, Ho1);
+                                            HoursesOnTable[Ho1] = new DrawHourseQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, Ho1);
                                             HoursesOnTable[Ho1].IsQuntumMove = HoursesOnTableIsQuantumMove[Ho1];
                                             //Increament of Index.
                                             Ho1++;
@@ -1283,7 +1278,7 @@ if (Kind == 2)
                                                // HoursesOnTable[Ho2].Dispose();
 
                                             //Construction of Draw Brown Hourse.
-                                            HoursesOnTable[Ho2] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, Ho2);
+                                            HoursesOnTable[Ho2] = new DrawHourseQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, Ho2);
                                             HoursesOnTable[Ho2].IsQuntumMove = HoursesOnTableIsQuantumMove[Ho2];
                                             //Increament of Index.
                                             Ho2++;
@@ -1330,7 +1325,7 @@ if (Kind == 2)
                                                 //CastlesOnTable[Br1].Dispose();
 
                                             //Construction of New Draw Gray Castles.
-                                            CastlesOnTable[Br1] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, Br1);
+                                            CastlesOnTable[Br1] = new DrawCastleQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, Br1);
                                             CastlesOnTable[Br1].IsQuntumMove = CastlesOnTableIsQuantumMove[Br1];
                                             //Increamnt of Index.
                                             Br1++;
@@ -1371,7 +1366,7 @@ if (Kind == 2)
                                                 //CastlesOnTable[Br2].Dispose();
 
                                             //Construction Draw of New Brown Castles.
-                                            CastlesOnTable[Br2] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, Br2);
+                                            CastlesOnTable[Br2] = new DrawCastleQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, Br2);
                                             CastlesOnTable[Br2].IsQuntumMove = CastlesOnTableIsQuantumMove[Br2];
                                             //Increament of Index.
                                             Br2++;
@@ -1419,7 +1414,7 @@ if (Kind == 2)
                                                 //MinisterOnTable[Mi1].Dispose();
 
                                             //construction of new draw Gray Minster.
-                                            MinisterOnTable[Mi1] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, Mi1);
+                                            MinisterOnTable[Mi1] = new DrawMinisterQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, Mi1);
                                             MinisterOnTable[Mi1].IsQuntumMove = MinisterOnTableIsQuantumMove[Mi1];
                                             //Increament of Index.
                                             Mi1++;
@@ -1461,7 +1456,7 @@ if (Kind == 2)
                                                 //MinisterOnTable[Mi2].Dispose();
 
                                             //Construction of New Draw Brown Minster.
-                                            MinisterOnTable[Mi2] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, Mi2);
+                                            MinisterOnTable[Mi2] = new DrawMinisterQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, Mi2);
                                             MinisterOnTable[Mi2].IsQuntumMove = MinisterOnTableIsQuantumMove[Mi2];
                                             //Increament Index.
                                             Mi2++;
@@ -1508,7 +1503,7 @@ if (Kind == 2)
                                                 //KingOnTable[Ki1].Dispose();
 
                                             //Construction of New Draw Gray King.
-                                            KingOnTable[Ki1] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, Ki1);
+                                            KingOnTable[Ki1] = new DrawKingQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, Ki1);
                                             KingOnTable[Ki1].IsQuntumMove = KingOnTableIsQuantumMove[Ki1];
                                             //Increament of Index.
                                             Ki1++;
@@ -1551,7 +1546,7 @@ if (Kind == 2)
                                                 //KingOnTable[Ki2].Dispose();
 
                                             //Construction of New Draw King Brown Object.
-                                            KingOnTable[Ki2] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, Ki2);
+                                            KingOnTable[Ki2] = new DrawKingQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, Ki2);
                                             KingOnTable[Ki2].IsQuntumMove = KingOnTableIsQuantumMove[Ki2];
                                             //Increament of Index.
                                             Ki2++;
@@ -5322,7 +5317,7 @@ if (Kind == 2)
                                                             AllDraw.NextRow = SolderesOnTable[i].SoldierThinkingQuantum[k].RowColumnSoldier[j][0];
                                                             AllDraw.NextColumn = SolderesOnTable[i].SoldierThinkingQuantum[k].RowColumnSoldier[j][1];
                                                         }
-                                                        Less = SolderesOnTable[RW1].SoldierThinkingQuantum[CL1].ReturnHuristic(RW1, Ki1, Order, false);
+                                                        Less = SolderesOnTable[RW1].SoldierThinkingQuantum[CL1].ReturnHuristicQ(RW1, Ki1, Order, false);
 
 
                                                         TableHuristic = SolderesOnTable[RW1].SoldierThinkingQuantum[CL1].TableListSolder[Ki1];
@@ -5616,7 +5611,7 @@ if (Kind == 2)
                                                             AllDraw.NextColumn = ElephantOnTable[i].ElefantThinkingQuantum[k].RowColumnElefant[j][1];
                                                         }
                                                         Act = true;
-                                                        Less = ElephantOnTable[RW2].ElefantThinkingQuantum[CL2].ReturnHuristic(RW2, Ki2, Order, false);
+                                                        Less = ElephantOnTable[RW2].ElefantThinkingQuantum[CL2].ReturnHuristicQ(RW2, Ki2, Order, false);
                                                         TableHuristic = ElephantOnTable[RW2].ElefantThinkingQuantum[CL2].TableListElefant[Ki2];
                                                         Object O = new Object();
                                                         lock (O)
@@ -5868,7 +5863,7 @@ if (Kind == 2)
                                                             AllDraw.NextColumn = HoursesOnTable[i].HourseThinkingQuantum[k].RowColumnHourse[j][1];
                                                         }
                                                         Act = true;
-                                                        Less = HoursesOnTable[RW3].HourseThinkingQuantum[CL3].ReturnHuristic(RW3, Ki3, Order, false);
+                                                        Less = HoursesOnTable[RW3].HourseThinkingQuantum[CL3].ReturnHuristicQ(RW3, Ki3, Order, false);
                                                         TableHuristic = HoursesOnTable[RW3].HourseThinkingQuantum[CL3].TableListHourse[Ki3];
                                                         Object O = new Object();
                                                         lock (O)
@@ -6122,7 +6117,7 @@ if (Kind == 2)
                                                             AllDraw.NextColumn = CastlesOnTable[i].CastleThinkingQuantum[k].RowColumnCastle[j][1];
                                                         }
                                                         Act = true;
-                                                        Less = CastlesOnTable[RW4].CastleThinkingQuantum[CL4].ReturnHuristic(RW4, Ki4, Order, false);
+                                                        Less = CastlesOnTable[RW4].CastleThinkingQuantum[CL4].ReturnHuristicQ(RW4, Ki4, Order, false);
                                                         TableHuristic = CastlesOnTable[RW4].CastleThinkingQuantum[CL4].TableListCastle[Ki4];
                                                         Object O = new Object();
                                                         lock (O)
@@ -6374,7 +6369,7 @@ if (Kind == 2)
                                                         AllDraw.NextColumn = MinisterOnTable[i].MinisterThinkingQuantum[k].RowColumnMinister[j][1];
                                                     }
                                                     Act = true;
-                                                    Less = MinisterOnTable[RW5].MinisterThinkingQuantum[CL5].ReturnHuristic(RW5, Ki5, Order, false);
+                                                    Less = MinisterOnTable[RW5].MinisterThinkingQuantum[CL5].ReturnHuristicQ(RW5, Ki5, Order, false);
                                                     TableHuristic = MinisterOnTable[RW5].MinisterThinkingQuantum[CL5].TableListMinister[Ki5];
                                                     Object O = new Object();
                                                     lock (O)
@@ -6629,7 +6624,7 @@ if (Kind == 2)
                                                         }
 
                                                         Act = true;
-                                                        Less = KingOnTable[RW6].KingThinkingQuantum[CL6].ReturnHuristic(RW6, Ki6, Order, false);
+                                                        Less = KingOnTable[RW6].KingThinkingQuantum[CL6].ReturnHuristicQ(RW6, Ki6, Order, false);
                                                         TableHuristic = KingOnTable[RW6].KingThinkingQuantum[CL6].TableListKing[Ki6];
                                                         Object O = new Object();
                                                         lock (O)
@@ -6858,10 +6853,10 @@ if (Kind == 2)
                                     lock (ol)
                                     {
                                         if (Order != AllDraw.OrderPlate)
-                                            if (SolderesOnTable[i].SoldierThinkingQuantum[0].ReturnHuristic(i, j, Order, AA) > Less)
+                                            if (SolderesOnTable[i].SoldierThinkingQuantum[0].ReturnHuristicQ(i, j, Order, AA) > Less)
                                                 continue;
                                         //When There is greater Huristic Movments.
-                                        if (SolderesOnTable[i].SoldierThinkingQuantum[0].ReturnHuristic(i, j, Order, AA) > Less)
+                                        if (SolderesOnTable[i].SoldierThinkingQuantum[0].ReturnHuristicQ(i, j, Order, AA) > Less)
                                         {
 
                                             Object O11 = new Object();
@@ -6940,7 +6935,7 @@ if (Kind == 2)
                                                 CL6 = -1;
                                                 Ki6 = -1;
                                                 //Set Max of Soldier.
-                                                MaxLess1 = (SolderesOnTable[RW1].SoldierThinkingQuantum[CL1].ReturnHuristic(i, j, Order, AA)
+                                                MaxLess1 = (SolderesOnTable[RW1].SoldierThinkingQuantum[CL1].ReturnHuristicQ(i, j, Order, AA)
                                                     );
                                                 //When Soldeirs is Greater than Others these Set Max.
                                                 if (MaxLess1 > MaxLess2)
@@ -6981,7 +6976,7 @@ if (Kind == 2)
                                                         AllDraw.NextColumn = SolderesOnTable[i].SoldierThinkingQuantum[k].RowColumnSoldier[j][1];
                                                     }
 
-                                                    Less = SolderesOnTable[i].SoldierThinkingQuantum[k].ReturnHuristic(i, j, Order, AA);
+                                                    Less = SolderesOnTable[i].SoldierThinkingQuantum[k].ReturnHuristicQ(i, j, Order, AA);
 
                                                     StringHuristics(1, 3, AA, Do, SolderesOnTable[i].WinOcuuredatChiled, SolderesOnTable[i].LoseOcuuredatChiled);
 
@@ -7207,11 +7202,11 @@ if (Kind == 2)
 
                                         //When There is No Movments in Such Order Enemy continue.
                                         if (Order != AllDraw.OrderPlate)
-                                            if (ElephantOnTable[i].ElefantThinkingQuantum[0].ReturnHuristic(i, j, Order, AA) > Less)
+                                            if (ElephantOnTable[i].ElefantThinkingQuantum[0].ReturnHuristicQ(i, j, Order, AA) > Less)
                                                 continue;
                                         //When There is greater Huristic Movments.
 
-                                        if (ElephantOnTable[i].ElefantThinkingQuantum[0].ReturnHuristic(i, j, Order, AA) > Less)
+                                        if (ElephantOnTable[i].ElefantThinkingQuantum[0].ReturnHuristicQ(i, j, Order, AA) > Less)
                                         {
 
                                             Object O = new Object();
@@ -7285,7 +7280,7 @@ if (Kind == 2)
                                             RW6 = -1;
                                             CL6 = -1;
                                             Ki6 = -1;
-                                            MaxLess2 = (ElephantOnTable[RW2].ElefantThinkingQuantum[CL2].ReturnHuristic(RW2, Ki2, Order, false));
+                                            MaxLess2 = (ElephantOnTable[RW2].ElefantThinkingQuantum[CL2].ReturnHuristicQ(RW2, Ki2, Order, false));
                                             if (MaxLess2 > MaxLess1)
                                                 MaxLess1 = -1;
                                             if (MaxLess2 > MaxLess3)
@@ -7324,7 +7319,7 @@ if (Kind == 2)
                                                     AllDraw.NextColumn = ElephantOnTable[i].ElefantThinkingQuantum[k].RowColumnElefant[j][1];
                                                 }
                                                 Act = true;
-                                                Less = ElephantOnTable[i].ElefantThinkingQuantum[k].ReturnHuristic(i, j, Order, AA);
+                                                Less = ElephantOnTable[i].ElefantThinkingQuantum[k].ReturnHuristicQ(i, j, Order, AA);
 
                                                 StringHuristics(2, 3, AA, Do, ElephantOnTable[i].WinOcuuredatChiled, ElephantOnTable[i].LoseOcuuredatChiled);
 
@@ -7487,10 +7482,10 @@ if (Kind == 2)
 
                                         //When There is No Movments in Such Order Enemy continue.
                                         if (Order != AllDraw.OrderPlate)
-                                            if (HoursesOnTable[i].HourseThinkingQuantum[0].ReturnHuristic(i, j, Order, AA) > Less)
+                                            if (HoursesOnTable[i].HourseThinkingQuantum[0].ReturnHuristicQ(i, j, Order, AA) > Less)
                                                 continue;
                                         //When There is greater Huristic Movments.
-                                        if (HoursesOnTable[i].HourseThinkingQuantum[0].ReturnHuristic(i, j, Order, AA) > Less)
+                                        if (HoursesOnTable[i].HourseThinkingQuantum[0].ReturnHuristicQ(i, j, Order, AA) > Less)
                                         {
                                             Object O = new Object();
                                             lock (O)
@@ -7565,7 +7560,7 @@ if (Kind == 2)
                                             RW6 = -1;
                                             CL6 = -1;
                                             Ki6 = -1;
-                                            MaxLess3 = (HoursesOnTable[RW3].HourseThinkingQuantum[CL3].ReturnHuristic(RW3, Ki3, Order, false));
+                                            MaxLess3 = (HoursesOnTable[RW3].HourseThinkingQuantum[CL3].ReturnHuristicQ(RW3, Ki3, Order, false));
                                             if (MaxLess3 > MaxLess1)
                                                 MaxLess1 = -1;
                                             if (MaxLess3 > MaxLess2)
@@ -7604,7 +7599,7 @@ if (Kind == 2)
                                                 }
 
                                                 Act = true;
-                                                Less = HoursesOnTable[i].HourseThinkingQuantum[k].ReturnHuristic(i, j, Order, AA);
+                                                Less = HoursesOnTable[i].HourseThinkingQuantum[k].ReturnHuristicQ(i, j, Order, AA);
                                                 TableHuristic = HoursesOnTable[i].HourseThinkingQuantum[k].TableListHourse[j];
 
                                                 StringHuristics(3, 3, AA, Do, HoursesOnTable[i].WinOcuuredatChiled, HoursesOnTable[i].LoseOcuuredatChiled);
@@ -7754,9 +7749,9 @@ if (Kind == 2)
                                     {
                                         //When There is No Movments in Such Order Enemy continue.
                                         if (Order != AllDraw.OrderPlate)
-                                            if (CastlesOnTable[i].CastleThinkingQuantum[0].ReturnHuristic(i, j, Order, AA) > Less) continue;
+                                            if (CastlesOnTable[i].CastleThinkingQuantum[0].ReturnHuristicQ(i, j, Order, AA) > Less) continue;
                                         //When There is greater Huristic Movments.
-                                        if (CastlesOnTable[i].CastleThinkingQuantum[0].ReturnHuristic(i, j, Order, AA) > Less)
+                                        if (CastlesOnTable[i].CastleThinkingQuantum[0].ReturnHuristicQ(i, j, Order, AA) > Less)
                                         {
                                             Object O = new Object();
                                             lock (O)
@@ -7830,7 +7825,7 @@ if (Kind == 2)
                                             RW6 = -1;
                                             CL6 = -1;
                                             Ki6 = -1;
-                                            MaxLess4 = (CastlesOnTable[RW4].CastleThinkingQuantum[CL4].ReturnHuristic(RW4, Ki4, Order, false));
+                                            MaxLess4 = (CastlesOnTable[RW4].CastleThinkingQuantum[CL4].ReturnHuristicQ(RW4, Ki4, Order, false));
                                             if (MaxLess4 > MaxLess1)
                                                 MaxLess1 = -1;
                                             if (MaxLess4 > MaxLess2)
@@ -7871,7 +7866,7 @@ if (Kind == 2)
                                                 }
 
                                                 Act = true;
-                                                Less = CastlesOnTable[i].CastleThinkingQuantum[k].ReturnHuristic(i, j, Order, AA);
+                                                Less = CastlesOnTable[i].CastleThinkingQuantum[k].ReturnHuristicQ(i, j, Order, AA);
                                                 TableHuristic = CastlesOnTable[i].CastleThinkingQuantum[k].TableListCastle[j];
 
                                                 StringHuristics(4, 3, AA, Do, CastlesOnTable[i].WinOcuuredatChiled, CastlesOnTable[i].LoseOcuuredatChiled);
@@ -8021,9 +8016,9 @@ if (Kind == 2)
                                 lock (ol)
                                 {
                                     if (Order != AllDraw.OrderPlate)
-                                        if (MinisterOnTable[i].MinisterThinkingQuantum[0].ReturnHuristic(i, j, Order, AA) > Less)
+                                        if (MinisterOnTable[i].MinisterThinkingQuantum[0].ReturnHuristicQ(i, j, Order, AA) > Less)
                                             continue;
-                                    if (MinisterOnTable[i].MinisterThinkingQuantum[0].ReturnHuristic(i, j, Order, AA) > Less)
+                                    if (MinisterOnTable[i].MinisterThinkingQuantum[0].ReturnHuristicQ(i, j, Order, AA) > Less)
                                     {
                                         Object O = new Object();
                                         lock (O)
@@ -8099,7 +8094,7 @@ if (Kind == 2)
                                         RW6 = -1;
                                         CL6 = -1;
                                         Ki6 = -1;
-                                        MaxLess5 = (MinisterOnTable[RW5].MinisterThinkingQuantum[CL5].ReturnHuristic(RW5, Ki5, Order, false));
+                                        MaxLess5 = (MinisterOnTable[RW5].MinisterThinkingQuantum[CL5].ReturnHuristicQ(RW5, Ki5, Order, false));
                                         if (MaxLess5 > MaxLess1)
                                             MaxLess1 = -1;
                                         if (MaxLess5 > MaxLess2)
@@ -8140,7 +8135,7 @@ if (Kind == 2)
                                             }
 
                                             Act = true;
-                                            Less = MinisterOnTable[i].MinisterThinkingQuantum[k].ReturnHuristic(i, j, Order, AA);
+                                            Less = MinisterOnTable[i].MinisterThinkingQuantum[k].ReturnHuristicQ(i, j, Order, AA);
                                             TableHuristic = MinisterOnTable[i].MinisterThinkingQuantum[k].TableListMinister[j];
 
                                             StringHuristics(5, 3, AA, Do, MinisterOnTable[i].WinOcuuredatChiled, MinisterOnTable[i].LoseOcuuredatChiled);
@@ -8285,10 +8280,10 @@ if (Kind == 2)
                                     {
                                         //When There is No Movments in Such Order Enemy continue.
                                         if (Order != AllDraw.OrderPlate)
-                                            if (KingOnTable[i].KingThinkingQuantum[0].ReturnHuristic(i, j, Order, AA) > Less)
+                                            if (KingOnTable[i].KingThinkingQuantum[0].ReturnHuristicQ(i, j, Order, AA) > Less)
                                                 continue;
                                         //When There is greater Huristic Movments.
-                                        if (KingOnTable[i].KingThinkingQuantum[0].ReturnHuristic(i, j, Order, AA) > Less)
+                                        if (KingOnTable[i].KingThinkingQuantum[0].ReturnHuristicQ(i, j, Order, AA) > Less)
                                         {
                                             Object OO = new Object();
                                             lock (OO)
@@ -8363,7 +8358,7 @@ if (Kind == 2)
                                             RW5 = -1;
                                             CL5 = -1;
                                             Ki5 = -1;
-                                            MaxLess6 = (KingOnTable[RW6].KingThinkingQuantum[CL6].ReturnHuristic(RW6, Ki6, Order, false));
+                                            MaxLess6 = (KingOnTable[RW6].KingThinkingQuantum[CL6].ReturnHuristicQ(RW6, Ki6, Order, false));
                                             if (MaxLess6 > MaxLess1)
                                                 MaxLess1 = -1;
                                             if (MaxLess6 > MaxLess2)
@@ -8404,7 +8399,7 @@ if (Kind == 2)
                                                 }
 
                                                 Act = true;
-                                                Less = KingOnTable[i].KingThinkingQuantum[k].ReturnHuristic(i, j, Order, AA);
+                                                Less = KingOnTable[i].KingThinkingQuantum[k].ReturnHuristicQ(i, j, Order, AA);
                                                 TableHuristic = KingOnTable[i].KingThinkingQuantum[k].TableListKing[j];
 
                                                 StringHuristics(6, 3, AA, Do, KingOnTable[i].WinOcuuredatChiled, KingOnTable[i].LoseOcuuredatChiled);
@@ -8784,7 +8779,7 @@ if (Kind == 2)
                                                             AllDraw.NextRow = SolderesOnTable[i].SoldierThinkingQuantum[k].RowColumnSoldier[j][0];
                                                             AllDraw.NextColumn = SolderesOnTable[i].SoldierThinkingQuantum[k].RowColumnSoldier[j][1];
                                                         }
-                                                        Less = SolderesOnTable[RW1].SoldierThinkingQuantum[CL1].ReturnHuristic(RW1, Ki1, Order, false);
+                                                        Less = SolderesOnTable[RW1].SoldierThinkingQuantum[CL1].ReturnHuristicQ(RW1, Ki1, Order, false);
 
 
                                                         TableHuristic = SolderesOnTable[RW1].SoldierThinkingQuantum[CL1].TableListSolder[Ki1];
@@ -9076,7 +9071,7 @@ if (Kind == 2)
                                                     }
 
                                                     Act = true;
-                                                    Less = ElephantOnTable[RW2].ElefantThinkingQuantum[CL2].ReturnHuristic(RW2, Ki2, Order, false);
+                                                    Less = ElephantOnTable[RW2].ElefantThinkingQuantum[CL2].ReturnHuristicQ(RW2, Ki2, Order, false);
                                                     TableHuristic = ElephantOnTable[RW2].ElefantThinkingQuantum[CL2].TableListElefant[Ki2];
                                                     Object OO = new Object();
                                                     lock (OO)
@@ -9336,7 +9331,7 @@ if (Kind == 2)
                                                     }
 
                                                     Act = true;
-                                                    Less = HoursesOnTable[RW3].HourseThinkingQuantum[CL3].ReturnHuristic(RW3, Ki3, Order, false);
+                                                    Less = HoursesOnTable[RW3].HourseThinkingQuantum[CL3].ReturnHuristicQ(RW3, Ki3, Order, false);
                                                     TableHuristic = HoursesOnTable[RW3].HourseThinkingQuantum[CL3].TableListHourse[Ki3];
                                                     Object OO = new Object();
                                                     lock (OO)
@@ -9588,7 +9583,7 @@ if (Kind == 2)
                                                     }
 
                                                     Act = true;
-                                                    Less = CastlesOnTable[RW4].CastleThinkingQuantum[CL4].ReturnHuristic(RW4, Ki4, Order, false);
+                                                    Less = CastlesOnTable[RW4].CastleThinkingQuantum[CL4].ReturnHuristicQ(RW4, Ki4, Order, false);
                                                     TableHuristic = CastlesOnTable[RW4].CastleThinkingQuantum[CL4].TableListCastle[Ki4];
                                                     Object OO = new Object();
                                                     lock (OO)
@@ -9840,7 +9835,7 @@ if (Kind == 2)
                                                         AllDraw.NextColumn = MinisterOnTable[i].MinisterThinkingQuantum[k].RowColumnMinister[j][1];
                                                     }
                                                     Act = true;
-                                                    Less = MinisterOnTable[RW5].MinisterThinkingQuantum[CL5].ReturnHuristic(RW5, Ki5, Order, false);
+                                                    Less = MinisterOnTable[RW5].MinisterThinkingQuantum[CL5].ReturnHuristicQ(RW5, Ki5, Order, false);
                                                     TableHuristic = MinisterOnTable[RW5].MinisterThinkingQuantum[CL5].TableListMinister[Ki5];
                                                     Object OO = new Object();
                                                     lock (OO)
@@ -10099,7 +10094,7 @@ if (Kind == 2)
                                                     }
 
                                                     Act = true;
-                                                    Less = KingOnTable[RW6].KingThinkingQuantum[CL6].ReturnHuristic(RW6, Ki6, Order, false);
+                                                    Less = KingOnTable[RW6].KingThinkingQuantum[CL6].ReturnHuristicQ(RW6, Ki6, Order, false);
                                                     TableHuristic = KingOnTable[RW6].KingThinkingQuantum[CL6].TableListKing[Ki6];
                                                     Object OO = new Object();
                                                     lock (OO)
@@ -12503,7 +12498,7 @@ if (Kind == 2)
                                 jj = (int)ElephantOnTable[i].Column;
                                 //Construction of ThinkingQuantum Objects By Local Varibales.
                                 if (ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count == 0)
-                                    ElephantOnTable[i] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                                    ElephantOnTable[i] = new DrawElefantQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
                                 //If There is Not ThinkingQuantum Objetive List Elephant Gray. 
                                 if (ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count == 0)
                                 {
@@ -12561,7 +12556,7 @@ if (Kind == 2)
                                 jj = (int)HoursesOnTable[i].Column;
                                 //Construction of Gray Hourse ThinkingQuantum Objects..
                                 if (HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count == 0)
-                                    HoursesOnTable[i] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                                    HoursesOnTable[i] = new DrawHourseQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
                                 //When There is Not HourseList Count. 
                                 if (HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count == 0)
                                 {
@@ -12619,7 +12614,7 @@ if (Kind == 2)
                                 jj = (int)CastlesOnTable[i].Column;
                                 //Construction of ThinkingQuantum Variables By Local Variables.
                                 if (CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count == 0)
-                                    CastlesOnTable[i] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                                    CastlesOnTable[i] = new DrawCastleQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
                                 //When Count of Table Castles of ThinkingQuantum Not Exist Do Operational.
                                 if (CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count == 0)
                                 {
@@ -12677,7 +12672,7 @@ if (Kind == 2)
                                 jj = (int)MinisterOnTable[i].Column;
                                 //Construction of ThinkingQuantum Objects Gray Minister.
                                 if (MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count == 0)
-                                    MinisterOnTable[i] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                                    MinisterOnTable[i] = new DrawMinisterQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
                                 //If There is Not Minister Of Gray In The ThinkingQuantum Table List.   
                                 if (MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count == 0)
                                 {
@@ -12735,7 +12730,7 @@ if (Kind == 2)
                                 jj = (int)KingOnTable[i].Column;
                                 //Construction of Gray King ThinkingQuantum Objects.
                                 if (KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count == 0)
-                                    KingOnTable[i] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                                    KingOnTable[i] = new DrawKingQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
                                 //When There is Not ThinkingQuantum Table Gray King Movments.
                                 if (KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count == 0)
                                 {
@@ -12851,7 +12846,7 @@ if (Kind == 2)
                                 jj = (int)ElephantOnTable[i].Column;
                                 //Construction of ThinkingQuantum Brown Current Objects.
                                 if (ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count == 0)
-                                    ElephantOnTable[i] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i); ;
+                                    ElephantOnTable[i] = new DrawElefantQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i); ;
                                 {
                                     //When There is Current Brown Object Table List ThinkingQuantum Objective Movments.
                                     if (ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count == 0)
@@ -12909,7 +12904,7 @@ if (Kind == 2)
                                 jj = (int)HoursesOnTable[i].Column;
                                 //Construction of ThinkingQuantum Brown Current Objects.
                                 if (HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count == 0)
-                                    HoursesOnTable[i] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i); ;
+                                    HoursesOnTable[i] = new DrawHourseQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i); ;
 
                                 {
                                     //When There is Current Brown Object Table List ThinkingQuantum Objective Movments.
@@ -12970,7 +12965,7 @@ if (Kind == 2)
                                 jj = (int)CastlesOnTable[i].Column;
                                 //Construction of ThinkingQuantum Brown Current Objects.
                                 if (CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count == 0)
-                                    CastlesOnTable[i] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i); ;
+                                    CastlesOnTable[i] = new DrawCastleQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i); ;
 
                                 {
                                     //When There is Current Brown Object Table List ThinkingQuantum Objective Movments.
@@ -13028,7 +13023,7 @@ if (Kind == 2)
                                 jj = (int)MinisterOnTable[i].Column;
                                 //Construction of ThinkingQuantum Brown Current Objects.
                                 if (MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count == 0)
-                                    MinisterOnTable[i] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i); ;
+                                    MinisterOnTable[i] = new DrawMinisterQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i); ;
 
                                 //When There is Current Brown Object Table List ThinkingQuantum Objective Movments.
                                 if (MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count == 0)
@@ -13083,7 +13078,7 @@ if (Kind == 2)
                                 jj = (int)KingOnTable[i].Column;
                                 //Construction of ThinkingQuantum Brown Current Objects.
                                 if (KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count == 0)
-                                    KingOnTable[i] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i); ;
+                                    KingOnTable[i] = new DrawKingQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i); ;
 
                                 //When There is Current Brown Object Table List ThinkingQuantum Objective Movments.
                                 if (KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count == 0)
@@ -13855,7 +13850,7 @@ if (Kind == 2)
                         {
                             if (AllDraw.OrderPlate == Order)
                             {
-                                if (SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) < PreviousLessS || (SolderesOnTable[ik].SoldierThinkingQuantum[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                                if (SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false) < PreviousLessS || (SolderesOnTable[ik].SoldierThinkingQuantum[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                                 {
 
                                 }
@@ -13866,14 +13861,14 @@ if (Kind == 2)
                                 }
                                 else
                                 {
-                                    PreviousLessS = SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHuristic(-1, j, Order, false);
+                                    PreviousLessS = SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false);
                                     Index[0] = ik;
                                     jIndex[0] = j;
                                 }
                             }
                             else
                             {
-                                if (SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) > PreviousLessS || (SolderesOnTable[ik].SoldierThinkingQuantum[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                                if (SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false) > PreviousLessS || (SolderesOnTable[ik].SoldierThinkingQuantum[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                                 {
 
                                 }
@@ -13884,7 +13879,7 @@ if (Kind == 2)
                                 }
                                 else
                                 {
-                                    PreviousLessS = SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHuristic(-1, j, Order, false);
+                                    PreviousLessS = SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false);
                                     Index[0] = ik;
                                     jIndex[0] = j;
                                 }
@@ -13915,7 +13910,7 @@ if (Kind == 2)
                         {
                             if (AllDraw.OrderPlate == Order)
                             {
-                                if (ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) < PreviousLessE || ElephantOnTable[ik].ElefantThinkingQuantum[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT)
+                                if (ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false) < PreviousLessE || ElephantOnTable[ik].ElefantThinkingQuantum[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT)
                                 {
                                     //ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy = null;
                                     //ElephantOnTable[ik] = null;
@@ -13930,14 +13925,14 @@ if (Kind == 2)
                                 }
                                 else
                                 {
-                                    PreviousLessE = ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHuristic(-1, j, Order, false);
+                                    PreviousLessE = ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false);
                                     Index[1] = ik;
                                     jIndex[1] = j;
                                 }
                             }
                             else
                             {
-                                if (ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) > PreviousLessE || (ElephantOnTable[ik].ElefantThinkingQuantum[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                                if (ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false) > PreviousLessE || (ElephantOnTable[ik].ElefantThinkingQuantum[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                                 {
                                     //ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy = null;
                                     //ElephantOnTable[ik] = null;
@@ -13952,7 +13947,7 @@ if (Kind == 2)
                                 }
                                 else
                                 {
-                                    PreviousLessE = ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHuristic(-1, j, Order, false);
+                                    PreviousLessE = ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false);
                                     Index[1] = ik;
                                     jIndex[1] = j;
                                 }
@@ -13979,7 +13974,7 @@ if (Kind == 2)
 
                             if (AllDraw.OrderPlate == Order)
                             {
-                                if (HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) < PreviousLessH || (HoursesOnTable[ik].HourseThinkingQuantum[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                                if (HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false) < PreviousLessH || (HoursesOnTable[ik].HourseThinkingQuantum[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                                 {
                                     //HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy = null;
                                     //continue;
@@ -13992,7 +13987,7 @@ if (Kind == 2)
                                 }
                                 else
                                 {
-                                    PreviousLessH = HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHuristic(-1, j, Order, false);
+                                    PreviousLessH = HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false);
                                     Index[2] = ik;
                                     jIndex[2] = j;
                                 }
@@ -14000,7 +13995,7 @@ if (Kind == 2)
                             else
                             {
 
-                                if (HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) > PreviousLessH || (HoursesOnTable[ik].HourseThinkingQuantum[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                                if (HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false) > PreviousLessH || (HoursesOnTable[ik].HourseThinkingQuantum[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                                 {
                                     //HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy = null;
                                     //continue;
@@ -14013,7 +14008,7 @@ if (Kind == 2)
                                 }
                                 else
                                 {
-                                    PreviousLessH = HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHuristic(-1, j, Order, false);
+                                    PreviousLessH = HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false);
                                     Index[2] = ik;
                                     jIndex[2] = j;
                                 }
@@ -14040,7 +14035,7 @@ if (Kind == 2)
                         {
                             if (AllDraw.OrderPlate == Order)
                             {
-                                if (CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) < PreviousLessB || (CastlesOnTable[ik].CastleThinkingQuantum[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                                if (CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false) < PreviousLessB || (CastlesOnTable[ik].CastleThinkingQuantum[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                                 {
 
                                     //CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy = null;
@@ -14057,14 +14052,14 @@ if (Kind == 2)
                                 }
                                 else
                                 {
-                                    PreviousLessB = CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHuristic(-1, j, Order, false);
+                                    PreviousLessB = CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false);
                                     Index[3] = ik;
                                     jIndex[3] = j;
                                 }
                             }
                             else
                             {
-                                if (CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) > PreviousLessB || (CastlesOnTable[ik].CastleThinkingQuantum[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                                if (CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false) > PreviousLessB || (CastlesOnTable[ik].CastleThinkingQuantum[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                                 {
 
                                     //CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy = null;
@@ -14081,7 +14076,7 @@ if (Kind == 2)
                                 }
                                 else
                                 {
-                                    PreviousLessB = CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHuristic(-1, j, Order, false);
+                                    PreviousLessB = CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false);
                                     Index[3] = ik;
                                     jIndex[3] = j;
                                 }
@@ -14108,7 +14103,7 @@ if (Kind == 2)
                         {
                             if (AllDraw.OrderPlate == Order)
                             {
-                                if (MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) < PreviousLessM || (MinisterOnTable[ik].MinisterThinkingQuantum[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                                if (MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false) < PreviousLessM || (MinisterOnTable[ik].MinisterThinkingQuantum[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                                 {
                                     //MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy = null;
                                     // MinisterOnTable[ik] = null;
@@ -14127,12 +14122,12 @@ if (Kind == 2)
                                 {
                                     Index[4] = ik;
                                     jIndex[4] = j;
-                                    PreviousLessM = MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHuristic(-1, j, Order, false);
+                                    PreviousLessM = MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false);
                                 }
                             }
                             else
                             {
-                                if (MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) > PreviousLessM || (MinisterOnTable[ik].MinisterThinkingQuantum[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                                if (MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false) > PreviousLessM || (MinisterOnTable[ik].MinisterThinkingQuantum[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                                 {
                                     //MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy = null;
                                     // MinisterOnTable[ik] = null;
@@ -14151,7 +14146,7 @@ if (Kind == 2)
                                 {
                                     Index[4] = ik;
                                     jIndex[4] = j;
-                                    PreviousLessM = MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHuristic(-1, j, Order, false);
+                                    PreviousLessM = MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false);
                                 }
                             }
 
@@ -14175,7 +14170,7 @@ if (Kind == 2)
                         {
                             if (AllDraw.OrderPlate == Order)
                             {
-                                if (KingOnTable[ik].KingThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) < PreviousLessK || (KingOnTable[ik].KingThinkingQuantum[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                                if (KingOnTable[ik].KingThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false) < PreviousLessK || (KingOnTable[ik].KingThinkingQuantum[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                                 {
                                     //KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy = null;
                                     //KingOnTable[ik] = null;
@@ -14192,12 +14187,12 @@ if (Kind == 2)
                                 {
                                     Index[5] = ik;
                                     jIndex[5] = j;
-                                    PreviousLessK = KingOnTable[ik].KingThinkingQuantum[0].ReturnHuristic(-1, j, Order, false);
+                                    PreviousLessK = KingOnTable[ik].KingThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false);
                                 }
                             }
                             else
                             {
-                                if (KingOnTable[ik].KingThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) > PreviousLessK || (KingOnTable[ik].KingThinkingQuantum[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                                if (KingOnTable[ik].KingThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false) > PreviousLessK || (KingOnTable[ik].KingThinkingQuantum[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                                 {
                                     //KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy = null;
                                     //KingOnTable[ik] = null;
@@ -14214,7 +14209,7 @@ if (Kind == 2)
                                 {
                                     Index[5] = ik;
                                     jIndex[5] = j;
-                                    PreviousLessK = KingOnTable[ik].KingThinkingQuantum[0].ReturnHuristic(-1, j, Order, false);
+                                    PreviousLessK = KingOnTable[ik].KingThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false);
                                 }
                             }
 
@@ -14389,7 +14384,7 @@ if (Kind == 2)
                     {
                         if (AllDraw.OrderPlate == Order)
                         {
-                            if (SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) < PreviousLessS || (SolderesOnTable[ik].SoldierThinkingQuantum[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                            if (SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false) < PreviousLessS || (SolderesOnTable[ik].SoldierThinkingQuantum[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                             {
                                 //SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy = null;
                                 //SolderesOnTable[ik] = null;
@@ -14406,12 +14401,12 @@ if (Kind == 2)
                             {
                                 Index[0] = ik;
                                 jIndex[0] = j;
-                                PreviousLessS = SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHuristic(-1, j, Order, false); ;
+                                PreviousLessS = SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false); ;
                             }
                         }
                         else
                         {
-                            if (SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) > PreviousLessS || (SolderesOnTable[ik].SoldierThinkingQuantum[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                            if (SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false) > PreviousLessS || (SolderesOnTable[ik].SoldierThinkingQuantum[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                             {
                                 //SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy = null;
                                 //SolderesOnTable[ik] = null;
@@ -14428,7 +14423,7 @@ if (Kind == 2)
                             {
                                 Index[0] = ik;
                                 jIndex[0] = j;
-                                PreviousLessS = SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHuristic(-1, j, Order, false); ;
+                                PreviousLessS = SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false); ;
                             }
                         }
                     }
@@ -14448,7 +14443,7 @@ if (Kind == 2)
                     {
                         if (AllDraw.OrderPlate == Order)
                         {
-                            if (ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) < PreviousLessE || (ElephantOnTable[ik].ElefantThinkingQuantum[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                            if (ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false) < PreviousLessE || (ElephantOnTable[ik].ElefantThinkingQuantum[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                             {
                                 //ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy = null;
                                 //ElephantOnTable[ik] = null;
@@ -14465,12 +14460,12 @@ if (Kind == 2)
                             {
                                 Index[1] = ik;
                                 jIndex[1] = j;
-                                PreviousLessE = ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHuristic(-1, j, Order, false);
+                                PreviousLessE = ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false);
                             }
                         }
                         else
                         {
-                            if (ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) > PreviousLessE || (ElephantOnTable[ik].ElefantThinkingQuantum[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                            if (ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false) > PreviousLessE || (ElephantOnTable[ik].ElefantThinkingQuantum[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                             {
                                 //ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy = null;
                                 //ElephantOnTable[ik] = null;
@@ -14487,7 +14482,7 @@ if (Kind == 2)
                             {
                                 Index[1] = ik;
                                 jIndex[1] = j;
-                                PreviousLessE = ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHuristic(-1, j, Order, false);
+                                PreviousLessE = ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false);
                             }
                         }
 
@@ -14509,7 +14504,7 @@ if (Kind == 2)
                     {
                         if (AllDraw.OrderPlate == Order)
                         {
-                            if (HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) < PreviousLessH || (HoursesOnTable[ik].HourseThinkingQuantum[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                            if (HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false) < PreviousLessH || (HoursesOnTable[ik].HourseThinkingQuantum[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                             {
                                 //HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy = null;
                                 //HoursesOnTable[ik] = null;
@@ -14526,13 +14521,13 @@ if (Kind == 2)
                             {
                                 Index[2] = ik;
                                 jIndex[2] = j;
-                                PreviousLessH = HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHuristic(-1, j, Order, false); ;
+                                PreviousLessH = HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false); ;
                             }
 
                         }
                         else
                         {
-                            if (HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) > PreviousLessH || (HoursesOnTable[ik].HourseThinkingQuantum[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                            if (HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false) > PreviousLessH || (HoursesOnTable[ik].HourseThinkingQuantum[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                             {
                                 //HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy = null;
                                 //HoursesOnTable[ik] = null;
@@ -14549,7 +14544,7 @@ if (Kind == 2)
                             {
                                 Index[2] = ik;
                                 jIndex[2] = j;
-                                PreviousLessH = HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHuristic(-1, j, Order, false); ;
+                                PreviousLessH = HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false); ;
                             }
                         }
 
@@ -14641,7 +14636,7 @@ if (Kind == 2)
 
                         if (AllDraw.OrderPlate == Order)
                         {
-                            if (CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) < PreviousLessB || (CastlesOnTable[ik].CastleThinkingQuantum[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                            if (CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false) < PreviousLessB || (CastlesOnTable[ik].CastleThinkingQuantum[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                             {
                                 //CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy = null;
                                 //CastlesOnTable[ik] = null;
@@ -14660,13 +14655,13 @@ if (Kind == 2)
                             {
                                 Index[3] = ik;
                                 jIndex[3] = j;
-                                PreviousLessB = CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHuristic(-1, j, Order, false); ;
+                                PreviousLessB = CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false); ;
                             }
 
                         }
                         else
                         {
-                            if (CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) > PreviousLessB || (CastlesOnTable[ik].CastleThinkingQuantum[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                            if (CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false) > PreviousLessB || (CastlesOnTable[ik].CastleThinkingQuantum[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                             {
                                 //CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy = null;
                                 //CastlesOnTable[ik] = null;
@@ -14685,7 +14680,7 @@ if (Kind == 2)
                             {
                                 Index[3] = ik;
                                 jIndex[3] = j;
-                                PreviousLessB = CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHuristic(-1, j, Order, false); ;
+                                PreviousLessB = CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false); ;
                             }
                         }
 
@@ -14706,7 +14701,7 @@ if (Kind == 2)
                     {
                         if (AllDraw.OrderPlate == Order)
                         {
-                            if (MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) < PreviousLessM || (MinisterOnTable[ik].MinisterThinkingQuantum[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                            if (MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false) < PreviousLessM || (MinisterOnTable[ik].MinisterThinkingQuantum[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                             {
                                 //MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy = null;
                                 //MinisterOnTable[ik] = null;
@@ -14718,12 +14713,12 @@ if (Kind == 2)
                             {
                                 Index[4] = ik;
                                 jIndex[4] = j;
-                                PreviousLessM = MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHuristic(-1, j, Order, false); ;
+                                PreviousLessM = MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false); ;
                             }
                         }
                         else
                         {
-                            if (MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) > PreviousLessM || (MinisterOnTable[ik].MinisterThinkingQuantum[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                            if (MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false) > PreviousLessM || (MinisterOnTable[ik].MinisterThinkingQuantum[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                             {
                                 //MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy = null;
                                 //MinisterOnTable[ik] = null;
@@ -14735,7 +14730,7 @@ if (Kind == 2)
                             {
                                 Index[4] = ik;
                                 jIndex[4] = j;
-                                PreviousLessM = MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHuristic(-1, j, Order, false); ;
+                                PreviousLessM = MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false); ;
                             }
                         }
 
@@ -14756,7 +14751,7 @@ if (Kind == 2)
                     {
                         if (AllDraw.OrderPlate == Order)
                         {
-                            if (KingOnTable[ik].KingThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) < PreviousLessK || (KingOnTable[ik].KingThinkingQuantum[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                            if (KingOnTable[ik].KingThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false) < PreviousLessK || (KingOnTable[ik].KingThinkingQuantum[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                             {
                                 //KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy = null;
                                 //KingOnTable[ik] = null;
@@ -14773,12 +14768,12 @@ if (Kind == 2)
                             {
                                 Index[5] = ik;
                                 jIndex[5] = j;
-                                PreviousLessK = KingOnTable[ik].KingThinkingQuantum[0].ReturnHuristic(-1, j, Order, false); ;
+                                PreviousLessK = KingOnTable[ik].KingThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false); ;
                             }
                         }
                         else
                         {
-                            if (KingOnTable[ik].KingThinkingQuantum[0].ReturnHuristic(-1, j, Order, false) > PreviousLessK || (KingOnTable[ik].KingThinkingQuantum[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                            if (KingOnTable[ik].KingThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false) > PreviousLessK || (KingOnTable[ik].KingThinkingQuantum[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                             {
                                 //KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy = null;
                                 //KingOnTable[ik] = null;
@@ -14795,7 +14790,7 @@ if (Kind == 2)
                             {
                                 Index[5] = ik;
                                 jIndex[5] = j;
-                                PreviousLessK = KingOnTable[ik].KingThinkingQuantum[0].ReturnHuristic(-1, j, Order, false); ;
+                                PreviousLessK = KingOnTable[ik].KingThinkingQuantum[0].ReturnHuristicQ(-1, j, Order, false); ;
                             }
                         }
 
@@ -18310,11 +18305,11 @@ if (Kind == 2)
             AllDraw Dummy = new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
             Dummy.TableList.Add(TableList[0]);
             Dummy.SolderesOnTable = new DrawSoldier[SodierHigh];
-            Dummy.ElephantOnTable = new DrawElefant[ElefantHigh];
-            Dummy.HoursesOnTable = new DrawHourse[HourseHight];
-            Dummy.CastlesOnTable = new DrawCastle[CastleHigh];
-            Dummy.MinisterOnTable = new DrawMinister[MinisterHigh];
-            Dummy.KingOnTable = new DrawKing[KingHigh];
+            Dummy.ElephantOnTable = new DrawElefantQ[ElefantHigh];
+            Dummy.HoursesOnTable = new DrawHourseQ[HourseHight];
+            Dummy.CastlesOnTable = new DrawCastleQ[CastleHigh];
+            Dummy.MinisterOnTable = new DrawMinisterQ[MinisterHigh];
+            Dummy.KingOnTable = new DrawKingQ[KingHigh];
             //For All Sodiers Movments.
             for (int i = 0; i < SodierHigh; i++)
             {
@@ -18331,7 +18326,7 @@ if (Kind == 2)
                 try
                 {
                     //Construction of Curren Elephant.
-                    Dummy.ElephantOnTable[i] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ElephantOnTable[i].Row, ElephantOnTable[i].Column, ElephantOnTable[i].color, ElephantOnTable[i].Table, ElephantOnTable[i].Order, false, ElephantOnTable[i].Current);
+                    Dummy.ElephantOnTable[i] = new DrawElefantQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ElephantOnTable[i].Row, ElephantOnTable[i].Column, ElephantOnTable[i].color, ElephantOnTable[i].Table, ElephantOnTable[i].Order, false, ElephantOnTable[i].Current);
                 }
                 catch (Exception t) { Log(t); }
             }
@@ -18341,7 +18336,7 @@ if (Kind == 2)
                 try
                 {
                     //Construction of Hourse Objects.
-                    Dummy.HoursesOnTable[i] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, HoursesOnTable[i].Row, HoursesOnTable[i].Column, HoursesOnTable[i].color, HoursesOnTable[i].Table, HoursesOnTable[i].Order, false, HoursesOnTable[i].Current);
+                    Dummy.HoursesOnTable[i] = new DrawHourseQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, HoursesOnTable[i].Row, HoursesOnTable[i].Column, HoursesOnTable[i].color, HoursesOnTable[i].Table, HoursesOnTable[i].Order, false, HoursesOnTable[i].Current);
                 }
                 catch (Exception t) { Log(t); }
             }
@@ -18351,7 +18346,7 @@ if (Kind == 2)
                 try
                 {
                     //Construction of Castles Objects.
-                    Dummy.CastlesOnTable[i] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, CastlesOnTable[i].Row, CastlesOnTable[i].Column, CastlesOnTable[i].color, CastlesOnTable[i].Table, CastlesOnTable[i].Order, false, CastlesOnTable[i].Current);
+                    Dummy.CastlesOnTable[i] = new DrawCastleQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, CastlesOnTable[i].Row, CastlesOnTable[i].Column, CastlesOnTable[i].color, CastlesOnTable[i].Table, CastlesOnTable[i].Order, false, CastlesOnTable[i].Current);
                 }
                 catch (Exception t) { Log(t); }
             }
@@ -18361,7 +18356,7 @@ if (Kind == 2)
                 try
                 {
                     //Construction of Current Minister.
-                    Dummy.MinisterOnTable[i] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, MinisterOnTable[i].Row, MinisterOnTable[i].Column, MinisterOnTable[i].color, MinisterOnTable[i].Table, MinisterOnTable[i].Order, false, MinisterOnTable[i].Current);
+                    Dummy.MinisterOnTable[i] = new DrawMinisterQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, MinisterOnTable[i].Row, MinisterOnTable[i].Column, MinisterOnTable[i].color, MinisterOnTable[i].Table, MinisterOnTable[i].Order, false, MinisterOnTable[i].Current);
                 }
                 catch (Exception t) { Log(t); }
             }
@@ -18371,7 +18366,7 @@ if (Kind == 2)
                 try
                 {
                     //Construction of Kings Objects.
-                    Dummy.KingOnTable[i] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, KingOnTable[i].Row, KingOnTable[i].Column, KingOnTable[i].color, KingOnTable[i].Table, KingOnTable[i].Order, false, KingOnTable[i].Current);
+                    Dummy.KingOnTable[i] = new DrawKingQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, KingOnTable[i].Row, KingOnTable[i].Column, KingOnTable[i].color, KingOnTable[i].Table, KingOnTable[i].Order, false, KingOnTable[i].Current);
                 }
                 catch (Exception t) { Log(t); }
             }
@@ -19034,11 +19029,11 @@ if (Kind == 5)
                     //THIS.progressBarVerify.Invalidate();
                     //SetprogressBarUpdate(THIS.progressBarVerify);
                     MaxHuristicxT = Double.MinValue;
-                    DrawCastle.MaxHuristicxB = Double.MinValue;
-                    DrawElefant.MaxHuristicxE = Double.MinValue;
-                    DrawHourse.MaxHuristicxH = Double.MinValue;
-                    DrawKing.MaxHuristicxK = Double.MinValue;
-                    DrawMinister.MaxHuristicxM = Double.MinValue;
+                    DrawCastleQ.MaxHuristicxB = Double.MinValue;
+                    DrawElefantQ.MaxHuristicxE = Double.MinValue;
+                    DrawHourseQ.MaxHuristicxH = Double.MinValue;
+                    DrawKingQ.MaxHuristicxK = Double.MinValue;
+                    DrawMinisterQ.MaxHuristicxM = Double.MinValue;
                     DrawSoldier.MaxHuristicxS = Double.MinValue;
                     MovementsAStarGreedyHuristicFoundT = false;
                     DrawTable = false;
