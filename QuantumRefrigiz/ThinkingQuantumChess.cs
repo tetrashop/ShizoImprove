@@ -1,4 +1,4 @@
-/****************************************************************************
+﻿/****************************************************************************
  * ThinkingQuantum Operation class.*************************************************
  * Ramin Edjlal**************************************************************
  * Drived Classess of Autamata Cellular Quantum ThinkingQuantum Kernel**************
@@ -230,7 +230,8 @@ namespace QuantumRefrigiz
         ///Log of Errors.
         static void Log(Exception ex)
         {
-            
+            try
+            {
                 Object a = new Object();
                 lock (a)
                 {
@@ -240,7 +241,8 @@ namespace QuantumRefrigiz
 
                 }
             }
-            
+            catch (Exception t) { Log(t); }
+        }
         void SetObjectNumbersInList(int[,] Tab)
         {
             SetObjectNumbers(Tab);
@@ -2029,12 +2031,12 @@ namespace QuantumRefrigiz
             {
                 bool S = true;
                 int Ord = Order;
-                List<int[]> ValuableSelfSupportedQ = new List<int[]>();
+                List<int[]> ValuableSelfSupported = new List<int[]>();
                 bool IsTowValuableObject = false;
                 Object O1 = new Object();
                 lock (O1)
                 {
-                    IsTowValuableObject = InAttackSelfThatNotSupportedCalculateValuableAll(TableS, Order, color, ikk, jkk, iik, jjk, ref ValuableSelfSupportedQ);
+                    IsTowValuableObject = InAttackSelfThatNotSupportedCalculateValuableAll(TableS, Order, color, ikk, jkk, iik, jjk, ref ValuableSelfSupported);
                     //Initiate Variables.
                     int[,] Tab = new int[8, 8];
                     for (int ik = 0; ik < 8; ik++)
@@ -2052,7 +2054,7 @@ namespace QuantumRefrigiz
                         if (Order == -1 && Tab[i, j] >= 0)
                         return false;
                     //when there is another object valuable in List continue.
-                    if (IsTowValuableObject && (!IsObjectValaubleObjectSelf(i, j, Tab[i, j], ref ValuableSelfSupportedQ)))
+                    if (IsTowValuableObject && (!IsObjectValaubleObjectSelf(i, j, Tab[i, j], ref ValuableSelfSupported)))
                         return false;
 
                     Order = Ord;
@@ -2137,7 +2139,7 @@ namespace QuantumRefrigiz
             }
         }
         //Creation A Complete List of Attacked Self Object(s).
-        bool InAttackSelfThatNotSupportedCalculateValuableAll(int[,] TableS, int Order, Color a, int ij, int ji, int ii, int jj, ref List<int[]> ValuableSelfSupportedQ)
+        bool InAttackSelfThatNotSupportedCalculateValuableAll(int[,] TableS, int Order, Color a, int ij, int ji, int ii, int jj, ref List<int[]> ValuableSelfSupported)
         {
             Object O = new Object();
             lock (O)
@@ -2246,8 +2248,8 @@ namespace QuantumRefrigiz
                                             Valuable[0] = TableS[i, j];
                                             Valuable[1] = i;
                                             Valuable[2] = j;
-                                            if (!ExistValuble(Valuable, ref ValuableSelfSupportedQ))
-                                                ValuableSelfSupportedQ.Add(Valuable);
+                                            if (!ExistValuble(Valuable, ref ValuableSelfSupported))
+                                                ValuableSelfSupported.Add(Valuable);
                                             S = true;
                                         }
                                     }
@@ -2258,21 +2260,21 @@ namespace QuantumRefrigiz
                 }
                 Order = Ord;
                 //When There is at last tow SelfNotSupporeted Object.
-                if (ValuableSelfSupportedQ.Count > 1)
+                if (ValuableSelfSupported.Count > 1)
                     return true;
                 return false;
             }
         }
-        bool ExistValuble(int[] Table, ref List<int[]> ValuableSelfSupportedQ)
+        bool ExistValuble(int[] Table, ref List<int[]> ValuableSelfSupported)
         {
             Object O = new Object();
             lock (O)
             {
                 bool Is = false;
-                for (int i = 0; i < ValuableSelfSupportedQ.Count; i++)
+                for (int i = 0; i < ValuableSelfSupported.Count; i++)
                 {
 
-                    if (ValuableSelfSupportedQ[i][0] == Table[0] && ValuableSelfSupportedQ[i][1] == Table[1] && ValuableSelfSupportedQ[i][2] == Table[2])
+                    if (ValuableSelfSupported[i][0] == Table[0] && ValuableSelfSupported[i][1] == Table[1] && ValuableSelfSupported[i][2] == Table[2])
                         return true;
                 }
                 return Is;
@@ -5726,7 +5728,7 @@ namespace QuantumRefrigiz
             }
         }
         //Return Huristic.
-        public double ReturnHuristicQ(int ii, int j, int Order, bool AA)
+        public double ReturnHuristic(int ii, int j, int Order, bool AA)
         {
             Object O = new Object();
             lock (O)
@@ -5742,12 +5744,12 @@ namespace QuantumRefrigiz
                     if (!AA)
                     {
                         if (ii >= 0 && UsePenaltyRegardMechnisamT)
-                            Hur = ReturnHuristicQCalculartor(0, ii, j, Order) * LearniningTable.LearingValue(Row, Column);
+                            Hur = ReturnHuristicCalculartor(0, ii, j, Order) * LearniningTable.LearingValue(Row, Column);
                         else
-                            Hur = ReturnHuristicQCalculartor(0, ii, j, Order);
+                            Hur = ReturnHuristicCalculartor(0, ii, j, Order);
                     }
                     else
-                        Hur = ReturnHuristicQCalculartor(0, ii, j, Order) + 1000;
+                        Hur = ReturnHuristicCalculartor(0, ii, j, Order) + 1000;
 
                     //Optimization depend of numbers of unpealties nodes quefficient.                
                     if (UsePenaltyRegardMechnisamT)
@@ -5822,7 +5824,7 @@ namespace QuantumRefrigiz
             }
         }
 
-        public double ReturnHuristicQCalculartor(int iAstarGready, int ii, int j, int Order)
+        public double ReturnHuristicCalculartor(int iAstarGready, int ii, int j, int Order)
         {
             //bool ActionStringSetting = false;
             Object O = new Object();
@@ -6359,42 +6361,42 @@ namespace QuantumRefrigiz
                             {
                                 if (AStarGreedy[k].SolderesOnTable == null || AStarGreedy[k].SolderesOnTable[m] == null)
                                     continue;
-                                Huristic += AStarGreedy[k].SolderesOnTable[m].SoldierThinkingQuantum[0].ReturnHuristicQCalculartor(iAstarGready, ii, 0, Order * -1);
+                                Huristic += AStarGreedy[k].SolderesOnTable[m].SoldierThinkingQuantum[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
                             }
                             //Repeate for Elephant.
                             for (int m = 0; m < AStarGreedy[k].ElefantMidle; m++)
                             {
                                 if (AStarGreedy[k].ElephantOnTable == null || AStarGreedy[k].ElephantOnTable[m] == null)
                                     continue;
-                                Huristic += AStarGreedy[k].ElephantOnTable[m].ElefantThinkingQuantum[0].ReturnHuristicQCalculartor(iAstarGready, ii, 0, Order * -1);
+                                Huristic += AStarGreedy[k].ElephantOnTable[m].ElefantThinkingQuantum[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
                             }
                             //Repeate for Hourse.
                             for (int m = 0; m < AStarGreedy[k].HourseMidle; m++)
                             {
                                 if (AStarGreedy[k].HoursesOnTable == null || AStarGreedy[k].HoursesOnTable[m] == null)
                                     continue;
-                                Huristic += AStarGreedy[k].HoursesOnTable[m].HourseThinkingQuantum[0].ReturnHuristicQCalculartor(iAstarGready, ii, 0, Order * -1);
+                                Huristic += AStarGreedy[k].HoursesOnTable[m].HourseThinkingQuantum[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
                             }
                             //Repeate for Castles.
                             for (int m = 0; m < AStarGreedy[k].CastleMidle; m++)
                             {
                                 if (AStarGreedy[k].CastlesOnTable == null || AStarGreedy[k].CastlesOnTable[m] == null)
                                     continue;
-                                Huristic += AStarGreedy[k].CastlesOnTable[m].CastleThinkingQuantum[0].ReturnHuristicQCalculartor(iAstarGready, ii, 0, Order * -1);
+                                Huristic += AStarGreedy[k].CastlesOnTable[m].CastleThinkingQuantum[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
                             }
                             //Repeate for Minstre.
                             for (int m = 0; m < AStarGreedy[k].MinisterMidle; m++)
                             {
                                 if (AStarGreedy[k].MinisterOnTable == null || AStarGreedy[k].MinisterOnTable[m] == null)
                                     continue;
-                                Huristic += AStarGreedy[k].MinisterOnTable[m].MinisterThinkingQuantum[0].ReturnHuristicQCalculartor(iAstarGready, ii, 0, Order * -1);
+                                Huristic += AStarGreedy[k].MinisterOnTable[m].MinisterThinkingQuantum[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
                             }
                             //Repeate for King.
                             for (int m = 0; m < AStarGreedy[k].KingMidle; m++)
                             {
                                 if (AStarGreedy[k].KingOnTable == null || AStarGreedy[k].KingOnTable[m] == null)
                                     continue;
-                                Huristic += AStarGreedy[k].KingOnTable[m].KingThinkingQuantum[0].ReturnHuristicQCalculartor(iAstarGready, ii, 0, Order * -1);
+                                Huristic += AStarGreedy[k].KingOnTable[m].KingThinkingQuantum[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
                             }
                         }
                         else
@@ -6403,42 +6405,42 @@ namespace QuantumRefrigiz
                             {
                                 if (AStarGreedy[k].SolderesOnTable == null || AStarGreedy[k].SolderesOnTable[m] == null)
                                     continue;
-                                Huristic += AStarGreedy[k].SolderesOnTable[m].SoldierThinkingQuantum[0].ReturnHuristicQCalculartor(iAstarGready, ii, 0, Order * -1);
+                                Huristic += AStarGreedy[k].SolderesOnTable[m].SoldierThinkingQuantum[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
                             }
                             //Repeate for Elephant.
                             for (int m = AStarGreedy[k].ElefantMidle; m < AStarGreedy[k].ElefantHigh; m++)
                             {
                                 if (AStarGreedy[k].ElephantOnTable == null || AStarGreedy[k].ElephantOnTable[m] == null)
                                     continue;
-                                Huristic += AStarGreedy[k].ElephantOnTable[m].ElefantThinkingQuantum[0].ReturnHuristicQCalculartor(iAstarGready, ii, 0, Order * -1);
+                                Huristic += AStarGreedy[k].ElephantOnTable[m].ElefantThinkingQuantum[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
                             }
                             //Repeate for Hourse.
                             for (int m = AStarGreedy[k].HourseMidle; m < AStarGreedy[k].HourseHight; m++)
                             {
                                 if (AStarGreedy[k].HoursesOnTable == null || AStarGreedy[k].HoursesOnTable[m] == null)
                                     continue;
-                                Huristic += AStarGreedy[k].HoursesOnTable[m].HourseThinkingQuantum[0].ReturnHuristicQCalculartor(iAstarGready, ii, 0, Order * -1);
+                                Huristic += AStarGreedy[k].HoursesOnTable[m].HourseThinkingQuantum[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
                             }
                             //Repeate for Castles.
                             for (int m = AStarGreedy[k].CastleMidle; m < AStarGreedy[k].CastleHigh; m++)
                             {
                                 if (AStarGreedy[k].CastlesOnTable == null || AStarGreedy[k].CastlesOnTable[m] == null)
                                     continue;
-                                Huristic += AStarGreedy[k].CastlesOnTable[m].CastleThinkingQuantum[0].ReturnHuristicQCalculartor(iAstarGready, ii, 0, Order * -1);
+                                Huristic += AStarGreedy[k].CastlesOnTable[m].CastleThinkingQuantum[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
                             }
                             //Repeate for Minstre.
                             for (int m = AStarGreedy[k].MinisterMidle; m < AStarGreedy[k].MinisterHigh; m++)
                             {
                                 if (AStarGreedy[k].MinisterOnTable == null || AStarGreedy[k].MinisterOnTable[m] == null)
                                     continue;
-                                Huristic += AStarGreedy[k].MinisterOnTable[m].MinisterThinkingQuantum[0].ReturnHuristicQCalculartor(iAstarGready, ii, 0, Order * -1);
+                                Huristic += AStarGreedy[k].MinisterOnTable[m].MinisterThinkingQuantum[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
                             }
                             //Repeate for King.
                             for (int m = AStarGreedy[k].KingMidle; m < AStarGreedy[k].KingHigh; m++)
                             {
                                 if (AStarGreedy[k].KingOnTable == null || AStarGreedy[k].KingOnTable[m] == null)
                                     continue;
-                                Huristic += AStarGreedy[k].KingOnTable[m].KingThinkingQuantum[0].ReturnHuristicQCalculartor(iAstarGready, ii, 0, Order * -1);
+                                Huristic += AStarGreedy[k].KingOnTable[m].KingThinkingQuantum[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
                             }
                         }
                     }                  //When Kind Found.
@@ -6447,27 +6449,27 @@ namespace QuantumRefrigiz
                         //Reapeate for Solders.
                         if (//IJ == 1 &&
                             AStarGreedy.Count > 0 && iIndex[0] != -1)
-                            Huristic += AStarGreedy[iIndex[0]].SolderesOnTable[mIndex[0]].SoldierThinkingQuantum[0].ReturnHuristicQCalculartor(iAstarGready, ii, jIndex[0], Order * -1);
+                            Huristic += AStarGreedy[iIndex[0]].SolderesOnTable[mIndex[0]].SoldierThinkingQuantum[0].ReturnHuristicCalculartor(iAstarGready, ii, jIndex[0], Order * -1);
                         //Repeate for Elephant.
                         if (//IJ == 2 &&
                             AStarGreedy.Count > 0 && iIndex[1] != -1)
-                            Huristic += AStarGreedy[iIndex[1]].ElephantOnTable[mIndex[1]].ElefantThinkingQuantum[0].ReturnHuristicQCalculartor(iAstarGready, ii, jIndex[1], Order * -1);
+                            Huristic += AStarGreedy[iIndex[1]].ElephantOnTable[mIndex[1]].ElefantThinkingQuantum[0].ReturnHuristicCalculartor(iAstarGready, ii, jIndex[1], Order * -1);
                         //Repeate for Hourse.
                         if (//IJ == 3 &&
                             AStarGreedy.Count > 0 && iIndex[2] != -1)
-                            Huristic += AStarGreedy[iIndex[2]].HoursesOnTable[mIndex[2]].HourseThinkingQuantum[0].ReturnHuristicQCalculartor(iAstarGready, ii, jIndex[2], Order * -1);
+                            Huristic += AStarGreedy[iIndex[2]].HoursesOnTable[mIndex[2]].HourseThinkingQuantum[0].ReturnHuristicCalculartor(iAstarGready, ii, jIndex[2], Order * -1);
                         //Repeate for Castles.
                         if (//IJ == 4 &&
                             AStarGreedy.Count > 0 && iIndex[3] != -1)
-                            Huristic += AStarGreedy[iIndex[3]].CastlesOnTable[mIndex[3]].CastleThinkingQuantum[0].ReturnHuristicQCalculartor(iAstarGready, ii, jIndex[3], Order * -1);
+                            Huristic += AStarGreedy[iIndex[3]].CastlesOnTable[mIndex[3]].CastleThinkingQuantum[0].ReturnHuristicCalculartor(iAstarGready, ii, jIndex[3], Order * -1);
                         //Repeate for Minstre.
                         if (//IJ == 5 &&
                             AStarGreedy.Count > 0 && iIndex[4] != -1)
-                            Huristic += AStarGreedy[iIndex[4]].MinisterOnTable[mIndex[4]].MinisterThinkingQuantum[0].ReturnHuristicQCalculartor(iAstarGready, ii, jIndex[4], Order * -1);
+                            Huristic += AStarGreedy[iIndex[4]].MinisterOnTable[mIndex[4]].MinisterThinkingQuantum[0].ReturnHuristicCalculartor(iAstarGready, ii, jIndex[4], Order * -1);
                         //Repeate for King.
                         if (//IJ == 6 &&
                             AStarGreedy.Count > 0 && iIndex[5] != -1)
-                            Huristic += AStarGreedy[iIndex[5]].KingOnTable[mIndex[5]].KingThinkingQuantum[0].ReturnHuristicQCalculartor(iAstarGready, ii, jIndex[5], Order * -1);
+                            Huristic += AStarGreedy[iIndex[5]].KingOnTable[mIndex[5]].KingThinkingQuantum[0].ReturnHuristicCalculartor(iAstarGready, ii, jIndex[5], Order * -1);
                             */
                     }
 
@@ -7295,23 +7297,23 @@ namespace QuantumRefrigiz
             }
         }
         //When There is not valuable Object in List Greater than Target Self Object return true.        
-        bool IsObjectValaubleObjectSelf(int i, int j, int Object, ref List<int[]> ValuableSelfSupportedQ)
+        bool IsObjectValaubleObjectSelf(int i, int j, int Object, ref List<int[]> ValuableSelfSupported)
         {
             Object O = new Object();
             lock (O)
             {
                 bool Is = true;
-                for (int k = 0; k < ValuableSelfSupportedQ.Count; k++)
+                for (int k = 0; k < ValuableSelfSupported.Count; k++)
                 {
-                    if (ValuableSelfSupportedQ[k][0] > 0 && Object > 0)
+                    if (ValuableSelfSupported[k][0] > 0 && Object > 0)
                     {
-                        if (System.Math.Abs(ValuableSelfSupportedQ[k][0]) > System.Math.Abs(Object))
+                        if (System.Math.Abs(ValuableSelfSupported[k][0]) > System.Math.Abs(Object))
                             Is = false;
                     }
                     else
-                       if (ValuableSelfSupportedQ[k][0] < 0 && Object < 0)
+                       if (ValuableSelfSupported[k][0] < 0 && Object < 0)
                     {
-                        if (System.Math.Abs(ValuableSelfSupportedQ[k][0]) > System.Math.Abs(Object))
+                        if (System.Math.Abs(ValuableSelfSupported[k][0]) > System.Math.Abs(Object))
                             Is = false;
                     }
                     if (Is == false)
@@ -7440,7 +7442,7 @@ namespace QuantumRefrigiz
                 bool R = new bool();
                 bool IsTowValuableObjectEnemy = false;
                 List<int[]> ValuableEnemyNotSupported = new List<int[]>();
-                List<int[]> ValuableSelfSupportedQ = new List<int[]>();
+                List<int[]> ValuableSelfSupported = new List<int[]>();
 
                 //When true must penalty
                 Object O11 = new Object();

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +20,7 @@ namespace QuantumRefrigiz
         //private readonly object balancelockS = new object();
         public static Image[] K = new Image[2]; 
         //Initiate Global Variables.
-        List<int[]> ValuableSelfSupportedQ = new List<int[]>();
+        List<int[]> ValuableSelfSupported = new List<int[]>();
       
         public bool MovementsAStarGreedyHuristicFoundT = false;
         public bool IgnoreSelfObjectsT = false;
@@ -43,7 +43,8 @@ namespace QuantumRefrigiz
 
         static void Log(Exception ex)
         {
-            
+            try
+            {
                 Object a = new Object();
                 lock (a)
                 {
@@ -51,20 +52,21 @@ namespace QuantumRefrigiz
                     File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
                 }
             }
-            
+            catch (Exception t) { Log(t); }
+        }
         public void Dispose()
         {
-            ValuableSelfSupportedQ = null;
+            ValuableSelfSupported = null;
             K = null;
         }
 
-        public double ReturnHuristicQ()
+        public double ReturnHuristic()
         {
             double a = 0;
             for (int ii = 0; ii < AllDraw.KingMovments; ii++)
                 try
                 {
-                    a += KingThinkingQuantum[ii].ReturnHuristicQ(-1, -1, Order,false);
+                    a += KingThinkingQuantum[ii].ReturnHuristic(-1, -1, Order,false);
                 }
                 catch (Exception t)
                 {
@@ -77,7 +79,7 @@ namespace QuantumRefrigiz
         {
             try
             {
-                double a = ReturnHuristicQ();
+                double a = ReturnHuristic();
                 if (MaxHuristicxK < a)
                 {
                     Object O2 = new Object();

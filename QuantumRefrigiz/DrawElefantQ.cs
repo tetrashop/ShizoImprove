@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -40,7 +40,8 @@ namespace QuantumRefrigiz
 
         static void Log(Exception ex)
         {
-            
+            try
+            {
                 Object a = new Object();
                 lock (a)
                 {
@@ -48,7 +49,8 @@ namespace QuantumRefrigiz
                     File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
                 }
             }
-            
+            catch (Exception t) { Log(t); }
+        }
         public void Dispose()
         {
             ValuableSelfSupported = null;
@@ -86,7 +88,7 @@ namespace QuantumRefrigiz
             for (int ii = 0; ii < AllDraw.ElefantMovments; ii++)
                 try
                 {
-                    a += ElefantThinkingQuantum[ii].ReturnHuristicQ(-1, -1, Order, false);
+                    a += ElefantThinkingQuantum[ii].ReturnHuristic(-1, -1, Order, false);
                 }
                 catch (Exception t)
                 {

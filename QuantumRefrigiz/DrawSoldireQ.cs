@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +19,7 @@ namespace QuantumRefrigiz
         //Iniatate Global Variables.
         //private readonly object balancelock = new object();
         //private readonly object balancelockS = new object();
-        List<int[]> ValuableSelfSupportedQ = new List<int[]>();
+        List<int[]> ValuableSelfSupported = new List<int[]>();
 
         public static Image[] S = new Image[2];
         public bool MovementsAStarGreedyHuristicFoundT = false;
@@ -41,7 +41,8 @@ namespace QuantumRefrigiz
         
         static void Log(Exception ex)
         {
-            
+            try
+            {
                 Object a = new Object();
                 lock (a)
                 {
@@ -49,21 +50,22 @@ namespace QuantumRefrigiz
                     File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
                 }
             }
-            
+            catch (Exception t) { Log(t); }
+        }
         public bool AccessIsQuntumMove
         {
             get { return IsQuntumMove; }
         }
         public void Dispose()
         {
-            ValuableSelfSupportedQ = null;
+            ValuableSelfSupported = null;
             S = null;
         }
         public bool MaxFound(ref bool MaxNotFound)
         {
             try
             {
-                double a = ReturnHuristicQ();
+                double a = ReturnHuristic();
                 if (MaxHuristicxS < a)
                 {
                     Object O2 = new Object();
@@ -85,13 +87,13 @@ namespace QuantumRefrigiz
             MaxNotFound = true;
             return false;
         }
-        public double ReturnHuristicQ()
+        public double ReturnHuristic()
         {
             double a = 0;
             for (int ii = 0; ii < AllDraw.SodierMovments; ii++)
                 try
                 {
-                    a += SoldierThinkingQuantum[ii].ReturnHuristicQ(-1, -1, Order,false);
+                    a += SoldierThinkingQuantum[ii].ReturnHuristic(-1, -1, Order,false);
                 }
                 catch (Exception t)
                 {

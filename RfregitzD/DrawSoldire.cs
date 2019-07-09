@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -38,7 +38,8 @@ namespace RefrigtzDLL
         int CurrentAStarGredyMax = -1;
         static void Log(Exception ex)
         {
-            
+            try
+            {
                 Object a = new Object();
                 lock (a)
                 {
@@ -46,7 +47,8 @@ namespace RefrigtzDLL
                     File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
                 }
             }
-            
+            catch (Exception t) { Log(t); }
+        }
         
         public void Dispose()
         {
@@ -151,7 +153,8 @@ namespace RefrigtzDLL
                     Tab[i, j] = this.Table[i, j];
             //Initiate a Object and Assignemt of a Clone to Construction of a Copy.
 
-            AA = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, this.Row, this.Column, this.color, Tab, this.Order, false, this.Current);
+            AA = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, this.Row, this.Column, this.color, Tab, this.Order, false, this.Current
+                );
             AA.ArrangmentsChanged = ArrangmentsChanged;
             for (int i = 0; i < AllDraw.SodierMovments; i++)
             {

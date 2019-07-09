@@ -1,4 +1,4 @@
-/***********************************************************************************
+﻿/***********************************************************************************
  * Every Ruls of objective condition of chess game.*********************************
  * Current Rules Have not Attack Movements****************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Ramin Edjlal********************************************************************
@@ -153,7 +153,8 @@ namespace QuantumRefrigiz
         public int CurrentAStarGredyMax = -1;
         static void Log(Exception ex)
         {
-            
+            try
+            {
                 Object a = new Object();
                 lock (a)
                 {
@@ -161,7 +162,8 @@ namespace QuantumRefrigiz
                     File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
                 }
             }
-            
+            catch (Exception t) { Log(t); }
+        }
         public ChessRules(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged, int oRDER)
             
         {

@@ -2489,12 +2489,12 @@ namespace RefrigtzDLL
                 {
                     //When Before Move such situation is observed calculate huristic count.
                     if (Order == 1 && A.CheckGrayObjectDangour)
-                        HA += (AllDraw.SignKingSafe *
-                            (ObjectValueCalculator(Table, RowS, ColS, RowD, ColD)));
+                        HA +=// AllDraw.SignKingSafe * 
+                            (ObjectValueCalculator(Table, RowS, ColS, RowD, ColD));
                     else
                     if (Order == -1 && A.CheckBrownObjectDangour)
-                        HA += (AllDraw.SignKingSafe *
-                            (ObjectValueCalculator(Table, RowS, ColS, RowD, ColD)));
+                        HA += //AllDraw.SignKingSafe * 
+                            (ObjectValueCalculator(Table, RowS, ColS, RowD, ColD));
 
                 }
             }
@@ -2634,12 +2634,10 @@ namespace RefrigtzDLL
                         lock (O4)
                         {
                             if (Order == -1 && A.CheckGrayObjectDangour)
-                                HA +=// AllDraw.SignKingDangour *
-                                (ObjectValueCalculator(Table1, RowS, ColS, RowD, ColD));
+                                HA += AllDraw.SignKingDangour * (ObjectValueCalculator(Table1, RowS, ColS, RowD, ColD));
                             else
                                 if (Order == 1 && A.CheckBrownObjectDangour)
-                                HA +=// AllDraw.SignKingDangour *
-                                (ObjectValueCalculator(Table1, RowS, ColS, RowD, ColD));
+                                HA += AllDraw.SignKingDangour * (ObjectValueCalculator(Table1, RowS, ColS, RowD, ColD));
 
 
                         }
@@ -9400,9 +9398,9 @@ namespace RefrigtzDLL
                     HeuristicKingDangour = HKingDangour * SignOrderToPlate(Order);
                     */
                     HDistance /= 10;
-                    //HKingSafe /= 10;
+                    HKingSafe /= 10;
                     HFromCenter /= 10;
-                    //HKingDangour /= 10;
+                    HKingDangour /= 10;
                     if (Before)
                     {
                         /*HuristicAttackValue = Huriistic[0];
@@ -9417,49 +9415,49 @@ namespace RefrigtzDLL
                         HeuristicKingDangour = HKingDangour;
                         */
 
-                        HuristicAttackValue = (Huriistic[0] * SignOrderToPlate(Order));
-                        HuristicKillerValue = (Huriistic[1] * SignOrderToPlate(Order));
+                        HuristicAttackValue = Huriistic[0] * SignOrderToPlate(Order);
+                        HuristicKillerValue = Huriistic[1] * SignOrderToPlate(Order);
                         HuristicMovementValue = Huriistic[2] * SignOrderToPlate(Order);
-                        HuristicObjectDangourCheckMateValue = ((Huriistic[3] + HCheck) * SignOrderToPlate(Order));
-                        HuristicReducedAttackValue = (Huriistic[4] * SignOrderToPlate(Order));
-                        HuristicSelfSupportedValue = (Huriistic[5] * SignOrderToPlate(Order));
-                        HeuristicDistabceOfCurrentMoveFromEnemyKingValue = (HDistance * SignOrderToPlate(Order));
-                        HeuristicKingSafe = (HKingSafe * SignOrderToPlate(Order));
-                        HeuristicFromCenter = (HFromCenter * SignOrderToPlate(Order));
-                        HeuristicKingDangour = (HKingDangour * SignOrderToPlate(Order));
+                        HuristicObjectDangourCheckMateValue = (Huriistic[3] + HCheck) * SignOrderToPlate(Order);
+                        HuristicReducedAttackValue = Huriistic[4] * SignOrderToPlate(Order);
+                        HuristicSelfSupportedValue = Huriistic[5] * SignOrderToPlate(Order);
+                        HeuristicDistabceOfCurrentMoveFromEnemyKingValue = HDistance * SignOrderToPlate(Order);
+                        HeuristicKingSafe = HKingSafe * SignOrderToPlate(Order);
+                        HeuristicFromCenter = HFromCenter * SignOrderToPlate(Order);
+                        HeuristicKingDangour = HKingDangour * SignOrderToPlate(Order);
                         /*if (Killed != 0)
+                        {
+                            if (Order == 1)
                             {
-                                if (Order == 1)
+                                //When Current Order is on Attack
+                                if (Killed > 0)
                                 {
-                                    //When Current Order is on Attack
-                                    if (Killed > 0)
-                                    {
-                                        HuristicKillerValue = Double.MinValue / 2;
-                                    }
-                                    else
-                                    //When Enemy has Attacked.
-                                    if (Killed < 0)
-                                    {
-                                        HuristicKillerValue = Double.MaxValue / 2;
-
-                                    }
+                                    HuristicKillerValue = Double.MinValue / 2;
                                 }
                                 else
+                                //When Enemy has Attacked.
+                                if (Killed < 0)
                                 {
-                                    if (Killed < 0)
-                                    {
-                                        HuristicKillerValue = Double.MinValue / 2;
-                                    }
-                                    else
-                                    //When Enemy has Attacked.
-                                    if (Killed > 0)
-                                    {
-                                        HuristicKillerValue = Double.MaxValue / 2;
+                                    HuristicKillerValue = Double.MaxValue / 2;
 
-                                    }
                                 }
+                            }
+                            else
+                            {
+                                if (Killed < 0)
+                                {
+                                    HuristicKillerValue = Double.MinValue / 2;
+                                }
+                                else
+                                //When Enemy has Attacked.
+                                if (Killed > 0)
+                                {
+                                    HuristicKillerValue = Double.MaxValue / 2;
 
-                            }*/
+                                }
+                            }
+
+                        }*/
                     }
                     else
                     {/*
@@ -9477,7 +9475,7 @@ namespace RefrigtzDLL
 
                         HuristicAttackValue += (Huriistic[0] * SignOrderToPlate(Order));
                         HuristicKillerValue += (Huriistic[1] * SignOrderToPlate(Order));
-                        HuristicMovementValue = Huriistic[2] * SignOrderToPlate(Order);
+                        HuristicMovementValue += (Huriistic[2] * SignOrderToPlate(Order));
                         HuristicObjectDangourCheckMateValue += ((Huriistic[3] + HCheck) * SignOrderToPlate(Order));
                         HuristicReducedAttackValue += (Huriistic[4] * SignOrderToPlate(Order));
                         HuristicSelfSupportedValue += (Huriistic[5] * SignOrderToPlate(Order));
@@ -9486,38 +9484,38 @@ namespace RefrigtzDLL
                         HeuristicFromCenter += (HFromCenter * SignOrderToPlate(Order));
                         HeuristicKingDangour += (HKingDangour * SignOrderToPlate(Order));
                         /*if (Killed != 0)
-                  {
-                      if (Order == 1)
-                      {
-                          //When Current Order is on Attack
-                          if (Killed > 0)
-                          {
-                              HuristicKillerValue = Double.MinValue / 2;
-                          }
-                          else
-                          //When Enemy has Attacked.
-                          if (Killed < 0)
-                          {
-                              HuristicKillerValue = Double.MaxValue / 2;
+                        {
+                            if (Order == 1)
+                            {
+                                //When Current Order is on Attack
+                                if (Killed > 0)
+                                {
+                                    HuristicKillerValue = Double.MinValue / 2;
+                                }
+                                else
+                                //When Enemy has Attacked.
+                                if (Killed < 0)
+                                {
+                                    HuristicKillerValue = Double.MaxValue / 2;
 
-                          }
-                      }
-                      else
-                      {
-                          //When Self is On attach
-                          if (Killed < 0)
-                          {
-                              HuristicKillerValue = Double.MinValue / 2;
-                          }
-                          else
-                          //When Enemy has on Attack.
-                          if (Killed > 0)
-                          {
-                              HuristicKillerValue = Double.MaxValue / 2;
+                                }
+                            }
+                            else
+                            {
+                                //When Self is On attach
+                                if (Killed < 0)
+                                {
+                                    HuristicKillerValue = Double.MinValue / 2;
+                                }
+                                else
+                                //When Enemy has on Attack.
+                                if (Killed > 0)
+                                {
+                                    HuristicKillerValue = Double.MaxValue / 2;
 
-                          }
-                      }
-                  }*/
+                                }
+                            }
+                        }*/
 
                     }
                 }
