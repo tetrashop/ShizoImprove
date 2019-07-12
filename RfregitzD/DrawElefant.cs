@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -39,16 +39,14 @@ namespace RefrigtzDLL
         int CurrentAStarGredyMax = -1;
         static void Log(Exception ex)
         {
-            try
-            {
+            
                 Object a = new Object();
                 lock (a)
                 {
                     string stackTrace = ex.ToString();
                     File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
                 }
-            }
-            catch (Exception t) { Log(t); }
+           
         }
         public void Dispose()
         {
@@ -57,8 +55,7 @@ namespace RefrigtzDLL
         }
         public bool MaxFound(ref bool MaxNotFound)
         {
-            try
-            {
+            
                 double a = ReturnHuristic();
                 if (MaxHuristicxE < a)
                 {
@@ -72,12 +69,7 @@ namespace RefrigtzDLL
                     }
                     return true;
                 }
-            }
-            catch (Exception t)
-            {
-                Log(t);
-
-            }
+           
             MaxNotFound = true;
             return false;
         }
@@ -85,14 +77,9 @@ namespace RefrigtzDLL
         {
             double a = 0;
             for (int ii = 0; ii < AllDraw.ElefantMovments; ii++)
-                try
-                {
+                
                     a += ElefantThinking[ii].ReturnHuristic(-1, -1, Order, false);
-                }
-                catch (Exception t)
-                {
-                    Log(t);
-                }
+               
 
             return a;
         }
@@ -158,16 +145,10 @@ namespace RefrigtzDLL
             AA.ArrangmentsChanged = ArrangmentsChanged;
             for (int i = 0; i < AllDraw.ElefantMovments; i++)
             {
-                try
-                {
+                
                     AA.ElefantThinking[i] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
                     this.ElefantThinking[i].Clone(ref AA.ElefantThinking[i]);
-                }
-                catch (Exception t)
-                {
-                    Log(t);
-                    AA.ElefantThinking[i] = null;
-                }
+               
             }
             AA.Table = new int[8, 8];
             for (int ii = 0; ii < 8; ii++)
@@ -183,8 +164,7 @@ namespace RefrigtzDLL
         //Draw an Instatnt Elephant On the Table.
         public void DrawElefantOnTable(ref Graphics g, int CellW, int CellH)
         {
-            try
-            {
+            
 
                 object balancelockS = new object();
 
@@ -219,11 +199,7 @@ namespace RefrigtzDLL
                         }
                     }
                 }
-            }
-            catch (Exception t)
-            {
-                Log(t);
-            }
+           
         }
     }
 }

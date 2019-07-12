@@ -36,205 +36,135 @@ namespace TryCatchDisable
 
         private void buttonTryCatchDisable_Click(object sender, EventArgs e)
         {
-            openFileDialogTryCatchDisable.ShowDialog();
-            String A = openFileDialogTryCatchDisable.FileName;
-            String Contain = System.IO.File.ReadAllText(A);
             try
             {
-            //   do
-            //    {
-                    /*  int P = 0;
-                      if (Contain.Substring(A1, Contain.Length - A1).Equals("/*try"))
-                          P = Contain.Substring(A1, Contain.Length - A1).IndexOf("/*try") + A1;
-                      //do { P++; } while (!Contain.Substring(P, Contain.Length - P).Equals("/*try") && P < Contain.Length);
-                      if (P < Contain.Length && P > 0)
-                      {
-                          A1 = P + 1;
-                          A2 = P + 1;
-                      }
-                      else
-                      {
+                openFileDialogTryCatchDisable.ShowDialog();
+                String A = openFileDialogTryCatchDisable.FileName;
+                String Contain = System.IO.File.ReadAllText(A);
+                int A1 = Contain.IndexOf("try");
+                int A2 = A1;
+                try
+                {
+                    while (A1 < Contain.Length && A1 > 0)
+                    {
+                        int P = A1;
+                        P = Contain.Substring(A1, Contain.Length-A1).IndexOf("try");
+                        A1 = A1 + P;
+                        A2 = A1;
+                        if (A1 < 0)
+                            break;
+                        while ((!(Contain[A2].Equals('{'))) && (A2 < Contain.Length))
+                            A2++;
 
-                          A1 = Contain.Substring(A1, Contain.Length - A1).IndexOf("try");
-                          A2 = A1;
-                      }
+                        Contain = Contain.Replace(Contain.Substring(A1, A2 - A1 + 1), "/*" + Contain.Substring(A1, A2 - A1 + 1) + "*/");
+                        A1 = A2 + 5;
+                    }
+                }
+                catch (Exception t) { Log(t); }
+                try
+                {
+                    A2 = Contain.IndexOf("catch");
+                    CatchReplace(ref Contain, A2, A2);
+                }
+                catch (Exception t) { Log(t); }
+                saveDialogFileTryCatchDisable.ShowDialog();
+                System.IO.File.WriteAllText(saveDialogFileTryCatchDisable.FileName, Contain);
+                MessageBox.Show("Done!");
 
-
-                      while (!(Contain[A2].Equals('{')))
-                          A2++;
-                      A1++;
-                      Contain = Contain.Replace(Contain.Substring(A1, A1 - Contain.IndexOf("try")), "/*" + Contain.Substring(Contain.IndexOf("try"), A1 - Contain.IndexOf("try")));
-                 */
-                    int A2 = Contain.IndexOf("try");
-                    TryReplace(ref Contain, A2, A2, false);
-         //       } while (A1<Contain.Length);
             }
-            catch (Exception t) { Log(t); }
-            try
+            catch (Exception t)
             {
-                int A2 = Contain.IndexOf("catch");
-                CatchReplace(ref Contain, A2, A2, false);
-
+                Log(t);
             }
-            catch (Exception t) { Log(t); }
-            saveDialogFileTryCatchDisable.ShowDialog();
-            System.IO.File.WriteAllText(saveDialogFileTryCatchDisable.FileName, Contain);
-            MessageBox.Show("Done!");
         }
-        void CatchReplace(ref String Contain, int S, int A2,bool CatchNotFinished)
+        bool IgnoreofCommentsDoubleSlash(String Contain, int Main)
+        {
+            int A = 0;
+            int Begin = 0, End = 0;
+            do
+            {
+                String S = Contain.Substring(A, Contain.Length - A);
+
+                Begin = S.IndexOf("//");
+                End = S.IndexOf('\0');
+                if (Begin < Main && End > Main)
+                {
+                    return true;
+
+                }
+                else
+                {
+                    Begin = S.IndexOf("/*");
+                    End = S.IndexOf("*/");
+                    if (Begin < Main && End > Main)
+                    {
+                        Contain = Contain.Remove(Begin, End - Begin + 2);
+
+                        return true;
+                    }
+                    else
+                        return false;
+                }
+
+                A++;
+            } while (A < Contain.Length);
+            return false;
+        }
+        int FoundOfProperClosedBracetincatch(String Contain, int MainOpenBracketIndex)
         {
             try
             {
-                //if (Contain.Substring(S, Contain.Length - S).Contains("/*}catch"))
-                //return;
-                int A = A2;
-
-                if (CatchNotFinished)
+                int IsMainClosedBraket = 0;
+                do
                 {
-                    do
-                    {
-                        try
-                        {
-                            while (!(Contain.Substring(A, A - S + 1).Equals("/*try")))
-                                A--;
-                        }catch(Exception t) { }
-                        A--;
-                        if (A <= 0 || A >= S)
-                            break;
-                        Contain = Contain.Replace(Contain.Substring(A, A - S + 1), "try");                        
-                    } while (A < S);
-                }
-                bool IsNew = false;
-                while (!(Contain[A2].Equals('}')))
-                {
-                    A2++;
-                    try
-                    {
-                        if (A2 > 0 && Contain.Substring(A2, 5).Equals("catch"))
-                        {
-                            S = A2;
-                            while (!(Contain[S].Equals('}')))
-                                S--;
-                            try
-                            {
-                                CatchReplace(ref Contain, S, A2, CatchNotFinished);
-                            }
-                            catch (Exception t) { Log(t); }
-                        }
-                    }
-                    catch (Exception t) { Log(t); }
-                    if (Contain[A2].Equals('}') && IsNew)
-                    {
-                        IsNew = false;
-                        A2++;
-                    }
-                    if (Contain[A2].Equals('{'))
-                        IsNew = true;
-                }
-                
-                Contain = Contain.Replace(Contain.Substring(S, A2 - S + 1), Contain.Substring(S, A2 - S + 1)+"*/");
+                    bool Ign = IgnoreofCommentsDoubleSlash(Contain, MainOpenBracketIndex);
 
-                while (A2 < Contain.Length)
-                {
-                    A2++;
-                    try
-                    {
-                        if (A2 > 0 && Contain.Substring(A2, 5).Equals("catch"))
-                        {
+                    if (Contain[MainOpenBracketIndex].Equals('{') && (!Ign))
+                        IsMainClosedBraket++;
 
-                            S = A2;
-                            while (!(Contain[S].Equals('}')))
-                                S--;
-                           
-                            try
-                            {
-                                CatchNotFinished = true;
-                                CatchReplace(ref Contain, S, A2,CatchNotFinished);
-                                break;
-                            }
-                            catch (Exception t) { Log(t); }
-                        }
+                    if (Contain[MainOpenBracketIndex].Equals('}') && IsMainClosedBraket == 1 && (!Ign))
+                    {
+                        return MainOpenBracketIndex;
                     }
-                    catch (Exception t) { Log(t); }
-                }
+                    else
+                    if (Contain[MainOpenBracketIndex].Equals('}') && IsMainClosedBraket >= 1 && (!Ign))
+                        IsMainClosedBraket--;
+                    MainOpenBracketIndex++;
+                } while (MainOpenBracketIndex < Contain.Length);
             }
-            catch (Exception t) { Log(t); }
+            catch (Exception t)
+            {
+                Log(t);
+            }
+            return MainOpenBracketIndex;
         }
-        void TryReplace(ref String Contain, int S, int A2, bool TryNotFinished)
+
+        void CatchReplace(ref String Contain, int S, int A2)
         {
             try
             {
-                //if (Contain.Substring(S, Contain.Length - S).Contains("/*}Try"))
-                //return;
-                int A = A2;
 
-                if (TryNotFinished)
-                {
-                    do
-                    {
-                        try
-                        {
-                            while (!(Contain.Substring(A, A - S + 1).Equals("/*try")))
-                                A--;
-                        }
-                        catch (Exception t) { }
-                        A--;
-                        if (A <= 0 || A >= S)
-                            break;
-                        Contain = Contain.Replace(Contain.Substring(S, S - A- 1), "try");
-                    } while (S < A);
-                }
                 bool IsNew = false;
-                while (!(Contain[A2].Equals('{')))
+
+                while (A2 < Contain.Length && A2 > 0)
                 {
-                    A2++;
+                    int C = A2;
+                    C= Contain.Substring(A2, Contain.Length-A2).IndexOf("catch");
+                    A2 = A2 + C;
+
+                    //A2 = Contain.IndexOf("catch");
+                    int P = A2;
                     try
                     {
-                        if (A2 > 0 && Contain.Substring(A2, 3).Equals("try"))
-                        {
-                            S = A2;
-                            while (!(Contain[S].Equals('{')))
-                                S--;
-                            try
-                            {
-                                TryReplace(ref Contain, S, A2, TryNotFinished);
-                            }
-                            catch (Exception t) { Log(t); }
-                        }
-                    }
-                    catch (Exception t) { Log(t); }
-                    if (Contain[A2].Equals('{') && IsNew)
-                    {
-                        IsNew = false;
-                        A2++;
-                    }
-                    if (Contain[A2].Equals('}'))
-                        IsNew = true;
-                }
-                Contain = Contain.Replace(Contain.Substring(S-1, A2 + 1), Contain.Substring(S-1, A2 + 1) + "*/");
 
+                        while (!(Contain[A2].Equals('}')))
+                            A2--;
+                        A2--;
+                        int A1 = FoundOfProperClosedBracetincatch(Contain, P);
 
+                        Contain = Contain.Replace(Contain.Substring(A2, A1 - A2 + 1), "/*" + Contain.Substring(A2, A1 - A2 + 1) + "*/");
+                        A2 = A1 + 5;
 
-                while (A2 < Contain.Length)
-                {
-                    A2++;
-                    try
-                    {
-                        if (A2 > 0 && Contain.Substring(A2, 3).Equals("try"))
-                        {
-
-                            S = A2;
-                            while (!(Contain[S].Equals('{')))
-                                S--;
-
-                            try
-                            {
-                                TryNotFinished = true;
-                                TryReplace(ref Contain, S, A2, TryNotFinished);
-                                break;
-                            }
-                            catch (Exception t) { Log(t); }
-                        }
                     }
                     catch (Exception t) { Log(t); }
                 }
