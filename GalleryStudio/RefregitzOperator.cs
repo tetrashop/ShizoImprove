@@ -1,4 +1,4 @@
-﻿/**************************************************************************************************************
+/**************************************************************************************************************
  * Ramin Edjlal Copyright 1397/04/20 **************************************************************************
  * 1397/04/26:Problem in Seirlization Recurisvely of linked list for refrigitz.********************************
  * ************************************************************************************************************
@@ -31,16 +31,14 @@ namespace GalleryStudio
         //int Kind = -1;
         static void Log(Exception ex)
         {
-            try
-            {
+            
                 Object a = new Object();
                 lock (a)
                 {
                     string stackTrace = ex.ToString();
                     File.AppendAllText(Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
                 }
-            }
-            catch (Exception t) { Log(t); }
+           
         }
         public RefregitzOperator(int Order, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments//) : base(MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments
             )
@@ -73,8 +71,7 @@ namespace GalleryStudio
                 RefrigtzDLL.AllDraw Dummy = null;
                 BinaryFormatter Formatters = new BinaryFormatter();
                 DummyFileStream.Seek(0, SeekOrigin.Begin);
-                try
-                {
+                
                     while (p <= No)
                     {
                         if (DummyFileStream.Length >= DummyFileStream.Position)
@@ -84,12 +81,7 @@ namespace GalleryStudio
                         p++;
                     }
                     DummyFileStream.Flush(); DummyFileStream.Close();
-                }
-                catch (SerializationException t)
-                {
-                    Console.WriteLine(t.Message.ToString());
-                    Dummy = null;
-                }
+               
                 return Dummy;
             }
         }

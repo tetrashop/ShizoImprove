@@ -1,4 +1,4 @@
-﻿/****************************************************************************
+/****************************************************************************
  * ThinkingQuantum Operation class.*************************************************
  * Ramin Edjlal**************************************************************
  * Drived Classess of Autamata Cellular Quantum ThinkingQuantum Kernel**************
@@ -230,8 +230,7 @@ namespace QuantumRefrigiz
         ///Log of Errors.
         static void Log(Exception ex)
         {
-            try
-            {
+            
                 Object a = new Object();
                 lock (a)
                 {
@@ -240,8 +239,7 @@ namespace QuantumRefrigiz
                     File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); /// path of file where stack trace will be stored.
 
                 }
-            }
-            catch (Exception t) { Log(t); }
+           
         }
         void SetObjectNumbersInList(int[,] Tab)
         {
@@ -657,12 +655,10 @@ namespace QuantumRefrigiz
                     //For All Depth(s).
                     for (int i = 0; i < AStarGreedy.Count; i++)
                     {
-                        try
-                        {
+                        
                             //Clone a Copy From Depth Objects.
                             AStarGreedy[i].Clone(AA.AStarGreedy[i]);
-                        }
-                        catch (Exception tt) { Log(tt); }
+                       
                     }
                 }
                 //For All Moves Indexx Solders List Count.
@@ -905,8 +901,7 @@ namespace QuantumRefrigiz
                 int DummyOrder = Order;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
                 ///When AStarGreedy Huristic is Not Assigned.
-                try
-                {
+                
                     //When Huristic is not Greedy.
                     if (!AStarGreedyHuristicT)
                     {
@@ -1103,11 +1098,7 @@ namespace QuantumRefrigiz
                             }
                         }
                     }
-                }
-                catch (Exception t)
-                {
-                    Log(t);
-                }
+               
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 Order = DumOrder;
@@ -1129,8 +1120,7 @@ namespace QuantumRefrigiz
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
                 double Sign = 1;
                 ///When AStarGreedy Huristic is Not Assigned.
-                try
-                {
+                
 
                     if (!AStarGreedyHuristicT)
                     {
@@ -1364,11 +1354,7 @@ namespace QuantumRefrigiz
                             }
                         }
                     }
-                }
-                catch (Exception t)
-                {
-                    Log(t);
-                }
+               
                 //Initiate to Begin Call Orders.
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
@@ -1397,8 +1383,7 @@ namespace QuantumRefrigiz
                 int DummyOrder = Order;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
                 ///When There is no AStarGreedyHuristicT
-                try
-                {
+                
                     if (!AStarGreedyHuristicT)
                     {
                         ///For All Object in Current Table.
@@ -1484,11 +1469,7 @@ namespace QuantumRefrigiz
                             }
                         }
                     }
-                }
-                catch (Exception t)
-                {
-                    Log(t);
-                }
+               
                 //Initiate Orders to Call Begining.
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
@@ -1510,7 +1491,7 @@ namespace QuantumRefrigiz
                 //Defualt is Gray Order.
                 double HA = 0.0;
                 double Sign = AllDraw.SignKiller;
-                int DummyOrder = Order;
+                int DummyOrder = Ord;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
                 //Make live when there is killed.
                 if (Killed != 0)
@@ -1518,8 +1499,7 @@ namespace QuantumRefrigiz
                     Tab[RowD, ColD] = Tab[RowS, ColS];
                     Tab[RowS, ColS] = Killed;
                 }
-                try
-                {
+                
 
                     int Order = new int();
                     Order = DummyOrder;
@@ -1559,11 +1539,7 @@ namespace QuantumRefrigiz
                         }
                         a = colorAS;
                     }
-                }
-                catch (Exception t)
-                {
-                    Log(t);
-                }
+               
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
 
@@ -2653,8 +2629,7 @@ namespace QuantumRefrigiz
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
 
                 //If There is Not AStarGreedy Huristic Boolean Value.
-                try
-                {
+                
                     if (!AStarGreedyHuristicT)
                     {
                         //int RowS = RowSS, ColS = ColSS;
@@ -2939,11 +2914,7 @@ namespace QuantumRefrigiz
                             }
                         }
                     }
-                }
-                catch (Exception t)
-                {
-                    Log(t);
-                }
+               
                 //Reassignments of Global Orders with Local Begining One.
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
@@ -2956,8 +2927,7 @@ namespace QuantumRefrigiz
             Object O = new Object();
             lock (O)
             {
-                try
-                {
+                
                     //For All Home
                     for (int i = 0; i < 8; i++)
                         for (int j = 0; j < 8; j++)
@@ -2968,12 +2938,7 @@ namespace QuantumRefrigiz
                         }
                     //Else return equlity.
                     return true;
-                }
-                catch (Exception t)
-                {
-                    Log(t);
-                    return false;
-                }
+               
             }
         }
         //If tow int Objects is equal.
@@ -2982,19 +2947,13 @@ namespace QuantumRefrigiz
             Object O = new Object();
             lock (O)
             {
-                try
-                {
+                
                     //When there is different values in same location of tow Table return non equality.
                     if (Tab1 != Tab2)
                         return false;
                     //Else return equlity.
                     return true;
-                }
-                catch (Exception t)
-                {
-                    Log(t);
-                    return false;
-                }
+               
             }
         }
         //Deterimination of Existance of Table in List..
@@ -4110,8 +4069,7 @@ namespace QuantumRefrigiz
                     Check = 100;
                     CheckMate = 1000;
                 }*/
-                try
-                {
+                
                     Object O1 = new Object();
                     lock (O1)
                     {
@@ -4214,11 +4172,7 @@ namespace QuantumRefrigiz
                             }
                         }
                     }
-                }
-                catch (Exception t)
-                {
-                    Log(t);
-                }
+               
                 //if (HA < 0)
                 //IgnoreFromCheckandMateHuristic = true;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
@@ -4575,8 +4529,7 @@ namespace QuantumRefrigiz
                 int DummyOrder = Order;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
                 ///When AStarGreedy Huristic is Not Assigned.
-                try
-                {
+                
                     if (!AStarGreedyHuristicT)
                     {
                         //For Current Objects.
@@ -4708,11 +4661,7 @@ namespace QuantumRefrigiz
                             }//);
                         }//);
                     }
-                }
-                catch (Exception t)
-                {
-                    Log(t);
-                }
+               
 
                 //Reassignments of Begin Call Global Orders.
                 Order = DummyOrder;
@@ -4740,8 +4689,7 @@ namespace QuantumRefrigiz
                 int DummyOrder = Order;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
                 ///When AStarGreedy Huristic is Not Assigned.
-                try
-                {
+                
                     if (!AStarGreedyHuristicT)
                     {
                         int Order = new int();
@@ -4953,11 +4901,7 @@ namespace QuantumRefrigiz
                             }
                         }
                     }
-                }
-                catch (Exception t)
-                {
-                    Log(t);
-                }
+               
                 //Reassignments of Begin Call Global Orders.
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
@@ -5514,8 +5458,7 @@ namespace QuantumRefrigiz
                 while (i < MaxCount)
                 {
                     //The Index out of range exeption is not fixable.
-                    try
-                    {
+                    
                         if (So != null) if (So[i] != null)
                             {
                                 //When int is Gray or Brown.
@@ -5532,8 +5475,7 @@ namespace QuantumRefrigiz
                                 else
                                     So[i] = null;
                             }
-                    }
-                    catch (Exception t) { Log(t); }
+                   
                     i++;
 
                 };
@@ -5553,8 +5495,7 @@ namespace QuantumRefrigiz
                 //For All Elephant items in Table.
                 while (i < MaxCount)
                 {
-                    try
-                    {
+                    
                         //The Index out of range exeption is not fixable.
                         if (So != null) if (So[i] != null)
                             {
@@ -5572,8 +5513,7 @@ namespace QuantumRefrigiz
                                 else
                                     So[i] = null;
                             }
-                    }
-                    catch (Exception t) { Log(t); }
+                   
                     i++;
                 };
                 return Count;
@@ -5591,8 +5531,7 @@ namespace QuantumRefrigiz
                 {
                     //For All Hourse on Table .
                     //The Index out of range exeption is not fixable.
-                    try
-                    {
+                    
                         if (So != null) if (So[i] != null)
                             {
                                 //When int is Gray or Brown.
@@ -5609,8 +5548,7 @@ namespace QuantumRefrigiz
                                 else
                                     So[i] = null;
                             }
-                    }
-                    catch (Exception t) { Log(t); }
+                   
                     i++;
                 };
 
@@ -5627,8 +5565,7 @@ namespace QuantumRefrigiz
                 int Count = 0, i = 0;
                 while (i < MaxCount)
                 {
-                    try
-                    {
+                    
                         //The Index out of range exeption is not fixable.
                         if (So != null) if (So[i] != null)
                             {
@@ -5646,8 +5583,7 @@ namespace QuantumRefrigiz
                                 else
                                     So[i] = null;
                             }
-                    }
-                    catch (Exception t) { Log(t); }
+                   
 
                     i++;
                 };
@@ -5665,8 +5601,7 @@ namespace QuantumRefrigiz
                 int Count = 0, i = 0;
                 while (i < MaxCount)
                 {
-                    try
-                    {
+                    
                         //The Index out of range exeption is not fixable.
                         if (So != null) if (So[i] != null)
                             {
@@ -5684,8 +5619,7 @@ namespace QuantumRefrigiz
                                 else
                                     So[i] = null;
                             }
-                    }
-                    catch (Exception t) { Log(t); }
+                   
                     i++;
                 };
                 return Count;
@@ -5701,8 +5635,7 @@ namespace QuantumRefrigiz
                 int Count = 0, i = 0;
                 while (i < MaxCount)
                 {
-                    try
-                    {
+                    
                         //The Index out of range exeption is not fixable.
                         if (So != null) if (So[i] != null)
                             {
@@ -5720,8 +5653,7 @@ namespace QuantumRefrigiz
                                 else
                                     So[i] = null;
                             }
-                    }
-                    catch (Exception t) { Log(t); }
+                   
                     i++;
                 };
                 return Count;
@@ -6741,8 +6673,7 @@ namespace QuantumRefrigiz
                 ///When There is Movments.
                 if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[RowSource, ColumnSource], TableS, Order, RowSource, ColumnSource)).Rules(RowSource, ColumnSource, RowDestination, ColumnDestination, color, TableS[RowSource, ColumnSource], false))
                 {
-                    try
-                    {
+                    
                         QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                         ThinkingQuantumAtRun = true; int CheckedM = 0;
 
@@ -6941,14 +6872,7 @@ namespace QuantumRefrigiz
                                 AllDraw.OutPut = "\r\nThinking King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th Thinking String " + OutPutAction;
                             ThinkingQuantumAtRun = false;
                         }
-                    }
-                    catch (Exception t)
-                    {
-                        ThinkingQuantumAtRun = false;
-                        Log(t);
-
-
-                    }
+                   
 
 
                 }
@@ -6999,8 +6923,7 @@ namespace QuantumRefrigiz
                 ///When There is Movments.
                 if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[RowSource, ColumnSource], TableS, Order, RowSource, ColumnSource)).Rules(RowSource, ColumnSource, RowDestination, ColumnDestination, color, TableS[RowSource, ColumnSource], false))
                 {
-                    try
-                    {
+                    
                         QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                         ThinkingQuantumAtRun = true; int CheckedM = 0;
 
@@ -7199,14 +7122,7 @@ namespace QuantumRefrigiz
                                 AllDraw.OutPut = "\r\nThinking Minster AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th Thinking String " + OutPutAction;
                             ThinkingQuantumAtRun = false;
                         }
-                    }
-                    catch (Exception t)
-                    {
-                        ThinkingQuantumAtRun = false;
-                        Log(t);
-
-
-                    }
+                   
 
                 }
             }
@@ -7594,8 +7510,7 @@ namespace QuantumRefrigiz
                 if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[RowSource, ColumnSource], TableS, Order, RowSource, ColumnSource)).Rules(RowSource, ColumnSource, RowDestination, ColumnDestination, color, TableS[RowSource, ColumnSource], false))
                 {
 
-                    try
-                    {
+                    
                         QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                         ThinkingQuantumAtRun = true; int CheckedM = 0;
 
@@ -7795,14 +7710,7 @@ namespace QuantumRefrigiz
                                 AllDraw.OutPut = "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th Thinking String " + OutPutAction;
                             ThinkingQuantumAtRun = false;
                         }
-                    }
-                    catch (Exception t)
-                    {
-                        ThinkingQuantumAtRun = false;
-                        Log(t);
-
-
-                    }
+                   
                 }
             }
         }
@@ -7828,8 +7736,7 @@ namespace QuantumRefrigiz
 
                 if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[RowSource, ColumnSource], TableS, Order, RowSource, ColumnSource)).Rules(RowSource, ColumnSource, RowDestination, ColumnDestination, color, TableS[RowSource, ColumnSource], false))
                 {
-                    try
-                    {
+                    
                         QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                         ThinkingQuantumAtRun = true; int CheckedM = 0;
 
@@ -8029,14 +7936,7 @@ namespace QuantumRefrigiz
                                 AllDraw.OutPut = "\r\nThinking Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th Thinking String " + OutPutAction;
                             ThinkingQuantumAtRun = false;
                         }
-                    }
-                    catch (Exception t)
-                    {
-                        ThinkingQuantumAtRun = false;
-                        Log(t);
-
-
-                    }
+                   
                 }
             }
             ThinkingQuantumAtRun = false;
@@ -8061,8 +7961,7 @@ namespace QuantumRefrigiz
                 ///When There is Movments.
                 if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[RowSource, ColumnSource], TableS, Order, RowSource, ColumnSource)).Rules(RowSource, ColumnSource, RowDestination, ColumnDestination, color, TableS[RowSource, ColumnSource], false))
                 {
-                    try
-                    {
+                    
                         QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                         ThinkingQuantumAtRun = true; int CheckedM = 0;
 
@@ -8262,14 +8161,7 @@ namespace QuantumRefrigiz
                                 AllDraw.OutPut = "\r\nThinking Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th Thinking String " + OutPutAction;
                             ThinkingQuantumAtRun = false;
                         }
-                    }
-                    catch (Exception t)
-                    {
-                        ThinkingQuantumAtRun = false;
-                        Log(t);
-
-
-                    }
+                   
                 }                    
             }
             ThinkingQuantumAtRun = false;
@@ -8969,8 +8861,7 @@ namespace QuantumRefrigiz
                 ///When There is Movments.
                 if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[RowSource, ColumnSource], TableS, Order, RowSource, ColumnSource)).Rules(RowSource, ColumnSource, RowDestination, ColumnDestination, color, TableS[RowSource, ColumnSource], false))
                 {
-                    try
-                    {
+                    
                         QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                         ThinkingQuantumAtRun = true; int CheckedM = 0;
 
@@ -9169,14 +9060,7 @@ namespace QuantumRefrigiz
                                 AllDraw.OutPut = "\r\nThinking Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th Thinking String " + OutPutAction;
                             ThinkingQuantumAtRun = false;
                         }
-                    }
-                    catch (Exception t)
-                    {
-                        ThinkingQuantumAtRun = false;
-                        Log(t);
-
-
-                    }
+                   
                 }
             }
             ThinkingQuantumAtRun = false;
@@ -10342,7 +10226,7 @@ namespace QuantumRefrigiz
                 }
                 while (!ThinkingQuantumBegin)
                 {
-                    System.Threading.Thread.Sleep(1);
+                    System.Threading.Thread.Sleep(2);
                 }// S += 2; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
 
                 NumberOfPenalties = 0;
@@ -10503,8 +10387,7 @@ namespace QuantumRefrigiz
                 ///Calculate Castles of Gray King.
                 ///
 
-                try
-                {
+                
                     if (Kind == 7)
                     {
                         ThinkingQuantumCastleBrown(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
@@ -10549,12 +10432,7 @@ namespace QuantumRefrigiz
                         ThinkingQuantumKing(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
 
                     }
-                }
-                catch (Exception t)
-                {
-                    Log(t);
-
-                }
+               
                 Object O3 = new Object();
                 lock (O3)
                 {

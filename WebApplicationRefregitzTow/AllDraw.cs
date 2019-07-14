@@ -1414,7 +1414,7 @@ if (Kind == 2)
                 do
                 {
 
-                    Thread.Sleep(1);
+                    Thread.Sleep(2);
                 } while (!SetRowColumnFinished);
             }
 
@@ -6459,7 +6459,7 @@ if (Kind == 2)
                     {
                         for (j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[k] != null && SolderesOnTable[i].SoldierThinking[k] != null && j < SolderesOnTable[i].SoldierThinking[k].TableListSolder.Count; j++)
                         {
-                            //System.Threading.Thread.Sleep(1);
+                            //System.Threading.Thread.Sleep(2);
                             {
                                 try
                                 {
@@ -6836,7 +6836,7 @@ if (Kind == 2)
                     {
                         for (j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[k] != null && ElephantOnTable[i].ElefantThinking[k] != null && j < ElephantOnTable[i].ElefantThinking[k].TableListElefant.Count; j++)
                         {
-                            //System.Threading.Thread.Sleep(1);
+                            //System.Threading.Thread.Sleep(2);
                             {
                                 try
                                 {
@@ -7117,7 +7117,7 @@ if (Kind == 2)
                     {
                         for (j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[k] != null && HoursesOnTable[i].HourseThinking[k] != null && j < HoursesOnTable[i].HourseThinking[k].TableListHourse.Count; j++)
                         {
-                            //System.Threading.Thread.Sleep(1);
+                            //System.Threading.Thread.Sleep(2);
                             {
                                 try
                                 {
@@ -7384,7 +7384,7 @@ if (Kind == 2)
                     {
                         for (j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[k] != null && CastlesOnTable[i].CastleThinking[k] != null && j < CastlesOnTable[i].CastleThinking[k].TableListCastle.Count; j++)
                         {
-                            //System.Threading.Thread.Sleep(1);
+                            //System.Threading.Thread.Sleep(2);
                             {
                                 try
                                 {
@@ -7651,7 +7651,7 @@ if (Kind == 2)
                     {
                         for (j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[k] != null && MinisterOnTable[i].MinisterThinking[k] != null && j < MinisterOnTable[i].MinisterThinking[k].TableListMinister.Count; j++)
                         {
-                            //System.Threading.Thread.Sleep(1);
+                            //System.Threading.Thread.Sleep(2);
                             {
                                 //For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
                                 //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
@@ -7912,7 +7912,7 @@ if (Kind == 2)
                     {
                         for (j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[k] != null && KingOnTable[i].KingThinking[k] != null && j < KingOnTable[i].KingThinking[k].TableListKing.Count; j++)
                         {
-                            //System.Threading.Thread.Sleep(1);
+                            //System.Threading.Thread.Sleep(2);
                             {
                                 try
                                 {
@@ -13497,7 +13497,7 @@ if (Kind == 2)
                             Order = DummyOrder;
                             ChessRules.CurrentOrder = DummyCurrentOrder;
                             int Ord = Order, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
-                            //System.Threading.Thread.Sleep(1);
+                            //System.Threading.Thread.Sleep(2);
                             //Parallel.Invoke(() =>
                             {
                                 Do = this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
@@ -13631,7 +13631,7 @@ if (Kind == 2)
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                         int Ord = Order, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
                         //int Ord = Order, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
-                        //System.Threading.Thread.Sleep(1);
+                        //System.Threading.Thread.Sleep(2);
                         //Parallel.Invoke(() =>
                         {
                             Do |= this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
@@ -15058,7 +15058,7 @@ if (Kind == 2)
                     while (SolderesOnTable[ik].SoldierThinking[0].ThinkingBegin && (!SolderesOnTable[ik].SoldierThinking[0].ThinkingFinished))
                     {
 
-                        System.Threading.Thread.Sleep(1);
+                        System.Threading.Thread.Sleep(2);
 
 
                         //S += 1;//if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } 
@@ -15381,7 +15381,7 @@ if (Kind == 2)
                     int S = 0;
                     while (ElephantOnTable[ik].ElefantThinking[0].ThinkingBegin && (!ElephantOnTable[ik].ElefantThinking[0].ThinkingFinished))
                     {
-                        Thread.Sleep(1);
+                        Thread.Sleep(2);
                         //S += 1;//if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } 
                         //SemaphoreExxedTime(S, 2);
                     }// S += 100; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
@@ -15693,7 +15693,7 @@ if (Kind == 2)
                     int S = 0;
                     while (HoursesOnTable[ik].HourseThinking[0].ThinkingBegin && (!HoursesOnTable[ik].HourseThinking[0].ThinkingFinished))
                     {
-                        Thread.Sleep(1);
+                        Thread.Sleep(2);
                         //S += 1;//if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } 
                         //SemaphoreExxedTime(S, 3);
                     }
@@ -16015,7 +16015,7 @@ if (Kind == 2)
                     int S = 0;
                     while (CastlesOnTable[ik].CastleThinking[0].ThinkingBegin && (!CastlesOnTable[ik].CastleThinking[0].ThinkingFinished))
                     {
-                        Thread.Sleep(1);
+                        Thread.Sleep(2);
                         //S += 1;//if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } 
                         //SemaphoreExxedTime(S, 4);
                     }
@@ -16320,7 +16320,7 @@ if (Kind == 2)
                     int S = 0;
                     while (MinisterOnTable[ik].MinisterThinking[0].ThinkingBegin && (!MinisterOnTable[ik].MinisterThinking[0].ThinkingFinished))
                     {
-                        Thread.Sleep(1);
+                        Thread.Sleep(2);
                         //S += 1;//if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } 
                         //SemaphoreExxedTime(S, 5);
                     }// S += 100; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
@@ -16629,7 +16629,7 @@ if (Kind == 2)
                     int S = 0;
                     while (KingOnTable[ik].KingThinking[0].ThinkingBegin && (!KingOnTable[ik].KingThinking[0].ThinkingFinished))
                     {
-                        Thread.Sleep(1);
+                        Thread.Sleep(2);
                         //S += 1;//if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } 
                         //SemaphoreExxedTime(S, 5);
                     }// S += 100; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }

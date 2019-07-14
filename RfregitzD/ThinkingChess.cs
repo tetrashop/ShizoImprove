@@ -10233,7 +10233,7 @@ namespace RefrigtzDLL
                 }
                 while (!ThinkingBegin)
                 {
-                    System.Threading.Thread.Sleep(1);
+                    System.Threading.Thread.Sleep(2);
                 }// S += 2; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
 
                 NumberOfPenalties = 0;

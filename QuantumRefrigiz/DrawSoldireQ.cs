@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -41,16 +41,14 @@ namespace QuantumRefrigiz
         
         static void Log(Exception ex)
         {
-            try
-            {
+            
                 Object a = new Object();
                 lock (a)
                 {
                     string stackTrace = ex.ToString();
                     File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
                 }
-            }
-            catch (Exception t) { Log(t); }
+           
         }
         public bool AccessIsQuntumMove
         {
@@ -63,8 +61,7 @@ namespace QuantumRefrigiz
         }
         public bool MaxFound(ref bool MaxNotFound)
         {
-            try
-            {
+            
                 double a = ReturnHuristic();
                 if (MaxHuristicxS < a)
                 {
@@ -78,12 +75,7 @@ namespace QuantumRefrigiz
                     }
                     return true;
                 }
-            }
-            catch (Exception t)
-            {
-                Log(t);
-
-            }
+           
             MaxNotFound = true;
             return false;
         }
@@ -91,14 +83,9 @@ namespace QuantumRefrigiz
         {
             double a = 0;
             for (int ii = 0; ii < AllDraw.SodierMovments; ii++)
-                try
-                {
+                
                     a += SoldierThinkingQuantum[ii].ReturnHuristic(-1, -1, Order,false);
-                }
-                catch (Exception t)
-                {
-                    Log(t);
-                }
+               
             return a;
         }
         //Constructor 1.
@@ -167,16 +154,10 @@ namespace QuantumRefrigiz
             AA.ArrangmentsChanged = ArrangmentsChanged;
             for (int i = 0; i < AllDraw.SodierMovments; i++)
             {
-                try
-                {
+                
                     AA.SoldierThinkingQuantum[i] = new ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
                     this.SoldierThinkingQuantum[i].Clone(ref AA.SoldierThinkingQuantum[i]);
-                }
-                catch (Exception t)
-                {
-                    Log(t);
-                    AA.SoldierThinkingQuantum[i] = null;
-                }
+               
             }
             AA.Table = new int[8, 8];
             for (int ii = 0; ii < 8; ii++)
@@ -286,8 +267,7 @@ namespace QuantumRefrigiz
                     //Gray Color.
                     if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
                     {
-                        try
-                        {
+                        
 
                             //If Order is Gray.
                             if (Order == 1)
@@ -393,18 +373,13 @@ namespace QuantumRefrigiz
                                         g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
                                 }
                             }
-                        }
-                        catch (Exception t)
-                        {
-                            Log(t);
-                        }
+                       
 
                     }
                     else//If Minsister Conversion Occured.
                         if (ConvertedToMinister)
                     {
-                        try
-                        {
+                        
                             //Color of Gray.
                             if (Order == 1)
                             {
@@ -474,16 +449,11 @@ namespace QuantumRefrigiz
                                         g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
                                 }
                             }
-                        }
-                        catch (Exception t)
-                        {
-                            Log(t);
-                        }
+                       
                     }
                     else if (ConvertedToCastle)//When Castled Converted.
                     {
-                        try
-                        {
+                        
                             //Color of Gray.
                             if (Order == 1)
                             {
@@ -554,17 +524,12 @@ namespace QuantumRefrigiz
                                         g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
                                 }
                             }
-                        }
-                        catch (Exception t)
-                        {
-                            Log(t);
-                        }
+                       
                     }
                     else if (ConvertedToHourse)//When Hourse Conversion Occured.
                     {
 
-                        try
-                        {
+                        
                             //Color of Gray.
                             if (Order == 1)
                             {
@@ -632,17 +597,12 @@ namespace QuantumRefrigiz
                                         g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, 360);
                                 }
                             }
-                        }
-                        catch (Exception t)
-                        {
-                            Log(t);
-                        }
+                       
 
                     }
                     else if (ConvertedToElefant)//When Elephant Conversion.
                     {
-                        try
-                        {
+                        
                             //Color of Gray.
                             if (Order == 1)
                             {
@@ -726,11 +686,7 @@ namespace QuantumRefrigiz
                                 }
                             }
 
-                        }
-                        catch (Exception t)
-                        {
-                            Log(t);
-                        }
+                       
                     }
                 }
             }

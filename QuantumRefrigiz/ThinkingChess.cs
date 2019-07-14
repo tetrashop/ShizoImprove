@@ -1,4 +1,4 @@
-﻿/****************************************************************************
+/****************************************************************************
  * Thinking Operation class.*************************************************
  * Ramin Edjlal**************************************************************
  * Drived Classess of Autamata Cellular  Thinking Kernel**************
@@ -226,8 +226,7 @@ namespace RefrigtzDLL
         ///Log of Errors.
         static void Log(Exception ex)
         {
-            try
-            {
+            
                 Object a = new Object();
                 lock (a)
                 {
@@ -236,8 +235,7 @@ namespace RefrigtzDLL
                     File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); /// path of file where stack trace will be stored.
 
                 }
-            }
-            catch (Exception t) { Log(t); }
+           
         }
         void SetObjectNumbersInList(int[,] Tab)
         {
@@ -653,12 +651,10 @@ namespace RefrigtzDLL
                     //For All Depth(s).
                     for (int i = 0; i < AStarGreedy.Count; i++)
                     {
-                        try
-                        {
+                        
                             //Clone a Copy From Depth Objects.
                             AStarGreedy[i].Clone(AA.AStarGreedy[i]);
-                        }
-                        catch (Exception tt) { Log(tt); }
+                       
                     }
                 }
                 //For All Moves Indexx Solders List Count.
@@ -901,8 +897,7 @@ namespace RefrigtzDLL
                 int DummyOrder = Order;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
                 ///When AStarGreedy Huristic is Not Assigned.
-                try
-                {
+                
                     //When Huristic is not Greedy.
                     if (!AStarGreedyHuristicT)
                     {
@@ -1109,11 +1104,7 @@ namespace RefrigtzDLL
                             }
                         }
                     }
-                }
-                catch (Exception t)
-                {
-                    Log(t);
-                }
+               
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 Order = DumOrder;
@@ -1135,8 +1126,7 @@ namespace RefrigtzDLL
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
                 double Sign = 1;
                 ///When AStarGreedy Huristic is Not Assigned.
-                try
-                {
+                
 
                     if (!AStarGreedyHuristicT)
                     {
@@ -1374,11 +1364,7 @@ namespace RefrigtzDLL
                             }
                         }
                     }
-                }
-                catch (Exception t)
-                {
-                    Log(t);
-                }
+               
                 //Initiate to Begin Call Orders.
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
@@ -1407,8 +1393,7 @@ namespace RefrigtzDLL
                 int DummyOrder = Order;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
                 ///When There is no AStarGreedyHuristicT
-                try
-                {
+                
                     if (!AStarGreedyHuristicT)
                     {
                         ///For All Object in Current Table.
@@ -1494,11 +1479,7 @@ namespace RefrigtzDLL
                             }
                         }
                     }
-                }
-                catch (Exception t)
-                {
-                    Log(t);
-                }
+               
                 //Initiate Orders to Call Begining.
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
@@ -1528,8 +1509,7 @@ namespace RefrigtzDLL
                     Tab[RowD, ColD] = Tab[RowS, ColS];
                     Tab[RowS, ColS] = Killed;
                 }
-                try
-                {
+                
 
                     int Order = new int();
                     Order = DummyOrder;
@@ -1569,11 +1549,7 @@ namespace RefrigtzDLL
                         }
                         a = colorAS;
                     }
-                }
-                catch (Exception t)
-                {
-                    Log(t);
-                }
+               
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
 
@@ -2661,8 +2637,7 @@ namespace RefrigtzDLL
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
 
                 //If There is Not AStarGreedy Huristic Boolean Value.
-                try
-                {
+                
                     if (!AStarGreedyHuristicT)
                     {
                         //int RowS = RowSS, ColS = ColSS;
@@ -2947,11 +2922,7 @@ namespace RefrigtzDLL
                             }
                         }
                     }
-                }
-                catch (Exception t)
-                {
-                    Log(t);
-                }
+               
                 //Reassignments of Global Orders with Local Begining One.
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
@@ -2964,8 +2935,7 @@ namespace RefrigtzDLL
             Object O = new Object();
             lock (O)
             {
-                try
-                {
+                
                     //For All Home
                     for (int i = 0; i < 8; i++)
                         for (int j = 0; j < 8; j++)
@@ -2976,12 +2946,7 @@ namespace RefrigtzDLL
                         }
                     //Else return equlity.
                     return true;
-                }
-                catch (Exception t)
-                {
-                    Log(t);
-                    return false;
-                }
+               
             }
         }
         //If tow int Objects is equal.
@@ -2990,19 +2955,13 @@ namespace RefrigtzDLL
             Object O = new Object();
             lock (O)
             {
-                try
-                {
+                
                     //When there is different values in same location of tow Table return non equality.
                     if (Tab1 != Tab2)
                         return false;
                     //Else return equlity.
                     return true;
-                }
-                catch (Exception t)
-                {
-                    Log(t);
-                    return false;
-                }
+               
             }
         }
         //Deterimination of Existance of Table in List..
@@ -4118,8 +4077,7 @@ namespace RefrigtzDLL
                     Check = 100;
                     CheckMate = 1000;
                 }*/
-                try
-                {
+                
                     Object O1 = new Object();
                     lock (O1)
                     {
@@ -4222,11 +4180,7 @@ namespace RefrigtzDLL
                             }
                         }
                     }
-                }
-                catch (Exception t)
-                {
-                    Log(t);
-                }
+               
                 //if (HA < 0)
                 //IgnoreFromCheckandMateHuristic = true;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
@@ -4583,8 +4537,7 @@ namespace RefrigtzDLL
                 int DummyOrder = Order;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
                 ///When AStarGreedy Huristic is Not Assigned.
-                try
-                {
+                
                     if (!AStarGreedyHuristicT)
                     {
                         //For Current Objects.
@@ -4716,11 +4669,7 @@ namespace RefrigtzDLL
                             }//);
                         }//);
                     }
-                }
-                catch (Exception t)
-                {
-                    Log(t);
-                }
+               
 
                 //Reassignments of Begin Call Global Orders.
                 Order = DummyOrder;
@@ -4748,8 +4697,7 @@ namespace RefrigtzDLL
                 int DummyOrder = Order;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
                 ///When AStarGreedy Huristic is Not Assigned.
-                try
-                {
+                
                     if (!AStarGreedyHuristicT)
                     {
                         int Order = new int();
@@ -4961,11 +4909,7 @@ namespace RefrigtzDLL
                             }
                             }
                     }
-                }
-                catch (Exception t)
-                {
-                    Log(t);
-                }
+               
                 //Reassignments of Begin Call Global Orders.
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
@@ -5523,8 +5467,7 @@ namespace RefrigtzDLL
                 while (i < MaxCount)
                 {
                     //The Index out of range exeption is not fixable.
-                    try
-                    {
+                    
                         if (So != null) if (So[i] != null)
                             {
                                 //When int is Gray or Brown.
@@ -5541,8 +5484,7 @@ namespace RefrigtzDLL
                                 else
                                     So[i] = null;
                             }
-                    }
-                    catch (Exception t) { Log(t); }
+                   
                     i++;
 
                 };
@@ -5562,8 +5504,7 @@ namespace RefrigtzDLL
                 //For All Elephant items in Table.
                 while (i < MaxCount)
                 {
-                    try
-                    {
+                    
                         //The Index out of range exeption is not fixable.
                         if (So != null) if (So[i] != null)
                             {
@@ -5581,8 +5522,7 @@ namespace RefrigtzDLL
                                 else
                                     So[i] = null;
                             }
-                    }
-                    catch (Exception t) { Log(t); }
+                   
                     i++;
                 };
                 return Count;
@@ -5600,8 +5540,7 @@ namespace RefrigtzDLL
                 {
                     //For All Hourse on Table .
                     //The Index out of range exeption is not fixable.
-                    try
-                    {
+                    
                         if (So != null) if (So[i] != null)
                             {
                                 //When int is Gray or Brown.
@@ -5618,8 +5557,7 @@ namespace RefrigtzDLL
                                 else
                                     So[i] = null;
                             }
-                    }
-                    catch (Exception t) { Log(t); }
+                   
                     i++;
                 };
 
@@ -5636,8 +5574,7 @@ namespace RefrigtzDLL
                 int Count = 0, i = 0;
                 while (i < MaxCount)
                 {
-                    try
-                    {
+                    
                         //The Index out of range exeption is not fixable.
                         if (So != null) if (So[i] != null)
                             {
@@ -5655,8 +5592,7 @@ namespace RefrigtzDLL
                                 else
                                     So[i] = null;
                             }
-                    }
-                    catch (Exception t) { Log(t); }
+                   
 
                     i++;
                 };
@@ -5674,8 +5610,7 @@ namespace RefrigtzDLL
                 int Count = 0, i = 0;
                 while (i < MaxCount)
                 {
-                    try
-                    {
+                    
                         //The Index out of range exeption is not fixable.
                         if (So != null) if (So[i] != null)
                             {
@@ -5693,8 +5628,7 @@ namespace RefrigtzDLL
                                 else
                                     So[i] = null;
                             }
-                    }
-                    catch (Exception t) { Log(t); }
+                   
                     i++;
                 };
                 return Count;
@@ -5710,8 +5644,7 @@ namespace RefrigtzDLL
                 int Count = 0, i = 0;
                 while (i < MaxCount)
                 {
-                    try
-                    {
+                    
                         //The Index out of range exeption is not fixable.
                         if (So != null) if (So[i] != null)
                             {
@@ -5729,8 +5662,7 @@ namespace RefrigtzDLL
                                 else
                                     So[i] = null;
                             }
-                    }
-                    catch (Exception t) { Log(t); }
+                   
                     i++;
                 };
                 return Count;
@@ -6758,8 +6690,7 @@ namespace RefrigtzDLL
                 ///When There is Movments.
                 if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[RowSource, ColumnSource], TableS, Order, RowSource, ColumnSource)).Rules(RowSource, ColumnSource, RowDestination, ColumnDestination, color, TableS[RowSource, ColumnSource], false))
                 {
-                    try
-                    {
+                    
                         QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                         ThinkingAtRun = true; int CheckedM = 0;
 
@@ -6955,14 +6886,7 @@ namespace RefrigtzDLL
                                 AllDraw.OutPut = "\r\nThinking King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                             ThinkingAtRun = false;
                         }
-                    }
-                    catch (Exception t)
-                    {
-                        ThinkingAtRun = false;
-                        Log(t);
-
-
-                    }
+                   
 
 
                 }
@@ -7013,8 +6937,7 @@ namespace RefrigtzDLL
                 ///When There is Movments.
                 if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[RowSource, ColumnSource], TableS, Order, RowSource, ColumnSource)).Rules(RowSource, ColumnSource, RowDestination, ColumnDestination, color, TableS[RowSource, ColumnSource], false))
                 {
-                    try
-                    {
+                    
                         QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                         ThinkingAtRun = true; int CheckedM = 0;
 
@@ -7210,14 +7133,7 @@ namespace RefrigtzDLL
                                 AllDraw.OutPut = "\r\nThinking Minster AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                             ThinkingAtRun = false;
                         }
-                    }
-                    catch (Exception t)
-                    {
-                        ThinkingAtRun = false;
-                        Log(t);
-
-
-                    }
+                   
 
                 }
             }
@@ -7605,8 +7521,7 @@ namespace RefrigtzDLL
                 if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[RowSource, ColumnSource], TableS, Order, RowSource, ColumnSource)).Rules(RowSource, ColumnSource, RowDestination, ColumnDestination, color, TableS[RowSource, ColumnSource], false))
                 {
 
-                    try
-                    {
+                    
                         QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                         ThinkingAtRun = true; int CheckedM = 0;
 
@@ -7804,14 +7719,7 @@ namespace RefrigtzDLL
                             else
                                 AllDraw.OutPut = "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                         }
-                    }
-                    catch (Exception t)
-                    {
-                        ThinkingAtRun = false;
-                        Log(t);
-
-
-                    }
+                   
                 }
             }
             ThinkingAtRun = false;
@@ -7838,8 +7746,7 @@ namespace RefrigtzDLL
 
                 if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[RowSource, ColumnSource], TableS, Order, RowSource, ColumnSource)).Rules(RowSource, ColumnSource, RowDestination, ColumnDestination, color, TableS[RowSource, ColumnSource], false))
                 {
-                    try
-                    {
+                    
                         QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                         ThinkingAtRun = true; int CheckedM = 0;
 
@@ -8039,14 +7946,7 @@ namespace RefrigtzDLL
 
                             ThinkingAtRun = false;
                         }
-                    }
-                    catch (Exception t)
-                    {
-                        ThinkingAtRun = false;
-                        Log(t);
-
-
-                    }
+                   
                 }
             }
             ThinkingAtRun = false;
@@ -8071,8 +7971,7 @@ namespace RefrigtzDLL
                 ///When There is Movments.
                 if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[RowSource, ColumnSource], TableS, Order, RowSource, ColumnSource)).Rules(RowSource, ColumnSource, RowDestination, ColumnDestination, color, TableS[RowSource, ColumnSource], false))
                 {
-                    try
-                    {
+                    
                         QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                         ThinkingAtRun = true; int CheckedM = 0;
 
@@ -8271,14 +8170,7 @@ namespace RefrigtzDLL
                                 AllDraw.OutPut = "\r\nThinking Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                             ThinkingAtRun = false;
                         }
-                    }
-                    catch (Exception t)
-                    {
-                        ThinkingAtRun = false;
-                        Log(t);
-
-
-                    }
+                   
                 }                    
             }
             ThinkingAtRun = false;
@@ -8975,8 +8867,7 @@ namespace RefrigtzDLL
                 ///When There is Movments.
                 if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[RowSource, ColumnSource], TableS, Order, RowSource, ColumnSource)).Rules(RowSource, ColumnSource, RowDestination, ColumnDestination, color, TableS[RowSource, ColumnSource], false))
                 {
-                    try
-                    {
+                    
                         QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                         ThinkingAtRun = true; int CheckedM = 0;
 
@@ -9174,14 +9065,7 @@ namespace RefrigtzDLL
                             ThinkingAtRun = false;
                         }
                         
-                    }
-                    catch (Exception t)
-                    {
-                        ThinkingAtRun = false;
-                        Log(t);
-
-
-                    }
+                   
                 }
             }
             ThinkingAtRun = false;
@@ -10509,8 +10393,7 @@ namespace RefrigtzDLL
                 ///Calculate Castles of Gray King.
                 ///
 
-                try
-                {
+                
                     if (Kind == 7)
                     {
                         ThinkingCastleBrown(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
@@ -10555,12 +10438,7 @@ namespace RefrigtzDLL
                         ThinkingKing(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
 
                     }
-                }
-                catch (Exception t)
-                {
-                    Log(t);
-
-                }
+               
                 Object O3 = new Object();
                 lock (O3)
                 {

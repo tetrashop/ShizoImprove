@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -40,16 +40,14 @@ namespace QuantumRefrigiz
 
         static void Log(Exception ex)
         {
-            try
-            {
+            
                 Object a = new Object();
                 lock (a)
                 {
                     string stackTrace = ex.ToString();
                     File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
                 }
-            }
-            catch (Exception t) { Log(t); }
+           
         }
         public void Dispose()
         {
@@ -59,8 +57,7 @@ namespace QuantumRefrigiz
 
         public bool MaxFound(ref bool MaxNotFound)
         {
-            try
-            {
+            
                 double a = ReturnHuristic();
                 if (MaxHuristicxM < a)
                 {
@@ -74,12 +71,7 @@ namespace QuantumRefrigiz
                     }
                     return true;
                 }
-            }
-            catch (Exception t)
-            {
-                Log(t);
-
-            }
+           
             MaxNotFound = true;
             return false;
         }
@@ -87,14 +79,9 @@ namespace QuantumRefrigiz
         {
             double a = 0;
             for (int ii = 0; ii < AllDraw.MinisterMovments; ii++)
-                try
-                {
+                
                     a += MinisterThinkingQuantum[ii].ReturnHuristic(-1, -1, Order,false);
-                }
-                catch (Exception t)
-                {
-                    Log(t);
-                }
+               
             return a;
         }
         //constructor 1.
@@ -157,16 +144,10 @@ namespace QuantumRefrigiz
             AA.ArrangmentsChanged = ArrangmentsChanged;
             for (int i = 0; i < AllDraw.MinisterMovments; i++)
             {
-                try
-                {
+                
                     AA.MinisterThinkingQuantum[i] = new ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
                     this.MinisterThinkingQuantum[i].Clone(ref AA.MinisterThinkingQuantum[i]);
-                }
-                catch (Exception t)
-                {
-                    Log(t);
-                    AA.MinisterThinkingQuantum[i] = null;
-                }
+               
 
             }
             AA.Table = new int[8, 8];
@@ -186,8 +167,7 @@ namespace QuantumRefrigiz
             object balancelockS = new object();
 
             int LastRow = -1, LastColumn = -1;
-            try
-            {
+            
 
                 if (AllDraw.LastRow != Row && AllDraw.LastColumn != Column&&AllDraw.LastRow!=-1&&AllDraw.LastColumn!=-1)
                     
@@ -317,11 +297,7 @@ namespace QuantumRefrigiz
                         }
                     }
                 }
-            }
-            catch (Exception t)
-            {
-                Log(t);
-            }
+           
         }
     }
 }

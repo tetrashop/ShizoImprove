@@ -1,4 +1,5 @@
-﻿namespace Refrigtz
+﻿
+namespace Refrigtz
 {
     partial class FormRefrigtz
     {
@@ -28,6 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStripChessRefrigitz = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemNewGame = new System.Windows.Forms.ToolStripMenuItem();
@@ -146,6 +148,11 @@
             this.pictureBoxTimerBrown = new System.Windows.Forms.PictureBox();
             this.pictureBoxTimerGray = new System.Windows.Forms.PictureBox();
             this.pictureBoxRefrigtz = new System.Windows.Forms.PictureBox();
+            this.backgroundWorkerAllOp = new System.ComponentModel.BackgroundWorker();
+            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.timerAllOperation = new System.Windows.Forms.Timer(this.components);
+            this.backgroundWorkerSetNode = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorkerSetRefD = new System.ComponentModel.BackgroundWorker();
             this.menuStripChessRefrigitz.SuspendLayout();
             this.groupBoxGroupOfPowerity.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).BeginInit();
@@ -1451,6 +1458,27 @@
             this.pictureBoxRefrigtz.MouseLeave += new System.EventHandler(this.pictureBoxRefrigtz_MouseLeave);
             this.pictureBoxRefrigtz.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBoxRefrigtz_MouseMove);
             // 
+            // backgroundWorkerAllOp
+            // 
+            this.backgroundWorkerAllOp.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_DoWork);
+            // 
+            // timer
+            // 
+            this.timer.Interval = 1000000000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
+            // timerAllOperation
+            // 
+            this.timerAllOperation.Tick += new System.EventHandler(this.timerAllOperation_Tick);
+            // 
+            // backgroundWorkerSetNode
+            // 
+            this.backgroundWorkerSetNode.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerSetNode_DoWork);
+            // 
+            // backgroundWorkerSetRefD
+            // 
+            this.backgroundWorkerSetRefD.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerSetRefD_DoWork);
+            // 
             // FormRefrigtz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1576,7 +1604,7 @@
         }
 
         #endregion
-
+        
         private System.Windows.Forms.MenuStrip menuStripChessRefrigitz;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
@@ -1695,6 +1723,11 @@
         private System.Windows.Forms.Label labelNodesCount;
         private System.Windows.Forms.Label labelNodesCountText;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem21;
+        private System.ComponentModel.BackgroundWorker backgroundWorkerAllOp;
+        private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Timer timerAllOperation;
+        private System.ComponentModel.BackgroundWorker backgroundWorkerSetNode;
+        private System.ComponentModel.BackgroundWorker backgroundWorkerSetRefD;
     }
 }
 

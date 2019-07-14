@@ -1,4 +1,4 @@
-﻿/***********************************************************************************
+/***********************************************************************************
  * Every Ruls of objective condition of chess game.*********************************
  * Current Rules Have not Attack Movements****************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Ramin Edjlal********************************************************************
@@ -153,16 +153,14 @@ namespace QuantumRefrigiz
         public int CurrentAStarGredyMax = -1;
         static void Log(Exception ex)
         {
-            try
-            {
+            
                 Object a = new Object();
                 lock (a)
                 {
                     string stackTrace = ex.ToString();
                     File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
                 }
-            }
-            catch (Exception t) { Log(t); }
+           
         }
         public ChessRules(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged, int oRDER)
             
@@ -351,8 +349,7 @@ namespace QuantumRefrigiz
                             if (RowFirst == RowSecond - 2 && ((RowSecond - 2) >= 0))
                             {
                                 //Consideration of Castles King of Gray King.
-                                try
-                                {
+                                
                                     if (((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond - 2, ColumnSecond] == 6 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond + 1, ColumnSecond] == 4)
                                     {
                                         Object O = new Object();
@@ -364,19 +361,14 @@ namespace QuantumRefrigiz
                                         
                                         return true;
                                     }
-                                }
-                                catch (Exception t)
-                                {
-                                    Log(t);
-                                }
+                               
                             }
 
                             else//For Greates Castles King Movments.
                                 if (RowFirst == RowSecond + 2 && ((RowSecond + 2) < 8))
                                 {
                                     //Consideration of Castles King M<ovments.
-                                    try
-                                    {
+                                    
                                         if (((RowSecond + 2) < 8) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond + 2, ColumnSecond] == 6 && Table[RowSecond + 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond - 2, ColumnSecond] == 4)
                                         {
                                         Object O = new Object();
@@ -387,11 +379,7 @@ namespace QuantumRefrigiz
                                         }
                                             return true;
                                         }
-                                    }
-                                    catch (Exception t)
-                                    {
-                                        Log(t);
-                                    }
+                                   
 
                                 }
                         }
@@ -408,8 +396,7 @@ namespace QuantumRefrigiz
                             //Small Brown King Castles Consideration.
                             if (RowFirst == RowSecond - 2 && ((RowSecond - 2) < 8))
                             {
-                                try
-                                {
+                                
 
                                     if (((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && Table[RowSecond - 2, ColumnSecond] == -6 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond + 1, ColumnSecond] == -4)
                                     {
@@ -421,19 +408,14 @@ namespace QuantumRefrigiz
                                         }
                                         return true;
                                     }
-                                }
-                                catch (Exception t)
-                                {
-                                    Log(t);
-                                }
+                               
 
                             }
                             else
                                 if (RowFirst == RowSecond + 2 && ((RowSecond + 2) < 8))
                                 //Brown Kings.Big King Castles Consideration.
                                 {
-                                    try
-                                    {
+                                    
                                         if (((RowSecond + 2) < 8) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond + 2, ColumnSecond] == -6 && Table[RowSecond + 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond - 2, ColumnSecond] == -4)
                                         {
                                         //CastleActBrown = true;
@@ -444,11 +426,7 @@ namespace QuantumRefrigiz
                                         }
                                             return true;
                                         }
-                                    }
-                                    catch (Exception t)
-                                    {
-                                        Log(t);
-                                    }
+                                   
                                 }
                         }
                     }
@@ -469,8 +447,7 @@ namespace QuantumRefrigiz
                             if (RowFirst == RowSecond - 2 && ((RowSecond - 2) >= 0))
                             {
                                 //Consideration of Castles King of Gray King.
-                                try
-                                {
+                                
 
                                     if (((RowSecond - 2) >= 0) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && Table[RowSecond - 2, ColumnSecond] == 6 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond + 1, ColumnSecond] == 4)
                                     {
@@ -478,30 +455,21 @@ namespace QuantumRefrigiz
                                         //SmallKingCastleGray = true;
                                         return true;
                                     }
-                                }
-                                catch (Exception t)
-                                {
-                                    Log(t);
-                                }
+                               
                             }
 
                             else//For Greates Castles King Movments.
                                 if (RowFirst == RowSecond + 2 && ((RowSecond + 2) < 8))
                                 {
                                     //Consideration of Castles King M<ovments.
-                                    try
-                                    {
+                                    
                                         if (((RowSecond + 2) < 8) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond + 2, ColumnSecond] == 6 && Table[RowSecond + 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond - 2, ColumnSecond] == 4)
                                         {
                                             //CastleActGray = true;
                                             //BigKingCastleGray = true;
                                             return true;
                                         }
-                                    }
-                                    catch (Exception t)
-                                    {
-                                        Log(t);
-                                    }
+                                   
 
                                 }
                         }
@@ -518,8 +486,7 @@ namespace QuantumRefrigiz
                             //Small Brown King Castles Consideration.
                             if (RowFirst == RowSecond - 2 && ((RowSecond - 2) > 0))
                             {
-                                try
-                                {
+                                
 
                                     if (((RowSecond - 2) >= 0) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && Table[RowSecond - 2, ColumnSecond] == -6 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond + 1, ColumnSecond] == -4)
                                     {
@@ -527,30 +494,21 @@ namespace QuantumRefrigiz
                                         //SmallKingCastleBrown = true;
                                         return true;
                                     }
-                                }
-                                catch (Exception t)
-                                {
-                                    Log(t);
-                                }
+                               
 
                             }
                             else
                                 if (RowFirst == RowSecond + 2 && ((RowSecond + 2) < 8))
                                 //Brown Kings.Big King Castles Consideration.
                                 {
-                                    try
-                                    {
+                                    
                                         if (((RowSecond + 2) < 8) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond + 2, ColumnSecond] == -6 && Table[RowSecond + 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond - 2, ColumnSecond] == -4)
                                         {
                                             //  CastleActBrown = true;
                                             //BigKingCastleBrown = true;
                                             return true;
                                         }
-                                    }
-                                    catch (Exception t)
-                                    {
-                                        Log(t);
-                                    }
+                                   
                                 }
                         }
                     }
@@ -2372,17 +2330,11 @@ namespace QuantumRefrigiz
 
             //Initiate Local and Global  Varibales.
             int[,] Table = new int[8, 8];
-            try
-            {
+            
                 for (int i = 0; i < 8; i++)
                     for (int j = 0; j < 8; j++)
                         Table[i, j] = Tab[i, j];
-            }
-            catch (Exception t)
-            {
-                Log(t);
-                return false;
-            }
+           
             CheckGray = false;
             CheckBrown = false;
             CheckMateBrown = false;
@@ -2576,156 +2528,122 @@ namespace QuantumRefrigiz
                  //Determination of Gray Enemy State Check at Enemy King at Around Existing Return Not Validity.
                  if (Order == 1 && Table[RowFirst, ColumnFirst] == 6)
                  {
-                     try
-                     {
+                     
                          if ((RowSecond + 1) < 8)
                          {
                              if (Table[RowSecond + 1, ColumnSecond] == -6)
                                  return false;
                          }
-                     }
-                     catch (Exception t) { Log(t); }
-                     try
-                     {
+                    
+                     
                          if ((ColumnSecond + 1) < 8)
                          {
                              if (Table[RowSecond, ColumnSecond + 1] == -6)
                                  return false;
                          }
-                     }
-
-                     catch (Exception t) { Log(t); }
-                     try
-                     {
+                    
+                     
                          if (((RowSecond + 1) < 8) && ((ColumnSecond + 1) < 8))
                          {
                              if (Table[RowSecond + 1, ColumnSecond + 1] == -6)
                                  return false;
                          }
-                     }
-                     catch (Exception t) { Log(t); }
-                     try
-                     {
+                    
+                     
                          if (((RowSecond - 1) >= 0))
                          {
                              if (Table[RowSecond - 1, ColumnSecond] == -6)
                                  return false;
                          }
-                     }
-                     catch (Exception t) { Log(t); }
-                     try
-                     {
+                    
+                     
                          if (ColumnSecond - 1 >= 0)
                          {
                              if (Table[RowSecond, ColumnSecond - 1] == -6)
                                  return false;
                          }
-                     }
-                     catch (Exception t) { Log(t); }
-                     try
-                     {
+                    
+                     
                          if (((RowSecond - 1) >= 0) && ((ColumnSecond - 1) >= 0))
                          {
                              if (Table[RowSecond - 1, ColumnSecond - 1] == -6)
                                  return false;
                          }
-                     }
-                     catch (Exception t) { Log(t); }
-                     try
-                     {
+                    
+                     
                          if (((RowSecond + 1) < 8) && ((ColumnSecond - 1) >= 0))
                          {
                              if (Table[RowSecond + 1, ColumnSecond - 1] == -6)
                                  return false;
                          }
-                     }
-                     catch (Exception t) { Log(t); }
-                     try
-                     {
+                    
+                     
                          if (((RowSecond - 1) >= 0) && ((ColumnSecond + 1) < 8))
                          {
                              if (Table[RowSecond - 1, ColumnSecond + 1] == -6)
                                  return false;
                          }
-                     }
-                     catch (Exception t) { Log(t); }
+                    
 
                  }//Determination of Brown Enemy State Check at Enemy King at Around Existing Return Not Validity.         
                  else if (Order == -1 && Table[RowFirst, ColumnFirst] == -6)
                  {
-                     try
-                     {
+                     
                          if ((RowSecond + 1) < 8)
                          {
                              if (Table[RowSecond + 1, ColumnSecond] == 6)
                                  return false;
                          }
-                     }
-                     catch (Exception t) { Log(t); }
-                     try
-                     {
+                    
+                     
                          if ((ColumnSecond + 1) < 8)
                          {
                              if (Table[RowSecond, ColumnSecond + 1] == 6)
                                  return false;
                          }
-                     }
-
-                     catch (Exception t) { Log(t); }
-                     try
-                     {
+                    
+                     
                          if (((RowSecond + 1) < 8) && ((ColumnSecond + 1) < 8))
                          {
                              if (Table[RowSecond + 1, ColumnSecond + 1] == 6)
                                  return false;
                          }
-                     }
-                     catch (Exception t) { Log(t); }
-                     try
-                     {
+                    
+                     
                          if (((RowSecond - 1) >= 0))
                          {
                              if (Table[RowSecond - 1, ColumnSecond] == 6)
                                  return false;
                          }
-                     }
-                     catch (Exception t) { Log(t); }
-                     try
-                     {
+                    
+                     
                          if (ColumnSecond - 1 >= 0)
                          {
                              if (Table[RowSecond, ColumnSecond - 1] == 6)
                                  return false;
                          }
-                     }
-                     catch (Exception t) { Log(t); }
-                     try
-                     {
+                    
+                     
                          if (((RowSecond - 1) >= 0) && ((ColumnSecond - 1) >= 0))
                          {
                              if (Table[RowSecond - 1, ColumnSecond - 1] == 6)
                                  return false;
                          }
-                     }
-                     catch (Exception t) { Log(t); }
-                     try
-                     {
+                    
+                     
                          if (((RowSecond + 1) < 8) && ((ColumnSecond - 1) >= 0))
                          {
                              if (Table[RowSecond + 1, ColumnSecond - 1] == 6)
                                  return false;
                          }
-                     }
-                     catch (Exception t) { Log(t); }
-                     try
-                     {
+                    
+                     
                          if (((RowSecond - 1) >= 0) && ((ColumnSecond + 1) < 8))
                          {
                              if (Table[RowSecond - 1, ColumnSecond + 1] == 6)
                                  return false;
                          }
-                     }
-                     catch (Exception t) { Log(t); }
+                    
 
                  }
                  */
@@ -3092,8 +3010,7 @@ namespace QuantumRefrigiz
                 if (Order == -1 && Table[RowFirst, ColumnFirst] < 0)
                 {
                     //Depend on First Move do For Land Of Islam
-                    try
-                    {
+                    
 
                         if ((ColumnFirst + 2 < 8) && (ColumnFirst + 1 < 8) &&
                             (RowFirst == RowSecond) && (ColumnSecond == ColumnFirst + 2) && (Table[RowSecond, ColumnSecond - 1] == 0)
@@ -3130,18 +3047,13 @@ namespace QuantumRefrigiz
                                     }
 
                                 }
-                    }
-                    catch (Exception t)
-                    {
-                        Log(t);
-                    }
+                   
                 }
                 else//Gray int.
                     if (Order == 1 && Table[RowFirst, ColumnFirst] > 0)
                     {
                         //Depend Of First Move do For Positivism
-                        try
-                        {
+                        
                             if ((ColumnSecond + 2 < 8) && (ColumnSecond + 1 < 8) &&
                                 (RowFirst == RowSecond) && (ColumnFirst == ColumnSecond + 2) && (Table[RowSecond, ColumnSecond + 1] == 0)
                                 )
@@ -3174,11 +3086,7 @@ namespace QuantumRefrigiz
                                             //Return Validity.
                                             Move = true;
                                     }
-                        }
-                        catch (Exception t)
-                        {
-                            Log(t);
-                        }
+                       
                     }
             }
             else//If Soldeior Moved Previously.
@@ -3187,8 +3095,7 @@ namespace QuantumRefrigiz
                 if (Order == -1 && Table[RowFirst, ColumnFirst] < 0)
                 {
                     //Depend on Second Move do For Land Of Islam
-                    try
-                    {
+                    
                         if ((ColumnFirst + 1 < 8) &&
                                 (RowFirst == RowSecond) && (ColumnSecond == ColumnFirst + 1) && (Table[RowSecond, ColumnSecond] == 0))
                         {
@@ -3213,18 +3120,13 @@ namespace QuantumRefrigiz
                                 }
 
                             }
-                    }
-                    catch (Exception t)
-                    {
-                        Log(t);
-                    }
+                   
                 }
                 else//Gray int.
                     if (Order == 1 && Table[RowFirst, ColumnFirst] > 0)
                     {
                         //Depend Of Second Move do For Positivism Land
-                        try
-                        {
+                        
                             if ((ColumnSecond + 1 < 8) &&
                                      (RowFirst == RowSecond) && (ColumnFirst == ColumnSecond + 1) && (Table[RowSecond, ColumnSecond] == 0))
                             {
@@ -3246,11 +3148,7 @@ namespace QuantumRefrigiz
                                         //Return Validity.
                                         Move = true;
                                 }
-                        }
-                        catch (Exception t)
-                        {
-                            Log(t);
-                        }
+                       
                     }
             }
             return Move;
@@ -3279,8 +3177,7 @@ namespace QuantumRefrigiz
                 if (Order == 1 && Table[RowFirst, ColumnFirst] > 0)
                 {
                     //Depend on First Move do For Land Of Islam
-                    try
-                    {
+                    
 
                         if ((ColumnFirst + 2 < 8) && (ColumnFirst + 1 < 8) &&
                             (RowFirst == RowSecond) && (ColumnSecond == ColumnFirst + 2) && (Table[RowSecond, ColumnSecond - 1] == 0)
@@ -3317,18 +3214,13 @@ namespace QuantumRefrigiz
                                     }
 
                                 }
-                    }
-                    catch (Exception t)
-                    {
-                        Log(t);
-                    }
+                   
                 }
                 else//Brown int.
                     if (Order == -1 && Table[RowFirst, ColumnFirst] < 0)
                     {
                         //Depend Of First Move do For Positivism
-                        try
-                        {
+                        
                             if ((ColumnSecond + 2 < 8) && (ColumnSecond + 1 < 8) &&
                                 (RowFirst == RowSecond) && (ColumnFirst == ColumnSecond + 2) && (Table[RowSecond, ColumnSecond + 1] == 0)
                                 )
@@ -3361,11 +3253,7 @@ namespace QuantumRefrigiz
                                             //Return Validity.
                                             Move = true;
                                     }
-                        }
-                        catch (Exception t)
-                        {
-                            Log(t);
-                        }
+                       
                     }
             }
             else//If Soldeior Moved Previously.
@@ -3374,8 +3262,7 @@ namespace QuantumRefrigiz
                 if (Order == 1 && Table[RowFirst, ColumnFirst] > 0)
                 {
                     //Depend on Second Move do For Land Of Islam
-                    try
-                    {
+                    
                         if ((ColumnFirst + 1 < 8) &&
                                 (RowFirst == RowSecond) && (ColumnSecond == ColumnFirst + 1) && (Table[RowSecond, ColumnSecond] == 0))
                         {
@@ -3400,18 +3287,13 @@ namespace QuantumRefrigiz
                                 }
 
                             }
-                    }
-                    catch (Exception t)
-                    {
-                        Log(t);
-                    }
+                   
                 }
                 else//Brown int.
                     if (Order == -1 && Table[RowFirst, ColumnFirst] < 0)
                     {
                         //Depend Of Second Move do For Positivism Land
-                        try
-                        {
+                        
                             if ((ColumnSecond + 1 < 8) &&
                                      (RowFirst == RowSecond) && (ColumnFirst == ColumnSecond + 1) && (Table[RowSecond, ColumnSecond] == 0))
                             {
@@ -3433,11 +3315,7 @@ namespace QuantumRefrigiz
                                         //Return Validity.
                                         Move = true;
                                 }
-                        }
-                        catch (Exception t)
-                        {
-                            Log(t);
-                        }
+                       
                     }
             }
             return Move;

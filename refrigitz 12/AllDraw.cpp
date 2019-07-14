@@ -5152,7 +5152,7 @@ int ** AllDraw::HuristicAStarGreadySearchSoldier(int **TableHuristic, int i, int
 		for (j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 		{
 			{
-				//System.Threading.Thread.Sleep(1);
+				//System.Threading.Thread.Sleep(2);
 					//try
 				{
 					//For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
@@ -5842,7 +5842,7 @@ int ** AllDraw::HuristicAStarGreadySearchHourse(int **TableHuristic, int i, int 
 			for (j = 0;((& HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 			{
 				{
-					//System.Threading.Thread.Sleep(1);
+					//System.Threading.Thread.Sleep(2);
 						//try
 					{
 						//For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
@@ -6158,7 +6158,7 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 					for (j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 					{
 						{
-						//System.Threading.Thread.Sleep(1);
+						//System.Threading.Thread.Sleep(2);
 							//try
 							{
 								//For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
@@ -6726,7 +6726,7 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 			for (j = 0;((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) &&((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 			{
 				{
-					//System.Threading.Thread.Sleep(1);
+					//System.Threading.Thread.Sleep(2);
 						//try
 					{
 						//For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.

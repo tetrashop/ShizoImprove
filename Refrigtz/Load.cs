@@ -220,7 +220,7 @@ namespace Refrigtz
             {
                 do
                 {
-                    System.Threading.Thread.Sleep(1);
+                    System.Threading.Thread.Sleep(2);
                 } while (!FormRefrigtz.LoadedTable);
 
                 SetLoadVisible();
