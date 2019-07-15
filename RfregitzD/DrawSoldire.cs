@@ -10,10 +10,10 @@ namespace RefrigtzDLL
     [Serializable]
     public class DrawSoldier : ThingsConverter
     {
-        
-        
-        
-        public int WinOcuuredatChiled = 0;public int LoseOcuuredatChiled = 0;
+
+
+
+        public int WinOcuuredatChiled = 0; public int LoseOcuuredatChiled = 0;
         //Iniatate Global Variables.
         //private readonly object balancelock = new object();
         //private readonly object balancelockS = new object();
@@ -38,16 +38,16 @@ namespace RefrigtzDLL
         int CurrentAStarGredyMax = -1;
         static void Log(Exception ex)
         {
-            
-                Object a = new Object();
-                lock (a)
-                {
-                    string stackTrace = ex.ToString();
-                    File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
-                }
-           
+
+            Object a = new Object();
+            lock (a)
+            {
+                string stackTrace = ex.ToString();
+                File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
+            }
+
         }
-        
+
         public void Dispose()
         {
             ValuableSelfSupported = null;
@@ -55,21 +55,21 @@ namespace RefrigtzDLL
         }
         public bool MaxFound(ref bool MaxNotFound)
         {
-            
-                double a = ReturnHuristic();
-                if (MaxHuristicxS < a)
+
+            double a = ReturnHuristic();
+            if (MaxHuristicxS < a)
+            {
+                Object O2 = new Object();
+                lock (O2)
                 {
-                    Object O2 = new Object();
-                    lock (O2)
-                    {
-                        MaxNotFound = false;
-                        if (ThinkingChess.MaxHuristicx < MaxHuristicxS)
-                            ThinkingChess.MaxHuristicx = a;
-                        MaxHuristicxS = a;
-                    }
-                    return true;
+                    MaxNotFound = false;
+                    if (ThinkingChess.MaxHuristicx < MaxHuristicxS)
+                        ThinkingChess.MaxHuristicx = a;
+                    MaxHuristicxS = a;
                 }
-           
+                return true;
+            }
+
             MaxNotFound = true;
             return false;
         }
@@ -77,9 +77,9 @@ namespace RefrigtzDLL
         {
             double a = 0;
             for (int ii = 0; ii < AllDraw.SodierMovments; ii++)
-                
-                    a += SoldierThinking[ii].ReturnHuristic(-1, -1, Order,false);
-               
+
+                a += SoldierThinking[ii].ReturnHuristic(-1, -1, Order, false);
+
             return a;
         }
         //Constructor 1.
@@ -104,7 +104,7 @@ namespace RefrigtzDLL
             object balancelock = new object();
             lock (balancelock)
             {
-            
+
 
                 CurrentAStarGredyMax = CurrentAStarGredy;
                 MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
@@ -145,10 +145,10 @@ namespace RefrigtzDLL
             AA.ArrangmentsChanged = ArrangmentsChanged;
             for (int i = 0; i < AllDraw.SodierMovments; i++)
             {
-                
-                    AA.SoldierThinking[i] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
-                    this.SoldierThinking[i].Clone(ref AA.SoldierThinking[i]);
-               
+
+                AA.SoldierThinking[i] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
+                this.SoldierThinking[i].Clone(ref AA.SoldierThinking[i]);
+
             }
             AA.Table = new int[8, 8];
             for (int ii = 0; ii < 8; ii++)
@@ -164,23 +164,25 @@ namespace RefrigtzDLL
         //Drawing Soldiers On the Table Method..
         public void DrawSoldierOnTable(ref Graphics g, int CellW, int CellH)
         {
-            object balancelockS = new object();
-
-            lock (balancelockS)
+            try
             {
-                if (S[0] == null || S[1] == null)
-                {
-                    S[0] = Image.FromFile(AllDraw.ImagesSubRoot + "SG.png");
-                    S[1] = Image.FromFile(AllDraw.ImagesSubRoot + "SB.png");
-                }
-                //When Conversion Solders Not Occured.
-                if (!ConvertOperation((int)Row, (int)Column, color, Table, Order, false, Current))
-                {
+                object balancelockS = new object();
 
-                    //Gray Color.
-                    if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
+                lock (balancelockS)
+                {
+                    if (S[0] == null || S[1] == null)
                     {
-                        
+                        S[0] = Image.FromFile(AllDraw.ImagesSubRoot + "SG.png");
+                        S[1] = Image.FromFile(AllDraw.ImagesSubRoot + "SB.png");
+                    }
+                    //When Conversion Solders Not Occured.
+                    if (!ConvertOperation((int)Row, (int)Column, color, Table, Order, false, Current))
+                    {
+
+                        //Gray Color.
+                        if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
+                        {
+
 
                             //If Order is Gray.
                             if (Order == 1)
@@ -189,7 +191,7 @@ namespace RefrigtzDLL
                                 lock (O1)
                                 {    //Draw an Instant from File of Gray Soldeirs.
                                     g.DrawImage(S[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                                        
+
                                 }
                             }
                             else
@@ -199,15 +201,15 @@ namespace RefrigtzDLL
                                 {    //Draw an Instant from File of Gray Soldeirs.
                                      //Draw an Instatnt of Brown Soldier File On the Table.
                                     g.DrawImage(S[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                                 }
+                                }
                             }
-                       
 
-                    }
-                    else//If Minsister Conversion Occured.
-                        if (ConvertedToMinister)
-                    {
-                        
+
+                        }
+                        else//If Minsister Conversion Occured.
+                            if (ConvertedToMinister)
+                        {
+
                             //Color of Gray.
                             if (Order == 1)
                             {
@@ -216,7 +218,7 @@ namespace RefrigtzDLL
                                 {    //Draw an Instant from File of Gray Soldeirs.
                                      //Draw of Gray Minsister Image File By an Instant.
                                     g.DrawImage(DrawMinister.M[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                                 }
+                                }
                             }
                             else
                             {
@@ -225,13 +227,13 @@ namespace RefrigtzDLL
                                 {    //Draw an Instant from File of Gray Soldeirs.
                                      //Draw a Image File on the Table Form n Instatnt One.
                                     g.DrawImage(DrawMinister.M[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                                 }
+                                }
                             }
-                       
-                    }
-                    else if (ConvertedToCastle)//When Castled Converted.
-                    {
-                        
+
+                        }
+                        else if (ConvertedToCastle)//When Castled Converted.
+                        {
+
                             //Color of Gray.
                             if (Order == 1)
                             {
@@ -240,7 +242,7 @@ namespace RefrigtzDLL
                                 {    //Draw an Instant from File of Gray Soldeirs.
                                      //Create on the Inststant of Gray Castles Images.
                                     g.DrawImage(DrawCastle.C[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                                  }
+                                }
                             }
                             else
                             {
@@ -251,12 +253,12 @@ namespace RefrigtzDLL
                                     g.DrawImage(DrawCastle.C[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                 }
                             }
-                       
-                    }
-                    else if (ConvertedToHourse)//When Hourse Conversion Occured.
-                    {
 
-                        
+                        }
+                        else if (ConvertedToHourse)//When Hourse Conversion Occured.
+                        {
+
+
                             //Color of Gray.
                             if (Order == 1)
                             {
@@ -264,7 +266,7 @@ namespace RefrigtzDLL
                                 lock (O1)
                                 {//Draw an Instatnt of Gray Hourse Image File.
                                     g.DrawImage(DrawHourse.H[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (int)CellH), CellW, CellH));
-                                  }
+                                }
                             }
                             else
                             {
@@ -272,14 +274,14 @@ namespace RefrigtzDLL
                                 lock (O1)
                                 {//Creat of an Instatnt Hourse Image File.
                                     g.DrawImage(DrawHourse.H[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                                  }
+                                }
                             }
-                       
 
-                    }
-                    else if (ConvertedToElefant)//When Elephant Conversion.
-                    {
-                        
+
+                        }
+                        else if (ConvertedToElefant)//When Elephant Conversion.
+                        {
+
                             //Color of Gray.
                             if (Order == 1)
                             {
@@ -287,7 +289,7 @@ namespace RefrigtzDLL
                                 lock (O1)
                                 {//Draw an Instatnt Image of Gray Elephant.
                                     g.DrawImage(DrawElefant.E[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                                   }
+                                }
                             }
                             else
                             {
@@ -295,12 +297,17 @@ namespace RefrigtzDLL
                                 lock (O1)
                                 {//Draw of Instant Image of Brown Elephant.
                                     g.DrawImage(DrawElefant.E[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                                  }
+                                }
                             }
 
-                       
+
+                        }
                     }
                 }
+            }
+            catch (Exception t)
+            {
+                Log(t);
             }
         }
     }

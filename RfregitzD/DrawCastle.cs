@@ -9,17 +9,17 @@ namespace RefrigtzDLL
     [Serializable]
     public class DrawCastle
     {
-        
-        
-        
-        
-        public int WinOcuuredatChiled = 0;public int LoseOcuuredatChiled = 0;
+
+
+
+
+        public int WinOcuuredatChiled = 0; public int LoseOcuuredatChiled = 0;
         //private readonly object balancelock = new object();
         //private readonly object balancelockS = new object();
         public static Image[] C = new Image[2];
         //Iniatite Global Variable.
         List<int[]> ValuableSelfSupported = new List<int[]>();
-      
+
         public bool MovementsAStarGreedyHuristicFoundT = false;
         public bool IgnoreSelfObjectsT = false;
         public bool UsePenaltyRegardMechnisamT = true;
@@ -39,14 +39,14 @@ namespace RefrigtzDLL
 
         static void Log(Exception ex)
         {
-            
-                Object a = new Object();
-                lock (a)
-                {
-                    string stackTrace = ex.ToString();
-                    File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
-                }
-           
+
+            Object a = new Object();
+            lock (a)
+            {
+                string stackTrace = ex.ToString();
+                File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
+            }
+
         }
         public void Dispose()
         {
@@ -55,21 +55,21 @@ namespace RefrigtzDLL
         }
         public bool MaxFound(ref bool MaxNotFound)
         {
-            
-                double a = ReturnHuristic();
-                if (MaxHuristicxB < a)
+
+            double a = ReturnHuristic();
+            if (MaxHuristicxB < a)
+            {
+                MaxNotFound = false;
+                Object O = new Object();
+                lock (O)
                 {
-                    MaxNotFound = false;
-                    Object O = new Object();
-                    lock (O)
-                    {
-                        if (ThinkingChess.MaxHuristicx < MaxHuristicxB)
-                            ThinkingChess.MaxHuristicx = a;
-                        MaxHuristicxB = a;
-                    }
-                    return true;
+                    if (ThinkingChess.MaxHuristicx < MaxHuristicxB)
+                        ThinkingChess.MaxHuristicx = a;
+                    MaxHuristicxB = a;
                 }
-           
+                return true;
+            }
+
             MaxNotFound = true;
             return false;
         }
@@ -77,27 +77,27 @@ namespace RefrigtzDLL
         {
             double a = 0;
             for (int ii = 0; ii < AllDraw.CastleMovments; ii++)
-                
-                    a += CastleThinking[ii].ReturnHuristic(-1, -1, Order, false);
-               
+
+                a += CastleThinking[ii].ReturnHuristic(-1, -1, Order, false);
+
 
             return a;
         }
 
 
         //Constructor 1.
-      /*  public DrawCastle(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
-        {
-            CurrentAStarGredyMax = CurrentAStarGredy;
-            MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
-            IgnoreSelfObjectsT = IgnoreSelfObject;
-            UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
-            BestMovmentsT = BestMovment;
-            PredictHuristicT = PredictHurist;
-            OnlySelfT = OnlySel;
-            AStarGreedyHuristicT = AStarGreedyHuris;
-            ArrangmentsChanged = Arrangments;
-        }*/
+        /*  public DrawCastle(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
+          {
+              CurrentAStarGredyMax = CurrentAStarGredy;
+              MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
+              IgnoreSelfObjectsT = IgnoreSelfObject;
+              UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
+              BestMovmentsT = BestMovment;
+              PredictHuristicT = PredictHurist;
+              OnlySelfT = OnlySel;
+              AStarGreedyHuristicT = AStarGreedyHuris;
+              ArrangmentsChanged = Arrangments;
+          }*/
         //constructor 2.
         public DrawCastle(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. THIS
             )
@@ -105,7 +105,7 @@ namespace RefrigtzDLL
             object balancelock = new object();
             lock (balancelock)
             {
-             
+
                 CurrentAStarGredyMax = CurrentAStarGredy;
                 MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
                 IgnoreSelfObjectsT = IgnoreSelfObject;
@@ -144,10 +144,10 @@ namespace RefrigtzDLL
             AA.ArrangmentsChanged = ArrangmentsChanged;
             for (int i = 0; i < AllDraw.CastleMovments; i++)
             {
-                
-                    AA.CastleThinking[i] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
-                    this.CastleThinking[i].Clone(ref AA.CastleThinking[i]);
-               
+
+                AA.CastleThinking[i] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
+                this.CastleThinking[i].Clone(ref AA.CastleThinking[i]);
+
             }
             AA.Table = new int[8, 8];
             for (int ii = 0; ii < 8; ii++)
@@ -163,7 +163,8 @@ namespace RefrigtzDLL
         //Draw An Instatnt Brideges Images On the Table Method.
         public void DrawCastleOnTable(ref Graphics g, int CellW, int CellH)
         {
-            
+            try
+            {
                 object balancelockS = new object();
 
                 lock (balancelockS)
@@ -176,14 +177,14 @@ namespace RefrigtzDLL
                     }
                     if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
                     { //Gray Color.
-                        if(Order==1)
+                        if (Order == 1)
                         {
                             Object O1 = new Object();
                             lock (O1)
                             {    //Draw an Instant from File of Gray Soldeirs.
                                  //Draw a Gray Castles Instatnt Image On hte Tabe.
                                 g.DrawImage(C[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                              }
+                            }
                         }
                         else
                         {
@@ -192,11 +193,15 @@ namespace RefrigtzDLL
                             {    //Draw an Instant from File of Gray Soldeirs.
                                  //Draw an Instatnt of Brown Castles On the Table.
                                 g.DrawImage(C[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                              }
+                            }
                         }
                     }
                 }
-           
+            }
+            catch (Exception t)
+            {
+                Log(t);
+            }
         }
     }
 }

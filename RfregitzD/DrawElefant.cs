@@ -10,17 +10,17 @@ namespace RefrigtzDLL
     public class DrawElefant
 
     {
-        
-        
-        
-        
-        public int WinOcuuredatChiled = 0;public int LoseOcuuredatChiled = 0;
+
+
+
+
+        public int WinOcuuredatChiled = 0; public int LoseOcuuredatChiled = 0;
         //private readonly object balancelock = new object();
         //private readonly object balancelockS = new object();
         public static Image[] E = new Image[2];
         //Initiate Global Variables.
         List<int[]> ValuableSelfSupported = new List<int[]>();
-      
+
         public bool MovementsAStarGreedyHuristicFoundT = false;
         public bool IgnoreSelfObjectsT = false;
         public bool UsePenaltyRegardMechnisamT = true;
@@ -39,14 +39,14 @@ namespace RefrigtzDLL
         int CurrentAStarGredyMax = -1;
         static void Log(Exception ex)
         {
-            
-                Object a = new Object();
-                lock (a)
-                {
-                    string stackTrace = ex.ToString();
-                    File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
-                }
-           
+
+            Object a = new Object();
+            lock (a)
+            {
+                string stackTrace = ex.ToString();
+                File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
+            }
+
         }
         public void Dispose()
         {
@@ -55,21 +55,21 @@ namespace RefrigtzDLL
         }
         public bool MaxFound(ref bool MaxNotFound)
         {
-            
-                double a = ReturnHuristic();
-                if (MaxHuristicxE < a)
+
+            double a = ReturnHuristic();
+            if (MaxHuristicxE < a)
+            {
+                Object O2 = new Object();
+                lock (O2)
                 {
-                    Object O2 = new Object();
-                    lock (O2)
-                    {
-                        MaxNotFound = false;
-                        if (ThinkingChess.MaxHuristicx < MaxHuristicxE)
-                            ThinkingChess.MaxHuristicx = a;
-                        MaxHuristicxE = a;
-                    }
-                    return true;
+                    MaxNotFound = false;
+                    if (ThinkingChess.MaxHuristicx < MaxHuristicxE)
+                        ThinkingChess.MaxHuristicx = a;
+                    MaxHuristicxE = a;
                 }
-           
+                return true;
+            }
+
             MaxNotFound = true;
             return false;
         }
@@ -77,9 +77,9 @@ namespace RefrigtzDLL
         {
             double a = 0;
             for (int ii = 0; ii < AllDraw.ElefantMovments; ii++)
-                
-                    a += ElefantThinking[ii].ReturnHuristic(-1, -1, Order, false);
-               
+
+                a += ElefantThinking[ii].ReturnHuristic(-1, -1, Order, false);
+
 
             return a;
         }
@@ -104,7 +104,7 @@ namespace RefrigtzDLL
             object balancelock = new object();
             lock (balancelock)
             {
-                
+
 
 
                 CurrentAStarGredyMax = CurrentAStarGredy;
@@ -141,14 +141,14 @@ namespace RefrigtzDLL
                 for (int j = 0; j < 8; j++)
                     Tab[i, j] = this.Table[i, j];
             //Initiate a Constructed Object an Clone a Copy.
-            AA = new DrawElefant( CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, this.Row, this.Column, this.color, this.Table, this.Order, false, this.Current);
+            AA = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, this.Row, this.Column, this.color, this.Table, this.Order, false, this.Current);
             AA.ArrangmentsChanged = ArrangmentsChanged;
             for (int i = 0; i < AllDraw.ElefantMovments; i++)
             {
-                
-                    AA.ElefantThinking[i] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
-                    this.ElefantThinking[i].Clone(ref AA.ElefantThinking[i]);
-               
+
+                AA.ElefantThinking[i] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
+                this.ElefantThinking[i].Clone(ref AA.ElefantThinking[i]);
+
             }
             AA.Table = new int[8, 8];
             for (int ii = 0; ii < 8; ii++)
@@ -164,8 +164,8 @@ namespace RefrigtzDLL
         //Draw an Instatnt Elephant On the Table.
         public void DrawElefantOnTable(ref Graphics g, int CellW, int CellH)
         {
-            
-
+            try
+            {
                 object balancelockS = new object();
 
                 lock (balancelockS)
@@ -179,14 +179,14 @@ namespace RefrigtzDLL
                     //Gray Color.
                     if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
                     {
-                        if(Order==1)
+                        if (Order == 1)
                         {
                             Object O1 = new Object();
                             lock (O1)
                             {    //Draw an Instant from File of Gray Soldeirs.
                                  //Draw an Instatnt Gray Elephant On the Table.
                                 g.DrawImage(E[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                               }
+                            }
                         }
                         else
                         {
@@ -199,7 +199,11 @@ namespace RefrigtzDLL
                         }
                     }
                 }
-           
+            }
+            catch (Exception t)
+            {
+                Log(t);
+            }
         }
     }
 }

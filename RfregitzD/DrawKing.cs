@@ -9,19 +9,19 @@ namespace RefrigtzDLL
     [Serializable]
     public class DrawKing
     {
-        
-        
-        
+
+
+
         public static bool KingGrayNotCheckedByQuantumMove = false;
         public static bool KingBrownNotCheckedByQuantumMove = false;
-        
-        public int WinOcuuredatChiled = 0;public int LoseOcuuredatChiled = 0;
+
+        public int WinOcuuredatChiled = 0; public int LoseOcuuredatChiled = 0;
         //private readonly object balancelock = new object();
         //private readonly object balancelockS = new object();
-        public static Image[] K = new Image[2]; 
+        public static Image[] K = new Image[2];
         //Initiate Global Variables.
         List<int[]> ValuableSelfSupported = new List<int[]>();
-      
+
         public bool MovementsAStarGreedyHuristicFoundT = false;
         public bool IgnoreSelfObjectsT = false;
         public bool UsePenaltyRegardMechnisamT = true;
@@ -42,14 +42,14 @@ namespace RefrigtzDLL
 
         static void Log(Exception ex)
         {
-            
-                Object a = new Object();
-                lock (a)
-                {
-                    string stackTrace = ex.ToString();
-                    File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
-                }
-           
+
+            Object a = new Object();
+            lock (a)
+            {
+                string stackTrace = ex.ToString();
+                File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
+            }
+
         }
         public void Dispose()
         {
@@ -61,29 +61,29 @@ namespace RefrigtzDLL
         {
             double a = 0;
             for (int ii = 0; ii < AllDraw.KingMovments; ii++)
-                
-                    a += KingThinking[ii].ReturnHuristic(-1, -1, Order,false);
-               
+
+                a += KingThinking[ii].ReturnHuristic(-1, -1, Order, false);
+
 
             return a;
         }
         public bool MaxFound(ref bool MaxNotFound)
         {
-            
-                double a = ReturnHuristic();
-                if (MaxHuristicxK < a)
+
+            double a = ReturnHuristic();
+            if (MaxHuristicxK < a)
+            {
+                Object O2 = new Object();
+                lock (O2)
                 {
-                    Object O2 = new Object();
-                    lock (O2)
-                    {
-                        MaxNotFound = false;
-                        if (ThinkingChess.MaxHuristicx < MaxHuristicxK)
-                            ThinkingChess.MaxHuristicx = a;
-                        MaxHuristicxK = a;
-                    }
-                    return true;
+                    MaxNotFound = false;
+                    if (ThinkingChess.MaxHuristicx < MaxHuristicxK)
+                        ThinkingChess.MaxHuristicx = a;
+                    MaxHuristicxK = a;
                 }
-           
+                return true;
+            }
+
             MaxNotFound = true;
             return false;
         }
@@ -108,7 +108,7 @@ namespace RefrigtzDLL
             object balancelock = new object();
             lock (balancelock)
             {
-             
+
 
                 CurrentAStarGredyMax = CurrentAStarGredy;
                 MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
@@ -143,14 +143,14 @@ namespace RefrigtzDLL
                 for (int j = 0; j < 8; j++)
                     Tab[i, j] = this.Table[i, j];
             //Initiate a Construction Object and Clone a Copy.
-            AA = new DrawKing( CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, this.Row, this.Column, this.color, this.Table, this.Order, false, this.Current);
+            AA = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, this.Row, this.Column, this.color, this.Table, this.Order, false, this.Current);
             AA.ArrangmentsChanged = ArrangmentsChanged;
             for (int i = 0; i < AllDraw.KingMovments; i++)
             {
-                
-                    AA.KingThinking[i] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
-                    this.KingThinking[i].Clone(ref AA.KingThinking[i]);
-               
+
+                AA.KingThinking[i] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
+                this.KingThinking[i].Clone(ref AA.KingThinking[i]);
+
             }
             AA.Table = new int[8, 8];
             for (int ii = 0; ii < 8; ii++)
@@ -167,8 +167,8 @@ namespace RefrigtzDLL
         public void DrawKingOnTable(ref Graphics g, int CellW, int CellH)
         {
 
-            
-
+            try
+            {
                 object balancelockS = new object();
 
                 lock (balancelockS)
@@ -180,7 +180,7 @@ namespace RefrigtzDLL
                     }
                     if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
                     { //Gray Order.
-                        if(Order==1)
+                        if (Order == 1)
                         {
                             Object O1 = new Object();
                             lock (O1)
@@ -200,11 +200,15 @@ namespace RefrigtzDLL
                                 g.DrawImage(K[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
 
                             }
-                            }
+                        }
                     }
                 }
-           
 
+            }
+            catch (Exception t)
+            {
+                Log(t);
+            }
         }
     }
 }
