@@ -938,64 +938,64 @@ namespace RefrigtzDLL
 
                                     //Find Huristic Value Of Current and Add to Sumation.
                                     HA += (Sign * (System.Math.Abs(ObjectValueCalculator(Table, RowS, ColS, RowD, ColD))));
-                                    //When there is supporter of attacked Objects take huristic negative else take muliply sign and muliply huristic.
-                                    int Supported = new int();
-                                    int SupportedS = new int();
-                                    Supported = 0;
-                                    SupportedS = 0;
-                                    //For All Enemy Obejcts.                                             
-                                    ////Parallel.For(0, 8, g =>
-                                    for (int g = 0; g < 8; g++)
+                                //When there is supporter of attacked Objects take huristic negative else take muliply sign and muliply huristic.
+                                /*int Supported = new int();
+                                int SupportedS = new int();
+                                Supported = 0;
+                                SupportedS = 0;
+                                //For All Enemy Obejcts.                                             
+                                ////Parallel.For(0, 8, g =>
+                                for (int g = 0; g < 8; g++)
+                                {
+                                    ////Parallel.For(0, 8, h =>
+                                    for (int h = 0; h < 8; h++)
                                     {
-                                        ////Parallel.For(0, 8, h =>
-                                        for (int h = 0; h < 8; h++)
-                                        {
-                                            //Ignore Of Self Objects.
-                                            if (Order == 1 && Table[g, h] >= 0)
-                                                continue;
-                                            if (Order == -1 && Table[g, h] <= 0)
-                                                continue;
-                                            Color aaa = new Color();
-                                            //Assgin Enemy ints.
+                                        //Ignore Of Self Objects.
+                                        if (Order == 1 && Table[g, h] >= 0)
+                                            continue;
+                                        if (Order == -1 && Table[g, h] <= 0)
+                                            continue;
+                                        Color aaa = new Color();
+                                        //Assgin Enemy ints.
+                                        aaa = Color.Gray;
+                                        if (Order * -1 == -1)
+                                            aaa = Color.Brown;
+                                        else
                                             aaa = Color.Gray;
-                                            if (Order * -1 == -1)
-                                                aaa = Color.Brown;
-                                            else
-                                                aaa = Color.Gray;
-                                            //When Enemy is Supported.
-                                            bool A = new bool();
-                                            bool B = new bool();
-                                            Object O2 = new Object();
-                                            lock (O2)
-                                            {
-                                                A = Support(Table, g, h, RowD, ColD, aaa, Order * -1);
-                                                B = Support(Table, g, h, RowS, ColS, a, Order);
-                                            }
-                                            //When Enemy is Supported.
-                                            if (B)
-                                            {
-                                                //Assgine variable.
-                                                SupportedS++;
+                                        //When Enemy is Supported.
+                                        bool A = new bool();
+                                        bool B = new bool();
+                                        Object O2 = new Object();
+                                        lock (O2)
+                                        {
+                                            A = Support(Table, g, h, RowD, ColD, aaa, Order * -1);
+                                            B = Support(Table, g, h, RowS, ColS, a, Order);
+                                        }
+                                        //When Enemy is Supported.
+                                        if (B)
+                                        {
+                                            //Assgine variable.
+                                            SupportedS++;
 
-                                            }
-                                            if (A)
-                                            {
-                                                //Assgine variable.
-                                                Supported++;
-                                                continue;
+                                        }
+                                        if (A)
+                                        {
+                                            //Assgine variable.
+                                            Supported++;
+                                            continue;
 
-                                            }
+                                        }
 
-                                        }//);
                                     }//);
-                                    if (SupportedS != 0)
-                                        HA *= System.Math.Pow(2, SupportedS);
+                                }//);
+                                if (SupportedS != 0)
+                                    HA *= System.Math.Pow(2, SupportedS);
 
-                                    if (Supported != 0)
-                                        HA *= (-1 * System.Math.Pow(2, Supported));
-
-                                }
+                                if (Supported != 0)
+                                    HA *= (-1 * System.Math.Pow(2, Supported));
+*/
                             }
+                        }
                         }
 
                     }
@@ -1047,7 +1047,7 @@ namespace RefrigtzDLL
                                     //For All Enemy Obejcts.                                             
                                     ////Parallel.For(0, 8, g =>
 
-                                    int SupportedS = new int();
+                                    /*int SupportedS = new int();
                                     Supported = 0;
                                     SupportedS = 0;
                                     //For All Enemy Obejcts.                                             
@@ -1100,7 +1100,7 @@ namespace RefrigtzDLL
 
                                     if (Supported != 0)
                                         HA *= (-1 * System.Math.Pow(2, Supported));
-                                }
+                               */ }
                             }
                         }
                     }
@@ -1188,7 +1188,7 @@ namespace RefrigtzDLL
                                         {
 
                                             HA += (Sign * (System.Math.Abs(ObjectValueCalculator(Table,  RowD, ColD,RowS, ColS))));
-                                            int Reduced = new int();
+                                            /*int Reduced = new int();
                                             int Increased = new int();
                                             Reduced = 0;
                                             Increased = 0;
@@ -1242,7 +1242,7 @@ namespace RefrigtzDLL
                                             if (Increased != 0)
                                                 HA *= System.Math.Pow(2, Increased);
 
-
+                                        */
 
                                         }
                                     }
@@ -1301,7 +1301,7 @@ namespace RefrigtzDLL
                                                     {
 
                                                         HA += (Sign * (System.Math.Abs(ObjectValueCalculator(Table,  RowD, ColD,RowS, ColS))));
-                                                        int Reduced = new int();
+                                                        /*int Reduced = new int();
                                                         int Increased = new int();
                                                         Reduced = 0;
                                                         Increased = 0;
@@ -1355,7 +1355,7 @@ namespace RefrigtzDLL
                                                             HA *= (-1 * System.Math.Pow(2, Reduced));
                                                         if (Increased != 0)
                                                             HA *= System.Math.Pow(2, Increased);
-                                                    }
+                                                    */}
                                                 }
                                             }
                                         }
@@ -2700,7 +2700,7 @@ namespace RefrigtzDLL
                                     //Calculate Local Support Huristic.
                                     HA += (Sign * (System.Math.Abs((ObjectValueCalculator(Tab, RowS, ColS, RowD, ColD)
                                     ))));
-                                    int Supported = new int();
+                                   /* int Supported = new int();
                                     int SupportedE = new int();
                                     Supported = 0;
                                     SupportedE = 0;
@@ -2776,7 +2776,7 @@ namespace RefrigtzDLL
                                             if (SupportedE != 0)
                                             //When is Supported Multyply -100.
                                             HA *= (-1 * System.Math.Pow(2, SupportedE));
-                                    }
+                                    }*/
 
                                 }
                             }
@@ -2839,7 +2839,7 @@ namespace RefrigtzDLL
                                                 //Calculate Local Support Huristic.
                                                 HA += (Sign * (System.Math.Abs((ObjectValueCalculator(Tab, RowS, ColS, RowD, ColD)
                                                 ))));
-                                                int Supported = new int();
+                                             /*   int Supported = new int();
                                                 int SupportedE = new int();
                                                 Supported = 0;
                                                 SupportedE = 0;
@@ -2915,7 +2915,7 @@ namespace RefrigtzDLL
                                                         if (SupportedE != 0)
                                                         //When is Supported Multyply -100.
                                                         HA *= (-1 * System.Math.Pow(2, SupportedE));
-                                                }
+                                               }*/
 
                                             }
                                         }                                        
@@ -4699,218 +4699,218 @@ namespace RefrigtzDLL
                 int DummyOrder = Order;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
                 ///When AStarGreedy Huristic is Not Assigned.
-                
-                    if (!AStarGreedyHuristicT)
+
+                if (!AStarGreedyHuristicT)
+                {
+                    int Order = new int();
+                    Color a = new Color();
+                    a = aa;
+                    Order = DummyOrder;
+                    double Sign = new double();
+                    ///When Moveble is true. means [RowS,ColS] is in Movmebale to [RowD,ColD].
+                    ///What is Moveable!
+                    ///Ans:When [RowS,ColS] is Movebale to [RowD,ColD] continue true when Empty or Enemy is located in [RowS,ColS].
+                    if (Table[RowD, ColD] == 0 && DummyOrder == -1 && Table[RowS, ColS] < 0)
                     {
-                        int Order = new int();
-                        Color a = new Color();
-                        a = aa;
-                        Order = DummyOrder;
-                        double Sign = new double();
-                        ///When Moveble is true. means [RowS,ColS] is in Movmebale to [RowD,ColD].
-                        ///What is Moveable!
-                        ///Ans:When [RowS,ColS] is Movebale to [RowD,ColD] continue true when Empty or Enemy is located in [RowS,ColS].
-                        if (Table[RowD, ColD] == 0 && DummyOrder == -1 && Table[RowS, ColS] < 0)
+                        Order = -1;
+                        Object O1 = new Object();
+                        lock (O1)
                         {
-                            Order = -1;
-                            Object O1 = new Object();
-                            lock (O1)
-                            {
-                                Sign = 1 * AllDraw.SignMovments;
-                                ChessRules.CurrentOrder = -1;
-                            }
+                            Sign = 1 * AllDraw.SignMovments;
+                            ChessRules.CurrentOrder = -1;
+                        }
+                        a = Color.Brown;
+                    }
+                    else if (Table[RowD, ColD] == 0 && DummyOrder == 1 && Table[RowS, ColS] > 0)
+                    {
+                        Order = 1;
+                        Object O1 = new Object();
+                        lock (O1)
+                        {
+                            Sign = 1 * AllDraw.SignMovments;
+                            ChessRules.CurrentOrder = 1;
+                        }
+                        a = Color.Gray;
+                    }
+                    else
+                        return HuristicMovementValue;
+                    if (Before)
+                    {
+                        //When is Movable Movement inCurrent.
+                        if (Movable(Table, RowS, ColS, RowD, ColD, a, Order))
+                        {
+                            int[,] Tab = new int[8, 8];
+
+                            for (int ik = 0; ik < 8; ik++)
+                                for (int jk = 0; jk < 8; jk++)
+                                    Tab[ik, jk] = Table[ik, jk];
+                            HA += (Sign * (System.Math.Abs(ObjectValueCalculator(Table, RowS, ColS, RowD, ColD))));
+                            /* int Supported = 0;
+                             int Attacked = 0;
+                             //For All Enemy Obejcts.                                             
+                             for (int g = 0; g < 8; g++)
+                             ////Parallel.For(0, 8, g =>
+                             {
+                                 ////Parallel.For(0, 8, h =>
+                                 for (int h = 0; h < 8; h++)
+                                 {
+                                     Object O2 = new Object();
+                                     lock (O2)
+                                     {
+                                         //Ignore Of Self Objects.
+                                         if (Order == 1 && Table[g, h] == 0)
+                                             continue;
+                                         if (Order == -1 && Table[g, h] == 0)
+                                             continue;
+                                         Color aaa = new Color();
+                                         //Assgin Enemy ints.
+                                         aaa = Color.Gray;
+                                         if (Order * -1 == -1)
+                                             aaa = Color.Brown;
+                                         else
+                                             aaa = Color.Gray;
+                                         //When Enemy is Supported.
+                                         bool A = new bool();
+                                         bool B = new bool();
+                                         A = Support(Tab, g, h, RowS, ColS, a, Order);
+                                         B = Attack(Tab, g, h, RowS, ColS, aaa, Order * -1);
+                                         //When Enemy is Supported.
+                                         if (B)
+                                         {
+                                             //Assgine variable.
+                                             Attacked++;
+                                         }
+                                         if (A)
+                                         {
+                                             //Assgine variable.
+                                             Supported++;
+                                             continue;
+                                         }
+                                     }
+                                 }//);
+
+                             }//);
+                             Object O1 = new Object();
+                             lock (O1)
+                             {
+                                 if (Supported != 0)
+                                     //When is Not Supported multyply 100.
+                                     HA *= System.Math.Pow(2, Supported);
+
+                                 //When is Supported Multyply -100.
+                                 if (Attacked != 0)
+                                     //When is Not Supported multyply 100.
+                                     HA *= -(1 * System.Math.Pow(2, Attacked));
+
+                             }*/
+                        }
+                    }
+
+                }
+                //For All Homes Table.
+                else
+                {
+                    int Order = new int();
+                    Color a = new Color();
+                    a = aa;
+                    if (RowD == RowS && ColD == ColS)
+                        return HuristicMovementValue;
+                    double Sign = new double();
+                    Order = DummyOrder;
+                    ///When Moveble is true. means [RowS,ColS] is in Movmebale to [RowD,ColD].
+                    ///What is Moveable!
+                    ///Ans:When [RowS,ColS] is Movebale to [RowD,ColD] continue true when Empty or Enemy is located in [RowS,ColS].
+                    if (Table[RowD, ColD] == 0 && DummyOrder == -1 && Table[RowS, ColS] < 0)
+                    {
+                        Order = -1;
+                        Object O1 = new Object();
+                        lock (O1)
+                        {
+                            Sign = 1 * AllDraw.SignMovments;
+                            ChessRules.CurrentOrder = -1;
                             a = Color.Brown;
                         }
-                        else if (Table[RowD, ColD] == 0 && DummyOrder == 1 && Table[RowS, ColS] > 0)
+                    }
+                    else if (Table[RowD, ColD] == 0 && DummyOrder == 1 && Table[RowS, ColS] > 0)
+                    {
+                        Order = 1;
+                        Object O1 = new Object();
+                        lock (O1)
                         {
-                            Order = 1;
-                            Object O1 = new Object();
-                            lock (O1)
-                            {
-                                Sign = 1 * AllDraw.SignMovments;
-                                ChessRules.CurrentOrder = 1;
-                            }
+                            Sign = 1 * AllDraw.SignMovments;
+                            ChessRules.CurrentOrder = 1;
                             a = Color.Gray;
                         }
-                        else
-                            return HuristicMovementValue;
-                        if (Before)
-                        {
-                            //When is Movable Movement inCurrent.
-                            if (Movable(Table, RowS, ColS, RowD, ColD, a, Order))
-                            {
-                                int[,] Tab = new int[8, 8];
-
-                                for (int ik = 0; ik < 8; ik++)
-                                    for (int jk = 0; jk < 8; jk++)
-                                        Tab[ik, jk] = Table[ik, jk];
-                                HA += (Sign * (System.Math.Abs(ObjectValueCalculator(Table,RowS, ColS,  RowD, ColD))));
-                                int Supported = 0;
-                                int Attacked = 0;
-                                //For All Enemy Obejcts.                                             
-                                for (int g = 0; g < 8; g++)
-                                ////Parallel.For(0, 8, g =>
-                                {
-                                    ////Parallel.For(0, 8, h =>
-                                    for (int h = 0; h < 8; h++)
-                                    {
-                                        Object O2 = new Object();
-                                        lock (O2)
-                                        {
-                                            //Ignore Of Self Objects.
-                                            if (Order == 1 && Table[g, h] == 0)
-                                                continue;
-                                            if (Order == -1 && Table[g, h] == 0)
-                                                continue;
-                                            Color aaa = new Color();
-                                            //Assgin Enemy ints.
-                                            aaa = Color.Gray;
-                                            if (Order * -1 == -1)
-                                                aaa = Color.Brown;
-                                            else
-                                                aaa = Color.Gray;
-                                            //When Enemy is Supported.
-                                            bool A = new bool();
-                                            bool B = new bool();
-                                            A = Support(Tab, g, h, RowS, ColS, a, Order);
-                                            B = Attack(Tab, g, h, RowS, ColS, aaa, Order * -1);
-                                            //When Enemy is Supported.
-                                            if (B)
-                                            {
-                                                //Assgine variable.
-                                                Attacked++;
-                                            }
-                                            if (A)
-                                            {
-                                                //Assgine variable.
-                                                Supported++;
-                                                continue;
-                                            }
-                                        }
-                                    }//);
-
-                                }//);
-                                Object O1 = new Object();
-                                lock (O1)
-                                {
-                                    if (Supported != 0)
-                                        //When is Not Supported multyply 100.
-                                        HA *= System.Math.Pow(2, Supported);
-
-                                    //When is Supported Multyply -100.
-                                    if (Attacked != 0)
-                                        //When is Not Supported multyply 100.
-                                        HA *= -(1 * System.Math.Pow(2, Attacked));
-
-                                }
-                            }
-                        }
-
                     }
-                    //For All Homes Table.
                     else
+                        return HuristicMovementValue;
+                    if (Before)
                     {
-                        int Order = new int();
-                        Color a = new Color();
-                        a = aa;
-                        if (RowD == RowS && ColD == ColS)
-                            return HuristicMovementValue;
-                        double Sign = new double();
-                        Order = DummyOrder;
-                        ///When Moveble is true. means [RowS,ColS] is in Movmebale to [RowD,ColD].
-                        ///What is Moveable!
-                        ///Ans:When [RowS,ColS] is Movebale to [RowD,ColD] continue true when Empty or Enemy is located in [RowS,ColS].
-                        if (Table[RowD, ColD] == 0 && DummyOrder == -1 && Table[RowS, ColS] < 0)
+                        //When is Movable Movement inCurrent.
+                        if (Movable(Table, RowS, ColS, RowD, ColD, a, Order))
                         {
-                            Order = -1;
-                            Object O1 = new Object();
-                            lock (O1)
+                            HA += (Sign * (System.Math.Abs(ObjectValueCalculator(Table, RowS, ColS, RowD, ColD))));
+                            /*int Supported = 0;
+                            int Attacked = 0;
+                            //For All Enemy Obejcts.                                             
+                            for (int g = 0; g < 8; g++)
+                            ////Parallel.For(0, 8, g =>
                             {
-                                Sign = 1 * AllDraw.SignMovments;
-                                ChessRules.CurrentOrder = -1;
-                                a = Color.Brown;
-                            }
-                        }
-                        else if (Table[RowD, ColD] == 0 && DummyOrder == 1 && Table[RowS, ColS] > 0)
-                        {
-                            Order = 1;
-                            Object O1 = new Object();
-                            lock (O1)
-                            {
-                                Sign = 1 * AllDraw.SignMovments;
-                                ChessRules.CurrentOrder = 1;
-                                a = Color.Gray;
-                            }
-                        }
-                        else
-                            return HuristicMovementValue;
-                        if (Before)
-                        {
-                            //When is Movable Movement inCurrent.
-                            if (Movable(Table, RowS, ColS, RowD, ColD, a, Order))
-                            {
-                                HA += (Sign * (System.Math.Abs(ObjectValueCalculator(Table,RowS, ColS,  RowD, ColD))));
-                                int Supported = 0;
-                                int Attacked = 0;
-                                //For All Enemy Obejcts.                                             
-                                for (int g = 0; g < 8; g++)
-                                ////Parallel.For(0, 8, g =>
+                                ////Parallel.For(0, 8, h =>
+                                for (int h = 0; h < 8; h++)
                                 {
-                                    ////Parallel.For(0, 8, h =>
-                                    for (int h = 0; h < 8; h++)
+                                    Object O2 = new Object();
+                                    lock (O2)
                                     {
-                                        Object O2 = new Object();
-                                        lock (O2)
-                                        {
-                                            //Ignore Of Self Objects.
-                                            if (Order == 1 && Table[g, h] == 0)
-                                                continue;
-                                            if (Order == -1 && Table[g, h] == 0)
-                                                continue;
-                                            Color aaa = new Color();
-                                            //Assgin Enemy ints.
+                                        //Ignore Of Self Objects.
+                                        if (Order == 1 && Table[g, h] == 0)
+                                            continue;
+                                        if (Order == -1 && Table[g, h] == 0)
+                                            continue;
+                                        Color aaa = new Color();
+                                        //Assgin Enemy ints.
+                                        aaa = Color.Gray;
+                                        if (Order * -1 == -1)
+                                            aaa = Color.Brown;
+                                        else
                                             aaa = Color.Gray;
-                                            if (Order * -1 == -1)
-                                                aaa = Color.Brown;
-                                            else
-                                                aaa = Color.Gray;
-                                            //When Enemy is Supported.
-                                            bool A = new bool();
-                                            bool B = new bool();
-                                            A = Support(Table, g, h, RowS, ColS, a, Order);
-                                            B = Attack(Table, g, h, RowS, ColS, aaa, Order * -1);
-                                            //When Enemy is Supported.
-                                            if (B)
-                                            {
-                                                //Assgine variable.
-                                                Attacked++;
-                                            }
-                                            if (A)
-                                            {
-                                                //Assgine variable.
-                                                Supported++;
-                                                continue;
-                                            }
+                                        //When Enemy is Supported.
+                                        bool A = new bool();
+                                        bool B = new bool();
+                                        A = Support(Table, g, h, RowS, ColS, a, Order);
+                                        B = Attack(Table, g, h, RowS, ColS, aaa, Order * -1);
+                                        //When Enemy is Supported.
+                                        if (B)
+                                        {
+                                            //Assgine variable.
+                                            Attacked++;
                                         }
-                                    }//);
-
+                                        if (A)
+                                        {
+                                            //Assgine variable.
+                                            Supported++;
+                                            continue;
+                                        }
+                                    }
                                 }//);
-                                Object O1 = new Object();
-                                lock (O1)
-                                {
-                                    if (Supported != 0)
-                                        //When is Not Supported multyply 100.
-                                        HA *= System.Math.Pow(2, Supported);
 
-                                    //When is Supported Multyply -100.
-                                    if (Attacked != 0)
-                                        //When is Not Supported multyply 100.
-                                        HA *= (-1 * System.Math.Pow(2, Attacked));
+                            }//);
+                            Object O1 = new Object();
+                            lock (O1)
+                            {
+                                if (Supported != 0)
+                                    //When is Not Supported multyply 100.
+                                    HA *= System.Math.Pow(2, Supported);
 
-                                }
-                            }
-                            }
+                                //When is Supported Multyply -100.
+                                if (Attacked != 0)
+                                    //When is Not Supported multyply 100.
+                                    HA *= (-1 * System.Math.Pow(2, Attacked));
+
+                            }*/
+                        }
                     }
+                }
                
                 //Reassignments of Begin Call Global Orders.
                 Order = DummyOrder;
@@ -6723,7 +6723,7 @@ namespace RefrigtzDLL
                         Object A = new object();
                         lock (A)
                         {
-                            CalculateHuristics(true, 0, TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                            //CalculateHuristics(true, 0, TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                         }
                         Object A1 = new object();
                         lock (A1)
@@ -6838,12 +6838,12 @@ namespace RefrigtzDLL
                             Object O4 = new Object();
                             lock (O4)
                             {
-                                OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
+                                /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
                                 if (Order == 1)
                                     AllDraw.OutPut = "\r\nThinking King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                                 else
                                     AllDraw.OutPut = "\r\nThinking King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
-                                ThinkingLevel++;
+                                */ThinkingLevel++;
                                 ThinkingAtRun = false;
                             }
                         }
@@ -6881,12 +6881,12 @@ namespace RefrigtzDLL
                             Hu[9] = HeuristicKingDangourSup;
                             //HeuristicKingDangourSup = 0;
                             String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
-                            OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
+                            /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
                             if (Order == 1)
                                 AllDraw.OutPut = "\r\nThinking King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                             else
                                 AllDraw.OutPut = "\r\nThinking King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
-                            ThinkingAtRun = false;
+                            */ThinkingAtRun = false;
                         }
                    
 
@@ -6970,7 +6970,7 @@ namespace RefrigtzDLL
                         Object A = new object();
                         lock (A)
                         {
-                            CalculateHuristics(true, 0, TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                            //CalculateHuristics(true, 0, TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                         }
                         Object A1 = new object();
                         lock (A1)
@@ -7085,12 +7085,12 @@ namespace RefrigtzDLL
                             Object O4 = new Object();
                             lock (O4)
                             {
-                                OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
+                                /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
                                 if (Order == 1)
                                     AllDraw.OutPut = "\r\nThinking Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                                 else
                                     AllDraw.OutPut = "\r\nThinking Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
-                                ThinkingLevel++;
+                                */ThinkingLevel++;
                                 ThinkingAtRun = false;
                             }
                         }
@@ -7128,12 +7128,12 @@ namespace RefrigtzDLL
                             Hu[9] = HeuristicKingDangourSup;
                             //HeuristicKingDangourSup = 0;
                             String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
-                            OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
+                            /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
                             if (Order == 1)
                                 AllDraw.OutPut = "\r\nThinking Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                             else
                                 AllDraw.OutPut = "\r\nThinking Minster AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
-                            ThinkingAtRun = false;
+                            */ThinkingAtRun = false;
                         }
                    
 
@@ -7554,7 +7554,7 @@ namespace RefrigtzDLL
                         Object A = new object();
                         lock (A)
                         {
-                            CalculateHuristics(true, 0, TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                            //CalculateHuristics(true, 0, TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                         }
                         Object A1 = new object();
                         lock (A1)
@@ -7671,12 +7671,12 @@ namespace RefrigtzDLL
                                 Object O4 = new Object();
                                 lock (O4)
                                 {
-                                    OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
+                                    /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
                                     if (Order == 1)
                                         AllDraw.OutPut = "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                                     else
                                         AllDraw.OutPut = "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
-                                    ThinkingLevel++;
+                                    */ThinkingLevel++;
                                     ThinkingAtRun = false;
                                 }
                             }
@@ -7715,193 +7715,194 @@ namespace RefrigtzDLL
                             Hu[9] = HeuristicKingDangourSup;
                             //HeuristicKingDangourSup = 0;
                             String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
-                            OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
-                            if (Order == 1)
-                                AllDraw.OutPut = "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
-                            else
-                                AllDraw.OutPut = "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
-                        }
-                   
-                }
+                        /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
+                        if (Order == 1)
+                            AllDraw.OutPut = "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                        else
+                            AllDraw.OutPut = "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                   */ ThinkingAtRun = false;
+                    }
+
             }
-            ThinkingAtRun = false;
         }
-        void HourseThinkingChess(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
+        ThinkingAtRun = false;
+    }
+    void HourseThinkingChess(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
+    {
+        Object OO = new Object();
+        lock (OO)
         {
-            Object OO = new Object();
-            lock (OO)
+
+            double HuristicAttackValue = new double();
+            double HuristicMovementValue = new double();
+            double HuristicSelfSupportedValue = new double();
+            double HuristicObjectDangourCheckMateValue = new double();
+            double HuristicKillerValue = new double();
+            double HuristicReducedAttackValue = new double();
+            double HeuristicDistabceOfCurrentMoveFromEnemyKingValue = new double();
+            double HeuristicKingSafe = new double();
+            double HeuristicFromCenter = new double();
+            double HeuristicKingDangour = new double();
+            Order = DummyOrder;
+            ChessRules.CurrentOrder = DummyCurrentOrder;
+            ///When There is Movments.
+
+            if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[RowSource, ColumnSource], TableS, Order, RowSource, ColumnSource)).Rules(RowSource, ColumnSource, RowDestination, ColumnDestination, color, TableS[RowSource, ColumnSource], false))
             {
 
-                double HuristicAttackValue = new double();
-                double HuristicMovementValue = new double();
-                double HuristicSelfSupportedValue = new double();
-                double HuristicObjectDangourCheckMateValue = new double();
-                double HuristicKillerValue = new double();
-                double HuristicReducedAttackValue = new double();
-                double HeuristicDistabceOfCurrentMoveFromEnemyKingValue = new double();
-                double HeuristicKingSafe = new double();
-                double HeuristicFromCenter = new double();
-                double HeuristicKingDangour = new double();
-                Order = DummyOrder;
-                ChessRules.CurrentOrder = DummyCurrentOrder;
-                ///When There is Movments.
+                    QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                    ThinkingAtRun = true; int CheckedM = 0;
 
-                if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[RowSource, ColumnSource], TableS, Order, RowSource, ColumnSource)).Rules(RowSource, ColumnSource, RowDestination, ColumnDestination, color, TableS[RowSource, ColumnSource], false))
-                {
-                    
-                        QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                        ThinkingAtRun = true; int CheckedM = 0;
+                    bool Sup = false;
+                    if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
+                    {
+                        IsSup = true;IsSupHu = true;
+                        Sup = true;
+                    }
+                    if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
+                    {
+                        IsSup = true;IsSupHu = true;
+                        Sup = true;
+                    }
+                    if (!Sup)
+                    {
 
-                        bool Sup = false;
-                        if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
+                        ///Add Table to List of Private.
+                        HitNumberHourse.Add(TableS[RowDestination, ColumnDestination]);
+
+                        Object O = new Object();
+                        lock (O)
                         {
-                            IsSup = true;IsSupHu = true;
-                            Sup = true;
+                            ThinkingRun = true;
                         }
-                        if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
+                    }
+                    ///Predict Huristic.
+                    Object A = new object();
+                    lock (A)
+                    {
+                        //CalculateHuristics(true, 0, TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                    }
+                    Object A1 = new object();
+                    lock (A1)
+                    {
+                        if (!Sup){NumbersOfAllNode++;}
+                    }
+                    int Killed = 0;
+                    if (!Sup)
+                    {
+                        Object A2 = new object();
+                        lock (A2)
                         {
-                            IsSup = true;IsSupHu = true;
-                            Sup = true;
+                            Killed = TableS[RowDestination, ColumnDestination];
+                            TableS[RowDestination, ColumnDestination] = TableS[RowSource, ColumnSource];
+                            TableS[RowSource, ColumnSource] = 0;
                         }
-                        if (!Sup)
-                        {
-                            
-                            ///Add Table to List of Private.
-                            HitNumberHourse.Add(TableS[RowDestination, ColumnDestination]);
+                    }
 
-                            Object O = new Object();
-                            lock (O)
+
+
+                    if (!Sup)
+                    {
+                        Object A3 = new object();
+                        lock (A3)
+                        {
+                            PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 3, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                            //{ ThinkingAtRun = false; return; }
+                        }
+                    }
+
+                    ///Store of Indexes Changes and Table in specific List.
+                    if (!Sup)
+                    {
+                        Object A4 = new object();
+                        lock (A4)
+                        {
+                            int[] AS = new int[2];
+                            AS[0] = RowDestination;
+                            AS[1] = ColumnDestination;
+                            RowColumnHourse.Add(AS);
+                            //RowColumn[Index, 0] = RowDestination;
+                            //RowColumn[Index, 1] = ColumnDestination;
+                            //Index+=1;
+                            TableListHourse.Add(CloneATable(TableS)); ;
+                            IndexHourse++;
+                        }
+                    }
+                    ///Wehn Predict of Operation Do operate a Predict of this movments.
+                    Object A5 = new object();
+                    lock (A5)
+                    {
+                        //Caused this for Stachostic results.
+                        if (!Sup) { CalculateHuristics(false, Killed, TableS, RowDestination, ColumnDestination, RowSource, ColumnSource, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour); }
+                    }
+
+                    //Calculate Huristic and Add to List and Cal Syntax.
+                    if (!Sup)
+                    {
+                        String H = "";
+                        Object A6 = new object();
+                        lock (A6)
+                        {
+                            double[] Hu = new double[10];
+                            //if (!IsSup)
                             {
-                                ThinkingRun = true;
+                                HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
+                                if (IgnoreFromCheckandMateHuristic)
+                                    HuristicObjectDangourCheckMateValue = 0;
+                                Hu[0] += HuristicAttackValue;
+                                Hu[1] += HuristicMovementValue;
+                                Hu[2] += HuristicSelfSupportedValue;
+                                Hu[3] += HuristicObjectDangourCheckMateValue;
+                                Hu[4] += HuristicKillerValue;
+                                Hu[5] += HuristicReducedAttackValue;
+                                Hu[6] += HeuristicDistabceOfCurrentMoveFromEnemyKingValue;
+                                Hu[7] += HeuristicKingSafe;
+                                Hu[8] = HeuristicFromCenter;
+                                Hu[9] = HeuristicKingDangour;
+
+                                H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
+                                HuristicListHourse.Add(Hu);
                             }
-                        }
-                        ///Predict Huristic.
-                        Object A = new object();
-                        lock (A)
-                        {
-                            CalculateHuristics(true, 0, TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
-                        }
-                        Object A1 = new object();
-                        lock (A1)
-                        {
-                            if (!Sup){NumbersOfAllNode++;}
-                        }
-                        int Killed = 0;
-                        if (!Sup)
-                        {
-                            Object A2 = new object();
-                            lock (A2)
+                            /*else
                             {
-                                Killed = TableS[RowDestination, ColumnDestination];
-                                TableS[RowDestination, ColumnDestination] = TableS[RowSource, ColumnSource];
-                                TableS[RowSource, ColumnSource] = 0;
-                            }
-                        }
-
-
-
-                        if (!Sup)
-                        {
-                            Object A3 = new object();
-                            lock (A3)
-                            {
-                                PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 3, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
-                                //{ ThinkingAtRun = false; return; }
-                            }
-                        }
-
-                        ///Store of Indexes Changes and Table in specific List.
-                        if (!Sup)
-                        {
-                            Object A4 = new object();
-                            lock (A4)
-                            {
-                                int[] AS = new int[2];
-                                AS[0] = RowDestination;
-                                AS[1] = ColumnDestination;
-                                RowColumnHourse.Add(AS);
-                                //RowColumn[Index, 0] = RowDestination;
-                                //RowColumn[Index, 1] = ColumnDestination;
-                                //Index+=1;
-                                TableListHourse.Add(CloneATable(TableS)); ;
-                                IndexHourse++;
-                            }
-                        }
-                        ///Wehn Predict of Operation Do operate a Predict of this movments.
-                        Object A5 = new object();
-                        lock (A5)
-                        {
-                            //Caused this for Stachostic results.
-                            if (!Sup) { CalculateHuristics(false, Killed, TableS, RowDestination, ColumnDestination, RowSource, ColumnSource, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour); }
-                        }
-
-                        //Calculate Huristic and Add to List and Cal Syntax.
-                        if (!Sup)
-                        {
-                            String H = "";
-                            Object A6 = new object();
-                            lock (A6)
-                            {
-                                double[] Hu = new double[10];
-                                //if (!IsSup)
                                 {
                                     HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
                                     if (IgnoreFromCheckandMateHuristic)
                                         HuristicObjectDangourCheckMateValue = 0;
-                                    Hu[0] += HuristicAttackValue;
-                                    Hu[1] += HuristicMovementValue;
-                                    Hu[2] += HuristicSelfSupportedValue;
-                                    Hu[3] += HuristicObjectDangourCheckMateValue;
-                                    Hu[4] += HuristicKillerValue;
-                                    Hu[5] += HuristicReducedAttackValue;
-                                    Hu[6] += HeuristicDistabceOfCurrentMoveFromEnemyKingValue;
-                                    Hu[7] += HeuristicKingSafe;
-                                    Hu[8] = HeuristicFromCenter;
-                                    Hu[9] = HeuristicKingDangour;
-
+                                    Hu[0] += HuristicAttackValue + HuristicAttackValueSup;
+                                    //HuristicAttackValueSup = 0;
+                                    Hu[1] += HuristicMovementValue + HuristicMovementValueSup;
+                                    //HuristicMovementValueSup = 0;
+                                    Hu[2] += HuristicSelfSupportedValue + HuristicSelfSupportedValueSup;
+                                    //HuristicSelfSupportedValueSup = 0;
+                                    Hu[3] += HuristicObjectDangourCheckMateValue + HuristicObjectDangourCheckMateValueSup;
+                                    //HuristicObjectDangourCheckMateValueSup = 0;
+                                    Hu[4] += HuristicKillerValue + HuristicKillerValueSup;
+                                    //HuristicKillerValueSup = 0;
+                                    Hu[5] += HuristicReducedAttackValue + HuristicReducedAttackValueSup;
+                                    //HuristicReducedAttackValueSup = 0;
+                                    Hu[6] += HeuristicDistabceOfCurrentMoveFromEnemyKingValue + HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+                                    //HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+                                    Hu[7] += HeuristicKingSafe + HeuristicKingSafeSup;
+                                    //HeuristicKingSafeSup = 0;
+                                    Hu[8] = HeuristicFromCenter + HeuristicFromCenterSup;
+                                    //HeuristicFromCenterSup = 0;
+                                    Hu[9] = HeuristicKingDangour + HeuristicKingDangourSup;
+                                    //HeuristicKingDangourSup = 0;
                                     H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
                                     HuristicListHourse.Add(Hu);
+                                    IsSup = false;
                                 }
-                                /*else
-                                {
-                                    {
-                                        HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
-                                        if (IgnoreFromCheckandMateHuristic)
-                                            HuristicObjectDangourCheckMateValue = 0;
-                                        Hu[0] += HuristicAttackValue + HuristicAttackValueSup;
-                                        //HuristicAttackValueSup = 0;
-                                        Hu[1] += HuristicMovementValue + HuristicMovementValueSup;
-                                        //HuristicMovementValueSup = 0;
-                                        Hu[2] += HuristicSelfSupportedValue + HuristicSelfSupportedValueSup;
-                                        //HuristicSelfSupportedValueSup = 0;
-                                        Hu[3] += HuristicObjectDangourCheckMateValue + HuristicObjectDangourCheckMateValueSup;
-                                        //HuristicObjectDangourCheckMateValueSup = 0;
-                                        Hu[4] += HuristicKillerValue + HuristicKillerValueSup;
-                                        //HuristicKillerValueSup = 0;
-                                        Hu[5] += HuristicReducedAttackValue + HuristicReducedAttackValueSup;
-                                        //HuristicReducedAttackValueSup = 0;
-                                        Hu[6] += HeuristicDistabceOfCurrentMoveFromEnemyKingValue + HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
-                                        //HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
-                                        Hu[7] += HeuristicKingSafe + HeuristicKingSafeSup;
-                                        //HeuristicKingSafeSup = 0;
-                                        Hu[8] = HeuristicFromCenter + HeuristicFromCenterSup;
-                                        //HeuristicFromCenterSup = 0;
-                                        Hu[9] = HeuristicKingDangour + HeuristicKingDangourSup;
-                                        //HeuristicKingDangourSup = 0;
-                                        H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
-                                        HuristicListHourse.Add(Hu);
-                                        IsSup = false;
-                                    }
-                                }*/
-                                Object O4 = new Object();
+                            }*/
+                        Object O4 = new Object();
                                 lock (O4)
                                 {
-                                    OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
+                                    /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
                                     if (Order == 1)
                                         AllDraw.OutPut = "\r\nThinking Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                                     else
                                         AllDraw.OutPut = "\r\nThinking Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
-                                    ThinkingLevel++;
+                                    */ThinkingLevel++;
                                     ThinkingAtRun = false;
                                 }
                             }
@@ -7940,12 +7941,12 @@ namespace RefrigtzDLL
                             Hu[9] = HeuristicKingDangourSup;
                             //HeuristicKingDangourSup = 0;
                             String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
-                            OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
+                            /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
                             if (Order == 1)
                                 AllDraw.OutPut = "\r\nThinking Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                             else
                                 AllDraw.OutPut = "\r\nThinking Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
-
+                                */
                             ThinkingAtRun = false;
                         }
                    
@@ -8004,7 +8005,7 @@ namespace RefrigtzDLL
                         Object A = new object();
                         lock (A)
                         {
-                            CalculateHuristics(true, 0, TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                            //CalculateHuristics(true, 0, TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                         }
                         Object A1 = new object();
                         lock (A1)
@@ -8121,12 +8122,12 @@ namespace RefrigtzDLL
                                 Object O4 = new Object();
                                 lock (O4)
                                 {
-                                    OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
+                                    /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
                                     if (Order == 1)
                                         AllDraw.OutPut = "\r\nThinking Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                                     else
                                         AllDraw.OutPut = "\r\nThinking Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
-                                    ThinkingLevel++;
+                                    */ThinkingLevel++;
                                     ThinkingAtRun = false;
                                 }
                             }
@@ -8165,12 +8166,12 @@ namespace RefrigtzDLL
                             Hu[9] = HeuristicKingDangourSup;
                             //HeuristicKingDangourSup = 0;
                             String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
-                            OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
+                            /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
                             if (Order == 1)
                                 AllDraw.OutPut = "\r\nThinking Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                             else
                                 AllDraw.OutPut = "\r\nThinking Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
-                            ThinkingAtRun = false;
+                            */ThinkingAtRun = false;
                         }
                    
                 }                    
@@ -8900,7 +8901,7 @@ namespace RefrigtzDLL
                         Object A = new object();
                         lock (A)
                         {
-                            CalculateHuristics(true, 0, TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                            //CalculateHuristics(true, 0, TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                         }
                         Object A1 = new object();
                         lock (A1)
@@ -9016,12 +9017,12 @@ namespace RefrigtzDLL
                             Object O4 = new Object();
                             lock (O4)
                             {
-                                OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
+                                /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
                                 if (Order == 1)
                                     AllDraw.OutPut = "\r\nThinking Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                                 else
                                     AllDraw.OutPut = "\r\nThinking Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
-                                ThinkingLevel++;
+                                */ThinkingLevel++;
                                 ThinkingAtRun = false;
                             }
                         }
@@ -9059,12 +9060,12 @@ namespace RefrigtzDLL
                             Hu[9] = HeuristicKingDangourSup;
                             //HeuristicKingDangourSup = 0;
                             String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
-                            OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
+                            /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
                             if (Order == 1)
                                 AllDraw.OutPut = "\r\nThinking Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                             else
                                 AllDraw.OutPut = "\r\nThinking Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
-                            ThinkingAtRun = false;
+                            */ThinkingAtRun = false;
                         }
                         
                    
@@ -9101,7 +9102,7 @@ namespace RefrigtzDLL
                 {
                     ThinkingRun = true;
                 }
-                CalculateHuristics(true, 0, TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                //CalculateHuristics(true, 0, TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                 Object A = new object();
                 lock (A)
                 {
@@ -9437,7 +9438,7 @@ namespace RefrigtzDLL
                     ThinkingRun = true;
                 }
 
-                CalculateHuristics(true, 0, TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                //CalculateHuristics(true, 0, TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                 Object A = new object();
                 lock (A)
                 {
@@ -10474,7 +10475,7 @@ namespace RefrigtzDLL
             , int RowS, int ColS, int RowO, int ColumnO)
         {
             double Val = 1;
-
+            /*
             ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[RowS, ColS], Table, Order, RowS, ColS);
             Object O1 = new Object();
             lock (O1)
@@ -10513,14 +10514,7 @@ namespace RefrigtzDLL
                                     {
                                         Color AAB = Color.Gray;
                                         int Ord = 0;
-                                        /*if (SignSelfEmpty(Table[RowS, ColS], Table[RowO, ColumnO], Order, ref Ord, ref AAB))
-                                        {
-                                            A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[RowS, ColS], Table, Ord, RowS, ColS);
-                                            if (A.Rules(RowS, ColS, RowO, ColumnO, AAB, Ord))
-                                                Val++;//Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, Table, 1));
-                                        }
-                                        else*/
-                                        if (SignEqualSelf(Table[RowS, ColS], Table[RowO, ColumnO], Order, ref Ord, ref AAB))
+                                          if (SignEqualSelf(Table[RowS, ColS], Table[RowO, ColumnO], Order, ref Ord, ref AAB))
                                         {
                                             if (Support(Table, RowS, ColS, RowO, ColumnO, AAB, Ord))
                                                 Val++;//Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, Table, 1));
@@ -10584,8 +10578,10 @@ namespace RefrigtzDLL
                         //Val--;
                     
                 }
-
-               /* if (System.Math.Abs(Table[RowS, ColS]) == 2)
+               */
+            if (Table[RowS, ColS] / Order > 0)
+            {
+                if (System.Math.Abs(Table[RowS, ColS]) == 2)
                 {
                     Val = Val * 3;
                 }
@@ -10609,8 +10605,36 @@ namespace RefrigtzDLL
                 {
                     Val = Val * 10;
                 }
-                */
             }
+            else
+            if (Table[RowO, ColumnO] / Order > 0)
+            {
+                if (System.Math.Abs(Table[RowO, ColumnO]) == 2)
+                {
+                    Val = Val * 3;
+                }
+                else
+                   if (System.Math.Abs(Table[RowO, ColumnO]) == 3)
+                {
+                    Val = Val * 3;
+                }
+                else
+                       if (System.Math.Abs(Table[RowO, ColumnO]) == 4)
+                {
+                    Val = Val * 5;
+                }
+                else
+                           if (System.Math.Abs(Table[RowO, ColumnO]) == 5)
+                {
+                    Val = Val * 9;
+                }
+                else
+                           if (System.Math.Abs(Table[RowO, ColumnO]) == 6)
+                {
+                    Val = Val * 10;
+                }
+            }
+            //}
             //       if (Val < 0)
             //         Val = 0;
             return Val;

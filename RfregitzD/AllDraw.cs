@@ -4825,8 +4825,8 @@ if (Kind == 2)
 
                                             }
                                             RegardOccurred = true;
-                                            if (SolderesOnTable[i].WinOcuuredatChiled >= 1 || SolderesOnTable[i].WinOcuuredatChiled >= 2 || SolderesOnTable[i].WinOcuuredatChiled >= 3)
-                                                Less = double.MaxValue;
+                                            //if (SolderesOnTable[i].WinOcuuredatChiled >= 1 || SolderesOnTable[i].WinOcuuredatChiled >= 2 || SolderesOnTable[i].WinOcuuredatChiled >= 3)
+                                               // Less = double.MaxValue;
                                             //if (Do == 1 || AA)
                                             //return TableHuristic;
                                             continue;
@@ -5155,8 +5155,8 @@ if (Kind == 2)
                                                 Less = ElephantOnTable[i].ElefantThinking[k].NumberOfPenalties; ;
                                             }
                                             TableHuristic = ElephantOnTable[i].ElefantThinking[k].TableListElefant[j];
-                                            if (ElephantOnTable[i].WinOcuuredatChiled >= 1 || ElephantOnTable[i].WinOcuuredatChiled >= 2 || ElephantOnTable[i].WinOcuuredatChiled >= 3)
-                                                Less = double.MaxValue;
+                                            //if (ElephantOnTable[i].WinOcuuredatChiled >= 1 || ElephantOnTable[i].WinOcuuredatChiled >= 2 || ElephantOnTable[i].WinOcuuredatChiled >= 3)
+                                                //Less = double.MaxValue;
                                             RegardOccurred = true;
                                             //if (Do == 1 || AA)
                                             //return TableHuristic;
@@ -5408,8 +5408,8 @@ if (Kind == 2)
                                             RegardOccurred = true;
                                             //if (Do == 1 || AA)
                                             //return TableHuristic;
-                                            if (HoursesOnTable[i].WinOcuuredatChiled >= 1 || HoursesOnTable[i].WinOcuuredatChiled >= 2 || HoursesOnTable[i].WinOcuuredatChiled >= 3)
-                                                Less = double.MaxValue;
+                                            //if (HoursesOnTable[i].WinOcuuredatChiled >= 1 || HoursesOnTable[i].WinOcuuredatChiled >= 2 || HoursesOnTable[i].WinOcuuredatChiled >= 3)
+                                                //Less = double.MaxValue;
                                             continue;
 
                                         }
@@ -5667,8 +5667,8 @@ if (Kind == 2)
                                             }
                                             TableHuristic = CastlesOnTable[i].CastleThinking[k].TableListCastle[j];
                                             RegardOccurred = true;
-                                            if (CastlesOnTable[i].WinOcuuredatChiled >= 1 || CastlesOnTable[i].WinOcuuredatChiled >= 2 || CastlesOnTable[i].WinOcuuredatChiled >= 3)
-                                                Less = double.MaxValue;
+                                            //if (CastlesOnTable[i].WinOcuuredatChiled >= 1 || CastlesOnTable[i].WinOcuuredatChiled >= 2 || CastlesOnTable[i].WinOcuuredatChiled >= 3)
+                                                //Less = double.MaxValue;
                                             //if (Do == 1 || AA)
                                             //return TableHuristic;
                                             continue;
@@ -5917,8 +5917,8 @@ if (Kind == 2)
                                         }
                                         TableHuristic = MinisterOnTable[i].MinisterThinking[k].TableListMinister[j];
                                         RegardOccurred = true;
-                                        if (MinisterOnTable[i].WinOcuuredatChiled >= 1 || MinisterOnTable[i].WinOcuuredatChiled >= 2 || MinisterOnTable[i].WinOcuuredatChiled >= 3)
-                                            Less = double.MaxValue;
+                                        //if (MinisterOnTable[i].WinOcuuredatChiled >= 1 || MinisterOnTable[i].WinOcuuredatChiled >= 2 || MinisterOnTable[i].WinOcuuredatChiled >= 3)
+                                            //Less = double.MaxValue;
                                         //if (Do == 1 || AA)
                                         //return TableHuristic;
                                         continue;
@@ -6167,8 +6167,8 @@ if (Kind == 2)
                                             }
                                             TableHuristic = KingOnTable[i].KingThinking[k].TableListKing[j];
                                             RegardOccurred = true;
-                                            if (KingOnTable[i].WinOcuuredatChiled >= 1 || KingOnTable[i].WinOcuuredatChiled >= 2 || KingOnTable[i].WinOcuuredatChiled >= 3)
-                                                Less = double.MaxValue;
+                                            //if (KingOnTable[i].WinOcuuredatChiled >= 1 || KingOnTable[i].WinOcuuredatChiled >= 2 || KingOnTable[i].WinOcuuredatChiled >= 3)
+                                                //Less = double.MaxValue;
                                             //if (Do == 1 || AA)
                                             //return TableHuristic;
                                             continue;
@@ -6541,8 +6541,8 @@ if (Kind == 2)
                                         }
                                         RegardOccurred = true;
                                         StringHuristics(1, 2, AA, Do, SolderesOnTable[i].WinOcuuredatChiled, SolderesOnTable[i].LoseOcuuredatChiled);
-                                        if (SolderesOnTable[i].WinOcuuredatChiled >= 1 || SolderesOnTable[i].WinOcuuredatChiled >= 2 || SolderesOnTable[i].WinOcuuredatChiled >= 3)
-                                            Less = double.MaxValue;
+                                        //if (SolderesOnTable[i].WinOcuuredatChiled >= 1 || SolderesOnTable[i].WinOcuuredatChiled >= 2 || SolderesOnTable[i].WinOcuuredatChiled >= 3)
+                                            //Less = double.MaxValue;
 
                                         //if (Do == 1 || AA)
                                         //return TableHuristic;
@@ -6879,12 +6879,12 @@ if (Kind == 2)
 
 
                                             Act = true;
-                                            Less = ElephantOnTable[i].ElefantThinking[k].NumberOfPenalties; ;
+                                            Less = ElephantOnTable[i].ElefantThinking[k].ReturnHuristic(i, j, Order, AA) ;
                                         }
                                         TableHuristic = ElephantOnTable[i].ElefantThinking[k].TableListElefant[j];
                                         StringHuristics(2, 2, AA, Do, ElephantOnTable[i].WinOcuuredatChiled, ElephantOnTable[i].LoseOcuuredatChiled);
-                                        if (ElephantOnTable[i].WinOcuuredatChiled >= 1 || ElephantOnTable[i].WinOcuuredatChiled >= 2 || ElephantOnTable[i].WinOcuuredatChiled >= 3)
-                                            Less = double.MaxValue;
+                                        //if (ElephantOnTable[i].WinOcuuredatChiled >= 1 || ElephantOnTable[i].WinOcuuredatChiled >= 2 || ElephantOnTable[i].WinOcuuredatChiled >= 3)
+                                            //Less = double.MaxValue;
                                         RegardOccurred = true;
 
 
@@ -7158,15 +7158,15 @@ if (Kind == 2)
                                             AllDraw.NextColumn = HoursesOnTable[i].HourseThinking[k].RowColumnHourse[j][1];
 
                                             Act = true;
-                                            Less = HoursesOnTable[i].HourseThinking[k].NumberOfPenalties;
+                                            Less = HoursesOnTable[i].HourseThinking[k].ReturnHuristic(i, j, Order, AA);
                                         }
                                         TableHuristic = HoursesOnTable[i].HourseThinking[k].TableListHourse[j];
                                         RegardOccurred = true;
                                         //if (Do == 1 || AA)
                                         //return TableHuristic;
                                         StringHuristics(3, 2, AA, Do, HoursesOnTable[i].WinOcuuredatChiled, HoursesOnTable[i].LoseOcuuredatChiled);
-                                        if (HoursesOnTable[i].WinOcuuredatChiled >= 1 || HoursesOnTable[i].WinOcuuredatChiled >= 2 || HoursesOnTable[i].WinOcuuredatChiled >= 3)
-                                            Less = double.MaxValue;
+                                        //if (HoursesOnTable[i].WinOcuuredatChiled >= 1 || HoursesOnTable[i].WinOcuuredatChiled >= 2 || HoursesOnTable[i].WinOcuuredatChiled >= 3)
+                                            //Less = double.MaxValue;
 
 
 
@@ -7425,13 +7425,13 @@ if (Kind == 2)
                                             AllDraw.NextColumn = CastlesOnTable[i].CastleThinking[k].RowColumnCastle[j][1];
 
                                             Act = true;
-                                            Less = CastlesOnTable[i].CastleThinking[k].NumberOfPenalties;
+                                            Less = CastlesOnTable[i].CastleThinking[k].ReturnHuristic(i, j, Order, AA);
                                         }
                                         TableHuristic = CastlesOnTable[i].CastleThinking[k].TableListCastle[j];
                                         RegardOccurred = true;
                                         StringHuristics(4, 2, AA, Do, CastlesOnTable[i].WinOcuuredatChiled, CastlesOnTable[i].LoseOcuuredatChiled);
-                                        if (CastlesOnTable[i].WinOcuuredatChiled >= 1 || CastlesOnTable[i].WinOcuuredatChiled >= 2 || CastlesOnTable[i].WinOcuuredatChiled >= 3)
-                                            Less = double.MaxValue;
+                                        //if (CastlesOnTable[i].WinOcuuredatChiled >= 1 || CastlesOnTable[i].WinOcuuredatChiled >= 2 || CastlesOnTable[i].WinOcuuredatChiled >= 3)
+                                            //Less = double.MaxValue;
 
 
 
@@ -7692,13 +7692,13 @@ if (Kind == 2)
                                         AllDraw.NextColumn = MinisterOnTable[i].MinisterThinking[k].RowColumnMinister[j][1];
 
                                         Act = true;
-                                        Less = MinisterOnTable[i].MinisterThinking[k].NumberOfPenalties;
+                                        Less = MinisterOnTable[i].MinisterThinking[k].ReturnHuristic(i, j, Order, AA);
                                     }
                                     TableHuristic = MinisterOnTable[i].MinisterThinking[k].TableListMinister[j];
                                     RegardOccurred = true;
                                     StringHuristics(5, 2, AA, Do, MinisterOnTable[i].WinOcuuredatChiled, MinisterOnTable[i].LoseOcuuredatChiled);
-                                    if (MinisterOnTable[i].WinOcuuredatChiled >= 1 || MinisterOnTable[i].WinOcuuredatChiled >= 2 || MinisterOnTable[i].WinOcuuredatChiled >= 3)
-                                        Less = double.MaxValue;
+                                    //if (MinisterOnTable[i].WinOcuuredatChiled >= 1 || MinisterOnTable[i].WinOcuuredatChiled >= 2 || MinisterOnTable[i].WinOcuuredatChiled >= 3)
+                                        //Less = double.MaxValue;
 
 
 
@@ -7954,14 +7954,14 @@ if (Kind == 2)
                                             AllDraw.NextColumn = KingOnTable[i].KingThinking[k].RowColumnKing[j][1];
 
                                             Act = true;
-                                            Less = KingOnTable[i].KingThinking[k].NumberOfPenalties;
+                                            Less = KingOnTable[i].KingThinking[k].ReturnHuristic(i, j, Order, AA);
                                         }
                                         TableHuristic = KingOnTable[i].KingThinking[k].TableListKing[j];
                                         RegardOccurred = true;
                                         StringHuristics(6, 2, AA, Do, KingOnTable[i].WinOcuuredatChiled, KingOnTable[i].LoseOcuuredatChiled);
 
-                                        if (KingOnTable[i].WinOcuuredatChiled >= 1 || KingOnTable[i].WinOcuuredatChiled >= 2 || KingOnTable[i].WinOcuuredatChiled >= 3)
-                                            Less = double.MaxValue;
+                                        //if (KingOnTable[i].WinOcuuredatChiled >= 1 || KingOnTable[i].WinOcuuredatChiled >= 2 || KingOnTable[i].WinOcuuredatChiled >= 3)
+                                           // Less = double.MaxValue;
 
 
 

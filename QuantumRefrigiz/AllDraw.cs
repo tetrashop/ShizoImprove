@@ -5789,7 +5789,7 @@ if (Kind == 2)
                                             AllDraw.NextColumn = SolderesOnTable[i].SoldierThinkingQuantum[k].RowColumnSoldier[j][1];
 
 
-                                            Less = SolderesOnTable[i].SoldierThinkingQuantum[k].NumberOfPenalties;
+                                    Less = SolderesOnTable[i].SoldierThinkingQuantum[k].ReturnHuristic(i, j, Order, AA);
                                         }
 
 
@@ -6140,7 +6140,7 @@ if (Kind == 2)
 
 
                                             Act = true;
-                                            Less = ElephantOnTable[i].ElefantThinkingQuantum[k].NumberOfPenalties; ;
+                                            Less = ElephantOnTable[i].ElefantThinkingQuantum[k].ReturnHuristic(i, j, Order, AA) ;
                                         }
                                         TableHuristic = ElephantOnTable[i].ElefantThinkingQuantum[k].TableListElefant[j];
                                         StringHuristics(2, 2, AA, Do, ElephantOnTable[i].WinOcuuredatChiled, ElephantOnTable[i].LoseOcuuredatChiled);
@@ -6395,7 +6395,7 @@ if (Kind == 2)
                                             AllDraw.NextColumn = HoursesOnTable[i].HourseThinkingQuantum[k].RowColumnHourse[j][1];
 
                                             Act = true;
-                                            Less = HoursesOnTable[i].HourseThinkingQuantum[k].NumberOfPenalties;
+                                    Less = HoursesOnTable[i].HourseThinkingQuantum[k].ReturnHuristic(i, j, Order, AA);
                                         }
                                         TableHuristic = HoursesOnTable[i].HourseThinkingQuantum[k].TableListHourse[j];
                                         RegardOccurred = true;
@@ -6643,7 +6643,7 @@ if (Kind == 2)
                                             AllDraw.NextColumn = CastlesOnTable[i].CastleThinkingQuantum[k].RowColumnCastle[j][1];
 
                                             Act = true;
-                                            Less = CastlesOnTable[i].CastleThinkingQuantum[k].NumberOfPenalties;
+                                    Less = CastlesOnTable[i].CastleThinkingQuantum[k].ReturnHuristic(i, j, Order, AA);
                                         }
                                         TableHuristic = CastlesOnTable[i].CastleThinkingQuantum[k].TableListCastle[j];
                                         RegardOccurred = true;
@@ -6888,7 +6888,7 @@ if (Kind == 2)
                                         AllDraw.NextColumn = MinisterOnTable[i].MinisterThinkingQuantum[k].RowColumnMinister[j][1];
 
                                         Act = true;
-                                        Less = MinisterOnTable[i].MinisterThinkingQuantum[k].NumberOfPenalties;
+                                    Less = MinisterOnTable[i].MinisterThinkingQuantum[k].ReturnHuristic(i, j, Order, AA);
                                     }
                                     TableHuristic = MinisterOnTable[i].MinisterThinkingQuantum[k].TableListMinister[j];
                                     RegardOccurred = true;
@@ -7130,7 +7130,7 @@ if (Kind == 2)
                                             AllDraw.NextColumn = KingOnTable[i].KingThinkingQuantum[k].RowColumnKing[j][1];
 
                                             Act = true;
-                                            Less = KingOnTable[i].KingThinkingQuantum[k].NumberOfPenalties;
+                                    Less = KingOnTable[i].KingThinkingQuantum[k].ReturnHuristic(i, j, Order, AA);
                                         }
                                         TableHuristic = KingOnTable[i].KingThinkingQuantum[k].TableListKing[j];
                                         RegardOccurred = true;
