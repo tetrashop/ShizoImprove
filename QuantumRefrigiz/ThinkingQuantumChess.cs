@@ -5447,7 +5447,7 @@ namespace QuantumRefrigiz
         }
         //Setting Numbers of Objects in Current Table boards.
         //Count of Solders on Table.
-        int SolderOnTableCount(ref DrawSoldier[] So, bool Mi, int MaxCount)
+        int SolderOnTableCount(ref DrawSoldierQ[] So, bool Mi, int MaxCount)
         {
             Object O = new Object();
             lock (O)

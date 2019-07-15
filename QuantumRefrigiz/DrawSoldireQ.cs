@@ -8,7 +8,7 @@ using System.IO;
 namespace QuantumRefrigiz
 {
     [Serializable]
-    public class DrawSoldier : ThingsConverter
+    public class DrawSoldierQ : ThingsConverter
     {
         //Pawns cannot make quantum moves.
         //A quantum move cannot be used to take a piece.
@@ -103,7 +103,7 @@ namespace QuantumRefrigiz
          }
          */
         //Constructor 2.
-        public DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. THIS
+        public DrawSoldierQ(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. THIS
             ) :
             base(Arrangments, (int)i, (int)j, a, Tab, Ord, TB, Cur)
         {
@@ -140,7 +140,7 @@ namespace QuantumRefrigiz
             }
         }
         //Clone a Copy Method.
-        public void Clone(ref DrawSoldier AA//, ref AllDraw. THIS
+        public void Clone(ref DrawSoldierQ AA//, ref AllDraw. THIS
             )
         {
             int[,] Tab = new int[8, 8];
@@ -149,7 +149,7 @@ namespace QuantumRefrigiz
                     Tab[i, j] = this.Table[i, j];
             //Initiate a Object and Assignemt of a Clone to Construction of a Copy.
 
-            AA = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, this.Row, this.Column, this.color, Tab, this.Order, false, this.Current
+            AA = new DrawSoldierQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, this.Row, this.Column, this.color, Tab, this.Order, false, this.Current
                 );
             AA.ArrangmentsChanged = ArrangmentsChanged;
             for (int i = 0; i < AllDraw.SodierMovments; i++)
@@ -209,7 +209,7 @@ namespace QuantumRefrigiz
 
             lock (balancelockS)
             {
-                if (AllDraw.LastRow != Row && AllDraw.LastColumn != Column&&AllDraw.LastRow!=-1&&AllDraw.LastColumn!=-1)
+                if (AllDraw.LastRowQ != Row && AllDraw.LastColumnQ != Column&&AllDraw.LastRowQ!=-1&&AllDraw.LastColumnQ!=-1)
                     
                     {
                         if (AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1 && AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1)
@@ -227,10 +227,10 @@ namespace QuantumRefrigiz
                         AllDraw.LastColumnQ = -1;
                         IsQuntumMove = true;
                     }
-                        AllDraw.LastRow = -1;
-                        AllDraw.LastColumn = -1;
-                        AllDraw.NextRow = -1;
-                        AllDraw.NextColumn = -1;
+                        AllDraw.LastRowQ = -1;
+                        AllDraw.LastColumnQ = -1;
+                        AllDraw.NextRowQ = -1;
+                        AllDraw.NextColumnQ = -1;
                         
                     }
 

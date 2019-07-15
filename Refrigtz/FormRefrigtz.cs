@@ -3988,17 +3988,17 @@ namespace Refrigtz
                         {
                             if (OrderPlate == -1 && Sec.radioButtonGrayOrder.Checked)
                             {
-                                LastRow = QuantumRefrigiz.AllDraw.LastRow;
-                                LastColumn = QuantumRefrigiz.AllDraw.LastColumn;
-                                NextRow = QuantumRefrigiz.AllDraw.NextRow;
-                                NextColumn = QuantumRefrigiz.AllDraw.NextRow;
+                                LastRow = QuantumRefrigiz.AllDraw.LastRowQ;
+                                LastColumn = QuantumRefrigiz.AllDraw.LastColumnQ;
+                                NextRow = QuantumRefrigiz.AllDraw.NextRowQ;
+                                NextColumn = QuantumRefrigiz.AllDraw.NextRowQ;
                             }
                             else if (OrderPlate == 1 && Sec.radioButtonBrownOrder.Checked)
                             {
-                                LastRow = QuantumRefrigiz.AllDraw.LastRow;
-                                LastColumn = QuantumRefrigiz.AllDraw.LastColumn;
-                                NextRow = QuantumRefrigiz.AllDraw.NextRow;
-                                NextColumn = QuantumRefrigiz.AllDraw.NextRow;
+                                LastRow = QuantumRefrigiz.AllDraw.LastRowQ;
+                                LastColumn = QuantumRefrigiz.AllDraw.LastColumnQ;
+                                NextRow = QuantumRefrigiz.AllDraw.NextRowQ;
+                                NextColumn = QuantumRefrigiz.AllDraw.NextRowQ;
                             }
                         }
                         else
@@ -4006,10 +4006,10 @@ namespace Refrigtz
                         {
                             if (OrderPlate == -1 && Sec.radioButtonGrayOrder.Checked)
                             {
-                                LastRow = QuantumRefrigiz.AllDraw.LastRow;
-                                LastColumn = QuantumRefrigiz.AllDraw.LastColumn;
-                                NextRow = QuantumRefrigiz.AllDraw.NextRow;
-                                NextColumn = QuantumRefrigiz.AllDraw.NextRow;
+                                LastRow = QuantumRefrigiz.AllDraw.LastRowQ;
+                                LastColumn = QuantumRefrigiz.AllDraw.LastColumnQ;
+                                NextRow = QuantumRefrigiz.AllDraw.NextRowQ;
+                                NextColumn = QuantumRefrigiz.AllDraw.NextRowQ;
 
                             }
                         }
@@ -8546,7 +8546,7 @@ namespace Refrigtz
                                                     if (Hit != 0)
                                                         HitVal = true;
 
-                                                    DrawQ.SolderesOnTable[Soldier] = new QuantumRefrigiz.DrawSoldier(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowRealesed, ColumnRealeased, Color.Gray, Table, OrderPlate, false, Soldier);
+                                                    DrawQ.SolderesOnTable[Soldier] = new QuantumRefrigiz.DrawSoldierQ(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowRealesed, ColumnRealeased, Color.Gray, Table, OrderPlate, false, Soldier);
                                                     Table[(int)RowClickP, (int)ColumnClickP] = 0;
                                                     Table[(int)RowRealesed, (int)ColumnRealeased] = 1;
                                                     DrawQ.SolderesOnTable[Soldier].DrawSoldierOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
@@ -8610,7 +8610,7 @@ namespace Refrigtz
                                             else
                                             {
 
-                                                DrawQ.SolderesOnTable[Soldier] = new QuantumRefrigiz.DrawSoldier(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowClickP, ColumnClickP, Color.Gray, Table, OrderPlate, false, Soldier);
+                                                DrawQ.SolderesOnTable[Soldier] = new QuantumRefrigiz.DrawSoldierQ(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowClickP, ColumnClickP, Color.Gray, Table, OrderPlate, false, Soldier);
                                                 Table[(int)RowClickP, (int)ColumnClickP] = 1;
                                                 DrawQ.SolderesOnTable[Soldier].DrawSoldierOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
                                                 Clicked = false;
@@ -9378,7 +9378,7 @@ namespace Refrigtz
                                                     if (Hit != 0)
                                                         HitVal = true;
 
-                                                    DrawQ.SolderesOnTable[Soldier] = new QuantumRefrigiz.DrawSoldier(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowRealesed, ColumnRealeased, Color.Brown, Table, OrderPlate, false, Soldier);
+                                                    DrawQ.SolderesOnTable[Soldier] = new QuantumRefrigiz.DrawSoldierQ(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowRealesed, ColumnRealeased, Color.Brown, Table, OrderPlate, false, Soldier);
                                                     Table[(int)RowClickP, (int)ColumnClickP] = 0;
                                                     Table[(int)RowRealesed, (int)ColumnRealeased] = -1;
                                                     for (int i = 0; i < 8; i++)
@@ -9443,7 +9443,7 @@ namespace Refrigtz
                                             {
 
                                                 Table[(int)RowClickP, (int)ColumnClickP] = -1;
-                                                DrawQ.SolderesOnTable[Soldier] = new QuantumRefrigiz.DrawSoldier(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowClickP, ColumnClickP, Color.Brown, Table, OrderPlate, false, Soldier);
+                                                DrawQ.SolderesOnTable[Soldier] = new QuantumRefrigiz.DrawSoldierQ(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowClickP, ColumnClickP, Color.Brown, Table, OrderPlate, false, Soldier);
                                                 DrawQ.SolderesOnTable[Soldier].DrawSoldierOnTable(ref g, pictureBoxRefrigtz.Image.Width / 8, pictureBoxRefrigtz.Image.Height / 8);
                                                 Clicked = false;
                                             }
