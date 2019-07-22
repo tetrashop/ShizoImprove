@@ -7,7 +7,7 @@ using System.IO;
 namespace QuantumRefrigiz
 {
     [Serializable]
-    public class DrawMinisterQ//:DrawKing
+    public class DrawMinisterQ//:DrawKingQ
     {
         //A quantum move cannot be used to take a piece.
         public bool IsQuntumMove = false;
@@ -85,7 +85,7 @@ namespace QuantumRefrigiz
             return a;
         }
         //constructor 1.
-        /*public DrawMinister(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
+        /*public DrawMinisterQ(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
         {
             CurrentAStarGredyMax = CurrentAStarGredy;
             MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;

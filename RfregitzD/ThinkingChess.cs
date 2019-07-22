@@ -6292,157 +6292,159 @@ namespace RefrigtzDLL
                     }
                     else
                         return Double.MinValue;
-                    for (int k = 0; k < AStarGreedy.Count; k++)
+                    if (AStarGreedy != null)
                     {
-
-                        if (AStarGreedy[k] == null)
-                            continue;
-                        Object OOO = new Object();
-                        lock (OOO)
+                        for (int k = 0; k < AStarGreedy.Count; k++)
                         {
-                            if (Order == -1)
+
+                            if (AStarGreedy[k] == null)
+                                continue;
+                            Object OOO = new Object();
+                            lock (OOO)
                             {
-                                //Repeate for Solder.
-                                for (int m = 0; m < AStarGreedy[k].SodierMidle; m++)
+                                if (Order == -1)
                                 {
-                                    if (AStarGreedy[k].SolderesOnTable == null || AStarGreedy[k].SolderesOnTable[m] == null)
-                                        continue;
-                                    if (Order == 1)
-                                        AllDraw.OutPut += "\r\nHuristic Deep Learning Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ";
-                                    else
-                                        AllDraw.OutPut += "\r\nHuristic Deap Learning Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ";
-                                    Huristic += AStarGreedy[k].SolderesOnTable[m].SoldierThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+                                    //Repeate for Solder.
+                                    for (int m = 0; m < AStarGreedy[k].SodierMidle; m++)
+                                    {
+                                        if (AStarGreedy[k].SolderesOnTable == null || AStarGreedy[k].SolderesOnTable[m] == null)
+                                            continue;
+                                        if (Order == 1)
+                                            AllDraw.OutPut += "\r\nHuristic Deep Learning Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ";
+                                        else
+                                            AllDraw.OutPut += "\r\nHuristic Deap Learning Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ";
+                                        Huristic += AStarGreedy[k].SolderesOnTable[m].SoldierThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+                                    }
+                                    //Repeate for Elephant.
+                                    for (int m = 0; m < AStarGreedy[k].ElefantMidle; m++)
+                                    {
+                                        if (AStarGreedy[k].ElephantOnTable == null || AStarGreedy[k].ElephantOnTable[m] == null)
+                                            continue;
+                                        if (Order == 1)
+                                            AllDraw.OutPut += "\r\nHuristic Deep Learning Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ";
+                                        else
+                                            AllDraw.OutPut += "\r\nHuristic Deap Learning Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ";
+                                        Huristic += AStarGreedy[k].ElephantOnTable[m].ElefantThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+                                    }
+                                    //Repeate for Hourse.
+                                    for (int m = 0; m < AStarGreedy[k].HourseMidle; m++)
+                                    {
+                                        if (AStarGreedy[k].HoursesOnTable == null || AStarGreedy[k].HoursesOnTable[m] == null)
+                                            continue;
+                                        if (Order == 1)
+                                            AllDraw.OutPut += "\r\nHuristic Deep Learning Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ";
+                                        else
+                                            AllDraw.OutPut += "\r\nHuristic Deap Learning Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ";
+                                        Huristic += AStarGreedy[k].HoursesOnTable[m].HourseThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+                                    }
+                                    //Repeate for Castles.
+                                    for (int m = 0; m < AStarGreedy[k].CastleMidle; m++)
+                                    {
+                                        if (AStarGreedy[k].CastlesOnTable == null || AStarGreedy[k].CastlesOnTable[m] == null)
+                                            continue;
+                                        if (Order == 1)
+                                            AllDraw.OutPut += "\r\nHuristic Deep Learning Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ";
+                                        else
+                                            AllDraw.OutPut += "\r\nHuristic Deap Learning Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ";
+                                        Huristic += AStarGreedy[k].CastlesOnTable[m].CastleThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+                                    }
+                                    //Repeate for Minstre.
+                                    for (int m = 0; m < AStarGreedy[k].MinisterMidle; m++)
+                                    {
+                                        if (AStarGreedy[k].MinisterOnTable == null || AStarGreedy[k].MinisterOnTable[m] == null)
+                                            continue;
+                                        if (Order == 1)
+                                            AllDraw.OutPut += "\r\nHuristic Deep Learning Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ";
+                                        else
+                                            AllDraw.OutPut += "\r\nHuristic Deap Learning Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ";
+                                        Huristic += AStarGreedy[k].MinisterOnTable[m].MinisterThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+                                    }
+                                    //Repeate for King.
+                                    for (int m = 0; m < AStarGreedy[k].KingMidle; m++)
+                                    {
+                                        if (AStarGreedy[k].KingOnTable == null || AStarGreedy[k].KingOnTable[m] == null)
+                                            continue;
+                                        if (Order == 1)
+                                            AllDraw.OutPut += "\r\nHuristic Deep Learning King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ";
+                                        else
+                                            AllDraw.OutPut += "\r\nHuristic Deap Learning King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ";
+                                        Huristic += AStarGreedy[k].KingOnTable[m].KingThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+                                    }
                                 }
-                                //Repeate for Elephant.
-                                for (int m = 0; m < AStarGreedy[k].ElefantMidle; m++)
+                                else
                                 {
-                                    if (AStarGreedy[k].ElephantOnTable == null || AStarGreedy[k].ElephantOnTable[m] == null)
-                                        continue;
-                                    if (Order == 1)
-                                        AllDraw.OutPut += "\r\nHuristic Deep Learning Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ";
-                                    else
-                                        AllDraw.OutPut += "\r\nHuristic Deap Learning Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ";
-                                    Huristic += AStarGreedy[k].ElephantOnTable[m].ElefantThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
-                                }
-                                //Repeate for Hourse.
-                                for (int m = 0; m < AStarGreedy[k].HourseMidle; m++)
-                                {
-                                    if (AStarGreedy[k].HoursesOnTable == null || AStarGreedy[k].HoursesOnTable[m] == null)
-                                        continue;
-                                    if (Order == 1)
-                                        AllDraw.OutPut += "\r\nHuristic Deep Learning Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ";
-                                    else
-                                        AllDraw.OutPut += "\r\nHuristic Deap Learning Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ";
-                                    Huristic += AStarGreedy[k].HoursesOnTable[m].HourseThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
-                                }
-                                //Repeate for Castles.
-                                for (int m = 0; m < AStarGreedy[k].CastleMidle; m++)
-                                {
-                                    if (AStarGreedy[k].CastlesOnTable == null || AStarGreedy[k].CastlesOnTable[m] == null)
-                                        continue;
-                                    if (Order == 1)
-                                        AllDraw.OutPut += "\r\nHuristic Deep Learning Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ";
-                                    else
-                                        AllDraw.OutPut += "\r\nHuristic Deap Learning Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ";
-                                    Huristic += AStarGreedy[k].CastlesOnTable[m].CastleThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
-                                }
-                                //Repeate for Minstre.
-                                for (int m = 0; m < AStarGreedy[k].MinisterMidle; m++)
-                                {
-                                    if (AStarGreedy[k].MinisterOnTable == null || AStarGreedy[k].MinisterOnTable[m] == null)
-                                        continue;
-                                    if (Order == 1)
-                                        AllDraw.OutPut += "\r\nHuristic Deep Learning Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ";
-                                    else
-                                        AllDraw.OutPut += "\r\nHuristic Deap Learning Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ";
-                                    Huristic += AStarGreedy[k].MinisterOnTable[m].MinisterThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
-                                }
-                                //Repeate for King.
-                                for (int m = 0; m < AStarGreedy[k].KingMidle; m++)
-                                {
-                                    if (AStarGreedy[k].KingOnTable == null || AStarGreedy[k].KingOnTable[m] == null)
-                                        continue;
-                                    if (Order == 1)
-                                        AllDraw.OutPut += "\r\nHuristic Deep Learning King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ";
-                                    else
-                                        AllDraw.OutPut += "\r\nHuristic Deap Learning King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ";
-                                    Huristic += AStarGreedy[k].KingOnTable[m].KingThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
-                                }
-                            }
-                            else
-                            {
-                                for (int m = AStarGreedy[k].SodierMidle; m < AStarGreedy[k].SodierHigh; m++)
-                                {
-                                    if (AStarGreedy[k].SolderesOnTable == null || AStarGreedy[k].SolderesOnTable[m] == null)
-                                        continue;
-                                    if (Order == 1)
-                                        AllDraw.OutPut += "\r\nHuristic Deep Learning Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ";
-                                    else
-                                        AllDraw.OutPut += "\r\nHuristic Deap Learning Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ";
-                                    Huristic += AStarGreedy[k].SolderesOnTable[m].SoldierThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
-                                }
-                                //Repeate for Elephant.
-                                for (int m = AStarGreedy[k].ElefantMidle; m < AStarGreedy[k].ElefantHigh; m++)
-                                {
-                                    if (AStarGreedy[k].ElephantOnTable == null || AStarGreedy[k].ElephantOnTable[m] == null)
-                                        continue;
-                                    if (Order == 1)
-                                        AllDraw.OutPut += "\r\nHuristic Deep Learning Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ";
-                                    else
-                                        AllDraw.OutPut += "\r\nHuristic Deap Learning Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ";
-                                    Huristic += AStarGreedy[k].ElephantOnTable[m].ElefantThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
-                                }
-                                //Repeate for Hourse.
-                                for (int m = AStarGreedy[k].HourseMidle; m < AStarGreedy[k].HourseHight; m++)
-                                {
-                                    if (AStarGreedy[k].HoursesOnTable == null || AStarGreedy[k].HoursesOnTable[m] == null)
-                                        continue;
-                                    if (Order == 1)
-                                        AllDraw.OutPut += "\r\nHuristic Deep Learning Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ";
-                                    else
-                                        AllDraw.OutPut += "\r\nHuristic Deap Learning Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ";
-                                    Huristic += AStarGreedy[k].HoursesOnTable[m].HourseThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
-                                }
-                                //Repeate for Castles.
-                                for (int m = AStarGreedy[k].CastleMidle; m < AStarGreedy[k].CastleHigh; m++)
-                                {
-                                    if (AStarGreedy[k].CastlesOnTable == null || AStarGreedy[k].CastlesOnTable[m] == null)
-                                        continue;
-                                    if (Order == 1)
-                                        AllDraw.OutPut += "\r\nHuristic Deep Learning Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ";
-                                    else
-                                        AllDraw.OutPut += "\r\nHuristic Deap Learning Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ";
-                                    Huristic += AStarGreedy[k].CastlesOnTable[m].CastleThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
-                                }
-                                //Repeate for Minstre.
-                                for (int m = AStarGreedy[k].MinisterMidle; m < AStarGreedy[k].MinisterHigh; m++)
-                                {
-                                    if (AStarGreedy[k].MinisterOnTable == null || AStarGreedy[k].MinisterOnTable[m] == null)
-                                        continue;
-                                    if (Order == 1)
-                                        AllDraw.OutPut += "\r\nHuristic Deep Learning Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ";
-                                    else
-                                        AllDraw.OutPut += "\r\nHuristic Deap Learning Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ";
-                                    Huristic += AStarGreedy[k].MinisterOnTable[m].MinisterThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
-                                }
-                                //Repeate for King.
-                                for (int m = AStarGreedy[k].KingMidle; m < AStarGreedy[k].KingHigh; m++)
-                                {
-                                    if (AStarGreedy[k].KingOnTable == null || AStarGreedy[k].KingOnTable[m] == null)
-                                        continue;
-                                    if (Order == 1)
-                                        AllDraw.OutPut += "\r\nHuristic Deep Learning King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ";
-                                    else
-                                        AllDraw.OutPut += "\r\nHuristic Deap Learning King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ";
-                                    Huristic += AStarGreedy[k].KingOnTable[m].KingThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+                                    for (int m = AStarGreedy[k].SodierMidle; m < AStarGreedy[k].SodierHigh; m++)
+                                    {
+                                        if (AStarGreedy[k].SolderesOnTable == null || AStarGreedy[k].SolderesOnTable[m] == null)
+                                            continue;
+                                        if (Order == 1)
+                                            AllDraw.OutPut += "\r\nHuristic Deep Learning Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ";
+                                        else
+                                            AllDraw.OutPut += "\r\nHuristic Deap Learning Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ";
+                                        Huristic += AStarGreedy[k].SolderesOnTable[m].SoldierThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+                                    }
+                                    //Repeate for Elephant.
+                                    for (int m = AStarGreedy[k].ElefantMidle; m < AStarGreedy[k].ElefantHigh; m++)
+                                    {
+                                        if (AStarGreedy[k].ElephantOnTable == null || AStarGreedy[k].ElephantOnTable[m] == null)
+                                            continue;
+                                        if (Order == 1)
+                                            AllDraw.OutPut += "\r\nHuristic Deep Learning Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ";
+                                        else
+                                            AllDraw.OutPut += "\r\nHuristic Deap Learning Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ";
+                                        Huristic += AStarGreedy[k].ElephantOnTable[m].ElefantThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+                                    }
+                                    //Repeate for Hourse.
+                                    for (int m = AStarGreedy[k].HourseMidle; m < AStarGreedy[k].HourseHight; m++)
+                                    {
+                                        if (AStarGreedy[k].HoursesOnTable == null || AStarGreedy[k].HoursesOnTable[m] == null)
+                                            continue;
+                                        if (Order == 1)
+                                            AllDraw.OutPut += "\r\nHuristic Deep Learning Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ";
+                                        else
+                                            AllDraw.OutPut += "\r\nHuristic Deap Learning Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ";
+                                        Huristic += AStarGreedy[k].HoursesOnTable[m].HourseThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+                                    }
+                                    //Repeate for Castles.
+                                    for (int m = AStarGreedy[k].CastleMidle; m < AStarGreedy[k].CastleHigh; m++)
+                                    {
+                                        if (AStarGreedy[k].CastlesOnTable == null || AStarGreedy[k].CastlesOnTable[m] == null)
+                                            continue;
+                                        if (Order == 1)
+                                            AllDraw.OutPut += "\r\nHuristic Deep Learning Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ";
+                                        else
+                                            AllDraw.OutPut += "\r\nHuristic Deap Learning Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ";
+                                        Huristic += AStarGreedy[k].CastlesOnTable[m].CastleThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+                                    }
+                                    //Repeate for Minstre.
+                                    for (int m = AStarGreedy[k].MinisterMidle; m < AStarGreedy[k].MinisterHigh; m++)
+                                    {
+                                        if (AStarGreedy[k].MinisterOnTable == null || AStarGreedy[k].MinisterOnTable[m] == null)
+                                            continue;
+                                        if (Order == 1)
+                                            AllDraw.OutPut += "\r\nHuristic Deep Learning Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ";
+                                        else
+                                            AllDraw.OutPut += "\r\nHuristic Deap Learning Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ";
+                                        Huristic += AStarGreedy[k].MinisterOnTable[m].MinisterThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+                                    }
+                                    //Repeate for King.
+                                    for (int m = AStarGreedy[k].KingMidle; m < AStarGreedy[k].KingHigh; m++)
+                                    {
+                                        if (AStarGreedy[k].KingOnTable == null || AStarGreedy[k].KingOnTable[m] == null)
+                                            continue;
+                                        if (Order == 1)
+                                            AllDraw.OutPut += "\r\nHuristic Deep Learning King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ";
+                                        else
+                                            AllDraw.OutPut += "\r\nHuristic Deap Learning King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ";
+                                        Huristic += AStarGreedy[k].KingOnTable[m].KingThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, 0, Order * -1);
+                                    }
                                 }
                             }
                         }
-                    }
 
-                    //When Kind Found.
-                    //if (IJ != -1)
-                    {/*
+                        //When Kind Found.
+                        //if (IJ != -1)
+                        {/*
                         //Reapeate for Solders.
                         if (//IJ == 1 &&
                             AStarGreedy.Count > 0 && iIndex[0] != -1)
@@ -6468,8 +6470,8 @@ namespace RefrigtzDLL
                             AStarGreedy.Count > 0 && iIndex[5] != -1)
                             Huristic += AStarGreedy[iIndex[5]].KingOnTable[mIndex[5]].KingThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, jIndex[5], Order * -1);
                             */
+                        }
                     }
-
                 }
                 else
                 {
