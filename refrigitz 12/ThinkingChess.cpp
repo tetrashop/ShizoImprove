@@ -6685,7 +6685,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 	double ThinkingChess::ReturnHuristic(int ii, int j, int Order, bool AA)
 	{
 
-		AllDraw::OutPut = L"";
+		AllDraw::OutPut += L"";
 		//calculation of huristic methos and storing value retured.
 		double Hur = double();
 
@@ -6801,7 +6801,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 		int DummyOrder = Order;
 		if (ii != -1)
 		{
-			if (!IsSupHu)
+			if (!(IsSupHu[j]))
 			{
 				// Calculate Huristic of Current Node.
 			//When Sodleris Kind.
@@ -6812,11 +6812,11 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 					ActionsString = std::wstring(L" ") + Alphabet(Row) + Number(Column) + Alphabet(RowColumnSoldier[j][0]) + Number(RowColumnSoldier[j][1]);
 					if (Order == 1)
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nHuristic Soldier AStarGreedy[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut += std::wstring(L"\r\nHuristic Soldier AStarGreedy[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 					else
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nHuristic Soldier AStarGreedy[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut += std::wstring(L"\r\nHuristic Soldier AStarGreedy[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 				}
 
@@ -6829,11 +6829,11 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 					ActionsString = std::wstring(L" ") + Alphabet(Row) + Number(Column) + Alphabet(RowColumnElefant[j][0]) + Number(RowColumnElefant[j][1]);
 					if (Order == 1)
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nHuristic Elephant AStarGreedy[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut += std::wstring(L"\r\nHuristic Elephant AStarGreedy[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 					else
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nHuristic Elephant AStarGreedy[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut += std::wstring(L"\r\nHuristic Elephant AStarGreedy[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 				}
 				for (j = 0; HuristicListHourse.size() > 0 && (j < HuristicListHourse.size()); j++)
@@ -6843,11 +6843,11 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 					ActionsString = std::wstring(L" ") + Alphabet(Row) + Number(Column) + Alphabet(RowColumnHourse[j][0]) + Number(RowColumnHourse[j][1]);
 					if (Order == 1)
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nHuristic Hourse AStarGreedy[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut += std::wstring(L"\r\nHuristic Hourse AStarGreedy[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 					else
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nHuristic Hourse AStarGreedy[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut += std::wstring(L"\r\nHuristic Hourse AStarGreedy[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 				}
 				for (j = 0; HuristicListCastle.size() > 0 && (j < HuristicListCastle.size()); j++)
@@ -6856,11 +6856,11 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 					ActionsString = std::wstring(L" ") + Alphabet(Row) + Number(Column) + Alphabet(RowColumnCastle[j][0]) + Number(RowColumnCastle[j][1]);
 					if (Order == 1)
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nHuristic Castle AStarGreedy[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut += std::wstring(L"\r\nHuristic Castle AStarGreedy[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 					else
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nHuristic Castle AStarGreedy[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut += std::wstring(L"\r\nHuristic Castle AStarGreedy[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 
 				}
@@ -6870,11 +6870,11 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 					ActionsString = std::wstring(L" ") + Alphabet(Row) + Number(Column) + Alphabet(RowColumnMinister[j][0]) + Number(RowColumnMinister[j][1]);
 					if (Order == 1)
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nHuristic Minister AStarGreedy[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut += std::wstring(L"\r\nHuristic Minister AStarGreedy[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 					else
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nHuristic Minister AStarGreedy[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut += std::wstring(L"\r\nHuristic Minister AStarGreedy[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 				}
 				for (j = 0; HuristicListKing.size() > 0 && (j < HuristicListKing.size()); j++)
@@ -6883,11 +6883,11 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 					ActionsString = std::wstring(L" ") + Alphabet(Row) + Number(Column) + Alphabet(RowColumnKing[j][0]) + Number(RowColumnKing[j][1]);
 					if (Order == 1)
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nHuristic King AStarGreedy[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut += std::wstring(L"\r\nHuristic King AStarGreedy[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 					else
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nHuristic King AStarGreedy[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
+						AllDraw::OutPut += std::wstring(L"\r\nHuristic King AStarGreedy[k] By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at Level ") + StringConverterHelper::toString<int>(iAstarGready) + std::wstring(L" By Action String ") + ActionsString;
 					}
 				}
 			}
@@ -7019,7 +7019,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 		}
 		else
 		{
-			if (!IsSup)
+			if (!(IsSup[j]))
 			{
 				//When Solder Kind.
 				if (abs(Kind) == 1 && HuristicListSolder.size() > 0)
@@ -7378,11 +7378,11 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 					OutPutAction = std::wstring(L" ") + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + std::wstring(L" With Huristic ") + H;
 					if (Order == 1)
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nThinking King AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+						AllDraw::OutPut += std::wstring(L"\r\nThinking King AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 					}
 					else
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nThinking King AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+						AllDraw::OutPut += std::wstring(L"\r\nThinking King AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 					}
 					ThinkingLevel++;
 					ThinkingAtRun = false;
@@ -7424,11 +7424,11 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 					OutPutAction = std::wstring(L" ") + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + std::wstring(L" With Huristic ") + H;
 					if (Order == 1)
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nThinking King AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+						AllDraw::OutPut += std::wstring(L"\r\nThinking King AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 					}
 					else
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nThinking King AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+						AllDraw::OutPut += std::wstring(L"\r\nThinking King AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 					}
 					ThinkingAtRun = false;
 				}
@@ -7612,11 +7612,11 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 				OutPutAction = std::wstring(L" ") + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + std::wstring(L" With Huristic ") + H;
 				if (Order == 1)
 				{
-					AllDraw::OutPut = std::wstring(L"\r\nThinking Minister AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+					AllDraw::OutPut += std::wstring(L"\r\nThinking Minister AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 				}
 				else
 				{
-					AllDraw::OutPut = std::wstring(L"\r\nThinking Minister AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+					AllDraw::OutPut += std::wstring(L"\r\nThinking Minister AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 				}
 				ThinkingLevel++;
 				ThinkingAtRun = false;
@@ -7660,11 +7660,11 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 				OutPutAction = std::wstring(L" ") + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + std::wstring(L" With Huristic ") + H;
 				if (Order == 1)
 				{
-					AllDraw::OutPut = std::wstring(L"\r\nThinking Minister AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+					AllDraw::OutPut += std::wstring(L"\r\nThinking Minister AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 				}
 				else
 				{
-					AllDraw::OutPut = std::wstring(L"\r\nThinking Minster AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+					AllDraw::OutPut += std::wstring(L"\r\nThinking Minster AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 				}
 				ThinkingAtRun = false;
 
@@ -8183,11 +8183,11 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 				OutPutAction = std::wstring(L" ") + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + std::wstring(L" With Huristic ") + H;
 				if (Order == 1)
 				{
-					AllDraw::OutPut = std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+					AllDraw::OutPut += std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 				}
 				else
 				{
-					AllDraw::OutPut = std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+					AllDraw::OutPut += std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 				}
 				ThinkingLevel++;
 				ThinkingAtRun = false;
@@ -8232,11 +8232,11 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 				OutPutAction = std::wstring(L" ") + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + std::wstring(L" With Huristic ") + H;
 				if (Order == 1)
 				{
-					AllDraw::OutPut = std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+					AllDraw::OutPut += std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 				}
 				else
 				{
-					AllDraw::OutPut = std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+					AllDraw::OutPut += std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 				}
 			}
 		}
@@ -8361,7 +8361,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 					std::wstring H = L"";
 
 					double* Hu = new double[10];
-					//if (!IsSup)
+					//if (!(IsSup[j]))
 					{
 						HuristicPenaltyValuePerform(Current, Order, HuristicAttackValue);
 						if (IgnoreFromCheckandMateHuristic)
@@ -8387,11 +8387,11 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 					OutPutAction = std::wstring(L" ") + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + std::wstring(L" With Huristic ") + H;
 					if (Order == 1)
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nThinking Hourse AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+						AllDraw::OutPut += std::wstring(L"\r\nThinking Hourse AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 					}
 					else
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nThinking Hourse AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+						AllDraw::OutPut += std::wstring(L"\r\nThinking Hourse AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 					}
 					ThinkingLevel++;
 					ThinkingAtRun = false;
@@ -8436,11 +8436,11 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 				OutPutAction = std::wstring(L" ") + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + std::wstring(L" With Huristic ") + H;
 				if (Order == 1)
 				{
-					AllDraw::OutPut = std::wstring(L"\r\nThinking Hourse AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+					AllDraw::OutPut += std::wstring(L"\r\nThinking Hourse AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 				}
 				else
 				{
-					AllDraw::OutPut = std::wstring(L"\r\nThinking Hourse AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+					AllDraw::OutPut += std::wstring(L"\r\nThinking Hourse AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 				}
 
 				ThinkingAtRun = false;
@@ -8590,11 +8590,11 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 					OutPutAction = std::wstring(L" ") + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + std::wstring(L" With Huristic ") + H;
 					if (Order == 1)
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nThinking Hourse AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+						AllDraw::OutPut += std::wstring(L"\r\nThinking Hourse AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 					}
 					else
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nThinking Hourse AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+						AllDraw::OutPut += std::wstring(L"\r\nThinking Hourse AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 					}
 					ThinkingLevel++;
 					ThinkingAtRun = false;
@@ -8639,11 +8639,11 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 					OutPutAction = std::wstring(L" ") + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + std::wstring(L" With Huristic ") + H;
 					if (Order == 1)
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nThinking Elephant AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+						AllDraw::OutPut += std::wstring(L"\r\nThinking Elephant AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 					}
 					else
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nThinking Elephant AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+						AllDraw::OutPut += std::wstring(L"\r\nThinking Elephant AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 					}
 					ThinkingAtRun = false;
 				}
@@ -9435,7 +9435,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 				{
 					std::wstring H = L"";
 					double* Hu = new double[10];
-					//if (!IsSup)
+					//if (!(IsSup[j]))
 					{
 						HuristicPenaltyValuePerform(Current, Order, HuristicAttackValue);
 						if (IgnoreFromCheckandMateHuristic)
@@ -9489,11 +9489,11 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 					OutPutAction = std::wstring(L" ") + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + std::wstring(L" With Huristic ") + H;
 					if (Order == 1)
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nThinking Soldier AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+						AllDraw::OutPut += std::wstring(L"\r\nThinking Soldier AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 					}
 					else
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nThinking Soldier AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+						AllDraw::OutPut += std::wstring(L"\r\nThinking Soldier AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 					}
 					ThinkingLevel++;
 					ThinkingAtRun = false;
@@ -9536,11 +9536,11 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 					OutPutAction = std::wstring(L" ") + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + std::wstring(L" With Huristic ") + H;
 					if (Order == 1)
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nThinking Soldier AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+						AllDraw::OutPut += std::wstring(L"\r\nThinking Soldier AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 					}
 					else
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nThinking Soldier AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
+						AllDraw::OutPut += std::wstring(L"\r\nThinking Soldier AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + OutPutAction;
 					}
 					ThinkingAtRun = false;
 				}
@@ -9663,11 +9663,11 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 				{
 					if (Order == 1)
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + std::wstring(L"O-O-O") + std::wstring(L" With Huristic ") + H;
+						AllDraw::OutPut += std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + std::wstring(L"O-O-O") + std::wstring(L" With Huristic ") + H;
 					}
 					else
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + std::wstring(L"O-O-O") + std::wstring(L" With Huristic ") + H;
+						AllDraw::OutPut += std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + std::wstring(L"O-O-O") + std::wstring(L" With Huristic ") + H;
 					}
 					ThinkingLevel++;
 				}
@@ -9675,11 +9675,11 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 				{
 					if (Order == 1)
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + std::wstring(L"O-O") + std::wstring(L" With Huristic ") + H;
+						AllDraw::OutPut += std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + std::wstring(L"O-O") + std::wstring(L" With Huristic ") + H;
 					}
 					else
 					{
-						AllDraw::OutPut = std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + std::wstring(L"O-O") + std::wstring(L" With Huristic ") + H;
+						AllDraw::OutPut += std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + std::wstring(L"O-O") + std::wstring(L" With Huristic ") + H;
 					}
 					ThinkingLevel++;
 				}
@@ -9834,11 +9834,11 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 		{
 			if (Order == 1)
 			{
-				AllDraw::OutPut = std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + std::wstring(L"O-O-O") + std::wstring(L" With Huristic ") + H;
+				AllDraw::OutPut += std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + std::wstring(L"O-O-O") + std::wstring(L" With Huristic ") + H;
 			}
 			else
 			{
-				AllDraw::OutPut = std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + std::wstring(L"O-O-O") + std::wstring(L" With Huristic ") + H;
+				AllDraw::OutPut += std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + std::wstring(L"O-O-O") + std::wstring(L" With Huristic ") + H;
 			}
 			ThinkingLevel++;
 		}
@@ -9846,11 +9846,11 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 		{
 			if (Order == 1)
 			{
-				AllDraw::OutPut = std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + std::wstring(L"O-O") + std::wstring(L" With Huristic ") + H;
+				AllDraw::OutPut += std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Bob at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + std::wstring(L"O-O") + std::wstring(L" With Huristic ") + H;
 			}
 			else
 			{
-				AllDraw::OutPut = std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + std::wstring(L"O-O") + std::wstring(L" With Huristic ") + H;
+				AllDraw::OutPut += std::wstring(L"\r\nThinking Castle AstarGreedy By Level ") + StringConverterHelper::toString<int>(CurrentAStarGredyMax) + std::wstring(L" Alice at ") + StringConverterHelper::toString<int>(ThinkingLevel) + std::wstring(L"th Thinking String ") + std::wstring(L"O-O") + std::wstring(L" With Huristic ") + H;
 			}
 			ThinkingLevel++;
 		}
@@ -10559,7 +10559,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 		if (FoundFirstSelfMating > AllDraw::MaxAStarGreedy) //CheckMateOcuured ||
 		{
 
-			AllDraw::OutPut = std::wstring(L"\r\nBoundry Condition at Thinking at ") + StringConverterHelper::toString<int>(ThinkingChess::FoundFirstSelfMating) + std::wstring(L" Checkmate SELF");
+			AllDraw::OutPut += std::wstring(L"\r\nBoundry Condition at Thinking at ") + StringConverterHelper::toString<int>(ThinkingChess::FoundFirstSelfMating) + std::wstring(L" Checkmate SELF");
 			ThinkingBegin = false;
 			ThinkingFinished = true;
 			EndThread++;
@@ -10569,7 +10569,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 		if (FoundFirstMating > AllDraw::MaxAStarGreedy) //CheckMateOcuured ||
 		{
 
-			AllDraw::OutPut = std::wstring(L"\r\nBoundry Condition at Thinking at ") + StringConverterHelper::toString<int>(ThinkingChess::FoundFirstMating) + std::wstring(L" Checkmate ENEY");
+			AllDraw::OutPut += std::wstring(L"\r\nBoundry Condition at Thinking at ") + StringConverterHelper::toString<int>(ThinkingChess::FoundFirstMating) + std::wstring(L" Checkmate ENEY");
 			ThinkingBegin = false;
 			ThinkingFinished = true;
 			EndThread++;
@@ -10597,7 +10597,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 		{
 
 
-			AllDraw::OutPut = std::wstring(L"\r\nBoundry Condition at Thinking at ") + StringConverterHelper::toString<int>(ThinkingChess::FoundFirstMating) + std::wstring(L" Checkmate ENEMY");
+			AllDraw::OutPut += std::wstring(L"\r\nBoundry Condition at Thinking at ") + StringConverterHelper::toString<int>(ThinkingChess::FoundFirstMating) + std::wstring(L" Checkmate ENEMY");
 			ThinkingFinished = true;
 			ThinkingBegin = false;
 			EndThread++;
@@ -10608,7 +10608,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 		{
 
 
-			AllDraw::OutPut = std::wstring(L"\r\nBoundry Condition at Thinking at ") + StringConverterHelper::toString<int>(ThinkingChess::FoundFirstSelfMating) + std::wstring(L" Checkmate SLEF");
+			AllDraw::OutPut += std::wstring(L"\r\nBoundry Condition at Thinking at ") + StringConverterHelper::toString<int>(ThinkingChess::FoundFirstSelfMating) + std::wstring(L" Checkmate SLEF");
 			ThinkingFinished = true;
 			ThinkingBegin = false;
 			EndThread++;
@@ -10641,7 +10641,7 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 		{
 			if (AAA->CheckMateGray || AAA->CheckMateBrown)
 			{
-				AllDraw::OutPut = std::wstring(L"\r\nBoundry Condition at Thinking at ") + StringConverterHelper::toString<int>(ThinkingChess::FoundFirstMating) + std::wstring(L" Checkmate");
+				AllDraw::OutPut += std::wstring(L"\r\nBoundry Condition at Thinking at ") + StringConverterHelper::toString<int>(ThinkingChess::FoundFirstMating) + std::wstring(L" Checkmate");
 				ThinkingFinished = true;
 				CheckMateOcuured = true;
 				if ((AAA->CheckGray && AllDraw::OrderPlate == 1) || (AAA->CheckBrown && AllDraw::OrderPlate == -1) || (AAA->CheckMateGray && AllDraw::OrderPlate == 1) || (AAA->CheckMateBrown && AllDraw::OrderPlate == -1))

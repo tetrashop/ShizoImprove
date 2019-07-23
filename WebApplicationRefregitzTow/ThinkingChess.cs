@@ -90,8 +90,8 @@ namespace RefrigtzW
         public double HeuristicKingSafeSup = new double();
         public double HeuristicFromCenterSup = new double();
         public double HeuristicKingDangourSup = new double();
-        public bool IsSup = false;
-        public bool IsSupHu = false;
+        public List<bool> IsSup = new List<bool>();
+        public List<bool> IsSupHu = new List<bool>();
 
         StackFrame callStack = new StackFrame(1, true);
         //Initiate Global and Static Variables. 
@@ -5884,7 +5884,7 @@ namespace RefrigtzW
                                     //When Depth of Solders On Table is Not NULL.
                                     if (AStarGreedy[i].SolderesOnTable[m] != null)
                                     {
-                                        if (AStarGreedy[i].SolderesOnTable[m].SoldierThinking[0].IsSupHu)
+                                        if (AStarGreedy[i].SolderesOnTable[m].SoldierThinking[0].IsSupHu[j])
                                             continue;
                                         //Calculate Maximum Huristic in Branch.
                                         if (AStarGreedy[i].SolderesOnTable[m].SoldierThinking[0].MaxHuristic(ref jIndex[0], Kin[0], ref Less[0], Order *-1))
@@ -5911,7 +5911,7 @@ namespace RefrigtzW
                                     //For All Elephant in Depth Count.
                                     if (AStarGreedy[i].ElephantOnTable[m] != null)
                                     {
-                                        if (AStarGreedy[i].ElephantOnTable[m].ElefantThinking[0].IsSupHu)
+                                        if (AStarGreedy[i].ElephantOnTable[m].ElefantThinking[0].IsSupHu[j])
                                             continue;
                                         //Found of Maxmimum in Branch.
                                         if (AStarGreedy[i].ElephantOnTable[m].ElefantThinking[0].MaxHuristic(ref jIndex[1], Kin[1], ref Less[1], Order *-1))
@@ -5936,7 +5936,7 @@ namespace RefrigtzW
                                     //When is HourseOn Table Depth Object is Not NULL.
                                     if (AStarGreedy[i].HoursesOnTable[m] != null)
                                     {
-                                        if (AStarGreedy[i].HoursesOnTable[m].HourseThinking[0].IsSupHu)
+                                        if (AStarGreedy[i].HoursesOnTable[m].HourseThinking[0].IsSupHu[j])
                                             continue;
                                         //Forund of Maximum on on Branch.
                                         if (AStarGreedy[i].HoursesOnTable[m].HourseThinking[0].MaxHuristic(ref jIndex[2], Kin[2], ref Less[2], Order *-1))
@@ -5962,7 +5962,7 @@ namespace RefrigtzW
                                     //When Depth Objects of Hourse Table is Not NULL.
                                     if (AStarGreedy[i].CastlesOnTable[m] != null)
                                     {
-                                        if (AStarGreedy[i].CastlesOnTable[m].CastleThinking[0].IsSupHu)
+                                        if (AStarGreedy[i].CastlesOnTable[m].CastleThinking[0].IsSupHu[j])
                                             continue;
                                         //Found of Maximum Castles Branch.
                                         if (AStarGreedy[i].CastlesOnTable[m].CastleThinking[0].MaxHuristic(ref jIndex[3], Kin[3], ref Less[3], Order *-1))
@@ -5988,7 +5988,7 @@ namespace RefrigtzW
                                     //When Minster of Depth is Not Null.
                                     if (AStarGreedy[i].MinisterOnTable[m] != null)
                                     {
-                                        if (AStarGreedy[i].MinisterOnTable[m].MinisterThinking[0].IsSupHu)
+                                        if (AStarGreedy[i].MinisterOnTable[m].MinisterThinking[0].IsSupHu[j])
                                             continue;
                                         //Found of Maximum Minster on table Branches.
                                         if (AStarGreedy[i].MinisterOnTable[m].MinisterThinking[0].MaxHuristic(ref jIndex[4], Kin[4], ref Less[4], Order *-1))
@@ -6008,7 +6008,7 @@ namespace RefrigtzW
                                     //When Depth Object of King Table is Not NULL.
                                     if (AStarGreedy[i].KingOnTable[m] != null)
                                     {
-                                        if (AStarGreedy[i].KingOnTable[m].KingThinking[0].IsSupHu)
+                                        if (AStarGreedy[i].KingOnTable[m].KingThinking[0].IsSupHu[j])
                                             continue;
                                         //Found of Maximum on table Branches.
                                         if (AStarGreedy[i].KingOnTable[m].KingThinking[0].MaxHuristic(ref jIndex[5], Kin[5], ref Less[5], Order *-1))
@@ -6041,7 +6041,7 @@ namespace RefrigtzW
                                     //When solderis on table depth obejcts is nopt null.
                                     if (AStarGreedy[i].SolderesOnTable[m] != null)
                                     {
-                                        if (AStarGreedy[i].SolderesOnTable[m].SoldierThinking[0].IsSupHu)
+                                        if (AStarGreedy[i].SolderesOnTable[m].SoldierThinking[0].IsSupHu[j])
                                             continue;
                                         //Found of Maximum on Depth solders on table items.
                                         if (AStarGreedy[i].SolderesOnTable[m].SoldierThinking[0].MaxHuristic(ref jIndex[0], Kin[0], ref Less[0], Order *-1))
@@ -6065,7 +6065,7 @@ namespace RefrigtzW
                                     //For All Elephant in Depth Count.
                                     if (AStarGreedy[i].ElephantOnTable[m] != null)
                                     {
-                                        if (AStarGreedy[i].ElephantOnTable[m].ElefantThinking[0].IsSupHu)
+                                        if (AStarGreedy[i].ElephantOnTable[m].ElefantThinking[0].IsSupHu[j])
                                             continue;
                                         //Found of Maxmimum in Branch.
                                         if (AStarGreedy[i].ElephantOnTable[m].ElefantThinking[0].MaxHuristic(ref jIndex[1], Kin[1], ref Less[1], Order *-1))
@@ -6090,7 +6090,7 @@ namespace RefrigtzW
                                     //When is HourseOn Table Depth Object is Not NULL.
                                     if (AStarGreedy[i].HoursesOnTable[m] != null)
                                     {
-                                        if (AStarGreedy[i].HoursesOnTable[m].HourseThinking[0].IsSupHu)
+                                        if (AStarGreedy[i].HoursesOnTable[m].HourseThinking[0].IsSupHu[j])
                                             continue;
                                         //Forund of Maximum on on Branch.
                                         if (AStarGreedy[i].HoursesOnTable[m].HourseThinking[0].MaxHuristic(ref jIndex[2], Kin[2], ref Less[2], Order *-1))
@@ -6113,7 +6113,7 @@ namespace RefrigtzW
                                     //When Depth Objects of Hourse Table is Not NULL.
                                     if (AStarGreedy[i].CastlesOnTable[m] != null)
                                     {
-                                        if (AStarGreedy[i].CastlesOnTable[m].CastleThinking[0].IsSupHu)
+                                        if (AStarGreedy[i].CastlesOnTable[m].CastleThinking[0].IsSupHu[j])
                                             continue;
                                         //Found of Maximum Castles Branch.
                                         if (AStarGreedy[i].CastlesOnTable[m].CastleThinking[0].MaxHuristic(ref jIndex[3], Kin[3], ref Less[3], Order *-1))
@@ -6137,7 +6137,7 @@ namespace RefrigtzW
                                     //When Minster of Depth is Not Null.
                                     if (AStarGreedy[i].MinisterOnTable[m] != null)
                                     {
-                                        if (AStarGreedy[i].MinisterOnTable[m].MinisterThinking[0].IsSupHu)
+                                        if (AStarGreedy[i].MinisterOnTable[m].MinisterThinking[0].IsSupHu[j])
                                             continue;
                                         //Found of Maximum Minster on table Branches.
                                         if (AStarGreedy[i].MinisterOnTable[m].MinisterThinking[0].MaxHuristic(ref jIndex[4], Kin[4], ref Less[4], Order *-1))
@@ -6161,7 +6161,7 @@ namespace RefrigtzW
                                     //When Minster of Depth is Not Null.
                                     if (AStarGreedy[i].KingOnTable[m] != null)
                                     {
-                                        if (AStarGreedy[i].KingOnTable[m].KingThinking[0].IsSupHu)
+                                        if (AStarGreedy[i].KingOnTable[m].KingThinking[0].IsSupHu[j])
                                             continue;
                                         //When Depth Object of King Table is Not NULL.
                                         if (AStarGreedy[i].KingOnTable[m].KingThinking[0].MaxHuristic(ref jIndex[5], Kin[5], ref Less[5], Order * -1))
@@ -6182,7 +6182,7 @@ namespace RefrigtzW
 
                         }
                         */
-                    if (!IsSupHu)
+                    if (!(IsSupHu[j]))
                     {
                         // int IJ = -1;
                         // if (Order == AllDraw.OrderPlate)
@@ -6491,7 +6491,7 @@ namespace RefrigtzW
                 }
                 else
                 {
-                    if (!IsSup)
+                    if (!(IsSup[j]))
                     {
                         //When Solder Kind.
                         if (System.Math.Abs(Kind) == 1 && HuristicListSolder.Count > 0)
@@ -6766,13 +6766,22 @@ namespace RefrigtzW
                         bool Sup = false;
                         if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
                         {
-                            IsSup = true;IsSupHu = true;
+                            IsSup.Add(true);
+                            IsSupHu.Add(true);
                             Sup = true;
                         }
-                        if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
+                        else
+                    if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
                         {
-                            IsSup = true;IsSupHu = true;
+                            IsSup.Add(true);
+                            IsSupHu.Add(true);
                             Sup = true;
+                        }
+                        else
+                        {
+                            IsSup.Add(false);
+                            IsSupHu.Add(false);
+                            Sup = false;
                         }
                         if (!Sup)
                         {
@@ -6854,7 +6863,7 @@ namespace RefrigtzW
                             lock (A6)
                             {
                                 double[] Hu = new double[10]; 
-                                //if (!IsSup)
+                                //if (!(IsSup[j]))
                                 {
                                     HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
                                     if (IgnoreFromCheckandMateHuristic)
@@ -6907,9 +6916,9 @@ namespace RefrigtzW
                             {
                                 OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
                                 if (Order == 1)
-                                    AllDraw.OutPut = "\r\nThinking King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                                    AllDraw.OutPut += "\r\nThinking King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                                 else
-                                    AllDraw.OutPut = "\r\nThinking King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                                    AllDraw.OutPut += "\r\nThinking King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                                 ThinkingLevel++;
                                 ThinkingAtRun = false;
                             }
@@ -6950,9 +6959,9 @@ namespace RefrigtzW
                             String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
                             OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
                             if (Order == 1)
-                                AllDraw.OutPut = "\r\nThinking King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                                AllDraw.OutPut += "\r\nThinking King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                             else
-                                AllDraw.OutPut = "\r\nThinking King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                                AllDraw.OutPut += "\r\nThinking King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                             ThinkingAtRun = false;
                         }
                     }
@@ -7021,13 +7030,22 @@ namespace RefrigtzW
                         bool Sup = false;
                         if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
                         {
-                            IsSup = true;IsSupHu = true;
+                            IsSup.Add(true);
+                            IsSupHu.Add(true);
                             Sup = true;
                         }
-                        if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
+                        else
+                    if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
                         {
-                            IsSup = true;IsSupHu = true;
+                            IsSup.Add(true);
+                            IsSupHu.Add(true);
                             Sup = true;
+                        }
+                        else
+                        {
+                            IsSup.Add(false);
+                            IsSupHu.Add(false);
+                            Sup = false;
                         }
                         if (!Sup)
                         {
@@ -7109,7 +7127,7 @@ namespace RefrigtzW
                             lock (A6)
                             {
                                 double[] Hu = new double[10]; 
-                                //if (!IsSup)
+                                //if (!(IsSup[j]))
                                 {
                                     HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
                                     if (IgnoreFromCheckandMateHuristic)
@@ -7162,9 +7180,9 @@ namespace RefrigtzW
                             {
                                 OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
                                 if (Order == 1)
-                                    AllDraw.OutPut = "\r\nThinking Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                                    AllDraw.OutPut += "\r\nThinking Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                                 else
-                                    AllDraw.OutPut = "\r\nThinking Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                                    AllDraw.OutPut += "\r\nThinking Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                                 ThinkingLevel++;
                                 ThinkingAtRun = false;
                             }
@@ -7205,9 +7223,9 @@ namespace RefrigtzW
                             String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
                             OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
                             if (Order == 1)
-                                AllDraw.OutPut = "\r\nThinking Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                                AllDraw.OutPut += "\r\nThinking Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                             else
-                                AllDraw.OutPut = "\r\nThinking Minster AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                                AllDraw.OutPut += "\r\nThinking Minster AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                             ThinkingAtRun = false;
                         }
                     }
@@ -7613,13 +7631,22 @@ namespace RefrigtzW
                         bool Sup = false;
                         if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
                         {
-                            IsSup = true;IsSupHu = true;
+                            IsSup.Add(true);
+                            IsSupHu.Add(true);
                             Sup = true;
                         }
-                        if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
+                        else
+                    if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
                         {
-                            IsSup = true;IsSupHu = true;
+                            IsSup.Add(true);
+                            IsSupHu.Add(true);
                             Sup = true;
+                        }
+                        else
+                        {
+                            IsSup.Add(false);
+                            IsSupHu.Add(false);
+                            Sup = false;
                         }
                         if (!Sup)
                         {
@@ -7701,7 +7728,7 @@ namespace RefrigtzW
                             lock (A6)
                             {
                                 double[] Hu = new double[10];
-                                //if (!IsSup)
+                                //if (!(IsSup[j]))
                                 {
                                     HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
                                     if (IgnoreFromCheckandMateHuristic)
@@ -7756,9 +7783,9 @@ namespace RefrigtzW
                                 {
                                     OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
                                     if (Order == 1)
-                                        AllDraw.OutPut = "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                                        AllDraw.OutPut += "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                                     else
-                                        AllDraw.OutPut = "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                                        AllDraw.OutPut += "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                                     ThinkingLevel++;
                                     ThinkingAtRun = false;
                                 }
@@ -7800,9 +7827,9 @@ namespace RefrigtzW
                             String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
                             OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
                             if (Order == 1)
-                                AllDraw.OutPut = "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                                AllDraw.OutPut += "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                             else
-                                AllDraw.OutPut = "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                                AllDraw.OutPut += "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                         }
                     }
                     catch (Exception t)
@@ -7846,13 +7873,22 @@ namespace RefrigtzW
                         bool Sup = false;
                         if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
                         {
-                            IsSup = true;IsSupHu = true;
+                            IsSup.Add(true);
+                            IsSupHu.Add(true);
                             Sup = true;
                         }
-                        if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
+                        else
+                     if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
                         {
-                            IsSup = true;IsSupHu = true;
+                            IsSup.Add(true);
+                            IsSupHu.Add(true);
                             Sup = true;
+                        }
+                        else
+                        {
+                            IsSup.Add(false);
+                            IsSupHu.Add(false);
+                            Sup = false;
                         }
                         if (!Sup)
                         {
@@ -7934,7 +7970,7 @@ namespace RefrigtzW
                             lock (A6)
                             {
                                 double[] Hu = new double[10];
-                                //if (!IsSup)
+                                //if (!(IsSup[j]))
                                 {
                                     HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
                                     if (IgnoreFromCheckandMateHuristic)
@@ -7989,9 +8025,9 @@ namespace RefrigtzW
                                 {
                                     OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
                                     if (Order == 1)
-                                        AllDraw.OutPut = "\r\nThinking Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                                        AllDraw.OutPut += "\r\nThinking Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                                     else
-                                        AllDraw.OutPut = "\r\nThinking Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                                        AllDraw.OutPut += "\r\nThinking Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                                     ThinkingLevel++;
                                     ThinkingAtRun = false;
                                 }
@@ -8033,9 +8069,9 @@ namespace RefrigtzW
                             String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
                             OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
                             if (Order == 1)
-                                AllDraw.OutPut = "\r\nThinking Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                                AllDraw.OutPut += "\r\nThinking Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                             else
-                                AllDraw.OutPut = "\r\nThinking Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                                AllDraw.OutPut += "\r\nThinking Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
 
                             ThinkingAtRun = false;
                         }
@@ -8079,13 +8115,22 @@ namespace RefrigtzW
                         bool Sup = false;
                         if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
                         {
-                            IsSup = true;IsSupHu = true;
+                            IsSup.Add(true);
+                            IsSupHu.Add(true);
                             Sup = true;
                         }
-                        if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
+                        else
+                    if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
                         {
-                            IsSup = true;IsSupHu = true;
+                            IsSup.Add(true);
+                            IsSupHu.Add(true);
                             Sup = true;
+                        }
+                        else
+                        {
+                            IsSup.Add(false);
+                            IsSupHu.Add(false);
+                            Sup = false;
                         }
                         if (!Sup)
                         {
@@ -8167,7 +8212,7 @@ namespace RefrigtzW
                             lock (A6)
                             {
                                 double[] Hu = new double[10];
-                                //if (!IsSup)
+                                //if (!(IsSup[j]))
                                 {
                                     HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
                                     if (IgnoreFromCheckandMateHuristic)
@@ -8222,9 +8267,9 @@ namespace RefrigtzW
                                 {
                                     OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
                                     if (Order == 1)
-                                        AllDraw.OutPut = "\r\nThinking Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                                        AllDraw.OutPut += "\r\nThinking Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                                     else
-                                        AllDraw.OutPut = "\r\nThinking Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                                        AllDraw.OutPut += "\r\nThinking Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                                     ThinkingLevel++;
                                     ThinkingAtRun = false;
                                 }
@@ -8266,9 +8311,9 @@ namespace RefrigtzW
                             String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
                             OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
                             if (Order == 1)
-                                AllDraw.OutPut = "\r\nThinking Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                                AllDraw.OutPut += "\r\nThinking Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                             else
-                                AllDraw.OutPut = "\r\nThinking Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                                AllDraw.OutPut += "\r\nThinking Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                             ThinkingAtRun = false;
                         }
                     }
@@ -8983,13 +9028,22 @@ namespace RefrigtzW
                         bool Sup = false;
                         if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
                         {
-                            IsSup = true;IsSupHu = true;
+                            IsSup.Add(true);
+                            IsSupHu.Add(true);
                             Sup = true;
                         }
-                        if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
+                        else
+                    if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
                         {
-                            IsSup = true;IsSupHu = true;
+                            IsSup.Add(true);
+                            IsSupHu.Add(true);
                             Sup = true;
+                        }
+                        else
+                        {
+                            IsSup.Add(false);
+                            IsSupHu.Add(false);
+                            Sup = false;
                         }
                         if (!Sup)
                         {
@@ -9071,7 +9125,7 @@ namespace RefrigtzW
                             lock (A6)
                             {
                                 double[] Hu = new double[10];
-                                //if (!IsSup)
+                                //if (!(IsSup[j]))
                                 {
                                     HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
                                     if (IgnoreFromCheckandMateHuristic)
@@ -9125,9 +9179,9 @@ namespace RefrigtzW
                             {
                                 OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
                                 if (Order == 1)
-                                    AllDraw.OutPut = "\r\nThinking Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                                    AllDraw.OutPut += "\r\nThinking Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                                 else
-                                    AllDraw.OutPut = "\r\nThinking Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                                    AllDraw.OutPut += "\r\nThinking Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                                 ThinkingLevel++;
                                 ThinkingAtRun = false;
                             }
@@ -9168,9 +9222,9 @@ namespace RefrigtzW
                             String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
                             OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
                             if (Order == 1)
-                                AllDraw.OutPut = "\r\nThinking Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                                AllDraw.OutPut += "\r\nThinking Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                             else
-                                AllDraw.OutPut = "\r\nThinking Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                                AllDraw.OutPut += "\r\nThinking Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                             ThinkingAtRun = false;
                         }
                         
@@ -9277,17 +9331,17 @@ namespace RefrigtzW
                     if (RowDestination < RowSource)
                     {
                         if (Order == 1)
-                            AllDraw.OutPut = "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + "O-O-O" + " With Huristic " + H;
+                            AllDraw.OutPut += "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + "O-O-O" + " With Huristic " + H;
                         else
-                            AllDraw.OutPut = "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + "O-O-O" + " With Huristic " + H;
+                            AllDraw.OutPut += "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + "O-O-O" + " With Huristic " + H;
                         ThinkingLevel++;
                     }
                     else
                     {
                         if (Order == 1)
-                            AllDraw.OutPut = "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + "O-O" + " With Huristic " + H;
+                            AllDraw.OutPut += "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + "O-O" + " With Huristic " + H;
                         else
-                            AllDraw.OutPut = "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + "O-O" + " With Huristic " + H;
+                            AllDraw.OutPut += "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + "O-O" + " With Huristic " + H;
                         ThinkingLevel++;
                     }
                     HuristicListKing.Add(Hu);
@@ -9616,17 +9670,17 @@ namespace RefrigtzW
                     if (RowDestination < RowSource)
                     {
                         if (Order == 1)
-                            AllDraw.OutPut = "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + "O-O-O" + " With Huristic " + H;
+                            AllDraw.OutPut += "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + "O-O-O" + " With Huristic " + H;
                         else
-                            AllDraw.OutPut = "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + "O-O-O" + " With Huristic " + H;
+                            AllDraw.OutPut += "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + "O-O-O" + " With Huristic " + H;
                         ThinkingLevel++;
                     }
                     else
                     {
                         if (Order == 1)
-                            AllDraw.OutPut = "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + "O-O" + " With Huristic " + H;
+                            AllDraw.OutPut += "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + "O-O" + " With Huristic " + H;
                         else
-                            AllDraw.OutPut = "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + "O-O" + " With Huristic " + H;
+                            AllDraw.OutPut += "\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + "O-O" + " With Huristic " + H;
                         ThinkingLevel++;
                     }
                     HuristicListKing.Add(Hu);
@@ -10371,7 +10425,7 @@ namespace RefrigtzW
                         Object O2 = new Object();
                         lock (O2)
                         {
-                            AllDraw.OutPut = "\r\nBoundry Condition at Thinking at " + ThinkingChess.FoundFirstSelfMating.ToString() + " Checkmate SELF";
+                            AllDraw.OutPut += "\r\nBoundry Condition at Thinking at " + ThinkingChess.FoundFirstSelfMating.ToString() + " Checkmate SELF";
                             ThinkingBegin = false;
                             ThinkingFinished = true;
                             EndThread++;
@@ -10385,7 +10439,7 @@ namespace RefrigtzW
                         Object O2 = new Object();
                         lock (O2)
                         {
-                            AllDraw.OutPut = "\r\nBoundry Condition at Thinking at " + ThinkingChess.FoundFirstMating.ToString() + " Checkmate ENEY";
+                            AllDraw.OutPut += "\r\nBoundry Condition at Thinking at " + ThinkingChess.FoundFirstMating.ToString() + " Checkmate ENEY";
                             ThinkingBegin = false;
                             ThinkingFinished = true;
                             EndThread++;
@@ -10424,7 +10478,7 @@ namespace RefrigtzW
                     Object O2 = new Object();
                     lock (O2)
                     {
-                        AllDraw.OutPut = "\r\nBoundry Condition at Thinking at " + ThinkingChess.FoundFirstMating.ToString() + " Checkmate ENEMY";
+                        AllDraw.OutPut += "\r\nBoundry Condition at Thinking at " + ThinkingChess.FoundFirstMating.ToString() + " Checkmate ENEMY";
                         ThinkingFinished = true;
                         ThinkingBegin = false;
                         EndThread++;
@@ -10439,7 +10493,7 @@ namespace RefrigtzW
                     Object O2 = new Object();
                     lock (O2)
                     {
-                        AllDraw.OutPut = "\r\nBoundry Condition at Thinking at " + ThinkingChess.FoundFirstSelfMating.ToString() + " Checkmate SLEF";
+                        AllDraw.OutPut += "\r\nBoundry Condition at Thinking at " + ThinkingChess.FoundFirstSelfMating.ToString() + " Checkmate SLEF";
                         ThinkingFinished = true;
                         ThinkingBegin = false;
                         EndThread++;
@@ -10470,7 +10524,7 @@ namespace RefrigtzW
                         Object O2 = new Object();
                         lock (O2)
                         {
-                            AllDraw.OutPut = "\r\nBoundry Condition at Thinking at " + ThinkingChess.FoundFirstMating.ToString() + " Checkmate";
+                            AllDraw.OutPut += "\r\nBoundry Condition at Thinking at " + ThinkingChess.FoundFirstMating.ToString() + " Checkmate";
                             ThinkingFinished = true;
                             CheckMateOcuured = true;
                             if ((AAA.CheckGray && AllDraw.OrderPlate == 1) || (AAA.CheckBrown && AllDraw.OrderPlate == -1) || (AAA.CheckMateGray && AllDraw.OrderPlate == 1) || (AAA.CheckMateBrown && AllDraw.OrderPlate == -1))

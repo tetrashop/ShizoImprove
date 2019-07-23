@@ -90,8 +90,8 @@ namespace QuantumRefrigiz
         public double HeuristicKingSafeSup = new double();
         public double HeuristicFromCenterSup = new double();
         public double HeuristicKingDangourSup = new double();
-        public bool IsSup = false;
-        public bool IsSupHu = false;
+        public List<bool> IsSup = new List<bool>();
+        public List<bool> IsSupHu = new List<bool>();
 
         StackFrame callStack = new StackFrame(1, true);
         //Initiate Global and Static Variables. 
@@ -5678,7 +5678,7 @@ namespace QuantumRefrigiz
             Object O = new Object();
             lock (O)
             {
-                AllDraw.OutPut = "";
+                AllDraw.OutPut += "";
                 //AllDraw.ActionStringReady = false;
                 //NumbersOfCurrentBranchesPenalties = 0;
                 //calculation of huristic methos and storing value retured.
@@ -5820,7 +5820,7 @@ namespace QuantumRefrigiz
                                     //When Depth of Solders On Table is Not NULL.
                                     if (AStarGreedy[i].SolderesOnTable[m] != null)
                                     {
-                                        if (AStarGreedy[i].SolderesOnTable[m].SoldierThinkingQuantum[0].IsSupHu)
+                                        if (AStarGreedy[i].SolderesOnTable[m].SoldierThinkingQuantum[0].IsSupHu[j])
                                             continue;
                                         //Calculate Maximum Huristic in Branch.
                                         if (AStarGreedy[i].SolderesOnTable[m].SoldierThinkingQuantum[0].MaxHuristic(ref jIndex[0], Kin[0], ref Less[0], Order *-1))
@@ -5847,7 +5847,7 @@ namespace QuantumRefrigiz
                                     //For All Elephant in Depth Count.
                                     if (AStarGreedy[i].ElephantOnTable[m] != null)
                                     {
-                                        if (AStarGreedy[i].ElephantOnTable[m].ElefantThinkingQuantum[0].IsSupHu)
+                                        if (AStarGreedy[i].ElephantOnTable[m].ElefantThinkingQuantum[0].IsSupHu[j])
                                             continue;
                                         //Found of Maxmimum in Branch.
                                         if (AStarGreedy[i].ElephantOnTable[m].ElefantThinkingQuantum[0].MaxHuristic(ref jIndex[1], Kin[1], ref Less[1], Order *-1))
@@ -5872,7 +5872,7 @@ namespace QuantumRefrigiz
                                     //When is HourseOn Table Depth Object is Not NULL.
                                     if (AStarGreedy[i].HoursesOnTable[m] != null)
                                     {
-                                        if (AStarGreedy[i].HoursesOnTable[m].HourseThinkingQuantum[0].IsSupHu)
+                                        if (AStarGreedy[i].HoursesOnTable[m].HourseThinkingQuantum[0].IsSupHu[j])
                                             continue;
                                         //Forund of Maximum on on Branch.
                                         if (AStarGreedy[i].HoursesOnTable[m].HourseThinkingQuantum[0].MaxHuristic(ref jIndex[2], Kin[2], ref Less[2], Order *-1))
@@ -5898,7 +5898,7 @@ namespace QuantumRefrigiz
                                     //When Depth Objects of Hourse Table is Not NULL.
                                     if (AStarGreedy[i].CastlesOnTable[m] != null)
                                     {
-                                        if (AStarGreedy[i].CastlesOnTable[m].CastleThinkingQuantum[0].IsSupHu)
+                                        if (AStarGreedy[i].CastlesOnTable[m].CastleThinkingQuantum[0].IsSupHu[j])
                                             continue;
                                         //Found of Maximum Castles Branch.
                                         if (AStarGreedy[i].CastlesOnTable[m].CastleThinkingQuantum[0].MaxHuristic(ref jIndex[3], Kin[3], ref Less[3], Order *-1))
@@ -5924,7 +5924,7 @@ namespace QuantumRefrigiz
                                     //When Minster of Depth is Not Null.
                                     if (AStarGreedy[i].MinisterOnTable[m] != null)
                                     {
-                                        if (AStarGreedy[i].MinisterOnTable[m].MinisterThinkingQuantum[0].IsSupHu)
+                                        if (AStarGreedy[i].MinisterOnTable[m].MinisterThinkingQuantum[0].IsSupHu[j])
                                             continue;
                                         //Found of Maximum Minster on table Branches.
                                         if (AStarGreedy[i].MinisterOnTable[m].MinisterThinkingQuantum[0].MaxHuristic(ref jIndex[4], Kin[4], ref Less[4], Order *-1))
@@ -5944,7 +5944,7 @@ namespace QuantumRefrigiz
                                     //When Depth Object of King Table is Not NULL.
                                     if (AStarGreedy[i].KingOnTable[m] != null)
                                     {
-                                        if (AStarGreedy[i].KingOnTable[m].KingThinkingQuantum[0].IsSupHu)
+                                        if (AStarGreedy[i].KingOnTable[m].KingThinkingQuantum[0].IsSupHu[j])
                                             continue;
                                         //Found of Maximum on table Branches.
                                         if (AStarGreedy[i].KingOnTable[m].KingThinkingQuantum[0].MaxHuristic(ref jIndex[5], Kin[5], ref Less[5], Order *-1))
@@ -5977,7 +5977,7 @@ namespace QuantumRefrigiz
                                     //When solderis on table depth obejcts is nopt null.
                                     if (AStarGreedy[i].SolderesOnTable[m] != null)
                                     {
-                                        if (AStarGreedy[i].SolderesOnTable[m].SoldierThinkingQuantum[0].IsSupHu)
+                                        if (AStarGreedy[i].SolderesOnTable[m].SoldierThinkingQuantum[0].IsSupHu[j])
                                             continue;
                                         //Found of Maximum on Depth solders on table items.
                                         if (AStarGreedy[i].SolderesOnTable[m].SoldierThinkingQuantum[0].MaxHuristic(ref jIndex[0], Kin[0], ref Less[0], Order *-1))
@@ -6001,7 +6001,7 @@ namespace QuantumRefrigiz
                                     //For All Elephant in Depth Count.
                                     if (AStarGreedy[i].ElephantOnTable[m] != null)
                                     {
-                                        if (AStarGreedy[i].ElephantOnTable[m].ElefantThinkingQuantum[0].IsSupHu)
+                                        if (AStarGreedy[i].ElephantOnTable[m].ElefantThinkingQuantum[0].IsSupHu[j])
                                             continue;
                                         //Found of Maxmimum in Branch.
                                         if (AStarGreedy[i].ElephantOnTable[m].ElefantThinkingQuantum[0].MaxHuristic(ref jIndex[1], Kin[1], ref Less[1], Order *-1))
@@ -6026,7 +6026,7 @@ namespace QuantumRefrigiz
                                     //When is HourseOn Table Depth Object is Not NULL.
                                     if (AStarGreedy[i].HoursesOnTable[m] != null)
                                     {
-                                        if (AStarGreedy[i].HoursesOnTable[m].HourseThinkingQuantum[0].IsSupHu)
+                                        if (AStarGreedy[i].HoursesOnTable[m].HourseThinkingQuantum[0].IsSupHu[j])
                                             continue;
                                         //Forund of Maximum on on Branch.
                                         if (AStarGreedy[i].HoursesOnTable[m].HourseThinkingQuantum[0].MaxHuristic(ref jIndex[2], Kin[2], ref Less[2], Order *-1))
@@ -6049,7 +6049,7 @@ namespace QuantumRefrigiz
                                     //When Depth Objects of Hourse Table is Not NULL.
                                     if (AStarGreedy[i].CastlesOnTable[m] != null)
                                     {
-                                        if (AStarGreedy[i].CastlesOnTable[m].CastleThinkingQuantum[0].IsSupHu)
+                                        if (AStarGreedy[i].CastlesOnTable[m].CastleThinkingQuantum[0].IsSupHu[j])
                                             continue;
                                         //Found of Maximum Castles Branch.
                                         if (AStarGreedy[i].CastlesOnTable[m].CastleThinkingQuantum[0].MaxHuristic(ref jIndex[3], Kin[3], ref Less[3], Order *-1))
@@ -6073,7 +6073,7 @@ namespace QuantumRefrigiz
                                     //When Minster of Depth is Not Null.
                                     if (AStarGreedy[i].MinisterOnTable[m] != null)
                                     {
-                                        if (AStarGreedy[i].MinisterOnTable[m].MinisterThinkingQuantum[0].IsSupHu)
+                                        if (AStarGreedy[i].MinisterOnTable[m].MinisterThinkingQuantum[0].IsSupHu[j])
                                             continue;
                                         //Found of Maximum Minster on table Branches.
                                         if (AStarGreedy[i].MinisterOnTable[m].MinisterThinkingQuantum[0].MaxHuristic(ref jIndex[4], Kin[4], ref Less[4], Order *-1))
@@ -6097,7 +6097,7 @@ namespace QuantumRefrigiz
                                     //When Minster of Depth is Not Null.
                                     if (AStarGreedy[i].KingOnTable[m] != null)
                                     {
-                                        if (AStarGreedy[i].KingOnTable[m].KingThinkingQuantum[0].IsSupHu)
+                                        if (AStarGreedy[i].KingOnTable[m].KingThinkingQuantum[0].IsSupHu[j])
                                             continue;
                                         //When Depth Object of King Table is Not NULL.
                                         if (AStarGreedy[i].KingOnTable[m].KingThinkingQuantum[0].MaxHuristic(ref jIndex[5], Kin[5], ref Less[5], Order * -1))
@@ -6118,7 +6118,7 @@ namespace QuantumRefrigiz
 
                         }
                         */
-                    if (!IsSupHu)
+                    //if (!(IsSupHu[j]))
                     {
                         // int IJ = -1;
                         // if (Order == AllDraw.OrderPlate)
@@ -6292,8 +6292,8 @@ namespace QuantumRefrigiz
                             }
                         }
                     }
-                    else
-                        return Double.MinValue;
+                    //else
+                        //return Double.MinValue;
                     if (AStarGreedy != null)
                     {
                         for (int k = 0; k < AStarGreedy.Count; k++)
@@ -6477,7 +6477,7 @@ namespace QuantumRefrigiz
                 }
                 else
                 {
-                    if (!IsSup)
+                    if (!(IsSup[j]))
                     {
                         //When Solder Kind.
                         if (System.Math.Abs(Kind) == 1 && HuristicListSolder.Count > 0)
@@ -6751,13 +6751,22 @@ namespace QuantumRefrigiz
                     bool Sup = false;
                     if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
                     {
-                        IsSup = true; IsSupHu = true;
+                        IsSup.Add(true);
+                        IsSupHu.Add(true);
                         Sup = true;
                     }
+                    else
                     if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
                     {
-                        IsSup = true; IsSupHu = true;
+                        IsSup.Add(true);
+                        IsSupHu.Add(true);
                         Sup = true;
+                    }
+                    else
+                    {
+                        IsSup.Add(false);
+                        IsSupHu.Add(false);
+                        Sup = false;
                     }
                     if (!Sup)
                     {
@@ -6839,7 +6848,7 @@ namespace QuantumRefrigiz
                         lock (A6)
                         {
                             double[] Hu = new double[10];
-                            //if (!IsSup)
+                            //if (!(IsSup[j]))
                             {
                                 HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
                                 if (IgnoreFromCheckandMateHuristic)
@@ -7000,13 +7009,22 @@ namespace QuantumRefrigiz
                     bool Sup = false;
                     if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
                     {
-                        IsSup = true; IsSupHu = true;
+                        IsSup.Add(true);
+                        IsSupHu.Add(true);
                         Sup = true;
                     }
+                    else
                     if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
                     {
-                        IsSup = true; IsSupHu = true;
+                        IsSup.Add(true);
+                        IsSupHu.Add(true);
                         Sup = true;
+                    }
+                    else
+                    {
+                        IsSup.Add(false);
+                        IsSupHu.Add(false);
+                        Sup = false;
                     }
                     if (!Sup)
                     {
@@ -7088,7 +7106,7 @@ namespace QuantumRefrigiz
                         lock (A6)
                         {
                             double[] Hu = new double[10];
-                            //if (!IsSup)
+                            //if (!(IsSup[j]))
                             {
                                 HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
                                 if (IgnoreFromCheckandMateHuristic)
@@ -7586,13 +7604,22 @@ namespace QuantumRefrigiz
                     bool Sup = false;
                     if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
                     {
-                        IsSup = true; IsSupHu = true;
+                        IsSup.Add(true);
+                        IsSupHu.Add(true);
                         Sup = true;
                     }
-                    if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
+                    else
+                     if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
                     {
-                        IsSup = true; IsSupHu = true;
+                        IsSup.Add(true);
+                        IsSupHu.Add(true);
                         Sup = true;
+                    }
+                    else
+                    {
+                        IsSup.Add(false);
+                        IsSupHu.Add(false);
+                        Sup = false;
                     }
                     if (!Sup)
                     {
@@ -7674,7 +7701,7 @@ namespace QuantumRefrigiz
                         lock (A6)
                         {
                             double[] Hu = new double[10];
-                            //if (!IsSup)
+                            //if (!(IsSup[j]))
                             {
                                 HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
                                 if (IgnoreFromCheckandMateHuristic)
@@ -7814,13 +7841,22 @@ namespace QuantumRefrigiz
                     bool Sup = false;
                     if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
                     {
-                        IsSup = true; IsSupHu = true;
+                        IsSup.Add(true);
+                        IsSupHu.Add(true);
                         Sup = true;
                     }
+                    else
                     if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
                     {
-                        IsSup = true; IsSupHu = true;
+                        IsSup.Add(true);
+                        IsSupHu.Add(true);
                         Sup = true;
+                    }
+                    else
+                    {
+                        IsSup.Add(false);
+                        IsSupHu.Add(false);
+                        Sup = false;
                     }
                     if (!Sup)
                     {
@@ -7902,7 +7938,7 @@ namespace QuantumRefrigiz
                         lock (A6)
                         {
                             double[] Hu = new double[10];
-                            //if (!IsSup)
+                            //if (!(IsSup[j]))
                             {
                                 HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
                                 if (IgnoreFromCheckandMateHuristic)
@@ -8040,13 +8076,22 @@ namespace QuantumRefrigiz
                     bool Sup = false;
                     if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
                     {
-                        IsSup = true; IsSupHu = true;
+                        IsSup.Add(true);
+                        IsSupHu.Add(true);
                         Sup = true;
                     }
+                    else
                     if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
                     {
-                        IsSup = true; IsSupHu = true;
+                        IsSup.Add(true);
+                        IsSupHu.Add(true);
                         Sup = true;
+                    }
+                    else
+                    {
+                        IsSup.Add(false);
+                        IsSupHu.Add(false);
+                        Sup = false;
                     }
                     if (!Sup)
                     {
@@ -8128,7 +8173,7 @@ namespace QuantumRefrigiz
                         lock (A6)
                         {
                             double[] Hu = new double[10];
-                            //if (!IsSup)
+                            //if (!(IsSup[j]))
                             {
                                 HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
                                 if (IgnoreFromCheckandMateHuristic)
@@ -8938,13 +8983,22 @@ namespace QuantumRefrigiz
                     bool Sup = false;
                     if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
                     {
-                        IsSup = true; IsSupHu = true;
+                        IsSup.Add(true);
+                        IsSupHu.Add(true);
                         Sup = true;
                     }
+                    else
                     if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
                     {
-                        IsSup = true; IsSupHu = true;
+                        IsSup.Add(true);
+                        IsSupHu.Add(true);
                         Sup = true;
+                    }
+                    else
+                    {
+                        IsSup.Add(false);
+                        IsSupHu.Add(false);
+                        Sup = false;
                     }
                     if (!Sup)
                     {
@@ -9026,7 +9080,7 @@ namespace QuantumRefrigiz
                         lock (A6)
                         {
                             double[] Hu = new double[10];
-                            //if (!IsSup)
+                            //if (!(IsSup[j]))
                             {
                                 HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
                                 if (IgnoreFromCheckandMateHuristic)

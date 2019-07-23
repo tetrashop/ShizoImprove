@@ -8091,7 +8091,7 @@ $.extend(Datepicker.prototype, {
 		var formatName = function(match, value, shortNames, longNames) {
 			return (lookAhead(match) ? longNames[value] : shortNames[value]);
 		};
-		var output = '';
+		var OutPut += '';
 		var literal = false;
 		if (date)
 			for (var iFormat = 0; iFormat < format.Length; iFormat++) {

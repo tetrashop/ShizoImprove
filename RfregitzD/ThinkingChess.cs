@@ -90,8 +90,8 @@ namespace RefrigtzDLL
         public double HeuristicKingSafeSup = new double();
         public double HeuristicFromCenterSup = new double();
         public double HeuristicKingDangourSup = new double();
-        public bool IsSup = false;
-        public bool IsSupHu = false;
+        public List<bool> IsSup = new List<bool>();
+        public List<bool> IsSupHu = new List<bool>();
 
         StackFrame callStack = new StackFrame(1, true);
         //Initiate Global and Static Variables. 
@@ -5818,7 +5818,7 @@ namespace RefrigtzDLL
                                     //When Depth of Solders On Table is Not NULL.
                                     if (AStarGreedy[i].SolderesOnTable[m] != null)
                                     {
-                                        if (AStarGreedy[i].SolderesOnTable[m].SoldierThinking[0].IsSupHu)
+                                        if (AStarGreedy[i].SolderesOnTable[m].SoldierThinking[0].IsSupHu[j])
                                             continue;
                                         //Calculate Maximum Huristic in Branch.
                                         if (AStarGreedy[i].SolderesOnTable[m].SoldierThinking[0].MaxHuristic(ref jIndex[0], Kin[0], ref Less[0], Order *-1))
@@ -5845,7 +5845,7 @@ namespace RefrigtzDLL
                                     //For All Elephant in Depth Count.
                                     if (AStarGreedy[i].ElephantOnTable[m] != null)
                                     {
-                                        if (AStarGreedy[i].ElephantOnTable[m].ElefantThinking[0].IsSupHu)
+                                        if (AStarGreedy[i].ElephantOnTable[m].ElefantThinking[0].IsSupHu[j])
                                             continue;
                                         //Found of Maxmimum in Branch.
                                         if (AStarGreedy[i].ElephantOnTable[m].ElefantThinking[0].MaxHuristic(ref jIndex[1], Kin[1], ref Less[1], Order *-1))
@@ -5870,7 +5870,7 @@ namespace RefrigtzDLL
                                     //When is HourseOn Table Depth Object is Not NULL.
                                     if (AStarGreedy[i].HoursesOnTable[m] != null)
                                     {
-                                        if (AStarGreedy[i].HoursesOnTable[m].HourseThinking[0].IsSupHu)
+                                        if (AStarGreedy[i].HoursesOnTable[m].HourseThinking[0].IsSupHu[j])
                                             continue;
                                         //Forund of Maximum on on Branch.
                                         if (AStarGreedy[i].HoursesOnTable[m].HourseThinking[0].MaxHuristic(ref jIndex[2], Kin[2], ref Less[2], Order *-1))
@@ -5896,7 +5896,7 @@ namespace RefrigtzDLL
                                     //When Depth Objects of Hourse Table is Not NULL.
                                     if (AStarGreedy[i].CastlesOnTable[m] != null)
                                     {
-                                        if (AStarGreedy[i].CastlesOnTable[m].CastleThinking[0].IsSupHu)
+                                        if (AStarGreedy[i].CastlesOnTable[m].CastleThinking[0].IsSupHu[j])
                                             continue;
                                         //Found of Maximum Castles Branch.
                                         if (AStarGreedy[i].CastlesOnTable[m].CastleThinking[0].MaxHuristic(ref jIndex[3], Kin[3], ref Less[3], Order *-1))
@@ -5922,7 +5922,7 @@ namespace RefrigtzDLL
                                     //When Minster of Depth is Not Null.
                                     if (AStarGreedy[i].MinisterOnTable[m] != null)
                                     {
-                                        if (AStarGreedy[i].MinisterOnTable[m].MinisterThinking[0].IsSupHu)
+                                        if (AStarGreedy[i].MinisterOnTable[m].MinisterThinking[0].IsSupHu[j])
                                             continue;
                                         //Found of Maximum Minster on table Branches.
                                         if (AStarGreedy[i].MinisterOnTable[m].MinisterThinking[0].MaxHuristic(ref jIndex[4], Kin[4], ref Less[4], Order *-1))
@@ -5942,7 +5942,7 @@ namespace RefrigtzDLL
                                     //When Depth Object of King Table is Not NULL.
                                     if (AStarGreedy[i].KingOnTable[m] != null)
                                     {
-                                        if (AStarGreedy[i].KingOnTable[m].KingThinking[0].IsSupHu)
+                                        if (AStarGreedy[i].KingOnTable[m].KingThinking[0].IsSupHu[j])
                                             continue;
                                         //Found of Maximum on table Branches.
                                         if (AStarGreedy[i].KingOnTable[m].KingThinking[0].MaxHuristic(ref jIndex[5], Kin[5], ref Less[5], Order *-1))
@@ -5975,7 +5975,7 @@ namespace RefrigtzDLL
                                     //When solderis on table depth obejcts is nopt null.
                                     if (AStarGreedy[i].SolderesOnTable[m] != null)
                                     {
-                                        if (AStarGreedy[i].SolderesOnTable[m].SoldierThinking[0].IsSupHu)
+                                        if (AStarGreedy[i].SolderesOnTable[m].SoldierThinking[0].IsSupHu[j])
                                             continue;
                                         //Found of Maximum on Depth solders on table items.
                                         if (AStarGreedy[i].SolderesOnTable[m].SoldierThinking[0].MaxHuristic(ref jIndex[0], Kin[0], ref Less[0], Order *-1))
@@ -5999,7 +5999,7 @@ namespace RefrigtzDLL
                                     //For All Elephant in Depth Count.
                                     if (AStarGreedy[i].ElephantOnTable[m] != null)
                                     {
-                                        if (AStarGreedy[i].ElephantOnTable[m].ElefantThinking[0].IsSupHu)
+                                        if (AStarGreedy[i].ElephantOnTable[m].ElefantThinking[0].IsSupHu[j])
                                             continue;
                                         //Found of Maxmimum in Branch.
                                         if (AStarGreedy[i].ElephantOnTable[m].ElefantThinking[0].MaxHuristic(ref jIndex[1], Kin[1], ref Less[1], Order *-1))
@@ -6024,7 +6024,7 @@ namespace RefrigtzDLL
                                     //When is HourseOn Table Depth Object is Not NULL.
                                     if (AStarGreedy[i].HoursesOnTable[m] != null)
                                     {
-                                        if (AStarGreedy[i].HoursesOnTable[m].HourseThinking[0].IsSupHu)
+                                        if (AStarGreedy[i].HoursesOnTable[m].HourseThinking[0].IsSupHu[j])
                                             continue;
                                         //Forund of Maximum on on Branch.
                                         if (AStarGreedy[i].HoursesOnTable[m].HourseThinking[0].MaxHuristic(ref jIndex[2], Kin[2], ref Less[2], Order *-1))
@@ -6047,7 +6047,7 @@ namespace RefrigtzDLL
                                     //When Depth Objects of Hourse Table is Not NULL.
                                     if (AStarGreedy[i].CastlesOnTable[m] != null)
                                     {
-                                        if (AStarGreedy[i].CastlesOnTable[m].CastleThinking[0].IsSupHu)
+                                        if (AStarGreedy[i].CastlesOnTable[m].CastleThinking[0].IsSupHu[j])
                                             continue;
                                         //Found of Maximum Castles Branch.
                                         if (AStarGreedy[i].CastlesOnTable[m].CastleThinking[0].MaxHuristic(ref jIndex[3], Kin[3], ref Less[3], Order *-1))
@@ -6071,7 +6071,7 @@ namespace RefrigtzDLL
                                     //When Minster of Depth is Not Null.
                                     if (AStarGreedy[i].MinisterOnTable[m] != null)
                                     {
-                                        if (AStarGreedy[i].MinisterOnTable[m].MinisterThinking[0].IsSupHu)
+                                        if (AStarGreedy[i].MinisterOnTable[m].MinisterThinking[0].IsSupHu[j])
                                             continue;
                                         //Found of Maximum Minster on table Branches.
                                         if (AStarGreedy[i].MinisterOnTable[m].MinisterThinking[0].MaxHuristic(ref jIndex[4], Kin[4], ref Less[4], Order *-1))
@@ -6095,7 +6095,7 @@ namespace RefrigtzDLL
                                     //When Minster of Depth is Not Null.
                                     if (AStarGreedy[i].KingOnTable[m] != null)
                                     {
-                                        if (AStarGreedy[i].KingOnTable[m].KingThinking[0].IsSupHu)
+                                        if (AStarGreedy[i].KingOnTable[m].KingThinking[0].IsSupHu[j])
                                             continue;
                                         //When Depth Object of King Table is Not NULL.
                                         if (AStarGreedy[i].KingOnTable[m].KingThinking[0].MaxHuristic(ref jIndex[5], Kin[5], ref Less[5], Order * -1))
@@ -6116,7 +6116,7 @@ namespace RefrigtzDLL
 
                         }
                         */
-                    if (!IsSupHu)
+                    if (!(IsSupHu[j]))
                     {
                         // int IJ = -1;
                         // if (Order == AllDraw.OrderPlate)
@@ -6145,9 +6145,9 @@ namespace RefrigtzDLL
                                 {
                                     ActionsString = " " + Alphabet(Row) + Number(Column) + Alphabet(RowColumnSoldier[j][0]) + Number(RowColumnSoldier[j][1]);
                                     if (Order == 1)
-                                        AllDraw.OutPut +="\r\nHuristic Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level " + iAstarGready.ToString() + " By Action String " + ActionsString;
+                                        AllDraw.OutPut += "\r\nHuristic Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level " + iAstarGready.ToString() + " By Action String " + ActionsString;
                                     else
-                                        AllDraw.OutPut +="\r\nHuristic Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level " + iAstarGready.ToString() + " By Action String " + ActionsString;
+                                        AllDraw.OutPut += "\r\nHuristic Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level " + iAstarGready.ToString() + " By Action String " + ActionsString;
                                 }
                                 //ActionStringSetting = true;
                             }
@@ -6173,9 +6173,9 @@ namespace RefrigtzDLL
                                 {
                                     ActionsString = " " + Alphabet(Row) + Number(Column) + Alphabet(RowColumnElefant[j][0]) + Number(RowColumnElefant[j][1]);
                                     if (Order == 1)
-                                        AllDraw.OutPut +="\r\nHuristic Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level " + iAstarGready.ToString() + " By Action String " + ActionsString;
+                                        AllDraw.OutPut += "\r\nHuristic Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level " + iAstarGready.ToString() + " By Action String " + ActionsString;
                                     else
-                                        AllDraw.OutPut +="\r\nHuristic Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level " + iAstarGready.ToString() + " By Action String " + ActionsString;
+                                        AllDraw.OutPut += "\r\nHuristic Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level " + iAstarGready.ToString() + " By Action String " + ActionsString;
                                 }
 
                                 //ActionStringSetting = true;
@@ -6200,9 +6200,9 @@ namespace RefrigtzDLL
                                 {
                                     ActionsString = " " + Alphabet(Row) + Number(Column) + Alphabet(RowColumnHourse[j][0]) + Number(RowColumnHourse[j][1]);
                                     if (Order == 1)
-                                        AllDraw.OutPut +="\r\nHuristic Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level " + iAstarGready.ToString() + " By Action String " + ActionsString;
+                                        AllDraw.OutPut += "\r\nHuristic Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level " + iAstarGready.ToString() + " By Action String " + ActionsString;
                                     else
-                                        AllDraw.OutPut +="\r\nHuristic Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level " + iAstarGready.ToString() + " By Action String " + ActionsString;
+                                        AllDraw.OutPut += "\r\nHuristic Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level " + iAstarGready.ToString() + " By Action String " + ActionsString;
                                 }
 
                                 //ActionStringSetting = true;
@@ -6227,9 +6227,9 @@ namespace RefrigtzDLL
                                 {
                                     ActionsString = " " + Alphabet(Row) + Number(Column) + Alphabet(RowColumnCastle[j][0]) + Number(RowColumnCastle[j][1]);
                                     if (Order == 1)
-                                        AllDraw.OutPut +="\r\nHuristic Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level " + iAstarGready.ToString() + " By Action String " + ActionsString;
+                                        AllDraw.OutPut += "\r\nHuristic Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level " + iAstarGready.ToString() + " By Action String " + ActionsString;
                                     else
-                                        AllDraw.OutPut +="\r\nHuristic Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level " + iAstarGready.ToString() + " By Action String " + ActionsString;
+                                        AllDraw.OutPut += "\r\nHuristic Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level " + iAstarGready.ToString() + " By Action String " + ActionsString;
                                 }
 
                                 //ActionStringSetting = true;
@@ -6254,9 +6254,9 @@ namespace RefrigtzDLL
                                 {
                                     ActionsString = " " + Alphabet(Row) + Number(Column) + Alphabet(RowColumnMinister[j][0]) + Number(RowColumnMinister[j][1]);
                                     if (Order == 1)
-                                        AllDraw.OutPut +="\r\nHuristic Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level " + iAstarGready.ToString() + " By Action String " + ActionsString;
+                                        AllDraw.OutPut += "\r\nHuristic Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level " + iAstarGready.ToString() + " By Action String " + ActionsString;
                                     else
-                                        AllDraw.OutPut +="\r\nHuristic Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level " + iAstarGready.ToString() + " By Action String " + ActionsString;
+                                        AllDraw.OutPut += "\r\nHuristic Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level " + iAstarGready.ToString() + " By Action String " + ActionsString;
                                 }
                                 //ActionStringSetting = true;
                             }
@@ -6281,17 +6281,18 @@ namespace RefrigtzDLL
                                     {
                                         ActionsString = " " + Alphabet(Row) + Number(Column) + Alphabet(RowColumnKing[j][0]) + Number(RowColumnKing[j][1]);
                                         if (Order == 1)
-                                            AllDraw.OutPut +="\r\nHuristic King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level " + iAstarGready.ToString() + " By Action String " + ActionsString;
+                                            AllDraw.OutPut += "\r\nHuristic King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level " + iAstarGready.ToString() + " By Action String " + ActionsString;
                                         else
-                                            AllDraw.OutPut +="\r\nHuristic King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level " + iAstarGready.ToString() + " By Action String " + ActionsString;
+                                            AllDraw.OutPut += "\r\nHuristic King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level " + iAstarGready.ToString() + " By Action String " + ActionsString;
                                     }
                                     //ActionStringSetting = true;
                                 }
                             }
                         }
+
                     }
-                    else
-                        return Double.MinValue;
+                        else 
+return Double.MinValue;
                     if (AStarGreedy != null)
                     {
                         for (int k = 0; k < AStarGreedy.Count; k++)
@@ -6475,7 +6476,7 @@ namespace RefrigtzDLL
                 }
                 else
                 {
-                    if (!IsSup)
+                    if (!(IsSup[j]))
                     {
                         //When Solder Kind.
                         if (System.Math.Abs(Kind) == 1 && HuristicListSolder.Count > 0)
@@ -6747,16 +6748,25 @@ namespace RefrigtzDLL
                         ThinkingAtRun = true; int CheckedM = 0;
 
                         bool Sup = false;
-                        if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
-                        {
-                            IsSup = true;IsSupHu = true;
-                            Sup = true;
-                        }
-                        if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
-                        {
-                            IsSup = true;IsSupHu = true;
-                            Sup = true;
-                        }
+                    if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
+                    {
+                        IsSup.Add(true);
+                        IsSupHu.Add(true);
+                        Sup = true;
+                    }
+                    else
+                    if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
+                    {
+                        IsSup.Add(true);
+                        IsSupHu.Add(true);
+                        Sup = true;
+                    }
+                    else
+                    {
+                        IsSup.Add(false);
+                        IsSupHu.Add(false);
+                        Sup = false;
+                    }
                         if (!Sup)
                         {
 
@@ -6837,7 +6847,7 @@ namespace RefrigtzDLL
                             lock (A6)
                             {
                                 double[] Hu = new double[10]; 
-                                //if (!IsSup)
+                                //if (!(IsSup[j]))
                                 {
                                     HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
                                     if (IgnoreFromCheckandMateHuristic)
@@ -6994,17 +7004,26 @@ namespace RefrigtzDLL
                         ThinkingAtRun = true; int CheckedM = 0;
 
                         bool Sup = false;
-                        if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
-                        {
-                            IsSup = true;IsSupHu = true;
-                            Sup = true;
-                        }
-                        if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
-                        {
-                            IsSup = true;IsSupHu = true;
-                            Sup = true;
-                        }
-                        if (!Sup)
+                    if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
+                    {
+                        IsSup.Add(true);
+                        IsSupHu.Add(true);
+                        Sup = true;
+                    }
+                    else
+                if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
+                    {
+                        IsSup.Add(true);
+                        IsSupHu.Add(true);
+                        Sup = true;
+                    }
+                    else
+                    {
+                        IsSup.Add(false);
+                        IsSupHu.Add(false);
+                        Sup = false;
+                    }
+                    if (!Sup)
                         {
 
                             ///Add Table to List of Private.
@@ -7084,7 +7103,7 @@ namespace RefrigtzDLL
                             lock (A6)
                             {
                                 double[] Hu = new double[10]; 
-                                //if (!IsSup)
+                                //if (!(IsSup[j]))
                                 {
                                     HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
                                     if (IgnoreFromCheckandMateHuristic)
@@ -7578,17 +7597,26 @@ namespace RefrigtzDLL
                         ThinkingAtRun = true; int CheckedM = 0;
 
                         bool Sup = false;
-                        if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
-                        {
-                            IsSup = true;IsSupHu = true;
-                            Sup = true;
-                        }
-                        if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
-                        {
-                            IsSup = true;IsSupHu = true;
-                            Sup = true;
-                        }
-                        if (!Sup)
+                    if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
+                    {
+                        IsSup.Add(true);
+                        IsSupHu.Add(true);
+                        Sup = true;
+                    }
+                    else
+                 if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
+                    {
+                        IsSup.Add(true);
+                        IsSupHu.Add(true);
+                        Sup = true;
+                    }
+                    else
+                    {
+                        IsSup.Add(false);
+                        IsSupHu.Add(false);
+                        Sup = false;
+                    }
+                    if (!Sup)
                         {
 
                             ///Add Table to List of Private.
@@ -7668,7 +7696,7 @@ namespace RefrigtzDLL
                             lock (A6)
                             {
                                 double[] Hu = new double[10];
-                                //if (!IsSup)
+                                //if (!(IsSup[j]))
                                 {
                                     HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
                                     if (IgnoreFromCheckandMateHuristic)
@@ -7806,13 +7834,22 @@ namespace RefrigtzDLL
                     bool Sup = false;
                     if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
                     {
-                        IsSup = true;IsSupHu = true;
+                        IsSup.Add(true);
+                        IsSupHu.Add(true);
                         Sup = true;
                     }
+                    else
                     if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
                     {
-                        IsSup = true;IsSupHu = true;
+                        IsSup.Add(true);
+                        IsSupHu.Add(true);
                         Sup = true;
+                    }
+                    else
+                    {
+                        IsSup.Add(false);
+                        IsSupHu.Add(false);
+                        Sup = false;
                     }
                     if (!Sup)
                     {
@@ -7894,7 +7931,7 @@ namespace RefrigtzDLL
                         lock (A6)
                         {
                             double[] Hu = new double[10];
-                            //if (!IsSup)
+                            //if (!(IsSup[j]))
                             {
                                 HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
                                 if (IgnoreFromCheckandMateHuristic)
@@ -8029,17 +8066,26 @@ namespace RefrigtzDLL
                         ThinkingAtRun = true; int CheckedM = 0;
 
                         bool Sup = false;
-                        if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
-                        {
-                            IsSup = true;IsSupHu = true;
-                            Sup = true;
-                        }
-                        if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
-                        {
-                            IsSup = true;IsSupHu = true;
-                            Sup = true;
-                        }
-                        if (!Sup)
+                    if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
+                    {
+                        IsSup.Add(true);
+                        IsSupHu.Add(true);
+                        Sup = true;
+                    }
+                    else
+                if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
+                    {
+                        IsSup.Add(true);
+                        IsSupHu.Add(true);
+                        Sup = true;
+                    }
+                    else
+                    {
+                        IsSup.Add(false);
+                        IsSupHu.Add(false);
+                        Sup = false;
+                    }
+                    if (!Sup)
                         {
                             
                             ///Add Table to List of Private.
@@ -8119,7 +8165,7 @@ namespace RefrigtzDLL
                             lock (A6)
                             {
                                 double[] Hu = new double[10];
-                                //if (!IsSup)
+                                //if (!(IsSup[j]))
                                 {
                                     HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
                                     if (IgnoreFromCheckandMateHuristic)
@@ -8925,17 +8971,26 @@ namespace RefrigtzDLL
                         ThinkingAtRun = true; int CheckedM = 0;
 
                         bool Sup = false;
-                        if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
-                        {
-                            IsSup = true;IsSupHu = true;
-                            Sup = true;
-                        }
-                        if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
-                        {
-                            IsSup = true;IsSupHu = true;
-                            Sup = true;
-                        }
-                        if (!Sup)
+                    if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
+                    {
+                        IsSup.Add(true);
+                        IsSupHu.Add(true);
+                        Sup = true;
+                    }
+                    else
+                if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
+                    {
+                        IsSup.Add(true);
+                        IsSupHu.Add(true);
+                        Sup = true;
+                    }
+                    else
+                    {
+                        IsSup.Add(false);
+                        IsSupHu.Add(false);
+                        Sup = false;
+                    }
+                    if (!Sup)
                         {
 
                             ///Add Table to List of Private.
@@ -9015,7 +9070,7 @@ namespace RefrigtzDLL
                             lock (A6)
                             {
                                 double[] Hu = new double[10];
-                                //if (!IsSup)
+                                //if (!(IsSup[j]))
                                 {
                                     HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
                                     if (IgnoreFromCheckandMateHuristic)

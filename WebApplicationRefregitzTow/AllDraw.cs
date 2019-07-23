@@ -168,7 +168,7 @@ namespace RefrigtzW
         public static int DepthIterative = 0;
         int PerceptionCount = 0;
         public String OutPutAction = "";
-        public static String OutPut = "";
+        public static String OutPut += "";
         public static String ActionString = "";
         public static bool ActionStringReady = false;
         //static variable to be Initiate
@@ -4103,7 +4103,7 @@ if (Kind == 2)
                 lock (O)
                 {
                     table = CloneATable(table);
-                    OutPut = "\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString();
+                    OutPut += "\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString();
                     if (Order == 1)
                     {
 
@@ -4934,12 +4934,12 @@ if (Kind == 2)
                                                     {
                                                         if (Order == 1)
                                                         {
-                                                            OutPut = "\r\nChess Huristic Sodier By Bob!";
+                                                            OutPut += "\r\nChess Huristic Sodier By Bob!";
                                                             //THIS.RefreshBoxText();
                                                         }
                                                         else//If Order is Brown.
                                                         {
-                                                            OutPut = "\r\nChess Huristic Sodier By Alice!";
+                                                            OutPut += "\r\nChess Huristic Sodier By Alice!";
                                                             //THIS.RefreshBoxText();
                                                         }
                                                     }
@@ -5056,12 +5056,12 @@ if (Kind == 2)
                                                         {
                                                             if (Order == 1)
                                                             {
-                                                                OutPut = "\r\nChess Huristic Sodier By Bob!";
+                                                                OutPut += "\r\nChess Huristic Sodier By Bob!";
                                                                 //THIS.RefreshBoxText();
                                                             }
                                                             else//If Order is Brown.
                                                             {
-                                                                OutPut = "\r\nChess Huristic Sodier By Alice!";
+                                                                OutPut += "\r\nChess Huristic Sodier By Alice!";
                                                                 //THIS.RefreshBoxText();
                                                             }
                                                         }
@@ -5262,12 +5262,12 @@ if (Kind == 2)
                                                     {
                                                         if (Order == 1)
                                                         {
-                                                            OutPut = "\r\nChess Huristic Elephant By Bob!";
+                                                            OutPut += "\r\nChess Huristic Elephant By Bob!";
                                                             //THIS.RefreshBoxText();
                                                         }
                                                         else//If Order is Brown.
                                                         {
-                                                            OutPut = "\r\nChess Huristic Elephant By Alice!";
+                                                            OutPut += "\r\nChess Huristic Elephant By Alice!";
                                                             //THIS.RefreshBoxText();
                                                         }
                                                     }
@@ -5319,12 +5319,12 @@ if (Kind == 2)
                                                         {
                                                             if (Order == 1)
                                                             {
-                                                                OutPut = "\r\nChess Huristic Sodier By Bob!";
+                                                                OutPut += "\r\nChess Huristic Sodier By Bob!";
                                                                 //THIS.RefreshBoxText();
                                                             }
                                                             else//If Order is Brown.
                                                             {
-                                                                OutPut = "\r\nChess Huristic Sodier By Alice!";
+                                                                OutPut += "\r\nChess Huristic Sodier By Alice!";
                                                                 //THIS.RefreshBoxText();
                                                             }
                                                         }
@@ -5511,12 +5511,12 @@ if (Kind == 2)
                                                     {
                                                         if (Order == 1)
                                                         {
-                                                            OutPut = "\r\nChess Huristic Hourse By Bob!";
+                                                            OutPut += "\r\nChess Huristic Hourse By Bob!";
                                                             //THIS.RefreshBoxText();
                                                         }
                                                         else//If Order is Brown.
                                                         {
-                                                            OutPut = "\r\nChess Huristic Hourse By Alice!";
+                                                            OutPut += "\r\nChess Huristic Hourse By Alice!";
                                                             //THIS.RefreshBoxText();
                                                         }
                                                     }
@@ -5571,12 +5571,12 @@ if (Kind == 2)
                                                         {
                                                             if (Order == 1)
                                                             {
-                                                                OutPut = "\r\nChess Huristic Sodier By Bob!";
+                                                                OutPut += "\r\nChess Huristic Sodier By Bob!";
                                                                 //THIS.RefreshBoxText();
                                                             }
                                                             else//If Order is Brown.
                                                             {
-                                                                OutPut = "\r\nChess Huristic Sodier By Alice!";
+                                                                OutPut += "\r\nChess Huristic Sodier By Alice!";
                                                                 //THIS.RefreshBoxText();
                                                             }
                                                         }
@@ -5769,12 +5769,12 @@ if (Kind == 2)
                                                     {
                                                         if (Order == 1)
                                                         {
-                                                            OutPut = "\r\nChess Huristic Castles By Bob!";
+                                                            OutPut += "\r\nChess Huristic Castles By Bob!";
                                                             //THIS.RefreshBoxText();
                                                         }
                                                         else//If Order is Brown.
                                                         {
-                                                            OutPut = "\r\nChess Huristic Castles By Alice!";
+                                                            OutPut += "\r\nChess Huristic Castles By Alice!";
                                                             //THIS.RefreshBoxText();
                                                         }
                                                     }
@@ -5825,12 +5825,12 @@ if (Kind == 2)
                                                         {
                                                             if (Order == 1)
                                                             {
-                                                                OutPut = "\r\nChess Huristic Sodier By Bob!";
+                                                                OutPut += "\r\nChess Huristic Sodier By Bob!";
                                                                 //THIS.RefreshBoxText();
                                                             }
                                                             else//If Order is Brown.
                                                             {
-                                                                OutPut = "\r\nChess Huristic Sodier By Alice!";
+                                                                OutPut += "\r\nChess Huristic Sodier By Alice!";
                                                                 //THIS.RefreshBoxText();
                                                             }
                                                         }
@@ -6021,12 +6021,12 @@ if (Kind == 2)
                                                 {
                                                     if (Order == 1)
                                                     {
-                                                        OutPut = "\r\nChess Huristic Minister By Bob!";
+                                                        OutPut += "\r\nChess Huristic Minister By Bob!";
                                                         //THIS.RefreshBoxText();
                                                     }
                                                     else//If Order is Brown.
                                                     {
-                                                        OutPut = "\r\nChess Huristic Minister By Alice!";
+                                                        OutPut += "\r\nChess Huristic Minister By Alice!";
                                                         //THIS.RefreshBoxText();
                                                     }   //Set Table and Huristic Value and Syntax.
                                                 }
@@ -6077,12 +6077,12 @@ if (Kind == 2)
                                                     {
                                                         if (Order == 1)
                                                         {
-                                                            OutPut = "\r\nChess Huristic Sodier By Bob!";
+                                                            OutPut += "\r\nChess Huristic Sodier By Bob!";
                                                             //THIS.RefreshBoxText();
                                                         }
                                                         else//If Order is Brown.
                                                         {
-                                                            OutPut = "\r\nChess Huristic Sodier By Alice!";
+                                                            OutPut += "\r\nChess Huristic Sodier By Alice!";
                                                             //THIS.RefreshBoxText();
                                                         }
                                                     }
@@ -6274,12 +6274,12 @@ if (Kind == 2)
                                                     {
                                                         if (Order == 1)
                                                         {
-                                                            OutPut = "\r\nChess Huristic King By Bob!";
+                                                            OutPut += "\r\nChess Huristic King By Bob!";
                                                             //THIS.RefreshBoxText();
                                                         }
                                                         else//If Order is Brown.
                                                         {
-                                                            OutPut = "\r\nChess Huristic King By Alice!";
+                                                            OutPut += "\r\nChess Huristic King By Alice!";
                                                             //THIS.RefreshBoxText();
                                                         }
                                                     }
@@ -6332,12 +6332,12 @@ if (Kind == 2)
                                                         {
                                                             if (Order == 1)
                                                             {
-                                                                OutPut = "\r\nChess Huristic Sodier By Bob!";
+                                                                OutPut += "\r\nChess Huristic Sodier By Bob!";
                                                                 //THIS.RefreshBoxText();
                                                             }
                                                             else//If Order is Brown.
                                                             {
-                                                                OutPut = "\r\nChess Huristic Sodier By Alice!";
+                                                                OutPut += "\r\nChess Huristic Sodier By Alice!";
                                                                 //THIS.RefreshBoxText();
                                                             }
                                                         }
@@ -6430,7 +6430,7 @@ if (Kind == 2)
             Object O = new Object();
             lock (O)
             {
-                OutPut = SOut;
+                OutPut += SOut;
             }
             Thread.Sleep(10);
         }
@@ -6656,12 +6656,12 @@ if (Kind == 2)
                                                     {
                                                         if (Order == 1)
                                                         {
-                                                            OutPut = "\r\nChess Huristic Sodier By Bob!";
+                                                            OutPut += "\r\nChess Huristic Sodier By Bob!";
                                                             //THIS.RefreshBoxText();
                                                         }
                                                         else//If Order is Brown.
                                                         {
-                                                            OutPut = "\r\nChess Huristic Sodier By Alice!";
+                                                            OutPut += "\r\nChess Huristic Sodier By Alice!";
                                                             //THIS.RefreshBoxText();
                                                         }
                                                     }
@@ -6997,12 +6997,12 @@ if (Kind == 2)
                                                 {
                                                     if (Order == 1)
                                                     {
-                                                        OutPut = "\r\nChess Huristic Elephant By Bob!";
+                                                        OutPut += "\r\nChess Huristic Elephant By Bob!";
                                                         //THIS.RefreshBoxText();
                                                     }
                                                     else//If Order is Brown.
                                                     {
-                                                        OutPut = "\r\nChess Huristic Elephant By Alice!";
+                                                        OutPut += "\r\nChess Huristic Elephant By Alice!";
                                                         //THIS.RefreshBoxText();
                                                     }
                                                 }
@@ -7276,12 +7276,12 @@ if (Kind == 2)
                                                 {
                                                     if (Order == 1)
                                                     {
-                                                        OutPut = "\r\nChess Huristic Hourse By Bob!";
+                                                        OutPut += "\r\nChess Huristic Hourse By Bob!";
                                                         //THIS.RefreshBoxText();
                                                     }
                                                     else//If Order is Brown.
                                                     {
-                                                        OutPut = "\r\nChess Huristic Hourse By Alice!";
+                                                        OutPut += "\r\nChess Huristic Hourse By Alice!";
                                                         //THIS.RefreshBoxText();
                                                     }
                                                 }//Set Table and Huristic Value and Syntax.
@@ -7540,12 +7540,12 @@ if (Kind == 2)
                                                 {
                                                     if (Order == 1)
                                                     {
-                                                        OutPut = "\r\nChess Huristic Castles By Bob!";
+                                                        OutPut += "\r\nChess Huristic Castles By Bob!";
                                                         //THIS.RefreshBoxText();
                                                     }
                                                     else//If Order is Brown.
                                                     {
-                                                        OutPut = "\r\nChess Huristic Castles By Alice!";
+                                                        OutPut += "\r\nChess Huristic Castles By Alice!";
                                                         //THIS.RefreshBoxText();
                                                     }
                                                 }
@@ -7808,12 +7808,12 @@ if (Kind == 2)
                                             {
                                                 if (Order == 1)
                                                 {
-                                                    OutPut = "\r\nChess Huristic Minister By Bob!";
+                                                    OutPut += "\r\nChess Huristic Minister By Bob!";
                                                     //THIS.RefreshBoxText();
                                                 }
                                                 else//If Order is Brown.
                                                 {
-                                                    OutPut = "\r\nChess Huristic Minister By Alice!";
+                                                    OutPut += "\r\nChess Huristic Minister By Alice!";
                                                     //THIS.RefreshBoxText();
                                                 }
                                             }
@@ -8072,12 +8072,12 @@ if (Kind == 2)
                                                 {
                                                     if (Order == 1)
                                                     {
-                                                        OutPut = "\r\nChess Huristic King By Bob!";
+                                                        OutPut += "\r\nChess Huristic King By Bob!";
                                                         //THIS.RefreshBoxText();
                                                     }
                                                     else//If Order is Brown.
                                                     {
-                                                        OutPut = "\r\nChess Huristic King By Alice!";
+                                                        OutPut += "\r\nChess Huristic King By Alice!";
                                                         //THIS.RefreshBoxText();
                                                     }
                                                 }
@@ -8393,12 +8393,12 @@ if (Kind == 2)
                                                 {
                                                     if (Order == 1)
                                                     {
-                                                        OutPut = "\r\nChess Huristic Sodier By Bob!";
+                                                        OutPut += "\r\nChess Huristic Sodier By Bob!";
                                                         //THIS.RefreshBoxText();
                                                     }
                                                     else//If Order is Brown.
                                                     {
-                                                        OutPut = "\r\nChess Huristic Sodier By Alice!";
+                                                        OutPut += "\r\nChess Huristic Sodier By Alice!";
                                                         //THIS.RefreshBoxText();
                                                     }
                                                 }
@@ -8510,12 +8510,12 @@ if (Kind == 2)
                                                         {
                                                             if (Order == 1)
                                                             {
-                                                                OutPut = "\r\nChess Huristic Sodier By Bob!";
+                                                                OutPut += "\r\nChess Huristic Sodier By Bob!";
                                                                 //THIS.RefreshBoxText();
                                                             }
                                                             else//If Order is Brown.
                                                             {
-                                                                OutPut = "\r\nChess Huristic Sodier By Alice!";
+                                                                OutPut += "\r\nChess Huristic Sodier By Alice!";
                                                                 //THIS.RefreshBoxText();
                                                             }
                                                         }
@@ -8714,12 +8714,12 @@ if (Kind == 2)
                                                 {
                                                     if (Order == 1)
                                                     {
-                                                        OutPut = "\r\nChess Huristic Elephant By Bob!";
+                                                        OutPut += "\r\nChess Huristic Elephant By Bob!";
                                                         //THIS.RefreshBoxText();
                                                     }
                                                     else//If Order is Brown.
                                                     {
-                                                        OutPut = "\r\nChess Huristic Elephant By Alice!";
+                                                        OutPut += "\r\nChess Huristic Elephant By Alice!";
                                                         //THIS.RefreshBoxText();
                                                     }
                                                 }
@@ -8772,12 +8772,12 @@ if (Kind == 2)
                                                     {
                                                         if (Order == 1)
                                                         {
-                                                            OutPut = "\r\nChess Huristic Sodier By Bob!";
+                                                            OutPut += "\r\nChess Huristic Sodier By Bob!";
                                                             //THIS.RefreshBoxText();
                                                         }
                                                         else//If Order is Brown.
                                                         {
-                                                            OutPut = "\r\nChess Huristic Sodier By Alice!";
+                                                            OutPut += "\r\nChess Huristic Sodier By Alice!";
                                                             //THIS.RefreshBoxText();
                                                         }
                                                     }
@@ -8972,12 +8972,12 @@ if (Kind == 2)
                                                 {
                                                     if (Order == 1)
                                                     {
-                                                        OutPut = "\r\nChess Huristic Hourse By Bob!";
+                                                        OutPut += "\r\nChess Huristic Hourse By Bob!";
                                                         //THIS.RefreshBoxText();
                                                     }
                                                     else//If Order is Brown.
                                                     {
-                                                        OutPut = "\r\nChess Huristic Hourse By Alice!";
+                                                        OutPut += "\r\nChess Huristic Hourse By Alice!";
                                                         //THIS.RefreshBoxText();
                                                     }
                                                 }
@@ -9032,12 +9032,12 @@ if (Kind == 2)
                                                     {
                                                         if (Order == 1)
                                                         {
-                                                            OutPut = "\r\nChess Huristic Sodier By Bob!";
+                                                            OutPut += "\r\nChess Huristic Sodier By Bob!";
                                                             //THIS.RefreshBoxText();
                                                         }
                                                         else//If Order is Brown.
                                                         {
-                                                            OutPut = "\r\nChess Huristic Sodier By Alice!";
+                                                            OutPut += "\r\nChess Huristic Sodier By Alice!";
                                                             //THIS.RefreshBoxText();
                                                         }
                                                     }
@@ -9224,12 +9224,12 @@ if (Kind == 2)
                                                 {
                                                     if (Order == 1)
                                                     {
-                                                        OutPut = "\r\nChess Huristic Castles By Bob!";
+                                                        OutPut += "\r\nChess Huristic Castles By Bob!";
                                                         //THIS.RefreshBoxText();
                                                     }
                                                     else//If Order is Brown.
                                                     {
-                                                        OutPut = "\r\nChess Huristic Castles By Alice!";
+                                                        OutPut += "\r\nChess Huristic Castles By Alice!";
                                                         //THIS.RefreshBoxText();
                                                     }
                                                 }
@@ -9284,12 +9284,12 @@ if (Kind == 2)
                                                     {
                                                         if (Order == 1)
                                                         {
-                                                            OutPut = "\r\nChess Huristic Sodier By Bob!";
+                                                            OutPut += "\r\nChess Huristic Sodier By Bob!";
                                                             //THIS.RefreshBoxText();
                                                         }
                                                         else//If Order is Brown.
                                                         {
-                                                            OutPut = "\r\nChess Huristic Sodier By Alice!";
+                                                            OutPut += "\r\nChess Huristic Sodier By Alice!";
                                                             //THIS.RefreshBoxText();
                                                         }
                                                     }
@@ -9479,12 +9479,12 @@ if (Kind == 2)
                                                 {
                                                     if (Order == 1)
                                                     {
-                                                        OutPut = "\r\nChess Huristic Minister By Bob!";
+                                                        OutPut += "\r\nChess Huristic Minister By Bob!";
                                                         //THIS.RefreshBoxText();
                                                     }
                                                     else//If Order is Brown.
                                                     {
-                                                        OutPut = "\r\nChess Huristic Minister By Alice!";
+                                                        OutPut += "\r\nChess Huristic Minister By Alice!";
                                                         //THIS.RefreshBoxText();
                                                     }
                                                 }
@@ -9536,12 +9536,12 @@ if (Kind == 2)
                                                     {
                                                         if (Order == 1)
                                                         {
-                                                            OutPut = "\r\nChess Huristic Sodier By Bob!";
+                                                            OutPut += "\r\nChess Huristic Sodier By Bob!";
                                                             //THIS.RefreshBoxText();
                                                         }
                                                         else//If Order is Brown.
                                                         {
-                                                            OutPut = "\r\nChess Huristic Sodier By Alice!";
+                                                            OutPut += "\r\nChess Huristic Sodier By Alice!";
                                                             //THIS.RefreshBoxText();
                                                         }
                                                     }
@@ -9735,12 +9735,12 @@ if (Kind == 2)
                                                 {
                                                     if (Order == 1)
                                                     {
-                                                        OutPut = "\r\nChess Huristic King By Bob!";
+                                                        OutPut += "\r\nChess Huristic King By Bob!";
                                                         //THIS.RefreshBoxText();
                                                     }
                                                     else//If Order is Brown.
                                                     {
-                                                        OutPut = "\r\nChess Huristic King By Alice!";
+                                                        OutPut += "\r\nChess Huristic King By Alice!";
                                                         //THIS.RefreshBoxText();
                                                     }
                                                 }
@@ -9795,12 +9795,12 @@ if (Kind == 2)
                                                     {
                                                         if (Order == 1)
                                                         {
-                                                            OutPut = "\r\nChess Huristic Sodier By Bob!";
+                                                            OutPut += "\r\nChess Huristic Sodier By Bob!";
                                                             //THIS.RefreshBoxText();
                                                         }
                                                         else//If Order is Brown.
                                                         {
-                                                            OutPut = "\r\nChess Huristic Sodier By Alice!";
+                                                            OutPut += "\r\nChess Huristic Sodier By Alice!";
                                                             //THIS.RefreshBoxText();
                                                         }
                                                     }
@@ -10083,12 +10083,12 @@ if (Kind == 2)
                     {
                         if (Order == 1)
                         {
-                            OutPut = "\r\nChess Genetic By Bob!";
+                            OutPut += "\r\nChess Genetic By Bob!";
                             //THIS.RefreshBoxText();
                         }
                         else//If Order is Brown.
                         {
-                            OutPut = "\r\nChess Genetic By Alice!";
+                            OutPut += "\r\nChess Genetic By Alice!";
                             //THIS.RefreshBoxText();
 
                         }
@@ -10116,12 +10116,12 @@ if (Kind == 2)
                     {
                         if (Order == 1)
                         {
-                            OutPut = "\r\nGenetic Algorithm Begin AStarGreedy " + i.ToString() + " By Bob!";
+                            OutPut += "\r\nGenetic Algorithm Begin AStarGreedy " + i.ToString() + " By Bob!";
                             //THIS.RefreshBoxText();
                         }
                         else//If Order is Brown.
                         {
-                            OutPut = "\r\nGenetic Algirithm Begin AStarGreedy " + i.ToString() + " By Alice!";
+                            OutPut += "\r\nGenetic Algirithm Begin AStarGreedy " + i.ToString() + " By Alice!";
                             //THIS.RefreshBoxText();
 
                         }
@@ -10136,12 +10136,12 @@ if (Kind == 2)
                     {
                         if (Order == 1)
                         {
-                            OutPut = "\r\nGenetic Algorithm Finsished AStarGreedy " + i.ToString() + " By Bob!";
+                            OutPut += "\r\nGenetic Algorithm Finsished AStarGreedy " + i.ToString() + " By Bob!";
                             //THIS.RefreshBoxText();
                         }
                         else//If Order is Brown.
                         {
-                            OutPut = "\r\nGenetic Algirithm Finished AStarGreedy " + i.ToString() + " By Alice!";
+                            OutPut += "\r\nGenetic Algirithm Finished AStarGreedy " + i.ToString() + " By Alice!";
                             //THIS.RefreshBoxText();
 
                         }
@@ -11609,7 +11609,7 @@ if (Kind == 2)
             {
                 if (Order == 1)
                 {
-                    if (SolderesOnTable[ii].SoldierThinking[0].IsSup)
+                    if (SolderesOnTable[ii].SoldierThinking[0].IsSup[j])
                     {
 
                         for (int i = 0; i < SodierMidle; i++)
@@ -11631,7 +11631,7 @@ if (Kind == 2)
                                 this.SolderesOnTable[i].SoldierThinking[0].HuristicListSolder[j][8] += SolderesOnTable[ii].SoldierThinking[0].HeuristicFromCenterSup;
                                 this.SolderesOnTable[i].SoldierThinking[0].HuristicListSolder[j][9] += SolderesOnTable[ii].SoldierThinking[0].HeuristicKingDangourSup;
 
-                                AllDraw.OutPut = "\r\nServed Soldeir!";
+                                AllDraw.OutPut += "\r\nServed Soldeir!";
                             }
                         }
                         SolderesOnTable[ii].SoldierThinking[0].HuristicAttackValueSup = 0;
@@ -11644,12 +11644,12 @@ if (Kind == 2)
                         SolderesOnTable[ii].SoldierThinking[0].HeuristicKingSafeSup = 0;
                         SolderesOnTable[ii].SoldierThinking[0].HeuristicFromCenterSup = 0;
                         SolderesOnTable[ii].SoldierThinking[0].HeuristicKingDangourSup = 0;
-                        SolderesOnTable[ii].SoldierThinking[0].IsSup = false;
+                        for (int j = 0; j < SolderesOnTable[ii].SoldierThinking[0].IsSup.Count; j++) SolderesOnTable[ii].SoldierThinking[0].IsSup[j] = false;
                     }
                 }
                 else
                 {
-                    if (SolderesOnTable[ii].SoldierThinking[0].IsSup)
+                    if (SolderesOnTable[ii].SoldierThinking[0].IsSup[j])
                     {
 
                         for (int i = SodierMidle; i < SodierHigh; i++)
@@ -11671,7 +11671,7 @@ if (Kind == 2)
                                 this.SolderesOnTable[i].SoldierThinking[0].HuristicListSolder[j][8] += SolderesOnTable[ii].SoldierThinking[0].HeuristicFromCenterSup;
                                 this.SolderesOnTable[i].SoldierThinking[0].HuristicListSolder[j][9] += SolderesOnTable[ii].SoldierThinking[0].HeuristicKingDangourSup;
 
-                                AllDraw.OutPut = "\r\nServed Soldeir!";
+                                AllDraw.OutPut += "\r\nServed Soldeir!";
                             }
                         }
                         SolderesOnTable[ii].SoldierThinking[0].HuristicAttackValueSup = 0;
@@ -11684,7 +11684,7 @@ if (Kind == 2)
                         SolderesOnTable[ii].SoldierThinking[0].HeuristicKingSafeSup = 0;
                         SolderesOnTable[ii].SoldierThinking[0].HeuristicFromCenterSup = 0;
                         SolderesOnTable[ii].SoldierThinking[0].HeuristicKingDangourSup = 0;
-                        SolderesOnTable[ii].SoldierThinking[0].IsSup = false;
+                        for (int j = 0; j < SolderesOnTable[ii].SoldierThinking[0].IsSup.Count; j++) SolderesOnTable[ii].SoldierThinking[0].IsSup[j] = false;
                     }
                 }
             }
@@ -11692,7 +11692,7 @@ if (Kind == 2)
             {
                 if (Order == 1)
                 {
-                    if (ElephantOnTable[ii].ElefantThinking[0].IsSup)
+                    if (ElephantOnTable[ii].ElefantThinking[0].IsSup[j])
                     {
                         for (int i = 0; i < ElefantMidle; i++)
                         {
@@ -11715,7 +11715,7 @@ if (Kind == 2)
                                     this.ElephantOnTable[i].ElefantThinking[0].HuristicListElefant[j][8] += ElephantOnTable[ii].ElefantThinking[0].HeuristicFromCenterSup;
                                     this.ElephantOnTable[i].ElefantThinking[0].HuristicListElefant[j][9] += ElephantOnTable[ii].ElefantThinking[0].HeuristicKingDangourSup;
 
-                                    AllDraw.OutPut = "\r\nServed Elephant!";
+                                    AllDraw.OutPut += "\r\nServed Elephant!";
                                 }
                             }
                         }
@@ -11729,13 +11729,13 @@ if (Kind == 2)
                         ElephantOnTable[ii].ElefantThinking[0].HeuristicKingSafeSup = 0;
                         ElephantOnTable[ii].ElefantThinking[0].HeuristicFromCenterSup = 0;
                         ElephantOnTable[ii].ElefantThinking[0].HeuristicKingDangourSup = 0;
-                        ElephantOnTable[ii].ElefantThinking[0].IsSup = false;
+                        ElephantOnTable[ii].ElefantThinking[0].IsSup[j] = false;
                     }
                 }
                 else
                 {
 
-                    if (ElephantOnTable[ii].ElefantThinking[0].IsSup)
+                    if (ElephantOnTable[ii].ElefantThinking[0].IsSup[j])
                     {
                         for (int i = ElefantMidle; i < ElefantHigh; i++)
                         {
@@ -11758,7 +11758,7 @@ if (Kind == 2)
                                     this.ElephantOnTable[i].ElefantThinking[0].HuristicListElefant[j][8] += ElephantOnTable[ii].ElefantThinking[0].HeuristicFromCenterSup;
                                     this.ElephantOnTable[i].ElefantThinking[0].HuristicListElefant[j][9] += ElephantOnTable[ii].ElefantThinking[0].HeuristicKingDangourSup;
 
-                                    AllDraw.OutPut = "\r\nServed Elephant!";
+                                    AllDraw.OutPut += "\r\nServed Elephant!";
                                 }
                             }
                         }
@@ -11772,7 +11772,7 @@ if (Kind == 2)
                         ElephantOnTable[ii].ElefantThinking[0].HeuristicKingSafeSup = 0;
                         ElephantOnTable[ii].ElefantThinking[0].HeuristicFromCenterSup = 0;
                         ElephantOnTable[ii].ElefantThinking[0].HeuristicKingDangourSup = 0;
-                        ElephantOnTable[ii].ElefantThinking[0].IsSup = false;
+                        ElephantOnTable[ii].ElefantThinking[0].IsSup[j] = false;
                     }
                 }
             }
@@ -11780,7 +11780,7 @@ if (Kind == 2)
             {
                 if (Order == 1)
                 {
-                    if (HoursesOnTable[ii].HourseThinking[0].IsSup)
+                    if (HoursesOnTable[ii].HourseThinking[0].IsSup[j])
                     {
                         for (int i = 0; i < HourseMidle; i++)
                         {
@@ -11801,7 +11801,7 @@ if (Kind == 2)
                                 this.HoursesOnTable[i].HourseThinking[0].HuristicListHourse[j][8] += HoursesOnTable[ii].HourseThinking[0].HeuristicFromCenterSup;
                                 this.HoursesOnTable[i].HourseThinking[0].HuristicListHourse[j][9] += HoursesOnTable[ii].HourseThinking[0].HeuristicKingDangourSup;
 
-                                AllDraw.OutPut = "\r\nServed Hourse!";
+                                AllDraw.OutPut += "\r\nServed Hourse!";
                             }
                         }
                         HoursesOnTable[ii].HourseThinking[0].HuristicAttackValueSup = 0;
@@ -11814,13 +11814,13 @@ if (Kind == 2)
                         HoursesOnTable[ii].HourseThinking[0].HeuristicKingSafeSup = 0;
                         HoursesOnTable[ii].HourseThinking[0].HeuristicFromCenterSup = 0;
                         HoursesOnTable[ii].HourseThinking[0].HeuristicKingDangourSup = 0;
-                        HoursesOnTable[ii].HourseThinking[0].IsSup = false;
+                        HoursesOnTable[ii].HourseThinking[0].IsSup[j] = false;
                     }
 
                 }
                 else
                 {
-                    if (HoursesOnTable[ii].HourseThinking[0].IsSup)
+                    if (HoursesOnTable[ii].HourseThinking[0].IsSup[j])
                     {
                         for (int i = HourseMidle; i < HourseHight; i++)
                         {
@@ -11841,7 +11841,7 @@ if (Kind == 2)
                                 this.HoursesOnTable[i].HourseThinking[0].HuristicListHourse[j][8] += HoursesOnTable[ii].HourseThinking[0].HeuristicFromCenterSup;
                                 this.HoursesOnTable[i].HourseThinking[0].HuristicListHourse[j][9] += HoursesOnTable[ii].HourseThinking[0].HeuristicKingDangourSup;
 
-                                AllDraw.OutPut = "\r\nServed Hourse!";
+                                AllDraw.OutPut += "\r\nServed Hourse!";
                             }
                         }
                         HoursesOnTable[ii].HourseThinking[0].HuristicAttackValueSup = 0;
@@ -11854,7 +11854,7 @@ if (Kind == 2)
                         HoursesOnTable[ii].HourseThinking[0].HeuristicKingSafeSup = 0;
                         HoursesOnTable[ii].HourseThinking[0].HeuristicFromCenterSup = 0;
                         HoursesOnTable[ii].HourseThinking[0].HeuristicKingDangourSup = 0;
-                        HoursesOnTable[ii].HourseThinking[0].IsSup = false;
+                        HoursesOnTable[ii].HourseThinking[0].IsSup[j] = false;
                     }
                 }
             }
@@ -11862,7 +11862,7 @@ if (Kind == 2)
             {
                 if (Order == 1)
                 {
-                    if (CastlesOnTable[ii].CastleThinking[0].IsSup)
+                    if (CastlesOnTable[ii].CastleThinking[0].IsSup[j])
                     {
                         for (int i = 0; i < CastleMidle; i++)
                         {
@@ -11883,7 +11883,7 @@ if (Kind == 2)
                                 this.CastlesOnTable[i].CastleThinking[0].HuristicListCastle[j][8] += CastlesOnTable[ii].CastleThinking[0].HeuristicFromCenterSup;
                                 this.CastlesOnTable[i].CastleThinking[0].HuristicListCastle[j][9] += CastlesOnTable[ii].CastleThinking[0].HeuristicKingDangourSup;
 
-                                AllDraw.OutPut = "\r\nServed Castle!";
+                                AllDraw.OutPut += "\r\nServed Castle!";
                             }
                         }
                         CastlesOnTable[ii].CastleThinking[0].HuristicAttackValueSup = 0;
@@ -11896,12 +11896,12 @@ if (Kind == 2)
                         CastlesOnTable[ii].CastleThinking[0].HeuristicKingSafeSup = 0;
                         CastlesOnTable[ii].CastleThinking[0].HeuristicFromCenterSup = 0;
                         CastlesOnTable[ii].CastleThinking[0].HeuristicKingDangourSup = 0;
-                        CastlesOnTable[ii].CastleThinking[0].IsSup = false;
+                        CastlesOnTable[ii].CastleThinking[0].IsSup[j] = false;
                     }
                 }
                 else
                 {
-                    if (CastlesOnTable[ii].CastleThinking[0].IsSup)
+                    if (CastlesOnTable[ii].CastleThinking[0].IsSup[j])
                     {
                         for (int i = CastleMidle; i < CastleHigh; i++)
                         {
@@ -11922,7 +11922,7 @@ if (Kind == 2)
                                 this.CastlesOnTable[i].CastleThinking[0].HuristicListCastle[j][8] += CastlesOnTable[ii].CastleThinking[0].HeuristicFromCenterSup;
                                 this.CastlesOnTable[i].CastleThinking[0].HuristicListCastle[j][9] += CastlesOnTable[ii].CastleThinking[0].HeuristicKingDangourSup;
 
-                                AllDraw.OutPut = "\r\nServed Castle!";
+                                AllDraw.OutPut += "\r\nServed Castle!";
                             }
                         }
                         CastlesOnTable[ii].CastleThinking[0].HuristicAttackValueSup = 0;
@@ -11935,7 +11935,7 @@ if (Kind == 2)
                         CastlesOnTable[ii].CastleThinking[0].HeuristicKingSafeSup = 0;
                         CastlesOnTable[ii].CastleThinking[0].HeuristicFromCenterSup = 0;
                         CastlesOnTable[ii].CastleThinking[0].HeuristicKingDangourSup = 0;
-                        CastlesOnTable[ii].CastleThinking[0].IsSup = false;
+                        CastlesOnTable[ii].CastleThinking[0].IsSup[j] = false;
                     }
                 }
             }
@@ -11944,7 +11944,7 @@ if (Kind == 2)
             {
                 if (Order == 1)
                 {
-                    if (MinisterOnTable[ii].MinisterThinking[0].IsSup)
+                    if (MinisterOnTable[ii].MinisterThinking[0].IsSup[j])
                     {
                         for (int i = 0; i < MinisterMidle; i++)
                         {
@@ -11965,7 +11965,7 @@ if (Kind == 2)
                                 this.MinisterOnTable[i].MinisterThinking[0].HuristicListMinister[j][8] += MinisterOnTable[ii].MinisterThinking[0].HeuristicFromCenterSup;
                                 this.MinisterOnTable[i].MinisterThinking[0].HuristicListMinister[j][9] += MinisterOnTable[ii].MinisterThinking[0].HeuristicKingDangourSup;
 
-                                AllDraw.OutPut = "\r\nServed Minister!";
+                                AllDraw.OutPut += "\r\nServed Minister!";
                             }
                         }
                         MinisterOnTable[ii].MinisterThinking[0].HuristicAttackValueSup = 0;
@@ -11978,12 +11978,12 @@ if (Kind == 2)
                         MinisterOnTable[ii].MinisterThinking[0].HeuristicKingSafeSup = 0;
                         MinisterOnTable[ii].MinisterThinking[0].HeuristicFromCenterSup = 0;
                         MinisterOnTable[ii].MinisterThinking[0].HeuristicKingDangourSup = 0;
-                        MinisterOnTable[ii].MinisterThinking[0].IsSup = false;
+                        MinisterOnTable[ii].MinisterThinking[0].IsSup[j] = false;
                     }
                 }
                 else
                 {
-                    if (MinisterOnTable[ii].MinisterThinking[0].IsSup)
+                    if (MinisterOnTable[ii].MinisterThinking[0].IsSup[j])
                     {
                         for (int i = MinisterMidle; i < MinisterHigh; i++)
                         {
@@ -12004,7 +12004,7 @@ if (Kind == 2)
                                 this.MinisterOnTable[i].MinisterThinking[0].HuristicListMinister[j][8] += MinisterOnTable[ii].MinisterThinking[0].HeuristicFromCenterSup;
                                 this.MinisterOnTable[i].MinisterThinking[0].HuristicListMinister[j][9] += MinisterOnTable[ii].MinisterThinking[0].HeuristicKingDangourSup;
 
-                                AllDraw.OutPut = "\r\nServed Minister!";
+                                AllDraw.OutPut += "\r\nServed Minister!";
                             }
                         }
                         MinisterOnTable[ii].MinisterThinking[0].HuristicAttackValueSup = 0;
@@ -12017,7 +12017,7 @@ if (Kind == 2)
                         MinisterOnTable[ii].MinisterThinking[0].HeuristicKingSafeSup = 0;
                         MinisterOnTable[ii].MinisterThinking[0].HeuristicFromCenterSup = 0;
                         MinisterOnTable[ii].MinisterThinking[0].HeuristicKingDangourSup = 0;
-                        MinisterOnTable[ii].MinisterThinking[0].IsSup = false;
+                        MinisterOnTable[ii].MinisterThinking[0].IsSup[j] = false;
                     }
                 }
             }
@@ -12026,7 +12026,7 @@ if (Kind == 2)
             {
                 if (Order == 1)
                 {
-                    if (KingOnTable[ii].KingThinking[0].IsSup)
+                    if (KingOnTable[ii].KingThinking[0].IsSup[j])
                     {
                         for (int i = 0; i < KingMidle; i++)
                         {
@@ -12047,7 +12047,7 @@ if (Kind == 2)
                                 this.KingOnTable[i].KingThinking[0].HuristicListKing[j][8] += KingOnTable[ii].KingThinking[0].HeuristicFromCenterSup;
                                 this.KingOnTable[i].KingThinking[0].HuristicListKing[j][9] += KingOnTable[ii].KingThinking[0].HeuristicKingDangourSup;
 
-                                AllDraw.OutPut = "\r\nServed King!";
+                                AllDraw.OutPut += "\r\nServed King!";
                             }
                         }
                         KingOnTable[ii].KingThinking[0].HuristicAttackValueSup = 0;
@@ -12061,12 +12061,12 @@ if (Kind == 2)
                         KingOnTable[ii].KingThinking[0].HeuristicFromCenterSup = 0;
                         KingOnTable[ii].KingThinking[0].HeuristicKingDangourSup = 0;
 
-                        KingOnTable[ii].KingThinking[0].IsSup = false;
+                        KingOnTable[ii].KingThinking[0].IsSup[j] = false;
                     }
                 }
                 else
                 {
-                    if (KingOnTable[ii].KingThinking[0].IsSup)
+                    if (KingOnTable[ii].KingThinking[0].IsSup[j])
                     {
                         for (int i = KingMidle; i < KingHigh; i++)
                         {
@@ -12087,7 +12087,7 @@ if (Kind == 2)
                                 this.KingOnTable[i].KingThinking[0].HuristicListKing[j][8] += KingOnTable[ii].KingThinking[0].HeuristicFromCenterSup;
                                 this.KingOnTable[i].KingThinking[0].HuristicListKing[j][9] += KingOnTable[ii].KingThinking[0].HeuristicKingDangourSup;
 
-                                AllDraw.OutPut = "\r\nServed King!";
+                                AllDraw.OutPut += "\r\nServed King!";
                             }
                         }
                         KingOnTable[ii].KingThinking[0].HuristicAttackValueSup = 0;
@@ -12101,7 +12101,7 @@ if (Kind == 2)
                         KingOnTable[ii].KingThinking[0].HeuristicFromCenterSup = 0;
                         KingOnTable[ii].KingThinking[0].HeuristicKingDangourSup = 0;
 
-                        KingOnTable[ii].KingThinking[0].IsSup = false;
+                        KingOnTable[ii].KingThinking[0].IsSup[j] = false;
                     }
                 }
             }
@@ -12824,7 +12824,7 @@ if (Kind == 2)
                         continue;
                     if (SolderesOnTable[ikk].LoseOcuuredatChiled < -1)
                     {
-                        OutPut = "\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString();
+                        OutPut += "\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString();
                         IS = true;
                     }
                 }
@@ -12834,7 +12834,7 @@ if (Kind == 2)
                         continue;
                     if (ElephantOnTable[ikk].LoseOcuuredatChiled < -1)
                     {
-                        OutPut = "\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString();
+                        OutPut += "\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString();
                         IS = true;
                     }
                 }
@@ -12844,7 +12844,7 @@ if (Kind == 2)
                         continue;
                     if (HoursesOnTable[ikk].LoseOcuuredatChiled < -1)
                     {
-                        OutPut = "\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString();
+                        OutPut += "\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString();
                         IS = true;
                     }
                 }
@@ -12854,7 +12854,7 @@ if (Kind == 2)
                         continue;
                     if (CastlesOnTable[ikk].LoseOcuuredatChiled < -1)
                     {
-                        OutPut = "\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString();
+                        OutPut += "\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString();
                         IS = true;
                     }
                 }
@@ -12864,7 +12864,7 @@ if (Kind == 2)
                         continue;
                     if (MinisterOnTable[ikk].LoseOcuuredatChiled < -1)
                     {
-                        OutPut = "\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString();
+                        OutPut += "\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString();
                         IS = true;
                     }
                 }
@@ -12874,20 +12874,20 @@ if (Kind == 2)
                         continue;
                     if (KingOnTable[ikk].LoseOcuuredatChiled < -1)
                     {
-                        OutPut = "\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString();
+                        OutPut += "\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString();
                         IS = true;
                     }
                 }
                 if ((ThinkingChess.FoundFirstMating >= MaxAStarGreedy) || (SetDeptIgnore))
                 {
-                    OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
+                    OutPut += "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
                     IS = true;
                 }
                 else
                 if (iAStarGreedy < 0)
                 {
                     iAStarGreedy = MaxAStarGreedy;
-                    OutPut = "\r\nLevel Boundry Conditon for iAStarGreedy is Set To " + iAStarGreedy.ToString() + "MaxAStarGreedy";
+                    OutPut += "\r\nLevel Boundry Conditon for iAStarGreedy is Set To " + iAStarGreedy.ToString() + "MaxAStarGreedy";
                 }
             }
             else
@@ -12898,7 +12898,7 @@ if (Kind == 2)
                         continue;
                     if (SolderesOnTable[ikk].LoseOcuuredatChiled < -1)
                     {
-                        OutPut = "\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString();
+                        OutPut += "\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString();
                         IS = true;
                     }
                 }
@@ -12908,7 +12908,7 @@ if (Kind == 2)
                         continue;
                     if (ElephantOnTable[ikk].LoseOcuuredatChiled < -1)
                     {
-                        OutPut = "\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString();
+                        OutPut += "\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString();
                         IS = true;
                     }
                 }
@@ -12918,7 +12918,7 @@ if (Kind == 2)
                         continue;
                     if (HoursesOnTable[ikk].LoseOcuuredatChiled < -1)
                     {
-                        OutPut = "\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString();
+                        OutPut += "\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString();
                         IS = true;
                     }
                 }
@@ -12928,7 +12928,7 @@ if (Kind == 2)
                         continue;
                     if (CastlesOnTable[ikk].LoseOcuuredatChiled < -1)
                     {
-                        OutPut = "\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString();
+                        OutPut += "\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString();
                         IS = true;
                     }
                 }
@@ -12938,7 +12938,7 @@ if (Kind == 2)
                         continue;
                     if (MinisterOnTable[ikk].LoseOcuuredatChiled < -1)
                     {
-                        OutPut = "\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString();
+                        OutPut += "\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString();
                         IS = true;
                     }
                 }
@@ -12948,20 +12948,20 @@ if (Kind == 2)
                         continue;
                     if (KingOnTable[ikk].LoseOcuuredatChiled < -1)
                     {
-                        OutPut = "\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString();
+                        OutPut += "\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString();
                         IS = true;
                     }
                 }
                 if ((ThinkingChess.FoundFirstMating >= MaxAStarGreedy) || (SetDeptIgnore))
                 {
-                    OutPut = "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
+                    OutPut += "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString();
                     IS = true;
                 }
                 else
                 if (iAStarGreedy < 0)
                 {
                     iAStarGreedy = MaxAStarGreedy;
-                    OutPut = "\r\nLevel Boundry Conditon for iAStarGreedy is Set To " + iAStarGreedy.ToString() + "MaxAStarGreedy";
+                    OutPut += "\r\nLevel Boundry Conditon for iAStarGreedy is Set To " + iAStarGreedy.ToString() + "MaxAStarGreedy";
                 }
             }
             return IS;
@@ -13171,7 +13171,7 @@ if (Kind == 2)
                     DepthIterative++;
                     lock (O)
                     {
-                        OutPut = "\r\nMinimum Level During Thinking Tree Creation is " + MaxDuringLevelThinkingCreation.ToString() + "at Iterative " + DepthIterative.ToString();
+                        OutPut += "\r\nMinimum Level During Thinking Tree Creation is " + MaxDuringLevelThinkingCreation.ToString() + "at Iterative " + DepthIterative.ToString();
                     }
                 }
 
@@ -13527,7 +13527,7 @@ if (Kind == 2)
                     Object O = new Object();
                     lock (O)
                     {
-                        OutPut = "\r\nPossibly Aggregation need.";
+                        OutPut += "\r\nPossibly Aggregation need.";
                     }
                 }
                 //Parallel.ForEach(T, items => Task.WaitAny(items));
@@ -13592,7 +13592,7 @@ if (Kind == 2)
                     DepthIterative++;
                     lock (O)
                     {
-                        OutPut = "\r\nMinimum Level During Thinking Tree Creation is " + MaxDuringLevelThinkingCreation.ToString() + "at Iterative " + DepthIterative.ToString();
+                        OutPut += "\r\nMinimum Level During Thinking Tree Creation is " + MaxDuringLevelThinkingCreation.ToString() + "at Iterative " + DepthIterative.ToString();
                     }
                     //THIS.RefreshBoxText();
 
@@ -13672,7 +13672,7 @@ if (Kind == 2)
             for (ik = 0; ik < SodierMidle; ik++)
                 try
                 {
-                    if (SolderesOnTable == null || SolderesOnTable[ik] == null || SolderesOnTable[ik].SoldierThinking == null || SolderesOnTable[ik].SoldierThinking[0] == null || SolderesOnTable[ik].SoldierThinking[0].IsSup
+                    if (SolderesOnTable == null || SolderesOnTable[ik] == null || SolderesOnTable[ik].SoldierThinking == null || SolderesOnTable[ik].SoldierThinking[0] == null || SolderesOnTable[ik].SoldierThinking[0].IsSup[j]
                         )
                         continue;
                     for (j = 0; j < SolderesOnTable[ik].SoldierThinking[0].HuristicListSolder.Count; j++)
@@ -13731,7 +13731,7 @@ if (Kind == 2)
             for (ik = 0; ik < ElefantMidle; ik++)
                 try
                 {
-                    if (ElephantOnTable == null || ElephantOnTable[ik] == null || ElephantOnTable[ik].ElefantThinking == null || ElephantOnTable[ik].ElefantThinking[0] == null || ElephantOnTable[ik].ElefantThinking[0].IsSup
+                    if (ElephantOnTable == null || ElephantOnTable[ik] == null || ElephantOnTable[ik].ElefantThinking == null || ElephantOnTable[ik].ElefantThinking[0] == null || ElephantOnTable[ik].ElefantThinking[0].IsSup[j]
                         )
                         continue;
                     for (j = 0; j < ElephantOnTable[ik].ElefantThinking[0].HuristicListElefant.Count; j++)
@@ -13794,7 +13794,7 @@ if (Kind == 2)
             for (ik = 0; ik < HourseMidle; ik++)
                 try
                 {
-                    if (HoursesOnTable == null || HoursesOnTable[ik] == null || HoursesOnTable[ik].HourseThinking == null || HoursesOnTable[ik].HourseThinking[0] == null || HoursesOnTable[ik].HourseThinking[0].IsSup
+                    if (HoursesOnTable == null || HoursesOnTable[ik] == null || HoursesOnTable[ik].HourseThinking == null || HoursesOnTable[ik].HourseThinking[0] == null || HoursesOnTable[ik].HourseThinking[0].IsSup[j]
                         )
                         continue;
                     for (j = 0; j < HoursesOnTable[ik].HourseThinking[0].HuristicListHourse.Count; j++)
@@ -13856,7 +13856,7 @@ if (Kind == 2)
             for (ik = 0; ik < CastleMidle; ik++)
                 try
                 {
-                    if (CastlesOnTable == null || CastlesOnTable[ik] == null || CastlesOnTable[ik].CastleThinking == null || CastlesOnTable[ik].CastleThinking[0] == null || CastlesOnTable[ik].CastleThinking[0].IsSup
+                    if (CastlesOnTable == null || CastlesOnTable[ik] == null || CastlesOnTable[ik].CastleThinking == null || CastlesOnTable[ik].CastleThinking[0] == null || CastlesOnTable[ik].CastleThinking[0].IsSup[j]
                         )
                         continue;
                     for (j = 0; j < CastlesOnTable[ik].CastleThinking[0].HuristicListCastle.Count; j++)
@@ -13923,7 +13923,7 @@ if (Kind == 2)
             for (ik = 0; ik < MinisterMidle; ik++)
                 try
                 {
-                    if (MinisterOnTable == null || MinisterOnTable[ik] == null || MinisterOnTable[ik].MinisterThinking == null || MinisterOnTable[ik].MinisterThinking[0] == null || MinisterOnTable[ik].MinisterThinking[0].IsSup
+                    if (MinisterOnTable == null || MinisterOnTable[ik] == null || MinisterOnTable[ik].MinisterThinking == null || MinisterOnTable[ik].MinisterThinking[0] == null || MinisterOnTable[ik].MinisterThinking[0].IsSup[j]
                         )
                         continue;
                     for (j = 0; j < MinisterOnTable[ik].MinisterThinking[0].HuristicListMinister.Count; j++)
@@ -13991,7 +13991,7 @@ if (Kind == 2)
             for (ik = 0; ik < KingMidle; ik++)
                 try
                 {
-                    if (KingOnTable == null || KingOnTable[ik] == null || KingOnTable[ik].KingThinking == null || KingOnTable[ik].KingThinking[0] == null || KingOnTable[ik].KingThinking[0].IsSup
+                    if (KingOnTable == null || KingOnTable[ik] == null || KingOnTable[ik].KingThinking == null || KingOnTable[ik].KingThinking[0] == null || KingOnTable[ik].KingThinking[0].IsSup[j]
                         )
                         continue;
                     for (j = 0; j < KingOnTable[ik].KingThinking[0].HuristicListKing.Count; j++)
@@ -14207,7 +14207,7 @@ if (Kind == 2)
             for (ik = SodierMidle; ik < SodierHigh; ik++)
                 try
                 {
-                    if (SolderesOnTable == null || SolderesOnTable[ik] == null || SolderesOnTable[ik].SoldierThinking == null || SolderesOnTable[ik].SoldierThinking[0] == null || SolderesOnTable[ik].SoldierThinking[0].IsSup
+                    if (SolderesOnTable == null || SolderesOnTable[ik] == null || SolderesOnTable[ik].SoldierThinking == null || SolderesOnTable[ik].SoldierThinking[0] == null || SolderesOnTable[ik].SoldierThinking[0].IsSup[j]
                         )
                         continue;
                     //Soldier.
@@ -14267,7 +14267,7 @@ if (Kind == 2)
             for (ik = ElefantMidle; ik < ElefantHigh; ik++)
                 try
                 {
-                    if (ElephantOnTable == null || ElephantOnTable[ik] == null || ElephantOnTable[ik].ElefantThinking == null || ElephantOnTable[ik].ElefantThinking[0] == null || ElephantOnTable[ik].ElefantThinking[0].IsSup
+                    if (ElephantOnTable == null || ElephantOnTable[ik] == null || ElephantOnTable[ik].ElefantThinking == null || ElephantOnTable[ik].ElefantThinking[0] == null || ElephantOnTable[ik].ElefantThinking[0].IsSup[j]
                         )
                         continue;
                     for (j = 0; j < ElephantOnTable[ik].ElefantThinking[0].HuristicListElefant.Count; j++)
@@ -14330,7 +14330,7 @@ if (Kind == 2)
             for (ik = HourseMidle; ik < HourseHight; ik++)
                 try
                 {
-                    if (HoursesOnTable == null || HoursesOnTable[ik] == null || HoursesOnTable[ik].HourseThinking == null || HoursesOnTable[ik].HourseThinking[0] == null || HoursesOnTable[ik].HourseThinking[0].IsSup
+                    if (HoursesOnTable == null || HoursesOnTable[ik] == null || HoursesOnTable[ik].HourseThinking == null || HoursesOnTable[ik].HourseThinking[0] == null || HoursesOnTable[ik].HourseThinking[0].IsSup[j]
                         )
                         continue;
                     for (j = 0; j < HoursesOnTable[ik].HourseThinking[0].HuristicListHourse.Count; j++)
@@ -14463,7 +14463,7 @@ if (Kind == 2)
             for (ik = CastleMidle; ik < CastleHigh; ik++)
                 try
                 {
-                    if (CastlesOnTable == null || CastlesOnTable[ik] == null || CastlesOnTable[ik].CastleThinking == null || CastlesOnTable[ik].CastleThinking[0] == null || CastlesOnTable[ik].CastleThinking[0].IsSup
+                    if (CastlesOnTable == null || CastlesOnTable[ik] == null || CastlesOnTable[ik].CastleThinking == null || CastlesOnTable[ik].CastleThinking[0] == null || CastlesOnTable[ik].CastleThinking[0].IsSup[j]
                         )
                         continue;
                     for (j = 0; j < CastlesOnTable[ik].CastleThinking[0].HuristicListCastle.Count; j++)
@@ -14531,7 +14531,7 @@ if (Kind == 2)
             for (ik = MinisterMidle; ik < MinisterHigh; ik++)
                 try
                 {
-                    if (MinisterOnTable == null || MinisterOnTable[ik] == null || MinisterOnTable[ik].MinisterThinking == null || MinisterOnTable[ik].MinisterThinking[0] == null || MinisterOnTable[ik].MinisterThinking[0].IsSup
+                    if (MinisterOnTable == null || MinisterOnTable[ik] == null || MinisterOnTable[ik].MinisterThinking == null || MinisterOnTable[ik].MinisterThinking[0] == null || MinisterOnTable[ik].MinisterThinking[0].IsSup[j]
                         )
                         continue;
                     for (j = 0; j < MinisterOnTable[ik].MinisterThinking[0].HuristicListMinister.Count; j++)
@@ -14579,7 +14579,7 @@ if (Kind == 2)
             for (ik = KingMidle; ik < KingHigh; ik++)
                 try
                 {
-                    if (KingOnTable == null || KingOnTable[ik] == null || KingOnTable[ik].KingThinking == null || KingOnTable[ik].KingThinking[0] == null || KingOnTable[ik].KingThinking[0].IsSup
+                    if (KingOnTable == null || KingOnTable[ik] == null || KingOnTable[ik].KingThinking == null || KingOnTable[ik].KingThinking[0] == null || KingOnTable[ik].KingThinking[0].IsSup[j]
                         )
                         continue;
                     for (j = 0; j < KingOnTable[ik].KingThinking[0].HuristicListKing.Count; j++)
@@ -15169,9 +15169,9 @@ if (Kind == 2)
                                             {
                                                 OutPutAction = " " + Alphabet(SolderesOnTable[ik].SoldierThinking[0].Row) + Number(SolderesOnTable[ik].SoldierThinking[0].Column) + Alphabet(SolderesOnTable[ik].SoldierThinking[0].RowColumnSoldier[j][0]) + Number(SolderesOnTable[ik].SoldierThinking[0].RowColumnSoldier[j][1]);
                                                 if (Order == 1)
-                                                    OutPut = "\r\nPerception Soldier AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
+                                                    OutPut += "\r\nPerception Soldier AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
                                                 else
-                                                    OutPut = "\r\nPerception Soldier AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
+                                                    OutPut += "\r\nPerception Soldier AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
 
                                                 PerceptionCount++;
                                                 Do = true;
@@ -15279,9 +15279,9 @@ if (Kind == 2)
                                             {
                                                 OutPutAction = " " + Alphabet(SolderesOnTable[ik].SoldierThinking[0].Row) + Number(SolderesOnTable[ik].SoldierThinking[0].Column) + Alphabet(SolderesOnTable[ik].SoldierThinking[0].RowColumnSoldier[j][0]) + Number(SolderesOnTable[ik].SoldierThinking[0].RowColumnSoldier[j][1]);
                                                 if (Order == 1)
-                                                    OutPut = "\r\nPerception Soldier AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
+                                                    OutPut += "\r\nPerception Soldier AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
                                                 else
-                                                    OutPut = "\r\nPerception Soldier AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
+                                                    OutPut += "\r\nPerception Soldier AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
 
                                                 PerceptionCount++;
                                                 Do = true;
@@ -15353,7 +15353,7 @@ if (Kind == 2)
                     ////Parallel.For(0, SodierMidle, ik =>
                     for (int ik = 0; ik < SodierMidle; ik++)
                     {
-                        if (SolderesOnTable != null && SolderesOnTable[ik] != null && SolderesOnTable[ik].SoldierThinking != null && SolderesOnTable[ik].SoldierThinking[0] != null && (!SolderesOnTable[ik].SoldierThinking[0].IsSupHu)
+                        if (SolderesOnTable != null && SolderesOnTable[ik] != null && SolderesOnTable[ik].SoldierThinking != null && SolderesOnTable[ik].SoldierThinking[0] != null 
                             )
                         {
                             Object O = new Object();
@@ -15485,9 +15485,9 @@ if (Kind == 2)
                                                 {
                                                     OutPutAction = " " + Alphabet(ElephantOnTable[ik].ElefantThinking[0].Row) + Number(ElephantOnTable[ik].ElefantThinking[0].Column) + Alphabet(ElephantOnTable[ik].ElefantThinking[0].RowColumnElefant[j][0]) + Number(ElephantOnTable[ik].ElefantThinking[0].RowColumnElefant[j][1]);
                                                     if (Order == 1)
-                                                        OutPut = "\r\nPerception Elephant AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
+                                                        OutPut += "\r\nPerception Elephant AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
                                                     else
-                                                        OutPut = "\r\nPerception Elephant AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
+                                                        OutPut += "\r\nPerception Elephant AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
 
                                                     PerceptionCount++;
                                                     int iii = ElephantOnTable[ik].ElefantThinking[0].RowColumnElefant[j][0];
@@ -15591,9 +15591,9 @@ if (Kind == 2)
                                                 {
                                                     OutPutAction = " " + Alphabet(ElephantOnTable[ik].ElefantThinking[0].Row) + Number(ElephantOnTable[ik].ElefantThinking[0].Column) + Alphabet(ElephantOnTable[ik].ElefantThinking[0].RowColumnElefant[j][0]) + Number(ElephantOnTable[ik].ElefantThinking[0].RowColumnElefant[j][1]);
                                                     if (Order == 1)
-                                                        OutPut = "\r\nPerception Elephant AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
+                                                        OutPut += "\r\nPerception Elephant AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
                                                     else
-                                                        OutPut = "\r\nPerception Elephant AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
+                                                        OutPut += "\r\nPerception Elephant AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
 
                                                     PerceptionCount++;
                                                     int iii = ElephantOnTable[ik].ElefantThinking[0].RowColumnElefant[j][0];
@@ -15664,7 +15664,7 @@ if (Kind == 2)
                     ////Parallel.For(0, ElefantMidle, ik =>
                     for (int ik = 0; ik < ElefantMidle; ik++)
                     {
-                        if (ElephantOnTable != null && ElephantOnTable[ik] != null && ElephantOnTable[ik].ElefantThinking != null && ElephantOnTable[ik].ElefantThinking[0] != null && (!ElephantOnTable[ik].ElefantThinking[0].IsSupHu)
+                        if (ElephantOnTable != null && ElephantOnTable[ik] != null && ElephantOnTable[ik].ElefantThinking != null && ElephantOnTable[ik].ElefantThinking[0] != null && (!ElephantOnTable[ik].ElefantThinking[0].IsSupHu[j])
                             )
                         {
                             Object O = new Object();
@@ -15797,9 +15797,9 @@ if (Kind == 2)
                                                 {
                                                     OutPutAction = " " + Alphabet(HoursesOnTable[ik].HourseThinking[0].Row) + Number(HoursesOnTable[ik].HourseThinking[0].Column) + Alphabet(HoursesOnTable[ik].HourseThinking[0].RowColumnHourse[j][0]) + Number(HoursesOnTable[ik].HourseThinking[0].RowColumnHourse[j][1]);
                                                     if (Order == 1)
-                                                        OutPut = "\r\nPerception Hourse AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
+                                                        OutPut += "\r\nPerception Hourse AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
                                                     else
-                                                        OutPut = "\r\nPerception Hourse AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
+                                                        OutPut += "\r\nPerception Hourse AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
 
                                                     PerceptionCount++;
                                                     int iii = HoursesOnTable[ik].HourseThinking[0].RowColumnHourse[j][0];
@@ -15907,9 +15907,9 @@ if (Kind == 2)
                                             {
                                                 OutPutAction = " " + Alphabet(HoursesOnTable[ik].HourseThinking[0].Row) + Number(HoursesOnTable[ik].HourseThinking[0].Column) + Alphabet(HoursesOnTable[ik].HourseThinking[0].RowColumnHourse[j][0]) + Number(HoursesOnTable[ik].HourseThinking[0].RowColumnHourse[j][1]);
                                                 if (Order == 1)
-                                                    OutPut = "\r\nPerception Hourse AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
+                                                    OutPut += "\r\nPerception Hourse AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
                                                 else
-                                                    OutPut = "\r\nPerception Hourse AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
+                                                    OutPut += "\r\nPerception Hourse AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
 
                                                 PerceptionCount++;
                                                 int iii = HoursesOnTable[ik].HourseThinking[0].RowColumnHourse[j][0];
@@ -15986,7 +15986,7 @@ if (Kind == 2)
                     ////Parallel.For(0, HourseMidle, ik =>
                     for (int ik = 0; ik < HourseMidle; ik++)
                     {
-                        if (HoursesOnTable != null && HoursesOnTable[ik] != null && HoursesOnTable[ik].HourseThinking != null && HoursesOnTable[ik].HourseThinking[0] != null && (!HoursesOnTable[ik].HourseThinking[0].IsSupHu)
+                        if (HoursesOnTable != null && HoursesOnTable[ik] != null && HoursesOnTable[ik].HourseThinking != null && HoursesOnTable[ik].HourseThinking[0] != null 
                             )
                         {
                             Object O = new Object();
@@ -16116,9 +16116,9 @@ if (Kind == 2)
                                             {
                                                 OutPutAction = " " + Alphabet(CastlesOnTable[ik].CastleThinking[0].Row) + Number(CastlesOnTable[ik].CastleThinking[0].Column) + Alphabet(CastlesOnTable[ik].CastleThinking[0].RowColumnCastle[j][0]) + Number(CastlesOnTable[ik].CastleThinking[0].RowColumnCastle[j][1]);
                                                 if (Order == 1)
-                                                    OutPut = "\r\nPerception Castle AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
+                                                    OutPut += "\r\nPerception Castle AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
                                                 else
-                                                    OutPut = "\r\nPerception Castle AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
+                                                    OutPut += "\r\nPerception Castle AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
 
                                                 PerceptionCount++;
                                                 int iii = CastlesOnTable[ik].CastleThinking[0].RowColumnCastle[j][0];
@@ -16221,9 +16221,9 @@ if (Kind == 2)
                                             {
                                                 OutPutAction = " " + Alphabet(CastlesOnTable[ik].CastleThinking[0].Row) + Number(CastlesOnTable[ik].CastleThinking[0].Column) + Alphabet(CastlesOnTable[ik].CastleThinking[0].RowColumnCastle[j][0]) + Number(CastlesOnTable[ik].CastleThinking[0].RowColumnCastle[j][1]);
                                                 if (Order == 1)
-                                                    OutPut = "\r\nPerception Castle AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
+                                                    OutPut += "\r\nPerception Castle AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
                                                 else
-                                                    OutPut = "\r\nPerception Castle AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
+                                                    OutPut += "\r\nPerception Castle AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
 
                                                 PerceptionCount++;
                                                 int iii = CastlesOnTable[ik].CastleThinking[0].RowColumnCastle[j][0];
@@ -16292,7 +16292,7 @@ if (Kind == 2)
                     ////Parallel.For(0, CastleMidle, ik =>
                     for (int ik = 0; ik < CastleMidle; ik++)
                     {
-                        if (CastlesOnTable != null && CastlesOnTable[ik] != null && CastlesOnTable[ik].CastleThinking != null && CastlesOnTable[ik].CastleThinking[0] != null && (!CastlesOnTable[ik].CastleThinking[0].IsSupHu)
+                        if (CastlesOnTable != null && CastlesOnTable[ik] != null && CastlesOnTable[ik].CastleThinking != null && CastlesOnTable[ik].CastleThinking[0] != null && (!CastlesOnTable[ik].CastleThinking[0].IsSupHu[j])
                             )
                         {
                             Object O = new Object();
@@ -16424,9 +16424,9 @@ if (Kind == 2)
                                             {
                                                 OutPutAction = " " + Alphabet(MinisterOnTable[ik].MinisterThinking[0].Row) + Number(MinisterOnTable[ik].MinisterThinking[0].Column) + Alphabet(MinisterOnTable[ik].MinisterThinking[0].RowColumnMinister[j][0]) + Number(MinisterOnTable[ik].MinisterThinking[0].RowColumnMinister[j][1]);
                                                 if (Order == 1)
-                                                    OutPut = "\r\nPerception Minister AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
+                                                    OutPut += "\r\nPerception Minister AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
                                                 else
-                                                    OutPut = "\r\nPerception Minister AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
+                                                    OutPut += "\r\nPerception Minister AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
 
                                                 PerceptionCount++;
                                                 Do = true;
@@ -16529,9 +16529,9 @@ if (Kind == 2)
                                             {
                                                 OutPutAction = " " + Alphabet(MinisterOnTable[ik].MinisterThinking[0].Row) + Number(MinisterOnTable[ik].MinisterThinking[0].Column) + Alphabet(MinisterOnTable[ik].MinisterThinking[0].RowColumnMinister[j][0]) + Number(MinisterOnTable[ik].MinisterThinking[0].RowColumnMinister[j][1]);
                                                 if (Order == 1)
-                                                    OutPut = "\r\nPerception Minister AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
+                                                    OutPut += "\r\nPerception Minister AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
                                                 else
-                                                    OutPut = "\r\nPerception Minister AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
+                                                    OutPut += "\r\nPerception Minister AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
 
                                                 PerceptionCount++;
                                                 int iii = MinisterOnTable[ik].MinisterThinking[0].RowColumnMinister[j][0];
@@ -16601,7 +16601,7 @@ if (Kind == 2)
                     ////Parallel.For(0, MinisterMidle, ik =>
                     for (int ik = 0; ik < MinisterMidle; ik++)
                     {
-                        if (MinisterOnTable != null && MinisterOnTable[ik] != null && MinisterOnTable[ik].MinisterThinking != null && MinisterOnTable[ik].MinisterThinking[0] != null && (!MinisterOnTable[ik].MinisterThinking[0].IsSupHu)
+                        if (MinisterOnTable != null && MinisterOnTable[ik] != null && MinisterOnTable[ik].MinisterThinking != null && MinisterOnTable[ik].MinisterThinking[0] != null 
                             )
                         {
                             Object O = new Object();
@@ -16731,9 +16731,9 @@ if (Kind == 2)
                                         {
                                             OutPutAction = " " + Alphabet(KingOnTable[ik].KingThinking[0].Row) + Number(KingOnTable[ik].KingThinking[0].Column) + Alphabet(KingOnTable[ik].KingThinking[0].RowColumnKing[j][0]) + Number(KingOnTable[ik].KingThinking[0].RowColumnKing[j][1]);
                                             if (Order == 1)
-                                                OutPut = "\r\nPerception King AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
+                                                OutPut += "\r\nPerception King AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
                                             else
-                                                OutPut = "\r\nPerception King AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
+                                                OutPut += "\r\nPerception King AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
 
                                             PerceptionCount++;
 
@@ -16833,9 +16833,9 @@ if (Kind == 2)
                                         {
                                             OutPutAction = " " + Alphabet(KingOnTable[ik].KingThinking[0].Row) + Number(KingOnTable[ik].KingThinking[0].Column) + Alphabet(KingOnTable[ik].KingThinking[0].RowColumnKing[j][0]) + Number(KingOnTable[ik].KingThinking[0].RowColumnKing[j][1]);
                                             if (Order == 1)
-                                                OutPut = "\r\nPerception King AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
+                                                OutPut += "\r\nPerception King AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
                                             else
-                                                OutPut = "\r\nPerception King AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
+                                                OutPut += "\r\nPerception King AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
 
                                             PerceptionCount++;
                                             int iii = KingOnTable[ik].KingThinking[0].RowColumnKing[j][0];
@@ -16908,7 +16908,7 @@ if (Kind == 2)
                     ////Parallel.For(0, KingMidle, ik =>
                     for (int ik = 0; ik < KingMidle; ik++)
                     {
-                        if (KingOnTable != null && KingOnTable[ik] != null && KingOnTable[ik].KingThinking != null && KingOnTable[ik].KingThinking[0] != null && (!KingOnTable[ik].KingThinking[0].IsSupHu)
+                        if (KingOnTable != null && KingOnTable[ik] != null && KingOnTable[ik].KingThinking != null && KingOnTable[ik].KingThinking[0] != null 
                             )
                         {
                             Object O = new Object();
@@ -16935,7 +16935,7 @@ if (Kind == 2)
                     ////Parallel.For(SodierMidle, SodierHigh, ik =>
                     for (int ik = SodierMidle; ik < SodierHigh; ik++)
                     {
-                        if (SolderesOnTable != null && SolderesOnTable[ik] != null && SolderesOnTable[ik].SoldierThinking != null && SolderesOnTable[ik].SoldierThinking[0] != null && (!SolderesOnTable[ik].SoldierThinking[0].IsSupHu)
+                        if (SolderesOnTable != null && SolderesOnTable[ik] != null && SolderesOnTable[ik].SoldierThinking != null && SolderesOnTable[ik].SoldierThinking[0] != null 
                             )
                         {
                             //Soldier.
@@ -16964,7 +16964,7 @@ if (Kind == 2)
                     ////Parallel.For(ElefantMidle, ElefantHigh, ik =>
                     for (int ik = ElefantMidle; ik < ElefantHigh; ik++)
                     {
-                        if (ElephantOnTable != null && ElephantOnTable[ik] != null && ElephantOnTable[ik].ElefantThinking != null && ElephantOnTable[ik].ElefantThinking[0] != null && (!ElephantOnTable[ik].ElefantThinking[0].IsSupHu)
+                        if (ElephantOnTable != null && ElephantOnTable[ik] != null && ElephantOnTable[ik].ElefantThinking != null && ElephantOnTable[ik].ElefantThinking[0] != null && (!ElephantOnTable[ik].ElefantThinking[0].IsSupHu[j])
                             )
                         {
                             Object O = new Object();
@@ -16991,7 +16991,7 @@ if (Kind == 2)
                     ////Parallel.For(HourseMidle, HourseHight, ik =>
                     for (int ik = HourseMidle; ik < HourseHight; ik++)
                     {
-                        if (HoursesOnTable != null && HoursesOnTable[ik] != null && HoursesOnTable[ik].HourseThinking != null && HoursesOnTable[ik].HourseThinking[0] != null && (!HoursesOnTable[ik].HourseThinking[0].IsSupHu)
+                        if (HoursesOnTable != null && HoursesOnTable[ik] != null && HoursesOnTable[ik].HourseThinking != null && HoursesOnTable[ik].HourseThinking[0] != null 
                             )
                         {
                             Object O = new Object();
@@ -17018,7 +17018,7 @@ if (Kind == 2)
                     ////Parallel.For(CastleMidle, CastleHigh, ik =>
                     for (int ik = CastleMidle; ik < CastleHigh; ik++)
                     {
-                        if (CastlesOnTable != null && CastlesOnTable[ik] != null && CastlesOnTable[ik].CastleThinking != null && CastlesOnTable[ik].CastleThinking[0] != null && (!CastlesOnTable[ik].CastleThinking[0].IsSupHu)
+                        if (CastlesOnTable != null && CastlesOnTable[ik] != null && CastlesOnTable[ik].CastleThinking != null && CastlesOnTable[ik].CastleThinking[0] != null && (!CastlesOnTable[ik].CastleThinking[0].IsSupHu[j])
                             )
                         {
                             Object O = new Object();
@@ -17046,7 +17046,7 @@ if (Kind == 2)
                     ////Parallel.For(MinisterMidle, MinisterHigh, ik =>
                     for (int ik = MinisterMidle; ik < MinisterHigh; ik++)
                     {
-                        if (MinisterOnTable != null && MinisterOnTable[ik] != null && MinisterOnTable[ik].MinisterThinking != null && MinisterOnTable[ik].MinisterThinking[0] != null && (!MinisterOnTable[ik].MinisterThinking[0].IsSupHu)
+                        if (MinisterOnTable != null && MinisterOnTable[ik] != null && MinisterOnTable[ik].MinisterThinking != null && MinisterOnTable[ik].MinisterThinking[0] != null 
                             )
                         {
                             Object O = new Object();
@@ -17074,7 +17074,7 @@ if (Kind == 2)
                     for (int ik = KingMidle; ik < KingHigh; ik++)
                     {
 
-                        if (KingOnTable != null && KingOnTable[ik] != null && KingOnTable[ik].KingThinking != null && KingOnTable[ik].KingThinking[0] != null && (!KingOnTable[ik].KingThinking[0].IsSupHu)
+                        if (KingOnTable != null && KingOnTable[ik] != null && KingOnTable[ik].KingThinking != null && KingOnTable[ik].KingThinking[0] != null 
                             )
                         {
                             Object O = new Object();
@@ -18772,21 +18772,21 @@ if (Kind == 2)
             if (time > 10000)
             {
                 if (Kind == 1)
-                    OutPut = "Solder Semaphre Full Game Exeede time";
+                    OutPut += "Solder Semaphre Full Game Exeede time";
                 else
 if (Kind == 2)
-                    OutPut = "elephant Semaphre Full Game Exeede time";
+                    OutPut += "elephant Semaphre Full Game Exeede time";
                 else
 if (Kind == 3)
-                    OutPut = "Hourse Semaphre Full Game Exeede time";
+                    OutPut += "Hourse Semaphre Full Game Exeede time";
                 else
 if (Kind == 4)
-                    OutPut = "Castle Semaphre Full Game Exeede time";
+                    OutPut += "Castle Semaphre Full Game Exeede time";
                 else
 if (Kind == 5)
-                    OutPut = "Minister Semaphre Full Game Exeede time";
+                    OutPut += "Minister Semaphre Full Game Exeede time";
                 else if (Kind == 6)
-                    OutPut = "King Semaphre Full Game Exeede time";
+                    OutPut += "King Semaphre Full Game Exeede time";
 
             }
         }
@@ -18894,12 +18894,12 @@ if (Kind == 5)
                     //If Gray Order.
                     if (Order == 1)
                     {
-                        OutPut = "\r\nChess Thinking AStarGreedy " + i.ToString() + " By Bob!";
+                        OutPut += "\r\nChess Thinking AStarGreedy " + i.ToString() + " By Bob!";
                         //THIS.RefreshBoxText();
                     }
                     else
                     {
-                        OutPut = "\r\nChess Thinking AStarGreedy " + i.ToString() + " By Alice!";
+                        OutPut += "\r\nChess Thinking AStarGreedy " + i.ToString() + " By Alice!";
                         //THIS.RefreshBoxText();
                     }
                     //Initaite Local Variables.
@@ -18930,12 +18930,12 @@ if (Kind == 5)
                         //If Gray Order.
                         if (Order == 1)
                         {
-                            OutPut = "\r\nGenetic Algorithm Begin AStarGreedy " + i.ToString() + " By Bob!";
+                            OutPut += "\r\nGenetic Algorithm Begin AStarGreedy " + i.ToString() + " By Bob!";
                             //THIS.RefreshBoxText();
                         }
                         else
                         {
-                            OutPut = "\r\nGenetic Algirithm Begin AStarGreedy " + i.ToString() + " By Alice!";
+                            OutPut += "\r\nGenetic Algirithm Begin AStarGreedy " + i.ToString() + " By Alice!";
                             //THIS.RefreshBoxText();
 
                         }
@@ -18946,12 +18946,12 @@ if (Kind == 5)
                         //Gray Order.
                         if (Order == 1)
                         {
-                            OutPut = "\r\nGenetic Algorithm Finsished AStarGreedy " + i.ToString() + " By Bob!";
+                            OutPut += "\r\nGenetic Algorithm Finsished AStarGreedy " + i.ToString() + " By Bob!";
                             //THIS.RefreshBoxText();
                         }
                         else
                         {
-                            OutPut = "\r\nGenetic Algirithm Finished AStarGreedy " + i.ToString() + " By Alice!";
+                            OutPut += "\r\nGenetic Algirithm Finished AStarGreedy " + i.ToString() + " By Alice!";
                             //THIS.RefreshBoxText();
 
                         }
@@ -19076,7 +19076,7 @@ if (Kind == 5)
                 Object OO = new Object();
                 lock (OO)
                 {
-                    OutPut = "\r\nMinimum Thinking Tree Depth:" + MinThinkingTreeDepth.ToString() + "!";
+                    OutPut += "\r\nMinimum Thinking Tree Depth:" + MinThinkingTreeDepth.ToString() + "!";
                 }
 
                 TableHuristic = HuristicAStarGreedySearch(0, a, Order, false);
@@ -19088,7 +19088,7 @@ if (Kind == 5)
                         Object OOoOO = new Object();
                         lock (OOoOO)
                         {
-                            OutPut = "\r\nTable Zero.Possibly Full Penalty!";
+                            OutPut += "\r\nTable Zero.Possibly Full Penalty!";
 
 
                             //THIS.RefreshBoxText();
@@ -19122,12 +19122,12 @@ if (Kind == 5)
                     {
                         if (Order == 1)
                         {
-                            OutPut = "\r\nHuristic Find Best Movements AStarGreedy " + AStarGreedy.ToString() + " By Bob!";
+                            OutPut += "\r\nHuristic Find Best Movements AStarGreedy " + AStarGreedy.ToString() + " By Bob!";
                             //THIS.RefreshBoxText();
                         }
                         else
                         {
-                            OutPut = "\r\nHuristic Find Best Movements AStarGreedy " + AStarGreedy.ToString() + " By Alice!";
+                            OutPut += "\r\nHuristic Find Best Movements AStarGreedy " + AStarGreedy.ToString() + " By Alice!";
                             //THIS.RefreshBoxText();
 
                         }

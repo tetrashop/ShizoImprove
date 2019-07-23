@@ -1657,7 +1657,7 @@ namespace RefrigtzW
                     if (AllDraw.OutPut != "")
                     {
                         SetBoxText(AllDraw.OutPut);
-                        AllDraw.OutPut = "";
+                        AllDraw.OutPut += "";
 
                     }
                     

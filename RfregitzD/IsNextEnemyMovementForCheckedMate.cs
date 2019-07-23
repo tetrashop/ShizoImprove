@@ -176,7 +176,7 @@ namespace RefrigtzDLL
              AllDraw.NextRow = A33;
              AllDraw.NoTableFound = A34;
              AllDraw.OrderPlate = A35;
-             AllDraw.OutPut = A36;
+             AllDraw.OutPut += A36;
              AllDraw.Person = A37;
              AllDraw.RedrawTable = A38;
              AllDraw.RegardOccurred = A39;

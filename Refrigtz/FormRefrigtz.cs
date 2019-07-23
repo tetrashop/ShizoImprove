@@ -3992,7 +3992,7 @@ namespace Refrigtz
                         {
                             SetBoxText(QuantumRefrigiz.AllDraw.OutPut);
                             RefreshBoxText();
-                            RefrigtzDLL.AllDraw.OutPut = "";
+                            RefrigtzDLL.AllDraw.OutPut += "";
 
                         }
 
@@ -11320,7 +11320,7 @@ namespace Refrigtz
 
 
         }
-        private static StringBuilder sortOutput = null;
+        private static StringBuilder sortOutPut = null;
         private static int numOutputLines = 0;
 
         private static void SortOutputHandler(object sendingProcess,
@@ -11332,7 +11332,7 @@ namespace Refrigtz
                 numOutputLines++;
 
                 // Add the text to the collected output.
-                sortOutput.Append(Environment.NewLine +
+                sortOutPut.Append(Environment.NewLine +
                     "[" + numOutputLines.ToString() + "] - " + outLine.Data);
             }
         }
@@ -12205,7 +12205,7 @@ namespace Refrigtz
 
             //Fen();
             String FolderLocation = Root;
-            sortOutput = new StringBuilder("");
+            sortOutPut = new StringBuilder("");
 
             ProcessStartInfo start = new ProcessStartInfo();
 
@@ -12217,7 +12217,7 @@ namespace Refrigtz
             start.CreateNoWindow = true;
             start.ErrorDialog = false;  // Run the external process & wait for it to finish
             //proc.StartInfo = start;
-            //proc.StartInfo.RedirectStandardOutput = true;
+            //proc.StartInfo.RedirectStandardOutPut += true;
             //proc.StartInfo.RedirectStandardInput = true;
             //proc.StartInfo.RedirectStandardError = true;
             proc.OutputDataReceived += new DataReceivedEventHandler(SortOutputHandler);
@@ -16677,7 +16677,7 @@ namespace Refrigtz
                     //tttt.Start();
                     //ttt.Start();
                     SetRefregitzDLL();
-                    System.Threading.Thread.Sleep(10);
+                    System.Threading.Thread.Sleep(1);
                     // AllOperate.Start();
                 }
                 catch (Exception t) { Log(t); }
