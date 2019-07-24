@@ -5839,7 +5839,7 @@ namespace RefrigtzW
             Object O = new Object();
             lock (O)
             {
-                double Huristic = 0; ;
+                double Huristic = 0;
                   if (AStarGreedy == null)
                     return 0;
                 NumbersOfCurrentBranchesPenalties += NumberOfPenalties;
@@ -6019,7 +6019,7 @@ namespace RefrigtzW
                                             //Huristic = Less;
                                         }
                                         //else
-                                            //CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName()); ;
+                                            //CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
                                     }
                                    // else
                                        // CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
@@ -6843,7 +6843,7 @@ namespace RefrigtzW
                                 //RowColumn[Index, 0] = RowDestination;
                                 //RowColumn[Index, 1] = ColumnDestination;
                                 //Index+=1;
-                                TableListKing.Add(CloneATable(TableS)); ;
+                                TableListKing.Add(CloneATable(TableS));
                                 IndexKing++;
                             }
                         }
@@ -7107,7 +7107,7 @@ namespace RefrigtzW
                                 //RowColumn[Index, 0] = RowDestination;
                                 //RowColumn[Index, 1] = ColumnDestination;
                                 //Index+=1;
-                                TableListMinister.Add(CloneATable(TableS)); ;
+                                TableListMinister.Add(CloneATable(TableS));
                                 IndexMinister++;
                             }
                         }
@@ -7708,7 +7708,7 @@ namespace RefrigtzW
                                 //RowColumn[Index, 0] = RowDestination;
                                 //RowColumn[Index, 1] = ColumnDestination;
                                 //Index+=1;
-                                TableListCastle.Add(CloneATable(TableS)); ;
+                                TableListCastle.Add(CloneATable(TableS));
                                 IndexCastle++;
                             }
                         }
@@ -7950,7 +7950,7 @@ namespace RefrigtzW
                                 //RowColumn[Index, 0] = RowDestination;
                                 //RowColumn[Index, 1] = ColumnDestination;
                                 //Index+=1;
-                                TableListHourse.Add(CloneATable(TableS)); ;
+                                TableListHourse.Add(CloneATable(TableS));
                                 IndexHourse++;
                             }
                         }
@@ -8192,7 +8192,7 @@ namespace RefrigtzW
                                 //RowColumn[Index, 0] = RowDestination;
                                 //RowColumn[Index, 1] = ColumnDestination;
                                 //Index+=1;
-                                TableListElefant.Add(CloneATable(TableS)); ;
+                                TableListElefant.Add(CloneATable(TableS));
                                 IndexElefant++;
                             }
                         }
@@ -9105,7 +9105,7 @@ namespace RefrigtzW
                                 //RowColumn[Index, 0] = RowDestination;
                                 //RowColumn[Index, 1] = ColumnDestination;
                                 //Index+=1;
-                                TableListSolder.Add(CloneATable(TableS)); ;
+                                TableListSolder.Add(CloneATable(TableS));
                                 IndexSoldier++;
                             }
                         }
@@ -9301,7 +9301,7 @@ namespace RefrigtzW
                 AS[0] = RowDestination;
                 AS[1] = ColumnDestination;
                 RowColumnKing.Add(AS);
-                TableListKing.Add(CloneATable(TableS)); ;
+                TableListKing.Add(CloneATable(TableS));
                 IndexKing++;
                 //Calculate Huristic Sumation and Store in Specific List.
                 double[] Hu = new double[10]; String H = "";

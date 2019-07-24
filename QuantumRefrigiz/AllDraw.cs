@@ -5024,7 +5024,7 @@ if (Kind == 2)
                                                         //TakeRoot.Pointer = this;
                                                         //Found of Max Non Probable Movments.
                                                         Founded.Clear();
-                                                        double LessB = Double.MinValue; ;
+                                                        double LessB = Double.MinValue;
                                                         BeginIndexFoundingMaxLessofMaxList(0, Founded, ref LessB);
                                                         RW1 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0]];
                                                         CL1 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0] + 1];
@@ -5174,7 +5174,7 @@ if (Kind == 2)
 
 
                                                 Act = true;
-                                                Less = ElephantOnTable[i].ElefantThinkingQuantum[k].NumberOfPenalties; ;
+                                                Less = ElephantOnTable[i].ElefantThinkingQuantum[k].NumberOfPenalties;
                                             }
                                             TableHuristic = ElephantOnTable[i].ElefantThinkingQuantum[k].TableListElefant[j];
                                             //if (ElephantOnTable[i].WinOcuuredatChiled >= 1 || ElephantOnTable[i].WinOcuuredatChiled >= 2 || ElephantOnTable[i].WinOcuuredatChiled >= 3)
@@ -5317,7 +5317,7 @@ if (Kind == 2)
                                                         //TakeRoot.Pointer = this;
                                                         //Found of Max Non Probable Movments.
                                                         Founded.Clear();
-                                                        double LessB = Double.MinValue; ;
+                                                        double LessB = Double.MinValue;
                                                         BeginIndexFoundingMaxLessofMaxList(0, Founded, ref LessB);
                                                         RW2 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0]];
                                                         CL2 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0] + 1];
@@ -5569,7 +5569,7 @@ if (Kind == 2)
                                                         //TakeRoot.Pointer = this;
                                                         //Found of Max Non Probable Movments.
                                                         Founded.Clear();
-                                                        double LessB = Double.MinValue; ;
+                                                        double LessB = Double.MinValue;
                                                         BeginIndexFoundingMaxLessofMaxList(0, Founded, ref LessB);
                                                         RW3 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0]];
                                                         CL3 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0] + 1];
@@ -5823,7 +5823,7 @@ if (Kind == 2)
                                                         //TakeRoot.Pointer = this;
                                                         //Found of Max Non Probable Movments.
                                                         Founded.Clear();
-                                                        double LessB = Double.MinValue; ;
+                                                        double LessB = Double.MinValue;
                                                         BeginIndexFoundingMaxLessofMaxList(0, Founded, ref LessB);
                                                         RW4 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0]];
                                                         CL4 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0] + 1];
@@ -6075,7 +6075,7 @@ if (Kind == 2)
                                                     //TakeRoot.Pointer = this;
                                                     //Found of Max Non Probable Movments.
                                                     Founded.Clear();
-                                                    double LessB = Double.MinValue; ;
+                                                    double LessB = Double.MinValue;
                                                     BeginIndexFoundingMaxLessofMaxList(0, Founded, ref LessB);
                                                     RW5 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0]];
                                                     CL5 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0] + 1];
@@ -6329,7 +6329,7 @@ if (Kind == 2)
                                                         //TakeRoot.Pointer = this;
                                                         //Found of Max Non Probable Movments.
                                                         Founded.Clear();
-                                                        double LessB = Double.MinValue; ;
+                                                        double LessB = Double.MinValue;
                                                         BeginIndexFoundingMaxLessofMaxList(0, Founded, ref LessB);
                                                         RW6 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0]];
                                                         CL6 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0] + 1];
@@ -6652,7 +6652,7 @@ if (Kind == 2)
 
                     RegardOccurred = true;
 
-                    continued = true; ;
+                    continued = true;
 
                 }
             }
@@ -8503,7 +8503,7 @@ if (Kind == 2)
                                                         //TakeRoot.Pointer = this;
                                                         //Found of Max Non Probable Movments.
                                                         Founded.Clear();
-                                                        double LessB = Double.MinValue; ;
+                                                        double LessB = Double.MinValue;
                                                         BeginIndexFoundingMaxLessofMaxList(0, Founded, ref LessB);
                                                         RW1 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0]];
                                                         CL1 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0] + 1];
@@ -8793,7 +8793,7 @@ if (Kind == 2)
                                                     //TakeRoot.Pointer = this;
                                                     //Found of Max Non Probable Movments.
                                                     Founded.Clear();
-                                                    double LessB = Double.MinValue; ;
+                                                    double LessB = Double.MinValue;
                                                     BeginIndexFoundingMaxLessofMaxList(0, Founded, ref LessB);
                                                     RW2 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0]];
                                                     CL2 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0] + 1];
@@ -9053,7 +9053,7 @@ if (Kind == 2)
                                                     //TakeRoot.Pointer = this;
                                                     //Found of Max Non Probable Movments.
                                                     Founded.Clear();
-                                                    double LessB = Double.MinValue; ;
+                                                    double LessB = Double.MinValue;
                                                     BeginIndexFoundingMaxLessofMaxList(0, Founded, ref LessB);
                                                     RW3 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0]];
                                                     CL3 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0] + 1];
@@ -9305,7 +9305,7 @@ if (Kind == 2)
                                                     //TakeRoot.Pointer = this;
                                                     //Found of Max Non Probable Movments.
                                                     Founded.Clear();
-                                                    double LessB = Double.MinValue; ;
+                                                    double LessB = Double.MinValue;
                                                     BeginIndexFoundingMaxLessofMaxList(0, Founded, ref LessB);
                                                     RW4 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0]];
                                                     CL4 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0] + 1];
@@ -9558,7 +9558,7 @@ if (Kind == 2)
                                                     //TakeRoot.Pointer = this;
                                                     //Found of Max Non Probable Movments.
                                                     Founded.Clear();
-                                                    double LessB = Double.MinValue; ;
+                                                    double LessB = Double.MinValue;
                                                     BeginIndexFoundingMaxLessofMaxList(0, Founded, ref LessB);
                                                     RW5 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0]];
                                                     CL5 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0] + 1];
@@ -9814,7 +9814,7 @@ if (Kind == 2)
                                                     //TakeRoot.Pointer = this;
                                                     //Found of Max Non Probable Movments.
                                                     Founded.Clear();
-                                                    double LessB = Double.MinValue; ;
+                                                    double LessB = Double.MinValue;
                                                     BeginIndexFoundingMaxLessofMaxList(0, Founded, ref LessB);
                                                     if (Founded[0] != 1)
                                                         continue;
@@ -12562,7 +12562,7 @@ if (Kind == 2)
                                 jj = (int)SolderesOnTable[i].Column;
                                 //Construction of ThinkingQuantum Brown Current Objects.
                                 if (SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count == 0)
-                                    SolderesOnTable[i] = new DrawSoldierQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i); ;
+                                    SolderesOnTable[i] = new DrawSoldierQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
                                 {
                                     //When There is Current Brown Object Table List ThinkingQuantum Objective Movments.
                                     if (SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count == 0)
@@ -12621,7 +12621,7 @@ if (Kind == 2)
                                 jj = (int)ElephantOnTable[i].Column;
                                 //Construction of ThinkingQuantum Brown Current Objects.
                                 if (ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count == 0)
-                                    ElephantOnTable[i] = new DrawElefantQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i); ;
+                                    ElephantOnTable[i] = new DrawElefantQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
                                 {
                                     //When There is Current Brown Object Table List ThinkingQuantum Objective Movments.
                                     if (ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count == 0)
@@ -12679,7 +12679,7 @@ if (Kind == 2)
                                 jj = (int)HoursesOnTable[i].Column;
                                 //Construction of ThinkingQuantum Brown Current Objects.
                                 if (HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count == 0)
-                                    HoursesOnTable[i] = new DrawHourseQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i); ;
+                                    HoursesOnTable[i] = new DrawHourseQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
 
                                 {
                                     //When There is Current Brown Object Table List ThinkingQuantum Objective Movments.
@@ -12740,7 +12740,7 @@ if (Kind == 2)
                                 jj = (int)CastlesOnTable[i].Column;
                                 //Construction of ThinkingQuantum Brown Current Objects.
                                 if (CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count == 0)
-                                    CastlesOnTable[i] = new DrawCastleQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i); ;
+                                    CastlesOnTable[i] = new DrawCastleQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
 
                                 {
                                     //When There is Current Brown Object Table List ThinkingQuantum Objective Movments.
@@ -12798,7 +12798,7 @@ if (Kind == 2)
                                 jj = (int)MinisterOnTable[i].Column;
                                 //Construction of ThinkingQuantum Brown Current Objects.
                                 if (MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count == 0)
-                                    MinisterOnTable[i] = new DrawMinisterQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i); ;
+                                    MinisterOnTable[i] = new DrawMinisterQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
 
                                 //When There is Current Brown Object Table List ThinkingQuantum Objective Movments.
                                 if (MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count == 0)
@@ -12853,7 +12853,7 @@ if (Kind == 2)
                                 jj = (int)KingOnTable[i].Column;
                                 //Construction of ThinkingQuantum Brown Current Objects.
                                 if (KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count == 0)
-                                    KingOnTable[i] = new DrawKingQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i); ;
+                                    KingOnTable[i] = new DrawKingQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
 
                                 //When There is Current Brown Object Table List ThinkingQuantum Objective Movments.
                                 if (KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count == 0)
@@ -14216,7 +14216,7 @@ if (Kind == 2)
                 {
                     if (HoursesOnTable[Index[2]].HourseThinkingQuantum[0].AStarGreedy.Count == 0)
                         HoursesOnTable[Index[2]].HourseThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                    HoursesOnTable[Index[2]].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[Index[2]].HourseThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Clear(); ;
+                    HoursesOnTable[Index[2]].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[Index[2]].HourseThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Clear();
                     HoursesOnTable[Index[2]].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[Index[2]].HourseThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Add(HoursesOnTable[Index[2]].HourseThinkingQuantum[0].TableListHourse[jIndex[2]]);
                     HoursesOnTable[Index[2]].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[Index[2]].HourseThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumn(0);
                     //HoursesOnTable[Index[2]].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[Index[2]].HourseThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, HoursesOnTable[Index[2]].HourseThinkingQuantum[0].TableListHourse[jIndex[2]], Order, false);
@@ -14340,7 +14340,7 @@ if (Kind == 2)
                             {
                                 Index[0] = ik;
                                 jIndex[0] = j;
-                                PreviousLessS = SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHuristic(-1, j, Order, false); ;
+                                PreviousLessS = SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHuristic(-1, j, Order, false);
                             }
                         }
                         else
@@ -14362,7 +14362,7 @@ if (Kind == 2)
                             {
                                 Index[0] = ik;
                                 jIndex[0] = j;
-                                PreviousLessS = SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHuristic(-1, j, Order, false); ;
+                                PreviousLessS = SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHuristic(-1, j, Order, false);
                             }
                         }
                     }
@@ -14469,7 +14469,7 @@ if (Kind == 2)
                             {
                                 Index[2] = ik;
                                 jIndex[2] = j;
-                                PreviousLessH = HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHuristic(-1, j, Order, false); ;
+                                PreviousLessH = HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHuristic(-1, j, Order, false);
                             }
 
                         }
@@ -14493,7 +14493,7 @@ if (Kind == 2)
                             {
                                 Index[2] = ik;
                                 jIndex[2] = j;
-                                PreviousLessH = HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHuristic(-1, j, Order, false); ;
+                                PreviousLessH = HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHuristic(-1, j, Order, false);
                             }
                         }
 
@@ -14608,7 +14608,7 @@ if (Kind == 2)
                             {
                                 Index[3] = ik;
                                 jIndex[3] = j;
-                                PreviousLessB = CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHuristic(-1, j, Order, false); ;
+                                PreviousLessB = CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHuristic(-1, j, Order, false);
                             }
 
                         }
@@ -14634,7 +14634,7 @@ if (Kind == 2)
                             {
                                 Index[3] = ik;
                                 jIndex[3] = j;
-                                PreviousLessB = CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHuristic(-1, j, Order, false); ;
+                                PreviousLessB = CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHuristic(-1, j, Order, false);
                             }
                         }
 
@@ -14670,7 +14670,7 @@ if (Kind == 2)
                             {
                                 Index[4] = ik;
                                 jIndex[4] = j;
-                                PreviousLessM = MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHuristic(-1, j, Order, false); ;
+                                PreviousLessM = MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHuristic(-1, j, Order, false);
                             }
                         }
                         else
@@ -14686,7 +14686,7 @@ if (Kind == 2)
                             {
                                 Index[4] = ik;
                                 jIndex[4] = j;
-                                PreviousLessM = MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHuristic(-1, j, Order, false); ;
+                                PreviousLessM = MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHuristic(-1, j, Order, false);
                             }
                         }
                     }
@@ -14727,7 +14727,7 @@ if (Kind == 2)
                             {
                                 Index[5] = ik;
                                 jIndex[5] = j;
-                                PreviousLessK = KingOnTable[ik].KingThinkingQuantum[0].ReturnHuristic(-1, j, Order, false); ;
+                                PreviousLessK = KingOnTable[ik].KingThinkingQuantum[0].ReturnHuristic(-1, j, Order, false);
                             }
                         }
                         else
@@ -14749,7 +14749,7 @@ if (Kind == 2)
                             {
                                 Index[5] = ik;
                                 jIndex[5] = j;
-                                PreviousLessK = KingOnTable[ik].KingThinkingQuantum[0].ReturnHuristic(-1, j, Order, false); ;
+                                PreviousLessK = KingOnTable[ik].KingThinkingQuantum[0].ReturnHuristic(-1, j, Order, false);
                             }
                         }
 
@@ -15253,7 +15253,7 @@ if (Kind == 2)
                                                         SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
                                                     SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                     SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                    continue; ;
+                                                    continue;
                                                 }
                                                 else
 
@@ -15263,7 +15263,7 @@ if (Kind == 2)
                                                         SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
                                                     SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                     SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                    continue; ;
+                                                    continue;
                                                 }
                                             }
                                             else
@@ -15272,7 +15272,7 @@ if (Kind == 2)
                                                     SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
                                                 SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                 SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                continue; ;
+                                                continue;
                                             }
 
                                         }
@@ -15365,7 +15365,7 @@ if (Kind == 2)
                                                         SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
                                                     SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                     SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                    continue; ;
+                                                    continue;
                                                 }
                                                 else
 
@@ -15375,7 +15375,7 @@ if (Kind == 2)
                                                         SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
                                                     SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                     SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                    continue; ;
+                                                    continue;
                                                 }
                                             }
                                             else
@@ -15384,7 +15384,7 @@ if (Kind == 2)
                                                     SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
                                                 SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                 SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                continue; ;
+                                                continue;
                                             }
                                         }
                                         Object O3 = new Object();
@@ -15576,7 +15576,7 @@ if (Kind == 2)
                                                         ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
                                                     ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                     ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                    continue; ;
+                                                    continue;
                                                 }
                                                 else
                                                     if (j != jindex[1])
@@ -15585,7 +15585,7 @@ if (Kind == 2)
                                                         ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
                                                     ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                     ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                    continue; ;
+                                                    continue;
                                                 }
                                             }
                                             else
@@ -15594,7 +15594,7 @@ if (Kind == 2)
                                                     ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
                                                 ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                 ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                continue; ;
+                                                continue;
                                             }
 
                                         }
@@ -15684,7 +15684,7 @@ if (Kind == 2)
                                                         ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
                                                     ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                     ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                    continue; ;
+                                                    continue;
                                                 }
                                                 else
                                                     if (j != jindex[1])
@@ -15693,7 +15693,7 @@ if (Kind == 2)
                                                         ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
                                                     ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                     ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                    continue; ;
+                                                    continue;
                                                 }
                                             }
                                             else
@@ -15702,7 +15702,7 @@ if (Kind == 2)
                                                     ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
                                                 ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                                                 ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                continue; ;
+                                                continue;
                                             }
                                         }
                                         Object O3 = new Object();
@@ -15922,7 +15922,7 @@ if (Kind == 2)
                                                 if (HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy == null)
                                                     HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
                                                 HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                                HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Clear(); ;
+                                                HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Clear();
                                                 HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse[j]));
                                                 HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumn(0);
                                                 HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
@@ -16032,7 +16032,7 @@ if (Kind == 2)
                                             if (HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy == null)
                                                 HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
                                             HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                            HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Clear(); ;
+                                            HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Clear();
                                             HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse[j]));
                                             HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumn(0);
                                             HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
@@ -18242,7 +18242,7 @@ if (Kind == 2)
                 List<double> pl = new List<double>();
                 p.Add(pl);
 
-                Less = Double.MinValue; ;
+                Less = Double.MinValue;
             }
             List<AllDraw> DummyList = new List<AllDraw>();
             DummyList.Add(Dummy);
@@ -19020,7 +19020,7 @@ if (Kind == 5)
                 Object ol = new Object();
                 lock (ol)
                 {
-                    CurrentHuristic = Double.MinValue; ;
+                    CurrentHuristic = Double.MinValue;
 
                     //SetprogressBarRefregitzValue(THIS.progressBarVerify, 0);
                     //THIS.progressBarVerify.Invalidate();
@@ -19183,7 +19183,7 @@ if (Kind == 5)
 
                         LoopHuristicIndex = 0;
 
-                        Less = Double.MinValue; ;
+                        Less = Double.MinValue;
                     }
 
 

@@ -970,7 +970,7 @@ namespace RefrigtzW
                         do { iii++; } while (System.IO.File.Exists("Database\\Games\\CurrentBank" + iii.ToString() + ".accdb"));
                         System.IO.File.Copy("Database\\CurrentBank.accdb", Root + "\\Database\\Games\\CurrentBank" + iii.ToString() + ".accdb");
                         System.IO.File.Delete("Database\\CurrentBank.accdb");
-                        return TableA; ;
+                        return TableA;
 
                     }
 

@@ -1448,7 +1448,7 @@ namespace Refrigtz
                                          Clicked = true;
                                          if (AliceSection)
                                          {
-                                             if (t2.IsAlive) new Syncronization(t2, 1); ;
+                                             if (t2.IsAlive) new Syncronization(t2, 1);
                                              AliceSection = false;
                                              BobSection = true;
                                                    AliceAction();
@@ -1489,7 +1489,7 @@ namespace Refrigtz
                                      {
                                          if (RefregitzisCurrent && BobSection)
                                          {
-                                             if (t3.IsAlive) new Syncronization(t3, 1); ;
+                                             if (t3.IsAlive) new Syncronization(t3, 1);
 
                                              BobAction();
 
@@ -2882,7 +2882,7 @@ namespace Refrigtz
                                          Clicked = true;
                                          if (AliceSection)
                                          {
-                                             if (t2.IsAlive) new Syncronization(t2, 1); ;
+                                             if (t2.IsAlive) new Syncronization(t2, 1);
                                              AliceSection = false;
                                              BobSection = true;
                                                    AliceAction();
@@ -2923,7 +2923,7 @@ namespace Refrigtz
                                      {
                                          if (RefregitzisCurrent && BobSection)
                                          {
-                                             if (t3.IsAlive) new Syncronization(t3, 1); ;
+                                             if (t3.IsAlive) new Syncronization(t3, 1);
 
                                              BobAction();
 
@@ -12055,7 +12055,7 @@ namespace Refrigtz
         }
         void ComputerByComputerBobAsRefregitz(ref Process proc)
         {
-            if (t3.IsAlive) new Syncronization(t3, 1); ;
+            if (t3.IsAlive) new Syncronization(t3, 1);
 
             BobAction();
 
@@ -13198,7 +13198,7 @@ namespace Refrigtz
                 QuantumRefrigiz.ThinkingQuantumChess.ThinkingQuantumRun = false;
             }
             if (t4.IsAlive)
-                new Syncronization(t4, 1); ;
+                new Syncronization(t4, 1);
         }
         //Bob Section of Computer By Computer Thinking.
         void BobAction()
@@ -15326,13 +15326,13 @@ namespace Refrigtz
 
 
             if (t1.IsAlive)
-                new Syncronization(t1, 1); ;
+                new Syncronization(t1, 1);
             if (t2.IsAlive)
-                new Syncronization(t2, 1); ;
+                new Syncronization(t2, 1);
             if (t3.IsAlive)
-                new Syncronization(t3, 1); ;
+                new Syncronization(t3, 1);
             if (t4.IsAlive)
-                new Syncronization(t4, 1); ;
+                new Syncronization(t4, 1);
 
 
 
@@ -15396,13 +15396,13 @@ namespace Refrigtz
         {
 
             if (t1.IsAlive)
-                new Syncronization(t1, 1); ;
+                new Syncronization(t1, 1);
             if (t2.IsAlive)
-                new Syncronization(t2, 1); ;
+                new Syncronization(t2, 1);
             if (t3.IsAlive)
-                new Syncronization(t3, 1); ;
+                new Syncronization(t3, 1);
             if (t4.IsAlive)
-                new Syncronization(t4, 1); ;
+                new Syncronization(t4, 1);
 
         }
         //Run In Front Thread Handling Method.

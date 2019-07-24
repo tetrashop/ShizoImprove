@@ -141,7 +141,7 @@ namespace RefrigtzDLL
             if (ThinkingChess.FoundFirstSelfMating > 0)
                 IS = true;
 
-            AllDraw.ActionString = A1; ;
+            AllDraw.ActionString = A1;
             AllDraw.ActionStringReady= A2;
              AllDraw.AStarGreadyFirstSearch= A3 ;
             AllDraw.AStarGreedyiLevelMax = A4;
