@@ -6804,7 +6804,7 @@ return Double.MinValue;
 
 
 
-                        if (!Sup)
+                       // if (!Sup)
                         {
                             Object A3 = new object();
                             lock (A3)
@@ -6820,7 +6820,7 @@ return Double.MinValue;
                             Object A4 = new object();
                             lock (A4)
                             {
-                                int[] AS = new int[2];
+                                 int[] AS = new int[2];
                                 AS[0] = RowDestination;
                                 AS[1] = ColumnDestination;
                                 RowColumnKing.Add(AS);
@@ -6941,12 +6941,34 @@ return Double.MinValue;
                             Hu[9] = HeuristicKingDangourSup;
                             //HeuristicKingDangourSup = 0;
                             String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
-                            /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
+
+                        Object A4 = new object();
+                        lock (A4)
+                        {
+                             int[] AS = new int[2];
+                            AS[0] = RowDestination;
+                            AS[1] = ColumnDestination;
+                            RowColumnKing.Add(AS);
+                            //RowColumn[Index, 0] = RowDestination;
+                            //RowColumn[Index, 1] = ColumnDestination;
+                            //Index+=1;
+                            TableListKing.Add(CloneATable(TableS));
+                            IndexKing++;
+
+                            HuristicListKing.Add(Hu);
+
+                            HitNumberKing.Add(TableS[RowDestination, ColumnDestination]);
+                        }
+
+                       
+
+                        /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
                             if (Order == 1)
                                 AllDraw.OutPut +="\r\nThinking King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                             else
                                 AllDraw.OutPut +="\r\nThinking King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
-                            */ThinkingAtRun = false;
+                            */
+                        ThinkingAtRun = false;
                         }
                    
 
@@ -7060,7 +7082,7 @@ return Double.MinValue;
 
 
 
-                        if (!Sup)
+                       // if (!Sup)
                         {
                             Object A3 = new object();
                             lock (A3)
@@ -7076,7 +7098,7 @@ return Double.MinValue;
                             Object A4 = new object();
                             lock (A4)
                             {
-                                int[] AS = new int[2];
+                                 int[] AS = new int[2];
                                 AS[0] = RowDestination;
                                 AS[1] = ColumnDestination;
                                 RowColumnMinister.Add(AS);
@@ -7197,12 +7219,33 @@ return Double.MinValue;
                             Hu[9] = HeuristicKingDangourSup;
                             //HeuristicKingDangourSup = 0;
                             String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
-                            /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
+
+
+                        Object A4 = new object();
+                        lock (A4)
+                        {
+                             int[] AS = new int[2];
+                            AS[0] = RowDestination;
+                            AS[1] = ColumnDestination;
+                            RowColumnMinister.Add(AS);
+                            //RowColumn[Index, 0] = RowDestination;
+                            //RowColumn[Index, 1] = ColumnDestination;
+                            //Index+=1;
+                            TableListMinister.Add(CloneATable(TableS));
+                            IndexMinister++;
+
+                            HuristicListMinister.Add(Hu);
+
+                            HitNumberMinister.Add(TableS[RowDestination, ColumnDestination]);
+
+                        }
+                        /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
                             if (Order == 1)
                                 AllDraw.OutPut +="\r\nThinking Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                             else
                                 AllDraw.OutPut +="\r\nThinking Minster AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
-                            */ThinkingAtRun = false;
+                            */
+                        ThinkingAtRun = false;
                         }
                    
 
@@ -7653,7 +7696,7 @@ return Double.MinValue;
 
 
 
-                        if (!Sup)
+                        //if (!Sup)
                         {
                             Object A3 = new object();
                             lock (A3)
@@ -7669,7 +7712,7 @@ return Double.MinValue;
                             Object A4 = new object();
                             lock (A4)
                             {
-                                int[] AS = new int[2];
+                                 int[] AS = new int[2];
                                 AS[0] = RowDestination;
                                 AS[1] = ColumnDestination;
                                 RowColumnCastle.Add(AS);
@@ -7793,12 +7836,32 @@ return Double.MinValue;
                             Hu[9] = HeuristicKingDangourSup;
                             //HeuristicKingDangourSup = 0;
                             String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
+                        Object A4 = new object();
+                        lock (A4)
+                        {
+                             int[] AS = new int[2];
+                            AS[0] = RowDestination;
+                            AS[1] = ColumnDestination;
+                            RowColumnCastle.Add(AS);
+                            //RowColumn[Index, 0] = RowDestination;
+                            //RowColumn[Index, 1] = ColumnDestination;
+                            //Index+=1;
+                            TableListCastle.Add(CloneATable(TableS));
+                            IndexCastle++;
+
+                            HuristicListCastle.Add(Hu);
+
+                            HitNumberCastle.Add(TableS[RowDestination, ColumnDestination]);
+                        }
+
+                        
                         /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
-                        if (Order == 1)
-                            AllDraw.OutPut +="\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
-                        else
-                            AllDraw.OutPut +="\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
-                   */ ThinkingAtRun = false;
+                 if (Order == 1)
+                     AllDraw.OutPut +="\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                 else
+                     AllDraw.OutPut +="\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+            */
+                        ThinkingAtRun = false;
                     }
 
             }
@@ -7888,7 +7951,7 @@ return Double.MinValue;
 
 
 
-                    if (!Sup)
+                   // if (!Sup)
                     {
                         Object A3 = new object();
                         lock (A3)
@@ -7904,7 +7967,7 @@ return Double.MinValue;
                         Object A4 = new object();
                         lock (A4)
                         {
-                            int[] AS = new int[2];
+                             int[] AS = new int[2];
                             AS[0] = RowDestination;
                             AS[1] = ColumnDestination;
                             RowColumnHourse.Add(AS);
@@ -8028,13 +8091,33 @@ return Double.MinValue;
                             Hu[9] = HeuristicKingDangourSup;
                             //HeuristicKingDangourSup = 0;
                             String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
-                            /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
+
+                        Object A4 = new object();
+                        lock (A4)
+                        {
+                             int[] AS = new int[2];
+                            AS[0] = RowDestination;
+                            AS[1] = ColumnDestination;
+                            RowColumnHourse.Add(AS);
+                            //RowColumn[Index, 0] = RowDestination;
+                            //RowColumn[Index, 1] = ColumnDestination;
+                            //Index+=1;
+                            TableListHourse.Add(CloneATable(TableS));
+                            IndexHourse++;
+
+                            HuristicListHourse.Add(Hu);
+
+                            HitNumberHourse.Add(TableS[RowDestination, ColumnDestination]);
+
+
+                        }
+                        /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
                             if (Order == 1)
                                 AllDraw.OutPut +="\r\nThinking Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                             else
                                 AllDraw.OutPut +="\r\nThinking Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                                 */
-                            ThinkingAtRun = false;
+                        ThinkingAtRun = false;
                         }
                    
                 }
@@ -8122,7 +8205,7 @@ return Double.MinValue;
 
 
 
-                        if (!Sup)
+                        //if (!Sup)
                         {
                             Object A3 = new object();
                             lock (A3)
@@ -8138,7 +8221,7 @@ return Double.MinValue;
                             Object A4 = new object();
                             lock (A4)
                             {
-                                int[] AS = new int[2];
+                                 int[] AS = new int[2];
                                 AS[0] = RowDestination;
                                 AS[1] = ColumnDestination;
                                 RowColumnElefant.Add(AS);
@@ -8262,12 +8345,34 @@ return Double.MinValue;
                             Hu[9] = HeuristicKingDangourSup;
                             //HeuristicKingDangourSup = 0;
                             String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
-                            /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
+                        Object A4 = new object();
+                        lock (A4)
+                        {
+                             int[] AS = new int[2];
+                            AS[0] = RowDestination;
+                            AS[1] = ColumnDestination;
+                            RowColumnElefant.Add(AS);
+                            //RowColumn[Index, 0] = RowDestination;
+                            //RowColumn[Index, 1] = ColumnDestination;
+                            //Index+=1;
+                            TableListElefant.Add(CloneATable(TableS));
+                            IndexElefant++;
+
+                            HuristicListElefant.Add(Hu);
+
+                            HitNumberElefant.Add(TableS[RowDestination, ColumnDestination]);
+
+                        }
+
+
+
+                        /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
                             if (Order == 1)
                                 AllDraw.OutPut +="\r\nThinking Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                             else
                                 AllDraw.OutPut +="\r\nThinking Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
-                            */ThinkingAtRun = false;
+                            */
+                        ThinkingAtRun = false;
                         }
                    
                 }                    
@@ -9033,7 +9138,7 @@ return Double.MinValue;
 
 
 
-                        if (!Sup)
+                        //if (!Sup)
                         {
                             Object A3 = new object();
                             lock (A3)
@@ -9049,7 +9154,7 @@ return Double.MinValue;
                             Object A4 = new object();
                             lock (A4)
                             {
-                                int[] AS = new int[2];
+                                 int[] AS = new int[2];
                                 AS[0] = RowDestination;
                                 AS[1] = ColumnDestination;
                                 RowColumnSoldier.Add(AS);
@@ -9171,12 +9276,31 @@ return Double.MinValue;
                             Hu[9] = HeuristicKingDangourSup;
                             //HeuristicKingDangourSup = 0;
                             String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
-                            /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
+
+                        Object A4 = new object();
+                        lock (A4)
+                        {
+                             int[] AS = new int[2];
+                            AS[0] = RowDestination;
+                            AS[1] = ColumnDestination;
+                            RowColumnSoldier.Add(AS);
+                            //RowColumn[Index, 0] = RowDestination;
+                            //RowColumn[Index, 1] = ColumnDestination;
+                            //Index+=1;
+                            TableListSolder.Add(CloneATable(TableS));
+                            IndexSoldier++;
+
+                            HuristicListSolder.Add(Hu);
+
+                            HitNumberSoldier.Add(TableS[RowDestination, ColumnDestination]);
+                        }
+                        /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H;
                             if (Order == 1)
                                 AllDraw.OutPut +="\r\nThinking Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                             else
                                 AllDraw.OutPut +="\r\nThinking Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
-                            */ThinkingAtRun = false;
+                            */
+                        ThinkingAtRun = false;
                         }
                         
                    
@@ -9206,7 +9330,27 @@ return Double.MinValue;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 //When is Brown Castles King.
 
-
+                bool Sup = false;
+                if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
+                {
+                    IsSup.Add(true);
+                    IsSupHu.Add(true);
+                    Sup = true;
+                }
+                else
+             if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
+                {
+                    IsSup.Add(true);
+                    IsSupHu.Add(true);
+                    Sup = true;
+                }
+                else
+                {
+                    IsSup.Add(false);
+                    IsSupHu.Add(false);
+                    Sup = false;
+                }
+                
                 //Calcuilate Huristic Before Movment.
                 Object O = new Object();
                 lock (O)
@@ -9219,8 +9363,7 @@ return Double.MinValue;
                 {
                     NumbersOfAllNode++;
                 }
-
-                int Killed = 0;
+               int Killed = 0;
                 if (RowDestination < RowSource)
                 {
                     TableS[RowSource - 1, ColumnDestination] = -4;
@@ -9239,9 +9382,10 @@ return Double.MinValue;
 
                 }
                 PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 7, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+               
                 //{ ThinkingAtRun = false; return; }
                 //Store Movments Items. 
-                int[] AS = new int[2];
+                 int[] AS = new int[2];
                 AS[0] = RowDestination;
                 AS[1] = ColumnDestination;
                 RowColumnKing.Add(AS);
@@ -9288,7 +9432,7 @@ return Double.MinValue;
                             AllDraw.OutPut +="\r\nThinking Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + "O-O" + " With Huristic " + H;
                         ThinkingLevel++;
                     }
-                    HuristicListKing.Add(Hu);
+                    //HuristicListKing.Add(Hu);
 
                     ThinkingAtRun = false;
                 }
@@ -9555,6 +9699,26 @@ return Double.MinValue;
                 {
                     NumbersOfAllNode++;
                 }
+                 bool Sup = false;
+                if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
+                {
+                    IsSup.Add(true);
+                    IsSupHu.Add(true);
+                    Sup = true;
+                }
+                else
+             if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
+                {
+                    IsSup.Add(true);
+                    IsSupHu.Add(true);
+                    Sup = true;
+                }
+                else
+                {
+                    IsSup.Add(false);
+                    IsSupHu.Add(false);
+                    Sup = false;
+                }
 
                 int Killed = 0;
                 if (RowDestination < RowSource)
@@ -9575,7 +9739,26 @@ return Double.MinValue;
 
                 }
                 PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 7, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
-                //{ ThinkingAtRun = false; return; }
+
+                if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
+                {
+                    IsSup.Add(true);
+                    IsSupHu.Add(true);
+                    Sup = true;
+                }
+                else
+                 if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
+                {
+                    IsSup.Add(true);
+                    IsSupHu.Add(true);
+                    Sup = true;
+                }
+                else
+                {
+                    IsSup.Add(false);
+                    IsSupHu.Add(false);
+                    Sup = false;
+                }//{ ThinkingAtRun = false; return; }
 
                 //Store Movments Items.
                 int[] AS = new int[2];

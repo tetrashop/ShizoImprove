@@ -11643,7 +11643,7 @@ if (Kind == 2)
                             //int j = FoundTableIndex(this.SolderesOnTable[i].SoldierThinking[0].TableListSolder, SolderesOnTable[ii].SoldierThinking[0].TableConst);
                             for (int j = 0; j < SolderesOnTable[i].SoldierThinking[0].HuristicListSolder.Count; j++)
                             {
-                                if (!(SolderesOnTable[ii].SoldierThinking[0].IsSup[j]))
+                                if (!(SolderesOnTable[i].SoldierThinking[0].IsSup[j]))
                                     continue;
 
 
@@ -11657,7 +11657,7 @@ if (Kind == 2)
                                 this.SolderesOnTable[i].SoldierThinking[0].HuristicListSolder[j][7] += SolderesOnTable[ii].SoldierThinking[0].HeuristicKingSafeSup;
                                 this.SolderesOnTable[i].SoldierThinking[0].HuristicListSolder[j][8] += SolderesOnTable[ii].SoldierThinking[0].HeuristicFromCenterSup;
                                 this.SolderesOnTable[i].SoldierThinking[0].HuristicListSolder[j][9] += SolderesOnTable[ii].SoldierThinking[0].HeuristicKingDangourSup;
-                                SolderesOnTable[ii].SoldierThinking[0].IsSup[j] = false;
+                                SolderesOnTable[i].SoldierThinking[0].IsSup[j] = false;
 
                                 AllDraw.OutPut += "\r\nServed Soldeir!";
                             }
@@ -11686,7 +11686,7 @@ if (Kind == 2)
                             //int j = FoundTableIndex(this.SolderesOnTable[i].SoldierThinking[0].TableListSolder, SolderesOnTable[ii].SoldierThinking[0].TableConst);
                             for (int j = 0; j < SolderesOnTable[i].SoldierThinking[0].HuristicListSolder.Count; j++)
                             {
-                                if (!(SolderesOnTable[ii].SoldierThinking[0].IsSup[j]))
+                                if (!(SolderesOnTable[i].SoldierThinking[0].IsSup[j]))
                                     continue;
 
 
@@ -11700,7 +11700,7 @@ if (Kind == 2)
                                 this.SolderesOnTable[i].SoldierThinking[0].HuristicListSolder[j][7] += SolderesOnTable[ii].SoldierThinking[0].HeuristicKingSafeSup;
                                 this.SolderesOnTable[i].SoldierThinking[0].HuristicListSolder[j][8] += SolderesOnTable[ii].SoldierThinking[0].HeuristicFromCenterSup;
                                 this.SolderesOnTable[i].SoldierThinking[0].HuristicListSolder[j][9] += SolderesOnTable[ii].SoldierThinking[0].HeuristicKingDangourSup;
-                                SolderesOnTable[ii].SoldierThinking[0].IsSup[j] = false;
+                                SolderesOnTable[i].SoldierThinking[0].IsSup[j] = false;
 
                                 AllDraw.OutPut += "\r\nServed Soldeir!";
                             }
@@ -11733,7 +11733,7 @@ if (Kind == 2)
                                 //int j = FoundTableIndex(this.ElephantOnTable[i].ElefantThinking[0].TableListElefant, ElephantOnTable[ii].ElefantThinking[0].TableConst);
                                 for (int j = 0; j < ElephantOnTable[i].ElefantThinking[0].HuristicListElefant.Count; j++)
                                 {
-                                    if (!(ElephantOnTable[ii].ElefantThinking[0].IsSup[j]))
+                                    if (!(ElephantOnTable[i].ElefantThinking[0].IsSup[j]))
                                         continue;
 
                                     this.ElephantOnTable[i].ElefantThinking[0].HuristicListElefant[j][0] += ElephantOnTable[ii].ElefantThinking[0].HuristicAttackValueSup;
@@ -11746,7 +11746,7 @@ if (Kind == 2)
                                     this.ElephantOnTable[i].ElefantThinking[0].HuristicListElefant[j][7] += ElephantOnTable[ii].ElefantThinking[0].HeuristicKingSafeSup;
                                     this.ElephantOnTable[i].ElefantThinking[0].HuristicListElefant[j][8] += ElephantOnTable[ii].ElefantThinking[0].HeuristicFromCenterSup;
                                     this.ElephantOnTable[i].ElefantThinking[0].HuristicListElefant[j][9] += ElephantOnTable[ii].ElefantThinking[0].HeuristicKingDangourSup;
-                                    ElephantOnTable[ii].ElefantThinking[0].IsSup[j] = false;
+                                    ElephantOnTable[i].ElefantThinking[0].IsSup[j] = false;
 
                                     AllDraw.OutPut += "\r\nServed Elephant!";
                                 }
@@ -11778,7 +11778,7 @@ if (Kind == 2)
                                 //int j = FoundTableIndex(this.ElephantOnTable[i].ElefantThinking[0].TableListElefant, ElephantOnTable[ii].ElefantThinking[0].TableConst);
                                 for (int j = 0; j < ElephantOnTable[i].ElefantThinking[0].HuristicListElefant.Count; j++)
                                 {
-                                    if (!(ElephantOnTable[ii].ElefantThinking[0].IsSup[j]))
+                                    if (!(ElephantOnTable[i].ElefantThinking[0].IsSup[j]))
                                         continue;
 
 
@@ -11792,7 +11792,7 @@ if (Kind == 2)
                                     this.ElephantOnTable[i].ElefantThinking[0].HuristicListElefant[j][7] += ElephantOnTable[ii].ElefantThinking[0].HeuristicKingSafeSup;
                                     this.ElephantOnTable[i].ElefantThinking[0].HuristicListElefant[j][8] += ElephantOnTable[ii].ElefantThinking[0].HeuristicFromCenterSup;
                                     this.ElephantOnTable[i].ElefantThinking[0].HuristicListElefant[j][9] += ElephantOnTable[ii].ElefantThinking[0].HeuristicKingDangourSup;
-                                    ElephantOnTable[ii].ElefantThinking[0].IsSup[j] = false;
+                                    ElephantOnTable[i].ElefantThinking[0].IsSup[j] = false;
 
                                     AllDraw.OutPut += "\r\nServed Elephant!";
                                 }
@@ -11824,7 +11824,7 @@ if (Kind == 2)
                             //int j = FoundTableIndex(this.HoursesOnTable[i].HourseThinking[0].TableListHourse, HoursesOnTable[ii].HourseThinking[0].TableConst);
                             for (int j = 0; j < HoursesOnTable[i].HourseThinking[0].HuristicListHourse.Count; j++)
                             {
-                                if (!(HoursesOnTable[ii].HourseThinking[0].IsSup[j]))
+                                if (!(HoursesOnTable[i].HourseThinking[0].IsSup[j]))
                                     continue;
 
                                 this.HoursesOnTable[i].HourseThinking[0].HuristicListHourse[j][0] += HoursesOnTable[ii].HourseThinking[0].HuristicAttackValueSup;
@@ -11837,7 +11837,7 @@ if (Kind == 2)
                                 this.HoursesOnTable[i].HourseThinking[0].HuristicListHourse[j][7] += HoursesOnTable[ii].HourseThinking[0].HeuristicKingSafeSup;
                                 this.HoursesOnTable[i].HourseThinking[0].HuristicListHourse[j][8] += HoursesOnTable[ii].HourseThinking[0].HeuristicFromCenterSup;
                                 this.HoursesOnTable[i].HourseThinking[0].HuristicListHourse[j][9] += HoursesOnTable[ii].HourseThinking[0].HeuristicKingDangourSup;
-                                HoursesOnTable[ii].HourseThinking[0].IsSup[j] = false;
+                                HoursesOnTable[i].HourseThinking[0].IsSup[j] = false;
 
                                 AllDraw.OutPut += "\r\nServed Hourse!";
                             }
@@ -11866,7 +11866,7 @@ if (Kind == 2)
                             //int j = FoundTableIndex(this.HoursesOnTable[i].HourseThinking[0].TableListHourse, HoursesOnTable[ii].HourseThinking[0].TableConst);
                             for (int j = 0; j < HoursesOnTable[i].HourseThinking[0].HuristicListHourse.Count; j++)
                             {
-                                if (!(HoursesOnTable[ii].HourseThinking[0].IsSup[j]))
+                                if (!(HoursesOnTable[i].HourseThinking[0].IsSup[j]))
                                     continue;
 
                                 this.HoursesOnTable[i].HourseThinking[0].HuristicListHourse[j][0] += HoursesOnTable[ii].HourseThinking[0].HuristicAttackValueSup;
@@ -11879,7 +11879,7 @@ if (Kind == 2)
                                 this.HoursesOnTable[i].HourseThinking[0].HuristicListHourse[j][7] += HoursesOnTable[ii].HourseThinking[0].HeuristicKingSafeSup;
                                 this.HoursesOnTable[i].HourseThinking[0].HuristicListHourse[j][8] += HoursesOnTable[ii].HourseThinking[0].HeuristicFromCenterSup;
                                 this.HoursesOnTable[i].HourseThinking[0].HuristicListHourse[j][9] += HoursesOnTable[ii].HourseThinking[0].HeuristicKingDangourSup;
-                                HoursesOnTable[ii].HourseThinking[0].IsSup[j] = false;
+                                HoursesOnTable[i].HourseThinking[0].IsSup[j] = false;
 
                                 AllDraw.OutPut += "\r\nServed Hourse!";
                             }
@@ -11910,7 +11910,7 @@ if (Kind == 2)
                             //int j = FoundTableIndex(this.CastlesOnTable[i].CastleThinking[0].TableListCastle, CastlesOnTable[ii].CastleThinking[0].TableConst);
                             for (int j = 0; j < CastlesOnTable[i].CastleThinking[0].HuristicListCastle.Count; j++)
                             {
-                                if (!(CastlesOnTable[ii].CastleThinking[0].IsSup[j]))
+                                if (!(CastlesOnTable[i].CastleThinking[0].IsSup[j]))
                                     continue;
 
                                 this.CastlesOnTable[i].CastleThinking[0].HuristicListCastle[j][0] += CastlesOnTable[ii].CastleThinking[0].HuristicAttackValueSup;
@@ -11923,7 +11923,7 @@ if (Kind == 2)
                                 this.CastlesOnTable[i].CastleThinking[0].HuristicListCastle[j][7] += CastlesOnTable[ii].CastleThinking[0].HeuristicKingSafeSup;
                                 this.CastlesOnTable[i].CastleThinking[0].HuristicListCastle[j][8] += CastlesOnTable[ii].CastleThinking[0].HeuristicFromCenterSup;
                                 this.CastlesOnTable[i].CastleThinking[0].HuristicListCastle[j][9] += CastlesOnTable[ii].CastleThinking[0].HeuristicKingDangourSup;
-                                CastlesOnTable[ii].CastleThinking[0].IsSup[j] = false;
+                                CastlesOnTable[i].CastleThinking[0].IsSup[j] = false;
 
                                 AllDraw.OutPut += "\r\nServed Castle!";
                             }
@@ -11951,7 +11951,7 @@ if (Kind == 2)
                             //int j = FoundTableIndex(this.CastlesOnTable[i].CastleThinking[0].TableListCastle, CastlesOnTable[ii].CastleThinking[0].TableConst);
                             for (int j = 0; j < CastlesOnTable[i].CastleThinking[0].HuristicListCastle.Count; j++)
                             {
-                                if (!(CastlesOnTable[ii].CastleThinking[0].IsSup[j]))
+                                if (!(CastlesOnTable[i].CastleThinking[0].IsSup[j]))
                                     continue;
 
 
@@ -11965,7 +11965,7 @@ if (Kind == 2)
                                 this.CastlesOnTable[i].CastleThinking[0].HuristicListCastle[j][7] += CastlesOnTable[ii].CastleThinking[0].HeuristicKingSafeSup;
                                 this.CastlesOnTable[i].CastleThinking[0].HuristicListCastle[j][8] += CastlesOnTable[ii].CastleThinking[0].HeuristicFromCenterSup;
                                 this.CastlesOnTable[i].CastleThinking[0].HuristicListCastle[j][9] += CastlesOnTable[ii].CastleThinking[0].HeuristicKingDangourSup;
-                                CastlesOnTable[ii].CastleThinking[0].IsSup[j] = false;
+                                CastlesOnTable[i].CastleThinking[0].IsSup[j] = false;
 
                                 AllDraw.OutPut += "\r\nServed Castle!";
                             }
@@ -11997,7 +11997,7 @@ if (Kind == 2)
                             //int j = FoundTableIndex(this.MinisterOnTable[i].MinisterThinking[0].TableListMinister, MinisterOnTable[ii].MinisterThinking[0].TableConst);
                             for (int j = 0; j < MinisterOnTable[i].MinisterThinking[0].HuristicListMinister.Count; j++)
                             {
-                                if (!(MinisterOnTable[ii].MinisterThinking[0].IsSup[j]))
+                                if (!(MinisterOnTable[i].MinisterThinking[0].IsSup[j]))
                                     continue;
 
                                 this.MinisterOnTable[i].MinisterThinking[0].HuristicListMinister[j][0] += MinisterOnTable[ii].MinisterThinking[0].HuristicAttackValueSup;
@@ -12010,7 +12010,7 @@ if (Kind == 2)
                                 this.MinisterOnTable[i].MinisterThinking[0].HuristicListMinister[j][7] += MinisterOnTable[ii].MinisterThinking[0].HeuristicKingSafeSup;
                                 this.MinisterOnTable[i].MinisterThinking[0].HuristicListMinister[j][8] += MinisterOnTable[ii].MinisterThinking[0].HeuristicFromCenterSup;
                                 this.MinisterOnTable[i].MinisterThinking[0].HuristicListMinister[j][9] += MinisterOnTable[ii].MinisterThinking[0].HeuristicKingDangourSup;
-                                MinisterOnTable[ii].MinisterThinking[0].IsSup[j] = false;
+                                MinisterOnTable[i].MinisterThinking[0].IsSup[j] = false;
 
 
                                 AllDraw.OutPut += "\r\nServed Minister!";
@@ -12039,7 +12039,7 @@ if (Kind == 2)
                             //int j = FoundTableIndex(this.MinisterOnTable[i].MinisterThinking[0].TableListMinister, MinisterOnTable[ii].MinisterThinking[0].TableConst);
                             for (int j = 0; j < MinisterOnTable[i].MinisterThinking[0].HuristicListMinister.Count; j++)
                             {
-                                if (!(MinisterOnTable[ii].MinisterThinking[0].IsSup[j]))
+                                if (!(MinisterOnTable[i].MinisterThinking[0].IsSup[j]))
                                     continue;
 
 
@@ -12053,7 +12053,7 @@ if (Kind == 2)
                                 this.MinisterOnTable[i].MinisterThinking[0].HuristicListMinister[j][7] += MinisterOnTable[ii].MinisterThinking[0].HeuristicKingSafeSup;
                                 this.MinisterOnTable[i].MinisterThinking[0].HuristicListMinister[j][8] += MinisterOnTable[ii].MinisterThinking[0].HeuristicFromCenterSup;
                                 this.MinisterOnTable[i].MinisterThinking[0].HuristicListMinister[j][9] += MinisterOnTable[ii].MinisterThinking[0].HeuristicKingDangourSup;
-                                MinisterOnTable[ii].MinisterThinking[0].IsSup[j] = false;
+                                MinisterOnTable[i].MinisterThinking[0].IsSup[j] = false;
 
                                 AllDraw.OutPut += "\r\nServed Minister!";
                             }
@@ -12085,7 +12085,7 @@ if (Kind == 2)
                             //int j = FoundTableIndex(this.KingOnTable[i].KingThinking[0].TableListKing, KingOnTable[ii].KingThinking[0].TableConst);
                             for (int j = 0; j < KingOnTable[i].KingThinking[0].HuristicListKing.Count; j++)
                             {
-                                if (!(KingOnTable[ii].KingThinking[0].IsSup[j]))
+                                if (!(KingOnTable[i].KingThinking[0].IsSup[j]))
                                     continue;
 
                                 this.KingOnTable[i].KingThinking[0].HuristicListKing[j][0] += KingOnTable[ii].KingThinking[0].HuristicAttackValueSup;
@@ -12098,7 +12098,7 @@ if (Kind == 2)
                                 this.KingOnTable[i].KingThinking[0].HuristicListKing[j][7] += KingOnTable[ii].KingThinking[0].HeuristicKingSafeSup;
                                 this.KingOnTable[i].KingThinking[0].HuristicListKing[j][8] += KingOnTable[ii].KingThinking[0].HeuristicFromCenterSup;
                                 this.KingOnTable[i].KingThinking[0].HuristicListKing[j][9] += KingOnTable[ii].KingThinking[0].HeuristicKingDangourSup;
-                                KingOnTable[ii].KingThinking[0].IsSup[j] = false;
+                                KingOnTable[i].KingThinking[0].IsSup[j] = false;
 
 
                                 AllDraw.OutPut += "\r\nServed King!";
@@ -12128,7 +12128,7 @@ if (Kind == 2)
                             //int j = FoundTableIndex(this.KingOnTable[i].KingThinking[0].TableListKing, KingOnTable[ii].KingThinking[0].TableConst);
                             for (int j = 0; j < KingOnTable[i].KingThinking[0].HuristicListKing.Count; j++)
                             {
-                                if (!(KingOnTable[ii].KingThinking[0].IsSup[j]))
+                                if (!(KingOnTable[i].KingThinking[0].IsSup[j]))
                                     continue;
 
 
@@ -12142,7 +12142,7 @@ if (Kind == 2)
                                 this.KingOnTable[i].KingThinking[0].HuristicListKing[j][7] += KingOnTable[ii].KingThinking[0].HeuristicKingSafeSup;
                                 this.KingOnTable[i].KingThinking[0].HuristicListKing[j][8] += KingOnTable[ii].KingThinking[0].HeuristicFromCenterSup;
                                 this.KingOnTable[i].KingThinking[0].HuristicListKing[j][9] += KingOnTable[ii].KingThinking[0].HeuristicKingDangourSup;
-                                KingOnTable[ii].KingThinking[0].IsSup[j] = false;
+                                KingOnTable[i].KingThinking[0].IsSup[j] = false;
 
 
                                 AllDraw.OutPut += "\r\nServed King!";
@@ -13735,11 +13735,15 @@ if (Kind == 2)
             for (ik = 0; ik < SodierMidle; ik++)
                 try
                 {
-                    if (SolderesOnTable == null || SolderesOnTable[ik] == null || SolderesOnTable[ik].SoldierThinking == null || SolderesOnTable[ik].SoldierThinking[0] == null || SolderesOnTable[ik].SoldierThinking[0].IsSup[j]
+                    if (SolderesOnTable == null || SolderesOnTable[ik] == null || SolderesOnTable[ik].SoldierThinking == null || SolderesOnTable[ik].SoldierThinking[0] == null 
                         )
                         continue;
                     for (j = 0; j < SolderesOnTable[ik].SoldierThinking[0].HuristicListSolder.Count; j++)
                     {
+                        if ( SolderesOnTable[ik].SoldierThinking[0].IsSup[j]
+                          )
+                            continue;
+
                         Object O = new Object();
                         lock (O)
                         {
@@ -13798,11 +13802,14 @@ if (Kind == 2)
             for (ik = 0; ik < ElefantMidle; ik++)
                 try
                 {
-                    if (ElephantOnTable == null || ElephantOnTable[ik] == null || ElephantOnTable[ik].ElefantThinking == null || ElephantOnTable[ik].ElefantThinking[0] == null || ElephantOnTable[ik].ElefantThinking[0].IsSup[j]
+                    if (ElephantOnTable == null || ElephantOnTable[ik] == null || ElephantOnTable[ik].ElefantThinking == null || ElephantOnTable[ik].ElefantThinking[0] == null 
                         )
                         continue;
                     for (j = 0; j < ElephantOnTable[ik].ElefantThinking[0].HuristicListElefant.Count; j++)
                     {
+                        if (ElephantOnTable[ik].ElefantThinking[0].IsSup[j]
+                   )
+                            continue;
                         Object O = new Object();
                         lock (O)
                         {
@@ -13865,11 +13872,14 @@ if (Kind == 2)
             for (ik = 0; ik < HourseMidle; ik++)
                 try
                 {
-                    if (HoursesOnTable == null || HoursesOnTable[ik] == null || HoursesOnTable[ik].HourseThinking == null || HoursesOnTable[ik].HourseThinking[0] == null || HoursesOnTable[ik].HourseThinking[0].IsSup[j]
+                    if (HoursesOnTable == null || HoursesOnTable[ik] == null || HoursesOnTable[ik].HourseThinking == null || HoursesOnTable[ik].HourseThinking[0] == null 
                         )
                         continue;
                     for (j = 0; j < HoursesOnTable[ik].HourseThinking[0].HuristicListHourse.Count; j++)
                     {
+                        if (HoursesOnTable[ik].HourseThinking[0].IsSup[j]
+                      )
+                            continue;
                         Object O = new Object();
                         lock (O)
                         {
@@ -13929,11 +13939,14 @@ if (Kind == 2)
             for (ik = 0; ik < CastleMidle; ik++)
                 try
                 {
-                    if (CastlesOnTable == null || CastlesOnTable[ik] == null || CastlesOnTable[ik].CastleThinking == null || CastlesOnTable[ik].CastleThinking[0] == null || CastlesOnTable[ik].CastleThinking[0].IsSup[j]
+                    if (CastlesOnTable == null || CastlesOnTable[ik] == null || CastlesOnTable[ik].CastleThinking == null || CastlesOnTable[ik].CastleThinking[0] == null
                         )
                         continue;
                     for (j = 0; j < CastlesOnTable[ik].CastleThinking[0].HuristicListCastle.Count; j++)
                     {
+                        if (CastlesOnTable[ik].CastleThinking[0].IsSup[j]
+                     )
+                            continue;
                         Object O = new Object();
                         lock (O)
                         {
@@ -13999,11 +14012,15 @@ if (Kind == 2)
             for (ik = 0; ik < MinisterMidle; ik++)
                 try
                 {
-                    if (MinisterOnTable == null || MinisterOnTable[ik] == null || MinisterOnTable[ik].MinisterThinking == null || MinisterOnTable[ik].MinisterThinking[0] == null || MinisterOnTable[ik].MinisterThinking[0].IsSup[j]
+                    if (MinisterOnTable == null || MinisterOnTable[ik] == null || MinisterOnTable[ik].MinisterThinking == null || MinisterOnTable[ik].MinisterThinking[0] == null 
                         )
                         continue;
                     for (j = 0; j < MinisterOnTable[ik].MinisterThinking[0].HuristicListMinister.Count; j++)
                     {
+                        if (MinisterOnTable[ik].MinisterThinking[0].IsSup[j]
+                          )
+                            continue;
+
                         if (CheckeHuristci(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j], Order, ik, j, 0))
                             continue;
 
@@ -14070,11 +14087,15 @@ if (Kind == 2)
             for (ik = 0; ik < KingMidle; ik++)
                 try
                 {
-                    if (KingOnTable == null || KingOnTable[ik] == null || KingOnTable[ik].KingThinking == null || KingOnTable[ik].KingThinking[0] == null || KingOnTable[ik].KingThinking[0].IsSup[j]
+                    if (KingOnTable == null || KingOnTable[ik] == null || KingOnTable[ik].KingThinking == null || KingOnTable[ik].KingThinking[0] == null
                         )
                         continue;
                     for (j = 0; j < KingOnTable[ik].KingThinking[0].HuristicListKing.Count; j++)
                     {
+                        if (KingOnTable[ik].KingThinking[0].IsSup[j]
+                          )
+                            continue;
+
                         Object O = new Object();
                         lock (O)
                         {
@@ -14289,12 +14310,16 @@ if (Kind == 2)
             for (ik = SodierMidle; ik < SodierHigh; ik++)
                 try
                 {
-                    if (SolderesOnTable == null || SolderesOnTable[ik] == null || SolderesOnTable[ik].SoldierThinking == null || SolderesOnTable[ik].SoldierThinking[0] == null || SolderesOnTable[ik].SoldierThinking[0].IsSup[j]
+                    if (SolderesOnTable == null || SolderesOnTable[ik] == null || SolderesOnTable[ik].SoldierThinking == null || SolderesOnTable[ik].SoldierThinking[0] == null
                         )
                         continue;
                     //Soldier.
                     for (j = 0; j < SolderesOnTable[ik].SoldierThinking[0].HuristicListSolder.Count; j++)
                     {
+                        if (SolderesOnTable[ik].SoldierThinking[0].IsSup[j]
+                       )
+                            continue;
+
                         if (CheckeHuristci(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j], Order, ik, j, 0))
                             continue;
 
@@ -14353,11 +14378,14 @@ if (Kind == 2)
             for (ik = ElefantMidle; ik < ElefantHigh; ik++)
                 try
                 {
-                    if (ElephantOnTable == null || ElephantOnTable[ik] == null || ElephantOnTable[ik].ElefantThinking == null || ElephantOnTable[ik].ElefantThinking[0] == null || ElephantOnTable[ik].ElefantThinking[0].IsSup[j]
+                    if (ElephantOnTable == null || ElephantOnTable[ik] == null || ElephantOnTable[ik].ElefantThinking == null || ElephantOnTable[ik].ElefantThinking[0] == null 
                         )
                         continue;
                     for (j = 0; j < ElephantOnTable[ik].ElefantThinking[0].HuristicListElefant.Count; j++)
                     {
+                        if ( ElephantOnTable[ik].ElefantThinking[0].IsSup[j]
+                     )
+                            continue;
                         if (CheckeHuristci(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j], Order, ik, j, 0))
                             continue;
 
@@ -14419,11 +14447,14 @@ if (Kind == 2)
             for (ik = HourseMidle; ik < HourseHight; ik++)
                 try
                 {
-                    if (HoursesOnTable == null || HoursesOnTable[ik] == null || HoursesOnTable[ik].HourseThinking == null || HoursesOnTable[ik].HourseThinking[0] == null || HoursesOnTable[ik].HourseThinking[0].IsSup[j]
+                    if (HoursesOnTable == null || HoursesOnTable[ik] == null || HoursesOnTable[ik].HourseThinking == null || HoursesOnTable[ik].HourseThinking[0] == null
                         )
                         continue;
                     for (j = 0; j < HoursesOnTable[ik].HourseThinking[0].HuristicListHourse.Count; j++)
                     {
+                        if (HoursesOnTable[ik].HourseThinking[0].IsSup[j]
+                        )
+                            continue;
                         if (CheckeHuristci(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j], Order, ik, j, 0))
                             continue;
 
@@ -14626,11 +14657,15 @@ if (Kind == 2)
             for (ik = MinisterMidle; ik < MinisterHigh; ik++)
                 try
                 {
-                    if (MinisterOnTable == null || MinisterOnTable[ik] == null || MinisterOnTable[ik].MinisterThinking == null || MinisterOnTable[ik].MinisterThinking[0] == null || MinisterOnTable[ik].MinisterThinking[0].IsSup[j]
+                    if (MinisterOnTable == null || MinisterOnTable[ik] == null || MinisterOnTable[ik].MinisterThinking == null || MinisterOnTable[ik].MinisterThinking[0] == null 
                         )
                         continue;
                     for (j = 0; j < MinisterOnTable[ik].MinisterThinking[0].HuristicListMinister.Count; j++)
                     {
+                        if (MinisterOnTable[ik].MinisterThinking[0].IsSup[j]
+                          )
+                            continue;
+
                         if (CheckeHuristci(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j], Order, ik, j, 0))
                             continue;
 
