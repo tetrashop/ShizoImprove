@@ -5678,7 +5678,7 @@ namespace QuantumRefrigiz
             Object O = new Object();
             lock (O)
             {
-                AllDraw.OutPut += "";
+                AllDraw.OutPut = "";
                 //AllDraw.ActionStringReady = false;
                 //NumbersOfCurrentBranchesPenalties = 0;
                 //calculation of huristic methos and storing value retured.
@@ -6118,7 +6118,7 @@ namespace QuantumRefrigiz
 
                         }
                         */
-                    //if (!(IsSupHu[j]))
+                    if (!(IsSupHu[j]))
                     {
                         // int IJ = -1;
                         // if (Order == AllDraw.OrderPlate)
@@ -6291,9 +6291,10 @@ namespace QuantumRefrigiz
                                 }
                             }
                         }
+
                     }
-                    //else
-                        //return Double.MinValue;
+                    else
+                        return Double.MinValue;
                     if (AStarGreedy != null)
                     {
                         for (int k = 0; k < AStarGreedy.Count; k++)
@@ -7014,7 +7015,7 @@ namespace QuantumRefrigiz
                         Sup = true;
                     }
                     else
-                    if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
+                if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
                     {
                         IsSup.Add(true);
                         IsSupHu.Add(true);
@@ -7609,7 +7610,7 @@ namespace QuantumRefrigiz
                         Sup = true;
                     }
                     else
-                     if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
+                 if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
                     {
                         IsSup.Add(true);
                         IsSupHu.Add(true);
@@ -8081,7 +8082,7 @@ namespace QuantumRefrigiz
                         Sup = true;
                     }
                     else
-                    if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
+                if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
                     {
                         IsSup.Add(true);
                         IsSupHu.Add(true);
@@ -8435,7 +8436,7 @@ namespace QuantumRefrigiz
                                 RemoveAtList(kind);
                                 AddAtList(kind, Current);
                                 CheckedM = 3;
-                                return true;
+                                //return true;
                             }
 
 
@@ -8454,7 +8455,7 @@ namespace QuantumRefrigiz
                                 Current.LearningAlgorithmRegard();
                                 AddAtList(kind, Current);
                                 CheckedM = 3;
-                                return true;
+                                //return true;
                             }
                         }
                         if (//(AllDraw.OrderPlate == -1 && AA.CheckBrown)|| 
@@ -8471,7 +8472,7 @@ namespace QuantumRefrigiz
                                 RemoveAtList(kind);
                                 AddAtList(kind, Current);
                                 CheckedM = 3;
-                                return true;
+                                //return true;
                             }
 
 
@@ -8490,7 +8491,7 @@ namespace QuantumRefrigiz
                                 Current.LearningAlgorithmPenalty();
                                 AddAtList(kind, Current);
                                 CheckedM = 3;
-                                return true;
+                                //return true;
                             }
                         }
 
@@ -8505,7 +8506,7 @@ namespace QuantumRefrigiz
                                 Current.LearningAlgorithmPenalty();
                                 AddAtList(kind, Current);
                                 CheckedM = 3;
-                                return true;
+                                //return true;
                             }*/
                         }
 
@@ -8514,24 +8515,28 @@ namespace QuantumRefrigiz
                             DoEnemySelf = false;
                             EnemyCheckMateActionsString = true;
                             CheckedM = -2;
+                            //return true;
                         }
                         if (Order == -1 && AA.CheckMateGray)
                         {
                             DoEnemySelf = false;
                             EnemyCheckMateActionsString = true;
                             CheckedM = -2;
+                            //return true;
                         }
                         if (Order == 1 && AA.CheckMateGray)
                         {
 
                             EnemyCheckMateActionsString = false;
                             CheckedM = -2;
+                            //return true;
                         }
                         if (Order == -1 && AA.CheckMateBrown)
                         {
 
                             EnemyCheckMateActionsString = false;
                             CheckedM = -2;
+                            //return true;
                         }
 
                         if (Order == 1 && AA.CheckGray)
@@ -8543,6 +8548,7 @@ namespace QuantumRefrigiz
                                 NumberOfPenalties++;
                             }
                             CheckedM = -1;
+                            //return true;
                         }
                         else
                             if (Order == -1 && AA.CheckBrown)
@@ -8554,6 +8560,7 @@ namespace QuantumRefrigiz
                                 NumberOfPenalties++;
                             }
                             CheckedM = -1;
+                            //return true;
                         }
                     }
                     if (RETURN)
@@ -8988,7 +8995,7 @@ namespace QuantumRefrigiz
                         Sup = true;
                     }
                     else
-                    if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
+                if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
                     {
                         IsSup.Add(true);
                         IsSupHu.Add(true);

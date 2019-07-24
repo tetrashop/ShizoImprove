@@ -4413,6 +4413,10 @@ namespace Refrigtz
         //Reading Table Database.
         int[,] ReadTable(int Movment, ref int MoveNumber)
         {
+            if (Sec.radioButtonGrayOrder.Checked)
+                OrderPlate = 1;
+            else
+                OrderPlate = -1;
             RefrigtzDLL.ChessRules.CastleActBrown = false;
             bool OneIncreament = false;
             int[,] Tab = Table;
@@ -4460,9 +4464,9 @@ namespace Refrigtz
                         GameStarted = true;
                     if (Move > 1)
                     {
-                         MoveNumber++;
+                        MoveNumber++;
                     }
-                    
+
 
                     int[,] TableA = new int[8, 8];
                     for (int i = 0; i < 8; i++)
@@ -4522,7 +4526,7 @@ namespace Refrigtz
 
                         }
 
-                        
+
 
 
                         if ((new QuantumRefrigiz.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, 1, TableA, OrderPlate, -1, -1).CheckMate(TableA, OrderPlate)))
@@ -4583,7 +4587,7 @@ namespace Refrigtz
 
                         }
 
-                        
+
 
 
                         if ((new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, 1, TableA, OrderPlate, -1, -1).CheckMate(TableA, OrderPlate)))
@@ -4640,9 +4644,9 @@ namespace Refrigtz
                             GameStarted = true;
                         if (Move > 1)
                         {
-                             MoveNumber++;
+                            MoveNumber++;
                         }
-                        
+
                         int[,] TableA = new int[8, 8];
                         for (int i = 0; i < 8; i++)
                         {
@@ -4755,7 +4759,7 @@ namespace Refrigtz
                                 }
                             }
 
-                            
+
 
                             for (int i = 0; i < 8; i++)
                             {
@@ -4807,7 +4811,7 @@ namespace Refrigtz
                 }
 
 
-            } while (MoveNumber <= MovmentsNumberMax);
+            }while (true); //(MoveNumber <= MovmentsNumberMax);
              
             //Draw.TableList.Clear();
             //Draw.TableList.Add(Tab);
@@ -11552,7 +11556,7 @@ namespace Refrigtz
 
                 if (File.Exists("output.txt"))
                     Next = File.ReadAllText("output.txt");
-                if (Preveios == Next)
+                if (Preveios == Next || Next.Length< 1)
                     return true;
             }
             catch (Exception t)
@@ -11561,7 +11565,7 @@ namespace Refrigtz
                 Thread.Sleep(1000);
                 //goto Again;
             }
-            if (Preveios == Next)
+            if (Preveios == Next || Next.Length < 1)
                 return true;
             //WaitOn = false;
             return false;
@@ -16674,6 +16678,7 @@ namespace Refrigtz
                 try
                 {
                     //System.Threading.Thread.Sleep(2);
+                    
                     //tttt.Start();
                     //ttt.Start();
                     SetRefregitzDLL();

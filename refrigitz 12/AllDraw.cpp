@@ -10545,7 +10545,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 	{
 		if (Order == 1)
 		{
-			if (SolderesOnTable[ii].SoldierThinking[0].IsSup[j])
+			//if (SolderesOnTable[ii].SoldierThinking[0].IsSup[j])
 			{
 
 				for (int i = 0; i < SodierMidle; i++)
@@ -10557,6 +10557,8 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 					//int j = FoundTableIndex(this[ii].SoldierThinking[0].TableListSolder, SolderesOnTable[ii].SoldierThinking[0].TableConst);
 					for (int j = 0; j < SolderesOnTable[ii].SoldierThinking[0].HuristicListSolder.size(); j++)
 					{
+						if (!(SolderesOnTable[ii].SoldierThinking[0].IsSup[j]))
+							continue;
 
 						SolderesOnTable[ii].SoldierThinking[0].HuristicListSolder[j][0] += SolderesOnTable[ii].SoldierThinking[0].HuristicAttackValueSup;
 						SolderesOnTable[ii].SoldierThinking[0].HuristicListSolder[j][1] += SolderesOnTable[ii].SoldierThinking[0].HuristicMovementValueSup;
@@ -10610,6 +10612,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 						SolderesOnTable[ii].SoldierThinking[0].HuristicListSolder[j][7] += SolderesOnTable[ii].SoldierThinking[0].HeuristicKingSafeSup;
 						SolderesOnTable[ii].SoldierThinking[0].HuristicListSolder[j][8] += SolderesOnTable[ii].SoldierThinking[0].HeuristicFromCenterSup;
 						SolderesOnTable[ii].SoldierThinking[0].HuristicListSolder[j][9] += SolderesOnTable[ii].SoldierThinking[0].HeuristicKingDangourSup;
+						SolderesOnTable[ii].SoldierThinking[0].IsSup[j] = false;
 
 						AllDraw::OutPut += L"\r\nServed Soldeir!";
 					}
@@ -10624,7 +10627,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 				SolderesOnTable[ii].SoldierThinking[0].HeuristicKingSafeSup = 0;
 				SolderesOnTable[ii].SoldierThinking[0].HeuristicFromCenterSup = 0;
 				SolderesOnTable[ii].SoldierThinking[0].HeuristicKingDangourSup = 0;
-				for (int j = 0; j < SolderesOnTable[ii].SoldierThinking[0].IsSup.Count; j++) SolderesOnTable[ii].SoldierThinking[0].IsSup[j] = false;
+				
 			}
 		}
 	}
@@ -10632,7 +10635,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 	{
 		if (Order == 1)
 		{
-			if (ElephantOnTable[ii].ElefantThinking[0].IsSup[j])
+			//if (ElephantOnTable[ii].ElefantThinking[0].IsSup[j])
 			{
 				for (int i = 0; i < ElefantMidle; i++)
 				{
@@ -10645,6 +10648,9 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 							//int j = FoundTableIndex(this.ElephantOnTable[ii].ElefantThinking[0].TableListElefant, ElephantOnTable[ii].ElefantThinking[0].TableConst);
 						for (int j = 0; j < ElephantOnTable[ii].ElefantThinking[0].HuristicListElefant.size(); j++)
 						{
+							if (!(ElephantOnTable[ii].ElefantThinking[0].IsSup[j]))
+								continue;
+
 
 							ElephantOnTable[ii].ElefantThinking[0].HuristicListElefant[j][0] += ElephantOnTable[ii].ElefantThinking[0].HuristicAttackValueSup;
 							ElephantOnTable[ii].ElefantThinking[0].HuristicListElefant[j][1] += ElephantOnTable[ii].ElefantThinking[0].HuristicMovementValueSup;
@@ -10656,6 +10662,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 							ElephantOnTable[ii].ElefantThinking[0].HuristicListElefant[j][7] += ElephantOnTable[ii].ElefantThinking[0].HeuristicKingSafeSup;
 							ElephantOnTable[ii].ElefantThinking[0].HuristicListElefant[j][8] += ElephantOnTable[ii].ElefantThinking[0].HeuristicFromCenterSup;
 							ElephantOnTable[ii].ElefantThinking[0].HuristicListElefant[j][9] += ElephantOnTable[ii].ElefantThinking[0].HeuristicKingDangourSup;
+							ElephantOnTable[ii].ElefantThinking[0].IsSup[j] = false;
 
 							AllDraw::OutPut += L"\r\nServed Elephant!";
 						}
@@ -10671,13 +10678,13 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 				ElephantOnTable[ii].ElefantThinking[0].HeuristicKingSafeSup = 0;
 				ElephantOnTable[ii].ElefantThinking[0].HeuristicFromCenterSup = 0;
 				ElephantOnTable[ii].ElefantThinking[0].HeuristicKingDangourSup = 0;
-				ElephantOnTable[ii].ElefantThinking[0].IsSup[j] = false;
+				
 			}
 		}
 		else
 		{
 
-			if (ElephantOnTable[ii].ElefantThinking[0].IsSup[j])
+			//if (ElephantOnTable[ii].ElefantThinking[0].IsSup[j])
 			{
 				for (int i = ElefantMidle; i < ElefantHigh; i++)
 				{
@@ -10690,6 +10697,8 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 							//int j = FoundTableIndex(this.ElephantOnTable[ii].ElefantThinking[0].TableListElefant, ElephantOnTable[ii].ElefantThinking[0].TableConst);
 						for (int j = 0; j < ElephantOnTable[ii].ElefantThinking[0].HuristicListElefant.size(); j++)
 						{
+							if (!(ElephantOnTable[ii].ElefantThinking[0].IsSup[j]))
+								continue;
 
 							ElephantOnTable[ii].ElefantThinking[0].HuristicListElefant[j][0] += ElephantOnTable[ii].ElefantThinking[0].HuristicAttackValueSup;
 							ElephantOnTable[ii].ElefantThinking[0].HuristicListElefant[j][1] += ElephantOnTable[ii].ElefantThinking[0].HuristicMovementValueSup;
@@ -10701,6 +10710,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 							ElephantOnTable[ii].ElefantThinking[0].HuristicListElefant[j][7] += ElephantOnTable[ii].ElefantThinking[0].HeuristicKingSafeSup;
 							ElephantOnTable[ii].ElefantThinking[0].HuristicListElefant[j][8] += ElephantOnTable[ii].ElefantThinking[0].HeuristicFromCenterSup;
 							ElephantOnTable[ii].ElefantThinking[0].HuristicListElefant[j][9] += ElephantOnTable[ii].ElefantThinking[0].HeuristicKingDangourSup;
+							ElephantOnTable[ii].ElefantThinking[0].IsSup[j] = false;
 
 							AllDraw::OutPut += L"\r\nServed Elephant!";
 						}
@@ -10716,7 +10726,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 				ElephantOnTable[ii].ElefantThinking[0].HeuristicKingSafeSup = 0;
 				ElephantOnTable[ii].ElefantThinking[0].HeuristicFromCenterSup = 0;
 				ElephantOnTable[ii].ElefantThinking[0].HeuristicKingDangourSup = 0;
-				ElephantOnTable[ii].ElefantThinking[0].IsSup[j] = false;
+				
 			}
 		}
 	}
@@ -10724,7 +10734,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 	{
 		if (Order == 1)
 		{
-			if (HoursesOnTable[ii].HourseThinking[0].IsSup[j])
+			//if (HoursesOnTable[ii].HourseThinking[0].IsSup[j])
 			{
 				for (int i = 0; i < HourseMidle; i++)
 				{
@@ -10735,7 +10745,8 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 					//int j = FoundTableIndex(this.HoursesOnTable[ii].HourseThinking[0].TableListHourse, HoursesOnTable[ii].HourseThinking[0].TableConst);
 					for (int j = 0; j < HoursesOnTable[ii].HourseThinking[0].HuristicListHourse.size(); j++)
 					{
-
+						if (!(HoursesOnTable[ii].HourseThinking[0].IsSup[j]))
+							continue;
 						HoursesOnTable[ii].HourseThinking[0].HuristicListHourse[j][0] += HoursesOnTable[ii].HourseThinking[0].HuristicAttackValueSup;
 						HoursesOnTable[ii].HourseThinking[0].HuristicListHourse[j][1] += HoursesOnTable[ii].HourseThinking[0].HuristicMovementValueSup;
 						HoursesOnTable[ii].HourseThinking[0].HuristicListHourse[j][2] += HoursesOnTable[ii].HourseThinking[0].HuristicSelfSupportedValueSup;
@@ -10746,6 +10757,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 						HoursesOnTable[ii].HourseThinking[0].HuristicListHourse[j][7] += HoursesOnTable[ii].HourseThinking[0].HeuristicKingSafeSup;
 						HoursesOnTable[ii].HourseThinking[0].HuristicListHourse[j][8] += HoursesOnTable[ii].HourseThinking[0].HeuristicFromCenterSup;
 						HoursesOnTable[ii].HourseThinking[0].HuristicListHourse[j][9] += HoursesOnTable[ii].HourseThinking[0].HeuristicKingDangourSup;
+						HoursesOnTable[ii].HourseThinking[0].IsSup[j] = false;
 
 						AllDraw::OutPut += L"\r\nServed Hourse!";
 					}
@@ -10760,13 +10772,13 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 				HoursesOnTable[ii].HourseThinking[0].HeuristicKingSafeSup = 0;
 				HoursesOnTable[ii].HourseThinking[0].HeuristicFromCenterSup = 0;
 				HoursesOnTable[ii].HourseThinking[0].HeuristicKingDangourSup = 0;
-				HoursesOnTable[ii].HourseThinking[0].IsSup[j] = false;
+				
 			}
 
 		}
 		else
 		{
-			if (HoursesOnTable[ii].HourseThinking[0].IsSup[j])
+			//if (HoursesOnTable[ii].HourseThinking[0].IsSup[j])
 			{
 				for (int i = HourseMidle; i < HourseHight; i++)
 				{
@@ -10777,7 +10789,8 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 					//int j = FoundTableIndex(this.HoursesOnTable[ii].HourseThinking[0].TableListHourse, HoursesOnTable[ii].HourseThinking[0].TableConst);
 					for (int j = 0; j < HoursesOnTable[ii].HourseThinking[0].HuristicListHourse.size(); j++)
 					{
-
+						if (!(HoursesOnTable[ii].HourseThinking[0].IsSup[j]))
+							continue;
 						HoursesOnTable[ii].HourseThinking[0].HuristicListHourse[j][0] += HoursesOnTable[ii].HourseThinking[0].HuristicAttackValueSup;
 						HoursesOnTable[ii].HourseThinking[0].HuristicListHourse[j][1] += HoursesOnTable[ii].HourseThinking[0].HuristicMovementValueSup;
 						HoursesOnTable[ii].HourseThinking[0].HuristicListHourse[j][2] += HoursesOnTable[ii].HourseThinking[0].HuristicSelfSupportedValueSup;
@@ -10810,7 +10823,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 	{
 		if (Order == 1)
 		{
-			if (CastlesOnTable[ii].CastleThinking[0].IsSup[j])
+			//if (CastlesOnTable[ii].CastleThinking[0].IsSup[j])
 			{
 				for (int i = 0; i < CastleMidle; i++)
 				{
@@ -10821,7 +10834,8 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 					//int j = FoundTableIndex(this.CastlesOnTable[ii].CastleThinking[0].TableListCastle, CastlesOnTable[ii].CastleThinking[0]TableConst);
 					for (int j = 0; j < CastlesOnTable[ii].CastleThinking[0].HuristicListCastle.size(); j++)
 					{
-
+						if (!(CastlesOnTable[ii].CastleThinking[0].IsSup[j]))
+							continue;
 						CastlesOnTable[ii].CastleThinking[0].HuristicListCastle[j][0] += CastlesOnTable[ii].CastleThinking[0].HuristicAttackValueSup;
 						CastlesOnTable[ii].CastleThinking[0].HuristicListCastle[j][1] += CastlesOnTable[ii].CastleThinking[0].HuristicMovementValueSup;
 						CastlesOnTable[ii].CastleThinking[0].HuristicListCastle[j][2] += CastlesOnTable[ii].CastleThinking[0].HuristicSelfSupportedValueSup;
@@ -10832,6 +10846,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 						CastlesOnTable[ii].CastleThinking[0].HuristicListCastle[j][7] += CastlesOnTable[ii].CastleThinking[0].HeuristicKingSafeSup;
 						CastlesOnTable[ii].CastleThinking[0].HuristicListCastle[j][8] += CastlesOnTable[ii].CastleThinking[0].HeuristicFromCenterSup;
 						CastlesOnTable[ii].CastleThinking[0].HuristicListCastle[j][9] += CastlesOnTable[ii].CastleThinking[0].HeuristicKingDangourSup;
+						CastlesOnTable[ii].CastleThinking[0].IsSup[j] = false;
 
 						AllDraw::OutPut += L"\r\nServed Castle!";
 					}
@@ -10846,12 +10861,12 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 				CastlesOnTable[ii].CastleThinking[0].HeuristicKingSafeSup = 0;
 				CastlesOnTable[ii].CastleThinking[0].HeuristicFromCenterSup = 0;
 				CastlesOnTable[ii].CastleThinking[0].HeuristicKingDangourSup = 0;
-				CastlesOnTable[ii].CastleThinking[0].IsSup[j] = false;
+				
 			}
 		}
 		else
 		{
-			if (CastlesOnTable[ii].CastleThinking[0].IsSup[j])
+			//if (CastlesOnTable[ii].CastleThinking[0].IsSup[j])
 			{
 				for (int i = CastleMidle; i < CastleHigh; i++)
 				{
@@ -10862,6 +10877,8 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 					//int j = FoundTableIndex(this.CastlesOnTable[ii].CastleThinking[0].TableListCastle, CastlesOnTable[ii].CastleThinking[0]TableConst);
 					for (int j = 0; j < CastlesOnTable[ii].CastleThinking[0].HuristicListCastle.size(); j++)
 					{
+						if (!(CastlesOnTable[ii].CastleThinking[0].IsSup[j]))
+							continue;
 
 						CastlesOnTable[ii].CastleThinking[0].HuristicListCastle[j][0] += CastlesOnTable[ii].CastleThinking[0].HuristicAttackValueSup;
 						CastlesOnTable[ii].CastleThinking[0].HuristicListCastle[j][1] += CastlesOnTable[ii].CastleThinking[0].HuristicMovementValueSup;
@@ -10873,6 +10890,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 						CastlesOnTable[ii].CastleThinking[0].HuristicListCastle[j][7] += CastlesOnTable[ii].CastleThinking[0].HeuristicKingSafeSup;
 						CastlesOnTable[ii].CastleThinking[0].HuristicListCastle[j][8] += CastlesOnTable[ii].CastleThinking[0].HeuristicFromCenterSup;
 						CastlesOnTable[ii].CastleThinking[0].HuristicListCastle[j][9] += CastlesOnTable[ii].CastleThinking[0].HeuristicKingDangourSup;
+						CastlesOnTable[ii].CastleThinking[0].IsSup[j] = false;
 
 						AllDraw::OutPut += L"\r\nServed Castle!";
 					}
@@ -10887,7 +10905,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 				CastlesOnTable[ii].CastleThinking[0].HeuristicKingSafeSup = 0;
 				CastlesOnTable[ii].CastleThinking[0].HeuristicFromCenterSup = 0;
 				CastlesOnTable[ii].CastleThinking[0].HeuristicKingDangourSup = 0;
-				CastlesOnTable[ii].CastleThinking[0].IsSup[j] = false;
+				
 			}
 		}
 	}
@@ -10897,7 +10915,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 		{
 			if (Order == 1)
 			{
-				if (MinisterOnTable[ii].MinisterThinking[0].IsSup[j])
+				//if (MinisterOnTable[ii].MinisterThinking[0].IsSup[j])
 				{
 					for (int i = 0; i < MinisterMidle; i++)
 					{
@@ -10908,6 +10926,8 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 						//int j = FoundTableIndex(this.MinisterOnTable[ii].MinisterThinking[0].TableListMinister, MinisterOnTable[ii].MinisterThinking[0].TableConst);
 						for (int j = 0; j < MinisterOnTable[ii].MinisterThinking[0].HuristicListMinister.size(); j++)
 						{
+							if (!(MinisterOnTable[ii].MinisterThinking[0].IsSup[j]))
+								continue;
 
 							MinisterOnTable[ii].MinisterThinking[0].HuristicListMinister[j][0] += MinisterOnTable[ii].MinisterThinking[0].HuristicAttackValueSup;
 							MinisterOnTable[ii].MinisterThinking[0].HuristicListMinister[j][1] += MinisterOnTable[ii].MinisterThinking[0].HuristicMovementValueSup;
@@ -10919,6 +10939,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 							MinisterOnTable[ii].MinisterThinking[0].HuristicListMinister[j][7] += MinisterOnTable[ii].MinisterThinking[0].HeuristicKingSafeSup;
 							MinisterOnTable[ii].MinisterThinking[0].HuristicListMinister[j][8] += MinisterOnTable[ii].MinisterThinking[0].HeuristicFromCenterSup;
 							MinisterOnTable[ii].MinisterThinking[0].HuristicListMinister[j][9] += MinisterOnTable[ii].MinisterThinking[0].HeuristicKingDangourSup;
+							MinisterOnTable[ii].MinisterThinking[0].IsSup[j] = false;
 
 							AllDraw::OutPut += L"\r\nServed Minister!";
 						}
@@ -10933,12 +10954,12 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 					MinisterOnTable[ii].MinisterThinking[0].HeuristicKingSafeSup = 0;
 					MinisterOnTable[ii].MinisterThinking[0].HeuristicFromCenterSup = 0;
 					MinisterOnTable[ii].MinisterThinking[0].HeuristicKingDangourSup = 0;
-					MinisterOnTable[ii].MinisterThinking[0].IsSup[j] = false;
+					
 				}
 			}
 			else
 			{
-				if (MinisterOnTable[ii].MinisterThinking[0].IsSup[j])
+				//if (MinisterOnTable[ii].MinisterThinking[0].IsSup[j])
 				{
 					for (int i = MinisterMidle; i < MinisterHigh; i++)
 					{
@@ -10949,6 +10970,8 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 						//int j = FoundTableIndex(this.MinisterOnTable[ii].MinisterThinking[0].TableListMinister, MinisterOnTable[ii].MinisterThinking[0].TableConst);
 						for (int j = 0; j < MinisterOnTable[ii].MinisterThinking[0].HuristicListMinister.size(); j++)
 						{
+							if (!(MinisterOnTable[ii].MinisterThinking[0].IsSup[j]))
+								continue;
 
 							MinisterOnTable[ii].MinisterThinking[0].HuristicListMinister[j][0] += MinisterOnTable[ii].MinisterThinking[0].HuristicAttackValueSup;
 							MinisterOnTable[ii].MinisterThinking[0].HuristicListMinister[j][1] += MinisterOnTable[ii].MinisterThinking[0].HuristicMovementValueSup;
@@ -10960,6 +10983,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 							MinisterOnTable[ii].MinisterThinking[0].HuristicListMinister[j][7] += MinisterOnTable[ii].MinisterThinking[0].HeuristicKingSafeSup;
 							MinisterOnTable[ii].MinisterThinking[0].HuristicListMinister[j][8] += MinisterOnTable[ii].MinisterThinking[0].HeuristicFromCenterSup;
 							MinisterOnTable[ii].MinisterThinking[0].HuristicListMinister[j][9] += MinisterOnTable[ii].MinisterThinking[0].HeuristicKingDangourSup;
+							MinisterOnTable[ii].MinisterThinking[0].IsSup[j] = false;
 
 							AllDraw::OutPut += L"\r\nServed Minister!";
 						}
@@ -10974,7 +10998,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 					MinisterOnTable[ii].MinisterThinking[0].HeuristicKingSafeSup = 0;
 					MinisterOnTable[ii].MinisterThinking[0].HeuristicFromCenterSup = 0;
 					MinisterOnTable[ii].MinisterThinking[0].HeuristicKingDangourSup = 0;
-					MinisterOnTable[ii].MinisterThinking[0].IsSup[j] = false;
+					
 				}
 			}
 		}
@@ -10984,7 +11008,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 			{
 				if (Order == 1)
 				{
-					if (KingOnTable[ii].KingThinking[0].IsSup[j])
+					//if (KingOnTable[ii].KingThinking[0].IsSup[j])
 					{
 						for (int i = 0; i < KingMidle; i++)
 						{
@@ -10995,6 +11019,8 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 							//int j = FoundTableIndex(this.KingOnTable[ii].KingThinking[0].TableListKing, KingOnTable[ii].KingThinking[0].TableConst);
 							for (int j = 0; j < KingOnTable[ii].KingThinking[0].HuristicListKing.size(); j++)
 							{
+								if (!(KingOnTable[ii].KingThinking[0].IsSup[j]))
+									continue;
 
 								KingOnTable[ii].KingThinking[0].HuristicListKing[j][0] += KingOnTable[ii].KingThinking[0].HuristicAttackValueSup;
 								KingOnTable[ii].KingThinking[0].HuristicListKing[j][1] += KingOnTable[ii].KingThinking[0].HuristicMovementValueSup;
@@ -11006,6 +11032,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 								KingOnTable[ii].KingThinking[0].HuristicListKing[j][7] += KingOnTable[ii].KingThinking[0].HeuristicKingSafeSup;
 								KingOnTable[ii].KingThinking[0].HuristicListKing[j][8] += KingOnTable[ii].KingThinking[0].HeuristicFromCenterSup;
 								KingOnTable[ii].KingThinking[0].HuristicListKing[j][9] += KingOnTable[ii].KingThinking[0].HeuristicKingDangourSup;
+								KingOnTable[ii].KingThinking[0].IsSup[j] = false;
 
 								AllDraw::OutPut += L"\r\nServed King!";
 							}
@@ -11021,12 +11048,12 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 						KingOnTable[ii].KingThinking[0].HeuristicFromCenterSup = 0;
 						KingOnTable[ii].KingThinking[0].HeuristicKingDangourSup = 0;
 
-						KingOnTable[ii].KingThinking[0].IsSup[j] = false;
+						
 					}
 				}
 				else
 				{
-					if (KingOnTable[ii].KingThinking[0].IsSup[j])
+					//if (KingOnTable[ii].KingThinking[0].IsSup[j])
 					{
 						for (int i = KingMidle; i < KingHigh; i++)
 						{
@@ -11037,6 +11064,9 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 							//int j = FoundTableIndex(this.KingOnTable[ii].KingThinking[0].TableListKing, KingOnTable[ii].KingThinking[0].TableConst);
 							for (int j = 0; j < KingOnTable[ii].KingThinking[0].HuristicListKing.size(); j++)
 							{
+								if (!(KingOnTable[ii].KingThinking[0].IsSup[j]))
+									continue;
+
 
 								KingOnTable[ii].KingThinking[0].HuristicListKing[j][0] += KingOnTable[ii].KingThinking[0].HuristicAttackValueSup;
 								KingOnTable[ii].KingThinking[0].HuristicListKing[j][1] += KingOnTable[ii].KingThinking[0].HuristicMovementValueSup;
@@ -11048,6 +11078,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 								KingOnTable[ii].KingThinking[0].HuristicListKing[j][7] += KingOnTable[ii].KingThinking[0].HeuristicKingSafeSup;
 								KingOnTable[ii].KingThinking[0].HuristicListKing[j][8] += KingOnTable[ii].KingThinking[0].HeuristicFromCenterSup;
 								KingOnTable[ii].KingThinking[0].HuristicListKing[j][9] += KingOnTable[ii].KingThinking[0].HeuristicKingDangourSup;
+								KingOnTable[ii].KingThinking[0].IsSup[j] = false;
 
 								AllDraw::OutPut += L"\r\nServed King!";
 							}
@@ -11063,7 +11094,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 						KingOnTable[ii].KingThinking[0].HeuristicFromCenterSup = 0;
 						KingOnTable[ii].KingThinking[0].HeuristicKingDangourSup = 0;
 
-						KingOnTable[ii].KingThinking[0].IsSup[j] = false;
+						
 					}
 				}
 			}
@@ -14121,7 +14152,7 @@ bool  AllDraw::FullGameThinkingElephantGray(int a, int Order, int iAStarGreedy, 
 	////Parallel.For(0, ElefantMidle, ik =>
 	for (int ik = 0; ik < ElefantMidle; ik++)
 	{
-		if (((&SolderesOnTable) != nullptr) && ((&ElephantOnTable[ik]) != nullptr) && ((&(ElephantOnTable[ik].ElefantThinking)) != nullptr) && ((&(ElephantOnTable[ik].ElefantThinking)) != nullptr) && (!ElephantOnTable[ik].ElefantThinking[0].IsSupHu[j]))
+		if (((&SolderesOnTable) != nullptr) && ((&ElephantOnTable[ik]) != nullptr) && ((&(ElephantOnTable[ik].ElefantThinking)) != nullptr) && ((&(ElephantOnTable[ik].ElefantThinking)) != nullptr) 
 		{
 			Do = FullGameThinkingElephant(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
 		}
@@ -14916,7 +14947,7 @@ bool  AllDraw::FullGameThinkingElephantBrown(int a, int Order, int iAStarGreedy,
 	//Elephant
 	for (int ik = ElefantMidle; ik < ElefantHigh; ik++)
 	{
-		if (((&ElephantOnTable) != nullptr) && ((&ElephantOnTable[ik]) != nullptr) && ((&(ElephantOnTable[ik].ElefantThinking)) != nullptr) && ((&(ElephantOnTable[ik].ElefantThinking)) != nullptr) && (!ElephantOnTable[ik].ElefantThinking[0].IsSupHu[j]))
+		if (((&ElephantOnTable) != nullptr) && ((&ElephantOnTable[ik]) != nullptr) && ((&(ElephantOnTable[ik].ElefantThinking)) != nullptr) && ((&(ElephantOnTable[ik].ElefantThinking)) != nullptr) 
 		{
 
 			Do = FullGameThinkingElephant(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);

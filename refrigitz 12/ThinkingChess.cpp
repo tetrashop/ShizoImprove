@@ -241,6 +241,9 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 			HitNumberHourse = std::vector<int>();
 			HitNumberCastle = std::vector<int>();
 			HitNumberMinister = std::vector<int>();
+			IsSup = std::vector<bool>();
+			 IsSupHu = std::vector<bool>();
+
 			HitNumberKing = std::vector<int>();
 			PenaltyRegardListSolder = std::vector<LearningKrinskyAtamata>();
 			PenaltyRegardListElefant = std::vector<LearningKrinskyAtamata>();
@@ -8283,14 +8286,21 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 				bool Sup = false;
 				if (TableS[RowDestination][ColumnDestination] > 0 && TableS[RowSource][ColumnSource] > 0)
 				{
-					IsSup = true;
-					IsSupHu = true;
+					IsSup.push_back(true);
+					IsSupHu.push_back(true);
 					Sup = true;
 				}
+				else				
 				if (TableS[RowDestination][ColumnDestination] < 0 && TableS[RowSource][ColumnSource] < 0)
 				{
-					IsSup = true;
-					IsSupHu = true;
+					IsSup.push_back(true);
+					IsSupHu.push_back(true);
+					Sup = true;
+				}
+				else
+				{
+					IsSup.push_back(true);
+					IsSupHu.push_back(true);
 					Sup = true;
 				}
 				if (!Sup)
@@ -8486,16 +8496,23 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 				bool Sup = false;
 				if (TableS[RowDestination][ColumnDestination] > 0 && TableS[RowSource][ColumnSource] > 0)
 				{
-					IsSup = true;
-					IsSupHu = true;
+					IsSup.push_back(true);
+					IsSupHu.push_back(true);
 					Sup = true;
 				}
-				if (TableS[RowDestination][ColumnDestination] < 0 && TableS[RowSource][ColumnSource] < 0)
-				{
-					IsSup = true;
-					IsSupHu = true;
-					Sup = true;
-				}
+				else
+					if (TableS[RowDestination][ColumnDestination] < 0 && TableS[RowSource][ColumnSource] < 0)
+					{
+						IsSup.push_back(true);
+						IsSupHu.push_back(true);
+						Sup = true;
+					}
+					else
+					{
+						IsSup.push_back(true);
+						IsSupHu.push_back(true);
+						Sup = true;
+					}
 				if (!Sup)
 				{
 
@@ -9372,16 +9389,23 @@ inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !
 				bool Sup = false;
 				if (TableS[RowDestination][ColumnDestination] > 0 && TableS[RowSource][ColumnSource] > 0)
 				{
-					IsSup = true;
-					IsSupHu = true;
+					IsSup.push_back(true);
+					IsSupHu.push_back(true);
 					Sup = true;
 				}
-				if (TableS[RowDestination][ColumnDestination] < 0 && TableS[RowSource][ColumnSource] < 0)
-				{
-					IsSup = true;
-					IsSupHu = true;
-					Sup = true;
-				}
+				else
+					if (TableS[RowDestination][ColumnDestination] < 0 && TableS[RowSource][ColumnSource] < 0)
+					{
+						IsSup.push_back(true);
+						IsSupHu.push_back(true);
+						Sup = true;
+					}
+					else
+					{
+						IsSup.push_back(true);
+						IsSupHu.push_back(true);
+						Sup = true;
+					}
 				if (!Sup)
 				{
 

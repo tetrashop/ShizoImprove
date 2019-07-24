@@ -8425,7 +8425,7 @@ return Double.MinValue;
                                 RemoveAtList(kind);
                                 AddAtList(kind, Current);
                                 CheckedM = 3;
-                                return true;
+                                //return true;
                             }
 
 
@@ -8444,7 +8444,7 @@ return Double.MinValue;
                                 Current.LearningAlgorithmRegard();
                                 AddAtList(kind, Current);
                                 CheckedM = 3;
-                                return true;
+                                //return true;
                             }
                         }
                         if (//(AllDraw.OrderPlate == -1 && AA.CheckBrown)|| 
@@ -8461,7 +8461,7 @@ return Double.MinValue;
                                 RemoveAtList(kind);
                                 AddAtList(kind, Current);
                                 CheckedM = 3;
-                                return true;
+                                //return true;
                             }
 
 
@@ -8480,7 +8480,7 @@ return Double.MinValue;
                                 Current.LearningAlgorithmPenalty();
                                 AddAtList(kind, Current);
                                 CheckedM = 3;
-                                return true;
+                                //return true;
                             }
                         }
 
@@ -8495,7 +8495,7 @@ return Double.MinValue;
                                 Current.LearningAlgorithmPenalty();
                                 AddAtList(kind, Current);
                                 CheckedM = 3;
-                                return true;
+                                //return true;
                             }*/
                         }
 
@@ -8504,24 +8504,28 @@ return Double.MinValue;
                             DoEnemySelf = false;
                             EnemyCheckMateActionsString= true;
                             CheckedM = -2;
+                            //return true;
                         }
                         if (Order == -1 && AA.CheckMateGray)
                         {
                             DoEnemySelf = false;
                             EnemyCheckMateActionsString= true;
                             CheckedM = -2;
+                            //return true;
                         }
                         if (Order == 1 && AA.CheckMateGray)
                         {
 
                             EnemyCheckMateActionsString = false;
                             CheckedM = -2;
+                            //return true;
                         }
                         if (Order == -1 && AA.CheckMateBrown)
                         {
 
                             EnemyCheckMateActionsString= false;
                             CheckedM = -2;
+                            //return true;
                         }
 
                         if (Order == 1 && AA.CheckGray)
@@ -8533,6 +8537,7 @@ return Double.MinValue;
                                 NumberOfPenalties++;
                             }
                             CheckedM = -1;
+                            //return true;
                         }
                         else
                             if (Order == -1 && AA.CheckBrown)
@@ -8544,6 +8549,7 @@ return Double.MinValue;
                                 NumberOfPenalties++;
                             }
                             CheckedM = -1;
+                            //return true;
                         }
                     }
                     if (RETURN)

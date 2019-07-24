@@ -13743,6 +13743,9 @@ if (Kind == 2)
                         Object O = new Object();
                         lock (O)
                         {
+                            if (CheckeHuristci(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j], Order, ik, j, 0))
+                                continue;
+
                             if (AllDraw.OrderPlate == Order)
                             {
                                 if (SolderesOnTable[ik].SoldierThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessS || (SolderesOnTable[ik].SoldierThinking[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
@@ -13803,6 +13806,10 @@ if (Kind == 2)
                         Object O = new Object();
                         lock (O)
                         {
+                            if (CheckeHuristci(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j], Order, ik, j, 0))
+                                continue;
+
+
                             if (AllDraw.OrderPlate == Order)
                             {
                                 if (ElephantOnTable[ik].ElefantThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessE || (ElephantOnTable[ik].ElefantThinking[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
@@ -13866,6 +13873,8 @@ if (Kind == 2)
                         Object O = new Object();
                         lock (O)
                         {
+                            if (CheckeHuristci(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j], Order, ik, j, 0))
+                                continue;
 
                             if (AllDraw.OrderPlate == Order)
                             {
@@ -13928,6 +13937,9 @@ if (Kind == 2)
                         Object O = new Object();
                         lock (O)
                         {
+                            if (CheckeHuristci(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j], Order, ik, j, 0))
+                                continue;
+
                             if (AllDraw.OrderPlate == Order)
                             {
                                 if (CastlesOnTable[ik].CastleThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessB || (CastlesOnTable[ik].CastleThinking[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
@@ -13992,6 +14004,9 @@ if (Kind == 2)
                         continue;
                     for (j = 0; j < MinisterOnTable[ik].MinisterThinking[0].HuristicListMinister.Count; j++)
                     {
+                        if (CheckeHuristci(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j], Order, ik, j, 0))
+                            continue;
+
 
                         Object O = new Object();
                         lock (O)
@@ -14063,6 +14078,9 @@ if (Kind == 2)
                         Object O = new Object();
                         lock (O)
                         {
+                            if (CheckeHuristci(KingOnTable[ik].KingThinking[0].TableListKing[j], Order, ik, j, 0))
+                                continue;
+
                             if (AllDraw.OrderPlate == Order)
                             {
                                 if (KingOnTable[ik].KingThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessK || (KingOnTable[ik].KingThinking[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
@@ -14277,6 +14295,10 @@ if (Kind == 2)
                     //Soldier.
                     for (j = 0; j < SolderesOnTable[ik].SoldierThinking[0].HuristicListSolder.Count; j++)
                     {
+                        if (CheckeHuristci(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j], Order, ik, j, 0))
+                            continue;
+
+
                         if (AllDraw.OrderPlate == Order)
                         {
                             if (SolderesOnTable[ik].SoldierThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessS || (SolderesOnTable[ik].SoldierThinking[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
@@ -14336,6 +14358,9 @@ if (Kind == 2)
                         continue;
                     for (j = 0; j < ElephantOnTable[ik].ElefantThinking[0].HuristicListElefant.Count; j++)
                     {
+                        if (CheckeHuristci(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j], Order, ik, j, 0))
+                            continue;
+
                         if (AllDraw.OrderPlate == Order)
                         {
                             if (ElephantOnTable[ik].ElefantThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessE || (ElephantOnTable[ik].ElefantThinking[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
@@ -14399,6 +14424,9 @@ if (Kind == 2)
                         continue;
                     for (j = 0; j < HoursesOnTable[ik].HourseThinking[0].HuristicListHourse.Count; j++)
                     {
+                        if (CheckeHuristci(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j], Order, ik, j, 0))
+                            continue;
+
                         if (AllDraw.OrderPlate == Order)
                         {
                             if (HoursesOnTable[ik].HourseThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessH || (HoursesOnTable[ik].HourseThinking[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
@@ -14532,6 +14560,9 @@ if (Kind == 2)
                         continue;
                     for (j = 0; j < CastlesOnTable[ik].CastleThinking[0].HuristicListCastle.Count; j++)
                     {
+                        if (CheckeHuristci(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j], Order, ik, j, 0))
+                            continue;
+
 
                         if (AllDraw.OrderPlate == Order)
                         {
@@ -14600,6 +14631,9 @@ if (Kind == 2)
                         continue;
                     for (j = 0; j < MinisterOnTable[ik].MinisterThinking[0].HuristicListMinister.Count; j++)
                     {
+                        if (CheckeHuristci(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j], Order, ik, j, 0))
+                            continue;
+
                         if (AllDraw.OrderPlate == Order)
                         {
                             if (MinisterOnTable[ik].MinisterThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessM || (MinisterOnTable[ik].MinisterThinking[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
@@ -14649,6 +14683,9 @@ if (Kind == 2)
                         continue;
                     for (j = 0; j < KingOnTable[ik].KingThinking[0].HuristicListKing.Count; j++)
                     {
+                        if (CheckeHuristci(KingOnTable[ik].KingThinking[0].TableListKing[j], Order, ik, j, 0))
+                            continue;
+
                         if (AllDraw.OrderPlate == Order)
                         {
                             if (KingOnTable[ik].KingThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessK || (KingOnTable[ik].KingThinking[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
@@ -15155,6 +15192,9 @@ if (Kind == 2)
                     Object ooo = new Object();
                     lock (ooo)
                     {
+                        if (CheckeHuristci(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j], Order, ik, j, 0))
+                            continue;
+
                         if (SolderesOnTable[ik].SoldierThinking[0].IsSupHu[j])
                             continue;
                         try
@@ -15474,6 +15514,9 @@ if (Kind == 2)
                     Object ooo = new Object();
                     lock (ooo)
                     {
+                        if (CheckeHuristci(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j], Order, ik, j, 0))
+                            continue;
+
                         if (ElephantOnTable[ik].ElefantThinking[0].IsSupHu[j])
                             continue;
                         try
@@ -15483,6 +15526,7 @@ if (Kind == 2)
                                 if (ElephantOnTable[ik].ElefantThinking[0].PenaltyRegardListElefant[j].IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT)//&& ElephantOnTable[ik].ElefantThinking[0].PenaltyRegardListElefant[j].IsRewardAction() != 1 ||(!UsePenaltyRegardMechnisamT)
                                 )
                                 {
+                                  
                                     //if (Index[1] != -1)
                                     {
                                         if (AllDraw.Blitz)
@@ -15788,6 +15832,9 @@ if (Kind == 2)
                     Object ooo = new Object();
                     lock (ooo)
                     {
+                        if (CheckeHuristci(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j], Order, ik, j, 0))
+                            continue;
+
                         if (HoursesOnTable[ik].HourseThinking[0].IsSupHu[j])
                             continue;
 
@@ -16108,6 +16155,9 @@ if (Kind == 2)
                 ////Parallel.For(0, CastlesOnTable[ik].CastleThinking[0].TableListCastle.Count, j =>
                 for (int j = 0; j < CastlesOnTable[ik].CastleThinking[0].TableListCastle.Count; j++)
                 {
+                    if (CheckeHuristci(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j], Order, ik, j, 0))
+                        continue;
+
                     if (CastlesOnTable[ik].CastleThinking[0].IsSupHu[j])
                         continue;
                     Object ooo = new Object();
@@ -16416,6 +16466,9 @@ if (Kind == 2)
                 ////Parallel.For(0, MinisterOnTable[ik].MinisterThinking[0].TableListMinister.Count, j =>
                 for (int j = 0; j < MinisterOnTable[ik].MinisterThinking[0].TableListMinister.Count; j++)
                 {
+                    if (CheckeHuristci(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j], Order, ik, j, 0))
+                        continue;
+
                     if (MinisterOnTable[ik].MinisterThinking[0].IsSupHu[j])
                         continue;
 
@@ -16729,6 +16782,9 @@ if (Kind == 2)
                 // //Parallel.For(0, KingOnTable[ik].KingThinking[0].TableListKing.Count, j =>
                 for (int j = 0; j < KingOnTable[ik].KingThinking[0].TableListKing.Count; j++)
                 {
+                    if (CheckeHuristci(KingOnTable[ik].KingThinking[0].TableListKing[j], Order, ik, j, 0))
+                        continue;
+
                     if (KingOnTable[ik].KingThinking[0].IsSupHu[j])
                         continue;
 
