@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 //Ramin Edjlal.CopyRight 2014.AllRightReserved.
-namespace LearningMachine
+namespace RefrigtzW
 {
     [Serializable]
     public class Bit

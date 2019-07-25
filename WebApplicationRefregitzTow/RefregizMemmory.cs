@@ -1,4 +1,4 @@
-﻿/**************************************************************************************************************
+/**************************************************************************************************************
  * Ramin Edjlal Copyright 1397/04/20 **************************************************************************
  * 1397/04/26:Problem in Seirlization Recurisvely of linked list for refrigitz.********************************
  * ************************************************************************************************************
@@ -30,6 +30,7 @@ namespace RefrigtzW
         public int Kind = 0;
         static RefrigtzW.RefregizMemmory Node;
         RefrigtzW.AllDraw Current = null;
+        RefrigtzW.AllDraw CurrentQ = null;
         public List<RefrigtzW.RefregizMemmory> NextS = null;
         public List<RefrigtzW.RefregizMemmory> NextE = null;
         public List<RefrigtzW.RefregizMemmory> NextH = null;
@@ -41,16 +42,14 @@ namespace RefrigtzW
 
         static void Log(Exception ex)
         {
-            try
-            {
+            
                 Object a = new Object();
                 lock (a)
                 {
                     string stackTrace = ex.ToString();
                     File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
                 }
-            }
-            catch (Exception t) { Log(t); }
+           
         }
         public RefregizMemmory(bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments//) : base(MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments
             )
@@ -83,314 +82,579 @@ namespace RefrigtzW
             lock (o)
             {
 
-                try
-                {
+                
+
                     if (Current != null)
                     {
                         //Current.Clone(AllDrawCurrentAccess);
                         Formatters.Serialize(DummyFileStream, this);
                         //Kind = Kind;
-                   /*     if (Order == 1)
-                        {
-                            //if (Kind == 1)
-                            {
-                                for (int i = 0; i < Current.SodierMidle; i++)
-                                {
-                                    //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
-                                    try
-                                    {
-                                        for (int j = 0; j < Current.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; j++)
-                                        {
-                                            Object O = new Object();
-                                            lock (O)
-                                            {
-                                                iii = i;
-                                                jjj = j;
-                                                RefregizMemmory tCurrent = ReterunAstrarGreedysolder(i, j, this);
-                                                tCurrent.NewListOfNextBegins = false;
-                                                tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j], Order * -1);
-                                            }
-                                        }
-                                    }
-                                    catch (Exception ttt) { Log(ttt); }
-                                }
-                            }
-                            //else if (Kind == 2)
-                            {
-                                for (int i = 0; i < Current.ElefantMidle; i++)
-                                {
-                                    try
-                                    {
-                                        //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
-                                        for (int j = 0; j < Current.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; j++)
-                                        {
-                                            Object O = new Object();
-                                            lock (O)
-                                            {
-                                                iii = i;
-                                                jjj = j;
-                                                RefregizMemmory tCurrent = ReterunAstrarGreedyelephant(i, j, this);
-                                                tCurrent.NewListOfNextBegins = false;
-                                                tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j], Order * -1);
-                                            }
-                                        }
-                                    }
-                                    catch (Exception ttt) { Log(ttt); }
-                                }
-                            }
-                            //else if (Kind == 3)
-                            {
-                                for (int i = 0; i < Current.HourseMidle; i++)
-                                {
-                                    //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
+                        /*     if (Order == 1)
+                             {
+                                 //if (Kind == 1)
+                                 {
+                                     for (int i = 0; i < Current.SodierMidle; i++)
+                                     {
+                                         //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
+                                         
+                                             for (int j = 0; j < Current.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; j++)
+                                             {
+                                                 Object O = new Object();
+                                                 lock (O)
+                                                 {
+                                                     iii = i;
+                                                     jjj = j;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedysolder(i, j, this);
+                                                     tCurrent.NewListOfNextBegins = false;
+                                                     tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j], Order * -1);
+                                                 }
+                                             }
+                                        
+                                     }
+                                 }
+                                 //else if (Kind == 2)
+                                 {
+                                     for (int i = 0; i < Current.ElefantMidle; i++)
+                                     {
+                                         
+                                             //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
+                                             for (int j = 0; j < Current.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; j++)
+                                             {
+                                                 Object O = new Object();
+                                                 lock (O)
+                                                 {
+                                                     iii = i;
+                                                     jjj = j;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyelephant(i, j, this);
+                                                     tCurrent.NewListOfNextBegins = false;
+                                                     tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j], Order * -1);
+                                                 }
+                                             }
+                                        
+                                     }
+                                 }
+                                 //else if (Kind == 3)
+                                 {
+                                     for (int i = 0; i < Current.HourseMidle; i++)
+                                     {
+                                         //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
 
-                                    try
-                                    {
-                                        for (int j = 0; j < Current.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; j++)
-                                        {
-                                            Object O = new Object();
-                                            lock (O)
-                                            {
-                                                iii = i;
-                                                jjj = j;
-                                                RefregizMemmory tCurrent = ReterunAstrarGreedyHours(i, j, this);
-                                                tCurrent.NewListOfNextBegins = false;
-                                                tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j], Order * -1);
-                                            }
-                                        }
-                                    }
-                                    catch (Exception ttt) { Log(ttt); }
-                                }
-                            }
-                            //else if (Kind == 4)
-                            {
-                                for (int i = 0; i < Current.CastleMidle; i++)
-                                {
-                                    //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
+                                         
+                                             for (int j = 0; j < Current.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; j++)
+                                             {
+                                                 Object O = new Object();
+                                                 lock (O)
+                                                 {
+                                                     iii = i;
+                                                     jjj = j;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyHours(i, j, this);
+                                                     tCurrent.NewListOfNextBegins = false;
+                                                     tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j], Order * -1);
+                                                 }
+                                             }
+                                        
+                                     }
+                                 }
+                                 //else if (Kind == 4)
+                                 {
+                                     for (int i = 0; i < Current.CastleMidle; i++)
+                                     {
+                                         //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
 
-                                    try
-                                    {
-                                        for (int j = 0; j < Current.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; j++)
-                                        {
-                                            Object O = new Object();
-                                            lock (O)
-                                            {
-                                                iii = i;
-                                                jjj = j;
-                                                RefregizMemmory tCurrent = ReterunAstrarGreedyCastle(i, j, this);
-                                                tCurrent.NewListOfNextBegins = false;
-                                                tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j], Order * -1);
-                                            }
-                                        }
-                                    }
-                                    catch (Exception ttt) { Log(ttt); }
-                                }
-                            }
-                            // else if (Kind == 5)
-                            {
-                                for (int i = 0; i < Current.MinisterMidle; i++)
-                                {
-                                    //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
+                                         
+                                             for (int j = 0; j < Current.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; j++)
+                                             {
+                                                 Object O = new Object();
+                                                 lock (O)
+                                                 {
+                                                     iii = i;
+                                                     jjj = j;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyCastle(i, j, this);
+                                                     tCurrent.NewListOfNextBegins = false;
+                                                     tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j], Order * -1);
+                                                 }
+                                             }
+                                        
+                                     }
+                                 }
+                                 // else if (Kind == 5)
+                                 {
+                                     for (int i = 0; i < Current.MinisterMidle; i++)
+                                     {
+                                         //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
 
-                                    try
-                                    {
-                                        for (int j = 0; j < Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; j++)
-                                        {
-                                            Object O = new Object();
-                                            lock (O)
-                                            {
-                                                iii = i;
-                                                jjj = j;
-                                                RefregizMemmory tCurrent = ReterunAstrarGreedyMinister(i, j, this);
-                                                tCurrent.NewListOfNextBegins = false;
-                                                tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j], Order * -1);
-                                            }
-                                        }
+                                         
+                                             for (int j = 0; j < Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; j++)
+                                             {
+                                                 Object O = new Object();
+                                                 lock (O)
+                                                 {
+                                                     iii = i;
+                                                     jjj = j;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyMinister(i, j, this);
+                                                     tCurrent.NewListOfNextBegins = false;
+                                                     tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j], Order * -1);
+                                                 }
+                                             }
 
-                                    }
-                                    catch (Exception ttt) { Log(ttt); }
-                                }
-                            }
-                            //else if (Kind == 6)
-                            {
-                                for (int i = 0; i < Current.KingMidle; i++)
-                                {
-                                    //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
+                                        
+                                     }
+                                 }
+                                 //else if (Kind == 6)
+                                 {
+                                     for (int i = 0; i < Current.KingMidle; i++)
+                                     {
+                                         //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
 
-                                    try
-                                    {
-                                        for (int j = 0; j < Current.KingOnTable[i].KingThinking[0].AStarGreedy.Count; j++)
-                                        {
-                                            Object O = new Object();
-                                            lock (O)
-                                            {
-                                                iii = i;
-                                                jjj = j;
-                                                RefregizMemmory tCurrent = ReterunAstrarGreedyKing(i, j, this);
-                                                tCurrent.NewListOfNextBegins = false;
-                                                tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.KingOnTable[i].KingThinking[0].AStarGreedy[j], Order * -1);
-                                            }
-                                        }
-                                    }
-                                    catch (Exception ttt) { Log(ttt); }
-                                }
-                            }
-                        }
-                        else
-                        {
-                            //if (Kind == 1)
-                            {
-                                for (int i = Current.SodierMidle; i < Current.SodierHigh; i++)
-                                {
-                                    //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
-                                    try
-                                    {
-                                        for (int j = 0; j < Current.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; j++)
-                                        {
-                                            Object O = new Object();
-                                            lock (O)
-                                            {
-                                                iii = i;
-                                                jjj = j;
-                                                RefregizMemmory tCurrent = ReterunAstrarGreedysolder(i, j, this);
-                                                tCurrent.NewListOfNextBegins = false;
-                                                tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j], Order * -1);
-                                            }
-                                        }
-                                    }
-                                    catch (Exception ttt) { Log(ttt); }
-                                }
-                            }
-                            //else if (Kind == 2)
-                            {
+                                         
+                                             for (int j = 0; j < Current.KingOnTable[i].KingThinking[0].AStarGreedy.Count; j++)
+                                             {
+                                                 Object O = new Object();
+                                                 lock (O)
+                                                 {
+                                                     iii = i;
+                                                     jjj = j;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyKing(i, j, this);
+                                                     tCurrent.NewListOfNextBegins = false;
+                                                     tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.KingOnTable[i].KingThinking[0].AStarGreedy[j], Order * -1);
+                                                 }
+                                             }
+                                        
+                                     }
+                                 }
+                             }
+                             else
+                             {
+                                 //if (Kind == 1)
+                                 {
+                                     for (int i = Current.SodierMidle; i < Current.SodierHigh; i++)
+                                     {
+                                         //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
+                                         
+                                             for (int j = 0; j < Current.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; j++)
+                                             {
+                                                 Object O = new Object();
+                                                 lock (O)
+                                                 {
+                                                     iii = i;
+                                                     jjj = j;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedysolder(i, j, this);
+                                                     tCurrent.NewListOfNextBegins = false;
+                                                     tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j], Order * -1);
+                                                 }
+                                             }
+                                        
+                                     }
+                                 }
+                                 //else if (Kind == 2)
+                                 {
 
-                                for (int i = Current.ElefantMidle; i < Current.ElefantHigh; i++)
-                                {
-                                    //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
-                                    try
-                                    {
-                                        for (int j = 0; j < Current.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; j++)
-                                        {
-                                            Object O = new Object();
-                                            lock (O)
-                                            {
-                                                iii = i;
-                                                jjj = j;
-                                                RefregizMemmory tCurrent = ReterunAstrarGreedyelephant(i, j, this);
-                                                tCurrent.NewListOfNextBegins = false;
-                                                tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j], Order * -1);
-                                            }
-                                        }
-                                    }
-                                    catch (Exception ttt) { Log(ttt); }
-                                }
-                            }
-                            //else if (Kind == 3)
-                            {
+                                     for (int i = Current.ElefantMidle; i < Current.ElefantHigh; i++)
+                                     {
+                                         //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
+                                         
+                                             for (int j = 0; j < Current.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; j++)
+                                             {
+                                                 Object O = new Object();
+                                                 lock (O)
+                                                 {
+                                                     iii = i;
+                                                     jjj = j;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyelephant(i, j, this);
+                                                     tCurrent.NewListOfNextBegins = false;
+                                                     tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j], Order * -1);
+                                                 }
+                                             }
+                                        
+                                     }
+                                 }
+                                 //else if (Kind == 3)
+                                 {
 
-                                for (int i = Current.HourseMidle; i < Current.HourseHight; i++)
-                                {
-                                    //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
+                                     for (int i = Current.HourseMidle; i < Current.HourseHight; i++)
+                                     {
+                                         //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
 
-                                    try
-                                    {
-                                        for (int j = 0; j < Current.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; j++)
-                                        {
-                                            Object O = new Object();
-                                            lock (O)
-                                            {
-                                                iii = i;
-                                                jjj = j;
-                                                RefregizMemmory tCurrent = ReterunAstrarGreedyHours(i, j, this);
-                                                tCurrent.NewListOfNextBegins = false;
-                                                tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j], Order * -1);
-                                            }
-                                        }
-                                    }
-                                    catch (Exception ttt) { Log(ttt); }
-                                }
-                            }
-                            //else if (Kind == 4)
-                            {
+                                         
+                                             for (int j = 0; j < Current.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; j++)
+                                             {
+                                                 Object O = new Object();
+                                                 lock (O)
+                                                 {
+                                                     iii = i;
+                                                     jjj = j;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyHours(i, j, this);
+                                                     tCurrent.NewListOfNextBegins = false;
+                                                     tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j], Order * -1);
+                                                 }
+                                             }
+                                        
+                                     }
+                                 }
+                                 //else if (Kind == 4)
+                                 {
 
-                                for (int i = Current.CastleMidle; i < Current.CastleHigh; i++)
-                                {
-                                    //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
+                                     for (int i = Current.CastleMidle; i < Current.CastleHigh; i++)
+                                     {
+                                         //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
 
-                                    try
-                                    {
-                                        for (int j = 0; j < Current.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; j++)
-                                        {
-                                            Object O = new Object();
-                                            lock (O)
-                                            {
-                                                iii = i;
-                                                jjj = j;
-                                                RefregizMemmory tCurrent = ReterunAstrarGreedyCastle(i, j, this);
-                                                tCurrent.NewListOfNextBegins = false;
-                                                tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j], Order * -1);
-                                            }
-                                        }
-                                    }
-                                    catch (Exception ttt) { Log(ttt); }
-                                }
-                            }
-                            //else if (Kind == 5)
-                            {
-                                for (int i = Current.MinisterMidle; i < Current.MinisterHigh; i++)
-                                {
-                                    //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
+                                         
+                                             for (int j = 0; j < Current.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; j++)
+                                             {
+                                                 Object O = new Object();
+                                                 lock (O)
+                                                 {
+                                                     iii = i;
+                                                     jjj = j;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyCastle(i, j, this);
+                                                     tCurrent.NewListOfNextBegins = false;
+                                                     tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j], Order * -1);
+                                                 }
+                                             }
+                                        
+                                     }
+                                 }
+                                 //else if (Kind == 5)
+                                 {
+                                     for (int i = Current.MinisterMidle; i < Current.MinisterHigh; i++)
+                                     {
+                                         //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
 
-                                    try
-                                    {
-                                        for (int j = 0; j < Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; j++)
-                                        {
-                                            Object O = new Object();
-                                            lock (O)
-                                            {
-                                                iii = i;
-                                                jjj = j;
-                                                RefregizMemmory tCurrent = ReterunAstrarGreedyMinister(i, j, this);
-                                                tCurrent.NewListOfNextBegins = false;
-                                                tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j], Order * -1);
-                                            }
-                                        }
+                                         
+                                             for (int j = 0; j < Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; j++)
+                                             {
+                                                 Object O = new Object();
+                                                 lock (O)
+                                                 {
+                                                     iii = i;
+                                                     jjj = j;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyMinister(i, j, this);
+                                                     tCurrent.NewListOfNextBegins = false;
+                                                     tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j], Order * -1);
+                                                 }
+                                             }
 
-                                    }
-                                    catch (Exception ttt) { Log(ttt); }
-                                }
-                            }
-                            // else if (Kind == 6)
-                            {
-                                for (int i = Current.KingMidle; i < Current.MinisterHigh; i++)
-                                {
-                                    //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
+                                        
+                                     }
+                                 }
+                                 // else if (Kind == 6)
+                                 {
+                                     for (int i = Current.KingMidle; i < Current.MinisterHigh; i++)
+                                     {
+                                         //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
 
-                                    try
-                                    {
-                                        for (int j = 0; j < Current.KingOnTable[i].KingThinking[0].AStarGreedy.Count; j++)
-                                        {
-                                            Object O = new Object();
-                                            lock (O)
-                                            {
-                                                iii = i;
-                                                jjj = j;
-                                                RefregizMemmory tCurrent = ReterunAstrarGreedyKing(i, j, this);
-                                                tCurrent.NewListOfNextBegins = false;
-                                                tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.KingOnTable[i].KingThinking[0].AStarGreedy[j], Order * -1);
-                                            }
-                                        }
-                                    }
-                                    catch (Exception ttt) { Log(ttt); }
-                                }
-                            }
-                        }*/
+                                         
+                                             for (int j = 0; j < Current.KingOnTable[i].KingThinking[0].AStarGreedy.Count; j++)
+                                             {
+                                                 Object O = new Object();
+                                                 lock (O)
+                                                 {
+                                                     iii = i;
+                                                     jjj = j;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyKing(i, j, this);
+                                                     tCurrent.NewListOfNextBegins = false;
+                                                     tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.KingOnTable[i].KingThinking[0].AStarGreedy[j], Order * -1);
+                                                 }
+                                             }
+                                        
+                                     }
+                                 }
+                             }*/
                     }
-                }
-                catch (Exception tt)
+               
+                /*while (t != null)
                 {
-                    Log(tt);
-                }
+                    //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
+                    t = AllDrawNextAccess;
+                }*/
+            }
+        }
+        void RewriteAllDrawRecQ(BinaryFormatter Formatters, FileStream DummyFileStream, int Order)
+        {
+            Object o = new Object();
+            lock (o)
+            {
+
+                
+
+                    if (CurrentQ != null)
+                    {
+                        //Current.Clone(AllDrawCurrentAccess);
+                        Formatters.Serialize(DummyFileStream, this);
+                        //Kind = Kind;
+                        /*     if (Order == 1)
+                             {
+                                 //if (Kind == 1)
+                                 {
+                                     for (int i = 0; i < Current.SodierMidle; i++)
+                                     {
+                                         //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
+                                         
+                                             for (int j = 0; j < Current.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; j++)
+                                             {
+                                                 Object O = new Object();
+                                                 lock (O)
+                                                 {
+                                                     iii = i;
+                                                     jjj = j;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedysolder(i, j, this);
+                                                     tCurrent.NewListOfNextBegins = false;
+                                                     tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j], Order * -1);
+                                                 }
+                                             }
+                                        
+                                     }
+                                 }
+                                 //else if (Kind == 2)
+                                 {
+                                     for (int i = 0; i < Current.ElefantMidle; i++)
+                                     {
+                                         
+                                             //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
+                                             for (int j = 0; j < Current.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; j++)
+                                             {
+                                                 Object O = new Object();
+                                                 lock (O)
+                                                 {
+                                                     iii = i;
+                                                     jjj = j;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyelephant(i, j, this);
+                                                     tCurrent.NewListOfNextBegins = false;
+                                                     tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j], Order * -1);
+                                                 }
+                                             }
+                                        
+                                     }
+                                 }
+                                 //else if (Kind == 3)
+                                 {
+                                     for (int i = 0; i < Current.HourseMidle; i++)
+                                     {
+                                         //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
+
+                                         
+                                             for (int j = 0; j < Current.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; j++)
+                                             {
+                                                 Object O = new Object();
+                                                 lock (O)
+                                                 {
+                                                     iii = i;
+                                                     jjj = j;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyHours(i, j, this);
+                                                     tCurrent.NewListOfNextBegins = false;
+                                                     tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j], Order * -1);
+                                                 }
+                                             }
+                                        
+                                     }
+                                 }
+                                 //else if (Kind == 4)
+                                 {
+                                     for (int i = 0; i < Current.CastleMidle; i++)
+                                     {
+                                         //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
+
+                                         
+                                             for (int j = 0; j < Current.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; j++)
+                                             {
+                                                 Object O = new Object();
+                                                 lock (O)
+                                                 {
+                                                     iii = i;
+                                                     jjj = j;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyCastle(i, j, this);
+                                                     tCurrent.NewListOfNextBegins = false;
+                                                     tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j], Order * -1);
+                                                 }
+                                             }
+                                        
+                                     }
+                                 }
+                                 // else if (Kind == 5)
+                                 {
+                                     for (int i = 0; i < Current.MinisterMidle; i++)
+                                     {
+                                         //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
+
+                                         
+                                             for (int j = 0; j < Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; j++)
+                                             {
+                                                 Object O = new Object();
+                                                 lock (O)
+                                                 {
+                                                     iii = i;
+                                                     jjj = j;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyMinister(i, j, this);
+                                                     tCurrent.NewListOfNextBegins = false;
+                                                     tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j], Order * -1);
+                                                 }
+                                             }
+
+                                        
+                                     }
+                                 }
+                                 //else if (Kind == 6)
+                                 {
+                                     for (int i = 0; i < Current.KingMidle; i++)
+                                     {
+                                         //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
+
+                                         
+                                             for (int j = 0; j < Current.KingOnTable[i].KingThinking[0].AStarGreedy.Count; j++)
+                                             {
+                                                 Object O = new Object();
+                                                 lock (O)
+                                                 {
+                                                     iii = i;
+                                                     jjj = j;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyKing(i, j, this);
+                                                     tCurrent.NewListOfNextBegins = false;
+                                                     tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.KingOnTable[i].KingThinking[0].AStarGreedy[j], Order * -1);
+                                                 }
+                                             }
+                                        
+                                     }
+                                 }
+                             }
+                             else
+                             {
+                                 //if (Kind == 1)
+                                 {
+                                     for (int i = Current.SodierMidle; i < Current.SodierHigh; i++)
+                                     {
+                                         //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
+                                         
+                                             for (int j = 0; j < Current.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; j++)
+                                             {
+                                                 Object O = new Object();
+                                                 lock (O)
+                                                 {
+                                                     iii = i;
+                                                     jjj = j;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedysolder(i, j, this);
+                                                     tCurrent.NewListOfNextBegins = false;
+                                                     tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j], Order * -1);
+                                                 }
+                                             }
+                                        
+                                     }
+                                 }
+                                 //else if (Kind == 2)
+                                 {
+
+                                     for (int i = Current.ElefantMidle; i < Current.ElefantHigh; i++)
+                                     {
+                                         //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
+                                         
+                                             for (int j = 0; j < Current.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; j++)
+                                             {
+                                                 Object O = new Object();
+                                                 lock (O)
+                                                 {
+                                                     iii = i;
+                                                     jjj = j;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyelephant(i, j, this);
+                                                     tCurrent.NewListOfNextBegins = false;
+                                                     tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j], Order * -1);
+                                                 }
+                                             }
+                                        
+                                     }
+                                 }
+                                 //else if (Kind == 3)
+                                 {
+
+                                     for (int i = Current.HourseMidle; i < Current.HourseHight; i++)
+                                     {
+                                         //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
+
+                                         
+                                             for (int j = 0; j < Current.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; j++)
+                                             {
+                                                 Object O = new Object();
+                                                 lock (O)
+                                                 {
+                                                     iii = i;
+                                                     jjj = j;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyHours(i, j, this);
+                                                     tCurrent.NewListOfNextBegins = false;
+                                                     tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j], Order * -1);
+                                                 }
+                                             }
+                                        
+                                     }
+                                 }
+                                 //else if (Kind == 4)
+                                 {
+
+                                     for (int i = Current.CastleMidle; i < Current.CastleHigh; i++)
+                                     {
+                                         //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
+
+                                         
+                                             for (int j = 0; j < Current.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; j++)
+                                             {
+                                                 Object O = new Object();
+                                                 lock (O)
+                                                 {
+                                                     iii = i;
+                                                     jjj = j;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyCastle(i, j, this);
+                                                     tCurrent.NewListOfNextBegins = false;
+                                                     tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j], Order * -1);
+                                                 }
+                                             }
+                                        
+                                     }
+                                 }
+                                 //else if (Kind == 5)
+                                 {
+                                     for (int i = Current.MinisterMidle; i < Current.MinisterHigh; i++)
+                                     {
+                                         //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
+
+                                         
+                                             for (int j = 0; j < Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; j++)
+                                             {
+                                                 Object O = new Object();
+                                                 lock (O)
+                                                 {
+                                                     iii = i;
+                                                     jjj = j;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyMinister(i, j, this);
+                                                     tCurrent.NewListOfNextBegins = false;
+                                                     tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j], Order * -1);
+                                                 }
+                                             }
+
+                                        
+                                     }
+                                 }
+                                 // else if (Kind == 6)
+                                 {
+                                     for (int i = Current.KingMidle; i < Current.MinisterHigh; i++)
+                                     {
+                                         //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
+
+                                         
+                                             for (int j = 0; j < Current.KingOnTable[i].KingThinking[0].AStarGreedy.Count; j++)
+                                             {
+                                                 Object O = new Object();
+                                                 lock (O)
+                                                 {
+                                                     iii = i;
+                                                     jjj = j;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyKing(i, j, this);
+                                                     tCurrent.NewListOfNextBegins = false;
+                                                     tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.KingOnTable[i].KingThinking[0].AStarGreedy[j], Order * -1);
+                                                 }
+                                             }
+                                        
+                                     }
+                                 }
+                             }*/
+                    }
+               
                 /*while (t != null)
                 {
                     //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
@@ -457,12 +721,11 @@ namespace RefrigtzW
 
                 //Current = new RefrigtzW.AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT);
                 FileStream DummyFileStream = null;
-                try
-                {
+                
 
 
                     //RefregizMemmory t = p;
-                    
+
                     FileInfo DummyFileInfo = new FileInfo(SAllDraw);
                     DummyFileInfo.Delete();
                     DummyFileStream = new FileStream(SAllDraw, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.Write);
@@ -474,14 +737,37 @@ namespace RefrigtzW
 
 
                     DummyFileStream.Flush(); DummyFileStream.Close();
-                }
-                catch (Exception o)
-                {
-                    Console.WriteLine(o.Message.ToString());
-                }                
+               
             }
         }
-        public AllDraw Load(int Order)
+        public void RewriteAllDrawQ(int Order)
+        {
+            Object oo = new Object();
+            lock (oo)
+            {
+
+                //Current = new RefrigtzW.AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT);
+                FileStream DummyFileStream = null;
+                
+
+
+                    //RefregizMemmory t = p;
+
+                    FileInfo DummyFileInfo = new FileInfo(SAllDraw);
+                    DummyFileInfo.Delete();
+                    DummyFileStream = new FileStream(SAllDraw, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.Write);
+                    BinaryFormatter Formatters = new BinaryFormatter();
+                    DummyFileStream.Seek(0, SeekOrigin.Begin);
+
+                    //Formatters.Serialize(DummyFileStream, t);
+                    RewriteAllDrawRecQ(Formatters, DummyFileStream, Order);
+
+
+                    DummyFileStream.Flush(); DummyFileStream.Close();
+               
+            }
+        }
+        public AllDraw Load(bool Quantum, int Order)
         {
             Object o = new Object();
             lock (o)
@@ -494,31 +780,52 @@ namespace RefrigtzW
                 //Node.AllDrawNextAccessM = null;
                 //Node.AllDrawNextAccessK = null;
                 //Node.AllDrawCurrentAccess = null;
-                AllDraw t = null; 
-                try
-                {
+                AllDraw t = null;
+                //RefrigtzW.AllDraw tQ = null;
+                
                     FileStream DummyFileStream = new FileStream(SAllDraw, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.ReadWrite);
                     BinaryFormatter Formatters = new BinaryFormatter();
-                 
+
                     Console.WriteLine("Loading...");
                     DummyFileStream.Seek(0, SeekOrigin.Begin);
-                    t = LoadrEC(Order, this, DummyFileStream, Formatters);
-
+                   t = LoadrEC(Quantum, Order, this, DummyFileStream, Formatters);
+                    
                     DummyFileStream.Flush();
                     DummyFileStream.Close();
-                }
-                catch (IOException tt) { Log(tt); }
+               
                 return t;
                 //return Node.al;
             }
         }
-        public AllDraw LoadrEC(int Order, RefrigtzW.RefregizMemmory Last, FileStream DummyFileStream, BinaryFormatter Formatters)
+        public  RefrigtzW.AllDraw LoadQ(bool Quantum, int Order)
+        {
+            Object o = new Object();
+            lock (o)
+            {
+
+                 RefrigtzW.AllDraw tQ = null;
+                
+                    FileStream DummyFileStream = new FileStream(SAllDraw, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.ReadWrite);
+                    BinaryFormatter Formatters = new BinaryFormatter();
+
+                    Console.WriteLine("Loading...");
+                    DummyFileStream.Seek(0, SeekOrigin.Begin);
+                        tQ = LoadrECQ(Quantum, Order, this, DummyFileStream, Formatters);
+
+                    DummyFileStream.Flush();
+                    DummyFileStream.Close();
+               
+                return tQ;
+                //return Node.al;
+            }
+        }
+        public AllDraw LoadrEC(bool Quantum, int Order, RefrigtzW.RefregizMemmory Last, FileStream DummyFileStream, BinaryFormatter Formatters)
         {
             RefregizMemmory Dummy = null;
             Object o = new Object();
             lock (o)
             {
-                
+
                 //Node.AllDrawNextAccessS = null;
                 //Node.AllDrawNextAccessE = null;
                 //Node.AllDrawNextAccessH = null;
@@ -527,9 +834,8 @@ namespace RefrigtzW
                 //Node.AllDrawNextAccessK = null;
                 //Node.AllDrawCurrentAccess = null;
 
-                try
-                {
-                 
+                
+
 
                     //NEWNOD = Node.AllDrawCurrentAccess;
                     while (DummyFileStream.Position < DummyFileStream.Length)
@@ -543,7 +849,7 @@ namespace RefrigtzW
                                 do
                                 {
 
-                                    if (DummyFileStream.Position < DummyFileStream.Length)
+                                    if (DummyFileStream.Position < DummyFileStream.size())
                                         Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
                                     else
                                         break;
@@ -562,7 +868,7 @@ namespace RefrigtzW
                                 {
 
                                     
-                                    if (DummyFileStream.Position < DummyFileStream.Length)
+                                    if (DummyFileStream.Position < DummyFileStream.size())
                                         Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
                                     else
                                         break;
@@ -580,7 +886,7 @@ namespace RefrigtzW
                                 {
 
                                     
-                                    if (DummyFileStream.Position < DummyFileStream.Length)
+                                    if (DummyFileStream.Position < DummyFileStream.size())
                                         Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
                                     else
                                         break;
@@ -598,7 +904,7 @@ namespace RefrigtzW
                                 {
 
                                     
-                                    if (DummyFileStream.Position < DummyFileStream.Length)
+                                    if (DummyFileStream.Position < DummyFileStream.size())
                                         Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
                                     else
                                         break;
@@ -616,7 +922,7 @@ namespace RefrigtzW
                                 {
 
                                     
-                                    if (DummyFileStream.Position < DummyFileStream.Length)
+                                    if (DummyFileStream.Position < DummyFileStream.size())
                                         Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
                                     else
                                         break;
@@ -634,7 +940,7 @@ namespace RefrigtzW
                                 {
 
                                     
-                                    if (DummyFileStream.Position < DummyFileStream.Length)
+                                    if (DummyFileStream.Position < DummyFileStream.size())
                                         Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
                                     else
                                         break;
@@ -650,10 +956,152 @@ namespace RefrigtzW
                         */
                     }
 
-                }
-                catch (IOException tt) { Log(tt); }
+               
                 //return CreateAllDrawFromMemmory(Last, new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT), Order);
                 return Dummy.Current;
+                //return Node.al;
+            }
+        }
+        public RefrigtzW.AllDraw LoadrECQ(bool Quantum, int Order, RefrigtzW.RefregizMemmory Last, FileStream DummyFileStream, BinaryFormatter Formatters)
+        {
+            RefregizMemmory Dummy = null;
+            Object o = new Object();
+            lock (o)
+            {
+
+                //Node.AllDrawNextAccessS = null;
+                //Node.AllDrawNextAccessE = null;
+                //Node.AllDrawNextAccessH = null;
+                //Node.AllDrawNextAccessC = null;
+                //Node.AllDrawNextAccessM = null;
+                //Node.AllDrawNextAccessK = null;
+                //Node.AllDrawCurrentAccess = null;
+
+                
+
+
+                    //NEWNOD = Node.AllDrawCurrentAccess;
+                    while (DummyFileStream.Position < DummyFileStream.Length)
+                    {
+                        Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
+                        //Dummy.CloneSphycose(Last);
+                        /*{
+                            //Last = Node;
+                            if (Dummy.NextS.Count > 0 && Dummy.NewListOfNextBegins)
+                            {
+                                do
+                                {
+
+                                    if (DummyFileStream.Position < DummyFileStream.size())
+                                        Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
+                                    else
+                                        break;
+                                    Last.NextS.Add(Dummy);
+                                } while (!Dummy.NewListOfNextBegins);
+
+                                for (int i = 0; i < Last.NextS.Count; i++)
+                                    Last.NextS[i].Load(Order * -1, Last.NextS[i]);
+
+
+                            }
+                            else
+                            if (Dummy.NextE.Count > 0 && Dummy.NewListOfNextBegins)
+                            {
+                                do
+                                {
+
+                                    
+                                    if (DummyFileStream.Position < DummyFileStream.size())
+                                        Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
+                                    else
+                                        break;
+                                    Last.NextE.Add(Dummy);
+                                } while (!Dummy.NewListOfNextBegins);
+
+                                for (int i = 0; i < Last.NextE.Count; i++)
+                                    Last.NextE[i].Load(Order * -1, Last.NextE[i]);
+
+                            }
+                            else
+                            if (Dummy.NextH.Count > 0 && Dummy.NewListOfNextBegins)
+                            {
+                                do
+                                {
+
+                                    
+                                    if (DummyFileStream.Position < DummyFileStream.size())
+                                        Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
+                                    else
+                                        break;
+                                    Last.NextH.Add(Dummy);
+                                } while (!Dummy.NewListOfNextBegins);
+
+                                for (int i = 0; i < Last.NextH.Count; i++)
+                                    Last.NextH[i].Load(Order * -1, Last.NextH[i]);
+
+                            }
+                            else
+                            if (Dummy.NextC.Count > 0 && Dummy.NewListOfNextBegins)
+                            {
+                                do
+                                {
+
+                                    
+                                    if (DummyFileStream.Position < DummyFileStream.size())
+                                        Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
+                                    else
+                                        break;
+                                    Last.NextC.Add(Dummy);
+                                } while (!Dummy.NewListOfNextBegins);
+
+                                for (int i = 0; i < Last.NextC.Count; i++)
+                                    Last.NextC[i].Load(Order * -1, Last.NextC[i]);
+
+                            }
+                            else
+                            if (Dummy.NextM.Count > 0 && Dummy.NewListOfNextBegins)
+                            {
+                                do
+                                {
+
+                                    
+                                    if (DummyFileStream.Position < DummyFileStream.size())
+                                        Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
+                                    else
+                                        break;
+                                    Last.NextM.Add(Dummy);
+                                } while (!Dummy.NewListOfNextBegins);
+
+                                for (int i = 0; i < Last.NextM.Count; i++)
+                                    Last.NextM[i].Load(Order * -1, Last.NextM[i]);
+
+                            }
+                            else
+                            if (Dummy.NextK.Count > 0 && Dummy.NewListOfNextBegins)
+                            {
+                                do
+                                {
+
+                                    
+                                    if (DummyFileStream.Position < DummyFileStream.size())
+                                        Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
+                                    else
+                                        break;
+                                    Last.NextK.Add(Dummy);
+                                } while (!Dummy.NewListOfNextBegins);
+
+                                for (int i = 0; i < Last.NextK.Count; i++)
+                                    Last.NextK[i].Load(Order * -1, Last.NextK[i]);
+                            }
+                            
+                            
+                        }
+                        */
+                    }
+
+               
+                //return CreateAllDrawFromMemmory(Last, new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT), Order);
+                return Dummy.CurrentQ;
                 //return Node.al;
             }
         }
@@ -668,8 +1116,7 @@ namespace RefrigtzW
                     return null;
                 else
                     t.Current = Last;
-                try
-                {
+                
                     /*if (t.NextS.Count > 0)
                     {
                         for (int i = 0; i < t.NextS.Count; i++)
@@ -727,8 +1174,7 @@ namespace RefrigtzW
                     }                 
 
                 */
-                }
-                catch (IOException tt) { Log(tt); }
+               
                 
                 return t.Current;
             }
@@ -767,11 +1213,7 @@ namespace RefrigtzW
          t = t.AllDrawNextAccess;
          Node = t;
      }
- }
- */
-/*public void AddObject(RefregizMemmory p)
-{
-    RefregizMemmory t = new catch (IOException tt) {Log(tt);  }MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT
+MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT
         );
     t = p.AllDrawNodeAccess;
     while (t.AllDrawNextAccess != null)
@@ -795,12 +1237,26 @@ public RefregizMemmory AllDrawNodeAccess
             set
             { Current = value; }
         }
+        public RefrigtzW.AllDraw AllDrawCurrentAccessQ
+        {
+            get
+            { return CurrentQ; }
+            set
+            { CurrentQ = value; }
+        }
         public int OrderPlateCurrentAccess
         {
             get
             { return Current.OrderP; }
             set
             { Current.OrderP = value; }
+        }
+        public int OrderPlateCurrentAccessQ
+        {
+            get
+            { return CurrentQ.OrderP; }
+            set
+            { CurrentQ.OrderP = value; }
         }
         public RefregizMemmory ReterunAstrarGreedysolder(int i, int j, RefregizMemmory t)
         {

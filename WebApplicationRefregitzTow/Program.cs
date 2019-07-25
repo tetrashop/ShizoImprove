@@ -1,6 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+//using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
 using System.Threading;
@@ -14,21 +15,17 @@ namespace RefrigtzW
         public static long SomeExtremelyLargeNumber { get; private set; }
 
         /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-
+        /// The main en
         static void Log(Exception ex)
         {
-            try
+
+            Object a = new Object();
+            lock (a)
             {
-                Object a = new Object();
-                lock (a)
-                {
-                    string stackTrace = ex.ToString();
-                    File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
-                }
+                string stackTrace = ex.ToString();
+                File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
             }
-            catch (Exception t) { Log(t); }
+
         }
         public static void IncreasingThreadPerformance()
         {
@@ -78,17 +75,12 @@ namespace RefrigtzW
             // IncreasingThreadPerformance();
             //Intiate  Program Load and Calling.
             //Application.EnableVisualStyles();
-            //try
-            //{
+            //
 
                 //Application.SetCompatibleTextRenderingDefault(false);
 
                 //Application.Run(new Load());
-            //}
-            //catch (Exception t)
-            {
-                //Log(t);
-            }
+            
 
         }
     }

@@ -306,7 +306,7 @@ namespace RefrigtzW
                     for (int j = 0; j < 8; j++)
                         Table[i, j] *= -1;
             }
-            RefrigtzW.ThinkingChess.LearniningTable = new LearningMachine.NetworkQuantumLearningKrinskyAtamata(8, 8, 8);
+            RefrigtzW.ThinkingChess.LearniningTable = new RefrigtzW.NetworkQuantumLearningKrinskyAtamata(8, 8, 8);
             Draw.TableList.Clear();
             Draw.TableList.Add(Table);
             Draw.SetRowColumn(0);
@@ -970,7 +970,7 @@ namespace RefrigtzW
                         do { iii++; } while (System.IO.File.Exists("Database\\Games\\CurrentBank" + iii.ToString() + ".accdb"));
                         System.IO.File.Copy("Database\\CurrentBank.accdb", Root + "\\Database\\Games\\CurrentBank" + iii.ToString() + ".accdb");
                         System.IO.File.Delete("Database\\CurrentBank.accdb");
-                        return TableA;
+                        return TableA; ;
 
                     }
 
@@ -1657,7 +1657,7 @@ namespace RefrigtzW
                     if (AllDraw.OutPut != "")
                     {
                         SetBoxText(AllDraw.OutPut);
-                        AllDraw.OutPut += "";
+                        AllDraw.OutPut = "";
 
                     }
                     

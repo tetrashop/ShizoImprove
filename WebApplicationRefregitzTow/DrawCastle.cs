@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,17 +9,17 @@ namespace RefrigtzW
     [Serializable]
     public class DrawCastle
     {
-        
-        
-        
-        
-        public int WinOcuuredatChiled = 0;public int LoseOcuuredatChiled = 0;
+
+
+
+
+        public int WinOcuuredatChiled = 0; public int LoseOcuuredatChiled = 0;
         //private readonly object balancelock = new object();
         //private readonly object balancelockS = new object();
         public static Image[] C = new Image[2];
         //Iniatite Global Variable.
         List<int[]> ValuableSelfSupported = new List<int[]>();
-      
+
         public bool MovementsAStarGreedyHuristicFoundT = false;
         public bool IgnoreSelfObjectsT = false;
         public bool UsePenaltyRegardMechnisamT = true;
@@ -39,16 +39,14 @@ namespace RefrigtzW
 
         static void Log(Exception ex)
         {
-            try
+
+            Object a = new Object();
+            lock (a)
             {
-                Object a = new Object();
-                lock (a)
-                {
-                    string stackTrace = ex.ToString();
-                    File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
-                }
+                string stackTrace = ex.ToString();
+                File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
             }
-            catch (Exception t) { Log(t); }
+
         }
         public void Dispose()
         {
@@ -57,27 +55,21 @@ namespace RefrigtzW
         }
         public bool MaxFound(ref bool MaxNotFound)
         {
-            try
-            {
-                double a = ReturnHuristic();
-                if (MaxHuristicxB < a)
-                {
-                    MaxNotFound = false;
-                    Object O = new Object();
-                    lock (O)
-                    {
-                        if (ThinkingChess.MaxHuristicx < MaxHuristicxB)
-                            ThinkingChess.MaxHuristicx = a;
-                        MaxHuristicxB = a;
-                    }
-                    return true;
-                }
-            }
-            catch (Exception t)
-            {
-                Log(t);
 
+            double a = ReturnHuristic();
+            if (MaxHuristicxB < a)
+            {
+                MaxNotFound = false;
+                Object O = new Object();
+                lock (O)
+                {
+                    if (ThinkingChess.MaxHuristicx < MaxHuristicxB)
+                        ThinkingChess.MaxHuristicx = a;
+                    MaxHuristicxB = a;
+                }
+                return true;
             }
+
             MaxNotFound = true;
             return false;
         }
@@ -85,32 +77,27 @@ namespace RefrigtzW
         {
             double a = 0;
             for (int ii = 0; ii < AllDraw.CastleMovments; ii++)
-                try
-                {
-                    a += CastleThinking[ii].ReturnHuristic(-1, -1, Order, false);
-                }
-                catch (Exception t)
-                {
-                    Log(t);
-                }
+
+                a += CastleThinking[ii].ReturnHuristic(-1, -1, Order, false);
+
 
             return a;
         }
 
 
         //Constructor 1.
-      /*  public DrawCastle(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
-        {
-            CurrentAStarGredyMax = CurrentAStarGredy;
-            MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
-            IgnoreSelfObjectsT = IgnoreSelfObject;
-            UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
-            BestMovmentsT = BestMovment;
-            PredictHuristicT = PredictHurist;
-            OnlySelfT = OnlySel;
-            AStarGreedyHuristicT = AStarGreedyHuris;
-            ArrangmentsChanged = Arrangments;
-        }*/
+        /*  public DrawCastle(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
+          {
+              CurrentAStarGredyMax = CurrentAStarGredy;
+              MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
+              IgnoreSelfObjectsT = IgnoreSelfObject;
+              UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
+              BestMovmentsT = BestMovment;
+              PredictHuristicT = PredictHurist;
+              OnlySelfT = OnlySel;
+              AStarGreedyHuristicT = AStarGreedyHuris;
+              ArrangmentsChanged = Arrangments;
+          }*/
         //constructor 2.
         public DrawCastle(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. THIS
             )
@@ -118,7 +105,7 @@ namespace RefrigtzW
             object balancelock = new object();
             lock (balancelock)
             {
-             
+
                 CurrentAStarGredyMax = CurrentAStarGredy;
                 MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
                 IgnoreSelfObjectsT = IgnoreSelfObject;
@@ -157,16 +144,10 @@ namespace RefrigtzW
             AA.ArrangmentsChanged = ArrangmentsChanged;
             for (int i = 0; i < AllDraw.CastleMovments; i++)
             {
-                try
-                {
-                    AA.CastleThinking[i] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
-                    this.CastleThinking[i].Clone(ref AA.CastleThinking[i]);
-                }
-                catch (Exception t)
-                {
-                    Log(t);
-                    AA.CastleThinking[i] = null;
-                }
+
+                AA.CastleThinking[i] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
+                this.CastleThinking[i].Clone(ref AA.CastleThinking[i]);
+
             }
             AA.Table = new int[8, 8];
             for (int ii = 0; ii < 8; ii++)
@@ -196,14 +177,14 @@ namespace RefrigtzW
                     }
                     if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
                     { //Gray Color.
-                        if(Order==1)
+                        if (Order == 1)
                         {
                             Object O1 = new Object();
                             lock (O1)
                             {    //Draw an Instant from File of Gray Soldeirs.
                                  //Draw a Gray Castles Instatnt Image On hte Tabe.
                                 g.DrawImage(C[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                              }
+                            }
                         }
                         else
                         {
@@ -212,7 +193,7 @@ namespace RefrigtzW
                             {    //Draw an Instant from File of Gray Soldeirs.
                                  //Draw an Instatnt of Brown Castles On the Table.
                                 g.DrawImage(C[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                              }
+                            }
                         }
                     }
                 }

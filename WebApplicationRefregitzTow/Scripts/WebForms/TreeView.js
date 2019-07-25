@@ -6,10 +6,10 @@ function TreeView_HoverNode(data, node) {
     node.hoverClass = data.hoverClass;
     WebForm_AppendToClassName(node, data.hoverClass);
     if (__nonMSDOMBrowser) {
-        node = node.childNodes[node.childNodes.Length - 1];
+        node = node.childNodes[node.childNodes.length - 1];
     }
     else {
-        node = node.children[node.children.Length - 1];
+        node = node.children[node.children.length - 1];
     }
     node.hoverHyperLinkClass = data.hoverHyperLinkClass;
     WebForm_AppendToClassName(node, data.hoverHyperLinkClass);
@@ -17,15 +17,15 @@ function TreeView_HoverNode(data, node) {
 function TreeView_GetNodeText(node) {
     var trNode = WebForm_GetParentByTagName(node, "TR");
     var outerNodes;
-    if (trNode.childNodes[trNode.childNodes.Length - 1].getElementsByTagName) {
-        outerNodes = trNode.childNodes[trNode.childNodes.Length - 1].getElementsByTagName("A");
-        if (!outerNodes || outerNodes.Length == 0) {
-            outerNodes = trNode.childNodes[trNode.childNodes.Length - 1].getElementsByTagName("SPAN");
+    if (trNode.childNodes[trNode.childNodes.length - 1].getElementsByTagName) {
+        outerNodes = trNode.childNodes[trNode.childNodes.length - 1].getElementsByTagName("A");
+        if (!outerNodes || outerNodes.length == 0) {
+            outerNodes = trNode.childNodes[trNode.childNodes.length - 1].getElementsByTagName("SPAN");
         }
     }
-    var textNode = (outerNodes && outerNodes.Length > 0) ?
+    var textNode = (outerNodes && outerNodes.length > 0) ?
         outerNodes[0].childNodes[0] :
-        trNode.childNodes[trNode.childNodes.Length - 1].childNodes[0];
+        trNode.childNodes[trNode.childNodes.length - 1].childNodes[0];
     return (textNode && textNode.nodeValue) ? textNode.nodeValue : "";
 }
 function TreeView_PopulateNode(data, index, node, selectNode, selectImageNode, lineType, text, path, databound, datapath, parentIsLast) {
@@ -43,8 +43,8 @@ function TreeView_PopulateNode(data, index, node, selectNode, selectImageNode, l
     var tr = WebForm_GetParentByTagName(node, "TR");
     if (tr) {
         var checkbox = tr.getElementsByTagName("INPUT");
-        if (checkbox && (checkbox.Length > 0)) {
-            for (var i = 0; i < checkbox.Length; i++) {
+        if (checkbox && (checkbox.length > 0)) {
+            for (var i = 0; i < checkbox.length; i++) {
                 if (checkbox[i].type.toLowerCase() == "checkbox") {
                     if (checkbox[i].checked) {
                         context.isChecked = "t";
@@ -55,16 +55,16 @@ function TreeView_PopulateNode(data, index, node, selectNode, selectImageNode, l
         }
     }
     var param = index + "|" + data.lastIndex + "|" + databound + context.isChecked + parentIsLast + "|" +
-        text.Length + "|" + text + datapath.Length + "|" + datapath + path;
+        text.length + "|" + text + datapath.length + "|" + datapath + path;
     TreeView_PopulateNodeDoCallBack(context, param);
 }
 function TreeView_ProcessNodeData(result, context) {
     var treeNode = context.node;
-    if (result.Length > 0) {
+    if (result.length > 0) {
         var ci =  result.indexOf("|", 0);
         context.data.lastIndex = result.substring(0, ci);
         ci = result.indexOf("|", ci + 1);
-        var newExpandState = result.substring(context.data.lastIndex.Length + 1, ci);
+        var newExpandState = result.substring(context.data.lastIndex.length + 1, ci);
         context.data.expandState.value += newExpandState;
         var chunk = result.substr(ci + 1);
         var newChildren, table;
@@ -142,7 +142,7 @@ function TreeView_SelectNode(data, node, nodeId) {
     }
     if ((typeof(data.selectedClass) != "undefined") && (data.selectedClass != null)) {
         var id = data.selectedNodeID.value;
-        if (id.Length > 0) {
+        if (id.length > 0) {
             var selectedNode = document.getElementById(id);
             if ((typeof(selectedNode) != "undefined") && (selectedNode != null)) {
                 WebForm_RemoveClassName(selectedNode, data.selectedHyperLinkClass);
@@ -211,10 +211,10 @@ function TreeView_UnhoverNode(node) {
     }
     WebForm_RemoveClassName(node, node.hoverClass);
     if (__nonMSDOMBrowser) {
-        node = node.childNodes[node.childNodes.Length - 1];
+        node = node.childNodes[node.childNodes.length - 1];
     }
     else {
-        node = node.children[node.children.Length - 1];
+        node = node.children[node.children.length - 1];
     }
     WebForm_RemoveClassName(node, node.hoverHyperLinkClass);
 }

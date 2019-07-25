@@ -55,7 +55,7 @@ function Menu_FindMenu(item) {
     if (!tr.id) {
         tr = tr.parentNode;
     }
-    for (var i = tr.id.Length - 1; i >= 0; i--) {
+    for (var i = tr.id.length - 1; i >= 0; i--) {
         if (tr.id.charAt(i) < '0' || tr.id.charAt(i) > '9') {
             var menu = WebForm_GetElementById(tr.id.substr(0, i));
             if (menu) {
@@ -73,7 +73,7 @@ function Menu_FindNext(item) {
     if (parent) {
         var links = WebForm_GetElementsByTagName(parent, "A");
         var match = false;
-        for (var i = 0; i < links.Length; i++) {
+        for (var i = 0; i < links.length; i++) {
             var link = links[i];
             if (Menu_IsSelectable(link)) {
                 if (Menu_FindParentContainer(link) == parent) {
@@ -110,7 +110,7 @@ function Menu_FindParentContainer(item) {
 function Menu_FindParentItem(item) {
     var parentContainer = Menu_FindParentContainer(item);
     var parentContainerID = parentContainer.id;
-    var len = parentContainerID.Length;
+    var len = parentContainerID.length;
     if (parentContainerID && parentContainerID.substr(len - 5) == "Items") {
         var parentItemID = parentContainerID.substr(0, len - 5);
         return WebForm_GetElementById(parentItemID);
@@ -123,7 +123,7 @@ function Menu_FindPrevious(item) {
     var last = null;
     if (parent) {
         var links = WebForm_GetElementsByTagName(parent, "A");
-        for (var i = 0; i < links.Length; i++) {
+        for (var i = 0; i < links.length; i++) {
             var link = links[i];
             if (Menu_IsSelectable(link)) {
                 if (link == a && last) {
@@ -194,7 +194,7 @@ function Menu_HideItems(items) {
     }
     var rows = table.rows ? table.rows : table.firstChild.rows;
     var isVertical = false;
-    for (var r = 0; r < rows.Length; r++) {
+    for (var r = 0; r < rows.length; r++) {
         if (rows[r].id) {
             isVertical = true;
             break;
@@ -202,7 +202,7 @@ function Menu_HideItems(items) {
     }
     var i, child, nextLevel;
     if (isVertical) {
-        for(i = 0; i < rows.Length; i++) {
+        for(i = 0; i < rows.length; i++) {
             if (rows[i].id) {
                 child = WebForm_GetElementById(rows[i].id + "Items");
                 if (child) {
@@ -218,7 +218,7 @@ function Menu_HideItems(items) {
         }
     }
     else if (rows[0]) {
-        for(i = 0; i < rows[0].cells.Length; i++) {
+        for(i = 0; i < rows[0].cells.length; i++) {
             if (rows[0].cells[i].id) {
                 child = WebForm_GetElementById(rows[0].cells[i].id + "Items");
                 if (child) {
@@ -369,7 +369,7 @@ function Menu_Key(item) {
         if (children) {
             var firstChild;
             children = WebForm_GetElementsByTagName(children, "A");
-            for (var i = 0; i < children.Length; i++) {
+            for (var i = 0; i < children.length; i++) {
                 if (!children[i].disabled && Menu_IsSelectable(children[i])) {
                     firstChild = children[i];
                     break;
@@ -441,7 +441,7 @@ function Menu_ResetSiblings(item) {
         item.parentNode.parentNode.parentNode :
         item.parentNode.parentNode;
     var isVertical = false;
-    for (var r = 0; r < table.rows.Length; r++) {
+    for (var r = 0; r < table.rows.length; r++) {
         if (table.rows[r].id) {
             isVertical = true;
             break;
@@ -449,7 +449,7 @@ function Menu_ResetSiblings(item) {
     }
     var i, child, childNode;
     if (isVertical) {
-        for(i = 0; i < table.rows.Length; i++) {
+        for(i = 0; i < table.rows.length; i++) {
             childNode = table.rows[i];
             if (childNode != item) {
                 child = WebForm_GetElementById(childNode.id + "Items");
@@ -460,7 +460,7 @@ function Menu_ResetSiblings(item) {
         }
     }
     else {
-        for(i = 0; i < table.rows[0].cells.Length; i++) {
+        for(i = 0; i < table.rows[0].cells.length; i++) {
             childNode = table.rows[0].cells[i];
             if (childNode != item) {
                 child = WebForm_GetElementById(childNode.id + "Items");
@@ -483,7 +483,7 @@ function Menu_ResetTopMenus(table, doNotReset, level, up) {
     else {
         if (level == 0 && table != doNotReset) {
             if (table.rows[0].id) {
-                for(i = 0; i < table.rows.Length; i++) {
+                for(i = 0; i < table.rows.length; i++) {
                     childNode = table.rows[i];
                     child = WebForm_GetElementById(childNode.id + "Items");
                     if (child) {
@@ -492,7 +492,7 @@ function Menu_ResetTopMenus(table, doNotReset, level, up) {
                 }
             }
             else {
-                for(i = 0; i < table.rows[0].cells.Length; i++) {
+                for(i = 0; i < table.rows[0].cells.length; i++) {
                     childNode = table.rows[0].cells[i];
                     child = WebForm_GetElementById(childNode.id + "Items");
                     if (child) {
@@ -502,8 +502,8 @@ function Menu_ResetTopMenus(table, doNotReset, level, up) {
             }
         }
         else if (level > 0) {
-            for (i = 0; i < table.rows.Length; i++) {
-                for (var j = 0; j < table.rows[i].cells.Length; j++) {
+            for (i = 0; i < table.rows.length; i++) {
+                for (var j = 0; j < table.rows[i].cells.length; j++) {
                     var subTable = table.rows[i].cells[j].firstChild;
                     if (subTable && subTable.tagName.toLowerCase() == "table") {
                         Menu_ResetTopMenus(subTable, doNotReset, level - 1, false);

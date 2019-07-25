@@ -5,7 +5,7 @@
 using System;
 using System.IO;
 
-namespace LearningMachine
+namespace RefrigtzW
 {
     [Serializable]
     public class NetworkQuantumLearningKrinskyAtamata : LearningKrinskyAtamata
@@ -13,16 +13,14 @@ namespace LearningMachine
         public static String Root = System.IO.Path.GetDirectoryName(Environment.GetCommandLineArgs()[0]);
         static void Log(Exception ex)
         {
-            try
-            {
+            
                 Object a = new Object();
                 lock (a)
                 {
                     string stackTrace = ex.ToString();
                     File.AppendAllText(Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
                 }
-            }
-            catch (Exception t) { Log(t); }
+           
         }
 
         int r, m, k;
@@ -52,15 +50,10 @@ namespace LearningMachine
             {
 
                 double Hu = 1;
-                try
-                {
+                
                     Netfi[Row, Column].LearningAlgorithmRegard();
                     Hu = Netfi[Row, Column].alpha[State];
-                }
-                catch (Exception t)
-                {
-                    Log(t);
-                }
+               
                 return Hu;
             }
         }
@@ -91,15 +84,10 @@ namespace LearningMachine
             lock (o)
             {
                 double Hu = 1;
-                try
-                {
+                
                     Netfi[Row, Column].LearningAlgorithmPenalty();
                     Hu = Netfi[Row, Column].alpha[State];
-                }
-                catch (Exception t)
-                {
-                    Log(t);
-                }
+               
                 return Hu;
             }
         }
@@ -109,14 +97,9 @@ namespace LearningMachine
             lock (o)
             {
                 double Hu = 1;
-                try
-                {
+                
                     Hu = Netfi[Row, Column].alpha[State];
-                }
-                catch (Exception t)
-                {
-                    Log(t);
-                }
+               
                 return Hu;
             }
         }

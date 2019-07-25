@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,17 +9,17 @@ namespace RefrigtzW
     [Serializable]
     public class DrawMinister//:DrawKing
     {
-        
-        
-        
-        
-        public int WinOcuuredatChiled = 0;public int LoseOcuuredatChiled = 0;
+
+
+
+
+        public int WinOcuuredatChiled = 0; public int LoseOcuuredatChiled = 0;
         //private readonly object balancelock = new object();
         //private readonly object balancelockS = new object();
         public static Image[] M = new Image[2];
         //Initiate Global Variable.
         List<int[]> ValuableSelfSupported = new List<int[]>();
-      
+
         public bool MovementsAStarGreedyHuristicFoundT = false;
         public bool IgnoreSelfObjectsT = false;
         public bool UsePenaltyRegardMechnisamT = true;
@@ -39,16 +39,14 @@ namespace RefrigtzW
         int CurrentAStarGredyMax = -1;
         static void Log(Exception ex)
         {
-            try
+
+            Object a = new Object();
+            lock (a)
             {
-                Object a = new Object();
-                lock (a)
-                {
-                    string stackTrace = ex.ToString();
-                    File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
-                }
+                string stackTrace = ex.ToString();
+                File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
             }
-            catch (Exception t) { Log(t); }
+
         }
         public void Dispose()
         {
@@ -58,27 +56,21 @@ namespace RefrigtzW
 
         public bool MaxFound(ref bool MaxNotFound)
         {
-            try
-            {
-                double a = ReturnHuristic();
-                if (MaxHuristicxM < a)
-                {
-                    Object O2 = new Object();
-                    lock (O2)
-                    {
-                        MaxNotFound = false;
-                        if (ThinkingChess.MaxHuristicx < MaxHuristicxM)
-                            ThinkingChess.MaxHuristicx = a;
-                        MaxHuristicxM = a;
-                    }
-                    return true;
-                }
-            }
-            catch (Exception t)
-            {
-                Log(t);
 
+            double a = ReturnHuristic();
+            if (MaxHuristicxM < a)
+            {
+                Object O2 = new Object();
+                lock (O2)
+                {
+                    MaxNotFound = false;
+                    if (ThinkingChess.MaxHuristicx < MaxHuristicxM)
+                        ThinkingChess.MaxHuristicx = a;
+                    MaxHuristicxM = a;
+                }
+                return true;
             }
+
             MaxNotFound = true;
             return false;
         }
@@ -86,14 +78,9 @@ namespace RefrigtzW
         {
             double a = 0;
             for (int ii = 0; ii < AllDraw.MinisterMovments; ii++)
-                try
-                {
-                    a += MinisterThinking[ii].ReturnHuristic(-1, -1, Order,false);
-                }
-                catch (Exception t)
-                {
-                    Log(t);
-                }
+
+                a += MinisterThinking[ii].ReturnHuristic(-1, -1, Order, false);
+
             return a;
         }
         //constructor 1.
@@ -117,7 +104,7 @@ namespace RefrigtzW
             object balancelock = new object();
             lock (balancelock)
             {
-                
+
                 CurrentAStarGredyMax = CurrentAStarGredy;
                 MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
                 IgnoreSelfObjectsT = IgnoreSelfObject;
@@ -151,20 +138,14 @@ namespace RefrigtzW
                 for (int j = 0; j < 8; j++)
                     Tab[i, j] = this.Table[i, j];
             //Initiate an Object and Clone a Construction Objectve.
-            AA = new DrawMinister( CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, this.color, this.Table, this.Order, false, this.Current);
+            AA = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, this.color, this.Table, this.Order, false, this.Current);
             AA.ArrangmentsChanged = ArrangmentsChanged;
             for (int i = 0; i < AllDraw.MinisterMovments; i++)
             {
-                try
-                {
-                    AA.MinisterThinking[i] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
-                    this.MinisterThinking[i].Clone(ref AA.MinisterThinking[i]);
-                }
-                catch (Exception t)
-                {
-                    Log(t);
-                    AA.MinisterThinking[i] = null;
-                }
+
+                AA.MinisterThinking[i] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
+                this.MinisterThinking[i].Clone(ref AA.MinisterThinking[i]);
+
 
             }
             AA.Table = new int[8, 8];
@@ -181,9 +162,9 @@ namespace RefrigtzW
         //Draw an Mnister on the Table.
         public void DrawMinisterOnTable(ref Graphics g, int CellW, int CellH)
         {
+
             try
             {
-
                 object balancelockS = new object();
 
                 lock (balancelockS)
@@ -196,14 +177,14 @@ namespace RefrigtzW
                     if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
                     {
                         //Gray Order.
-                        if(Order==1)
+                        if (Order == 1)
                         {
                             Object O1 = new Object();
                             lock (O1)
                             {    //Draw an Instant from File of Gray Soldeirs.
                                  //Draw a Gray Instatnt Minister Image on the Table.
                                 g.DrawImage(M[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
-                             }
+                            }
                         }
                         else
                         {
@@ -212,7 +193,7 @@ namespace RefrigtzW
                             {    //Draw an Instant from File of Gray Soldeirs.
                                  //Draw a Brown Instatnt Minister Image on the Table.
                                 g.DrawImage(M[1], new Rectangle((int)(Row * CellW), (int)(Column * (float)CellH), CellW, CellH));
-                              }
+                            }
                         }
                     }
                 }

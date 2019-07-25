@@ -656,7 +656,7 @@ window.Modernizr = (function( window, document, undefined ) {
              // legacy webkit syntax (FIXME: remove when syntax not in use anymore)
               (str1 + '-webkit- '.split(' ').join(str2 + str1) +
              // standard syntax             // trailing 'background-image:'
-              prefixes.join(str3 + str1)).slice(0, -str1.Length)
+              prefixes.join(str3 + str1)).slice(0, -str1.length)
         );
 
         return contains(mStyle.backgroundImage, 'gradient');
@@ -882,7 +882,7 @@ window.Modernizr = (function( window, document, undefined ) {
         // Currently Safari 4 and Opera 11 have support only for the input placeholder
         // Both tests are available in feature-detects/forms-placeholder.js
         Modernizr['input'] = (function( props ) {
-            for ( var i = 0, len = props.Length; i < len; i++ ) {
+            for ( var i = 0, len = props.length; i < len; i++ ) {
                 attrs[ props[i] ] = !!(props[i] in inputElem);
             }
             if (attrs.list){
@@ -903,7 +903,7 @@ window.Modernizr = (function( window, document, undefined ) {
         // Big thanks to @miketaylr for the html5 forms expertise. miketaylr.com/
         Modernizr['inputtypes'] = (function(props) {
 
-            for ( var i = 0, bool, inputElemType, defaultView, len = props.Length; i < len; i++ ) {
+            for ( var i = 0, bool, inputElemType, defaultView, len = props.length; i < len; i++ ) {
 
                 inputElem.setAttribute('type', inputElemType = props[i]);
                 bool = inputElem.type !== 'text';
@@ -1061,7 +1061,7 @@ window.Modernizr = (function( window, document, undefined ) {
             //if the hidden property is implemented we can assume, that the browser supports basic HTML5 Styles
             supportsHtml5Styles = ('hidden' in a);
 
-            supportsUnknownElements = a.childNodes.Length == 1 || (function() {
+            supportsUnknownElements = a.childNodes.length == 1 || (function() {
               // assign a false positive if unable to shiv
               (document.createElement)('a');
               var frag = document.createDocumentFragment();
@@ -1176,7 +1176,7 @@ window.Modernizr = (function( window, document, undefined ) {
         var clone = data.frag.cloneNode(),
             i = 0,
             elems = getElements(),
-            l = elems.Length;
+            l = elems.length;
         for(;i<l;i++){
             clone.createElement(elems[i]);
         }
