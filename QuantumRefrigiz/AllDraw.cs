@@ -176,7 +176,6 @@ namespace QuantumRefrigiz
               {-1, -1, - 1, -1, -1, -1, -1, -1 },
               {-1, -1, - 1, -1, -1, -1, -1, -1 },
               {-1, -1, - 1, -1, -1, -1, -1, -1 }}};
-
         bool SetDeptIgnore = false;
         long Now = DateTime.Now.Hour * (36000000 * 24) + DateTime.Now.Minute * 36000000 + DateTime.Now.Second * 600000 + DateTime.Now.Millisecond;
         long Later = DateTime.Now.Hour * (36000000 * 24) + DateTime.Now.Minute * 36000000 + DateTime.Now.Second * 600000 + DateTime.Now.Millisecond;
@@ -184,6 +183,10 @@ namespace QuantumRefrigiz
         int[,] Tabl = new int[8, 8];
         public int OrderP = 0;
         public static int DepthIterative = 0;
+        public static int LastRowQ = -1;
+        public static int LastColumnQ = -1;
+        public static int NextRowQ = -1;
+        public static int NextColumnQ = -1;
         int PerceptionCount = 0;
         public String OutPutAction = "";
         public static String OutPut = "";
@@ -204,10 +207,6 @@ namespace QuantumRefrigiz
         public static bool ConvertWait = true;
         public static bool Stockfish = false;
         public static bool Person = true;
-        public static int LastRowQ = -1;
-        public static int LastColumnQ = -1;
-        public static int NextRowQ = -1;
-        public static int NextColumnQ = -1;
         public static bool THISSecradioButtonGrayOrderChecked = false;
         public static bool THISSecradioButtonBrownOrderChecked = false;
         public static String THIScomboBoxMaxLevelText = "";
@@ -6507,22 +6506,22 @@ if (Kind == 2)
             else
                 if (Kind == 3)
             {
-                TableHuristic = HoursesOnTable[i].HourseThinkingQuantum[k].TableListElefant[j];
+                TableHuristic = HoursesOnTable[i].HourseThinkingQuantum[k].TableListHourse[j];
             }
             else
                 if (Kind == 4)
             {
-                TableHuristic = CastlesOnTable[i].CastleThinkingQuantum[k].TableListElefant[j];
+                TableHuristic = CastlesOnTable[i].CastleThinkingQuantum[k].TableListCastle[j];
             }
             else
                 if (Kind == 5)
             {
-                TableHuristic = MinisterOnTable[i].MinisterThinkingQuantum[k].TableListElefant[j];
+                TableHuristic = MinisterOnTable[i].MinisterThinkingQuantum[k].TableListMinister[j];
             }
             else
                 if (Kind == 6)
             {
-                TableHuristic = KingOnTable[i].KingThinkingQuantum[k].TableListElefant[j];
+                TableHuristic = KingOnTable[i].KingThinkingQuantum[k].TableListKing[j];
             }
 
         }
@@ -7423,7 +7422,7 @@ if (Kind == 2)
             Object a1 = new Object();
             lock (a1)
             {
-                ChessRules AB = null;
+                //ChessRules AB = null;
 
                 int j;
                 List<double> Founded = new List<double>();
@@ -7593,7 +7592,7 @@ if (Kind == 2)
             lock (a1)
             {
 
-                ChessRules AB = null;
+                //ChessRules AB = null;
 
                 int j;
                 List<double> Founded = new List<double>();
@@ -7728,7 +7727,7 @@ if (Kind == 2)
             lock (a1)
             {
 
-                ChessRules AB = null;
+                //ChessRules AB = null;
 
                 int j;
                 List<double> Founded = new List<double>();
@@ -7853,7 +7852,7 @@ if (Kind == 2)
             {
 
 
-                ChessRules AB = null;
+                //ChessRules AB = null;
 
                 int j;
                 List<double> Founded = new List<double>();
@@ -7978,7 +7977,7 @@ if (Kind == 2)
             lock (O3)
             {
 
-                ChessRules AB = null;
+                //ChessRules AB = null;
 
                 int j;
                 List<double> Founded = new List<double>();
@@ -8092,7 +8091,7 @@ if (Kind == 2)
             lock (O)
             {
 
-                ChessRules AB = null;
+                //ChessRules AB = null;
 
                 int j;
                 List<double> Founded = new List<double>();
@@ -11665,7 +11664,7 @@ if (Kind == 2)
                             //int j = FoundTableIndex(this.SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder, SolderesOnTable[ii].SoldierThinkingQuantum[0].TableConst);
                             for (int j = 0; j < SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder.Count; j++)
                             {
-                                if (!(SolderesOnTable[ii].SoldierThinkingQuantum[0].IsSup[j]))
+                                if (!(SolderesOnTable[i].SoldierThinkingQuantum[0].IsSup[j]))
                                     continue;
 
 
@@ -11679,7 +11678,7 @@ if (Kind == 2)
                                 this.SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder[j][7] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicKingSafeSup;
                                 this.SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder[j][8] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicFromCenterSup;
                                 this.SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder[j][9] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicKingDangourSup;
-                                SolderesOnTable[ii].SoldierThinkingQuantum[0].IsSup[j] = false;
+                                SolderesOnTable[i].SoldierThinkingQuantum[0].IsSup[j] = false;
 
                                 AllDraw.OutPut += "\r\nServed Soldeir!";
                             }
@@ -11708,7 +11707,7 @@ if (Kind == 2)
                             //int j = FoundTableIndex(this.SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder, SolderesOnTable[ii].SoldierThinkingQuantum[0].TableConst);
                             for (int j = 0; j < SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder.Count; j++)
                             {
-                                if (!(SolderesOnTable[ii].SoldierThinkingQuantum[0].IsSup[j]))
+                                if (!(SolderesOnTable[i].SoldierThinkingQuantum[0].IsSup[j]))
                                     continue;
 
 
@@ -11722,7 +11721,7 @@ if (Kind == 2)
                                 this.SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder[j][7] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicKingSafeSup;
                                 this.SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder[j][8] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicFromCenterSup;
                                 this.SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder[j][9] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicKingDangourSup;
-                                SolderesOnTable[ii].SoldierThinkingQuantum[0].IsSup[j] = false;
+                                SolderesOnTable[i].SoldierThinkingQuantum[0].IsSup[j] = false;
 
                                 AllDraw.OutPut += "\r\nServed Soldeir!";
                             }
@@ -11755,7 +11754,7 @@ if (Kind == 2)
                                 //int j = FoundTableIndex(this.ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant, ElephantOnTable[ii].ElefantThinkingQuantum[0].TableConst);
                                 for (int j = 0; j < ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListElefant.Count; j++)
                                 {
-                                    if (!(ElephantOnTable[ii].ElefantThinkingQuantum[0].IsSup[j]))
+                                    if (!(ElephantOnTable[i].ElefantThinkingQuantum[0].IsSup[j]))
                                         continue;
 
                                     this.ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListElefant[j][0] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HuristicAttackValueSup;
@@ -11768,7 +11767,7 @@ if (Kind == 2)
                                     this.ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListElefant[j][7] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicKingSafeSup;
                                     this.ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListElefant[j][8] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicFromCenterSup;
                                     this.ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListElefant[j][9] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicKingDangourSup;
-                                    ElephantOnTable[ii].ElefantThinkingQuantum[0].IsSup[j] = false;
+                                    ElephantOnTable[i].ElefantThinkingQuantum[0].IsSup[j] = false;
 
                                     AllDraw.OutPut += "\r\nServed Elephant!";
                                 }
@@ -11800,7 +11799,7 @@ if (Kind == 2)
                                 //int j = FoundTableIndex(this.ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant, ElephantOnTable[ii].ElefantThinkingQuantum[0].TableConst);
                                 for (int j = 0; j < ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListElefant.Count; j++)
                                 {
-                                    if (!(ElephantOnTable[ii].ElefantThinkingQuantum[0].IsSup[j]))
+                                    if (!(ElephantOnTable[i].ElefantThinkingQuantum[0].IsSup[j]))
                                         continue;
 
 
@@ -11814,7 +11813,7 @@ if (Kind == 2)
                                     this.ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListElefant[j][7] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicKingSafeSup;
                                     this.ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListElefant[j][8] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicFromCenterSup;
                                     this.ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListElefant[j][9] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicKingDangourSup;
-                                    ElephantOnTable[ii].ElefantThinkingQuantum[0].IsSup[j] = false;
+                                    ElephantOnTable[i].ElefantThinkingQuantum[0].IsSup[j] = false;
 
                                     AllDraw.OutPut += "\r\nServed Elephant!";
                                 }
@@ -11846,7 +11845,7 @@ if (Kind == 2)
                             //int j = FoundTableIndex(this.HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse, HoursesOnTable[ii].HourseThinkingQuantum[0].TableConst);
                             for (int j = 0; j < HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListHourse.Count; j++)
                             {
-                                if (!(HoursesOnTable[ii].HourseThinkingQuantum[0].IsSup[j]))
+                                if (!(HoursesOnTable[i].HourseThinkingQuantum[0].IsSup[j]))
                                     continue;
 
                                 this.HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListHourse[j][0] += HoursesOnTable[ii].HourseThinkingQuantum[0].HuristicAttackValueSup;
@@ -11859,7 +11858,7 @@ if (Kind == 2)
                                 this.HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListHourse[j][7] += HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicKingSafeSup;
                                 this.HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListHourse[j][8] += HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicFromCenterSup;
                                 this.HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListHourse[j][9] += HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicKingDangourSup;
-                                HoursesOnTable[ii].HourseThinkingQuantum[0].IsSup[j] = false;
+                                HoursesOnTable[i].HourseThinkingQuantum[0].IsSup[j] = false;
 
                                 AllDraw.OutPut += "\r\nServed Hourse!";
                             }
@@ -11888,7 +11887,7 @@ if (Kind == 2)
                             //int j = FoundTableIndex(this.HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse, HoursesOnTable[ii].HourseThinkingQuantum[0].TableConst);
                             for (int j = 0; j < HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListHourse.Count; j++)
                             {
-                                if (!(HoursesOnTable[ii].HourseThinkingQuantum[0].IsSup[j]))
+                                if (!(HoursesOnTable[i].HourseThinkingQuantum[0].IsSup[j]))
                                     continue;
 
                                 this.HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListHourse[j][0] += HoursesOnTable[ii].HourseThinkingQuantum[0].HuristicAttackValueSup;
@@ -11901,7 +11900,7 @@ if (Kind == 2)
                                 this.HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListHourse[j][7] += HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicKingSafeSup;
                                 this.HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListHourse[j][8] += HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicFromCenterSup;
                                 this.HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListHourse[j][9] += HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicKingDangourSup;
-                                HoursesOnTable[ii].HourseThinkingQuantum[0].IsSup[j] = false;
+                                HoursesOnTable[i].HourseThinkingQuantum[0].IsSup[j] = false;
 
                                 AllDraw.OutPut += "\r\nServed Hourse!";
                             }
@@ -11932,7 +11931,7 @@ if (Kind == 2)
                             //int j = FoundTableIndex(this.CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle, CastlesOnTable[ii].CastleThinkingQuantum[0].TableConst);
                             for (int j = 0; j < CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListCastle.Count; j++)
                             {
-                                if (!(CastlesOnTable[ii].CastleThinkingQuantum[0].IsSup[j]))
+                                if (!(CastlesOnTable[i].CastleThinkingQuantum[0].IsSup[j]))
                                     continue;
 
                                 this.CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListCastle[j][0] += CastlesOnTable[ii].CastleThinkingQuantum[0].HuristicAttackValueSup;
@@ -11945,7 +11944,7 @@ if (Kind == 2)
                                 this.CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListCastle[j][7] += CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicKingSafeSup;
                                 this.CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListCastle[j][8] += CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicFromCenterSup;
                                 this.CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListCastle[j][9] += CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicKingDangourSup;
-                                CastlesOnTable[ii].CastleThinkingQuantum[0].IsSup[j] = false;
+                                CastlesOnTable[i].CastleThinkingQuantum[0].IsSup[j] = false;
 
                                 AllDraw.OutPut += "\r\nServed Castle!";
                             }
@@ -11973,7 +11972,7 @@ if (Kind == 2)
                             //int j = FoundTableIndex(this.CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle, CastlesOnTable[ii].CastleThinkingQuantum[0].TableConst);
                             for (int j = 0; j < CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListCastle.Count; j++)
                             {
-                                if (!(CastlesOnTable[ii].CastleThinkingQuantum[0].IsSup[j]))
+                                if (!(CastlesOnTable[i].CastleThinkingQuantum[0].IsSup[j]))
                                     continue;
 
 
@@ -11987,7 +11986,7 @@ if (Kind == 2)
                                 this.CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListCastle[j][7] += CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicKingSafeSup;
                                 this.CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListCastle[j][8] += CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicFromCenterSup;
                                 this.CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListCastle[j][9] += CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicKingDangourSup;
-                                CastlesOnTable[ii].CastleThinkingQuantum[0].IsSup[j] = false;
+                                CastlesOnTable[i].CastleThinkingQuantum[0].IsSup[j] = false;
 
                                 AllDraw.OutPut += "\r\nServed Castle!";
                             }
@@ -12019,7 +12018,7 @@ if (Kind == 2)
                             //int j = FoundTableIndex(this.MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister, MinisterOnTable[ii].MinisterThinkingQuantum[0].TableConst);
                             for (int j = 0; j < MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListMinister.Count; j++)
                             {
-                                if (!(MinisterOnTable[ii].MinisterThinkingQuantum[0].IsSup[j]))
+                                if (!(MinisterOnTable[i].MinisterThinkingQuantum[0].IsSup[j]))
                                     continue;
 
                                 this.MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListMinister[j][0] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HuristicAttackValueSup;
@@ -12032,7 +12031,7 @@ if (Kind == 2)
                                 this.MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListMinister[j][7] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicKingSafeSup;
                                 this.MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListMinister[j][8] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicFromCenterSup;
                                 this.MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListMinister[j][9] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicKingDangourSup;
-                                MinisterOnTable[ii].MinisterThinkingQuantum[0].IsSup[j] = false;
+                                MinisterOnTable[i].MinisterThinkingQuantum[0].IsSup[j] = false;
 
 
                                 AllDraw.OutPut += "\r\nServed Minister!";
@@ -12061,7 +12060,7 @@ if (Kind == 2)
                             //int j = FoundTableIndex(this.MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister, MinisterOnTable[ii].MinisterThinkingQuantum[0].TableConst);
                             for (int j = 0; j < MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListMinister.Count; j++)
                             {
-                                if (!(MinisterOnTable[ii].MinisterThinkingQuantum[0].IsSup[j]))
+                                if (!(MinisterOnTable[i].MinisterThinkingQuantum[0].IsSup[j]))
                                     continue;
 
 
@@ -12075,7 +12074,7 @@ if (Kind == 2)
                                 this.MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListMinister[j][7] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicKingSafeSup;
                                 this.MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListMinister[j][8] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicFromCenterSup;
                                 this.MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListMinister[j][9] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicKingDangourSup;
-                                MinisterOnTable[ii].MinisterThinkingQuantum[0].IsSup[j] = false;
+                                MinisterOnTable[i].MinisterThinkingQuantum[0].IsSup[j] = false;
 
                                 AllDraw.OutPut += "\r\nServed Minister!";
                             }
@@ -12107,7 +12106,7 @@ if (Kind == 2)
                             //int j = FoundTableIndex(this.KingOnTable[i].KingThinkingQuantum[0].TableListKing, KingOnTable[ii].KingThinkingQuantum[0].TableConst);
                             for (int j = 0; j < KingOnTable[i].KingThinkingQuantum[0].HuristicListKing.Count; j++)
                             {
-                                if (!(KingOnTable[ii].KingThinkingQuantum[0].IsSup[j]))
+                                if (!(KingOnTable[i].KingThinkingQuantum[0].IsSup[j]))
                                     continue;
 
                                 this.KingOnTable[i].KingThinkingQuantum[0].HuristicListKing[j][0] += KingOnTable[ii].KingThinkingQuantum[0].HuristicAttackValueSup;
@@ -12120,7 +12119,7 @@ if (Kind == 2)
                                 this.KingOnTable[i].KingThinkingQuantum[0].HuristicListKing[j][7] += KingOnTable[ii].KingThinkingQuantum[0].HeuristicKingSafeSup;
                                 this.KingOnTable[i].KingThinkingQuantum[0].HuristicListKing[j][8] += KingOnTable[ii].KingThinkingQuantum[0].HeuristicFromCenterSup;
                                 this.KingOnTable[i].KingThinkingQuantum[0].HuristicListKing[j][9] += KingOnTable[ii].KingThinkingQuantum[0].HeuristicKingDangourSup;
-                                KingOnTable[ii].KingThinkingQuantum[0].IsSup[j] = false;
+                                KingOnTable[i].KingThinkingQuantum[0].IsSup[j] = false;
 
 
                                 AllDraw.OutPut += "\r\nServed King!";
@@ -12150,7 +12149,7 @@ if (Kind == 2)
                             //int j = FoundTableIndex(this.KingOnTable[i].KingThinkingQuantum[0].TableListKing, KingOnTable[ii].KingThinkingQuantum[0].TableConst);
                             for (int j = 0; j < KingOnTable[i].KingThinkingQuantum[0].HuristicListKing.Count; j++)
                             {
-                                if (!(KingOnTable[ii].KingThinkingQuantum[0].IsSup[j]))
+                                if (!(KingOnTable[i].KingThinkingQuantum[0].IsSup[j]))
                                     continue;
 
 
@@ -12164,7 +12163,7 @@ if (Kind == 2)
                                 this.KingOnTable[i].KingThinkingQuantum[0].HuristicListKing[j][7] += KingOnTable[ii].KingThinkingQuantum[0].HeuristicKingSafeSup;
                                 this.KingOnTable[i].KingThinkingQuantum[0].HuristicListKing[j][8] += KingOnTable[ii].KingThinkingQuantum[0].HeuristicFromCenterSup;
                                 this.KingOnTable[i].KingThinkingQuantum[0].HuristicListKing[j][9] += KingOnTable[ii].KingThinkingQuantum[0].HeuristicKingDangourSup;
-                                KingOnTable[ii].KingThinkingQuantum[0].IsSup[j] = false;
+                                KingOnTable[i].KingThinkingQuantum[0].IsSup[j] = false;
 
 
                                 AllDraw.OutPut += "\r\nServed King!";
@@ -13757,11 +13756,15 @@ if (Kind == 2)
             for (ik = 0; ik < SodierMidle; ik++)
                 try
                 {
-                    if (SolderesOnTable == null || SolderesOnTable[ik] == null || SolderesOnTable[ik].SoldierThinkingQuantum == null || SolderesOnTable[ik].SoldierThinkingQuantum[0] == null || SolderesOnTable[ik].SoldierThinkingQuantum[0].IsSup[j]
+                    if (SolderesOnTable == null || SolderesOnTable[ik] == null || SolderesOnTable[ik].SoldierThinkingQuantum == null || SolderesOnTable[ik].SoldierThinkingQuantum[0] == null
                         )
                         continue;
                     for (j = 0; j < SolderesOnTable[ik].SoldierThinkingQuantum[0].HuristicListSolder.Count; j++)
                     {
+                        if (SolderesOnTable[ik].SoldierThinkingQuantum[0].IsSup[j]
+                          )
+                            continue;
+
                         Object O = new Object();
                         lock (O)
                         {
@@ -13820,11 +13823,14 @@ if (Kind == 2)
             for (ik = 0; ik < ElefantMidle; ik++)
                 try
                 {
-                    if (ElephantOnTable == null || ElephantOnTable[ik] == null || ElephantOnTable[ik].ElefantThinkingQuantum == null || ElephantOnTable[ik].ElefantThinkingQuantum[0] == null || ElephantOnTable[ik].ElefantThinkingQuantum[0].IsSup[j]
+                    if (ElephantOnTable == null || ElephantOnTable[ik] == null || ElephantOnTable[ik].ElefantThinkingQuantum == null || ElephantOnTable[ik].ElefantThinkingQuantum[0] == null
                         )
                         continue;
                     for (j = 0; j < ElephantOnTable[ik].ElefantThinkingQuantum[0].HuristicListElefant.Count; j++)
                     {
+                        if (ElephantOnTable[ik].ElefantThinkingQuantum[0].IsSup[j]
+                   )
+                            continue;
                         Object O = new Object();
                         lock (O)
                         {
@@ -13887,11 +13893,14 @@ if (Kind == 2)
             for (ik = 0; ik < HourseMidle; ik++)
                 try
                 {
-                    if (HoursesOnTable == null || HoursesOnTable[ik] == null || HoursesOnTable[ik].HourseThinkingQuantum == null || HoursesOnTable[ik].HourseThinkingQuantum[0] == null || HoursesOnTable[ik].HourseThinkingQuantum[0].IsSup[j]
+                    if (HoursesOnTable == null || HoursesOnTable[ik] == null || HoursesOnTable[ik].HourseThinkingQuantum == null || HoursesOnTable[ik].HourseThinkingQuantum[0] == null
                         )
                         continue;
                     for (j = 0; j < HoursesOnTable[ik].HourseThinkingQuantum[0].HuristicListHourse.Count; j++)
                     {
+                        if (HoursesOnTable[ik].HourseThinkingQuantum[0].IsSup[j]
+                      )
+                            continue;
                         Object O = new Object();
                         lock (O)
                         {
@@ -13951,11 +13960,14 @@ if (Kind == 2)
             for (ik = 0; ik < CastleMidle; ik++)
                 try
                 {
-                    if (CastlesOnTable == null || CastlesOnTable[ik] == null || CastlesOnTable[ik].CastleThinkingQuantum == null || CastlesOnTable[ik].CastleThinkingQuantum[0] == null || CastlesOnTable[ik].CastleThinkingQuantum[0].IsSup[j]
+                    if (CastlesOnTable == null || CastlesOnTable[ik] == null || CastlesOnTable[ik].CastleThinkingQuantum == null || CastlesOnTable[ik].CastleThinkingQuantum[0] == null
                         )
                         continue;
                     for (j = 0; j < CastlesOnTable[ik].CastleThinkingQuantum[0].HuristicListCastle.Count; j++)
                     {
+                        if (CastlesOnTable[ik].CastleThinkingQuantum[0].IsSup[j]
+                     )
+                            continue;
                         Object O = new Object();
                         lock (O)
                         {
@@ -14021,11 +14033,15 @@ if (Kind == 2)
             for (ik = 0; ik < MinisterMidle; ik++)
                 try
                 {
-                    if (MinisterOnTable == null || MinisterOnTable[ik] == null || MinisterOnTable[ik].MinisterThinkingQuantum == null || MinisterOnTable[ik].MinisterThinkingQuantum[0] == null || MinisterOnTable[ik].MinisterThinkingQuantum[0].IsSup[j]
+                    if (MinisterOnTable == null || MinisterOnTable[ik] == null || MinisterOnTable[ik].MinisterThinkingQuantum == null || MinisterOnTable[ik].MinisterThinkingQuantum[0] == null
                         )
                         continue;
                     for (j = 0; j < MinisterOnTable[ik].MinisterThinkingQuantum[0].HuristicListMinister.Count; j++)
                     {
+                        if (MinisterOnTable[ik].MinisterThinkingQuantum[0].IsSup[j]
+                          )
+                            continue;
+
                         if (CheckeHuristci(MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister[j], Order, ik, j, 0))
                             continue;
 
@@ -14092,11 +14108,15 @@ if (Kind == 2)
             for (ik = 0; ik < KingMidle; ik++)
                 try
                 {
-                    if (KingOnTable == null || KingOnTable[ik] == null || KingOnTable[ik].KingThinkingQuantum == null || KingOnTable[ik].KingThinkingQuantum[0] == null || KingOnTable[ik].KingThinkingQuantum[0].IsSup[j]
+                    if (KingOnTable == null || KingOnTable[ik] == null || KingOnTable[ik].KingThinkingQuantum == null || KingOnTable[ik].KingThinkingQuantum[0] == null
                         )
                         continue;
                     for (j = 0; j < KingOnTable[ik].KingThinkingQuantum[0].HuristicListKing.Count; j++)
                     {
+                        if (KingOnTable[ik].KingThinkingQuantum[0].IsSup[j]
+                          )
+                            continue;
+
                         Object O = new Object();
                         lock (O)
                         {
@@ -14311,12 +14331,16 @@ if (Kind == 2)
             for (ik = SodierMidle; ik < SodierHigh; ik++)
                 try
                 {
-                    if (SolderesOnTable == null || SolderesOnTable[ik] == null || SolderesOnTable[ik].SoldierThinkingQuantum == null || SolderesOnTable[ik].SoldierThinkingQuantum[0] == null || SolderesOnTable[ik].SoldierThinkingQuantum[0].IsSup[j]
+                    if (SolderesOnTable == null || SolderesOnTable[ik] == null || SolderesOnTable[ik].SoldierThinkingQuantum == null || SolderesOnTable[ik].SoldierThinkingQuantum[0] == null
                         )
                         continue;
                     //Soldier.
                     for (j = 0; j < SolderesOnTable[ik].SoldierThinkingQuantum[0].HuristicListSolder.Count; j++)
                     {
+                        if (SolderesOnTable[ik].SoldierThinkingQuantum[0].IsSup[j]
+                       )
+                            continue;
+
                         if (CheckeHuristci(SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder[j], Order, ik, j, 0))
                             continue;
 
@@ -14375,11 +14399,14 @@ if (Kind == 2)
             for (ik = ElefantMidle; ik < ElefantHigh; ik++)
                 try
                 {
-                    if (ElephantOnTable == null || ElephantOnTable[ik] == null || ElephantOnTable[ik].ElefantThinkingQuantum == null || ElephantOnTable[ik].ElefantThinkingQuantum[0] == null || ElephantOnTable[ik].ElefantThinkingQuantum[0].IsSup[j]
+                    if (ElephantOnTable == null || ElephantOnTable[ik] == null || ElephantOnTable[ik].ElefantThinkingQuantum == null || ElephantOnTable[ik].ElefantThinkingQuantum[0] == null
                         )
                         continue;
                     for (j = 0; j < ElephantOnTable[ik].ElefantThinkingQuantum[0].HuristicListElefant.Count; j++)
                     {
+                        if (ElephantOnTable[ik].ElefantThinkingQuantum[0].IsSup[j]
+                     )
+                            continue;
                         if (CheckeHuristci(ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant[j], Order, ik, j, 0))
                             continue;
 
@@ -14441,11 +14468,14 @@ if (Kind == 2)
             for (ik = HourseMidle; ik < HourseHight; ik++)
                 try
                 {
-                    if (HoursesOnTable == null || HoursesOnTable[ik] == null || HoursesOnTable[ik].HourseThinkingQuantum == null || HoursesOnTable[ik].HourseThinkingQuantum[0] == null || HoursesOnTable[ik].HourseThinkingQuantum[0].IsSup[j]
+                    if (HoursesOnTable == null || HoursesOnTable[ik] == null || HoursesOnTable[ik].HourseThinkingQuantum == null || HoursesOnTable[ik].HourseThinkingQuantum[0] == null
                         )
                         continue;
                     for (j = 0; j < HoursesOnTable[ik].HourseThinkingQuantum[0].HuristicListHourse.Count; j++)
                     {
+                        if (HoursesOnTable[ik].HourseThinkingQuantum[0].IsSup[j]
+                        )
+                            continue;
                         if (CheckeHuristci(HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse[j], Order, ik, j, 0))
                             continue;
 
@@ -14577,11 +14607,15 @@ if (Kind == 2)
             for (ik = CastleMidle; ik < CastleHigh; ik++)
                 try
                 {
-                    if (CastlesOnTable == null || CastlesOnTable[ik] == null || CastlesOnTable[ik].CastleThinkingQuantum == null || CastlesOnTable[ik].CastleThinkingQuantum[0] == null || CastlesOnTable[ik].CastleThinkingQuantum[0].IsSup[j]
+                    if (CastlesOnTable == null || CastlesOnTable[ik] == null || CastlesOnTable[ik].CastleThinkingQuantum == null || CastlesOnTable[ik].CastleThinkingQuantum[0] == null
                         )
                         continue;
                     for (j = 0; j < CastlesOnTable[ik].CastleThinkingQuantum[0].HuristicListCastle.Count; j++)
                     {
+                        if (CastlesOnTable[ik].CastleThinkingQuantum[0].IsSup[j]
+                        )
+                            continue;
+
                         if (CheckeHuristci(CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle[j], Order, ik, j, 0))
                             continue;
 
@@ -14648,11 +14682,15 @@ if (Kind == 2)
             for (ik = MinisterMidle; ik < MinisterHigh; ik++)
                 try
                 {
-                    if (MinisterOnTable == null || MinisterOnTable[ik] == null || MinisterOnTable[ik].MinisterThinkingQuantum == null || MinisterOnTable[ik].MinisterThinkingQuantum[0] == null || MinisterOnTable[ik].MinisterThinkingQuantum[0].IsSup[j]
+                    if (MinisterOnTable == null || MinisterOnTable[ik] == null || MinisterOnTable[ik].MinisterThinkingQuantum == null || MinisterOnTable[ik].MinisterThinkingQuantum[0] == null
                         )
                         continue;
                     for (j = 0; j < MinisterOnTable[ik].MinisterThinkingQuantum[0].HuristicListMinister.Count; j++)
                     {
+                        if (MinisterOnTable[ik].MinisterThinkingQuantum[0].IsSup[j]
+                          )
+                            continue;
+
                         if (CheckeHuristci(MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister[j], Order, ik, j, 0))
                             continue;
 
@@ -14700,11 +14738,15 @@ if (Kind == 2)
             for (ik = KingMidle; ik < KingHigh; ik++)
                 try
                 {
-                    if (KingOnTable == null || KingOnTable[ik] == null || KingOnTable[ik].KingThinkingQuantum == null || KingOnTable[ik].KingThinkingQuantum[0] == null || KingOnTable[ik].KingThinkingQuantum[0].IsSup[j]
+                    if (KingOnTable == null || KingOnTable[ik] == null || KingOnTable[ik].KingThinkingQuantum == null || KingOnTable[ik].KingThinkingQuantum[0] == null
                         )
                         continue;
                     for (j = 0; j < KingOnTable[ik].KingThinkingQuantum[0].HuristicListKing.Count; j++)
                     {
+                        if (KingOnTable[ik].KingThinkingQuantum[0].IsSup[j]
+                         )
+                            continue;
+
                         if (CheckeHuristci(KingOnTable[ik].KingThinkingQuantum[0].TableListKing[j], Order, ik, j, 0))
                             continue;
 
@@ -15168,6 +15210,503 @@ if (Kind == 2)
             }
             return Sum;
         }
+        bool ReturnFullGameThinkingQuantumTreeSemaphore(int ik, int kind)
+        {
+            if (kind == 1)
+            {
+                if (SolderesOnTable[ik].SoldierThinkingQuantum[0].ThinkingQuantumBegin && (!SolderesOnTable[ik].SoldierThinkingQuantum[0].ThinkingQuantumFinished))
+                    return true;
+            }
+            else
+                if (kind == 2)
+            {
+                if (ElephantOnTable[ik].ElefantThinkingQuantum[0].ThinkingQuantumBegin && (!ElephantOnTable[ik].ElefantThinkingQuantum[0].ThinkingQuantumFinished))
+                    return true;
+            }
+            else if (kind == 3)
+            {
+                if (HoursesOnTable[ik].HourseThinkingQuantum[0].ThinkingQuantumBegin && (!HoursesOnTable[ik].HourseThinkingQuantum[0].ThinkingQuantumFinished))
+                    return true;
+            }
+            else if (kind == 4)
+            {
+                if (CastlesOnTable[ik].CastleThinkingQuantum[0].ThinkingQuantumBegin && (!CastlesOnTable[ik].CastleThinkingQuantum[0].ThinkingQuantumFinished))
+                    return true;
+            }
+            else
+                if (kind == 5)
+            {
+                if (MinisterOnTable[ik].MinisterThinkingQuantum[0].ThinkingQuantumBegin && (!MinisterOnTable[ik].MinisterThinkingQuantum[0].ThinkingQuantumFinished))
+                    return true;
+            }
+            else if (kind == 6)
+            {
+                if (KingOnTable[ik].KingThinkingQuantum[0].ThinkingQuantumBegin && (!KingOnTable[ik].KingThinkingQuantum[0].ThinkingQuantumFinished))
+                    return true;
+            }
+            return false;
+        }
+
+        bool ReturnConsiderationOfPermitForValidationOfLearningInFullGameThinkingQuantumTree(int ik, int kind, bool Penalty, int j)
+        {
+            if (Penalty)
+            {
+                if (kind == 1)
+                {
+                    if (SolderesOnTable[ik].SoldierThinkingQuantum[0].PenaltyRegardListSolder[j].IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT))
+                        return true;
+                }
+                else
+                                if (kind == 2)
+                {
+                    if (ElephantOnTable[ik].ElefantThinkingQuantum[0].PenaltyRegardListElefant[j].IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT))
+                        return true;
+                }
+                else if (kind == 3)
+                {
+                    if (HoursesOnTable[ik].HourseThinkingQuantum[0].PenaltyRegardListHourse[j].IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT))
+                        return true;
+                }
+                else if (kind == 4)
+                {
+                    if (CastlesOnTable[ik].CastleThinkingQuantum[0].PenaltyRegardListCastle[j].IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT))
+                        return true;
+                }
+                else
+                    if (kind == 5)
+                {
+                    if (MinisterOnTable[ik].MinisterThinkingQuantum[0].PenaltyRegardListMinister[j].IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT))
+                        return true;
+                }
+                else if (kind == 6)
+                {
+                    if (KingOnTable[ik].KingThinkingQuantum[0].PenaltyRegardListKing[j].IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT))
+                        return true;
+                }
+            }
+            else { }
+            {
+                if (kind == 1)
+                {
+                    if (SolderesOnTable[ik].SoldierThinkingQuantum[0].PenaltyRegardListSolder[j].IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT))
+                        return true;
+                }
+                else
+                         if (kind == 2)
+                {
+                    if (ElephantOnTable[ik].ElefantThinkingQuantum[0].PenaltyRegardListElefant[j].IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT))
+                        return true;
+                }
+                else if (kind == 3)
+                {
+                    if (HoursesOnTable[ik].HourseThinkingQuantum[0].PenaltyRegardListHourse[j].IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT))
+                        return true;
+                }
+                else if (kind == 4)
+                {
+                    if (CastlesOnTable[ik].CastleThinkingQuantum[0].PenaltyRegardListCastle[j].IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT))
+                        return true;
+                }
+                else
+                    if (kind == 5)
+                {
+                    if (MinisterOnTable[ik].MinisterThinkingQuantum[0].PenaltyRegardListMinister[j].IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT))
+                        return true;
+                }
+                else if (kind == 6)
+                {
+                    if (KingOnTable[ik].KingThinkingQuantum[0].PenaltyRegardListKing[j].IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT))
+                        return true;
+                }
+            }
+            return false;
+        }
+        void BlitzNotValidFullGameThinkingQuantumTreePartOne(int ik, int Order, int kind)
+        {
+            if (kind == 1)
+            {
+                if (SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy == null)
+                    SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
+                SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+            }
+            else if (kind == 2)
+            {
+                if (ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy == null)
+                    ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
+                ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+            }
+            else if (kind == 3)
+            {
+                if (HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy == null)
+                    HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
+                HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+            }
+            else if (kind == 4)
+            {
+                if (CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy == null)
+                    CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
+                CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+            }
+            else if (kind == 5)
+            {
+                if (MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy == null)
+                    MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
+                MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+            }
+            else if (kind == 6)
+            {
+                if (KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy == null)
+                    KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
+                KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+            }
+
+        }
+        void BlitzNotValidFullGameThinkingQuantumTreePartTow(int ik, int Order, int kind)
+        {
+            if (kind == 1)
+            {
+                if (SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy == null)
+                    SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
+                SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+            }
+            else if (kind == 2)
+            {
+                if (ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy == null)
+                    ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
+                ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+            }
+            else if (kind == 3)
+            {
+                if (HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy == null)
+                    HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
+                HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+            }
+            else if (kind == 4)
+            {
+                if (CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy == null)
+                    CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
+                CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+            }
+            else if (kind == 5)
+            {
+                if (MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy == null)
+                    MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
+                MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+            }
+            else if (kind == 6)
+            {
+                if (KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy == null)
+                    KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
+                KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+            }
+        }
+        void BlitzNotValidFullGameThinkingQuantumTreePartThree(int ik, int Order, int kind)
+        {
+            if (kind == 1)
+            {
+                if (SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy == null)
+                    SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
+                SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+
+            }
+            else if (kind == 2)
+            {
+                if (ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy == null)
+                    ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
+                ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+            }
+            else if (kind == 3)
+            {
+                if (HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy == null)
+                    HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
+                HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+            }
+            else if (kind == 4)
+            {
+                if (CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy == null)
+                    CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
+                CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+            }
+            else if (kind == 5)
+            {
+                if (MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy == null)
+                    MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
+                MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+            }
+            else if (kind == 6)
+            {
+                if (KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy == null)
+                    KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
+                KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+            }
+        }
+        void FullGameThinkingQuantumTreeInitialization(int ik, int j, int Order, int kind)
+        {
+            if (kind == 1)
+            {
+                if (SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy == null)
+                    SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
+                SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Clear();
+                SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder[j]));
+                SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumn(0);
+                SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
+            }
+            else if (kind == 2)
+            {
+                if (ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy == null)
+                    ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
+                ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Clear();
+                ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant[j]));
+                ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumn(0);
+                ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
+            }
+            else if (kind == 3)
+            {
+                if (HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy == null)
+                    HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
+                HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Clear();
+                HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse[j]));
+                HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumn(0);
+                HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
+            }
+            else if (kind == 4)
+            {
+                if (CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy == null)
+                    CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
+                CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Clear();
+                CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle[j]));
+                CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumn(0);
+                CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
+            }
+            else if (kind == 5)
+            {
+                if (MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy == null)
+                    MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
+                MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Clear();
+                MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister[j]));
+                MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumn(0);
+                MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
+            }
+            else if (kind == 6)
+            {
+                if (KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy == null)
+                    KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
+                KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Clear();
+                KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(KingOnTable[ik].KingThinkingQuantum[0].TableListKing[j]));
+                KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumn(0);
+                KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
+            }
+        }
+        void OpOfFullGameThinkingQuantumTree(int ik, int j, int Order, int iAStarGreedy, int ii, int jj, Color a, int kind, bool FOUND, int LeafAStarGreedy)
+        {
+            if (kind == 1)
+            {
+                OutPutAction = " " + Alphabet(SolderesOnTable[ik].SoldierThinkingQuantum[0].Row) + Number(SolderesOnTable[ik].SoldierThinkingQuantum[0].Column) + Alphabet(SolderesOnTable[ik].SoldierThinkingQuantum[0].RowColumnSoldier[j][0]) + Number(SolderesOnTable[ik].SoldierThinkingQuantum[0].RowColumnSoldier[j][1]);
+                if (Order == 1)
+                    OutPut += "\r\nPerception Soldier AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
+                else
+                    OutPut += "\r\nPerception Soldier AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
+
+                PerceptionCount++;
+                int iii = SolderesOnTable[ik].SoldierThinkingQuantum[0].RowColumnSoldier[j][0];
+                int jjj = SolderesOnTable[ik].SoldierThinkingQuantum[0].RowColumnSoldier[j][1];
+                Color aa = a;
+                int[,] Tab = CloneATable(SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder[j]);
+                int Ord = Order * -1;
+                SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder[j]), Order * -1, false, FOUND, LeafAStarGreedy);
+
+                //Task array = Task.Factory.StartNew(() => SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder[j]), Order, false, FOUND, LeafAStarGreedy));
+
+                //SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord*-1, false, FOUND, LeafAStarGreedy);
+                //array.Start();
+                /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
+                {
+                    Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
+                }
+                else
+                {
+                    Object ttttt = new Object(); lock (ttttt) { array.Wait(); }
+                }
+                */
+                //array.Name = "S" + i.ToString();
+            }
+            else if (kind == 2)
+            {
+                OutPutAction = " " + Alphabet(ElephantOnTable[ik].ElefantThinkingQuantum[0].Row) + Number(ElephantOnTable[ik].ElefantThinkingQuantum[0].Column) + Alphabet(ElephantOnTable[ik].ElefantThinkingQuantum[0].RowColumnElefant[j][0]) + Number(ElephantOnTable[ik].ElefantThinkingQuantum[0].RowColumnElefant[j][1]);
+                if (Order == 1)
+                    OutPut += "\r\nPerception Elephant AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
+                else
+                    OutPut += "\r\nPerception Elephant AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
+
+                PerceptionCount++;
+                int iii = ElephantOnTable[ik].ElefantThinkingQuantum[0].RowColumnElefant[j][0];
+                int jjj = ElephantOnTable[ik].ElefantThinkingQuantum[0].RowColumnElefant[j][1];
+                Color aa = a;
+                int[,] Tab = CloneATable(ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant[j]);
+                int Ord = Order * -1;
+                ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+
+                ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy);
+                //Task array = Task.Factory.StartNew(() => ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant[j]), Order, false, FOUND, LeafAStarGreedy));
+
+                //array.Start();
+                /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
+                {
+                    Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
+                }
+                else
+                {
+                    Object ttttt = new Object(); lock (ttttt) { array.Wait(); }
+                }*/
+                //array.Name = "E" + i.ToString();
+            }
+            else if (kind == 3)
+            {
+                OutPutAction = " " + Alphabet(HoursesOnTable[ik].HourseThinkingQuantum[0].Row) + Number(HoursesOnTable[ik].HourseThinkingQuantum[0].Column) + Alphabet(HoursesOnTable[ik].HourseThinkingQuantum[0].RowColumnHourse[j][0]) + Number(HoursesOnTable[ik].HourseThinkingQuantum[0].RowColumnHourse[j][1]);
+                if (Order == 1)
+                    OutPut += "\r\nPerception Hourse AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
+                else
+                    OutPut += "\r\nPerception Hourse AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
+
+                PerceptionCount++;
+                int iii = HoursesOnTable[ik].HourseThinkingQuantum[0].RowColumnHourse[j][0];
+                int jjj = HoursesOnTable[ik].HourseThinkingQuantum[0].RowColumnHourse[j][1];
+                Color aa = a;
+                int[,] Tab = CloneATable(HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse[j]);
+                int Ord = Order * -1;
+                HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy);
+
+                //Task array = Task.Factory.StartNew(() => HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse[j]), Order, false, FOUND, LeafAStarGreedy));
+
+                //array.Start();
+                /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
+               {
+                   Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
+               }
+               else
+               {
+                   Object ttttt = new Object(); lock (ttttt) { array.Wait(); }
+               }
+               */
+                //array.Name = "H" + i.ToString();
+            }
+            else if (kind == 4)
+            {
+                OutPutAction = " " + Alphabet(CastlesOnTable[ik].CastleThinkingQuantum[0].Row) + Number(CastlesOnTable[ik].CastleThinkingQuantum[0].Column) + Alphabet(CastlesOnTable[ik].CastleThinkingQuantum[0].RowColumnCastle[j][0]) + Number(CastlesOnTable[ik].CastleThinkingQuantum[0].RowColumnCastle[j][1]);
+                if (Order == 1)
+                    OutPut += "\r\nPerception Castle AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
+                else
+                    OutPut += "\r\nPerception Castle AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
+
+                PerceptionCount++;
+                int iii = CastlesOnTable[ik].CastleThinkingQuantum[0].RowColumnCastle[j][0];
+                int jjj = CastlesOnTable[ik].CastleThinkingQuantum[0].RowColumnCastle[j][1];
+                Color aa = a;
+                int[,] Tab = CloneATable(CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle[j]);
+                int Ord = Order * -1;
+                CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                //Task array = Task.Factory.StartNew(() => CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle[j]), Order, false, FOUND, LeafAStarGreedy));
+                CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy);
+                //array.Start();
+                /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
+                {
+                    Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
+                }
+                else
+                {
+                    Object ttttt = new Object(); lock (ttttt) { array.Wait(); }
+                }
+                */
+                //array.Name = "B" + i.ToString();
+            }
+            else if (kind == 5)
+            {
+                OutPutAction = " " + Alphabet(MinisterOnTable[ik].MinisterThinkingQuantum[0].Row) + Number(MinisterOnTable[ik].MinisterThinkingQuantum[0].Column) + Alphabet(MinisterOnTable[ik].MinisterThinkingQuantum[0].RowColumnMinister[j][0]) + Number(MinisterOnTable[ik].MinisterThinkingQuantum[0].RowColumnMinister[j][1]);
+                if (Order == 1)
+                    OutPut += "\r\nPerception Minister AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
+                else
+                    OutPut += "\r\nPerception Minister AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
+
+                PerceptionCount++;
+                int iii = MinisterOnTable[ik].MinisterThinkingQuantum[0].RowColumnMinister[j][0];
+                int jjj = MinisterOnTable[ik].MinisterThinkingQuantum[0].RowColumnMinister[j][1];
+                Color aa = a;
+                int[,] Tab = CloneATable(MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister[j]);
+                int Ord = Order * -1;
+                MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+
+                //Task array = Task.Factory.StartNew(() => MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister[j]), Order, false, FOUND, LeafAStarGreedy));
+                MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy);
+                //array.Start();
+                /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
+                {
+                    Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
+                }
+                else
+                {
+                    Object ttttt = new Object(); lock (ttttt) { array.Wait(); }
+                }*/
+                //array.Name = "M" + i.ToString();
+            }
+            else if (kind == 6)
+            {
+                OutPutAction = " " + Alphabet(KingOnTable[ik].KingThinkingQuantum[0].Row) + Number(KingOnTable[ik].KingThinkingQuantum[0].Column) + Alphabet(KingOnTable[ik].KingThinkingQuantum[0].RowColumnKing[j][0]) + Number(KingOnTable[ik].KingThinkingQuantum[0].RowColumnKing[j][1]);
+                if (Order == 1)
+                    OutPut += "\r\nPerception King AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
+                else
+                    OutPut += "\r\nPerception King AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
+
+                PerceptionCount++;
+
+                int iii = KingOnTable[ik].KingThinkingQuantum[0].RowColumnKing[j][0];
+                int jjj = KingOnTable[ik].KingThinkingQuantum[0].RowColumnKing[j][1];
+                Color aa = a;
+                int[,] Tab = CloneATable(KingOnTable[ik].KingThinkingQuantum[0].TableListKing[j]);
+                int Ord = Order * -1;
+                KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+
+                //Task array = Task.Factory.StartNew(() => KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(KingOnTable[ik].KingThinkingQuantum[0].TableListKing[j]), Order, false, FOUND, LeafAStarGreedy));
+                KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy);
+
+
+                //array.Start();
+                /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
+                {
+                    Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
+                }
+                else
+                {
+                    Object ttttt = new Object(); lock (ttttt) { array.Wait(); }
+                }*/
+                //array.Name = "K" + i.ToString();
+            }
+        }
         bool FullGameThinkingQuantumTreeSoldier(int ik, Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
             bool Do = false;
@@ -15178,15 +15717,10 @@ if (Kind == 2)
                 lock (OO1)
                 {
                     TaskBegin++;
-                    int S = 0;
-                    while (SolderesOnTable[ik].SoldierThinkingQuantum[0].ThinkingQuantumBegin && (!SolderesOnTable[ik].SoldierThinkingQuantum[0].ThinkingQuantumFinished))
+                    //int S = 0;
+                    while (ReturnFullGameThinkingQuantumTreeSemaphore(ik, 1))
                     {
-
                         System.Threading.Thread.Sleep(2);
-
-
-                        //S += 1;//if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } 
-                        //SemaphoreExxedTime(S, 1);
                     }
 
                 }
@@ -15195,20 +15729,12 @@ if (Kind == 2)
                 {
                     if (iAStarGreedy < 0)
                     {
-
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                             return false;
-
-
                     }
                 }
-                //List<Task> tHA = new List<Task>();
 
-                //int j = new int();
-                //if (SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder.Count == 0)
-                //    continue; Do;
-
-                ////Parallel.For(0, SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder.Count, j =>
+                //Parallel.For(0, SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder.Count, j =>
                 for (int j = 0; j < SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder.Count; j++)
                 {
                     Object ooo = new Object();
@@ -15223,218 +15749,94 @@ if (Kind == 2)
                         {
                             if (AllDraw.OrderPlate == Order)
                             {
-                                if (SolderesOnTable[ik].SoldierThinkingQuantum[0].PenaltyRegardListSolder[j].IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT)//&& SolderesOnTable[ik].SoldierThinkingQuantum[0].PenaltyRegardListSolder[j].IsRewardAction() != 1 ||(!UsePenaltyRegardMechnisamT)
+                                if (ReturnConsiderationOfPermitForValidationOfLearningInFullGameThinkingQuantumTree(ik, 1, true, j)
                                 )
                                 {
-                                    //if (JI == 0)
-                                    // if (Index[0] != -1)
+                                    if (AllDraw.Blitz)
                                     {
-                                        if (AllDraw.Blitz)
+                                        if (Index[0] != -1)
                                         {
-                                            /*if (Kind != -1)
+                                            if (ik != Index[0])
                                             {
-                                                if (Kind != 1)
-                                                    continue;
-                                                else
-                                                    if (ik != Index)
-                                                        continue;
-                                                    else
-                                                        if (j != jindex)
-                                                            continue;
-                                            }
-                                            else
-                                                continue;
-                                             */
-                                            if (Index[0] != -1)
-                                            {
-                                                if (ik != Index[0])
-                                                {
-                                                    if (SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy == null)
-                                                        SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                                    SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                                    SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                    continue;
-                                                }
-                                                else
-
-                                                                if (j != jindex[0])
-                                                {
-                                                    if (SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy == null)
-                                                        SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                                    SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                                    SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                    continue;
-                                                }
-                                            }
-                                            else
-                                            {
-                                                if (SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy == null)
-                                                    SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                                SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                                SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                                BlitzNotValidFullGameThinkingQuantumTreePartOne(ik, Order, 1);
                                                 continue;
                                             }
-
-                                        }
-                                        Object O3 = new Object();
-                                        lock (O3)
-                                        {
-                                            if (SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy == null)
-                                                SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                            SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                            SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Clear();
-                                            SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder[j]));
-                                            SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumn(0);
-                                            SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
-                                        }
-                                        //SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder[j], Order, false);
-                                        //ParameterizedThreadStart start = new ParameterizedThreadStart(SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
-                                        if (SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count > 0)
-                                        {
-                                            Object O = new Object();
-
-                                            lock (O)
+                                            else
+                                            if (j != jindex[0])
                                             {
-                                                OutPutAction = " " + Alphabet(SolderesOnTable[ik].SoldierThinkingQuantum[0].Row) + Number(SolderesOnTable[ik].SoldierThinkingQuantum[0].Column) + Alphabet(SolderesOnTable[ik].SoldierThinkingQuantum[0].RowColumnSoldier[j][0]) + Number(SolderesOnTable[ik].SoldierThinkingQuantum[0].RowColumnSoldier[j][1]);
-                                                if (Order == 1)
-                                                    OutPut += "\r\nPerception Soldier AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
-                                                else
-                                                    OutPut += "\r\nPerception Soldier AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
-
-                                                PerceptionCount++;
-                                                Do = true;
-                                                int iii = SolderesOnTable[ik].SoldierThinkingQuantum[0].RowColumnSoldier[j][0];
-                                                int jjj = SolderesOnTable[ik].SoldierThinkingQuantum[0].RowColumnSoldier[j][1];
-                                                Color aa = a;
-                                                int[,] Tab = CloneATable(SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder[j]);
-                                                int Ord = Order * -1;
-                                                SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder[j]), Order * -1, false, FOUND, LeafAStarGreedy);
-
-                                                //Task array = Task.Factory.StartNew(() => SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder[j]), Order, false, FOUND, LeafAStarGreedy));
-
-                                                //SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord*-1, false, FOUND, LeafAStarGreedy);
-                                                //array.Start();
-                                                /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
-                                                {
-                                                    Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
-                                                }
-                                                else
-                                                {
-                                                    Object ttttt = new Object(); lock (ttttt) { array.Wait(); }
-                                                }
-                                                */
-                                                //array.Name = "S" + i.ToString();
-                                                Do = true;
+                                                BlitzNotValidFullGameThinkingQuantumTreePartTow(ik, Order, 1);
+                                                continue;
                                             }
                                         }
+                                        else
+                                        {
+                                            BlitzNotValidFullGameThinkingQuantumTreePartThree(ik, Order, 1);
+                                            continue;
+                                        }
+                                    }
+                                    Object O3 = new Object();
+                                    lock (O3)
+                                    {
+                                        FullGameThinkingQuantumTreeInitialization(ik, j, Order, 1);
+                                    }
+                                    //SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder[j], Order, false);
+                                    //ParameterizedThreadStart start = new ParameterizedThreadStart(SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
+                                    if (SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count > 0)
+                                    {
+                                        Object O = new Object();
 
+                                        lock (O)
+                                        {
+                                            OpOfFullGameThinkingQuantumTree(ik, j, Order, iAStarGreedy, ii, jj, a, 1, FOUND, LeafAStarGreedy);
+
+                                            Do = true;
+                                        }
                                     }
                                 }
                             }
                             else
                             {
-                                if (//SolderesOnTable[ik].SoldierThinkingQuantum[0].PenaltyRegardListSolder[j].IsPenaltyAction() != 0 && 
-                                SolderesOnTable[ik].SoldierThinkingQuantum[0].PenaltyRegardListSolder[j].IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT)
+                                if (ReturnConsiderationOfPermitForValidationOfLearningInFullGameThinkingQuantumTree(ik, 1, false, j)
+
                                 )
                                 {
                                     //if (JI == 0)
                                     // if (Index[0] != -1)
                                     {
-                                        if (AllDraw.Blitz)
+                                        if (Index[0] != -1)
                                         {
-                                            /*if (Kind != -1)
+                                            if (ik != Index[0])
                                             {
-                                                if (Kind != 1)
-                                                    continue;
-                                                else
-                                                    if (ik != Index)
-                                                        continue;
-                                                    else
-                                                        if (j != jindex)
-                                                            continue;
-                                            }
-                                            else
-                                                continue;
-                                             */
-                                            if (Index[0] != -1)
-                                            {
-                                                if (ik != Index[0])
-                                                {
-                                                    if (SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy == null)
-                                                        SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                                    SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                                    SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                    continue;
-                                                }
-                                                else
-
-                                                    if (j != jindex[0])
-                                                {
-                                                    if (SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy == null)
-                                                        SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                                    SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                                    SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                    continue;
-                                                }
-                                            }
-                                            else
-                                            {
-                                                if (SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy == null)
-                                                    SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                                SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                                SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                                BlitzNotValidFullGameThinkingQuantumTreePartOne(ik, Order, 1);
                                                 continue;
                                             }
+                                            else
+                                            if (j != jindex[0])
+                                            {
+                                                BlitzNotValidFullGameThinkingQuantumTreePartTow(ik, Order, 1);
+                                                continue;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            BlitzNotValidFullGameThinkingQuantumTreePartThree(ik, Order, 1);
+                                            continue;
                                         }
                                         Object O3 = new Object();
                                         lock (O3)
                                         {
-                                            if (SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy == null)
-                                                SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                            SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                            SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Clear();
-                                            SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder[j]));
-                                            SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumn(0);
+                                            FullGameThinkingQuantumTreeInitialization(ik, j, Order, 1);
                                         }
-                                        SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
                                         //SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder[j], Order, false);
                                         //ParameterizedThreadStart start = new ParameterizedThreadStart(SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
                                         if (SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count > 0)
                                         {
                                             Object O = new Object();
+
                                             lock (O)
                                             {
-                                                OutPutAction = " " + Alphabet(SolderesOnTable[ik].SoldierThinkingQuantum[0].Row) + Number(SolderesOnTable[ik].SoldierThinkingQuantum[0].Column) + Alphabet(SolderesOnTable[ik].SoldierThinkingQuantum[0].RowColumnSoldier[j][0]) + Number(SolderesOnTable[ik].SoldierThinkingQuantum[0].RowColumnSoldier[j][1]);
-                                                if (Order == 1)
-                                                    OutPut += "\r\nPerception Soldier AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
-                                                else
-                                                    OutPut += "\r\nPerception Soldier AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
+                                                OpOfFullGameThinkingQuantumTree(ik, j, Order, iAStarGreedy, ii, jj, a, 1, FOUND, LeafAStarGreedy);
 
-                                                PerceptionCount++;
-                                                Do = true;
-                                                int iii = SolderesOnTable[ik].SoldierThinkingQuantum[0].RowColumnSoldier[j][0];
-                                                int jjj = SolderesOnTable[ik].SoldierThinkingQuantum[0].RowColumnSoldier[j][1];
-                                                Color aa = a;
-                                                int[,] Tab = CloneATable(SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder[j]);
-                                                int Ord = Order * -1;
-                                                SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-
-                                                //Task array = Task.Factory.StartNew(() => SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder[j]), Order, false, FOUND, LeafAStarGreedy));
-                                                SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder[j]), Order * -1, false, FOUND, LeafAStarGreedy);
-
-                                                //SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord*-1, false, FOUND, LeafAStarGreedy);
-                                                //array.Start();
-                                                /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
-                                                {
-                                                    Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
-                                                }
-                                                else
-                                                {
-                                                    Object ttttt = new Object(); lock (ttttt) { array.Wait(); }
-                                                }
-                                                */
-                                                //array.Name = "S" + i.ToString();
                                                 Do = true;
                                             }
                                         }
@@ -15506,8 +15908,8 @@ if (Kind == 2)
                 lock (OO1)
                 {
                     TaskBegin++;
-                    int S = 0;
-                    while (ElephantOnTable[ik].ElefantThinkingQuantum[0].ThinkingQuantumBegin && (!ElephantOnTable[ik].ElefantThinkingQuantum[0].ThinkingQuantumFinished))
+                    //int S = 0;
+                    while (ReturnFullGameThinkingQuantumTreeSemaphore(ik, 2))
                     {
                         Thread.Sleep(2);
                         //S += 1;//if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } 
@@ -15545,7 +15947,7 @@ if (Kind == 2)
                         {
                             if (AllDraw.OrderPlate == Order)
                             {
-                                if (ElephantOnTable[ik].ElefantThinkingQuantum[0].PenaltyRegardListElefant[j].IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT)//&& ElephantOnTable[ik].ElefantThinkingQuantum[0].PenaltyRegardListElefant[j].IsRewardAction() != 1 ||(!UsePenaltyRegardMechnisamT)
+                                if (ReturnConsiderationOfPermitForValidationOfLearningInFullGameThinkingQuantumTree(ik, 2, true, j)
                                 )
                                 {
 
@@ -15553,62 +15955,32 @@ if (Kind == 2)
                                     {
                                         if (AllDraw.Blitz)
                                         {
-                                            /*if (Kind != -1)
-                                            {
-                                                if (Kind != 2)
-                                                    continue;
-                                                else
-                                                    if (ik != Index)
-                                                        continue;
-                                                    else
-                                                        if (j != jindex)
-                                                            continue;
-                                            }
-                                            else
-                                                continue;
-                                             */
                                             if (Index[1] != -1)
                                             {
 
                                                 if (ik != Index[1])
                                                 {
-                                                    if (ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy == null)
-                                                        ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                                    ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                                    ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                                    BlitzNotValidFullGameThinkingQuantumTreePartOne(ik, Order, 2);
                                                     continue;
                                                 }
                                                 else
                                                     if (j != jindex[1])
                                                 {
-                                                    if (ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy == null)
-                                                        ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                                    ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                                    ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                                    BlitzNotValidFullGameThinkingQuantumTreePartTow(ik, Order, 2);
                                                     continue;
                                                 }
                                             }
                                             else
                                             {
-                                                if (ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy == null)
-                                                    ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                                ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                                ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                                BlitzNotValidFullGameThinkingQuantumTreePartThree(ik, Order, 2);
                                                 continue;
                                             }
-
                                         }
                                         Object O3 = new Object();
                                         lock (O3)
                                         {
-                                            if (ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy == null)
-                                                ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
+                                            FullGameThinkingQuantumTreeInitialization(ik, j, Order, 2);
 
-                                            ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                            ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Clear();
-                                            ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant[j]));
-                                            ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumn(0);
-                                            ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
                                             //ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant[j], Order, false);
                                             //ParameterizedThreadStart start = new ParameterizedThreadStart(ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
                                             if (ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count > 0)
@@ -15616,105 +15988,52 @@ if (Kind == 2)
                                                 Object O = new Object();
                                                 lock (O)
                                                 {
-                                                    OutPutAction = " " + Alphabet(ElephantOnTable[ik].ElefantThinkingQuantum[0].Row) + Number(ElephantOnTable[ik].ElefantThinkingQuantum[0].Column) + Alphabet(ElephantOnTable[ik].ElefantThinkingQuantum[0].RowColumnElefant[j][0]) + Number(ElephantOnTable[ik].ElefantThinkingQuantum[0].RowColumnElefant[j][1]);
-                                                    if (Order == 1)
-                                                        OutPut += "\r\nPerception Elephant AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
-                                                    else
-                                                        OutPut += "\r\nPerception Elephant AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
-
-                                                    PerceptionCount++;
-                                                    int iii = ElephantOnTable[ik].ElefantThinkingQuantum[0].RowColumnElefant[j][0];
-                                                    int jjj = ElephantOnTable[ik].ElefantThinkingQuantum[0].RowColumnElefant[j][1];
-                                                    Color aa = a;
-                                                    int[,] Tab = CloneATable(ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant[j]);
-                                                    int Ord = Order * -1;
-                                                    ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                    //Task array = Task.Factory.StartNew(() => ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant[j]), Order, false, FOUND, LeafAStarGreedy));
-                                                    ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy);
-
-
-                                                    //array.Start();
-                                                    /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
-                                                    {
-                                                        Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
-                                                    }
-                                                    else
-                                                    {
-                                                        Object ttttt = new Object(); lock (ttttt) { array.Wait(); }
-                                                    }*/
-                                                    //array.Name = "E" + i.ToString();
+                                                    OpOfFullGameThinkingQuantumTree(ik, j, Order, iAStarGreedy, ii, jj, a, 2, FOUND, LeafAStarGreedy);
                                                     Do = true;
                                                 }
                                             }
                                         }
+
 
                                     }
                                 }
                             }
                             else
                             {
-                                if (//ElephantOnTable[ik].ElefantThinkingQuantum[0].PenaltyRegardListElefant[j].IsPenaltyAction() != 0 && 
-                                ElephantOnTable[ik].ElefantThinkingQuantum[0].PenaltyRegardListElefant[j].IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT)
+                                if (ReturnConsiderationOfPermitForValidationOfLearningInFullGameThinkingQuantumTree(ik, 2, false, j)
+
                                 )
                                 {
                                     //if (Index[1] != -1)
                                     {
                                         if (AllDraw.Blitz)
                                         {
-                                            /*if (Kind != -1)
-                                            {
-                                                if (Kind != 2)
-                                                    continue;
-                                                else
-                                                    if (ik != Index)
-                                                        continue;
-                                                    else
-                                                        if (j != jindex)
-                                                            continue;
-                                            }
-                                            else
-                                                continue;
-                                             */
                                             if (Index[1] != -1)
                                             {
 
                                                 if (ik != Index[1])
                                                 {
-                                                    if (ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy == null)
-                                                        ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                                    ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                                    ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                                    BlitzNotValidFullGameThinkingQuantumTreePartOne(ik, Order, 2);
                                                     continue;
                                                 }
                                                 else
                                                     if (j != jindex[1])
                                                 {
-                                                    if (ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy == null)
-                                                        ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                                    ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                                    ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                                    BlitzNotValidFullGameThinkingQuantumTreePartTow(ik, Order, 2);
                                                     continue;
                                                 }
                                             }
                                             else
                                             {
-                                                if (ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy == null)
-                                                    ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                                ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                                ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                                BlitzNotValidFullGameThinkingQuantumTreePartThree(ik, Order, 2);
                                                 continue;
                                             }
                                         }
                                         Object O3 = new Object();
                                         lock (O3)
                                         {
-                                            if (ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy == null)
-                                                ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                            ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                            ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Clear();
-                                            ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant[j]));
-                                            ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumn(0);
-                                            ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
+                                            FullGameThinkingQuantumTreeInitialization(ik, j, Order, 2);
+
                                             //ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant[j], Order, false);
                                             //ParameterizedThreadStart start = new ParameterizedThreadStart(ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
                                             if (ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count > 0)
@@ -15722,33 +16041,7 @@ if (Kind == 2)
                                                 Object O = new Object();
                                                 lock (O)
                                                 {
-                                                    OutPutAction = " " + Alphabet(ElephantOnTable[ik].ElefantThinkingQuantum[0].Row) + Number(ElephantOnTable[ik].ElefantThinkingQuantum[0].Column) + Alphabet(ElephantOnTable[ik].ElefantThinkingQuantum[0].RowColumnElefant[j][0]) + Number(ElephantOnTable[ik].ElefantThinkingQuantum[0].RowColumnElefant[j][1]);
-                                                    if (Order == 1)
-                                                        OutPut += "\r\nPerception Elephant AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
-                                                    else
-                                                        OutPut += "\r\nPerception Elephant AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
-
-                                                    PerceptionCount++;
-                                                    int iii = ElephantOnTable[ik].ElefantThinkingQuantum[0].RowColumnElefant[j][0];
-                                                    int jjj = ElephantOnTable[ik].ElefantThinkingQuantum[0].RowColumnElefant[j][1];
-                                                    Color aa = a;
-                                                    int[,] Tab = CloneATable(ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant[j]);
-                                                    int Ord = Order * -1;
-                                                    ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-
-                                                    ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy);
-                                                    //Task array = Task.Factory.StartNew(() => ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant[j]), Order, false, FOUND, LeafAStarGreedy));
-
-                                                    //array.Start();
-                                                    /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
-                                                    {
-                                                        Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
-                                                    }
-                                                    else
-                                                    {
-                                                        Object ttttt = new Object(); lock (ttttt) { array.Wait(); }
-                                                    }*/
-                                                    //array.Name = "E" + i.ToString();
+                                                    OpOfFullGameThinkingQuantumTree(ik, j, Order, iAStarGreedy, ii, jj, a, 2, FOUND, LeafAStarGreedy);
                                                     Do = true;
                                                 }
                                             }
@@ -15823,8 +16116,8 @@ if (Kind == 2)
                 lock (OO1)
                 {
                     TaskBegin++;
-                    int S = 0;
-                    while (HoursesOnTable[ik].HourseThinkingQuantum[0].ThinkingQuantumBegin && (!HoursesOnTable[ik].HourseThinkingQuantum[0].ThinkingQuantumFinished))
+                    //int S = 0;
+                    while (ReturnFullGameThinkingQuantumTreeSemaphore(ik, 3))
                     {
                         Thread.Sleep(2);
                         //S += 1;//if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } 
@@ -15864,178 +16157,39 @@ if (Kind == 2)
                         {
                             if (AllDraw.OrderPlate == Order)
                             {
-                                if (HoursesOnTable[ik].HourseThinkingQuantum[0].PenaltyRegardListHourse[j].IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT)//&& HoursesOnTable[ik].HourseThinkingQuantum[0].PenaltyRegardListHourse[j].IsRewardAction() != 1 ||(!UsePenaltyRegardMechnisamT)
+                                if (ReturnConsiderationOfPermitForValidationOfLearningInFullGameThinkingQuantumTree(ik, 3, true, j)
                                 )
                                 {
                                     //if (Index[2] != -1)
                                     {
                                         if (AllDraw.Blitz)
                                         {
-                                            /*   if (Kind != -1)
-                                               {
-                                                   if (Kind != 3)
-                                                       continue;
-                                                   else
-                                                       if (ik != Index)
-                                                           continue;
-                                                       else
-                                                           if (j != jindex)
-                                                               continue;
-                                               }
-                                               else
-                                                   continue;
-                                             */
                                             if (Index[2] != -1)
                                             {
 
                                                 if (ik != Index[2])
                                                 {
-                                                    if (HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy == null)
-                                                        HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                                    HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                                    HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                                    BlitzNotValidFullGameThinkingQuantumTreePartOne(ik, Order, 3);
                                                     continue;
                                                 }
                                                 else
                                                     if (j != jindex[2])
                                                 {
-                                                    if (HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy == null)
-                                                        HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                                    HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                                    HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                                    BlitzNotValidFullGameThinkingQuantumTreePartTow(ik, Order, 3);
                                                     continue;
                                                 }
                                             }
                                             else
                                             {
-                                                if (HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy == null)
-                                                    HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                                HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                                HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                                BlitzNotValidFullGameThinkingQuantumTreePartThree(ik, Order, 3);
                                                 continue;
                                             }
-
-
-                                            Object O3 = new Object();
-                                            lock (O3)
-                                            {
-                                                if (HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy == null)
-                                                    HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                                HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                                HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Clear();
-                                                HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse[j]));
-                                                HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumn(0);
-                                                HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
-                                            }
-                                            //HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse[j], Order, false);
-                                            //ParameterizedThreadStart start = new ParameterizedThreadStart(HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
-                                            if (HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count > 0)
-                                            {
-                                                Object O = new Object();
-                                                lock (O)
-                                                {
-                                                    OutPutAction = " " + Alphabet(HoursesOnTable[ik].HourseThinkingQuantum[0].Row) + Number(HoursesOnTable[ik].HourseThinkingQuantum[0].Column) + Alphabet(HoursesOnTable[ik].HourseThinkingQuantum[0].RowColumnHourse[j][0]) + Number(HoursesOnTable[ik].HourseThinkingQuantum[0].RowColumnHourse[j][1]);
-                                                    if (Order == 1)
-                                                        OutPut += "\r\nPerception Hourse AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
-                                                    else
-                                                        OutPut += "\r\nPerception Hourse AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
-
-                                                    PerceptionCount++;
-                                                    int iii = HoursesOnTable[ik].HourseThinkingQuantum[0].RowColumnHourse[j][0];
-                                                    int jjj = HoursesOnTable[ik].HourseThinkingQuantum[0].RowColumnHourse[j][1];
-                                                    Color aa = a;
-                                                    int[,] Tab = CloneATable(HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse[j]);
-                                                    int Ord = Order * -1;
-                                                    HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                    HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy);
-
-                                                    //Task array = Task.Factory.StartNew(() => HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse[j]), Order, false, FOUND, LeafAStarGreedy));
-
-                                                    //array.Start();
-                                                    /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
-                                                   {
-                                                       Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
-                                                   }
-                                                   else
-                                                   {
-                                                       Object ttttt = new Object(); lock (ttttt) { array.Wait(); }
-                                                   }
-                                                   */
-                                                    //array.Name = "H" + i.ToString();
-                                                    Do = true;
-                                                }
-                                            }
-
                                         }
-                                    }
-                                }
-                                else
-                                {
-                                    if (//HoursesOnTable[ik].HourseThinkingQuantum[0].PenaltyRegardListHourse[j].IsPenaltyAction() != 0 ||(!UsePenaltyRegardMechnisamT)//&& 
-                                    HoursesOnTable[ik].HourseThinkingQuantum[0].PenaltyRegardListHourse[j].IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT)
-                                    )
-                                    {
-                                        //if (Index[2] != -1)
-                                        {
-                                            if (AllDraw.Blitz)
-                                            {
-                                                /*   if (Kind != -1)
-                                                   {
-                                                       if (Kind != 3)
-                                                           continue;
-                                                       else
-                                                           if (ik != Index)
-                                                               continue;
-                                                           else
-                                                               if (j != jindex)
-                                                                   continue;
-                                                   }
-                                                   else
-                                                       continue;
-                                                 */
-                                                if (Index[2] != -1)
-                                                {
 
-                                                    if (ik != Index[2])
-                                                    {
-                                                        if (HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy == null)
-                                                            HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                                        HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                                        HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                        continue;
-                                                    }
-                                                    else
-                                                        if (j != jindex[2])
-                                                    {
-                                                        if (HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy == null)
-                                                            HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                                        HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                                        HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                        continue;
-                                                    }
-                                                }
-                                                else
-                                                {
-                                                    if (HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy == null)
-                                                        HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                                    HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                                    HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                    continue;
-                                                }
-
-                                            }
-
-                                        }
                                         Object O3 = new Object();
                                         lock (O3)
                                         {
-                                            if (HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy == null)
-                                                HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                            HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                            HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Clear();
-                                            HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse[j]));
-                                            HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumn(0);
-                                            HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
+                                            FullGameThinkingQuantumTreeInitialization(ik, j, Order, 3);
                                         }
                                         //HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse[j], Order, false);
                                         //ParameterizedThreadStart start = new ParameterizedThreadStart(HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
@@ -16044,41 +16198,59 @@ if (Kind == 2)
                                             Object O = new Object();
                                             lock (O)
                                             {
-                                                OutPutAction = " " + Alphabet(HoursesOnTable[ik].HourseThinkingQuantum[0].Row) + Number(HoursesOnTable[ik].HourseThinkingQuantum[0].Column) + Alphabet(HoursesOnTable[ik].HourseThinkingQuantum[0].RowColumnHourse[j][0]) + Number(HoursesOnTable[ik].HourseThinkingQuantum[0].RowColumnHourse[j][1]);
-                                                if (Order == 1)
-                                                    OutPut += "\r\nPerception Hourse AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
-                                                else
-                                                    OutPut += "\r\nPerception Hourse AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
-
-                                                PerceptionCount++;
-                                                int iii = HoursesOnTable[ik].HourseThinkingQuantum[0].RowColumnHourse[j][0];
-                                                int jjj = HoursesOnTable[ik].HourseThinkingQuantum[0].RowColumnHourse[j][1];
-                                                Color aa = a;
-                                                int[,] Tab = CloneATable(HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse[j]);
-                                                int Ord = Order * -1;
-                                                HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-
-                                                //Task array = Task.Factory.StartNew(() => HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse[j]), Order, false, FOUND, LeafAStarGreedy));
-                                                HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy);
-                                                for (int h = 0; h < HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count; h++)
-                                                    HoursesOnTable[ik].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[h], Order);
-
-                                                {
-                                                    for (int h = 0; h < HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count; h++)
-                                                        HoursesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[h], Order);
-                                                }
-                                                //array.Start();
-                                                /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
-                                               {
-                                                   Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
-                                               }
-                                               else
-                                               {
-                                                   Object ttttt = new Object(); lock (ttttt) { array.Wait(); }
-                                               }
-                                               */
-                                                //array.Name = "H" + i.ToString();
+                                                OpOfFullGameThinkingQuantumTree(ik, j, Order, iAStarGreedy, ii, jj, a, 3, FOUND, LeafAStarGreedy);
                                                 Do = true;
+                                            }
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    if (ReturnConsiderationOfPermitForValidationOfLearningInFullGameThinkingQuantumTree(ik, 3, false, j)
+
+                                    )
+                                    {
+                                        //if (Index[2] != -1)
+                                        {
+                                            if (AllDraw.Blitz)
+                                            {
+                                                if (Index[2] != -1)
+                                                {
+
+                                                    if (ik != Index[2])
+                                                    {
+                                                        BlitzNotValidFullGameThinkingQuantumTreePartOne(ik, Order, 3);
+                                                        continue;
+                                                    }
+                                                    else
+                                                        if (j != jindex[2])
+                                                    {
+                                                        BlitzNotValidFullGameThinkingQuantumTreePartTow(ik, Order, 3);
+                                                        continue;
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    BlitzNotValidFullGameThinkingQuantumTreePartThree(ik, Order, 3);
+                                                    continue;
+                                                }
+                                            }
+
+                                            Object O3 = new Object();
+                                            lock (O3)
+                                            {
+                                                FullGameThinkingQuantumTreeInitialization(ik, j, Order, 3);
+                                            }
+                                            //HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse[j], Order, false);
+                                            //ParameterizedThreadStart start = new ParameterizedThreadStart(HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
+                                            if (HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count > 0)
+                                            {
+                                                Object O = new Object();
+                                                lock (O)
+                                                {
+                                                    OpOfFullGameThinkingQuantumTree(ik, j, Order, iAStarGreedy, ii, jj, a, 3, FOUND, LeafAStarGreedy);
+                                                    Do = true;
+                                                }
                                             }
                                         }
 
@@ -16151,8 +16323,8 @@ if (Kind == 2)
                 lock (OO1)
                 {
                     TaskBegin++;
-                    int S = 0;
-                    while (CastlesOnTable[ik].CastleThinkingQuantum[0].ThinkingQuantumBegin && (!CastlesOnTable[ik].CastleThinkingQuantum[0].ThinkingQuantumFinished))
+                    //int S = 0;
+                    while (ReturnFullGameThinkingQuantumTreeSemaphore(ik, 4))
                     {
                         Thread.Sleep(2);
                         //S += 1;//if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } 
@@ -16189,7 +16361,7 @@ if (Kind == 2)
                         {
                             if (AllDraw.OrderPlate == Order)
                             {
-                                if (CastlesOnTable[ik].CastleThinkingQuantum[0].PenaltyRegardListCastle[j].IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT)//&& CastlesOnTable[ik].CastleThinkingQuantum[0].PenaltyRegardListCastle[j].IsRewardAction() != 1 ||(!UsePenaltyRegardMechnisamT)
+                                if (ReturnConsiderationOfPermitForValidationOfLearningInFullGameThinkingQuantumTree(ik, 4, true, j)
                                 )
                                 {
 
@@ -16197,59 +16369,30 @@ if (Kind == 2)
                                     {
                                         if (AllDraw.Blitz)
                                         {
-                                            /*if (Kind != -1)
-                                            {
-                                                if (Kind != 4)
-                                                    continue;
-                                                else
-                                                    if (ik != Index)
-                                                        continue;
-                                                    else
-                                                        if (j != jindex)
-                                                            continue;
-                                            }
-                                            else
-                                                continue;
-                                             */
                                             if (Index[3] != -1)
                                             {
                                                 if (ik != Index[3])
                                                 {
-                                                    if (CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy == null)
-                                                        CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                                    CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                                    CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                                    BlitzNotValidFullGameThinkingQuantumTreePartOne(ik, Order, 4);
                                                     continue;
                                                 }
                                                 else
                                                     if (j != jindex[0])
                                                 {
-                                                    if (CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy == null)
-                                                        CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                                    CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                                    CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                                    BlitzNotValidFullGameThinkingQuantumTreePartTow(ik, Order, 4);
                                                     continue;
                                                 }
                                             }
                                             else
                                             {
-                                                if (CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy == null)
-                                                    CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                                CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                                CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                                BlitzNotValidFullGameThinkingQuantumTreePartThree(ik, Order, 4);
                                                 continue;
                                             }
                                         }
                                         Object O3 = new Object();
                                         lock (O3)
                                         {
-                                            if (CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy == null)
-                                                CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                            CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                            CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Clear();
-                                            CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle[j]));
-                                            CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumn(0);
-                                            CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
+                                            FullGameThinkingQuantumTreeInitialization(ik, j, Order, 4);
                                         }
                                         //CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle[j], Order, false);
                                         //ParameterizedThreadStart start = new ParameterizedThreadStart(CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
@@ -16258,32 +16401,7 @@ if (Kind == 2)
                                             Object O = new Object();
                                             lock (O)
                                             {
-                                                OutPutAction = " " + Alphabet(CastlesOnTable[ik].CastleThinkingQuantum[0].Row) + Number(CastlesOnTable[ik].CastleThinkingQuantum[0].Column) + Alphabet(CastlesOnTable[ik].CastleThinkingQuantum[0].RowColumnCastle[j][0]) + Number(CastlesOnTable[ik].CastleThinkingQuantum[0].RowColumnCastle[j][1]);
-                                                if (Order == 1)
-                                                    OutPut += "\r\nPerception Castle AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
-                                                else
-                                                    OutPut += "\r\nPerception Castle AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
-
-                                                PerceptionCount++;
-                                                int iii = CastlesOnTable[ik].CastleThinkingQuantum[0].RowColumnCastle[j][0];
-                                                int jjj = CastlesOnTable[ik].CastleThinkingQuantum[0].RowColumnCastle[j][1];
-                                                Color aa = a;
-                                                int[,] Tab = CloneATable(CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle[j]);
-                                                int Ord = Order * -1;
-                                                CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                //Task array = Task.Factory.StartNew(() => CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle[j]), Order, false, FOUND, LeafAStarGreedy));
-                                                CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy);
-                                                //array.Start();
-                                                /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
-                                                {
-                                                    Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
-                                                }
-                                                else
-                                                {
-                                                    Object ttttt = new Object(); lock (ttttt) { array.Wait(); }
-                                                }
-                                                */
-                                                //array.Name = "B" + i.ToString();
+                                                OpOfFullGameThinkingQuantumTree(ik, j, Order, iAStarGreedy, ii, jj, a, 4, FOUND, LeafAStarGreedy);
                                                 Do = true;
                                             }
                                         }
@@ -16293,8 +16411,8 @@ if (Kind == 2)
                             }
                             else
                             {
-                                if (//CastlesOnTable[ik].CastleThinkingQuantum[0].PenaltyRegardListCastle[j].IsPenaltyAction() != 0 &&
-                                CastlesOnTable[ik].CastleThinkingQuantum[0].PenaltyRegardListCastle[j].IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT)
+                                if (ReturnConsiderationOfPermitForValidationOfLearningInFullGameThinkingQuantumTree(ik, 4, false, j)
+
                                 )
                                 {
 
@@ -16302,59 +16420,30 @@ if (Kind == 2)
                                     {
                                         if (AllDraw.Blitz)
                                         {
-                                            /*if (Kind != -1)
-                                            {
-                                                if (Kind != 4)
-                                                    continue;
-                                                else
-                                                    if (ik != Index)
-                                                        continue;
-                                                    else
-                                                        if (j != jindex)
-                                                            continue;
-                                            }
-                                            else
-                                                continue;
-                                             */
                                             if (Index[3] != -1)
                                             {
                                                 if (ik != Index[3])
                                                 {
-                                                    if (CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy == null)
-                                                        CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                                    CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                                    CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                                    BlitzNotValidFullGameThinkingQuantumTreePartOne(ik, Order, 4);
                                                     continue;
                                                 }
                                                 else
                                                     if (j != jindex[0])
                                                 {
-                                                    if (CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy == null)
-                                                        CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                                    CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                                    CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                                    BlitzNotValidFullGameThinkingQuantumTreePartTow(ik, Order, 4);
                                                     continue;
                                                 }
                                             }
                                             else
                                             {
-                                                if (CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy == null)
-                                                    CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                                CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                                CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                                BlitzNotValidFullGameThinkingQuantumTreePartThree(ik, Order, 4);
                                                 continue;
                                             }
                                         }
                                         Object O3 = new Object();
                                         lock (O3)
                                         {
-                                            if (CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy == null)
-                                                CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                            CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                            CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Clear();
-                                            CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle[j]));
-                                            CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumn(0);
-                                            CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
+                                            FullGameThinkingQuantumTreeInitialization(ik, j, Order, 4);
                                         }
                                         //CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle[j], Order, false);
                                         //ParameterizedThreadStart start = new ParameterizedThreadStart(CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
@@ -16363,37 +16452,10 @@ if (Kind == 2)
                                             Object O = new Object();
                                             lock (O)
                                             {
-                                                OutPutAction = " " + Alphabet(CastlesOnTable[ik].CastleThinkingQuantum[0].Row) + Number(CastlesOnTable[ik].CastleThinkingQuantum[0].Column) + Alphabet(CastlesOnTable[ik].CastleThinkingQuantum[0].RowColumnCastle[j][0]) + Number(CastlesOnTable[ik].CastleThinkingQuantum[0].RowColumnCastle[j][1]);
-                                                if (Order == 1)
-                                                    OutPut += "\r\nPerception Castle AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
-                                                else
-                                                    OutPut += "\r\nPerception Castle AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
-
-                                                PerceptionCount++;
-                                                int iii = CastlesOnTable[ik].CastleThinkingQuantum[0].RowColumnCastle[j][0];
-                                                int jjj = CastlesOnTable[ik].CastleThinkingQuantum[0].RowColumnCastle[j][1];
-                                                Color aa = a;
-                                                int[,] Tab = CloneATable(CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle[j]);
-                                                int Ord = Order * -1;
-                                                CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-
-                                                //Task array = Task.Factory.StartNew(() => CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle[j]), Order, false, FOUND, LeafAStarGreedy));
-                                                CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy);
-                                                //array.Start();
-                                                /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
-                                                {
-                                                    Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
-                                                }
-                                                else
-                                                {
-                                                    Object ttttt = new Object(); lock (ttttt) { array.Wait(); }
-                                                }
-                                                */
-                                                //array.Name = "B" + i.ToString();
+                                                OpOfFullGameThinkingQuantumTree(ik, j, Order, iAStarGreedy, ii, jj, a, 4, FOUND, LeafAStarGreedy);
                                                 Do = true;
                                             }
                                         }
-
                                     }
                                 }
                             }
@@ -16461,8 +16523,8 @@ if (Kind == 2)
                 lock (OO1)
                 {
                     TaskBegin++;
-                    int S = 0;
-                    while (MinisterOnTable[ik].MinisterThinkingQuantum[0].ThinkingQuantumBegin && (!MinisterOnTable[ik].MinisterThinkingQuantum[0].ThinkingQuantumFinished))
+                    //int S = 0;
+                    while (ReturnFullGameThinkingQuantumTreeSemaphore(ik, 5))
                     {
                         Thread.Sleep(2);
                         //S += 1;//if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } 
@@ -16502,68 +16564,38 @@ if (Kind == 2)
                         {
                             if (AllDraw.OrderPlate == Order)
                             {
-                                if (MinisterOnTable[ik].MinisterThinkingQuantum[0].PenaltyRegardListMinister[j].IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT)//&& MinisterOnTable[ik].MinisterThinkingQuantum[0].PenaltyRegardListMinister[j].IsRewardAction() != 1 ||(!UsePenaltyRegardMechnisamT)
+                                if (ReturnConsiderationOfPermitForValidationOfLearningInFullGameThinkingQuantumTree(ik, 5, true, j)
                                 )
                                 {
                                     //if (Index[4] != -1)
                                     {
                                         if (AllDraw.Blitz)
                                         {
-                                            /* if (Kind != -1)
-                                             {
-                                                 if (Kind != 5)
-                                                     continue;
-                                                 else
-                                                     if (ik != Index)
-                                                         continue;
-                                                     else
-                                                         if (j != jindex)
-                                                             continue;
-                                             }
-                                             else
-                                                 continue;
-                                             */
                                             if (Index[4] != -1)
                                             {
                                                 if (ik != Index[4])
                                                 {
-                                                    if (MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy == null)
-                                                        MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                                    MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                                    MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                                    BlitzNotValidFullGameThinkingQuantumTreePartOne(ik, Order, 5);
                                                     continue;
                                                 }
                                                 else
                                                      if (j != jindex[4])
 
                                                 {
-                                                    if (MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy == null)
-                                                        MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                                    MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                                    MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                                    BlitzNotValidFullGameThinkingQuantumTreePartTow(ik, Order, 5);
                                                     continue;
                                                 }
                                             }
                                             else
                                             {
-                                                if (MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy == null)
-                                                    MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                                MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                                MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                                BlitzNotValidFullGameThinkingQuantumTreePartThree(ik, Order, 5);
                                                 continue;
                                             }
-
                                         }
                                         Object O3 = new Object();
                                         lock (O3)
                                         {
-                                            if (MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy == null)
-                                                MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                            MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                            MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Clear();
-                                            MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister[j]));
-                                            MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumn(0);
-                                            MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
+                                            FullGameThinkingQuantumTreeInitialization(ik, j, Order, 5);
                                         }
                                         //MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister[j], Order, false);
                                         //ParameterizedThreadStart start = new ParameterizedThreadStart(MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
@@ -16572,103 +16604,50 @@ if (Kind == 2)
                                             Object O = new Object();
                                             lock (O)
                                             {
-                                                OutPutAction = " " + Alphabet(MinisterOnTable[ik].MinisterThinkingQuantum[0].Row) + Number(MinisterOnTable[ik].MinisterThinkingQuantum[0].Column) + Alphabet(MinisterOnTable[ik].MinisterThinkingQuantum[0].RowColumnMinister[j][0]) + Number(MinisterOnTable[ik].MinisterThinkingQuantum[0].RowColumnMinister[j][1]);
-                                                if (Order == 1)
-                                                    OutPut += "\r\nPerception Minister AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
-                                                else
-                                                    OutPut += "\r\nPerception Minister AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
-
-                                                PerceptionCount++;
+                                                OpOfFullGameThinkingQuantumTree(ik, j, Order, iAStarGreedy, ii, jj, a, 5, FOUND, LeafAStarGreedy);
                                                 Do = true;
-                                                int iii = MinisterOnTable[ik].MinisterThinkingQuantum[0].RowColumnMinister[j][0];
-                                                int jjj = MinisterOnTable[ik].MinisterThinkingQuantum[0].RowColumnMinister[j][1];
-                                                Color aa = a;
-                                                int[,] Tab = CloneATable(MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister[j]);
-                                                int Ord = Order * -1;
-                                                MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                                //Task array = Task.Factory.StartNew(() => MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister[j]), Order, false, FOUND, LeafAStarGreedy));
-                                                MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy);
 
-                                                //array.Start();
-                                                /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
-                                                {
-                                                    Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
-                                                }
-                                                else
-                                                {
-                                                    Object ttttt = new Object(); lock (ttttt) { array.Wait(); }
-                                                }*/
-                                                //array.Name = "M" + i.ToString();
-                                                Do = true;
                                             }
+
                                         }
                                     }
                                 }
                             }
                             else
                             {
-                                if (//MinisterOnTable[ik].MinisterThinkingQuantum[0].PenaltyRegardListMinister[j].IsPenaltyAction() != 0 &&
-                                MinisterOnTable[ik].MinisterThinkingQuantum[0].PenaltyRegardListMinister[j].IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT)
+                                if (ReturnConsiderationOfPermitForValidationOfLearningInFullGameThinkingQuantumTree(ik, 5, false, j)
+
                                 )
                                 {
                                     //if (Index[4] != -1)
                                     {
                                         if (AllDraw.Blitz)
                                         {
-                                            /* if (Kind != -1)
-                                             {
-                                                 if (Kind != 5)
-                                                     continue;
-                                                 else
-                                                     if (ik != Index)
-                                                         continue;
-                                                     else
-                                                         if (j != jindex)
-                                                             continue;
-                                             }
-                                             else
-                                                 continue;
-                                             */
                                             if (Index[4] != -1)
                                             {
                                                 if (ik != Index[4])
                                                 {
-                                                    if (MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy == null)
-                                                        MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                                    MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                                    MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                                    BlitzNotValidFullGameThinkingQuantumTreePartOne(ik, Order, 5);
                                                     continue;
                                                 }
                                                 else
                                                      if (j != jindex[4])
 
                                                 {
-                                                    if (MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy == null)
-                                                        MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                                    MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                                    MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                                    BlitzNotValidFullGameThinkingQuantumTreePartTow(ik, Order, 5);
                                                     continue;
                                                 }
                                             }
                                             else
                                             {
-                                                if (MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy == null)
-                                                    MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                                MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                                MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                                BlitzNotValidFullGameThinkingQuantumTreePartThree(ik, Order, 5);
                                                 continue;
                                             }
                                         }
                                         Object O3 = new Object();
                                         lock (O3)
                                         {
-                                            if (MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy == null)
-                                                MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                            MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                            MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Clear();
-                                            MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister[j]));
-                                            MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumn(0);
-                                            MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
+                                            FullGameThinkingQuantumTreeInitialization(ik, j, Order, 5);
                                         }
                                         //MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister[j], Order, false);
                                         //ParameterizedThreadStart start = new ParameterizedThreadStart(MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
@@ -16677,32 +16656,7 @@ if (Kind == 2)
                                             Object O = new Object();
                                             lock (O)
                                             {
-                                                OutPutAction = " " + Alphabet(MinisterOnTable[ik].MinisterThinkingQuantum[0].Row) + Number(MinisterOnTable[ik].MinisterThinkingQuantum[0].Column) + Alphabet(MinisterOnTable[ik].MinisterThinkingQuantum[0].RowColumnMinister[j][0]) + Number(MinisterOnTable[ik].MinisterThinkingQuantum[0].RowColumnMinister[j][1]);
-                                                if (Order == 1)
-                                                    OutPut += "\r\nPerception Minister AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
-                                                else
-                                                    OutPut += "\r\nPerception Minister AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
-
-                                                PerceptionCount++;
-                                                int iii = MinisterOnTable[ik].MinisterThinkingQuantum[0].RowColumnMinister[j][0];
-                                                int jjj = MinisterOnTable[ik].MinisterThinkingQuantum[0].RowColumnMinister[j][1];
-                                                Color aa = a;
-                                                int[,] Tab = CloneATable(MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister[j]);
-                                                int Ord = Order * -1;
-                                                MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-
-                                                //Task array = Task.Factory.StartNew(() => MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister[j]), Order, false, FOUND, LeafAStarGreedy));
-                                                MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy);
-                                                //array.Start();
-                                                /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
-                                                {
-                                                    Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
-                                                }
-                                                else
-                                                {
-                                                    Object ttttt = new Object(); lock (ttttt) { array.Wait(); }
-                                                }*/
-                                                //array.Name = "M" + i.ToString();
+                                                OpOfFullGameThinkingQuantumTree(ik, j, Order, iAStarGreedy, ii, jj, a, 5, FOUND, LeafAStarGreedy);
                                                 Do = true;
 
                                             }
@@ -16776,13 +16730,11 @@ if (Kind == 2)
                 lock (OO1)
                 {
                     TaskBegin++;
-                    int S = 0;
-                    while (KingOnTable[ik].KingThinkingQuantum[0].ThinkingQuantumBegin && (!KingOnTable[ik].KingThinkingQuantum[0].ThinkingQuantumFinished))
+                    //int S = 0;
+                    while (ReturnFullGameThinkingQuantumTreeSemaphore(ik, 6))
                     {
                         Thread.Sleep(2);
-                        //S += 1;//if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } 
-                        //SemaphoreExxedTime(S, 5);
-                    }// S += 100; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
+                    }
                 }
                 Object OOOO = new Object();
                 lock (OOOO)
@@ -16818,51 +16770,28 @@ if (Kind == 2)
                         {
                             if (AllDraw.OrderPlate == Order)
                             {
-                                if (KingOnTable[ik].KingThinkingQuantum[0].PenaltyRegardListKing[j].IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT)//&& KingOnTable[ik].KingThinkingQuantum[0].PenaltyRegardListKing[j].IsRewardAction() != 1 ||(!UsePenaltyRegardMechnisamT)
+                                if (ReturnConsiderationOfPermitForValidationOfLearningInFullGameThinkingQuantumTree(ik, 6, true, j)
                                 )
                                 {
                                     if (AllDraw.Blitz)
                                     {
-                                        /*if (Kind != -1)
-                                        {
-                                            if (Kind != 6)
-                                                continue;
-                                            else
-                                                if (ik != Index)
-                                                    continue;
-                                                else
-                                                    if (j != jindex)
-                                                        continue;
-                                        }
-                                        else
-                                            continue;
-                                         */
                                         if (Index[5] != -1)
                                         {
                                             if (ik != Index[5])
                                             {
-                                                if (KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy == null)
-                                                    KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                                KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                                KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                                BlitzNotValidFullGameThinkingQuantumTreePartOne(ik, Order, 6);
                                                 continue;
                                             }
                                             else
                                                  if (j != jindex[5])
                                             {
-                                                if (KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy == null)
-                                                    KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                                KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                                KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                                BlitzNotValidFullGameThinkingQuantumTreePartTow(ik, Order, 6);
                                                 continue;
                                             }
                                         }
                                         else
                                         {
-                                            if (KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy == null)
-                                                KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                            KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                            KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                            BlitzNotValidFullGameThinkingQuantumTreePartThree(ik, Order, 6);
                                             continue;
                                         }
 
@@ -16870,13 +16799,7 @@ if (Kind == 2)
                                     Object O3 = new Object();
                                     lock (O3)
                                     {
-                                        if (KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy == null)
-                                            KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                        KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                        KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Clear();
-                                        KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(KingOnTable[ik].KingThinkingQuantum[0].TableListKing[j]));
-                                        KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumn(0);
-                                        KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
+                                        FullGameThinkingQuantumTreeInitialization(ik, j, Order, 6);
                                     }
                                     //KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, KingOnTable[ik].KingThinkingQuantum[0].TableListKing[j], Order, false);
                                     //ParameterizedThreadStart start = new ParameterizedThreadStart(KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
@@ -16885,35 +16808,7 @@ if (Kind == 2)
                                         Object O = new Object();
                                         lock (O)
                                         {
-                                            OutPutAction = " " + Alphabet(KingOnTable[ik].KingThinkingQuantum[0].Row) + Number(KingOnTable[ik].KingThinkingQuantum[0].Column) + Alphabet(KingOnTable[ik].KingThinkingQuantum[0].RowColumnKing[j][0]) + Number(KingOnTable[ik].KingThinkingQuantum[0].RowColumnKing[j][1]);
-                                            if (Order == 1)
-                                                OutPut += "\r\nPerception King AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
-                                            else
-                                                OutPut += "\r\nPerception King AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
-
-                                            PerceptionCount++;
-
-                                            int iii = KingOnTable[ik].KingThinkingQuantum[0].RowColumnKing[j][0];
-                                            int jjj = KingOnTable[ik].KingThinkingQuantum[0].RowColumnKing[j][1];
-                                            Color aa = a;
-                                            int[,] Tab = CloneATable(KingOnTable[ik].KingThinkingQuantum[0].TableListKing[j]);
-                                            int Ord = Order * -1;
-                                            KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-
-                                            //Task array = Task.Factory.StartNew(() => KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(KingOnTable[ik].KingThinkingQuantum[0].TableListKing[j]), Order, false, FOUND, LeafAStarGreedy));
-                                            KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy);
-
-
-                                            //array.Start();
-                                            /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
-                                            {
-                                                Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
-                                            }
-                                            else
-                                            {
-                                                Object ttttt = new Object(); lock (ttttt) { array.Wait(); }
-                                            }*/
-                                            //array.Name = "K" + i.ToString();
+                                            OpOfFullGameThinkingQuantumTree(ik, j, Order, iAStarGreedy, ii, jj, a, 6, FOUND, LeafAStarGreedy);
                                             Do = true;
                                         }
                                     }
@@ -16921,64 +16816,37 @@ if (Kind == 2)
                             }
                             else
                             {
-                                if (//KingOnTable[ik].KingThinkingQuantum[0].PenaltyRegardListKing[j].IsPenaltyAction() != 0 &&
-                                KingOnTable[ik].KingThinkingQuantum[0].PenaltyRegardListKing[j].IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT)
+                                if (ReturnConsiderationOfPermitForValidationOfLearningInFullGameThinkingQuantumTree(ik, 6, false, j)
+
                                 )
                                 {
                                     if (AllDraw.Blitz)
                                     {
-                                        /*if (Kind != -1)
+                                        if (Index[5] != -1)
                                         {
-                                            if (Kind != 6)
+                                            if (ik != Index[5])
+                                            {
+                                                BlitzNotValidFullGameThinkingQuantumTreePartOne(ik, Order, 6);
                                                 continue;
+                                            }
                                             else
-                                                if (ik != Index)
-                                                    continue;
-                                                else
-                                                    if (j != jindex)
-                                                        continue;
+                                                 if (j != jindex[5])
+                                            {
+                                                BlitzNotValidFullGameThinkingQuantumTreePartTow(ik, Order, 6);
+                                                continue;
+                                            }
                                         }
                                         else
-                                            continue;
-                                         */
-                                        if (ik != Index[5])
                                         {
-                                            if (KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy == null)
-                                                KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                            KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                            KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                                            BlitzNotValidFullGameThinkingQuantumTreePartThree(ik, Order, 6);
                                             continue;
                                         }
-                                        else
 
-                                        if (j != jindex[5])
-                                        {
-                                            if (KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy == null)
-                                                KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                            KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                            KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                            continue;
-                                        }
                                     }
-                                    else
-                                    {
-                                        if (KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy == null)
-                                            KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                        KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                        KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                        continue;
-                                    }
-
                                     Object O3 = new Object();
                                     lock (O3)
                                     {
-                                        if (KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy == null)
-                                            KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
-                                        KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-                                        KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Clear();
-                                        KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(KingOnTable[ik].KingThinkingQuantum[0].TableListKing[j]));
-                                        KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumn(0);
-                                        KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
+                                        FullGameThinkingQuantumTreeInitialization(ik, j, Order, 6);
                                     }
                                     //KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, KingOnTable[ik].KingThinkingQuantum[0].TableListKing[j], Order, false);
                                     //ParameterizedThreadStart start = new ParameterizedThreadStart(KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
@@ -16987,44 +16855,14 @@ if (Kind == 2)
                                         Object O = new Object();
                                         lock (O)
                                         {
-                                            OutPutAction = " " + Alphabet(KingOnTable[ik].KingThinkingQuantum[0].Row) + Number(KingOnTable[ik].KingThinkingQuantum[0].Column) + Alphabet(KingOnTable[ik].KingThinkingQuantum[0].RowColumnKing[j][0]) + Number(KingOnTable[ik].KingThinkingQuantum[0].RowColumnKing[j][1]);
-                                            if (Order == 1)
-                                                OutPut += "\r\nPerception King AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
-                                            else
-                                                OutPut += "\r\nPerception King AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
-
-                                            PerceptionCount++;
-                                            int iii = KingOnTable[ik].KingThinkingQuantum[0].RowColumnKing[j][0];
-                                            int jjj = KingOnTable[ik].KingThinkingQuantum[0].RowColumnKing[j][1];
-                                            Color aa = a;
-                                            int[,] Tab = CloneATable(KingOnTable[ik].KingThinkingQuantum[0].TableListKing[j]);
-                                            int Ord = Order * -1;
-                                            KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                                            //Task array = Task.Factory.StartNew(() => KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(KingOnTable[ik].KingThinkingQuantum[0].TableListKing[j]), Order, false, FOUND, LeafAStarGreedy));
-                                            KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy);
-                                            for (int h = 0; h < KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count; h++)
-                                                KingOnTable[ik].WinOcuuredatChiled += SumOfObjects(KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[h], Order);
-
-                                            {
-                                                for (int h = 0; h < KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count; h++)
-                                                    KingOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[h], Order);
-                                            }
-                                            //array.Start();
-                                            /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
-                                            {
-                                                Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
-                                            }
-                                            else
-                                            {
-                                                Object ttttt = new Object(); lock (ttttt) { array.Wait(); }
-                                            }*/
-                                            //array.Name = "K" + i.ToString();
+                                            OpOfFullGameThinkingQuantumTree(ik, j, Order, iAStarGreedy, ii, jj, a, 6, FOUND, LeafAStarGreedy);
                                             Do = true;
                                         }
                                     }
                                 }
                             }
                         }
+
 
                         catch (Exception t)
                         {
