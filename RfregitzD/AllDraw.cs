@@ -15263,7 +15263,7 @@ if (Kind == 2)
                         return true;
                 }
             }
-            else { }
+            else 
             {
                 if (kind == 1)
                 {
