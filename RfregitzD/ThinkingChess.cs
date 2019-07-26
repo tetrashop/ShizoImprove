@@ -6292,7 +6292,7 @@ namespace RefrigtzDLL
 
                     }
                     else
-                        return 0;
+                        return Double.MinValue;
                     if (AStarGreedy != null)
                     {
                         for (int k = 0; k < AStarGreedy.Count; k++)

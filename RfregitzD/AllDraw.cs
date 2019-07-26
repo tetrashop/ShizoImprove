@@ -15887,13 +15887,10 @@ if (Kind == 2)
                 lock (OO1)
                 {
                     TaskBegin++;
-                    //int S = 0;
                     while (ReturnFullGameThinkingTreeSemaphore(ik, 2))
                     {
                         Thread.Sleep(2);
-                        //S += 1;//if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } 
-                        //SemaphoreExxedTime(S, 2);
-                    }// S += 100; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
+                    }
                 }
                 Object OOOO = new Object();
                 lock (OOOO)
@@ -15907,10 +15904,7 @@ if (Kind == 2)
 
                     }
                 }
-                //List<Task> tHA = new List<Task>();
-
-                //if (ElephantOnTable[ik].ElefantThinking[0].TableListElefant.Count == 0)
-                //     continue; Do;
+              
                 ////Parallel.For(0, ElephantOnTable[ik].ElefantThinking[0].TableListElefant.Count, j =>
                 for (int j = 0; j < ElephantOnTable[ik].ElefantThinking[0].TableListElefant.Count; j++)
                 {
@@ -15930,8 +15924,6 @@ if (Kind == 2)
                                 )
                                 {
 
-                                    //if (Index[1] != -1)
-                                    {
                                         if (AllDraw.Blitz)
                                         {
                                             if (Index[1] != -1)
@@ -15971,10 +15963,7 @@ if (Kind == 2)
                                                     Do = true;
                                                 }
                                             }
-                                        }
-
-
-                                    }
+                                        }                                    
                                 }
                             }
                             else
@@ -15983,8 +15972,7 @@ if (Kind == 2)
 
                                 )
                                 {
-                                    //if (Index[1] != -1)
-                                    {
+                                   
                                         if (AllDraw.Blitz)
                                         {
                                             if (Index[1] != -1)
@@ -16023,8 +16011,7 @@ if (Kind == 2)
                                                     OpOfFullGameThinkingTree(ik, j, Order, iAStarGreedy, ii, jj, a, 2, FOUND, LeafAStarGreedy);
                                                     Do = true;
                                                 }
-                                            }
-                                        }
+                                            }                                       
 
                                     }
                                 }
@@ -16099,10 +16086,7 @@ if (Kind == 2)
                     while (ReturnFullGameThinkingTreeSemaphore(ik, 3))
                     {
                         Thread.Sleep(2);
-                        //S += 1;//if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } 
-                        //SemaphoreExxedTime(S, 3);
-                    }
-                    //S += 100; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
+                     }
                 }
 
                 Object OOOO = new Object();
@@ -16116,10 +16100,7 @@ if (Kind == 2)
 
                     }
                 }
-                //List<Task> tHA = new List<Task>();
-
-                //if (HoursesOnTable[ik].HourseThinking[0].TableListHourse.Count == 0)
-                //    return Do;
+          
                 ////Parallel.For(0, HoursesOnTable[ik].HourseThinking[0].TableListHourse.Count, j =>
                 for (int j = 0; j < HoursesOnTable[ik].HourseThinking[0].TableListHourse.Count; j++)
                 {
@@ -16139,8 +16120,7 @@ if (Kind == 2)
                                 if (ReturnConsiderationOfPermitForValidationOfLearningInFullGameThinkingTree(ik, 3, true, j)
                                 )
                                 {
-                                    //if (Index[2] != -1)
-                                    {
+                                    
                                         if (AllDraw.Blitz)
                                         {
                                             if (Index[2] != -1)
@@ -16181,7 +16161,7 @@ if (Kind == 2)
                                                 Do = true;
                                             }
                                         }
-                                    }
+                                    
                                 }
                                 else
                                 {
@@ -16189,8 +16169,7 @@ if (Kind == 2)
 
                                     )
                                     {
-                                        //if (Index[2] != -1)
-                                        {
+                                        
                                             if (AllDraw.Blitz)
                                             {
                                                 if (Index[2] != -1)
@@ -16230,8 +16209,7 @@ if (Kind == 2)
                                                     OpOfFullGameThinkingTree(ik, j, Order, iAStarGreedy, ii, jj, a, 3, FOUND, LeafAStarGreedy);
                                                     Do = true;
                                                 }
-                                            }
-                                        }
+                                            }                                        
 
                                     }
                                 }
@@ -16302,15 +16280,12 @@ if (Kind == 2)
                 lock (OO1)
                 {
                     TaskBegin++;
-                    //int S = 0;
+
                     while (ReturnFullGameThinkingTreeSemaphore(ik, 4))
                     {
                         Thread.Sleep(2);
-                        //S += 1;//if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } 
-                        //SemaphoreExxedTime(S, 4);
-                    }
-                    //S += 100; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
-                }
+                     }
+                 }
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
@@ -16322,9 +16297,7 @@ if (Kind == 2)
 
                     }
                 }
-                //List<Task> tHA = new List<Task>();
-                //if (CastlesOnTable[ik].CastleThinking[0].TableListCastle.Count == 0)
-                //    return Do;
+             
                 ////Parallel.For(0, CastlesOnTable[ik].CastleThinking[0].TableListCastle.Count, j =>
                 for (int j = 0; j < CastlesOnTable[ik].CastleThinking[0].TableListCastle.Count; j++)
                 {
@@ -16343,9 +16316,7 @@ if (Kind == 2)
                                 if (ReturnConsiderationOfPermitForValidationOfLearningInFullGameThinkingTree(ik, 4, true, j)
                                 )
                                 {
-
-                                    //if (Index[3] != -1)
-                                    {
+                                    
                                         if (AllDraw.Blitz)
                                         {
                                             if (Index[3] != -1)
@@ -16384,9 +16355,7 @@ if (Kind == 2)
                                                 Do = true;
                                             }
                                         }
-
-                                    }
-                                }
+                                    }                               
                             }
                             else
                             {
@@ -16394,9 +16363,7 @@ if (Kind == 2)
 
                                 )
                                 {
-
-                                    //if (Index[3] != -1)
-                                    {
+                                    
                                         if (AllDraw.Blitz)
                                         {
                                             if (Index[3] != -1)
@@ -16435,7 +16402,7 @@ if (Kind == 2)
                                                 Do = true;
                                             }
                                         }
-                                    }
+                                    
                                 }
                             }
                         }
@@ -16502,13 +16469,11 @@ if (Kind == 2)
                 lock (OO1)
                 {
                     TaskBegin++;
-                    //int S = 0;
+
                     while (ReturnFullGameThinkingTreeSemaphore(ik, 5))
                     {
                         Thread.Sleep(2);
-                        //S += 1;//if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } 
-                        //SemaphoreExxedTime(S, 5);
-                    }// S += 100; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
+                    }
                 }
                 Object OOOO = new Object();
                 lock (OOOO)
@@ -16522,10 +16487,7 @@ if (Kind == 2)
 
                     }
                 }
-                //List<Task> tHA = new List<Task>();
-
-                // if (MinisterOnTable[ik].MinisterThinking[0].TableListMinister.Count == 0)
-                //   return Do;
+              
                 ////Parallel.For(0, MinisterOnTable[ik].MinisterThinking[0].TableListMinister.Count, j =>
                 for (int j = 0; j < MinisterOnTable[ik].MinisterThinking[0].TableListMinister.Count; j++)
                 {
@@ -16546,8 +16508,7 @@ if (Kind == 2)
                                 if (ReturnConsiderationOfPermitForValidationOfLearningInFullGameThinkingTree(ik, 5, true, j)
                                 )
                                 {
-                                    //if (Index[4] != -1)
-                                    {
+                                    
                                         if (AllDraw.Blitz)
                                         {
                                             if (Index[4] != -1)
@@ -16588,8 +16549,7 @@ if (Kind == 2)
 
                                             }
 
-                                        }
-                                    }
+                                        }                                   
                                 }
                             }
                             else
@@ -16598,8 +16558,7 @@ if (Kind == 2)
 
                                 )
                                 {
-                                    //if (Index[4] != -1)
-                                    {
+                                    
                                         if (AllDraw.Blitz)
                                         {
                                             if (Index[4] != -1)
@@ -16641,7 +16600,7 @@ if (Kind == 2)
                                             }
 
                                         }
-                                    }
+                                    
                                 }
                             }
                         }
@@ -16728,8 +16687,7 @@ if (Kind == 2)
                     }
 
                 }
-                //List<Task> tHA = new List<Task>();
-
+               
                 if (KingOnTable[ik].KingThinking[0].TableListKing.Count == 0)
                     return Do;
                 // //Parallel.For(0, KingOnTable[ik].KingThinking[0].TableListKing.Count, j =>
