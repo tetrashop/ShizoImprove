@@ -71,7 +71,6 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using RefrigtzW;
 using System.IO;
 using System.Threading.Tasks;
 using System.Diagnostics;
@@ -6292,7 +6291,7 @@ namespace RefrigtzW
 
                     }
                     else
-                        return 0;
+                        return Double.MinValue;
                     if (AStarGreedy != null)
                     {
                         for (int k = 0; k < AStarGreedy.Count; k++)
@@ -6488,7 +6487,7 @@ namespace RefrigtzW
                 }
                 else
                 {
-                    if (!(IsSup[j]))
+                    if ((!(IsSup[j])) && j < IsSup.Count && j >= 0)
                     {
                         //When Solder Kind.
                         if (System.Math.Abs(Kind) == 1 && HuristicListSolder.Count > 0)

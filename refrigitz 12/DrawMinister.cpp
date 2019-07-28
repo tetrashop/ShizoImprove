@@ -20,7 +20,7 @@ double DrawMinister::MaxHuristicxM = -20000000000000000;
 		{
 			//autoa = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-			//lock (a)
+			////lock (a)
 			{
 				std::wstring stackTrace = ex.what();
 //C# TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'ToString':
@@ -33,7 +33,7 @@ double DrawMinister::MaxHuristicxM = -20000000000000000;
 		}
 	}
 	*/
-const DrawMinister& DrawMinister::operator[] (const int index) const
+const DrawMinister& DrawMinister::operator* (const int index) const
 {
 	return this[index];
 }
@@ -165,7 +165,7 @@ const DrawMinister& DrawMinister::operator[] (const int index) const
 			//autobalance//lockS = new Object();
 
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-			//lock (balance//lockS)
+			////lock (balance//lockS)
 			{
 				if (M == nullptr || M[1] == nullptr)
 				{
@@ -179,7 +179,7 @@ const DrawMinister& DrawMinister::operator[] (const int index) const
 					{
 						//autoO1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-						//lock (O1)
+						////lock (O1)
 						{ //Draw an Instant from File of Gray Soldeirs.
 							 //Draw a Gray Instatnt Minister Image on the Table.
 							g.DrawImage(M, Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
@@ -189,7 +189,7 @@ const DrawMinister& DrawMinister::operator[] (const int index) const
 					{
 						//autoO1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-						//lock (O1)
+						////lock (O1)
 						{ //Draw an Instant from File of Gray Soldeirs.
 							 //Draw a Brown Instatnt Minister Image on the Table.
 							g.DrawImage(M[1], Rectangle(static_cast<int>(Row * CellW), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));

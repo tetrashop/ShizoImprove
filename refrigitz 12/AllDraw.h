@@ -400,7 +400,7 @@ struct Array {
 		DrawKing KingOnTable[2];*/
 	public:
 		
-		static bool stopOnPonderhit;
+		//static bool stopOnPonderhit;
 		std::vector<double*> MaxHuristicAStarGreedytBackWard;
 		static  int MaxSoldeirFounded;
 		static  int MaxElephntFounded;

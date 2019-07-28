@@ -12892,7 +12892,7 @@ if (Kind == 2)
             //return true;
 
             bool IS = false;
-            //if (iAStarGreedy < 0)
+            ////if (iAStarGreedy < 0)
             //    IS = true;
             if (Order == 1)
             {
@@ -12956,17 +12956,17 @@ if (Kind == 2)
                         IS = true;
                     }
                 }
-                if ((ThinkingQuantumChess.FoundFirstMating >= MaxAStarGreedy) || (SetDeptIgnore))
+                if ((ThinkingQuantumChess.FoundFirstMating >= MaxAStarGreedy)) //|| (SetDeptIgnore))
                 {
                     OutPut += "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstMating.ToString();
                     IS = true;
                 }
-                else
-                if (iAStarGreedy < 0)
+               /* else
+                //if (iAStarGreedy < 0)
                 {
                     iAStarGreedy = MaxAStarGreedy;
                     OutPut += "\r\nLevel Boundry Conditon for iAStarGreedy is Set To " + iAStarGreedy.ToString() + "MaxAStarGreedy";
-                }
+                }*/
             }
             else
             {
@@ -13030,17 +13030,17 @@ if (Kind == 2)
                         IS = true;
                     }
                 }
-                if ((ThinkingQuantumChess.FoundFirstMating >= MaxAStarGreedy) || (SetDeptIgnore))
+                if ((ThinkingQuantumChess.FoundFirstMating >= MaxAStarGreedy)) //|| (SetDeptIgnore))
                 {
                     OutPut += "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstMating.ToString();
                     IS = true;
                 }
-                else
-                if (iAStarGreedy < 0)
-                {
+                //else
+                //if (iAStarGreedy < 0)
+                /*{
                     iAStarGreedy = MaxAStarGreedy;
                     OutPut += "\r\nLevel Boundry Conditon for iAStarGreedy is Set To " + iAStarGreedy.ToString() + "MaxAStarGreedy";
-                }
+                }*/
             }
             return IS;
         } //AStarGreedy First Initiat ThinkingQuantum Main Method.
@@ -13232,7 +13232,7 @@ if (Kind == 2)
                     Object OOOO = new Object();
                     lock (OOOO)
                     {
-                        if (iAStarGreedy < 0)
+                        //if (iAStarGreedy < 0)
                         {
                             if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                                 return null;
@@ -13656,7 +13656,7 @@ if (Kind == 2)
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
-                    if (iAStarGreedy < 0)
+                    //if (iAStarGreedy < 0)
                     {
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                             return null;
@@ -15727,7 +15727,7 @@ if (Kind == 2)
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
-                    if (iAStarGreedy < 0)
+                    //if (iAStarGreedy < 0)
                     {
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                             return false;
@@ -15919,7 +15919,7 @@ if (Kind == 2)
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
-                    if (iAStarGreedy < 0)
+                    //if (iAStarGreedy < 0)
                     {
 
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
@@ -16129,7 +16129,7 @@ if (Kind == 2)
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
-                    if (iAStarGreedy < 0)
+                    //if (iAStarGreedy < 0)
                     {
 
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
@@ -16335,7 +16335,7 @@ if (Kind == 2)
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
-                    if (iAStarGreedy < 0)
+                    //if (iAStarGreedy < 0)
                     {
 
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
@@ -16534,7 +16534,7 @@ if (Kind == 2)
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
-                    if (iAStarGreedy < 0)
+                    //if (iAStarGreedy < 0)
                     {
 
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
@@ -16739,7 +16739,7 @@ if (Kind == 2)
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
-                    if (iAStarGreedy < 0)
+                    //if (iAStarGreedy < 0)
                     {
 
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
@@ -18798,8 +18798,8 @@ if (Kind == 5)
         {
             var parallelOptions = new ParallelOptions();
             parallelOptions.MaxDegreeOfParallelism = PlatformHelper.ProcessorCount;
-            Thread tT = new Thread(new ThreadStart(TimeEnd));
-            tT.Start();
+            //Thread tT = new Thread(new ThreadStart(TimeEnd));
+            //tT.Start();
             SetDeptIgnore = SetDept;
             int[,] TableHuristic = new int[8, 8];
             int Current = ChessRules.CurrentOrder;
@@ -19100,7 +19100,7 @@ if (Kind == 5)
                             UsePenaltyRegardMechnisamT = false;
                             //THISDummy = THISDummy.RemovePenalltyFromFirstBranches(Order);
                             RemovePenalltyFromFirstBranches(Order);
-                            MaxAStarGreedy = 1;
+                            //MaxAStarGreedy = 1;
                             AStarGreedyiLevelMax = 1;
                             Less = Double.MinValue;
                             //TableHuristic = THISDummy.HuristicAStarGreedySearchPenalties(0, a, Order, false);

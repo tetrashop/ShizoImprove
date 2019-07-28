@@ -21,7 +21,7 @@ double DrawKing::MaxHuristicxK = -20000000000000000;
 		{
 			//autoa = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-			//lock (a)
+			////lock (a)
 			{
 				std::wstring stackTrace = ex.what();
 //C# TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'ToString':
@@ -40,7 +40,7 @@ double DrawKing::MaxHuristicxK = -20000000000000000;
 		ValuableSelfSupported.clear();
 //		K = nullptr;
 	}
-	const DrawKing& DrawKing::operator[] (const int index) const
+	const DrawKing& DrawKing::operator* (const int index) const
 	{
 		return this[index];
 	}
@@ -172,7 +172,7 @@ double DrawKing::MaxHuristicxK = -20000000000000000;
 			//autobalance//lockS = new Object();
 
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-			//lock (balance//lockS)
+			////lock (balance//lockS)
 			{
 				if (K == nullptr || K[1] == nullptr)
 				{
@@ -185,7 +185,7 @@ double DrawKing::MaxHuristicxK = -20000000000000000;
 					{
 						//autoO1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-						//lock (O1)
+						////lock (O1)
 						{ //Draw an Instant from File of Gray Soldeirs.
 							 //Draw an Instatnt Gray King Image On the Table.
 							g.DrawImage(K, Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
@@ -197,7 +197,7 @@ double DrawKing::MaxHuristicxK = -20000000000000000;
 					{
 						//autoO1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-						//lock (O1)
+						////lock (O1)
 						{ //Draw an Instant from File of Gray Soldeirs.
 							 //Draw an Instatnt Brown King Image On the Table.
 							g.DrawImage(K[1], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));

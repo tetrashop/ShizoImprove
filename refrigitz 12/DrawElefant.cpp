@@ -19,7 +19,7 @@ double DrawElefant::MaxHuristicxE = -20000000000000000;
 		{
 			//autoa = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-			//lock (a)
+			////lock (a)
 			{
 				std::wstring stackTrace = ex.what();
 //C# TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'ToString':
@@ -32,7 +32,7 @@ double DrawElefant::MaxHuristicxE = -20000000000000000;
 		}
 	}
 	*/
-const DrawElefant& DrawElefant::operator[] (const int index) const
+const DrawElefant& DrawElefant::operator* (const int index) const
 {
 	return this[index];
 }
@@ -53,7 +53,7 @@ const DrawElefant& DrawElefant::operator[] (const int index) const
 			{
 				//autoO2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-				//lock (O2)
+				////lock (O2)
 				{
 					MaxNotFound = false;
 					if (ThinkingChess::MaxHuristicx < MaxHuristicxE)
@@ -161,7 +161,7 @@ const DrawElefant& DrawElefant::operator[] (const int index) const
 				//ElefantThinking[0].Clone(AA.ElefantThinking);
 			
 		}
-		AA.Table = new int*[8]; for (int ii = 0; ii < 8; ii++)AA.Table[ii] - new int[8];
+		AA.Table = new int*[8]; for (int ii = 0; ii < 8; ii++)AA.Table[ii] = new int[8];
 		for (int ii = 0; ii < 8; ii++)
 		{
 			for (int jj = 0; jj < 8; jj++)
@@ -185,7 +185,7 @@ const DrawElefant& DrawElefant::operator[] (const int index) const
 			//autobalance//lockS = new Object();
 
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-			//lock (balance//lockS)
+			////lock (balance//lockS)
 			{
 				if (E == nullptr || E[1] == nullptr)
 				{
@@ -200,7 +200,7 @@ const DrawElefant& DrawElefant::operator[] (const int index) const
 					{
 						//autoO1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-						//lock (O1)
+						////lock (O1)
 						{ //Draw an Instant from File of Gray Soldeirs.
 							 //Draw an Instatnt Gray Elephant On the Table.
 							g.DrawImage(E, Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
@@ -210,7 +210,7 @@ const DrawElefant& DrawElefant::operator[] (const int index) const
 					{
 						//autoO1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-						//lock (O1)
+						////lock (O1)
 						{ //Draw an Instant from File of Gray Soldeirs.
 							 //Draw an Instatnt Brown Elepehnt On the Table.
 							g.DrawImage(E[1], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));

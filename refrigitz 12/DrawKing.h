@@ -20,7 +20,7 @@
 
 
 	public:
-		const DrawKing& operator[] (const int index) const;
+		const DrawKing& operator* (const int index) const;
 
 		////void* operator*(std::size_t idx);
 
@@ -29,7 +29,7 @@
 
 		int WinOcuuredatChiled;
 		int LoseOcuuredatChiled;
-		//private readonly object balance//lock = new object();
+		//private readonly object balance////lock = new object();
 		//private readonly object balance//lockS = new object();
 		//atic Image K[2];
 		//Initiate Global Variables.

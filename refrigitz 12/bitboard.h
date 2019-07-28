@@ -28,7 +28,7 @@
 namespace Bitbases {
 
 void init();
-bool probe(Square wksq, Square wpsq, Square bksq, Color us);
+bool probe(Square wksq, Square wpsq, Square bksq, int us);
 
 }
 
@@ -157,7 +157,7 @@ inline Bitboard between_bb(Square s1, Square s2) {
 /// in front of the given one, from the point of view of the given color. For
 /// instance, in_front_bb(BLACK, RANK_3) will return the squares on ranks 1 and 2.
 
-inline Bitboard in_front_bb(Color c, Rank r) {
+inline Bitboard in_front_bb(int c, Rank r) {
   return InFrontBB[c][r];
 }
 
@@ -166,7 +166,7 @@ inline Bitboard in_front_bb(Color c, Rank r) {
 /// in front of the given one, from the point of view of the given color:
 ///        ForwardBB[c][s] = in_front_bb(c, s) & file_bb(s)
 
-inline Bitboard forward_bb(Color c, Square s) {
+inline Bitboard forward_bb(int c, Square s) {
   return ForwardBB[c][s];
 }
 
@@ -176,7 +176,7 @@ inline Bitboard forward_bb(Color c, Square s) {
 /// from the given square:
 ///       PawnAttackSpan[c][s] = in_front_bb(c, s) & adjacent_files_bb(s);
 
-inline Bitboard pawn_attack_span(Color c, Square s) {
+inline Bitboard pawn_attack_span(int c, Square s) {
   return PawnAttackSpan[c][s];
 }
 
@@ -185,7 +185,7 @@ inline Bitboard pawn_attack_span(Color c, Square s) {
 /// pawn of the given color and on the given square is a passed pawn:
 ///       PassedPawnMask[c][s] = pawn_attack_span(c, s) | forward_bb(c, s)
 
-inline Bitboard passed_pawn_mask(Color c, Square s) {
+inline Bitboard passed_pawn_mask(int c, Square s) {
   return PassedPawnMask[c][s];
 }
 
@@ -332,7 +332,7 @@ inline Square pop_lsb(Bitboard* b) {
 /// frontmost_sq() and backmost_sq() return the square corresponding to the
 /// most/least advanced bit relative to the given color.
 
-inline Square frontmost_sq(Color c, Bitboard b) { return c == WHITE ? msb(b) : lsb(b); }
-inline Square  backmost_sq(Color c, Bitboard b) { return c == WHITE ? lsb(b) : msb(b); }
+inline Square frontmost_sq(int c, Bitboard b) { return c == WHITE ? msb(b) : lsb(b); }
+inline Square  backmost_sq(int c, Bitboard b) { return c == WHITE ? lsb(b) : msb(b); }
 
 #endif // #ifndef BITBOARD_H_INCLUDED

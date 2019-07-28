@@ -22,13 +22,13 @@
 
 
 	public:
-		const DrawSoldier& operator[] (const int index) const;
+		const DrawSoldier& operator* (const int index) const;
 		
 		
 	 	int WinOcuuredatChiled;
 		int LoseOcuuredatChiled;
 		//Iniatate Global Variables.
-		//private readonly object balance//lock = new object();
+		//private readonly object balance////lock = new object();
 		//private readonly object balance//lockS = new object();
 	private:
 		std::vector<int> ValuableSelfSupported;

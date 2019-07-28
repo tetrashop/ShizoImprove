@@ -22,12 +22,12 @@
 
 
 	public:
-		const DrawElefant& operator[] (const int index) const;
+		const DrawElefant& operator* (const int index) const;
 
 		//void* operator*(std::size_t idx);
 		int WinOcuuredatChiled;
 		int LoseOcuuredatChiled;
-		//private readonly object balance//lock = new object();
+		//private readonly object balance////lock = new object();
 		//private readonly object balance//lockS = new object();
 		//atic Image E[2];
 		//Initiate Global Variables.

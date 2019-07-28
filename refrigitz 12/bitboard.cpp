@@ -63,10 +63,10 @@ namespace {
 
   typedef unsigned (Fn)(Square, Bitboard);
 
-  void init_magics(Bitboard table[], Bitboard* attacks[], Bitboard magics[],
-                   Bitboard masks[], unsigned shifts[], Square deltas[], Fn index);
+  void init_magics(Bitboard table*, Bitboard* attacks*, Bitboard magics*,
+                   Bitboard masks*, unsigned shifts*, Square deltas*, Fn index);
 
-  // bsf_index() returns the index into BSFTable[] to look up the bitscan. Uses
+  // bsf_index() returns the index into BSFTable* to look up the bitscan. Uses
   // Matt Taylor's folding for 32 bit case, extended to 64 bit by Kim Walisch.
 
   unsigned bsf_index(Bitboard b) {
@@ -175,7 +175,7 @@ void Bitboards::init() {
   for (Rank r = RANK_1; r < RANK_8; ++r)
       InFrontBB[WHITE][r] = ~(InFrontBB[BLACK][r + 1] = InFrontBB[BLACK][r] | RankBB[r]);
 
-  for (Color c = WHITE; c <= BLACK; ++c)
+  for (int c = WHITE; c <= BLACK; ++c)
       for (Square s = SQ_A1; s <= SQ_H8; ++s)
       {
           ForwardBB[c][s]      = InFrontBB[c][rank_of(s)] & FileBB[file_of(s)];
@@ -191,10 +191,10 @@ void Bitboards::init() {
               DistanceRingBB[s1][SquareDistance[s1][s2] - 1] |= s2;
           }
 
-  int steps[][9] = { {}, { 7, 9 }, { 17, 15, 10, 6, -6, -10, -15, -17 },
+  int steps*[9] = { {}, { 7, 9 }, { 17, 15, 10, 6, -6, -10, -15, -17 },
                      {}, {}, {}, { 9, 7, -7, -9, 8, 1, -1, -8 } };
 
-  for (Color c = WHITE; c <= BLACK; ++c)
+  for (int c = WHITE; c <= BLACK; ++c)
       for (PieceType pt = PAWN; pt <= KING; ++pt)
           for (Square s = SQ_A1; s <= SQ_H8; ++s)
               for (int i = 0; steps[pt][i]; ++i)
@@ -205,8 +205,8 @@ void Bitboards::init() {
                       StepAttacksBB[make_piece(c, pt)][s] |= to;
               }
 
-  Square RookDeltas[] = { NORTH,  EAST,  SOUTH,  WEST  };
-  Square BishopDeltas[] = { NORTH_EAST, SOUTH_EAST, SOUTH_WEST, NORTH_WEST };
+  Square RookDeltas* = { NORTH,  EAST,  SOUTH,  WEST  };
+  Square BishopDeltas* = { NORTH_EAST, SOUTH_EAST, SOUTH_WEST, NORTH_WEST };
 
   init_magics(RookTable, RookAttacks, RookMagics, RookMasks, RookShifts, RookDeltas, magic_index<ROOK>);
   init_magics(BishopTable, BishopAttacks, BishopMagics, BishopMasks, BishopShifts, BishopDeltas, magic_index<BISHOP>);
@@ -231,7 +231,7 @@ void Bitboards::init() {
 
 namespace {
 
-  Bitboard sliding_attack(Square deltas[], Square sq, Bitboard occupied) {
+  Bitboard sliding_attack(Square deltas*, Square sq, Bitboard occupied) {
 
     Bitboard attack = 0;
 
@@ -255,10 +255,10 @@ namespace {
   // chessprogramming.wikispaces.com/Magic+Bitboards. In particular, here we
   // use the so called "fancy" approach.
 
-  void init_magics(Bitboard table[], Bitboard* attacks[], Bitboard magics[],
-                   Bitboard masks[], unsigned shifts[], Square deltas[], Fn index) {
+  void init_magics(Bitboard table*, Bitboard* attacks*, Bitboard magics*,
+                   Bitboard masks*, unsigned shifts*, Square deltas*, Fn index) {
 
-    int seeds[][RANK_NB] = { { 8977, 44560, 54343, 38998,  5731, 95205, 104912, 17020 },
+    int seeds*[RANK_NB] = { { 8977, 44560, 54343, 38998,  5731, 95205, 104912, 17020 },
                              {  728, 10316, 55013, 32803, 12281, 15100,  16645,   255 } };
 
     Bitboard occupancy[4096], reference[4096], edges, b;
@@ -281,7 +281,7 @@ namespace {
         shifts[s] = (Is64Bit ? 64 : 32) - popcount(masks[s]);
 
         // Use Carry-Rippler trick to enumerate all subsets of masks[s] and
-        // store the corresponding sliding attack bitboard in reference[].
+        // store the corresponding sliding attack bitboard in reference*.
         b = size = 0;
         do {
             occupancy[size] = b;

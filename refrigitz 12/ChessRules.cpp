@@ -47,7 +47,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		{
 			//autoa = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-			//lock (a)
+			////lock (a)
 			{
 				std::wstring stackTrace = ex.what();
 //C# TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'ToString':
@@ -125,7 +125,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 	{
 		//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-		//lock (O)
+		////lock (O)
 		{
 
 			if (Table[RowFirst][ColumnFirst] > 0 && Table[RowSecond][ColumnSecond] > 0)
@@ -163,7 +163,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		//Initaite Global Varibales.
 		//autoO1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-		//lock (O1)
+		////lock (O1)
 		{
 			CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKingHaveSupporter = false;
 			CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKingHaveSupporterNumber = 0;
@@ -295,7 +295,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 								{
 									//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-									//lock (O)
+									////lock (O)
 									{
 										CastleActGray = true;
 										SmallKingCastleGray = true;
@@ -321,7 +321,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 									{
 									//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-									//lock (O)
+									////lock (O)
 									{
 										CastleActGray = true;
 										BigKingCastleGray = true;
@@ -358,7 +358,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 									//CastleActBrown = true;
 									//autoO1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-									//lock (O1)
+									////lock (O1)
 									{
 										SmallKingCastleBrown = true;
 									}
@@ -383,7 +383,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 									//CastleActBrown = true;
 									//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-									//lock (O)
+									////lock (O)
 									{
 										BigKingCastleBrown = true;
 									}
@@ -576,7 +576,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 
 	bool ChessRules::ObjectDangourKingMove(int Order, int **Table, bool DoIgnore)
 	{
-		int **Tab;
+		int **Tab = new int*[8]; for (int p = 0; p < 8; p++)Tab[p] = new int[8];
 		//Clone a Copy
 		for (int i = 0; i < 8; i++)
 		{
@@ -593,7 +593,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		int RowG = 0, ColumnG = 0;
 		int RowB = 0, ColumnB = 0;
 		//Object O = new Object();
-		//////lock (O)
+		////////lock (O)
 		///{
 		/// if (DoIgnore)
 		///RefrigtzDLL.ChessRules::CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = true;
@@ -794,7 +794,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		}
 		//Iniaiate Global Variables.
 		//Object O1 = new Object();
-		////lock (O1)
+		//////lock (O1)
 		//{
 		//RefrigtzDLL.ChessRules::CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = false;
 		//}
@@ -838,7 +838,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		int RowG = 0, ColumnG = 0;
 		int RowB = 0, ColumnB = 0;
 		//Object O = new Object();
-		//////lock (O)
+		////////lock (O)
 		///{
 		/// if (DoIgnore)
 		///RefrigtzDLL.ChessRules::CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = true;
@@ -1039,7 +1039,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		}
 		//Iniaiate Global Variables.
 		//Object O1 = new Object();
-		////lock (O1)
+		//////lock (O1)
 		//{
 		//RefrigtzDLL.ChessRules::CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = false;
 		//}
@@ -1110,7 +1110,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		CheckBrownObjectDangour = false;
 		//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-		//lock (O)
+		////lock (O)
 		{
 			if (DoIgnore)
 			{
@@ -1459,7 +1459,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 	{
 		//autoOOO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-		//lock (OOO)
+		////lock (OOO)
 		{
 			ArrangmentsBoard = Arrange;
 
@@ -1496,7 +1496,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			{
 				//autoO2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-				//lock (O2)
+				////lock (O2)
 				{
 					ChessRules::CastleKingAllowedGray = false;
 					ChessRules::CastleActGray = true;
@@ -1507,7 +1507,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			{
 				//autoO2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-				//lock (O2)
+				////lock (O2)
 				{
 					ChessRules::CastleActBrown = true;
 					ChessRules::CastleKingAllowedBrown = false;
@@ -1540,13 +1540,13 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 					{
 						//autoO2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-						//lock (O2)
+						////lock (O2)
 						{
 							ThinkingChess::KingMaovableGray = true;
 							S += std::wstring(L"Gray-BK-S");
 							//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-							//lock (O)
+							////lock (O)
 							{
 								if (!AllDraw::Stockfish)
 								{
@@ -1563,13 +1563,13 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 					//Castles Brown King.                    
 						//autoO2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-						//lock (O2)
+						////lock (O2)
 						{
 							S += std::wstring(L"Gray-BK-B");
 							ThinkingChess::KingMaovableGray = true;
 							//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-							//lock (O)
+							////lock (O)
 							{
 								if (!AllDraw::Stockfish)
 								{
@@ -1586,13 +1586,13 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 					//Castles Brown King.                    
 						//autoO2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-						//lock (O2)
+						////lock (O2)
 						{
 							S += std::wstring(L"Brown-BK-S");
 							ThinkingChess::KingMaovableBrown = true;
 							//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-							//lock (O)
+							////lock (O)
 							{
 								if (!AllDraw::Stockfish)
 								{
@@ -1610,13 +1610,13 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 
 						//autoO2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-						//lock (O2)
+						////lock (O2)
 						{
 							S += std::wstring(L"Brown-BK-B");
 							ThinkingChess::KingMaovableBrown = true;
 							//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-							//lock (O)
+							////lock (O)
 							{
 								if (!AllDraw::Stockfish)
 								{
@@ -1644,7 +1644,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 					{
 						//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-						//lock (O)
+						////lock (O)
 						{
 							ObjectHittedRow = Row;
 							ObjectHittedColumn = Column;
@@ -1674,7 +1674,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 						{
 							//autoO2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-							//lock (O2)
+							////lock (O2)
 							{
 								ThinkingChess::KingMaovableBrown = true;
 								ChessRules::BigKingCastleBrown = false;
@@ -1685,7 +1685,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 						{
 							//autoO2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-							//lock (O2)
+							////lock (O2)
 							{
 								ThinkingChess::KingMaovableGray = true;
 								ChessRules::BigKingCastleGray = false;
@@ -1700,7 +1700,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 						{
 							//autoO2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-							//lock (O2)
+							////lock (O2)
 							{
 								ThinkingChess::KingMaovableBrown = true;
 
@@ -1710,7 +1710,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 						{
 							//autoO2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-							//lock (O2)
+							////lock (O2)
 							{
 								ThinkingChess::KingMaovableGray = true;
 
@@ -1730,7 +1730,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 				{
 					//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-					//lock (O)
+					////lock (O)
 					{
 						ObjectHittedRow = Row;
 						ObjectHittedColumn = Column;
@@ -1761,7 +1761,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 					{
 						//autoO2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-						//lock (O2)
+						////lock (O2)
 						{
 							ChessRules::BigKingCastleBrown = false;
 							ChessRules::CastleKingAllowedBrown = false;
@@ -1773,7 +1773,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 					{
 						//autoO2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-						//lock (O2)
+						////lock (O2)
 						{
 							ChessRules::BigKingCastleGray = false;
 							ChessRules::CastleKingAllowedGray = false;
@@ -1789,7 +1789,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 					{
 						//autoO2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-						//lock (O2)
+						////lock (O2)
 						{
 							ThinkingChess::KingMaovableBrown = true;
 
@@ -1799,7 +1799,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 					{
 						//autoO2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-						//lock (O2)
+						////lock (O2)
 						{
 							ThinkingChess::KingMaovableGray = true;
 
@@ -1945,7 +1945,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		//Initiate Global Variables.
 		//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-		//lock (O)
+		////lock (O)
 		{
 			CheckGrayRemovable = true;
 
@@ -2013,7 +2013,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 													Tab[ii][jj] = 0;
 													//autoO1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-													//lock (O1)
+													////lock (O1)
 													{
 														CheckBrownRemovableValueRowi = i;
 														CheckGrayRemovableValueColumni = j;
@@ -2095,7 +2095,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 													Tab[ii][jj] = 0;
 													//autoO1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-													//lock (O1)
+													////lock (O1)
 													{
 														CheckBrownRemovableValueRowi = i;
 														CheckBrownRemovableValueColumnj = j;
@@ -2212,7 +2212,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		bool Pat = false;
 		//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-		//lock (O)
+		////lock (O)
 		{
 			PatCheckedInKingRule = true;
 		}
@@ -2258,7 +2258,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			{
 				//autoOn = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-				//lock (On)
+				////lock (On)
 				{
 					AllDraw::EndOfGame = true;
 					PatkGray = true;
@@ -2302,7 +2302,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			{
 				//autoOn = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-				//lock (On)
+				////lock (On)
 				{
 					AllDraw::EndOfGame = true;
 					PatBrown = true;
@@ -2330,7 +2330,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		}
 		//autoO1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-		//lock (O1)
+		////lock (O1)
 		{
 			PatCheckedInKingRule = false;
 		}
@@ -2444,7 +2444,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		bool Store = ChessRules::CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing;
 		//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-		//lock (O)
+		////lock (O)
 		{
 			ChessRules::CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = false;
 		}
@@ -2857,7 +2857,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			CheckBrown = CheckBrownDummy;
 			//autoOn = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-			//lock (On)
+			////lock (On)
 			{
 				AllDraw::EndOfGame = true;
 				return true;
@@ -2898,7 +2898,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		//Initiate Global Variable.
 		//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-		//lock (O)
+		////lock (O)
 		{
 			KingAttacker = false;
 		}

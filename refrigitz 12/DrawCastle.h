@@ -19,11 +19,11 @@
 
 
 	public:
-		const DrawCastle& operator[] (const int index) const;
+		const DrawCastle& operator* (const int index) const;
 		//void* operator*(std::size_t idx);
 		int WinOcuuredatChiled;
 		int LoseOcuuredatChiled;
-		//private readonly object balance//lock = new object();
+		//private readonly object balance////lock = new object();
 		//private readonly object balance//lockS = new object();
 		//atic Image C[2];
 		//Iniatite Global Variable.

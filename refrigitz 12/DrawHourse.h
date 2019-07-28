@@ -13,7 +13,7 @@
 //ORIGINAL LINE: [Serializable] class DrawHourse
 	class DrawHourse
 	{
-		const DrawHourse& operator[] (const int index) const;
+		const DrawHourse& operator* (const int index) const;
 
 
 
@@ -23,7 +23,7 @@
 
 		int WinOcuuredatChiled;
 		int LoseOcuuredatChiled;
-		//private readonly object balance//lock = new object();
+		//private readonly object balance////lock = new object();
 		//private readonly object balance//lockS = new object();
 		//atic Image H[2];
 		//Iniatite Global Variables.

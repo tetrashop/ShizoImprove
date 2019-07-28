@@ -18,7 +18,7 @@ double DrawSoldier::MaxHuristicxS = -DBL_MAX;
 		{
 			//autoa = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-			//lock (a)
+			////lock (a)
 			{
 				std::wstring stackTrace = ex.what();
 //C# TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'ToString':
@@ -31,7 +31,7 @@ double DrawSoldier::MaxHuristicxS = -DBL_MAX;
 		}
 	}
 	*/
-const DrawSoldier& DrawSoldier::operator[] (const int index) const
+const DrawSoldier& DrawSoldier::operator* (const int index) const
 {
 	return this[index];
 }
@@ -155,7 +155,7 @@ const DrawSoldier& DrawSoldier::operator[] (const int index) const
 		/*///autobalance//lockS = new Object();
 
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-		//lock (balance//lockS)
+		////lock (balance//lockS)
 		{
 			if (S == nullptr || S[1] == nullptr)
 			{
@@ -177,7 +177,7 @@ const DrawSoldier& DrawSoldier::operator[] (const int index) const
 						{
 							//autoO1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-							//lock (O1)
+							////lock (O1)
 							{ //Draw an Instant from File of Gray Soldeirs.
 								g.DrawImage(S, Rectangle(static_cast<T>(Row * static_cast<T>(CellW)), static_cast<T>(Column * static_cast<T>(CellH)), CellW, CellH));
 
@@ -187,7 +187,7 @@ const DrawSoldier& DrawSoldier::operator[] (const int index) const
 						{
 							//autoO1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-							//lock (O1)
+							////lock (O1)
 							{ //Draw an Instant from File of Gray Soldeirs.
 								 //Draw an Instatnt of Brown Soldier File On the Table.
 								g.DrawImage(S[1], Rectangle(static_cast<T>(Row * static_cast<T>(CellW)), static_cast<T>(Column * static_cast<T>(CellH)), CellW, CellH));
@@ -211,7 +211,7 @@ const DrawSoldier& DrawSoldier::operator[] (const int index) const
 						{
 							//autoO1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-							//lock (O1)
+							////lock (O1)
 							{ //Draw an Instant from File of Gray Soldeirs.
 								 //Draw of Gray Minsister Image File By an Instant.
 								g.DrawImage(DrawMinister::M, Rectangle(static_cast<T>(Row * static_cast<T>(CellW)), static_cast<T>(Column * static_cast<T>(CellH)), CellW, CellH));
@@ -221,7 +221,7 @@ const DrawSoldier& DrawSoldier::operator[] (const int index) const
 						{
 							//autoO1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-							//lock (O1)
+							////lock (O1)
 							{ //Draw an Instant from File of Gray Soldeirs.
 								 //Draw a Image File on the Table Form n Instatnt One.
 								g.DrawImage(DrawMinister::M[1], Rectangle(static_cast<T>(Row * static_cast<T>(CellW)), static_cast<T>(Column * static_cast<T>(CellH)), CellW, CellH));
@@ -242,7 +242,7 @@ const DrawSoldier& DrawSoldier::operator[] (const int index) const
 						{
 							//autoO1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-							//lock (O1)
+							////lock (O1)
 							{ //Draw an Instant from File of Gray Soldeirs.
 								 //Create on the Inststant of Gray Castles Images.
 								g.DrawImage(DrawCastle::C, Rectangle(static_cast<T>(Row * static_cast<T>(CellW)), static_cast<T>(Column * static_cast<T>(CellH)), CellW, CellH));
@@ -252,7 +252,7 @@ const DrawSoldier& DrawSoldier::operator[] (const int index) const
 						{
 							//autoO1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-							//lock (O1)
+							////lock (O1)
 							{ //Draw an Instant from File of Gray Soldeirs.
 								 //Creat of an Instant of Brown Image Castles.
 								g.DrawImage(DrawCastle::C[1], Rectangle(static_cast<T>(Row * static_cast<T>(CellW)), static_cast<T>(Column * static_cast<T>(CellH)), CellW, CellH));
@@ -274,7 +274,7 @@ const DrawSoldier& DrawSoldier::operator[] (const int index) const
 						{
 							//autoO1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-							//lock (O1)
+							////lock (O1)
 							{ //Draw an Instatnt of Gray Hourse Image File.
 								g.DrawImage(DrawHourse::H, Rectangle(static_cast<T>(Row * static_cast<T>(CellW)), static_cast<T>(Column * static_cast<T>(CellH)), CellW, CellH));
 							}
@@ -283,7 +283,7 @@ const DrawSoldier& DrawSoldier::operator[] (const int index) const
 						{
 							//autoO1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-							//lock (O1)
+							////lock (O1)
 							{ //Creat of an Instatnt Hourse Image File.
 								g.DrawImage(DrawHourse::H[1], Rectangle(static_cast<T>(Row * static_cast<T>(CellW)), static_cast<T>(Column * static_cast<T>(CellH)), CellW, CellH));
 							}
@@ -304,7 +304,7 @@ const DrawSoldier& DrawSoldier::operator[] (const int index) const
 						{
 							//autoO1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-							//lock (O1)
+							////lock (O1)
 							{ //Draw an Instatnt Image of Gray Elephant.
 								g.DrawImage(DrawElefant::E, Rectangle(static_cast<T>(Row * static_cast<T>(CellW)), static_cast<T>(Column * static_cast<T>(CellH)), CellW, CellH));
 							}
@@ -313,7 +313,7 @@ const DrawSoldier& DrawSoldier::operator[] (const int index) const
 						{
 							//autoO1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-							//lock (O1)
+							////lock (O1)
 							{ //Draw of Instant Image of Brown Elephant.
 								g.DrawImage(DrawElefant::E[1], Rectangle(static_cast<T>(Row * static_cast<T>(CellW)), static_cast<T>(Column * static_cast<T>(CellH)), CellW, CellH));
 							}

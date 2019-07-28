@@ -182,7 +182,7 @@ namespace {
 /// In addition to the UCI ones, also some additional debug commands are supported.
 
 
-void UCI::loop(int argc, char* argv[]) {
+void UCI::loop(int argc, char* argv*) {
 
   //Position pos;
   string token, cmd;
@@ -373,7 +373,7 @@ Move UCI::to_move(const Position& pos, string& str) {
   if (str.length() == 5) // Junior could send promotion piece in uppercase
       str[4] = char(tolower(str[4]));
 
-  for (const auto& m : MoveList<LEGAL>(pos))
+  for (const //auto& m : MoveList<LEGAL>(pos))
       if (str == UCI::move(m, pos.is_chess960()))
           return m;
 

@@ -33,9 +33,9 @@ class DrawKing;
 	inline bool operator!=(const DrawKing& lhs, const std::nullptr_t& rhs) { return !(lhs == rhs); }
 	*/
 //template<typename T>
-bool stopOnPonderhit=true;
+//bool stopOnPonderhit=true;
 int  AllDraw::DepthIterative = 0;
-std::wstring AllDraw::OutPut += L"";
+std::wstring AllDraw::OutPut = L"";
 std::wstring AllDraw::ActionString = L"";
 bool AllDraw::ActionStringReady = false;
 bool AllDraw::RegardOccurred = false;
@@ -4326,7 +4326,7 @@ void AllDraw::FoundOfLeafDepenOfKind(int **Table, int Order, int iAStarGreedy, i
 	bool FullGameFound = false;
 
 	int **table = CloneATable(table);
-	OutPut += std::wstring(L"\r\nLeaf Tree Creation is ") + StringConverterHelper::toString(LeafAStarGreedy) + std::wstring(L"at AStarGreedy ") + StringConverterHelper::toString(iAStarGreedy);
+	OutPut = std::wstring(L"\r\nLeaf Tree Creation is ") + StringConverterHelper::toString(LeafAStarGreedy) + std::wstring(L"at AStarGreedy ") + StringConverterHelper::toString(iAStarGreedy);
 	if (Order == 1)
 	{
 
@@ -5123,7 +5123,7 @@ void AllDraw::StringHuristics(int Obj, int Sec, bool AA, int Do, int WinOcuureda
 	}
 	SOut += std::wstring(L" With Huristic Count ") + StringConverterHelper::toString<int>(AllDraw::Less);
 
-	OutPut += SOut;
+	OutPut = SOut;
 
 	//delay(10);
 }
@@ -5152,7 +5152,7 @@ int ** AllDraw::HuristicAStarGreadySearchSoldier(int **TableHuristic, int i, int
 		for (j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 		{
 			{
-				//System.Threading.Thread.Sleep(2);
+				//System.Threading.Thread.Sleep(1);
 					//try
 				{
 					//For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
@@ -5400,12 +5400,12 @@ int ** AllDraw::HuristicAStarGreadySearchSoldier(int **TableHuristic, int i, int
 									{
 										if (Order == 1)
 										{
-											OutPut += L"\r\nChess Huristic Sodier By Bob!";
+											OutPut = L"\r\nChess Huristic Sodier By Bob!";
 											//THIS.RefreshBoxText();
 										}
 										else //If Order is Brown.
 										{
-											OutPut += L"\r\nChess Huristic Sodier By Alice!";
+											OutPut = L"\r\nChess Huristic Sodier By Alice!";
 											//THIS.RefreshBoxText();
 										}
 									}
@@ -5744,12 +5744,12 @@ int ** AllDraw::HuristicAStarGreadySearchElephant(int **TableHuristic, int i, in
 			{
 				if (Order == 1)
 				{
-					OutPut += L"\r\nChess Huristic Elephant By Bob!";
+					OutPut = L"\r\nChess Huristic Elephant By Bob!";
 					//THIS.RefreshBoxText();
 				}
 				else //If Order is Brown.
 				{
-					OutPut += L"\r\nChess Huristic Elephant By Alice!";
+					OutPut = L"\r\nChess Huristic Elephant By Alice!";
 					//THIS.RefreshBoxText();
 				}
 			}
@@ -5842,7 +5842,7 @@ int ** AllDraw::HuristicAStarGreadySearchHourse(int **TableHuristic, int i, int 
 			for (j = 0;((& HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 			{
 				{
-					//System.Threading.Thread.Sleep(2);
+					//System.Threading.Thread.Sleep(1);
 						//try
 					{
 						//For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
@@ -6041,12 +6041,12 @@ int ** AllDraw::HuristicAStarGreadySearchHourse(int **TableHuristic, int i, int 
 									{
 										if (Order == 1)
 										{
-											OutPut += L"\r\nChess Huristic Hourse By Bob!";
+											OutPut = L"\r\nChess Huristic Hourse By Bob!";
 											//THIS.RefreshBoxText();
 										}
 										else //If Order is Brown.
 										{
-											OutPut += L"\r\nChess Huristic Hourse By Alice!";
+											OutPut = L"\r\nChess Huristic Hourse By Alice!";
 											//THIS.RefreshBoxText();
 										}
 									} //Set Table and Huristic Value and Syntax.
@@ -6158,7 +6158,7 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 					for (j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 					{
 						{
-						//System.Threading.Thread.Sleep(2);
+						//System.Threading.Thread.Sleep(1);
 							//try
 							{
 								//For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
@@ -6355,12 +6355,12 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 											{
 												if (Order == 1)
 												{
-													OutPut += L"\r\nChess Huristic Castles By Bob!";
+													OutPut = L"\r\nChess Huristic Castles By Bob!";
 													//THIS.RefreshBoxText();
 												}
 												else //If Order is Brown.
 												{
-													OutPut += L"\r\nChess Huristic Castles By Alice!";
+													OutPut = L"\r\nChess Huristic Castles By Alice!";
 													//THIS.RefreshBoxText();
 												}
 											}
@@ -6625,12 +6625,12 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 
 							if (Order == 1)
 							{
-								OutPut += L"\r\nChess Huristic Minister By Bob!";
+								OutPut = L"\r\nChess Huristic Minister By Bob!";
 								//THIS.RefreshBoxText();
 							}
 							else //If Order is Brown.
 							{
-								OutPut += L"\r\nChess Huristic Minister By Alice!";
+								OutPut = L"\r\nChess Huristic Minister By Alice!";
 								//THIS.RefreshBoxText();
 							}
 
@@ -6726,7 +6726,7 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 			for (j = 0;((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) &&((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 			{
 				{
-					//System.Threading.Thread.Sleep(2);
+					//System.Threading.Thread.Sleep(1);
 						//try
 					{
 						//For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
@@ -6922,12 +6922,12 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 								{
 									if (Order == 1)
 									{
-										OutPut += L"\r\nChess Huristic King By Bob!";
+										OutPut = L"\r\nChess Huristic King By Bob!";
 										//THIS.RefreshBoxText();
 									}
 									else //If Order is Brown.
 									{
-										OutPut += L"\r\nChess Huristic King By Alice!";
+										OutPut = L"\r\nChess Huristic King By Alice!";
 										//THIS.RefreshBoxText();
 									}
 									//Set Table and Huristic Value and Syntax.
@@ -7261,12 +7261,12 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 											{
 												if (Order == 1)
 												{
-													OutPut += L"\r\nChess Huristic Sodier By Bob!";
+													OutPut = L"\r\nChess Huristic Sodier By Bob!";
 													//THIS.RefreshBoxText();
 												}
 												else //If Order is Brown.
 												{
-													OutPut += L"\r\nChess Huristic Sodier By Alice!";
+													OutPut = L"\r\nChess Huristic Sodier By Alice!";
 													//THIS.RefreshBoxText();
 												}
 											}
@@ -7405,12 +7405,12 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 													{
 														if (Order == 1)
 														{
-															OutPut += L"\r\nChess Huristic Sodier By Bob!";
+															OutPut = L"\r\nChess Huristic Sodier By Bob!";
 															//THIS.RefreshBoxText();
 														}
 														else //If Order is Brown.
 														{
-															OutPut += L"\r\nChess Huristic Sodier By Alice!";
+															OutPut = L"\r\nChess Huristic Sodier By Alice!";
 															//THIS.RefreshBoxText();
 														}
 													}
@@ -7644,12 +7644,12 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 											{
 												if (Order == 1)
 												{
-													OutPut += L"\r\nChess Huristic Elephant By Bob!";
+													OutPut = L"\r\nChess Huristic Elephant By Bob!";
 													//THIS.RefreshBoxText();
 												}
 												else //If Order is Brown.
 												{
-													OutPut += L"\r\nChess Huristic Elephant By Alice!";
+													OutPut = L"\r\nChess Huristic Elephant By Alice!";
 													//THIS.RefreshBoxText();
 												}
 											}
@@ -7708,12 +7708,12 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 												{
 													if (Order == 1)
 													{
-														OutPut += L"\r\nChess Huristic Sodier By Bob!";
+														OutPut = L"\r\nChess Huristic Sodier By Bob!";
 														//THIS.RefreshBoxText();
 													}
 													else //If Order is Brown.
 													{
-														OutPut += L"\r\nChess Huristic Sodier By Alice!";
+														OutPut = L"\r\nChess Huristic Sodier By Alice!";
 														//THIS.RefreshBoxText();
 													}
 												}
@@ -7947,12 +7947,12 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 											{
 												if (Order == 1)
 												{
-													OutPut += L"\r\nChess Huristic Hourse By Bob!";
+													OutPut = L"\r\nChess Huristic Hourse By Bob!";
 													//THIS.RefreshBoxText();
 												}
 												else //If Order is Brown.
 												{
-													OutPut += L"\r\nChess Huristic Hourse By Alice!";
+													OutPut = L"\r\nChess Huristic Hourse By Alice!";
 													//THIS.RefreshBoxText();
 												}
 											}
@@ -8013,12 +8013,12 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 												{
 													if (Order == 1)
 													{
-														OutPut += L"\r\nChess Huristic Sodier By Bob!";
+														OutPut = L"\r\nChess Huristic Sodier By Bob!";
 														//THIS.RefreshBoxText();
 													}
 													else //If Order is Brown.
 													{
-														OutPut += L"\r\nChess Huristic Sodier By Alice!";
+														OutPut = L"\r\nChess Huristic Sodier By Alice!";
 														//THIS.RefreshBoxText();
 													}
 												}
@@ -8246,12 +8246,12 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 											{
 												if (Order == 1)
 												{
-													OutPut += L"\r\nChess Huristic Castles By Bob!";
+													OutPut = L"\r\nChess Huristic Castles By Bob!";
 													//THIS.RefreshBoxText();
 												}
 												else //If Order is Brown.
 												{
-													OutPut += L"\r\nChess Huristic Castles By Alice!";
+													OutPut = L"\r\nChess Huristic Castles By Alice!";
 													//THIS.RefreshBoxText();
 												}
 											}
@@ -8312,12 +8312,12 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 												{
 													if (Order == 1)
 													{
-														OutPut += L"\r\nChess Huristic Sodier By Bob!";
+														OutPut = L"\r\nChess Huristic Sodier By Bob!";
 														//THIS.RefreshBoxText();
 													}
 													else //If Order is Brown.
 													{
-														OutPut += L"\r\nChess Huristic Sodier By Alice!";
+														OutPut = L"\r\nChess Huristic Sodier By Alice!";
 														//THIS.RefreshBoxText();
 													}
 												}
@@ -8543,12 +8543,12 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 											{
 												if (Order == 1)
 												{
-													OutPut += L"\r\nChess Huristic Minister By Bob!";
+													OutPut = L"\r\nChess Huristic Minister By Bob!";
 													//THIS.RefreshBoxText();
 												}
 												else //If Order is Brown.
 												{
-													OutPut += L"\r\nChess Huristic Minister By Alice!";
+													OutPut = L"\r\nChess Huristic Minister By Alice!";
 													//THIS.RefreshBoxText();
 												}
 											}
@@ -8606,12 +8606,12 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 												{
 													if (Order == 1)
 													{
-														OutPut += L"\r\nChess Huristic Sodier By Bob!";
+														OutPut = L"\r\nChess Huristic Sodier By Bob!";
 														//THIS.RefreshBoxText();
 													}
 													else //If Order is Brown.
 													{
-														OutPut += L"\r\nChess Huristic Sodier By Alice!";
+														OutPut = L"\r\nChess Huristic Sodier By Alice!";
 														//THIS.RefreshBoxText();
 													}
 												}
@@ -8844,12 +8844,12 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 											{
 												if (Order == 1)
 												{
-													OutPut += L"\r\nChess Huristic King By Bob!";
+													OutPut = L"\r\nChess Huristic King By Bob!";
 													//THIS.RefreshBoxText();
 												}
 												else //If Order is Brown.
 												{
-													OutPut += L"\r\nChess Huristic King By Alice!";
+													OutPut = L"\r\nChess Huristic King By Alice!";
 													//THIS.RefreshBoxText();
 												}
 											}
@@ -8912,12 +8912,12 @@ int ** AllDraw::HuristicAStarGreadySearchCastleGray(int **TableHuristic, int ASt
 												{
 													if (Order == 1)
 													{
-														OutPut += L"\r\nChess Huristic Sodier By Bob!";
+														OutPut = L"\r\nChess Huristic Sodier By Bob!";
 														//THIS.RefreshBoxText();
 													}
 													else //If Order is Brown.
 													{
-														OutPut += L"\r\nChess Huristic Sodier By Alice!";
+														OutPut = L"\r\nChess Huristic Sodier By Alice!";
 														//THIS.RefreshBoxText();
 													}
 												}
@@ -9196,12 +9196,12 @@ void AllDraw::InitiateGenetic(int ii, int jj, int a, int **Table, int Order, boo
 		//If Order is Gray.
 		if (Order == 1)
 		{
-			OutPut += L"\r\nChess Genetic By Bob!";
+			OutPut = L"\r\nChess Genetic By Bob!";
 			//THIS.RefreshBoxText();
 		}
 		else //If Order is Brown.
 		{
-			OutPut += L"\r\nChess Genetic By Alice!";
+			OutPut = L"\r\nChess Genetic By Alice!";
 			//THIS.RefreshBoxText();
 
 		}
@@ -9233,12 +9233,12 @@ void AllDraw::InitiateGenetic(int ii, int jj, int a, int **Table, int Order, boo
 
 		if (Order == 1)
 		{
-			OutPut += std::wstring(L"\r\nGenetic Algorithm Begin AStarGreedy ") + StringConverterHelper::toString(i) + std::wstring(L" By Bob!");
+			OutPut = std::wstring(L"\r\nGenetic Algorithm Begin AStarGreedy ") + StringConverterHelper::toString(i) + std::wstring(L" By Bob!");
 			//THIS.RefreshBoxText();
 		}
 		else //If Order is Brown.
 		{
-			OutPut += std::wstring(L"\r\nGenetic Algirithm Begin AStarGreedy ") + StringConverterHelper::toString(i) + std::wstring(L" By Alice!");
+			OutPut = std::wstring(L"\r\nGenetic Algirithm Begin AStarGreedy ") + StringConverterHelper::toString(i) + std::wstring(L" By Alice!");
 			//THIS.RefreshBoxText();
 
 		}
@@ -9249,12 +9249,12 @@ void AllDraw::InitiateGenetic(int ii, int jj, int a, int **Table, int Order, boo
 		int **Tab = R->GenerateTable(TableListAction, 0, Order);
 		if (Order == 1)
 		{
-			OutPut += std::wstring(L"\r\nGenetic Algorithm Finsished AStarGreedy ") + StringConverterHelper::toString(i) + std::wstring(L" By Bob!");
+			OutPut = std::wstring(L"\r\nGenetic Algorithm Finsished AStarGreedy ") + StringConverterHelper::toString(i) + std::wstring(L" By Bob!");
 			//THIS.RefreshBoxText();
 		}
 		else //If Order is Brown.
 		{
-			OutPut += std::wstring(L"\r\nGenetic Algirithm Finished AStarGreedy ") + StringConverterHelper::toString(i) + std::wstring(L" By Alice!");
+			OutPut = std::wstring(L"\r\nGenetic Algirithm Finished AStarGreedy ") + StringConverterHelper::toString(i) + std::wstring(L" By Alice!");
 			//THIS.RefreshBoxText();
 
 		}
@@ -10545,7 +10545,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 	{
 		if (Order == 1)
 		{
-			//if (SolderesOnTable[ii].SoldierThinking[0].IsSup[j])
+			if (SolderesOnTable[ii].SoldierThinking[0].IsSup)
 			{
 
 				for (int i = 0; i < SodierMidle; i++)
@@ -10557,8 +10557,6 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 					//int j = FoundTableIndex(this[ii].SoldierThinking[0].TableListSolder, SolderesOnTable[ii].SoldierThinking[0].TableConst);
 					for (int j = 0; j < SolderesOnTable[ii].SoldierThinking[0].HuristicListSolder.size(); j++)
 					{
-						if (!(SolderesOnTable[ii].SoldierThinking[0].IsSup[j]))
-							continue;
 
 						SolderesOnTable[ii].SoldierThinking[0].HuristicListSolder[j][0] += SolderesOnTable[ii].SoldierThinking[0].HuristicAttackValueSup;
 						SolderesOnTable[ii].SoldierThinking[0].HuristicListSolder[j][1] += SolderesOnTable[ii].SoldierThinking[0].HuristicMovementValueSup;
@@ -10571,7 +10569,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 						SolderesOnTable[ii].SoldierThinking[0].HuristicListSolder[j][8] += SolderesOnTable[ii].SoldierThinking[0].HeuristicFromCenterSup;
 						SolderesOnTable[ii].SoldierThinking[0].HuristicListSolder[j][9] += SolderesOnTable[ii].SoldierThinking[0].HeuristicKingDangourSup;
 
-						AllDraw::OutPut += L"\r\nServed Soldeir!";
+						AllDraw::OutPut = L"\r\nServed Soldeir!";
 					}
 				}
 				SolderesOnTable[ii].SoldierThinking[0].HuristicAttackValueSup = 0;
@@ -10584,12 +10582,12 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 				SolderesOnTable[ii].SoldierThinking[0].HeuristicKingSafeSup = 0;
 				SolderesOnTable[ii].SoldierThinking[0].HeuristicFromCenterSup = 0;
 				SolderesOnTable[ii].SoldierThinking[0].HeuristicKingDangourSup = 0;
-				for (int j = 0; j < SolderesOnTable[ii].SoldierThinking[0].IsSup.Count; j++) SolderesOnTable[ii].SoldierThinking[0].IsSup[j] = false;
+				SolderesOnTable[ii].SoldierThinking[0].IsSup = false;
 			}
 		}
 		else
 		{
-			if (SolderesOnTable[ii].SoldierThinking[0].IsSup[j])
+			if (SolderesOnTable[ii].SoldierThinking[0].IsSup)
 			{
 
 				for (int i = SodierMidle; i < SodierHigh; i++)
@@ -10612,9 +10610,8 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 						SolderesOnTable[ii].SoldierThinking[0].HuristicListSolder[j][7] += SolderesOnTable[ii].SoldierThinking[0].HeuristicKingSafeSup;
 						SolderesOnTable[ii].SoldierThinking[0].HuristicListSolder[j][8] += SolderesOnTable[ii].SoldierThinking[0].HeuristicFromCenterSup;
 						SolderesOnTable[ii].SoldierThinking[0].HuristicListSolder[j][9] += SolderesOnTable[ii].SoldierThinking[0].HeuristicKingDangourSup;
-						SolderesOnTable[ii].SoldierThinking[0].IsSup[j] = false;
 
-						AllDraw::OutPut += L"\r\nServed Soldeir!";
+						AllDraw::OutPut = L"\r\nServed Soldeir!";
 					}
 				}
 				SolderesOnTable[ii].SoldierThinking[0].HuristicAttackValueSup = 0;
@@ -10627,7 +10624,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 				SolderesOnTable[ii].SoldierThinking[0].HeuristicKingSafeSup = 0;
 				SolderesOnTable[ii].SoldierThinking[0].HeuristicFromCenterSup = 0;
 				SolderesOnTable[ii].SoldierThinking[0].HeuristicKingDangourSup = 0;
-				
+				SolderesOnTable[ii].SoldierThinking[0].IsSup = false;
 			}
 		}
 	}
@@ -10635,7 +10632,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 	{
 		if (Order == 1)
 		{
-			//if (ElephantOnTable[ii].ElefantThinking[0].IsSup[j])
+			if (ElephantOnTable[ii].ElefantThinking[0].IsSup)
 			{
 				for (int i = 0; i < ElefantMidle; i++)
 				{
@@ -10648,9 +10645,6 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 							//int j = FoundTableIndex(this.ElephantOnTable[ii].ElefantThinking[0].TableListElefant, ElephantOnTable[ii].ElefantThinking[0].TableConst);
 						for (int j = 0; j < ElephantOnTable[ii].ElefantThinking[0].HuristicListElefant.size(); j++)
 						{
-							if (!(ElephantOnTable[ii].ElefantThinking[0].IsSup[j]))
-								continue;
-
 
 							ElephantOnTable[ii].ElefantThinking[0].HuristicListElefant[j][0] += ElephantOnTable[ii].ElefantThinking[0].HuristicAttackValueSup;
 							ElephantOnTable[ii].ElefantThinking[0].HuristicListElefant[j][1] += ElephantOnTable[ii].ElefantThinking[0].HuristicMovementValueSup;
@@ -10662,9 +10656,8 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 							ElephantOnTable[ii].ElefantThinking[0].HuristicListElefant[j][7] += ElephantOnTable[ii].ElefantThinking[0].HeuristicKingSafeSup;
 							ElephantOnTable[ii].ElefantThinking[0].HuristicListElefant[j][8] += ElephantOnTable[ii].ElefantThinking[0].HeuristicFromCenterSup;
 							ElephantOnTable[ii].ElefantThinking[0].HuristicListElefant[j][9] += ElephantOnTable[ii].ElefantThinking[0].HeuristicKingDangourSup;
-							ElephantOnTable[ii].ElefantThinking[0].IsSup[j] = false;
 
-							AllDraw::OutPut += L"\r\nServed Elephant!";
+							AllDraw::OutPut = L"\r\nServed Elephant!";
 						}
 					}
 				}
@@ -10678,13 +10671,13 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 				ElephantOnTable[ii].ElefantThinking[0].HeuristicKingSafeSup = 0;
 				ElephantOnTable[ii].ElefantThinking[0].HeuristicFromCenterSup = 0;
 				ElephantOnTable[ii].ElefantThinking[0].HeuristicKingDangourSup = 0;
-				
+				ElephantOnTable[ii].ElefantThinking[0].IsSup = false;
 			}
 		}
 		else
 		{
 
-			//if (ElephantOnTable[ii].ElefantThinking[0].IsSup[j])
+			if (ElephantOnTable[ii].ElefantThinking[0].IsSup)
 			{
 				for (int i = ElefantMidle; i < ElefantHigh; i++)
 				{
@@ -10697,8 +10690,6 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 							//int j = FoundTableIndex(this.ElephantOnTable[ii].ElefantThinking[0].TableListElefant, ElephantOnTable[ii].ElefantThinking[0].TableConst);
 						for (int j = 0; j < ElephantOnTable[ii].ElefantThinking[0].HuristicListElefant.size(); j++)
 						{
-							if (!(ElephantOnTable[ii].ElefantThinking[0].IsSup[j]))
-								continue;
 
 							ElephantOnTable[ii].ElefantThinking[0].HuristicListElefant[j][0] += ElephantOnTable[ii].ElefantThinking[0].HuristicAttackValueSup;
 							ElephantOnTable[ii].ElefantThinking[0].HuristicListElefant[j][1] += ElephantOnTable[ii].ElefantThinking[0].HuristicMovementValueSup;
@@ -10710,9 +10701,8 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 							ElephantOnTable[ii].ElefantThinking[0].HuristicListElefant[j][7] += ElephantOnTable[ii].ElefantThinking[0].HeuristicKingSafeSup;
 							ElephantOnTable[ii].ElefantThinking[0].HuristicListElefant[j][8] += ElephantOnTable[ii].ElefantThinking[0].HeuristicFromCenterSup;
 							ElephantOnTable[ii].ElefantThinking[0].HuristicListElefant[j][9] += ElephantOnTable[ii].ElefantThinking[0].HeuristicKingDangourSup;
-							ElephantOnTable[ii].ElefantThinking[0].IsSup[j] = false;
 
-							AllDraw::OutPut += L"\r\nServed Elephant!";
+							AllDraw::OutPut = L"\r\nServed Elephant!";
 						}
 					}
 				}
@@ -10726,7 +10716,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 				ElephantOnTable[ii].ElefantThinking[0].HeuristicKingSafeSup = 0;
 				ElephantOnTable[ii].ElefantThinking[0].HeuristicFromCenterSup = 0;
 				ElephantOnTable[ii].ElefantThinking[0].HeuristicKingDangourSup = 0;
-				
+				ElephantOnTable[ii].ElefantThinking[0].IsSup = false;
 			}
 		}
 	}
@@ -10734,7 +10724,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 	{
 		if (Order == 1)
 		{
-			//if (HoursesOnTable[ii].HourseThinking[0].IsSup[j])
+			if (HoursesOnTable[ii].HourseThinking[0].IsSup)
 			{
 				for (int i = 0; i < HourseMidle; i++)
 				{
@@ -10745,8 +10735,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 					//int j = FoundTableIndex(this.HoursesOnTable[ii].HourseThinking[0].TableListHourse, HoursesOnTable[ii].HourseThinking[0].TableConst);
 					for (int j = 0; j < HoursesOnTable[ii].HourseThinking[0].HuristicListHourse.size(); j++)
 					{
-						if (!(HoursesOnTable[ii].HourseThinking[0].IsSup[j]))
-							continue;
+
 						HoursesOnTable[ii].HourseThinking[0].HuristicListHourse[j][0] += HoursesOnTable[ii].HourseThinking[0].HuristicAttackValueSup;
 						HoursesOnTable[ii].HourseThinking[0].HuristicListHourse[j][1] += HoursesOnTable[ii].HourseThinking[0].HuristicMovementValueSup;
 						HoursesOnTable[ii].HourseThinking[0].HuristicListHourse[j][2] += HoursesOnTable[ii].HourseThinking[0].HuristicSelfSupportedValueSup;
@@ -10757,9 +10746,8 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 						HoursesOnTable[ii].HourseThinking[0].HuristicListHourse[j][7] += HoursesOnTable[ii].HourseThinking[0].HeuristicKingSafeSup;
 						HoursesOnTable[ii].HourseThinking[0].HuristicListHourse[j][8] += HoursesOnTable[ii].HourseThinking[0].HeuristicFromCenterSup;
 						HoursesOnTable[ii].HourseThinking[0].HuristicListHourse[j][9] += HoursesOnTable[ii].HourseThinking[0].HeuristicKingDangourSup;
-						HoursesOnTable[ii].HourseThinking[0].IsSup[j] = false;
 
-						AllDraw::OutPut += L"\r\nServed Hourse!";
+						AllDraw::OutPut = L"\r\nServed Hourse!";
 					}
 				}
 				HoursesOnTable[ii].HourseThinking[0].HuristicAttackValueSup = 0;
@@ -10772,13 +10760,13 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 				HoursesOnTable[ii].HourseThinking[0].HeuristicKingSafeSup = 0;
 				HoursesOnTable[ii].HourseThinking[0].HeuristicFromCenterSup = 0;
 				HoursesOnTable[ii].HourseThinking[0].HeuristicKingDangourSup = 0;
-				
+				HoursesOnTable[ii].HourseThinking[0].IsSup = false;
 			}
 
 		}
 		else
 		{
-			//if (HoursesOnTable[ii].HourseThinking[0].IsSup[j])
+			if (HoursesOnTable[ii].HourseThinking[0].IsSup)
 			{
 				for (int i = HourseMidle; i < HourseHight; i++)
 				{
@@ -10789,8 +10777,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 					//int j = FoundTableIndex(this.HoursesOnTable[ii].HourseThinking[0].TableListHourse, HoursesOnTable[ii].HourseThinking[0].TableConst);
 					for (int j = 0; j < HoursesOnTable[ii].HourseThinking[0].HuristicListHourse.size(); j++)
 					{
-						if (!(HoursesOnTable[ii].HourseThinking[0].IsSup[j]))
-							continue;
+
 						HoursesOnTable[ii].HourseThinking[0].HuristicListHourse[j][0] += HoursesOnTable[ii].HourseThinking[0].HuristicAttackValueSup;
 						HoursesOnTable[ii].HourseThinking[0].HuristicListHourse[j][1] += HoursesOnTable[ii].HourseThinking[0].HuristicMovementValueSup;
 						HoursesOnTable[ii].HourseThinking[0].HuristicListHourse[j][2] += HoursesOnTable[ii].HourseThinking[0].HuristicSelfSupportedValueSup;
@@ -10802,7 +10789,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 						HoursesOnTable[ii].HourseThinking[0].HuristicListHourse[j][8] += HoursesOnTable[ii].HourseThinking[0].HeuristicFromCenterSup;
 						HoursesOnTable[ii].HourseThinking[0].HuristicListHourse[j][9] += HoursesOnTable[ii].HourseThinking[0].HeuristicKingDangourSup;
 
-						AllDraw::OutPut += L"\r\nServed Hourse!";
+						AllDraw::OutPut = L"\r\nServed Hourse!";
 					}
 				}
 				HoursesOnTable[ii].HourseThinking[0].HuristicAttackValueSup = 0;
@@ -10815,7 +10802,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 				HoursesOnTable[ii].HourseThinking[0].HeuristicKingSafeSup = 0;
 				HoursesOnTable[ii].HourseThinking[0].HeuristicFromCenterSup = 0;
 				HoursesOnTable[ii].HourseThinking[0].HeuristicKingDangourSup = 0;
-				HoursesOnTable[ii].HourseThinking[0].IsSup[j] = false;
+				HoursesOnTable[ii].HourseThinking[0].IsSup = false;
 			}
 		}
 	}
@@ -10823,7 +10810,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 	{
 		if (Order == 1)
 		{
-			//if (CastlesOnTable[ii].CastleThinking[0].IsSup[j])
+			if (CastlesOnTable[ii].CastleThinking[0].IsSup)
 			{
 				for (int i = 0; i < CastleMidle; i++)
 				{
@@ -10834,8 +10821,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 					//int j = FoundTableIndex(this.CastlesOnTable[ii].CastleThinking[0].TableListCastle, CastlesOnTable[ii].CastleThinking[0]TableConst);
 					for (int j = 0; j < CastlesOnTable[ii].CastleThinking[0].HuristicListCastle.size(); j++)
 					{
-						if (!(CastlesOnTable[ii].CastleThinking[0].IsSup[j]))
-							continue;
+
 						CastlesOnTable[ii].CastleThinking[0].HuristicListCastle[j][0] += CastlesOnTable[ii].CastleThinking[0].HuristicAttackValueSup;
 						CastlesOnTable[ii].CastleThinking[0].HuristicListCastle[j][1] += CastlesOnTable[ii].CastleThinking[0].HuristicMovementValueSup;
 						CastlesOnTable[ii].CastleThinking[0].HuristicListCastle[j][2] += CastlesOnTable[ii].CastleThinking[0].HuristicSelfSupportedValueSup;
@@ -10846,9 +10832,8 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 						CastlesOnTable[ii].CastleThinking[0].HuristicListCastle[j][7] += CastlesOnTable[ii].CastleThinking[0].HeuristicKingSafeSup;
 						CastlesOnTable[ii].CastleThinking[0].HuristicListCastle[j][8] += CastlesOnTable[ii].CastleThinking[0].HeuristicFromCenterSup;
 						CastlesOnTable[ii].CastleThinking[0].HuristicListCastle[j][9] += CastlesOnTable[ii].CastleThinking[0].HeuristicKingDangourSup;
-						CastlesOnTable[ii].CastleThinking[0].IsSup[j] = false;
 
-						AllDraw::OutPut += L"\r\nServed Castle!";
+						AllDraw::OutPut = L"\r\nServed Castle!";
 					}
 				}
 				CastlesOnTable[ii].CastleThinking[0].HuristicAttackValueSup = 0;
@@ -10861,12 +10846,12 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 				CastlesOnTable[ii].CastleThinking[0].HeuristicKingSafeSup = 0;
 				CastlesOnTable[ii].CastleThinking[0].HeuristicFromCenterSup = 0;
 				CastlesOnTable[ii].CastleThinking[0].HeuristicKingDangourSup = 0;
-				
+				CastlesOnTable[ii].CastleThinking[0].IsSup = false;
 			}
 		}
 		else
 		{
-			//if (CastlesOnTable[ii].CastleThinking[0].IsSup[j])
+			if (CastlesOnTable[ii].CastleThinking[0].IsSup)
 			{
 				for (int i = CastleMidle; i < CastleHigh; i++)
 				{
@@ -10877,8 +10862,6 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 					//int j = FoundTableIndex(this.CastlesOnTable[ii].CastleThinking[0].TableListCastle, CastlesOnTable[ii].CastleThinking[0]TableConst);
 					for (int j = 0; j < CastlesOnTable[ii].CastleThinking[0].HuristicListCastle.size(); j++)
 					{
-						if (!(CastlesOnTable[ii].CastleThinking[0].IsSup[j]))
-							continue;
 
 						CastlesOnTable[ii].CastleThinking[0].HuristicListCastle[j][0] += CastlesOnTable[ii].CastleThinking[0].HuristicAttackValueSup;
 						CastlesOnTable[ii].CastleThinking[0].HuristicListCastle[j][1] += CastlesOnTable[ii].CastleThinking[0].HuristicMovementValueSup;
@@ -10890,9 +10873,8 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 						CastlesOnTable[ii].CastleThinking[0].HuristicListCastle[j][7] += CastlesOnTable[ii].CastleThinking[0].HeuristicKingSafeSup;
 						CastlesOnTable[ii].CastleThinking[0].HuristicListCastle[j][8] += CastlesOnTable[ii].CastleThinking[0].HeuristicFromCenterSup;
 						CastlesOnTable[ii].CastleThinking[0].HuristicListCastle[j][9] += CastlesOnTable[ii].CastleThinking[0].HeuristicKingDangourSup;
-						CastlesOnTable[ii].CastleThinking[0].IsSup[j] = false;
 
-						AllDraw::OutPut += L"\r\nServed Castle!";
+						AllDraw::OutPut = L"\r\nServed Castle!";
 					}
 				}
 				CastlesOnTable[ii].CastleThinking[0].HuristicAttackValueSup = 0;
@@ -10905,7 +10887,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 				CastlesOnTable[ii].CastleThinking[0].HeuristicKingSafeSup = 0;
 				CastlesOnTable[ii].CastleThinking[0].HeuristicFromCenterSup = 0;
 				CastlesOnTable[ii].CastleThinking[0].HeuristicKingDangourSup = 0;
-				
+				CastlesOnTable[ii].CastleThinking[0].IsSup = false;
 			}
 		}
 	}
@@ -10915,7 +10897,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 		{
 			if (Order == 1)
 			{
-				//if (MinisterOnTable[ii].MinisterThinking[0].IsSup[j])
+				if (MinisterOnTable[ii].MinisterThinking[0].IsSup)
 				{
 					for (int i = 0; i < MinisterMidle; i++)
 					{
@@ -10926,8 +10908,6 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 						//int j = FoundTableIndex(this.MinisterOnTable[ii].MinisterThinking[0].TableListMinister, MinisterOnTable[ii].MinisterThinking[0].TableConst);
 						for (int j = 0; j < MinisterOnTable[ii].MinisterThinking[0].HuristicListMinister.size(); j++)
 						{
-							if (!(MinisterOnTable[ii].MinisterThinking[0].IsSup[j]))
-								continue;
 
 							MinisterOnTable[ii].MinisterThinking[0].HuristicListMinister[j][0] += MinisterOnTable[ii].MinisterThinking[0].HuristicAttackValueSup;
 							MinisterOnTable[ii].MinisterThinking[0].HuristicListMinister[j][1] += MinisterOnTable[ii].MinisterThinking[0].HuristicMovementValueSup;
@@ -10939,9 +10919,8 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 							MinisterOnTable[ii].MinisterThinking[0].HuristicListMinister[j][7] += MinisterOnTable[ii].MinisterThinking[0].HeuristicKingSafeSup;
 							MinisterOnTable[ii].MinisterThinking[0].HuristicListMinister[j][8] += MinisterOnTable[ii].MinisterThinking[0].HeuristicFromCenterSup;
 							MinisterOnTable[ii].MinisterThinking[0].HuristicListMinister[j][9] += MinisterOnTable[ii].MinisterThinking[0].HeuristicKingDangourSup;
-							MinisterOnTable[ii].MinisterThinking[0].IsSup[j] = false;
 
-							AllDraw::OutPut += L"\r\nServed Minister!";
+							AllDraw::OutPut = L"\r\nServed Minister!";
 						}
 					}
 					MinisterOnTable[ii].MinisterThinking[0].HuristicAttackValueSup = 0;
@@ -10954,12 +10933,12 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 					MinisterOnTable[ii].MinisterThinking[0].HeuristicKingSafeSup = 0;
 					MinisterOnTable[ii].MinisterThinking[0].HeuristicFromCenterSup = 0;
 					MinisterOnTable[ii].MinisterThinking[0].HeuristicKingDangourSup = 0;
-					
+					MinisterOnTable[ii].MinisterThinking[0].IsSup = false;
 				}
 			}
 			else
 			{
-				//if (MinisterOnTable[ii].MinisterThinking[0].IsSup[j])
+				if (MinisterOnTable[ii].MinisterThinking[0].IsSup)
 				{
 					for (int i = MinisterMidle; i < MinisterHigh; i++)
 					{
@@ -10970,8 +10949,6 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 						//int j = FoundTableIndex(this.MinisterOnTable[ii].MinisterThinking[0].TableListMinister, MinisterOnTable[ii].MinisterThinking[0].TableConst);
 						for (int j = 0; j < MinisterOnTable[ii].MinisterThinking[0].HuristicListMinister.size(); j++)
 						{
-							if (!(MinisterOnTable[ii].MinisterThinking[0].IsSup[j]))
-								continue;
 
 							MinisterOnTable[ii].MinisterThinking[0].HuristicListMinister[j][0] += MinisterOnTable[ii].MinisterThinking[0].HuristicAttackValueSup;
 							MinisterOnTable[ii].MinisterThinking[0].HuristicListMinister[j][1] += MinisterOnTable[ii].MinisterThinking[0].HuristicMovementValueSup;
@@ -10983,9 +10960,8 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 							MinisterOnTable[ii].MinisterThinking[0].HuristicListMinister[j][7] += MinisterOnTable[ii].MinisterThinking[0].HeuristicKingSafeSup;
 							MinisterOnTable[ii].MinisterThinking[0].HuristicListMinister[j][8] += MinisterOnTable[ii].MinisterThinking[0].HeuristicFromCenterSup;
 							MinisterOnTable[ii].MinisterThinking[0].HuristicListMinister[j][9] += MinisterOnTable[ii].MinisterThinking[0].HeuristicKingDangourSup;
-							MinisterOnTable[ii].MinisterThinking[0].IsSup[j] = false;
 
-							AllDraw::OutPut += L"\r\nServed Minister!";
+							AllDraw::OutPut = L"\r\nServed Minister!";
 						}
 					}
 					MinisterOnTable[ii].MinisterThinking[0].HuristicAttackValueSup = 0;
@@ -10998,7 +10974,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 					MinisterOnTable[ii].MinisterThinking[0].HeuristicKingSafeSup = 0;
 					MinisterOnTable[ii].MinisterThinking[0].HeuristicFromCenterSup = 0;
 					MinisterOnTable[ii].MinisterThinking[0].HeuristicKingDangourSup = 0;
-					
+					MinisterOnTable[ii].MinisterThinking[0].IsSup = false;
 				}
 			}
 		}
@@ -11008,7 +10984,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 			{
 				if (Order == 1)
 				{
-					//if (KingOnTable[ii].KingThinking[0].IsSup[j])
+					if (KingOnTable[ii].KingThinking[0].IsSup)
 					{
 						for (int i = 0; i < KingMidle; i++)
 						{
@@ -11019,8 +10995,6 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 							//int j = FoundTableIndex(this.KingOnTable[ii].KingThinking[0].TableListKing, KingOnTable[ii].KingThinking[0].TableConst);
 							for (int j = 0; j < KingOnTable[ii].KingThinking[0].HuristicListKing.size(); j++)
 							{
-								if (!(KingOnTable[ii].KingThinking[0].IsSup[j]))
-									continue;
 
 								KingOnTable[ii].KingThinking[0].HuristicListKing[j][0] += KingOnTable[ii].KingThinking[0].HuristicAttackValueSup;
 								KingOnTable[ii].KingThinking[0].HuristicListKing[j][1] += KingOnTable[ii].KingThinking[0].HuristicMovementValueSup;
@@ -11032,9 +11006,8 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 								KingOnTable[ii].KingThinking[0].HuristicListKing[j][7] += KingOnTable[ii].KingThinking[0].HeuristicKingSafeSup;
 								KingOnTable[ii].KingThinking[0].HuristicListKing[j][8] += KingOnTable[ii].KingThinking[0].HeuristicFromCenterSup;
 								KingOnTable[ii].KingThinking[0].HuristicListKing[j][9] += KingOnTable[ii].KingThinking[0].HeuristicKingDangourSup;
-								KingOnTable[ii].KingThinking[0].IsSup[j] = false;
 
-								AllDraw::OutPut += L"\r\nServed King!";
+								AllDraw::OutPut = L"\r\nServed King!";
 							}
 						}
 						KingOnTable[ii].KingThinking[0].HuristicAttackValueSup = 0;
@@ -11048,12 +11021,12 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 						KingOnTable[ii].KingThinking[0].HeuristicFromCenterSup = 0;
 						KingOnTable[ii].KingThinking[0].HeuristicKingDangourSup = 0;
 
-						
+						KingOnTable[ii].KingThinking[0].IsSup = false;
 					}
 				}
 				else
 				{
-					//if (KingOnTable[ii].KingThinking[0].IsSup[j])
+					if (KingOnTable[ii].KingThinking[0].IsSup)
 					{
 						for (int i = KingMidle; i < KingHigh; i++)
 						{
@@ -11064,9 +11037,6 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 							//int j = FoundTableIndex(this.KingOnTable[ii].KingThinking[0].TableListKing, KingOnTable[ii].KingThinking[0].TableConst);
 							for (int j = 0; j < KingOnTable[ii].KingThinking[0].HuristicListKing.size(); j++)
 							{
-								if (!(KingOnTable[ii].KingThinking[0].IsSup[j]))
-									continue;
-
 
 								KingOnTable[ii].KingThinking[0].HuristicListKing[j][0] += KingOnTable[ii].KingThinking[0].HuristicAttackValueSup;
 								KingOnTable[ii].KingThinking[0].HuristicListKing[j][1] += KingOnTable[ii].KingThinking[0].HuristicMovementValueSup;
@@ -11078,9 +11048,8 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 								KingOnTable[ii].KingThinking[0].HuristicListKing[j][7] += KingOnTable[ii].KingThinking[0].HeuristicKingSafeSup;
 								KingOnTable[ii].KingThinking[0].HuristicListKing[j][8] += KingOnTable[ii].KingThinking[0].HeuristicFromCenterSup;
 								KingOnTable[ii].KingThinking[0].HuristicListKing[j][9] += KingOnTable[ii].KingThinking[0].HeuristicKingDangourSup;
-								KingOnTable[ii].KingThinking[0].IsSup[j] = false;
 
-								AllDraw::OutPut += L"\r\nServed King!";
+								AllDraw::OutPut = L"\r\nServed King!";
 							}
 						}
 						KingOnTable[ii].KingThinking[0].HuristicAttackValueSup = 0;
@@ -11094,7 +11063,7 @@ void AllDraw::ServeISSup(int Order, int Kind, int ii)
 						KingOnTable[ii].KingThinking[0].HeuristicFromCenterSup = 0;
 						KingOnTable[ii].KingThinking[0].HeuristicKingDangourSup = 0;
 
-						
+						KingOnTable[ii].KingThinking[0].IsSup = false;
 					}
 				}
 			}
@@ -11515,7 +11484,7 @@ bool AllDraw::FullBoundryConditions(int Current, int Order, int iAStarGreedy)
 			}
 			if (SolderesOnTable[ikk].LoseOcuuredatChiled < -1)
 			{
-				OutPut += std::wstring(L"\r\nCheckedMate SELF Boundry Conditon in Leafs found at  ") + StringConverterHelper::toString(ThinkingChess::FoundFirstSelfMating);
+				OutPut = std::wstring(L"\r\nCheckedMate SELF Boundry Conditon in Leafs found at  ") + StringConverterHelper::toString(ThinkingChess::FoundFirstSelfMating);
 				IS = true;
 			}
 		}
@@ -11527,7 +11496,7 @@ bool AllDraw::FullBoundryConditions(int Current, int Order, int iAStarGreedy)
 			}
 			if (ElephantOnTable[ikk].LoseOcuuredatChiled < -1)
 			{
-				OutPut += std::wstring(L"\r\nCheckedMate SELF Boundry Conditon in Leafs found at  ") + StringConverterHelper::toString(ThinkingChess::FoundFirstSelfMating);
+				OutPut = std::wstring(L"\r\nCheckedMate SELF Boundry Conditon in Leafs found at  ") + StringConverterHelper::toString(ThinkingChess::FoundFirstSelfMating);
 				IS = true;
 			}
 		}
@@ -11539,7 +11508,7 @@ bool AllDraw::FullBoundryConditions(int Current, int Order, int iAStarGreedy)
 			}
 			if (HoursesOnTable[ikk].LoseOcuuredatChiled < -1)
 			{
-				OutPut += std::wstring(L"\r\nCheckedMate SELF Boundry Conditon in Leafs found at  ") + StringConverterHelper::toString(ThinkingChess::FoundFirstSelfMating);
+				OutPut = std::wstring(L"\r\nCheckedMate SELF Boundry Conditon in Leafs found at  ") + StringConverterHelper::toString(ThinkingChess::FoundFirstSelfMating);
 				IS = true;
 			}
 		}
@@ -11551,7 +11520,7 @@ bool AllDraw::FullBoundryConditions(int Current, int Order, int iAStarGreedy)
 			}
 			if (CastlesOnTable[ikk].LoseOcuuredatChiled < -1)
 			{
-				OutPut += std::wstring(L"\r\nCheckedMate SELF Boundry Conditon in Leafs found at  ") + StringConverterHelper::toString(ThinkingChess::FoundFirstSelfMating);
+				OutPut = std::wstring(L"\r\nCheckedMate SELF Boundry Conditon in Leafs found at  ") + StringConverterHelper::toString(ThinkingChess::FoundFirstSelfMating);
 				IS = true;
 			}
 		}
@@ -11563,7 +11532,7 @@ bool AllDraw::FullBoundryConditions(int Current, int Order, int iAStarGreedy)
 			}
 			if (MinisterOnTable[ikk].LoseOcuuredatChiled < -1)
 			{
-				OutPut += std::wstring(L"\r\nCheckedMate SELF Boundry Conditon in Leafs found at  ") + StringConverterHelper::toString(ThinkingChess::FoundFirstSelfMating);
+				OutPut = std::wstring(L"\r\nCheckedMate SELF Boundry Conditon in Leafs found at  ") + StringConverterHelper::toString(ThinkingChess::FoundFirstSelfMating);
 				IS = true;
 			}
 		}
@@ -11575,13 +11544,13 @@ bool AllDraw::FullBoundryConditions(int Current, int Order, int iAStarGreedy)
 			}
 			if (KingOnTable[ikk].LoseOcuuredatChiled < -1)
 			{
-				OutPut += std::wstring(L"\r\nCheckedMate SELF Boundry Conditon in Leafs found at  ") + StringConverterHelper::toString(ThinkingChess::FoundFirstSelfMating);
+				OutPut = std::wstring(L"\r\nCheckedMate SELF Boundry Conditon in Leafs found at  ") + StringConverterHelper::toString(ThinkingChess::FoundFirstSelfMating);
 				IS = true;
 			}
 		}
 		if ((ThinkingChess::FoundFirstMating >= MaxAStarGreedy) || (SetDeptIgnore))
 		{
-			OutPut += std::wstring(L"\r\nCheckedMate Boundry Conditon in Leafs found at  ") + StringConverterHelper::toString(ThinkingChess::FoundFirstMating);
+			OutPut = std::wstring(L"\r\nCheckedMate Boundry Conditon in Leafs found at  ") + StringConverterHelper::toString(ThinkingChess::FoundFirstMating);
 			IS = true;
 		}
 		else
@@ -11589,7 +11558,7 @@ bool AllDraw::FullBoundryConditions(int Current, int Order, int iAStarGreedy)
 			if (iAStarGreedy < 0)
 			{
 				iAStarGreedy = MaxAStarGreedy;
-				OutPut += std::wstring(L"\r\nLevel Boundry Conditon for iAStarGreedy is Set To ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L"MaxAStarGreedy");
+				OutPut = std::wstring(L"\r\nLevel Boundry Conditon for iAStarGreedy is Set To ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L"MaxAStarGreedy");
 			}
 		}
 	}
@@ -11603,7 +11572,7 @@ bool AllDraw::FullBoundryConditions(int Current, int Order, int iAStarGreedy)
 			}
 			if (SolderesOnTable[ikk].LoseOcuuredatChiled < -1)
 			{
-				OutPut += std::wstring(L"\r\nCheckedMate SELF Boundry Conditon in Leafs found at  ") + StringConverterHelper::toString(ThinkingChess::FoundFirstSelfMating);
+				OutPut = std::wstring(L"\r\nCheckedMate SELF Boundry Conditon in Leafs found at  ") + StringConverterHelper::toString(ThinkingChess::FoundFirstSelfMating);
 				IS = true;
 			}
 		}
@@ -11615,7 +11584,7 @@ bool AllDraw::FullBoundryConditions(int Current, int Order, int iAStarGreedy)
 			}
 			if (ElephantOnTable[ikk].LoseOcuuredatChiled < -1)
 			{
-				OutPut += std::wstring(L"\r\nCheckedMate SELF Boundry Conditon in Leafs found at  ") + StringConverterHelper::toString(ThinkingChess::FoundFirstSelfMating);
+				OutPut = std::wstring(L"\r\nCheckedMate SELF Boundry Conditon in Leafs found at  ") + StringConverterHelper::toString(ThinkingChess::FoundFirstSelfMating);
 				IS = true;
 			}
 		}
@@ -11627,7 +11596,7 @@ bool AllDraw::FullBoundryConditions(int Current, int Order, int iAStarGreedy)
 			}
 			if (HoursesOnTable[ikk].LoseOcuuredatChiled < -1)
 			{
-				OutPut += std::wstring(L"\r\nCheckedMate SELF Boundry Conditon in Leafs found at  ") + StringConverterHelper::toString(ThinkingChess::FoundFirstSelfMating);
+				OutPut = std::wstring(L"\r\nCheckedMate SELF Boundry Conditon in Leafs found at  ") + StringConverterHelper::toString(ThinkingChess::FoundFirstSelfMating);
 				IS = true;
 			}
 		}
@@ -11639,7 +11608,7 @@ bool AllDraw::FullBoundryConditions(int Current, int Order, int iAStarGreedy)
 			}
 			if (CastlesOnTable[ikk].LoseOcuuredatChiled < -1)
 			{
-				OutPut += std::wstring(L"\r\nCheckedMate SELF Boundry Conditon in Leafs found at  ") + StringConverterHelper::toString(ThinkingChess::FoundFirstSelfMating);
+				OutPut = std::wstring(L"\r\nCheckedMate SELF Boundry Conditon in Leafs found at  ") + StringConverterHelper::toString(ThinkingChess::FoundFirstSelfMating);
 				IS = true;
 			}
 		}
@@ -11651,7 +11620,7 @@ bool AllDraw::FullBoundryConditions(int Current, int Order, int iAStarGreedy)
 			}
 			if (MinisterOnTable[ikk].LoseOcuuredatChiled < -1)
 			{
-				OutPut += std::wstring(L"\r\nCheckedMate SELF Boundry Conditon in Leafs found at  ") + StringConverterHelper::toString(ThinkingChess::FoundFirstSelfMating);
+				OutPut = std::wstring(L"\r\nCheckedMate SELF Boundry Conditon in Leafs found at  ") + StringConverterHelper::toString(ThinkingChess::FoundFirstSelfMating);
 				IS = true;
 			}
 		}
@@ -11663,13 +11632,13 @@ bool AllDraw::FullBoundryConditions(int Current, int Order, int iAStarGreedy)
 			}
 			if (KingOnTable[ikk].LoseOcuuredatChiled < -1)
 			{
-				OutPut += std::wstring(L"\r\nCheckedMate SELF Boundry Conditon in Leafs found at  ") + StringConverterHelper::toString(ThinkingChess::FoundFirstSelfMating);
+				OutPut = std::wstring(L"\r\nCheckedMate SELF Boundry Conditon in Leafs found at  ") + StringConverterHelper::toString(ThinkingChess::FoundFirstSelfMating);
 				IS = true;
 			}
 		}
 		if ((ThinkingChess::FoundFirstMating >= MaxAStarGreedy) || (SetDeptIgnore))
 		{
-			OutPut += std::wstring(L"\r\nCheckedMate Boundry Conditon in Leafs found at  ") + StringConverterHelper::toString(ThinkingChess::FoundFirstMating);
+			OutPut = std::wstring(L"\r\nCheckedMate Boundry Conditon in Leafs found at  ") + StringConverterHelper::toString(ThinkingChess::FoundFirstMating);
 			IS = true;
 		}
 		else
@@ -11677,7 +11646,7 @@ bool AllDraw::FullBoundryConditions(int Current, int Order, int iAStarGreedy)
 			if (iAStarGreedy < 0)
 			{
 				iAStarGreedy = MaxAStarGreedy;
-				OutPut += std::wstring(L"\r\nLevel Boundry Conditon for iAStarGreedy is Set To ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L"MaxAStarGreedy");
+				OutPut = std::wstring(L"\r\nLevel Boundry Conditon for iAStarGreedy is Set To ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L"MaxAStarGreedy");
 			}
 		}
 	}
@@ -11687,8 +11656,8 @@ bool AllDraw::FullBoundryConditions(int Current, int Order, int iAStarGreedy)
 	
 void AllDraw::InitiateAStarGreedyt(int iAStarGreedy, int ii, int jj, int a, int** Tab, int Order, bool TB, int FOUND, int LeafAStarGreedy)
 {
-	if (stopOnPonderhit)
-		return;
+	//if (stopOnPonderhit)
+	//	return;
 	OrderP = Order;
 	SetObjectNumbers(Tab);
 
@@ -11737,7 +11706,7 @@ void AllDraw::InitiateAStarGreedyt(int iAStarGreedy, int ii, int jj, int a, int*
 		MaxDuringLevelThinkingCreation = iAStarGreedy;
 		DepthIterative++;
 
-		OutPut += L"\r\nMinimum Level During Thinking Tree Creation is " + StringConverterHelper::toString<int>(MaxDuringLevelThinkingCreation) + L"at Iterative " + StringConverterHelper::toString<int>(DepthIterative);
+		OutPut = L"\r\nMinimum Level During Thinking Tree Creation is " + StringConverterHelper::toString<int>(MaxDuringLevelThinkingCreation) + L"at Iterative " + StringConverterHelper::toString<int>(DepthIterative);
 
 	}
 	//If Order is Gray.
@@ -11869,7 +11838,7 @@ void AllDraw::BlitzGameThinkingTreeSolderGray(double PreviousLessS, int* Index, 
 { //Soldeir
 	for (ik = 0; ik < SodierMidle; ik++)
 	{
-		if (((&SolderesOnTable) == nullptr) || (&(SolderesOnTable[ik]) == nullptr) || (&(SolderesOnTable[ik].SoldierThinking) == nullptr) || (&(SolderesOnTable[ik].SoldierThinking) == nullptr) || SolderesOnTable[ik].SoldierThinking[0].IsSup[j])
+		if (((&SolderesOnTable) == nullptr) || (&(SolderesOnTable[ik]) == nullptr) || (&(SolderesOnTable[ik].SoldierThinking) == nullptr) || (&(SolderesOnTable[ik].SoldierThinking) == nullptr) || SolderesOnTable[ik].SoldierThinking[0].IsSup)
 		{
 			continue;
 		}
@@ -11924,7 +11893,7 @@ void AllDraw::BlitzGameThinkingTreeElephantGray(double PreviousLessE, int* Index
 { //Elephant
 	for (ik = 0; ik < ElefantMidle; ik++)
 	{
-		if (((&ElephantOnTable) == nullptr) || (&(ElephantOnTable[ik]) == nullptr) || (&(ElephantOnTable[ik].ElefantThinking) == nullptr) || (&(ElephantOnTable[ik].ElefantThinking) == nullptr) || ElephantOnTable[ik].ElefantThinking[0].IsSup[j])
+		if (((&ElephantOnTable) == nullptr) || (&(ElephantOnTable[ik]) == nullptr) || (&(ElephantOnTable[ik].ElefantThinking) == nullptr) || (&(ElephantOnTable[ik].ElefantThinking) == nullptr) || ElephantOnTable[ik].ElefantThinking[0].IsSup)
 		{
 			continue;
 		}
@@ -11989,7 +11958,7 @@ void AllDraw::BlitzGameThinkingTreeElephantGray(double PreviousLessE, int* Index
 void AllDraw::BlitzGameThinkingTreeHourseGray(double PreviousLessH, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
 { //Hourse.
 	for (ik = 0; ik < HourseMidle; ik++)
-	{	if (((&HoursesOnTable) == nullptr) || (&(HoursesOnTable[ik]) == nullptr) || (&(HoursesOnTable[ik].HourseThinking) == nullptr) || (&(HoursesOnTable[ik].HourseThinking) == nullptr) || HoursesOnTable[ik].HourseThinking[0].IsSup[j])
+	{	if (((&HoursesOnTable) == nullptr) || (&(HoursesOnTable[ik]) == nullptr) || (&(HoursesOnTable[ik].HourseThinking) == nullptr) || (&(HoursesOnTable[ik].HourseThinking) == nullptr) || HoursesOnTable[ik].HourseThinking[0].IsSup)
 			{
 				continue;
 			}
@@ -12053,7 +12022,7 @@ void AllDraw::BlitzGameThinkingTreeCastleGray(double PreviousLessB, int* Index, 
 	{
 		//try
 		{
-			if (((&CastlesOnTable) == nullptr) || (&(CastlesOnTable[ik]) == nullptr) || (&(CastlesOnTable[ik].CastleThinking) == nullptr) || (&(CastlesOnTable[ik].CastleThinking) == nullptr) || CastlesOnTable[ik].CastleThinking[0].IsSup[j])
+			if (((&CastlesOnTable) == nullptr) || (&(CastlesOnTable[ik]) == nullptr) || (&(CastlesOnTable[ik].CastleThinking) == nullptr) || (&(CastlesOnTable[ik].CastleThinking) == nullptr) || CastlesOnTable[ik].CastleThinking[0].IsSup)
 			{
 				continue;
 			}
@@ -12131,7 +12100,7 @@ void AllDraw::BlitzGameThinkingTreeMinisterGray(double PreviousLessM, int* Index
 	{
 		//try
 		{
-			if (((&MinisterOnTable) == nullptr) || (&(MinisterOnTable[ik]) == nullptr) || (&(MinisterOnTable[ik].MinisterThinking) == nullptr) || (&(MinisterOnTable[ik].MinisterThinking) == nullptr) || MinisterOnTable[ik].MinisterThinking[0].IsSup[j])
+			if (((&MinisterOnTable) == nullptr) || (&(MinisterOnTable[ik]) == nullptr) || (&(MinisterOnTable[ik].MinisterThinking) == nullptr) || (&(MinisterOnTable[ik].MinisterThinking) == nullptr) || MinisterOnTable[ik].MinisterThinking[0].IsSup)
 			{
 				continue;
 			}
@@ -12210,7 +12179,7 @@ void AllDraw::BlitzGameThinkingTreeKingGray(double PreviousLessK, int* Index, in
 	{
 		//try
 		{
-			if (((&KingOnTable) == nullptr) || (&(KingOnTable[ik]) == nullptr) || (&(KingOnTable[ik].KingThinking) == nullptr) || (&(KingOnTable[ik].KingThinking) == nullptr) || KingOnTable[ik].KingThinking[0].IsSup[j])
+			if (((&KingOnTable) == nullptr) || (&(KingOnTable[ik]) == nullptr) || (&(KingOnTable[ik].KingThinking) == nullptr) || (&(KingOnTable[ik].KingThinking) == nullptr) || KingOnTable[ik].KingThinking[0].IsSup)
 			{
 				continue;
 			}
@@ -12433,7 +12402,7 @@ void AllDraw::BlitzGameThinkingTreeSolderBrown(double PreviousLessS, int* Index,
 {
 	for (ik = SodierMidle; ik < SodierHigh; ik++)
 	{
-		if (((&SolderesOnTable) == nullptr) || (&(SolderesOnTable[ik]) == nullptr) || (&(SolderesOnTable[ik].SoldierThinking) == nullptr) || (&(SolderesOnTable[ik].SoldierThinking) == nullptr) || SolderesOnTable[ik].SoldierThinking[0].IsSup[j])
+		if (((&SolderesOnTable) == nullptr) || (&(SolderesOnTable[ik]) == nullptr) || (&(SolderesOnTable[ik].SoldierThinking) == nullptr) || (&(SolderesOnTable[ik].SoldierThinking) == nullptr) || SolderesOnTable[ik].SoldierThinking[0].IsSup)
 		{
 			continue;
 		}
@@ -12499,7 +12468,7 @@ void AllDraw::BlitzGameThinkingTreeElephantBrown(double PreviousLessE, int* Inde
 	{
 		//try
 		{
-			if (((&ElephantOnTable) == nullptr) || (&(ElephantOnTable[ik]) == nullptr) || (&(ElephantOnTable[ik].ElefantThinking) == nullptr) || (&(ElephantOnTable[ik].ElefantThinking) == nullptr) || ElephantOnTable[ik].ElefantThinking[0].IsSup[j])
+			if (((&ElephantOnTable) == nullptr) || (&(ElephantOnTable[ik]) == nullptr) || (&(ElephantOnTable[ik].ElefantThinking) == nullptr) || (&(ElephantOnTable[ik].ElefantThinking) == nullptr) || ElephantOnTable[ik].ElefantThinking[0].IsSup)
 			{
 				continue;
 			}
@@ -12573,7 +12542,7 @@ void AllDraw::BlitzGameThinkingTreeHourseBrown(double PreviousLessH, int* Index,
 	{
 		//try
 		{
-			if (((&ElephantOnTable) == nullptr) || (&(HoursesOnTable[ik]) == nullptr) || (&(HoursesOnTable[ik].HourseThinking) == nullptr) || (&(HoursesOnTable[ik].HourseThinking) == nullptr) || HoursesOnTable[ik].HourseThinking[0].IsSup[j])
+			if (((&ElephantOnTable) == nullptr) || (&(HoursesOnTable[ik]) == nullptr) || (&(HoursesOnTable[ik].HourseThinking) == nullptr) || (&(HoursesOnTable[ik].HourseThinking) == nullptr) || HoursesOnTable[ik].HourseThinking[0].IsSup)
 			{
 				continue;
 			}
@@ -12707,7 +12676,7 @@ void AllDraw::BlitzGameThinkingTreeCastleBrown(double PreviousLessB, int* Index,
 	{
 		//try
 		{
-			if (((&CastlesOnTable) == nullptr) || (&(CastlesOnTable[ik]) == nullptr) || (&(CastlesOnTable[ik].CastleThinking) == nullptr) || (&(CastlesOnTable[ik].CastleThinking) == nullptr) || CastlesOnTable[ik].CastleThinking[0].IsSup[j])
+			if (((&CastlesOnTable) == nullptr) || (&(CastlesOnTable[ik]) == nullptr) || (&(CastlesOnTable[ik].CastleThinking) == nullptr) || (&(CastlesOnTable[ik].CastleThinking) == nullptr) || CastlesOnTable[ik].CastleThinking[0].IsSup)
 			{
 				continue;
 			}
@@ -12787,7 +12756,7 @@ void AllDraw::BlitzGameThinkingTreeMinisterBrown(double PreviousLessM, int* Inde
 	{
 		//try
 		{
-			if (((&MinisterOnTable) == nullptr) || (&(MinisterOnTable[ik]) == nullptr) || (&(MinisterOnTable[ik].MinisterThinking) == nullptr) || (&(MinisterOnTable[ik].MinisterThinking) == nullptr) || MinisterOnTable[ik].MinisterThinking[0].IsSup[j])
+			if (((&MinisterOnTable) == nullptr) || (&(MinisterOnTable[ik]) == nullptr) || (&(MinisterOnTable[ik].MinisterThinking) == nullptr) || (&(MinisterOnTable[ik].MinisterThinking) == nullptr) || MinisterOnTable[ik].MinisterThinking[0].IsSup)
 			{
 				continue;
 			}
@@ -12846,7 +12815,7 @@ void AllDraw::BlitzGameThinkingTreeKingBrown(double PreviousLessK, int* Index, i
 { //King.
 	for (ik = KingMidle; ik < KingHigh; ik++)
 	{
-			if (((&CastlesOnTable) == nullptr) || (&(KingOnTable[ik]) == nullptr) || (&(KingOnTable[ik].KingThinking) == nullptr) || (&(KingOnTable[ik].KingThinking) == nullptr) || KingOnTable[ik].KingThinking[0].IsSup[j])
+			if (((&CastlesOnTable) == nullptr) || (&(KingOnTable[ik]) == nullptr) || (&(KingOnTable[ik].KingThinking) == nullptr) || (&(KingOnTable[ik].KingThinking) == nullptr) || KingOnTable[ik].KingThinking[0].IsSup)
 			{
 				continue;
 			}
@@ -13596,11 +13565,11 @@ bool  AllDraw::FullGameThinkingSoldier(int ik, int a, int Order, int iAStarGreed
 				OutPutAction = std::wstring(L" ") + Alphabet(SolderesOnTable[ik].SoldierThinking[0].Row) + Number(SolderesOnTable[ik].SoldierThinking[0].Column) + Alphabet(SolderesOnTable[ik].SoldierThinking[0].RowColumnSoldier[j][0]) + Number(SolderesOnTable[ik].SoldierThinking[0].RowColumnSoldier[j][1]);
 				if (Order == 1)
 				{
-					OutPut += std::wstring(L"\r\nPerception Soldier AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
+					OutPut = std::wstring(L"\r\nPerception Soldier AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
 				}
 				else
 				{
-					OutPut += std::wstring(L"\r\nPerception Soldier AstarGreedy By Alice at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
+					OutPut = std::wstring(L"\r\nPerception Soldier AstarGreedy By Alice at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
 				}
 
 				PerceptionCount++;
@@ -13679,11 +13648,11 @@ bool  AllDraw::FullGameThinkingSoldier(int ik, int a, int Order, int iAStarGreed
 				OutPutAction = std::wstring(L" ") + Alphabet(SolderesOnTable[ik].SoldierThinking[0].Row) + Number(SolderesOnTable[ik].SoldierThinking[0].Column) + Alphabet(SolderesOnTable[ik].SoldierThinking[0].RowColumnSoldier[j][0]) + Number(SolderesOnTable[ik].SoldierThinking[0].RowColumnSoldier[j][1]);
 				if (Order == 1)
 				{
-					OutPut += std::wstring(L"\r\nPerception Soldier AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
+					OutPut = std::wstring(L"\r\nPerception Soldier AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
 				}
 				else
 				{
-					OutPut += std::wstring(L"\r\nPerception Soldier AstarGreedy By Alice at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
+					OutPut = std::wstring(L"\r\nPerception Soldier AstarGreedy By Alice at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
 				}
 
 				PerceptionCount++;
@@ -13722,7 +13691,7 @@ bool  AllDraw::FullGameThinkingSoldierGray(int a, int Order, int iAStarGreedy, i
 	bool Do = false;
 	for (int ik = 0; ik < SodierMidle; ik++)
 	{
-		if (((&SolderesOnTable) != nullptr) && (&(SolderesOnTable[ik]) != nullptr) && (&(SolderesOnTable[ik].SoldierThinking) != nullptr) && (&(SolderesOnTable[ik].SoldierThinking) != nullptr) )
+		if (((&SolderesOnTable) != nullptr) && (&(SolderesOnTable[ik]) != nullptr) && (&(SolderesOnTable[ik].SoldierThinking) != nullptr) && (&(SolderesOnTable[ik].SoldierThinking) != nullptr) && (!SolderesOnTable[ik].SoldierThinking[0].IsSupHu))
 		{
 			Do = FullGameThinkingSoldier(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
 		} //);
@@ -13736,7 +13705,7 @@ bool  AllDraw::FullGameThinkingSoldierBrowm(int a, int Order, int iAStarGreedy, 
 	bool Do = false;
 	for (int ik = SodierMidle;ik<SodierHigh ;ik++)
 	{
-		if (((&SolderesOnTable) != nullptr) && (&(SolderesOnTable[ik]) != nullptr) && (&(SolderesOnTable[ik].SoldierThinking) != nullptr) && (&(SolderesOnTable[ik].SoldierThinking) != nullptr) )
+		if (((&SolderesOnTable) != nullptr) && (&(SolderesOnTable[ik]) != nullptr) && (&(SolderesOnTable[ik].SoldierThinking) != nullptr) && (&(SolderesOnTable[ik].SoldierThinking) != nullptr) && (!SolderesOnTable[ik].SoldierThinking[0].IsSupHu))
 		{
 			Do = FullGameThinkingSoldier(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
 		} //);
@@ -13826,11 +13795,11 @@ bool  AllDraw::FullGameThinkingCastle(int ik, int a, int Order, int iAStarGreedy
 					OutPutAction = std::wstring(L" ") + Alphabet(CastlesOnTable[ik].CastleThinking[0].Row) + Number(CastlesOnTable[ik].CastleThinking[0].Column) + Alphabet(CastlesOnTable[ik].CastleThinking[0].RowColumnCastle[j][0]) + Number(CastlesOnTable[ik].CastleThinking[0].RowColumnCastle[j][1]);
 					if (Order == 1)
 					{
-						OutPut += std::wstring(L"\r\nPerception Castle AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
+						OutPut = std::wstring(L"\r\nPerception Castle AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
 					}
 					else
 					{
-						OutPut += std::wstring(L"\r\nPerception Castle AstarGreedy By Alice at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
+						OutPut = std::wstring(L"\r\nPerception Castle AstarGreedy By Alice at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
 					}
 
 					PerceptionCount++;
@@ -13905,11 +13874,11 @@ bool  AllDraw::FullGameThinkingCastle(int ik, int a, int Order, int iAStarGreedy
 								OutPutAction = std::wstring(L" ") + Alphabet(CastlesOnTable[ik].CastleThinking[0].Row) + Number(CastlesOnTable[ik].CastleThinking[0].Column) + Alphabet(CastlesOnTable[ik].CastleThinking[0].RowColumnCastle[j][0]) + Number(CastlesOnTable[ik].CastleThinking[0].RowColumnCastle[j][1]);
 								if (Order == 1)
 								{
-									OutPut += std::wstring(L"\r\nPerception Castle AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
+									OutPut = std::wstring(L"\r\nPerception Castle AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
 								}
 								else
 								{
-									OutPut += std::wstring(L"\r\nPerception Castle AstarGreedy By Alice at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
+									OutPut = std::wstring(L"\r\nPerception Castle AstarGreedy By Alice at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
 								}
 
 								PerceptionCount++;
@@ -14026,11 +13995,11 @@ bool  AllDraw::FullGameThinkingElephant(int ik, int a, int Order, int iAStarGree
 					OutPutAction = std::wstring(L" ") + Alphabet(ElephantOnTable[ik].ElefantThinking[0].Row) + Number(ElephantOnTable[ik].ElefantThinking[0].Column) + Alphabet(ElephantOnTable[ik].ElefantThinking[0].RowColumnElefant[j][0]) + Number(ElephantOnTable[ik].ElefantThinking[0].RowColumnElefant[j][1]);
 					if (Order == 1)
 					{
-						OutPut += std::wstring(L"\r\nPerception Elephant AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
+						OutPut = std::wstring(L"\r\nPerception Elephant AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
 					}
 					else
 					{
-						OutPut += std::wstring(L"\r\nPerception Elephant AstarGreedy By Alice at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
+						OutPut = std::wstring(L"\r\nPerception Elephant AstarGreedy By Alice at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
 					}
 
 					PerceptionCount++;
@@ -14105,11 +14074,11 @@ bool  AllDraw::FullGameThinkingElephant(int ik, int a, int Order, int iAStarGree
 								OutPutAction = std::wstring(L" ") + Alphabet(ElephantOnTable[ik].ElefantThinking[0].Row) + Number(ElephantOnTable[ik].ElefantThinking[0].Column) + Alphabet(ElephantOnTable[ik].ElefantThinking[0].RowColumnElefant[j][0]) + Number(ElephantOnTable[ik].ElefantThinking[0].RowColumnElefant[j][1]);
 								if (Order == 1)
 								{
-									OutPut += std::wstring(L"\r\nPerception Elephant AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
+									OutPut = std::wstring(L"\r\nPerception Elephant AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
 								}
 								else
 								{
-									OutPut += std::wstring(L"\r\nPerception Elephant AstarGreedy By Alice at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
+									OutPut = std::wstring(L"\r\nPerception Elephant AstarGreedy By Alice at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
 								}
 
 								PerceptionCount++;
@@ -14152,7 +14121,7 @@ bool  AllDraw::FullGameThinkingElephantGray(int a, int Order, int iAStarGreedy, 
 	////Parallel.For(0, ElefantMidle, ik =>
 	for (int ik = 0; ik < ElefantMidle; ik++)
 	{
-		if (((&SolderesOnTable) != nullptr) && ((&ElephantOnTable[ik]) != nullptr) && ((&(ElephantOnTable[ik].ElefantThinking)) != nullptr) && ((&(ElephantOnTable[ik].ElefantThinking)) != nullptr) 
+		if (((&SolderesOnTable) != nullptr) && ((&ElephantOnTable[ik]) != nullptr) && ((&(ElephantOnTable[ik].ElefantThinking)) != nullptr) && ((&(ElephantOnTable[ik].ElefantThinking)) != nullptr) && (!ElephantOnTable[ik].ElefantThinking[0].IsSupHu))
 		{
 			Do = FullGameThinkingElephant(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
 		}
@@ -14245,11 +14214,11 @@ bool  AllDraw::FullGameThinkingHourse(int ik, int a, int Order, int iAStarGreedy
 						OutPutAction = std::wstring(L" ") + Alphabet(HoursesOnTable[ik].HourseThinking[0].Row) + Number(HoursesOnTable[ik].HourseThinking[0].Column) + Alphabet(HoursesOnTable[ik].HourseThinking[0].RowColumnHourse[j][0]) + Number(HoursesOnTable[ik].HourseThinking[0].RowColumnHourse[j][1]);
 						if (Order == 1)
 						{
-							OutPut += std::wstring(L"\r\nPerception Hourse AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
+							OutPut = std::wstring(L"\r\nPerception Hourse AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
 						}
 						else
 						{
-							OutPut += std::wstring(L"\r\nPerception Hourse AstarGreedy By Alice at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
+							OutPut = std::wstring(L"\r\nPerception Hourse AstarGreedy By Alice at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
 						}
 
 						PerceptionCount++;
@@ -14328,11 +14297,11 @@ bool  AllDraw::FullGameThinkingHourse(int ik, int a, int Order, int iAStarGreedy
 				OutPutAction = std::wstring(L" ") + Alphabet(HoursesOnTable[ik].HourseThinking[0].Row) + Number(HoursesOnTable[ik].HourseThinking[0].Column) + Alphabet(HoursesOnTable[ik].HourseThinking[0].RowColumnHourse[j][0]) + Number(HoursesOnTable[ik].HourseThinking[0].RowColumnHourse[j][1]);
 				if (Order == 1)
 				{
-					OutPut += std::wstring(L"\r\nPerception Hourse AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
+					OutPut = std::wstring(L"\r\nPerception Hourse AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
 				}
 				else
 				{
-					OutPut += std::wstring(L"\r\nPerception Hourse AstarGreedy By Alice at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
+					OutPut = std::wstring(L"\r\nPerception Hourse AstarGreedy By Alice at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
 				}
 
 				PerceptionCount++;
@@ -14379,7 +14348,7 @@ bool  AllDraw::FullGameThinkingHourseGray(int a, int Order, int iAStarGreedy, in
 	bool Do = false;
 	for (int ik = 0; ik < HourseMidle; ik++)
 	{
-		if (((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[ik]) != nullptr) && (&(HoursesOnTable[ik].HourseThinking) != nullptr) && (&(HoursesOnTable[ik].HourseThinking) != nullptr) )
+		if (((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[ik]) != nullptr) && (&(HoursesOnTable[ik].HourseThinking) != nullptr) && (&(HoursesOnTable[ik].HourseThinking) != nullptr) && (!HoursesOnTable[ik].HourseThinking[0].IsSupHu))
 		{
 			Do = FullGameThinkingHourse(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
 		}
@@ -14393,7 +14362,7 @@ bool  AllDraw::FullGameThinkingHourseBrown(int a, int Order, int iAStarGreedy, i
 	bool Do = false;
 	for (int ik = HourseMidle; ik < HourseHight; ik++)
 	{
-		if (((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[ik]) != nullptr) && (&(HoursesOnTable[ik].HourseThinking) != nullptr) && (&(HoursesOnTable[ik].HourseThinking) != nullptr) )
+		if (((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[ik]) != nullptr) && (&(HoursesOnTable[ik].HourseThinking) != nullptr) && (&(HoursesOnTable[ik].HourseThinking) != nullptr) && (!HoursesOnTable[ik].HourseThinking[0].IsSupHu))
 		{
 			Do = FullGameThinkingHourse(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
 		}
@@ -14410,7 +14379,7 @@ bool  AllDraw::FullGameThinkingCastleGray(int a, int Order, int iAStarGreedy, in
 
 	for (int ik = 0; ik < CastleMidle; ik++)
 	{
-		if (((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[ik]) != nullptr) && (&(CastlesOnTable[ik].CastleThinking) != nullptr) && (&(CastlesOnTable[ik].CastleThinking) != nullptr) && (!CastlesOnTable[ik].CastleThinking[0].IsSupHu[j]))
+		if (((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[ik]) != nullptr) && (&(CastlesOnTable[ik].CastleThinking) != nullptr) && (&(CastlesOnTable[ik].CastleThinking) != nullptr) && (!CastlesOnTable[ik].CastleThinking[0].IsSupHu))
 		{
 
 			Do = FullGameThinkingCastle(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
@@ -14511,11 +14480,11 @@ bool  AllDraw::FullGameThinkingMinister(int ik, int a, int Order, int iAStarGree
 					OutPutAction = std::wstring(L" ") + Alphabet(MinisterOnTable[ik].MinisterThinking[0].Row) + Number(MinisterOnTable[ik].MinisterThinking[0].Column) + Alphabet(MinisterOnTable[ik].MinisterThinking[0].RowColumnMinister[j][0]) + Number(MinisterOnTable[ik].MinisterThinking[0].RowColumnMinister[j][1]);
 					if (Order == 1)
 					{
-						OutPut += std::wstring(L"\r\nPerception Minister AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
+						OutPut = std::wstring(L"\r\nPerception Minister AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
 					}
 					else
 					{
-						OutPut += std::wstring(L"\r\nPerception Minister AstarGreedy By Alice at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
+						OutPut = std::wstring(L"\r\nPerception Minister AstarGreedy By Alice at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
 					}
 
 					PerceptionCount++;
@@ -14594,11 +14563,11 @@ bool  AllDraw::FullGameThinkingMinister(int ik, int a, int Order, int iAStarGree
 						OutPutAction = std::wstring(L" ") + Alphabet(MinisterOnTable[ik].MinisterThinking[0].Row) + Number(MinisterOnTable[ik].MinisterThinking[0].Column) + Alphabet(MinisterOnTable[ik].MinisterThinking[0].RowColumnMinister[j][0]) + Number(MinisterOnTable[ik].MinisterThinking[0].RowColumnMinister[j][1]);
 						if (Order == 1)
 						{
-							OutPut += std::wstring(L"\r\nPerception Minister AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
+							OutPut = std::wstring(L"\r\nPerception Minister AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
 						}
 						else
 						{
-							OutPut += std::wstring(L"\r\nPerception Minister AstarGreedy By Alice at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
+							OutPut = std::wstring(L"\r\nPerception Minister AstarGreedy By Alice at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
 						}
 
 						PerceptionCount++;
@@ -14653,7 +14622,7 @@ bool  AllDraw::FullGameThinkingMinisterGray(int a, int Order, int iAStarGreedy, 
 		////Parallel.For(0, MinisterMidle, ik =>
 	for (int ik = 0; ik < MinisterMidle; ik++)
 	{
-		if (((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[ik]) != nullptr) && (&(MinisterOnTable[ik].MinisterThinking) != nullptr) && (&(MinisterOnTable[ik].MinisterThinking) != nullptr) )
+		if (((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[ik]) != nullptr) && (&(MinisterOnTable[ik].MinisterThinking) != nullptr) && (&(MinisterOnTable[ik].MinisterThinking) != nullptr) && (!MinisterOnTable[ik].MinisterThinking[0].IsSupHu))
 		{
 			Do = FullGameThinkingMinister(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
 
@@ -14763,11 +14732,11 @@ bool  AllDraw::FullGameThinkingKing(int ik, int a, int Order, int iAStarGreedy, 
 					OutPutAction = std::wstring(L" ") + Alphabet(KingOnTable[ik].KingThinking[0].Row) + Number(KingOnTable[ik].KingThinking[0].Column) + Alphabet(KingOnTable[ik].KingThinking[0].RowColumnKing[j][0]) + Number(KingOnTable[ik].KingThinking[0].RowColumnKing[j][1]);
 					if (Order == 1)
 					{
-						OutPut += std::wstring(L"\r\nPerception King AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
+						OutPut = std::wstring(L"\r\nPerception King AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
 					}
 					else
 					{
-						OutPut += std::wstring(L"\r\nPerception King AstarGreedy By Alice at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
+						OutPut = std::wstring(L"\r\nPerception King AstarGreedy By Alice at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
 					}
 
 					PerceptionCount++;
@@ -14850,11 +14819,11 @@ bool  AllDraw::FullGameThinkingKing(int ik, int a, int Order, int iAStarGreedy, 
 					OutPutAction = std::wstring(L" ") + Alphabet(KingOnTable[ik].KingThinking[0].Row) + Number(KingOnTable[ik].KingThinking[0].Column) + Alphabet(KingOnTable[ik].KingThinking[0].RowColumnKing[j][0]) + Number(KingOnTable[ik].KingThinking[0].RowColumnKing[j][1]);
 					if (Order == 1)
 					{
-						OutPut += std::wstring(L"\r\nPerception King AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
+						OutPut = std::wstring(L"\r\nPerception King AstarGreedy By Bob at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
 					}
 					else
 					{
-						OutPut += std::wstring(L"\r\nPerception King AstarGreedy By Alice at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
+						OutPut = std::wstring(L"\r\nPerception King AstarGreedy By Alice at Level ") + StringConverterHelper::toString(iAStarGreedy) + std::wstring(L" By ") + StringConverterHelper::toString(PerceptionCount) + std::wstring(L"th Perception String ") + OutPutAction;
 					}
 
 					PerceptionCount++;
@@ -14912,7 +14881,7 @@ bool  AllDraw::FullGameThinkingKingGray(int a, int Order, int iAStarGreedy, int 
 		////Parallel.For(0, KingMidle, ik =>
 	for (int ik = 0; ik < KingMidle; ik++)
 	{
-		if (((&KingOnTable) != nullptr) && (&(KingOnTable[ik]) != nullptr) && (&(KingOnTable[ik].KingThinking)  != nullptr) && (&(KingOnTable[ik].KingThinking)  != nullptr) )
+		if (((&KingOnTable) != nullptr) && (&(KingOnTable[ik]) != nullptr) && (&(KingOnTable[ik].KingThinking)  != nullptr) && (&(KingOnTable[ik].KingThinking)  != nullptr) && (!KingOnTable[ik].KingThinking[0].IsSupHu))
 		{
 
 			Do = FullGameThinkingKing(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
@@ -14928,7 +14897,7 @@ bool  AllDraw::FullGameThinkingSoldierBrown(int a, int Order, int iAStarGreedy, 
 
 	for (int ik = SodierMidle; ik < SodierHigh; ik++)
 	{
-		if (((&SolderesOnTable) != nullptr) && (&(SolderesOnTable[ik]) != nullptr) && (&(SolderesOnTable[ik].SoldierThinking) != nullptr) && (&(SolderesOnTable[ik].SoldierThinking) != nullptr) )
+		if (((&SolderesOnTable) != nullptr) && (&(SolderesOnTable[ik]) != nullptr) && (&(SolderesOnTable[ik].SoldierThinking) != nullptr) && (&(SolderesOnTable[ik].SoldierThinking) != nullptr) && (!SolderesOnTable[ik].SoldierThinking[0].IsSupHu))
 		{
 			//Soldier.
 
@@ -14947,7 +14916,7 @@ bool  AllDraw::FullGameThinkingElephantBrown(int a, int Order, int iAStarGreedy,
 	//Elephant
 	for (int ik = ElefantMidle; ik < ElefantHigh; ik++)
 	{
-		if (((&ElephantOnTable) != nullptr) && ((&ElephantOnTable[ik]) != nullptr) && ((&(ElephantOnTable[ik].ElefantThinking)) != nullptr) && ((&(ElephantOnTable[ik].ElefantThinking)) != nullptr) 
+		if (((&ElephantOnTable) != nullptr) && ((&ElephantOnTable[ik]) != nullptr) && ((&(ElephantOnTable[ik].ElefantThinking)) != nullptr) && ((&(ElephantOnTable[ik].ElefantThinking)) != nullptr) && (!ElephantOnTable[ik].ElefantThinking[0].IsSupHu))
 		{
 
 			Do = FullGameThinkingElephant(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
@@ -14963,7 +14932,7 @@ bool  AllDraw::FullGameThinkingCastleBrown(int a, int Order, int iAStarGreedy, i
 	//Castles.
 	for (int ik = CastleMidle; ik < CastleHigh; ik++)
 	{
-		if (((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[ik]) != nullptr) && (&(CastlesOnTable[ik].CastleThinking) != nullptr) && (&(CastlesOnTable[ik].CastleThinking) != nullptr) && (!CastlesOnTable[ik].CastleThinking[0].IsSupHu[j]))
+		if (((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[ik]) != nullptr) && (&(CastlesOnTable[ik].CastleThinking) != nullptr) && (&(CastlesOnTable[ik].CastleThinking) != nullptr) && (!CastlesOnTable[ik].CastleThinking[0].IsSupHu))
 		{
 
 			Do = FullGameThinkingCastle(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
@@ -14982,7 +14951,7 @@ bool  AllDraw::FullGameThinkingMinisterBrown(int a, int Order, int iAStarGreedy,
 
 	for (int ik = MinisterMidle; ik < MinisterHigh; ik++)
 	{
-		if (((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[ik]) != nullptr) && (&(MinisterOnTable[ik].MinisterThinking) != nullptr) && (&(MinisterOnTable[ik].MinisterThinking) != nullptr) )
+		if (((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[ik]) != nullptr) && (&(MinisterOnTable[ik].MinisterThinking) != nullptr) && (&(MinisterOnTable[ik].MinisterThinking) != nullptr) && (!MinisterOnTable[ik].MinisterThinking[0].IsSupHu))
 		{
 
 			Do = FullGameThinkingMinister(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
@@ -15002,7 +14971,7 @@ bool AllDraw::FullGameThinkingKingBrown(int a, int Order, int iAStarGreedy, int 
 	for (int ik = KingMidle; ik < KingHigh; ik++)
 	{
 
-		if (((&KingOnTable) != nullptr) && (&(KingOnTable[ik]) != nullptr) && (&(KingOnTable[ik].KingThinking)  != nullptr) && (&(KingOnTable[ik].KingThinking)  != nullptr) )
+		if (((&KingOnTable) != nullptr) && (&(KingOnTable[ik]) != nullptr) && (&(KingOnTable[ik].KingThinking)  != nullptr) && (&(KingOnTable[ik].KingThinking)  != nullptr) && (!KingOnTable[ik].KingThinking[0].IsSupHu))
 		{
 			{
 				Do = FullGameThinkingKing(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
@@ -15374,7 +15343,7 @@ bool AllDraw::FullGameThinkingTree(int Order, int iAStarGreedy, int ii, int jj, 
 		//For Brown Order Blitz Game Calculate Maximum Table Inclusive AStarGreedy First Game Search.
 		else
 		{
-			Task *OutPut += Task::Factory.StartNew([&] ()
+			Task *output = Task::Factory.StartNew([&] ()
 			{
 //C# TO C++ CONVERTER TODO TASK: Lambda expressions and anonymous methods are not converted to native C++ unless the option to convert to C++11 lambdas is selected:
 				Parallel::For(MinBrownMidle(), MaxGrayMidle(), i =>() { Parallel::Invoke(() => { Object ooo = new Object();
@@ -16409,22 +16378,22 @@ void AllDraw::SemaphoreExxedTime(int time, int Kind)
 	if (time > 10000)
 	{
 		if (Kind == 1)
-			OutPut += L"Solder Semaphre Full Game Exeede time";
+			OutPut = L"Solder Semaphre Full Game Exeede time";
 		else
 			if (Kind == 2)
-				OutPut += L"elephant Semaphre Full Game Exeede time";
+				OutPut = L"elephant Semaphre Full Game Exeede time";
 			else
 				if (Kind == 3)
-					OutPut += L"Hourse Semaphre Full Game Exeede time";
+					OutPut = L"Hourse Semaphre Full Game Exeede time";
 				else
 					if (Kind == 4)
-						OutPut += L"Castle Semaphre Full Game Exeede time";
+						OutPut = L"Castle Semaphre Full Game Exeede time";
 					else
 						if (Kind == 5)
-							OutPut += L"Minister Semaphre Full Game Exeede time";
+							OutPut = L"Minister Semaphre Full Game Exeede time";
 						else
 							if (Kind == 6)
-								OutPut += L"King Semaphre Full Game Exeede time";
+								OutPut = L"King Semaphre Full Game Exeede time";
 
 
 	}
@@ -16564,7 +16533,7 @@ int** AllDraw::Initiate(int ii, int jj, int a, int** Table, int Order, bool TB, 
 	Less = -DBL_MAX;
 	ChessRules::CurrentOrder = Current;
 	Order = DummyOrder;
-	OutPut += std::wstring(L"\r\nMinimum Thinking Tree Depth:") + StringConverterHelper::toString(MinThinkingDepth) + std::wstring(L"!");
+	OutPut = std::wstring(L"\r\nMinimum Thinking Tree Depth:") + StringConverterHelper::toString(MinThinkingDepth) + std::wstring(L"!");
 
 	TableHuristic = HuristicAStarGreedySearch(0, a, Order, false);
 	if (TableHuristic == nullptr || ((TableZero(TableHuristic))))
@@ -16572,7 +16541,7 @@ int** AllDraw::Initiate(int ii, int jj, int a, int** Table, int Order, bool TB, 
 
 		//try
 		{
-			OutPut += L"\r\nTable Zero.Possibly Full Penalty!";
+			OutPut = L"\r\nTable Zero.Possibly Full Penalty!";
 
 
 			//THIS.RefreshBoxText();
@@ -16602,12 +16571,12 @@ int** AllDraw::Initiate(int ii, int jj, int a, int** Table, int Order, bool TB, 
 	{
 		if (Order == 1)
 		{
-			OutPut += std::wstring(L"\r\nHuristic Find Best Movements AStarGreedy ") + StringConverterHelper::toString(AStarGreedyInt) + std::wstring(L" By Bob!");
+			OutPut = std::wstring(L"\r\nHuristic Find Best Movements AStarGreedy ") + StringConverterHelper::toString(AStarGreedyInt) + std::wstring(L" By Bob!");
 			//THIS.RefreshBoxText();
 		}
 		else
 		{
-			OutPut += std::wstring(L"\r\nHuristic Find Best Movements AStarGreedy ") + StringConverterHelper::toString(AStarGreedyInt) + std::wstring(L" By Alice!");
+			OutPut = std::wstring(L"\r\nHuristic Find Best Movements AStarGreedy ") + StringConverterHelper::toString(AStarGreedyInt) + std::wstring(L" By Alice!");
 			//THIS.RefreshBoxText();
 
 		}
@@ -17131,7 +17100,7 @@ void AllDraw::InitializeInstanceFields()
 	MaxHuristicAStarGreedytBackWard = std::vector<double*>();
 	AStarGreedyString = nullptr;/*
 	  DepthIterative = 0;
-	std::wstring OutPut += L"";
+	std::wstring OutPut = L"";
 	std::wstring ActionString = L"";
 	 ActionStringReady = false;
 	 RegardOccurred = false;

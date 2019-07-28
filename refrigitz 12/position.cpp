@@ -216,7 +216,7 @@ Position& Position::set(const string& fenStr, bool isChess960, StateInfo* si, Th
   while ((ss >> token) && !isspace(token))
   {
       Square rsq;
-      Color c = islower(token) ? BLACK : WHITE;
+      int c = islower(token) ? BLACK : WHITE;
       Piece rook = make_piece(c, ROOK);
 
       token = char(toupper(token));
@@ -268,7 +268,7 @@ Position& Position::set(const string& fenStr, bool isChess960, StateInfo* si, Th
 /// Position::set_castling_right() is a helper function used to set castling
 /// rights given the corresponding color and the rook starting square.
 
-void Position::set_castling_right(Color c, Square rfrom) {
+void Position::set_castling_right(int c, Square rfrom) {
 
   Square kfrom = square<KING>(c);
   CastlingSide cs = kfrom < rfrom ? KING_SIDE : QUEEN_SIDE;
@@ -472,7 +472,7 @@ bool Position::legal(Move m) const {
 
   assert(is_ok(m));
 
-  Color us = sideToMove;
+  int us = sideToMove;
   Square from = from_sq(m);
 
   assert(color_of(moved_piece(m)) == us);
@@ -516,7 +516,7 @@ bool Position::legal(Move m) const {
 
 bool Position::pseudo_legal(const Move m) const {
 
-  Color us = sideToMove;
+  int us = sideToMove;
   Square from = from_sq(m);
   Square to = to_sq(m);
   Piece pc = moved_piece(m);
@@ -663,8 +663,8 @@ void Position::do_move(Move m, StateInfo& newSt, bool givesCheck) {
   ++st->rule50;
   ++st->pliesFromNull;
 
-  Color us = sideToMove;
-  Color them = ~us;
+  int us = sideToMove;
+  int them = ~us;
   Square from = from_sq(m);
   Square to = to_sq(m);
   Piece pc = piece_on(from);
@@ -822,7 +822,7 @@ void Position::undo_move(Move m) {
 
   sideToMove = ~sideToMove;
 
-  Color us = sideToMove;
+  int us = sideToMove;
   Square from = from_sq(m);
   Square to = to_sq(m);
   Piece pc = piece_on(to);
@@ -880,7 +880,7 @@ void Position::undo_move(Move m) {
 /// Position::do_castling() is a helper used to do/undo a castling move. This
 /// is a bit tricky in Chess960 where from/to squares can overlap.
 template<bool Do>
-void Position::do_castling(Color us, Square from, Square& to, Square& rfrom, Square& rto) {
+void Position::do_castling(int us, Square from, Square& to, Square& rfrom, Square& rto) {
 
   bool kingSide = to > from;
   rfrom = to; // Castling is encoded as "king captures friendly rook"
@@ -971,7 +971,7 @@ bool Position::see_ge(Move m, Value v) const {
 
   Square from = from_sq(m), to = to_sq(m);
   PieceType nextVictim = type_of(piece_on(from));
-  Color stm = ~color_of(piece_on(from)); // First consider opponent's move
+  int stm = ~color_of(piece_on(from)); // First consider opponent's move
   Value balance; // Values of the pieces taken by us minus opponent's ones
   Bitboard occupied, stmAttackers;
 
@@ -1077,7 +1077,7 @@ void Position::flip() {
   f += token + " ";
 
   std::transform(f.begin(), f.end(), f.begin(),
-                 [](char c) { return char(islower(c) ? toupper(c) : tolower(c)); });
+                 *(char c) { return char(islower(c) ? toupper(c) : tolower(c)); });
 
   ss >> token; // En passant square
   f += (token == "-" ? token : token.replace(1, 1, token[1] == '3' ? "6" : "3"));
@@ -1151,7 +1151,7 @@ bool Position::pos_is_ok(int* failedStep) const {
           }
 
       if (step == Castling)
-          for (Color c = WHITE; c <= BLACK; ++c)
+          for (int c = WHITE; c <= BLACK; ++c)
               for (CastlingSide s = KING_SIDE; s <= QUEEN_SIDE; s = CastlingSide(s + 1))
               {
                   if (!can_castle(c | s))

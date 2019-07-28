@@ -20,7 +20,7 @@ double DrawHourse::MaxHuristicxH = -20000000000000000;
 		{
 			//autoa = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-			//lock (a)
+			////lock (a)
 			{
 				std::wstring stackTrace = ex.what();
 //C# TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'ToString':
@@ -34,7 +34,7 @@ double DrawHourse::MaxHuristicxH = -20000000000000000;
 	}
 	
 */
-const DrawHourse& DrawHourse::operator[] (const int index) const
+const DrawHourse& DrawHourse::operator* (const int index) const
 {
 	return this[index];
 }
@@ -55,7 +55,7 @@ DrawHourse::~DrawHourse()
 			{
 				//autoO2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-				//lock (O2)
+				////lock (O2)
 				{
 					MaxNotFound = false;
 					if (ThinkingChess::MaxHuristicx < MaxHuristicxH)
@@ -180,7 +180,7 @@ DrawHourse::~DrawHourse()
 			//autobalance//lockS = new Object();
 
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-			//lock (balance//lockS)
+			////lock (balance//lockS)
 			{
 				if (H == nullptr || H[1] == nullptr)
 				{
@@ -193,7 +193,7 @@ DrawHourse::~DrawHourse()
 					{
 						//autoO1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-						//lock (O1)
+						////lock (O1)
 						{ //Draw an Instant from File of Gray Soldeirs.
 							 //Draw an Instatnt Gray Hourse on the Table.
 							g.DrawImage(H, Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
@@ -203,7 +203,7 @@ DrawHourse::~DrawHourse()
 					{
 						//autoO1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-						//lock (O1)
+						////lock (O1)
 						{ //Draw an Instant from File of Gray Soldeirs.
 							 //Draw an Instatnt Brown Hourse on the Table.
 							g.DrawImage(H[1], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));

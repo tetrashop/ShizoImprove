@@ -110,8 +110,8 @@
 		double HeuristicKingSafeSup;
 		double HeuristicFromCenterSup;
 		double HeuristicKingDangourSup;
-		std::vector<bool> IsSup;
-		std::vector<bool> IsSupHu;
+		bool IsSup;
+		bool IsSupHu;
 
 	public:
 		//StackFrame *callStack;

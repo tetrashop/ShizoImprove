@@ -35,7 +35,7 @@ bool ThingsConverter::ActOfClickEqualTow = false;
 	{
 		//autoOOO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-		//lock (OOO)
+		////lock (OOO)
 		{
 			//Initiate Global variables with Local One.
 			Row = i;
@@ -48,21 +48,21 @@ bool ThingsConverter::ActOfClickEqualTow = false;
 			{
 				//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-				//lock (O)
+				////lock (O)
 				{
 					AllDraw::ConvertWait = true;
 				}
 
 				//autoO1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-				//lock (O1)
+				////lock (O1)
 				{
 					ClickOcurred = true;
 				}
 				//Set tow time click unclicked.
 				//autoO2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-				//lock (O2)
+				////lock (O2)
 				{
 					ActOfClickEqualTow = false;
 				}
@@ -96,7 +96,7 @@ bool ThingsConverter::ActOfClickEqualTow = false;
 					bool ASS = false;
 					//autoOOOAAA = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-					//lock (OOOAAA)
+					////lock (OOOAAA)
 					{
 						ASS = AllDraw::Blitz;
 					}
@@ -430,7 +430,7 @@ bool ThingsConverter::ActOfClickEqualTow = false;
 			{
 				//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-				//lock (O)
+				////lock (O)
 				{
 					TableConverted = new int*[8]; for (int ii = 0; ii < 8; ii++)TableConverted[ii] =new  int[8];
 					 
@@ -444,7 +444,7 @@ bool ThingsConverter::ActOfClickEqualTow = false;
 				}
 				//autoO1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-				//lock (O1)
+				////lock (O1)
 				{
 					LoadConvertTable = true;
 				}

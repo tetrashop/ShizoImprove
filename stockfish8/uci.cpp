@@ -48,11 +48,8 @@ namespace {
   StateListPtr States(new std::deque<StateInfo>(1));
 
 
-  // position() is called when engine receives the "position" UCI command.
-  // The function sets up the position described in the given FEN string ("fen")
-  // or the starting position ("startpos") and then makes the moves given in the
-  // following move list ("moves").
-  /*void Write(string input)
+ 
+ void Write(string input)
   {
 	  try{
 		  std::ofstream out("output.txt");
@@ -82,8 +79,11 @@ namespace {
 		  return;
 	  }
 	  //MoveToFrom = "";
-  }*/
-
+  }
+ // position() is called when engine receives the "position" UCI command.
+ // The function sets up the position described in the given FEN string ("fen")
+ // or the starting position ("startpos") and then makes the moves given in the
+ // following move list ("moves").
   void position(Position& pos, istringstream& is) {
 
     Move m;
