@@ -28,13 +28,16 @@
 #include "tt.h"
 #include "ucioption.h"
 
+bool UCI::Option::BestMoveB;
+std::string UCI::Option::MoveToFromB;
+
 using namespace std;
-static bool BestMove;
+
 extern void bench(const Position& pos, istream& is);
 
 namespace {
 
-	string MoveToFrom = "";
+	
   // FEN string of the initial position, normal chess
   const char* StartFEN = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
 
@@ -134,7 +137,10 @@ namespace {
     Threads.start_thinking(pos, limits, SetupStates);
   }
 
-} // namespace
+} 
+std::string square(Square s) {
+	return std::string{ char('a' + file_of(s)), char('1' + rank_of(s)) };
+}// namespace
 string move(Move m, bool chess960) {
 
 	Square from = from_sq(m);
@@ -149,15 +155,46 @@ string move(Move m, bool chess960) {
 	if (type_of(m) == CASTLING && !chess960)
 		to = make_square(to > from ? FILE_G : FILE_C, rank_of(from));
 
-	string move = UCI::square(from) + UCI::square(to);
+	string move = square(from) + square(to);
 	if (type_of(m) == PROMOTION)
 		move += " pnbrqk"[promotion_type(m)];
 
-	if (UCI::Option::BestMove)
-		MoveToFrom = move;
+	if (UCI::Option::BestMoveB)
+		UCI::Option::MoveToFromB = move;
 	return move;
 }
 
+void Write(string input)
+{
+	try {
+		std::ofstream out("output.txt");
+		try {
+
+			try {
+				out << input;
+
+			}
+			catch (exception t) {}
+			try {
+				out.close();
+			}
+			catch (exception t) {}
+		}
+		catch (exception t)
+		{
+			try {
+				out.close();
+			}
+			catch (exception t) {}
+			return;
+		}
+	}
+	catch (exception t)
+	{
+		return;
+	}
+	//MoveToFrom = "";
+}
 /// Wait for a command from the user, parse this text string as an UCI command,
 /// and call the appropriate functions. Also intercepts EOF from stdin to ensure
 /// that we exit gracefully if the GUI dies unexpectedly. In addition to the UCI
@@ -226,7 +263,7 @@ void UCI::loop(int argc, char* argv[]) {
       else if (token == "position")   position(pos, is);
       else if (token == "setoption")  setoption(is);
       else if (token == "flip")       pos.flip();
-	  else if (token == "wr")         Write(MoveToFrom);
+	  else if (token == "wr")         Write(UCI::Option::MoveToFromB);
       else if (token == "bench")      bench(pos, is);
       else if (token == "d")          sync_cout << pos.pretty() << sync_endl;
       else if (token == "isready")    sync_cout << "readyok" << sync_endl;
@@ -237,35 +274,4 @@ void UCI::loop(int argc, char* argv[]) {
   } while (token != "quit" && argc == 1); // Passed args have one-shot behaviour
 
   Threads.wait_for_think_finished(); // Cannot quit whilst the search is running
-}
-void Write(string input)
-{
-	try {
-		std::ofstream out("output.txt");
-		try {
-
-			try {
-				out << input;
-
-			}
-			catch (exception t) {}
-			try {
-				out.close();
-			}
-			catch (exception t) {}
-		}
-		catch (exception t)
-		{
-			try {
-				out.close();
-			}
-			catch (exception t) {}
-			return;
-		}
-	}
-	catch (exception t)
-	{
-		return;
-	}
-	//MoveToFrom = "";
 }

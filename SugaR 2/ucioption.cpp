@@ -28,7 +28,8 @@
 #include "tb_syzygy.h"
 
 using std::string;
-
+static bool BestMove;
+static string MoveToFrom;
 UCI::OptionsMap Options; // Global object
 
 namespace UCI {

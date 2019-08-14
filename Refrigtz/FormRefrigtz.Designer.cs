@@ -153,6 +153,8 @@ namespace Refrigtz
             this.timerAllOperation = new System.Windows.Forms.Timer(this.components);
             this.backgroundWorkerSetNode = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorkerSetRefD = new System.ComponentModel.BackgroundWorker();
+            this.toolStripMenuItem22 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem23 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripChessRefrigitz.SuspendLayout();
             this.groupBoxGroupOfPowerity.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).BeginInit();
@@ -224,8 +226,10 @@ namespace Refrigtz
             this.toolStripMenuItem9,
             this.computerWithComputerToolStripMenuItem1,
             this.toolStripMenuItem16,
+            this.toolStripMenuItem22,
             this.toolStripMenuItem19,
             this.toolStripMenuItem20,
+            this.toolStripMenuItem23,
             this.toolStripMenuItem10,
             this.toolStripMenuItem18,
             this.toolStripMenuItem17,
@@ -1479,6 +1483,20 @@ namespace Refrigtz
             // 
             this.backgroundWorkerSetRefD.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerSetRefD_DoWork);
             // 
+            // toolStripMenuItem22
+            // 
+            this.toolStripMenuItem22.Name = "toolStripMenuItem22";
+            this.toolStripMenuItem22.Size = new System.Drawing.Size(327, 22);
+            this.toolStripMenuItem22.Text = "Blitz Game With SugR";
+            this.toolStripMenuItem22.Click += new System.EventHandler(this.toolStripMenuItem22_Click);
+            // 
+            // toolStripMenuItem23
+            // 
+            this.toolStripMenuItem23.Name = "toolStripMenuItem23";
+            this.toolStripMenuItem23.Size = new System.Drawing.Size(327, 22);
+            this.toolStripMenuItem23.Text = "Refregitz With SugR Full Game";
+            this.toolStripMenuItem23.Click += new System.EventHandler(this.toolStripMenuItem23_Click);
+            // 
             // FormRefrigtz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1728,6 +1746,8 @@ namespace Refrigtz
         private System.Windows.Forms.Timer timerAllOperation;
         private System.ComponentModel.BackgroundWorker backgroundWorkerSetNode;
         private System.ComponentModel.BackgroundWorker backgroundWorkerSetRefD;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem22;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem23;
     }
 }
 

@@ -48,7 +48,8 @@ public:
   void operator<<(const Option& o);
   operator int() const;
   operator std::string() const;
-  static bool BestMove;
+  static bool BestMoveB;
+  static std::string MoveToFromB;
 private:
   friend std::ostream& operator<<(std::ostream&, const OptionsMap&);
 

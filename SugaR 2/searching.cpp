@@ -34,6 +34,10 @@
 #include "tt.h"
 #include "ucioption.h"
 
+bool UCI::Option::BestMoveB;
+std::string UCI::Option::MoveToFromB;
+
+
 namespace Search {
 
   volatile SignalsType Signals;
@@ -355,7 +359,7 @@ namespace {
   // user stops the search, or the maximum search depth is reached.
 
   void id_loop(Position& pos) {
-
+	  
     Stack stack[MAX_PLY_PLUS_6], *ss = stack+2; // To allow referencing (ss-2)
     int depth;
     Value bestValue, alpha, beta, delta;
@@ -508,8 +512,32 @@ namespace {
 
 
   }
+  std::string square(Square s) {
+	  return std::string{ char('a' + file_of(s)), char('1' + rank_of(s)) };
+  }// namespace
+  std::string moveB(Move m, bool chess960) {
 
+	  Square from = from_sq(m);
+	  Square to = to_sq(m);
 
+	  if (m == MOVE_NONE)
+		  return "(none)";
+
+	  if (m == MOVE_NULL)
+		  return "0000";
+
+	  if (type_of(m) == CASTLING && !chess960)
+		  to = make_square(to > from ? FILE_G : FILE_C, rank_of(from));
+
+	  string move = square(from) + square(to);
+	  if (type_of(m) == PROMOTION)
+		  move += " pnbrqk"[promotion_type(m)];
+
+	  if (UCI::Option::BestMoveB)
+		  UCI::Option::MoveToFromB = move;
+	  return move;
+  }
+ 
   // search<>() is the main search function for both PV and non-PV nodes and for
   // normal and SplitPoint nodes. When called just after a split point the search
   // is simpler because we have already probed the hash table, done a null move
@@ -1127,9 +1155,9 @@ moves_loop: // When in check and at SpNode search starts from here
     }
 
 	if (SpNode) {
-		UCI::Option::BestMove = true;
-		UCI::move(bestThread->rootMoves[0]->pv[0], rootPos.is_chess960());
-		UCI::Option::BestMove = false;
+		UCI::Option::BestMoveB = true;
+		moveB(bestMove, pos.is_chess960()); 
+		UCI::Option::BestMoveB = false;
 
 		return bestValue;
 	}
@@ -1143,7 +1171,7 @@ moves_loop: // When in check and at SpNode search starts from here
     */
 
     // Step 20. Check for mate and stalemate
-    // All legal moves have been searched and if there are no legal moves, it
+    // All legal moves have been searched and if there are no legal moves, itUCI::Option::BestMove
     // must be mate or stalemate. If we are in a singular extension search then
     // return a fail low score.
     if (!moveCount)
@@ -1160,9 +1188,9 @@ moves_loop: // When in check and at SpNode search starts from here
              depth, bestMove, ss->staticEval);
 
     assert(bestValue > -VALUE_INFINITE && bestValue < VALUE_INFINITE);
-	UCI::Option::BestMove = true;
-	UCI::move(bestThread->rootMoves[0]->pv[0], rootPos.is_chess960());
-	UCI::Option::BestMove = false;
+	UCI::Option::BestMoveB = true;
+	moveB(bestMove, pos.is_chess960());
+	UCI::Option::BestMoveB = false;
 
     return bestValue;
   }
