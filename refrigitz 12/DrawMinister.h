@@ -24,12 +24,12 @@ using namespace std;
 
 
 	public:
-		const DrawMinister& operator* (const int index) const;
+		const DrawMinister& operator[] (const int index) const;
 		
 		
 		int WinOcuuredatChiled;
 		int LoseOcuuredatChiled;
-		//private readonly object balance////lock = new object();
+		//private readonly object balance//lock = new object();
 		//private readonly object balance//lockS = new object();
 		//atic Image M[2];
 		//Initiate Global Variable.

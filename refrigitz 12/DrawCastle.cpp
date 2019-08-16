@@ -20,7 +20,7 @@ double DrawCastle::MaxHuristicxB = -20000000000000000;
 		{
 			//autoa = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-			////lock (a)
+			//lock (a)
 			{
 				std::wstring stackTrace = ex.what();
 //C# TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'ToString':
@@ -39,7 +39,7 @@ double DrawCastle::MaxHuristicxB = -20000000000000000;
 		//ValuableSelfSupported.clear();
 //		C = nullptr;
 	}
-	const DrawCastle& DrawCastle::operator* (const int index) const
+	const DrawCastle& DrawCastle::operator[] (const int index) const
 	{
 		return this[index];
 	}
@@ -54,7 +54,7 @@ double DrawCastle::MaxHuristicxB = -20000000000000000;
 				MaxNotFound = false;
 				//autoO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-				////lock (O)
+				//lock (O)
 				{
 					if (ThinkingChess::MaxHuristicx < MaxHuristicxB)
 					{
@@ -180,7 +180,7 @@ double DrawCastle::MaxHuristicxB = -20000000000000000;
 			//autobalance//lockS = new Object();
 
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-			////lock (balance//lockS)
+			//lock (balance//lockS)
 			{
 
 				if (C == nullptr || C[1] == nullptr)
@@ -194,7 +194,7 @@ double DrawCastle::MaxHuristicxB = -20000000000000000;
 					{
 						//autoO1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-						////lock (O1)
+						//lock (O1)
 						{ //Draw an Instant from File of Gray Soldeirs.
 							 //Draw a Gray Castles Instatnt Image On hte Tabe.
 							g.DrawImage(C, Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
@@ -204,7 +204,7 @@ double DrawCastle::MaxHuristicxB = -20000000000000000;
 					{
 						//autoO1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-						////lock (O1)
+						//lock (O1)
 						{ //Draw an Instant from File of Gray Soldeirs.
 							 //Draw an Instatnt of Brown Castles On the Table.
 							g.DrawImage(C[1], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));

@@ -1,12 +1,13 @@
-﻿
+﻿#include "stdafx.h"
 #include "ChessRules.h"
 #include "AllDraw.h"
 #include "ThinkingChess.h"
 #include "DrawKing.h"
 
-//namespace RefrigtzDLL
-//{
-	
+
+namespace RefrigtzDLL
+{
+
 int ChessRules::ObjectHittedRow = -1;
 bool ChessRules::SelfHomeStatCP = false;
 int ChessRules::ObjectHittedColumn = -1;
@@ -41,26 +42,9 @@ int ChessRules::CheckBrownRemovableValueColumnj = 0;
 int ChessRules::CheckBrownRemovableValueRowii = 0;
 int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 
-	/*void ChessRules::Log(std::exception ex)
-	{
-		//try
-		{
-			//autoa = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-			//lock (a)
-			{
-				std::wstring stackTrace = ex.what();
-//C# TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'ToString':
-				File::AppendAllText(AllDraw::Root + std::wstring(L"\\ErrorProgramRun.txt"), stackTrace + std::wstring(L": On") + DateTime::Now.ToString()); // path of file where stack trace will be stored.
-			}
-		}
-		//catch(std::exception t)
-		{
-			
-		}
-	}*/
+	
 
-/*	ChessRules::ChessRules((((int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments))));Changed, int oRDER)
+	ChessRules::ChessRules(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged, int oRDER)
 	{
 		InitializeInstanceFields();
 		CurrentAStarGredyMax = CurrentAStarGredy;
@@ -74,7 +58,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		Order = oRDER;
 		ArrangmentsBoard = ArrangmentsChanged;
 	}
-*/
+
 	ChessRules::ChessRules(int CurrentAStarGredy, int oRDER, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged)
 	{
 		InitializeInstanceFields();
@@ -89,7 +73,6 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		AStarGreedyHuristicT = AStarGreedyHuris;
 		ArrangmentsBoard = ArrangmentsChanged;
 	}
-	
 
 	ChessRules::ChessRules(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged, int Ki, int **A, int Ord, int i, int j)
 	{
@@ -110,7 +93,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		//Initiate Global Variables By Local Parameters.
 		KindNA = Ki;
 		Kind = abs(Ki);
-		//Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii]-new int[8];
+		Table = new int*[8]; for (int g = 0; g < 8; g++)Table[g] = new int[8];
 		for (int ik = 0; ik < 8; ik++)
 		{
 			for (int jk = 0; jk < 8; jk++)
@@ -121,11 +104,11 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		Order = Ord;
 	}
 
-	bool ChessRules::Rules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, int color, int Ki, bool SelfHomeStatCP )
+	bool ChessRules::Rules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, int color, int Ki, bool SelfHomeStatCP = true)
 	{
-		//autoO = new Object();
+		////auto O = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-		//lock (O)
+		////lock (O)
 		{
 
 			if (Table[RowFirst][ColumnFirst] > 0 && Table[RowSecond][ColumnSecond] > 0)
@@ -161,9 +144,9 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			}
 		}
 		//Initaite Global Varibales.
-		//autoO1 = new Object();
+		////auto O1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-		//lock (O1)
+		////lock (O1)
 		{
 			CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKingHaveSupporter = false;
 			CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKingHaveSupporterNumber = 0;
@@ -182,13 +165,13 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		{
 			if (Table[RowFirst][ColumnFirst] == 6)
 			{
-				if (abs(RowB-RowSecond) <= 1 && abs(ColumnB-ColumnSecond) <= 1)
+				if (abs(RowB - RowSecond) <= 1 && abs(ColumnB - ColumnSecond) <= 1)
 				{
 					return false;
 				}
 			}
 			//Illegal King Foundation.
-			if (abs(RowB-RowG) <= 1 && abs(ColumnB-ColumnG) <= 1)
+			if (abs(RowB - RowG) <= 1 && abs(ColumnB - ColumnG) <= 1)
 			{
 				return false;
 			}
@@ -197,13 +180,13 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		{
 			if (Table[RowFirst][ColumnFirst] == -6)
 			{
-				if (abs(RowG-RowSecond) <= 1 && abs(ColumnG-ColumnSecond) <= 1)
+				if (abs(RowG - RowSecond) <= 1 && abs(ColumnG - ColumnSecond) <= 1)
 				{
 					return false;
 				}
 			}
 			//Ilegal Kings Foundation.
-			if (abs(RowB-RowG) <= 1 && abs(ColumnB-ColumnG) <= 1)
+			if (abs(RowB - RowG) <= 1 && abs(ColumnB - ColumnG) <= 1)
 			{
 				return false;
 			}
@@ -211,13 +194,13 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		}
 		//Determination of Enemy in the Destionation Home.
 		bool ExistInDestinationEnemy = bool();
-		if (((Table[RowFirst][ColumnFirst] > 0) && (Table[RowSecond][ColumnSecond] < 0) && Order == 1))
+		if (((Table[RowFirst][ColumnFirst] > 0) && (Table[RowSecond][ColumnSecond] < 0) && (Order == 1)))
 		{
 			ExistInDestinationEnemy = true;
 		}
 		else
 		{
-			if ((Table[RowFirst][ColumnFirst] < 0) && (Table[RowSecond][ColumnSecond] > 0) && Order == -1)
+			if (((Table[RowFirst][ColumnFirst] < 0) && (Table[RowSecond][ColumnSecond] > 0) && (Order == -1)))
 			{
 				ExistInDestinationEnemy = true;
 			}
@@ -229,13 +212,13 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			if (!(ArrangmentsBoard))
 			{
 				//Solders of Gray at Begining.
-				if (ColumnFirst == 1 && Order == 1)
+				if (ColumnFirst == 1 && (Order == 1))
 				{
 					return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, true, color, ExistInDestinationEnemy, Ki, SelfHomeStatCP);
 				}
 				else //Solder of Brown At Begining.
 				{
-					if (ColumnFirst == 6 && Order == -1)
+					if (ColumnFirst == 6 && (Order == -1))
 					{
 						return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, true, color, ExistInDestinationEnemy, Ki, SelfHomeStatCP);
 					}
@@ -248,13 +231,13 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			else
 			{
 				//Solders of Gray at Begining.
-				if (ColumnFirst == 6 && Order == 1)
+				if (ColumnFirst == 6 && (Order == 1))
 				{
 					return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, true, color, ExistInDestinationEnemy, Ki, SelfHomeStatCP);
 				}
 				else //Solder of Brown At Begining.
 				{
-					if (ColumnFirst == 1 && Order == -1)
+					if (ColumnFirst == 1 && (Order == -1))
 					{
 						return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, true, color, ExistInDestinationEnemy, Ki, SelfHomeStatCP);
 					}
@@ -280,22 +263,21 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			if (Order == 1)
 			{
 				//When Gray Castles Not Act.
-				if (ChessRules::CastleKingAllowedGray)
+				if (RefrigtzDLL::ChessRules::CastleKingAllowedGray)
 				{
 					//If Column is At First Location.
 					if (ColumnFirst == 0 && ColumnSecond == 0)
 					{
 						//When Kings Moves for Small Kings Castles Movments.
-						if ((RowFirst == RowSecond-2) && (RowSecond-2 >= 0))
+						if (RowFirst == RowSecond - 2 && ((RowSecond - 2) >= 0))
 						{
 							//Consideration of Castles King of Gray King.
-							//try
-							{
-								if ((RowSecond-1 >= 0) && (RowSecond + 1 < 8) && (RowSecond-2 >= 0) && Table[RowSecond-2][ColumnSecond] == 6 && Table[RowSecond-1][ColumnSecond] == 0 && Table[RowSecond][ColumnSecond] == 0 && Table[RowSecond + 1][ColumnSecond] == 4)
+
+								if (((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond - 2][ColumnSecond] == 6 && Table[RowSecond - 1][ColumnSecond] == 0 && Table[RowSecond][ColumnSecond] == 0 && Table[RowSecond + 1][ColumnSecond] == 4)
 								{
-									//autoO = new Object();
+									////auto O = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-									//lock (O)
+									////lock (O)
 									{
 										CastleActGray = true;
 										SmallKingCastleGray = true;
@@ -303,36 +285,27 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 
 									return true;
 								}
-							}
-							//catch(std::exception t)
-							{
-								
-							}
+
 						}
 
 						else //For Greates Castles King Movments.
 						{
-							if ((RowFirst == RowSecond + 2) && (RowSecond + 2 < 8))
+							if (RowFirst == RowSecond + 2 && ((RowSecond + 2) < 8))
 							{
 								//Consideration of Castles King M<ovments.
-								//try
-								{
-									if ((RowSecond + 2 < 8) && (RowSecond-1 >= 0) && (RowSecond + 1 < 8) && (RowSecond-2 >= 0) && Table[RowSecond + 2][ColumnSecond] == 6 && Table[RowSecond + 1][ColumnSecond] == 0 && Table[RowSecond][ColumnSecond] == 0 && Table[RowSecond-1][ColumnSecond] == 0 && Table[RowSecond-2][ColumnSecond] == 4)
+
+									if (((RowSecond + 2) < 8) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond + 2][ColumnSecond] == 6 && Table[RowSecond + 1][ColumnSecond] == 0 && Table[RowSecond][ColumnSecond] == 0 && Table[RowSecond - 1][ColumnSecond] == 0 && Table[RowSecond - 2][ColumnSecond] == 4)
 									{
-									//autoO = new Object();
+									////auto O = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-									//lock (O)
+									////lock (O)
 									{
 										CastleActGray = true;
 										BigKingCastleGray = true;
 									}
 										return true;
 									}
-								}
-								//catch(std::exception t)
-								{
-									
-								}
+
 
 							}
 						}
@@ -342,58 +315,48 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			else //Order of Brown.
 			{
 				//When Brown Castles King Not Occured.
-				if (ChessRules::CastleKingAllowedBrown)
+				if (RefrigtzDLL::ChessRules::CastleKingAllowedBrown)
 				{
 					//Column Situation.
 					if (ColumnFirst == 7 && ColumnSecond == 7)
 					{
 						//Small Brown King Castles Consideration.
-						if ((RowFirst == RowSecond-2) && (RowSecond-2 < 8))
+						if (RowFirst == RowSecond - 2 && ((RowSecond - 2) < 8))
 						{
-							//try
-							{
 
-								if ((RowSecond-1 >= 0) && (RowSecond + 1 < 8) && Table[RowSecond-2][ColumnSecond] == -6 && Table[RowSecond-1][ColumnSecond] == 0 && Table[RowSecond][ColumnSecond] == 0 && Table[RowSecond + 1][ColumnSecond] == -4)
+
+								if (((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && Table[RowSecond - 2][ColumnSecond] == -6 && Table[RowSecond - 1][ColumnSecond] == 0 && Table[RowSecond][ColumnSecond] == 0 && Table[RowSecond + 1][ColumnSecond] == -4)
 								{
 									//CastleActBrown = true;
-									//autoO1 = new Object();
+									////auto O1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-									//lock (O1)
+//									//lock (O1)
 									{
 										SmallKingCastleBrown = true;
 									}
 									return true;
 								}
-							}
-							//catch(std::exception t)
-							{
-								
-							}
+
 
 						}
 						else
 						{
-							if ((RowFirst == RowSecond + 2) && (RowSecond + 2 < 8))
+							if (RowFirst == RowSecond + 2 && ((RowSecond + 2) < 8))
 							{
 							//Brown Kings.Big King Castles Consideration.
-								//try
-								{
-									if ((RowSecond + 2 < 8) && (RowSecond-1 >= 0) && (RowSecond + 1 < 8) && (RowSecond-2 >= 0) && Table[RowSecond + 2][ColumnSecond] == -6 && Table[RowSecond + 1][ColumnSecond] == 0 && Table[RowSecond][ColumnSecond] == 0 && Table[RowSecond-1][ColumnSecond] == 0 && Table[RowSecond-2][ColumnSecond] == -4)
+
+									if (((RowSecond + 2) < 8) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond + 2][ColumnSecond] == -6 && Table[RowSecond + 1][ColumnSecond] == 0 && Table[RowSecond][ColumnSecond] == 0 && Table[RowSecond - 1][ColumnSecond] == 0 && Table[RowSecond - 2][ColumnSecond] == -4)
 									{
 									//CastleActBrown = true;
-									//autoO = new Object();
+									////auto O = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-									//lock (O)
+									////lock (O)
 									{
 										BigKingCastleBrown = true;
 									}
 										return true;
 									}
-								}
-								//catch(std::exception t)
-								{
-									
-								}
+
 							}
 						}
 					}
@@ -406,49 +369,39 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			if (Order == 1)
 			{
 				//When Gray Castles Not Act.
-				if (ChessRules::CastleKingAllowedGray)
+				if (RefrigtzDLL::ChessRules::CastleKingAllowedGray)
 				{
 					//If Column is At First Location.
 					if (ColumnFirst == 7 && ColumnSecond == 7)
 					{
 						//When Kings Moves for Small Kings Castles Movments.
-						if ((RowFirst == RowSecond-2) && (RowSecond-2 >= 0))
+						if (RowFirst == RowSecond - 2 && ((RowSecond - 2) >= 0))
 						{
 							//Consideration of Castles King of Gray King.
-							//try
-							{
 
-								if ((RowSecond-2 >= 0) && (RowSecond-1 >= 0) && (RowSecond + 1 < 8) && Table[RowSecond-2][ColumnSecond] == 6 && Table[RowSecond-1][ColumnSecond] == 0 && Table[RowSecond][ColumnSecond] == 0 && Table[RowSecond + 1][ColumnSecond] == 4)
+
+								if (((RowSecond - 2) >= 0) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && Table[RowSecond - 2][ColumnSecond] == 6 && Table[RowSecond - 1][ColumnSecond] == 0 && Table[RowSecond][ColumnSecond] == 0 && Table[RowSecond + 1][ColumnSecond] == 4)
 								{
 									//CastleActGray = true;
 									//SmallKingCastleGray = true;
 									return true;
 								}
-							}
-							//catch(std::exception t)
-							{
-								
-							}
+
 						}
 
 						else //For Greates Castles King Movments.
 						{
-							if (RowFirst == RowSecond + 2 && (RowSecond + 2 < 8))
+							if (RowFirst == RowSecond + 2 && ((RowSecond + 2) < 8))
 							{
 								//Consideration of Castles King M<ovments.
-								//try
-								{
-									if ((RowSecond + 2 < 8) && (RowSecond-1 >= 0) && (RowSecond + 1 < 8) && (RowSecond-2 >= 0) && Table[RowSecond + 2][ColumnSecond] == 6 && Table[RowSecond + 1][ColumnSecond] == 0 && Table[RowSecond][ColumnSecond] == 0 && Table[RowSecond-1][ColumnSecond] == 0 && Table[RowSecond-2][ColumnSecond] == 4)
+
+									if (((RowSecond + 2) < 8) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond + 2][ColumnSecond] == 6 && Table[RowSecond + 1][ColumnSecond] == 0 && Table[RowSecond][ColumnSecond] == 0 && Table[RowSecond - 1][ColumnSecond] == 0 && Table[RowSecond - 2][ColumnSecond] == 4)
 									{
 										//CastleActGray = true;
 										//BigKingCastleGray = true;
 										return true;
 									}
-								}
-								//catch(std::exception t)
-								{
-									
-								}
+
 
 							}
 						}
@@ -458,48 +411,38 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			else //Order of Brown.
 			{
 				//When Brown Castles King Not Occured.
-				if (ChessRules::CastleKingAllowedBrown)
+				if (RefrigtzDLL::ChessRules::CastleKingAllowedBrown)
 				{
 					//Column Situation.
 					if (ColumnFirst == 0 && ColumnSecond == 0)
 					{
 						//Small Brown King Castles Consideration.
-						if (RowFirst == RowSecond-2 && (RowSecond-2 > 0))
+						if (RowFirst == RowSecond - 2 && ((RowSecond - 2) > 0))
 						{
-							//try
-							{
 
-								if ((RowSecond-2 >= 0) && (RowSecond-1 >= 0) && (RowSecond + 1 < 8) && Table[RowSecond-2][ColumnSecond] == -6 && Table[RowSecond-1][ColumnSecond] == 0 && Table[RowSecond][ColumnSecond] == 0 && Table[RowSecond + 1][ColumnSecond] == -4)
+
+								if (((RowSecond - 2) >= 0) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && Table[RowSecond - 2][ColumnSecond] == -6 && Table[RowSecond - 1][ColumnSecond] == 0 && Table[RowSecond][ColumnSecond] == 0 && Table[RowSecond + 1][ColumnSecond] == -4)
 								{
 									//CastleActBrown = true;
 									//SmallKingCastleBrown = true;
 									return true;
 								}
-							}
-							//catch(std::exception t)
-							{
-								
-							}
+
 
 						}
 						else
 						{
-							if (RowFirst == RowSecond + 2 && (RowSecond + 2 < 8))
+							if (RowFirst == RowSecond + 2 && ((RowSecond + 2) < 8))
 							{
 							//Brown Kings.Big King Castles Consideration.
-								//try
-								{
-									if ((RowSecond + 2 < 8) && (RowSecond-1 >= 0) && (RowSecond + 1 < 8) && (RowSecond-2 >= 0) && Table[RowSecond + 2][ColumnSecond] == -6 && Table[RowSecond + 1][ColumnSecond] == 0 && Table[RowSecond][ColumnSecond] == 0 && Table[RowSecond-1][ColumnSecond] == 0 && Table[RowSecond-2][ColumnSecond] == -4)
+
+									if (((RowSecond + 2) < 8) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond + 2][ColumnSecond] == -6 && Table[RowSecond + 1][ColumnSecond] == 0 && Table[RowSecond][ColumnSecond] == 0 && Table[RowSecond - 1][ColumnSecond] == 0 && Table[RowSecond - 2][ColumnSecond] == -4)
 									{
 										//  CastleActBrown = true;
 										//BigKingCastleBrown = true;
 										return true;
 									}
-								}
-								//catch(std::exception t)
-								{
-									
-								}
+
 							}
 						}
 					}
@@ -512,9 +455,8 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 	bool ChessRules::CheckConstructor(int color, int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, int Ki, int Order)
 	{
 		//Initiate a Local Variable.
-		int **tab = new int*[8];
-		for (int i = 0; i < 8; i++)
-			tab[i] =new  int[8];
+	
+		int **tab = new int*[8]; for (int g = 0; g < 8; g++)tab[g] = new int[8];
 		//Clone A Copy of Table.
 		for (int i = 0; i < 8; i++)
 		{
@@ -576,7 +518,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 
 	bool ChessRules::ObjectDangourKingMove(int Order, int **Table, bool DoIgnore)
 	{
-		int **Tab;
+		int **Tab = new int*[8]; for (int g = 0; g < 8; g++)Tab[g] = new int[8];
 		//Clone a Copy
 		for (int i = 0; i < 8; i++)
 		{
@@ -613,7 +555,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		    return true;
 	
 		}*/
-		int CDummy = ChessRules::CurrentOrder;
+		int CDummy = RefrigtzDLL::ChessRules::CurrentOrder;
 		int COrder = Order;
 		if (Order == 1)
 		{
@@ -648,7 +590,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 								{
 									continue;
 								}
-								ThinkingChess AA =  ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
+								RefrigtzDLL::ThinkingChess AA =  RefrigtzDLL::ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
 								//When There is Attacked to Gray from Brown.
 								if (AA.Attack(Tab, ii, jj, iii, jjj, -1, Order * -1))
 								{
@@ -656,7 +598,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 									int a = Tab[iii][jjj];
 									Tab[iii][jjj] = Tab[ii][jj];
 									Tab[ii][jj] = 0;
-									int **Tabl;
+									int **Tabl = new int*[8]; for (int g = 0; g < 8; g++)Tabl[g] = new int[8];
 									for (int h = 0; h < 8; h++)
 									{
 										for (int g = 0; g < 8; g++)
@@ -664,12 +606,12 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 											Tabl[h][g] = Tab[h][g];
 										}
 									}
-									ChessRules *AAA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tabl[iii][jjj], Tabl, Order, iii, jjj);
+									RefrigtzDLL::ChessRules AAA =  RefrigtzDLL::ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tabl[iii][jjj], Tabl, Order, iii, jjj);
 									//When there is checked or checkmate.
-									if (AAA->CheckMate(Tabl, Order))
+									if (AAA.CheckMate(Tabl, Order))
 									{
-										//if (AAA->CheckMateGray)
-										if (AAA->CheckMateGray)
+										//if (AAA.CheckMateGray)
+										if (AAA.CheckMateGray)
 										{
 											CheckGrayObjectDangour = true;
 											break;
@@ -736,7 +678,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 									continue;
 								}
 
-								ThinkingChess AA =  ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
+								RefrigtzDLL::ThinkingChess AA =  RefrigtzDLL::ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
 								//When There is Attack to Brown.
 								if (AA.Attack(Tab, ii, jj, iii, jjj, 1, Order * -1))
 								{
@@ -744,7 +686,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 									int a = Tab[iii][jjj];
 									Tab[iii][jjj] = Tab[ii][jj];
 									Tab[ii][jj] = 0;
-									int **Tabl;
+									int **Tabl = new int*[8]; for (int g = 0; g < 8; g++)Tabl[g] = new int[8];
 									for (int h = 0; h < 8; h++)
 									{
 										for (int g = 0; g < 8; g++)
@@ -752,12 +694,12 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 											Tabl[h][g] = Tab[h][g];
 										}
 									}
-									ChessRules *AAA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tabl[iii][jjj], Tabl, Order, iii, jjj);
+									RefrigtzDLL::ChessRules AAA =  RefrigtzDLL::ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tabl[iii][jjj], Tabl, Order, iii, jjj);
 									//When There is Check or Checkedmate
-									if (AAA->CheckMate(Tabl, Order))
+									if (AAA.CheckMate(Tabl, Order))
 									{
-										//if (AAA->CheckMateBrown)
-										if (AAA->CheckMateBrown)
+										//if (AAA.CheckMateBrown)
+										if (AAA.CheckMateBrown)
 										{
 											CheckBrownObjectDangour = true;
 											break;
@@ -802,14 +744,14 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		if (CheckBrownObjectDangour || CheckGrayObjectDangour)
 		{
 			//Iniaate Global Check Variable By Local Variables.
-			ChessRules::CurrentOrder = CDummy;
+			RefrigtzDLL::ChessRules::CurrentOrder = CDummy;
 			Order = COrder;
 			CheckGray = CheckGrayDummy;
 			CheckBrown = CheckBrownDummy;
 			//Achamz is Validity.
 			return true;
 		}
-		ChessRules::CurrentOrder = CDummy;
+		RefrigtzDLL::ChessRules::CurrentOrder = CDummy;
 		Order = COrder;
 
 		//Iniatiate Of Global Varibales By Local Variables.
@@ -821,7 +763,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 
 	bool ChessRules::ObjectDangourKingMove(int Order, int **Table)
 	{
-		int **Tab;
+		int **Tab = new int*[8]; for (int g = 0; g < 8; g++)Tab[g] = new int[8];
 		//Clone a Copy
 		for (int i = 0; i < 8; i++)
 		{
@@ -858,7 +800,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		    return true;
 	
 		}*/
-		int CDummy = ChessRules::CurrentOrder;
+		int CDummy = RefrigtzDLL::ChessRules::CurrentOrder;
 		int COrder = Order;
 		if (Order == 1)
 		{
@@ -893,7 +835,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 								{
 									continue;
 								}
-								ThinkingChess AA =  ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
+								RefrigtzDLL::ThinkingChess AA =  RefrigtzDLL::ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
 								//When There is Attacked to Gray from Brown.
 								if (AA.Attack(Tab, ii, jj, iii, jjj, -1, Order * -1))
 								{
@@ -901,7 +843,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 									int a = Tab[iii][jjj];
 									Tab[iii][jjj] = Tab[ii][jj];
 									Tab[ii][jj] = 0;
-									int **Tabl;
+									int **Tabl = new int*[8]; for (int g = 0; g < 8; g++)Tabl[g] = new int[8];
 									for (int h = 0; h < 8; h++)
 									{
 										for (int g = 0; g < 8; g++)
@@ -909,12 +851,12 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 											Tabl[h][g] = Tab[h][g];
 										}
 									}
-									ChessRules *AAA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tabl[iii][jjj], Tabl, Order, iii, jjj);
+									RefrigtzDLL::ChessRules AAA =  RefrigtzDLL::ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tabl[iii][jjj], Tabl, Order, iii, jjj);
 									//When there is checked or checkmate.
-									if (AAA->Check(Tabl, Order))
+									if (AAA.Check(Tabl, Order))
 									{
-										//if (AAA->CheckMateGray)
-										if (AAA->CheckGray)
+										//if (AAA.CheckMateGray)
+										if (AAA.CheckGray)
 										{
 											CheckGrayObjectDangour = true;
 											break;
@@ -981,7 +923,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 									continue;
 								}
 
-								ThinkingChess AA =  ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
+								RefrigtzDLL::ThinkingChess AA =  RefrigtzDLL::ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
 								//When There is Attack to Brown.
 								if (AA.Attack(Tab, ii, jj, iii, jjj, 1, Order * -1))
 								{
@@ -989,7 +931,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 									int a = Tab[iii][jjj];
 									Tab[iii][jjj] = Tab[ii][jj];
 									Tab[ii][jj] = 0;
-									int **Tabl;
+									int **Tabl = new int*[8]; for (int g = 0; g < 8; g++)Tabl[g] = new int[8];
 									for (int h = 0; h < 8; h++)
 									{
 										for (int g = 0; g < 8; g++)
@@ -997,12 +939,12 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 											Tabl[h][g] = Tab[h][g];
 										}
 									}
-									ChessRules *AAA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tabl[iii][jjj], Tabl, Order, iii, jjj);
+									RefrigtzDLL::ChessRules AAA =  RefrigtzDLL::ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tabl[iii][jjj], Tabl, Order, iii, jjj);
 									//When There is Check or Checkedmate
-									if (AAA->Check(Tabl, Order))
+									if (AAA.Check(Tabl, Order))
 									{
-										//if (AAA->CheckMateBrown)
-										if (AAA->CheckBrown)
+										//if (AAA.CheckMateBrown)
+										if (AAA.CheckBrown)
 										{
 											CheckBrownObjectDangour = true;
 											break;
@@ -1047,14 +989,14 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		if (CheckBrownObjectDangour || CheckGrayObjectDangour)
 		{
 			//Iniaate Global Check Variable By Local Variables.
-			ChessRules::CurrentOrder = CDummy;
+			RefrigtzDLL::ChessRules::CurrentOrder = CDummy;
 			Order = COrder;
 			CheckGray = CheckGrayDummy;
 			CheckBrown = CheckBrownDummy;
 			//Achamz is Validity.
 			return true;
 		}
-		ChessRules::CurrentOrder = CDummy;
+		RefrigtzDLL::ChessRules::CurrentOrder = CDummy;
 		Order = COrder;
 
 		//Iniatiate Of Global Varibales By Local Variables.
@@ -1067,7 +1009,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 	bool ChessRules::AchmazCheckByMoveByRule(int **Tabl, int RowF, int ColumnF, int RowS, int ColumnS, int Order)
 	{
 		bool Achmaz = false;
-		int **Table;
+		int **Table = new int*[8]; for (int g = 0; g < 8; g++)Table[g] = new int[8];
 		for (int i = 0; i < 8; i++)
 		{
 			for (int j = 0; j < 8; j++)
@@ -1094,7 +1036,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 
 	bool ChessRules::ObjectDangourKingMove(int Order, int **Table, bool DoIgnore, int ii, int jj)
 	{
-		int **Tab;
+		int **Tab = new int*[8]; for (int g = 0; g < 8; g++)Tab[g] = new int[8];
 		//Clone a Copy
 		for (int i = 0; i < 8; i++)
 		{
@@ -1108,13 +1050,13 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		CheckBrown = false;
 		CheckGrayObjectDangour = false;
 		CheckBrownObjectDangour = false;
-		//autoO = new Object();
+		////auto O = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-		//lock (O)
+//		//lock (O)
 		{
 			if (DoIgnore)
 			{
-				ChessRules::CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = true;
+				RefrigtzDLL::ChessRules::CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = true;
 			}
 		}
 
@@ -1137,14 +1079,14 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			return true;
 
 		}
-		int CDummy = ChessRules::CurrentOrder;
+		int CDummy = RefrigtzDLL::ChessRules::CurrentOrder;
 		int COrder = Order;
 
 		//Location of King Gary
 
 		{
 			//Iniatite Global Varibales.
-			ChessRules::CurrentOrder = -1;
+			RefrigtzDLL::ChessRules::CurrentOrder = -1;
 			Order = -1;
 			//For Enemies.
 			for (int i = 0; i < 8; i++)
@@ -1184,7 +1126,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 									Tab[ik][jk] = Table[ik][jk];
 								}
 							}
-							ChessRules *A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tab[i][j], Tab, Order * -1, i, j);
+							RefrigtzDLL::ChessRules *A = new RefrigtzDLL::ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tab[i][j], Tab, Order * -1, i, j);
 							int a = 1;
 							if (Order * -1 == -1)
 							{
@@ -1237,7 +1179,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 														Tab[iii][jjj] = Tab[i][j];
 														Tab[i][j] = 0;
 
-														A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tab[iiii][jjjj], Tab, Order, iiii, jjjj);
+														A = new RefrigtzDLL::ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tab[iiii][jjjj], Tab, Order, iiii, jjjj);
 														if (A->Rules(iiii, jjjj, iiiii, jjjjj, a, Tab[i][j]))
 														{
 															Tab[iiiii][jjjjj] = Tab[iiii][jjjj];
@@ -1250,7 +1192,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 																CheckMateBrown = A->CheckMateBrown;
 																CheckGrayObjectDangour = A->CheckGrayObjectDangour;
 																CheckBrownObjectDangour = A->CheckBrownObjectDangour;
-																ChessRules::CurrentOrder = CDummy;
+																RefrigtzDLL::ChessRules::CurrentOrder = CDummy;
 																Order = COrder;
 																return true;
 															}
@@ -1304,7 +1246,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 															Tab[iii][jjj] = Tab[i][j];
 															Tab[i][j] = 0;
 
-															A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tab[iiii][jjjj], Tab, Order, iiii, jjjj);
+															A = new RefrigtzDLL::ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tab[iiii][jjjj], Tab, Order, iiii, jjjj);
 															if (A->Rules(iiii, jjjj, iiiii, jjjjj, a, Tab[i][j]))
 															{
 																Tab[iiiii][jjjjj] = Tab[iiii][jjjj];
@@ -1317,7 +1259,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 																	CheckMateBrown = A->CheckMateBrown;
 																	CheckGrayObjectDangour = A->CheckGrayObjectDangour;
 																	CheckBrownObjectDangour = A->CheckBrownObjectDangour;
-																	ChessRules::CurrentOrder = CDummy;
+																	RefrigtzDLL::ChessRules::CurrentOrder = CDummy;
 																	Order = COrder;
 																	return true;
 																}
@@ -1341,7 +1283,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 
 		}
 
-		ChessRules::CurrentOrder = CDummy;
+		RefrigtzDLL::ChessRules::CurrentOrder = CDummy;
 		Order = COrder;
 
 		//Iniatiate Of Global Varibales By Local Variables.
@@ -1349,7 +1291,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		return false;
 	}
 
-	bool ChessRules::FindGrayKing(int **Table, int Row, int Column)
+	bool ChessRules::FindGrayKing(int **Table, int &Row, int &Column)
 	{
 		//For All Home Table.
 		for (int i = 0; i < 8; i++)
@@ -1457,9 +1399,9 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 
 	std::wstring ChessRules::CreateStatistic(bool Arrange, int **Tab, int Movments, int SourceThings, int Column, int Row, bool Hit, int HitThings, bool CastleKing, bool SodierConvert)
 	{
-		//autoOOO = new Object();
+		////auto OOO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-		//lock (OOO)
+//		//lock (OOO)
 		{
 			ArrangmentsBoard = Arrange;
 
@@ -1481,147 +1423,147 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 
 
 			//Consider CheckMate Condition of Table.
-			ChessRules *A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, Arrange, 1, Tab, 1, Row, Column);
-			ChessRules *AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, Arrange, 1, Tab, 1, Row, Column);
-			ChessRules *AAA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, Arrange, 1, Tab, 1, Row, Column);
+			RefrigtzDLL::ChessRules *A = new RefrigtzDLL::ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, Arrange, 1, Tab, 1, Row, Column);
+			RefrigtzDLL::ChessRules AA =  RefrigtzDLL::ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, Arrange, 1, Tab, 1, Row, Column);
+			RefrigtzDLL::ChessRules AAA =  RefrigtzDLL::ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, Arrange, 1, Tab, 1, Row, Column);
 			A->CheckMate(Tab, Order);
-			AA->ObjectDangourKingMove(Order, Tab, false);
+			AA.ObjectDangourKingMove(Order, Tab, false);
 			int a = 1;
 			if (Order == -1)
 			{
 				a = -1;
 			}
-			AAA->Pat(Tab, Order, a);
+			AAA.Pat(Tab, Order, a);
 			if (A->CheckGray)
 			{
-				//autoO2 = new Object();
+				////auto O2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-				//lock (O2)
+//				//lock (O2)
 				{
-					ChessRules::CastleKingAllowedGray = false;
-					ChessRules::CastleActGray = true;
-					ThinkingChess::KingMaovableGray = true;
+					RefrigtzDLL::ChessRules::CastleKingAllowedGray = false;
+					RefrigtzDLL::ChessRules::CastleActGray = true;
+					RefrigtzDLL::ThinkingChess::KingMaovableGray = true;
 				}
 			}
 			else if (A->CheckBrown)
 			{
-				//autoO2 = new Object();
+				////auto O2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-				//lock (O2)
+//				//lock (O2)
 				{
-					ChessRules::CastleActBrown = true;
-					ChessRules::CastleKingAllowedBrown = false;
-					ThinkingChess::KingMaovableBrown = true;
+					RefrigtzDLL::ChessRules::CastleActBrown = true;
+					RefrigtzDLL::ChessRules::CastleKingAllowedBrown = false;
+					RefrigtzDLL::ThinkingChess::KingMaovableBrown = true;
 				}
 			}
 			bool Castles = false;
 			if (Order == 1)
 			{
-				if (ChessRules::SmallKingCastleGray || ChessRules::BigKingCastleGray)
+				if (RefrigtzDLL::ChessRules::SmallKingCastleGray || RefrigtzDLL::ChessRules::BigKingCastleGray)
 				{
 					Castles = true;
 				}
 			}
 			if (Order == -1)
 			{
-				if (ChessRules::SmallKingCastleBrown || ChessRules::BigKingCastleBrown)
+				if (RefrigtzDLL::ChessRules::SmallKingCastleBrown || RefrigtzDLL::ChessRules::BigKingCastleBrown)
 				{
 					Castles = true;
 				}
 			}
 			//When Solder Converted or Castles King Acts.
-			if (SodierConvert || (CastleKing  &&Castles))
+			if (SodierConvert || (CastleKing && Castles))
 			{
 				//When Castles Acts.
 				if (CastleKing)
 				{
 					//Castles Brown King.
-					if (ChessRules::SmallKingCastleGray)
+					if (RefrigtzDLL::ChessRules::SmallKingCastleGray)
 					{
-						//autoO2 = new Object();
+						////auto O2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 						//lock (O2)
 						{
-							ThinkingChess::KingMaovableGray = true;
+							RefrigtzDLL::ThinkingChess::KingMaovableGray = true;
 							S += std::wstring(L"Gray-BK-S");
-							//autoO = new Object();
+							////auto O = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 							//lock (O)
 							{
 								if (!AllDraw::Stockfish)
 								{
-									ChessRules::SmallKingCastleGray = false;
-									ChessRules::CastleKingAllowedGray = false;
+									RefrigtzDLL::ChessRules::SmallKingCastleGray = false;
+									RefrigtzDLL::ChessRules::CastleKingAllowedGray = false;
 								}
 							}
 						}
 					}
 					else
 					{
-						if (ChessRules::BigKingCastleGray)
+						if (RefrigtzDLL::ChessRules::BigKingCastleGray)
 						{
 					//Castles Brown King.                    
-						//autoO2 = new Object();
+						////auto O2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 						//lock (O2)
 						{
 							S += std::wstring(L"Gray-BK-B");
-							ThinkingChess::KingMaovableGray = true;
-							//autoO = new Object();
+							RefrigtzDLL::ThinkingChess::KingMaovableGray = true;
+							////auto O = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 							//lock (O)
 							{
 								if (!AllDraw::Stockfish)
 								{
-									ChessRules::BigKingCastleGray = false;
-									ChessRules::CastleKingAllowedGray = false;
+									RefrigtzDLL::ChessRules::BigKingCastleGray = false;
+									RefrigtzDLL::ChessRules::CastleKingAllowedGray = false;
 								}
 							}
 						}
 						}
 					else
 					{
-							if (ChessRules::SmallKingCastleBrown)
+							if (RefrigtzDLL::ChessRules::SmallKingCastleBrown)
 							{
 					//Castles Brown King.                    
-						//autoO2 = new Object();
+						////auto O2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 						//lock (O2)
 						{
 							S += std::wstring(L"Brown-BK-S");
-							ThinkingChess::KingMaovableBrown = true;
-							//autoO = new Object();
+							RefrigtzDLL::ThinkingChess::KingMaovableBrown = true;
+							////auto O = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 							//lock (O)
 							{
 								if (!AllDraw::Stockfish)
 								{
-									ChessRules::SmallKingCastleBrown = false;
-									ChessRules::CastleKingAllowedBrown = false;
+									RefrigtzDLL::ChessRules::SmallKingCastleBrown = false;
+									RefrigtzDLL::ChessRules::CastleKingAllowedBrown = false;
 								}
 							}
 						}
 							}
 					else
 					{
-								if (ChessRules::BigKingCastleBrown)
+								if (RefrigtzDLL::ChessRules::BigKingCastleBrown)
 								{
 					//Castles Brown King.                    
 
-						//autoO2 = new Object();
+						////auto O2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 						//lock (O2)
 						{
 							S += std::wstring(L"Brown-BK-B");
-							ThinkingChess::KingMaovableBrown = true;
-							//autoO = new Object();
+							RefrigtzDLL::ThinkingChess::KingMaovableBrown = true;
+							////auto O = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 							//lock (O)
 							{
 								if (!AllDraw::Stockfish)
 								{
-									ChessRules::BigKingCastleBrown = false;
-									ChessRules::CastleKingAllowedBrown = false;
+									RefrigtzDLL::ChessRules::BigKingCastleBrown = false;
+									RefrigtzDLL::ChessRules::CastleKingAllowedBrown = false;
 								}
 							}
 						}
@@ -1642,20 +1584,20 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 					//If Hit Acts.
 					if (Hit)
 					{
-						//autoO = new Object();
+						////auto O = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 						//lock (O)
 						{
 							ObjectHittedRow = Row;
 							ObjectHittedColumn = Column;
 						}
-						//THIS.SetObjectInPictureBox(Row, Column);
+						//SetObjectInPictureBox(Row, Column);
 
 						S += std::wstring(L"x");
 					}
 					S += StringConverterHelper::toString(Column);
 					//CheckMate of Gray Or Brown
-					if (AAA->PatkGray || AAA->PatBrown)
+					if (AAA.PatkGray || AAA.PatBrown)
 					{
 						S += std::wstring(L"-O-");
 					}
@@ -1670,49 +1612,49 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 					{
 
 						S += std::wstring(L"+");
-						if (A->CheckBrown  &&Order == -1)
+						if (A->CheckBrown && Order == -1)
 						{
-							//autoO2 = new Object();
+							////auto O2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 							//lock (O2)
 							{
-								ThinkingChess::KingMaovableBrown = true;
-								ChessRules::BigKingCastleBrown = false;
-								ChessRules::CastleKingAllowedBrown = false;
+								RefrigtzDLL::ThinkingChess::KingMaovableBrown = true;
+								RefrigtzDLL::ChessRules::BigKingCastleBrown = false;
+								RefrigtzDLL::ChessRules::CastleKingAllowedBrown = false;
 							}
 						}
-						if (A->CheckGray  &&Order == 1)
+						if (A->CheckGray && Order == 1)
 						{
-							//autoO2 = new Object();
+							////auto O2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 							//lock (O2)
 							{
-								ThinkingChess::KingMaovableGray = true;
-								ChessRules::BigKingCastleGray = false;
-								ChessRules::CastleKingAllowedGray = false;
+								RefrigtzDLL::ThinkingChess::KingMaovableGray = true;
+								RefrigtzDLL::ChessRules::BigKingCastleGray = false;
+								RefrigtzDLL::ChessRules::CastleKingAllowedGray = false;
 							}
 						}
 					}
-					else if (AA->CheckGrayObjectDangour || AA->CheckBrownObjectDangour)
+					else if (AA.CheckGrayObjectDangour || AA.CheckBrownObjectDangour)
 					{
 
-						if (AA->CheckGrayObjectDangour&&  Order == -1)
+						if (AA.CheckGrayObjectDangour && Order == -1)
 						{
-							//autoO2 = new Object();
+							////auto O2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 							//lock (O2)
 							{
-								ThinkingChess::KingMaovableBrown = true;
+								RefrigtzDLL::ThinkingChess::KingMaovableBrown = true;
 
 							}
 						}
-						if (AA->CheckBrownObjectDangour  &&Order == 1)
+						if (AA.CheckBrownObjectDangour && Order == 1)
 						{
-							//autoO2 = new Object();
+							////auto O2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 							//lock (O2)
 							{
-								ThinkingChess::KingMaovableGray = true;
+								RefrigtzDLL::ThinkingChess::KingMaovableGray = true;
 
 							}
 						}
@@ -1728,21 +1670,21 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 				//Hit Consideration.
 				if (Hit)
 				{
-					//autoO = new Object();
+					////auto O = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 					//lock (O)
 					{
 						ObjectHittedRow = Row;
 						ObjectHittedColumn = Column;
 					}
-					//THIS.SetObjectInPictureBox(Row, Column);
+					//SetObjectInPictureBox(Row, Column);
 					S += std::wstring(L"x");
 				}
 				//Row Column Consideration.
 				S += RowAlphabet(Row);
 				S += StringConverterHelper::toString(Column);
 				//CheckMate Consideration.
-				if (AAA->PatkGray || AAA->PatBrown)
+				if (AAA.PatkGray || AAA.PatBrown)
 				{
 					S += std::wstring(L"-O-");
 				}
@@ -1757,51 +1699,51 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 				else if (A->CheckBrown || A->CheckGray)
 				{
 					S += std::wstring(L"+");
-					if (A->CheckBrown  &&Order == -1)
+					if (A->CheckBrown && Order == -1)
 					{
-						//autoO2 = new Object();
+						////auto O2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 						//lock (O2)
 						{
-							ChessRules::BigKingCastleBrown = false;
-							ChessRules::CastleKingAllowedBrown = false;
-							ThinkingChess::KingMaovableGray = true;
+							RefrigtzDLL::ChessRules::BigKingCastleBrown = false;
+							RefrigtzDLL::ChessRules::CastleKingAllowedBrown = false;
+							RefrigtzDLL::ThinkingChess::KingMaovableGray = true;
 
 						}
 					}
-					if (A->CheckGray  &&Order == 1)
+					if (A->CheckGray && Order == 1)
 					{
-						//autoO2 = new Object();
+						////auto O2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 						//lock (O2)
 						{
-							ChessRules::BigKingCastleGray = false;
-							ChessRules::CastleKingAllowedGray = false;
-							ThinkingChess::KingMaovableGray = true;
+							RefrigtzDLL::ChessRules::BigKingCastleGray = false;
+							RefrigtzDLL::ChessRules::CastleKingAllowedGray = false;
+							RefrigtzDLL::ThinkingChess::KingMaovableGray = true;
 
 						}
 					}
 				}
-				else if (AA->CheckGrayObjectDangour || AA->CheckBrownObjectDangour)
+				else if (AA.CheckGrayObjectDangour || AA.CheckBrownObjectDangour)
 				{
 
-					if (AA->CheckGrayObjectDangour && Order == -1)
+					if (AA.CheckGrayObjectDangour && Order == -1)
 					{
-						//autoO2 = new Object();
+						////auto O2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 						//lock (O2)
 						{
-							ThinkingChess::KingMaovableBrown = true;
+							RefrigtzDLL::ThinkingChess::KingMaovableBrown = true;
 
 						}
 					}
-					if (AA->CheckBrownObjectDangour  &&Order == 1)
+					if (AA.CheckBrownObjectDangour && Order == 1)
 					{
-						//autoO2 = new Object();
+						////auto O2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 						//lock (O2)
 						{
-							ThinkingChess::KingMaovableGray = true;
+							RefrigtzDLL::ThinkingChess::KingMaovableGray = true;
 
 						}
 					}
@@ -1813,7 +1755,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			//Separate.
 			if (AllDraw::Less != -DBL_MAX)
 			{
-				S += std::wstring(L" With Huristic (") + StringConverterHelper::toString(AllDraw::Less) + std::wstring(L")--");
+				S += std::wstring(L" With Huristic (") + StringConverterHelper::toString(RefrigtzDLL::AllDraw::Less) + std::wstring(L")--");
 			}
 			else
 			{
@@ -1824,15 +1766,15 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		}
 	}
 
-	bool ChessRules::ArrayInList(std::vector<int> *List, int *A)
+	bool ChessRules::ArrayInList(std::vector<int*> &List, int A[])
 	{
 		//Initiate Local Variables.
 		bool Is = false;
 		//For each Items of a Tow Part List.
-		for (int i = 0; i < List->size(); i++)
+		for (int i = 0; i < List.size(); i++)
 		{
 			//If Listis Equal Setting of Local Variable Equality.
-			if (A[i] == List[i][0] && A[1] == List[i][1])
+			if (A[0] == List[i][0] && A[1] == List[i][1])
 			{
 				Is = true;
 			}
@@ -1841,7 +1783,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		return Is;
 	}
 
-	bool ChessRules::FindAThing(int **Table, int Row, int Column, int Thing, bool BeMovable, std::vector<int> *List)
+	bool ChessRules::FindAThing(int **Table, int &Row, int &Column, int Thing, bool BeMovable, std::vector<int*> &List)
 	{
 		//For All Items In Table Home.
 		for (int i = 0; i < 8; i++)
@@ -1883,7 +1825,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 							for (int jj = 0; jj < 8; jj++)
 							{
 								//If First Home is Movable to Second Home.
-								if ((new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, i, j))->Movable(Table, i, j, ii, jj, A, Order))
+								if ((new RefrigtzDLL::ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, i, j))->Movable(Table, i, j, ii, jj, A, Order))
 								{
 									//If Array Exist in Home.
 									if (ArrayInList(List, AA))
@@ -1908,7 +1850,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		return false;
 	}
 
-	bool ChessRules::FindBrownKing(int **Table, int Row, int Column)
+	bool ChessRules::FindBrownKing(int **Table, int &Row, int &Column)
 	{
 		//For All Home Table.
 		for (int i = 0; i < 8; i++)
@@ -1933,7 +1875,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 	bool ChessRules::CheckRemovableByAttack(int **Table, int Order)
 	{
 		//Initiate Local Variables.
-		int **Tabl;
+		int **Tabl = new int*[8]; for (int g = 0; g < 8; g++)Tabl[g] = new int[8];
 		//Clone a Copy.
 		for (int i = 0; i < 8; i++)
 		{
@@ -1943,7 +1885,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			}
 		}
 		//Initiate Global Variables.
-		//autoO = new Object();
+		////auto O = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 		//lock (O)
 		{
@@ -1965,7 +1907,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 						for (int jj = 0; jj < 8; jj++)
 						{
 							//If Tow How is the Same Continue Traversal Back.
-							if (i == ii  &&j == jj)
+							if (i == ii && j == jj)
 							{
 								continue;
 							}
@@ -1976,7 +1918,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 								if (Table[ii][jj] > 0)
 								{
 									//Initiate Local Variables.
-									int **Tab;
+									int **Tab = new int*[8]; for (int g = 0; g < 8; g++)Tab[g] = new int[8];
 									//Clone  a Copy.
 									for (int iii = 0; iii < 8; iii++)
 									{
@@ -1986,7 +1928,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 										}
 									}
 									//If Is Movable.
-									if ((new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, i, j))->Movable(Tab, i, j, ii, jj, -1, -1))
+									if ((new RefrigtzDLL::ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, i, j))->Movable(Tab, i, j, ii, jj, -1, -1))
 									{
 										//Clone a Copy.
 										for (int iii = 0; iii < 8; iii++)
@@ -2011,7 +1953,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 													//Initiate and Move.
 													Tab[i][j] = Table[ii][jj];
 													Tab[ii][jj] = 0;
-													//autoO1 = new Object();
+													////auto O1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 													//lock (O1)
 													{
@@ -2048,7 +1990,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 						for (int jj = 0; jj < 8; jj++)
 						{
 							//if The Tow Traversal are the ame Continue Traversal Back.
-							if (i == ii  &&j == jj)
+							if (i == ii && j == jj)
 							{
 								continue;
 							}
@@ -2059,7 +2001,8 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 								if (Table[ii][jj] < 0)
 								{
 									//Inaitate Local Variables.
-									int **Tab;
+									int **Tab = new int*[8]; for (int g = 0; g < 8; g++)Tab[g] = new int[8];
+							
 									//Clone a Copy.
 									for (int iii = 0; iii < 8; iii++)
 									{
@@ -2069,7 +2012,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 										}
 									}
 									//Moveable Movemnts in the Tow Traversal Kind.
-									if ((new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, i, j))->Movable(Tab, i, j, ii, jj, 1, 1))
+									if ((new RefrigtzDLL::ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, i, j))->Movable(Tab, i, j, ii, jj, 1, 1))
 									{
 										for (int iii = 0; iii < 8; iii++)
 										{
@@ -2093,7 +2036,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 													//Move and Initaite Local and Global Variables.
 													Tab[i][j] = Table[ii][jj];
 													Tab[ii][jj] = 0;
-													//autoO1 = new Object();
+													////auto O1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 													//lock (O1)
 													{
@@ -2131,45 +2074,42 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 
 	bool **ChessRules::VeryFye(int **Table, int Order, int a, int ii, int jj)
 	{
-		int Cdummy = ChessRules::CurrentOrder;
+		int Cdummy = RefrigtzDLL::ChessRules::CurrentOrder;
 		if (Order == 1)
 		{
-			ChessRules::CurrentOrder = 1;
+			RefrigtzDLL::ChessRules::CurrentOrder = 1;
 		}
 		else
 		{
-			ChessRules::CurrentOrder = -1;
+			RefrigtzDLL::ChessRules::CurrentOrder = -1;
 		}
-		bool **Tab = new bool*[8];
-		for (int i = 0; i < 8; i++)
-			Tab[i] =new  bool[8];
-		
-
+		bool **Tab = new bool*[8]; for (int g = 0; g < 8; g++)Tab[g] = new bool[8];
+	
 		for (int i = 0; i < 8; i++)
 		{
 			for (int j = 0; j < 8; j++)
 			{
-				if (i == ii  &&j == jj)
+				if (i == ii && j == jj)
 				{
 					continue;
 				}
 
 
-				if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[ii][jj], Table, Order, ii, jj))->Rules(ii, jj, i, j, a, Table[ii][jj]))
+				if ((new RefrigtzDLL::ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[ii][jj], Table, Order, ii, jj))->Rules(ii, jj, i, j, a, Table[ii][jj]))
 				{
 					Tab[i][j] = true;
 				}
-				if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[ii][jj], Table, Order, ii, jj))->Rules(ii, jj, i, j, a, Table[ii][jj]))
+				if ((new RefrigtzDLL::ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[ii][jj], Table, Order, ii, jj))->Rules(ii, jj, i, j, a, Table[ii][jj]))
 				{
 					Tab[i][j] = true;
 				}
 			}
 		}
-		ChessRules::CurrentOrder = Cdummy;
+		RefrigtzDLL::ChessRules::CurrentOrder = Cdummy;
 		return Tab;
 	}
 
-	bool ChessRules::OnlyKingMovable(int **Tab, bool TabB[8][8], int Order)
+	bool ChessRules::OnlyKingMovable(int **Tab, bool **TabB, int Order)
 	{
 		for (int i = 0; i < 8; i++)
 		{
@@ -2201,7 +2141,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 
 	bool ChessRules::Pat(int **Tab, int Order, int a)
 	{
-		int **Table;
+		int **Table = new int*[8]; for (int g = 0; g < 8; g++)Table[g] = new int[8];
 		for (int i = 0; i < 8; i++)
 		{
 			for (int j = 0; j < 8; j++)
@@ -2210,7 +2150,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			}
 		}
 		bool Pat = false;
-		//autoO = new Object();
+		////auto O = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 		//lock (O)
 		{
@@ -2218,7 +2158,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		}
 		if (!Check(Table, Order))
 		{
-			bool TableS[8][8];
+			bool **TableS = new bool*[8]; for (int g = 0; g < 8; g++)TableS[g] = new bool[8];
 			//  if (Order == -1)
 
 			for (int ii = 0; ii < 8; ii++)
@@ -2227,7 +2167,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 				{
 					if (Table[ii][jj] > 0)
 					{
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
 //ORIGINAL LINE: bool[,] TableSS = VeryFye(Table, 1, int.Gray, ii, jj);
 						bool **TableSS = VeryFye(Table, 1, 1, ii, jj);
 
@@ -2256,7 +2196,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			Pat = !Pat;
 			if (Pat || NumbersofKingMovesToPatGray > 16)
 			{
-				//autoOn = new Object();
+				////auto On = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 				//lock (On)
 				{
@@ -2264,15 +2204,16 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 					PatkGray = true;
 				}
 			}
-			//TableS = new bool[8][8];
+			TableS = new bool*[8]; for (int g = 0; g < 8; g++)TableS[g] = new bool[8];
 
+			
 			for (int ii = 0; ii < 8; ii++)
 			{
 				for (int jj = 0; jj < 8; jj++)
 				{
 					if (Table[ii][jj] < 0)
 					{
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete*' where appropriate:
+//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
 //ORIGINAL LINE: bool[,] TableSS = VeryFye(Table, -1, int.Brown, ii, jj);
 						bool **TableSS = VeryFye(Table, -1, -1, ii, jj);
 						for (int iii = 0; iii < 8; iii++)
@@ -2300,7 +2241,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			Pat = !Pat;
 			if (Pat || NumbersofKingMovesToPatBrown >= 16)
 			{
-				//autoOn = new Object();
+				////auto On = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 				//lock (On)
 				{
@@ -2328,7 +2269,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			}
 
 		}
-		//autoO1 = new Object();
+		////auto O1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 		//lock (O1)
 		{
@@ -2339,7 +2280,9 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 
 	void ChessRules::CheckKing(int **Table, int Order, int RowK, int ColumnK)
 	{
-		int **Tab;
+		int **Tab = new int*[8]; for (int g = 0; g < 8; g++)Tab[g] = new int[8];
+
+		
 		//Clone a Copy.
 		for (int ii = 0; ii < 8; ii++)
 		{
@@ -2361,21 +2304,21 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			for (int j = 0; j < 8; j++)
 			{
 				//If The Current Home is the Gray King Continue Traversal Back.
-				if (i == RowK  &&j == ColumnK)
+				if (i == RowK && j == ColumnK)
 				{
 					continue;
 				}
-				if (Ord == 1 && Tab[i][j] <= 0)
+				if (Ord == 1 & Tab[i][j] <= 0)
 				{
 					continue;
 				}
-				if (Ord == -1 && Tab[i][j] >= 0)
+				if (Ord == -1 & Tab[i][j] >= 0)
 				{
 					continue;
 				}
 				//Initiate Global Variables.
-				int Dummt = ChessRules::CurrentOrder;
-				ChessRules::CurrentOrder = -1;
+				int Dummt = RefrigtzDLL::ChessRules::CurrentOrder;
+				RefrigtzDLL::ChessRules::CurrentOrder = -1;
 				//Clone a Copy.
 				for (int ii = 0; ii < 8; ii++)
 				{
@@ -2390,7 +2333,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 				{
 					a = -1;
 				}
-				ChessRules *A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[i][j], Table, Ord, i, j);
+				RefrigtzDLL::ChessRules *A = new RefrigtzDLL::ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[i][j], Table, Ord, i, j);
 				if (Ord == 1)
 				{
 					//Menen Parameter is Moveble to Second Parameters Location returm Movable.
@@ -2413,7 +2356,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 				}
 
 				//Initiate Global Variables.
-				ChessRules::CurrentOrder = Dummt;
+				RefrigtzDLL::ChessRules::CurrentOrder = Dummt;
 
 
 			}
@@ -2428,25 +2371,25 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 	bool ChessRules::Check(int **Table, int Ord)
 	{
 		//A player is not required to move their king out of check and the game concludes when there is a 100 % probability that one of the kings has been taken. As a result there is no checkmate.
-		if (DrawKing::KingGrayNotCheckedByQuantumMove  &&Ord == 1)
+		if (DrawKing::KingGrayNotCheckedByQuantumMove && Ord == 1)
 		{
 			return false;
 		}
 		else
 		{
-			if (DrawKing::KingBrownNotCheckedByQuantumMove  &&Ord == -1)
+			if (DrawKing::KingBrownNotCheckedByQuantumMove && Ord == -1)
 			{
 			return false;
 			}
 		}
 		int DummyOrder = Ord;
 		//Initiate Local and Global Briables.
-		bool Store = ChessRules::CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing;
-		//autoO = new Object();
+		bool Store = RefrigtzDLL::ChessRules::CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing;
+		////auto O = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 		//lock (O)
 		{
-			ChessRules::CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = false;
+			RefrigtzDLL::ChessRules::CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = false;
 		}
 		CheckGray = false;
 		CheckBrown = false;
@@ -2477,7 +2420,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		return false;
 	}
 
-	void ChessRules::CheckMateKing(int **Tab, int Ord, bool CheckGrayDummy, bool CheckBrownDummy, int RowK, int ColumnK, bool ActMove, bool Checked)
+	void ChessRules::CheckMateKing(int **Tab, int Ord, bool CheckGrayDummy, bool CheckBrownDummy, int RowK, int ColumnK, bool &ActMove, bool Checked)
 	{
 		int DummyOrder = Order;
 		//For All Home Table.
@@ -2501,14 +2444,14 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 				if (Checked)
 				{
 					//Initiate Global Variables.
-					ChessRules::CurrentOrder = 1;
+					RefrigtzDLL::ChessRules::CurrentOrder = 1;
 					//Ig Gray King is Movable to First Home Table.
 					int a = 1;
 					if (Ord == -1)
 					{
 						a = -1;
 					}
-					ChessRules *A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[RowK][ColumnK], Table, Ord, RowK, ColumnK);
+					RefrigtzDLL::ChessRules *A = new RefrigtzDLL::ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[RowK][ColumnK], Table, Ord, RowK, ColumnK);
 					Order = DummyOrder;
 					///Table[ii, jj] = 0;
 					//Menen Parameter is Moveble to Second Parameters Location returm Movable.
@@ -2538,7 +2481,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 								if (A->CheckGray)
 								{
 									//Move Mack.
-									(ActMove) = true;
+									ActMove = true;
 									continue;
 								}
 								else //If There is Not Gray Check.
@@ -2553,7 +2496,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 								if (A->CheckBrown)
 								{
 									//Move Mack.
-									(ActMove) = true;
+									ActMove = true;
 									continue;
 								}
 								else //If There is Not Gray Check.
@@ -2585,7 +2528,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		Order = DummyOrder;
 	}
 
-	void ChessRules::CheckMateNotKing(int **Tab, int Ord, bool CheckGrayDummy, bool CheckBrownDummy, bool ActMove)
+	void ChessRules::CheckMateNotKing(int **Tab, int Ord, bool CheckGrayDummy, bool CheckBrownDummy, bool &ActMove)
 	{
 		int DummyOrder = Ord;
 		//For All Home Table.
@@ -2609,7 +2552,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 				CheckBrown = CheckBrownDummy;
 				//If There is Gray Check.
 				//Initiate Local Varibale.
-				(ActMove) = true;
+				ActMove = true;
 				//For All Second Home Table.
 				for (int ii = 0; ii < 8; ii++)
 				{
@@ -2637,7 +2580,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 						{
 							a = -1;
 						}
-						ChessRules *A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[i][j], Table, Ord, i, j);
+						RefrigtzDLL::ChessRules *A = new RefrigtzDLL::ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[i][j], Table, Ord, i, j);
 						///Table[ii, jj] = 0;
 						//Menen Parameter is Moveble to Second Parameters Location returm Movable.
 						if (A->Rules(i, j, ii, jj, a, Ord))
@@ -2650,7 +2593,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 							Table[ii][jj] = Table[i][j];
 							Table[i][j] = 0;
 							//If Check.
-							A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[ii][jj], Table, Ord, ii, jj);
+							A = new RefrigtzDLL::ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[ii][jj], Table, Ord, ii, jj);
 							if (A->Check(Table, Ord))
 							{
 								Order = DummyOrder;
@@ -2663,7 +2606,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 									if (A->CheckGray)
 									{
 										//Initiate and Move Back.
-										(ActMove) = true;
+										ActMove = true;
 										Table[i][j] = Table[ii][jj];
 										Table[ii][jj] = Store;
 										continue;
@@ -2683,7 +2626,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 									if (A->CheckBrown)
 									{
 										//Initiate and Move Back.
-										(ActMove) = true;
+										ActMove = true;
 										Table[i][j] = Table[ii][jj];
 										Table[ii][jj] = Store;
 										continue;
@@ -2734,9 +2677,8 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 	{
 
 		//Initiate Local and Global  Varibales.
-		int **Table;
-		//try
-		{
+		int **Table = new int*[8]; for (int g = 0; g < 8; g++)Table[g] = new int[8];
+
 			for (int i = 0; i < 8; i++)
 			{
 				for (int j = 0; j < 8; j++)
@@ -2744,19 +2686,15 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 					Table[i][j] = Tab[i][j];
 				}
 			}
-		}
-		//catch(std::exception t)
-		{
-			
-			return false;
-		}
+
 		CheckGray = false;
 		CheckBrown = false;
 		CheckMateBrown = false;
 		CheckMateGray = false;
-		bool ActMoveG = new bool();	(ActMoveG) = true;
-		bool ActMoveGF = new bool();	(ActMoveGF) = true;
-		bool ActMoveB = new bool();	(ActMoveB) = true;
+		bool ActMoveG = true;
+		bool ActMoveGF = true;
+		bool ActMoveB = true;
+		bool ActMoveBF = true;
 		int RowG = 0, ColumnG = 0;
 		int RowB = 0, ColumnB = 0;
 		int DumnyOrder = Ord;
@@ -2766,8 +2704,8 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		bool CheckGrayDummy = CheckGray;
 		bool CheckBrownDummy = CheckBrown;
 
-		(ActMoveG) = true;
-		(ActMoveGF) = true;
+		ActMoveG = true;
+		ActMoveGF = true;
 
 		for (int i = 0; i < 8; i++)
 		{
@@ -2776,7 +2714,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 				Table[i][j] = Tab[i][j];
 			}
 		}
-		ChessRules *A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[RowG][ColumnG], Table, Ord, RowG, ColumnG);
+		RefrigtzDLL::ChessRules *A = new RefrigtzDLL::ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[RowG][ColumnG], Table, Ord, RowG, ColumnG);
 
 		//Found of Gray King.
 		if (FindGrayKing(Table, RowG, ColumnG))
@@ -2802,16 +2740,16 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		CheckBrown = CheckBrownDummy;
 
 		//Condition of CheckMate Gray King.
-		if (CheckGray &&ActMoveG  &&ActMoveGF)
+		if (CheckGray && (ActMoveG && ActMoveGF))
 		{
 			CheckMateGray = true;
 		}
 
 
-		(ActMoveB) = true;
-		(ActMoveGF) = true;
+		ActMoveB = true;
+		ActMoveBF = true;
 
-		ChessRules *AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[RowB][ColumnB], Table, Ord, RowB, ColumnB);
+		RefrigtzDLL::ChessRules AA =  RefrigtzDLL::ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[RowB][ColumnB], Table, Ord, RowB, ColumnB);
 		for (int i = 0; i < 8; i++)
 		{
 			for (int j = 0; j < 8; j++)
@@ -2822,7 +2760,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		//Found of Brown King.
 		if (FindBrownKing(Table, RowB, ColumnB))
 		{
-			AA->CheckMateKing(Table, -1, CheckGrayDummy, CheckBrownDummy, RowB, ColumnB, ActMoveB, CheckBrown);
+			AA.CheckMateKing(Table, -1, CheckGrayDummy, CheckBrownDummy, RowB, ColumnB, ActMoveB, CheckBrown);
 		}
 		for (int i = 0; i < 8; i++)
 		{
@@ -2834,7 +2772,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		//Found of Brown King.
 		if (FindBrownKing(Table, RowB, ColumnB))
 		{
-			AA->CheckMateNotKing(Table, -1, CheckGrayDummy, CheckBrownDummy, ActMoveGF);
+			AA.CheckMateNotKing(Table, -1, CheckGrayDummy, CheckBrownDummy, ActMoveBF);
 		}
 
 
@@ -2842,7 +2780,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		CheckGray = CheckGrayDummy;
 		CheckBrown = CheckBrownDummy;
 		//Condition of Brown CheckMate.
-		if (CheckBrown &&ActMoveB  &&ActMoveGF)
+		if (CheckBrown && (ActMoveB && ActMoveBF))
 		{
 			CheckMateBrown = true;
 		}
@@ -2855,7 +2793,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			//Initiate Global Variable and Return CheckMate.
 			CheckGray = CheckGrayDummy;
 			CheckBrown = CheckBrownDummy;
-			//autoOn = new Object();
+			////auto On = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 			//lock (On)
 			{
@@ -2885,18 +2823,18 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		/*if (!KingAttacker)
 		{
 		    //Coluld not hit King In Destination Enemy.
-		    if (Order == 1  Table[RowSecond, ColumnSecond] == -6)
+		    if (Order == 1 && Table[RowSecond, ColumnSecond] == -6)
 		        return false;
-		    if (Order == -1  Table[RowSecond, ColumnSecond] == 6)
+		    if (Order == -1 && Table[RowSecond, ColumnSecond] == 6)
 		        return false;
 		}*/
 		//If Source and The Destination are The Same.
-		if (RowFirst == RowSecond  &&ColumnFirst == ColumnSecond)
+		if (RowFirst == RowSecond && ColumnFirst == ColumnSecond)
 		{
 			return false;
 		}
 		//Initiate Global Variable.
-		//autoO = new Object();
+		////auto O = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 		//lock (O)
 		{
@@ -2962,7 +2900,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 	{
 		bool Move = false;
 		//When Miniaster Rule is Valid.
-		if (MinisterRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy, Ki) && abs(RowFirst-RowSecond) <= 1 && abs(ColumnFirst-ColumnSecond) <= 1)
+		if (MinisterRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy, Ki) && (abs(RowFirst - RowSecond) <= 1) && (abs(ColumnFirst - ColumnSecond) <= 1))
 		{
 			//Initiate Local Variable.
 			/* int[,] Tab = new int[8, 8];
@@ -2982,176 +2920,142 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			     if (!PatCheckedInKingRule)
 			     {
 			         //Check Gray State return Non Rule.
-			         if (Order == 1  CheckGray)
+			         if (Order == 1 && CheckGray)
 			             return false;
 			         else//Brown Check State return Non Rule.
-			             if (Order == -1  CheckBrown)
+			             if (Order == -1 && CheckBrown)
 			                 return false;
 			     }
 			     else
 			     {
 			         //Check Gray State return Non Rule.
-			         if (Order == -1  CheckGray)
+			         if (Order == -1 && CheckGray)
 			             return false;
 			         else//Brown Check State return Non Rule.
-			             if (Order == 1  CheckBrown)
+			             if (Order == 1 && CheckBrown)
 			                 return false;
 			     }
 			 }
 	
 			 //Determination of Gray Enemy State Check at Enemy King at Around Existing Return Not Validity.
-			 if (Order == 1  Table[RowFirst, ColumnFirst] == 6)
+			 if (Order == 1 && Table[RowFirst, ColumnFirst] == 6)
 			 {
-			     //try
-			     {
-			         if ((RowSecond + 1 < 8)
+			     
+			         if ((RowSecond + 1) < 8)
 			         {
 			             if (Table[RowSecond + 1, ColumnSecond] == -6)
 			                 return false;
 			         }
-			     }
-			     //catch(Exception t) {  }
-			     //try
-			     {
+			    
+			     
 			         if ((ColumnSecond + 1) < 8)
 			         {
 			             if (Table[RowSecond, ColumnSecond + 1] == -6)
 			                 return false;
 			         }
-			     }
-	
-			     //catch(Exception t) {  }
-			     //try
-			     {
-			         if (((RowSecond + 1 < 8) (ColumnSecond + 1) < 8))
+			    
+			     
+			         if (((RowSecond + 1) < 8) && ((ColumnSecond + 1) < 8))
 			         {
 			             if (Table[RowSecond + 1, ColumnSecond + 1] == -6)
 			                 return false;
 			         }
-			     }
-			     //catch(Exception t) {  }
-			     //try
-			     {
-			         if (((RowSecond-1 >= 0))
+			    
+			     
+			         if (((RowSecond - 1) >= 0))
 			         {
-			             if (Table[RowSecond-1, ColumnSecond] == -6)
+			             if (Table[RowSecond - 1, ColumnSecond] == -6)
 			                 return false;
 			         }
-			     }
-			     //catch(Exception t) {  }
-			     //try
-			     {
-			         if (ColumnSecond.1 >= 0)
+			    
+			     
+			         if (ColumnSecond - 1 >= 0)
 			         {
-			             if (Table[RowSecond, ColumnSecond-1] == -6)
+			             if (Table[RowSecond, ColumnSecond - 1] == -6)
 			                 return false;
 			         }
-			     }
-			     //catch(Exception t) {  }
-			     //try
-			     {
-			         if (((RowSecond-1 >= 0) (ColumnSecond.1) >= 0))
+			    
+			     
+			         if (((RowSecond - 1) >= 0) && ((ColumnSecond - 1) >= 0))
 			         {
-			             if (Table[RowSecond-1, ColumnSecond-1] == -6)
+			             if (Table[RowSecond - 1, ColumnSecond - 1] == -6)
 			                 return false;
 			         }
-			     }
-			     //catch(Exception t) {  }
-			     //try
-			     {
-			         if (((RowSecond + 1 < 8) (ColumnSecond.1) >= 0))
+			    
+			     
+			         if (((RowSecond + 1) < 8) && ((ColumnSecond - 1) >= 0))
 			         {
-			             if (Table[RowSecond + 1, ColumnSecond-1] == -6)
+			             if (Table[RowSecond + 1, ColumnSecond - 1] == -6)
 			                 return false;
 			         }
-			     }
-			     //catch(Exception t) {  }
-			     //try
-			     {
-			         if (((RowSecond-1 >= 0) (ColumnSecond + 1) < 8))
+			    
+			     
+			         if (((RowSecond - 1) >= 0) && ((ColumnSecond + 1) < 8))
 			         {
-			             if (Table[RowSecond-1, ColumnSecond + 1] == -6)
+			             if (Table[RowSecond - 1, ColumnSecond + 1] == -6)
 			                 return false;
 			         }
-			     }
-			     //catch(Exception t) {  }
+			    
 	
 			 }//Determination of Brown Enemy State Check at Enemy King at Around Existing Return Not Validity.         
-			 else if (Order == -1  Table[RowFirst, ColumnFirst] == -6)
+			 else if (Order == -1 && Table[RowFirst, ColumnFirst] == -6)
 			 {
-			     //try
-			     {
-			         if ((RowSecond + 1 < 8)
+			     
+			         if ((RowSecond + 1) < 8)
 			         {
 			             if (Table[RowSecond + 1, ColumnSecond] == 6)
 			                 return false;
 			         }
-			     }
-			     //catch(Exception t) {  }
-			     //try
-			     {
+			    
+			     
 			         if ((ColumnSecond + 1) < 8)
 			         {
 			             if (Table[RowSecond, ColumnSecond + 1] == 6)
 			                 return false;
 			         }
-			     }
-	
-			     //catch(Exception t) {  }
-			     //try
-			     {
-			         if (((RowSecond + 1 < 8) (ColumnSecond + 1) < 8))
+			    
+			     
+			         if (((RowSecond + 1) < 8) && ((ColumnSecond + 1) < 8))
 			         {
 			             if (Table[RowSecond + 1, ColumnSecond + 1] == 6)
 			                 return false;
 			         }
-			     }
-			     //catch(Exception t) {  }
-			     //try
-			     {
-			         if (((RowSecond-1 >= 0))
+			    
+			     
+			         if (((RowSecond - 1) >= 0))
 			         {
-			             if (Table[RowSecond-1, ColumnSecond] == 6)
+			             if (Table[RowSecond - 1, ColumnSecond] == 6)
 			                 return false;
 			         }
-			     }
-			     //catch(Exception t) {  }
-			     //try
-			     {
-			         if (ColumnSecond.1 >= 0)
+			    
+			     
+			         if (ColumnSecond - 1 >= 0)
 			         {
-			             if (Table[RowSecond, ColumnSecond-1] == 6)
+			             if (Table[RowSecond, ColumnSecond - 1] == 6)
 			                 return false;
 			         }
-			     }
-			     //catch(Exception t) {  }
-			     //try
-			     {
-			         if (((RowSecond-1 >= 0) (ColumnSecond.1) >= 0))
+			    
+			     
+			         if (((RowSecond - 1) >= 0) && ((ColumnSecond - 1) >= 0))
 			         {
-			             if (Table[RowSecond-1, ColumnSecond-1] == 6)
+			             if (Table[RowSecond - 1, ColumnSecond - 1] == 6)
 			                 return false;
 			         }
-			     }
-			     //catch(Exception t) {  }
-			     //try
-			     {
-			         if (((RowSecond + 1 < 8) (ColumnSecond.1) >= 0))
+			    
+			     
+			         if (((RowSecond + 1) < 8) && ((ColumnSecond - 1) >= 0))
 			         {
-			             if (Table[RowSecond + 1, ColumnSecond-1] == 6)
+			             if (Table[RowSecond + 1, ColumnSecond - 1] == 6)
 			                 return false;
 			         }
-			     }
-			     //catch(Exception t) {  }
-			     //try
-			     {
-			         if (((RowSecond-1 >= 0) (ColumnSecond + 1) < 8))
+			    
+			     
+			         if (((RowSecond - 1) >= 0) && ((ColumnSecond + 1) < 8))
 			         {
-			             if (Table[RowSecond-1, ColumnSecond + 1] == 6)
+			             if (Table[RowSecond - 1, ColumnSecond + 1] == 6)
 			                 return false;
 			         }
-			     }
-			     //catch(Exception t) {  }
+			    
 	
 			 }
 			 */
@@ -3185,9 +3089,9 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 	bool ChessRules::CastleRules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, int color, bool ExistInDestinationEnemy, int Ki)
 	{
 		bool Move = false;
-		bool Act = new bool();	(Act) = false;
+		bool Act = false;
 		//If Variation is Only in Row.
-		if (abs(ColumnFirst-ColumnSecond) == 0 && abs(RowFirst-RowSecond) != 0)
+		if (abs(ColumnFirst - ColumnSecond) == 0 && abs(RowFirst - RowSecond) != 0)
 		{
 			//Initiate Local Variables.
 			int RowU = RowSecond, RowD = RowFirst;
@@ -3238,7 +3142,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 				//For Variation of Row Home.
 				for (int i = F; i <= G; i++)
 				{
-					if (IgnoreSelfObject  &&i == RowSecond)
+					if (IgnoreSelfObject && i == RowSecond)
 					{
 						continue;
 					}
@@ -3249,12 +3153,12 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 						if (Table[i][ColumnFirst] > 0 && Table[RowFirst][ColumnFirst] > 0)
 						{
 							Move = false;
-							(Act) = true;
+							Act = true;
 						}
 						//When There is Self Home of Brown Objects Return Not Validity.
 						if (Table[i][ColumnFirst] < 0 && Table[RowFirst][ColumnFirst] < 0)
 						{
-							(Act) = true;
+							Act = true;
 							Move = false;
 						}
 
@@ -3264,13 +3168,13 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 							//When There is Slef Home at Root Return Not Valididty.
 							if ((Table[i][ColumnFirst] < 0 || Table[i][ColumnFirst] > 0) && Table[RowFirst][ColumnFirst] > 0)
 							{
-								(Act) = true;
+								Act = true;
 								Move = false;
 							}
 							//When There is Slef Home at Root Return Not Valididty.
 							if ((Table[i][ColumnFirst] > 0 || Table[i][ColumnFirst] < 0) && Table[RowFirst][ColumnFirst] < 0)
 							{
-								(Act) = true;
+								Act = true;
 								Move = false;
 							}
 						}
@@ -3285,7 +3189,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 
 		}
 		//When There is Only Column Variation Home Changes.
-		if (abs(ColumnFirst-ColumnSecond) != 0 && abs(RowFirst-RowSecond) == 0)
+		if (abs(ColumnFirst - ColumnSecond) != 0 && abs(RowFirst - RowSecond) == 0)
 		{
 			//Initiate Local Variables.
 			int RowU = RowSecond, RowD = RowFirst;
@@ -3336,7 +3240,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			//For All Column Home Variation.
 			for (int j = A; j <= B; j++)
 			{
-				if (IgnoreSelfObject  &&j == ColumnSecond)
+				if (IgnoreSelfObject && j == ColumnSecond)
 				{
 					continue;
 				}
@@ -3346,13 +3250,13 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 					//For All Self Home at Root Return Not Validity
 					if (Table[RowFirst][j] > 0 && Table[RowFirst][ColumnFirst] > 0)
 					{
-						(Act) = true;
+						Act = true;
 						Move = false;
 					}
 					//For All Self Home at Root Return Not Validity.                       
 					if (Table[RowFirst][j] < 0 && Table[RowFirst][ColumnFirst] < 0)
 					{
-						(Act) = true;
+						Act = true;
 						Move = false;
 					}
 					//Condition Determination.
@@ -3361,13 +3265,13 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 						//Existing of Self Home At Root Cuased to Not validity.
 						if ((Table[RowFirst][j] < 0 || Table[RowFirst][j] > 0) && Table[RowFirst][ColumnFirst] > 0)
 						{
-							(Act) = true;
+							Act = true;
 							Move = false;
 						}
 						//Existing of Self Home At Root Cuased to Not validity.
 						if ((Table[RowFirst][j] > 0 || Table[RowFirst][j] < 0) && Table[RowFirst][ColumnFirst] < 0)
 						{
-							(Act) = true;
+							Act = true;
 							Move = false;
 						}
 					}
@@ -3383,7 +3287,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		}
 
 		//Return Not Validity.
-		/*if (Move  System.Math.Abs(Ki) != 6)
+		/*if (Move && System.Math.Abs(Ki) != 6)
 		{
 		    if (AchmazCheckByMoveByRule(Table, RowFirst, ColumnFirst, RowSecond, ColumnSecond, Order))
 		        Move = false;
@@ -3398,9 +3302,9 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 	bool ChessRules::ElefantRules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, int color, bool ExistInDestinationEnemy, int Ki)
 	{
 		bool Move = false;
-		bool Act = new bool(); (Act) = false;
+		bool Act = false;
 		//Orthogonal Movments of One Abs Derivation.
-		if (abs(ColumnFirst-ColumnSecond) == abs(RowFirst-RowSecond))
+		if (abs(ColumnFirst - ColumnSecond) == abs(RowFirst - RowSecond))
 		{
 			//Initaiet Of Local Variables.
 			int RowU = RowSecond, RowD = RowFirst;
@@ -3452,45 +3356,45 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			{
 				for (int j = A; j <= B; j++)
 				{
-					if (IgnoreSelfObject  &&i == RowSecond  &&j == ColumnSecond)
+					if (IgnoreSelfObject && i == RowSecond && j == ColumnSecond)
 					{
 						continue;
 					}
 
 					//If Abs Derivation is Not One Continue. 
-					if (abs(i-RowFirst) != abs(j-ColumnFirst))
+					if (abs(i - RowFirst) != abs(j - ColumnFirst))
 					{
 						continue;
 					}
 					//If the Current is Not Source Home.
-					if (i != RowFirst  &&j != ColumnFirst)
+					if (i != RowFirst && j != ColumnFirst)
 					{
 						{
 							//If the Root Contains Self Home Return Not Validity.
 							if (Table[i][j] > 0 && Table[RowFirst][ColumnFirst] > 0)
 							{
-								(Act) = true;
+								Act = true;
 								Move = false;
 							}
 							//If The Root Contains Self Home Return Not vALIDITY. 
 							if (Table[i][j] < 0 && Table[RowFirst][ColumnFirst] < 0)
 							{
-								(Act) = true;
+								Act = true;
 								Move = false;
 							}
 							//When the Current is Not The Source Home.
-							if (i != RowSecond  &&j != ColumnSecond)
+							if (i != RowSecond && j != ColumnSecond)
 							{
 								//When the Self ObjectExisting at the Root .
 								if ((Table[i][j] > 0 || Table[i][j] < 0) && Table[RowFirst][ColumnFirst] > 0)
 								{
-									(Act) = true;
+									Act = true;
 									Move = false;
 								}
 								//When the Self ObjectExisting at the Root .
 								if ((Table[i][j] < 0 || Table[i][j] > 0) && Table[RowFirst][ColumnFirst] < 0)
 								{
-									(Act) = true;
+									Act = true;
 									Move = false;
 								}
 							}
@@ -3505,7 +3409,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 				Move = true;
 			}
 		}
-		/*if (Move  System.Math.Abs(Ki) != 6)
+		/*if (Move && System.Math.Abs(Ki) != 6)
 		{
 		    if (AchmazCheckByMoveByRule(Table, RowFirst, ColumnFirst, RowSecond, ColumnSecond, Order))
 		        Move = false;
@@ -3520,13 +3424,13 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 	{
 		bool Move = false;
 		//When L Movament is Occured. 
-		if (abs(ColumnFirst-ColumnSecond) == 2 && abs(RowFirst-RowSecond) == 1)
+		if (abs(ColumnFirst - ColumnSecond) == 2 && abs(RowFirst - RowSecond) == 1)
 		{
 			//Retrun Validity.
 			Move = true;
 		}
 		//When Second L Movments Occured.
-		if (abs(ColumnFirst-ColumnSecond) == 1 && abs(RowFirst-RowSecond) == 2)
+		if (abs(ColumnFirst - ColumnSecond) == 1 && abs(RowFirst - RowSecond) == 2)
 		{
 			//Return Validity.
 			Move = true;
@@ -3571,10 +3475,9 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			if (Order == -1 && Table[RowFirst][ColumnFirst] < 0)
 			{
 				//Depend on First Move do For Land Of Islam
-				//try
-				{
 
-					if ((ColumnFirst + 2 < 8) && (ColumnFirst + 1 < 8) && (RowFirst == RowSecond) && (ColumnSecond == ColumnFirst + 2) && (Table[RowSecond][ColumnSecond-1] == 0))
+
+					if ((ColumnFirst + 2 < 8) && (ColumnFirst + 1 < 8) && (RowFirst == RowSecond) && (ColumnSecond == ColumnFirst + 2) && (Table[RowSecond][ColumnSecond - 1] == 0))
 					{
 						//When Destination is The Empty Return Validity Else Return Not Validity.
 						if (Table[RowSecond][ColumnSecond] == 0)
@@ -3604,11 +3507,11 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 						{
 							if ((ColumnFirst + 1 < 8) && ColumnSecond == ColumnFirst + 1)
 							{
-								if (((RowSecond-1 < 8) &(RowFirst == RowSecond-1) && ExistInDestinationEnemy) || IgnoreSelfObject)
+								if ((RowSecond - 1 < 8) && (RowFirst == RowSecond - 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
 								{
 									Move = true;
 								}
-								if (((RowSecond + 1 < 8) && (RowFirst == RowSecond + 1) && ExistInDestinationEnemy) || IgnoreSelfObject)
+								if ((RowSecond + 1 < 8) && (RowFirst == RowSecond + 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
 								{
 									Move = true;
 								}
@@ -3616,19 +3519,14 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 							}
 						}
 					}
-				}
-				//catch(std::exception t)
-				{
-					
-				}
+
 			}
 			else //Gray int.
 			{
 				if (Order == 1 && Table[RowFirst][ColumnFirst] > 0)
 				{
 					//Depend Of First Move do For Positivism
-					//try
-					{
+
 						if ((ColumnSecond + 2 < 8) && (ColumnSecond + 1 < 8) && (RowFirst == RowSecond) && (ColumnFirst == ColumnSecond + 2) && (Table[RowSecond][ColumnSecond + 1] == 0))
 						{
 							//When Destination is The Empty Return Validity Else Return Not Validity.
@@ -3659,12 +3557,12 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 							{
 								if ((ColumnSecond + 1 < 8) && ColumnFirst == ColumnSecond + 1)
 								{
-									if (((RowSecond + 1 < 8) && (RowFirst == RowSecond + 1) && ExistInDestinationEnemy) || IgnoreSelfObject)
+									if ((RowSecond + 1 < 8) && (RowFirst == RowSecond + 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
 									{
 										//Return Validity.
 										Move = true;
 									}
-									if (((RowSecond-1 >= 0) && (RowFirst == RowSecond-1) && ExistInDestinationEnemy) || IgnoreSelfObject)
+									if ((RowSecond - 1 >= 0) && (RowFirst == RowSecond - 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
 									{
 										//Return Validity.
 										Move = true;
@@ -3672,11 +3570,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 								}
 							}
 						}
-					}
-					//catch(std::exception t)
-					{
-						
-					}
+
 				}
 			}
 		}
@@ -3686,8 +3580,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			if (Order == -1 && Table[RowFirst][ColumnFirst] < 0)
 			{
 				//Depend on Second Move do For Land Of Islam
-				//try
-				{
+
 					if ((ColumnFirst + 1 < 8) && (RowFirst == RowSecond) && (ColumnSecond == ColumnFirst + 1) && (Table[RowSecond][ColumnSecond] == 0))
 					{
 						//When Destination is The Empty Return Validity Else Return Not Validity.
@@ -3704,30 +3597,25 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 					{
 						if ((ColumnFirst + 1 < 8) && ColumnSecond == ColumnFirst + 1)
 						{
-							if (((RowSecond-1 < 8) && (RowFirst == RowSecond-1) && ExistInDestinationEnemy) || IgnoreSelfObject)
+							if ((RowSecond - 1 < 8) && (RowFirst == RowSecond - 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
 							{
 								Move = true;
 							}
-							if (((RowSecond + 1 < 8) && (RowFirst == RowSecond + 1) && ExistInDestinationEnemy) || IgnoreSelfObject)
+							if ((RowSecond + 1 < 8) && (RowFirst == RowSecond + 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
 							{
 								Move = true;
 							}
 
 						}
 					}
-				}
-				//catch(std::exception t)
-				{
-					
-				}
+
 			}
 			else //Gray int.
 			{
 				if (Order == 1 && Table[RowFirst][ColumnFirst] > 0)
 				{
 					//Depend Of Second Move do For Positivism Land
-					//try
-					{
+
 						if ((ColumnSecond + 1 < 8) && (RowFirst == RowSecond) && (ColumnFirst == ColumnSecond + 1) && (Table[RowSecond][ColumnSecond] == 0))
 						{
 							//When Destination is The Empty Return Validity Else Return Not Validity.
@@ -3744,23 +3632,19 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 						{
 							if ((ColumnSecond + 1 < 8) && ColumnFirst == ColumnSecond + 1)
 							{
-								if (((RowSecond + 1 < 8) && (RowFirst == RowSecond + 1) && ExistInDestinationEnemy) || IgnoreSelfObject)
+								if ((RowSecond + 1 < 8) && (RowFirst == RowSecond + 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
 								{
 									//Return Validity.
 									Move = true;
 								}
-								if (((RowSecond-1 >= 0) && (RowFirst == RowSecond-1) && ExistInDestinationEnemy) || IgnoreSelfObject)
+								if ((RowSecond - 1 >= 0) && (RowFirst == RowSecond - 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
 								{
 									//Return Validity.
 									Move = true;
 								}
 							}
 						}
-					}
-					//catch(std::exception t)
-					{
-						
-					}
+
 				}
 			}
 		}
@@ -3797,10 +3681,9 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			if (Order == 1 && Table[RowFirst][ColumnFirst] > 0)
 			{
 				//Depend on First Move do For Land Of Islam
-				//try
-				{
 
-					if ((ColumnFirst + 2 < 8) && (ColumnFirst + 1 < 8) && (RowFirst == RowSecond) && (ColumnSecond == ColumnFirst + 2) && Table[RowSecond][ColumnSecond=1] == 0)
+
+					if ((ColumnFirst + 2 < 8) && (ColumnFirst + 1 < 8) && (RowFirst == RowSecond) && (ColumnSecond == ColumnFirst + 2) && (Table[RowSecond][ColumnSecond - 1] == 0))
 					{
 						//When Destination is The Empty Return Validity Else Return Not Validity.
 						if (Table[RowSecond][ColumnSecond] == 0)
@@ -3830,11 +3713,11 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 						{
 							if ((ColumnFirst + 1 < 8) && ColumnSecond == ColumnFirst + 1)
 							{
-								if (((RowSecond-1 < 8) && (RowFirst == RowSecond-1) && ExistInDestinationEnemy) || IgnoreSelfObject)
+								if ((RowSecond - 1 < 8) && (RowFirst == RowSecond - 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
 								{
 									Move = true;
 								}
-								if (((RowSecond + 1 < 8) && (RowFirst == RowSecond + 1) && ExistInDestinationEnemy) || IgnoreSelfObject)
+								if ((RowSecond + 1 < 8) && (RowFirst == RowSecond + 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
 								{
 									Move = true;
 								}
@@ -3842,20 +3725,15 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 							}
 						}
 					}
-				}
-				//catch(std::exception t)
-				{
-					
-				}
+
 			}
 			else //Brown int.
 			{
 				if (Order == -1 && Table[RowFirst][ColumnFirst] < 0)
 				{
 					//Depend Of First Move do For Positivism
-					//try
-					{
-						if ((ColumnSecond + 2 < 8) && (ColumnSecond + 1 < 8) && (RowFirst == RowSecond) && (ColumnFirst == ColumnSecond + 2) && Table[RowSecond][ColumnSecond + 1] == 0)
+
+						if ((ColumnSecond + 2 < 8) && (ColumnSecond + 1 < 8) && (RowFirst == RowSecond) && (ColumnFirst == ColumnSecond + 2) && (Table[RowSecond][ColumnSecond + 1] == 0))
 						{
 							//When Destination is The Empty Return Validity Else Return Not Validity.
 							if (Table[RowSecond][ColumnSecond] == 0)
@@ -3885,12 +3763,12 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 							{
 								if ((ColumnSecond + 1 < 8) && ColumnFirst == ColumnSecond + 1)
 								{
-									if (((RowSecond + 1 < 8) && (RowFirst == RowSecond + 1) && ExistInDestinationEnemy) || IgnoreSelfObject)
+									if ((RowSecond + 1 < 8) && (RowFirst == RowSecond + 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
 									{
 										//Return Validity.
 										Move = true;
 									}
-									if (((RowSecond-1 >= 0) && (RowFirst == RowSecond-1) && ExistInDestinationEnemy) || IgnoreSelfObject)
+									if ((RowSecond - 1 >= 0) && (RowFirst == RowSecond - 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
 									{
 										//Return Validity.
 										Move = true;
@@ -3898,11 +3776,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 								}
 							}
 						}
-					}
-					//catch(std::exception t)
-					{
-						
-					}
+
 				}
 			}
 		}
@@ -3912,8 +3786,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 			if (Order == 1 && Table[RowFirst][ColumnFirst] > 0)
 			{
 				//Depend on Second Move do For Land Of Islam
-				//try
-				{
+
 					if ((ColumnFirst + 1 < 8) && (RowFirst == RowSecond) && (ColumnSecond == ColumnFirst + 1) && (Table[RowSecond][ColumnSecond] == 0))
 					{
 						//When Destination is The Empty Return Validity Else Return Not Validity.
@@ -3930,30 +3803,25 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 					{
 						if ((ColumnFirst + 1 < 8) && ColumnSecond == ColumnFirst + 1)
 						{
-							if (((RowSecond-1 < 8) && (RowFirst == RowSecond-1) && ExistInDestinationEnemy) || IgnoreSelfObject)
+							if ((RowSecond - 1 < 8) && (RowFirst == RowSecond - 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
 							{
 								Move = true;
 							}
-							if (((RowSecond + 1 < 8) && (RowFirst == RowSecond + 1) && ExistInDestinationEnemy) || IgnoreSelfObject)
+							if ((RowSecond + 1 < 8) && (RowFirst == RowSecond + 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
 							{
 								Move = true;
 							}
 
 						}
 					}
-				}
-				//catch(std::exception t)
-				{
-					
-				}
+
 			}
 			else //Brown int.
 			{
 				if (Order == -1 && Table[RowFirst][ColumnFirst] < 0)
 				{
 					//Depend Of Second Move do For Positivism Land
-					//try
-					{
+
 						if ((ColumnSecond + 1 < 8) && (RowFirst == RowSecond) && (ColumnFirst == ColumnSecond + 1) && (Table[RowSecond][ColumnSecond] == 0))
 						{
 							//When Destination is The Empty Return Validity Else Return Not Validity.
@@ -3970,23 +3838,19 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 						{
 							if ((ColumnSecond + 1 < 8) && ColumnFirst == ColumnSecond + 1)
 							{
-								if (((RowSecond + 1 < 8) && (RowFirst == RowSecond + 1) && ExistInDestinationEnemy) || IgnoreSelfObject)
+								if ((RowSecond + 1 < 8) && (RowFirst == RowSecond + 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
 								{
 									//Return Validity.
 									Move = true;
 								}
-								if (((RowSecond-1 >= 0) && (RowFirst == RowSecond-1) && ExistInDestinationEnemy) || IgnoreSelfObject)
+								if ((RowSecond - 1 >= 0) && (RowFirst == RowSecond - 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
 								{
 									//Return Validity.
 									Move = true;
 								}
 							}
 						}
-					}
-					//catch(std::exception t)
-					{
-						
-					}
+
 				}
 			}
 		}
@@ -4040,4 +3904,4 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		ArrangmentsBoard = false;
 		CurrentAStarGredyMax = -1;
 	}
-//}
+}

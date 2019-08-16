@@ -1,52 +1,48 @@
-﻿#include "DrawHourse.h"
-
-#include "DrawSoldire.h"
-#include "DrawMinister.h"
-#include "DrawCastle.h"
+﻿#include "stdafx.h"
 #include "DrawHourse.h"
-#include "DrawElefant.h"
-#include "ThinkingChess.h"
 
-//namespace RefrigtzDLL
-//{
+
+namespace RefrigtzDLL
+{
+
 	inline bool operator==(const DrawHourse& lhs, const std::nullptr_t& rhs) { return  (lhs == rhs); }
 	inline bool operator!=(const DrawHourse& lhs, const std::nullptr_t& rhs) { return !(lhs == rhs); }
 
-double DrawHourse::MaxHuristicxH = -20000000000000000;
+	double DrawHourse::MaxHuristicxH = -20000000000000000;
 
 	/*void DrawHourse::Log(std::exception ex)
 	{
-		//try
-		{
-			//autoa = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-			//lock (a)
-			{
-				std::wstring stackTrace = ex.what();
-//C# TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'ToString':
-				File::AppendAllText(AllDraw::Root + std::wstring(L"\\ErrorProgramRun.txt"), stackTrace + std::wstring(L": On") + DateTime::Now.ToString()); // path of file where stack trace will be stored.
-			}
-		}
-		//catch(std::exception t)
-		{
-			
-		}
+	//try
+	{
+	//autoa = new Object();
+	//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
+	//lock (a)
+	{
+	std::wstring stackTrace = ex.what();
+	//C# TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'ToString':
+	File::AppendAllText(AllDraw::Root + std::wstring(L"\\ErrorProgramRun.txt"), stackTrace + std::wstring(L": On") + DateTime::Now.ToString()); // path of file where stack trace will be stored.
 	}
-	
-*/
-const DrawHourse& DrawHourse::operator[] (const int index) const
-{
-	return this[index];
-}
+	}
+	//catch(std::exception t)
+	{
 
-DrawHourse::~DrawHourse()
+	}
+	}
+
+	*/
+	const DrawHourse& DrawHourse::operator[] (const int index) const
+	{
+		return this[index];
+	}
+
+	DrawHourse::~DrawHourse()
 	{
 		InitializeInstanceFields();
 		ValuableSelfSupported.clear();
-//		H = nullptr;
+		//		H = nullptr;
 	}
 	//void* DrawHourse::operator*(std::size_t idx) { return malloc(idx * sizeof(this)); }
-	bool DrawHourse::MaxFound(bool MaxNotFound)
+	bool DrawHourse::MaxFound(bool &MaxNotFound)
 	{
 		//try
 		{
@@ -54,7 +50,7 @@ DrawHourse::~DrawHourse()
 			if (MaxHuristicxH < a)
 			{
 				//autoO2 = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
+				//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 				//lock (O2)
 				{
 					MaxNotFound = false;
@@ -69,7 +65,7 @@ DrawHourse::~DrawHourse()
 		}
 		//catch(std::exception t)
 		{
-			
+
 
 		}
 		MaxNotFound = true;
@@ -83,11 +79,11 @@ DrawHourse::~DrawHourse()
 		{
 			//try
 			{
-				a += HourseThinking[0].ReturnHuristic(-1, -1, Order,false);
+				a += HourseThinking[0].ReturnHuristic(-1, -1, Order, false);
 			}
 			//catch(std::exception t)
 			{
-				
+
 			}
 		}
 		return a;
@@ -118,7 +114,7 @@ DrawHourse::~DrawHourse()
 		AStarGreedyHuristicT = AStarGreedyHuris;
 		ArrangmentsChanged = Arrangments;
 		//Initiate Global Variable By Local Paramenters.
-		Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii] =new  int[8];
+		Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii] = new  int[8];
 		for (int ii = 0; ii < 8; ii++)
 		{
 			for (int jj = 0; jj < 8; jj++)
@@ -152,11 +148,11 @@ DrawHourse::~DrawHourse()
 		AA.ArrangmentsChanged = ArrangmentsChanged;
 		for (int i = 0; i < AllDraw::HourseMovments; i++)
 		{
-			
-				AA.HourseThinking.push_back(ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column)));
-				//HourseThinking.Clone(AA.HourseThinking);
+
+			AA.HourseThinking.push_back(ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column)));
+			//HourseThinking.Clone(AA.HourseThinking);
 		}
-		AA.Table = new int*[8]; for (int ii = 0; ii < 8; ii++)AA.Table[ii]-new int[8];
+		AA.Table = new int*[8]; for (int ii = 0; ii < 8; ii++)AA.Table[ii] - new int[8];
 		for (int ii = 0; ii < 8; ii++)
 		{
 			for (int jj = 0; jj < 8; jj++)
@@ -171,59 +167,59 @@ DrawHourse::~DrawHourse()
 		AA.color = color;
 
 	}
-	
-	void DrawHourse::DrawHourseOnTable( int CellW, int CellH)
+
+	void DrawHourse::DrawHourseOnTable(int CellW, int CellH)
 	{/*
-		//try
-		{
+	 //try
+	 {
 
-			//autobalance//lockS = new Object();
+	 //autobalance//lockS = new Object();
 
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-			//lock (balance//lockS)
-			{
-				if (H == nullptr || H[1] == nullptr)
-				{
-					H = Image::FromFile(AllDraw::ImagesSubRoot + std::wstring(L"HG.png"));
-					H[1] = Image::FromFile(AllDraw::ImagesSubRoot + std::wstring(L"HB.png"));
-				}
-				if ((static_cast<int>(Row) >= 0) static_cast<int>(Row) < 8) static_cast<int>(Column) >= 0) static_cast<int>(Column) < 8))
-				{ //Gray Order.
-					if (Order == 1)
-					{
-						//autoO1 = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-						//lock (O1)
-						{ //Draw an Instant from File of Gray Soldeirs.
-							 //Draw an Instatnt Gray Hourse on the Table.
-							g.DrawImage(H, Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
-						}
-					}
-					else
-					{
-						//autoO1 = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-						//lock (O1)
-						{ //Draw an Instant from File of Gray Soldeirs.
-							 //Draw an Instatnt Brown Hourse on the Table.
-							g.DrawImage(H[1], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
-						}
-					}
-				}
-			}
-		}
-		//catch(std::exception t)
-		{
-			
-		}
-		*/
+	 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
+	 //lock (balance//lockS)
+	 {
+	 if (H == nullptr || H[1] == nullptr)
+	 {
+	 H = Image::FromFile(AllDraw::ImagesSubRoot + std::wstring(L"HG.png"));
+	 H[1] = Image::FromFile(AllDraw::ImagesSubRoot + std::wstring(L"HB.png"));
+	 }
+	 if ((static_cast<int>(Row) >= 0) static_cast<int>(Row) < 8) static_cast<int>(Column) >= 0) static_cast<int>(Column) < 8))
+	 { //Gray Order.
+	 if (Order == 1)
+	 {
+	 //autoO1 = new Object();
+	 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
+	 //lock (O1)
+	 { //Draw an Instant from File of Gray Soldeirs.
+	 //Draw an Instatnt Gray Hourse on the Table.
+	 g.DrawImage(H, Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
+	 }
+	 }
+	 else
+	 {
+	 //autoO1 = new Object();
+	 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
+	 //lock (O1)
+	 { //Draw an Instant from File of Gray Soldeirs.
+	 //Draw an Instatnt Brown Hourse on the Table.
+	 g.DrawImage(H[1], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
+	 }
+	 }
+	 }
+	 }
+	 }
+	 //catch(std::exception t)
+	 {
+
+	 }
+	 */
 	}
 
 	void DrawHourse::InitializeInstanceFields()
 	{
 		WinOcuuredatChiled = 0;
 		LoseOcuuredatChiled = 0;
-		ValuableSelfSupported = std::vector<int>();
+		ValuableSelfSupported = std::vector<int*>();
 		MovementsAStarGreedyHuristicFoundT = false;
 		IgnoreSelfObjectsT = false;
 		UsePenaltyRegardMechnisamT = true;
@@ -239,4 +235,4 @@ DrawHourse::~DrawHourse()
 		Order = 0;
 		CurrentAStarGredyMax = -1;
 	}
-//}
+}

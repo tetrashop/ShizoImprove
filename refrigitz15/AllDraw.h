@@ -1,34 +1,22 @@
-﻿
 #pragma once
 
-#include "stdafx.h"
-/*#include "DrawSoldire.h"
+#include "DrawSoldire.h"
 #include "DrawElefant.h"
 #include "DrawHourse.h"
 #include "DrawCastle.h"
 #include "DrawMinister.h"
-#include "DrawKing.h"*/
-
-class DrawSoldier;
-	class DrawElefant;
-	class DrawHourse;
-	class DrawCastle;
-	class DrawMinister;
-	class DrawKing;
-	class ThinkingChess;
+#include "DrawKing.h"
 #include <string>
 #include <vector>
 #include <cmath>
 #include <float.h>
-#include <stdexcept>\
-#include "StringConverterHelper.h"
+#include <stdexcept>
+#include "stringconverter.h"
 
-
-//#include "stdafx.h"
 /*******************************************************************************************
  * Initiate and Decision making class.******************************************************
  * Ramin Edjlal*****************************************************************************
- * Call Of Constructor From Constructor***************************************************0.12**4**Managements and Cuation Programing**********************(+)
+  * Call Of Constructor From Constructor***************************************************0.12**4**Managements and Cuation Programing**********************(+)
  * The Storing AllDraw Object in Self Constructor Caused Stack Overflow*******************0.12**4**Managements and Cuation Programing**********************(+)
  * Link List Of Storing String Caused A Stack Over Flow***********************************0.12**4**Managements and Cuation Programing**********************(+)
  * Wait For Finished Current AStarGreedy Caused To Long Time*************************************0.12**4**Managements and Cuation Programing**********************(+)
@@ -37,7 +25,7 @@ class DrawSoldier;
  * In Current Version of Heuristic Table Doesn’t Reached(Zero)****************************0.12**4**Managements and Cuation Programing**********************(+)
  * In Current Version InitiateForEveryThisngsHome Dosn't Work*****************************0.12**4**Managements and Cuation Programing**********************(+)
  * In This Version Thinking Taking A LotofTime(AStarGreedyt Array Tree)**********************0.12**4**Managements and Cuation Programing**********************(+)
- * Heuristic Work In AStarGreedys. But Scanning Dosen’t Work***x*********************************0.12**4**Managements and Cuation Programing**********************(+)
+ * Heuristic Work In AStarGreedys. But Scanning Dosen’t Works************************************0.12**4**Managements and Cuation Programing**********************(+)
  * Adding Clone Caused To Stack Overflow**************************************************0.12**4**Managements and Cuation Programing**********************(+)
  * Clone Caused To StackOverFlow**********************************************************0.12**4**Managements and Cuation Programing**********************(+)
  * Row And Column Become Zero in Virtualization*******************************************0.12**4**Managements and Cuation Programing**********************(+)
@@ -50,10 +38,10 @@ class DrawSoldier;
  * int Changes with no movement*********************************************************0.12**4**Managements and Cuation Programing**********************(+)
  * Table Not Gate (Inversion of Table List) Doesn’t help to do Normally*******************0.12**4**Managements and Cuation Programing**********************(+)
  * Literally Errors Correction************************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * From Arrangements of Things Reaches Suddenly Things Location OccuR***x*****************0.12**4**Managements and Cuation Programing**********************(+)
+ * From Arrangements of Things Reaches Suddenly Things Location OccuRS********************0.12**4**Managements and Cuation Programing**********************(+)
  * The Arrangements is Logical************************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * The int changes and the arrangements changes are not clearly obviou***x**************0.12**4**Managements and Cuation Programing**********************(+)
- * int Changes Solved. no movement***x**************************************************0.12**4**Managements and Cuation Programing**********************(+)(-+)
+ * The int changes and the arrangements changes are not clearly obvious*****************0.12**4**Managements and Cuation Programing**********************(+)
+ * int Changes Solved. no movements*****************************************************0.12**4**Managements and Cuation Programing**********************(+)(-+)
  * Things movements Anomally**************************************************************0.12**4**Managements and Cuation Programing**********************(+)
  * Chess Rules Anomally*******************************************************************0.12**4**Managements and Cuation Programing**********************(+)
  * Heuristic Function Not Work************************************************************0.12**4**Managements and Cuation Programing**********************(+)
@@ -63,24 +51,24 @@ class DrawSoldier;
  * Need to Restricted Approval. Taking a lot of time Thinking Computation*****************0.12**4**Managements and Cuation Programing**********************(+)
  * No movements In Virtualization*********************************************************0.12**4**Managements and Cuation Programing**********************(+)
  * Chess Rules Abnormal thinking movements. No movement greater than 2********************0.12**4**Managements and Cuation Programing**********************(+)
- * Problem For Drawing of Thinking Thing***x**********************************************0.12**4**Managements and Cuation Programing**********************(+)
+ * Problem For Drawing of Thinking Things*************************************************0.12**4**Managements and Cuation Programing**********************(+)
  * Heuristic Constant Result**************************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * One movements Right .Heuristic Remaining Constant Result***x***************************0.12**4**Managements and Cuation Programing**********************(+)
+ * One movements Right .Heuristic Remaining Constant Results******************************0.12**4**Managements and Cuation Programing**********************(+)
  * Constant Heuristic Result**************************************************************0.12**4**Managements and Cuation Programing**********************(+)
  * Need To Add A Heuristic Useful Another*************************************************0.12**4**Managements and Cuation Programing**********************(+)
  * Heuristic Function Does’ Work Allis suddenly Become Zero that Previously Working*******0.12**4**Managements and Cuation Programing**********************(+)
  * No Movement Greater than one order in Computer 'Alice'*********************************0.12**4**Managements and Cuation Programing**********************(+)
  * Tow movements in Computer 'Alice' Of two Different Order int*************************0.12**4**Managements and Cuation Programing**********************(+)
- * Heuristic Not Work Greater than 3 Length Count of *a***********************************0.12**4**Managements and Cuation Programing**********************(+)
+ * Heuristic Not Work Greater than 3 Length Count of A************************************0.12**4**Managements and Cuation Programing**********************(+)
  * 'They Don't Really Take care about us'. Misleading in Heuristic King Supported*********0.12**4**Managements and Cuation Programing**********************(+)
- * Non Order Movment***x******************************************************************0.12**4**Managements and Cuation Programing**********************(+)
+ * Non Order Movments*********************************************************************0.12**4**Managements and Cuation Programing**********************(+)
  * Misleading at Stage three. no illegal movement greater than three**********************0.12**4**Managements and Cuation Programing**********************(+)
  * Thinking Order Misleading**************************************************************0.12**4**Managements and Cuation Programing**********************(+)
  * Hit Mechanism Malfunctional************************************************************0.12**4**Managements and Cuation Programing**********************(+)
  * Tow movements At One 'Alice' Order time************************************************0.12**4**Managements and Cuation Programing**********************(+)
  * Heuristic Computer By Computer 'Alice' by 'Bob' Caused to Loop Heuristic.**************0.12**4**Managements and Cuation Programing**********************(+)
- * Learning Automata of Quantum also leads to re loop heuristic***************************0.88**1**Risk Control********************************************(*)QC-OK.
- * Heuristic Learning Automata 'Alice' By 'Bob' Leads to Re loop**************************0.12**4**Managements and Cuation Programing**********************(+)
+ * Learning //automata of Quantum also leads to re loop heuristic***************************0.88**1**Risk Control********************************************(*)QC-OK.
+ * Heuristic Learning //automata 'Alice' By 'Bob' Leads to Re loop**************************0.12**4**Managements and Cuation Programing**********************(+)
  * Heuristic Things Loop 'Alice' By 'Bob'*************************************************0.12**4**Managements and Cuation Programing**********************(+)
  * Self 'Check' Detection Failure By 'Alice'***********************************************0.12**4**Managements and Cuation Programing**********************(+)
  * 'Penalty' Value Of All Become zero althouth the one should be non Penalty**************0.88**1**Risk Control********************************************(*)
@@ -102,7 +90,7 @@ class DrawSoldier;
  * Function Evaluation Disabled .At Initiate AStarGreedytGenetic Found Sysntax.**************0.88**1**Risk Control********************************************[*]
  * Index Was Out Of Range Exeption Was Not Handled.Colud Not Be Handle.*******************0.12**4**Managements and Cuation Programing**********************{+}
  * No Logical Mechanism To Reconstructe Current AllDraw Objects.**************************0.12**4**Managements and Cuation Programing**********************{+}
- * AStarGreedy First Sysntax is legal and The table is constant table.***************************0.12**4**Managements and Cuation Programing**********************{+}
+ * AStarGreedy First Sysntax is legal and The Table is constant Table.***************************0.12**4**Managements and Cuation Programing**********************{+}
  * Table Content Empty. No Syntax Exist.**************************************************0.12**4**Managements and Cuation Programing**********************{+}
  * Game Begin From First When the Soldiers Move Ordinary Complete in AStarGreedy First***********0.88**1**Risk Control********************************************{*}QC-OK.
  * New Instatnt Of Program Cuase to Begin Fron First.*************************************0.12**4**Managements and Cuation Programing**********************<+>
@@ -112,7 +100,7 @@ class DrawSoldier;
  * Game CC UnContoroled.******************************************************************0.12**4**Managements and Cuation Programing**********************<+>
  * MalFunction of Syntax and Movments.By Alice and Bob.***********************************0.12**4**Managements and Cuation Programing**********************<+>
  * Threading Solved! The OutOfRangeIndex Not Work.****************************************0.12**4**Managements and Cuation Programing**********************[-+]
- * Vituallization error!No Best Matches between Truth of table content and irtualization**0.12**4**Managements and Cuation Programing**********************[+]
+ * Vituallization error!No Best Matches between Truth of Table content and irtualization**0.12**4**Managements and Cuation Programing**********************[+]
  * Dynamic Programming for Stroring ADraw THISDummy Adraw Value MalFunction.**************0.12**4**Managements and Cuation Programing**********************(+)
  * Order is Constant in Dynamic Programming.**********************************************0.12**4**Managements and Cuation Programing**********************(+)
  * Table MalFunction at Dynamic Programming.At Step 3.************************************0.12**4**Managements and Cuation Programing**********************(+)
@@ -131,7 +119,7 @@ class DrawSoldier;
  * Check Identification By Alice is MalFunction.*******************************************0.12**4**Managements and Cuation Programing**********************(+)
  * Check Recognized But CheckMate Not Recognized!***********************************************0.12**4**Managements and Cuation Programing**********************(_+)
  * Penalty Regard Mechanism Misleading.***************************************************0.12**4**Managements and Cuation Programing**********************{+}
- * Inhereted LearningAtamata Caused to Shared Parent Allocated Variable.******************0.12**4**Managements and Cuation Programing**********************{+}
+ * Inhereted LearningKrinskyAtamata Caused to Shared Parent Allocated Variable.******************0.12**4**Managements and Cuation Programing**********************{+}
  * 'Check' By 'Alice' Not Removed Unreasonably.********************************************0.88**1**Risk Control********************************************{*}QC-OK.
  * AStarGreedyt Huristic Found MalFunction at Check Alice.************************************0.12**4**Managements and Cuation Programing**********************{+}
  * Sortments of ADRAW and Construction is MalFunction at AStarGreedy Dynamic Programming.********0.12**4**Managements and Cuation Programing**********************{+}
@@ -164,26 +152,23 @@ class DrawSoldier;
  * Mechanisam olf AStarGreedytHuristic and Hurisistic is QC-Ok. But Table foundation Illegal.0.88**1**Risk Control********************************************<*>QC-OK
  * Full Game Indexing Parameters Misleading UnLogically.*************************************0.88**1**Risk Control********************************************(*)QC_OK
  * Index out of Range Unlogically at Full Game Soldier Order Brown.**************************0.88**1**Risk Control********************************************<*>QC_OK
- * Execution make zero table but trace make valid table.*************************************0.88**1**Risk Control********************************************{*}Qc-OK.
+ * Execution make zero Table but trace make valid Table.*************************************0.88**1**Risk Control********************************************{*}Qc-OK.
  * Virtualization need to more hardware capabilities gone to malfunction virtualization.******0.88**1**Risk Control*******************************************{*}QC-BAD.
  * MalFunction on AllDraw Hadeling of Draw Midle Target Motion Graphics.**********************0.88**1**Risk Control*******************************************{*}QC-BAD.
  * ********************************************************************************************************************************************************(+:Sum(63)) 
  * 1394/12/19**********************************************************************************************************************************************(*:Sum(4))
  * ********************************************************************************************************************************************************(-:sum(2)) (_:Sum(0)):2:(+:Sum(3)) (-:Sum(1)) (*:Sum(2)) 3: (+:Sum(4)) (*:Sum(1)) 4:(+:Sum(6))  5:(+:Sum(2)) (-:Sum(1)) 6:(+:Sum(6)) (*:Sum(2)) 7.(+:Sum(2)) (*:Sum(1)) 8.(+:Sum(1)) 9.(+:Sum(4)) (*:Sum(1)) (-:Sum(1)) 10.(+:Sum(4)) (*:Sum(2)) 11.(+:Sum(4)) 12.(+:Sum(2)) (*:Sum(2)) 13.(+:Sum(4)) 14.(+:Sum(2)) (*:Sum(1)) 15.(+:Sum(6)) 16.(+:Sum(2)) 17.(QC-OK.:Sum(13))
  */
-//namespace RefrigtzDLL
-//{
+namespace RefrigtzDLL
+{
 
-
-	
 	//C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
-	//ORIGINAL LINE: [Serializable] class AllDraw
-
+	//ORIGINAL LINE: [Serializable] public class AllDraw
 	class AllDraw
 	{
-		
+
 	public:
-		
+		int AStarGreedy;
 		bool SetDeptIgnore;
 		long long Now;
 		long long Later;
@@ -201,7 +186,7 @@ class DrawSoldier;
 		static bool ActionStringReady;
 		//static variable to be Initiate
 	public:
-		std::vector<int> ValuableSelfSupported;
+		std::vector<int*> ValuableSelfSupported;
 	public:
 		std::vector<int**> MaxHuristicAStarGreedytBackWardTable;
 		static bool RegardOccurred;
@@ -272,9 +257,9 @@ class DrawSoldier;
 		static double SignKingSafe;
 		static double SignKingDangour;
 		static bool DrawTable;
-		static int TableVeryfy[8][8];
+		static int **TableVeryfy;
 		static int MaxAStarGreedy;
-		static int TableVeryfyConst[8][8];
+		static int **TableVeryfyConst;
 		static std::vector<int**> TableCurrent;
 		static bool NoTableFound;
 		static bool DynamicAStarGreedytPrograming;
@@ -362,17 +347,17 @@ class DrawSoldier;
 	public:
 
 		/*
-	template <class T, size_t N>
-struct Array {
-	T data[N];
+		template <class T, size_t N>
+		struct Array {
+		T data[N];
 
-	T &operator*(size_t index) { return data[index]; }
-	 T &operator*(size_t index)  { return data[index]; }
-	T *begin() { return &data[0]; }
-	 T *begin()  { return &data[0]; }
-	T *end() { return &data[N]; }
-	 T *end()  { return &data[N]; }
-};*/
+		T &operator*(size_t index) { return data[index]; }
+		T &operator*(size_t index)  { return data[index]; }
+		T *begin() { return &data[0]; }
+		T *begin()  { return &data[0]; }
+		T *end() { return &data[N]; }
+		T *end()  { return &data[N]; }
+		};*/
 	public:
 		static int MinThinkingDepth;
 		int CurS;
@@ -386,20 +371,20 @@ struct Array {
 		std::vector<DrawCastle> CastlesOnTable;// [4];
 		std::vector<DrawMinister> MinisterOnTable;// [2];
 		std::vector<DrawKing> KingOnTable; // [2];
-		/*std::vector<DrawSoldier> SolderesOnTable;
-		std::vector<DrawElefant> ElephantOnTable;
-		std::vector<DrawHourse> HoursesOnTable;
-		std::vector<DrawCastle> CastlesOnTable;
-		std::vector<DrawMinister> MinisterOnTable;
-		std::vector<DrawKing> KingOnTable;*/
-		/*DrawSoldier SolderesOnTable[16];
-		DrawElefant ElephantOnTable[4];
-		DrawHourse HoursesOnTable[4];
-		DrawCastle CastlesOnTable[4];
-		DrawMinister MinisterOnTable[2];
-		DrawKing KingOnTable[2];*/
+										   /*std::vector<DrawSoldier> SolderesOnTable;
+										   std::vector<DrawElefant> ElephantOnTable;
+										   std::vector<DrawHourse> HoursesOnTable;
+										   std::vector<DrawCastle> CastlesOnTable;
+										   std::vector<DrawMinister> MinisterOnTable;
+										   std::vector<DrawKing> KingOnTable;*/
+										   /*DrawSoldier SolderesOnTable[16];
+										   DrawElefant ElephantOnTable[4];
+										   DrawHourse HoursesOnTable[4];
+										   DrawCastle CastlesOnTable[4];
+										   DrawMinister MinisterOnTable[2];
+										   DrawKing KingOnTable[2];*/
 	public:
-		
+
 		//static bool stopOnPonderhit;
 		std::vector<double*> MaxHuristicAStarGreedytBackWard;
 		static  int MaxSoldeirFounded;
@@ -409,10 +394,11 @@ struct Array {
 		static  int MaxMinisterFounded;
 		static  int MaxKingFounded;
 	public:
+		int *AStarGreedyIndex;// [20];
 		//C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
 		//ORIGINAL LINE: [NonSerialized()] public Task ob;
-				//Task *ob;
-				//Making String datastructure to root variable
+		//Task *ob;
+		//Making String datastructure to root variable
 		AllDraw *StarGreedyString;
 		std::wstring Number(int ColumnRealeased);
 		int SumOfObjects(AllDraw A, int Order);
@@ -420,14 +406,14 @@ struct Array {
 		//Error Handling
 	public:
 		std::wstring Alphabet(int RowRealesed);
-		static bool IsAQuantumeMoveOccured(bool IsQuantumMove);	
+		static bool IsAQuantumeMoveOccured(bool IsQuantumMove);
 	public:
 		void SetObjectNumbers(int **TabS);
 	public:
 		float *FoundLocationOfObject(int **Tabl, int Kind, bool IsGray);
 		//Constructor
 	public:
-		
+
 		void MakePenaltyAllCheckMateBranches(AllDraw A, int Order);
 		void FoundOfLeafDepenOfKind(int **Table, int Order, int iAStarGreedy, int ii, int jj, int ik, int jjj, bool FOUND, int LeafAStarGreedy);
 		//bool IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckMate, int ForCheckMate, int AStarGreedyInt);
@@ -440,6 +426,7 @@ struct Array {
 		void CheckedMateConfiguratiion(int Order);
 		void SemaphoreExxedTime(int time, int Kind);
 		//int SumOfObjects(AllDraw A, int Order);
+		bool IsEnemyThingsinStable(int** TableHuristic, int** TableAction, int Order);
 		std::vector<int*> WhereNumbers(std::wstring Tag);
 		std::wstring CreateHtmlTag(std::wstring Tag);
 		void IsPenaltyRegardCheckMateAtBranch(int Order, int Do, AllDraw Base);
@@ -447,72 +434,74 @@ struct Array {
 		AllDraw(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments);
 		//Clone Copy Method
 		//void Clone(AllDraw& AA);
-//		int SumOfObjects(AllDraw A, int Order);
+		//		int SumOfObjects(AllDraw A, int Order);
 		//aBlanck Constructor		
 		//AllDraw(int Order, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, AllDraw THi);
 
 
+
+		bool AllCurrentAStarGreedyThinkingFinished(AllDraw * Dum, int i, int j, int Kind);
 
 		//Check For Thinking Of Current Item Movments Finished.
 		//void BlitzGameThinkingSolderGray(double PreviousLessS, int * Index, int * jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
 		//int** Initiate(int ii, int jj, int a, int** Table, int Order, bool TB, bool FOUND, int LeafAStarGreedy, bool SetDept = false);
 		/*void SetQuantumRowColumn(int Kind, int Section)
 		{
-			if (Kind == 1)
-			{
-				if (Section == 1)
-				{ }
-				else
-				{ }
+		if (Kind == 1)
+		{
+		if (Section == 1)
+		{ }
+		else
+		{ }
 
-			}
-			else
+		}
+		else
 
 
-if (Kind == 2)
-			{
-				if (Section == 1)
-				{ }
-				else
-				{ }
+		if (Kind == 2)
+		{
+		if (Section == 1)
+		{ }
+		else
+		{ }
 
-			}
-			else
-			if (Kind == 3)
-			{
-				if (Section == 1)
-				{ }
-				else
-				{ }
+		}
+		else
+		if (Kind == 3)
+		{
+		if (Section == 1)
+		{ }
+		else
+		{ }
 
-			}
-			else
-			if (Kind == 4)
-			{
-				if (Section == 1)
-				{ }
-				else
-				{ }
+		}
+		else
+		if (Kind == 4)
+		{
+		if (Section == 1)
+		{ }
+		else
+		{ }
 
-			}
-			else
-			if (Kind == 5)
-			{
-				if (Section == 1)
-				{ }
-				else
-				{ }
+		}
+		else
+		if (Kind == 5)
+		{
+		if (Section == 1)
+		{ }
+		else
+		{ }
 
-			}
-			else
-			if (Kind == 6)
-			{
-				if (Section == 1)
-				{ }
-				else
-				{ }
+		}
+		else
+		if (Kind == 6)
+		{
+		if (Section == 1)
+		{ }
+		else
+		{ }
 
-			}
+		}
 
 		}*/
 		//bool AllCurrentAStarGreedyIntThinkingFinished(AllDraw Dum, int i, int j, int Kind);
@@ -521,6 +510,7 @@ if (Kind == 2)
 	public:
 		bool KingDan(int** Tab, int Order);
 		void SetRowColumnFinishedWait();
+		void BeginIndexFoundingMaxLessofMaxList(int ListIndex, std::vector<double>& Founded, double & LessB);
 		//Max Index List Of Huristic AStarGreedy First Method.
 	public:
 
@@ -528,31 +518,82 @@ if (Kind == 2)
 
 		bool TableEqual(int **t1, int **t2);
 		//void FoundOfLeafDepenOfKindAllDraw(int **Table, int Order, int iAStarGreedy, int ii, int jj, int ik, int jjj, bool FOUND, int LeafAStarGreedy);
-		void BeginIndexFoundingMaxLessofMaxList(int ListIndex, std::vector<double> Founded, double LessB);
 		//Method for Check of Existence of Checkmate less than for checked mate.
 	public:
 		//When Penalty Regard Branches expanded to sub branches.
 
 	public:
-		bool IsEnemyThingsinStable(int** TableHuristic, int**  TableAction, int Order);
-		bool IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckMate, int ForCheckMate, int AStarGreedyInt);		
+		
+		bool IsToCheckMateHasLessDeeperThanForCheckMate(int Order, int ToCheckMate, int ForCheckMate, int AStarGreedyInt);
 		void RemovePenalltyFromFirstBranches(int Order);
 		AllDraw FoundOfLeafDepenOfKind(int Kind, AllDraw Leaf, bool & Found, int Order, int  OrderLeaf);
 		AllDraw FoundOfCurrentTableNode(int **Tab, int Order, AllDraw THIS, bool &Found);
-		
+
 		bool IsFoundOfLeafDepenOfKindhaveVictory(int Kind, bool &Found, int Order);
 		void MakeRegardAllCheckMateBranches(AllDraw A, int Order);
+		bool ReturnConsiderationOfPermitForValidationOfLearningInFullGameThinkingTree(int ik, int kind, bool Penalty, int j);
+		void BlitzNotValidFullGameThinkingTreePartOne(int ik, int Order, int kind);
+		void BlitzNotValidFullGameThinkingTreePartTow(int ik, int Order, int kind);
+		void BlitzNotValidFullGameThinkingTreePartThree(int ik, int Order, int kind);
+		void FullGameThinkingTreeInitialization(int ik, int j, int Order, int kind);
+		void OpOfFullGameThinkingTree(int ik, int j, int Order, int iAStarGreedy, int ii, int jj, int a, int kind, bool FOUND, int LeafAStarGreedy);
+		bool FullGameThinkingTreeSoldier(int ik, int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
+		bool FullGameThinkingTreeSoldierGray(int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
+		bool FullGameThinkingTreeElephant(int ik, int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
+		bool FullGameThinkingTreeElephantGray(int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
+		bool FullGameThinkingTreeHourse(int ik, int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
+		bool FullGameThinkingTreeHourseGray(int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
+		bool FullGameThinkingTreeCastle(int ik, int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
+		bool FullGameThinkingTreeCastleGray(int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
+		bool FullGameThinkingTreeMinister(int ik, int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
+		bool FullGameThinkingTreeMinisterGray(int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
+		bool FullGameThinkingTreeKing(int ik, int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
+		bool FullGameThinkingTreeKingGray(int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
+		bool FullGameThinkingTreeSoldierBrown(int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
+		bool FullGameThinkingTreeElephantBrown(int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
+		bool FullGameThinkingTreeHourseBrown(int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
+		bool FullGameThinkingTreeCastleBrown(int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
+		bool FullGameThinkingTreeMinisterBrown(int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
+		bool FullGameThinkingTreeKingBrown(int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
 		int** CloneATable(int** Tab);
 		int MaxOfSixHuristic(double _1, double _2, double _3, double _4, double _5, double _6);
 		int MinOfSixHuristic(double _1, double _2, double _3, double _4, double _5, double _6);
 	public:
-		
+
 		void StringHuristics(int Obj, int Sec, bool AA, int Do, int WinOcuuredatChiled, int LoseOcuuredatChiled);
+		void SaveLess(int i, int j, int k, int Kind, double & Less, bool AA, int Order);
+		void SaveTableHuristic(int i, int j, int k, int Kind, int ** TableHuristic);
+		void SaveBeginEndLocation(int i, int j, int k, int Kind);
+		bool HuristicRegardSection(int i, int j, int k, bool & Act, int ** TableHuristic, bool & AA, int a, int Kind, int & Do, int AStarGreedyi, int Order);
+		void InitiateVars(int i, int j, int k, int Kind);
+		bool CheckeHuristci(int ** TableS, int Order, int i, int j, int k);
+		void OutputHuristic(int Order);
+		bool HuristicMainBody(int i, int j, int k, bool & Act, int ** TableHuristic, bool & CurrentTableHuristic, bool & AA, int a, int Kind, int & Do, int AStarGreedyi, int Order);
+		int ** HuristicAStarGreadySearchSoldier(int ** TableHuristic, int i, int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool & Act);
+		int ** HuristicAStarGreadySearchSoldierGray(int ** TableHuristic, int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool & Act);
+		int ** HuristicAStarGreadySearchSoldierBrown(int ** TableHuristic, int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool & Act);
+		int ** HuristicAStarGreadySearchElephantGray(int ** TableHuristic, int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool & Act);
+		int ** HuristicAStarGreadySearchElephantBrown(int ** TableHuristic, int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool & Act);
+		int ** HuristicAStarGreadySearchElephant(int ** TableHuristic, int i, int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool & Act);
+		int ** HuristicAStarGreadySearchHourseGray(int ** TableHuristic, int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool & Act);
+		int ** HuristicAStarGreadySearchHourseBrown(int ** TableHuristic, int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool & Act);
+		int ** HuristicAStarGreadySearchHourse(int ** TableHuristic, int i, int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool & Act);
+		int ** HuristicAStarGreadySearchCastleGray(int ** TableHuristic, int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool & Act);
+		int ** HuristicAStarGreadySearchCastleBrown(int ** TableHuristic, int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool & Act);
+		int ** HuristicAStarGreadySearchCastle(int ** TableHuristic, int i, int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool & Act);
+		int ** HuristicAStarGreadySearchMinsisterGray(int ** TableHuristic, int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool & Act);
+		int ** HuristicAStarGreadySearchMinsisterBrown(int ** TableHuristic, int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool & Act);
+		int ** HuristicAStarGreadySearchMinsister(int ** TableHuristic, int i, int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool & Act);
+		int ** HuristicAStarGreadySearchKingGray(int ** TableHuristic, int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool & Act);
+		int ** HuristicAStarGreadySearchKingBrown(int ** TableHuristic, int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool & Act);
+		int ** HuristicAStarGreadySearchKing(int ** TableHuristic, int i, int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool & Act);
+		int ** HuristicAStarGreadySearchGray(int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool & Act);
+		int ** HuristicAStarGreadySearchBrown(int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool & Act);
+		int ** BrownHuristicAStarGreaedySearchPenalites(int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool & Act);
 		int **HuristicAStarGreadySearchSoldier(int **TableHuristic, int i, int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool Act);
 
-		int **HuristicAStarGreadySearchSoldierGray(int **TableHuristic, int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool Act);
+	/*	int **HuristicAStarGreadySearchSoldierGray(int **TableHuristic, int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool Act);
 		int **HuristicAStarGreadySearchSoldierBrown(int **TableHuristic, int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool Act);
-
 		int **HuristicAStarGreadySearchElephantGray(int **TableHuristic, int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool Act);
 		int **HuristicAStarGreadySearchElephantBrown(int **TableHuristic, int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool Act);
 		int **HuristicAStarGreadySearchElephant(int **TableHuristic, int i, int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool Act);
@@ -570,21 +611,22 @@ if (Kind == 2)
 		int **HuristicAStarGreadySearchKing(int **TableHuristic, int i, int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool Act);
 		int **HuristicAStarGreadySearchGray(int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool Act);
 		int **HuristicAStarGreadySearchBrown(int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool Act);
-
+*/
 		//AStarGreedy First Huristic Method.
 	public:
 		void Clone(AllDraw AA);
+		AllDraw(int Order, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, AllDraw * THi);
 		bool AllCurrentAStarGreedyThinkingFinished(AllDraw Dum, int i, int j, int Kind);
 		//int** CloneATable(int** Tab);
 		int **HuristicAStarGreedySearch(int AStarGreedyi, int a, int Order, bool CurrentTableHuristic);
 		//int **HuristicAStarGreedySearchPenalties(int AStarGreedyi, int a, int Order, bool CurrentTableHuristic);
 		//Genethic Algorithm Game Method.
 		//void InitiateGenetic(int ii, int jj, int a, int **Table, int Order, bool TB);
-		void InitiateAStarGreedytSodlerGray(int iii, int jjj, int **Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy);
-
+		
 		//AStarGreedy First Initiat Thinking Main Method.
 		void InitiateAStarGreedytOneNode(int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, int iIndex, int KindIndex, int LeafAStarGreedy);
 		int** Initiate(int ii, int jj, int a, int** Table, int Order, bool TB, bool FOUND, int LeafAStarGreedy, bool SetDept);
+		void FoundOfLeafDepenOfKindFullGame(int** table, int Order, int iAStarGreedy, int ii, int jj, int ik, int jjj, bool FOUND, int LeafAStarGreedy);
 		//void StringHuristics(int Obj, int Sec, bool AA, int Do, int WinOcuuredatChiled, int LoseOcuuredatChiled);
 	public:
 		//int ** HuristicAStarGreedyIntSearch(int AStarGreedyInti, int a, int Order, bool CurrentTableHuristic);
@@ -592,20 +634,22 @@ if (Kind == 2)
 		int MaxGrayMidle();
 		int MaxBrownHigh();
 		int MinBrownMidle();
-		//AllDraw InitiateAStarGreedytObjectBrown(int iii, int jjj, int **Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy); //, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
+		void InitiateAStarGreedytObjectBrown(int iii, int jjj, int ** Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int ** Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy);
+		//void InitiateAStarGreedytObjectBrown(int iii, int jjj, int **Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy); //,  Refrigtz.Timer timer,  Refrigtz.Timer Timerint,  double Less
 		//int FoundTableIndex(std::vector<int**> *T, int TAab[8][8]);
 		void Serve(int Order);
 		int FoundTableIndex(std::vector<int**> T, int **TAab);
 		//Parallel.ForEach(tH, items => Task.WaitAny(items));
 		void ServeISSup(int Order, int Kind, int ii);
 		void InitiateAStarGreedyt(int iAStarGreedy, int ii, int jj, int a, int** Tab, int Order, bool TB, int FOUND, int LeafAStarGreedy);
-		void    InitiateAStarGreedytElephantGray(int iii, int jjj, int **Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy);
+		void InitiateAStarGreedytSodlerGray(int iii, int jjj, int **Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy);
+		void InitiateAStarGreedytElephantGray(int iii, int jjj, int **Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy);
 		void InitiateAStarGreedythHourseGray(int iii, int jjj, int **Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy);
 		void InitiateAStarGreedythCastleGray(int iii, int jjj, int **Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy);
 		void InitiateAStarGreedythMinisterGray(int iii, int jjj, int **Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy);
-		void InitiateAStarGreedythKingGray(int iii, int jjjj, int **Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy);
-		void  InitiateAStarGreedythSoldierBrown(int iii, int jjj, int **Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy);
-		void  InitiateAStarGreedythElephantBrown(int iii, int jjj, int **Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy);
+		void InitiateAStarGreedythKingGray(int iii, int jjj, int **Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy);
+		void InitiateAStarGreedythSoldierBrown(int iii, int jjj, int **Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy);
+		void InitiateAStarGreedythElephantBrown(int iii, int jjj, int **Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy);
 		void InitiateAStarGreedythHourseBrown(int iii, int jjj, int **Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy);
 		void InitiateAStarGreedythCastleBrown(int iii, int jjj, int **Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy);
 		void InitiateAStarGreedythMinisterBrown(int iii, int jjj, int **Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy);
@@ -613,23 +657,33 @@ if (Kind == 2)
 		//AlDraw InitiateAStarGreedyt(int Order, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int i, int j, int ii, int jj, int **Table, int a, bool TB, bool FOUND, int LeafAStarGreedy);
 
 		bool FullBoundryConditions(int Current, int Order, int iAStarGreedy);
+		void AStarGreedyThinking(int Order, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int i, int j, int ii, int jj, int ** Table, int a, bool TB, bool FOUND, int LeafAStarGreedy);
+		void InitiateAStarGreedytObjectGray(int iii, int jjj, int ** Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int ** Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy);
+		void InitiateAStarGreedytObject(int iAStarGreedy, int ii, int jj, int a, int ** Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy);
 		void BlitzGameThinkingTreeSolderGray(double PreviousLessS, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
 		void BlitzGameThinkingTreeElephantGray(double PreviousLessE, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
 		void BlitzGameThinkingTreeCastleGray(double PreviousLessB, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
 		void BlitzGameThinkingTreeMinisterGray(double PreviousLessM, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
 		void BlitzGameThinkingTreeKingGray(double PreviousLessK, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
+		void BlitzGameTreeCreationThinkingTreeSolder(int a, int * Index, int * jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
 		void BlitzGameTreeCreationThinkingSolder(int a, int * Index, int * jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
 		void BlitzGameTreeCreationThinkingElephant(int a, int * Index, int * jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
 		void BlitzGameTreeCreationThinkingHourse(int a, int * Index, int * jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
 		void BlitzGameTreeCreationThinkingCastle(int a, int * Index, int * jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
 		void BlitzGameTreeCreationThinkingMinister(int a, int * Index, int * jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
 		void BlitzGameTreeCreationThinkingKing(int a, int * Index, int * jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
+		void BlitzGameTreeCreationThinkingTreeElephant(int a, int * Index, int * jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
+		void BlitzGameTreeCreationThinkingTreeHourse(int a, int * Index, int * jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
+		void BlitzGameTreeCreationThinkingTreeCastle(int a, int * Index, int * jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
+		void BlitzGameTreeCreationThinkingTreeMinister(int a, int * Index, int * jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
+		void BlitzGameTreeCreationThinkingTreeKing(int a, int * Index, int * jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
 		void BlitzGameThinkingTreeSolderBrown(double PreviousLessS, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
 		void BlitzGameThinkingTreeElephantBrown(double PreviousLessE, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
 		void BlitzGameThinkingTreeHourseBrown(double PreviousLessH, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
 		void BlitzGameThinkingTreeCastleBrown(double PreviousLessB, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
 		void BlitzGameThinkingTreeMinisterBrown(double PreviousLessM, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
 		void BlitzGameThinkingTreeKingBrown(double PreviousLessK, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
+		bool ReturnFullGameThinkingTreeSemaphore(int ik, int kind);
 		void BlitzGameThinkingTree(int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
 		void BlitzGameThinkingTreeHourseGray(double PreviousLessH, int* Index, int* jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
 
@@ -655,7 +709,7 @@ if (Kind == 2)
 		bool FullGameThinkingMinisterBrown(int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
 		bool FullGameThinkingKingBrown(int a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy);
 		//void FoundOfLeafDepenOfKind(int **Table, int Order, int iAStarGreedy, int ii, int jj, int ik, int jjj, bool FOUND, int LeafAStarGreedy);
-		//AllDraw InitiateAStarGreedytObjectGray(int iii, int jjj, int **Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy);
+		//void InitiateAStarGreedytObjectGray(int iii, int jjj, int **Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, int a, int **Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy);
 	public:
 		void InitializeInstanceFields();
 		void CheckedMateConfiguratiionCastle(int Order, int ii, bool Regrad);
@@ -665,5 +719,5 @@ if (Kind == 2)
 
 
 	};
-//}
-//End of Documentation.
+	//End of Documentation.
+}

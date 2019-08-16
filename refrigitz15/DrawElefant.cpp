@@ -1,50 +1,47 @@
-﻿#include "DrawElefant.h"
-#include "DrawSoldire.h"
-#include "DrawMinister.h"
-#include "DrawCastle.h"
-#include "DrawHourse.h"
+﻿#include "stdafx.h"
 #include "DrawElefant.h"
-#include "ThinkingChess.h"
 
-//namespace RefrigtzDLL
-//{
-	inline bool operator==(const DrawElefant& lhs,  const std::nullptr_t& rhs) { return  (lhs == rhs); }
-	inline bool operator!=(const DrawElefant& lhs,  const std::nullptr_t& rhs) { return !(lhs == rhs); }
 
-double DrawElefant::MaxHuristicxE = -20000000000000000;
+namespace RefrigtzDLL
+{
+
+	inline bool operator==(const DrawElefant& lhs, const std::nullptr_t& rhs) { return  (lhs == rhs); }
+	inline bool operator!=(const DrawElefant& lhs, const std::nullptr_t& rhs) { return !(lhs == rhs); }
+
+	double DrawElefant::MaxHuristicxE = -20000000000000000;
 
 	/*void DrawElefant::Log(std::exception ex)
 	{
-		//try
-		{
-			//autoa = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-			//lock (a)
-			{
-				std::wstring stackTrace = ex.what();
-//C# TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'ToString':
-				File::AppendAllText(AllDraw::Root + std::wstring(L"\\ErrorProgramRun.txt"), stackTrace + std::wstring(L": On") + DateTime::Now.ToString()); // path of file where stack trace will be stored.
-			}
-		}
-		//catch(std::exception t)
-		{
-			
-		}
+	//try
+	{
+	//autoa = new Object();
+	//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
+	//lock (a)
+	{
+	std::wstring stackTrace = ex.what();
+	//C# TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'ToString':
+	File::AppendAllText(AllDraw::Root + std::wstring(L"\\ErrorProgramRun.txt"), stackTrace + std::wstring(L": On") + DateTime::Now.ToString()); // path of file where stack trace will be stored.
+	}
+	}
+	//catch(std::exception t)
+	{
+
+	}
 	}
 	*/
-const DrawElefant& DrawElefant::operator[] (const int index) const
-{
-	return this[index];
-}
+	const DrawElefant& DrawElefant::operator[] (const int index) const
+	{
+		return this[index];
+	}
 
 	DrawElefant::~DrawElefant()
 	{
 		InitializeInstanceFields();
 		ValuableSelfSupported.clear();
-//		E = nullptr;
+		//		E = nullptr;
 	}
 
-	bool DrawElefant::MaxFound(bool MaxNotFound)
+	bool DrawElefant::MaxFound(bool &MaxNotFound)
 	{
 		//try
 		{
@@ -52,7 +49,7 @@ const DrawElefant& DrawElefant::operator[] (const int index) const
 			if (MaxHuristicxE < a)
 			{
 				//autoO2 = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
+				//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 				//lock (O2)
 				{
 					MaxNotFound = false;
@@ -67,7 +64,7 @@ const DrawElefant& DrawElefant::operator[] (const int index) const
 		}
 		//catch(std::exception t)
 		{
-			
+
 
 		}
 		MaxNotFound = true;
@@ -85,7 +82,7 @@ const DrawElefant& DrawElefant::operator[] (const int index) const
 			}
 			//catch(std::exception t)
 			{
-				
+
 			}
 		}
 
@@ -140,7 +137,7 @@ const DrawElefant& DrawElefant::operator[] (const int index) const
 
 	}
 
-	
+
 	void DrawElefant::Clone(DrawElefant AA)
 	{
 		int **Tab;
@@ -156,10 +153,10 @@ const DrawElefant& DrawElefant::operator[] (const int index) const
 		AA.ArrangmentsChanged = ArrangmentsChanged;
 		for (int i = 0; i < AllDraw::ElefantMovments; i++)
 		{
-			
-				AA.ElefantThinking.push_back(ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column)));
-				//ElefantThinking[0].Clone(AA.ElefantThinking);
-			
+
+			AA.ElefantThinking.push_back(ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column)));
+			//ElefantThinking[0].Clone(AA.ElefantThinking);
+
 		}
 		AA.Table = new int*[8]; for (int ii = 0; ii < 8; ii++)AA.Table[ii] - new int[8];
 		for (int ii = 0; ii < 8; ii++)
@@ -176,52 +173,52 @@ const DrawElefant& DrawElefant::operator[] (const int index) const
 		AA.color = color;
 
 	}
-	
-	void DrawElefant::DrawElefantOnTable( int CellW, int CellH)
+
+	void DrawElefant::DrawElefantOnTable(int CellW, int CellH)
 	{
-	/*	//try
+		/*	//try
 		{
 
-			//autobalance//lockS = new Object();
+		//autobalance//lockS = new Object();
 
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-			//lock (balance//lockS)
-			{
-				if (E == nullptr || E[1] == nullptr)
-				{
-					E = Image::FromFile(AllDraw::ImagesSubRoot + std::wstring(L"EG.png"));
-					E[1] = Image::FromFile(AllDraw::ImagesSubRoot + std::wstring(L"EB.png"));
-				}
+		//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
+		//lock (balance//lockS)
+		{
+		if (E == nullptr || E[1] == nullptr)
+		{
+		E = Image::FromFile(AllDraw::ImagesSubRoot + std::wstring(L"EG.png"));
+		E[1] = Image::FromFile(AllDraw::ImagesSubRoot + std::wstring(L"EB.png"));
+		}
 
-				//Gray int.
-				if ((static_cast<int>(Row) >= 0) static_cast<int>(Row) < 8) static_cast<int>(Column) >= 0) static_cast<int>(Column) < 8))
-				{
-					if (Order == 1)
-					{
-						//autoO1 = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-						//lock (O1)
-						{ //Draw an Instant from File of Gray Soldeirs.
-							 //Draw an Instatnt Gray Elephant On the Table.
-							g.DrawImage(E, Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
-						}
-					}
-					else
-					{
-						//autoO1 = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-						//lock (O1)
-						{ //Draw an Instant from File of Gray Soldeirs.
-							 //Draw an Instatnt Brown Elepehnt On the Table.
-							g.DrawImage(E[1], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
-						}
-					}
-				}
-			}
+		//Gray int.
+		if ((static_cast<int>(Row) >= 0) static_cast<int>(Row) < 8) static_cast<int>(Column) >= 0) static_cast<int>(Column) < 8))
+		{
+		if (Order == 1)
+		{
+		//autoO1 = new Object();
+		//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
+		//lock (O1)
+		{ //Draw an Instant from File of Gray Soldeirs.
+		//Draw an Instatnt Gray Elephant On the Table.
+		g.DrawImage(E, Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
+		}
+		}
+		else
+		{
+		//autoO1 = new Object();
+		//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
+		//lock (O1)
+		{ //Draw an Instant from File of Gray Soldeirs.
+		//Draw an Instatnt Brown Elepehnt On the Table.
+		g.DrawImage(E[1], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
+		}
+		}
+		}
+		}
 		}
 		//catch(std::exception t)
 		{
-			
+
 		}
 		*/
 	}
@@ -230,7 +227,7 @@ const DrawElefant& DrawElefant::operator[] (const int index) const
 	{
 		WinOcuuredatChiled = 0;
 		LoseOcuuredatChiled = 0;
-		ValuableSelfSupported = std::vector<int>();
+		ValuableSelfSupported = std::vector<int*>();
 		MovementsAStarGreedyHuristicFoundT = false;
 		IgnoreSelfObjectsT = false;
 		UsePenaltyRegardMechnisamT = true;
@@ -246,4 +243,4 @@ const DrawElefant& DrawElefant::operator[] (const int index) const
 		Order = 0;
 		CurrentAStarGredyMax = -1;
 	}
-//}
+}

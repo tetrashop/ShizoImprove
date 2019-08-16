@@ -1,10 +1,11 @@
 ﻿
-#include "AllDraw.h"
+#include "stdafx.h"
 #include "ThingsConverter.h"
+#include "AllDraw.h"
 
 
-//namespace RefrigtzDLL
-//{
+namespace RefrigtzDLL
+{
 
 bool ThingsConverter::LoadConvertTable = false;
 int **ThingsConverter::TableConverted = nullptr;
@@ -15,8 +16,8 @@ bool ThingsConverter::ActOfClickEqualTow = false;
 	{
 		InitializeInstanceFields();
 	}
-	//template< typename T >
-	ThingsConverter::ThingsConverter(int Arrangments, int i, int j, int a, int **Tab, int Ord, bool TB, int Cur)
+
+	ThingsConverter::ThingsConverter(bool Arrangments, int i, int j, int a, int **Tab, int Ord, bool TB, int Cur)
 	{
 		//Initite Global Variables with Local Parameter.
 		//THIS = THI;
@@ -33,7 +34,7 @@ bool ThingsConverter::ActOfClickEqualTow = false;
 
 	bool ThingsConverter::ConvertOperation(int i, int j, int a, int **Tab, int Ord, bool TB, int Cur)
 	{
-		//autoOOO = new Object();
+		////auto OOO = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 		//lock (OOO)
 		{
@@ -46,21 +47,21 @@ bool ThingsConverter::ActOfClickEqualTow = false;
 			//If Convert is Act and click tow time occured
 			if (!Convert && ActOfClickEqualTow)
 			{
-				//autoO = new Object();
+				////auto O = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 				//lock (O)
 				{
 					AllDraw::ConvertWait = true;
 				}
 
-				//autoO1 = new Object();
+				////auto O1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 				//lock (O1)
 				{
 					ClickOcurred = true;
 				}
 				//Set tow time click unclicked.
-				//autoO2 = new Object();
+				////auto O2 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 				//lock (O2)
 				{
@@ -90,11 +91,11 @@ bool ThingsConverter::ActOfClickEqualTow = false;
 						Convert = true;
 					}
 				}
-				//If Converted is Occured the Operation od Set and table reference content occured.
+				//If Converted is Occured the Operation od Set and Table reference content occured.
 				if (Convert)
 				{
 					bool ASS = false;
-					//autoOOOAAA = new Object();
+					////auto OOOAAA = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 					//lock (OOOAAA)
 					{
@@ -140,10 +141,10 @@ bool ThingsConverter::ActOfClickEqualTow = false;
 							}
 						else
 						{
-							Rand = (rand() % 5);
+							Rand = (rand() % 4);
 						}
 						}
-						//If Rand is Equaled the Operation will cuased automaticcally Base on int..
+						//If Rand is Equaled the Operation will cuased //automaticcally Base on int..
 						if (Rand == 0)
 						{
 							if (Order == 1)
@@ -246,10 +247,10 @@ bool ThingsConverter::ActOfClickEqualTow = false;
 								}
 							else
 							{
-								Rand = (rand() % 5);
+								Rand = (rand() % 4);
 							}
 							}
-							//If Rand is Equaled the Operation will cuased automaticcally Base on int..
+							//If Rand is Equaled the Operation will cuased //automaticcally Base on int..
 							if (Rand == 0)
 							{
 								if (Order == 1)
@@ -354,10 +355,10 @@ bool ThingsConverter::ActOfClickEqualTow = false;
 								}
 							else
 							{
-								Rand = (rand() % 5);
+								Rand = (rand() % 4);
 							}
 							}
-							//If Rand is Equaled the Operation will cuased automaticcally Base on int..
+							//If Rand is Equaled the Operation will cuased //automaticcally Base on int..
 							if (Rand == 0)
 							{
 								if (Order == 1)
@@ -428,12 +429,11 @@ bool ThingsConverter::ActOfClickEqualTow = false;
 			AllDraw::ConvertWait = false;
 			if (Convert)
 			{
-				//autoO = new Object();
+				////auto O = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 				//lock (O)
 				{
-					TableConverted = new int*[8]; for (int ii = 0; ii < 8; ii++)TableConverted[ii] =new  int[8];
-					 
+					TableConverted = new int*[8]; for (int g = 0; g < 8; g++)TableConverted[g] = new int[8];
 					for (int iii = 0; iii < 8; iii++)
 					{
 						for (int jjj = 0; jjj < 8; jjj++)
@@ -442,7 +442,7 @@ bool ThingsConverter::ActOfClickEqualTow = false;
 						}
 					}
 				}
-				//autoO1 = new Object();
+				////auto O1 = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 				//lock (O1)
 				{
@@ -471,4 +471,4 @@ bool ThingsConverter::ActOfClickEqualTow = false;
 		Order = 0;
 		Current = 0;
 	}
-//}
+}

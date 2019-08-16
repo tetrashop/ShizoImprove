@@ -61,7 +61,7 @@
 	{
 		//autoo = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-		////lock (o)
+		//lock (o)
 		{
 			AA->r = r;
 			AA->m = m;
@@ -93,7 +93,7 @@
 	{
 		//autoo = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-		////lock (o)
+		//lock (o)
 		{
 			Failer++;
 			if (Success < Failer && State < r - 1)
@@ -111,7 +111,7 @@
 	{
 		//autoo = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-		////lock (o)
+		//lock (o)
 		{
 			Success++;
 			if (Success > Failer && State < r - 1)
@@ -129,7 +129,7 @@
 	{
 		//autoo = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-		////lock (o)
+		//lock (o)
 		{
 			for (int i = 0; i < r - 2; i++)
 			{
@@ -146,7 +146,7 @@
 	{
 		//autoo = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-		////lock (o)
+		//lock (o)
 		{
 			SuccessState();
 			IsReward = true;
@@ -168,7 +168,7 @@
 	{
 		//autoo = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-		////lock (o)
+		//lock (o)
 		{
 			if (IsReward)
 			{
@@ -182,7 +182,7 @@
 	{
 		//autoo = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-		////lock (o)
+		//lock (o)
 		{
 			if (IsPenalty)
 			{
@@ -196,7 +196,7 @@
 	{
 		//autoo = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-		////lock (o)
+		//lock (o)
 		{
 			FailureState();
 			IsPenalty = true;
