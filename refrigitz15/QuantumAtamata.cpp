@@ -395,7 +395,7 @@ namespace RefrigtzDLL
 		}
 	}
 
-	/*void QuantumAtamata::InitializeInstanceFields()
+	void QuantumAtamata::InitializeInstanceFields()
 	{
 		States = std::vector<std::wstring>();
 		StateByte = std::vector<unsigned char>();
@@ -413,5 +413,5 @@ namespace RefrigtzDLL
 		AB = L"";
 		AC = L"";
 		CurrentState = L"";
-	}*/
+	}
 }

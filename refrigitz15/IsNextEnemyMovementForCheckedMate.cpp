@@ -91,12 +91,12 @@ namespace RefrigtzDLL
 		bool A52 = AllDraw::StateCP;
 		bool A53 = AllDraw::Stockfish;
 		std::vector<AllDraw> A54 = std::vector<AllDraw>();
-		for (int i = 0; i < AllDraw::StoreADraw.size(); i++)
+		for (int i = 0; i < AllDraw::StoreADraw->size(); i++)
 		{
 			A54.push_back(AllDraw::StoreADraw[i]);
 		}
 		std::vector<int> A55 = std::vector<int>();
-		for (int i = 0; i < AllDraw::StoreADrawAStarGreedy.size(); i++)
+		for (int i = 0; i < AllDraw::StoreADrawAStarGreedy->size(); i++)
 		{
 			A55.push_back(AllDraw::StoreADrawAStarGreedy[i]);
 		}
@@ -104,12 +104,12 @@ namespace RefrigtzDLL
 		int A57 = AllDraw::SuppportCountStaticGray;
 		std::wstring A58 = AllDraw::SyntaxToWrite;
 		std::vector<int**> A59 = std::vector<int**>();
-		for (int i = 0; i < AllDraw::TableCurrent.size(); i++)
+		for (int i = 0; i < AllDraw::TableCurrent->size(); i++)
 		{
 			A59.push_back(AllDraw::TableCurrent[i]);
 		}
 		std::vector<int**> A60 = std::vector<int**>();
-		for (int i = 0; i < AllDraw::TableListAction.size(); i++)
+		for (int i = 0; i < AllDraw::TableListAction->size(); i++)
 		{
 			A60.push_back(AllDraw::TableListAction[i]);
 		}
@@ -223,12 +223,12 @@ namespace RefrigtzDLL
 		 AllDraw::StateCP = A52;
 		AllDraw::Stockfish = A53;
 		AllDraw::StoreADraw.clear();
-		for (int i = 0; i < AllDraw::StoreADraw.size(); i++)
+		for (int i = 0; i < AllDraw::StoreADraw->size(); i++)
 		{
 			AllDraw::StoreADraw.push_back(A54[i]);
 		}
 		AllDraw::StoreADrawAStarGreedy.clear();
-		for (int i = 0; i < AllDraw::StoreADrawAStarGreedy.size(); i++)
+		for (int i = 0; i < AllDraw::StoreADrawAStarGreedy->size(); i++)
 		{
 			AllDraw::StoreADrawAStarGreedy.push_back(A55[i]);
 		}
@@ -236,12 +236,12 @@ namespace RefrigtzDLL
 		 AllDraw::SuppportCountStaticGray = A57;
 		AllDraw::SyntaxToWrite = A58;
 		AllDraw::TableCurrent.clear();
-		for (int i = 0; i < AllDraw::TableCurrent.size(); i++)
+		for (int i = 0; i < AllDraw::TableCurrent->size(); i++)
 		{
 			AllDraw::TableCurrent.push_back(A59[i]);
 		}
 		AllDraw::TableListAction.clear();
-		for (int i = 0; i < AllDraw::TableListAction.size(); i++)
+		for (int i = 0; i < AllDraw::TableListAction->size(); i++)
 		{
 			AllDraw::TableListAction.push_back(A60[i]);
 		}

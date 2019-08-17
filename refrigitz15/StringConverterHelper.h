@@ -1,12 +1,14 @@
 ﻿#pragma once
-
+#include "stdafx.h"
+#include <sstream>
 //----------------------------------------------------------------------------------------
 //	Copyright © 2004 - 2014 Tangible Software Solutions Inc.
 //	This class can be used by anyone provided that the copyright notice remains intact.
 //
 //	This class is used to replace some conversions to or from strings.
 //----------------------------------------------------------------------------------------
-#include <sstream>
+
+
 
 class StringConverterHelper
 {

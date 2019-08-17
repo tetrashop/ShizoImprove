@@ -1,5 +1,5 @@
 ﻿#pragma once
-
+#include "stdafx.h"
 #include "ThingsConverter.h"
 #include "AllDraw.h"
 #include "ThinkingChess.h"
@@ -7,12 +7,11 @@
 #include <vector>
 #include <stdexcept>
 
-
 namespace RefrigtzDLL
 {
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
 //ORIGINAL LINE: [Serializable] public class DrawSoldier : ThingsConverter
-	class DrawSoldier : public ThingsConverter
+	 class DrawSoldier : public ThingsConverter
 	{
 
 

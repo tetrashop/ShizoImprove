@@ -27,10 +27,8 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -84,10 +82,10 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -147,13 +145,12 @@
     <ClInclude Include="..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz15\DrawMinister.h" />
     <ClInclude Include="..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz15\DrawSoldire.h" />
     <ClInclude Include="..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz15\IsNextEnemyMovementForCheckedMate.h" />
+    <ClInclude Include="..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz15\StringConverterHelper.h" />
     <ClInclude Include="LearningKrinskyAtamata.h" />
     <ClInclude Include="..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz15\NetworkQuantumLearningKrinskyAtamata.h" />
-    <ClInclude Include="..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz15\NewotoonInterpolate.h" />
     <ClInclude Include="..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz15\QuantumAtamata.h" />
     <ClInclude Include="QuantumLearningKrinskyAtamata.h" />
     <ClInclude Include="..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz15\stdafx.h" />
-    <ClInclude Include="..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz15\stringconverter.h" />
     <ClInclude Include="..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz15\targetver.h" />
     <ClInclude Include="..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz15\ThingsConverter.h" />
     <ClInclude Include="..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz15\ThinkingChess.h" />
@@ -170,10 +167,8 @@
     <ClCompile Include="..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz15\IsNextEnemyMovementForCheckedMate.cpp" />
     <ClCompile Include="LearningKrinskyAtamata.cpp" />
     <ClCompile Include="..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz15\NetworkQuantumLearningKrinskyAtamata.cpp" />
-    <ClCompile Include="..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz15\NewotoonInterpolate.cpp" />
     <ClCompile Include="..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz15\QuantumAtamata.cpp" />
     <ClCompile Include="QuantumLearningKrinskyAtamata.cpp" />
-    <ClCompile Include="..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz15\refrigitz15.cpp" />
     <ClCompile Include="..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz15\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

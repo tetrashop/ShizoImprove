@@ -6,7 +6,7 @@ namespace RefrigtzDLL
 {
 
 	inline bool operator==(const DrawCastle& lhs, const std::nullptr_t& rhs) { return  (lhs == rhs); }
-	inline bool operator!=(const DrawCastle& lhs, const std::nullptr_t& rhs) { return !(lhs == rhs); }
+	inline bool operator!=(const DrawCastle& lhs, const std::nullptr_t& rhs) { return (lhs != rhs); }
 
 
 	double DrawCastle::MaxHuristicxC = -20000000000000000;
@@ -110,7 +110,7 @@ namespace RefrigtzDLL
 			}
 		}
 		CastleThinking = std::vector<ThinkingChess>();
-		CastleThinking.push_back(ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(i), static_cast<int>(j), a, Tab, 32, Ord, TB, Cur, 2, 5));
+		CastleThinking.push_back(ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, i, j, a, Tab, 32, Ord, TB, Cur, 2, 5));
 
 		Row = i;
 		Column = j;
@@ -135,10 +135,10 @@ namespace RefrigtzDLL
 		AA.ArrangmentsChanged = ArrangmentsChanged;
 		for (int i = 0; i < AllDraw::CastleMovments; i++)
 		{
-			AA.CastleThinking.push_back(ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column)));
+			AA.CastleThinking.push_back(ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column));
 
 		}
-		AA.Table = new int*[8]; for (int ii = 0; ii < 8; ii++)Table[ii] - new int[8];
+		AA.Table = new int*[8]; for (int ii = 0; ii < 8; ii++)AA.Table[ii] - new int[8];
 		for (int ii = 0; ii < 8; ii++)
 		{
 			for (int jj = 0; jj < 8; jj++)
@@ -169,7 +169,7 @@ namespace RefrigtzDLL
 		M = Image::FromFile(AllDraw::ImagesSubRoot + std::wstring(L"MG.png"));
 		M[1] = Image::FromFile(AllDraw::ImagesSubRoot + std::wstring(L"MB.png"));
 		} //Gray int.
-		if ((static_cast<int>(Row) >= 0) static_cast<int>(Row) < 8) static_cast<int>(Column) >= 0) static_cast<int>(Column) < 8))
+		if ((static_cast<int>(Row) >= 0) Row) < 8) Column) >= 0) Column) < 8))
 		{
 		//Gray Order.
 		if (Order == 1)
@@ -179,7 +179,7 @@ namespace RefrigtzDLL
 		//lock (O1)
 		{ //Draw an Instant from File of Gray Soldeirs.
 		//Draw a Gray Instatnt Castle Image on the Table.
-		g.DrawImage(M, Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
+		g.DrawImage(M, Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), Column * static_cast<float>(CellH)), CellW, CellH));
 		}
 		}
 		else
@@ -189,7 +189,7 @@ namespace RefrigtzDLL
 		//lock (O1)
 		{ //Draw an Instant from File of Gray Soldeirs.
 		//Draw a Brown Instatnt Castle Image on the Table.
-		g.DrawImage(M[1], Rectangle(static_cast<int>(Row * CellW), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
+		g.DrawImage(M[1], Rectangle(static_cast<int>(Row * CellW), Column * static_cast<float>(CellH)), CellW, CellH));
 		}
 		}
 		}

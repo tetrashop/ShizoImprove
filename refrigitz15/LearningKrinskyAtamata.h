@@ -1,6 +1,6 @@
 ﻿#pragma once
-
-#include "QuantumAtamata.h"
+#include "stdafx.h"
+//#include "QuantumAtamata.h"
 
 /******************************************************************************
  * Ramin Edjlal Copyrights 2015.************************************************
@@ -29,19 +29,20 @@ namespace RefrigtzDLL
 		int r;
 		int m;
 		int k;
-	protected:
+		
+	public:
 //C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
 //ORIGINAL LINE: public double* Alpha;
 		double *Alpha;
-	protected:
+	public:
 		bool beta;
 //C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
 //ORIGINAL LINE: double* fi;
 		double *fi;
-	protected:
+	public:
 		bool IsReward;
 		bool IsPenalty;
-	protected:
+	public:
 		double Reward;
 		double Penalty;
 		int Success, Failer;
@@ -51,7 +52,8 @@ namespace RefrigtzDLL
 		
 		void Initiate();
 		LearningKrinskyAtamata(int r0, int m0, int k0);
-		void Clone(QuantumAtamata AA);
+		LearningKrinskyAtamata() {}
+		//void Clone(QuantumAtamata AA);
 
 		void FailureState();
 		void SuccessState();
@@ -59,7 +61,7 @@ namespace RefrigtzDLL
 		double LearningAlgorithmRegard();
 		int IsRewardAction();
 
-		double IsPenaltyAction();
+		int IsPenaltyAction();
 		double LearningAlgorithmPenalty();
 
 	private:

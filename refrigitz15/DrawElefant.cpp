@@ -6,7 +6,7 @@ namespace RefrigtzDLL
 {
 
 	inline bool operator==(const DrawElefant& lhs, const std::nullptr_t& rhs) { return  (lhs == rhs); }
-	inline bool operator!=(const DrawElefant& lhs, const std::nullptr_t& rhs) { return !(lhs == rhs); }
+	inline bool operator!=(const DrawElefant& lhs, const std::nullptr_t& rhs) { return (lhs != rhs); }
 
 	double DrawElefant::MaxHuristicxE = -20000000000000000;
 
@@ -126,7 +126,7 @@ namespace RefrigtzDLL
 			}
 		}
 		ElefantThinking = std::vector<ThinkingChess>();
-		ElefantThinking.push_back(ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(i), static_cast<int>(j), a, Tab, 16, Ord, TB, Cur, 4, 2));
+		ElefantThinking.push_back(ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, i, j, a, Tab, 16, Ord, TB, Cur, 4, 2));
 
 		Row = i;
 		Column = j;
@@ -154,7 +154,7 @@ namespace RefrigtzDLL
 		for (int i = 0; i < AllDraw::ElefantMovments; i++)
 		{
 
-			AA.ElefantThinking.push_back(ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column)));
+			AA.ElefantThinking.push_back(ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column));
 			//ElefantThinking[0].Clone(AA.ElefantThinking);
 
 		}
@@ -191,7 +191,7 @@ namespace RefrigtzDLL
 		}
 
 		//Gray int.
-		if ((static_cast<int>(Row) >= 0) static_cast<int>(Row) < 8) static_cast<int>(Column) >= 0) static_cast<int>(Column) < 8))
+		if ((static_cast<int>(Row) >= 0) Row) < 8) Column) >= 0) Column) < 8))
 		{
 		if (Order == 1)
 		{
@@ -200,7 +200,7 @@ namespace RefrigtzDLL
 		//lock (O1)
 		{ //Draw an Instant from File of Gray Soldeirs.
 		//Draw an Instatnt Gray Elephant On the Table.
-		g.DrawImage(E, Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
+		g.DrawImage(E, Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), Column * static_cast<float>(CellH)), CellW, CellH));
 		}
 		}
 		else
@@ -210,7 +210,7 @@ namespace RefrigtzDLL
 		//lock (O1)
 		{ //Draw an Instant from File of Gray Soldeirs.
 		//Draw an Instatnt Brown Elepehnt On the Table.
-		g.DrawImage(E[1], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
+		g.DrawImage(E[1], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), Column * static_cast<float>(CellH)), CellW, CellH));
 		}
 		}
 		}

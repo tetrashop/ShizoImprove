@@ -20,7 +20,7 @@ class DrawSoldier;
 #include <vector>
 #include <cmath>
 #include <float.h>
-#include <stdexcept>\
+#include <stdexcept>
 #include "StringConverterHelper.h"
 
 

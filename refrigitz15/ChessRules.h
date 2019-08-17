@@ -1,11 +1,11 @@
 ﻿#pragma once
-
+#include "stdafx.h"
 #include <string>
 #include <vector>
 #include <cmath>
 #include <float.h>
 #include <stdexcept>
-#include "stringconverter.h"
+#include "StringConverterHelper.h"
 
 /***********************************************************************************
  * Every Ruls of objective condition of chess game.*********************************

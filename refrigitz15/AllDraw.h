@@ -1,17 +1,36 @@
+
 #pragma once
 
-#include "DrawSoldire.h"
+#include "stdafx.h"
+/*#include "DrawSoldire.h"
+#include "DrawElefant.h"
+#include "DrawHourse.h"
+#include "DrawCastle.h"
+
+#pragma once
+
+#include "stdafx.h"
+/*#include "DrawSoldire.h"
 #include "DrawElefant.h"
 #include "DrawHourse.h"
 #include "DrawCastle.h"
 #include "DrawMinister.h"
-#include "DrawKing.h"
+#include "DrawKing.h"*/
+
+class DrawSoldier;
+class DrawElefant;
+class DrawHourse;
+class DrawCastle;
+class DrawMinister;
+class DrawKing;
+class ThinkingChess;
 #include <string>
 #include <vector>
 #include <cmath>
 #include <float.h>
 #include <stdexcept>
-#include "stringconverter.h"
+#include "StringConverterHelper.h"
+
 
 /*******************************************************************************************
  * Initiate and Decision making class.******************************************************
@@ -440,8 +459,7 @@ namespace RefrigtzDLL
 
 
 
-		bool AllCurrentAStarGreedyThinkingFinished(AllDraw * Dum, int i, int j, int Kind);
-
+	
 		//Check For Thinking Of Current Item Movments Finished.
 		//void BlitzGameThinkingSolderGray(double PreviousLessS, int * Index, int * jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy);
 		//int** Initiate(int ii, int jj, int a, int** Table, int Order, bool TB, bool FOUND, int LeafAStarGreedy, bool SetDept = false);
@@ -590,8 +608,7 @@ namespace RefrigtzDLL
 		int ** HuristicAStarGreadySearchGray(int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool & Act);
 		int ** HuristicAStarGreadySearchBrown(int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool & Act);
 		int ** BrownHuristicAStarGreaedySearchPenalites(int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool & Act);
-		int **HuristicAStarGreadySearchSoldier(int **TableHuristic, int i, int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool Act);
-
+	
 	/*	int **HuristicAStarGreadySearchSoldierGray(int **TableHuristic, int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool Act);
 		int **HuristicAStarGreadySearchSoldierBrown(int **TableHuristic, int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool Act);
 		int **HuristicAStarGreadySearchElephantGray(int **TableHuristic, int AStarGreedyi, int a, int Order, bool CurrentTableHuristic, bool Act);
@@ -615,8 +632,7 @@ namespace RefrigtzDLL
 		//AStarGreedy First Huristic Method.
 	public:
 		void Clone(AllDraw AA);
-		AllDraw(int Order, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, AllDraw * THi);
-		bool AllCurrentAStarGreedyThinkingFinished(AllDraw Dum, int i, int j, int Kind);
+	    //bool AllCurrentAStarGreedyThinkingFinished(AllDraw Dum, int i, int j, int Kind);
 		//int** CloneATable(int** Tab);
 		int **HuristicAStarGreedySearch(int AStarGreedyi, int a, int Order, bool CurrentTableHuristic);
 		//int **HuristicAStarGreedySearchPenalties(int AStarGreedyi, int a, int Order, bool CurrentTableHuristic);

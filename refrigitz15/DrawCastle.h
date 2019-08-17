@@ -1,5 +1,5 @@
 ﻿#pragma once
-
+#include "stdafx.h"
 #include "AllDraw.h"
 #include "ThinkingChess.h"
 #include <string>
@@ -10,7 +10,7 @@ namespace RefrigtzDLL
 {
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
 //ORIGINAL LINE: [Serializable] public class DrawCastle
-	class DrawCastle
+	 class DrawCastle
 	{
 
 

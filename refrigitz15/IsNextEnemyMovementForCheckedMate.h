@@ -1,5 +1,5 @@
 ﻿#pragma once
-
+#include "stdafx.h"
 #include "AllDraw.h"
 #include <string>
 #include <vector>

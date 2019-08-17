@@ -1,5 +1,5 @@
 ﻿#pragma once
-
+#include "stdafx.h"
 #include "AllDraw.h"
 #include "ThinkingChess.h"
 #include <string>
@@ -10,7 +10,7 @@ namespace RefrigtzDLL
 {
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
 //ORIGINAL LINE: [Serializable] public class DrawMinister
-	class DrawMinister //:DrawKing
+	 class DrawMinister //:DrawKing
 	{
 
 
@@ -50,11 +50,11 @@ namespace RefrigtzDLL
 		static void Log(std::exception &ex);
 	public:
 		~DrawMinister();
+		DrawMinister(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int **Tab, int Ord, bool TB, int Cur);
 		DrawMinister(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments);
 		const DrawMinister& operator[] (const int index) const;
 		bool MaxFound(bool &MaxNotFound);
 		double ReturnHuristic();
-		DrawMinister(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int **Tab, int Ord, bool TB, int Cur);
 		//constructor 1.
 		/*public DrawMinister(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
 		{
@@ -70,7 +70,6 @@ namespace RefrigtzDLL
 		}
 		*/
 		//Constructor 2.
-		DrawMinister(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int **Tab, int Ord, bool TB, int Cur); //,  AllDraw. THIS
 		//Clone a Copy.
 		void Clone(DrawMinister AA); //,  AllDraw. THIS
 		//Draw an Mnister on the Table.

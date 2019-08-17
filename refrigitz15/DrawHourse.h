@@ -1,5 +1,5 @@
 ﻿#pragma once
-
+#include "stdafx.h"
 #include "AllDraw.h"
 #include "ThinkingChess.h"
 #include <string>
@@ -8,7 +8,7 @@
 
 namespace RefrigtzDLL
 {
-	class DrawHourse
+	 class DrawHourse
 	{
 		const DrawHourse& operator[] (const int index) const;
 

@@ -1,9 +1,11 @@
-#pragma once
 
-#include "NetworkQuantumLearningKrinskyAtamata.h"
-#include "QuantumLearningKrinskyAtamata.h"
-#include "QuantumAtamata.h"
-#include "LearningKrinskyAtamata.h"
+#pragma once
+#include "stdafx.h"
+#include <string>
+#include <vector>
+#include <cmath>
+#include <float.h>
+#include <stdexcept>
 #include "AllDraw.h"
 #include "DrawSoldire.h"
 #include "DrawElefant.h"
@@ -11,12 +13,13 @@
 #include "DrawCastle.h"
 #include "DrawMinister.h"
 #include "DrawKing.h"
-#include <string>
-#include <vector>
-#include <cmath>
-#include <float.h>
-#include <stdexcept>
-#include "stringconverter.h"
+#include "StringConverterHelper.h"
+#include "LearningKrinskyAtamata.h"
+#include "QuantumAtamata.h"
+#include "QuantumLearningKrinskyAtamata.h"
+#include "NetworkQuantumLearningKrinskyAtamata.h"
+
+#include "ChessRules.h"
 
 /****************************************************************************
  * Thinking Operation class.*************************************************
@@ -88,7 +91,7 @@
  * **************************************************************************(+:Sum(26)) (*:Sum(1)) 5:(+:Sum(3)) 6.(+:Sum0.12**4**Managements and Cuation Programing**********************(+)) 7.(:Sum(1))
  * **************************************************************************
  */
-using namespace RefrigtzDLL;
+
 namespace RefrigtzDLL
 {
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
@@ -284,7 +287,7 @@ namespace RefrigtzDLL
 		                if (Tab == null)
 		                    return 0;
 		                else
-		                    Value[Row, Column] += ObjectValueCalculator(Tab, Row, Column);
+		                    Value[Row, Column] += ObjectValueCalculator(Tab, Row, Column;
 		            }
 		        }
 		    }

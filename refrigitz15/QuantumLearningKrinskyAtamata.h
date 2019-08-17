@@ -1,5 +1,5 @@
 ﻿#pragma once
-
+#include "stdafx.h"
 #include "QuantumAtamata.h"
 
 
@@ -10,12 +10,13 @@ namespace RefrigtzDLL
 	class QuantumLearningKrinskyAtamata : public QuantumAtamata
 	{
 	/*private:
-		int r, k, m;
-		double Alpha;*/
+		int r, k, m;*/
+	public:
+		double Alpha0;
 	public:
 		QuantumLearningKrinskyAtamata(int r0, int m0, int k0, double Alpha0);
 
 	private:
-		void InitializeInstanceFields();
+		virtual void InitializeInstanceFields();
 	};
 }

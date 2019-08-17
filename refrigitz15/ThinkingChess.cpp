@@ -1,12 +1,11 @@
 #include "stdafx.h"
 #include "ThinkingChess.h"
-#include "ChessRules.h"
 
 
 
 namespace RefrigtzDLL
-{
-	/*inline bool operator==(const AllDraw& lhs, const std::nullptr_t rhs) { return (lhs == rhs); }
+{/*
+	inline bool operator==(const AllDraw& lhs, const std::nullptr_t rhs) { return (lhs == rhs); }
 	inline bool operator!=(const AllDraw& lhs, const std::nullptr_t rhs) { return !(lhs != rhs); }
 	inline bool operator==(const DrawSoldier& lhs, const std::nullptr_t rhs) { return (lhs == rhs); }
 	inline bool operator!=(const DrawSoldier& lhs, const std::nullptr_t rhs) { return !(lhs == rhs); }
@@ -23,39 +22,56 @@ namespace RefrigtzDLL
 	inline bool operator==(const ThinkingChess& lhs, const std::nullptr_t rhs) { return (lhs == rhs); }
 	inline bool operator!=(const ThinkingChess& lhs, const std::nullptr_t rhs) { return !(lhs == rhs); }
 	*/
-	inline bool operator==(const AllDraw lhs, const std::nullptr_t rhs) { return ((&lhs) == rhs); }
-	inline bool operator!=(const AllDraw lhs, const std::nullptr_t rhs) { return !((&lhs) == rhs); }
-	inline bool operator==(const DrawSoldier lhs, const std::nullptr_t rhs) { return ((&lhs) == rhs); }
-	inline bool operator!=(const DrawSoldier lhs, const std::nullptr_t rhs) { return !((&lhs) == rhs); }
-	inline bool operator==(const DrawCastle lhs, const std::nullptr_t rhs) { return ((&lhs) == rhs); }
-	inline bool operator!=(const DrawCastle lhs, const std::nullptr_t rhs) { return !((&lhs) == rhs); }
-	inline bool operator==(const DrawElefant lhs, const std::nullptr_t rhs) { return ((&lhs) == rhs); }
-	inline bool operator!=(const DrawElefant lhs, const std::nullptr_t rhs) { return !((&lhs) == rhs); }
-	inline bool operator==(const DrawHourse lhs, const std::nullptr_t rhs) { return ((&lhs) == rhs); }
-	inline bool operator!=(const DrawHourse lhs, const std::nullptr_t rhs) { return !((&lhs) == rhs); }
-	inline bool operator==(const DrawMinister lhs, const std::nullptr_t rhs) { return ((&lhs) == rhs); }
-	inline bool operator!=(const DrawMinister lhs, const std::nullptr_t rhs) { return !((&lhs) == rhs); }
-	inline bool operator==(const DrawKing lhs, const std::nullptr_t rhs) { return ((&lhs) == rhs); }
-	inline bool operator!=(const DrawKing lhs, const std::nullptr_t rhs) { return !((&lhs) == rhs); }
-	inline bool operator==(const ThinkingChess lhs, const std::nullptr_t rhs) { return ((&lhs) == rhs); }
-	inline bool operator!=(const ThinkingChess lhs, const std::nullptr_t rhs) { return !((&lhs) == rhs); }
+	inline bool operator==(const RefrigtzDLL::AllDraw lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
+	inline bool operator!=(const RefrigtzDLL::AllDraw lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
+	inline bool operator==(const RefrigtzDLL::DrawSoldier lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
+	inline bool operator!=(const RefrigtzDLL::DrawSoldier lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
+	inline bool operator==(const RefrigtzDLL::DrawCastle lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
+	inline bool operator!=(const RefrigtzDLL::DrawCastle lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
+	inline bool operator==(const RefrigtzDLL::DrawElefant lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
+	inline bool operator!=(const RefrigtzDLL::DrawElefant lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
+	inline bool operator==(const RefrigtzDLL::DrawHourse lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
+	inline bool operator!=(const RefrigtzDLL::DrawHourse lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
+	inline bool operator==(const RefrigtzDLL::DrawMinister lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
+	inline bool operator!=(const RefrigtzDLL::DrawMinister lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
+	inline bool operator==(const RefrigtzDLL::DrawKing lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
+	inline bool operator!=(const RefrigtzDLL::DrawKing lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
+	inline bool operator==(const RefrigtzDLL::ThinkingChess lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
+	inline bool operator!=(const RefrigtzDLL::ThinkingChess lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
 
-	inline bool operator==(const std::vector<AllDraw> lhs, const std::nullptr_t rhs) { return ((&lhs) == rhs); }
-	inline bool operator!=(const std::vector<AllDraw> lhs, const std::nullptr_t rhs) { return !((&lhs) == rhs); }
-	inline bool operator==(const std::vector<DrawSoldier> lhs, const std::nullptr_t rhs) { return ((&lhs) == rhs); }
-	inline bool operator!=(const std::vector<DrawSoldier> lhs, const std::nullptr_t rhs) { return !((&lhs) == rhs); }
-	inline bool operator==(const std::vector<DrawCastle> lhs, const std::nullptr_t rhs) { return ((&lhs) == rhs); }
-	inline bool operator!=(const std::vector<DrawCastle> lhs, const std::nullptr_t rhs) { return !((&lhs) == rhs); }
-	inline bool operator==(const std::vector<DrawElefant> lhs, const std::nullptr_t rhs) { return ((&lhs) == rhs); }
-	inline bool operator!=(const std::vector<DrawElefant> lhs, const std::nullptr_t rhs) { return !((&lhs) == rhs); }
-	inline bool operator==(const std::vector<DrawHourse> lhs, const std::nullptr_t rhs) { return ((&lhs) == rhs); }
-	inline bool operator!=(const std::vector<DrawHourse> lhs, const std::nullptr_t rhs) { return !((&lhs) == rhs); }
-	inline bool operator==(const std::vector<DrawMinister> lhs, const std::nullptr_t rhs) { return ((&lhs) == rhs); }
-	inline bool operator!=(const std::vector<DrawMinister> lhs, const std::nullptr_t rhs) { return !((&lhs) == rhs); }
-	inline bool operator==(const std::vector<DrawKing> lhs, const std::nullptr_t rhs) { return ((&lhs) == rhs); }
-	inline bool operator!=(const std::vector<DrawKing> lhs, const std::nullptr_t rhs) { return !((&lhs) == rhs); }
-	inline bool operator==(const std::vector<ThinkingChess> lhs, const std::nullptr_t rhs) { return ((&lhs) == rhs); }
-	inline bool operator!=(const std::vector<ThinkingChess> lhs, const std::nullptr_t rhs) { return !((&lhs) == rhs); }
+	inline bool operator==(RefrigtzDLL::AllDraw lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
+	inline bool operator!=(RefrigtzDLL::AllDraw lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
+	inline bool operator==(RefrigtzDLL::DrawSoldier lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
+	inline bool operator!=(RefrigtzDLL::DrawSoldier lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
+	inline bool operator==(RefrigtzDLL::DrawCastle lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
+	inline bool operator!=(RefrigtzDLL::DrawCastle lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
+	inline bool operator==(RefrigtzDLL::DrawElefant lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
+	inline bool operator!=(RefrigtzDLL::DrawElefant lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
+	inline bool operator==(RefrigtzDLL::DrawHourse lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
+	inline bool operator!=(RefrigtzDLL::DrawHourse lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
+	inline bool operator==(RefrigtzDLL::DrawMinister lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
+	inline bool operator!=(RefrigtzDLL::DrawMinister lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
+	inline bool operator==(RefrigtzDLL::DrawKing lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
+	inline bool operator!=(RefrigtzDLL::DrawKing lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
+	inline bool operator==(RefrigtzDLL::ThinkingChess lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
+	inline bool operator!=(RefrigtzDLL::ThinkingChess lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
+
+	inline bool operator==(const std::vector<AllDraw> lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
+	inline bool operator!=(const std::vector<AllDraw> lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
+	inline bool operator==(const std::vector<DrawSoldier> lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
+	inline bool operator!=(const std::vector<DrawSoldier> lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
+	inline bool operator==(const std::vector<DrawCastle> lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
+	inline bool operator!=(const std::vector<DrawCastle> lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
+	inline bool operator==(const std::vector<DrawElefant> lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
+	inline bool operator!=(const std::vector<DrawElefant> lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
+	inline bool operator==(const std::vector<DrawHourse> lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
+	inline bool operator!=(const std::vector<DrawHourse> lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
+	inline bool operator==(const std::vector<DrawMinister> lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
+	inline bool operator!=(const std::vector<DrawMinister> lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
+	inline bool operator==(const std::vector<DrawKing> lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
+	inline bool operator!=(const std::vector<DrawKing> lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
+	inline bool operator==(const std::vector<ThinkingChess> lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
+	inline bool operator!=(const std::vector<ThinkingChess> lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
 
 
 	inline std::wstring operator+=(const std::wstring &out, const std::wstring &course)
@@ -4521,7 +4537,7 @@ int **Table = new int*[8]; for (int g = 0; g < 8; g++)Table[g] = new int[8];
 				{
 					NumberOfCurrentEnemyAttackSuchObject++;
 					//Clone a Table.
-					int TabS[8][8];
+					int **TabS = new int*[8]; for (int g = 0; g < 8; g++)TabS[g] = new int[8];
 					for (int p = 0; p < 8; p++)
 					{
 						for (int m = 0; m < 8; m++)

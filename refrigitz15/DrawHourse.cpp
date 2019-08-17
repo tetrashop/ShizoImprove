@@ -6,7 +6,7 @@ namespace RefrigtzDLL
 {
 
 	inline bool operator==(const DrawHourse& lhs, const std::nullptr_t& rhs) { return  (lhs == rhs); }
-	inline bool operator!=(const DrawHourse& lhs, const std::nullptr_t& rhs) { return !(lhs == rhs); }
+	inline bool operator!=(const DrawHourse& lhs, const std::nullptr_t& rhs) { return (lhs != rhs); }
 
 	double DrawHourse::MaxHuristicxH = -20000000000000000;
 
@@ -123,7 +123,7 @@ namespace RefrigtzDLL
 			}
 		}
 		HourseThinking = std::vector<ThinkingChess>();
-		HourseThinking.push_back(ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(i), static_cast<int>(j), a, Tab, 8, Ord, TB, Cur, 4, 3));
+		HourseThinking.push_back(ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, i, j, a, Tab, 8, Ord, TB, Cur, 4, 3));
 
 		Row = i;
 		Column = j;
@@ -149,7 +149,7 @@ namespace RefrigtzDLL
 		for (int i = 0; i < AllDraw::HourseMovments; i++)
 		{
 
-			AA.HourseThinking.push_back(ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column)));
+			AA.HourseThinking.push_back(ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column));
 			//HourseThinking.Clone(AA.HourseThinking);
 		}
 		AA.Table = new int*[8]; for (int ii = 0; ii < 8; ii++)AA.Table[ii] - new int[8];
@@ -183,7 +183,7 @@ namespace RefrigtzDLL
 	 H = Image::FromFile(AllDraw::ImagesSubRoot + std::wstring(L"HG.png"));
 	 H[1] = Image::FromFile(AllDraw::ImagesSubRoot + std::wstring(L"HB.png"));
 	 }
-	 if ((static_cast<int>(Row) >= 0) static_cast<int>(Row) < 8) static_cast<int>(Column) >= 0) static_cast<int>(Column) < 8))
+	 if ((static_cast<int>(Row) >= 0) Row) < 8) Column) >= 0) Column) < 8))
 	 { //Gray Order.
 	 if (Order == 1)
 	 {
@@ -192,7 +192,7 @@ namespace RefrigtzDLL
 	 //lock (O1)
 	 { //Draw an Instant from File of Gray Soldeirs.
 	 //Draw an Instatnt Gray Hourse on the Table.
-	 g.DrawImage(H, Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
+	 g.DrawImage(H, Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), Column * static_cast<float>(CellH)), CellW, CellH));
 	 }
 	 }
 	 else
@@ -202,7 +202,7 @@ namespace RefrigtzDLL
 	 //lock (O1)
 	 { //Draw an Instant from File of Gray Soldeirs.
 	 //Draw an Instatnt Brown Hourse on the Table.
-	 g.DrawImage(H[1], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
+	 g.DrawImage(H[1], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), Column * static_cast<float>(CellH)), CellW, CellH));
 	 }
 	 }
 	 }

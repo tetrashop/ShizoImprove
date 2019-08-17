@@ -1,17 +1,18 @@
 ﻿#include "stdafx.h"
 #include "DrawSoldire.h"
-#include "DrawMinister.h"
-#include "DrawCastle.h"
-#include "DrawHourse.h"
-#include "DrawElefant.h"
+//#include "DrawMinister.h"
+//#include "DrawCastle.h"
+//#include "DrawHourse.h"
+//#include "DrawElefant.h"
+//#include "ThinkingChess.h"
 
 
 namespace RefrigtzDLL
 {
 
-double DrawSoldier::MaxHuristicxS = -DBL_MAX;
+	double DrawSoldier::MaxHuristicxS = -DBL_MAX;
 
-	
+
 
 	DrawSoldier::~DrawSoldier()
 	{
@@ -56,7 +57,7 @@ double DrawSoldier::MaxHuristicxS = -DBL_MAX;
 		return a;
 	}
 
-	DrawSoldier::DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int **Tab, int Ord, bool TB, int Cur) : ThingsConverter(Arrangments, static_cast<int>(i), static_cast<int>(j), a, Tab, Ord, TB, Cur)
+	DrawSoldier::DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int **Tab, int Ord, bool TB, int Cur) : ThingsConverter(Arrangments, i, j, a, Tab, Ord, TB, Cur)
 	{
 		InitializeInstanceFields();
 		//auto balance//lock = new Object();
@@ -85,8 +86,8 @@ double DrawSoldier::MaxHuristicxS = -DBL_MAX;
 				}
 			}
 			SoldierThinking = std::vector<ThinkingChess>();
-			SoldierThinking.push_back(ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(i), static_cast<int>(j), a, Tab, 4, Ord, TB, Cur, 16, 1));
-			
+			SoldierThinking.push_back(ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, i, j, a, Tab, 4, Ord, TB, Cur, 16, 1));
+
 			RowS = i;
 			ColumnS = j;
 			color = a;
@@ -112,7 +113,7 @@ double DrawSoldier::MaxHuristicxS = -DBL_MAX;
 		for (int i = 0; i < AllDraw::SodierMovments; i++)
 		{
 
-			AA.SoldierThinking.push_back(ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, static_cast<int>(Row), static_cast<int>(Column)));
+			AA.SoldierThinking.push_back(ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column));
 			SoldierThinking[i].Clone(AA.SoldierThinking[i]);
 
 		}
@@ -133,7 +134,7 @@ double DrawSoldier::MaxHuristicxS = -DBL_MAX;
 
 	}
 
-	void DrawSoldier::DrawSoldierOnTable( int CellW, int CellH)
+	void DrawSoldier::DrawSoldierOnTable(int CellW, int CellH)
 	{
 		try
 		{
@@ -163,7 +164,7 @@ double DrawSoldier::MaxHuristicxS = -DBL_MAX;
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 							//lock (O1)
 							{ //Draw an Instant from File of Gray Soldeirs.
-								//g->DrawImage(S[0], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
+								//g->DrawImage(S[0], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), Column * static_cast<float>(CellH)), CellW, CellH));
 
 							}
 						}
@@ -174,7 +175,7 @@ double DrawSoldier::MaxHuristicxS = -DBL_MAX;
 							//lock (O1)
 							{ //Draw an Instant from File of Gray Soldeirs.
 								 //Draw an Instatnt of Brown Soldier File On the Table.
-								//g->DrawImage(S[1], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
+								//g->DrawImage(S[1], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), Column * static_cast<float>(CellH)), CellW, CellH));
 							}
 						}
 
@@ -185,113 +186,113 @@ double DrawSoldier::MaxHuristicxS = -DBL_MAX;
 						if (ConvertedToMinister)
 						{
 
-						//int of Gray.
-						if (Order == 1)
-						{
-							//auto O1 = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-							//lock (O1)
-							{ //Draw an Instant from File of Gray Soldeirs.
-								 //Draw of Gray Minsister Image File By an Instant.
-								//g->DrawImage(DrawMinister::M[0], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
+							//int of Gray.
+							if (Order == 1)
+							{
+								//auto O1 = new Object();
+	//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
+								//lock (O1)
+								{ //Draw an Instant from File of Gray Soldeirs.
+									 //Draw of Gray Minsister Image File By an Instant.
+									//g->DrawImage(DrawMinister::M[0], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), Column * static_cast<float>(CellH)), CellW, CellH));
+								}
 							}
-						}
-						else
-						{
-							//auto O1 = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-							//lock (O1)
-							{ //Draw an Instant from File of Gray Soldeirs.
-								 //Draw a Image File on the Table Form n Instatnt One.
-								//g->DrawImage(DrawMinister::M[1], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
+							else
+							{
+								//auto O1 = new Object();
+	//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
+								//lock (O1)
+								{ //Draw an Instant from File of Gray Soldeirs.
+									 //Draw a Image File on the Table Form n Instatnt One.
+									//g->DrawImage(DrawMinister::M[1], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), Column * static_cast<float>(CellH)), CellW, CellH));
+								}
 							}
-						}
 
 						}
-					else if (ConvertedToCastle) //When Castled Converted.
-					{
-
-						//int of Gray.
-						if (Order == 1)
+						else if (ConvertedToCastle) //When Castled Converted.
 						{
-							//auto O1 = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-							//lock (O1)
-							{ //Draw an Instant from File of Gray Soldeirs.
-								 //Create on the Inststant of Gray Castles Images.
-								//g->DrawImage(DrawCastle::C[0], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
+
+							//int of Gray.
+							if (Order == 1)
+							{
+								//auto O1 = new Object();
+	//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
+								//lock (O1)
+								{ //Draw an Instant from File of Gray Soldeirs.
+									 //Create on the Inststant of Gray Castles Images.
+									//g->DrawImage(DrawCastle::C[0], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), Column * static_cast<float>(CellH)), CellW, CellH));
+								}
 							}
+							else
+							{
+								//auto O1 = new Object();
+	//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
+								//lock (O1)
+								{ //Draw an Instant from File of Gray Soldeirs.
+									 //Creat of an Instant of Brown Image Castles.
+									//g->DrawImage(DrawCastle::C[1], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), Column * static_cast<float>(CellH)), CellW, CellH));
+								}
+							}
+
 						}
-						else
+						else if (ConvertedToHourse) //When Hourse Conversion Occured.
 						{
-							//auto O1 = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-							//lock (O1)
-							{ //Draw an Instant from File of Gray Soldeirs.
-								 //Creat of an Instant of Brown Image Castles.
-								//g->DrawImage(DrawCastle::C[1], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
+
+
+							//int of Gray.
+							if (Order == 1)
+							{
+								//auto O1 = new Object();
+	//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
+								//lock (O1)
+								{ //Draw an Instatnt of Gray Hourse Image File.
+									//g->DrawImage(DrawHourse::H[0], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), Column * CellH)), CellW, CellH));
+								}
 							}
+							else
+							{
+								//auto O1 = new Object();
+	//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
+								//lock (O1)
+								{ //Creat of an Instatnt Hourse Image File.
+									//g->DrawImage(DrawHourse::H[1], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), Column * static_cast<float>(CellH)), CellW, CellH));
+								}
+							}
+
+
 						}
-
-					}
-					else if (ConvertedToHourse) //When Hourse Conversion Occured.
-					{
-
-
-						//int of Gray.
-						if (Order == 1)
+						else if (ConvertedToElefant) //When Elephant Conversion.
 						{
-							//auto O1 = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-							//lock (O1)
-							{ //Draw an Instatnt of Gray Hourse Image File.
-								//g->DrawImage(DrawHourse::H[0], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<int>(CellH)), CellW, CellH));
+
+							//int of Gray.
+							if (Order == 1)
+							{
+								//auto O1 = new Object();
+	//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
+								//lock (O1)
+								{ //Draw an Instatnt Image of Gray Elephant.
+									//g->DrawImage(DrawElefant::E[0], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), Column * static_cast<float>(CellH)), CellW, CellH));
+								}
 							}
-						}
-						else
-						{
-							//auto O1 = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-							//lock (O1)
-							{ //Creat of an Instatnt Hourse Image File.
-								//g->DrawImage(DrawHourse::H[1], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
+							else
+							{
+								//auto O1 = new Object();
+	//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
+								//lock (O1)
+								{ //Draw of Instant Image of Brown Elephant.
+									//g->DrawImage(DrawElefant::E[1], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), Column * static_cast<float>(CellH)), CellW, CellH));
+								}
 							}
+
+
 						}
-
-
-					}
-					else if (ConvertedToElefant) //When Elephant Conversion.
-					{
-
-						//int of Gray.
-						if (Order == 1)
-						{
-							//auto O1 = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-							//lock (O1)
-							{ //Draw an Instatnt Image of Gray Elephant.
-								//g->DrawImage(DrawElefant::E[0], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
-							}
-						}
-						else
-						{
-							//auto O1 = new Object();
-//C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
-							//lock (O1)
-							{ //Draw of Instant Image of Brown Elephant.
-								//g->DrawImage(DrawElefant::E[1], Rectangle(static_cast<int>(Row * static_cast<float>(CellW)), static_cast<int>(Column * static_cast<float>(CellH)), CellW, CellH));
-							}
-						}
-
-
-					}
 					}
 				}
 			}
 		}
 		catch (std::exception &t)
 		{
-			
+
 		}
 	}
 

@@ -1,5 +1,5 @@
 ﻿#pragma once
-
+#include "stdafx.h"
 #include "LearningKrinskyAtamata.h"
 #include <string>
 #include <stdexcept>
@@ -28,15 +28,15 @@ namespace RefrigtzDLL
 
 	public:
 		NetworkQuantumLearningKrinskyAtamata(int r0, int m0, int k0);
-		double LearningAlgorithmRegardNet(int Row, int Column);
-		int IsRewardActionNet(int Row, int Column);
+		virtual double LearningAlgorithmRegardNet(int Row, int Column);
+		virtual int IsRewardActionNet(int Row, int Column);
 
-		double IsPenaltyActionNet(int Row, int Column);
-		double LearningAlgorithmPenaltyNet(int Row, int Column);
-		double LearingValue(int Row, int Column);
+		virtual double IsPenaltyActionNet(int Row, int Column);
+		virtual double LearningAlgorithmPenaltyNet(int Row, int Column);
+		virtual double LearingValue(int Row, int Column);
 
 	private:
-		void InitializeInstanceFields();
+		virtual void InitializeInstanceFields();
 	};
 }
 

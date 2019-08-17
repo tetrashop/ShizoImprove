@@ -1,9 +1,10 @@
 ﻿#pragma once
+#include "stdafx.h"
 
-#include "LearningKrinskyAtamata.h"
 #include <string>
 #include <vector>
-#include "stringconverter.h"
+#include "LearningKrinskyAtamata.h"
+#include "StringConverterHelper.h"
 
 //Ramin Edjlal.CopyRight 2014.AllRightReserved.
 namespace RefrigtzDLL
@@ -12,7 +13,7 @@ namespace RefrigtzDLL
 //ORIGINAL LINE: [Serializable] public class Bit
 	class Bit
 	{
-	protected:
+	public:
 		bool *Bits;//2;
 	public:
 		Bit();
@@ -30,8 +31,8 @@ namespace RefrigtzDLL
 //ORIGINAL LINE: [Serializable] public class QuantumAtamata : LearningKrinskyAtamata
 	class QuantumAtamata : public LearningKrinskyAtamata
 	{
-	protected:
-		LearningKrinskyAtamata *ThreeSet;
+	public:
+		LearningKrinskyAtamata ThreeSet[3];
 		std::vector<std::wstring> States;
 		std::vector<unsigned char> StateByte;	
 		//int r, m, k;	

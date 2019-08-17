@@ -1,4 +1,5 @@
 ﻿#include "stdafx.h"
+
 #include "ChessRules.h"
 #include "AllDraw.h"
 #include "ThinkingChess.h"
@@ -104,7 +105,8 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		Order = Ord;
 	}
 
-	bool ChessRules::Rules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, int color, int Ki, bool SelfHomeStatCP = true)
+	bool ChessRules::Rules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, int color, int Ki, bool SelfHomeStatCP// = true
+	)
 	{
 		////auto O = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -1591,7 +1593,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 							ObjectHittedRow = Row;
 							ObjectHittedColumn = Column;
 						}
-						//SetObjectInPictureBox(Row, Column);
+						//SetObjectInPictureBox(Row, Column;
 
 						S += std::wstring(L"x");
 					}
@@ -1677,7 +1679,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 						ObjectHittedRow = Row;
 						ObjectHittedColumn = Column;
 					}
-					//SetObjectInPictureBox(Row, Column);
+					//SetObjectInPictureBox(Row, Column;
 					S += std::wstring(L"x");
 				}
 				//Row Column Consideration.
@@ -1771,7 +1773,7 @@ int ChessRules::CheckBrownRemovableValueColumnjj = 0;
 		//Initiate Local Variables.
 		bool Is = false;
 		//For each Items of a Tow Part List.
-		for (int i = 0; i < List.size(); i++)
+		for (int i = 0; i < List->size(); i++)
 		{
 			//If Listis Equal Setting of Local Variable Equality.
 			if (A[0] == List[i][0] && A[1] == List[i][1])
