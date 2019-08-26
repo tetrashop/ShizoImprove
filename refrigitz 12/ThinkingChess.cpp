@@ -20,6 +20,7 @@
 	inline bool operator!=(const DrawKing& lhs, const std::nullptr_t rhs) { return !(lhs == rhs); }
 	inline bool operator==(const ThinkingChess& lhs, const std::nullptr_t rhs) { return (lhs == rhs); }
 	inline bool operator!=(const ThinkingChess& lhs, const std::nullptr_t rhs) { return !(lhs == rhs); }
+	
 	inline std::wstring& operator+=(const std::wstring& out, const std::wstring& course)
 	{
 		std::wstring& lef = std::wstring();

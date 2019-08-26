@@ -1,14 +1,16 @@
-﻿#include "stdafx.h"
+﻿#pragma once
+#include <string>
+#include <vector>
+#include <stdexcept>
 #include "DrawSoldire.h"
-//#include "DrawMinister.h"
-//#include "DrawCastle.h"
-//#include "DrawHourse.h"
-//#include "DrawElefant.h"
-//#include "ThinkingChess.h"
-
+#include "AllDraw.h"
+#include "ThinkingChess.h"
 
 namespace RefrigtzDLL
 {
+	inline bool operator==(const DrawSoldier& lhs, DrawSoldier& rhs) { return  (lhs == rhs); }
+	inline bool operator!=(const DrawSoldier& lhs, DrawSoldier& rhs) { return !(lhs == rhs); }
+
 
 	double DrawSoldier::MaxHuristicxS = -DBL_MAX;
 
@@ -56,7 +58,10 @@ namespace RefrigtzDLL
 
 		return a;
 	}
-
+	const DrawSoldier& DrawSoldier::operator[] (const int index) const
+	{
+		return this[index];
+	}
 	DrawSoldier::DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int **Tab, int Ord, bool TB, int Cur) : ThingsConverter(Arrangments, i, j, a, Tab, Ord, TB, Cur)
 	{
 		InitializeInstanceFields();

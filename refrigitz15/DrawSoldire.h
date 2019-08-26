@@ -1,11 +1,9 @@
 ﻿#pragma once
-#include "stdafx.h"
-#include "ThingsConverter.h"
-#include "AllDraw.h"
-#include "ThinkingChess.h"
 #include <string>
 #include <vector>
 #include <stdexcept>
+#include "ThinkingChess.h"
+#include "ThingsConverter.h"
 
 namespace RefrigtzDLL
 {
@@ -66,7 +64,6 @@ namespace RefrigtzDLL
 
 		//Constructor 2.		
 		DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, int a, int ** Tab, int Ord, bool TB, int Cur);
-		void Clone(DrawSoldier * AA);
 		void Clone(DrawSoldier AA);
 		void DrawSoldierOnTable(int CellW, int CellH);
 		// :ThingsConverter(Arrangments, i, j, a, Tab, Ord, TB, Cur);

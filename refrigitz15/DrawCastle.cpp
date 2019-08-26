@@ -1,5 +1,6 @@
-﻿#include "stdafx.h"
+﻿#pragma once
 #include "DrawCastle.h"
+
 
 
 namespace RefrigtzDLL

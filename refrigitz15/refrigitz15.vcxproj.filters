@@ -48,9 +48,6 @@
     <ClInclude Include="..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz15\DrawSoldire.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz15\IsNextEnemyMovementForCheckedMate.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz15\NetworkQuantumLearningKrinskyAtamata.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -99,9 +96,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz15\DrawSoldire.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz15\IsNextEnemyMovementForCheckedMate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz15\NetworkQuantumLearningKrinskyAtamata.cpp">

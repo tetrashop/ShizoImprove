@@ -6,10 +6,20 @@
 
 
 #include "targetver.h"
+#include <string>
+#include <vector>
+#include <stdexcept>
 
 #include <stdio.h>
 #include <tchar.h>
-//#include "AllDraw.h"
 
+/*/
 
+#include "StringConverterHelper.h"
+#include "ChessRules.h"
+#include "AllDraw.h"
+
+#include "AllDraw.h"
+#include "ThinkingChess.h"
+*/
 // TODO: reference additional headers your program requires here

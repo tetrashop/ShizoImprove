@@ -1,4 +1,5 @@
-﻿class DrawSoldier;
+﻿#pragma once
+class DrawSoldier;
 class DrawElefant;
 class DrawHourse;
 class DrawCastle;

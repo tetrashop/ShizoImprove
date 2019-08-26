@@ -1,10 +1,17 @@
-﻿#include "stdafx.h"
+﻿#pragma once
 #include "DrawMinister.h"
+
+
 
 
 namespace RefrigtzDLL
 {
-
+	inline bool operator==(const DrawMinister& lhs, const std::nullptr_t& rhs) { return  (lhs == rhs); }
+	inline bool operator!=(const DrawMinister& lhs, const std::nullptr_t& rhs) { return !(lhs == rhs); }
+	const DrawMinister& DrawMinister::operator[] (const int index) const
+	{
+		return this[index];
+	}
 double DrawMinister::MaxHuristicxM = -20000000000000000;
 
 	
@@ -16,17 +23,9 @@ double DrawMinister::MaxHuristicxM = -20000000000000000;
 	}
 
 	
-    const DrawMinister& DrawMinister::operator[] (const int index) const
-	{
-		return this[index];
-	}
+    
 
-	DrawMinister::~DrawMinister()
-	{
-		InitializeInstanceFields();
-		ValuableSelfSupported.clear();
-		//		M = nullptr;
-	}
+	
 
 	bool DrawMinister::MaxFound(bool &MaxNotFound)
 	{

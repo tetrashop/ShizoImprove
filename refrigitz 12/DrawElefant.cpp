@@ -1,4 +1,5 @@
-﻿#include "DrawElefant.h"
+﻿#pragma once
+#include "DrawElefant.h"
 #include "DrawSoldire.h"
 #include "DrawMinister.h"
 #include "DrawCastle.h"

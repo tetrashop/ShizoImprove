@@ -1,10 +1,10 @@
 ﻿#pragma once
 #include "stdafx.h"
-#include "AllDraw.h"
-#include "ThinkingChess.h"
 #include <string>
 #include <vector>
 #include <stdexcept>
+#include "ThinkingChess.h"
+
 
 namespace RefrigtzDLL
 {
@@ -13,12 +13,12 @@ namespace RefrigtzDLL
 	 class DrawKing
 	{
 
+		 const DrawKing& operator[] (const int index) const;
 
 
 
 	public:
-		const DrawKing& operator[] (const int index) const;
-
+	
 		////void* operator*(std::size_t idx);
 
 		static bool KingGrayNotCheckedByQuantumMove;

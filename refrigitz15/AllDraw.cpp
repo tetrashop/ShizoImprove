@@ -1,18 +1,19 @@
-#include "stdafx.h"
+#pragma once
 class DrawSoldier;
 class DrawElefant;
 class DrawHourse;
 class DrawCastle;
 class DrawMinister;
-class DrawKing; 
+class DrawKing;
+//class ThinkingChess;
+//class AllDraw;
 #include "AllDraw.h"
 #include "ChessRules.h"
 #include "ThinkingChess.h"
 #include "ThingsConverter.h"
-
-
+using namespace std;
 namespace RefrigtzDLL
-{
+{/*
 	inline bool operator==(const AllDraw& lhs, const std::nullptr_t rhs) { return (lhs == rhs); }
 	inline bool operator!=(const AllDraw& lhs, const std::nullptr_t rhs) { return !(lhs == rhs); }
 	inline bool operator==(const DrawSoldier& lhs, const std::nullptr_t rhs) { return (lhs == rhs); }
@@ -30,41 +31,41 @@ namespace RefrigtzDLL
 	inline bool operator==(const ThinkingChess& lhs, const std::nullptr_t rhs) { return (lhs == rhs); }
 	inline bool operator!=(const ThinkingChess& lhs, const std::nullptr_t rhs) { return !(lhs == rhs); }
 
-	/*
-	inline bool operator==(const AllDraw lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
-	inline bool operator!=(const AllDraw lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
-	inline bool operator==(const DrawSoldier lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
-	inline bool operator!=(const DrawSoldier lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
-	inline bool operator==(const DrawCastle lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
-	inline bool operator!=(const DrawCastle lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
-	inline bool operator==(const DrawElefant lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
-	inline bool operator!=(const DrawElefant lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
-	inline bool operator==(const DrawHourse lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
-	inline bool operator!=(const DrawHourse lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
-	inline bool operator==(const DrawMinister lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
-	inline bool operator!=(const DrawMinister lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
-	inline bool operator==(const DrawKing lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
-	inline bool operator!=(const DrawKing lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
-	inline bool operator==(const ThinkingChess lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
-	inline bool operator!=(const ThinkingChess lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
+	
+	inline bool operator==(const AllDraw lhs, const std::nullptr_t rhs) { return ((&lhs) == rhs); }
+	inline bool operator!=(const AllDraw lhs, const std::nullptr_t rhs) { return !((&lhs) == rhs); }
+	inline bool operator==(const DrawSoldier lhs, const std::nullptr_t rhs) { return ((&lhs) == rhs); }
+	inline bool operator!=(const DrawSoldier lhs, const std::nullptr_t rhs) { return !((&lhs) == rhs); }
+	inline bool operator==(const DrawCastle lhs, const std::nullptr_t rhs) { return ((&lhs) == rhs); }
+	inline bool operator!=(const DrawCastle lhs, const std::nullptr_t rhs) { return !((&lhs) == rhs); }
+	inline bool operator==(const DrawElefant lhs, const std::nullptr_t rhs) { return ((&lhs) == rhs); }
+	inline bool operator!=(const DrawElefant lhs, const std::nullptr_t rhs) { return !((&lhs) == rhs); }
+	inline bool operator==(const DrawHourse lhs, const std::nullptr_t rhs) { return ((&lhs) == rhs); }
+	inline bool operator!=(const DrawHourse lhs, const std::nullptr_t rhs) { return !((&lhs) == rhs); }
+	inline bool operator==(const DrawMinister lhs, const std::nullptr_t rhs) { return ((&lhs) == rhs); }
+	inline bool operator!=(const DrawMinister lhs, const std::nullptr_t rhs) { return !((&lhs) == rhs); }
+	inline bool operator==(const DrawKing lhs, const std::nullptr_t rhs) { return ((&lhs) == rhs); }
+	inline bool operator!=(const DrawKing lhs, const std::nullptr_t rhs) { return !((&lhs) == rhs); }
+	inline bool operator==(const ThinkingChess lhs, const std::nullptr_t rhs) { return ((&lhs) == rhs); }
+	inline bool operator!=(const ThinkingChess lhs, const std::nullptr_t rhs) { return !((&lhs) == rhs); }
 
-	*/
-	inline bool operator==(const std::vector<AllDraw> lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
-	inline bool operator!=(const std::vector<AllDraw> lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
-	inline bool operator==(const std::vector<DrawSoldier> lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
-	inline bool operator!=(const std::vector<DrawSoldier> lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
-	inline bool operator==(const std::vector<DrawCastle> lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
-	inline bool operator!=(const std::vector<DrawCastle> lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
-	inline bool operator==(const std::vector<DrawElefant> lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
-	inline bool operator!=(const std::vector<DrawElefant> lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
-	inline bool operator==(const std::vector<DrawHourse> lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
-	inline bool operator!=(const std::vector<DrawHourse> lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
-	inline bool operator==(const std::vector<DrawMinister> lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
-	inline bool operator!=(const std::vector<DrawMinister> lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
-	inline bool operator==(const std::vector<DrawKing> lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
-	inline bool operator!=(const std::vector<DrawKing> lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
-	inline bool operator==(const std::vector<ThinkingChess> lhs, const std::nullptr_t rhs) { return ((lhs) == rhs); }
-	inline bool operator!=(const std::vector<ThinkingChess> lhs, const std::nullptr_t rhs) { return !((lhs) == rhs); }
+	
+	inline bool operator==(const std::vector<AllDraw> lhs, const std::nullptr_t rhs) { return ((&lhs) == rhs); }
+	inline bool operator!=(const std::vector<AllDraw> lhs, const std::nullptr_t rhs) { return !((&lhs) == rhs); }
+	inline bool operator==(const std::vector<DrawSoldier> lhs, const std::nullptr_t rhs) { return ((&lhs) == rhs); }
+	inline bool operator!=(const std::vector<DrawSoldier> lhs, const std::nullptr_t rhs) { return !((&lhs) == rhs); }
+	inline bool operator==(const std::vector<DrawCastle> lhs, const std::nullptr_t rhs) { return ((&lhs) == rhs); }
+	inline bool operator!=(const std::vector<DrawCastle> lhs, const std::nullptr_t rhs) { return !((&lhs) == rhs); }
+	inline bool operator==(const std::vector<DrawElefant> lhs, const std::nullptr_t rhs) { return ((&lhs) == rhs); }
+	inline bool operator!=(const std::vector<DrawElefant> lhs, const std::nullptr_t rhs) { return !((&lhs) == rhs); }
+	inline bool operator==(const std::vector<DrawHourse> lhs, const std::nullptr_t rhs) { return ((&lhs) == rhs); }
+	inline bool operator!=(const std::vector<DrawHourse> lhs, const std::nullptr_t rhs) { return !((&lhs) == rhs); }
+	inline bool operator==(const std::vector<DrawMinister> lhs, const std::nullptr_t rhs) { return ((&lhs) == rhs); }
+	inline bool operator!=(const std::vector<DrawMinister> lhs, const std::nullptr_t rhs) { return !((&lhs) == rhs); }
+	inline bool operator==(const std::vector<DrawKing> lhs, const std::nullptr_t rhs) { return ((&lhs) == rhs); }
+	inline bool operator!=(const std::vector<DrawKing> lhs, const std::nullptr_t rhs) { return !((&lhs) == rhs); }
+	inline bool operator==(const std::vector<ThinkingChess> lhs, const std::nullptr_t rhs) { return ((&lhs) == rhs); }
+	inline bool operator!=(const std::vector<ThinkingChess> lhs, const std::nullptr_t rhs) { return !((&lhs) == rhs); }
 	inline std::wstring operator+=(const std::wstring &out, const std::wstring &course)
 	{
 		std::wstring& lef = std::wstring();
@@ -72,7 +73,7 @@ namespace RefrigtzDLL
 		return lef;
 
 	}
-
+	*/
 int AllDraw::DepthIterative = 0;
 std::wstring AllDraw::OutPut = L"";
 std::wstring AllDraw::ActionString = L"";
@@ -542,7 +543,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 
 	}
 
-
+	/*
 	void AllDraw::Clone(AllDraw AA)
 	{
 
@@ -596,7 +597,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 		{
 			AStarGreedyString->Clone(*(AA.AStarGreedyString));
 		}
-		if (TableList->size() == 1)
+		if (TableList.size() == 1)
 		{
 			SetObjectNumbers(TableList[0]);
 		}
@@ -706,15 +707,15 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 		}
 		//AA.AStarGreedy = AStarGreedy;
 
-		if (AA.TableList->size() > 0)
+		if (AA.TableList.size() > 0)
 		{
 			AA.TableList.clear();
 		}
-		for (int i = 0; i < TableList->size(); i++)
+		for (int i = 0; i < TableList.size(); i++)
 		{
 			AA.TableList.push_back(TableList[i]);
 		}
-		if (AA.TableList->size() > 0)
+		if (AA.TableList.size() > 0)
 		{
 			AA.SetObjectNumbers(AA.TableList[0]);
 		}
@@ -722,7 +723,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 
 	}
 
-
+	*/
 	void AllDraw::SetRowColumn(int index)
 	{
 
@@ -771,7 +772,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 		AllDraw::SodierConversionOcuured = false;
 
 		//When Table Exist.
-		if (TableList->size() > 0)
+		if (TableList.size() > 0)
 		{
 			//For Every Table Things.
 			for (int Column = 0; Column < 8; Column++)
@@ -1266,10 +1267,10 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 		//lock (a)
 		{
 			//When There is Maximum Huristsic AStar Gredy Back Ward in Blitz Games.
-			if (MaxHuristicAStarGreedytBackWard->size() > 0)
+			if (MaxHuristicAStarGreedytBackWard.size() > 0)
 			{
 				//When List Index is LessB than Founded.
-				if (ListIndex < MaxHuristicAStarGreedytBackWard->size())
+				if (ListIndex < MaxHuristicAStarGreedytBackWard.size())
 				{
 					return;
 				}
@@ -1358,7 +1359,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			//For Solderis.
 			for (int i = 0; i < SodierMidle; i++)
 			{
-				for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder->size()); j++)
+				for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 				{
 
 					//When there is Brown checked mate.
@@ -1390,7 +1391,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 					}
 					Order *= -1;
-					for (int ii = 0; ((&SolderesOnTable) != nullptr) && (&(SolderesOnTable[i]) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy->size()); ii++)
+					for (int ii = 0; ((&SolderesOnTable) != nullptr) && (&(SolderesOnTable[i]) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.size()); ii++)
 					{
 						AA = AA || SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
 					}
@@ -1399,7 +1400,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = 0; i < ElefantMidle; i++)
 			{
-				for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant->size()); j++)
+				for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
 				{
 
 					//When there is Brown checked mate.
@@ -1433,7 +1434,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 					}
 					Order *= -1;
-					for (int ii = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy->size()); ii++)
+					for (int ii = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.size()); ii++)
 					{
 						AA = AA || ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
 					}
@@ -1442,7 +1443,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = 0; i < HourseMidle; i++)
 			{
-				for (int j = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse->size()); j++)
+				for (int j = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 				{
 
 					//When there is Brown checked mate.
@@ -1473,7 +1474,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 					}
 					Order *= -1;
-					for (int ii = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy->size()); ii++)
+					for (int ii = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.size()); ii++)
 					{
 						AA = AA || HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
 					}
@@ -1482,7 +1483,10 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = 0; i < CastleMidle; i++)
 			{
-				for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle->size()); j++)
+				for (int j = 0; ((&CastlesOnTable) != nullptr) && 
+					(&(CastlesOnTable[i]) != nullptr) &&					
+					(&(CastlesOnTable[i].CastleThinking) != nullptr) &&
+					(j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 				{
 
 					{
@@ -1515,7 +1519,10 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 					}
 					Order *= -1;
-					for (int ii = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (ii <CastlesOnTable[i].CastleThinking[0].AStarGreedy->size()); ii++)
+					for (int ii = 0; ((&CastlesOnTable) != nullptr) && 
+						(&(CastlesOnTable[i]) != nullptr) && 
+						(&(CastlesOnTable[i].CastleThinking) != nullptr) &&
+						(ii <CastlesOnTable[i].CastleThinking[0].AStarGreedy.size()); ii++)
 					{
 						AA = AA || CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
 					}
@@ -1524,7 +1531,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = 0; i < MinisterMidle; i++)
 			{
-				for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j <MinisterOnTable[i].MinisterThinking[0].TableListMinister->size()); j++)
+				for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j <MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
 				{
 
 					//When there is Brown checked mate.
@@ -1557,7 +1564,10 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 					}
 					Order *= -1;
-					for (int ii = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (ii <MinisterOnTable[i].MinisterThinking[0].AStarGreedy->size()); ii++)
+					for (int ii = 0; ((&MinisterOnTable) != nullptr)
+						&& (&(MinisterOnTable[i]) != nullptr) &&
+						(&(MinisterOnTable[i].MinisterThinking) != nullptr) &&
+						(ii <MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size()); ii++)
 					{
 						AA = AA || MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
 					}
@@ -1566,7 +1576,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = 0; i < KingMidle; i++)
 			{
-				for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing->size()); j++)
+				for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 				{
 
 					//When there is Brown checked mate.
@@ -1597,7 +1607,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 					}
 					Order *= -1;
-					for (int ii = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (ii < KingOnTable[i].KingThinking[0].AStarGreedy->size()); ii++)
+					for (int ii = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (ii < KingOnTable[i].KingThinking[0].AStarGreedy.size()); ii++)
 					{
 						AA = AA || KingOnTable[i].KingThinking[0].AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
 					}
@@ -1610,7 +1620,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			//ChessRules::CurrentOrder = -1;
 			for (int i = SodierMidle; i < SodierHigh; i++)
 			{
-				for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j< SolderesOnTable[i].SoldierThinking[0].TableListSolder->size()); j++)
+				for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j< SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 				{
 
 					{
@@ -1643,7 +1653,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 					}
 					Order *= -1;
-					for (int ii = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && ((&(SolderesOnTable[i].SoldierThinking)) != nullptr) && (ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy->size()); ii++)
+					for (int ii = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && ((&(SolderesOnTable[i].SoldierThinking)) != nullptr) && (ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.size()); ii++)
 					{
 						AA = AA || SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
 					}
@@ -1652,7 +1662,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = ElefantMidle; i < ElefantHigh; i++)
 			{
-				for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant->size()); j++)
+				for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
 				{
 
 					//When there is Brown checked mate.
@@ -1683,7 +1693,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 					}
 					Order *= -1;
-					for (int ii = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy->size()); ii++)
+					for (int ii = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.size()); ii++)
 					{
 						AA = AA || ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
 					}
@@ -1692,7 +1702,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = HourseMidle; i < HourseHight; i++)
 			{
-				for (int j = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse->size()); j++)
+				for (int j = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 				{
 
 					if (HoursesOnTable[i].HourseThinking[0].CheckMateAStarGreedy == -1)
@@ -1722,7 +1732,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 					}
 					Order *= -1;
-					for (int ii = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy->size()); ii++)
+					for (int ii = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.size()); ii++)
 					{
 						AA = AA || HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
 					}
@@ -1731,7 +1741,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = CastleMidle; i < CastleHigh; i++)
 			{
-				for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j<CastlesOnTable[i].CastleThinking[0].TableListCastle->size()); j++)
+				for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j<CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 				{
 
 					//When there is Brown checked mate.
@@ -1762,7 +1772,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 					}
 					Order *= -1;
-					for (int ii = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy->size()); ii++)
+					for (int ii = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.size()); ii++)
 					{
 						AA = AA || CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
 					}
@@ -1771,7 +1781,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = MinisterMidle; i < MinisterHigh; i++)
 			{
-				for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister->size()); j++)
+				for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
 				{
 
 					//When there is Brown checked mate.
@@ -1803,7 +1813,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					}
 
 					Order *= -1;
-					for (int ii = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy->size()); ii++)
+					for (int ii = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size()); ii++)
 					{
 						AA = AA || MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
 					}
@@ -1812,7 +1822,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = KingMidle; i < KingHigh; i++)
 			{
-				for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing->size()); j++)
+				for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 				{
 
 					{
@@ -1846,7 +1856,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 
 					}
 					Order *= -1;
-					for (int ii = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (ii < KingOnTable[i].KingThinking[0].AStarGreedy->size()); ii++)
+					for (int ii = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (ii < KingOnTable[i].KingThinking[0].AStarGreedy.size()); ii++)
 					{
 						AA = AA || KingOnTable[i].KingThinking[0].AStarGreedy[ii].IsToCheckMateHasLessDeeperThanForCheckMate(Order, ToCheckMate, ForCheckMate, AStarGreedyInt++);
 					}
@@ -1875,7 +1885,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			//For  Soldeirs.
 			for (int i = 0; i < SodierMidle; i++)
 			{
-				for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder->size()); j++)
+				for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 				{
 
 					//Create Rules Objects For Soldiers.
@@ -1912,7 +1922,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						Order *= -1;
 						ChessRules::CurrentOrder *= -1;
 						//For Subbranchs.
-						for (int ii = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy->size()); ii++)
+						for (int ii = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.size()); ii++)
 						{
 							SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
 						}
@@ -1925,7 +1935,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			//For Elephant.
 			for (int i = 0; i < ElefantMidle; i++)
 			{
-				for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j <ElephantOnTable[i].ElefantThinking[0].TableListElefant->size()); j++)
+				for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j <ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
 				{
 
 					//Create Elephant Rules.
@@ -1963,7 +1973,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						Order *= -1;
 						ChessRules::CurrentOrder *= -1;
 						//For Subbranchs.
-						for (int ii = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy->size()); ii++)
+						for (int ii = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.size()); ii++)
 						{
 							ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
 						}
@@ -1975,7 +1985,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			//For Hourse.
 			for (int i = 0; i < HourseMidle; i++)
 			{
-				for (int j = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse->size()); j++)
+				for (int j = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 				{
 
 
@@ -2014,7 +2024,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						Order *= -1;
 						ChessRules::CurrentOrder *= -1;
 						//Sub branchs For Hourse.
-						for (int ii = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy->size()); ii++)
+						for (int ii = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.size()); ii++)
 						{
 							HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
 						}
@@ -2026,7 +2036,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			//For Gray Briges.
 			for (int i = 0; i < CastleMidle; i++)
 			{
-				for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle->size()); j++)
+				for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 				{
 
 
@@ -2067,7 +2077,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						//For Castles Gray Subbranchs.
 						//try
 						{
-							for (int ii = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy->size()); ii++)
+							for (int ii = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.size()); ii++)
 							{
 								CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
 							}
@@ -2084,7 +2094,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			//For Ministers Gray.
 			for (int i = 0; i < MinisterMidle; i++)
 			{
-				for (int j = 0; (((&MinisterOnTable) != nullptr)) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister->size()); j++)
+				for (int j = 0; (((&MinisterOnTable) != nullptr)) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
 				{
 
 
@@ -2125,7 +2135,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						//For Gray Ministers Subbranchs.
 						//try
 						{
-							for (int ii = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy->size()); ii++)
+							for (int ii = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size()); ii++)
 							{
 								MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
 							}
@@ -2142,7 +2152,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			//For Gray King.
 			for (int i = 0; i < KingMidle; i++)
 			{
-				for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing->size()); j++)
+				for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 				{
 
 
@@ -2183,7 +2193,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						//For King Gray Subbranchs.
 						//try
 						{
-							for (int ii = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (ii < KingOnTable[i].KingThinking[0].AStarGreedy->size()); ii++)
+							for (int ii = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (ii < KingOnTable[i].KingThinking[0].AStarGreedy.size()); ii++)
 							{
 								KingOnTable[i].KingThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
 							}
@@ -2206,7 +2216,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			//For Solders Brown.
 			for (int i = SodierMidle; i < SodierHigh; i++)
 			{
-				for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder->size()); j++)
+				for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 				{
 
 
@@ -2247,7 +2257,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						//Solders Brown Subbranchs Calling.
 						//try
 						{
-							for (int ii = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy->size()); ii++)
+							for (int ii = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.size()); ii++)
 							{
 								SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
 							}
@@ -2264,7 +2274,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			//Elephant Brown 
 			for (int i = ElefantMidle; i < ElefantHigh; i++)
 			{
-				for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant->size()); j++)
+				for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
 				{
 
 
@@ -2305,7 +2315,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						//Subbranchs Elephenat Brown Calling.
 						//try
 						{
-							for (int ii = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy->size()); ii++)
+							for (int ii = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.size()); ii++)
 							{
 								ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
 							}
@@ -2322,7 +2332,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			//Hourse Brown 
 			for (int i = HourseMidle; i < HourseHight; i++)
 			{
-				for (int j = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse->size()); j++)
+				for (int j = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 				{
 
 					//Hourse Brown Rules.
@@ -2362,7 +2372,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						//Hourse Brown Calling Subbranchs.
 						//try
 						{
-							for (int ii = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy->size()); ii++)
+							for (int ii = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.size()); ii++)
 							{
 								HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
 							}
@@ -2379,7 +2389,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			//Castles Brown 
 			for (int i = CastleMidle; i < CastleHigh; i++)
 			{
-				for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle->size()); j++)
+				for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 				{
 
 
@@ -2420,7 +2430,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						//Brown Castles Calling Subbranches.
 						//try
 						{
-							for (int ii = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy->size()); ii++)
+							for (int ii = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.size()); ii++)
 							{
 								CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
 							}
@@ -2437,7 +2447,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			//Minister Brown 
 			for (int i = MinisterMidle; i < MinisterHigh; i++)
 			{
-				for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister->size()); j++)
+				for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
 				{
 
 
@@ -2478,7 +2488,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						//Minister Brown SubBranches Calling.
 						//try
 						{
-							for (int ii = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy->size()); ii++)
+							for (int ii = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size()); ii++)
 							{
 								MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
 							}
@@ -2495,7 +2505,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			//King Brown
 			for (int i = KingMidle; i < KingHigh; i++)
 			{
-				for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing->size()); j++)
+				for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 				{
 
 
@@ -2537,7 +2547,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						//King Brown Subbranches Calling.
 						//try
 						{
-							for (int ii = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (ii < KingOnTable[i].KingThinking[0].AStarGreedy->size()); ii++)
+							for (int ii = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (ii < KingOnTable[i].KingThinking[0].AStarGreedy.size()); ii++)
 							{
 								KingOnTable[i].KingThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, Do, Base);
 							}
@@ -2565,11 +2575,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 
 			for (int i = 0; i < SodierMidle; i++)
 			{
-				for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder->size()); j++)
+				for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 				{
 					//try
 					//{
-					SolderesOnTable[i].SoldierThinking[0].PenaltyRegardListSolder[i]->LearningAlgorithmPenalty();
+					SolderesOnTable[i].SoldierThinking[0].PenaltyRegardListSolder[i].LearningAlgorithmPenalty();
 					//}
 					//catch(std::exception &t)
 					///{
@@ -2577,7 +2587,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					//}
 					Order *= -1;
 					ChessRules::CurrentOrder *= -1;
-					for (int ii = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy->size()); ii++)
+					for (int ii = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.size()); ii++)
 					{
 						MakePenaltyAllCheckMateBranches(SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii], Order);
 					}
@@ -2587,12 +2597,12 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = 0; i < ElefantMidle; i++)
 			{
-				for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant->size()); j++)
+				for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
 				{
 
 					//try
 					//{
-					ElephantOnTable[i].ElefantThinking[0].PenaltyRegardListElefant[j]->LearningAlgorithmPenalty();
+					ElephantOnTable[i].ElefantThinking[0].PenaltyRegardListElefant[j].LearningAlgorithmPenalty();
 					//}
 					//catch(std::exception &t)
 					//{
@@ -2603,7 +2613,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					ChessRules::CurrentOrder *= -1;
 					//try
 					//{
-					for (int ii = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy->size()); ii++)
+					for (int ii = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.size()); ii++)
 					{
 						MakePenaltyAllCheckMateBranches(ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii], Order);
 					}
@@ -2618,11 +2628,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = 0; i < HourseMidle; i++)
 			{
-				for (int j = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse->size()); j++)
+				for (int j = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 				{
 					//try
 					//{
-					HoursesOnTable[i].HourseThinking[0].PenaltyRegardListHourse[j]->LearningAlgorithmPenalty();
+					HoursesOnTable[i].HourseThinking[0].PenaltyRegardListHourse[j].LearningAlgorithmPenalty();
 
 					//}
 					//catch(std::exception &t)
@@ -2634,7 +2644,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					ChessRules::CurrentOrder *= -1;
 					//try
 					//{
-					for (int ii = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy->size()); ii++)
+					for (int ii = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.size()); ii++)
 					{
 						MakePenaltyAllCheckMateBranches(HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii], Order);
 					}
@@ -2649,11 +2659,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = 0; i < CastleMidle; i++)
 			{
-				for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle->size()); j++)
+				for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 				{
 					//try
 					//{
-					CastlesOnTable[i].CastleThinking[0].PenaltyRegardListCastle[j]->LearningAlgorithmPenalty();
+					CastlesOnTable[i].CastleThinking[0].PenaltyRegardListCastle[j].LearningAlgorithmPenalty();
 					//}
 					//catch(std::exception &t)
 					//{
@@ -2664,7 +2674,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					ChessRules::CurrentOrder *= -1;
 					//try
 					//{
-					for (int ii = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy->size()); ii++)
+					for (int ii = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.size()); ii++)
 					{
 						MakePenaltyAllCheckMateBranches(CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii], Order);
 					}
@@ -2679,11 +2689,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = 0; i < MinisterMidle; i++)
 			{
-				for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister->size()); j++)
+				for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
 				{
 					//try
 					//{
-					MinisterOnTable[i].MinisterThinking[0].PenaltyRegardListMinister[j]->LearningAlgorithmPenalty();
+					MinisterOnTable[i].MinisterThinking[0].PenaltyRegardListMinister[j].LearningAlgorithmPenalty();
 					//}
 					//catch(std::exception &t)
 					//{
@@ -2694,7 +2704,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					ChessRules::CurrentOrder *= -1;
 					//try
 					//{
-					for (int ii = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy->size()); ii++)
+					for (int ii = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size()); ii++)
 					{
 						MakePenaltyAllCheckMateBranches(MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii], Order);
 					}
@@ -2709,11 +2719,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = 0; i < KingMidle; i++)
 			{
-				for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing->size()); j++)
+				for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 				{
 					//try
 					//{
-					KingOnTable[i].KingThinking[0].PenaltyRegardListKing[j]->LearningAlgorithmPenalty();
+					KingOnTable[i].KingThinking[0].PenaltyRegardListKing[j].LearningAlgorithmPenalty();
 					//}
 					//catch(std::exception &t)
 					//{
@@ -2724,7 +2734,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					ChessRules::CurrentOrder *= -1;
 					//try
 					//{
-					for (int ii = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (ii <KingOnTable[i].KingThinking[0].AStarGreedy->size()); ii++)
+					for (int ii = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (ii <KingOnTable[i].KingThinking[0].AStarGreedy.size()); ii++)
 					{
 						MakePenaltyAllCheckMateBranches(KingOnTable[i].KingThinking[0].AStarGreedy[ii], Order);
 					}
@@ -2742,11 +2752,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 		{
 			for (int i = SodierMidle; i < SodierHigh; i++)
 			{
-				for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder->size()); j++)
+				for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 				{
 					//try
 					{
-						SolderesOnTable[i].SoldierThinking[0].PenaltyRegardListSolder[i]->LearningAlgorithmPenalty();
+						SolderesOnTable[i].SoldierThinking[0].PenaltyRegardListSolder[i].LearningAlgorithmPenalty();
 					}
 					//catch(std::exception &t)
 					{
@@ -2756,7 +2766,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					ChessRules::CurrentOrder *= -1;
 					//try
 					//{
-					for (int ii = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy->size()); ii++)
+					for (int ii = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.size()); ii++)
 					{
 						MakePenaltyAllCheckMateBranches(SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii], Order);
 					}
@@ -2771,11 +2781,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = ElefantMidle; i < ElefantHigh; i++)
 			{
-				for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant->size()); j++)
+				for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
 				{
 					//try
 					//{
-					ElephantOnTable[i].ElefantThinking[0].PenaltyRegardListElefant[j]->LearningAlgorithmPenalty();
+					ElephantOnTable[i].ElefantThinking[0].PenaltyRegardListElefant[j].LearningAlgorithmPenalty();
 					//}
 					//catch(std::exception &t)
 					//{
@@ -2786,7 +2796,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					ChessRules::CurrentOrder *= -1;
 					//try
 					//{
-					for (int ii = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy->size()); ii++)
+					for (int ii = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.size()); ii++)
 					{
 						MakePenaltyAllCheckMateBranches(ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii], Order);
 					}
@@ -2801,11 +2811,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = HourseMidle; i < HourseHight; i++)
 			{
-				for (int j = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse->size()); j++)
+				for (int j = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 				{
 					//try
 					{
-						HoursesOnTable[i].HourseThinking[0].PenaltyRegardListHourse[j]->LearningAlgorithmPenalty();
+						HoursesOnTable[i].HourseThinking[0].PenaltyRegardListHourse[j].LearningAlgorithmPenalty();
 
 					}
 					//catch(std::exception &t)
@@ -2817,7 +2827,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					ChessRules::CurrentOrder *= -1;
 					//try
 					//{
-					for (int ii = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy->size()); ii++)
+					for (int ii = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.size()); ii++)
 					{
 						MakePenaltyAllCheckMateBranches(HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii], Order);
 					}
@@ -2832,11 +2842,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = CastleMidle; i < CastleHigh; i++)
 			{
-				for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle->size()); j++)
+				for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 				{
 					//try
 					//{
-					CastlesOnTable[i].CastleThinking[0].PenaltyRegardListCastle[j]->LearningAlgorithmPenalty();
+					CastlesOnTable[i].CastleThinking[0].PenaltyRegardListCastle[j].LearningAlgorithmPenalty();
 					//}
 					//catch(std::exception &t)
 					//{
@@ -2847,7 +2857,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					ChessRules::CurrentOrder *= -1;
 					//try
 					//{
-					for (int ii = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy->size()); ii++)
+					for (int ii = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.size()); ii++)
 					{
 						MakePenaltyAllCheckMateBranches(CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii], Order);
 					}
@@ -2862,11 +2872,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = MinisterMidle; i < MinisterHigh; i++)
 			{
-				for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister->size()); j++)
+				for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
 				{
 					//try
 					//{
-					MinisterOnTable[i].MinisterThinking[0].PenaltyRegardListMinister[j]->LearningAlgorithmPenalty();
+					MinisterOnTable[i].MinisterThinking[0].PenaltyRegardListMinister[j].LearningAlgorithmPenalty();
 					//}
 					//catch(std::exception &t)
 					//{
@@ -2877,7 +2887,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					ChessRules::CurrentOrder *= -1;
 					//try
 					//{
-					for (int ii = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy->size()); ii++)
+					for (int ii = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size()); ii++)
 					{
 						MakePenaltyAllCheckMateBranches(MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii], Order);
 					}
@@ -2892,11 +2902,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = KingMidle; i < MinisterHigh; i++)
 			{
-				for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing->size()); j++)
+				for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 				{
 					//try
 					//{
-					KingOnTable[i].KingThinking[0].PenaltyRegardListKing[j]->LearningAlgorithmPenalty();
+					KingOnTable[i].KingThinking[0].PenaltyRegardListKing[j].LearningAlgorithmPenalty();
 					//}
 					//catch(std::exception &t)
 					//{
@@ -2907,7 +2917,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					ChessRules::CurrentOrder *= -1;
 					//try
 					//{
-					for (int ii = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (ii < KingOnTable[i].KingThinking[0].AStarGreedy->size()); ii++)
+					for (int ii = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (ii < KingOnTable[i].KingThinking[0].AStarGreedy.size()); ii++)
 					{
 						MakePenaltyAllCheckMateBranches(KingOnTable[i].KingThinking[0].AStarGreedy[ii], Order);
 					}
@@ -2933,13 +2943,13 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 
 			for (int i = 0; i < SodierMidle; i++)
 			{
-				for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder->size()); j++)
+				for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 				{
 					UsePenaltyRegardMechnisamT = false;
 					//try
 					{
-						SolderesOnTable[i].SoldierThinking[0].PenaltyRegardListSolder[j]->Initiate();
-						for (int k = 0; k < SolderesOnTable[i].SoldierThinking[0].AStarGreedy->size(); k++)
+						SolderesOnTable[i].SoldierThinking[0].PenaltyRegardListSolder[j].Initiate();
+						for (int k = 0; k < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.size(); k++)
 						{
 							SolderesOnTable[i].SoldierThinking[0].AStarGreedy[k].RemovePenalltyFromFirstBranches(Order * -1);
 						}
@@ -2952,14 +2962,14 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = 0; i < ElefantMidle; i++)
 			{
-				for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant->size()); j++)
+				for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
 				{
 					UsePenaltyRegardMechnisamT = false;
 					//try
 					{
 
-						ElephantOnTable[i].ElefantThinking[0].PenaltyRegardListElefant[j]->Initiate();
-						for (int k = 0; k < ElephantOnTable[i].ElefantThinking[0].AStarGreedy->size(); k++)
+						ElephantOnTable[i].ElefantThinking[0].PenaltyRegardListElefant[j].Initiate();
+						for (int k = 0; k < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.size(); k++)
 						{
 							ElephantOnTable[i].ElefantThinking[0].AStarGreedy[k].RemovePenalltyFromFirstBranches(Order * -1);
 						}
@@ -2973,13 +2983,13 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = 0; i < HourseMidle; i++)
 			{
-				for (int j = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse->size()); j++)
+				for (int j = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 				{
 					UsePenaltyRegardMechnisamT = false;
 					//try
 					{
-						HoursesOnTable[i].HourseThinking[0].PenaltyRegardListHourse[j]->Initiate();
-						for (int k = 0; k < HoursesOnTable[i].HourseThinking[0].AStarGreedy->size(); k++)
+						HoursesOnTable[i].HourseThinking[0].PenaltyRegardListHourse[j].Initiate();
+						for (int k = 0; k < HoursesOnTable[i].HourseThinking[0].AStarGreedy.size(); k++)
 						{
 							HoursesOnTable[i].HourseThinking[0].AStarGreedy[k].RemovePenalltyFromFirstBranches(Order * -1);
 						}
@@ -2994,14 +3004,14 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = 0; i < CastleMidle; i++)
 			{
-				for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle->size()); j++)
+				for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 				{
 					UsePenaltyRegardMechnisamT = false;
 					//try
 					{
 
-						CastlesOnTable[i].CastleThinking[0].PenaltyRegardListCastle[j]->Initiate();
-						for (int k = 0; k < CastlesOnTable[i].CastleThinking[0].AStarGreedy->size(); k++)
+						CastlesOnTable[i].CastleThinking[0].PenaltyRegardListCastle[j].Initiate();
+						for (int k = 0; k < CastlesOnTable[i].CastleThinking[0].AStarGreedy.size(); k++)
 						{
 							CastlesOnTable[i].CastleThinking[0].AStarGreedy[k].RemovePenalltyFromFirstBranches(Order * -1);
 						}
@@ -3015,14 +3025,14 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = 0; i < MinisterMidle; i++)
 			{
-				for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister->size()); j++)
+				for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
 				{
 					UsePenaltyRegardMechnisamT = false;
 					//try
 					{
 
-						MinisterOnTable[i].MinisterThinking[0].PenaltyRegardListMinister[j]->Initiate();
-						for (int k = 0; k < MinisterOnTable[i].MinisterThinking[0].AStarGreedy->size(); k++)
+						MinisterOnTable[i].MinisterThinking[0].PenaltyRegardListMinister[j].Initiate();
+						for (int k = 0; k < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size(); k++)
 						{
 							MinisterOnTable[i].MinisterThinking[0].AStarGreedy[k].RemovePenalltyFromFirstBranches(Order * -1);
 						}
@@ -3036,14 +3046,14 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = 0; i < KingMidle; i++)
 			{
-				for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing->size()); j++)
+				for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 				{
 					UsePenaltyRegardMechnisamT = false;
 					//try
 					{
 
-						KingOnTable[i].KingThinking[0].PenaltyRegardListKing[j]->Initiate();
-						for (int k = 0; k < KingOnTable[i].KingThinking[0].AStarGreedy->size(); k++)
+						KingOnTable[i].KingThinking[0].PenaltyRegardListKing[j].Initiate();
+						for (int k = 0; k < KingOnTable[i].KingThinking[0].AStarGreedy.size(); k++)
 						{
 							KingOnTable[i].KingThinking[0].AStarGreedy[k].RemovePenalltyFromFirstBranches(Order * -1);
 						}
@@ -3060,14 +3070,14 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 		{
 			for (int i = SodierMidle; i < SodierHigh; i++)
 			{
-				for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder->size()); j++)
+				for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 				{
 					UsePenaltyRegardMechnisamT = false;
 					//try
 					{
 
-						SolderesOnTable[i].SoldierThinking[0].PenaltyRegardListSolder[j]->Initiate();
-						for (int k = 0; k < SolderesOnTable[i].SoldierThinking[0].AStarGreedy->size(); k++)
+						SolderesOnTable[i].SoldierThinking[0].PenaltyRegardListSolder[j].Initiate();
+						for (int k = 0; k < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.size(); k++)
 						{
 							SolderesOnTable[i].SoldierThinking[0].AStarGreedy[k].RemovePenalltyFromFirstBranches(Order * -1);
 						}
@@ -3080,14 +3090,14 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = ElefantMidle; i < ElefantHigh; i++)
 			{
-				for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant->size()); j++)
+				for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
 				{
 					UsePenaltyRegardMechnisamT = false;
 					//try
 					{
 
 						ElephantOnTable[i].ElefantThinking[0].PenaltyRegardListElefant[j];
-						for (int k = 0; k < ElephantOnTable[i].ElefantThinking[0].AStarGreedy->size(); k++)
+						for (int k = 0; k < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.size(); k++)
 						{
 							ElephantOnTable[i].ElefantThinking[0].AStarGreedy[k].RemovePenalltyFromFirstBranches(Order * -1);
 						}
@@ -3101,14 +3111,14 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = HourseMidle; i < HourseHight; i++)
 			{
-				for (int j = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse->size()); j++)
+				for (int j = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 				{
 					UsePenaltyRegardMechnisamT = false;
 					//try
 					{
 
-						HoursesOnTable[i].HourseThinking[0].PenaltyRegardListHourse[j]->Initiate();
-						for (int k = 0; k < HoursesOnTable[i].HourseThinking[0].AStarGreedy->size(); k++)
+						HoursesOnTable[i].HourseThinking[0].PenaltyRegardListHourse[j].Initiate();
+						for (int k = 0; k < HoursesOnTable[i].HourseThinking[0].AStarGreedy.size(); k++)
 						{
 							HoursesOnTable[i].HourseThinking[0].AStarGreedy[k].RemovePenalltyFromFirstBranches(Order * -1);
 						}
@@ -3123,14 +3133,14 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = CastleMidle; i < CastleHigh; i++)
 			{
-				for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle->size()); j++)
+				for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 				{
 					UsePenaltyRegardMechnisamT = false;
 					//try
 					{
 
-						CastlesOnTable[i].CastleThinking[0].PenaltyRegardListCastle[j]->Initiate();
-						for (int k = 0; k < CastlesOnTable[i].CastleThinking[0].AStarGreedy->size(); k++)
+						CastlesOnTable[i].CastleThinking[0].PenaltyRegardListCastle[j].Initiate();
+						for (int k = 0; k < CastlesOnTable[i].CastleThinking[0].AStarGreedy.size(); k++)
 						{
 							CastlesOnTable[i].CastleThinking[0].AStarGreedy[k].RemovePenalltyFromFirstBranches(Order * -1);
 						}
@@ -3144,14 +3154,14 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = MinisterMidle; i < MinisterHigh; i++)
 			{
-				for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister->size()); j++)
+				for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
 				{
 					UsePenaltyRegardMechnisamT = false;
 					//try
 					{
 
-						MinisterOnTable[i].MinisterThinking[0].PenaltyRegardListMinister[j]->Initiate();
-						for (int k = 0; k < MinisterOnTable[i].MinisterThinking[0].AStarGreedy->size(); k++)
+						MinisterOnTable[i].MinisterThinking[0].PenaltyRegardListMinister[j].Initiate();
+						for (int k = 0; k < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size(); k++)
 						{
 							MinisterOnTable[i].MinisterThinking[0].AStarGreedy[k].RemovePenalltyFromFirstBranches(Order * -1);
 						}
@@ -3165,13 +3175,13 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = KingMidle; i < KingHigh; i++)
 			{
-				for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing->size()); j++)
+				for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 				{
 					UsePenaltyRegardMechnisamT = false;
 					//try
 					{
-						KingOnTable[i].KingThinking[0].PenaltyRegardListKing[j]->Initiate();
-						for (int k = 0; k < KingOnTable[i].KingThinking[0].AStarGreedy->size(); k++)
+						KingOnTable[i].KingThinking[0].PenaltyRegardListKing[j].Initiate();
+						for (int k = 0; k < KingOnTable[i].KingThinking[0].AStarGreedy.size(); k++)
 						{
 							KingOnTable[i].KingThinking[0].AStarGreedy[k].RemovePenalltyFromFirstBranches(Order * -1);
 						}
@@ -3193,7 +3203,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 
 
 		ThinkingChess::NumbersOfAllNode++;
-		if (TableList->size() > 0 && ThinkingChess::TableEqual(TableList[0], Tab))
+		if (TableList.size() > 0 && ThinkingChess::TableEqual(TableList[0], Tab))
 		{
 			Clone(THIS);
 			Found = true;
@@ -3206,14 +3216,14 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 
 				for (int i = 0; i < SodierMidle; i++)
 				{
-					for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder->size()); j++)
+					for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 					{
 
 						//try
 						{
 							if (ThinkingChess::TableEqual(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j], Tab))
 							{
-								if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy->size() > j && SolderesOnTable[i].SoldierThinking[0].AStarGreedy->size() > 0)
+								if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy.size() > j && SolderesOnTable[i].SoldierThinking[0].AStarGreedy.size() > 0)
 								{
 									THIS = SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j];
 									Found = true;
@@ -3222,7 +3232,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 							}
 							else
 							{
-								for (int ii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy->size(); ii++)
+								for (int ii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.size(); ii++)
 								{
 									SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1,*this,  Found);
 								}
@@ -3238,14 +3248,14 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				}
 				for (int i = 0; i < ElefantMidle; i++)
 				{
-					for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant->size()); j++)
+					for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
 					{
 						//try
 						{
 
 							if (ThinkingChess::TableEqual(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j], Tab))
 							{
-								if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy->size() > j && ElephantOnTable[i].ElefantThinking[0].AStarGreedy->size() > 0)
+								if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy.size() > j && ElephantOnTable[i].ElefantThinking[0].AStarGreedy.size() > 0)
 								{
 									THIS = ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j];
 									Found = true;
@@ -3254,7 +3264,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 							}
 							else
 							{
-								for (int ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy->size(); ii++)
+								for (int ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.size(); ii++)
 								{
 									ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1,*this,  Found);;
 								}
@@ -3270,13 +3280,13 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				}
 				for (int i = 0; i < HourseMidle; i++)
 				{
-					for (int j = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse->size()); j++)
+					for (int j = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 					{
 						//try
 						{
 							if (ThinkingChess::TableEqual(HoursesOnTable[i].HourseThinking[0].TableListHourse[j], Tab))
 							{
-								if (HoursesOnTable[i].HourseThinking[0].AStarGreedy->size() > j && HoursesOnTable[i].HourseThinking[0].AStarGreedy->size() > 0)
+								if (HoursesOnTable[i].HourseThinking[0].AStarGreedy.size() > j && HoursesOnTable[i].HourseThinking[0].AStarGreedy.size() > 0)
 								{
 									THIS = HoursesOnTable[i].HourseThinking[0].AStarGreedy[j];
 									Found = true;
@@ -3285,7 +3295,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 							}
 							else
 							{
-								for (int ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy->size(); ii++)
+								for (int ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.size(); ii++)
 								{
 									HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1,*this,  Found);;
 								}
@@ -3302,13 +3312,13 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				}
 				for (int i = 0; i < CastleMidle; i++)
 				{
-					for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle->size()); j++)
+					for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 					{
 						//try
 						{
 							if (ThinkingChess::TableEqual(CastlesOnTable[i].CastleThinking[0].TableListCastle[j], Tab))
 							{
-								if (CastlesOnTable[i].CastleThinking[0].AStarGreedy->size() > j && CastlesOnTable[i].CastleThinking[0].AStarGreedy->size() > 0)
+								if (CastlesOnTable[i].CastleThinking[0].AStarGreedy.size() > j && CastlesOnTable[i].CastleThinking[0].AStarGreedy.size() > 0)
 								{
 									THIS = CastlesOnTable[i].CastleThinking[0].AStarGreedy[j];
 									Found = true;
@@ -3317,7 +3327,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 							}
 							else
 							{
-								for (int ii = 0; ii < CastlesOnTable[ii].CastleThinking[0].AStarGreedy->size(); ii++)
+								for (int ii = 0; ii < CastlesOnTable[ii].CastleThinking[0].AStarGreedy.size(); ii++)
 								{
 									CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1,*this,  Found);;
 								}
@@ -3332,13 +3342,13 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				}
 				for (int i = 0; i < MinisterMidle; i++)
 				{
-					for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister->size()); j++)
+					for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
 					{
 						//try
 						{
 							if (ThinkingChess::TableEqual(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j], Tab))
 							{
-								if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy->size() > j && MinisterOnTable[i].MinisterThinking[0].AStarGreedy->size() > 0)
+								if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size() > j && MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size() > 0)
 								{
 									THIS = MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j];
 									Found = true;
@@ -3347,7 +3357,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 							}
 							else
 							{
-								for (int ii = 0; ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy->size(); ii++)
+								for (int ii = 0; ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size(); ii++)
 								{
 									MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1,*this,  Found);;
 								}
@@ -3363,13 +3373,13 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				}
 				for (int i = 0; i < KingMidle; i++)
 				{
-					for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing->size()); j++)
+					for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 					{
 						//try
 						{
 							if (ThinkingChess::TableEqual(KingOnTable[i].KingThinking[0].TableListKing[j], Tab))
 							{
-								if (KingOnTable[i].KingThinking[0].AStarGreedy->size() > j && KingOnTable[i].KingThinking[0].AStarGreedy->size() > 0)
+								if (KingOnTable[i].KingThinking[0].AStarGreedy.size() > j && KingOnTable[i].KingThinking[0].AStarGreedy.size() > 0)
 								{
 									THIS = KingOnTable[i].KingThinking[0].AStarGreedy[j];
 									Found = true;
@@ -3378,7 +3388,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 							}
 							else
 							{
-								for (int ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy->size(); ii++)
+								for (int ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy.size(); ii++)
 								{
 									KingOnTable[i].KingThinking[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1,*this,  Found);;
 								}
@@ -3397,14 +3407,14 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			{
 				for (int i = SodierMidle; i < SodierHigh; i++)
 				{
-					for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder->size()); j++)
+					for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 					{
 						//try
 						{
 
 							if (ThinkingChess::TableEqual(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j], Tab))
 							{
-								if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy->size() > j && SolderesOnTable[i].SoldierThinking[0].AStarGreedy->size() > 0)
+								if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy.size() > j && SolderesOnTable[i].SoldierThinking[0].AStarGreedy.size() > 0)
 								{
 									THIS = SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j];
 									Found = true;
@@ -3413,7 +3423,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 							}
 							else
 							{
-								for (int ii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy->size(); ii++)
+								for (int ii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.size(); ii++)
 								{
 									SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1,*this,  Found);;
 								}
@@ -3428,14 +3438,14 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				}
 				for (int i = ElefantMidle; i < ElefantHigh; i++)
 				{
-					for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant->size()); j++)
+					for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
 					{
 						//try
 						{
 
 							if (ThinkingChess::TableEqual(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j], Tab))
 							{
-								if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy->size() > j && ElephantOnTable[i].ElefantThinking[0].AStarGreedy->size() > 0)
+								if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy.size() > j && ElephantOnTable[i].ElefantThinking[0].AStarGreedy.size() > 0)
 								{
 									THIS = ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j];
 									Found = true;
@@ -3444,7 +3454,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 							}
 							else
 							{
-								for (int ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy->size(); ii++)
+								for (int ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.size(); ii++)
 								{
 									ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1,*this,  Found);;
 								}
@@ -3459,14 +3469,14 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				}
 				for (int i = HourseMidle; i < HourseHight; i++)
 				{
-					for (int j = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse->size()); j++)
+					for (int j = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 					{
 						//try
 						{
 
 							if (ThinkingChess::TableEqual(HoursesOnTable[i].HourseThinking[0].TableListHourse[j], Tab))
 							{
-								if (HoursesOnTable[i].HourseThinking[0].AStarGreedy->size() > j && HoursesOnTable[i].HourseThinking[0].AStarGreedy->size() > 0)
+								if (HoursesOnTable[i].HourseThinking[0].AStarGreedy.size() > j && HoursesOnTable[i].HourseThinking[0].AStarGreedy.size() > 0)
 								{
 									THIS = HoursesOnTable[i].HourseThinking[0].AStarGreedy[j];
 									Found = true;
@@ -3475,7 +3485,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 							}
 							else
 							{
-								for (int ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy->size(); ii++)
+								for (int ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.size(); ii++)
 								{
 									HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1,*this,  Found);;
 								}
@@ -3491,14 +3501,14 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				}
 				for (int i = CastleMidle; i < CastleHigh; i++)
 				{
-					for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle->size()); j++)
+					for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 					{
 						//try
 						{
 
 							if (ThinkingChess::TableEqual(CastlesOnTable[i].CastleThinking[0].TableListCastle[j], Tab))
 							{
-								if (CastlesOnTable[i].CastleThinking[0].AStarGreedy->size() > j && CastlesOnTable[i].CastleThinking[0].AStarGreedy->size() > 0)
+								if (CastlesOnTable[i].CastleThinking[0].AStarGreedy.size() > j && CastlesOnTable[i].CastleThinking[0].AStarGreedy.size() > 0)
 								{
 									THIS = CastlesOnTable[i].CastleThinking[0].AStarGreedy[j];
 									Found = true;
@@ -3507,7 +3517,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 							}
 							else
 							{
-								for (int ii = 0; ii < CastlesOnTable[ii].CastleThinking[0].AStarGreedy->size(); ii++)
+								for (int ii = 0; ii < CastlesOnTable[ii].CastleThinking[0].AStarGreedy.size(); ii++)
 								{
 									CastlesOnTable[ii].CastleThinking[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1,*this,  Found);;
 								}
@@ -3522,13 +3532,13 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				}
 				for (int i = MinisterMidle; i < MinisterHigh; i++)
 				{
-					for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister->size()); j++)
+					for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
 					{
 						//try
 						{
 							if (ThinkingChess::TableEqual(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j], Tab))
 							{
-								if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy->size() > j && MinisterOnTable[i].MinisterThinking[0].AStarGreedy->size() > 0)
+								if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size() > j && MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size() > 0)
 								{
 									THIS = MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j];
 									Found = true;
@@ -3537,7 +3547,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 							}
 							else
 							{
-								for (int ii = 0; ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy->size(); ii++)
+								for (int ii = 0; ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size(); ii++)
 								{
 									MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1,*this,  Found);;
 								}
@@ -3552,13 +3562,13 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				}
 				for (int i = KingMidle; i < KingHigh; i++)
 				{
-					for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing->size()); j++)
+					for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 					{
 						//try
 						{
 							if (ThinkingChess::TableEqual(KingOnTable[i].KingThinking[0].TableListKing[j], Tab))
 							{
-								if (KingOnTable[i].KingThinking[0].AStarGreedy->size() > j && KingOnTable[i].KingThinking[0].AStarGreedy->size() > 0)
+								if (KingOnTable[i].KingThinking[0].AStarGreedy.size() > j && KingOnTable[i].KingThinking[0].AStarGreedy.size() > 0)
 								{
 									THIS = KingOnTable[i].KingThinking[0].AStarGreedy[j];
 									Found = true;
@@ -3567,7 +3577,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 							}
 							else
 							{
-								for (int ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy->size(); ii++)
+								for (int ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy.size(); ii++)
 								{
 									KingOnTable[i].KingThinking[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1,*this,  Found);;
 								}
@@ -3598,7 +3608,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 
 			for (int i = 0; i < SodierMidle; i++)
 			{
-				for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder->size()); j++)
+				for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 				{
 
 					//try
@@ -3612,7 +3622,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 						else
 						{
-							for (int ii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy->size() - 1; ii++)
+							for (int ii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.size() - 1; ii++)
 							{
 								SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, Leaf, Found, Order * -1, OrderLeaf);
 							}
@@ -3628,7 +3638,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = 0; i < ElefantMidle; i++)
 			{
-				for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant->size()); j++)
+				for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
 				{
 					//try
 					{
@@ -3640,7 +3650,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 						else
 						{
-							for (int ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy->size() - 1; ii++)
+							for (int ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.size() - 1; ii++)
 							{
 								ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, Leaf, Found, Order * -1, OrderLeaf);
 							}
@@ -3656,7 +3666,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = 0; i < HourseMidle; i++)
 			{
-				for (int j = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse->size()); j++)
+				for (int j = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 				{
 					//try
 					{
@@ -3668,7 +3678,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 						else
 						{
-							for (int ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy->size() - 1; ii++)
+							for (int ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.size() - 1; ii++)
 							{
 								HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, Leaf, Found, Order * -1, OrderLeaf);
 							}
@@ -3685,7 +3695,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = 0; i < CastleMidle; i++)
 			{
-				for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle->size()); j++)
+				for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 				{
 					//try
 					{
@@ -3697,7 +3707,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 						else
 						{
-							for (int ii = 0; ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy->size() - 1; ii++)
+							for (int ii = 0; ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.size() - 1; ii++)
 							{
 								CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, Leaf, Found, Order * -1, OrderLeaf);
 							}
@@ -3712,7 +3722,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = 0; i < MinisterMidle; i++)
 			{
-				for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister->size()); j++)
+				for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
 				{
 					//try
 					{
@@ -3724,7 +3734,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 						else
 						{
-							for (int ii = 0; ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy->size() - 1; ii++)
+							for (int ii = 0; ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size() - 1; ii++)
 							{
 								MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, Leaf, Found, Order * -1, OrderLeaf);
 							}
@@ -3740,7 +3750,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = 0; i < KingMidle; i++)
 			{
-				for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing->size()); j++)
+				for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 				{
 					//try
 					{
@@ -3752,7 +3762,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 						else
 						{
-							for (int ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy->size() - 1; ii++)
+							for (int ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy.size() - 1; ii++)
 							{
 								KingOnTable[i].KingThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, Leaf, Found, Order * -1, OrderLeaf);
 							}
@@ -3771,7 +3781,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 		{
 			for (int i = SodierMidle; i < SodierHigh; i++)
 			{
-				for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder->size()); j++)
+				for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 				{
 					//try
 					{
@@ -3784,7 +3794,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 						else
 						{
-							for (int ii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy->size() - 1; ii++)
+							for (int ii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.size() - 1; ii++)
 							{
 								SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, Leaf, Found, Order * -1, OrderLeaf);
 							}
@@ -3798,7 +3808,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = ElefantMidle; i < ElefantHigh; i++)
 			{
-				for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant->size()); j++)
+				for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
 				{
 					//try
 					{
@@ -3811,7 +3821,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 						else
 						{
-							for (int ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy->size() - 1; ii++)
+							for (int ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.size() - 1; ii++)
 							{
 								ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, Leaf, Found, Order * -1, OrderLeaf);
 							}
@@ -3825,7 +3835,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = HourseMidle; i < HourseHight; i++)
 			{
-				for (int j = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse->size()); j++)
+				for (int j = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 				{
 					//try
 					{
@@ -3838,7 +3848,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 						else
 						{
-							for (int ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy->size() - 1; ii++)
+							for (int ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.size() - 1; ii++)
 							{
 								HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, Leaf, Found, Order * -1, OrderLeaf);
 							}
@@ -3852,7 +3862,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = CastleMidle; i < CastleHigh; i++)
 			{
-				for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle->size()); j++)
+				for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 				{
 					//try
 					{
@@ -3865,7 +3875,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 						else
 						{
-							for (int ii = 0; ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy->size() - 1; ii++)
+							for (int ii = 0; ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.size() - 1; ii++)
 							{
 								CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, Leaf, Found, Order * -1, OrderLeaf);
 							}
@@ -3880,7 +3890,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = MinisterMidle; i < MinisterHigh; i++)
 			{
-				for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister->size()); j++)
+				for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
 				{
 					//try
 					{
@@ -3892,7 +3902,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 						else
 						{
-							for (int ii = 0; ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy->size() - 1; ii++)
+							for (int ii = 0; ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size() - 1; ii++)
 							{
 								MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, Leaf, Found, Order * -1, OrderLeaf);
 							}
@@ -3907,7 +3917,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = KingMidle; i < KingHigh; i++)
 			{
-				for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing->size()); j++)
+				for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 				{
 					//try
 					{
@@ -3920,7 +3930,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 						else
 						{
-							for (int ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy->size() - 1; ii++)
+							for (int ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy.size() - 1; ii++)
 							{
 								KingOnTable[i].KingThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, Leaf, Found, Order * -1, OrderLeaf);
 							}
@@ -3952,19 +3962,19 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 
 			for (int i = 0; i < SodierMidle; i++)
 			{
-				for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder->size()); j++)
+				for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 				{
 
 					//try
 					{
-						if (SolderesOnTable[i].SoldierThinking[0].IsThereMateOfEnemy && Kind == 1) // && SolderesOnTable[i] .SoldierThinking[0].AStarGreedy->size() == 0
+						if (SolderesOnTable[i].SoldierThinking[0].IsThereMateOfEnemy && Kind == 1) // && SolderesOnTable[i] .SoldierThinking[0].AStarGreedy.size() == 0
 						{
 							Found = true;
 							return true;
 						}
 						else
 						{
-							for (int ii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy->size(); ii++)
+							for (int ii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.size(); ii++)
 							{
 								SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, Found, Order * -1);
 							}
@@ -3980,18 +3990,18 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = 0; i < ElefantMidle; i++)
 			{
-				for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant->size()); j++)
+				for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
 				{
 					//try
 					{
-						if (ElephantOnTable[i].ElefantThinking[0].IsThereMateOfEnemy && Kind == 2) //&& SolderesOnTable[i].ElefantThinking[0].AStarGreedy->size() == 0
+						if (ElephantOnTable[i].ElefantThinking[0].IsThereMateOfEnemy && Kind == 2) //&& SolderesOnTable[i].ElefantThinking[0].AStarGreedy.size() == 0
 						{
 							Found = true;
 							return true;
 						}
 						else
 						{
-							for (int ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy->size(); ii++)
+							for (int ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.size(); ii++)
 							{
 								ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, Found, Order * -1);
 							}
@@ -4007,18 +4017,18 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = 0; i < HourseMidle; i++)
 			{
-				for (int j = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse->size()); j++)
+				for (int j = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 				{
 					//try
 					{
-						if (HoursesOnTable[i].HourseThinking[0].IsThereMateOfEnemy && Kind == 3) //&& HoursesOnTable[i].HourseThinking[0].AStarGreedy->size() == 0
+						if (HoursesOnTable[i].HourseThinking[0].IsThereMateOfEnemy && Kind == 3) //&& HoursesOnTable[i].HourseThinking[0].AStarGreedy.size() == 0
 						{
 							Found = true;
 							return true;
 						}
 						else
 						{
-							for (int ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy->size(); ii++)
+							for (int ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.size(); ii++)
 							{
 								HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, Found, Order * -1);
 							}
@@ -4035,18 +4045,18 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = 0; i < CastleMidle; i++)
 			{
-				for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle->size()); j++)
+				for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 				{
 					//try
 					{
-						if (CastlesOnTable[i].CastleThinking[0].IsThereMateOfEnemy && Kind == 4) //&& CastlesOnTable[ii].CastleThinking[0].AStarGreedy->size() == 0
+						if (CastlesOnTable[i].CastleThinking[0].IsThereMateOfEnemy && Kind == 4) //&& CastlesOnTable[ii].CastleThinking[0].AStarGreedy.size() == 0
 						{
 							Found = true;
 							return true;
 						}
 						else
 						{
-							for (int ii = 0; ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy->size(); ii++)
+							for (int ii = 0; ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.size(); ii++)
 							{
 								CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, Found, Order * -1);
 							}
@@ -4061,18 +4071,18 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = 0; i < MinisterMidle; i++)
 			{
-				for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister->size()); j++)
+				for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
 				{
 					//try
 					{
-						if (MinisterOnTable[i].MinisterThinking[0].IsThereMateOfEnemy && Kind == 5) //&& MinisterOnTable[i].MinisterThinking[0].AStarGreedy->size() == 0
+						if (MinisterOnTable[i].MinisterThinking[0].IsThereMateOfEnemy && Kind == 5) //&& MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size() == 0
 						{
 							Found = true;
 							return true;
 						}
 						else
 						{
-							for (int ii = 0; ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy->size(); ii++)
+							for (int ii = 0; ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size(); ii++)
 							{
 								MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, Found, Order * -1);
 							}
@@ -4088,18 +4098,18 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = 0; i < KingMidle; i++)
 			{
-				for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing->size()); j++)
+				for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 				{
 					//try
 					{
-						if (KingOnTable[i].KingThinking[0].IsThereMateOfEnemy && Kind == 6) //&& KingOnTable[i].KingThinking[0].AStarGreedy->size() == 0
+						if (KingOnTable[i].KingThinking[0].IsThereMateOfEnemy && Kind == 6) //&& KingOnTable[i].KingThinking[0].AStarGreedy.size() == 0
 						{
 							Found = true;
 							return true;
 						}
 						else
 						{
-							for (int ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy->size(); ii++)
+							for (int ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy.size(); ii++)
 							{
 								KingOnTable[i].KingThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, Found, Order * -1);
 							}
@@ -4118,19 +4128,19 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 		{
 			for (int i = SodierMidle; i < SodierHigh; i++)
 			{
-				for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder->size()); j++)
+				for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 				{
 					//try
 					{
 
-						if (SolderesOnTable[i].SoldierThinking[0].IsThereMateOfEnemy && Kind == 1) //&& SolderesOnTable[i] .SoldierThinking[0].AStarGreedy->size() == 0
+						if (SolderesOnTable[i].SoldierThinking[0].IsThereMateOfEnemy && Kind == 1) //&& SolderesOnTable[i] .SoldierThinking[0].AStarGreedy.size() == 0
 						{
 							Found = true;
 							return true;
 						}
 						else
 						{
-							for (int ii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy->size(); ii++)
+							for (int ii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.size(); ii++)
 							{
 								SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, Found, Order * -1);
 							}
@@ -4144,19 +4154,19 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = ElefantMidle; i < ElefantHigh; i++)
 			{
-				for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant->size()); j++)
+				for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
 				{
 					//try
 					{
 
-						if (ElephantOnTable[i].ElefantThinking[0].IsThereMateOfEnemy && Kind == 2) //&& SolderesOnTable[i].ElefantThinking[0].AStarGreedy->size() == 0
+						if (ElephantOnTable[i].ElefantThinking[0].IsThereMateOfEnemy && Kind == 2) //&& SolderesOnTable[i].ElefantThinking[0].AStarGreedy.size() == 0
 						{
 							Found = true;
 							return true;
 						}
 						else
 						{
-							for (int ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy->size(); ii++)
+							for (int ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.size(); ii++)
 							{
 								ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, Found, Order * -1);
 							}
@@ -4170,19 +4180,19 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = HourseMidle; i < HourseHight; i++)
 			{
-				for (int j = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse->size()); j++)
+				for (int j = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 				{
 					//try
 					{
 
-						if (HoursesOnTable[i].HourseThinking[0].IsThereMateOfEnemy && Kind == 3) //&& HoursesOnTable[i].HourseThinking[0].AStarGreedy->size() == 0
+						if (HoursesOnTable[i].HourseThinking[0].IsThereMateOfEnemy && Kind == 3) //&& HoursesOnTable[i].HourseThinking[0].AStarGreedy.size() == 0
 						{
 							Found = true;
 							return true;
 						}
 						else
 						{
-							for (int ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy->size(); ii++)
+							for (int ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.size(); ii++)
 							{
 								HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, Found, Order * -1);
 							}
@@ -4196,19 +4206,19 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = CastleMidle; i < CastleHigh; i++)
 			{
-				for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle->size()); j++)
+				for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 				{
 					//try
 					{
 
-						if (CastlesOnTable[i].CastleThinking[0].IsThereMateOfEnemy && Kind == 4) //&& CastlesOnTable[ii].CastleThinking[0].AStarGreedy->size() == 0
+						if (CastlesOnTable[i].CastleThinking[0].IsThereMateOfEnemy && Kind == 4) //&& CastlesOnTable[ii].CastleThinking[0].AStarGreedy.size() == 0
 						{
 							Found = true;
 							return true;
 						}
 						else
 						{
-							for (int ii = 0; ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy->size(); ii++)
+							for (int ii = 0; ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.size(); ii++)
 							{
 								CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, Found, Order * -1);
 							}
@@ -4223,18 +4233,18 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = MinisterMidle; i < MinisterHigh; i++)
 			{
-				for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister->size()); j++)
+				for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
 				{
 					//try
 					{
-						if (MinisterOnTable[i].MinisterThinking[0].IsThereMateOfEnemy && Kind == 5) //&& MinisterOnTable[i].MinisterThinking[0].AStarGreedy->size() == 0
+						if (MinisterOnTable[i].MinisterThinking[0].IsThereMateOfEnemy && Kind == 5) //&& MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size() == 0
 						{
 							Found = true;
 							return true;
 						}
 						else
 						{
-							for (int ii = 0; ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy->size(); ii++)
+							for (int ii = 0; ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size(); ii++)
 							{
 								MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, Found, Order * -1);
 							}
@@ -4249,11 +4259,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = KingMidle; i < KingHigh; i++)
 			{
-				for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing->size()); j++)
+				for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 				{
 					//try
 					{
-						if (KingOnTable[i].KingThinking[0].IsThereMateOfEnemy && Kind == 6) //&& KingOnTable[i].KingThinking[0].AStarGreedy->size() == 0
+						if (KingOnTable[i].KingThinking[0].IsThereMateOfEnemy && Kind == 6) //&& KingOnTable[i].KingThinking[0].AStarGreedy.size() == 0
 						{
 							Found = true;
 							return true;
@@ -4261,7 +4271,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 						else
 						{
-							for (int ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy->size(); ii++)
+							for (int ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy.size(); ii++)
 							{
 								KingOnTable[i].KingThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, Found, Order * -1);
 							}
@@ -4293,7 +4303,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 
 			for (int i = 0; i < SodierMidle; i++)
 			{
-				for (int j = 0; ((&ElephantOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder->size()); j++)
+				for (int j = 0; ((&ElephantOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 				{
 
 					//try
@@ -4306,7 +4316,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 						else
 						{
-							for (int iii = 0; iii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy->size(); iii++)
+							for (int iii = 0; iii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.size(); iii++)
 							{
 								ThinkingChess::NumbersOfAllNode++;
 								SolderesOnTable[i].SoldierThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKind(SolderesOnTable[i].SoldierThinking[0].TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
@@ -4323,7 +4333,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = 0; i < ElefantMidle; i++)
 			{
-				for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant->size()); j++)
+				for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
 				{
 					//try
 					{
@@ -4334,7 +4344,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 						else
 						{
-							for (int iii = 0; iii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy->size(); iii++)
+							for (int iii = 0; iii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.size(); iii++)
 							{
 								ThinkingChess::NumbersOfAllNode++;
 								ElephantOnTable[i].ElefantThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKind(ElephantOnTable[i].ElefantThinking[0].TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
@@ -4351,7 +4361,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = 0; i < HourseMidle; i++)
 			{
-				for (int j = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse->size()); j++)
+				for (int j = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 				{
 					//try
 					{
@@ -4362,7 +4372,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 						else
 						{
-							for (int iii = 0; iii < HoursesOnTable[i].HourseThinking[0].AStarGreedy->size(); iii++)
+							for (int iii = 0; iii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.size(); iii++)
 							{
 								ThinkingChess::NumbersOfAllNode++;
 								HoursesOnTable[i].HourseThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKind(HoursesOnTable[i].HourseThinking[0].TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
@@ -4380,7 +4390,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = 0; i < CastleMidle; i++)
 			{
-				for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle->size()); j++)
+				for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 				{
 					//try
 					{
@@ -4391,7 +4401,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 						else
 						{
-							for (int iii = 0; iii < CastlesOnTable[i].CastleThinking[0].AStarGreedy->size(); iii++)
+							for (int iii = 0; iii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.size(); iii++)
 							{
 								ThinkingChess::NumbersOfAllNode++;
 								CastlesOnTable[i].CastleThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKind(CastlesOnTable[i].CastleThinking[0].TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
@@ -4407,7 +4417,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = 0; i < MinisterMidle; i++)
 			{
-				for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister->size()); j++)
+				for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
 				{
 					//try
 					{
@@ -4418,7 +4428,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 						else
 						{
-							for (int iii = 0; iii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy->size(); iii++)
+							for (int iii = 0; iii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size(); iii++)
 							{
 								ThinkingChess::NumbersOfAllNode++;
 								MinisterOnTable[i].MinisterThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKind(MinisterOnTable[i].MinisterThinking[0].TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
@@ -4436,7 +4446,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = 0; i < KingMidle; i++)
 			{
-				for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing->size()); j++)
+				for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 				{
 					//try
 					{
@@ -4447,7 +4457,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 						else
 						{
-							for (int iii = 0; iii < KingOnTable[i].KingThinking[0].AStarGreedy->size(); iii++)
+							for (int iii = 0; iii < KingOnTable[i].KingThinking[0].AStarGreedy.size(); iii++)
 							{
 								ThinkingChess::NumbersOfAllNode++;
 								KingOnTable[i].KingThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKind(KingOnTable[i].KingThinking[0].TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
@@ -4467,7 +4477,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 		{
 			for (int i = SodierMidle; i < SodierHigh; i++)
 			{
-				for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder->size()); j++)
+				for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 				{
 					//try
 					{
@@ -4479,7 +4489,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 						else
 						{
-							for (int iii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy->size(); iii++)
+							for (int iii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.size(); iii++)
 							{
 								ThinkingChess::NumbersOfAllNode++;
 								SolderesOnTable[i].SoldierThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKind(SolderesOnTable[i].SoldierThinking[0].TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
@@ -4494,7 +4504,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = ElefantMidle; i < ElefantHigh; i++)
 			{
-				for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant->size()); j++)
+				for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
 				{
 					//try
 					{
@@ -4506,7 +4516,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 						else
 						{
-							for (int iii = 0; iii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy->size(); iii++)
+							for (int iii = 0; iii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.size(); iii++)
 							{
 								ThinkingChess::NumbersOfAllNode++;
 								ElephantOnTable[i].ElefantThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKind(ElephantOnTable[i].ElefantThinking[0].TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
@@ -4521,7 +4531,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = HourseMidle; i < HourseHight; i++)
 			{
-				for (int j = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse->size()); j++)
+				for (int j = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 				{
 					//try
 					{
@@ -4533,7 +4543,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 						else
 						{
-							for (int iii = 0; iii < HoursesOnTable[i].HourseThinking[0].AStarGreedy->size(); iii++)
+							for (int iii = 0; iii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.size(); iii++)
 							{
 								ThinkingChess::NumbersOfAllNode++;
 								HoursesOnTable[i].HourseThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKind(HoursesOnTable[i].HourseThinking[0].TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
@@ -4548,7 +4558,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = CastleMidle; i < CastleHigh; i++)
 			{
-				for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle->size()); j++)
+				for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 				{
 					//try
 					{
@@ -4560,7 +4570,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 						else
 						{
-							for (int iii = 0; iii < CastlesOnTable[i].CastleThinking[0].AStarGreedy->size(); iii++)
+							for (int iii = 0; iii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.size(); iii++)
 							{
 								ThinkingChess::NumbersOfAllNode++;
 								CastlesOnTable[i].CastleThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKind(CastlesOnTable[i].CastleThinking[0].TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
@@ -4576,7 +4586,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = MinisterMidle; i < MinisterHigh; i++)
 			{
-				for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister->size()); j++)
+				for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
 				{
 					//try
 					{
@@ -4588,7 +4598,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 						else
 						{
-							for (int iii = 0; iii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy->size(); iii++)
+							for (int iii = 0; iii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size(); iii++)
 							{
 								ThinkingChess::NumbersOfAllNode++;
 								MinisterOnTable[i].MinisterThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKind(MinisterOnTable[i].MinisterThinking[0].TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
@@ -4604,7 +4614,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = KingMidle; i < KingHigh; i++)
 			{
-				for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing->size()); j++)
+				for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 				{
 					//try
 					{
@@ -4615,7 +4625,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 						else
 						{
-							for (int iii = 0; iii < KingOnTable[i].KingThinking[0].AStarGreedy->size(); iii++)
+							for (int iii = 0; iii < KingOnTable[i].KingThinking[0].AStarGreedy.size(); iii++)
 							{
 								ThinkingChess::NumbersOfAllNode++;
 								KingOnTable[i].KingThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKind(KingOnTable[i].KingThinking[0].TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
@@ -4665,12 +4675,12 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 
 			for (int i = 0; i < SodierMidle; i++)
 			{
-				for (int j = 0; ((&ElephantOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder->size()); j++)
+				for (int j = 0; ((&ElephantOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 				{
 
 					//try
 					{
-						SolderesOnTable[i].SoldierThinking[0].PenaltyRegardListSolder[i]->LearningAlgorithmRegard();
+						SolderesOnTable[i].SoldierThinking[0].PenaltyRegardListSolder[i].LearningAlgorithmRegard();
 					}
 					//catch(std::exception &t)
 					{
@@ -4680,7 +4690,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					ChessRules::CurrentOrder *= -1;
 					//try
 					{
-						for (int ii = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy->size()); ii++)
+						for (int ii = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.size()); ii++)
 						{
 							MakeRegardAllCheckMateBranches(SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii], Order);
 						}
@@ -4696,12 +4706,12 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = 0; i < ElefantMidle; i++)
 			{
-				for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant->size()); j++)
+				for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
 				{
 
 					//try
 					{
-						ElephantOnTable[i].ElefantThinking[0].PenaltyRegardListElefant[j]->LearningAlgorithmRegard();
+						ElephantOnTable[i].ElefantThinking[0].PenaltyRegardListElefant[j].LearningAlgorithmRegard();
 
 					}
 					//catch(std::exception &t)
@@ -4712,7 +4722,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					ChessRules::CurrentOrder *= -1;
 					//try
 					{
-						for (int ii = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy->size()); ii++)
+						for (int ii = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.size()); ii++)
 						{
 							MakeRegardAllCheckMateBranches(ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii], Order);
 						}
@@ -4727,11 +4737,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = 0; i < HourseMidle; i++)
 			{
-				for (int j = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse->size()); j++)
+				for (int j = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 				{
 					//try
 					{
-						HoursesOnTable[i].HourseThinking[0].PenaltyRegardListHourse[j]->LearningAlgorithmRegard();
+						HoursesOnTable[i].HourseThinking[0].PenaltyRegardListHourse[j].LearningAlgorithmRegard();
 
 					}
 					//catch(std::exception &t)
@@ -4742,7 +4752,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					ChessRules::CurrentOrder *= -1;
 					//try
 					{
-						for (int ii = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy->size()); ii++)
+						for (int ii = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.size()); ii++)
 						{
 							MakeRegardAllCheckMateBranches(HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii], Order);
 						}
@@ -4757,11 +4767,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = 0; i < CastleMidle; i++)
 			{
-				for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle->size()); j++)
+				for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 				{
 					//try
 					{
-						CastlesOnTable[i].CastleThinking[0].PenaltyRegardListCastle[j]->LearningAlgorithmRegard();
+						CastlesOnTable[i].CastleThinking[0].PenaltyRegardListCastle[j].LearningAlgorithmRegard();
 					}
 					//catch(std::exception &t)
 					{
@@ -4771,7 +4781,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					ChessRules::CurrentOrder *= -1;
 					//try
 					{
-						for (int ii = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy->size()); ii++)
+						for (int ii = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.size()); ii++)
 						{
 							MakeRegardAllCheckMateBranches(CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii], Order);
 						}
@@ -4786,11 +4796,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = 0; i < MinisterMidle; i++)
 			{
-				for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister->size()); j++)
+				for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
 				{
 					//try
 					{
-						MinisterOnTable[i].MinisterThinking[0].PenaltyRegardListMinister[j]->LearningAlgorithmRegard();
+						MinisterOnTable[i].MinisterThinking[0].PenaltyRegardListMinister[j].LearningAlgorithmRegard();
 					}
 					//catch(std::exception &t)
 					{
@@ -4801,7 +4811,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					ChessRules::CurrentOrder *= -1;
 					//try
 					{
-						for (int ii = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy->size()); ii++)
+						for (int ii = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size()); ii++)
 						{
 							MakeRegardAllCheckMateBranches(MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii], Order);
 						}
@@ -4816,11 +4826,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = 0; i < KingMidle; i++)
 			{
-				for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing->size()); j++)
+				for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 				{
 					//try
 					{
-						KingOnTable[i].KingThinking[0].PenaltyRegardListKing[j]->LearningAlgorithmRegard();
+						KingOnTable[i].KingThinking[0].PenaltyRegardListKing[j].LearningAlgorithmRegard();
 					}
 					//catch(std::exception &t)
 					{
@@ -4830,7 +4840,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					ChessRules::CurrentOrder *= -1;
 					//try
 					{
-						for (int ii = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (ii < KingOnTable[i].KingThinking[0].AStarGreedy->size()); ii++)
+						for (int ii = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (ii < KingOnTable[i].KingThinking[0].AStarGreedy.size()); ii++)
 						{
 							MakeRegardAllCheckMateBranches(KingOnTable[i].KingThinking[0].AStarGreedy[ii], Order);
 						}
@@ -4848,11 +4858,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 		{
 			for (int i = SodierMidle; i < SodierHigh; i++)
 			{
-				for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder->size()); j++)
+				for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 				{
 					//try
 					{
-						SolderesOnTable[i].SoldierThinking[0].PenaltyRegardListSolder[i]->LearningAlgorithmRegard();
+						SolderesOnTable[i].SoldierThinking[0].PenaltyRegardListSolder[i].LearningAlgorithmRegard();
 					}
 					//catch(std::exception &t)
 					{
@@ -4862,7 +4872,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					ChessRules::CurrentOrder *= -1;
 					//try
 					{
-						for (int ii = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy->size()); ii++)
+						for (int ii = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.size()); ii++)
 						{
 							MakeRegardAllCheckMateBranches(SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii], Order);
 						}
@@ -4877,11 +4887,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = ElefantMidle; i < ElefantHigh; i++)
 			{
-				for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant->size()); j++)
+				for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
 				{
 					//try
 					{
-						ElephantOnTable[i].ElefantThinking[0].PenaltyRegardListElefant[j]->LearningAlgorithmRegard();
+						ElephantOnTable[i].ElefantThinking[0].PenaltyRegardListElefant[j].LearningAlgorithmRegard();
 
 					}
 					//catch(std::exception &t)
@@ -4892,7 +4902,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					ChessRules::CurrentOrder *= -1;
 					//try
 					{
-						for (int ii = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy->size()); ii++)
+						for (int ii = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.size()); ii++)
 						{
 							MakeRegardAllCheckMateBranches(ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii], Order);
 						}
@@ -4907,11 +4917,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = HourseMidle; i < HourseHight; i++)
 			{
-				for (int j = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse->size()); j++)
+				for (int j = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 				{
 					//try
 					{
-						HoursesOnTable[i].HourseThinking[0].PenaltyRegardListHourse[j]->LearningAlgorithmRegard();
+						HoursesOnTable[i].HourseThinking[0].PenaltyRegardListHourse[j].LearningAlgorithmRegard();
 
 					}
 					//catch(std::exception &t)
@@ -4922,7 +4932,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					ChessRules::CurrentOrder *= -1;
 					//try
 					{
-						for (int ii = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy->size()); ii++)
+						for (int ii = 0; ((&HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking) != nullptr) && (ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.size()); ii++)
 						{
 							MakeRegardAllCheckMateBranches(HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii], Order);
 						}
@@ -4937,11 +4947,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = CastleMidle; i < CastleHigh; i++)
 			{
-				for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle->size()); j++)
+				for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 				{
 					//try
 					{
-						CastlesOnTable[i].CastleThinking[0].PenaltyRegardListCastle[j]->LearningAlgorithmRegard();
+						CastlesOnTable[i].CastleThinking[0].PenaltyRegardListCastle[j].LearningAlgorithmRegard();
 					}
 					//catch(std::exception &t)
 					{
@@ -4951,7 +4961,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					ChessRules::CurrentOrder *= -1;
 					//try
 					{
-						for (int ii = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy->size()); ii++)
+						for (int ii = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.size()); ii++)
 						{
 							MakeRegardAllCheckMateBranches(CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii], Order);
 						}
@@ -4966,11 +4976,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = MinisterMidle; i < MinisterHigh; i++)
 			{
-				for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister->size()); j++)
+				for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size()); j++)
 				{
 					//try
 					{
-						MinisterOnTable[i].MinisterThinking[0].PenaltyRegardListMinister[j]->LearningAlgorithmRegard();
+						MinisterOnTable[i].MinisterThinking[0].PenaltyRegardListMinister[j].LearningAlgorithmRegard();
 					}
 					//catch(std::exception &t)
 					{
@@ -4980,7 +4990,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					ChessRules::CurrentOrder *= -1;
 					//try
 					{
-						for (int ii = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy->size()); ii++)
+						for (int ii = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking) != nullptr) && (ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size()); ii++)
 						{
 							MakeRegardAllCheckMateBranches(MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii], Order);
 						}
@@ -4995,11 +5005,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int i = KingMidle; i < MinisterHigh; i++)
 			{
-				for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing->size()); j++)
+				for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[0].TableListKing.size()); j++)
 				{
 					//try
 					{
-						KingOnTable[i].KingThinking[0].PenaltyRegardListKing[j]->LearningAlgorithmRegard();
+						KingOnTable[i].KingThinking[0].PenaltyRegardListKing[j].LearningAlgorithmRegard();
 					}
 					//catch(std::exception &t)
 					{
@@ -5009,7 +5019,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					ChessRules::CurrentOrder *= -1;
 					//try
 					{
-						for (int ii = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (ii < KingOnTable[i].KingThinking[0].AStarGreedy->size()); ii++)
+						for (int ii = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (ii < KingOnTable[i].KingThinking[0].AStarGreedy.size()); ii++)
 						{
 							MakeRegardAllCheckMateBranches(KingOnTable[i].KingThinking[0].AStarGreedy[ii], Order);
 						}
@@ -5263,7 +5273,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 		bool continued = false;
 		if (Kind == 1)
 		{
-			if ((SolderesOnTable[i].SoldierThinking[k].PenaltyRegardListSolder[j]->IsPenaltyAction() != 0 && SolderesOnTable[i].SoldierThinking[k].PenaltyRegardListSolder[j]->IsRewardAction() == 1 && AStarGreedyi == 1) || ((((Do == 1 || AA) && UsePenaltyRegardMechnisamT)) && UsePenaltyRegardMechnisamT) || SolderesOnTable[i].WinOcuuredatChiled >= 1 || SolderesOnTable[i].WinOcuuredatChiled >= 2 || SolderesOnTable[i].WinOcuuredatChiled >= 3)
+			if ((SolderesOnTable[i].SoldierThinking[k].PenaltyRegardListSolder[j].IsPenaltyAction() != 0 && SolderesOnTable[i].SoldierThinking[k].PenaltyRegardListSolder[j].IsRewardAction() == 1 && AStarGreedyi == 1) || ((((Do == 1 || AA) && UsePenaltyRegardMechnisamT)) && UsePenaltyRegardMechnisamT) || SolderesOnTable[i].WinOcuuredatChiled >= 1 || SolderesOnTable[i].WinOcuuredatChiled >= 2 || SolderesOnTable[i].WinOcuuredatChiled >= 3)
 			{
 				//Set Table and Huristic Value and Syntax.
 				Act = true;
@@ -5329,7 +5339,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 		{
 		if (Kind == 2)
 		{
-			if ((ElephantOnTable[i].ElefantThinking[k].PenaltyRegardListElefant[j]->IsPenaltyAction() != 0 && ElephantOnTable[i].ElefantThinking[k].PenaltyRegardListElefant[j]->IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT) || ElephantOnTable[i].WinOcuuredatChiled >= 1 || ElephantOnTable[i].WinOcuuredatChiled >= 2 || ElephantOnTable[i].WinOcuuredatChiled >= 3)
+			if ((ElephantOnTable[i].ElefantThinking[k].PenaltyRegardListElefant[j].IsPenaltyAction() != 0 && ElephantOnTable[i].ElefantThinking[k].PenaltyRegardListElefant[j].IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT) || ElephantOnTable[i].WinOcuuredatChiled >= 1 || ElephantOnTable[i].WinOcuuredatChiled >= 2 || ElephantOnTable[i].WinOcuuredatChiled >= 3)
 			{
 
 				////auto On = new Object();
@@ -5355,7 +5365,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 		{
 		if (Kind == 3)
 		{
-			if ((HoursesOnTable[i].HourseThinking[k].PenaltyRegardListHourse[j]->IsPenaltyAction() != 0 && HoursesOnTable[i].HourseThinking[k].PenaltyRegardListHourse[j]->IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT) || HoursesOnTable[i].WinOcuuredatChiled >= 1 || HoursesOnTable[i].WinOcuuredatChiled >= 2 || HoursesOnTable[i].WinOcuuredatChiled >= 3)
+			if ((HoursesOnTable[i].HourseThinking[k].PenaltyRegardListHourse[j].IsPenaltyAction() != 0 && HoursesOnTable[i].HourseThinking[k].PenaltyRegardListHourse[j].IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT) || HoursesOnTable[i].WinOcuuredatChiled >= 1 || HoursesOnTable[i].WinOcuuredatChiled >= 2 || HoursesOnTable[i].WinOcuuredatChiled >= 3)
 			{
 				////auto On = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -5381,7 +5391,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 		{
 		if (Kind == 4)
 		{
-			if ((CastlesOnTable[i].CastleThinking[k].PenaltyRegardListCastle[j]->IsPenaltyAction() != 0 && CastlesOnTable[i].CastleThinking[k].PenaltyRegardListCastle[j]->IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT) || CastlesOnTable[i].WinOcuuredatChiled >= 1 || CastlesOnTable[i].WinOcuuredatChiled >= 2 || CastlesOnTable[i].WinOcuuredatChiled >= 3)
+			if ((CastlesOnTable[i].CastleThinking[k].PenaltyRegardListCastle[j].IsPenaltyAction() != 0 && CastlesOnTable[i].CastleThinking[k].PenaltyRegardListCastle[j].IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT) || CastlesOnTable[i].WinOcuuredatChiled >= 1 || CastlesOnTable[i].WinOcuuredatChiled >= 2 || CastlesOnTable[i].WinOcuuredatChiled >= 3)
 			{
 
 				////auto On = new Object();
@@ -5411,7 +5421,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 		{
 			if (Kind == 5)
 			{
-			if ((MinisterOnTable[i].MinisterThinking[k].PenaltyRegardListMinister[j]->IsPenaltyAction() != 0 && MinisterOnTable[i].MinisterThinking[k].PenaltyRegardListMinister[j]->IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT) || MinisterOnTable[i].WinOcuuredatChiled >= 1 || MinisterOnTable[i].WinOcuuredatChiled >= 2 || MinisterOnTable[i].WinOcuuredatChiled >= 3)
+			if ((MinisterOnTable[i].MinisterThinking[k].PenaltyRegardListMinister[j].IsPenaltyAction() != 0 && MinisterOnTable[i].MinisterThinking[k].PenaltyRegardListMinister[j].IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT) || MinisterOnTable[i].WinOcuuredatChiled >= 1 || MinisterOnTable[i].WinOcuuredatChiled >= 2 || MinisterOnTable[i].WinOcuuredatChiled >= 3)
 			{
 
 				////auto On = new Object();
@@ -5436,7 +5446,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 		{
 		if (Kind == 6)
 		{
-			if ((KingOnTable[i].KingThinking[k].PenaltyRegardListKing[j]->IsPenaltyAction() != 0 && KingOnTable[i].KingThinking[k].PenaltyRegardListKing[j]->IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT) || KingOnTable[i].WinOcuuredatChiled >= 1 || KingOnTable[i].WinOcuuredatChiled >= 2 || KingOnTable[i].WinOcuuredatChiled >= 3)
+			if ((KingOnTable[i].KingThinking[k].PenaltyRegardListKing[j].IsPenaltyAction() != 0 && KingOnTable[i].KingThinking[k].PenaltyRegardListKing[j].IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT) || KingOnTable[i].WinOcuuredatChiled >= 1 || KingOnTable[i].WinOcuuredatChiled >= 2 || KingOnTable[i].WinOcuuredatChiled >= 3)
 			{
 				////auto On = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -5604,28 +5614,28 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
 				//lock (O11)
 				{
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
-//ORIGINAL LINE: int[,] TableS = SolderesOnTable[i].SoldierThinking[k].TableListSolder[j];
+					//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+					//ORIGINAL LINE: int[,] TableS = SolderesOnTable[i].SoldierThinking[k].TableListSolder[j];
 					int **TableS = SolderesOnTable[i].SoldierThinking[k].TableListSolder[j];
 
 					//checked for Legal Movments ArgumentOutOfRangeException curnt game.
 					if (DynamicAStarGreedytPrograming && !CurrentTableHuristic && AStarGreedyi == 1)
 					{
-						
-							if (!IsEnemyThingsinStable(TableS, AllDraw::TableListAction[AllDraw::TableListAction->size() - 1], AllDraw::OrderPlate))
-							{
-								if (Order == 1)
-								{
-									AllDraw::OutPut += std::wstring(L"\r\nHuristic Soldier By Bob was not Valid Movment!");
-								}
-								else
-								{
-									AllDraw::OutPut += std::wstring(L"\r\nHuristic Soldier By Alice was not Valid Movment!");
-								}
 
-								return true;
+						if (!IsEnemyThingsinStable(TableS, AllDraw::TableListAction[AllDraw::TableListAction.size() - 1], AllDraw::OrderPlate))
+						{
+							if (Order == 1)
+							{
+								AllDraw::OutPut += std::wstring(L"\r\nHuristic Soldier By Bob was not Valid Movment!");
 							}
-					
+							else
+							{
+								AllDraw::OutPut += std::wstring(L"\r\nHuristic Soldier By Alice was not Valid Movment!");
+							}
+
+							return true;
+						}
+
 
 					}
 					//When there is not Penalty regard mechanism.
@@ -5739,21 +5749,21 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				//checked for Legal Movments ArgumentOutOfRangeException curnt game.
 				if (DynamicAStarGreedytPrograming && !CurrentTableHuristic && AStarGreedyi == 1)
 				{
-					
-						if (!IsEnemyThingsinStable(TableS, AllDraw::TableListAction[AllDraw::TableListAction->size() - 1], AllDraw::OrderPlate))
-						{
-							if (Order == 1)
-							{
-								AllDraw::OutPut += std::wstring(L"\r\nHuristic Elephant By Bob was not Valid Movment!");
-							}
-							else
-							{
-								AllDraw::OutPut += std::wstring(L"\r\nHuristic Elephant By Alice was not Valid Movment!");
-							}
 
-							return true;
+					if (!IsEnemyThingsinStable(TableS, AllDraw::TableListAction[AllDraw::TableListAction.size() - 1], AllDraw::OrderPlate))
+					{
+						if (Order == 1)
+						{
+							AllDraw::OutPut += std::wstring(L"\r\nHuristic Elephant By Bob was not Valid Movment!");
 						}
-				
+						else
+						{
+							AllDraw::OutPut += std::wstring(L"\r\nHuristic Elephant By Alice was not Valid Movment!");
+						}
+
+						return true;
+					}
+
 
 
 				}
@@ -5831,21 +5841,21 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				//checked for Legal Movments ArgumentOutOfRangeException curnt game.
 				if (DynamicAStarGreedytPrograming && !CurrentTableHuristic && AStarGreedyi == 1)
 				{
-					
-						if (!IsEnemyThingsinStable(TableS, AllDraw::TableListAction[AllDraw::TableListAction->size() - 1], AllDraw::OrderPlate))
-						{
-							if (Order == 1)
-							{
-								AllDraw::OutPut += std::wstring(L"\r\nHuristic Hourse By Bob was not Valid Movment!");
-							}
-							else
-							{
-								AllDraw::OutPut += std::wstring(L"\r\nHuristic Hourse By Alice was not Valid Movment!");
-							}
 
-							return true;
+					if (!IsEnemyThingsinStable(TableS, AllDraw::TableListAction[AllDraw::TableListAction.size() - 1], AllDraw::OrderPlate))
+					{
+						if (Order == 1)
+						{
+							AllDraw::OutPut += std::wstring(L"\r\nHuristic Hourse By Bob was not Valid Movment!");
 						}
-				
+						else
+						{
+							AllDraw::OutPut += std::wstring(L"\r\nHuristic Hourse By Alice was not Valid Movment!");
+						}
+
+						return true;
+					}
+
 
 				}
 				//When there is not Penalty regard mechanism.
@@ -5922,21 +5932,21 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				//checked for Legal Movments ArgumentOutOfRangeException curnt game.
 				if (DynamicAStarGreedytPrograming && !CurrentTableHuristic && AStarGreedyi == 1)
 				{
-					
-						if (!IsEnemyThingsinStable(TableS, AllDraw::TableListAction[AllDraw::TableListAction->size() - 1], AllDraw::OrderPlate))
-						{
-							if (Order == 1)
-							{
-								AllDraw::OutPut += std::wstring(L"\r\nHuristic Castle By Bob was not Valid Movment!");
-							}
-							else
-							{
-								AllDraw::OutPut += std::wstring(L"\r\nHuristic Castle By Alice was not Valid Movment!");
-							}
 
-							return true;
+					if (!IsEnemyThingsinStable(TableS, AllDraw::TableListAction[AllDraw::TableListAction.size() - 1], AllDraw::OrderPlate))
+					{
+						if (Order == 1)
+						{
+							AllDraw::OutPut += std::wstring(L"\r\nHuristic Castle By Bob was not Valid Movment!");
 						}
-				
+						else
+						{
+							AllDraw::OutPut += std::wstring(L"\r\nHuristic Castle By Alice was not Valid Movment!");
+						}
+
+						return true;
+					}
+
 
 
 				}
@@ -6016,21 +6026,21 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				//checked for Legal Movments ArgumentOutOfRangeException curnt game.
 				if (DynamicAStarGreedytPrograming && !CurrentTableHuristic && AStarGreedyi == 1)
 				{
-					
-						if (!IsEnemyThingsinStable(TableS, AllDraw::TableListAction[AllDraw::TableListAction->size() - 1], AllDraw::OrderPlate))
-						{
-							if (Order == 1)
-							{
-								AllDraw::OutPut += std::wstring(L"\r\nHuristic Minister By Bob was not Valid Movment!");
-							}
-							else
-							{
-								AllDraw::OutPut += std::wstring(L"\r\nHuristic Minister By Alice was not Valid Movment!");
-							}
 
-							return true;
+					if (!IsEnemyThingsinStable(TableS, AllDraw::TableListAction[AllDraw::TableListAction.size() - 1], AllDraw::OrderPlate))
+					{
+						if (Order == 1)
+						{
+							AllDraw::OutPut += std::wstring(L"\r\nHuristic Minister By Bob was not Valid Movment!");
 						}
-				
+						else
+						{
+							AllDraw::OutPut += std::wstring(L"\r\nHuristic Minister By Alice was not Valid Movment!");
+						}
+
+						return true;
+					}
+
 				}
 
 				//When there is not Penalty regard mechanism.
@@ -6111,21 +6121,21 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				//checked for Legal Movments ArgumentOutOfRangeException curnt game.
 				if (DynamicAStarGreedytPrograming && !CurrentTableHuristic && AStarGreedyi == 1)
 				{
-					
-						if (!IsEnemyThingsinStable(TableS, AllDraw::TableListAction[AllDraw::TableListAction->size() - 1], AllDraw::OrderPlate))
-						{
-							if (Order == 1)
-							{
-								AllDraw::OutPut += std::wstring(L"\r\nHuristic King By Bob was not Valid Movment!");
-							}
-							else
-							{
-								AllDraw::OutPut += std::wstring(L"\r\nHuristic King By Alice was not Valid Movment!");
-							}
 
-							return true;
+					if (!IsEnemyThingsinStable(TableS, AllDraw::TableListAction[AllDraw::TableListAction.size() - 1], AllDraw::OrderPlate))
+					{
+						if (Order == 1)
+						{
+							AllDraw::OutPut += std::wstring(L"\r\nHuristic King By Bob was not Valid Movment!");
 						}
-				
+						else
+						{
+							AllDraw::OutPut += std::wstring(L"\r\nHuristic King By Alice was not Valid Movment!");
+						}
+
+						return true;
+					}
+
 				}
 				//When there is not Penalty regard mechanism.
 
@@ -6215,7 +6225,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			{
 				//When There is an Movment in such situation.
 				
-					for (j = 0; SolderesOnTable != nullptr && SolderesOnTable[i] != nullptr && SolderesOnTable != nullptr && SolderesOnTable[i] != nullptr && SolderesOnTable[i].SoldierThinking[k] != nullptr && SolderesOnTable[i].SoldierThinking[k] != nullptr && j < SolderesOnTable[i].SoldierThinking[k].TableListSolder->size(); j++)
+					for (j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 					{
 						{
 						//System.Threading.Thread.Sleep(2);
@@ -6223,14 +6233,14 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 								//For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
 								//if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
 								//)
-								if (SolderesOnTable[i].SoldierThinking[k].PenaltyRegardListSolder[j]->IsPenaltyAction() == 0)
+								if (SolderesOnTable[i].SoldierThinking[k].PenaltyRegardListSolder[j].IsPenaltyAction() == 0)
 								{
 									continue;
 								}
 								int CDummy = ChessRules::CurrentOrder;
 								int COrder = Order;
 								
-									if (SolderesOnTable[i].SoldierThinking[k].AStarGreedy->size() > j)
+									if (SolderesOnTable[i].SoldierThinking[k].AStarGreedy.size() > j)
 									{
 										SolderesOnTable[i].SoldierThinking[k].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(1, AA, Order * -1);
 									}
@@ -6404,7 +6414,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			for (int k = 0; k < AllDraw::ElefantMovments; k++)
 			{
 				
-					for (j = 0; ElephantOnTable != nullptr && ElephantOnTable[i] != nullptr && ElephantOnTable != nullptr && ElephantOnTable[i] != nullptr && ElephantOnTable[i].ElefantThinking[k] != nullptr && ElephantOnTable[i].ElefantThinking[k] != nullptr && j < ElephantOnTable[i].ElefantThinking[k].TableListElefant->size(); j++)
+					for (j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
 					{
 						{
 						//System.Threading.Thread.Sleep(2);
@@ -6412,14 +6422,14 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 								//For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
 								//if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
 								//)
-								if (ElephantOnTable[i].ElefantThinking[k].PenaltyRegardListElefant[j]->IsPenaltyAction() == 0)
+								if (ElephantOnTable[i].ElefantThinking[k].PenaltyRegardListElefant[j].IsPenaltyAction() == 0)
 								{
 									continue;
 								}
 								int CDummy = ChessRules::CurrentOrder;
 								int COrder = Order;
 								
-									if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy->size() > j)
+									if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy.size() > j)
 									{
 										ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(2, AA, Order * -1);
 									}
@@ -6554,7 +6564,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			for (int k = 0; k < AllDraw::HourseMovments; k++)
 			{
 				
-					for (j = 0; HoursesOnTable != nullptr && HoursesOnTable[i] != nullptr && HoursesOnTable != nullptr && HoursesOnTable[i] != nullptr && HoursesOnTable[i].HourseThinking[k] != nullptr && HoursesOnTable[i].HourseThinking[k] != nullptr && j < HoursesOnTable[i].HourseThinking[k].TableListHourse->size(); j++)
+					for (j = 0; ((& HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && ((& HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && ((&HoursesOnTable[i].HourseThinking[k]) != nullptr) && ((&HoursesOnTable[i].HourseThinking[k]) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 					{
 						{
 						//System.Threading.Thread.Sleep(2);
@@ -6562,14 +6572,14 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 								//For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
 								//if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
 								//)
-								if (HoursesOnTable[i].HourseThinking[k].PenaltyRegardListHourse[j]->IsPenaltyAction() == 0)
+								if (HoursesOnTable[i].HourseThinking[k].PenaltyRegardListHourse[j].IsPenaltyAction() == 0)
 								{
 									continue;
 								}
 								int CDummy = ChessRules::CurrentOrder;
 								int COrder = Order;
 								
-									if (HoursesOnTable[i].HourseThinking[0].AStarGreedy->size() > j)
+									if (HoursesOnTable[i].HourseThinking[0].AStarGreedy.size() > j)
 									{
 										HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(3, AA, Order * -1);
 									}
@@ -6697,7 +6707,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			for (int k = 0; k < AllDraw::CastleMovments; k++)
 			{
 				
-					for (j = 0; CastlesOnTable != nullptr && CastlesOnTable[i] != nullptr && CastlesOnTable != nullptr && CastlesOnTable[i] != nullptr && CastlesOnTable[i].CastleThinking[k] != nullptr && CastlesOnTable[i].CastleThinking[k] != nullptr && j < CastlesOnTable[i].CastleThinking[k].TableListCastle->size(); j++)
+					for (j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 					{
 						{
 						//System.Threading.Thread.Sleep(2);
@@ -6705,14 +6715,14 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 								//For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
 								//if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
 								//)
-								if (CastlesOnTable[i].CastleThinking[k].PenaltyRegardListCastle[j]->IsPenaltyAction() == 0)
+								if (CastlesOnTable[i].CastleThinking[k].PenaltyRegardListCastle[j].IsPenaltyAction() == 0)
 								{
 									continue;
 								}
 								int CDummy = ChessRules::CurrentOrder;
 								int COrder = Order;
 								
-									if (CastlesOnTable[i].CastleThinking[0].AStarGreedy->size() > j)
+									if (CastlesOnTable[i].CastleThinking[0].AStarGreedy.size() > j)
 									{
 										CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(4, AA, Order * -1);
 									}
@@ -6836,21 +6846,21 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			for (int k = 0; k < AllDraw::MinisterMovments; k++)
 			{
 				
-					for (j = 0; MinisterOnTable != nullptr && MinisterOnTable[i] != nullptr && MinisterOnTable != nullptr && MinisterOnTable[i] != nullptr && MinisterOnTable[i].MinisterThinking[k] != nullptr && MinisterOnTable[i].MinisterThinking[k] != nullptr && j < MinisterOnTable[i].MinisterThinking[k].TableListMinister->size(); j++)
+					for (j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && ((&MinisterOnTable[i].MinisterThinking[k]) != nullptr)&& ((&MinisterOnTable[i].MinisterThinking[k]) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[k].TableListMinister.size()); j++)
 					{
 						{
 						//System.Threading.Thread.Sleep(2);
 							//For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
 							//if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
 							//)
-							if (MinisterOnTable[i].MinisterThinking[k].PenaltyRegardListMinister[j]->IsPenaltyAction() == 0)
+							if (MinisterOnTable[i].MinisterThinking[k].PenaltyRegardListMinister[j].IsPenaltyAction() == 0)
 							{
 								continue;
 							}
 							int CDummy = ChessRules::CurrentOrder;
 							int COrder = Order;
 							
-								if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy->size() > j)
+								if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size() > j)
 								{
 									MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(5, AA, Order * -1);
 								}
@@ -6969,7 +6979,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			for (int k = 0; k < AllDraw::KingMovments; k++)
 			{
 				
-					for (j = 0; KingOnTable != nullptr && KingOnTable[i] != nullptr && KingOnTable != nullptr && KingOnTable[i] != nullptr && KingOnTable[i].KingThinking[k] != nullptr && KingOnTable[i].KingThinking[k] != nullptr && j < KingOnTable[i].KingThinking[k].TableListKing->size(); j++)
+					for (j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[k].TableListKing.size()); j++)
 					{
 						{
 						//System.Threading.Thread.Sleep(2);
@@ -6977,14 +6987,14 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 								//For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
 								//if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
 								//)
-								if (KingOnTable[i].KingThinking[k].PenaltyRegardListKing[j]->IsPenaltyAction() == 0)
+								if (KingOnTable[i].KingThinking[k].PenaltyRegardListKing[j].IsPenaltyAction() == 0)
 								{
 									continue;
 								}
 								int CDummy = ChessRules::CurrentOrder;
 								int COrder = Order;
 								
-									if (KingOnTable[i].KingThinking[0].AStarGreedy->size() > j)
+									if (KingOnTable[i].KingThinking[0].AStarGreedy.size() > j)
 									{
 										KingOnTable[i].KingThinking[0].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(6, AA, Order * -1);
 									}
@@ -7126,12 +7136,12 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				{
 					//When There is an Movment in such situation.
 					
-						for (j = 0; SolderesOnTable != nullptr && SolderesOnTable[i] != nullptr && SolderesOnTable != nullptr && SolderesOnTable[i] != nullptr && SolderesOnTable[i].SoldierThinking[k] != nullptr && SolderesOnTable[i].SoldierThinking[k] != nullptr && j < SolderesOnTable[i].SoldierThinking[k].TableListSolder->size(); j++)
+						for (j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (&(SolderesOnTable[i].SoldierThinking) != nullptr) && (j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size()); j++)
 						{
 							
 								//For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
 								////if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT)
-								//  if (SolderesOnTable[i].SoldierThinking[k].PenaltyRegardListSolder[j]->IsPenaltyAction() == 0)
+								//  if (SolderesOnTable[i].SoldierThinking[k].PenaltyRegardListSolder[j].IsPenaltyAction() == 0)
 								//      continue;
 								int CDummy = ChessRules::CurrentOrder;
 								int COrder = Order;
@@ -7141,7 +7151,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 									Do = 0;
 									if (UsePenaltyRegardMechnisamT)
 									{
-										for (int ij = 0; ij < SolderesOnTable[i].SoldierThinking[k].AStarGreedy->size() - 1; ij++)
+										for (int ij = 0; ij < SolderesOnTable[i].SoldierThinking[k].AStarGreedy.size() - 1; ij++)
 										{
 											SolderesOnTable[i].SoldierThinking[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, Do, SolderesOnTable[i].SoldierThinking[k].AStarGreedy[ij]);
 										}
@@ -7162,7 +7172,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 
 								//if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
 								//)
-								if ((SolderesOnTable[i].SoldierThinking[k].PenaltyRegardListSolder[j]->IsPenaltyAction() != 0 && SolderesOnTable[i].SoldierThinking[k].PenaltyRegardListSolder[j]->IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT))
+								if ((SolderesOnTable[i].SoldierThinking[k].PenaltyRegardListSolder[j].IsPenaltyAction() != 0 && SolderesOnTable[i].SoldierThinking[k].PenaltyRegardListSolder[j].IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT))
 								{
 									//Set Table and Huristic Value and Syntax.
 									Act = true;
@@ -7255,7 +7265,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 										if (DynamicAStarGreedytPrograming && !CurrentTableHuristic && AStarGreedyi == 1)
 										{
 											
-												if (!IsEnemyThingsinStable(TableS, AllDraw::TableListAction[AllDraw::TableListAction->size() - 1], AllDraw::OrderPlate))
+												if (!IsEnemyThingsinStable(TableS, AllDraw::TableListAction[AllDraw::TableListAction.size() - 1], AllDraw::OrderPlate))
 												{
 													continue;
 												}
@@ -7507,7 +7517,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				/*
 				            Order *= -1;
 				            ChessRules::CurrentOrder *= -1;
-				            for (int p = 0; p < SolderesOnTable[i].SoldierThinking[0].AStarGreedy->size(); p++)
+				            for (int p = 0; p < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.size(); p++)
 				                SolderesOnTable[i].SoldierThinking[0].AStarGreedy[p].HuristicAStarGreedySearch(AStarGreedyi, A, a,  Less, Order, false);
 				          */
 					Order = DummyOrder;
@@ -7523,12 +7533,12 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				for (int k = 0; k < AllDraw::ElefantMovments; k++)
 				{
 					
-						for (j = 0; ElephantOnTable != nullptr && ElephantOnTable[i] != nullptr && ElephantOnTable != nullptr && ElephantOnTable[i] != nullptr && ElephantOnTable[i].ElefantThinking[k] != nullptr && ElephantOnTable[i].ElefantThinking[k] != nullptr && j < ElephantOnTable[i].ElefantThinking[k].TableListElefant->size(); j++)
+						for (j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (&(ElephantOnTable[i].ElefantThinking) != nullptr) && (j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size()); j++)
 						{
 							
 								//For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
 								////if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT)
-								//   if (ElephantOnTable[i].ElefantThinking[k].PenaltyRegardListElefant[j]->IsPenaltyAction() == 0)
+								//   if (ElephantOnTable[i].ElefantThinking[k].PenaltyRegardListElefant[j].IsPenaltyAction() == 0)
 								//       continue;
 								int CDummy = ChessRules::CurrentOrder;
 								int COrder = Order;
@@ -7538,7 +7548,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 									Do = 0;
 									if (UsePenaltyRegardMechnisamT)
 									{
-										for (int ij = 0; ij < ElephantOnTable[i].ElefantThinking[k].AStarGreedy->size() - 1; ij++)
+										for (int ij = 0; ij < ElephantOnTable[i].ElefantThinking[k].AStarGreedy.size() - 1; ij++)
 										{
 											ElephantOnTable[i].ElefantThinking[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, Do, ElephantOnTable[i].ElefantThinking[k].AStarGreedy[ij]);
 										}
@@ -7558,7 +7568,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 								ChessRules::CurrentOrder = CDummy;
 								//if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
 								//)
-								if ((ElephantOnTable[i].ElefantThinking[k].PenaltyRegardListElefant[j]->IsPenaltyAction() != 0 && ElephantOnTable[i].ElefantThinking[k].PenaltyRegardListElefant[j]->IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT))
+								if ((ElephantOnTable[i].ElefantThinking[k].PenaltyRegardListElefant[j].IsPenaltyAction() != 0 && ElephantOnTable[i].ElefantThinking[k].PenaltyRegardListElefant[j].IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT))
 								{
 									////auto On = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -7580,7 +7590,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 									continue;
 								}
 								//When There is No Movments in Such Order Enemy continue.
-								if (ElephantOnTable[i].ElefantThinking[k].PenaltyRegardListElefant[j]->IsPenaltyAction() == 0)
+								if (ElephantOnTable[i].ElefantThinking[k].PenaltyRegardListElefant[j].IsPenaltyAction() == 0)
 								{
 									continue;
 								}
@@ -7612,7 +7622,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 										if (DynamicAStarGreedytPrograming && !CurrentTableHuristic && AStarGreedyi == 1)
 										{
 											
-												if (!IsEnemyThingsinStable(TableS, AllDraw::TableListAction[AllDraw::TableListAction->size() - 1], AllDraw::OrderPlate))
+												if (!IsEnemyThingsinStable(TableS, AllDraw::TableListAction[AllDraw::TableListAction.size() - 1], AllDraw::OrderPlate))
 												{
 													continue;
 												}
@@ -7788,12 +7798,12 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				for (int k = 0; k < AllDraw::HourseMovments; k++)
 				{
 					
-						for (j = 0; HoursesOnTable != nullptr && HoursesOnTable[i] != nullptr && HoursesOnTable != nullptr && HoursesOnTable[i] != nullptr && HoursesOnTable[i].HourseThinking[k] != nullptr && HoursesOnTable[i].HourseThinking[k] != nullptr && j < HoursesOnTable[i].HourseThinking[k].TableListHourse->size(); j++)
+						for (j = 0; ((& HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && ((& HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && ((&HoursesOnTable[i].HourseThinking[k]) != nullptr) && ((&HoursesOnTable[i].HourseThinking[k]) != nullptr) && (j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size()); j++)
 						{
 							
 								//For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
 								////if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT)
-								//    if (HoursesOnTable[i].HourseThinking[k].PenaltyRegardListHourse[j]->IsPenaltyAction() == 0)
+								//    if (HoursesOnTable[i].HourseThinking[k].PenaltyRegardListHourse[j].IsPenaltyAction() == 0)
 								//        continue;
 								int CDummy = ChessRules::CurrentOrder;
 								int COrder = Order;
@@ -7803,7 +7813,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 									Do = 0;
 									if (UsePenaltyRegardMechnisamT)
 									{
-										for (int ij = 0; ij < HoursesOnTable[i].HourseThinking[k].AStarGreedy->size() - 1; ij++)
+										for (int ij = 0; ij < HoursesOnTable[i].HourseThinking[k].AStarGreedy.size() - 1; ij++)
 										{
 											HoursesOnTable[i].HourseThinking[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, Do, HoursesOnTable[i].HourseThinking[k].AStarGreedy[ij]);
 										}
@@ -7823,7 +7833,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 								ChessRules::CurrentOrder = CDummy;
 								//if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
 								//)
-								if ((HoursesOnTable[i].HourseThinking[k].PenaltyRegardListHourse[j]->IsPenaltyAction() != 0 && HoursesOnTable[i].HourseThinking[k].PenaltyRegardListHourse[j]->IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT))
+								if ((HoursesOnTable[i].HourseThinking[k].PenaltyRegardListHourse[j].IsPenaltyAction() != 0 && HoursesOnTable[i].HourseThinking[k].PenaltyRegardListHourse[j].IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT))
 								{
 									////auto On = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -7873,7 +7883,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 											if (DynamicAStarGreedytPrograming && !CurrentTableHuristic && AStarGreedyi == 1)
 											{
 												
-													if (!IsEnemyThingsinStable(TableS, AllDraw::TableListAction[AllDraw::TableListAction->size() - 1], AllDraw::OrderPlate))
+													if (!IsEnemyThingsinStable(TableS, AllDraw::TableListAction[AllDraw::TableListAction.size() - 1], AllDraw::OrderPlate))
 													{
 														continue;
 													}
@@ -8058,12 +8068,12 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				for (int k = 0; k < AllDraw::CastleMovments; k++)
 				{
 					
-						for (j = 0; CastlesOnTable != nullptr && CastlesOnTable[i] != nullptr && CastlesOnTable != nullptr && CastlesOnTable[i] != nullptr && CastlesOnTable[i].CastleThinking[k] != nullptr && CastlesOnTable[i].CastleThinking[k] != nullptr && j < CastlesOnTable[i].CastleThinking[k].TableListCastle->size(); j++)
+						for (j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (&(CastlesOnTable[i].CastleThinking) != nullptr) && (j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size()); j++)
 						{
 							
 								//For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
 								////if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT)
-								///   if (CastlesOnTable[i].CastleThinking[k].PenaltyRegardListCastle[j]->IsPenaltyAction() == 0)
+								///   if (CastlesOnTable[i].CastleThinking[k].PenaltyRegardListCastle[j].IsPenaltyAction() == 0)
 								//       continue;
 
 								int CDummy = ChessRules::CurrentOrder;
@@ -8074,7 +8084,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 									Do = 0;
 									if (UsePenaltyRegardMechnisamT)
 									{
-										for (int ij = 0; ij < CastlesOnTable[i].CastleThinking[k].AStarGreedy->size() - 1; ij++)
+										for (int ij = 0; ij < CastlesOnTable[i].CastleThinking[k].AStarGreedy.size() - 1; ij++)
 										{
 											CastlesOnTable[i].CastleThinking[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, Do, CastlesOnTable[i].CastleThinking[k].AStarGreedy[ij]);
 										}
@@ -8094,7 +8104,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 								ChessRules::CurrentOrder = CDummy;
 								//if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
 								//)
-								if ((CastlesOnTable[i].CastleThinking[k].PenaltyRegardListCastle[j]->IsPenaltyAction() != 0 && CastlesOnTable[i].CastleThinking[k].PenaltyRegardListCastle[j]->IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT))
+								if ((CastlesOnTable[i].CastleThinking[k].PenaltyRegardListCastle[j].IsPenaltyAction() != 0 && CastlesOnTable[i].CastleThinking[k].PenaltyRegardListCastle[j].IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT))
 								{
 
 									////auto On = new Object();
@@ -8138,7 +8148,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 										if (DynamicAStarGreedytPrograming && !CurrentTableHuristic && AStarGreedyi == 1)
 										{
 											
-												if (!IsEnemyThingsinStable(TableS, AllDraw::TableListAction[AllDraw::TableListAction->size() - 1], AllDraw::OrderPlate))
+												if (!IsEnemyThingsinStable(TableS, AllDraw::TableListAction[AllDraw::TableListAction.size() - 1], AllDraw::OrderPlate))
 												{
 													continue;
 												}
@@ -8320,12 +8330,12 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				for (int k = 0; k < AllDraw::MinisterMovments; k++)
 				{
 					
-						for (j = 0; MinisterOnTable != nullptr && MinisterOnTable[i] != nullptr && MinisterOnTable != nullptr && MinisterOnTable[i] != nullptr && MinisterOnTable[i].MinisterThinking[k] != nullptr && MinisterOnTable[i].MinisterThinking[k] != nullptr && j < MinisterOnTable[i].MinisterThinking[k].TableListMinister->size(); j++)
+						for (j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && ((&MinisterOnTable[i].MinisterThinking[k]) != nullptr) && ((&MinisterOnTable[i].MinisterThinking[k]) != nullptr) && (j < MinisterOnTable[i].MinisterThinking[k].TableListMinister.size()); j++)
 						{
 							
 								//For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
 								////if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT)
-								////    if (MinisterOnTable[i].MinisterThinking[k].PenaltyRegardListMinister[j]->IsPenaltyAction() == 0)
+								////    if (MinisterOnTable[i].MinisterThinking[k].PenaltyRegardListMinister[j].IsPenaltyAction() == 0)
 								//     continue;
 								int CDummy = ChessRules::CurrentOrder;
 								int COrder = Order;
@@ -8335,7 +8345,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 									Do = 0;
 									if (UsePenaltyRegardMechnisamT)
 									{
-										for (int ij = 0; ij < MinisterOnTable[i].MinisterThinking[k].AStarGreedy->size() - 1; ij++)
+										for (int ij = 0; ij < MinisterOnTable[i].MinisterThinking[k].AStarGreedy.size() - 1; ij++)
 										{
 											MinisterOnTable[i].MinisterThinking[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, Do, MinisterOnTable[i].MinisterThinking[k].AStarGreedy[ij]);
 										}
@@ -8355,7 +8365,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 								ChessRules::CurrentOrder = CDummy;
 								//if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
 								//)
-								if ((MinisterOnTable[i].MinisterThinking[k].PenaltyRegardListMinister[j]->IsPenaltyAction() != 0 && MinisterOnTable[i].MinisterThinking[k].PenaltyRegardListMinister[j]->IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT))
+								if ((MinisterOnTable[i].MinisterThinking[k].PenaltyRegardListMinister[j].IsPenaltyAction() != 0 && MinisterOnTable[i].MinisterThinking[k].PenaltyRegardListMinister[j].IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT))
 								{
 
 									////auto On = new Object();
@@ -8405,7 +8415,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 										if (DynamicAStarGreedytPrograming && !CurrentTableHuristic && AStarGreedyi == 1)
 										{
 											
-												if (!IsEnemyThingsinStable(TableS, AllDraw::TableListAction[AllDraw::TableListAction->size() - 1], AllDraw::OrderPlate))
+												if (!IsEnemyThingsinStable(TableS, AllDraw::TableListAction[AllDraw::TableListAction.size() - 1], AllDraw::OrderPlate))
 												{
 													continue;
 												}
@@ -8585,11 +8595,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				for (int k = 0; k < AllDraw::KingMovments; k++)
 				{
 					
-						for (j = 0; KingOnTable != nullptr && KingOnTable[i] != nullptr && KingOnTable != nullptr && KingOnTable[i] != nullptr && KingOnTable[i].KingThinking[k] != nullptr && KingOnTable[i].KingThinking[k] != nullptr && j < KingOnTable[i].KingThinking[k].TableListKing->size(); j++)
+						for (j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (&(KingOnTable[i].KingThinking) != nullptr) && (j < KingOnTable[i].KingThinking[k].TableListKing.size()); j++)
 						{
 							
 								//////if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT)
-								//    if (KingOnTable[i].KingThinking[k].PenaltyRegardListKing[j]->IsPenaltyAction() == 0)
+								//    if (KingOnTable[i].KingThinking[k].PenaltyRegardListKing[j].IsPenaltyAction() == 0)
 								//        continue;
 								int CDummy = ChessRules::CurrentOrder;
 								int COrder = Order;
@@ -8599,7 +8609,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 									Do = 0;
 									if (UsePenaltyRegardMechnisamT)
 									{
-										for (int ij = 0; ij < KingOnTable[i].KingThinking[k].AStarGreedy->size() - 1; ij++)
+										for (int ij = 0; ij < KingOnTable[i].KingThinking[k].AStarGreedy.size() - 1; ij++)
 										{
 											KingOnTable[i].KingThinking[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, Do, KingOnTable[i].KingThinking[k].AStarGreedy[ij]);
 										}
@@ -8619,7 +8629,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 								ChessRules::CurrentOrder = CDummy;
 								//if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
 								//)
-								if ((KingOnTable[i].KingThinking[k].PenaltyRegardListKing[j]->IsPenaltyAction() != 0 && KingOnTable[i].KingThinking[k].PenaltyRegardListKing[j]->IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT))
+								if ((KingOnTable[i].KingThinking[k].PenaltyRegardListKing[j].IsPenaltyAction() != 0 && KingOnTable[i].KingThinking[k].PenaltyRegardListKing[j].IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT))
 								{
 
 									////auto On = new Object();
@@ -8670,7 +8680,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 										if (DynamicAStarGreedytPrograming && !CurrentTableHuristic && AStarGreedyi == 1)
 										{
 											
-												if (!IsEnemyThingsinStable(TableS, AllDraw::TableListAction[AllDraw::TableListAction->size() - 1], AllDraw::OrderPlate))
+												if (!IsEnemyThingsinStable(TableS, AllDraw::TableListAction[AllDraw::TableListAction.size() - 1], AllDraw::OrderPlate))
 												{
 													continue;
 												}
@@ -9031,7 +9041,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 		//lock (O)
 		{
 
-			int Tab[6];
+			int *Tab = new int[6];
 			Tab[0] = SodierHigh;
 			Tab[1] = ElefantHigh;
 			Tab[2] = HourseHight;
@@ -9139,12 +9149,12 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 
 					for (int i = 0; i < SodierMidle; i++)
 					{
-						if (SolderesOnTable[i] == nullptr)
+						if ((&(SolderesOnTable[i]) == nullptr))
 						{
 							continue;
 						}
 						//int j = FoundTableIndex(SolderesOnTable[i].SoldierThinking[0].TableListSolder, SolderesOnTable[ii].SoldierThinking[0].TableConst);
-						for (int j = 0; j < SolderesOnTable[i].SoldierThinking[0].HuristicListSolder->size(); j++)
+						for (int j = 0; j < SolderesOnTable[i].SoldierThinking[0].HuristicListSolder.size(); j++)
 						{
 							if (!(SolderesOnTable[i].SoldierThinking[0].IsSup[j]))
 							{
@@ -9186,12 +9196,12 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 
 					for (int i = SodierMidle; i < SodierHigh; i++)
 					{
-						if (SolderesOnTable[i] == nullptr)
+						if ((&(SolderesOnTable[i]) == nullptr))
 						{
 							continue;
 						}
 						//int j = FoundTableIndex(SolderesOnTable[i].SoldierThinking[0].TableListSolder, SolderesOnTable[ii].SoldierThinking[0].TableConst);
-						for (int j = 0; j < SolderesOnTable[i].SoldierThinking[0].HuristicListSolder->size(); j++)
+						for (int j = 0; j < SolderesOnTable[i].SoldierThinking[0].HuristicListSolder.size(); j++)
 						{
 							if (!(SolderesOnTable[i].SoldierThinking[0].IsSup[j]))
 							{
@@ -9235,14 +9245,14 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				//if (ElephantOnTable[ii].ElefantThinking[0].IsSup[j])
 					for (int i = 0; i < ElefantMidle; i++)
 					{
-						if (ElephantOnTable[i] == nullptr)
+						if ((&(ElephantOnTable[i]) == nullptr))
 						{
 							continue;
 						}
 						{
 						//if (this != null && this != null)
 							//int j = FoundTableIndex(ElephantOnTable[i].ElefantThinking[0].TableListElefant, ElephantOnTable[ii].ElefantThinking[0].TableConst);
-							for (int j = 0; j < ElephantOnTable[i].ElefantThinking[0].HuristicListElefant->size(); j++)
+							for (int j = 0; j < ElephantOnTable[i].ElefantThinking[0].HuristicListElefant.size(); j++)
 							{
 								if (!(ElephantOnTable[i].ElefantThinking[0].IsSup[j]))
 								{
@@ -9284,14 +9294,14 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				//if (ElephantOnTable[ii].ElefantThinking[0].IsSup[j])
 					for (int i = ElefantMidle; i < ElefantHigh; i++)
 					{
-						if (ElephantOnTable[i] == nullptr)
+						if ((&(ElephantOnTable[i]) == nullptr))
 						{
 							continue;
 						}
 						{
 						//if (this != null && this != null)
 							//int j = FoundTableIndex(ElephantOnTable[i].ElefantThinking[0].TableListElefant, ElephantOnTable[ii].ElefantThinking[0].TableConst);
-							for (int j = 0; j < ElephantOnTable[i].ElefantThinking[0].HuristicListElefant->size(); j++)
+							for (int j = 0; j < ElephantOnTable[i].ElefantThinking[0].HuristicListElefant.size(); j++)
 							{
 								if (!(ElephantOnTable[i].ElefantThinking[0].IsSup[j]))
 								{
@@ -9336,12 +9346,12 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				//if (HoursesOnTable[ii].HourseThinking[0].IsSup[j])
 					for (int i = 0; i < HourseMidle; i++)
 					{
-						if (HoursesOnTable[i] == nullptr)
+						if (((&HoursesOnTable[i]) == nullptr))
 						{
 							continue;
 						}
 						//int j = FoundTableIndex(HoursesOnTable[i].HourseThinking[0].TableListHourse, HoursesOnTable[ii].HourseThinking[0].TableConst);
-						for (int j = 0; j < HoursesOnTable[i].HourseThinking[0].HuristicListHourse->size(); j++)
+						for (int j = 0; j < HoursesOnTable[i].HourseThinking[0].HuristicListHourse.size(); j++)
 						{
 							if (!(HoursesOnTable[i].HourseThinking[0].IsSup[j]))
 							{
@@ -9382,12 +9392,12 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				//if (HoursesOnTable[ii].HourseThinking[0].IsSup[j])
 					for (int i = HourseMidle; i < HourseHight; i++)
 					{
-						if (HoursesOnTable[i] == nullptr)
+						if (((&HoursesOnTable[i]) == nullptr))
 						{
 							continue;
 						}
 						//int j = FoundTableIndex(HoursesOnTable[i].HourseThinking[0].TableListHourse, HoursesOnTable[ii].HourseThinking[0].TableConst);
-						for (int j = 0; j < HoursesOnTable[i].HourseThinking[0].HuristicListHourse->size(); j++)
+						for (int j = 0; j < HoursesOnTable[i].HourseThinking[0].HuristicListHourse.size(); j++)
 						{
 							if (!(HoursesOnTable[i].HourseThinking[0].IsSup[j]))
 							{
@@ -9430,12 +9440,12 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				//if (CastlesOnTable[ii].CastleThinking[0].IsSup[j])
 					for (int i = 0; i < CastleMidle; i++)
 					{
-						if (CastlesOnTable[i] == nullptr)
+						if ((&(CastlesOnTable[i]) == nullptr))
 						{
 							continue;
 						}
 						//int j = FoundTableIndex(CastlesOnTable[i].CastleThinking[0].TableListCastle, CastlesOnTable[ii].CastleThinking[0].TableConst);
-						for (int j = 0; j < CastlesOnTable[i].CastleThinking[0].HuristicListCastle->size(); j++)
+						for (int j = 0; j < CastlesOnTable[i].CastleThinking[0].HuristicListCastle.size(); j++)
 						{
 							if (!(CastlesOnTable[i].CastleThinking[0].IsSup[j]))
 							{
@@ -9475,12 +9485,12 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				//if (CastlesOnTable[ii].CastleThinking[0].IsSup[j])
 					for (int i = CastleMidle; i < CastleHigh; i++)
 					{
-						if (CastlesOnTable[i] == nullptr)
+						if ((&(CastlesOnTable[i]) == nullptr))
 						{
 							continue;
 						}
 						//int j = FoundTableIndex(CastlesOnTable[i].CastleThinking[0].TableListCastle, CastlesOnTable[ii].CastleThinking[0].TableConst);
-						for (int j = 0; j < CastlesOnTable[i].CastleThinking[0].HuristicListCastle->size(); j++)
+						for (int j = 0; j < CastlesOnTable[i].CastleThinking[0].HuristicListCastle.size(); j++)
 						{
 							if (!(CastlesOnTable[i].CastleThinking[0].IsSup[j]))
 							{
@@ -9526,12 +9536,12 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				//if (MinisterOnTable[ii].MinisterThinking[0].IsSup[j])
 					for (int i = 0; i < MinisterMidle; i++)
 					{
-						if (MinisterOnTable[i] == nullptr)
+						if (((&MinisterOnTable[i]) == nullptr))
 						{
 							continue;
 						}
 						//int j = FoundTableIndex(MinisterOnTable[i].MinisterThinking[0].TableListMinister, MinisterOnTable[ii].MinisterThinking[0].TableConst);
-						for (int j = 0; j < MinisterOnTable[i].MinisterThinking[0].HuristicListMinister->size(); j++)
+						for (int j = 0; j < MinisterOnTable[i].MinisterThinking[0].HuristicListMinister.size(); j++)
 						{
 							if (!(MinisterOnTable[i].MinisterThinking[0].IsSup[j]))
 							{
@@ -9572,12 +9582,12 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				//if (MinisterOnTable[ii].MinisterThinking[0].IsSup[j])
 					for (int i = MinisterMidle; i < MinisterHigh; i++)
 					{
-						if (MinisterOnTable[i] == nullptr)
+						if (((&MinisterOnTable[i]) == nullptr))
 						{
 							continue;
 						}
 						//int j = FoundTableIndex(MinisterOnTable[i].MinisterThinking[0].TableListMinister, MinisterOnTable[ii].MinisterThinking[0].TableConst);
-						for (int j = 0; j < MinisterOnTable[i].MinisterThinking[0].HuristicListMinister->size(); j++)
+						for (int j = 0; j < MinisterOnTable[i].MinisterThinking[0].HuristicListMinister.size(); j++)
 						{
 							if (!(MinisterOnTable[i].MinisterThinking[0].IsSup[j]))
 							{
@@ -9623,12 +9633,12 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				//if (KingOnTable[ii].KingThinking[0].IsSup[j])
 					for (int i = 0; i < KingMidle; i++)
 					{
-						if (KingOnTable[i] == nullptr)
+						if ((&(KingOnTable[i]) == nullptr))
 						{
 							continue;
 						}
 						//int j = FoundTableIndex(KingOnTable[i].KingThinking[0].TableListKing, KingOnTable[ii].KingThinking[0].TableConst);
-						for (int j = 0; j < KingOnTable[i].KingThinking[0].HuristicListKing->size(); j++)
+						for (int j = 0; j < KingOnTable[i].KingThinking[0].HuristicListKing.size(); j++)
 						{
 							if (!(KingOnTable[i].KingThinking[0].IsSup[j]))
 							{
@@ -9670,12 +9680,12 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				//if (KingOnTable[ii].KingThinking[0].IsSup[j])
 					for (int i = KingMidle; i < KingHigh; i++)
 					{
-						if (KingOnTable[i] == nullptr)
+						if ((&(KingOnTable[i]) == nullptr))
 						{
 							continue;
 						}
 						//int j = FoundTableIndex(KingOnTable[i].KingThinking[0].TableListKing, KingOnTable[ii].KingThinking[0].TableConst);
-						for (int j = 0; j < KingOnTable[i].KingThinking[0].HuristicListKing->size(); j++)
+						for (int j = 0; j < KingOnTable[i].KingThinking[0].HuristicListKing.size(); j++)
 						{
 							if (!(KingOnTable[i].KingThinking[0].IsSup[j]))
 							{
@@ -9745,7 +9755,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					
 						Order = DummyOrder;
 						ChessRules::CurrentOrder = DummyCurrentOrder;
-						if (SolderesOnTable != nullptr && SolderesOnTable[i] != nullptr)
+						if (((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr))
 						{
 							ii = SolderesOnTable[i].Row;
 							jj = SolderesOnTable[i].Column;
@@ -9801,7 +9811,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					
 						Order = DummyOrder;
 						ChessRules::CurrentOrder = DummyCurrentOrder;
-						if (ElephantOnTable != nullptr && ElephantOnTable[i] != nullptr)
+						if (((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr))
 						{
 							ii = ElephantOnTable[i].Row;
 							jj = ElephantOnTable[i].Column;
@@ -9857,7 +9867,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					
 						Order = DummyOrder;
 						ChessRules::CurrentOrder = DummyCurrentOrder;
-						if (HoursesOnTable != nullptr && HoursesOnTable[i] != nullptr)
+						if (((& HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr))
 						{
 							ii = HoursesOnTable[i].Row;
 							jj = HoursesOnTable[i].Column;
@@ -9913,7 +9923,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					
 						Order = DummyOrder;
 						ChessRules::CurrentOrder = DummyCurrentOrder;
-						if (CastlesOnTable != nullptr && CastlesOnTable[i] != nullptr)
+						if (((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr))
 						{
 							ii = CastlesOnTable[i].Row;
 							jj = CastlesOnTable[i].Column;
@@ -9969,7 +9979,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					{
 						Order = DummyOrder;
 						ChessRules::CurrentOrder = DummyCurrentOrder;
-						if (MinisterOnTable != nullptr && MinisterOnTable[i] != nullptr)
+						if (((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr))
 						{
 							ii = MinisterOnTable[i].Row;
 							jj = MinisterOnTable[i].Column;
@@ -10026,7 +10036,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					
 						Order = DummyOrder;
 						ChessRules::CurrentOrder = DummyCurrentOrder;
-						if (KingOnTable != nullptr && KingOnTable[i] != nullptr)
+						if (((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr))
 						{
 							ii = static_cast<int>(KingOnTable[i].Row);
 							jj = KingOnTable[i].Column;
@@ -10082,7 +10092,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					
 						Order = DummyOrder;
 						ChessRules::CurrentOrder = DummyCurrentOrder;
-						if (SolderesOnTable != nullptr && SolderesOnTable[i] != nullptr)
+						if (((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr))
 						{
 							ii = SolderesOnTable[i].Row;
 							jj = SolderesOnTable[i].Column;
@@ -10138,7 +10148,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				   
 					   Order = DummyOrder;
 					   ChessRules::CurrentOrder = DummyCurrentOrder;
-					   if (ElephantOnTable != nullptr && ElephantOnTable[i] != nullptr)
+					   if (((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr))
 					   {
 						   ii = ElephantOnTable[i].Row;
 						   jj = ElephantOnTable[i].Column;
@@ -10195,7 +10205,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				   
 					   Order = DummyOrder;
 					   ChessRules::CurrentOrder = DummyCurrentOrder;
-					   if (HoursesOnTable != nullptr && HoursesOnTable[i] != nullptr)
+					   if (((& HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr))
 					   {
 						   ii = HoursesOnTable[i].Row;
 						   jj = HoursesOnTable[i].Column;
@@ -10252,7 +10262,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					
 						Order = DummyOrder;
 						ChessRules::CurrentOrder = DummyCurrentOrder;
-						if (CastlesOnTable != nullptr && CastlesOnTable[i] != nullptr)
+						if (((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr))
 						{
 							ii = CastlesOnTable[i].Row;
 							jj = CastlesOnTable[i].Column;
@@ -10308,7 +10318,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					
 						Order = DummyOrder;
 						ChessRules::CurrentOrder = DummyCurrentOrder;
-						if (MinisterOnTable != nullptr && MinisterOnTable[i] != nullptr)
+						if (((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr))
 						{
 							ii = MinisterOnTable[i].Row;
 							jj = MinisterOnTable[i].Column;
@@ -10363,7 +10373,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					
 						Order = DummyOrder;
 						ChessRules::CurrentOrder = DummyCurrentOrder;
-						if (KingOnTable != nullptr && KingOnTable[i] != nullptr)
+						if (((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr))
 						{
 							ii = KingOnTable[i].Row;
 							jj = KingOnTable[i].Column;
@@ -10405,7 +10415,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 		{
 			for (int ikk = 0; ikk < SodierMidle; ikk++)
 			{
-				if (SolderesOnTable[ikk] == nullptr)
+				if ((&(SolderesOnTable[ikk]) == nullptr))
 				{
 					continue;
 				}
@@ -10417,7 +10427,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int ikk = 0; ikk < ElefantMidle; ikk++)
 			{
-				if (ElephantOnTable[ikk] == nullptr)
+				if ((&(ElephantOnTable[ikk]) == nullptr))
 				{
 					continue;
 				}
@@ -10429,7 +10439,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int ikk = 0; ikk < HourseMidle; ikk++)
 			{
-				if (HoursesOnTable[ikk] == nullptr)
+				if ((&(HoursesOnTable[ikk]) == nullptr))
 				{
 					continue;
 				}
@@ -10441,7 +10451,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int ikk = 0; ikk < CastleMidle; ikk++)
 			{
-				if (CastlesOnTable[ikk] == nullptr)
+				if ((&(CastlesOnTable[ikk]) == nullptr))
 				{
 					continue;
 				}
@@ -10453,7 +10463,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int ikk = 0; ikk < MinisterMidle; ikk++)
 			{
-				if (MinisterOnTable[ikk] == nullptr)
+				if ((&(MinisterOnTable[ikk]) == nullptr))
 				{
 					continue;
 				}
@@ -10465,7 +10475,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int ikk = 0; ikk < KingMidle; ikk++)
 			{
-				if (KingOnTable[ikk] == nullptr)
+				if ((&(KingOnTable[ikk]) == nullptr))
 				{
 					continue;
 				}
@@ -10491,7 +10501,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 		{
 			for (int ikk = SodierMidle; ikk < SodierHigh; ikk++)
 			{
-				if (SolderesOnTable[ikk] == nullptr)
+				if ((&(SolderesOnTable[ikk]) == nullptr))
 				{
 					continue;
 				}
@@ -10503,7 +10513,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int ikk = ElefantMidle; ikk < ElefantHigh; ikk++)
 			{
-				if (ElephantOnTable[ikk] == nullptr)
+				if ((&(ElephantOnTable[ikk]) == nullptr))
 				{
 					continue;
 				}
@@ -10515,7 +10525,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int ikk = HourseMidle; ikk < HourseHight; ikk++)
 			{
-				if (HoursesOnTable[ikk] == nullptr)
+				if ((&(HoursesOnTable[ikk]) == nullptr))
 				{
 					continue;
 				}
@@ -10527,7 +10537,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int ikk = CastleMidle; ikk < CastleHigh; ikk++)
 			{
-				if (CastlesOnTable[ikk] == nullptr)
+				if ((&(CastlesOnTable[ikk]) == nullptr))
 				{
 					continue;
 				}
@@ -10539,7 +10549,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int ikk = MinisterMidle; ikk < MinisterHigh; ikk++)
 			{
-				if (MinisterOnTable[ikk] == nullptr)
+				if ((&(MinisterOnTable[ikk]) == nullptr))
 				{
 					continue;
 				}
@@ -10551,7 +10561,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			}
 			for (int ikk = KingMidle; ikk < KingHigh; ikk++)
 			{
-				if (KingOnTable[ikk] == nullptr)
+				if ((&(KingOnTable[ikk]) == nullptr))
 				{
 					continue;
 				}
@@ -10643,13 +10653,13 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				Order = DummyOrder;
 				ChessRules::CurrentOrder = DummyCurrentOrder;
 				//If Solders Not Exist Continue and Traversal Back.
-				if (SolderesOnTable != nullptr && SolderesOnTable[i] != nullptr)
+				if (((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr))
 				{
 					//Initiate of Local Variables By Global Objective Gray Current Solder.
 					ii = (int)SolderesOnTable[i].Row;
 					jj = (int)SolderesOnTable[i].Column;
 					//If There is no Thinking Movments on Current Object  
-					if (SolderesOnTable[i].SoldierThinking[0].TableListSolder->size() == 0)
+					if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.size() == 0)
 					{
 						//For All Movable Gray Solders.
 						for (int j = 0; j < AllDraw::SodierMovments; j++)
@@ -10672,16 +10682,16 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				Order = DummyOrder;
 				ChessRules::CurrentOrder = DummyCurrentOrder;
 				//For Each Non Exist Gray Minister Objectives.
-				if (MinisterOnTable != nullptr && MinisterOnTable[i] != nullptr)
+				if (((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr))
 				{
 					//Inititate Local Variables By Global Varibales.
 					ii = (int)MinisterOnTable[i].Row;
 					jj = (int)MinisterOnTable[i].Column;
 					//Construction of Thinking Objects Gray Minister.
-					//if (MinisterOnTable[i].MinisterThinking[0].TableListMinister->size() == 0)
+					//if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.size() == 0)
 					//MinisterOnTable[i] = DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
 					//If There is Not Minister Of Gray In The Thinking Table List.   
-					if (MinisterOnTable[i].MinisterThinking[0].TableListMinister->size() == 0)
+					if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.size() == 0)
 					{
 						//For All Possible Movments.
 						for (int j = 0; j < AllDraw::MinisterMovments; j++)
@@ -10706,16 +10716,16 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				Order = DummyOrder;
 				ChessRules::CurrentOrder = DummyCurrentOrder;
 				//If There is Not Current Object Continue Traversal Back.
-				if (KingOnTable != nullptr && KingOnTable[i] != nullptr)
+				if (((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr))
 				{
 					//Initiate Local varibale By Global Objective Varibales.
 					ii = (int)(int)KingOnTable[i].Row;
 					jj = (int)KingOnTable[i].Column;
 					//Construction of Gray King Thinking Objects.
-					//if (KingOnTable[i].KingThinking[0].TableListKing->size() == 0)
+					//if (KingOnTable[i].KingThinking[0].TableListKing.size() == 0)
 					//KingOnTable[i] = DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
 					//When There is Not Thinking Table Gray King Movments.
-					if (KingOnTable[i].KingThinking[0].TableListKing->size() == 0)
+					if (KingOnTable[i].KingThinking[0].TableListKing.size() == 0)
 					{
 						//For All Possible Gray King Movments.
 						////Parallel.For(0, AllDraw::KingMovments, j =>
@@ -10837,17 +10847,17 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 									Order = DummyOrder;
 									ChessRules::CurrentOrder = DummyCurrentOrder;
 									//If Solders Not Exist Continue and Traversal Back.
-									if (SolderesOnTable != nullptr && SolderesOnTable[i] != nullptr)
+									if (((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr))
 									{
 										//Initiate of Local Variables By Global Objective Gray Current Solder.
 										ii = (int)SolderesOnTable[i].Row;
 										jj = (int)SolderesOnTable[i].Column;
 										//Construction of Thinking Gray Soldier By Local Variables.
-										//if (SolderesOnTable[i].SoldierThinking[0].TableListSolder->size() == 0)
+										//if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.size() == 0)
 										//SolderesOnTable[i] = DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
 										//If There is no Thinking Movments on Current //Object  
 
-										if (SolderesOnTable[i].SoldierThinking[0].TableListSolder->size() == 0)
+										if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.size() == 0)
 										{
 											//For All Movable Gray Solders.
 											for (int j = 0; j < AllDraw::SodierMovments; j++)
@@ -10886,16 +10896,16 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 									Order = DummyOrder;
 									ChessRules::CurrentOrder = DummyCurrentOrder;
 									//Ignore of Non Exist Current Elephant Gray Objects.
-									if (ElephantOnTable != nullptr && ElephantOnTable[i] != nullptr)
+									if (((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr))
 									{
 										//Inititae Local Varibale By Global Gray Elephant Objects Varibales.
 										ii = (int)ElephantOnTable[i].Row;
 										jj = (int)ElephantOnTable[i].Column;
 										//Construction of Thinking Objects By Local Varibales.
-										//if (ElephantOnTable[i].ElefantThinking[0].TableListElefant->size() == 0)
+										//if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.size() == 0)
 										//ElephantOnTable[i] = DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
 										//If There is Not Thinking Objetive List Elephant Gray. 
-										if (ElephantOnTable[i].ElefantThinking[0].TableListElefant->size() == 0)
+										if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.size() == 0)
 										{
 											//For All Possible Movments.
 											////Parallel.For(0, AllDraw::ElefantMovments, j =>
@@ -10933,16 +10943,16 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 									Order = DummyOrder;
 									ChessRules::CurrentOrder = DummyCurrentOrder;
 									//Ignore of Non Exist Current Gray Hourse Objects.
-									if (HoursesOnTable != nullptr && HoursesOnTable[i] != nullptr)
+									if (((& HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr))
 									{
 										//Initiate of Local Variables By Global Gray Hourse Objectives.
 										ii = (int)HoursesOnTable[i].Row;
 										jj = (int)HoursesOnTable[i].Column;
 										//Construction of Gray Hourse Thinking Objects..
-										//if (HoursesOnTable[i].HourseThinking[0].TableListHourse->size() == 0)
+										//if (HoursesOnTable[i].HourseThinking[0].TableListHourse.size() == 0)
 										//HoursesOnTable[i] = DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
 										//When There is Not HourseList Count. 
-										if (HoursesOnTable[i].HourseThinking[0].TableListHourse->size() == 0)
+										if (HoursesOnTable[i].HourseThinking[0].TableListHourse.size() == 0)
 										{
 											//For All Possible Movments.
 											for (int j = 0; j < AllDraw::HourseMovments; j++)
@@ -10981,16 +10991,16 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 								Order = DummyOrder;
 								ChessRules::CurrentOrder = DummyCurrentOrder;
 								//When Current Castles Gray Not Exist Continue Traversal Back.
-								if (CastlesOnTable != nullptr && CastlesOnTable[i] != nullptr)
+								if (((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr))
 								{
 									//Initaiate of Local Varibales By Global Varoiables.
 									ii = (int)CastlesOnTable[i].Row;
 									jj = (int)CastlesOnTable[i].Column;
 									//Construction of Thinking Variables By Local Variables.
-									//if (CastlesOnTable[i].CastleThinking[0].TableListCastle->size() == 0)
+									//if (CastlesOnTable[i].CastleThinking[0].TableListCastle.size() == 0)
 									//CastlesOnTable[i] = DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
 									//When Count of Table Castles of Thinking Not Exist Do Operational.
-									if (CastlesOnTable[i].CastleThinking[0].TableListCastle->size() == 0)
+									if (CastlesOnTable[i].CastleThinking[0].TableListCastle.size() == 0)
 									{
 										//For All Possible Movments.
 										////Parallel.For(0, AllDraw::CastleMovments, j =>
@@ -11028,16 +11038,16 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 									Order = DummyOrder;
 									ChessRules::CurrentOrder = DummyCurrentOrder;
 									//For Each Non Exist Gray Minister Objectives.
-									if (MinisterOnTable != nullptr && MinisterOnTable[i] != nullptr)
+									if (((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr))
 									{
 										//Inititate Local Variables By Global Varibales.
 										ii = (int)MinisterOnTable[i].Row;
 										jj = (int)MinisterOnTable[i].Column;
 										//Construction of Thinking Objects Gray Minister.
-										//if (MinisterOnTable[i].MinisterThinking[0].TableListMinister->size() == 0)
+										//if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.size() == 0)
 										//MinisterOnTable[i] = DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
 										//If There is Not Minister Of Gray In The Thinking Table List.   
-										if (MinisterOnTable[i].MinisterThinking[0].TableListMinister->size() == 0)
+										if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.size() == 0)
 										{
 											//For All Possible Movments.
 											////Parallel.For(0, AllDraw::MinisterMovments, j =>
@@ -11076,16 +11086,16 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 									Order = DummyOrder;
 									ChessRules::CurrentOrder = DummyCurrentOrder;
 									//If There is Not Current //Object Continue Traversal Back.
-									if (KingOnTable != nullptr && KingOnTable[i] != nullptr)
+									if (((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr))
 									{
 										//Initiate Local varibale By Global Objective Varibales.
 										ii = (int)(int)KingOnTable[i].Row;
 										jj = (int)KingOnTable[i].Column;
 										//Construction of Gray King Thinking Objects.
-										//if (KingOnTable[i].KingThinking[0].TableListKing->size() == 0)
+										//if (KingOnTable[i].KingThinking[0].TableListKing.size() == 0)
 										//KingOnTable[i] = DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
 										//When There is Not Thinking Table Gray King Movments.
-										if (KingOnTable[i].KingThinking[0].TableListKing->size() == 0)
+										if (KingOnTable[i].KingThinking[0].TableListKing.size() == 0)
 										{
 											//For All Possible Gray King Movments.
 											for (int j = 0; j < AllDraw::KingMovments; j++)
@@ -11257,7 +11267,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 	bool AllDraw::KingDan(int** Tab, int Order)
 	{
 		bool IsDang = false;
-		RefrigtzDLL::ChessRules *A = new RefrigtzDLL::ChessRules(0, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Order);
+		ChessRules *A = new ChessRules(0, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Order);
 		IsDang = A->ObjectDangourKingMove(Order, Tab);
 		if (Order == 1 && (IsDang))
 		{
@@ -11281,11 +11291,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 		for (ik = 0; ik < SodierMidle; ik++)
 		{
 			
-				if (SolderesOnTable == nullptr || SolderesOnTable[ik] == nullptr || SolderesOnTable[ik].SoldierThinking == nullptr || SolderesOnTable[ik].SoldierThinking[0] == nullptr)
+				if ((&(SolderesOnTable) == nullptr) || (&(SolderesOnTable[ik]) == nullptr) || (&(SolderesOnTable[ik].SoldierThinking) == nullptr) || (&(SolderesOnTable[ik].SoldierThinking[0]) == nullptr))
 				{
 					continue;
 				}
-				for (j = 0; j < SolderesOnTable[ik].SoldierThinking[0].HuristicListSolder->size(); j++)
+				for (j = 0; j < SolderesOnTable[ik].SoldierThinking[0].HuristicListSolder.size(); j++)
 				{
 					if (SolderesOnTable[ik].SoldierThinking[0].IsSup[j])
 					{
@@ -11303,7 +11313,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 
 						if (AllDraw::OrderPlate == Order)
 						{
-							if (SolderesOnTable[ik].SoldierThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessS || (SolderesOnTable[ik].SoldierThinking[0].PenaltyRegardListSolder[j]->IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+							if (SolderesOnTable[ik].SoldierThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessS || (SolderesOnTable[ik].SoldierThinking[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 							{
 
 							}
@@ -11317,7 +11327,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 						else
 						{
-							if (SolderesOnTable[ik].SoldierThinking[0].ReturnHuristic(-1, j, Order, false) > PreviousLessS || (SolderesOnTable[ik].SoldierThinking[0].PenaltyRegardListSolder[j]->IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+							if (SolderesOnTable[ik].SoldierThinking[0].ReturnHuristic(-1, j, Order, false) > PreviousLessS || (SolderesOnTable[ik].SoldierThinking[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 							{
 
 							}
@@ -11342,11 +11352,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 		for (ik = 0; ik < ElefantMidle; ik++)
 		{
 			
-				if (ElephantOnTable == nullptr || ElephantOnTable[ik] == nullptr || ElephantOnTable[ik].ElefantThinking == nullptr || ElephantOnTable[ik].ElefantThinking[0] == nullptr)
+				if ((&(ElephantOnTable) == nullptr) || (&(ElephantOnTable[ik]) == nullptr) || (&(ElephantOnTable[ik].ElefantThinking) == nullptr) || (&(ElephantOnTable[ik].ElefantThinking[0]) == nullptr))
 				{
 					continue;
 				}
-				for (j = 0; j < ElephantOnTable[ik].ElefantThinking[0].HuristicListElefant->size(); j++)
+				for (j = 0; j < ElephantOnTable[ik].ElefantThinking[0].HuristicListElefant.size(); j++)
 				{
 					if (ElephantOnTable[ik].ElefantThinking[0].IsSup[j])
 					{
@@ -11364,7 +11374,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 
 						if (AllDraw::OrderPlate == Order)
 						{
-							if (ElephantOnTable[ik].ElefantThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessE || (ElephantOnTable[ik].ElefantThinking[0].PenaltyRegardListElefant[j]->IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+							if (ElephantOnTable[ik].ElefantThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessE || (ElephantOnTable[ik].ElefantThinking[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 							{
 								//ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = null;
 								//ElephantOnTable[ik] = null;
@@ -11380,7 +11390,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 						else
 						{
-							if (ElephantOnTable[ik].ElefantThinking[0].ReturnHuristic(-1, j, Order, false) > PreviousLessE || (ElephantOnTable[ik].ElefantThinking[0].PenaltyRegardListElefant[j]->IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+							if (ElephantOnTable[ik].ElefantThinking[0].ReturnHuristic(-1, j, Order, false) > PreviousLessE || (ElephantOnTable[ik].ElefantThinking[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 							{
 								//ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = null;
 								//ElephantOnTable[ik] = null;
@@ -11405,11 +11415,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 		for (ik = 0; ik < HourseMidle; ik++)
 		{
 			
-				if (HoursesOnTable == nullptr || HoursesOnTable[ik] == nullptr || HoursesOnTable[ik].HourseThinking == nullptr || HoursesOnTable[ik].HourseThinking[0] == nullptr)
+				if ((&(HoursesOnTable) == nullptr) || (&(HoursesOnTable[ik]) == nullptr) || (&(HoursesOnTable[ik].HourseThinking) == nullptr) || (&(HoursesOnTable[ik].HourseThinking[0]) == nullptr))
 				{
 					continue;
 				}
-				for (j = 0; j < HoursesOnTable[ik].HourseThinking[0].HuristicListHourse->size(); j++)
+				for (j = 0; j < HoursesOnTable[ik].HourseThinking[0].HuristicListHourse.size(); j++)
 				{
 					if (HoursesOnTable[ik].HourseThinking[0].IsSup[j])
 					{
@@ -11426,7 +11436,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 
 						if (AllDraw::OrderPlate == Order)
 						{
-							if (HoursesOnTable[ik].HourseThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessH || (HoursesOnTable[ik].HourseThinking[0].PenaltyRegardListHourse[j]->IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+							if (HoursesOnTable[ik].HourseThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessH || (HoursesOnTable[ik].HourseThinking[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 							{
 								//HoursesOnTable[ik].HourseThinking[0].AStarGreedy = null;
 								//continue;
@@ -11442,7 +11452,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						else
 						{
 
-							if (HoursesOnTable[ik].HourseThinking[0].ReturnHuristic(-1, j, Order, false) > PreviousLessH || (HoursesOnTable[ik].HourseThinking[0].PenaltyRegardListHourse[j]->IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+							if (HoursesOnTable[ik].HourseThinking[0].ReturnHuristic(-1, j, Order, false) > PreviousLessH || (HoursesOnTable[ik].HourseThinking[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 							{
 								//HoursesOnTable[ik].HourseThinking[0].AStarGreedy = null;
 								//continue;
@@ -11467,11 +11477,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 		for (ik = 0; ik < CastleMidle; ik++)
 		{
 			
-				if (CastlesOnTable == nullptr || CastlesOnTable[ik] == nullptr || CastlesOnTable[ik].CastleThinking == nullptr || CastlesOnTable[ik].CastleThinking[0] == nullptr)
+				if ((&(CastlesOnTable) == nullptr) || (&(CastlesOnTable[ik]) == nullptr) || (&(CastlesOnTable[ik].CastleThinking) == nullptr) || (&(CastlesOnTable[ik].CastleThinking[0]) == nullptr))
 				{
 					continue;
 				}
-				for (j = 0; j < CastlesOnTable[ik].CastleThinking[0].HuristicListCastle->size(); j++)
+				for (j = 0; j < CastlesOnTable[ik].CastleThinking[0].HuristicListCastle.size(); j++)
 				{
 					if (CastlesOnTable[ik].CastleThinking[0].IsSup[j])
 					{
@@ -11488,7 +11498,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 
 						if (AllDraw::OrderPlate == Order)
 						{
-							if (CastlesOnTable[ik].CastleThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessB || (CastlesOnTable[ik].CastleThinking[0].PenaltyRegardListCastle[j]->IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+							if (CastlesOnTable[ik].CastleThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessB || (CastlesOnTable[ik].CastleThinking[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 							{
 
 								//CastlesOnTable[ik].CastleThinking[0].AStarGreedy = null;
@@ -11505,7 +11515,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 						else
 						{
-							if (CastlesOnTable[ik].CastleThinking[0].ReturnHuristic(-1, j, Order, false) > PreviousLessB || (CastlesOnTable[ik].CastleThinking[0].PenaltyRegardListCastle[j]->IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+							if (CastlesOnTable[ik].CastleThinking[0].ReturnHuristic(-1, j, Order, false) > PreviousLessB || (CastlesOnTable[ik].CastleThinking[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 							{
 
 								//CastlesOnTable[ik].CastleThinking[0].AStarGreedy = null;
@@ -11531,11 +11541,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 		for (ik = 0; ik < MinisterMidle; ik++)
 		{
 			
-				if (MinisterOnTable == nullptr || MinisterOnTable[ik] == nullptr || MinisterOnTable[ik].MinisterThinking == nullptr || MinisterOnTable[ik].MinisterThinking[0] == nullptr)
+			if ((&(MinisterOnTable) == nullptr) || (&(MinisterOnTable[ik]) == nullptr) || (&(MinisterOnTable[ik].MinisterThinking) == nullptr) || (&(MinisterOnTable[ik].MinisterThinking[0]) == nullptr))
 				{
 					continue;
 				}
-				for (j = 0; j < MinisterOnTable[ik].MinisterThinking[0].HuristicListMinister->size(); j++)
+				for (j = 0; j < MinisterOnTable[ik].MinisterThinking[0].HuristicListMinister.size(); j++)
 				{
 					if (MinisterOnTable[ik].MinisterThinking[0].IsSup[j])
 					{
@@ -11554,7 +11564,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					{
 						if (AllDraw::OrderPlate == Order)
 						{
-							if (MinisterOnTable[ik].MinisterThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessM || (MinisterOnTable[ik].MinisterThinking[0].PenaltyRegardListMinister[j]->IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+							if (MinisterOnTable[ik].MinisterThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessM || (MinisterOnTable[ik].MinisterThinking[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 							{
 								//MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = null;
 								// MinisterOnTable[ik] = null;
@@ -11571,7 +11581,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 						else
 						{
-							if (MinisterOnTable[ik].MinisterThinking[0].ReturnHuristic(-1, j, Order, false) > PreviousLessM || (MinisterOnTable[ik].MinisterThinking[0].PenaltyRegardListMinister[j]->IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+							if (MinisterOnTable[ik].MinisterThinking[0].ReturnHuristic(-1, j, Order, false) > PreviousLessM || (MinisterOnTable[ik].MinisterThinking[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 							{
 								//MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = null;
 								// MinisterOnTable[ik] = null;
@@ -11597,11 +11607,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 		for (ik = 0; ik < KingMidle; ik++)
 		{
 			
-				if (KingOnTable == nullptr || KingOnTable[ik] == nullptr || KingOnTable[ik].KingThinking == nullptr || KingOnTable[ik].KingThinking[0] == nullptr)
+			if ((&(KingOnTable) == nullptr) || (&(KingOnTable[ik]) == nullptr) || (&(KingOnTable[ik].KingThinking) == nullptr) || (&(KingOnTable[ik].KingThinking[0]) == nullptr))
 				{
 					continue;
 				}
-				for (j = 0; j < KingOnTable[ik].KingThinking[0].HuristicListKing->size(); j++)
+				for (j = 0; j < KingOnTable[ik].KingThinking[0].HuristicListKing.size(); j++)
 				{
 					if (KingOnTable[ik].KingThinking[0].IsSup[j])
 					{
@@ -11619,7 +11629,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 
 						if (AllDraw::OrderPlate == Order)
 						{
-							if (KingOnTable[ik].KingThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessK || (KingOnTable[ik].KingThinking[0].PenaltyRegardListKing[j]->IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+							if (KingOnTable[ik].KingThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessK || (KingOnTable[ik].KingThinking[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 							{
 								//KingOnTable[ik].KingThinking[0].AStarGreedy = null;
 								//KingOnTable[ik] = null;
@@ -11635,7 +11645,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 						}
 						else
 						{
-							if (KingOnTable[ik].KingThinking[0].ReturnHuristic(-1, j, Order, false) > PreviousLessK || (KingOnTable[ik].KingThinking[0].PenaltyRegardListKing[j]->IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+							if (KingOnTable[ik].KingThinking[0].ReturnHuristic(-1, j, Order, false) > PreviousLessK || (KingOnTable[ik].KingThinking[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 							{
 								//KingOnTable[ik].KingThinking[0].AStarGreedy = null;
 								//KingOnTable[ik] = null;
@@ -11669,14 +11679,14 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				{
 					SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy.push_back(AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
 				}
-				SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy[SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy->size() - 1].TableList.clear();
-				SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy[SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy->size() - 1].TableList.push_back(SolderesOnTable[Index[0]].SoldierThinking[0].TableListSolder[jIndex[0]]);
-				SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy[SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy->size() - 1].SetRowColumn(0);
-				//SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy[SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, SolderesOnTable[Index[0]].SoldierThinking[0].TableListSolder[jIndex[0]], Order, false);
-				//ParameterizedThreadStart start = new ParameterizedThreadStart(SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy[SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt);
+				SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy[SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy.size() - 1].TableList.clear();
+				SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy[SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy.size() - 1].TableList.push_back(SolderesOnTable[Index[0]].SoldierThinking[0].TableListSolder[jIndex[0]]);
+				SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy[SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy.size() - 1].SetRowColumn(0);
+				//SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy[SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, SolderesOnTable[Index[0]].SoldierThinking[0].TableListSolder[jIndex[0]], Order, false);
+				//ParameterizedThreadStart start = new ParameterizedThreadStart(SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy[SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt);
 				//Task *array_Renamed = Task::Factory->StartNew([&] ()
 				{
-					SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy[SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt(iAStarGreedy, SolderesOnTable[Index[0]].SoldierThinking[0].RowColumnSoldier[jIndex[0]][0], SolderesOnTable[Index[0]].SoldierThinking[0].RowColumnSoldier[jIndex[0]][1], a, SolderesOnTable[Index[0]].SoldierThinking[0].TableListSolder[jIndex[0]], Order, false, FOUND, LeafAStarGreedy);
+					SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy[SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, SolderesOnTable[Index[0]].SoldierThinking[0].RowColumnSoldier[jIndex[0]][0], SolderesOnTable[Index[0]].SoldierThinking[0].RowColumnSoldier[jIndex[0]][1], a, SolderesOnTable[Index[0]].SoldierThinking[0].TableListSolder[jIndex[0]], Order, false, FOUND, LeafAStarGreedy);
 				}//);
 				////auto ttttt = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -11707,14 +11717,14 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				{
 					ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy.push_back(AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
 				}
-				ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy[ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy->size() - 1].TableList.clear();
-				ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy[ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy->size() - 1].TableList.push_back(ElephantOnTable[Index[1]].ElefantThinking[0].TableListElefant[jIndex[1]]);
-				ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy[ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy->size() - 1].SetRowColumn(0);
-				//ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy[ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, ElephantOnTable[Index[1]].ElefantThinking[0].TableListElefant[jIndex[1]], Order, false);
-				//ParameterizedThreadStart start = new ParameterizedThreadStart(ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy[ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt);
+				ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy[ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy.size() - 1].TableList.clear();
+				ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy[ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy.size() - 1].TableList.push_back(ElephantOnTable[Index[1]].ElefantThinking[0].TableListElefant[jIndex[1]]);
+				ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy[ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy.size() - 1].SetRowColumn(0);
+				//ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy[ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, ElephantOnTable[Index[1]].ElefantThinking[0].TableListElefant[jIndex[1]], Order, false);
+				//ParameterizedThreadStart start = new ParameterizedThreadStart(ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy[ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt);
 				//Task *array_Renamed = Task::Factory->StartNew([&] ()
 				{
-					ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy[ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt(iAStarGreedy, ElephantOnTable[Index[1]].ElefantThinking[0].RowColumnElefant[jIndex[1]][0], ElephantOnTable[Index[1]].ElefantThinking[0].RowColumnElefant[jIndex[1]][1], a, ElephantOnTable[Index[1]].ElefantThinking[0].TableListElefant[jIndex[1]], Order, false, FOUND, LeafAStarGreedy);
+					ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy[ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ElephantOnTable[Index[1]].ElefantThinking[0].RowColumnElefant[jIndex[1]][0], ElephantOnTable[Index[1]].ElefantThinking[0].RowColumnElefant[jIndex[1]][1], a, ElephantOnTable[Index[1]].ElefantThinking[0].TableListElefant[jIndex[1]], Order, false, FOUND, LeafAStarGreedy);
 				}//);
 				////auto ttttt = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -11743,14 +11753,14 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				{
 					HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy.push_back(AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
 				}
-				HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy[HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy->size() - 1].TableList.clear();
-				HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy[HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy->size() - 1].TableList.push_back(HoursesOnTable[Index[2]].HourseThinking[0].TableListHourse[jIndex[2]]);
-				HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy[HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy->size() - 1].SetRowColumn(0);
-				//HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy[HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, HoursesOnTable[Index[2]].HourseThinking[0].TableListHourse[jIndex[2]], Order, false);
-				//ParameterizedThreadStart start = new ParameterizedThreadStart(HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy[HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt);
+				HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy[HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy.size() - 1].TableList.clear();
+				HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy[HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy.size() - 1].TableList.push_back(HoursesOnTable[Index[2]].HourseThinking[0].TableListHourse[jIndex[2]]);
+				HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy[HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy.size() - 1].SetRowColumn(0);
+				//HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy[HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, HoursesOnTable[Index[2]].HourseThinking[0].TableListHourse[jIndex[2]], Order, false);
+				//ParameterizedThreadStart start = new ParameterizedThreadStart(HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy[HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt);
 				//Task *array_Renamed = Task::Factory->StartNew([&] ()
 				{
-					HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy[HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt(iAStarGreedy, HoursesOnTable[Index[2]].HourseThinking[0].RowColumnHourse[jIndex[2]][0], HoursesOnTable[Index[2]].HourseThinking[0].RowColumnHourse[jIndex[2]][1], a, HoursesOnTable[Index[2]].HourseThinking[0].TableListHourse[jIndex[2]], Order, false, FOUND, LeafAStarGreedy);
+					HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy[HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, HoursesOnTable[Index[2]].HourseThinking[0].RowColumnHourse[jIndex[2]][0], HoursesOnTable[Index[2]].HourseThinking[0].RowColumnHourse[jIndex[2]][1], a, HoursesOnTable[Index[2]].HourseThinking[0].TableListHourse[jIndex[2]], Order, false, FOUND, LeafAStarGreedy);
 				}//);
 				////auto ttttt = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -11779,14 +11789,14 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				{
 					CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy.push_back(AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
 				}
-				CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy[CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy->size() - 1].TableList.clear();
-				CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy[CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy->size() - 1].TableList.push_back(CastlesOnTable[Index[3]].CastleThinking[0].TableListCastle[jIndex[3]]);
-				CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy[CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy->size() - 1].SetRowColumn(0);
-				//CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy[CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CastlesOnTable[Index[3]].CastleThinking[0].TableListCastle[jIndex[3]], Order, false);
-				//ParameterizedThreadStart start = new ParameterizedThreadStart(CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy[CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt);
+				CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy[CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy.size() - 1].TableList.clear();
+				CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy[CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy.size() - 1].TableList.push_back(CastlesOnTable[Index[3]].CastleThinking[0].TableListCastle[jIndex[3]]);
+				CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy[CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy.size() - 1].SetRowColumn(0);
+				//CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy[CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CastlesOnTable[Index[3]].CastleThinking[0].TableListCastle[jIndex[3]], Order, false);
+				//ParameterizedThreadStart start = new ParameterizedThreadStart(CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy[CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt);
 				//Task *array_Renamed = Task::Factory->StartNew([&] ()
 				{
-					CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy[CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt(iAStarGreedy, CastlesOnTable[Index[3]].CastleThinking[0].RowColumnCastle[jIndex[3]][0], CastlesOnTable[Index[3]].CastleThinking[0].RowColumnCastle[jIndex[3]][1], a, CastlesOnTable[Index[3]].CastleThinking[0].TableListCastle[jIndex[3]], Order, false, FOUND, LeafAStarGreedy);
+					CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy[CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, CastlesOnTable[Index[3]].CastleThinking[0].RowColumnCastle[jIndex[3]][0], CastlesOnTable[Index[3]].CastleThinking[0].RowColumnCastle[jIndex[3]][1], a, CastlesOnTable[Index[3]].CastleThinking[0].TableListCastle[jIndex[3]], Order, false, FOUND, LeafAStarGreedy);
 				}//);
 				///array_Renamed->Wait();
 				////auto ttttt = new Object();
@@ -11815,14 +11825,14 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				{
 					MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy.push_back(AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
 				}
-				MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy[MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy->size() - 1].TableList.clear();
-				MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy[MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy->size() - 1].TableList.push_back(MinisterOnTable[Index[4]].MinisterThinking[0].TableListMinister[jIndex[4]]);
-				MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy[MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy->size() - 1].SetRowColumn(0);
-				//MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy[MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, MinisterOnTable[Index[4]].MinisterThinking[0].TableListMinister[jIndex[4]], Order, false);
-				//ParameterizedThreadStart start = new ParameterizedThreadStart(MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy[MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt);
+				MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy[MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy.size() - 1].TableList.clear();
+				MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy[MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy.size() - 1].TableList.push_back(MinisterOnTable[Index[4]].MinisterThinking[0].TableListMinister[jIndex[4]]);
+				MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy[MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy.size() - 1].SetRowColumn(0);
+				//MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy[MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, MinisterOnTable[Index[4]].MinisterThinking[0].TableListMinister[jIndex[4]], Order, false);
+				//ParameterizedThreadStart start = new ParameterizedThreadStart(MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy[MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt);
 				//Task *array_Renamed = Task::Factory->StartNew([&] ()
 				{
-					MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy[MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt(iAStarGreedy, MinisterOnTable[Index[4]].MinisterThinking[0].RowColumnMinister[jIndex[4]][0], MinisterOnTable[Index[4]].MinisterThinking[0].RowColumnMinister[jIndex[4]][1], a, MinisterOnTable[Index[4]].MinisterThinking[0].TableListMinister[jIndex[4]], Order, false, FOUND, LeafAStarGreedy);
+					MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy[MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, MinisterOnTable[Index[4]].MinisterThinking[0].RowColumnMinister[jIndex[4]][0], MinisterOnTable[Index[4]].MinisterThinking[0].RowColumnMinister[jIndex[4]][1], a, MinisterOnTable[Index[4]].MinisterThinking[0].TableListMinister[jIndex[4]], Order, false, FOUND, LeafAStarGreedy);
 				}//);
 				////auto ttttt = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -11851,14 +11861,14 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				{
 					KingOnTable[Index[5]].KingThinking[0].AStarGreedy.push_back(AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
 				}
-				KingOnTable[Index[5]].KingThinking[0].AStarGreedy[KingOnTable[Index[5]].KingThinking[0].AStarGreedy->size() - 1].TableList.clear();
-				KingOnTable[Index[5]].KingThinking[0].AStarGreedy[KingOnTable[Index[5]].KingThinking[0].AStarGreedy->size() - 1].TableList.push_back(KingOnTable[Index[5]].KingThinking[0].TableListKing[jIndex[5]]);
-				KingOnTable[Index[5]].KingThinking[0].AStarGreedy[KingOnTable[Index[5]].KingThinking[0].AStarGreedy->size() - 1].SetRowColumn(0);
-				//KingOnTable[Index[5]].KingThinking[0].AStarGreedy[KingOnTable[Index[5]].KingThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, KingOnTable[Index[5]].KingThinking[0].TableListKing[jIndex[5]], Order, false);
-				//ParameterizedThreadStart start = new ParameterizedThreadStart(KingOnTable[Index[5]].KingThinking[0].AStarGreedy[KingOnTable[Index[5]].KingThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt);
+				KingOnTable[Index[5]].KingThinking[0].AStarGreedy[KingOnTable[Index[5]].KingThinking[0].AStarGreedy.size() - 1].TableList.clear();
+				KingOnTable[Index[5]].KingThinking[0].AStarGreedy[KingOnTable[Index[5]].KingThinking[0].AStarGreedy.size() - 1].TableList.push_back(KingOnTable[Index[5]].KingThinking[0].TableListKing[jIndex[5]]);
+				KingOnTable[Index[5]].KingThinking[0].AStarGreedy[KingOnTable[Index[5]].KingThinking[0].AStarGreedy.size() - 1].SetRowColumn(0);
+				//KingOnTable[Index[5]].KingThinking[0].AStarGreedy[KingOnTable[Index[5]].KingThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, KingOnTable[Index[5]].KingThinking[0].TableListKing[jIndex[5]], Order, false);
+				//ParameterizedThreadStart start = new ParameterizedThreadStart(KingOnTable[Index[5]].KingThinking[0].AStarGreedy[KingOnTable[Index[5]].KingThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt);
 				//Task *array_Renamed = Task::Factory->StartNew([&] ()
 				{
-					KingOnTable[Index[5]].KingThinking[0].AStarGreedy[KingOnTable[Index[5]].KingThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt(iAStarGreedy, KingOnTable[Index[5]].KingThinking[0].RowColumnKing[jIndex[5]][0], KingOnTable[Index[5]].KingThinking[0].RowColumnKing[jIndex[5]][1], a, KingOnTable[Index[5]].KingThinking[0].TableListKing[jIndex[5]], Order, false, FOUND, LeafAStarGreedy);
+					KingOnTable[Index[5]].KingThinking[0].AStarGreedy[KingOnTable[Index[5]].KingThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, KingOnTable[Index[5]].KingThinking[0].RowColumnKing[jIndex[5]][0], KingOnTable[Index[5]].KingThinking[0].RowColumnKing[jIndex[5]][1], a, KingOnTable[Index[5]].KingThinking[0].TableListKing[jIndex[5]], Order, false, FOUND, LeafAStarGreedy);
 				}//);
 				////auto ttttt = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -11879,12 +11889,12 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 		for (ik = SodierMidle; ik < SodierHigh; ik++)
 		{
 			
-				if (SolderesOnTable == nullptr || SolderesOnTable[ik] == nullptr || SolderesOnTable[ik].SoldierThinking == nullptr || SolderesOnTable[ik].SoldierThinking[0] == nullptr)
+				if ((&(SolderesOnTable) == nullptr) || (&(SolderesOnTable[ik]) == nullptr) || (&(SolderesOnTable[ik].SoldierThinking) == nullptr) || (&(SolderesOnTable[ik].SoldierThinking[0]) == nullptr))
 				{
 					continue;
 				}
 				//Soldier.
-				for (j = 0; j < SolderesOnTable[ik].SoldierThinking[0].HuristicListSolder->size(); j++)
+				for (j = 0; j < SolderesOnTable[ik].SoldierThinking[0].HuristicListSolder.size(); j++)
 				{
 					if (SolderesOnTable[ik].SoldierThinking[0].IsSup[j])
 					{
@@ -11899,7 +11909,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 
 					if (AllDraw::OrderPlate == Order)
 					{
-						if (SolderesOnTable[ik].SoldierThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessS || (SolderesOnTable[ik].SoldierThinking[0].PenaltyRegardListSolder[j]->IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+						if (SolderesOnTable[ik].SoldierThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessS || (SolderesOnTable[ik].SoldierThinking[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 						{
 							//SolderesOnTable[ik].SoldierThinking[0].AStarGreedy = null;
 							//SolderesOnTable[ik] = null;
@@ -11915,7 +11925,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					}
 					else
 					{
-						if (SolderesOnTable[ik].SoldierThinking[0].ReturnHuristic(-1, j, Order, false) > PreviousLessS || (SolderesOnTable[ik].SoldierThinking[0].PenaltyRegardListSolder[j]->IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+						if (SolderesOnTable[ik].SoldierThinking[0].ReturnHuristic(-1, j, Order, false) > PreviousLessS || (SolderesOnTable[ik].SoldierThinking[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 						{
 							//SolderesOnTable[ik].SoldierThinking[0].AStarGreedy = null;
 							//SolderesOnTable[ik] = null;
@@ -11939,11 +11949,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 		for (ik = ElefantMidle; ik < ElefantHigh; ik++)
 		{
 			
-				if (ElephantOnTable == nullptr || ElephantOnTable[ik] == nullptr || ElephantOnTable[ik].ElefantThinking == nullptr || ElephantOnTable[ik].ElefantThinking[0] == nullptr)
+				if ((&(ElephantOnTable) == nullptr) || (&(ElephantOnTable[ik]) == nullptr) || (&(ElephantOnTable[ik].ElefantThinking) == nullptr) || (&(ElephantOnTable[ik].ElefantThinking[0]) == nullptr))
 				{
 					continue;
 				}
-				for (j = 0; j < ElephantOnTable[ik].ElefantThinking[0].HuristicListElefant->size(); j++)
+				for (j = 0; j < ElephantOnTable[ik].ElefantThinking[0].HuristicListElefant.size(); j++)
 				{
 					if (ElephantOnTable[ik].ElefantThinking[0].IsSup[j])
 					{
@@ -11956,7 +11966,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 
 					if (AllDraw::OrderPlate == Order)
 					{
-						if (ElephantOnTable[ik].ElefantThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessE || (ElephantOnTable[ik].ElefantThinking[0].PenaltyRegardListElefant[j]->IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+						if (ElephantOnTable[ik].ElefantThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessE || (ElephantOnTable[ik].ElefantThinking[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 
 						{
 							//ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = null;
@@ -11973,7 +11983,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					}
 					else
 					{
-						if (ElephantOnTable[ik].ElefantThinking[0].ReturnHuristic(-1, j, Order, false) > PreviousLessE || (ElephantOnTable[ik].ElefantThinking[0].PenaltyRegardListElefant[j]->IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+						if (ElephantOnTable[ik].ElefantThinking[0].ReturnHuristic(-1, j, Order, false) > PreviousLessE || (ElephantOnTable[ik].ElefantThinking[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 
 						{
 							//ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = null;
@@ -12000,11 +12010,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 		for (ik = HourseMidle; ik < HourseHight; ik++)
 		{
 			
-				if (HoursesOnTable == nullptr || HoursesOnTable[ik] == nullptr || HoursesOnTable[ik].HourseThinking == nullptr || HoursesOnTable[ik].HourseThinking[0] == nullptr)
+				if ((&(HoursesOnTable) == nullptr) || (&(HoursesOnTable[ik]) == nullptr) || (&(HoursesOnTable[ik].HourseThinking) == nullptr) || (&(HoursesOnTable[ik].HourseThinking[0]) == nullptr))
 				{
 					continue;
 				}
-				for (j = 0; j < HoursesOnTable[ik].HourseThinking[0].HuristicListHourse->size(); j++)
+				for (j = 0; j < HoursesOnTable[ik].HourseThinking[0].HuristicListHourse.size(); j++)
 				{
 					if (HoursesOnTable[ik].HourseThinking[0].IsSup[j])
 					{
@@ -12017,7 +12027,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 
 					if (AllDraw::OrderPlate == Order)
 					{
-						if (HoursesOnTable[ik].HourseThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessH || (HoursesOnTable[ik].HourseThinking[0].PenaltyRegardListHourse[j]->IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+						if (HoursesOnTable[ik].HourseThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessH || (HoursesOnTable[ik].HourseThinking[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 
 						{
 							//HoursesOnTable[ik].HourseThinking[0].AStarGreedy = null;
@@ -12035,7 +12045,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					}
 					else
 					{
-						if (HoursesOnTable[ik].HourseThinking[0].ReturnHuristic(-1, j, Order, false) > PreviousLessH || (HoursesOnTable[ik].HourseThinking[0].PenaltyRegardListHourse[j]->IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+						if (HoursesOnTable[ik].HourseThinking[0].ReturnHuristic(-1, j, Order, false) > PreviousLessH || (HoursesOnTable[ik].HourseThinking[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 
 						{
 							//HoursesOnTable[ik].HourseThinking[0].AStarGreedy = null;
@@ -12139,11 +12149,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 		for (ik = CastleMidle; ik < CastleHigh; ik++)
 		{
 			
-				if (CastlesOnTable == nullptr || CastlesOnTable[ik] == nullptr || CastlesOnTable[ik].CastleThinking == nullptr || CastlesOnTable[ik].CastleThinking[0] == nullptr)
+				if ((&(CastlesOnTable) == nullptr) || (&(CastlesOnTable[ik]) == nullptr) || (&(CastlesOnTable[ik].CastleThinking) == nullptr) || (&(CastlesOnTable[ik].CastleThinking[0]) == nullptr))
 				{
 					continue;
 				}
-				for (j = 0; j < CastlesOnTable[ik].CastleThinking[0].HuristicListCastle->size(); j++)
+				for (j = 0; j < CastlesOnTable[ik].CastleThinking[0].HuristicListCastle.size(); j++)
 				{
 					if (CastlesOnTable[ik].CastleThinking[0].IsSup[j])
 					{
@@ -12158,7 +12168,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 
 					if (AllDraw::OrderPlate == Order)
 					{
-						if (CastlesOnTable[ik].CastleThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessB || (CastlesOnTable[ik].CastleThinking[0].PenaltyRegardListCastle[j]->IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+						if (CastlesOnTable[ik].CastleThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessB || (CastlesOnTable[ik].CastleThinking[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 
 						{
 							//CastlesOnTable[ik].CastleThinking[0].AStarGreedy = null;
@@ -12177,7 +12187,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					}
 					else
 					{
-						if (CastlesOnTable[ik].CastleThinking[0].ReturnHuristic(-1, j, Order, false) > PreviousLessB || (CastlesOnTable[ik].CastleThinking[0].PenaltyRegardListCastle[j]->IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+						if (CastlesOnTable[ik].CastleThinking[0].ReturnHuristic(-1, j, Order, false) > PreviousLessB || (CastlesOnTable[ik].CastleThinking[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 
 						{
 							//CastlesOnTable[ik].CastleThinking[0].AStarGreedy = null;
@@ -12204,11 +12214,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 		for (ik = MinisterMidle; ik < MinisterHigh; ik++)
 		{
 			
-				if (MinisterOnTable == nullptr || MinisterOnTable[ik] == nullptr || MinisterOnTable[ik].MinisterThinking == nullptr || MinisterOnTable[ik].MinisterThinking[0] == nullptr)
+			if ((&(MinisterOnTable) == nullptr) || (&(MinisterOnTable[ik]) == nullptr) || (&(MinisterOnTable[ik].MinisterThinking) == nullptr) || (&(MinisterOnTable[ik].MinisterThinking[0]) == nullptr))
 				{
 					continue;
 				}
-				for (j = 0; j < MinisterOnTable[ik].MinisterThinking[0].HuristicListMinister->size(); j++)
+				for (j = 0; j < MinisterOnTable[ik].MinisterThinking[0].HuristicListMinister.size(); j++)
 				{
 					if (MinisterOnTable[ik].MinisterThinking[0].IsSup[j])
 					{
@@ -12222,7 +12232,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 
 					if (AllDraw::OrderPlate == Order)
 					{
-						if (MinisterOnTable[ik].MinisterThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessM || (MinisterOnTable[ik].MinisterThinking[0].PenaltyRegardListMinister[j]->IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+						if (MinisterOnTable[ik].MinisterThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessM || (MinisterOnTable[ik].MinisterThinking[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 
 						{
 							//MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = null;
@@ -12239,7 +12249,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					}
 					else
 					{
-						if (MinisterOnTable[ik].MinisterThinking[0].ReturnHuristic(-1, j, Order, false) > PreviousLessM || (MinisterOnTable[ik].MinisterThinking[0].PenaltyRegardListMinister[j]->IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+						if (MinisterOnTable[ik].MinisterThinking[0].ReturnHuristic(-1, j, Order, false) > PreviousLessM || (MinisterOnTable[ik].MinisterThinking[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 						{
 							//MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = null;
 							//MinisterOnTable[ik] = null;
@@ -12264,11 +12274,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 		for (ik = KingMidle; ik < KingHigh; ik++)
 		{
 			
-				if (KingOnTable == nullptr || KingOnTable[ik] == nullptr || KingOnTable[ik].KingThinking == nullptr || KingOnTable[ik].KingThinking[0] == nullptr)
+			if ((&(KingOnTable) == nullptr) || (&(KingOnTable[ik]) == nullptr) || (&(KingOnTable[ik].KingThinking) == nullptr) || (&(KingOnTable[ik].KingThinking[0]) == nullptr))
 				{
 					continue;
 				}
-				for (j = 0; j < KingOnTable[ik].KingThinking[0].HuristicListKing->size(); j++)
+				for (j = 0; j < KingOnTable[ik].KingThinking[0].HuristicListKing.size(); j++)
 				{
 					if (KingOnTable[ik].KingThinking[0].IsSup[j])
 					{
@@ -12282,7 +12292,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 
 					if (AllDraw::OrderPlate == Order)
 					{
-						if (KingOnTable[ik].KingThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessK || (KingOnTable[ik].KingThinking[0].PenaltyRegardListKing[j]->IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+						if (KingOnTable[ik].KingThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessK || (KingOnTable[ik].KingThinking[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 						{
 							//KingOnTable[ik].KingThinking[0].AStarGreedy = null;
 							//KingOnTable[ik] = null;
@@ -12298,7 +12308,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 					}
 					else
 					{
-						if (KingOnTable[ik].KingThinking[0].ReturnHuristic(-1, j, Order, false) > PreviousLessK || (KingOnTable[ik].KingThinking[0].PenaltyRegardListKing[j]->IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+						if (KingOnTable[ik].KingThinking[0].ReturnHuristic(-1, j, Order, false) > PreviousLessK || (KingOnTable[ik].KingThinking[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 						{
 							//KingOnTable[ik].KingThinking[0].AStarGreedy = null;
 							//KingOnTable[ik] = null;
@@ -12378,7 +12388,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 		{
 			if (kind == 1)
 			{
-				if (SolderesOnTable[ik].SoldierThinking[0].PenaltyRegardListSolder[j]->IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT))
+				if (SolderesOnTable[ik].SoldierThinking[0].PenaltyRegardListSolder[j].IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT))
 				{
 					return true;
 				}
@@ -12387,21 +12397,21 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			{
 							if (kind == 2)
 							{
-				if (ElephantOnTable[ik].ElefantThinking[0].PenaltyRegardListElefant[j]->IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT))
+				if (ElephantOnTable[ik].ElefantThinking[0].PenaltyRegardListElefant[j].IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT))
 				{
 					return true;
 				}
 							}
 			else if (kind == 3)
 			{
-				if (HoursesOnTable[ik].HourseThinking[0].PenaltyRegardListHourse[j]->IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT))
+				if (HoursesOnTable[ik].HourseThinking[0].PenaltyRegardListHourse[j].IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT))
 				{
 					return true;
 				}
 			}
 			else if (kind == 4)
 			{
-				if (CastlesOnTable[ik].CastleThinking[0].PenaltyRegardListCastle[j]->IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT))
+				if (CastlesOnTable[ik].CastleThinking[0].PenaltyRegardListCastle[j].IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT))
 				{
 					return true;
 				}
@@ -12410,14 +12420,14 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			{
 				if (kind == 5)
 				{
-				if (MinisterOnTable[ik].MinisterThinking[0].PenaltyRegardListMinister[j]->IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT))
+				if (MinisterOnTable[ik].MinisterThinking[0].PenaltyRegardListMinister[j].IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT))
 				{
 					return true;
 				}
 				}
 			else if (kind == 6)
 			{
-				if (KingOnTable[ik].KingThinking[0].PenaltyRegardListKing[j]->IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT))
+				if (KingOnTable[ik].KingThinking[0].PenaltyRegardListKing[j].IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT))
 				{
 					return true;
 				}
@@ -12429,7 +12439,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 		{
 			if (kind == 1)
 			{
-				if (SolderesOnTable[ik].SoldierThinking[0].PenaltyRegardListSolder[j]->IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT))
+				if (SolderesOnTable[ik].SoldierThinking[0].PenaltyRegardListSolder[j].IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT))
 				{
 					return true;
 				}
@@ -12438,21 +12448,21 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			{
 					 if (kind == 2)
 					 {
-				if (ElephantOnTable[ik].ElefantThinking[0].PenaltyRegardListElefant[j]->IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT))
+				if (ElephantOnTable[ik].ElefantThinking[0].PenaltyRegardListElefant[j].IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT))
 				{
 					return true;
 				}
 					 }
 			else if (kind == 3)
 			{
-				if (HoursesOnTable[ik].HourseThinking[0].PenaltyRegardListHourse[j]->IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT))
+				if (HoursesOnTable[ik].HourseThinking[0].PenaltyRegardListHourse[j].IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT))
 				{
 					return true;
 				}
 			}
 			else if (kind == 4)
 			{
-				if (CastlesOnTable[ik].CastleThinking[0].PenaltyRegardListCastle[j]->IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT))
+				if (CastlesOnTable[ik].CastleThinking[0].PenaltyRegardListCastle[j].IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT))
 				{
 					return true;
 				}
@@ -12461,14 +12471,14 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			{
 				if (kind == 5)
 				{
-				if (MinisterOnTable[ik].MinisterThinking[0].PenaltyRegardListMinister[j]->IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT))
+				if (MinisterOnTable[ik].MinisterThinking[0].PenaltyRegardListMinister[j].IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT))
 				{
 					return true;
 				}
 				}
 			else if (kind == 6)
 			{
-				if (KingOnTable[ik].KingThinking[0].PenaltyRegardListKing[j]->IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT))
+				if (KingOnTable[ik].KingThinking[0].PenaltyRegardListKing[j].IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT))
 				{
 					return true;
 				}
@@ -12487,7 +12497,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				SolderesOnTable[ik].SoldierThinking[0].AStarGreedy = std::vector<AllDraw>();
 			}
 			SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.push_back(AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-			SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy->size() - 1].AStarGreedyString = this;
+			SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.size() - 1].AStarGreedyString = this;
 		}
 		else if (kind == 2)
 		{
@@ -12496,7 +12506,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = std::vector<AllDraw>();
 			}
 			ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.push_back(AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-			ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy->size() - 1].AStarGreedyString = this;
+			ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.size() - 1].AStarGreedyString = this;
 		}
 		else if (kind == 3)
 		{
@@ -12505,7 +12515,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				HoursesOnTable[ik].HourseThinking[0].AStarGreedy = std::vector<AllDraw>();
 			}
 			HoursesOnTable[ik].HourseThinking[0].AStarGreedy.push_back(AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-			HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy->size() - 1].AStarGreedyString = this;
+			HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size() - 1].AStarGreedyString = this;
 		}
 		else if (kind == 4)
 		{
@@ -12514,7 +12524,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				CastlesOnTable[ik].CastleThinking[0].AStarGreedy = std::vector<AllDraw>();
 			}
 			CastlesOnTable[ik].CastleThinking[0].AStarGreedy.push_back(AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-			CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy->size() - 1].AStarGreedyString = this;
+			CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.size() - 1].AStarGreedyString = this;
 		}
 		else if (kind == 5)
 		{
@@ -12523,7 +12533,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = std::vector<AllDraw>();
 			}
 			MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.push_back(AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-			MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy->size() - 1].AStarGreedyString = this;
+			MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.size() - 1].AStarGreedyString = this;
 		}
 		else if (kind == 6)
 		{
@@ -12532,7 +12542,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				KingOnTable[ik].KingThinking[0].AStarGreedy = std::vector<AllDraw>();
 			}
 			KingOnTable[ik].KingThinking[0].AStarGreedy.push_back(AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-			KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy->size() - 1].AStarGreedyString = this;
+			KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.size() - 1].AStarGreedyString = this;
 		}
 
 	}
@@ -12545,7 +12555,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				SolderesOnTable[ik].SoldierThinking[0].AStarGreedy = std::vector<AllDraw>();
 			}
 			SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.push_back(AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-			SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy->size() - 1].AStarGreedyString = this;
+			SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.size() - 1].AStarGreedyString = this;
 		}
 		else if (kind == 2)
 		{
@@ -12554,7 +12564,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = std::vector<AllDraw>();
 			}
 			ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.push_back(AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-			ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy->size() - 1].AStarGreedyString = this;
+			ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.size() - 1].AStarGreedyString = this;
 		}
 		else if (kind == 3)
 		{
@@ -12563,7 +12573,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				HoursesOnTable[ik].HourseThinking[0].AStarGreedy = std::vector<AllDraw>();
 			}
 			HoursesOnTable[ik].HourseThinking[0].AStarGreedy.push_back(AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-			HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy->size() - 1].AStarGreedyString = this;
+			HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size() - 1].AStarGreedyString = this;
 		}
 		else if (kind == 4)
 		{
@@ -12572,7 +12582,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				CastlesOnTable[ik].CastleThinking[0].AStarGreedy = std::vector<AllDraw>();
 			}
 			CastlesOnTable[ik].CastleThinking[0].AStarGreedy.push_back(AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-			CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy->size() - 1].AStarGreedyString = this;
+			CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.size() - 1].AStarGreedyString = this;
 		}
 		else if (kind == 5)
 		{
@@ -12581,7 +12591,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = std::vector<AllDraw>();
 			}
 			MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.push_back(AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-			MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy->size() - 1].AStarGreedyString = this;
+			MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.size() - 1].AStarGreedyString = this;
 		}
 		else if (kind == 6)
 		{
@@ -12590,7 +12600,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				KingOnTable[ik].KingThinking[0].AStarGreedy = std::vector<AllDraw>();
 			}
 			KingOnTable[ik].KingThinking[0].AStarGreedy.push_back(AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-			KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy->size() - 1].AStarGreedyString = this;
+			KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.size() - 1].AStarGreedyString = this;
 		}
 	}
 	void AllDraw::BlitzNotValidFullGameThinkingTreePartThree(int ik, int Order, int kind)
@@ -12602,7 +12612,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				SolderesOnTable[ik].SoldierThinking[0].AStarGreedy = std::vector<AllDraw>();
 			}
 			SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.push_back(AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-			SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy->size() - 1].AStarGreedyString = this;
+			SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.size() - 1].AStarGreedyString = this;
 
 		}
 		else if (kind == 2)
@@ -12612,7 +12622,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = std::vector<AllDraw>();
 			}
 			ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.push_back(AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-			ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy->size() - 1].AStarGreedyString = this;
+			ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.size() - 1].AStarGreedyString = this;
 		}
 		else if (kind == 3)
 		{
@@ -12621,7 +12631,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				HoursesOnTable[ik].HourseThinking[0].AStarGreedy = std::vector<AllDraw>();
 			}
 			HoursesOnTable[ik].HourseThinking[0].AStarGreedy.push_back(AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-			HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy->size() - 1].AStarGreedyString = this;
+			HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size() - 1].AStarGreedyString = this;
 		}
 		else if (kind == 4)
 		{
@@ -12630,7 +12640,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				CastlesOnTable[ik].CastleThinking[0].AStarGreedy = std::vector<AllDraw>();
 			}
 			CastlesOnTable[ik].CastleThinking[0].AStarGreedy.push_back(AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-			CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy->size() - 1].AStarGreedyString = this;
+			CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.size() - 1].AStarGreedyString = this;
 		}
 		else if (kind == 5)
 		{
@@ -12639,7 +12649,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = std::vector<AllDraw>();
 			}
 			MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.push_back(AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-			MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy->size() - 1].AStarGreedyString = this;
+			MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.size() - 1].AStarGreedyString = this;
 		}
 		else if (kind == 6)
 		{
@@ -12648,7 +12658,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				KingOnTable[ik].KingThinking[0].AStarGreedy = std::vector<AllDraw>();
 			}
 			KingOnTable[ik].KingThinking[0].AStarGreedy.push_back(AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-			KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy->size() - 1].AStarGreedyString = this;
+			KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.size() - 1].AStarGreedyString = this;
 		}
 	}
 	void AllDraw::FullGameThinkingTreeInitialization(int ik, int j, int Order, int kind)
@@ -12660,10 +12670,10 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				SolderesOnTable[ik].SoldierThinking[0].AStarGreedy = std::vector<AllDraw>();
 			}
 			SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.push_back(AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-			SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy->size() - 1].TableList.clear();
-			SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy->size() - 1].TableList.push_back(CloneATable(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j]));
-			SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy->size() - 1].SetRowColumn(0);
-			SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy->size() - 1].SetRowColumnFinishedWait();
+			SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.size() - 1].TableList.clear();
+			SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.size() - 1].TableList.push_back(CloneATable(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j]));
+			SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.size() - 1].SetRowColumn(0);
+			SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.size() - 1].SetRowColumnFinishedWait();
 		}
 		else if (kind == 2)
 		{
@@ -12672,10 +12682,10 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = std::vector<AllDraw>();
 			}
 			ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.push_back(AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-			ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy->size() - 1].TableList.clear();
-			ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy->size() - 1].TableList.push_back(CloneATable(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j]));
-			ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy->size() - 1].SetRowColumn(0);
-			ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy->size() - 1].SetRowColumnFinishedWait();
+			ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.size() - 1].TableList.clear();
+			ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.size() - 1].TableList.push_back(CloneATable(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j]));
+			ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.size() - 1].SetRowColumn(0);
+			ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.size() - 1].SetRowColumnFinishedWait();
 		}
 		else if (kind == 3)
 		{
@@ -12684,10 +12694,10 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				HoursesOnTable[ik].HourseThinking[0].AStarGreedy = std::vector<AllDraw>();
 			}
 			HoursesOnTable[ik].HourseThinking[0].AStarGreedy.push_back(AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-			HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy->size() - 1].TableList.clear();
-			HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy->size() - 1].TableList.push_back(CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j]));
-			HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy->size() - 1].SetRowColumn(0);
-			HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy->size() - 1].SetRowColumnFinishedWait();
+			HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size() - 1].TableList.clear();
+			HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size() - 1].TableList.push_back(CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j]));
+			HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size() - 1].SetRowColumn(0);
+			HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size() - 1].SetRowColumnFinishedWait();
 		}
 		else if (kind == 4)
 		{
@@ -12696,10 +12706,10 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				CastlesOnTable[ik].CastleThinking[0].AStarGreedy = std::vector<AllDraw>();
 			}
 			CastlesOnTable[ik].CastleThinking[0].AStarGreedy.push_back(AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-			CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy->size() - 1].TableList.clear();
-			CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy->size() - 1].TableList.push_back(CloneATable(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j]));
-			CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy->size() - 1].SetRowColumn(0);
-			CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy->size() - 1].SetRowColumnFinishedWait();
+			CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.size() - 1].TableList.clear();
+			CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.size() - 1].TableList.push_back(CloneATable(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j]));
+			CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.size() - 1].SetRowColumn(0);
+			CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.size() - 1].SetRowColumnFinishedWait();
 		}
 		else if (kind == 5)
 		{
@@ -12708,10 +12718,10 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = std::vector<AllDraw>();
 			}
 			MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.push_back(AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-			MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy->size() - 1].TableList.clear();
-			MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy->size() - 1].TableList.push_back(CloneATable(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j]));
-			MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy->size() - 1].SetRowColumn(0);
-			MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy->size() - 1].SetRowColumnFinishedWait();
+			MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.size() - 1].TableList.clear();
+			MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.size() - 1].TableList.push_back(CloneATable(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j]));
+			MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.size() - 1].SetRowColumn(0);
+			MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.size() - 1].SetRowColumnFinishedWait();
 		}
 		else if (kind == 6)
 		{
@@ -12720,10 +12730,10 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				KingOnTable[ik].KingThinking[0].AStarGreedy = std::vector<AllDraw>();
 			}
 			KingOnTable[ik].KingThinking[0].AStarGreedy.push_back(AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
-			KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy->size() - 1].TableList.clear();
-			KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy->size() - 1].TableList.push_back(CloneATable(KingOnTable[ik].KingThinking[0].TableListKing[j]));
-			KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy->size() - 1].SetRowColumn(0);
-			KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy->size() - 1].SetRowColumnFinishedWait();
+			KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.size() - 1].TableList.clear();
+			KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.size() - 1].TableList.push_back(CloneATable(KingOnTable[ik].KingThinking[0].TableListKing[j]));
+			KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.size() - 1].SetRowColumn(0);
+			KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.size() - 1].SetRowColumnFinishedWait();
 		}
 	}
 	void AllDraw::OpOfFullGameThinkingTree(int ik, int j, int Order, int iAStarGreedy, int ii, int jj, int a, int kind,bool FOUND,int LeafAStarGreedy)
@@ -12748,12 +12758,12 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 //ORIGINAL LINE: int[,] Tab = CloneATable(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j]);
 			int **Tab = CloneATable(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j]);
 			int Ord = Order * -1;
-			SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy->size() - 1].AStarGreedyString = this;
-			SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j]), Order * -1, false, FOUND, LeafAStarGreedy);
+			SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.size() - 1].AStarGreedyString = this;
+			SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j]), Order * -1, false, FOUND, LeafAStarGreedy);
 
-			//Task array = Task.Factory.StartNew(() => SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j]), Order, false, FOUND, LeafAStarGreedy));
+			//Task array = Task.Factory.StartNew(() => SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j]), Order, false, FOUND, LeafAStarGreedy));
 
-			//SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord*-1, false, FOUND, LeafAStarGreedy);
+			//SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord*-1, false, FOUND, LeafAStarGreedy);
 			//array.Start();
 			/*bool ASS = false; Object OOOAAA = new Object(); //lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
 			{
@@ -12786,10 +12796,10 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 //ORIGINAL LINE: int[,] Tab = CloneATable(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j]);
 			int **Tab = CloneATable(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j]);
 			int Ord = Order * -1;
-			ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy->size() - 1].AStarGreedyString = this;
+			ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.size() - 1].AStarGreedyString = this;
 
-			ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy);
-			//Task array = Task.Factory.StartNew(() => ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j]), Order, false, FOUND, LeafAStarGreedy));
+			ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy);
+			//Task array = Task.Factory.StartNew(() => ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j]), Order, false, FOUND, LeafAStarGreedy));
 
 			//array.Start();
 			/*bool ASS = false; Object OOOAAA = new Object(); //lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
@@ -12822,10 +12832,10 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 //ORIGINAL LINE: int[,] Tab = CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j]);
 			int **Tab = CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j]);
 			int Ord = Order * -1;
-			HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy->size() - 1].AStarGreedyString = this;
-			HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy);
+			HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size() - 1].AStarGreedyString = this;
+			HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy);
 
-			//Task array = Task.Factory.StartNew(() => HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j]), Order, false, FOUND, LeafAStarGreedy));
+			//Task array = Task.Factory.StartNew(() => HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j]), Order, false, FOUND, LeafAStarGreedy));
 
 			//array.Start();
 			/*bool ASS = false; Object OOOAAA = new Object(); //lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
@@ -12859,9 +12869,9 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 //ORIGINAL LINE: int[,] Tab = CloneATable(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j]);
 			int **Tab = CloneATable(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j]);
 			int Ord = Order * -1;
-			CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy->size() - 1].AStarGreedyString = this;
-			//Task array = Task.Factory.StartNew(() => CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j]), Order, false, FOUND, LeafAStarGreedy));
-			CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy);
+			CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.size() - 1].AStarGreedyString = this;
+			//Task array = Task.Factory.StartNew(() => CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j]), Order, false, FOUND, LeafAStarGreedy));
+			CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy);
 			//array.Start();
 			/*bool ASS = false; Object OOOAAA = new Object(); //lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
 			{
@@ -12894,10 +12904,10 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 //ORIGINAL LINE: int[,] Tab = CloneATable(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j]);
 			int **Tab = CloneATable(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j]);
 			int Ord = Order * -1;
-			MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy->size() - 1].AStarGreedyString = this;
+			MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.size() - 1].AStarGreedyString = this;
 
-			//Task array = Task.Factory.StartNew(() => MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j]), Order, false, FOUND, LeafAStarGreedy));
-			MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy);
+			//Task array = Task.Factory.StartNew(() => MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j]), Order, false, FOUND, LeafAStarGreedy));
+			MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy);
 			//array.Start();
 			/*bool ASS = false; Object OOOAAA = new Object(); //lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
 			{
@@ -12930,10 +12940,10 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 //ORIGINAL LINE: int[,] Tab = CloneATable(KingOnTable[ik].KingThinking[0].TableListKing[j]);
 			int **Tab = CloneATable(KingOnTable[ik].KingThinking[0].TableListKing[j]);
 			int Ord = Order * -1;
-			KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy->size() - 1].AStarGreedyString = this;
+			KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.size() - 1].AStarGreedyString = this;
 
-			//Task array = Task.Factory.StartNew(() => KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(KingOnTable[ik].KingThinking[0].TableListKing[j]), Order, false, FOUND, LeafAStarGreedy));
-			KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy);
+			//Task array = Task.Factory.StartNew(() => KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(KingOnTable[ik].KingThinking[0].TableListKing[j]), Order, false, FOUND, LeafAStarGreedy));
+			KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy);
 
 
 			//array.Start();
@@ -12980,8 +12990,8 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				}
 			}
 
-			//Parallel.For(0, SolderesOnTable[ik].SoldierThinking[0].TableListSolder->size(), j =>
-			for (int j = 0; j < SolderesOnTable[ik].SoldierThinking[0].TableListSolder->size(); j++)
+			//Parallel.For(0, SolderesOnTable[ik].SoldierThinking[0].TableListSolder.size(), j =>
+			for (int j = 0; j < SolderesOnTable[ik].SoldierThinking[0].TableListSolder.size(); j++)
 			{
 				////auto ooo = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -13031,9 +13041,9 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 								{
 									FullGameThinkingTreeInitialization(ik, j, Order, 1);
 								}
-								//SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j], Order, false);
-								//ParameterizedThreadStart start = new ParameterizedThreadStart(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt);
-								if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy->size() > 0)
+								//SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j], Order, false);
+								//ParameterizedThreadStart start = new ParameterizedThreadStart(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt);
+								if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.size() > 0)
 								{
 									////auto O = new Object();
 
@@ -13081,9 +13091,9 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 									{
 										FullGameThinkingTreeInitialization(ik, j, Order, 1);
 									}
-									//SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j], Order, false);
-									//ParameterizedThreadStart start = new ParameterizedThreadStart(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt);
-									if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy->size() > 0)
+									//SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j], Order, false);
+									//ParameterizedThreadStart start = new ParameterizedThreadStart(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt);
+									if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.size() > 0)
 									{
 										////auto O = new Object();
 
@@ -13102,7 +13112,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				
 				}
 			} //);
-			/*if (tHA->size() > 1)
+			/*if (tHA.size() > 1)
 			{
 			    Task array = Task.Factory.StartNew(() => Parallel.ForEach(tHA, items => Task.WaitAny(items)));
 			    //array.Start();
@@ -13116,11 +13126,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				TaskEnd++;
 			}
 		}
-		for (int h = 0; h < SolderesOnTable[ik].SoldierThinking[0].AStarGreedy->size(); h++)
+		for (int h = 0; h < SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.size(); h++)
 		{
 			SolderesOnTable[ik].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[h], Order);
 		}
-		for (int h = 0; h < SolderesOnTable[ik].SoldierThinking[0].AStarGreedy->size(); h++)
+		for (int h = 0; h < SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.size(); h++)
 		{
 			SolderesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[h], Order);
 		}
@@ -13139,7 +13149,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				////Parallel.For(0, SodierMidle, ik =>
 				for (int ik = 0; ik < SodierMidle; ik++)
 				{
-					if (SolderesOnTable != nullptr && SolderesOnTable[ik] != nullptr && SolderesOnTable[ik].SoldierThinking != nullptr && SolderesOnTable[ik].SoldierThinking[0] != nullptr)
+					if (((&SolderesOnTable) != nullptr) && (&(SolderesOnTable[ik]) != nullptr) && (&(SolderesOnTable[ik].SoldierThinking) != nullptr) && (&(SolderesOnTable[ik].SoldierThinking[0]) != nullptr))
 					{
 						////auto O = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -13186,8 +13196,8 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				}
 			}
 
-			////Parallel.For(0, ElephantOnTable[ik].ElefantThinking[0].TableListElefant->size(), j =>
-			for (int j = 0; j < ElephantOnTable[ik].ElefantThinking[0].TableListElefant->size(); j++)
+			////Parallel.For(0, ElephantOnTable[ik].ElefantThinking[0].TableListElefant.size(), j =>
+			for (int j = 0; j < ElephantOnTable[ik].ElefantThinking[0].TableListElefant.size(); j++)
 			{
 				////auto ooo = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -13239,9 +13249,9 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 									{
 										FullGameThinkingTreeInitialization(ik, j, Order, 2);
 
-										//ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j], Order, false);
-										//ParameterizedThreadStart start = new ParameterizedThreadStart(ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt);
-										if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedy->size() > 0)
+										//ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j], Order, false);
+										//ParameterizedThreadStart start = new ParameterizedThreadStart(ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt);
+										if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.size() > 0)
 										{
 											////auto O = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -13290,9 +13300,9 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 									{
 										FullGameThinkingTreeInitialization(ik, j, Order, 2);
 
-										//ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j], Order, false);
-										//ParameterizedThreadStart start = new ParameterizedThreadStart(ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt);
-										if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedy->size() > 0)
+										//ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j], Order, false);
+										//ParameterizedThreadStart start = new ParameterizedThreadStart(ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt);
+										if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.size() > 0)
 										{
 											////auto O = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -13309,7 +13319,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				
 				}
 			} //);
-			/*if (tHA->size() > 1)
+			/*if (tHA.size() > 1)
 			{
 			    Task array = Task.Factory.StartNew(() => Parallel.ForEach(tHA, items => Task.WaitAny(items)));
 			    //array.Start();
@@ -13323,11 +13333,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				TaskEnd++;
 			}
 		}
-		for (int h = 0; h < ElephantOnTable[ik].ElefantThinking[0].AStarGreedy->size(); h++)
+		for (int h = 0; h < ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.size(); h++)
 		{
 			ElephantOnTable[ik].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[h], Order);
 		}
-		for (int h = 0; h < ElephantOnTable[ik].ElefantThinking[0].AStarGreedy->size(); h++)
+		for (int h = 0; h < ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.size(); h++)
 		{
 			ElephantOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[h], Order);
 		}
@@ -13347,7 +13357,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				////Parallel.For(0, ElefantMidle, ik =>
 				for (int ik = 0; ik < ElefantMidle; ik++)
 				{
-					if (ElephantOnTable != nullptr && ElephantOnTable[ik] != nullptr && ElephantOnTable[ik].ElefantThinking != nullptr && ElephantOnTable[ik].ElefantThinking[0] != nullptr)
+					if (((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[ik]) != nullptr) && (&(ElephantOnTable[ik].ElefantThinking) != nullptr) && (&(ElephantOnTable[ik].ElefantThinking[0]) != nullptr))
 					{
 						////auto O = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -13396,8 +13406,8 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				}
 			}
 
-			////Parallel.For(0, HoursesOnTable[ik].HourseThinking[0].TableListHourse->size(), j =>
-			for (int j = 0; j < HoursesOnTable[ik].HourseThinking[0].TableListHourse->size(); j++)
+			////Parallel.For(0, HoursesOnTable[ik].HourseThinking[0].TableListHourse.size(), j =>
+			for (int j = 0; j < HoursesOnTable[ik].HourseThinking[0].TableListHourse.size(); j++)
 			{
 				////auto ooo = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -13451,9 +13461,9 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 									{
 										FullGameThinkingTreeInitialization(ik, j, Order, 3);
 									}
-									//HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, HoursesOnTable[ik].HourseThinking[0].TableListHourse[j], Order, false);
-									//ParameterizedThreadStart start = new ParameterizedThreadStart(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt);
-									if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy->size() > 0)
+									//HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, HoursesOnTable[ik].HourseThinking[0].TableListHourse[j], Order, false);
+									//ParameterizedThreadStart start = new ParameterizedThreadStart(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt);
+									if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size() > 0)
 									{
 										////auto O = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -13502,9 +13512,9 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 										{
 											FullGameThinkingTreeInitialization(ik, j, Order, 3);
 										}
-										//HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, HoursesOnTable[ik].HourseThinking[0].TableListHourse[j], Order, false);
-										//ParameterizedThreadStart start = new ParameterizedThreadStart(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt);
-										if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy->size() > 0)
+										//HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, HoursesOnTable[ik].HourseThinking[0].TableListHourse[j], Order, false);
+										//ParameterizedThreadStart start = new ParameterizedThreadStart(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt);
+										if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size() > 0)
 										{
 											////auto O = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -13521,7 +13531,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				
 				}
 			} //);
-			/*if (tHA->size() > 1)
+			/*if (tHA.size() > 1)
 			{
 			    Task array = Task.Factory.StartNew(() => Parallel.ForEach(tHA, items => Task.WaitAny(items)));
 			    //array.Start();
@@ -13535,11 +13545,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				TaskEnd++;
 			}
 		}
-		for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy->size(); h++)
+		for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size(); h++)
 		{
 			HoursesOnTable[ik].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[h], Order);
 		}
-		for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy->size(); h++)
+		for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy.size(); h++)
 		{
 			HoursesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[h], Order);
 		}
@@ -13559,7 +13569,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				////Parallel.For(0, HourseMidle, ik =>
 				for (int ik = 0; ik < HourseMidle; ik++)
 				{
-					if (HoursesOnTable != nullptr && HoursesOnTable[ik] != nullptr && HoursesOnTable[ik].HourseThinking != nullptr && HoursesOnTable[ik].HourseThinking[0] != nullptr)
+					if (((& HoursesOnTable) != nullptr) && (&(HoursesOnTable[ik]) != nullptr) && (&(HoursesOnTable[ik].HourseThinking) != nullptr) && (&(HoursesOnTable[ik].HourseThinking[0]) != nullptr))
 					{
 						////auto O = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -13607,8 +13617,8 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				}
 			}
 
-			////Parallel.For(0, CastlesOnTable[ik].CastleThinking[0].TableListCastle->size(), j =>
-			for (int j = 0; j < CastlesOnTable[ik].CastleThinking[0].TableListCastle->size(); j++)
+			////Parallel.For(0, CastlesOnTable[ik].CastleThinking[0].TableListCastle.size(), j =>
+			for (int j = 0; j < CastlesOnTable[ik].CastleThinking[0].TableListCastle.size(); j++)
 			{
 				if (CheckeHuristci(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j], Order, ik, j, 0))
 				{
@@ -13659,9 +13669,9 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 									{
 										FullGameThinkingTreeInitialization(ik, j, Order, 4);
 									}
-									//CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CastlesOnTable[ik].CastleThinking[0].TableListCastle[j], Order, false);
-									//ParameterizedThreadStart start = new ParameterizedThreadStart(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt);
-									if (CastlesOnTable[ik].CastleThinking[0].AStarGreedy->size() > 0)
+									//CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CastlesOnTable[ik].CastleThinking[0].TableListCastle[j], Order, false);
+									//ParameterizedThreadStart start = new ParameterizedThreadStart(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt);
+									if (CastlesOnTable[ik].CastleThinking[0].AStarGreedy.size() > 0)
 									{
 										////auto O = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -13708,9 +13718,9 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 									{
 										FullGameThinkingTreeInitialization(ik, j, Order, 4);
 									}
-									//CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CastlesOnTable[ik].CastleThinking[0].TableListCastle[j], Order, false);
-									//ParameterizedThreadStart start = new ParameterizedThreadStart(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt);
-									if (CastlesOnTable[ik].CastleThinking[0].AStarGreedy->size() > 0)
+									//CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CastlesOnTable[ik].CastleThinking[0].TableListCastle[j], Order, false);
+									//ParameterizedThreadStart start = new ParameterizedThreadStart(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt);
+									if (CastlesOnTable[ik].CastleThinking[0].AStarGreedy.size() > 0)
 									{
 										////auto O = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -13726,7 +13736,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				
 				}
 			} //);
-			/*if (tHA->size() > 1)
+			/*if (tHA.size() > 1)
 			{
 			    Task array = Task.Factory.StartNew(() => Parallel.ForEach(tHA, items => Task.WaitAny(items)));
 			    //array.Start();
@@ -13739,11 +13749,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				TaskEnd++;
 			}
 		}
-		for (int h = 0; h < CastlesOnTable[ik].CastleThinking[0].AStarGreedy->size(); h++)
+		for (int h = 0; h < CastlesOnTable[ik].CastleThinking[0].AStarGreedy.size(); h++)
 		{
 			CastlesOnTable[ik].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[h], Order);
 		}
-		for (int h = 0; h < CastlesOnTable[ik].CastleThinking[0].AStarGreedy->size(); h++)
+		for (int h = 0; h < CastlesOnTable[ik].CastleThinking[0].AStarGreedy.size(); h++)
 		{
 			CastlesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[h], Order);
 		}
@@ -13763,7 +13773,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				////Parallel.For(0, CastleMidle, ik =>
 				for (int ik = 0; ik < CastleMidle; ik++)
 				{
-					if (CastlesOnTable != nullptr && CastlesOnTable[ik] != nullptr && CastlesOnTable[ik].CastleThinking != nullptr && CastlesOnTable[ik].CastleThinking[0] != nullptr)
+					if (((&CastlesOnTable) != nullptr) &&(&(CastlesOnTable[ik]) != nullptr) && (&(CastlesOnTable[ik].CastleThinking) != nullptr) && (&(CastlesOnTable[ik].CastleThinking[0]) != nullptr))
 					{
 						////auto O = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -13811,8 +13821,8 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				}
 			}
 
-			////Parallel.For(0, MinisterOnTable[ik].MinisterThinking[0].TableListMinister->size(), j =>
-			for (int j = 0; j < MinisterOnTable[ik].MinisterThinking[0].TableListMinister->size(); j++)
+			////Parallel.For(0, MinisterOnTable[ik].MinisterThinking[0].TableListMinister.size(), j =>
+			for (int j = 0; j < MinisterOnTable[ik].MinisterThinking[0].TableListMinister.size(); j++)
 			{
 				if (CheckeHuristci(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j], Order, ik, j, 0))
 				{
@@ -13866,9 +13876,9 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 									{
 										FullGameThinkingTreeInitialization(ik, j, Order, 5);
 									}
-									//MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j], Order, false);
-									//ParameterizedThreadStart start = new ParameterizedThreadStart(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt);
-									if (MinisterOnTable[ik].MinisterThinking[0].AStarGreedy->size() > 0)
+									//MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j], Order, false);
+									//ParameterizedThreadStart start = new ParameterizedThreadStart(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt);
+									if (MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.size() > 0)
 									{
 										////auto O = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -13918,9 +13928,9 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 									{
 										FullGameThinkingTreeInitialization(ik, j, Order, 5);
 									}
-									//MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j], Order, false);
-									//ParameterizedThreadStart start = new ParameterizedThreadStart(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt);
-									if (MinisterOnTable[ik].MinisterThinking[0].AStarGreedy->size() > 0)
+									//MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j], Order, false);
+									//ParameterizedThreadStart start = new ParameterizedThreadStart(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt);
+									if (MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.size() > 0)
 									{
 										////auto O = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -13938,7 +13948,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				
 				}
 			} //);
-			/*if (tHA->size() > 1)
+			/*if (tHA.size() > 1)
 			{
 			    Task array = Task.Factory.StartNew(() => Parallel.ForEach(tHA, items => Task.WaitAny(items)));
 			    Task.WaitAll(array);
@@ -13952,11 +13962,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				TaskEnd++;
 			}
 		}
-		for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy->size(); h++)
+		for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.size(); h++)
 		{
 			MinisterOnTable[ik].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h], Order);
 		}
-		for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy->size(); h++)
+		for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.size(); h++)
 		{
 			MinisterOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h], Order);
 		}
@@ -13976,7 +13986,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				////Parallel.For(0, MinisterMidle, ik =>
 				for (int ik = 0; ik < MinisterMidle; ik++)
 				{
-					if (MinisterOnTable != nullptr && MinisterOnTable[ik] != nullptr && MinisterOnTable[ik].MinisterThinking != nullptr && MinisterOnTable[ik].MinisterThinking[0] != nullptr)
+					if (((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[ik]) != nullptr) && (&(MinisterOnTable[ik].MinisterThinking) != nullptr) && (&(MinisterOnTable[ik].MinisterThinking[0]) != nullptr))
 					{
 						////auto O = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -14029,8 +14039,8 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 			{
 				return Do;
 			}
-			// //Parallel.For(0, KingOnTable[ik].KingThinking[0].TableListKing->size(), j =>
-			for (int j = 0; j < KingOnTable[ik].KingThinking[0].TableListKing->size(); j++)
+			// //Parallel.For(0, KingOnTable[ik].KingThinking[0].TableListKing.size(), j =>
+			for (int j = 0; j < KingOnTable[ik].KingThinking[0].TableListKing.size(); j++)
 			{
 				if (CheckeHuristci(KingOnTable[ik].KingThinking[0].TableListKing[j], Order, ik, j, 0))
 				{
@@ -14083,9 +14093,9 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 								{
 									FullGameThinkingTreeInitialization(ik, j, Order, 6);
 								}
-								//KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, KingOnTable[ik].KingThinking[0].TableListKing[j], Order, false);
-								//ParameterizedThreadStart start = new ParameterizedThreadStart(KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt);
-								if (KingOnTable[ik].KingThinking[0].AStarGreedy->size() > 0)
+								//KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, KingOnTable[ik].KingThinking[0].TableListKing[j], Order, false);
+								//ParameterizedThreadStart start = new ParameterizedThreadStart(KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt);
+								if (KingOnTable[ik].KingThinking[0].AStarGreedy.size() > 0)
 								{
 									////auto O = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -14132,9 +14142,9 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 								{
 									FullGameThinkingTreeInitialization(ik, j, Order, 6);
 								}
-								//KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, KingOnTable[ik].KingThinking[0].TableListKing[j], Order, false);
-								//ParameterizedThreadStart start = new ParameterizedThreadStart(KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy->size() - 1].InitiateAStarGreedyt);
-								if (KingOnTable[ik].KingThinking[0].AStarGreedy->size() > 0)
+								//KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, KingOnTable[ik].KingThinking[0].TableListKing[j], Order, false);
+								//ParameterizedThreadStart start = new ParameterizedThreadStart(KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.size() - 1].InitiateAStarGreedyt);
+								if (KingOnTable[ik].KingThinking[0].AStarGreedy.size() > 0)
 								{
 									////auto O = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -14149,7 +14159,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				
 				}
 			} //);
-			/*if (tHA->size() > 1)
+			/*if (tHA.size() > 1)
 			{
 			    Task array = Task.Factory.StartNew(() => Parallel.ForEach(tHA, items => Task.WaitAny(items)));
 			    Task.WaitAll(array);
@@ -14162,11 +14172,11 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				TaskEnd++;
 			}
 		}
-		for (int h = 0; h < KingOnTable[ik].KingThinking[0].AStarGreedy->size(); h++)
+		for (int h = 0; h < KingOnTable[ik].KingThinking[0].AStarGreedy.size(); h++)
 		{
 			KingOnTable[ik].WinOcuuredatChiled += SumOfObjects(KingOnTable[ik].KingThinking[0].AStarGreedy[h], Order);
 		}
-		for (int h = 0; h < KingOnTable[ik].KingThinking[0].AStarGreedy->size(); h++)
+		for (int h = 0; h < KingOnTable[ik].KingThinking[0].AStarGreedy.size(); h++)
 		{
 			KingOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[ik].KingThinking[0].AStarGreedy[h], Order);
 		}
@@ -14186,7 +14196,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				////Parallel.For(0, KingMidle, ik =>
 				for (int ik = 0; ik < KingMidle; ik++)
 				{
-					if (KingOnTable != nullptr && KingOnTable[ik] != nullptr && KingOnTable[ik].KingThinking != nullptr && KingOnTable[ik].KingThinking[0] != nullptr)
+					if (((&KingOnTable) != nullptr) && (&(KingOnTable[ik]) != nullptr) && (&(KingOnTable[ik].KingThinking) != nullptr) && (&(KingOnTable[ik].KingThinking[0]) != nullptr))
 					{
 						////auto O = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -14212,7 +14222,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				////Parallel.For(SodierMidle, SodierHigh, ik =>
 				for (int ik = SodierMidle; ik < SodierHigh; ik++)
 				{
-					if (SolderesOnTable != nullptr && SolderesOnTable[ik] != nullptr && SolderesOnTable[ik].SoldierThinking != nullptr && SolderesOnTable[ik].SoldierThinking[0] != nullptr)
+					if (((&SolderesOnTable) != nullptr) && (&(SolderesOnTable[ik]) != nullptr) && (&(SolderesOnTable[ik].SoldierThinking) != nullptr) && (&(SolderesOnTable[ik].SoldierThinking[0]) != nullptr))
 					{
 						//Soldier.
 						////auto O = new Object();
@@ -14240,7 +14250,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				////Parallel.For(ElefantMidle, ElefantHigh, ik =>
 				for (int ik = ElefantMidle; ik < ElefantHigh; ik++)
 				{
-					if (ElephantOnTable != nullptr && ElephantOnTable[ik] != nullptr && ElephantOnTable[ik].ElefantThinking != nullptr && ElephantOnTable[ik].ElefantThinking[0] != nullptr)
+					if (((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[ik] )!= nullptr) && (&(ElephantOnTable[ik].ElefantThinking) != nullptr) && (&(ElephantOnTable[ik].ElefantThinking[0]) != nullptr))
 					{
 						////auto O = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -14266,7 +14276,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				////Parallel.For(HourseMidle, HourseHight, ik =>
 				for (int ik = HourseMidle; ik < HourseHight; ik++)
 				{
-					if (HoursesOnTable != nullptr && HoursesOnTable[ik] != nullptr && HoursesOnTable[ik].HourseThinking != nullptr && HoursesOnTable[ik].HourseThinking[0] != nullptr)
+					if (((& HoursesOnTable) != nullptr) && (&(HoursesOnTable[ik]) != nullptr) && (&(HoursesOnTable[ik].HourseThinking) != nullptr) && (&(HoursesOnTable[ik].HourseThinking[0]) != nullptr))
 					{
 						////auto O = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -14292,7 +14302,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				////Parallel.For(CastleMidle, CastleHigh, ik =>
 				for (int ik = CastleMidle; ik < CastleHigh; ik++)
 				{
-					if (CastlesOnTable != nullptr && CastlesOnTable[ik] != nullptr && CastlesOnTable[ik].CastleThinking != nullptr && CastlesOnTable[ik].CastleThinking[0] != nullptr)
+					if (((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[ik]) != nullptr) && (&(CastlesOnTable[ik].CastleThinking) != nullptr) && (&(CastlesOnTable[ik].CastleThinking[0]) != nullptr))
 					{
 						////auto O = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -14319,7 +14329,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				////Parallel.For(MinisterMidle, MinisterHigh, ik =>
 				for (int ik = MinisterMidle; ik < MinisterHigh; ik++)
 				{
-					if (MinisterOnTable != nullptr && MinisterOnTable[ik] != nullptr && MinisterOnTable[ik].MinisterThinking != nullptr && MinisterOnTable[ik].MinisterThinking[0] != nullptr)
+					if (((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[ik]) != nullptr) && (&(MinisterOnTable[ik].MinisterThinking) != nullptr) && (&(MinisterOnTable[ik].MinisterThinking[0]) != nullptr))
 					{
 						////auto O = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -14346,7 +14356,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				for (int ik = KingMidle; ik < KingHigh; ik++)
 				{
 
-					if (KingOnTable != nullptr && KingOnTable[ik] != nullptr && KingOnTable[ik].KingThinking != nullptr && KingOnTable[ik].KingThinking[0] != nullptr)
+					if (((&KingOnTable) != nullptr) && (&(KingOnTable[ik]) != nullptr) && (&(KingOnTable[ik].KingThinking) != nullptr) && (&(KingOnTable[ik].KingThinking[0]) != nullptr))
 					{
 						////auto O = new Object();
 //C# TO C++ CONVERTER TODO TASK: There is no built-in support for multithreading in native C++:
@@ -14902,18 +14912,18 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				{
 
 					for (int i = 0; i < SodierMidle; i++)
-						for (int j = 0; SolderesOnTable != nullptr && SolderesOnTable[i] != nullptr && SolderesOnTable[i].SoldierThinking[0] != nullptr && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder->size(); j++)
+						for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) &&  (&(SolderesOnTable[i].SoldierThinking[0]) != nullptr) && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size(); j++)
 						{
 
 							
-								if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy->size() == 0)
+								if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy.size() == 0)
 								{
 									FullGameFound = true;
 									FullGameThinkingTree(Order, iAStarGreedy, ii, jj, ik, jjj, false, LeafAStarGreedy);
 
 								}
 								else
-									for (int iii = 0; iii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy->size(); iii++)
+									for (int iii = 0; iii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.size(); iii++)
 									{
 										ThinkingChess::NumbersOfAllNode++;
 										SolderesOnTable[i].SoldierThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(SolderesOnTable[i].SoldierThinking[0].TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
@@ -14922,16 +14932,16 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 							
 						}
 					for (int i = 0; i < ElefantMidle; i++)
-						for (int j = 0; ElephantOnTable != nullptr && ElephantOnTable[i] != nullptr && ElephantOnTable[i].ElefantThinking[0] != nullptr && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant->size(); j++)
+						for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking[0]) != nullptr) && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size(); j++)
 						{
 							
-								if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy->size() == 0)
+								if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy.size() == 0)
 								{
 									FullGameFound = true;
 									FullGameThinkingTree(Order, iAStarGreedy, ii, jj, ik, jjj, false, LeafAStarGreedy);
 								}
 								else
-									for (int iii = 0; iii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy->size(); iii++)
+									for (int iii = 0; iii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.size(); iii++)
 									{
 										ThinkingChess::NumbersOfAllNode++;
 										ElephantOnTable[i].ElefantThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(ElephantOnTable[i].ElefantThinking[0].TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
@@ -14941,15 +14951,15 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 							
 						}
 					for (int i = 0; i < HourseMidle; i++)
-						for (int j = 0; HoursesOnTable != nullptr && HoursesOnTable[i] != nullptr && HoursesOnTable[i].HourseThinking[0] != nullptr && j < HoursesOnTable[i].HourseThinking[0].TableListHourse->size(); j++)
+						for (int j = 0; ((& HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking[0]) != nullptr) && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size(); j++)
 						{
-								if (HoursesOnTable[i].HourseThinking[0].AStarGreedy->size() == 0)
+								if (HoursesOnTable[i].HourseThinking[0].AStarGreedy.size() == 0)
 								{
 									FullGameFound = true;
 									FullGameThinkingTree(Order, iAStarGreedy, ii, jj, ik, jjj, false, LeafAStarGreedy);
 								}
 								else
-									for (int iii = 0; iii < HoursesOnTable[i].HourseThinking[0].AStarGreedy->size(); iii++)
+									for (int iii = 0; iii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.size(); iii++)
 									{
 										ThinkingChess::NumbersOfAllNode++;
 										HoursesOnTable[i].HourseThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(HoursesOnTable[i].HourseThinking[0].TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
@@ -14959,16 +14969,16 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 
 						}
 					for (int i = 0; i < CastleMidle; i++)
-						for (int j = 0; CastlesOnTable != nullptr && CastlesOnTable[i] != nullptr && CastlesOnTable[i].CastleThinking[0] != nullptr && j < CastlesOnTable[i].CastleThinking[0].TableListCastle->size(); j++)
+						for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking[0]) != nullptr) && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size(); j++)
 						{
 							
-								if (CastlesOnTable[i].CastleThinking[0].AStarGreedy->size() == 0)
+								if (CastlesOnTable[i].CastleThinking[0].AStarGreedy.size() == 0)
 								{
 									FullGameFound = true;
 									FullGameThinkingTree(Order, iAStarGreedy, ii, jj, ik, jjj, false, LeafAStarGreedy);
 								}
 								else
-									for (int iii = 0; iii < CastlesOnTable[i].CastleThinking[0].AStarGreedy->size(); iii++)
+									for (int iii = 0; iii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.size(); iii++)
 									{
 										ThinkingChess::NumbersOfAllNode++;
 										CastlesOnTable[i].CastleThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(CastlesOnTable[i].CastleThinking[0].TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
@@ -14977,15 +14987,15 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 
 						}
 					for (int i = 0; i < MinisterMidle; i++)
-						for (int j = 0; MinisterOnTable != nullptr && MinisterOnTable[i] != nullptr && MinisterOnTable[i].MinisterThinking[0] != nullptr && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister->size(); j++)
+						for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking[0]) != nullptr) && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size(); j++)
 						{
-								if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy->size() == 0)
+								if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size() == 0)
 								{
 									FullGameFound = true;
 									FullGameThinkingTree(Order, iAStarGreedy, ii, jj, ik, jjj, false, LeafAStarGreedy);
 								}
 								else
-									for (int iii = 0; iii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy->size(); iii++)
+									for (int iii = 0; iii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size(); iii++)
 									{
 										ThinkingChess::NumbersOfAllNode++;
 										MinisterOnTable[i].MinisterThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(MinisterOnTable[i].MinisterThinking[0].TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
@@ -14996,16 +15006,16 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 
 						}
 					for (int i = 0; i < KingMidle; i++)
-						for (int j = 0; KingOnTable != nullptr && KingOnTable[i] != nullptr && KingOnTable[i].KingThinking[0] != nullptr && j < KingOnTable[i].KingThinking[0].TableListKing->size(); j++)
+						for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking[0]) != nullptr) && j < KingOnTable[i].KingThinking[0].TableListKing.size(); j++)
 						{
 							
-								if (KingOnTable[i].KingThinking[0].AStarGreedy->size() == 0)
+								if (KingOnTable[i].KingThinking[0].AStarGreedy.size() == 0)
 								{
 									FullGameFound = true;
 									FullGameThinkingTree(Order, iAStarGreedy, ii, jj, ik, jjj, false, LeafAStarGreedy);
 								}
 								else
-									for (int iii = 0; iii < KingOnTable[i].KingThinking[0].AStarGreedy->size(); iii++)
+									for (int iii = 0; iii < KingOnTable[i].KingThinking[0].AStarGreedy.size(); iii++)
 									{
 										ThinkingChess::NumbersOfAllNode++;
 										KingOnTable[i].KingThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(KingOnTable[i].KingThinking[0].TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
@@ -15018,17 +15028,17 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				else
 				{
 					for (int i = SodierMidle; i < SodierHigh; i++)
-						for (int j = 0; SolderesOnTable != nullptr && SolderesOnTable[i] != nullptr && SolderesOnTable[i].SoldierThinking != nullptr && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder->size(); j++)
+						for (int j = 0; ((&SolderesOnTable) != nullptr) && ((&(SolderesOnTable[i])) != nullptr) &&  (&(SolderesOnTable[i].SoldierThinking) != nullptr) && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.size(); j++)
 						{
 							
 
-								if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy->size() == 0)
+								if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy.size() == 0)
 								{
 									FullGameFound = true;
 									FullGameThinkingTree(Order, iAStarGreedy, ii, jj, ik, jjj, false, LeafAStarGreedy);
 								}
 								else
-									for (int iii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy->size(); iii++)
+									for (int iii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.size(); iii++)
 									{
 										ThinkingChess::NumbersOfAllNode++;
 										SolderesOnTable[i].SoldierThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(SolderesOnTable[i].SoldierThinking[0].TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
@@ -15036,17 +15046,17 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 							
 						}
 					for (int i = ElefantMidle; i < ElefantHigh; i++)
-						for (int j = 0; ElephantOnTable != nullptr && ElephantOnTable[i] != nullptr && ElephantOnTable[i].ElefantThinking[0] != nullptr && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant->size(); j++)
+						for (int j = 0; ((&ElephantOnTable) != nullptr) && (&(ElephantOnTable[i]) != nullptr) && (&(ElephantOnTable[i].ElefantThinking[0]) != nullptr) && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.size(); j++)
 						{
 							
 
-								if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy->size() == 0)
+								if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy.size() == 0)
 								{
 									FullGameFound = true;
 									FullGameThinkingTree(Order, iAStarGreedy, ii, jj, ik, jjj, false, LeafAStarGreedy);
 								}
 								else
-									for (int iii = 0; iii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy->size(); iii++)
+									for (int iii = 0; iii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.size(); iii++)
 									{
 										ThinkingChess::NumbersOfAllNode++;
 										ElephantOnTable[i].ElefantThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(ElephantOnTable[i].ElefantThinking[0].TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
@@ -15054,17 +15064,17 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 							
 						}
 					for (int i = HourseMidle; i < HourseHight; i++)
-						for (int j = 0; HoursesOnTable != nullptr && HoursesOnTable[i] != nullptr && HoursesOnTable[i].HourseThinking[0] != nullptr && j < HoursesOnTable[i].HourseThinking[0].TableListHourse->size(); j++)
+						for (int j = 0; ((& HoursesOnTable) != nullptr) && (&(HoursesOnTable[i]) != nullptr) && (&(HoursesOnTable[i].HourseThinking[0]) != nullptr) && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.size(); j++)
 						{
 							
 
-								if (HoursesOnTable[i].HourseThinking[0].AStarGreedy->size() == 0)
+								if (HoursesOnTable[i].HourseThinking[0].AStarGreedy.size() == 0)
 								{
 									FullGameFound = true;
 									FullGameThinkingTree(Order, iAStarGreedy, ii, jj, ik, jjj, false, LeafAStarGreedy);
 								}
 								else
-									for (int iii = 0; iii < HoursesOnTable[i].HourseThinking[0].AStarGreedy->size(); iii++)
+									for (int iii = 0; iii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.size(); iii++)
 									{
 										ThinkingChess::NumbersOfAllNode++;
 										HoursesOnTable[i].HourseThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(HoursesOnTable[i].HourseThinking[0].TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
@@ -15072,17 +15082,17 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 							
 						}
 					for (int i = CastleMidle; i < CastleHigh; i++)
-						for (int j = 0; CastlesOnTable != nullptr && CastlesOnTable[i] != nullptr && CastlesOnTable[i].CastleThinking[0] != nullptr && j < CastlesOnTable[i].CastleThinking[0].TableListCastle->size(); j++)
+						for (int j = 0; ((&CastlesOnTable) != nullptr) && (&(CastlesOnTable[i]) != nullptr) && (&(CastlesOnTable[i].CastleThinking[0]) != nullptr) && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.size(); j++)
 						{
 							
 
-								if (CastlesOnTable[i].CastleThinking[0].AStarGreedy->size() == 0)
+								if (CastlesOnTable[i].CastleThinking[0].AStarGreedy.size() == 0)
 								{
 									FullGameFound = true;
 									FullGameThinkingTree(Order, iAStarGreedy, ii, jj, ik, jjj, false, LeafAStarGreedy);
 								}
 								else
-									for (int iii = 0; iii < CastlesOnTable[i].CastleThinking[0].AStarGreedy->size(); iii++)
+									for (int iii = 0; iii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.size(); iii++)
 									{
 										ThinkingChess::NumbersOfAllNode++;
 										CastlesOnTable[i].CastleThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(CastlesOnTable[i].CastleThinking[0].TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
@@ -15091,17 +15101,17 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 							
 						}
 					for (int i = MinisterMidle; i < MinisterHigh; i++)
-						for (int j = 0; MinisterOnTable != nullptr && MinisterOnTable[i] != nullptr && MinisterOnTable[i].MinisterThinking[0] != nullptr && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister->size(); j++)
+						for (int j = 0; ((&MinisterOnTable) != nullptr) && (&(MinisterOnTable[i]) != nullptr) && (&(MinisterOnTable[i].MinisterThinking[0]) != nullptr) && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.size(); j++)
 						{
 							
-								if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy->size() == 0)
+								if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size() == 0)
 								{
 
 									FullGameFound = true;
 									FullGameThinkingTree(Order, iAStarGreedy, ii, jj, ik, jjj, false, LeafAStarGreedy);
 								}
 								else
-									for (int iii = 0; iii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy->size(); iii++)
+									for (int iii = 0; iii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.size(); iii++)
 									{
 										ThinkingChess::NumbersOfAllNode++;
 										MinisterOnTable[i].MinisterThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(MinisterOnTable[i].MinisterThinking[0].TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
@@ -15110,16 +15120,16 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 							
 						}
 					for (int i = KingMidle; i < KingHigh; i++)
-						for (int j = 0; KingOnTable != nullptr && KingOnTable[i] != nullptr && KingOnTable[i].KingThinking[0] != nullptr && j < KingOnTable[i].KingThinking[0].TableListKing->size(); j++)
+						for (int j = 0; ((&KingOnTable) != nullptr) && (&(KingOnTable[i]) != nullptr) && (&(KingOnTable[i].KingThinking[0]) != nullptr) && j < KingOnTable[i].KingThinking[0].TableListKing.size(); j++)
 						{
 							
-								if (KingOnTable[i].KingThinking[0].AStarGreedy->size() == 0)
+								if (KingOnTable[i].KingThinking[0].AStarGreedy.size() == 0)
 								{
 									FullGameFound = true;
 									FullGameThinkingTree(Order, iAStarGreedy, ii, jj, ik, jjj, false, LeafAStarGreedy);
 								}
 								else
-									for (int iii = 0; iii < KingOnTable[i].KingThinking[0].AStarGreedy->size(); iii++)
+									for (int iii = 0; iii < KingOnTable[i].KingThinking[0].AStarGreedy.size(); iii++)
 									{
 										ThinkingChess::NumbersOfAllNode++;
 										KingOnTable[i].KingThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(KingOnTable[i].KingThinking[0].TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);

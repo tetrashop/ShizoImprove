@@ -1,4 +1,4 @@
-﻿
+﻿#pragma once
 #include "ChessRules.h"
 #include "AllDraw.h"
 #include "ThinkingChess.h"

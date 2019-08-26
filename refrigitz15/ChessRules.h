@@ -5,7 +5,9 @@
 #include <cmath>
 #include <float.h>
 #include <stdexcept>
-#include "StringConverterHelper.h"
+
+
+
 
 /***********************************************************************************
  * Every Ruls of objective condition of chess game.*********************************
@@ -195,10 +197,10 @@ namespace RefrigtzDLL
 		std::wstring CreateStatistic(bool Arrange, int **Tab, int Movments, int SourceThings, int Column, int Row, bool Hit, int HitThings, bool CastleKing, bool SodierConvert);
 		//Consideration of Existing Table in List.
 	private:
-		bool ArrayInList(std::vector<int*> &List, int A[]);
+		bool ArrayInList(std::vector<int*> List, int A[]);
 		//Find a Specific Objects.
 	public:
-		bool FindAThing(int **Table, int &Row, int &Column, int Thing, bool BeMovable, std::vector<int*> &List);
+		bool FindAThing(int **Table, int &Row, int &Column, int Thing, bool BeMovable, std::vector<int*> List);
 		//Brown King Found  Consideration.
 		bool FindBrownKing(int **Table, int &Row, int &Column);
 		//A Constraint Check Removed Unused Method.

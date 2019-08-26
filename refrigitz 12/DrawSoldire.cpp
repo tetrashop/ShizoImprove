@@ -1,4 +1,5 @@
-﻿#include "DrawSoldire.h"
+﻿#pragma once
+#include "DrawSoldire.h"
 #include "DrawMinister.h"
 #include "DrawCastle.h"
 #include "DrawHourse.h"
@@ -115,7 +116,7 @@ const DrawSoldier& DrawSoldier::operator[] (const int index) const
 
 	}
 	//void* DrawSoldier<T>::operator*(std::size_t idx) { return malloc(idx * sizeof(this)); }
-
+	/*
 	void DrawSoldier::Clone(DrawSoldier AA)
 	{
 		int **Tab;
@@ -147,7 +148,7 @@ const DrawSoldier& DrawSoldier::operator[] (const int index) const
 		AA.color = color;
 
 	}
-
+	*/
 
 
 	void DrawSoldier::DrawSoldierOnTable(float CellW, float CellH)

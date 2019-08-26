@@ -14,12 +14,12 @@
 #include "DrawMinister.h"
 #include "DrawKing.h"
 #include "StringConverterHelper.h"
+#include "ChessRules.h"
+#include "StringConverterHelper.h"
 #include "LearningKrinskyAtamata.h"
 #include "QuantumAtamata.h"
 #include "QuantumLearningKrinskyAtamata.h"
 #include "NetworkQuantumLearningKrinskyAtamata.h"
-
-#include "ChessRules.h"
 
 /****************************************************************************
  * Thinking Operation class.*************************************************
@@ -245,12 +245,12 @@ namespace RefrigtzDLL
 		std::vector<double*> HuristicListCastle;
 		std::vector<double*> HuristicListMinister;
 		std::vector<double*> HuristicListKing;
-		std::vector<QuantumAtamata*> PenaltyRegardListSolder;
-		std::vector<QuantumAtamata*> PenaltyRegardListElefant;
-		std::vector<QuantumAtamata*> PenaltyRegardListHourse;
-		std::vector<QuantumAtamata*> PenaltyRegardListCastle;
-		std::vector<QuantumAtamata*> PenaltyRegardListMinister;
-		std::vector<QuantumAtamata*> PenaltyRegardListKing;
+		std::vector<QuantumAtamata> PenaltyRegardListSolder;
+		std::vector<QuantumAtamata> PenaltyRegardListElefant;
+		std::vector<QuantumAtamata> PenaltyRegardListHourse;
+		std::vector<QuantumAtamata> PenaltyRegardListCastle;
+		std::vector<QuantumAtamata> PenaltyRegardListMinister;
+		std::vector<QuantumAtamata> PenaltyRegardListKing;
 		int Max;
 		int Row, Column;
 		int color;
@@ -360,7 +360,7 @@ namespace RefrigtzDLL
 		//If tow int Objects is equal.
 		static bool TableEqual(int Tab1, int Tab2);
 		//Deterimination of Existance of Table in List..
-		static bool ExistTableInList(int **Tab, std::vector<int**> &List, int Index);
+		static bool ExistTableInList(int **Tab, std::vector<int**> List, int Index);
 		///Move Determination.
 		bool Movable(int **Tab, int i, int j, int ii, int jj, int a, int Order);
 		//
@@ -459,10 +459,10 @@ namespace RefrigtzDLL
 	void HourseThinkingChess(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
 		void ElephantThinkingChess(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
 		bool EqualitTow(bool PenRegStrore, int kind);
-		bool EqualitOne(QuantumAtamata *Current, int kind);
-		void AddAtList(int kind, QuantumAtamata *Current);
+		bool EqualitOne(QuantumAtamata Current, int kind);
+		void AddAtList(int kind, QuantumAtamata Current);
 		void RemoveAtList(int kind);
-		bool PenaltyMechanisam(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int &CheckedM, int Killed, bool Before, int kind, int **TableS, int ii, int jj, QuantumAtamata *Current, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int i, int j, bool Castle);
+		bool PenaltyMechanisam(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int &CheckedM, int Killed, bool Before, int kind, int **TableS, int ii, int jj, QuantumAtamata Current, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int i, int j, bool Castle);
 		void SolderThinkingChess(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
 		void CastleThinkingBrown(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
 
@@ -472,7 +472,7 @@ namespace RefrigtzDLL
 	private:
 		void CastleThinkingGray(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int **TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle);
 	public:
-		void HuristicPenaltyValuePerform(QuantumAtamata *Current, int Order, double &HuristicAttackValue, bool AllDrawClass = false);
+		void HuristicPenaltyValuePerform(QuantumAtamata Current, int Order, double &HuristicAttackValue, bool AllDrawClass = false);
 		void ThinkingSoldierBase(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
 		void ThinkingSoldier(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);
 		void ThinkingElephantBase(int &LoseOcuuredatChiled, int &WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle);

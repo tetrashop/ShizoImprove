@@ -100,7 +100,7 @@ namespace RefrigtzDLL
         public static NetworkQuantumLearningKrinskyAtamata LearniningTable = null;
         bool ThinkingAtRun = false;
         public static String ActionsString = "";
-        String OutPutAction = "";
+       // String OutPutAction = "";
         int ThinkingLevel = 0;
         public List<bool[]> LearningVarsObject = new List<bool[]>();
         public static bool LearningVarsCheckedMateOccured;
@@ -1029,7 +1029,7 @@ namespace RefrigtzDLL
                         }
                         else
                             return HuristicAttackValue;
-                        int Supported = 0;
+                        //int Supported = 0;
 
                         //For Attack Movments.
                         Object O2 = new Object();
@@ -9342,25 +9342,25 @@ namespace RefrigtzDLL
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 //When is Brown Castles King.
 
-                bool Sup = false;
+                //bool Sup = false;
                 if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
                 {
                     IsSup.Add(true);
                     IsSupHu.Add(true);
-                    Sup = true;
+                    //Sup = true;
                 }
                 else
              if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
                 {
                     IsSup.Add(true);
                     IsSupHu.Add(true);
-                    Sup = true;
+                   // Sup = true;
                 }
                 else
                 {
                     IsSup.Add(false);
                     IsSupHu.Add(false);
-                    Sup = false;
+                    //Sup = false;
                 }
                 
                 //Calcuilate Huristic Before Movment.
@@ -9711,25 +9711,25 @@ namespace RefrigtzDLL
                 {
                     NumbersOfAllNode++;
                 }
-                 bool Sup = false;
+                // bool Sup = false;
                 if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
                 {
                     IsSup.Add(true);
                     IsSupHu.Add(true);
-                    Sup = true;
+                    //Sup = true;
                 }
                 else
              if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
                 {
                     IsSup.Add(true);
                     IsSupHu.Add(true);
-                    Sup = true;
+                    //Sup = true;
                 }
                 else
                 {
                     IsSup.Add(false);
                     IsSupHu.Add(false);
-                    Sup = false;
+                    //Sup = false;
                 }
 
                 int Killed = 0;

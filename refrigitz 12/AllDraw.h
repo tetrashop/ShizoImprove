@@ -10,12 +10,12 @@
 #include "DrawKing.h"*/
 
 class DrawSoldier;
-	class DrawElefant;
-	class DrawHourse;
-	class DrawCastle;
-	class DrawMinister;
-	class DrawKing;
-	class ThinkingChess;
+class DrawElefant;
+class DrawHourse;
+class DrawCastle;
+class DrawMinister;
+class DrawKing;
+class ThinkingChess;
 #include <string>
 #include <vector>
 #include <cmath>

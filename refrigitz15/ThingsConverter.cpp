@@ -1,5 +1,4 @@
-﻿#include "stdafx.h"
-
+﻿#pragma once
 #include "ThingsConverter.h"
 #include "AllDraw.h"
 

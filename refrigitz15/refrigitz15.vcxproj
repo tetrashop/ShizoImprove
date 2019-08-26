@@ -82,10 +82,9 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader />
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -144,7 +143,6 @@
     <ClInclude Include="..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz15\DrawKing.h" />
     <ClInclude Include="..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz15\DrawMinister.h" />
     <ClInclude Include="..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz15\DrawSoldire.h" />
-    <ClInclude Include="..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz15\IsNextEnemyMovementForCheckedMate.h" />
     <ClInclude Include="..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz15\StringConverterHelper.h" />
     <ClInclude Include="LearningKrinskyAtamata.h" />
     <ClInclude Include="..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz15\NetworkQuantumLearningKrinskyAtamata.h" />
@@ -164,7 +162,6 @@
     <ClCompile Include="..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz15\DrawKing.cpp" />
     <ClCompile Include="..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz15\DrawMinister.cpp" />
     <ClCompile Include="..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz15\DrawSoldire.cpp" />
-    <ClCompile Include="..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz15\IsNextEnemyMovementForCheckedMate.cpp" />
     <ClCompile Include="LearningKrinskyAtamata.cpp" />
     <ClCompile Include="..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz15\NetworkQuantumLearningKrinskyAtamata.cpp" />
     <ClCompile Include="..\..\..\%27Personal%27_%27Files%27\Refregitz\refrigitz15\QuantumAtamata.cpp" />

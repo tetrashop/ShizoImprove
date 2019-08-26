@@ -1,6 +1,5 @@
-﻿#include "stdafx.h"
+﻿#pragma once
 #include "DrawKing.h"
-
 
 namespace RefrigtzDLL
 {
@@ -31,17 +30,18 @@ namespace RefrigtzDLL
 	}
 	}
 	*/
+	const DrawKing& DrawKing::operator[] (const int index) const
+	{
+		return this[index];
+	}
+
 	DrawKing::~DrawKing()
 	{
 		InitializeInstanceFields();
 		ValuableSelfSupported.clear();
 		//		K = nullptr;
 	}
-	const DrawKing& DrawKing::operator[] (const int index) const
-	{
-		return this[index];
-	}
-
+	
 	double DrawKing::ReturnHuristic()
 	{
 		double a = 0;

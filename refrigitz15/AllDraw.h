@@ -1,21 +1,22 @@
 
 #pragma once
 
-#include "stdafx.h"
-/*#include "DrawSoldire.h"
-#include "DrawElefant.h"
-#include "DrawHourse.h"
-#include "DrawCastle.h"
-
-#pragma once
 
 #include "stdafx.h"
-/*#include "DrawSoldire.h"
-#include "DrawElefant.h"
-#include "DrawHourse.h"
+#include <string>
+#include <vector>
+#include <cmath>
+#include <float.h>
+#include <stdexcept>
+/*
 #include "DrawCastle.h"
+#include "DrawHourse.h"
+#include "DrawSoldire.h"
 #include "DrawMinister.h"
-#include "DrawKing.h"*/
+#include "DrawElefant.h"
+#include "DrawKing.h"
+*/
+
 
 class DrawSoldier;
 class DrawElefant;
@@ -24,12 +25,8 @@ class DrawCastle;
 class DrawMinister;
 class DrawKing;
 class ThinkingChess;
-#include <string>
-#include <vector>
-#include <cmath>
-#include <float.h>
-#include <stdexcept>
-#include "StringConverterHelper.h"
+
+using namespace std;
 
 
 /*******************************************************************************************
