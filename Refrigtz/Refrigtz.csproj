@@ -143,6 +143,9 @@
     <Reference Include="DotNetOpenAuth.OAuth.Consumer, Version=5.0.0.0, Culture=neutral, PublicKeyToken=d0acff3d13b42a9d, processorArchitecture=MSIL">
       <HintPath>..\packages\DotNetOpenAuth.OAuth.Consumer.5.0.0-alpha3\lib\net45-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
     </Reference>
+    <Reference Include="Emgu.CV.GPU">
+      <HintPath>D:\'Study'\My Files\My 'Projects'\Dr_Azad_BodyBulding_Project\'Image Detection'\NotForCommercialUsages\FaceRecProOV\bin\Debug\Emgu.CV.GPU.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
