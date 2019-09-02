@@ -263,7 +263,7 @@ namespace RefrigtzDLL
         public bool FindHitToModified(int[,] Cromosom1, int[,] Cromosom2, List<int[,]> List, int Index, int Order, bool and)
         {
             bool Find = false;
-            for (int i = 0; i < 8; i++)
+            for (var i = 0; i < 8; i++)
             {
                 for (int j = 0; j < 8; j++)
                 {
@@ -318,7 +318,7 @@ namespace RefrigtzDLL
             bool Bri = false;
 
             //For All Table Home
-            for (int i = 0; i < 8; i++)
+            for (var i = 0; i < 8; i++)
             {
                 for (int j = 0; j < 8; j++)
                 {

@@ -138,13 +138,13 @@ namespace QuantumRefrigiz
             )
         {
             int[,] Tab = new int[8, 8];
-            for (int i = 0; i < 8; i++)
+            for (var i = 0; i < 8; i++)
                 for (int j = 0; j < 8; j++)
                     Tab[i, j] = this.Table[i, j];
             //Initiate a Constructed Brideges an Clone a Copy.
             AA = new DrawCastleQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, this.Row, this.Column, this.color, this.Table, this.Order, false, this.Current);
             AA.ArrangmentsChanged = ArrangmentsChanged;
-            for (int i = 0; i < AllDraw.CastleMovments; i++)
+            for (var i = 0; i < AllDraw.CastleMovments; i++)
             {
                 
                     AA.CastleThinkingQuantum[i] = new ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);

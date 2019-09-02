@@ -135,7 +135,7 @@ namespace RefrigtzDLL
             )
         {
             int[,] Tab = new int[8, 8];
-            for (int i = 0; i < 8; i++)
+            for (var i = 0; i < 8; i++)
                 for (int j = 0; j < 8; j++)
                     Tab[i, j] = this.Table[i, j];
             //Initiate a Object and Assignemt of a Clone to Construction of a Copy.
@@ -143,7 +143,7 @@ namespace RefrigtzDLL
             AA = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, this.Row, this.Column, this.color, Tab, this.Order, false, this.Current
                 );
             AA.ArrangmentsChanged = ArrangmentsChanged;
-            for (int i = 0; i < AllDraw.SodierMovments; i++)
+            for (var i = 0; i < AllDraw.SodierMovments; i++)
             {
 
                 AA.SoldierThinking[i] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);

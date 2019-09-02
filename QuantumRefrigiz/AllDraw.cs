@@ -483,7 +483,7 @@ namespace QuantumRefrigiz
             lock (a)
             {
                 float[] Location = { -1, -1 };
-                for (int i = 0; i < 8; i++)
+                for (var i = 0; i < 8; i++)
                     for (int j = 0; j < 8; j++)
                     {
                         if (IsGray)
@@ -641,7 +641,7 @@ namespace QuantumRefrigiz
                     AA.TableList.Add(TableList[0]);
                 }
                 AA.Tabl = new int[8, 8];
-                for (int i = 0; i < 8; i++)
+                for (var i = 0; i < 8; i++)
                     for (int j = 0; j < 8; j++)
                         AA.Tabl[i, j] = Tabl[i, j];
                 AA.OrderP = OrderP;
@@ -650,15 +650,15 @@ namespace QuantumRefrigiz
                 AA.OutPutAction = OutPutAction;
                 //static variable to be Initiate
                 AA.ValuableSelfSupported = new List<int[]>();
-                for (int i = 0; i < 8; i++)
+                for (var i = 0; i < 8; i++)
                     for (int j = 0; j < 8; j++)
                         AA.ValuableSelfSupported.Add(ValuableSelfSupported[i]);
                 AA.CurrentAStarGredyMax = CurrentAStarGredyMax;
-                for (int i = 0; i < 6; i++)
+                for (var i = 0; i < 6; i++)
                     AA.Index[i] = Index[i];
-                for (int i = 0; i < 6; i++)
+                for (var i = 0; i < 6; i++)
                     AA.jindex[i] = jindex[i];
-                for (int i = 0; i < 6; i++)
+                for (var i = 0; i < 6; i++)
                     AA.Kind[i] = Kind[i];
                 if (AStarGreedyString != null)
                     AStarGreedyString.Clone(AA.AStarGreedyString);
@@ -692,7 +692,7 @@ namespace QuantumRefrigiz
 
                 AA.SolderesOnTable = new DrawSoldierQ[SodierHigh];
                 AA.ArrangmentsChanged = ArrangmentsChanged;
-                for (int i = 0; i < SodierHigh; i++)
+                for (var i = 0; i < SodierHigh; i++)
                 {
                     try
                     {
@@ -701,7 +701,7 @@ namespace QuantumRefrigiz
                     catch (Exception t) { Log(t); }
                 }
                 AA.ElephantOnTable = new DrawElefantQ[ElefantHigh];
-                for (int i = 0; i < ElefantHigh; i++)
+                for (var i = 0; i < ElefantHigh; i++)
                 {
                     try
                     {
@@ -711,7 +711,7 @@ namespace QuantumRefrigiz
                     catch (Exception t) { Log(t); }
                 }
                 AA.HoursesOnTable = new DrawHourseQ[HourseHight];
-                for (int i = 0; i < HourseHight; i++)
+                for (var i = 0; i < HourseHight; i++)
                 {
                     try
                     {
@@ -721,7 +721,7 @@ namespace QuantumRefrigiz
                     catch (Exception t) { Log(t); }
                 }
                 AA.CastlesOnTable = new DrawCastleQ[CastleHigh];
-                for (int i = 0; i < CastleHigh; i++)
+                for (var i = 0; i < CastleHigh; i++)
                 {
                     try
                     {
@@ -731,7 +731,7 @@ namespace QuantumRefrigiz
                     catch (Exception t) { Log(t); }
                 }
                 AA.MinisterOnTable = new DrawMinisterQ[MinisterHigh];
-                for (int i = 0; i < MinisterHigh; i++)
+                for (var i = 0; i < MinisterHigh; i++)
                 {
                     try
                     {
@@ -741,7 +741,7 @@ namespace QuantumRefrigiz
                     catch (Exception t) { Log(t); }
                 }
                 AA.KingOnTable = new DrawKingQ[KingHigh];
-                for (int i = 0; i < KingHigh; i++)
+                for (var i = 0; i < KingHigh; i++)
                 {
                     try
                     {
@@ -754,7 +754,7 @@ namespace QuantumRefrigiz
 
                 if (AA.TableList.Count > 0)
                     AA.TableList.Clear();
-                for (int i = 0; i < TableList.Count; i++)
+                for (var i = 0; i < TableList.Count; i++)
                     AA.TableList.Add(TableList[i]);
                 if (AA.TableList.Count > 0)
                     AA.SetObjectNumbers(AA.TableList[0]);
@@ -1389,40 +1389,40 @@ if (Kind == 2)
                     Log(t);
                 }
                 SetObjectNumbers(TableList[0]);
-                for (int i = So1; i < SodierMidle; i++)
+                for (var i = So1; i < SodierMidle; i++)
                     SolderesOnTable[i] = null;
 
-                for (int i = So2; i < SodierHigh; i++)
+                for (var i = So2; i < SodierHigh; i++)
                     SolderesOnTable[i] = null;
 
-                for (int i = El1; i < ElefantMidle; i++)
+                for (var i = El1; i < ElefantMidle; i++)
                     ElephantOnTable[i] = null;
 
-                for (int i = El2; i < ElefantHigh; i++)
+                for (var i = El2; i < ElefantHigh; i++)
                     ElephantOnTable[i] = null;
 
-                for (int i = Ho1; i < HourseMidle; i++)
+                for (var i = Ho1; i < HourseMidle; i++)
                     HoursesOnTable[i] = null;
 
-                for (int i = Ho2; i < HourseHight; i++)
+                for (var i = Ho2; i < HourseHight; i++)
                     HoursesOnTable[i] = null;
 
-                for (int i = Br1; i < CastleMidle; i++)
+                for (var i = Br1; i < CastleMidle; i++)
                     CastlesOnTable[i] = null;
 
-                for (int i = Br2; i < CastleHigh; i++)
+                for (var i = Br2; i < CastleHigh; i++)
                     CastlesOnTable[i] = null;
 
-                for (int i = Mi1; i < MinisterMidle; i++)
+                for (var i = Mi1; i < MinisterMidle; i++)
                     MinisterOnTable[i] = null;
 
-                for (int i = Mi2; i < MinisterHigh; i++)
+                for (var i = Mi2; i < MinisterHigh; i++)
                     MinisterOnTable[i] = null;
 
-                for (int i = Ki1; i < KingMidle; i++)
+                for (var i = Ki1; i < KingMidle; i++)
                     KingOnTable[i] = null;
 
-                for (int i = Ki2; i < KingHigh; i++)
+                for (var i = Ki2; i < KingHigh; i++)
                     KingOnTable[i] = null;
                 SetRowColumnFinished = true;
             }
@@ -1527,7 +1527,7 @@ if (Kind == 2)
                 {
 
                     //For Solderis.
-                    for (int i = 0; i < SodierMidle; i++)
+                    for (var i = 0; i < SodierMidle; i++)
                         for (int j = 0; A.SolderesOnTable != null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinkingQuantum[0] != null && j < A.SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count; j++)
                         {
                             try
@@ -1563,7 +1563,7 @@ if (Kind == 2)
                                 AA = AA || IsToCheckMateHasLessDeeperThanForCheckMate(A.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[ii], Order, ref ToCheckMate, ref ForCheckMate, AStarGreedy++);
                             Order = CDummy;
                         }
-                    for (int i = 0; i < ElefantMidle; i++)
+                    for (var i = 0; i < ElefantMidle; i++)
                         for (int j = 0; A.ElephantOnTable != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinkingQuantum[0] != null && j < A.ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count; j++)
                         {
 
@@ -1601,7 +1601,7 @@ if (Kind == 2)
                                 AA = AA || IsToCheckMateHasLessDeeperThanForCheckMate(A.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[ii], Order, ref ToCheckMate, ref ForCheckMate, AStarGreedy++);
                             Order = CDummy;
                         }
-                    for (int i = 0; i < HourseMidle; i++)
+                    for (var i = 0; i < HourseMidle; i++)
                         for (int j = 0; A.HoursesOnTable != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinkingQuantum[0] != null && j < A.HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count; j++)
                         {
 
@@ -1636,7 +1636,7 @@ if (Kind == 2)
                                 AA = AA || IsToCheckMateHasLessDeeperThanForCheckMate(A.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[ii], Order, ref ToCheckMate, ref ForCheckMate, AStarGreedy++);
                             Order = CDummy;
                         }
-                    for (int i = 0; i < CastleMidle; i++)
+                    for (var i = 0; i < CastleMidle; i++)
                         for (int j = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinkingQuantum[0] != null && j < A.CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count; j++)
                         {
 
@@ -1671,7 +1671,7 @@ if (Kind == 2)
                                 AA = AA || IsToCheckMateHasLessDeeperThanForCheckMate(A.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[ii], Order, ref ToCheckMate, ref ForCheckMate, AStarGreedy++);
                             Order = CDummy;
                         }
-                    for (int i = 0; i < MinisterMidle; i++)
+                    for (var i = 0; i < MinisterMidle; i++)
                         for (int j = 0; A.MinisterOnTable != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinkingQuantum[0] != null && j < A.MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count; j++)
                         {
 
@@ -1708,7 +1708,7 @@ if (Kind == 2)
                                 AA = AA || IsToCheckMateHasLessDeeperThanForCheckMate(A.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[ii], Order, ref ToCheckMate, ref ForCheckMate, AStarGreedy++);
                             Order = CDummy;
                         }
-                    for (int i = 0; i < KingMidle; i++)
+                    for (var i = 0; i < KingMidle; i++)
                         for (int j = 0; A.KingOnTable != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinkingQuantum[0] != null && j < A.KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count; j++)
                         {
 
@@ -1747,7 +1747,7 @@ if (Kind == 2)
                 else
                 {
                     //ChessRules.CurrentOrder = -1;
-                    for (int i = SodierMidle; i < SodierHigh; i++)
+                    for (var i = SodierMidle; i < SodierHigh; i++)
                         for (int j = 0; A.SolderesOnTable != null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinkingQuantum[0] != null && j < A.SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count; j++)
                         {
 
@@ -1782,7 +1782,7 @@ if (Kind == 2)
                                 AA = AA || IsToCheckMateHasLessDeeperThanForCheckMate(A.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[ii], Order, ref ToCheckMate, ref ForCheckMate, AStarGreedy++);
                             Order = CDummy;
                         }
-                    for (int i = ElefantMidle; i < ElefantHigh; i++)
+                    for (var i = ElefantMidle; i < ElefantHigh; i++)
                         for (int j = 0; A.ElephantOnTable != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinkingQuantum[0] != null && j < A.ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count; j++)
                         {
 
@@ -1817,7 +1817,7 @@ if (Kind == 2)
                                 AA = AA || IsToCheckMateHasLessDeeperThanForCheckMate(A.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[ii], Order, ref ToCheckMate, ref ForCheckMate, AStarGreedy++);
                             Order = CDummy;
                         }
-                    for (int i = HourseMidle; i < HourseHight; i++)
+                    for (var i = HourseMidle; i < HourseHight; i++)
                         for (int j = 0; A.HoursesOnTable != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinkingQuantum[0] != null && j < A.HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count; j++)
                         {
 
@@ -1852,7 +1852,7 @@ if (Kind == 2)
                                 AA = AA || IsToCheckMateHasLessDeeperThanForCheckMate(A.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[ii], Order, ref ToCheckMate, ref ForCheckMate, AStarGreedy++);
                             Order = CDummy;
                         }
-                    for (int i = CastleMidle; i < CastleHigh; i++)
+                    for (var i = CastleMidle; i < CastleHigh; i++)
                         for (int j = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinkingQuantum[0] != null && j < A.CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count; j++)
                         {
 
@@ -1887,7 +1887,7 @@ if (Kind == 2)
                                 AA = AA || IsToCheckMateHasLessDeeperThanForCheckMate(A.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[ii], Order, ref ToCheckMate, ref ForCheckMate, AStarGreedy++);
                             Order = CDummy;
                         }
-                    for (int i = MinisterMidle; i < MinisterHigh; i++)
+                    for (var i = MinisterMidle; i < MinisterHigh; i++)
                         for (int j = 0; A.MinisterOnTable != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinkingQuantum[0] != null && j < A.MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count; j++)
                         {
 
@@ -1923,7 +1923,7 @@ if (Kind == 2)
                                 AA = AA || IsToCheckMateHasLessDeeperThanForCheckMate(A.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[ii], Order, ref ToCheckMate, ref ForCheckMate, AStarGreedy++);
                             Order = CDummy;
                         }
-                    for (int i = KingMidle; i < KingHigh; i++)
+                    for (var i = KingMidle; i < KingHigh; i++)
                         for (int j = 0; A.KingOnTable != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinkingQuantum[0] != null && j < A.KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count; j++)
                         {
 
@@ -1980,7 +1980,7 @@ if (Kind == 2)
 
                     //ChessRules.CurrentOrder = 1;
                     //For  Soldeirs.
-                    for (int i = 0; i < SodierMidle; i++)
+                    for (var i = 0; i < SodierMidle; i++)
                         for (int j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum[0] != null && j < SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count; j++)
                         {
                             try
@@ -2035,7 +2035,7 @@ if (Kind == 2)
 
                         }
                     //For Elephant.
-                    for (int i = 0; i < ElefantMidle; i++)
+                    for (var i = 0; i < ElefantMidle; i++)
                         for (int j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && j < ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count; j++)
                         {
 
@@ -2089,7 +2089,7 @@ if (Kind == 2)
                             }
                         }
                     //For Hourse.
-                    for (int i = 0; i < HourseMidle; i++)
+                    for (var i = 0; i < HourseMidle; i++)
                         for (int j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && j < HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count; j++)
                         {
 
@@ -2143,7 +2143,7 @@ if (Kind == 2)
                             }
                         }
                     //For Gray Briges.
-                    for (int i = 0; i < CastleMidle; i++)
+                    for (var i = 0; i < CastleMidle; i++)
                         for (int j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && j < CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count; j++)
                         {
 
@@ -2204,7 +2204,7 @@ if (Kind == 2)
                             }
                         }
                     //For Ministers Gray.
-                    for (int i = 0; i < MinisterMidle; i++)
+                    for (var i = 0; i < MinisterMidle; i++)
                         for (int j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && j < MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count; j++)
                         {
 
@@ -2265,7 +2265,7 @@ if (Kind == 2)
                             }
                         }
                     //For Gray King.
-                    for (int i = 0; i < KingMidle; i++)
+                    for (var i = 0; i < KingMidle; i++)
                         for (int j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum[0] != null && j < KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count; j++)
                         {
 
@@ -2332,7 +2332,7 @@ if (Kind == 2)
                     ChessRules AA = null;
                     //ChessRules.CurrentOrder = -1;
                     //For Solders Brown.
-                    for (int i = SodierMidle; i < SodierHigh; i++)
+                    for (var i = SodierMidle; i < SodierHigh; i++)
                         for (int j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum[0] != null && j < SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count; j++)
                         {
 
@@ -2393,7 +2393,7 @@ if (Kind == 2)
                             }
                         }
                     //Elephant Brown 
-                    for (int i = ElefantMidle; i < ElefantHigh; i++)
+                    for (var i = ElefantMidle; i < ElefantHigh; i++)
                         for (int j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && j < ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count; j++)
                         {
 
@@ -2454,7 +2454,7 @@ if (Kind == 2)
                             }
                         }
                     //Hourse Brown 
-                    for (int i = HourseMidle; i < HourseHight; i++)
+                    for (var i = HourseMidle; i < HourseHight; i++)
                         for (int j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && j < HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count; j++)
                         {
 
@@ -2515,7 +2515,7 @@ if (Kind == 2)
                             }
                         }
                     //Castles Brown 
-                    for (int i = CastleMidle; i < CastleHigh; i++)
+                    for (var i = CastleMidle; i < CastleHigh; i++)
                         for (int j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && j < CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count; j++)
                         {
 
@@ -2576,7 +2576,7 @@ if (Kind == 2)
                             }
                         }
                     //Minister Brown 
-                    for (int i = MinisterMidle; i < MinisterHigh; i++)
+                    for (var i = MinisterMidle; i < MinisterHigh; i++)
                         for (int j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && j < MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count; j++)
                         {
 
@@ -2638,7 +2638,7 @@ if (Kind == 2)
                             }
                         }
                     //King Brown
-                    for (int i = KingMidle; i < KingHigh; i++)
+                    for (var i = KingMidle; i < KingHigh; i++)
                         for (int j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum[0] != null && j < KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count; j++)
                         {
 
@@ -2714,7 +2714,7 @@ if (Kind == 2)
                 if (Order == 1)
                 {
 
-                    for (int i = 0; i < SodierMidle; i++)
+                    for (var i = 0; i < SodierMidle; i++)
                         for (int j = 0; A.SolderesOnTable != null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinkingQuantum[0] != null && j < A.SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count; j++)
                         {
                             try
@@ -2730,7 +2730,7 @@ if (Kind == 2)
                                 MakePenaltyAllCheckMateBranches(A.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[ii], Order);
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
-                    for (int i = 0; i < ElefantMidle; i++)
+                    for (var i = 0; i < ElefantMidle; i++)
                         for (int j = 0; A.ElephantOnTable != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinkingQuantum[0] != null && j < A.ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count; j++)
                         {
 
@@ -2755,7 +2755,7 @@ if (Kind == 2)
                             }
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
-                    for (int i = 0; i < HourseMidle; i++)
+                    for (var i = 0; i < HourseMidle; i++)
                         for (int j = 0; A.HoursesOnTable != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinkingQuantum[0] != null && j < A.HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count; j++)
                         {
                             try
@@ -2780,7 +2780,7 @@ if (Kind == 2)
                             }
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
-                    for (int i = 0; i < CastleMidle; i++)
+                    for (var i = 0; i < CastleMidle; i++)
                         for (int j = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinkingQuantum[0] != null && j < A.CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count; j++)
                         {
                             try
@@ -2804,7 +2804,7 @@ if (Kind == 2)
                             }
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
-                    for (int i = 0; i < MinisterMidle; i++)
+                    for (var i = 0; i < MinisterMidle; i++)
                         for (int j = 0; A.MinisterOnTable != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinkingQuantum[0] != null && j < A.MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count; j++)
                         {
                             try
@@ -2828,7 +2828,7 @@ if (Kind == 2)
                             }
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
-                    for (int i = 0; i < KingMidle; i++)
+                    for (var i = 0; i < KingMidle; i++)
                         for (int j = 0; A.KingOnTable != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinkingQuantum[0] != null && j < A.KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count; j++)
                         {
                             try
@@ -2855,7 +2855,7 @@ if (Kind == 2)
                 }
                 else
                 {
-                    for (int i = SodierMidle; i < SodierHigh; i++)
+                    for (var i = SodierMidle; i < SodierHigh; i++)
                         for (int j = 0; A.SolderesOnTable != null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinkingQuantum[0] != null && j < A.SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count; j++)
                         {
                             try
@@ -2878,7 +2878,7 @@ if (Kind == 2)
                             }
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
-                    for (int i = ElefantMidle; i < ElefantHigh; i++)
+                    for (var i = ElefantMidle; i < ElefantHigh; i++)
                         for (int j = 0; A.ElephantOnTable != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinkingQuantum[0] != null && j < A.ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count; j++)
                         {
                             try
@@ -2902,7 +2902,7 @@ if (Kind == 2)
                             }
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
-                    for (int i = HourseMidle; i < HourseHight; i++)
+                    for (var i = HourseMidle; i < HourseHight; i++)
                         for (int j = 0; A.HoursesOnTable != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinkingQuantum[0] != null && j < A.HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count; j++)
                         {
                             try
@@ -2927,7 +2927,7 @@ if (Kind == 2)
                             }
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
-                    for (int i = CastleMidle; i < CastleHigh; i++)
+                    for (var i = CastleMidle; i < CastleHigh; i++)
                         for (int j = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinkingQuantum[0] != null && j < A.CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count; j++)
                         {
                             try
@@ -2951,7 +2951,7 @@ if (Kind == 2)
                             }
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
-                    for (int i = MinisterMidle; i < MinisterHigh; i++)
+                    for (var i = MinisterMidle; i < MinisterHigh; i++)
                         for (int j = 0; A.MinisterOnTable != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinkingQuantum[0] != null && j < A.MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count; j++)
                         {
                             try
@@ -2975,7 +2975,7 @@ if (Kind == 2)
                             }
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
-                    for (int i = KingMidle; i < MinisterHigh; i++)
+                    for (var i = KingMidle; i < MinisterHigh; i++)
                         for (int j = 0; A.KingOnTable != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinkingQuantum[0] != null && j < A.KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count; j++)
                         {
                             try
@@ -3011,7 +3011,7 @@ if (Kind == 2)
                 if (Order == 1)
                 {
 
-                    for (int i = 0; i < SodierMidle; i++)
+                    for (var i = 0; i < SodierMidle; i++)
                         for (int j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum[0] != null && j < SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count; j++)
                         {
                             UsePenaltyRegardMechnisamT = false;
@@ -3026,7 +3026,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                         }
-                    for (int i = 0; i < ElefantMidle; i++)
+                    for (var i = 0; i < ElefantMidle; i++)
                         for (int j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && j < ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count; j++)
                         {
                             UsePenaltyRegardMechnisamT = false;
@@ -3043,7 +3043,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                         }
-                    for (int i = 0; i < HourseMidle; i++)
+                    for (var i = 0; i < HourseMidle; i++)
                         for (int j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && j < HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count; j++)
                         {
                             UsePenaltyRegardMechnisamT = false;
@@ -3060,7 +3060,7 @@ if (Kind == 2)
 
 
                         }
-                    for (int i = 0; i < CastleMidle; i++)
+                    for (var i = 0; i < CastleMidle; i++)
                         for (int j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && j < CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count; j++)
                         {
                             UsePenaltyRegardMechnisamT = false;
@@ -3077,7 +3077,7 @@ if (Kind == 2)
                             }
 
                         }
-                    for (int i = 0; i < MinisterMidle; i++)
+                    for (var i = 0; i < MinisterMidle; i++)
                         for (int j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && j < MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count; j++)
                         {
                             UsePenaltyRegardMechnisamT = false;
@@ -3094,7 +3094,7 @@ if (Kind == 2)
                             }
 
                         }
-                    for (int i = 0; i < KingMidle; i++)
+                    for (var i = 0; i < KingMidle; i++)
                         for (int j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum[0] != null && j < KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count; j++)
                         {
                             UsePenaltyRegardMechnisamT = false;
@@ -3114,7 +3114,7 @@ if (Kind == 2)
                 }
                 else
                 {
-                    for (int i = SodierMidle; i < SodierHigh; i++)
+                    for (var i = SodierMidle; i < SodierHigh; i++)
                         for (int j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum != null && j < SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count; j++)
                         {
                             UsePenaltyRegardMechnisamT = false;
@@ -3130,7 +3130,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                         }
-                    for (int i = ElefantMidle; i < ElefantHigh; i++)
+                    for (var i = ElefantMidle; i < ElefantHigh; i++)
                         for (int j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && j < ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count; j++)
                         {
                             UsePenaltyRegardMechnisamT = false;
@@ -3147,7 +3147,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                         }
-                    for (int i = HourseMidle; i < HourseHight; i++)
+                    for (var i = HourseMidle; i < HourseHight; i++)
                         for (int j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && j < HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count; j++)
                         {
                             UsePenaltyRegardMechnisamT = false;
@@ -3165,7 +3165,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                         }
-                    for (int i = CastleMidle; i < CastleHigh; i++)
+                    for (var i = CastleMidle; i < CastleHigh; i++)
                         for (int j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && j < CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count; j++)
                         {
                             UsePenaltyRegardMechnisamT = false;
@@ -3182,7 +3182,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                         }
-                    for (int i = MinisterMidle; i < MinisterHigh; i++)
+                    for (var i = MinisterMidle; i < MinisterHigh; i++)
                         for (int j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && j < MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count; j++)
                         {
                             UsePenaltyRegardMechnisamT = false;
@@ -3199,7 +3199,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                         }
-                    for (int i = KingMidle; i < KingHigh; i++)
+                    for (var i = KingMidle; i < KingHigh; i++)
                         for (int j = 0; KingOnTable != null && KingOnTable[i] != null
                             && KingOnTable[i].KingThinkingQuantum[0] != null && j < KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count; j++)
                         {
@@ -3238,7 +3238,7 @@ if (Kind == 2)
                 if (Order == 1)
                 {
 
-                    for (int i = 0; i < SodierMidle; i++)
+                    for (var i = 0; i < SodierMidle; i++)
                         for (int j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum[0] != null && j < SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count; j++)
                         {
 
@@ -3264,7 +3264,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                         }
-                    for (int i = 0; i < ElefantMidle; i++)
+                    for (var i = 0; i < ElefantMidle; i++)
                         for (int j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && j < ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count; j++)
                         {
                             try
@@ -3290,7 +3290,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                         }
-                    for (int i = 0; i < HourseMidle; i++)
+                    for (var i = 0; i < HourseMidle; i++)
                         for (int j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && j < HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count; j++)
                         {
                             try
@@ -3316,7 +3316,7 @@ if (Kind == 2)
 
 
                         }
-                    for (int i = 0; i < CastleMidle; i++)
+                    for (var i = 0; i < CastleMidle; i++)
                         for (int j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && j < CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count; j++)
                         {
                             try
@@ -3340,7 +3340,7 @@ if (Kind == 2)
                             }
 
                         }
-                    for (int i = 0; i < MinisterMidle; i++)
+                    for (var i = 0; i < MinisterMidle; i++)
                         for (int j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && j < MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count; j++)
                         {
                             try
@@ -3365,7 +3365,7 @@ if (Kind == 2)
                             }
 
                         }
-                    for (int i = 0; i < KingMidle; i++)
+                    for (var i = 0; i < KingMidle; i++)
                         for (int j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum[0] != null && j < KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count; j++)
                         {
                             try
@@ -3393,7 +3393,7 @@ if (Kind == 2)
                 }
                 else
                 {
-                    for (int i = SodierMidle; i < SodierHigh; i++)
+                    for (var i = SodierMidle; i < SodierHigh; i++)
                         for (int j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum != null && j < SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count; j++)
                         {
                             try
@@ -3418,7 +3418,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                         }
-                    for (int i = ElefantMidle; i < ElefantHigh; i++)
+                    for (var i = ElefantMidle; i < ElefantHigh; i++)
                         for (int j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && j < ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count; j++)
                         {
                             try
@@ -3443,7 +3443,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                         }
-                    for (int i = HourseMidle; i < HourseHight; i++)
+                    for (var i = HourseMidle; i < HourseHight; i++)
                         for (int j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && j < HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count; j++)
                         {
                             try
@@ -3469,7 +3469,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                         }
-                    for (int i = CastleMidle; i < CastleHigh; i++)
+                    for (var i = CastleMidle; i < CastleHigh; i++)
                         for (int j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && j < CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count; j++)
                         {
                             try
@@ -3494,7 +3494,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                         }
-                    for (int i = MinisterMidle; i < MinisterHigh; i++)
+                    for (var i = MinisterMidle; i < MinisterHigh; i++)
                         for (int j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && j < MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count; j++)
                         {
                             try
@@ -3518,7 +3518,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                         }
-                    for (int i = KingMidle; i < KingHigh; i++)
+                    for (var i = KingMidle; i < KingHigh; i++)
                         for (int j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum[0] != null && j < KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count; j++)
                         {
                             try
@@ -3559,7 +3559,7 @@ if (Kind == 2)
                 if (Order == 1)
                 {
 
-                    for (int i = 0; i < SodierMidle; i++)
+                    for (var i = 0; i < SodierMidle; i++)
                         for (int j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum[0] != null && j < SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count; j++)
                         {
 
@@ -3583,7 +3583,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                         }
-                    for (int i = 0; i < ElefantMidle; i++)
+                    for (var i = 0; i < ElefantMidle; i++)
                         for (int j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && j < ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count; j++)
                         {
                             try
@@ -3605,7 +3605,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                         }
-                    for (int i = 0; i < HourseMidle; i++)
+                    for (var i = 0; i < HourseMidle; i++)
                         for (int j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && j < HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count; j++)
                         {
                             try
@@ -3628,7 +3628,7 @@ if (Kind == 2)
 
 
                         }
-                    for (int i = 0; i < CastleMidle; i++)
+                    for (var i = 0; i < CastleMidle; i++)
                         for (int j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && j < CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count; j++)
                         {
                             try
@@ -3649,7 +3649,7 @@ if (Kind == 2)
                             }
 
                         }
-                    for (int i = 0; i < MinisterMidle; i++)
+                    for (var i = 0; i < MinisterMidle; i++)
                         for (int j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && j < MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count; j++)
                         {
                             try
@@ -3671,7 +3671,7 @@ if (Kind == 2)
                             }
 
                         }
-                    for (int i = 0; i < KingMidle; i++)
+                    for (var i = 0; i < KingMidle; i++)
                         for (int j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum[0] != null && j < KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count; j++)
                         {
                             try
@@ -3696,7 +3696,7 @@ if (Kind == 2)
                 }
                 else
                 {
-                    for (int i = SodierMidle; i < SodierHigh; i++)
+                    for (var i = SodierMidle; i < SodierHigh; i++)
                         for (int j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum != null && j < SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count; j++)
                         {
                             try
@@ -3717,7 +3717,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                         }
-                    for (int i = ElefantMidle; i < ElefantHigh; i++)
+                    for (var i = ElefantMidle; i < ElefantHigh; i++)
                         for (int j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && j < ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count; j++)
                         {
                             try
@@ -3738,7 +3738,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                         }
-                    for (int i = HourseMidle; i < HourseHight; i++)
+                    for (var i = HourseMidle; i < HourseHight; i++)
                         for (int j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && j < HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count; j++)
                         {
                             try
@@ -3759,7 +3759,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                         }
-                    for (int i = CastleMidle; i < CastleHigh; i++)
+                    for (var i = CastleMidle; i < CastleHigh; i++)
                         for (int j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && j < CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count; j++)
                         {
                             try
@@ -3781,7 +3781,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                         }
-                    for (int i = MinisterMidle; i < MinisterHigh; i++)
+                    for (var i = MinisterMidle; i < MinisterHigh; i++)
                         for (int j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && j < MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count; j++)
                         {
                             try
@@ -3802,7 +3802,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                         }
-                    for (int i = KingMidle; i < KingHigh; i++)
+                    for (var i = KingMidle; i < KingHigh; i++)
                         for (int j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum[0] != null && j < KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count; j++)
                         {
                             try
@@ -3842,7 +3842,7 @@ if (Kind == 2)
                 if (Order == 1)
                 {
 
-                    for (int i = 0; i < SodierMidle; i++)
+                    for (var i = 0; i < SodierMidle; i++)
                         for (int j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum[0] != null && j < SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count; j++)
                         {
 
@@ -3865,7 +3865,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                         }
-                    for (int i = 0; i < ElefantMidle; i++)
+                    for (var i = 0; i < ElefantMidle; i++)
                         for (int j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && j < ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count; j++)
                         {
                             try
@@ -3887,7 +3887,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                         }
-                    for (int i = 0; i < HourseMidle; i++)
+                    for (var i = 0; i < HourseMidle; i++)
                         for (int j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && j < HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count; j++)
                         {
                             try
@@ -3910,7 +3910,7 @@ if (Kind == 2)
 
 
                         }
-                    for (int i = 0; i < CastleMidle; i++)
+                    for (var i = 0; i < CastleMidle; i++)
                         for (int j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && j < CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count; j++)
                         {
                             try
@@ -3931,7 +3931,7 @@ if (Kind == 2)
                             }
 
                         }
-                    for (int i = 0; i < MinisterMidle; i++)
+                    for (var i = 0; i < MinisterMidle; i++)
                         for (int j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && j < MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count; j++)
                         {
                             try
@@ -3953,7 +3953,7 @@ if (Kind == 2)
                             }
 
                         }
-                    for (int i = 0; i < KingMidle; i++)
+                    for (var i = 0; i < KingMidle; i++)
                         for (int j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum[0] != null && j < KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count; j++)
                         {
                             try
@@ -3978,7 +3978,7 @@ if (Kind == 2)
                 }
                 else
                 {
-                    for (int i = SodierMidle; i < SodierHigh; i++)
+                    for (var i = SodierMidle; i < SodierHigh; i++)
                         for (int j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum != null && j < SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count; j++)
                         {
                             try
@@ -3999,7 +3999,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                         }
-                    for (int i = ElefantMidle; i < ElefantHigh; i++)
+                    for (var i = ElefantMidle; i < ElefantHigh; i++)
                         for (int j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && j < ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count; j++)
                         {
                             try
@@ -4020,7 +4020,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                         }
-                    for (int i = HourseMidle; i < HourseHight; i++)
+                    for (var i = HourseMidle; i < HourseHight; i++)
                         for (int j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && j < HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count; j++)
                         {
                             try
@@ -4041,7 +4041,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                         }
-                    for (int i = CastleMidle; i < CastleHigh; i++)
+                    for (var i = CastleMidle; i < CastleHigh; i++)
                         for (int j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && j < CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count; j++)
                         {
                             try
@@ -4063,7 +4063,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                         }
-                    for (int i = MinisterMidle; i < MinisterHigh; i++)
+                    for (var i = MinisterMidle; i < MinisterHigh; i++)
                         for (int j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && j < MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count; j++)
                         {
                             try
@@ -4084,7 +4084,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                         }
-                    for (int i = KingMidle; i < KingHigh; i++)
+                    for (var i = KingMidle; i < KingHigh; i++)
                         for (int j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum[0] != null && j < KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count; j++)
                         {
                             try
@@ -4128,7 +4128,7 @@ if (Kind == 2)
                     if (Order == 1)
                     {
 
-                        for (int i = 0; i < SodierMidle; i++)
+                        for (var i = 0; i < SodierMidle; i++)
                             for (int j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum[0] != null && j < SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count; j++)
                             {
 
@@ -4154,7 +4154,7 @@ if (Kind == 2)
                                     Log(t);
                                 }
                             }
-                        for (int i = 0; i < ElefantMidle; i++)
+                        for (var i = 0; i < ElefantMidle; i++)
                             for (int j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && j < ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count; j++)
                             {
                                 try
@@ -4178,7 +4178,7 @@ if (Kind == 2)
                                     Log(t);
                                 }
                             }
-                        for (int i = 0; i < HourseMidle; i++)
+                        for (var i = 0; i < HourseMidle; i++)
                             for (int j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && j < HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count; j++)
                             {
                                 try
@@ -4203,7 +4203,7 @@ if (Kind == 2)
 
 
                             }
-                        for (int i = 0; i < CastleMidle; i++)
+                        for (var i = 0; i < CastleMidle; i++)
                             for (int j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && j < CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count; j++)
                             {
                                 try
@@ -4226,7 +4226,7 @@ if (Kind == 2)
                                 }
 
                             }
-                        for (int i = 0; i < MinisterMidle; i++)
+                        for (var i = 0; i < MinisterMidle; i++)
                             for (int j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && j < MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count; j++)
                             {
                                 try
@@ -4251,7 +4251,7 @@ if (Kind == 2)
                                 }
 
                             }
-                        for (int i = 0; i < KingMidle; i++)
+                        for (var i = 0; i < KingMidle; i++)
                             for (int j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum[0] != null && j < KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count; j++)
                             {
                                 try
@@ -4278,7 +4278,7 @@ if (Kind == 2)
                     }
                     else
                     {
-                        for (int i = SodierMidle; i < SodierHigh; i++)
+                        for (var i = SodierMidle; i < SodierHigh; i++)
                             for (int j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum != null && j < SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count; j++)
                             {
                                 try
@@ -4301,7 +4301,7 @@ if (Kind == 2)
                                     Log(t);
                                 }
                             }
-                        for (int i = ElefantMidle; i < ElefantHigh; i++)
+                        for (var i = ElefantMidle; i < ElefantHigh; i++)
                             for (int j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && j < ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count; j++)
                             {
                                 try
@@ -4324,7 +4324,7 @@ if (Kind == 2)
                                     Log(t);
                                 }
                             }
-                        for (int i = HourseMidle; i < HourseHight; i++)
+                        for (var i = HourseMidle; i < HourseHight; i++)
                             for (int j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && j < HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count; j++)
                             {
                                 try
@@ -4347,7 +4347,7 @@ if (Kind == 2)
                                     Log(t);
                                 }
                             }
-                        for (int i = CastleMidle; i < CastleHigh; i++)
+                        for (var i = CastleMidle; i < CastleHigh; i++)
                             for (int j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && j < CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count; j++)
                             {
                                 try
@@ -4371,7 +4371,7 @@ if (Kind == 2)
                                     Log(t);
                                 }
                             }
-                        for (int i = MinisterMidle; i < MinisterHigh; i++)
+                        for (var i = MinisterMidle; i < MinisterHigh; i++)
                             for (int j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && j < MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count; j++)
                             {
                                 try
@@ -4395,7 +4395,7 @@ if (Kind == 2)
                                     Log(t);
                                 }
                             }
-                        for (int i = KingMidle; i < KingHigh; i++)
+                        for (var i = KingMidle; i < KingHigh; i++)
                             for (int j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum[0] != null && j < KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count; j++)
                             {
                                 try
@@ -4449,7 +4449,7 @@ if (Kind == 2)
                 if (Order == 1)
                 {
 
-                    for (int i = 0; i < SodierMidle; i++)
+                    for (var i = 0; i < SodierMidle; i++)
                         for (int j = 0; A.SolderesOnTable != null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinkingQuantum[0] != null && j < A.SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count; j++)
                         {
 
@@ -4474,7 +4474,7 @@ if (Kind == 2)
                             }
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
-                    for (int i = 0; i < ElefantMidle; i++)
+                    for (var i = 0; i < ElefantMidle; i++)
                         for (int j = 0; A.ElephantOnTable != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinkingQuantum[0] != null && j < A.ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count; j++)
                         {
 
@@ -4499,7 +4499,7 @@ if (Kind == 2)
                             }
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
-                    for (int i = 0; i < HourseMidle; i++)
+                    for (var i = 0; i < HourseMidle; i++)
                         for (int j = 0; A.HoursesOnTable != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinkingQuantum[0] != null && j < A.HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count; j++)
                         {
                             try
@@ -4523,7 +4523,7 @@ if (Kind == 2)
                             }
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
-                    for (int i = 0; i < CastleMidle; i++)
+                    for (var i = 0; i < CastleMidle; i++)
                         for (int j = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinkingQuantum[0] != null && j < A.CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count; j++)
                         {
                             try
@@ -4546,7 +4546,7 @@ if (Kind == 2)
                             }
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
-                    for (int i = 0; i < MinisterMidle; i++)
+                    for (var i = 0; i < MinisterMidle; i++)
                         for (int j = 0; A.MinisterOnTable != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinkingQuantum[0] != null && j < A.MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count; j++)
                         {
                             try
@@ -4570,7 +4570,7 @@ if (Kind == 2)
                             }
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
-                    for (int i = 0; i < KingMidle; i++)
+                    for (var i = 0; i < KingMidle; i++)
                         for (int j = 0; A.KingOnTable != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinkingQuantum[0] != null && j < A.KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count; j++)
                         {
                             try
@@ -4596,7 +4596,7 @@ if (Kind == 2)
                 }
                 else
                 {
-                    for (int i = SodierMidle; i < SodierHigh; i++)
+                    for (var i = SodierMidle; i < SodierHigh; i++)
                         for (int j = 0; A.SolderesOnTable != null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinkingQuantum[0] != null && j < A.SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count; j++)
                         {
                             try
@@ -4619,7 +4619,7 @@ if (Kind == 2)
                             }
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
-                    for (int i = ElefantMidle; i < ElefantHigh; i++)
+                    for (var i = ElefantMidle; i < ElefantHigh; i++)
                         for (int j = 0; A.ElephantOnTable != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinkingQuantum[0] != null && j < A.ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count; j++)
                         {
                             try
@@ -4643,7 +4643,7 @@ if (Kind == 2)
                             }
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
-                    for (int i = HourseMidle; i < HourseHight; i++)
+                    for (var i = HourseMidle; i < HourseHight; i++)
                         for (int j = 0; A.HoursesOnTable != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinkingQuantum[0] != null && j < A.HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count; j++)
                         {
                             try
@@ -4667,7 +4667,7 @@ if (Kind == 2)
                             }
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
-                    for (int i = CastleMidle; i < CastleHigh; i++)
+                    for (var i = CastleMidle; i < CastleHigh; i++)
                         for (int j = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinkingQuantum[0] != null && j < A.CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count; j++)
                         {
                             try
@@ -4690,7 +4690,7 @@ if (Kind == 2)
                             }
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
-                    for (int i = MinisterMidle; i < MinisterHigh; i++)
+                    for (var i = MinisterMidle; i < MinisterHigh; i++)
                         for (int j = 0; A.MinisterOnTable != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinkingQuantum[0] != null && j < A.MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count; j++)
                         {
                             try
@@ -4713,7 +4713,7 @@ if (Kind == 2)
                             }
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
-                    for (int i = KingMidle; i < MinisterHigh; i++)
+                    for (var i = KingMidle; i < MinisterHigh; i++)
                         for (int j = 0; A.KingOnTable != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinkingQuantum[0] != null && j < A.KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count; j++)
                         {
                             try
@@ -7526,7 +7526,7 @@ if (Kind == 2)
 
                 if (SodierMidle != 0)
                 {
-                    for (int i = 0; i < SodierMidle; i++)
+                    for (var i = 0; i < SodierMidle; i++)
                         TableHuristic = HuristicAStarGreadySearchSoldier(ref TableHuristic, i, AStarGreedyi, a, Order, CurrentTableHuristic, ref Act);
                 }
                 else
@@ -7542,7 +7542,7 @@ if (Kind == 2)
                 if (SodierMidle != SodierHigh)
                 {
 
-                    for (int i = SodierMidle; i < SodierHigh; i++)
+                    for (var i = SodierMidle; i < SodierHigh; i++)
                         TableHuristic = HuristicAStarGreadySearchSoldier(ref TableHuristic, i, AStarGreedyi, a, Order, CurrentTableHuristic, ref Act);
                 }
                 else
@@ -7561,7 +7561,7 @@ if (Kind == 2)
                 if (0 != ElefantMidle)
                 {
                     //Do For Remaining Objects same as Soldeir Documentation.
-                    for (int i = 0; i < ElefantMidle; i++)
+                    for (var i = 0; i < ElefantMidle; i++)
                         TableHuristic = HuristicAStarGreadySearchElephant(ref TableHuristic, i, AStarGreedyi, a, Order, CurrentTableHuristic, ref Act);
                 }
                 else
@@ -7578,7 +7578,7 @@ if (Kind == 2)
                 if (ElefantHigh != ElefantMidle)
                 {
                     //Do For Remaining Objects same as Soldeir Documentation.
-                    for (int i = ElefantMidle; i < ElefantHigh; i++)
+                    for (var i = ElefantMidle; i < ElefantHigh; i++)
                         TableHuristic = HuristicAStarGreadySearchElephant(ref TableHuristic, i, AStarGreedyi, a, Order, CurrentTableHuristic, ref Act);
                 }
                 else
@@ -7695,7 +7695,7 @@ if (Kind == 2)
                 if (0 != HourseMidle)
                 {
                     //For Every Soldeir
-                    for (int i = 0; i < HourseMidle; i++)
+                    for (var i = 0; i < HourseMidle; i++)
                         TableHuristic = HuristicAStarGreadySearchHourse(ref TableHuristic, i, AStarGreedyi, a, Order, CurrentTableHuristic, ref Act);
                 }
                 else
@@ -7713,7 +7713,7 @@ if (Kind == 2)
                 if (HourseHight != HourseMidle)
                 {
                     //For Every Soldeir
-                    for (int i = HourseMidle; i < HourseHight; i++)
+                    for (var i = HourseMidle; i < HourseHight; i++)
                         TableHuristic = HuristicAStarGreadySearchHourse(ref TableHuristic, i, AStarGreedyi, a, Order, CurrentTableHuristic, ref Act);
                 }
                 else
@@ -7818,7 +7818,7 @@ if (Kind == 2)
 
                 if (0 != HourseMidle)
                 {
-                    for (int i = 0; i < CastleMidle; i++)
+                    for (var i = 0; i < CastleMidle; i++)
                         TableHuristic = HuristicAStarGreadySearchCastle(ref TableHuristic, i, AStarGreedyi, a, Order, CurrentTableHuristic, ref Act);
                 }
                 else
@@ -7836,7 +7836,7 @@ if (Kind == 2)
 
                 if (CastleMidle != CastleHigh)
                 {
-                    for (int i = CastleMidle; i < CastleHigh; i++)
+                    for (var i = CastleMidle; i < CastleHigh; i++)
                         TableHuristic = HuristicAStarGreadySearchCastle(ref TableHuristic, i, AStarGreedyi, a, Order, CurrentTableHuristic, ref Act);
 
                 }
@@ -7945,7 +7945,7 @@ if (Kind == 2)
             {
                 if (0 != MinisterMidle)
                 {
-                    for (int i = 0; i < MinisterMidle; i++)
+                    for (var i = 0; i < MinisterMidle; i++)
                         TableHuristic = HuristicAStarGreadySearchMinsister(ref TableHuristic, i, AStarGreedyi, a, Order, CurrentTableHuristic, ref Act);
 
                 }
@@ -7962,7 +7962,7 @@ if (Kind == 2)
             {
                 if (MinisterHigh != MinisterMidle)
                 {
-                    for (int i = MinisterMidle; i < MinisterHigh; i++)
+                    for (var i = MinisterMidle; i < MinisterHigh; i++)
                         TableHuristic = HuristicAStarGreadySearchMinsister(ref TableHuristic, i, AStarGreedyi, a, Order, CurrentTableHuristic, ref Act);
 
                 }
@@ -8061,7 +8061,7 @@ if (Kind == 2)
             {
                 if (0 != KingMidle)
                 {
-                    for (int i = 0; i < KingMidle; i++)
+                    for (var i = 0; i < KingMidle; i++)
                         TableHuristic = HuristicAStarGreadySearchKing(ref TableHuristic, i, AStarGreedyi, a, Order, CurrentTableHuristic, ref Act);
                 }
                 else
@@ -8077,7 +8077,7 @@ if (Kind == 2)
 
                 if (KingHigh != KingMidle)
                 {
-                    for (int i = KingMidle; i < KingHigh; i++)
+                    for (var i = KingMidle; i < KingHigh; i++)
                         TableHuristic = HuristicAStarGreadySearchKing(ref TableHuristic, i, AStarGreedyi, a, Order, CurrentTableHuristic, ref Act);
                 }
                 else
@@ -10120,7 +10120,7 @@ if (Kind == 2)
                 }
                 LoopHuristicIndex = 0;
                 //For One time.
-                for (int i = 0; i < 1; i++)
+                for (var i = 0; i < 1; i++)
                 {
                     //If Order is Gray.
                     Object O2 = new Object();
@@ -10860,8 +10860,8 @@ if (Kind == 2)
                 Tab[3] = CastleMidle;
                 Tab[4] = MinisterMidle;
                 Tab[5] = KingMidle;
-                int Max = 0;
-                for (int i = 0; i < 6; i++)
+                var Max = 0;
+                for (var i = 0; i < 6; i++)
                 {
                     if (Tab[i] > Max)
                         Max = Tab[i];
@@ -10882,8 +10882,8 @@ if (Kind == 2)
                 Tab[3] = CastleHigh;
                 Tab[4] = MinisterHigh;
                 Tab[5] = KingHigh;
-                int Max = 0;
-                for (int i = 0; i < 6; i++)
+                var Max = 0;
+                for (var i = 0; i < 6; i++)
                 {
                     if (Tab[i] > Max)
                         Max = Tab[i];
@@ -10904,8 +10904,8 @@ if (Kind == 2)
                 Tab[3] = CastleHigh;
                 Tab[4] = MinisterHigh;
                 Tab[5] = KingHigh;
-                int Min = MaxBrownHigh();
-                for (int i = 0; i < 6; i++)
+                var Min = MaxBrownHigh();
+                for (var i = 0; i < 6; i++)
                 {
                     if (Tab[i] < Min)
                         Min = Tab[i];
@@ -10919,7 +10919,7 @@ if (Kind == 2)
             Object oo = new Object();
             lock (oo)
             {
-                for (int i = 0; i < MaxGrayMidle(); i++)
+                for (var i = 0; i < MaxGrayMidle(); i++)
                 {
                     //Parallel.Invoke(() =>
                     {
@@ -10949,7 +10949,7 @@ if (Kind == 2)
                                             if (SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count == 0)
                                             {
                                                 //For All Movable Gray Solders.
-                                                for (int j = 0; j < AllDraw.SodierMovments; j++)
+                                                for (var j = 0; j < AllDraw.SodierMovments; j++)
                                                 ////Parallel.For(0, AllDraw.SodierMovments, j =>
                                                 {
                                                     //ThinkingQuantum of Gray Solder Operation.
@@ -11006,7 +11006,7 @@ if (Kind == 2)
                                             {
                                                 //For All Possible Movments.
                                                 ////Parallel.For(0, AllDraw.ElefantMovments, j =>
-                                                for (int j = 0; j < AllDraw.ElefantMovments; j++)
+                                                for (var j = 0; j < AllDraw.ElefantMovments; j++)
                                                 {
                                                     //Operational ThinkingQuantum Gray Elephant. 
                                                     Object OOO = new Object();
@@ -11060,7 +11060,7 @@ if (Kind == 2)
                                             if (HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count == 0)
                                             {
                                                 //For All Possible Movments.
-                                                for (int j = 0; j < AllDraw.HourseMovments; j++)
+                                                for (var j = 0; j < AllDraw.HourseMovments; j++)
                                                 ////Parallel.For(0, AllDraw.HourseMovments, j =>
                                                 {
                                                     //ThinkingQuantum of Gray Hourse Oprational.
@@ -11113,7 +11113,7 @@ if (Kind == 2)
                                             {
                                                 //For All Possible Movments.
                                                 ////Parallel.For(0, AllDraw.CastleMovments, j =>
-                                                for (int j = 0; j < AllDraw.CastleMovments; j++)
+                                                for (var j = 0; j < AllDraw.CastleMovments; j++)
                                                 {
                                                     Object OOO = new Object();
                                                     lock (OOO)
@@ -11168,7 +11168,7 @@ if (Kind == 2)
                                             if (MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count == 0)
                                             {
                                                 //For All Possible Movments.
-                                                for (int j = 0; j < AllDraw.MinisterMovments; j++)
+                                                for (var j = 0; j < AllDraw.MinisterMovments; j++)
                                                 ////Parallel.For(0, AllDraw.MinisterMovments, j =>
                                                 {
                                                     //ThinkingQuantum of Gray Minister Operational.
@@ -11228,7 +11228,7 @@ if (Kind == 2)
                                             {
                                                 //For All Possible Gray King Movments.
                                                 ////Parallel.For(0, AllDraw.KingMovments, j =>
-                                                for (int j = 0; j < AllDraw.KingMovments; j++)
+                                                for (var j = 0; j < AllDraw.KingMovments; j++)
                                                 {
                                                     //ThinkingQuantum Of Gray King Operatins.
                                                     Object OOO = new Object();
@@ -11264,7 +11264,7 @@ if (Kind == 2)
             lock (oo)
             {
                 ////Parallel.For(MinBrownMidle(), MaxBrownHigh(), i =>
-                for (int i = MinBrownMidle(); i < MaxBrownHigh(); i++)
+                for (var i = MinBrownMidle(); i < MaxBrownHigh(); i++)
                 {
 
                     //Parallel.Invoke(() =>
@@ -11295,7 +11295,7 @@ if (Kind == 2)
                                             if (SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count == 0)
                                             {
                                                 //For All Movable Gray Solders.
-                                                for (int j = 0; j < AllDraw.SodierMovments; j++)
+                                                for (var j = 0; j < AllDraw.SodierMovments; j++)
                                                 ////Parallel.For(0, AllDraw.SodierMovments, j =>
                                                 {
                                                     //ThinkingQuantum of Gray Solder Operation.
@@ -11350,7 +11350,7 @@ if (Kind == 2)
                                             {
                                                 //For All Possible Movments.
                                                 ////Parallel.For(0, AllDraw.ElefantMovments, j =>
-                                                for (int j = 0; j < AllDraw.ElefantMovments; j++)
+                                                for (var j = 0; j < AllDraw.ElefantMovments; j++)
                                                 {
                                                     //Operational ThinkingQuantum Gray Elephant. 
                                                     Object OOO = new Object();
@@ -11402,7 +11402,7 @@ if (Kind == 2)
                                             if (HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count == 0)
                                             {
                                                 //For All Possible Movments.
-                                                for (int j = 0; j < AllDraw.HourseMovments; j++)
+                                                for (var j = 0; j < AllDraw.HourseMovments; j++)
                                                 ////Parallel.For(0, AllDraw.HourseMovments, j =>
                                                 {
                                                     //ThinkingQuantum of Gray Hourse Oprational.
@@ -11456,7 +11456,7 @@ if (Kind == 2)
                                             {
                                                 //For All Possible Movments.
                                                 ////Parallel.For(0, AllDraw.CastleMovments, j =>
-                                                for (int j = 0; j < AllDraw.CastleMovments; j++)
+                                                for (var j = 0; j < AllDraw.CastleMovments; j++)
                                                 {
                                                     Object OOO = new Object();
                                                     lock (OOO)
@@ -11509,7 +11509,7 @@ if (Kind == 2)
                                             {
                                                 //For All Possible Movments.
                                                 ////Parallel.For(0, AllDraw.MinisterMovments, j =>
-                                                for (int j = 0; j < AllDraw.MinisterMovments; j++)
+                                                for (var j = 0; j < AllDraw.MinisterMovments; j++)
                                                 {
                                                     //ThinkingQuantum of Gray Minister Operational.
                                                     Object OOO = new Object();
@@ -11561,7 +11561,7 @@ if (Kind == 2)
                                             if (KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count == 0)
                                             {
                                                 //For All Possible Gray King Movments.
-                                                for (int j = 0; j < AllDraw.KingMovments; j++)
+                                                for (var j = 0; j < AllDraw.KingMovments; j++)
                                                 {
                                                     //ThinkingQuantum Of Gray King Operatins.
                                                     Object OOO = new Object();
@@ -11592,8 +11592,8 @@ if (Kind == 2)
         }
         int FoundTableIndex(List<int[,]> T, int[,] TAab)
         {
-            int C = -1;
-            for (int i = 0; i < T.Count; i++)
+            var C = -1;
+            for (var i = 0; i < T.Count; i++)
             {
                 if (TableEqual(T[i], TAab))
                     C = i;
@@ -11603,8 +11603,8 @@ if (Kind == 2)
         bool TableEqual(int[,] t1, int[,] t2)
         {
             bool Is = true;
-            for (int i = 0; i < 8; i++)
-                for (int j = 0; j < 8; j++)
+            for (var i = 0; i < 8; i++)
+                for (var j = 0; j < 8; j++)
                 {
                     if (t1[i, j] != t2[i, j])
                         Is = false;
@@ -11615,33 +11615,33 @@ if (Kind == 2)
         {
             if (Order == 1)
             {
-                for (int i = 0; i < SodierMidle; i++)
+                for (var i = 0; i < SodierMidle; i++)
                     ServeISSup(Order, 1, i);
-                for (int i = 0; i < ElefantMidle; i++)
+                for (var i = 0; i < ElefantMidle; i++)
                     ServeISSup(Order, 2, i);
-                for (int i = 0; i < HourseMidle; i++)
+                for (var i = 0; i < HourseMidle; i++)
                     ServeISSup(Order, 3, i);
-                for (int i = 0; i < CastleMidle; i++)
+                for (var i = 0; i < CastleMidle; i++)
                     ServeISSup(Order, 4, i);
-                for (int i = 0; i < MinisterMidle; i++)
+                for (var i = 0; i < MinisterMidle; i++)
                     ServeISSup(Order, 5, i);
-                for (int i = 0; i < KingMidle; i++)
+                for (var i = 0; i < KingMidle; i++)
                     ServeISSup(Order, 6, i);
 
             }
             else
             {
-                for (int i = SodierMidle; i < SodierHigh; i++)
+                for (var i = SodierMidle; i < SodierHigh; i++)
                     ServeISSup(Order, 1, i);
-                for (int i = ElefantMidle; i < ElefantHigh; i++)
+                for (var i = ElefantMidle; i < ElefantHigh; i++)
                     ServeISSup(Order, 2, i);
-                for (int i = HourseMidle; i < HourseHight; i++)
+                for (var i = HourseMidle; i < HourseHight; i++)
                     ServeISSup(Order, 3, i);
-                for (int i = CastleMidle; i < CastleHigh; i++)
+                for (var i = CastleMidle; i < CastleHigh; i++)
                     ServeISSup(Order, 4, i);
-                for (int i = MinisterMidle; i < MinisterHigh; i++)
+                for (var i = MinisterMidle; i < MinisterHigh; i++)
                     ServeISSup(Order, 5, i);
-                for (int i = KingMidle; i < KingHigh; i++)
+                for (var i = KingMidle; i < KingHigh; i++)
                     ServeISSup(Order, 6, i);
             }
         }
@@ -11657,12 +11657,12 @@ if (Kind == 2)
                     //if (SolderesOnTable[ii].SoldierThinkingQuantum[0].IsSup[j])
                     {
 
-                        for (int i = 0; i < SodierMidle; i++)
+                        for (var i = 0; i < SodierMidle; i++)
                         {
                             if (SolderesOnTable[i] == null)
                                 continue;
-                            //int j = FoundTableIndex(this.SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder, SolderesOnTable[ii].SoldierThinkingQuantum[0].TableConst);
-                            for (int j = 0; j < SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder.Count; j++)
+                            //var j = FoundTableIndex(this.SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder, SolderesOnTable[ii].SoldierThinkingQuantum[0].TableConst);
+                            for (var j = 0; j < SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder.Count; j++)
                             {
                                 if (!(SolderesOnTable[i].SoldierThinkingQuantum[0].IsSup[j]))
                                     continue;
@@ -11700,12 +11700,12 @@ if (Kind == 2)
                     //if (SolderesOnTable[ii].SoldierThinkingQuantum[0].IsSup[j])
                     {
 
-                        for (int i = SodierMidle; i < SodierHigh; i++)
+                        for (var i = SodierMidle; i < SodierHigh; i++)
                         {
                             if (SolderesOnTable[i] == null)
                                 continue;
-                            //int j = FoundTableIndex(this.SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder, SolderesOnTable[ii].SoldierThinkingQuantum[0].TableConst);
-                            for (int j = 0; j < SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder.Count; j++)
+                            //var j = FoundTableIndex(this.SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder, SolderesOnTable[ii].SoldierThinkingQuantum[0].TableConst);
+                            for (var j = 0; j < SolderesOnTable[i].SoldierThinkingQuantum[0].HuristicListSolder.Count; j++)
                             {
                                 if (!(SolderesOnTable[i].SoldierThinkingQuantum[0].IsSup[j]))
                                     continue;
@@ -11745,14 +11745,14 @@ if (Kind == 2)
                 {
                     //if (ElephantOnTable[ii].ElefantThinkingQuantum[0].IsSup[j])
                     {
-                        for (int i = 0; i < ElefantMidle; i++)
+                        for (var i = 0; i < ElefantMidle; i++)
                         {
                             if (ElephantOnTable[i] == null)
                                 continue;
                             //if (this != null && this != null)
                             {
-                                //int j = FoundTableIndex(this.ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant, ElephantOnTable[ii].ElefantThinkingQuantum[0].TableConst);
-                                for (int j = 0; j < ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListElefant.Count; j++)
+                                //var j = FoundTableIndex(this.ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant, ElephantOnTable[ii].ElefantThinkingQuantum[0].TableConst);
+                                for (var j = 0; j < ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListElefant.Count; j++)
                                 {
                                     if (!(ElephantOnTable[i].ElefantThinkingQuantum[0].IsSup[j]))
                                         continue;
@@ -11790,14 +11790,14 @@ if (Kind == 2)
 
                     //if (ElephantOnTable[ii].ElefantThinkingQuantum[0].IsSup[j])
                     {
-                        for (int i = ElefantMidle; i < ElefantHigh; i++)
+                        for (var i = ElefantMidle; i < ElefantHigh; i++)
                         {
                             if (ElephantOnTable[i] == null)
                                 continue;
                             //if (this != null && this != null)
                             {
-                                //int j = FoundTableIndex(this.ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant, ElephantOnTable[ii].ElefantThinkingQuantum[0].TableConst);
-                                for (int j = 0; j < ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListElefant.Count; j++)
+                                //var j = FoundTableIndex(this.ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant, ElephantOnTable[ii].ElefantThinkingQuantum[0].TableConst);
+                                for (var j = 0; j < ElephantOnTable[i].ElefantThinkingQuantum[0].HuristicListElefant.Count; j++)
                                 {
                                     if (!(ElephantOnTable[i].ElefantThinkingQuantum[0].IsSup[j]))
                                         continue;
@@ -11838,12 +11838,12 @@ if (Kind == 2)
                 {
                     //if (HoursesOnTable[ii].HourseThinkingQuantum[0].IsSup[j])
                     {
-                        for (int i = 0; i < HourseMidle; i++)
+                        for (var i = 0; i < HourseMidle; i++)
                         {
                             if (HoursesOnTable[i] == null)
                                 continue;
-                            //int j = FoundTableIndex(this.HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse, HoursesOnTable[ii].HourseThinkingQuantum[0].TableConst);
-                            for (int j = 0; j < HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListHourse.Count; j++)
+                            //var j = FoundTableIndex(this.HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse, HoursesOnTable[ii].HourseThinkingQuantum[0].TableConst);
+                            for (var j = 0; j < HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListHourse.Count; j++)
                             {
                                 if (!(HoursesOnTable[i].HourseThinkingQuantum[0].IsSup[j]))
                                     continue;
@@ -11880,12 +11880,12 @@ if (Kind == 2)
                 {
                     //if (HoursesOnTable[ii].HourseThinkingQuantum[0].IsSup[j])
                     {
-                        for (int i = HourseMidle; i < HourseHight; i++)
+                        for (var i = HourseMidle; i < HourseHight; i++)
                         {
                             if (HoursesOnTable[i] == null)
                                 continue;
-                            //int j = FoundTableIndex(this.HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse, HoursesOnTable[ii].HourseThinkingQuantum[0].TableConst);
-                            for (int j = 0; j < HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListHourse.Count; j++)
+                            //var j = FoundTableIndex(this.HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse, HoursesOnTable[ii].HourseThinkingQuantum[0].TableConst);
+                            for (var j = 0; j < HoursesOnTable[i].HourseThinkingQuantum[0].HuristicListHourse.Count; j++)
                             {
                                 if (!(HoursesOnTable[i].HourseThinkingQuantum[0].IsSup[j]))
                                     continue;
@@ -11924,12 +11924,12 @@ if (Kind == 2)
                 {
                     //if (CastlesOnTable[ii].CastleThinkingQuantum[0].IsSup[j])
                     {
-                        for (int i = 0; i < CastleMidle; i++)
+                        for (var i = 0; i < CastleMidle; i++)
                         {
                             if (CastlesOnTable[i] == null)
                                 continue;
-                            //int j = FoundTableIndex(this.CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle, CastlesOnTable[ii].CastleThinkingQuantum[0].TableConst);
-                            for (int j = 0; j < CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListCastle.Count; j++)
+                            //var j = FoundTableIndex(this.CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle, CastlesOnTable[ii].CastleThinkingQuantum[0].TableConst);
+                            for (var j = 0; j < CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListCastle.Count; j++)
                             {
                                 if (!(CastlesOnTable[i].CastleThinkingQuantum[0].IsSup[j]))
                                     continue;
@@ -11965,12 +11965,12 @@ if (Kind == 2)
                 {
                     //if (CastlesOnTable[ii].CastleThinkingQuantum[0].IsSup[j])
                     {
-                        for (int i = CastleMidle; i < CastleHigh; i++)
+                        for (var i = CastleMidle; i < CastleHigh; i++)
                         {
                             if (CastlesOnTable[i] == null)
                                 continue;
-                            //int j = FoundTableIndex(this.CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle, CastlesOnTable[ii].CastleThinkingQuantum[0].TableConst);
-                            for (int j = 0; j < CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListCastle.Count; j++)
+                            //var j = FoundTableIndex(this.CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle, CastlesOnTable[ii].CastleThinkingQuantum[0].TableConst);
+                            for (var j = 0; j < CastlesOnTable[i].CastleThinkingQuantum[0].HuristicListCastle.Count; j++)
                             {
                                 if (!(CastlesOnTable[i].CastleThinkingQuantum[0].IsSup[j]))
                                     continue;
@@ -12011,12 +12011,12 @@ if (Kind == 2)
                 {
                     //if (MinisterOnTable[ii].MinisterThinkingQuantum[0].IsSup[j])
                     {
-                        for (int i = 0; i < MinisterMidle; i++)
+                        for (var i = 0; i < MinisterMidle; i++)
                         {
                             if (MinisterOnTable[i] == null)
                                 continue;
-                            //int j = FoundTableIndex(this.MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister, MinisterOnTable[ii].MinisterThinkingQuantum[0].TableConst);
-                            for (int j = 0; j < MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListMinister.Count; j++)
+                            //var j = FoundTableIndex(this.MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister, MinisterOnTable[ii].MinisterThinkingQuantum[0].TableConst);
+                            for (var j = 0; j < MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListMinister.Count; j++)
                             {
                                 if (!(MinisterOnTable[i].MinisterThinkingQuantum[0].IsSup[j]))
                                     continue;
@@ -12053,12 +12053,12 @@ if (Kind == 2)
                 {
                     //if (MinisterOnTable[ii].MinisterThinkingQuantum[0].IsSup[j])
                     {
-                        for (int i = MinisterMidle; i < MinisterHigh; i++)
+                        for (var i = MinisterMidle; i < MinisterHigh; i++)
                         {
                             if (MinisterOnTable[i] == null)
                                 continue;
-                            //int j = FoundTableIndex(this.MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister, MinisterOnTable[ii].MinisterThinkingQuantum[0].TableConst);
-                            for (int j = 0; j < MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListMinister.Count; j++)
+                            //var j = FoundTableIndex(this.MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister, MinisterOnTable[ii].MinisterThinkingQuantum[0].TableConst);
+                            for (var j = 0; j < MinisterOnTable[i].MinisterThinkingQuantum[0].HuristicListMinister.Count; j++)
                             {
                                 if (!(MinisterOnTable[i].MinisterThinkingQuantum[0].IsSup[j]))
                                     continue;
@@ -12099,12 +12099,12 @@ if (Kind == 2)
                 {
                     //if (KingOnTable[ii].KingThinkingQuantum[0].IsSup[j])
                     {
-                        for (int i = 0; i < KingMidle; i++)
+                        for (var i = 0; i < KingMidle; i++)
                         {
                             if (KingOnTable[i] == null)
                                 continue;
-                            //int j = FoundTableIndex(this.KingOnTable[i].KingThinkingQuantum[0].TableListKing, KingOnTable[ii].KingThinkingQuantum[0].TableConst);
-                            for (int j = 0; j < KingOnTable[i].KingThinkingQuantum[0].HuristicListKing.Count; j++)
+                            //var j = FoundTableIndex(this.KingOnTable[i].KingThinkingQuantum[0].TableListKing, KingOnTable[ii].KingThinkingQuantum[0].TableConst);
+                            for (var j = 0; j < KingOnTable[i].KingThinkingQuantum[0].HuristicListKing.Count; j++)
                             {
                                 if (!(KingOnTable[i].KingThinkingQuantum[0].IsSup[j]))
                                     continue;
@@ -12142,12 +12142,12 @@ if (Kind == 2)
                 {
                     //if (KingOnTable[ii].KingThinkingQuantum[0].IsSup[j])
                     {
-                        for (int i = KingMidle; i < KingHigh; i++)
+                        for (var i = KingMidle; i < KingHigh; i++)
                         {
                             if (KingOnTable[i] == null)
                                 continue;
-                            //int j = FoundTableIndex(this.KingOnTable[i].KingThinkingQuantum[0].TableListKing, KingOnTable[ii].KingThinkingQuantum[0].TableConst);
-                            for (int j = 0; j < KingOnTable[i].KingThinkingQuantum[0].HuristicListKing.Count; j++)
+                            //var j = FoundTableIndex(this.KingOnTable[i].KingThinkingQuantum[0].TableListKing, KingOnTable[ii].KingThinkingQuantum[0].TableConst);
+                            for (var j = 0; j < KingOnTable[i].KingThinkingQuantum[0].HuristicListKing.Count; j++)
                             {
                                 if (!(KingOnTable[i].KingThinkingQuantum[0].IsSup[j]))
                                     continue;
@@ -12195,7 +12195,7 @@ if (Kind == 2)
 
                 //For Gray Soldeirs Objects. 
                 //Parallel.For(0, SodierMidle, i =>
-                for (int i = 0; i < SodierMidle; i++)
+                for (var i = 0; i < SodierMidle; i++)
                 {
                     Object O = new Object();
                     lock (O)
@@ -12254,7 +12254,7 @@ if (Kind == 2)
             {
                 //List<Task> tH = new List<Task>();
                 //Parallel.For(0, ElefantMidle, i =>
-                for (int i = 0; i < ElefantMidle; i++)
+                for (var i = 0; i < ElefantMidle; i++)
                 {
                     Object O = new Object();
                     lock (O)
@@ -12311,7 +12311,7 @@ if (Kind == 2)
                 //List<Task> tH = new List<Task>();
                 //For All Gray Hourse Objects.
                 //Parallel.For(0, HourseMidle, i =>
-                for (int i = 0; i < HourseMidle; i++)
+                for (var i = 0; i < HourseMidle; i++)
 
                 {
                     Object O = new Object();
@@ -12371,7 +12371,7 @@ if (Kind == 2)
                 //List<Task> tH = new List<Task>();
                 //For All Possible Gray Castles Objects.
                 //Parallel.For(0, CastleMidle, i =>
-                for (int i = 0; i < CastleMidle; i++)
+                for (var i = 0; i < CastleMidle; i++)
                 {
                     Object O = new Object();
                     lock (O)
@@ -12429,7 +12429,7 @@ if (Kind == 2)
                 //List<Task> tH = new List<Task>();
                 //For All Possible Gray Minister Movments.
                 //Parallel.For(0, MinisterMidle, i =>
-                for (int i = 0; i < MinisterMidle; i++)
+                for (var i = 0; i < MinisterMidle; i++)
                 {
                     try
                     {
@@ -12487,7 +12487,7 @@ if (Kind == 2)
                 //List<Task> tH = new List<Task>();
                 //For All Possible Gray King Objects.
                 //Parallel.For(0, KingMidle, i =>
-                for (int i = 0; i < KingMidle; i++)
+                for (var i = 0; i < KingMidle; i++)
                 {
                     Object O = new Object();
                     lock (O)
@@ -12544,7 +12544,7 @@ if (Kind == 2)
                 //List<Task> tH = new List<Task>();
                 //For Each Objects of Brown Sodiers.
                 //Parallel.For(SodierMidle, SodierHigh, i =>
-                for (int i = SodierMidle; i < SodierHigh; i++)
+                for (var i = SodierMidle; i < SodierHigh; i++)
                 {
                     Object O = new Object();
                     lock (O)
@@ -12604,7 +12604,7 @@ if (Kind == 2)
             {
                 //List<Task> tH = new List<Task>();
                 //Parallel.For(ElefantMidle, ElefantHigh, i =>
-                for (int i = ElefantMidle; i < ElefantHigh; i++)
+                for (var i = ElefantMidle; i < ElefantHigh; i++)
                 {
                     Object O = new Object();
                     lock (O)
@@ -12662,7 +12662,7 @@ if (Kind == 2)
             {
                 //List<Task> tH = new List<Task>();
                 //Parallel.For(HourseMidle, HourseHight, i =>
-                for (int i = HourseMidle; i < HourseHight; i++)
+                for (var i = HourseMidle; i < HourseHight; i++)
                 {
                     Object O = new Object();
                     lock (O)
@@ -12722,7 +12722,7 @@ if (Kind == 2)
             {
                 //List<Task> tH = new List<Task>();
                 //Parallel.For(CastleMidle, CastleHigh, i =>
-                for (int i = CastleMidle; i < CastleHigh; i++)
+                for (var i = CastleMidle; i < CastleHigh; i++)
                 {
                     Object O = new Object();
                     lock (O)
@@ -12781,7 +12781,7 @@ if (Kind == 2)
             {
                 //List<Task> tH = new List<Task>();
                 //Parallel.For(MinisterMidle, MinisterHigh, i =>
-                for (int i = MinisterMidle; i < MinisterHigh; i++)
+                for (var i = MinisterMidle; i < MinisterHigh; i++)
                 {
                     Object O = new Object();
                     lock (O)
@@ -12836,7 +12836,7 @@ if (Kind == 2)
             {
                 //List<Task> tH = new List<Task>();
                 //Parallel.For(KingMidle, KingHigh, i =>
-                for (int i = KingMidle; i < KingHigh; i++)
+                for (var i = KingMidle; i < KingHigh; i++)
                 {
                     Object O = new Object();
                     lock (O)
@@ -12896,7 +12896,7 @@ if (Kind == 2)
             //    IS = true;
             if (Order == 1)
             {
-                for (int ikk = 0; ikk < SodierMidle; ikk++)
+                for (var ikk = 0; ikk < SodierMidle; ikk++)
                 {
                     if (SolderesOnTable[ikk] == null)
                         continue;
@@ -12916,7 +12916,7 @@ if (Kind == 2)
                         IS = true;
                     }
                 }
-                for (int ikk = 0; ikk < HourseMidle; ikk++)
+                for (var ikk = 0; ikk < HourseMidle; ikk++)
                 {
                     if (HoursesOnTable[ikk] == null)
                         continue;
@@ -12926,7 +12926,7 @@ if (Kind == 2)
                         IS = true;
                     }
                 }
-                for (int ikk = 0; ikk < CastleMidle; ikk++)
+                for (var ikk = 0; ikk < CastleMidle; ikk++)
                 {
                     if (CastlesOnTable[ikk] == null)
                         continue;
@@ -12936,7 +12936,7 @@ if (Kind == 2)
                         IS = true;
                     }
                 }
-                for (int ikk = 0; ikk < MinisterMidle; ikk++)
+                for (var ikk = 0; ikk < MinisterMidle; ikk++)
                 {
                     if (MinisterOnTable[ikk] == null)
                         continue;
@@ -12946,7 +12946,7 @@ if (Kind == 2)
                         IS = true;
                     }
                 }
-                for (int ikk = 0; ikk < KingMidle; ikk++)
+                for (var ikk = 0; ikk < KingMidle; ikk++)
                 {
                     if (KingOnTable[ikk] == null)
                         continue;
@@ -12970,7 +12970,7 @@ if (Kind == 2)
             }
             else
             {
-                for (int ikk = SodierMidle; ikk < SodierHigh; ikk++)
+                for (var ikk = SodierMidle; ikk < SodierHigh; ikk++)
                 {
                     if (SolderesOnTable[ikk] == null)
                         continue;
@@ -12980,7 +12980,7 @@ if (Kind == 2)
                         IS = true;
                     }
                 }
-                for (int ikk = ElefantMidle; ikk < ElefantHigh; ikk++)
+                for (var ikk = ElefantMidle; ikk < ElefantHigh; ikk++)
                 {
                     if (ElephantOnTable[ikk] == null)
                         continue;
@@ -12990,7 +12990,7 @@ if (Kind == 2)
                         IS = true;
                     }
                 }
-                for (int ikk = HourseMidle; ikk < HourseHight; ikk++)
+                for (var ikk = HourseMidle; ikk < HourseHight; ikk++)
                 {
                     if (HoursesOnTable[ikk] == null)
                         continue;
@@ -13000,7 +13000,7 @@ if (Kind == 2)
                         IS = true;
                     }
                 }
-                for (int ikk = CastleMidle; ikk < CastleHigh; ikk++)
+                for (var ikk = CastleMidle; ikk < CastleHigh; ikk++)
                 {
                     if (CastlesOnTable[ikk] == null)
                         continue;
@@ -13010,7 +13010,7 @@ if (Kind == 2)
                         IS = true;
                     }
                 }
-                for (int ikk = MinisterMidle; ikk < MinisterHigh; ikk++)
+                for (var ikk = MinisterMidle; ikk < MinisterHigh; ikk++)
                 {
                     if (MinisterOnTable[ikk] == null)
                         continue;
@@ -13020,7 +13020,7 @@ if (Kind == 2)
                         IS = true;
                     }
                 }
-                for (int ikk = KingMidle; ikk < KingHigh; ikk++)
+                for (var ikk = KingMidle; ikk < KingHigh; ikk++)
                 {
                     if (KingOnTable[ikk] == null)
                         continue;
@@ -13059,7 +13059,7 @@ if (Kind == 2)
                     bool TB1 = TB;
                     Color aa = a;
 
-                    Task output = Task.Factory.StartNew(() =>
+                    var output = Task.Factory.StartNew(() =>
                     Parallel.Invoke(() =>
                     {
                         //For All Gray Soldier Objects.
@@ -13126,7 +13126,7 @@ if (Kind == 2)
                     Color aa = a;
                     //If Order is Gray.
 
-                    Task output = Task.Factory.StartNew(() =>
+                    var output = Task.Factory.StartNew(() =>
                       Parallel.Invoke(() =>
                       {
                           //For All Gray Soldier Objects.
@@ -13191,9 +13191,9 @@ if (Kind == 2)
             )
         {
             {
-                //Task tAstarGreedyThinkingQuantum = null;
-                //Task tFoundOfLeafDepenOfKindFullGame = null;
-                //Task tFullGameThinkingQuantumTree = null;
+                //var tAstarGreedyThinkingQuantum = null;
+                //var tFoundOfLeafDepenOfKindFullGame = null;
+                //var tFullGameThinkingQuantumTree = null;
                 //List<Task> T = new List<Task>();
                 OrderP = Order;
                 SetObjectNumbers(Tab);
@@ -13275,7 +13275,7 @@ if (Kind == 2)
                                 Color aa = a;
 
 
-                                Task output = Task.Factory.StartNew(() =>
+                                var output = Task.Factory.StartNew(() =>
                                 Parallel.Invoke(() =>
                                 {
                                     //For All Gray Soldier Objects.
@@ -13344,7 +13344,7 @@ if (Kind == 2)
                                 //If Order is Gray.
 
 
-                                Task output = Task.Factory.StartNew(() =>
+                                var output = Task.Factory.StartNew(() =>
                                 Parallel.Invoke(() =>
                                 {
                                     //For All Gray Soldier Objects.
@@ -14189,7 +14189,7 @@ if (Kind == 2)
                     SolderesOnTable[Index[0]].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[Index[0]].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumn(0);
                     //SolderesOnTable[Index[0]].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[Index[0]].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, SolderesOnTable[Index[0]].SoldierThinkingQuantum[0].TableListSolder[jIndex[0]], Order, false);
                     //ParameterizedThreadStart start = new ParameterizedThreadStart(SolderesOnTable[Index[0]].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[Index[0]].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
-                    Task array = Task.Factory.StartNew(() => SolderesOnTable[Index[0]].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[Index[0]].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, SolderesOnTable[Index[0]].SoldierThinkingQuantum[0].RowColumnSoldier[jIndex[0]][0], SolderesOnTable[Index[0]].SoldierThinkingQuantum[0].RowColumnSoldier[jIndex[0]][1], a, SolderesOnTable[Index[0]].SoldierThinkingQuantum[0].TableListSolder[jIndex[0]], Order, false, FOUND, LeafAStarGreedy));
+                    var array = Task.Factory.StartNew(() => SolderesOnTable[Index[0]].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[Index[0]].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, SolderesOnTable[Index[0]].SoldierThinkingQuantum[0].RowColumnSoldier[jIndex[0]][0], SolderesOnTable[Index[0]].SoldierThinkingQuantum[0].RowColumnSoldier[jIndex[0]][1], a, SolderesOnTable[Index[0]].SoldierThinkingQuantum[0].TableListSolder[jIndex[0]], Order, false, FOUND, LeafAStarGreedy));
                     Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
                     array.Wait();
                     //array.Name = "S" + i.ToString();
@@ -14216,7 +14216,7 @@ if (Kind == 2)
                     ElephantOnTable[Index[1]].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[Index[1]].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumn(0);
                     //ElephantOnTable[Index[1]].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[Index[1]].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, ElephantOnTable[Index[1]].ElefantThinkingQuantum[0].TableListElefant[jIndex[1]], Order, false);
                     //ParameterizedThreadStart start = new ParameterizedThreadStart(ElephantOnTable[Index[1]].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[Index[1]].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
-                    Task array = Task.Factory.StartNew(() => ElephantOnTable[Index[1]].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[Index[1]].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ElephantOnTable[Index[1]].ElefantThinkingQuantum[0].RowColumnElefant[jIndex[1]][0], ElephantOnTable[Index[1]].ElefantThinkingQuantum[0].RowColumnElefant[jIndex[1]][1], a, ElephantOnTable[Index[1]].ElefantThinkingQuantum[0].TableListElefant[jIndex[1]], Order, false, FOUND, LeafAStarGreedy));
+                    var array = Task.Factory.StartNew(() => ElephantOnTable[Index[1]].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[Index[1]].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ElephantOnTable[Index[1]].ElefantThinkingQuantum[0].RowColumnElefant[jIndex[1]][0], ElephantOnTable[Index[1]].ElefantThinkingQuantum[0].RowColumnElefant[jIndex[1]][1], a, ElephantOnTable[Index[1]].ElefantThinkingQuantum[0].TableListElefant[jIndex[1]], Order, false, FOUND, LeafAStarGreedy));
                     Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
                     //array.Name = "E" + i.ToString();
                     //array.Start();
@@ -14241,7 +14241,7 @@ if (Kind == 2)
                     HoursesOnTable[Index[2]].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[Index[2]].HourseThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumn(0);
                     //HoursesOnTable[Index[2]].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[Index[2]].HourseThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, HoursesOnTable[Index[2]].HourseThinkingQuantum[0].TableListHourse[jIndex[2]], Order, false);
                     //ParameterizedThreadStart start = new ParameterizedThreadStart(HoursesOnTable[Index[2]].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[Index[2]].HourseThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
-                    Task array = Task.Factory.StartNew(() => HoursesOnTable[Index[2]].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[Index[2]].HourseThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, HoursesOnTable[Index[2]].HourseThinkingQuantum[0].RowColumnHourse[jIndex[2]][0], HoursesOnTable[Index[2]].HourseThinkingQuantum[0].RowColumnHourse[jIndex[2]][1], a, HoursesOnTable[Index[2]].HourseThinkingQuantum[0].TableListHourse[jIndex[2]], Order, false, FOUND, LeafAStarGreedy));
+                    var array = Task.Factory.StartNew(() => HoursesOnTable[Index[2]].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[Index[2]].HourseThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, HoursesOnTable[Index[2]].HourseThinkingQuantum[0].RowColumnHourse[jIndex[2]][0], HoursesOnTable[Index[2]].HourseThinkingQuantum[0].RowColumnHourse[jIndex[2]][1], a, HoursesOnTable[Index[2]].HourseThinkingQuantum[0].TableListHourse[jIndex[2]], Order, false, FOUND, LeafAStarGreedy));
                     Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
                     //array.Name = "H" + i.ToString();
                     //array.Start();
@@ -14266,7 +14266,7 @@ if (Kind == 2)
                     CastlesOnTable[Index[3]].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[Index[3]].CastleThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumn(0);
                     //CastlesOnTable[Index[3]].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[Index[3]].CastleThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CastlesOnTable[Index[3]].CastleThinkingQuantum[0].TableListCastle[jIndex[3]], Order, false);
                     //ParameterizedThreadStart start = new ParameterizedThreadStart(CastlesOnTable[Index[3]].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[Index[3]].CastleThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
-                    Task array = Task.Factory.StartNew(() => CastlesOnTable[Index[3]].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[Index[3]].CastleThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, CastlesOnTable[Index[3]].CastleThinkingQuantum[0].RowColumnCastle[jIndex[3]][0], CastlesOnTable[Index[3]].CastleThinkingQuantum[0].RowColumnCastle[jIndex[3]][1], a, CastlesOnTable[Index[3]].CastleThinkingQuantum[0].TableListCastle[jIndex[3]], Order, false, FOUND, LeafAStarGreedy));
+                    var array = Task.Factory.StartNew(() => CastlesOnTable[Index[3]].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[Index[3]].CastleThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, CastlesOnTable[Index[3]].CastleThinkingQuantum[0].RowColumnCastle[jIndex[3]][0], CastlesOnTable[Index[3]].CastleThinkingQuantum[0].RowColumnCastle[jIndex[3]][1], a, CastlesOnTable[Index[3]].CastleThinkingQuantum[0].TableListCastle[jIndex[3]], Order, false, FOUND, LeafAStarGreedy));
                     array.Wait();
                     Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
                     //array.Name = "B" + i.ToString();
@@ -14291,7 +14291,7 @@ if (Kind == 2)
                     MinisterOnTable[Index[4]].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[Index[4]].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumn(0);
                     //MinisterOnTable[Index[4]].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[Index[4]].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, MinisterOnTable[Index[4]].MinisterThinkingQuantum[0].TableListMinister[jIndex[4]], Order, false);
                     //ParameterizedThreadStart start = new ParameterizedThreadStart(MinisterOnTable[Index[4]].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[Index[4]].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
-                    Task array = Task.Factory.StartNew(() => MinisterOnTable[Index[4]].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[Index[4]].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, MinisterOnTable[Index[4]].MinisterThinkingQuantum[0].RowColumnMinister[jIndex[4]][0], MinisterOnTable[Index[4]].MinisterThinkingQuantum[0].RowColumnMinister[jIndex[4]][1], a, MinisterOnTable[Index[4]].MinisterThinkingQuantum[0].TableListMinister[jIndex[4]], Order, false, FOUND, LeafAStarGreedy));
+                    var array = Task.Factory.StartNew(() => MinisterOnTable[Index[4]].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[Index[4]].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, MinisterOnTable[Index[4]].MinisterThinkingQuantum[0].RowColumnMinister[jIndex[4]][0], MinisterOnTable[Index[4]].MinisterThinkingQuantum[0].RowColumnMinister[jIndex[4]][1], a, MinisterOnTable[Index[4]].MinisterThinkingQuantum[0].TableListMinister[jIndex[4]], Order, false, FOUND, LeafAStarGreedy));
                     Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
                     //array.Name = "M" + i.ToString();
                     //array.Start();
@@ -14316,7 +14316,7 @@ if (Kind == 2)
                     KingOnTable[Index[5]].KingThinkingQuantum[0].AStarGreedy[KingOnTable[Index[5]].KingThinkingQuantum[0].AStarGreedy.Count - 1].SetRowColumn(0);
                     //KingOnTable[Index[5]].KingThinkingQuantum[0].AStarGreedy[KingOnTable[Index[5]].KingThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, KingOnTable[Index[5]].KingThinkingQuantum[0].TableListKing[jIndex[5]], Order, false);
                     //ParameterizedThreadStart start = new ParameterizedThreadStart(KingOnTable[Index[5]].KingThinkingQuantum[0].AStarGreedy[KingOnTable[Index[5]].KingThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt);
-                    Task array = Task.Factory.StartNew(() => KingOnTable[Index[5]].KingThinkingQuantum[0].AStarGreedy[KingOnTable[Index[5]].KingThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, KingOnTable[Index[5]].KingThinkingQuantum[0].RowColumnKing[jIndex[5]][0], KingOnTable[Index[5]].KingThinkingQuantum[0].RowColumnKing[jIndex[5]][1], a, KingOnTable[Index[5]].KingThinkingQuantum[0].TableListKing[jIndex[5]], Order, false, FOUND, LeafAStarGreedy));
+                    var array = Task.Factory.StartNew(() => KingOnTable[Index[5]].KingThinkingQuantum[0].AStarGreedy[KingOnTable[Index[5]].KingThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, KingOnTable[Index[5]].KingThinkingQuantum[0].RowColumnKing[jIndex[5]][0], KingOnTable[Index[5]].KingThinkingQuantum[0].RowColumnKing[jIndex[5]][1], a, KingOnTable[Index[5]].KingThinkingQuantum[0].TableListKing[jIndex[5]], Order, false, FOUND, LeafAStarGreedy));
                     Object ttttt = new Object(); lock (ttttt) { tHA.Add(array); }
                     //array.Name = "K" + i.ToString();
                     //array.Start();
@@ -14589,7 +14589,7 @@ if (Kind == 2)
             if (JI != -1)
             {
                 Kind = JI;
-                for (int i = 0; i < 6; i++)
+                for (var i = 0; i < 6; i++)
                 {
                     Object O = new Object();
                     lock (O)
@@ -15117,44 +15117,44 @@ if (Kind == 2)
                 return Sum;
             if (Order == 1)
             {
-                for (int i = 0; i < A.SodierMidle; i++)
+                for (var i = 0; i < A.SodierMidle; i++)
                     if (A.SolderesOnTable[i] != null)
                         Sum += A.SolderesOnTable[i].WinOcuuredatChiled;
-                for (int i = 0; i < A.ElefantMidle; i++)
+                for (var i = 0; i < A.ElefantMidle; i++)
                     if (A.ElephantOnTable[i] != null)
                         Sum += A.ElephantOnTable[i].WinOcuuredatChiled;
-                for (int i = 0; i < A.HourseMidle; i++)
+                for (var i = 0; i < A.HourseMidle; i++)
                     if (A.HoursesOnTable[i] != null)
                         Sum += A.HoursesOnTable[i].WinOcuuredatChiled;
-                for (int i = 0; i < A.CastleMidle; i++)
+                for (var i = 0; i < A.CastleMidle; i++)
                     if (A.CastlesOnTable[i] != null)
                         Sum += A.CastlesOnTable[i].WinOcuuredatChiled;
-                for (int i = 0; i < A.MinisterMidle; i++)
+                for (var i = 0; i < A.MinisterMidle; i++)
                     if (A.MinisterOnTable[i] != null)
                         Sum += A.MinisterOnTable[i].WinOcuuredatChiled;
-                for (int i = 0; i < A.KingMidle; i++)
+                for (var i = 0; i < A.KingMidle; i++)
                     if (A.KingOnTable[i] != null)
                         Sum += A.KingOnTable[i].WinOcuuredatChiled;
 
             }
             else
             {
-                for (int i = A.SodierMidle; i < A.SodierHigh; i++)
+                for (var i = A.SodierMidle; i < A.SodierHigh; i++)
                     if (A.SolderesOnTable[i] != null)
                         Sum += A.SolderesOnTable[i].WinOcuuredatChiled;
-                for (int i = A.ElefantMidle; i < A.ElefantHigh; i++)
+                for (var i = A.ElefantMidle; i < A.ElefantHigh; i++)
                     if (A.ElephantOnTable[i] != null)
                         Sum += A.ElephantOnTable[i].WinOcuuredatChiled;
-                for (int i = A.HourseMidle; i < A.HourseHight; i++)
+                for (var i = A.HourseMidle; i < A.HourseHight; i++)
                     if (A.HoursesOnTable[i] != null)
                         Sum += A.HoursesOnTable[i].WinOcuuredatChiled;
-                for (int i = A.CastleMidle; i < A.CastleHigh; i++)
+                for (var i = A.CastleMidle; i < A.CastleHigh; i++)
                     if (A.CastlesOnTable[i] != null)
                         Sum += A.CastlesOnTable[i].WinOcuuredatChiled;
-                for (int i = A.MinisterMidle; i < A.MinisterHigh; i++)
+                for (var i = A.MinisterMidle; i < A.MinisterHigh; i++)
                     if (A.MinisterOnTable[i] != null)
                         Sum += A.MinisterOnTable[i].WinOcuuredatChiled;
-                for (int i = A.KingMidle; i < A.KingHigh; i++)
+                for (var i = A.KingMidle; i < A.KingHigh; i++)
                     if (A.KingOnTable[i] != null)
                         Sum += A.KingOnTable[i].WinOcuuredatChiled;
             }
@@ -15167,44 +15167,44 @@ if (Kind == 2)
                 return Sum;
             if (Order == 1)
             {
-                for (int i = 0; i < A.SodierMidle; i++)
+                for (var i = 0; i < A.SodierMidle; i++)
                     if (A.SolderesOnTable[i] != null)
                         Sum += A.SolderesOnTable[i].LoseOcuuredatChiled;
-                for (int i = 0; i < A.ElefantMidle; i++)
+                for (var i = 0; i < A.ElefantMidle; i++)
                     if (A.ElephantOnTable[i] != null)
                         Sum += A.ElephantOnTable[i].LoseOcuuredatChiled;
-                for (int i = 0; i < A.HourseMidle; i++)
+                for (var i = 0; i < A.HourseMidle; i++)
                     if (A.HoursesOnTable[i] != null)
                         Sum += A.HoursesOnTable[i].LoseOcuuredatChiled;
-                for (int i = 0; i < A.CastleMidle; i++)
+                for (var i = 0; i < A.CastleMidle; i++)
                     if (A.CastlesOnTable[i] != null)
                         Sum += A.CastlesOnTable[i].LoseOcuuredatChiled;
-                for (int i = 0; i < A.MinisterMidle; i++)
+                for (var i = 0; i < A.MinisterMidle; i++)
                     if (A.MinisterOnTable[i] != null)
                         Sum += A.MinisterOnTable[i].LoseOcuuredatChiled;
-                for (int i = 0; i < A.KingMidle; i++)
+                for (var i = 0; i < A.KingMidle; i++)
                     if (A.KingOnTable[i] != null)
                         Sum += A.KingOnTable[i].LoseOcuuredatChiled;
 
             }
             else
             {
-                for (int i = A.SodierMidle; i < A.SodierHigh; i++)
+                for (var i = A.SodierMidle; i < A.SodierHigh; i++)
                     if (A.SolderesOnTable[i] != null)
                         Sum += A.SolderesOnTable[i].LoseOcuuredatChiled;
-                for (int i = A.ElefantMidle; i < A.ElefantHigh; i++)
+                for (var i = A.ElefantMidle; i < A.ElefantHigh; i++)
                     if (A.ElephantOnTable[i] != null)
                         Sum += A.ElephantOnTable[i].LoseOcuuredatChiled;
-                for (int i = A.HourseMidle; i < A.HourseHight; i++)
+                for (var i = A.HourseMidle; i < A.HourseHight; i++)
                     if (A.HoursesOnTable[i] != null)
                         Sum += A.HoursesOnTable[i].LoseOcuuredatChiled;
-                for (int i = A.CastleMidle; i < A.CastleHigh; i++)
+                for (var i = A.CastleMidle; i < A.CastleHigh; i++)
                     if (A.CastlesOnTable[i] != null)
                         Sum += A.CastlesOnTable[i].LoseOcuuredatChiled;
-                for (int i = A.MinisterMidle; i < A.MinisterHigh; i++)
+                for (var i = A.MinisterMidle; i < A.MinisterHigh; i++)
                     if (A.MinisterOnTable[i] != null)
                         Sum += A.MinisterOnTable[i].LoseOcuuredatChiled;
-                for (int i = A.KingMidle; i < A.KingHigh; i++)
+                for (var i = A.KingMidle; i < A.KingHigh; i++)
                     if (A.KingOnTable[i] != null)
                         Sum += A.KingOnTable[i].LoseOcuuredatChiled;
             }
@@ -15540,7 +15540,7 @@ if (Kind == 2)
                 SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                 SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder[j]), Order * -1, false, FOUND, LeafAStarGreedy);
 
-                //Task array = Task.Factory.StartNew(() => SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder[j]), Order, false, FOUND, LeafAStarGreedy));
+                //var array = Task.Factory.StartNew(() => SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder[j]), Order, false, FOUND, LeafAStarGreedy));
 
                 //SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord*-1, false, FOUND, LeafAStarGreedy);
                 //array.Start();
@@ -15572,7 +15572,7 @@ if (Kind == 2)
                 ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
 
                 ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy);
-                //Task array = Task.Factory.StartNew(() => ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant[j]), Order, false, FOUND, LeafAStarGreedy));
+                //var array = Task.Factory.StartNew(() => ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant[j]), Order, false, FOUND, LeafAStarGreedy));
 
                 //array.Start();
                 /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
@@ -15602,7 +15602,7 @@ if (Kind == 2)
                 HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                 HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy);
 
-                //Task array = Task.Factory.StartNew(() => HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse[j]), Order, false, FOUND, LeafAStarGreedy));
+                //var array = Task.Factory.StartNew(() => HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse[j]), Order, false, FOUND, LeafAStarGreedy));
 
                 //array.Start();
                 /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
@@ -15631,7 +15631,7 @@ if (Kind == 2)
                 int[,] Tab = CloneATable(CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle[j]);
                 int Ord = Order * -1;
                 CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                //Task array = Task.Factory.StartNew(() => CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle[j]), Order, false, FOUND, LeafAStarGreedy));
+                //var array = Task.Factory.StartNew(() => CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle[j]), Order, false, FOUND, LeafAStarGreedy));
                 CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy);
                 //array.Start();
                 /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
@@ -15661,7 +15661,7 @@ if (Kind == 2)
                 int Ord = Order * -1;
                 MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
 
-                //Task array = Task.Factory.StartNew(() => MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister[j]), Order, false, FOUND, LeafAStarGreedy));
+                //var array = Task.Factory.StartNew(() => MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister[j]), Order, false, FOUND, LeafAStarGreedy));
                 MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy);
                 //array.Start();
                 /*bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
@@ -15691,7 +15691,7 @@ if (Kind == 2)
                 int Ord = Order * -1;
                 KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
 
-                //Task array = Task.Factory.StartNew(() => KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(KingOnTable[ik].KingThinkingQuantum[0].TableListKing[j]), Order, false, FOUND, LeafAStarGreedy));
+                //var array = Task.Factory.StartNew(() => KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(KingOnTable[ik].KingThinkingQuantum[0].TableListKing[j]), Order, false, FOUND, LeafAStarGreedy));
                 KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy);
 
 
@@ -15853,7 +15853,7 @@ if (Kind == 2)
                 }//);
                 /*if (tHA.Count > 1)
                 {
-                    Task array = Task.Factory.StartNew(() => Parallel.ForEach(tHA, items => Task.WaitAny(items)));
+                    var array = Task.Factory.StartNew(() => Parallel.ForEach(tHA, items => Task.WaitAny(items)));
                     //array.Start();
                     Task.WaitAll(array);
                 }
@@ -16059,7 +16059,7 @@ if (Kind == 2)
                 }//);
                 /*if (tHA.Count > 1)
                 {
-                    Task array = Task.Factory.StartNew(() => Parallel.ForEach(tHA, items => Task.WaitAny(items)));
+                    var array = Task.Factory.StartNew(() => Parallel.ForEach(tHA, items => Task.WaitAny(items)));
                     //array.Start();
                     Task.WaitAll(array);
                 }
@@ -16266,7 +16266,7 @@ if (Kind == 2)
                 }//);
                 /*if (tHA.Count > 1)
                 {
-                    Task array = Task.Factory.StartNew(() => Parallel.ForEach(tHA, items => Task.WaitAny(items)));
+                    var array = Task.Factory.StartNew(() => Parallel.ForEach(tHA, items => Task.WaitAny(items)));
                     //array.Start();
                     Task.WaitAll(array);
                 }
@@ -16468,7 +16468,7 @@ if (Kind == 2)
                 }//);
                 /*if (tHA.Count > 1)
                 {
-                    Task array = Task.Factory.StartNew(() => Parallel.ForEach(tHA, items => Task.WaitAny(items)));
+                    var array = Task.Factory.StartNew(() => Parallel.ForEach(tHA, items => Task.WaitAny(items)));
                     //array.Start();
                     Task.WaitAll(array);
                 }*/
@@ -16674,7 +16674,7 @@ if (Kind == 2)
                 }//);
                 /*if (tHA.Count > 1)
                 {
-                    Task array = Task.Factory.StartNew(() => Parallel.ForEach(tHA, items => Task.WaitAny(items)));
+                    var array = Task.Factory.StartNew(() => Parallel.ForEach(tHA, items => Task.WaitAny(items)));
                     Task.WaitAll(array);
                     //array.Start();
                 }
@@ -16872,7 +16872,7 @@ if (Kind == 2)
                 }//);
                 /*if (tHA.Count > 1)
                 {
-                    Task array = Task.Factory.StartNew(() => Parallel.ForEach(tHA, items => Task.WaitAny(items)));
+                    var array = Task.Factory.StartNew(() => Parallel.ForEach(tHA, items => Task.WaitAny(items)));
                     Task.WaitAll(array);
                     //array.Start();
                 }*/
@@ -17128,7 +17128,7 @@ if (Kind == 2)
                     int Ord1 = Order;
                     Color a1 = a;
                     int iAStarGreedy1 = iAStarGreedy;
-                    Task array1 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeSoldierGray(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND));
+                    var array1 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeSoldierGray(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND));
                     //array1.Start();
                     //Object tttt1 = new Object(); lock (tttt1) { TH.Add(array1); }
 
@@ -17147,7 +17147,7 @@ if (Kind == 2)
                     int Ord2 = Order;
                     Color a2 = a;
                     int iAStarGreedy2 = iAStarGreedy;
-                    Task array2 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeElephantGray(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND));
+                    var array2 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeElephantGray(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND));
                     //array2.Start();
                    //Object tttt2 = new Object(); lock (tttt2) { TH.Add(array2); }
 
@@ -17167,7 +17167,7 @@ if (Kind == 2)
                     int Ord3 = Order;
                     Color a3 = a;
                     int iAStarGreedy3 = iAStarGreedy;
-                    Task array3 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeHourseGray(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND));
+                    var array3 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeHourseGray(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND));
                     ///array3.Start();
                     //Object tttt3 = new Object(); lock (tttt3) { TH.Add(array3); }
 
@@ -17187,7 +17187,7 @@ if (Kind == 2)
                     int Ord4 = Order;
                     Color a4 = a;
                     int iAStarGreedy4 = iAStarGreedy;
-                    Task array4 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeCastleGray(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND));
+                    var array4 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeCastleGray(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND));
                     //array4.Start();
                     //Object tttt4 = new Object(); lock (tttt4) { TH.Add(array4); }
 
@@ -17206,7 +17206,7 @@ if (Kind == 2)
                     int Ord5 = Order;
                     Color a5 = a;
                     int iAStarGreedy5 = iAStarGreedy;
-                    Task array5 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeMinisterGray(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND));
+                    var array5 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeMinisterGray(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND));
                     //array5.Start();
                     //Object tttt5 = new Object(); lock (tttt5) { TH.Add(array5); }
 
@@ -17225,7 +17225,7 @@ if (Kind == 2)
                     int Ord6 = Order;
                     Color a6 = a;
                     int iAStarGreedy6 = iAStarGreedy;
-                    Task array6 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeKingGray(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND));
+                    var array6 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeKingGray(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND));
                     //array6.Start();
                     //Object tttt6 = new Object(); lock (tttt6) { TH.Add(array6); }
 
@@ -17237,7 +17237,7 @@ if (Kind == 2)
                     int Ord1 = Order;
                     Color a1 = a;
                     int iAStarGreedy1 = iAStarGreedy;
-                    Task array1 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeSoldierBrown(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND));
+                    var array1 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeSoldierBrown(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND));
                     //array1.Start();
                     //Object tttt1 = new Object(); lock (tttt1) { TH.Add(array1); }
 
@@ -17256,7 +17256,7 @@ if (Kind == 2)
                     int Ord2 = Order;
                     Color a2 = a;
                     int iAStarGreedy2 = iAStarGreedy;
-                    Task array2 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeElephantBrown(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND));
+                    var array2 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeElephantBrown(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND));
                     //array2.Start();
                    //Object tttt2 = new Object(); lock (tttt2) { TH.Add(array2); }
 
@@ -17276,7 +17276,7 @@ if (Kind == 2)
                     int Ord3 = Order;
                     Color a3 = a;
                     int iAStarGreedy3 = iAStarGreedy;
-                    Task array3 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeHourseBrown(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND));
+                    var array3 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeHourseBrown(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND));
                     ///array3.Start();
                     //Object tttt3 = new Object(); lock (tttt3) { TH.Add(array3); }
 
@@ -17296,7 +17296,7 @@ if (Kind == 2)
                     int Ord4 = Order;
                     Color a4 = a;
                     int iAStarGreedy4 = iAStarGreedy;
-                    Task array4 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeCastleBrown(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND));
+                    var array4 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeCastleBrown(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND));
                     //array4.Start();
                     //Object tttt4 = new Object(); lock (tttt4) { TH.Add(array4); }
 
@@ -17315,7 +17315,7 @@ if (Kind == 2)
                     int Ord5 = Order;
                     Color a5 = a;
                     int iAStarGreedy5 = iAStarGreedy;
-                    Task array5 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeMinisterBrown(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND));
+                    var array5 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeMinisterBrown(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND));
                     //array5.Start();
                     //Object tttt5 = new Object(); lock (tttt5) { TH.Add(array5); }
 
@@ -17334,7 +17334,7 @@ if (Kind == 2)
                     int Ord6 = Order;
                     Color a6 = a;
                     int iAStarGreedy6 = iAStarGreedy;
-                    Task array6 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeKingBrown(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND));
+                    var array6 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeKingBrown(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND));
                     //array6.Start();
                     //Object tttt6 = new Object(); lock (tttt6) { TH.Add(array6); }
                 }
@@ -17347,7 +17347,7 @@ if (Kind == 2)
                 //Soldeir
                 //Initiatye Variables.               
 
-                Task output = Task.Factory.StartNew(() =>
+                var output = Task.Factory.StartNew(() =>
                  Parallel.Invoke(() =>
 
                  {
@@ -17363,7 +17363,7 @@ if (Kind == 2)
                          Color a1 = a;
                          int iAStarGreedy1 = iAStarGreedy;
                          Do |= this.FullGameThinkingQuantumTreeSoldierGray(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy);
-                         //Task array1 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeSoldierGray(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND));
+                         //var array1 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeSoldierGray(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND));
                          //array1.Start();
                          //Object tttt1 = new Object(); lock (tttt1) { TH.Add(array1); }
 
@@ -17387,7 +17387,7 @@ if (Kind == 2)
                          Color a2 = a;
                          int iAStarGreedy2 = iAStarGreedy;
                          Do |= this.FullGameThinkingQuantumTreeElephantGray(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND, LeafAStarGreedy);
-                         //Task array2 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeElephantGray(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND));
+                         //var array2 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeElephantGray(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND));
                          //array2.Start();
                          //Object tttt2 = new Object(); lock (tttt2) { TH.Add(array2); }
 
@@ -17413,7 +17413,7 @@ if (Kind == 2)
                          Color a3 = a;
                          int iAStarGreedy3 = iAStarGreedy;
                          Do |= this.FullGameThinkingQuantumTreeHourseGray(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND, LeafAStarGreedy);
-                         //Task array3 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeHourseGray(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND));
+                         //var array3 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeHourseGray(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND));
                          ///array3.Start();
                          //Object tttt3 = new Object(); lock (tttt3) { TH.Add(array3); }
 
@@ -17438,7 +17438,7 @@ if (Kind == 2)
                          Color a4 = a;
                          int iAStarGreedy4 = iAStarGreedy;
                          Do |= this.FullGameThinkingQuantumTreeCastleGray(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND, LeafAStarGreedy);
-                         //Task array4 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeCastleGray(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND));
+                         //var array4 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeCastleGray(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND));
                          //array4.Start();
                          //Object tttt4 = new Object(); lock (tttt4) { TH.Add(array4); }
 
@@ -17462,7 +17462,7 @@ if (Kind == 2)
                          Color a5 = a;
                          int iAStarGreedy5 = iAStarGreedy;
                          Do |= this.FullGameThinkingQuantumTreeMinisterGray(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND, LeafAStarGreedy);
-                         //Task array5 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeMinisterGray(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND));
+                         //var array5 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeMinisterGray(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND));
                          //array5.Start();
                          //Object tttt5 = new Object(); lock (tttt5) { TH.Add(array5); }
 
@@ -17486,7 +17486,7 @@ if (Kind == 2)
                          Color a6 = a;
                          int iAStarGreedy6 = iAStarGreedy;
                          Do |= this.FullGameThinkingQuantumTreeKingGray(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND, LeafAStarGreedy);
-                         //Task array6 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeKingGray(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND));
+                         //var array6 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeKingGray(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND));
                          //array6.Start();
                          //Object tttt6 = new Object(); lock (tttt6) { TH.Add(array6); }
                          Order = DummyOrder;
@@ -17499,7 +17499,7 @@ if (Kind == 2)
             //For Brown Order Blitz Game Calculate Maximum Table Inclusive AStarGreedy First Game Search.
             else
             {
-                Task output = Task.Factory.StartNew(() =>
+                var output = Task.Factory.StartNew(() =>
                 Parallel.Invoke(() =>
                 {
                     Object O1 = new Object();
@@ -17514,7 +17514,7 @@ if (Kind == 2)
                         Color a1 = a;
                         int iAStarGreedy1 = iAStarGreedy;
                         Do |= this.FullGameThinkingQuantumTreeSoldierBrown(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy);
-                        //Task array1 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeSoldierBrown(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND));
+                        //var array1 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeSoldierBrown(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND));
                         //array1.Start();
                         //Object tttt1 = new Object(); lock (tttt1) { TH.Add(array1); }
 
@@ -17538,7 +17538,7 @@ if (Kind == 2)
                         Color a2 = a;
                         int iAStarGreedy2 = iAStarGreedy;
                         Do |= this.FullGameThinkingQuantumTreeElephantBrown(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND, LeafAStarGreedy);
-                        //Task array2 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeElephantBrown(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND));
+                        //var array2 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeElephantBrown(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND));
                         //array2.Start();
                         //Object tttt2 = new Object(); lock (tttt2) { TH.Add(array2); }
 
@@ -17563,7 +17563,7 @@ if (Kind == 2)
                         Color a3 = a;
                         int iAStarGreedy3 = iAStarGreedy;
                         Do |= this.FullGameThinkingQuantumTreeHourseBrown(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND, LeafAStarGreedy);
-                        //Task array3 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeHourseBrown(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND));
+                        //var array3 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeHourseBrown(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND));
                         ///array3.Start();
                         //Object tttt3 = new Object(); lock (tttt3) { TH.Add(array3); }
 
@@ -17588,7 +17588,7 @@ if (Kind == 2)
                         Color a4 = a;
                         int iAStarGreedy4 = iAStarGreedy;
                         Do |= this.FullGameThinkingQuantumTreeCastleBrown(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND, LeafAStarGreedy);
-                        //Task array4 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeCastleBrown(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND));
+                        //var array4 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeCastleBrown(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND));
                         //array4.Start();
                         //Object tttt4 = new Object(); lock (tttt4) { TH.Add(array4); }
 
@@ -17612,7 +17612,7 @@ if (Kind == 2)
                         Color a5 = a;
                         int iAStarGreedy5 = iAStarGreedy;
                         Do |= this.FullGameThinkingQuantumTreeMinisterBrown(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND, LeafAStarGreedy);
-                        //Task array5 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeMinisterBrown(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND));
+                        //var array5 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeMinisterBrown(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND));
                         //array5.Start();
                         //Object tttt5 = new Object(); lock (tttt5) { TH.Add(array5); }
 
@@ -17636,7 +17636,7 @@ if (Kind == 2)
                         Color a6 = a;
                         int iAStarGreedy6 = iAStarGreedy;
                         Do |= this.FullGameThinkingQuantumTreeKingBrown(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND, LeafAStarGreedy);
-                        //Task array6 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeKingBrown(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND));
+                        //var array6 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeKingBrown(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND));
                         //array6.Start();
                         //Object tttt6 = new Object(); lock (tttt6) { TH.Add(array6); }
                         Order = DummyOrder;
@@ -17674,7 +17674,7 @@ if (Kind == 2)
             }
             if (Order == 1)
             {
-                Task output = Task.Factory.StartNew(() =>
+                var output = Task.Factory.StartNew(() =>
                 Parallel.For(0, MaxGrayMidle(), i =>
                 {
                     Parallel.Invoke(() =>
@@ -17698,7 +17698,7 @@ if (Kind == 2)
                                     int iAStarGreedy1 = iAStarGreedy;
                                     int i1 = i;
                                     Do |= FullGameThinkingQuantumTreeSoldier(i1, a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy);
-                                    //Task array1 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeSoldierGray(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND));
+                                    //var array1 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeSoldierGray(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND));
                                     //array1.Start();
                                     //Object tttt1 = new Object(); lock (tttt1) { TH.Add(array1); }
 
@@ -17864,7 +17864,7 @@ if (Kind == 2)
             //For Brown Order Blitz Game Calculate Maximum Table Inclusive AStarGreedy First Game Search.
             else
             {
-                Task output = Task.Factory.StartNew(() =>
+                var output = Task.Factory.StartNew(() =>
                 Parallel.For(MinBrownMidle(), MaxGrayMidle(), i =>
                 {
                     Parallel.Invoke(() =>
@@ -18020,7 +18020,7 @@ if (Kind == 2)
         int[,] CloneATable(int[,] Tab)
         {
             int[,] Table = new int[8, 8];
-            for (int i = 0; i < 8; i++)
+            for (var i = 0; i < 8; i++)
                 for (int j = 0; j < 8; j++)
                     Table[i, j] = Tab[i, j];
             return Table;
@@ -18037,7 +18037,7 @@ if (Kind == 2)
 
             int Value = -1;
             double Les = Double.MinValue;
-            for (int i = 0; i < 6; i++)
+            for (var i = 0; i < 6; i++)
             {
                 if (LessB[i] > Les)
                 {
@@ -18059,7 +18059,7 @@ if (Kind == 2)
 
             int Value = -1;
             double Les = Double.MaxValue;
-            for (int i = 0; i < 6; i++)
+            for (var i = 0; i < 6; i++)
             {
                 if (LessB[i] < Les)
                 {
@@ -18147,7 +18147,7 @@ if (Kind == 2)
             Dummy.MinisterOnTable = new DrawMinisterQ[MinisterHigh];
             Dummy.KingOnTable = new DrawKingQ[KingHigh];
             //For All Sodiers Movments.
-            for (int i = 0; i < SodierHigh; i++)
+            for (var i = 0; i < SodierHigh; i++)
             {
                 try
                 {
@@ -18157,7 +18157,7 @@ if (Kind == 2)
                 catch (Exception t) { Log(t); }
             }
             //For All Elephant Objects.
-            for (int i = 0; i < ElefantHigh; i++)
+            for (var i = 0; i < ElefantHigh; i++)
             {
                 try
                 {
@@ -18167,7 +18167,7 @@ if (Kind == 2)
                 catch (Exception t) { Log(t); }
             }
             //for All Hourse Objects.
-            for (int i = 0; i < HourseHight; i++)
+            for (var i = 0; i < HourseHight; i++)
             {
                 try
                 {
@@ -18177,7 +18177,7 @@ if (Kind == 2)
                 catch (Exception t) { Log(t); }
             }
             //For All Castles Objects.
-            for (int i = 0; i < CastleHigh; i++)
+            for (var i = 0; i < CastleHigh; i++)
             {
                 try
                 {
@@ -18187,7 +18187,7 @@ if (Kind == 2)
                 catch (Exception t) { Log(t); }
             }
             //For All Minister Objects.
-            for (int i = 0; i < MinisterHigh; i++)
+            for (var i = 0; i < MinisterHigh; i++)
             {
                 try
                 {
@@ -18197,7 +18197,7 @@ if (Kind == 2)
                 catch (Exception t) { Log(t); }
             }
             //For All King Objects.
-            for (int i = 0; i < KingHigh; i++)
+            for (var i = 0; i < KingHigh; i++)
             {
                 try
                 {
@@ -18210,7 +18210,7 @@ if (Kind == 2)
             if (Order == 1)
             {
                 //For Gray Soders Objects.
-                for (int i = 0; i < SodierMidle; i++)
+                for (var i = 0; i < SodierMidle; i++)
                 {
                     try
                     {
@@ -18220,7 +18220,7 @@ if (Kind == 2)
                     catch (Exception t) { Log(t); Dummy.SolderesOnTable[i] = null; }
                 }
                 //For Gray Elephant.
-                for (int i = 0; i < ElefantMidle; i++)
+                for (var i = 0; i < ElefantMidle; i++)
                 {
                     try
                     {
@@ -18230,7 +18230,7 @@ if (Kind == 2)
                     catch (Exception t) { Log(t); Dummy.ElephantOnTable[i] = null; }
                 }
                 //For Gray Hourses.
-                for (int i = 0; i < HourseMidle; i++)
+                for (var i = 0; i < HourseMidle; i++)
                 {
                     try
                     {
@@ -18240,7 +18240,7 @@ if (Kind == 2)
                     catch (Exception t) { Log(t); Dummy.HoursesOnTable[i] = null; }
                 }
                 //For Gray Castles.
-                for (int i = 0; i < CastleMidle; i++)
+                for (var i = 0; i < CastleMidle; i++)
                 {
                     try
                     {
@@ -18250,7 +18250,7 @@ if (Kind == 2)
                     catch (Exception t) { Log(t); Dummy.CastlesOnTable[i] = null; }
                 }
                 //For Gray Ministers.
-                for (int i = 0; i < MinisterMidle; i++)
+                for (var i = 0; i < MinisterMidle; i++)
                 {
                     try
                     {
@@ -18260,7 +18260,7 @@ if (Kind == 2)
                     catch (Exception t) { Log(t); Dummy.MinisterOnTable[i] = null; }
                 }
                 //For Gray King.
-                for (int i = 0; i < KingMidle; i++)
+                for (var i = 0; i < KingMidle; i++)
                 {
                     try
                     {
@@ -18275,7 +18275,7 @@ if (Kind == 2)
             {
                 {
                     //For Brown Solders.
-                    for (int i = SodierMidle; i < SodierHigh; i++)
+                    for (var i = SodierMidle; i < SodierHigh; i++)
                     {
                         try
                         {
@@ -18285,7 +18285,7 @@ if (Kind == 2)
                         catch (Exception t) { Log(t); Dummy.SolderesOnTable[i] = null; }
                     }
                     //For All Brown Elephants.
-                    for (int i = ElefantMidle; i < ElefantHigh; i++)
+                    for (var i = ElefantMidle; i < ElefantHigh; i++)
                     {
                         try
                         {
@@ -18295,7 +18295,7 @@ if (Kind == 2)
                         catch (Exception t) { Log(t); Dummy.ElephantOnTable[i] = null; }
                     }
                     //For All Brown Hourses.
-                    for (int i = HourseMidle; i < HourseHight; i++)
+                    for (var i = HourseMidle; i < HourseHight; i++)
                     {
                         try
                         {
@@ -18305,7 +18305,7 @@ if (Kind == 2)
                         catch (Exception t) { Log(t); Dummy.HoursesOnTable[i] = null; }
                     }
                     //For Brown Castles. 
-                    for (int i = CastleMidle; i < CastleHigh; i++)
+                    for (var i = CastleMidle; i < CastleHigh; i++)
                     {
                         try
                         {
@@ -18315,7 +18315,7 @@ if (Kind == 2)
                         catch (Exception t) { Log(t); Dummy.CastlesOnTable[i] = null; }
                     }
                     //For Gray Minsters.
-                    for (int i = MinisterMidle; i < MinisterHigh; i++)
+                    for (var i = MinisterMidle; i < MinisterHigh; i++)
                     {
                         try
                         {
@@ -18325,7 +18325,7 @@ if (Kind == 2)
                         catch (Exception t) { Log(t); Dummy.MinisterOnTable[i] = null; }
                     }
                     //For Brown Kings.
-                    for (int i = KingMidle; i < KingHigh; i++)
+                    for (var i = KingMidle; i < KingHigh; i++)
                     {
                         try
                         {
@@ -18347,7 +18347,7 @@ if (Kind == 2)
         public bool TableZero(int[,] Ta)
         {
             bool Zerro = true;
-            for (int i = 0; i < 8; i++)
+            for (var i = 0; i < 8; i++)
                 for (int j = 0; j < 8; j++)
                     if (Ta[i, j] != 0)
                         Zerro = false;
@@ -18508,7 +18508,7 @@ if (Kind == 2)
                 {
                     if (Order == 1)
                     {
-                        for (int i = 0; i < SodierMidle; i++)
+                        for (var i = 0; i < SodierMidle; i++)
                             if (SolderesOnTable != null && SolderesOnTable[i] != null)
                                 try
                                 {
@@ -18519,7 +18519,7 @@ if (Kind == 2)
                                     Log(t);
                                 }
 
-                        for (int i = 0; i < ElefantMidle; i++)
+                        for (var i = 0; i < ElefantMidle; i++)
                             if (ElephantOnTable != null && ElephantOnTable[i] != null)
                                 try
                                 {
@@ -18529,7 +18529,7 @@ if (Kind == 2)
                                 {
                                     Log(t);
                                 }
-                        for (int i = 0; i < HourseMidle; i++)
+                        for (var i = 0; i < HourseMidle; i++)
                             if (HoursesOnTable != null && HoursesOnTable[i] != null)
                                 try
                                 {
@@ -18539,7 +18539,7 @@ if (Kind == 2)
                                 {
                                     Log(t);
                                 }
-                        for (int i = 0; i < CastleMidle; i++)
+                        for (var i = 0; i < CastleMidle; i++)
                             if (CastlesOnTable != null && CastlesOnTable[i] != null)
                                 try
                                 {
@@ -18549,7 +18549,7 @@ if (Kind == 2)
                                 {
                                     Log(t);
                                 }
-                        for (int i = 0; i < MinisterMidle; i++)
+                        for (var i = 0; i < MinisterMidle; i++)
                             if (MinisterOnTable != null && MinisterOnTable[i] != null)
                                 try
                                 {
@@ -18559,7 +18559,7 @@ if (Kind == 2)
                                 {
                                     Log(t);
                                 }
-                        for (int i = 0; i < KingMidle; i++)
+                        for (var i = 0; i < KingMidle; i++)
                             if (KingOnTable != null && KingOnTable[i] != null)
                                 try
                                 {
@@ -18572,7 +18572,7 @@ if (Kind == 2)
                     }
                     else
                     {
-                        for (int i = SodierMidle; i < SodierHigh; i++)
+                        for (var i = SodierMidle; i < SodierHigh; i++)
                             if (SolderesOnTable != null && SolderesOnTable[i] != null)
                                 try
                                 {
@@ -18582,7 +18582,7 @@ if (Kind == 2)
                                 {
                                     Log(t);
                                 }
-                        for (int i = ElefantMidle; i < ElefantHigh; i++)
+                        for (var i = ElefantMidle; i < ElefantHigh; i++)
                             if (ElephantOnTable != null && ElephantOnTable[i] != null)
                                 try
                                 {
@@ -18592,7 +18592,7 @@ if (Kind == 2)
                                 {
                                     Log(t);
                                 }
-                        for (int i = HourseMidle; i < HourseHight; i++)
+                        for (var i = HourseMidle; i < HourseHight; i++)
                             if (HoursesOnTable != null && HoursesOnTable[i] != null)
                                 try
                                 {
@@ -18602,7 +18602,7 @@ if (Kind == 2)
                                 {
                                     Log(t);
                                 }
-                        for (int i = CastleMidle; i < CastleHigh; i++)
+                        for (var i = CastleMidle; i < CastleHigh; i++)
                             if (CastlesOnTable != null && CastlesOnTable[i] != null)
                                 try
                                 {
@@ -18612,7 +18612,7 @@ if (Kind == 2)
                                 {
                                     Log(t);
                                 }
-                        for (int i = MinisterMidle; i < MinisterHigh; i++)
+                        for (var i = MinisterMidle; i < MinisterHigh; i++)
                             if (MinisterOnTable != null && MinisterOnTable[i] != null)
                                 try
                                 {
@@ -18622,7 +18622,7 @@ if (Kind == 2)
                                 {
                                     Log(t);
                                 }
-                        for (int i = KingMidle; i < KingHigh; i++)
+                        for (var i = KingMidle; i < KingHigh; i++)
                             if (KingOnTable != null && KingOnTable[i] != null)
                                 try
                                 {
@@ -18640,7 +18640,7 @@ if (Kind == 2)
                 {
                     if (Order == 1)
                     {
-                        for (int i = 0; i < SodierMidle; i++)
+                        for (var i = 0; i < SodierMidle; i++)
                             if (SolderesOnTable != null && SolderesOnTable[i] != null)
                                 try
                                 {
@@ -18650,7 +18650,7 @@ if (Kind == 2)
                                 {
                                     Log(t);
                                 }
-                        for (int i = 0; i < ElefantMidle; i++)
+                        for (var i = 0; i < ElefantMidle; i++)
                             if (ElephantOnTable != null && ElephantOnTable[i] != null)
                                 try
                                 {
@@ -18660,7 +18660,7 @@ if (Kind == 2)
                                 {
                                     Log(t);
                                 }
-                        for (int i = 0; i < HourseMidle; i++)
+                        for (var i = 0; i < HourseMidle; i++)
                             if (HoursesOnTable != null && HoursesOnTable[i] != null)
                                 try
                                 {
@@ -18670,7 +18670,7 @@ if (Kind == 2)
                                 {
                                     Log(t);
                                 }
-                        for (int i = 0; i < CastleMidle; i++)
+                        for (var i = 0; i < CastleMidle; i++)
                             if (CastlesOnTable != null && CastlesOnTable[i] != null)
                                 try
                                 {
@@ -18680,7 +18680,7 @@ if (Kind == 2)
                                 {
                                     Log(t);
                                 }
-                        for (int i = 0; i < MinisterMidle; i++)
+                        for (var i = 0; i < MinisterMidle; i++)
                             if (MinisterOnTable != null && MinisterOnTable[i] != null)
                                 try
                                 {
@@ -18690,7 +18690,7 @@ if (Kind == 2)
                                 {
                                     Log(t);
                                 }
-                        for (int i = 0; i < KingMidle; i++)
+                        for (var i = 0; i < KingMidle; i++)
                             if (KingOnTable != null && KingOnTable[i] != null)
                                 try
                                 {
@@ -18703,7 +18703,7 @@ if (Kind == 2)
                     }
                     else
                     {
-                        for (int i = SodierMidle; i < SodierHigh; i++)
+                        for (var i = SodierMidle; i < SodierHigh; i++)
                             if (SolderesOnTable != null && SolderesOnTable[i] != null)
                                 try
                                 {
@@ -18713,7 +18713,7 @@ if (Kind == 2)
                                 {
                                     Log(t);
                                 }
-                        for (int i = ElefantMidle; i < ElefantHigh; i++)
+                        for (var i = ElefantMidle; i < ElefantHigh; i++)
                             if (ElephantOnTable != null && ElephantOnTable[i] != null)
                                 try
                                 {
@@ -18723,7 +18723,7 @@ if (Kind == 2)
                                 {
                                     Log(t);
                                 }
-                        for (int i = HourseMidle; i < HourseHight; i++)
+                        for (var i = HourseMidle; i < HourseHight; i++)
                             if (HoursesOnTable != null && HoursesOnTable[i] != null)
                                 try
                                 {
@@ -18733,7 +18733,7 @@ if (Kind == 2)
                                 {
                                     Log(t);
                                 }
-                        for (int i = CastleMidle; i < CastleHigh; i++)
+                        for (var i = CastleMidle; i < CastleHigh; i++)
                             if (CastlesOnTable != null && CastlesOnTable[i] != null)
                                 try
                                 {
@@ -18743,7 +18743,7 @@ if (Kind == 2)
                                 {
                                     Log(t);
                                 }
-                        for (int i = MinisterMidle; i < MinisterHigh; i++)
+                        for (var i = MinisterMidle; i < MinisterHigh; i++)
                             if (MinisterOnTable != null && MinisterOnTable[i] != null)
                                 try
                                 {
@@ -18753,7 +18753,7 @@ if (Kind == 2)
                                 {
                                     Log(t);
                                 }
-                        for (int i = KingMidle; i < KingHigh; i++)
+                        for (var i = KingMidle; i < KingHigh; i++)
                             if (KingOnTable != null && KingOnTable[i] != null)
                                 try
                                 {
@@ -18892,7 +18892,7 @@ if (Kind == 5)
                 ThinkingQuantumChess.NotSolvedKingDanger = false;
                 LoopHuristicIndex = 0;
                 //For All Pssible One.
-                for (int i = 0; i < 1; i++)
+                for (var i = 0; i < 1; i++)
                 {
                     //If Gray Order.
                     if (Order == 1)
@@ -19036,7 +19036,7 @@ if (Kind == 5)
                         AllDraw.AStarGreedyiLevelMax = MaxAStarGreedy;
                         AStarGreedyiLevelMax = System.Convert.ToInt32(AllDraw.THIScomboBoxMaxLevelText);
                         AllDraw.MaxAStarGreedyHuristicProgress = 6;
-                        for (int i = 0; i <= MaxAStarGreedy; i++)
+                        for (var i = 0; i <= MaxAStarGreedy; i++)
                             AllDraw.MaxAStarGreedyHuristicProgress += AllDraw.MaxAStarGreedyHuristicProgress * 6;
                         //THIS.progressBarVerify.Maximum = 999999999;
                         increasedProgress = (int)((double)999999999 / (double)(AllDraw.MaxAStarGreedyHuristicProgress));
@@ -19179,7 +19179,7 @@ if (Kind == 5)
             //Initiate Local Variables.
 
             //For All Table Home
-            for (int i = 0; i < 8; i++)
+            for (var i = 0; i < 8; i++)
             {
                 for (int j = 0; j < 8; j++)
                 {
@@ -19501,7 +19501,7 @@ if (Kind == 5)
             {
 
                 List<int[]> TagList = new List<int[]>();
-                for (int i = 0; i < Tag.Length; i++)
+                for (var i = 0; i < Tag.Length; i++)
                 {
                     if (i + 1 < Tag.Length)
                     {
@@ -19539,7 +19539,7 @@ if (Kind == 5)
             {
                 //List<int[]> List = new List<int[]>();
                 //List = WhereNumbers(Tag);
-                //for (int i = 0; i < List.Count; i++)
+                //for (var i = 0; i < List.Count; i++)
                 //Tag = Tag.Replace(Tag.Substring(List[i][0], List[i][1]), "<font Color=\"Gold\">" + Tag.Substring(List[i][0], List[i][1]) + "</font>");
 
                 if (Tag.Contains("ThinkingQuantum"))

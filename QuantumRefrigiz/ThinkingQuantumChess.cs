@@ -446,7 +446,7 @@ namespace QuantumRefrigiz
                     if (Order == 1)
                     {
                         //Number of Gray Objects at Last Row Bottmm.
-                        for (int i = 0; i < 2; i++)
+                        for (var i = 0; i < 2; i++)
                             for (int j = 6; j < 8; j++)
                                 if (Table[i, j] > 0)
                                     CH++;
@@ -454,7 +454,7 @@ namespace QuantumRefrigiz
                     else
                     {
                         //Number of Brown Objects at Last tow Row Upper.
-                        for (int i = 0; i < 8; i++)
+                        for (var i = 0; i < 8; i++)
                             for (int j = 0; j < 2; j++)
                                 if (Table[i, j] < 0)
                                     CH++;
@@ -466,7 +466,7 @@ namespace QuantumRefrigiz
                     if (Order == -1)
                     {
                         //Number of Brown Objects Table at Last tow row Uppper.
-                        for (int i = 0; i < 8; i++)
+                        for (var i = 0; i < 8; i++)
                             for (int j = 6; j < 2; j++)
                                 if (Table[i, j] > 0)
                                     CH++;
@@ -474,7 +474,7 @@ namespace QuantumRefrigiz
                     else
                     {
                         //Number of Gray Objects Table at Last tow rown below.
-                        for (int i = 0; i < 2; i++)
+                        for (var i = 0; i < 2; i++)
                             for (int j = 0; j < 8; j++)
                                 if (Table[i, j] < 0)
                                     CH++;
@@ -584,7 +584,7 @@ namespace QuantumRefrigiz
                 //Create and new an Object.
                 int[,] Table = new int[8, 8];
                 //Assigne Parameter To New Objects.
-                for (int i = 0; i < 8; i++)
+                for (var i = 0; i < 8; i++)
                     for (int j = 0; j < 8; j++)
                         Table[i, j] = Tab[i, j];
                 //Return New Object.
@@ -600,7 +600,7 @@ namespace QuantumRefrigiz
                 //Initiate new Objects.
                 int[] Table = new int[Count];
                 //Asigne to new Objects.
-                for (int i = 0; i < Count; i++)
+                for (var i = 0; i < Count; i++)
                     Table[i] = Tab[i];
                 //Retrun new Object.
                 return Table;
@@ -615,7 +615,7 @@ namespace QuantumRefrigiz
                 //Initiate New Object.
                 double[] Table = new double[Count];
                 //Assigne to new Object.,
-                for (int i = 0; i < Count; i++)
+                for (var i = 0; i < Count; i++)
                     Table[i] = Tab[i];
                 //Return New Object.
                 return Table;
@@ -649,7 +649,7 @@ namespace QuantumRefrigiz
                 {
                     AA.AStarGreedy = new System.Collections.Generic.List<AllDraw>();
                     //For All Depth(s).
-                    for (int i = 0; i < AStarGreedy.Count; i++)
+                    for (var i = 0; i < AStarGreedy.Count; i++)
                     {
 
                         //Clone a Copy From Depth Objects.
@@ -692,64 +692,64 @@ namespace QuantumRefrigiz
                 //if Table is not NULL>
                 if (TableT != null)
                     //For All Items in Table Object.
-                    for (int i = 0; i < 8; i++)
+                    for (var i = 0; i < 8; i++)
                         for (int j = 0; j < 8; j++)
                             //Assgine Table items in New Table Object.
                             AA.TableT[i, j] = TableT[i, j];
                 //If Table is Not Null.
                 if (TableConst != null)
                     //For All Items in Table Object.
-                    for (int i = 0; i < 8; i++)
+                    for (var i = 0; i < 8; i++)
                         for (int j = 0; j < 8; j++)
                             //Assignm Items in New Table Object.
                             AA.TableConst[i, j] = TableConst[i, j];
                 //For All Table State Movements in Castles Objects.
-                for (int i = 0; i < TableListCastle.Count; i++)
+                for (var i = 0; i < TableListCastle.Count; i++)
                     //Add aclon of a Table in New Briges Table List.
                     AA.TableListCastle.Add(CloneATable(TableListCastle[i]));
                 //For All Table List Movements in  Elephant Objects 
-                for (int i = 0; i < TableListElefant.Count; i++)
+                for (var i = 0; i < TableListElefant.Count; i++)
                     //Add a Clone of Tables in Elephant Mevments Obejcts List To New One.
                     AA.TableListElefant.Add(CloneATable(TableListElefant[i]));
                 //For All Hourse Table Movemnts items.
-                for (int i = 0; i < TableListHourse.Count; i++)
+                for (var i = 0; i < TableListHourse.Count; i++)
                     //Add a Clone of Hourse Table Movement in New List.
                     AA.TableListHourse.Add(CloneATable(TableListHourse[i]));
                 //For All King Tables Movment Count.
-                for (int i = 0; i < TableListKing.Count; i++)
+                for (var i = 0; i < TableListKing.Count; i++)
                     //Add a Clone To New King Table List.
                     AA.TableListKing.Add(CloneATable(TableListKing[i]));
                 //For All Minister Table Movment Items.
-                for (int i = 0; i < TableListMinister.Count; i++)
+                for (var i = 0; i < TableListMinister.Count; i++)
                     //Add a clone To New Minister Table Movment List.
                     AA.TableListMinister.Add(CloneATable(TableListMinister[i]));
                 //For All Solder Table Movment Count.
-                for (int i = 0; i < TableListSolder.Count; i++)
+                for (var i = 0; i < TableListSolder.Count; i++)
                     //Add a Clone of Table item to New Table List Movments.
                     AA.TableListSolder.Add(CloneATable(TableListSolder[i]));
 
                 //For All Solder Husrist List Count.
-                for (int i = 0; i < HuristicListSolder.Count; i++)
+                for (var i = 0; i < HuristicListSolder.Count; i++)
                     //Ad a Clone of Hueristic Solders To New List.
                     AA.HuristicListSolder.Add(CloneAList(HuristicListSolder[i], 4));
                 //For All Elephant Huristic List Count. 
-                for (int i = 0; i < HuristicListElefant.Count; i++)
+                for (var i = 0; i < HuristicListElefant.Count; i++)
                     //Add A Clone of Copy to New Elephant Huristic List.
                     AA.HuristicListElefant.Add(CloneAList(HuristicListElefant[i], 4));
                 //For All Hours Huristic Hourse Count.
-                for (int i = 0; i < HuristicListHourse.Count; i++)
+                for (var i = 0; i < HuristicListHourse.Count; i++)
                     //Add a Clone of Copy To New Housre Huristic List.
                     AA.HuristicListHourse.Add(CloneAList(HuristicListHourse[i], 4));
                 //For All Castles Huristic List Count.
-                for (int i = 0; i < HuristicListCastle.Count; i++)
+                for (var i = 0; i < HuristicListCastle.Count; i++)
                     //Add a Clone of Copy to New Castles Huristic List.
                     AA.HuristicListCastle.Add(CloneAList(HuristicListCastle[i], 4));
                 //For All Minister Huristic List Count.
-                for (int i = 0; i < HuristicListMinister.Count; i++)
+                for (var i = 0; i < HuristicListMinister.Count; i++)
                     //Add a Clone of Copy to New Minister List.
                     AA.HuristicListMinister.Add(CloneAList(HuristicListMinister[i], 4));
                 //For All King Husrict List Items.
-                for (int i = 0; i < HuristicListKing.Count; i++)
+                for (var i = 0; i < HuristicListKing.Count; i++)
                     //Add a Clone of Copy to New King Hursitic List.
                     AA.HuristicListKing.Add(CloneAList(HuristicListKing[i], 4));
                 //Initiate and create Penalty Solder List.
@@ -758,7 +758,7 @@ namespace QuantumRefrigiz
                 if (Kind == 1)
                 {
                     AA.PenaltyRegardListSolder = new List<QuantumAtamata>();
-                    for (int i = 0; i < PenaltyRegardListSolder.Count; i++)
+                    for (var i = 0; i < PenaltyRegardListSolder.Count; i++)
                     {
                         //Initiate a new  QuantumAtamata Object
                         //QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
@@ -772,7 +772,7 @@ namespace QuantumRefrigiz
                     //Initaite and Create Elephant Penalty List Object.
                     AA.PenaltyRegardListElefant = new List<QuantumAtamata>();
                     //For All Elepahtn Penalty List Count.
-                    for (int i = 0; i < PenaltyRegardListElefant.Count; i++)
+                    for (var i = 0; i < PenaltyRegardListElefant.Count; i++)
                     {
                         //Initiate a new  QuantumAtamata Object
                         //QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
@@ -790,7 +790,7 @@ namespace QuantumRefrigiz
                     //Initaite and Create Hourse Penalty List Object.
                     AA.PenaltyRegardListHourse = new List<QuantumAtamata>();
                     //For All Solder Hourse List Count.
-                    for (int i = 0; i < PenaltyRegardListHourse.Count; i++)
+                    for (var i = 0; i < PenaltyRegardListHourse.Count; i++)
                     {
                         //Initiate a new  QuantumAtamata Object
                         QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
@@ -808,7 +808,7 @@ namespace QuantumRefrigiz
                     //Initaite and Create Castles Penalty List Object.
                     AA.PenaltyRegardListCastle = new List<QuantumAtamata>();
                     //For All Solder Castle List Count.
-                    for (int i = 0; i < PenaltyRegardListCastle.Count; i++)
+                    for (var i = 0; i < PenaltyRegardListCastle.Count; i++)
                     {
                         //Initiate a new  QuantumAtamata Object
                         //QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
@@ -825,7 +825,7 @@ namespace QuantumRefrigiz
                     //Initaite and Create Minister Penalty List Object.
                     AA.PenaltyRegardListMinister = new List<QuantumAtamata>();
                     //For All Solder Minster List Count.
-                    for (int i = 0; i < PenaltyRegardListMinister.Count; i++)
+                    for (var i = 0; i < PenaltyRegardListMinister.Count; i++)
                     {
                         //Initiate a new  QuantumAtamata Object
                         //QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
@@ -842,7 +842,7 @@ namespace QuantumRefrigiz
                     //Initaite and Create King Penalty List Object.
                     AA.PenaltyRegardListKing = new List<QuantumAtamata>();
                     //For All Solder King List Count.
-                    for (int i = 0; i < PenaltyRegardListKing.Count; i++)
+                    for (var i = 0; i < PenaltyRegardListKing.Count; i++)
                     {
                         //Initiate a new  QuantumAtamata Object
                         //QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
@@ -1131,7 +1131,7 @@ namespace QuantumRefrigiz
 
                 if (!AStarGreedyHuristicT)
                 {
-                    //int RowS = RowSS, ColS = ColSS;
+                    //var RowS = RowSS, ColS = ColSS;
                     //For All Self
                     //for (int RowD = 0; RowD < 8; RowD++)
                     {
@@ -1254,9 +1254,9 @@ namespace QuantumRefrigiz
                 //For All Table Homes find Attack Huristic.
                 else
                 {
-                    //for (int RowS = 0; RowS < 8; RowS++)
+                    //for (var RowS = 0; RowS < 8; RowS++)
                     {
-                        //for (int ColS = 0; ColS < 8; ColS++)
+                        //for (var ColS = 0; ColS < 8; ColS++)
                         {
                             //for (int RowD = 0; RowD < 8; RowD++)
                             {
@@ -1568,18 +1568,18 @@ namespace QuantumRefrigiz
                 //Initiate Global Variables.                
                 int Ord = Order;
                 bool S = true;
-                //int i = iij, j = jji;
+                //var i = iij, j = jji;
                 bool EnemyNotSupported = true;
                 if (Kilded != 0)
                 {
                     EnemyNotSupported = true;
                     //Enemy
                     ////Parallel.For(0, 8, RowS =>
-                    for (int RowS = 0; RowS < 8; RowS++)
+                    for (var RowS = 0; RowS < 8; RowS++)
 
                     {
                         ////Parallel.For(0, 8, ColS =>
-                        for (int ColS = 0; ColS < 8; ColS++)
+                        for (var ColS = 0; ColS < 8; ColS++)
                         {
                             if (!EnemyNotSupported)
                                 continue;
@@ -1672,9 +1672,9 @@ namespace QuantumRefrigiz
                     bool S = true;
                     bool EnemyNotSupported = true;
                     bool InAttackedNotEnemySupported = false;
-                    //int i = iij, j = jji;
+                    //var i = iij, j = jji;
                     //For Current
-                    for (int i = 0; i < 8; i++)
+                    for (var i = 0; i < 8; i++)
                     {
                         for (int j = 0; j < 8; j++)
                         {
@@ -1708,9 +1708,9 @@ namespace QuantumRefrigiz
                                             InAttackedNotEnemySupported = true;
 
                                             //Enemy
-                                            for (int RowS = 0; RowS < 8; RowS++)
+                                            for (var RowS = 0; RowS < 8; RowS++)
                                             {
-                                                for (int ColS = 0; ColS < 8; ColS++)
+                                                for (var ColS = 0; ColS < 8; ColS++)
                                                 {
                                                     //Ignore of Current
                                                     if (Order == 1 && Tab[RowS, ColS] >= 0)
@@ -1817,12 +1817,12 @@ namespace QuantumRefrigiz
                         Tab[i, j] = 0;
                         AttackCount = 0;
                         //For All Self
-                        for (int RowS = 0; RowS < 8; RowS++)
+                        for (var RowS = 0; RowS < 8; RowS++)
                         ////Parallel.For(0, 8, RowS =>
                         {
                             //if (AttackCount > 1)
                             //continue;
-                            for (int ColS = 0; ColS < 8; ColS++)
+                            for (var ColS = 0; ColS < 8; ColS++)
                             ////Parallel.For(0, 8, ColS =>
                             {
                                 if (AttackCount > 1)
@@ -1910,9 +1910,9 @@ namespace QuantumRefrigiz
                     int i = ii, j = jj;
                     //Ignore of Current
                     //For Enemy.
-                    for (int RowS = 0; RowS < 8; RowS++)
+                    for (var RowS = 0; RowS < 8; RowS++)
                     {
-                        for (int ColS = 0; ColS < 8; ColS++)
+                        for (var ColS = 0; ColS < 8; ColS++)
                         {
                             //Ignore of Current
                             if (Order == 1 && Tab[RowS, ColS] >= 0)
@@ -2142,9 +2142,9 @@ namespace QuantumRefrigiz
                 bool InAttackedNotSelfSupported = false;
 
                 bool S = true;
-                //int i = ii, j = jj;
+                //var i = ii, j = jj;
                 //For Self
-                for (int i = 0; i < 8; i++)
+                for (var i = 0; i < 8; i++)
                 {
                     for (int j = 0; j < 8; j++)
                     {
@@ -2156,9 +2156,9 @@ namespace QuantumRefrigiz
                             if (Order == -1 && Tab[i, j] >= 0)
                             continue;
                         //For Enemy.
-                        for (int RowS = 0; RowS < 8; RowS++)
+                        for (var RowS = 0; RowS < 8; RowS++)
                         {
-                            for (int ColS = 0; ColS < 8; ColS++)
+                            for (var ColS = 0; ColS < 8; ColS++)
                             {
                                 //Ignore of Current
                                 if (Order == 1 && Tab[RowS, ColS] >= 0)
@@ -2259,7 +2259,7 @@ namespace QuantumRefrigiz
             lock (O)
             {
                 bool Is = false;
-                for (int i = 0; i < ValuableSelfSupported.Count; i++)
+                for (var i = 0; i < ValuableSelfSupported.Count; i++)
                 {
 
                     if (ValuableSelfSupported[i][0] == Table[0] && ValuableSelfSupported[i][1] == Table[1] && ValuableSelfSupported[i][2] == Table[2])
@@ -2284,7 +2284,7 @@ namespace QuantumRefrigiz
                     if (Max < 0)
                         if (Obj[0] > 0)
                             return !MaxO;
-                    for (int i = 0; i < Obj.Count; i++)
+                    for (var i = 0; i < Obj.Count; i++)
                     {
                         if (System.Math.Abs(Obj[i]) > System.Math.Abs(Max))
                         {
@@ -2311,9 +2311,9 @@ namespace QuantumRefrigiz
                         Tab[ik, jk] = Table[ik, jk];
                 bool SelfSupported = false;
                 int Dum = ChessRules.CurrentOrder;
-                for (int RowS = 0; RowS < 8; RowS++)
+                for (var RowS = 0; RowS < 8; RowS++)
                 {
-                    for (int ColS = 0; ColS < 8; ColS++)
+                    for (var ColS = 0; ColS < 8; ColS++)
                     {
                         //Ignore of Enemy Objects.
                         if (Tab[RowS, ColS] <= 0 && Order == 1)
@@ -2346,10 +2346,10 @@ namespace QuantumRefrigiz
                 //For Enemies.
 
                 ////Parallel.For(0, 8, RowS =>
-                //for (int RowS = 0; RowS < 8; RowS++)
+                //for (var RowS = 0; RowS < 8; RowS++)
                 {
                     ////Parallel.For(0, 8, ColS =>
-                    //for (int ColS = 0; ColS < 8; ColS++)
+                    //for (var ColS = 0; ColS < 8; ColS++)
                     {
                         if (Order == 1 && Tab[RowS, ColS] >= 0)
                             return 0;
@@ -2487,11 +2487,11 @@ namespace QuantumRefrigiz
                 double HeuristicKingDangour = 0;
                 double HA = 0;
                 //For Self.
-                //for (int RowS = 0; RowS < 8; RowS++)
+                //for (var RowS = 0; RowS < 8; RowS++)
                 ////Parallel.For(0, 8, RowS =>
                 {
                     ////Parallel.For(0, 8, ColS =>
-                    //for (int ColS = 0; ColS < 8; ColS++)
+                    //for (var ColS = 0; ColS < 8; ColS++)
                     {
                         //Ignore of Enemy and Empty.
                         if (Order == 1 && Tab[RowS, ColS] <= 0)
@@ -2644,7 +2644,7 @@ namespace QuantumRefrigiz
 
                 if (!AStarGreedyHuristicT)
                 {
-                    //int RowS = RowSS, ColS = ColSS;
+                    //var RowS = RowSS, ColS = ColSS;
                     //For All Self
                     //for (int RowD = 0; RowD < 8; RowD++)
                     {
@@ -2788,9 +2788,9 @@ namespace QuantumRefrigiz
                 //For All Homes Table.
                 else
                 {
-                    //for (int RowS = 0; RowS < 8; RowS++)
+                    //for (var RowS = 0; RowS < 8; RowS++)
                     {
-                        //for (int ColS = 0; ColS < 8; ColS++)
+                        //for (var ColS = 0; ColS < 8; ColS++)
                         {
                             //for (int RowD = 0; RowD < 8; RowD++)
                             {
@@ -2941,7 +2941,7 @@ namespace QuantumRefrigiz
             {
 
                 //For All Home
-                for (int i = 0; i < 8; i++)
+                for (var i = 0; i < 8; i++)
                     for (int j = 0; j < 8; j++)
                     {
                         //When there is different values in same location of tow Table return non equality.
@@ -2977,7 +2977,7 @@ namespace QuantumRefrigiz
                 //Initiate Local Variables.
                 bool Exist = false;
                 //For All Tables of Table List.
-                for (int i = Index; i < List.Count; i++)
+                for (var i = Index; i < List.Count; i++)
                 {
                     //Strore Equality Value.
                     bool Eq = TableEqual(Tab, List[i]);
@@ -3108,8 +3108,8 @@ namespace QuantumRefrigiz
                         //Clone a Copy.
                         int[,] Table = new int[8, 8];
                         //Clone a Table.
-                        for (int RowS = 0; RowS < 8; RowS++)
-                            for (int ColS = 0; ColS < 8; ColS++)
+                        for (var RowS = 0; RowS < 8; RowS++)
+                            for (var ColS = 0; ColS < 8; ColS++)
                                 Table[RowS, ColS] = Tab[RowS, ColS];
                         ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[ii, jj], Table, Order * -1, ii, jj);
                         Color a = Color.Gray;
@@ -3122,8 +3122,8 @@ namespace QuantumRefrigiz
                             int Count = AttackerCount(Table, Order * -1, a, ii, jj);
                             //When there is Object Danger.
                             //Clone a Copy.
-                            for (int RowS = 0; RowS < 8; RowS++)
-                                for (int ColS = 0; ColS < 8; ColS++)
+                            for (var RowS = 0; RowS < 8; RowS++)
+                                for (var ColS = 0; ColS < 8; ColS++)
                                     Table[RowS, ColS] = Tab[RowS, ColS];
                             //Create New Chess Rule Object.
                             A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[ii, jj], Table, Order, ii, jj);
@@ -3135,8 +3135,8 @@ namespace QuantumRefrigiz
                             if (Attack(Table, i, j, ii, jj, a, Order))
                             {
                                 //For Current Home.
-                                for (int RowS = 0; RowS < 8; RowS++)
-                                    for (int ColS = 0; ColS < 8; ColS++)
+                                for (var RowS = 0; RowS < 8; RowS++)
+                                    for (var ColS = 0; ColS < 8; ColS++)
                                     {
                                         //Ignore of Enemy.
                                         if (Order == 1 && Tab[RowS, ColS] <= 0)
@@ -3215,7 +3215,7 @@ namespace QuantumRefrigiz
                     if (RowG != -1 && ColumnG != -1)
                     {
                         //For Brown
-                        for (int i = 0; i < 8; i++)
+                        for (var i = 0; i < 8; i++)
                             for (int j = 0; j < 8; j++)
                             {
                                 //Ignore of Gray and Empty
@@ -3226,8 +3226,8 @@ namespace QuantumRefrigiz
                                 {
                                     //Create new Objects of Table
                                     int[,] TablCon = new int[8, 8];
-                                    for (int RowS = 0; RowS < 8; RowS++)
-                                        for (int ColS = 0; ColS < 8; ColS++)
+                                    for (var RowS = 0; RowS < 8; RowS++)
+                                        for (var ColS = 0; ColS < 8; ColS++)
                                             TablCon[RowS, ColS] = Tabl[RowS, ColS];
                                     //For Enemy Order.
                                     if (TablCon[i, j] < 0)
@@ -3297,7 +3297,7 @@ namespace QuantumRefrigiz
                     if (RowB != -1 && ColumnB != -1)
                     {
                         //For Gray.
-                        for (int i = 0; i < 8; i++)
+                        for (var i = 0; i < 8; i++)
                             for (int j = 0; j < 8; j++)
                             {
                                 if (Tabl[i, j] <= 0)
@@ -3307,8 +3307,8 @@ namespace QuantumRefrigiz
                                 {
                                     //Create new Objects of Table
                                     int[,] TablCon = new int[8, 8];
-                                    for (int RowS = 0; RowS < 8; RowS++)
-                                        for (int ColS = 0; ColS < 8; ColS++)
+                                    for (var RowS = 0; RowS < 8; RowS++)
+                                        for (var ColS = 0; ColS < 8; ColS++)
                                             TablCon[RowS, ColS] = Tabl[RowS, ColS];
                                     //For Enemy Objects.
                                     if (TablCon[i, j] > 0)
@@ -4009,7 +4009,7 @@ namespace QuantumRefrigiz
                         for (int jk = 0; jk < 8; jk++)
                             Tabl1[ik, jk] = Table[ik, jk];
                     //For Current.
-                    for (int i = 0; i < 8; i++)
+                    for (var i = 0; i < 8; i++)
                         for (int j = 0; j < 8; j++)
                         {
                             //Ignore of Enemy.QC_OK.
@@ -4235,7 +4235,7 @@ namespace QuantumRefrigiz
                 else
                     ChessRules.CurrentOrder = -1;
                 bool[,] Tab = new bool[8, 8];
-                for (int i = 0; i < 8; i++)
+                for (var i = 0; i < 8; i++)
                     for (int j = 0; j < 8; j++)
                     {
                         if (Order == 1 && Table[i, j] <= 0)
@@ -4306,7 +4306,7 @@ namespace QuantumRefrigiz
                 for (int h = 0; h < 8; h++)
                     for (int k = 0; k < 8; k++)
                         Tab[h, k] = Table[h, k];
-                for (int i = 0; i < 8; i++)
+                for (var i = 0; i < 8; i++)
                     for (int j = 0; j < 8; j++)
                     {
                         if (Order == 1 && Table[i, j] >= 0)
@@ -4537,7 +4537,7 @@ namespace QuantumRefrigiz
                 double[] Huristic = new double[6];
                 //Initiate Local Variable.
 
-                //int RowS = RowD, ColS = ColS;
+                //var RowS = RowD, ColS = ColS;
                 int DummyOrder = Order;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
                 ///When AStarGreedy Huristic is Not Assigned.
@@ -4955,8 +4955,8 @@ namespace QuantumRefrigiz
                 int CCurrentOrder = ChessRules.CurrentOrder;
                 //Initiate Local Varibales.
                 int[,] Table = new int[8, 8];
-                for (int RowS = 0; RowS < 8; RowS++)
-                    for (int ColS = 0; ColS < 8; ColS++)
+                for (var RowS = 0; RowS < 8; RowS++)
+                    for (var ColS = 0; ColS < 8; ColS++)
                     {
                         Table[RowS, ColS] = Tab[RowS, ColS];
                     }
@@ -4965,8 +4965,8 @@ namespace QuantumRefrigiz
                 if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[i, j], Table, Order, i, j)).Rules(i, j, ii, jj, a, Order))
                 {
                     //Initiate Local Variables.
-                    for (int RowS = 0; RowS < 8; RowS++)
-                        for (int ColS = 0; ColS < 8; ColS++)
+                    for (var RowS = 0; RowS < 8; RowS++)
+                        for (var ColS = 0; ColS < 8; ColS++)
                         {
                             Table[RowS, ColS] = Tab[RowS, ColS];
                         }
@@ -5018,8 +5018,8 @@ namespace QuantumRefrigiz
                 //Initiate Local Variables.
                 int[,] Table = new int[8, 8];
 
-                for (int RowS = 0; RowS < 8; RowS++)
-                    for (int ColS = 0; ColS < 8; ColS++)
+                for (var RowS = 0; RowS < 8; RowS++)
+                    for (var ColS = 0; ColS < 8; ColS++)
                         Table[RowS, ColS] = Tab[RowS, ColS];
                 ///When All Tables is Gray.
                 if (Table[i, j] > 0 && Table[ii, jj] > 0)
@@ -5033,8 +5033,8 @@ namespace QuantumRefrigiz
 
                 }
 
-                for (int RowS = 0; RowS < 8; RowS++)
-                    for (int ColS = 0; ColS < 8; ColS++)
+                for (var RowS = 0; RowS < 8; RowS++)
+                    for (var ColS = 0; ColS < 8; ColS++)
                         Table[RowS, ColS] = Tab[RowS, ColS];
                 ///When All is Brown.
                 if (Table[i, j] < 0 && Table[ii, jj] < 0)
@@ -5065,7 +5065,7 @@ namespace QuantumRefrigiz
                 //When Solders.
                 if (Kin == 1)
                 {
-                    for (int i = 0; i < this.PenaltyRegardListSolder.Count; i++)
+                    for (var i = 0; i < this.PenaltyRegardListSolder.Count; i++)
                     {
                         if (PenaltyRegardListSolder[i].IsPenaltyAction() != 0)
                         {
@@ -5132,7 +5132,7 @@ namespace QuantumRefrigiz
                 else//When Elephant.
                     if (Kin == 2)
                 {
-                    for (int i = 0; i < this.PenaltyRegardListElefant.Count; i++)
+                    for (var i = 0; i < this.PenaltyRegardListElefant.Count; i++)
                     {
                         if (PenaltyRegardListElefant[i].IsPenaltyAction() != 0)
                         {
@@ -5197,7 +5197,7 @@ namespace QuantumRefrigiz
                 else//When Hourse.
                         if (Kin == 3)
                 {
-                    for (int i = 0; i < this.PenaltyRegardListHourse.Count; i++)
+                    for (var i = 0; i < this.PenaltyRegardListHourse.Count; i++)
                     {
                         if (PenaltyRegardListHourse[i].IsPenaltyAction() != 0)
                         {
@@ -5262,7 +5262,7 @@ namespace QuantumRefrigiz
                 else//When Castles.
                             if (Kin == 4)
                 {
-                    for (int i = 0; i < this.PenaltyRegardListCastle.Count; i++)
+                    for (var i = 0; i < this.PenaltyRegardListCastle.Count; i++)
                     {
                         if (PenaltyRegardListCastle[i].IsPenaltyAction() != 0)
                         {
@@ -5326,7 +5326,7 @@ namespace QuantumRefrigiz
                 else//When Minister.
                                 if (Kin == 5)
                 {
-                    for (int i = 0; i < this.PenaltyRegardListMinister.Count; i++)
+                    for (var i = 0; i < this.PenaltyRegardListMinister.Count; i++)
                     {
                         if (PenaltyRegardListMinister[i].IsPenaltyAction() != 0)
                         {
@@ -5392,7 +5392,7 @@ namespace QuantumRefrigiz
                 else//When King.
                                     if (Kin == 6)
                 {
-                    for (int i = 0; i < this.PenaltyRegardListKing.Count; i++)
+                    for (var i = 0; i < this.PenaltyRegardListKing.Count; i++)
                     {
                         if (PenaltyRegardListKing[i].IsPenaltyAction() != 0)
                         {
@@ -5790,7 +5790,7 @@ namespace QuantumRefrigiz
                     double[] Less = new double[6];
                     if (Order == AllDraw.OrderPlate)
                     {
-                        for (int i = 0; i < 6; i++)
+                        for (var i = 0; i < 6; i++)
                         {
                             Less[i] = new double();
                             Less[i] = Double.MinValue;
@@ -5798,7 +5798,7 @@ namespace QuantumRefrigiz
                     }
                     else
                     {
-                        for (int i = 0; i < 6; i++)
+                        for (var i = 0; i < 6; i++)
                         {
                             Less[i] = new double();
                             Less[i] = Double.MaxValue;
@@ -5811,7 +5811,7 @@ namespace QuantumRefrigiz
                         if (Order == 1)
                         {
                             //For All Depth Count.
-                            for (int i = 0; i < AStarGreedy.Count; i++)
+                            for (var i = 0; i < AStarGreedy.Count; i++)
                             {
                                 //For All solder DrawOn Table Count.
                                 for (int m = 0; m < SolderOnTableCount(ref AStarGreedy[i].SolderesOnTable, true, AStarGreedy[i].SodierHigh); m++)
@@ -5968,7 +5968,7 @@ namespace QuantumRefrigiz
                         else
                         {
                             //For All Depth Variables.
-                            for (int i = 0; i < AStarGreedy.Count; i++)
+                            for (var i = 0; i < AStarGreedy.Count; i++)
                             {
                                 //For All Brown Solders on table count.
                                 for (int m = SolderOnTableCount(ref AStarGreedy[i].SolderesOnTable, true, AStarGreedy[i].SodierHigh); m < SolderOnTableCount(ref AStarGreedy[i].SolderesOnTable, false, AStarGreedy[i].SodierHigh); m++)
@@ -6704,7 +6704,7 @@ namespace QuantumRefrigiz
             {
                 int Value = -1;
                 double Les = Double.MinValue;
-                for (int i = 0; i < 6; i++)
+                for (var i = 0; i < 6; i++)
                 {
                     if (Less[i] > Les)
                     {
@@ -6723,7 +6723,7 @@ namespace QuantumRefrigiz
             {
                 int Value = -1;
                 double Les = Double.MaxValue;
-                for (int i = 0; i < 6; i++)
+                for (var i = 0; i < 6; i++)
                 {
                     if (Less[i] < Les)
                     {
@@ -7280,7 +7280,7 @@ namespace QuantumRefrigiz
                 lock (O1)
                 {
                     //.Current
-                    for (int i = 0; i < 8; i++)
+                    for (var i = 0; i < 8; i++)
                     {
                         for (int j = 0; j < 8; j++)
                         {
@@ -7308,9 +7308,9 @@ namespace QuantumRefrigiz
                                     {
                                         BREAK = 1;
                                         //Current
-                                        for (int RowS = 0; RowS < 8; RowS++)
+                                        for (var RowS = 0; RowS < 8; RowS++)
                                         {
-                                            for (int ColS = 0; ColS < 8; ColS++)
+                                            for (var ColS = 0; ColS < 8; ColS++)
                                             {
                                                 BREAK = 0;
                                                 if (Order == 1 && TableS[RowS, ColS] <= 0)
@@ -7408,7 +7408,7 @@ namespace QuantumRefrigiz
                 lock (O)
                 {
                     ////Parallel.For(0, 8, i =>
-                    for (int i = 0; i < 8; i++)
+                    for (var i = 0; i < 8; i++)
                     {
                         if ((LearningV[0] || LearningV[1] || LearningV[2]))
                             continue;
@@ -7418,13 +7418,13 @@ namespace QuantumRefrigiz
                             if ((LearningV[0] || LearningV[1] || LearningV[2]))
                                 continue;
                             ////Parallel.For(0, 8, RowS =>
-                            for (int RowS = 0; RowS < 8; RowS++)
+                            for (var RowS = 0; RowS < 8; RowS++)
                             {
                                 if ((LearningV[0] || LearningV[1] || LearningV[2]))
                                     continue;
 
                                 ////Parallel.For(0, 8, ColS =>
-                                for (int ColS = 0; ColS < 8; ColS++)
+                                for (var ColS = 0; ColS < 8; ColS++)
                                 {
                                     if ((LearningV[0] || LearningV[1] || LearningV[2]))
                                         continue;
@@ -9898,8 +9898,8 @@ namespace QuantumRefrigiz
 
                 ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                 QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                for (int RowS = 0; RowS < 8; RowS++)
-                    for (int ColS = 0; ColS < 8; ColS++)
+                for (var RowS = 0; RowS < 8; RowS++)
+                    for (var ColS = 0; ColS < 8; ColS++)
                     {
                         TableS[RowS, ColS] = TableConst[RowS, ColS];
                     }
@@ -9917,7 +9917,7 @@ namespace QuantumRefrigiz
             lock (O1)
             {
                 ////Parallel.For(ii - 2, ii + 3, i =>
-                for (int i = ii - 2; i < ii + 3; i++)
+                for (var i = ii - 2; i < ii + 3; i++)
                 {
                     ////Parallel.For(jj - 2, jj + 3, j =>
                     for (int j = jj - 2; j < jj + 3; j++)
@@ -9952,8 +9952,8 @@ namespace QuantumRefrigiz
                 Object O = new Object();
                 lock (O)
                 {
-                    for (int RowS = 0; RowS < 8; RowS++)
-                        for (int ColS = 0; ColS < 8; ColS++)
+                    for (var RowS = 0; RowS < 8; RowS++)
+                        for (var ColS = 0; ColS < 8; ColS++)
                         {
                             TableS[RowS, ColS] = TableConst[RowS, ColS];
                         }
@@ -9977,7 +9977,7 @@ namespace QuantumRefrigiz
                 lock (O1)
                 {
                     ////Parallel.For(0, 8, i =>
-                    for (int i = 0; i < 8; i++)
+                    for (var i = 0; i < 8; i++)
                     {
                         Object O = new Object();
                         lock (O)
@@ -9995,7 +9995,7 @@ namespace QuantumRefrigiz
                     }//);
                     //==================
                     ////Parallel.For(0, 8, i =>
-                    for (int i = 0; i < 8; i++)
+                    for (var i = 0; i < 8; i++)
                     {
                         Object O = new Object();
                         lock (O)
@@ -10049,8 +10049,8 @@ namespace QuantumRefrigiz
 
                 ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                 QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                for (int RowS = 0; RowS < 8; RowS++)
-                    for (int ColS = 0; ColS < 8; ColS++)
+                for (var RowS = 0; RowS < 8; RowS++)
+                    for (var ColS = 0; ColS < 8; ColS++)
                     {
                         TableS[RowS, ColS] = TableConst[RowS, ColS];
                     }
@@ -10076,8 +10076,8 @@ namespace QuantumRefrigiz
                 Object O = new Object();
                 lock (O)
                 {
-                    for (int RowS = 0; RowS < 8; RowS++)
-                        for (int ColS = 0; ColS < 8; ColS++)
+                    for (var RowS = 0; RowS < 8; RowS++)
+                        for (var ColS = 0; ColS < 8; ColS++)
                         {
                             TableS[RowS, ColS] = TableConst[RowS, ColS];
                         }
@@ -10099,8 +10099,8 @@ namespace QuantumRefrigiz
 
                 ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                 QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                for (int RowS = 0; RowS < 8; RowS++)
-                    for (int ColS = 0; ColS < 8; ColS++)
+                for (var RowS = 0; RowS < 8; RowS++)
+                    for (var ColS = 0; ColS < 8; ColS++)
                     {
                         TableS[RowS, ColS] = TableConst[RowS, ColS];
                     }
@@ -10126,8 +10126,8 @@ namespace QuantumRefrigiz
                 Object O = new Object();
                 lock (O)
                 {
-                    for (int RowS = 0; RowS < 8; RowS++)
-                        for (int ColS = 0; ColS < 8; ColS++)
+                    for (var RowS = 0; RowS < 8; RowS++)
+                        for (var ColS = 0; ColS < 8; ColS++)
                         {
                             TableS[RowS, ColS] = TableConst[RowS, ColS];
                         }
@@ -10154,8 +10154,8 @@ namespace QuantumRefrigiz
                 Object O = new Object();
                 lock (O)
                 {
-                    for (int RowS = 0; RowS < 8; RowS++)
-                        for (int ColS = 0; ColS < 8; ColS++)
+                    for (var RowS = 0; RowS < 8; RowS++)
+                        for (var ColS = 0; ColS < 8; ColS++)
                         {
                             TableS[RowS, ColS] = TableConst[RowS, ColS];
                         }
@@ -10182,8 +10182,8 @@ namespace QuantumRefrigiz
                 Object O111 = new Object();
                 lock (O111)
                 {
-                    for (int RowS = 0; RowS < 8; RowS++)
-                        for (int ColS = 0; ColS < 8; ColS++)
+                    for (var RowS = 0; RowS < 8; RowS++)
+                        for (var ColS = 0; ColS < 8; ColS++)
                         {
                             TableS[RowS, ColS] = TableConst[RowS, ColS];
                         }
@@ -10208,8 +10208,8 @@ namespace QuantumRefrigiz
                 Object O = new Object();
                 lock (O)
                 {
-                    for (int RowS = 0; RowS < 8; RowS++)
-                        for (int ColS = 0; ColS < 8; ColS++)
+                    for (var RowS = 0; RowS < 8; RowS++)
+                        for (var ColS = 0; ColS < 8; ColS++)
                         {
                             TableS[RowS, ColS] = TableConst[RowS, ColS];
                         }
@@ -10287,7 +10287,7 @@ namespace QuantumRefrigiz
             lock (O1)
             {
                 ////Parallel.For(0, 8, i =>
-                for (int i = 0; i < 8; i++)
+                for (var i = 0; i < 8; i++)
                 {
                     Object O = new Object();
                     lock (O)
@@ -10300,8 +10300,8 @@ namespace QuantumRefrigiz
                         int[,] TableS = new int[8, 8];
                         ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                         QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                        for (int RowS = 0; RowS < 8; RowS++)
-                            for (int ColS = 0; ColS < 8; ColS++)
+                        for (var RowS = 0; RowS < 8; RowS++)
+                            for (var ColS = 0; ColS < 8; ColS++)
                             {
                                 TableS[RowS, ColS] = TableConst[RowS, ColS];
                             }
@@ -10328,14 +10328,14 @@ namespace QuantumRefrigiz
                     {
 
 
-                        int i = ii;
+                        var i = ii;
 
                         ///Initiate a Local Variables.
                         int[,] TableS = new int[8, 8];
                         ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                         QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                        for (int RowS = 0; RowS < 8; RowS++)
-                            for (int ColS = 0; ColS < 8; ColS++)
+                        for (var RowS = 0; RowS < 8; RowS++)
+                            for (var ColS = 0; ColS < 8; ColS++)
                             {
                                 TableS[RowS, ColS] = TableConst[RowS, ColS];
                             }
@@ -10379,8 +10379,8 @@ namespace QuantumRefrigiz
                 lock (O)
                 {
                     while (ThinkingQuantumAtRun) { }
-                    for (int RowS = 0; RowS < 8; RowS++)
-                        for (int ColS = 0; ColS < 8; ColS++)
+                    for (var RowS = 0; RowS < 8; RowS++)
+                        for (var ColS = 0; ColS < 8; ColS++)
                         {
                             TableS[RowS, ColS] = TableConst[RowS, ColS];
                         }
@@ -10402,7 +10402,7 @@ namespace QuantumRefrigiz
             {
 
                 ////Parallel.For(0, 8, i =>
-                for (int i = 0; i < 8; i++)
+                for (var i = 0; i < 8; i++)
                 {
                     ////Parallel.For(0, 8, j =>
                     for (int j = 0; j < 8; j++)
@@ -10423,7 +10423,7 @@ namespace QuantumRefrigiz
             Object O = new Object();
             lock (O)
             {
-                for (int i = ii - 2; i < ii + 2; i++)
+                for (var i = ii - 2; i < ii + 2; i++)
                 {
                     while (ThinkingQuantumAtRun) { }
 
@@ -10433,8 +10433,8 @@ namespace QuantumRefrigiz
                     int[,] TableS = new int[8, 8];
                     ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                    for (int RowS = 0; RowS < 8; RowS++)
-                        for (int ColS = 0; ColS < 8; ColS++)
+                    for (var RowS = 0; RowS < 8; RowS++)
+                        for (var ColS = 0; ColS < 8; ColS++)
                         {
                             TableS[RowS, ColS] = TableConst[RowS, ColS];
                         }
@@ -10453,7 +10453,7 @@ namespace QuantumRefrigiz
             Object O = new Object();
             lock (O)
             {
-                for (int i = ii - 2; i < ii + 2; i++)
+                for (var i = ii - 2; i < ii + 2; i++)
                 {
                     while (ThinkingQuantumAtRun) { }
 
@@ -10462,8 +10462,8 @@ namespace QuantumRefrigiz
                     int[,] TableS = new int[8, 8];
                     ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                    for (int RowS = 0; RowS < 8; RowS++)
-                        for (int ColS = 0; ColS < 8; ColS++)
+                    for (var RowS = 0; RowS < 8; RowS++)
+                        for (var ColS = 0; ColS < 8; ColS++)
                         {
                             TableS[RowS, ColS] = TableConst[RowS, ColS];
                         }
@@ -10486,7 +10486,7 @@ namespace QuantumRefrigiz
                 lock (O)
                 {
                     ////Parallel.For(ii - 1, ii + 2, i =>
-                    for (int i = ii - 1; i < ii + 2; i++)
+                    for (var i = ii - 1; i < ii + 2; i++)
                     {
                         ////Parallel.For(jj - 1, jj + 2, j =>
                         for (int j = jj - 1; j < jj + 2; j++)
@@ -10499,8 +10499,8 @@ namespace QuantumRefrigiz
                             TableS = new int[8, 8];
                             ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                             QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                            for (int RowS = 0; RowS < 8; RowS++)
-                                for (int ColS = 0; ColS < 8; ColS++)
+                            for (var RowS = 0; RowS < 8; RowS++)
+                                for (var ColS = 0; ColS < 8; ColS++)
                                 {
                                     TableS[RowS, ColS] = TableConst[RowS, ColS];
                                 }
@@ -10590,8 +10590,8 @@ namespace QuantumRefrigiz
                 ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                 ///Most Dot Net FrameWork Hot Path
                 ///Create A Clone of Current Table Constant in ThinkingQuantumChess Object Tasble.
-               /* for (int RowS = 0; RowS < 8; RowS++)
-                    for (int ColS = 0; ColS < 8; ColS++)
+               /* for (var RowS = 0; RowS < 8; RowS++)
+                    for (var ColS = 0; ColS < 8; ColS++)
                     {
                         TableS[RowS, ColS] = TableConst[RowS, ColS];
                     }
@@ -10636,8 +10636,8 @@ namespace QuantumRefrigiz
                 QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                 ///Most Dot Net FrameWork Hot Path
                 ///Create A Clone of Current Table Constant in ThinkingQuantumChess Object Tasble.
-                for (int RowS = 0; RowS < 8; RowS++)
-                    for (int ColS = 0; ColS < 8; ColS++)
+                for (var RowS = 0; RowS < 8; RowS++)
+                    for (var ColS = 0; ColS < 8; ColS++)
                     {
                         TableS[RowS, ColS] = TableConst[RowS, ColS];
                     }
@@ -10793,11 +10793,11 @@ namespace QuantumRefrigiz
                     ////Parallel.For(0, 8, ColumnO =>
                     //for (int ColumnO = 0; ColumnO < 8; ColumnO++)
                     {
-                        //for (int RowS = 0; RowS < 8; RowS++)
+                        //for (var RowS = 0; RowS < 8; RowS++)
                         ////Parallel.For(0, 8, RowS =>
                         {
                             /////Parallel.For(0, 8, ColS =>
-                            //for (int ColS = 0; ColS < 8; ColS++)
+                            //for (var ColS = 0; ColS < 8; ColS++)
                             {
 
 
