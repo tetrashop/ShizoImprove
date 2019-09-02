@@ -89,6 +89,8 @@ namespace Refrigtz
     //Constructor
     public partial class FormRefrigtz : Form
     {
+        String path3 = @"temp";       
+        String AllDrawReplacement = "";
         bool Sugar = false;
         public bool Quantum = false;
         Double Store = 0;
@@ -4070,6 +4072,37 @@ namespace Refrigtz
         //Load Refregitz Form.
         private void Form1_Load(object sender, EventArgs e)
         {
+            String P = Path.GetFullPath(path3);
+            AllDrawReplacement = Path.Combine(P, "AllDraw.asd");
+            if (File.Exists("AllDraw.asd"))
+            {
+                if (File.Exists(AllDrawReplacement))
+                {
+                    if (((new System.IO.FileInfo("AllDraw.asd").Length) < (new System.IO.FileInfo(AllDrawReplacement)).Length))
+                    {
+                        File.Delete("AllDraw.asd");
+                        File.Copy(AllDrawReplacement, "AllDraw.asd");
+                    }
+
+                    else
+                    {
+                        if (File.Exists(AllDrawReplacement))
+                            File.Delete(AllDrawReplacement);
+                        File.Copy("AllDraw.asd", AllDrawReplacement);
+                    }
+                }
+                else
+                {
+                    if (!Directory.Exists(Path.GetFullPath(path3)))
+                        Directory.CreateDirectory(Path.GetFullPath(path3));
+                    File.Copy("AllDraw.asd", AllDrawReplacement);
+                }  
+            }
+            else if (File.Exists(AllDrawReplacement))
+            {
+                File.Copy(AllDrawReplacement, "AllDraw.asd");
+            }
+        
             BrownTimer = new Refrigtz.Timer(false);
             GrayTimer = new Refrigtz.Timer(false);
             TimerText = new Refrigtz.Timer(true);
