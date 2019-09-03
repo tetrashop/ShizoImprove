@@ -82,7 +82,7 @@ namespace QuantumRefrigiz
         public double ReturnHuristic()
         {
             double a = 0;
-            for (int ii = 0; ii < AllDraw.SodierMovments; ii++)
+            for (var ii = 0; ii < AllDraw.SodierMovments; ii++)
                 
                     a += SoldierThinkingQuantum[ii].ReturnHuristic(-1, -1, Order,false);
                
@@ -123,12 +123,12 @@ namespace QuantumRefrigiz
                 ArrangmentsChanged = Arrangments;
                 //Initiate Global Variables.  
                 Table = new int[8, 8];
-                for (int ii = 0; ii < 8; ii++)
+                for (var ii = 0; ii < 8; ii++)
                     for (int jj = 0; jj < 8; jj++)
                         Table[ii, jj] = Tab[ii, jj];
                 if (i >= 8 || j >= 8)
                     i = 7;
-                for (int ii = 0; ii < AllDraw.SodierMovments; ii++)
+                for (var ii = 0; ii < AllDraw.SodierMovments; ii++)
                 {
                     SoldierThinkingQuantum[ii] = new ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 4, Ord, TB, Cur, 16, 1);                    
                 }
@@ -160,7 +160,7 @@ namespace QuantumRefrigiz
                
             }
             AA.Table = new int[8, 8];
-            for (int ii = 0; ii < 8; ii++)
+            for (var ii = 0; ii < 8; ii++)
                 for (int jj = 0; jj < 8; jj++)
                     AA.Table[ii, jj] = Tab[ii, jj];
             AA.RowS = RowS;

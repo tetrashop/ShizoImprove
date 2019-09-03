@@ -608,7 +608,7 @@ namespace QuantumRefrigiz
                 if (FindGrayKing(Tab, ref RowG, ref ColumnG))
                 {
                     //For Enemy Brown.
-                    for (int ii = 0; ii < 8; ii++)
+                    for (var ii = 0; ii < 8; ii++)
                     {
                         for (int jj = 0; jj < 8; jj++)
                         {
@@ -619,7 +619,7 @@ namespace QuantumRefrigiz
                             if (Tab[ii, jj] >= 0)
                                 continue;
                             //For Current Gray and Empty.
-                            for (int iii = 0; iii < 8; iii++)
+                            for (var iii = 0; iii < 8; iii++)
                             {
                                 for (int jjj = 0; jjj < 8; jjj++)
                                 {
@@ -679,7 +679,7 @@ namespace QuantumRefrigiz
                 {
 
                     //For Gray Enemy.
-                    for (int ii = 0; ii < 8; ii++)
+                    for (var ii = 0; ii < 8; ii++)
                     {
                         for (int jj = 0; jj < 8; jj++)
                         {
@@ -687,7 +687,7 @@ namespace QuantumRefrigiz
                             if (Tab[ii, jj] <= 0)
                                 continue;
                             //For Current BNrown.
-                            for (int iii = 0; iii < 8; iii++)
+                            for (var iii = 0; iii < 8; iii++)
                             {
                                 for (int jjj = 0; jjj < 8; jjj++)
                                 {
@@ -810,7 +810,7 @@ namespace QuantumRefrigiz
                 if (FindGrayKing(Tab, ref RowG, ref ColumnG))
                 {
                     //For Enemy Brown.
-                    for (int ii = 0; ii < 8; ii++)
+                    for (var ii = 0; ii < 8; ii++)
                     {
                         for (int jj = 0; jj < 8; jj++)
                         {
@@ -821,7 +821,7 @@ namespace QuantumRefrigiz
                                     if (Tab[ii, jj] >= 0)
                                         continue;
                             //For Current Gray and Empty.
-                            for (int iii = 0; iii < 8; iii++)
+                            for (var iii = 0; iii < 8; iii++)
                             {
                                 for (int jjj = 0; jjj < 8; jjj++)
                                 {
@@ -881,7 +881,7 @@ namespace QuantumRefrigiz
                 {
 
                     //For Gray Enemy.
-                    for (int ii = 0; ii < 8; ii++)
+                    for (var ii = 0; ii < 8; ii++)
                     {
                         for (int jj = 0; jj < 8; jj++)
                         {
@@ -889,7 +889,7 @@ namespace QuantumRefrigiz
                             if (Tab[ii, jj] <= 0)
                                 continue;
                             //For Current BNrown.
-                            for (int iii = 0; iii < 8; iii++)
+                            for (var iii = 0; iii < 8; iii++)
                             {
                                 for (int jjj = 0; jjj < 8; jjj++)
                                 {
@@ -1042,7 +1042,7 @@ namespace QuantumRefrigiz
                         if (Order == -1 && Tab[i, i] <= 0)
                             continue;
                         //For All Current
-                        for (int iii = 0; iii < 8; iii++)
+                        for (var iii = 0; iii < 8; iii++)
                         {
                             for (int jjj = 0; jjj < 8; jjj++)
                             {
@@ -1071,7 +1071,7 @@ namespace QuantumRefrigiz
                                         if (Order == 1 && A.CheckMateGray)
                                         {
                                             //For Current.
-                                            for (int iiii = 0; iiii < 8; iiii++)
+                                            for (var iiii = 0; iiii < 8; iiii++)
                                             {
                                                 for (int jjjj = 0; jjjj < 8; jjjj++)
                                                 {
@@ -1125,7 +1125,7 @@ namespace QuantumRefrigiz
                                             {
 
                                                 //For Current.
-                                                for (int iiii = 0; iiii < 8; iiii++)
+                                                for (var iiii = 0; iiii < 8; iiii++)
                                                 {
                                                     for (int jjjj = 0; jjjj < 8; jjjj++)
                                                     {
@@ -1635,7 +1635,7 @@ namespace QuantumRefrigiz
                             if (Order == -1)
                                 A = Color.Brown;
                             //For All Second Home.
-                            for (int ii = 0; ii < 8; ii++)
+                            for (var ii = 0; ii < 8; ii++)
                                 for (int jj = 0; jj < 8; jj++)
                                 {
                                     //If First Home is Movable to Second Home.
@@ -1703,7 +1703,7 @@ namespace QuantumRefrigiz
                 //For All Home Tables in Fourth Second Traversal.
                 for (var i = 0; i < 8; i++)
                     for (int j = 0; j < 8; j++)
-                        for (int ii = 0; ii < 8; ii++)
+                        for (var ii = 0; ii < 8; ii++)
                             for (int jj = 0; jj < 8; jj++)
                             {
                                 //If Tow How is the Same Continue Traversal Back.
@@ -1718,7 +1718,7 @@ namespace QuantumRefrigiz
                                         //Initiate Local Variables.
                                         int[,] Tab = new int[8, 8];
                                         //Clone  a Copy.
-                                        for (int iii = 0; iii < 8; iii++)
+                                        for (var iii = 0; iii < 8; iii++)
                                             for (int jjj = 0; jjj < 8; jjj++)
                                             {
                                                 Tab[iii, jjj] = Table[iii, jjj];
@@ -1727,7 +1727,7 @@ namespace QuantumRefrigiz
                                         if ((new QuantumRefrigiz.ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, i, j)).Movable(Tab, i, j, ii, jj, Color.Brown, -1))
                                         {
                                             //Clone a Copy.
-                                            for (int iii = 0; iii < 8; iii++)
+                                            for (var iii = 0; iii < 8; iii++)
                                                 for (int jjj = 0; jjj < 8; jjj++)
                                                 {
                                                     Tab[iii, jjj] = Table[iii, jjj];
@@ -1773,7 +1773,7 @@ namespace QuantumRefrigiz
                 //For All Second Traversal Homes.
                 for (var i = 0; i < 8; i++)
                     for (int j = 0; j < 8; j++)
-                        for (int ii = 0; ii < 8; ii++)
+                        for (var ii = 0; ii < 8; ii++)
                             for (int jj = 0; jj < 8; jj++)
                             {
                                 //if The Tow Traversal are the ame Continue Traversal Back.
@@ -1788,7 +1788,7 @@ namespace QuantumRefrigiz
                                         //Inaitate Local Variables.
                                         int[,] Tab = new int[8, 8];
                                         //Clone a Copy.
-                                        for (int iii = 0; iii < 8; iii++)
+                                        for (var iii = 0; iii < 8; iii++)
                                             for (int jjj = 0; jjj < 8; jjj++)
                                             {
                                                 Tab[iii, jjj] = Table[iii, jjj];
@@ -1796,7 +1796,7 @@ namespace QuantumRefrigiz
                                         //Moveable Movemnts in the Tow Traversal Kind.
                                         if ((new QuantumRefrigiz.ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, i, j)).Movable(Tab, i, j, ii, jj, Color.Gray, 1))
                                         {
-                                            for (int iii = 0; iii < 8; iii++)
+                                            for (var iii = 0; iii < 8; iii++)
                                                 for (int jjj = 0; jjj < 8; jjj++)
                                                 {
                                                     Tab[iii, jjj] = Table[iii, jjj];
@@ -1910,14 +1910,14 @@ namespace QuantumRefrigiz
                 bool[,] TableS = new bool[8, 8];
                 //  if (Order == -1)
 
-                for (int ii = 0; ii < 8; ii++)
+                for (var ii = 0; ii < 8; ii++)
                     for (int jj = 0; jj < 8; jj++)
                     {
                         if (Table[ii, jj] > 0)
                         {
                             bool[,] TableSS = VeryFye(Table, 1, Color.Gray, ii, jj);
 
-                            for (int iii = 0; iii < 8; iii++)
+                            for (var iii = 0; iii < 8; iii++)
                                 for (int jjj = 0; jjj < 8; jjj++)
                                 {
                                     TableS[iii, jjj] |= TableSS[iii, jjj];
@@ -1929,7 +1929,7 @@ namespace QuantumRefrigiz
                     NumbersofKingMovesToPatGray++;
                 }
                 Pat = false;
-                for (int ii = 0; ii < 8; ii++)
+                for (var ii = 0; ii < 8; ii++)
                     for (int jj = 0; jj < 8; jj++)
                     {
                         Pat |= TableS[ii, jj];
@@ -1946,13 +1946,13 @@ namespace QuantumRefrigiz
                 }
                 TableS = new bool[8, 8];
 
-                for (int ii = 0; ii < 8; ii++)
+                for (var ii = 0; ii < 8; ii++)
                     for (int jj = 0; jj < 8; jj++)
                     {
                         if (Table[ii, jj] < 0)
                         {
                             bool[,] TableSS = VeryFye(Table, -1, Color.Brown, ii, jj);
-                            for (int iii = 0; iii < 8; iii++)
+                            for (var iii = 0; iii < 8; iii++)
                                 for (int jjj = 0; jjj < 8; jjj++)
                                 {
                                     TableS[iii, jjj] |= TableSS[iii, jjj];
@@ -1964,7 +1964,7 @@ namespace QuantumRefrigiz
                     NumbersofKingMovesToPatBrown++;
                 }
                 Pat = false;
-                for (int ii = 0; ii < 8; ii++)
+                for (var ii = 0; ii < 8; ii++)
                     for (int jj = 0; jj < 8; jj++)
                     {
                         Pat |= TableS[ii, jj];
@@ -2002,7 +2002,7 @@ namespace QuantumRefrigiz
         {
             int[,] Tab = new int[8, 8];
             //Clone a Copy.
-            for (int ii = 0; ii < 8; ii++)
+            for (var ii = 0; ii < 8; ii++)
                 for (int jj = 0; jj < 8; jj++)
                     Tab[ii, jj] = Table[ii, jj];
             int Ord = Order;
@@ -2026,7 +2026,7 @@ namespace QuantumRefrigiz
                     int Dummt = QuantumRefrigiz.ChessRules.CurrentOrder;
                     QuantumRefrigiz.ChessRules.CurrentOrder = -1;
                     //Clone a Copy.
-                    for (int ii = 0; ii < 8; ii++)
+                    for (var ii = 0; ii < 8; ii++)
                         for (int jj = 0; jj < 8; jj++)
                             Tab[ii, jj] = Table[ii, jj];
 
@@ -2222,7 +2222,7 @@ namespace QuantumRefrigiz
                     //Initiate Local Varibale.
                     ActMove = true;
                     //For All Second Home Table.
-                    for (int ii = 0; ii < 8; ii++)
+                    for (var ii = 0; ii < 8; ii++)
                     {
 
                         for (int jj = 0; jj < 8; jj++)
@@ -2232,7 +2232,7 @@ namespace QuantumRefrigiz
                             if (Ord == -1 && Tab[ii, jj] < 0)
                                 continue;
                             //Clone a Copy.
-                            for (int iii = 0; iii < 8; iii++)
+                            for (var iii = 0; iii < 8; iii++)
                                 for (int jjj = 0; jjj < 8; jjj++)
                                     Table[iii, jjj] = Tab[iii, jjj];
                             Color a = Color.Gray;

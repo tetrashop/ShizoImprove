@@ -76,7 +76,7 @@ namespace RefrigtzDLL
         public double ReturnHuristic()
         {
             double a = 0;
-            for (int ii = 0; ii < AllDraw.ElefantMovments; ii++)
+            for (var ii = 0; ii < AllDraw.ElefantMovments; ii++)
 
                 a += ElefantThinking[ii].ReturnHuristic(-1, -1, Order, false);
 
@@ -118,10 +118,10 @@ namespace RefrigtzDLL
                 ArrangmentsChanged = Arrangments;
                 //Initiate Global Variables By Local Parameters.
                 Table = new int[8, 8];
-                for (int ii = 0; ii < 8; ii++)
+                for (var ii = 0; ii < 8; ii++)
                     for (int jj = 0; jj < 8; jj++)
                         Table[ii, jj] = Tab[ii, jj];
-                for (int ii = 0; ii < AllDraw.ElefantMovments; ii++)
+                for (var ii = 0; ii < AllDraw.ElefantMovments; ii++)
                     ElefantThinking[ii] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 16, Ord, TB, Cur, 4, 2);
 
                 Row = i;
@@ -151,7 +151,7 @@ namespace RefrigtzDLL
 
             }
             AA.Table = new int[8, 8];
-            for (int ii = 0; ii < 8; ii++)
+            for (var ii = 0; ii < 8; ii++)
                 for (int jj = 0; jj < 8; jj++)
                     AA.Table[ii, jj] = Tab[ii, jj];
             AA.Row = Row;

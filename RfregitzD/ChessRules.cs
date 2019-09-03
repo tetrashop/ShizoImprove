@@ -606,7 +606,7 @@ namespace RefrigtzDLL
                 if (FindGrayKing(Tab, ref RowG, ref ColumnG))
                 {
                     //For Enemy Brown.
-                    for (int ii = 0; ii < 8; ii++)
+                    for (var ii = 0; ii < 8; ii++)
                     {
                         for (int jj = 0; jj < 8; jj++)
                         {
@@ -615,7 +615,7 @@ namespace RefrigtzDLL
                             if (Tab[ii, jj] >= 0)
                                 continue;
                             //For Current Gray and Empty.
-                            for (int iii = 0; iii < 8; iii++)
+                            for (var iii = 0; iii < 8; iii++)
                             {
                                 for (int jjj = 0; jjj < 8; jjj++)
                                 {
@@ -674,7 +674,7 @@ namespace RefrigtzDLL
                 {
 
                     //For Gray Enemy.
-                    for (int ii = 0; ii < 8; ii++)
+                    for (var ii = 0; ii < 8; ii++)
                     {
                         for (int jj = 0; jj < 8; jj++)
                         {
@@ -682,7 +682,7 @@ namespace RefrigtzDLL
                             if (Tab[ii, jj] <= 0)
                                 continue;
                             //For Current Brown.
-                            for (int iii = 0; iii < 8; iii++)
+                            for (var iii = 0; iii < 8; iii++)
                             {
                                 for (int jjj = 0; jjj < 8; jjj++)
                                 {
@@ -806,7 +806,7 @@ namespace RefrigtzDLL
                 if (FindGrayKing(Tab, ref RowG, ref ColumnG))
                 {
                     //For Enemy Brown.
-                    for (int ii = 0; ii < 8; ii++)
+                    for (var ii = 0; ii < 8; ii++)
                     {
                         for (int jj = 0; jj < 8; jj++)
                         {
@@ -815,7 +815,7 @@ namespace RefrigtzDLL
                             if (Tab[ii, jj] >= 0)
                                 continue;
                             //For Current Gray and Empty.
-                            for (int iii = 0; iii < 8; iii++)
+                            for (var iii = 0; iii < 8; iii++)
                             {
                                 for (int jjj = 0; jjj < 8; jjj++)
                                 {
@@ -874,7 +874,7 @@ namespace RefrigtzDLL
                 {
 
                     //For Gray Enemy.
-                    for (int ii = 0; ii < 8; ii++)
+                    for (var ii = 0; ii < 8; ii++)
                     {
                         for (int jj = 0; jj < 8; jj++)
                         {
@@ -882,7 +882,7 @@ namespace RefrigtzDLL
                             if (Tab[ii, jj] <= 0)
                                 continue;
                             //For Current Brown.
-                            for (int iii = 0; iii < 8; iii++)
+                            for (var iii = 0; iii < 8; iii++)
                             {
                                 for (int jjj = 0; jjj < 8; jjj++)
                                 {
@@ -1036,7 +1036,7 @@ namespace RefrigtzDLL
                         if (Order == -1 && Tab[i, i] <= 0)
                             continue;
                         //For All Current
-                        for (int iii = 0; iii < 8; iii++)
+                        for (var iii = 0; iii < 8; iii++)
                         {
                             for (int jjj = 0; jjj < 8; jjj++)
                             {
@@ -1065,7 +1065,7 @@ namespace RefrigtzDLL
                                         if (Order == 1 && A.CheckMateGray)
                                         {
                                             //For Current.
-                                            for (int iiii = 0; iiii < 8; iiii++)
+                                            for (var iiii = 0; iiii < 8; iiii++)
                                             {
                                                 for (int jjjj = 0; jjjj < 8; jjjj++)
                                                 {
@@ -1119,7 +1119,7 @@ namespace RefrigtzDLL
                                             {
 
                                                 //For Current.
-                                                for (int iiii = 0; iiii < 8; iiii++)
+                                                for (var iiii = 0; iiii < 8; iiii++)
                                                 {
                                                     for (int jjjj = 0; jjjj < 8; jjjj++)
                                                     {
@@ -1629,7 +1629,7 @@ namespace RefrigtzDLL
                             if (Order == -1)
                                 A = Color.Brown;
                             //For All Second Home.
-                            for (int ii = 0; ii < 8; ii++)
+                            for (var ii = 0; ii < 8; ii++)
                                 for (int jj = 0; jj < 8; jj++)
                                 {
                                     //If First Home is Movable to Second Home.
@@ -1697,7 +1697,7 @@ namespace RefrigtzDLL
                 //For All Home Tables in Fourth Second Traversal.
                 for (var i = 0; i < 8; i++)
                     for (int j = 0; j < 8; j++)
-                        for (int ii = 0; ii < 8; ii++)
+                        for (var ii = 0; ii < 8; ii++)
                             for (int jj = 0; jj < 8; jj++)
                             {
                                 //If Tow How is the Same Continue Traversal Back.
@@ -1712,7 +1712,7 @@ namespace RefrigtzDLL
                                         //Initiate Local Variables.
                                         int[,] Tab = new int[8, 8];
                                         //Clone  a Copy.
-                                        for (int iii = 0; iii < 8; iii++)
+                                        for (var iii = 0; iii < 8; iii++)
                                             for (int jjj = 0; jjj < 8; jjj++)
                                             {
                                                 Tab[iii, jjj] = Table[iii, jjj];
@@ -1721,7 +1721,7 @@ namespace RefrigtzDLL
                                         if ((new RefrigtzDLL.ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, i, j)).Movable(Tab, i, j, ii, jj, Color.Brown, -1))
                                         {
                                             //Clone a Copy.
-                                            for (int iii = 0; iii < 8; iii++)
+                                            for (var iii = 0; iii < 8; iii++)
                                                 for (int jjj = 0; jjj < 8; jjj++)
                                                 {
                                                     Tab[iii, jjj] = Table[iii, jjj];
@@ -1767,7 +1767,7 @@ namespace RefrigtzDLL
                 //For All Second Traversal Homes.
                 for (var i = 0; i < 8; i++)
                     for (int j = 0; j < 8; j++)
-                        for (int ii = 0; ii < 8; ii++)
+                        for (var ii = 0; ii < 8; ii++)
                             for (int jj = 0; jj < 8; jj++)
                             {
                                 //if The Tow Traversal are the ame Continue Traversal Back.
@@ -1782,7 +1782,7 @@ namespace RefrigtzDLL
                                         //Inaitate Local Variables.
                                         int[,] Tab = new int[8, 8];
                                         //Clone a Copy.
-                                        for (int iii = 0; iii < 8; iii++)
+                                        for (var iii = 0; iii < 8; iii++)
                                             for (int jjj = 0; jjj < 8; jjj++)
                                             {
                                                 Tab[iii, jjj] = Table[iii, jjj];
@@ -1790,7 +1790,7 @@ namespace RefrigtzDLL
                                         //Moveable Movemnts in the Tow Traversal Kind.
                                         if ((new RefrigtzDLL.ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, i, j)).Movable(Tab, i, j, ii, jj, Color.Gray, 1))
                                         {
-                                            for (int iii = 0; iii < 8; iii++)
+                                            for (var iii = 0; iii < 8; iii++)
                                                 for (int jjj = 0; jjj < 8; jjj++)
                                                 {
                                                     Tab[iii, jjj] = Table[iii, jjj];
@@ -1904,14 +1904,14 @@ namespace RefrigtzDLL
                 bool[,] TableS = new bool[8, 8];
                 //  if (Order == -1)
 
-                for (int ii = 0; ii < 8; ii++)
+                for (var ii = 0; ii < 8; ii++)
                     for (int jj = 0; jj < 8; jj++)
                     {
                         if (Table[ii, jj] > 0)
                         {
                             bool[,] TableSS = VeryFye(Table, 1, Color.Gray, ii, jj);
 
-                            for (int iii = 0; iii < 8; iii++)
+                            for (var iii = 0; iii < 8; iii++)
                                 for (int jjj = 0; jjj < 8; jjj++)
                                 {
                                     TableS[iii, jjj] |= TableSS[iii, jjj];
@@ -1923,7 +1923,7 @@ namespace RefrigtzDLL
                     NumbersofKingMovesToPatGray++;
                 }
                 Pat = false;
-                for (int ii = 0; ii < 8; ii++)
+                for (var ii = 0; ii < 8; ii++)
                     for (int jj = 0; jj < 8; jj++)
                     {
                         Pat |= TableS[ii, jj];
@@ -1940,13 +1940,13 @@ namespace RefrigtzDLL
                 }
                 TableS = new bool[8, 8];
 
-                for (int ii = 0; ii < 8; ii++)
+                for (var ii = 0; ii < 8; ii++)
                     for (int jj = 0; jj < 8; jj++)
                     {
                         if (Table[ii, jj] < 0)
                         {
                             bool[,] TableSS = VeryFye(Table, -1, Color.Brown, ii, jj);
-                            for (int iii = 0; iii < 8; iii++)
+                            for (var iii = 0; iii < 8; iii++)
                                 for (int jjj = 0; jjj < 8; jjj++)
                                 {
                                     TableS[iii, jjj] |= TableSS[iii, jjj];
@@ -1958,7 +1958,7 @@ namespace RefrigtzDLL
                     NumbersofKingMovesToPatBrown++;
                 }
                 Pat = false;
-                for (int ii = 0; ii < 8; ii++)
+                for (var ii = 0; ii < 8; ii++)
                     for (int jj = 0; jj < 8; jj++)
                     {
                         Pat |= TableS[ii, jj];
@@ -1996,7 +1996,7 @@ namespace RefrigtzDLL
         {
             int[,] Tab = new int[8, 8];
             //Clone a Copy.
-            for (int ii = 0; ii < 8; ii++)
+            for (var ii = 0; ii < 8; ii++)
                 for (int jj = 0; jj < 8; jj++)
                     Tab[ii, jj] = Table[ii, jj];
             int Ord = Order;
@@ -2020,7 +2020,7 @@ namespace RefrigtzDLL
                     int Dummt = RefrigtzDLL.ChessRules.CurrentOrder;
                     RefrigtzDLL.ChessRules.CurrentOrder = -1;
                     //Clone a Copy.
-                    for (int ii = 0; ii < 8; ii++)
+                    for (var ii = 0; ii < 8; ii++)
                         for (int jj = 0; jj < 8; jj++)
                             Tab[ii, jj] = Table[ii, jj];
 
@@ -2215,7 +2215,7 @@ namespace RefrigtzDLL
                     //Initiate Local Varibale.
                     ActMove = true;
                     //For All Second Home Table.
-                    for (int ii = 0; ii < 8; ii++)
+                    for (var ii = 0; ii < 8; ii++)
                     {
 
                         for (int jj = 0; jj < 8; jj++)
@@ -2225,7 +2225,7 @@ namespace RefrigtzDLL
                             if (Ord == -1 && Tab[ii, jj] < 0)
                                 continue;
                             //Clone a Copy.
-                            for (int iii = 0; iii < 8; iii++)
+                            for (var iii = 0; iii < 8; iii++)
                                 for (int jjj = 0; jjj < 8; jjj++)
                                     Table[iii, jjj] = Tab[iii, jjj];
                             Color a = Color.Gray;

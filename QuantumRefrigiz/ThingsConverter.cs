@@ -403,7 +403,7 @@ namespace QuantumRefrigiz
                     lock (O)
                     {
                         TableConverted = new int[8, 8];
-                        for (int iii = 0; iii < 8; iii++)
+                        for (var iii = 0; iii < 8; iii++)
                             for (int jjj = 0; jjj < 8; jjj++)
                                 TableConverted[iii, jjj] = Tab[iii, jjj];
                     }

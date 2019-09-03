@@ -60,7 +60,7 @@ namespace RefrigtzDLL
         public double ReturnHuristic()
         {
             double a = 0;
-            for (int ii = 0; ii < AllDraw.KingMovments; ii++)
+            for (var ii = 0; ii < AllDraw.KingMovments; ii++)
 
                 a += KingThinking[ii].ReturnHuristic(-1, -1, Order, false);
 
@@ -121,10 +121,10 @@ namespace RefrigtzDLL
                 ArrangmentsChanged = Arrangments;
                 //Iniatite Global Variables.
                 Table = new int[8, 8];
-                for (int ii = 0; ii < 8; ii++)
+                for (var ii = 0; ii < 8; ii++)
                     for (int jj = 0; jj < 8; jj++)
                         Table[ii, jj] = Tab[ii, jj];
-                for (int ii = 0; ii < AllDraw.KingMovments; ii++)
+                for (var ii = 0; ii < AllDraw.KingMovments; ii++)
                     KingThinking[ii] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 8, Ord, TB, Cur, 2, 6);
 
                 Row = i;
@@ -153,7 +153,7 @@ namespace RefrigtzDLL
 
             }
             AA.Table = new int[8, 8];
-            for (int ii = 0; ii < 8; ii++)
+            for (var ii = 0; ii < 8; ii++)
                 for (int jj = 0; jj < 8; jj++)
                     AA.Table[ii, jj] = Tab[ii, jj];
             AA.Row = Row;

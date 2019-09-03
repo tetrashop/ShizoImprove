@@ -76,7 +76,7 @@ namespace QuantumRefrigiz
         public double ReturnHuristic()
         {
             double a = 0;
-            for (int ii = 0; ii < AllDraw.CastleMovments; ii++)
+            for (var ii = 0; ii < AllDraw.CastleMovments; ii++)
                 
                     a += CastleThinkingQuantum[ii].ReturnHuristic(-1, -1, Order, false);
                
@@ -119,10 +119,10 @@ namespace QuantumRefrigiz
                 ArrangmentsChanged = Arrangments;
                 //Initiate Global Variable By Local Parmenter.
                 Table = new int[8, 8];
-                for (int ii = 0; ii < 8; ii++)
+                for (var ii = 0; ii < 8; ii++)
                     for (int jj = 0; jj < 8; jj++)
                         Table[ii, jj] = Tab[ii, jj];
-                for (int ii = 0; ii < AllDraw.CastleMovments; ii++)
+                for (var ii = 0; ii < AllDraw.CastleMovments; ii++)
                     CastleThinkingQuantum[ii] = new ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 16, Ord, TB, Cur, 4, 4);
 
                 Row = i;
@@ -152,7 +152,7 @@ namespace QuantumRefrigiz
                
             }
             AA.Table = new int[8, 8];
-            for (int ii = 0; ii < 8; ii++)
+            for (var ii = 0; ii < 8; ii++)
                 for (int jj = 0; jj < 8; jj++)
                     AA.Table[ii, jj] = Tab[ii, jj];
             AA.Row = Row;

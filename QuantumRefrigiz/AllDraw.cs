@@ -1559,7 +1559,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                             Order *= -1;
-                            for (int ii = 0; A.SolderesOnTable != null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinkingQuantum[0] != null && ii < A.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; ii++)
+                            for (var ii = 0; A.SolderesOnTable != null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinkingQuantum[0] != null && ii < A.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; ii++)
                                 AA = AA || IsToCheckMateHasLessDeeperThanForCheckMate(A.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[ii], Order, ref ToCheckMate, ref ForCheckMate, AStarGreedy++);
                             Order = CDummy;
                         }
@@ -1597,7 +1597,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                             Order *= -1;
-                            for (int ii = 0; A.ElephantOnTable != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinkingQuantum[0] != null && ii < A.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; ii++)
+                            for (var ii = 0; A.ElephantOnTable != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinkingQuantum[0] != null && ii < A.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; ii++)
                                 AA = AA || IsToCheckMateHasLessDeeperThanForCheckMate(A.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[ii], Order, ref ToCheckMate, ref ForCheckMate, AStarGreedy++);
                             Order = CDummy;
                         }
@@ -1632,7 +1632,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                             Order *= -1;
-                            for (int ii = 0; A.HoursesOnTable != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinkingQuantum[0] != null && ii < A.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; ii++)
+                            for (var ii = 0; A.HoursesOnTable != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinkingQuantum[0] != null && ii < A.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; ii++)
                                 AA = AA || IsToCheckMateHasLessDeeperThanForCheckMate(A.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[ii], Order, ref ToCheckMate, ref ForCheckMate, AStarGreedy++);
                             Order = CDummy;
                         }
@@ -1667,7 +1667,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                             Order *= -1;
-                            for (int ii = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinkingQuantum[0] != null && ii < A.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; ii++)
+                            for (var ii = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinkingQuantum[0] != null && ii < A.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; ii++)
                                 AA = AA || IsToCheckMateHasLessDeeperThanForCheckMate(A.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[ii], Order, ref ToCheckMate, ref ForCheckMate, AStarGreedy++);
                             Order = CDummy;
                         }
@@ -1704,7 +1704,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                             Order *= -1;
-                            for (int ii = 0; A.MinisterOnTable != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinkingQuantum[0] != null && ii < A.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; ii++)
+                            for (var ii = 0; A.MinisterOnTable != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinkingQuantum[0] != null && ii < A.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; ii++)
                                 AA = AA || IsToCheckMateHasLessDeeperThanForCheckMate(A.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[ii], Order, ref ToCheckMate, ref ForCheckMate, AStarGreedy++);
                             Order = CDummy;
                         }
@@ -1739,7 +1739,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                             Order *= -1;
-                            for (int ii = 0; A.KingOnTable != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinkingQuantum[0] != null && ii < A.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; ii++)
+                            for (var ii = 0; A.KingOnTable != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinkingQuantum[0] != null && ii < A.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; ii++)
                                 AA = AA || IsToCheckMateHasLessDeeperThanForCheckMate(A.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[ii], Order, ref ToCheckMate, ref ForCheckMate, AStarGreedy++);
                             Order = CDummy;
                         }
@@ -1778,7 +1778,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                             Order *= -1;
-                            for (int ii = 0; A.SolderesOnTable != null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinkingQuantum[0] != null && ii < A.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; ii++)
+                            for (var ii = 0; A.SolderesOnTable != null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinkingQuantum[0] != null && ii < A.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; ii++)
                                 AA = AA || IsToCheckMateHasLessDeeperThanForCheckMate(A.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[ii], Order, ref ToCheckMate, ref ForCheckMate, AStarGreedy++);
                             Order = CDummy;
                         }
@@ -1813,7 +1813,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                             Order *= -1;
-                            for (int ii = 0; A.ElephantOnTable != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinkingQuantum[0] != null && ii < A.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; ii++)
+                            for (var ii = 0; A.ElephantOnTable != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinkingQuantum[0] != null && ii < A.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; ii++)
                                 AA = AA || IsToCheckMateHasLessDeeperThanForCheckMate(A.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[ii], Order, ref ToCheckMate, ref ForCheckMate, AStarGreedy++);
                             Order = CDummy;
                         }
@@ -1848,7 +1848,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                             Order *= -1;
-                            for (int ii = 0; A.HoursesOnTable != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinkingQuantum[0] != null && ii < A.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; ii++)
+                            for (var ii = 0; A.HoursesOnTable != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinkingQuantum[0] != null && ii < A.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; ii++)
                                 AA = AA || IsToCheckMateHasLessDeeperThanForCheckMate(A.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[ii], Order, ref ToCheckMate, ref ForCheckMate, AStarGreedy++);
                             Order = CDummy;
                         }
@@ -1883,7 +1883,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                             Order *= -1;
-                            for (int ii = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinkingQuantum[0] != null && ii < A.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; ii++)
+                            for (var ii = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinkingQuantum[0] != null && ii < A.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; ii++)
                                 AA = AA || IsToCheckMateHasLessDeeperThanForCheckMate(A.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[ii], Order, ref ToCheckMate, ref ForCheckMate, AStarGreedy++);
                             Order = CDummy;
                         }
@@ -1919,7 +1919,7 @@ if (Kind == 2)
                             }
 
                             Order *= -1;
-                            for (int ii = 0; A.MinisterOnTable != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinkingQuantum[0] != null && ii < A.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; ii++)
+                            for (var ii = 0; A.MinisterOnTable != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinkingQuantum[0] != null && ii < A.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; ii++)
                                 AA = AA || IsToCheckMateHasLessDeeperThanForCheckMate(A.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[ii], Order, ref ToCheckMate, ref ForCheckMate, AStarGreedy++);
                             Order = CDummy;
                         }
@@ -1955,7 +1955,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                             Order *= -1;
-                            for (int ii = 0; A.KingOnTable != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinkingQuantum[0] != null && ii < A.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; ii++)
+                            for (var ii = 0; A.KingOnTable != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinkingQuantum[0] != null && ii < A.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; ii++)
                                 AA = AA || IsToCheckMateHasLessDeeperThanForCheckMate(A.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[ii], Order, ref ToCheckMate, ref ForCheckMate, AStarGreedy++);
                             Order = CDummy;
                         }
@@ -2027,7 +2027,7 @@ if (Kind == 2)
                                 Order *= -1;
                                 ChessRules.CurrentOrder *= -1;
                                 //For Subbranchs.
-                                for (int ii = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum[0] != null && ii < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                for (var ii = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum[0] != null && ii < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; ii++)
                                     SolderesOnTable[ii].SoldierThinkingQuantum[0].AStarGreedy[i].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
                                 Order = COrder;
                                 ChessRules.CurrentOrder = CDummy;
@@ -2082,7 +2082,7 @@ if (Kind == 2)
                                 Order *= -1;
                                 ChessRules.CurrentOrder *= -1;
                                 //For Subbranchs.
-                                for (int ii = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && ii < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                for (var ii = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && ii < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; ii++)
                                     ElephantOnTable[ii].ElefantThinkingQuantum[0].AStarGreedy[i].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
                                 Order = COrder;
                                 ChessRules.CurrentOrder = CDummy;
@@ -2136,7 +2136,7 @@ if (Kind == 2)
                                 Order *= -1;
                                 ChessRules.CurrentOrder *= -1;
                                 //Sub branchs For Hourse.
-                                for (int ii = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && ii < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                for (var ii = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && ii < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; ii++)
                                     HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
                                 Order = COrder;
                                 ChessRules.CurrentOrder = CDummy;
@@ -2192,7 +2192,7 @@ if (Kind == 2)
                                 //For Castles Gray Subbranchs.
                                 try
                                 {
-                                    for (int ii = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && ii < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                    for (var ii = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && ii < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; ii++)
                                         CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
                                 }
                                 catch (Exception t)
@@ -2253,7 +2253,7 @@ if (Kind == 2)
                                 //For Gray Ministers Subbranchs.
                                 try
                                 {
-                                    for (int ii = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && ii < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                    for (var ii = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && ii < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; ii++)
                                         MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
                                 }
                                 catch (Exception t)
@@ -2314,7 +2314,7 @@ if (Kind == 2)
                                 //For King Gray Subbranchs.
                                 try
                                 {
-                                    for (int ii = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum[0] != null && ii < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                    for (var ii = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum[0] != null && ii < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; ii++)
                                         KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
                                 }
                                 catch (Exception t)
@@ -2381,7 +2381,7 @@ if (Kind == 2)
                                 //Solders Brown Subbranchs Calling.
                                 try
                                 {
-                                    for (int ii = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum[0] != null && ii < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                    for (var ii = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum[0] != null && ii < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; ii++)
                                         SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
                                 }
                                 catch (Exception t)
@@ -2442,7 +2442,7 @@ if (Kind == 2)
                                 //Subbranchs Elephenat Brown Calling.
                                 try
                                 {
-                                    for (int ii = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && ii < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                    for (var ii = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && ii < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; ii++)
                                         ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
                                 }
                                 catch (Exception t)
@@ -2503,7 +2503,7 @@ if (Kind == 2)
                                 //Hourse Brown Calling Subbranchs.
                                 try
                                 {
-                                    for (int ii = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && ii < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                    for (var ii = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && ii < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; ii++)
                                         HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
                                 }
                                 catch (Exception t)
@@ -2564,7 +2564,7 @@ if (Kind == 2)
                                 //Brown Castles Calling Subbranches.
                                 try
                                 {
-                                    for (int ii = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && ii < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                    for (var ii = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && ii < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; ii++)
                                         CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
                                 }
                                 catch (Exception t)
@@ -2626,7 +2626,7 @@ if (Kind == 2)
                                 //Minister Brown SubBranches Calling.
                                 try
                                 {
-                                    for (int ii = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && ii < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                    for (var ii = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && ii < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; ii++)
                                         MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
                                 }
                                 catch (Exception t)
@@ -2688,7 +2688,7 @@ if (Kind == 2)
                                 //King Brown Subbranches Calling.
                                 try
                                 {
-                                    for (int ii = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum[0] != null && ii < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                    for (var ii = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum[0] != null && ii < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; ii++)
                                         KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
                                 }
                                 catch (Exception t)
@@ -2726,7 +2726,7 @@ if (Kind == 2)
                                 Log(t);
                             }
                             Order *= -1; ChessRules.CurrentOrder *= -1;
-                            for (int ii = 0; A.SolderesOnTable != null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinkingQuantum[0] != null && ii < A.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; ii++)
+                            for (var ii = 0; A.SolderesOnTable != null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinkingQuantum[0] != null && ii < A.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; ii++)
                                 MakePenaltyAllCheckMateBranches(A.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[ii], Order);
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
@@ -2746,7 +2746,7 @@ if (Kind == 2)
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.ElephantOnTable != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinkingQuantum[0] != null && ii < A.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                for (var ii = 0; A.ElephantOnTable != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinkingQuantum[0] != null && ii < A.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; ii++)
                                     MakePenaltyAllCheckMateBranches(A.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -2771,7 +2771,7 @@ if (Kind == 2)
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.HoursesOnTable != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinkingQuantum[0] != null && ii < A.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                for (var ii = 0; A.HoursesOnTable != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinkingQuantum[0] != null && ii < A.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; ii++)
                                     MakePenaltyAllCheckMateBranches(A.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -2795,7 +2795,7 @@ if (Kind == 2)
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinkingQuantum[0] != null && ii < A.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                for (var ii = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinkingQuantum[0] != null && ii < A.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; ii++)
                                     MakePenaltyAllCheckMateBranches(A.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -2819,7 +2819,7 @@ if (Kind == 2)
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.MinisterOnTable != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinkingQuantum[0] != null && ii < A.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                for (var ii = 0; A.MinisterOnTable != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinkingQuantum[0] != null && ii < A.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; ii++)
                                     MakePenaltyAllCheckMateBranches(A.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -2843,7 +2843,7 @@ if (Kind == 2)
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.KingOnTable != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinkingQuantum[0] != null && ii < A.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                for (var ii = 0; A.KingOnTable != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinkingQuantum[0] != null && ii < A.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; ii++)
                                     MakePenaltyAllCheckMateBranches(A.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -2869,7 +2869,7 @@ if (Kind == 2)
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.SolderesOnTable != null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinkingQuantum[0] != null && ii < A.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                for (var ii = 0; A.SolderesOnTable != null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinkingQuantum[0] != null && ii < A.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; ii++)
                                     MakePenaltyAllCheckMateBranches(A.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -2893,7 +2893,7 @@ if (Kind == 2)
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.ElephantOnTable != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinkingQuantum[0] != null && ii < A.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                for (var ii = 0; A.ElephantOnTable != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinkingQuantum[0] != null && ii < A.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; ii++)
                                     MakePenaltyAllCheckMateBranches(A.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -2918,7 +2918,7 @@ if (Kind == 2)
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.HoursesOnTable != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinkingQuantum[0] != null && ii < A.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                for (var ii = 0; A.HoursesOnTable != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinkingQuantum[0] != null && ii < A.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; ii++)
                                     MakePenaltyAllCheckMateBranches(A.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -2942,7 +2942,7 @@ if (Kind == 2)
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinkingQuantum[0] != null && ii < A.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                for (var ii = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinkingQuantum[0] != null && ii < A.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; ii++)
                                     MakePenaltyAllCheckMateBranches(A.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -2966,7 +2966,7 @@ if (Kind == 2)
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.MinisterOnTable != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinkingQuantum[0] != null && ii < A.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                for (var ii = 0; A.MinisterOnTable != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinkingQuantum[0] != null && ii < A.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; ii++)
                                     MakePenaltyAllCheckMateBranches(A.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -2990,7 +2990,7 @@ if (Kind == 2)
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.KingOnTable != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinkingQuantum[0] != null && ii < A.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                for (var ii = 0; A.KingOnTable != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinkingQuantum[0] != null && ii < A.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; ii++)
                                     MakePenaltyAllCheckMateBranches(A.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -3254,7 +3254,7 @@ if (Kind == 2)
                                     }
                                 }
                                 else
-                                    for (int ii = 0; ii < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                    for (var ii = 0; ii < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; ii++)
                                         SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, ref THIS, ref Found);
 
                             }
@@ -3280,7 +3280,7 @@ if (Kind == 2)
                                     }
                                 }
                                 else
-                                    for (int ii = 0; ii < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                    for (var ii = 0; ii < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; ii++)
                                         ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, ref THIS, ref Found);
 
 
@@ -3305,7 +3305,7 @@ if (Kind == 2)
                                     }
                                 }
                                 else
-                                    for (int ii = 0; ii < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                    for (var ii = 0; ii < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; ii++)
                                         HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, ref THIS, ref Found);
 
                             }
@@ -3331,7 +3331,7 @@ if (Kind == 2)
                                     }
                                 }
                                 else
-                                    for (int ii = 0; ii < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                    for (var ii = 0; ii < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; ii++)
                                         CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, ref THIS, ref Found);
                             }
                             catch (Exception t)
@@ -3355,7 +3355,7 @@ if (Kind == 2)
                                     }
                                 }
                                 else
-                                    for (int ii = 0; ii < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                    for (var ii = 0; ii < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; ii++)
                                         MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, ref THIS, ref Found);
 
                             }
@@ -3380,7 +3380,7 @@ if (Kind == 2)
                                     }
                                 }
                                 else
-                                    for (int ii = 0; ii < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                    for (var ii = 0; ii < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; ii++)
                                         KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, ref THIS, ref Found);
 
                             }
@@ -3409,7 +3409,7 @@ if (Kind == 2)
                                     }
                                 }
                                 else
-                                    for (int ii = 0; ii < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                    for (var ii = 0; ii < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; ii++)
                                         SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, ref THIS, ref Found);
 
                             }
@@ -3434,7 +3434,7 @@ if (Kind == 2)
                                     }
                                 }
                                 else
-                                    for (int ii = 0; ii < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                    for (var ii = 0; ii < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; ii++)
                                         ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, ref THIS, ref Found);
 
                             }
@@ -3459,7 +3459,7 @@ if (Kind == 2)
                                     }
                                 }
                                 else
-                                    for (int ii = 0; ii < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                    for (var ii = 0; ii < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; ii++)
                                         HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, ref THIS, ref Found);
 
 
@@ -3485,7 +3485,7 @@ if (Kind == 2)
                                     }
                                 }
                                 else
-                                    for (int ii = 0; ii < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                    for (var ii = 0; ii < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; ii++)
                                         CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, ref THIS, ref Found);
 
                             }
@@ -3509,7 +3509,7 @@ if (Kind == 2)
                                     }
                                 }
                                 else
-                                    for (int ii = 0; ii < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                    for (var ii = 0; ii < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; ii++)
                                         MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, ref THIS, ref Found);
 
                             }
@@ -3533,7 +3533,7 @@ if (Kind == 2)
                                     }
                                 }
                                 else
-                                    for (int ii = 0; ii < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                    for (var ii = 0; ii < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; ii++)
                                         KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[ii].FoundOfCurrentTableNode(Tab, Order * -1, ref THIS, ref Found);
 
                             }
@@ -3573,7 +3573,7 @@ if (Kind == 2)
 
                                 }
                                 else
-                                    for (int ii = 0; ii < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
+                                    for (var ii = 0; ii < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
                                         SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
 
                             }
@@ -3595,7 +3595,7 @@ if (Kind == 2)
                                     return Leaf;
                                 }
                                 else
-                                    for (int ii = 0; ii < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
+                                    for (var ii = 0; ii < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
                                         ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
 
 
@@ -3617,7 +3617,7 @@ if (Kind == 2)
                                     return Leaf;
                                 }
                                 else
-                                    for (int ii = 0; ii < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
+                                    for (var ii = 0; ii < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
                                         HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
 
                             }
@@ -3640,7 +3640,7 @@ if (Kind == 2)
                                     return Leaf;
                                 }
                                 else
-                                    for (int ii = 0; ii < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
+                                    for (var ii = 0; ii < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
                                         CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
                             }
                             catch (Exception t)
@@ -3661,7 +3661,7 @@ if (Kind == 2)
                                     return Leaf;
                                 }
                                 else
-                                    for (int ii = 0; ii < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
+                                    for (var ii = 0; ii < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
                                         MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
 
                             }
@@ -3683,7 +3683,7 @@ if (Kind == 2)
                                     return Leaf;
                                 }
                                 else
-                                    for (int ii = 0; ii < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
+                                    for (var ii = 0; ii < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
                                         KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
 
                             }
@@ -3709,7 +3709,7 @@ if (Kind == 2)
                                     return Leaf;
                                 }
                                 else
-                                    for (int ii = 0; ii < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
+                                    for (var ii = 0; ii < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
                                         SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
                             }
                             catch (Exception t)
@@ -3730,7 +3730,7 @@ if (Kind == 2)
                                     return Leaf;
                                 }
                                 else
-                                    for (int ii = 0; ii < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
+                                    for (var ii = 0; ii < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
                                         ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
                             }
                             catch (Exception t)
@@ -3751,7 +3751,7 @@ if (Kind == 2)
                                     return Leaf;
                                 }
                                 else
-                                    for (int ii = 0; ii < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
+                                    for (var ii = 0; ii < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
                                         HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
                             }
                             catch (Exception t)
@@ -3772,7 +3772,7 @@ if (Kind == 2)
                                     return Leaf;
                                 }
                                 else
-                                    for (int ii = 0; ii < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
+                                    for (var ii = 0; ii < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
                                         CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
 
                             }
@@ -3793,7 +3793,7 @@ if (Kind == 2)
                                     return Leaf;
                                 }
                                 else
-                                    for (int ii = 0; ii < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
+                                    for (var ii = 0; ii < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
                                         MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
 
                             }
@@ -3815,7 +3815,7 @@ if (Kind == 2)
 
                                 }
                                 else
-                                    for (int ii = 0; ii < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
+                                    for (var ii = 0; ii < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
                                         KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
 
 
@@ -3855,7 +3855,7 @@ if (Kind == 2)
                                     return true;
                                 }
                                 else
-                                    for (int ii = 0; ii < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                    for (var ii = 0; ii < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; ii++)
                                         SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
 
                             }
@@ -3877,7 +3877,7 @@ if (Kind == 2)
                                     return true;
                                 }
                                 else
-                                    for (int ii = 0; ii < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                    for (var ii = 0; ii < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; ii++)
                                         ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
 
 
@@ -3899,7 +3899,7 @@ if (Kind == 2)
                                     return true;
                                 }
                                 else
-                                    for (int ii = 0; ii < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                    for (var ii = 0; ii < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; ii++)
                                         HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
 
                             }
@@ -3922,7 +3922,7 @@ if (Kind == 2)
                                     return true;
                                 }
                                 else
-                                    for (int ii = 0; ii < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                    for (var ii = 0; ii < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; ii++)
                                         CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
                             }
                             catch (Exception t)
@@ -3943,7 +3943,7 @@ if (Kind == 2)
                                     return true;
                                 }
                                 else
-                                    for (int ii = 0; ii < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                    for (var ii = 0; ii < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; ii++)
                                         MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
 
                             }
@@ -3965,7 +3965,7 @@ if (Kind == 2)
                                     return true;
                                 }
                                 else
-                                    for (int ii = 0; ii < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                    for (var ii = 0; ii < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; ii++)
                                         KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
 
                             }
@@ -3991,7 +3991,7 @@ if (Kind == 2)
                                     return true;
                                 }
                                 else
-                                    for (int ii = 0; ii < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                    for (var ii = 0; ii < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; ii++)
                                         SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
                             }
                             catch (Exception t)
@@ -4012,7 +4012,7 @@ if (Kind == 2)
                                     return true;
                                 }
                                 else
-                                    for (int ii = 0; ii < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                    for (var ii = 0; ii < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; ii++)
                                         ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
                             }
                             catch (Exception t)
@@ -4033,7 +4033,7 @@ if (Kind == 2)
                                     return true;
                                 }
                                 else
-                                    for (int ii = 0; ii < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                    for (var ii = 0; ii < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; ii++)
                                         HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
                             }
                             catch (Exception t)
@@ -4054,7 +4054,7 @@ if (Kind == 2)
                                     return true;
                                 }
                                 else
-                                    for (int ii = 0; ii < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                    for (var ii = 0; ii < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; ii++)
                                         CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
 
                             }
@@ -4075,7 +4075,7 @@ if (Kind == 2)
                                     return true;
                                 }
                                 else
-                                    for (int ii = 0; ii < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                    for (var ii = 0; ii < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; ii++)
                                         MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
 
                             }
@@ -4097,7 +4097,7 @@ if (Kind == 2)
 
                                 }
                                 else
-                                    for (int ii = 0; ii < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                    for (var ii = 0; ii < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; ii++)
                                         KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
 
 
@@ -4141,7 +4141,7 @@ if (Kind == 2)
 
                                     }
                                     else
-                                        for (int iii = 0; iii < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; iii++)
+                                        for (var iii = 0; iii < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; iii++)
                                         {
                                             ThinkingQuantumChess.NumbersOfAllNode++;
                                             SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(SolderesOnTable[i].SoldierThinkingQuantum[0].TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
@@ -4165,7 +4165,7 @@ if (Kind == 2)
                                         FullGameThinkingQuantumTree(Order, iAStarGreedy, ii, jj, ik, jjj, false, LeafAStarGreedy);
                                     }
                                     else
-                                        for (int iii = 0; iii < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; iii++)
+                                        for (var iii = 0; iii < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; iii++)
                                         {
                                             ThinkingQuantumChess.NumbersOfAllNode++;
                                             ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(ElephantOnTable[i].ElefantThinkingQuantum[0].TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
@@ -4189,7 +4189,7 @@ if (Kind == 2)
                                         FullGameThinkingQuantumTree(Order, iAStarGreedy, ii, jj, ik, jjj, false, LeafAStarGreedy);
                                     }
                                     else
-                                        for (int iii = 0; iii < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; iii++)
+                                        for (var iii = 0; iii < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; iii++)
                                         {
                                             ThinkingQuantumChess.NumbersOfAllNode++;
                                             HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(HoursesOnTable[i].HourseThinkingQuantum[0].TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
@@ -4214,7 +4214,7 @@ if (Kind == 2)
                                         FullGameThinkingQuantumTree(Order, iAStarGreedy, ii, jj, ik, jjj, false, LeafAStarGreedy);
                                     }
                                     else
-                                        for (int iii = 0; iii < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; iii++)
+                                        for (var iii = 0; iii < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; iii++)
                                         {
                                             ThinkingQuantumChess.NumbersOfAllNode++;
                                             CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(CastlesOnTable[i].CastleThinkingQuantum[0].TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
@@ -4237,7 +4237,7 @@ if (Kind == 2)
                                         FullGameThinkingQuantumTree(Order, iAStarGreedy, ii, jj, ik, jjj, false, LeafAStarGreedy);
                                     }
                                     else
-                                        for (int iii = 0; iii < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; iii++)
+                                        for (var iii = 0; iii < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; iii++)
                                         {
                                             ThinkingQuantumChess.NumbersOfAllNode++;
                                             MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(MinisterOnTable[i].MinisterThinkingQuantum[0].TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
@@ -4262,7 +4262,7 @@ if (Kind == 2)
                                         FullGameThinkingQuantumTree(Order, iAStarGreedy, ii, jj, ik, jjj, false, LeafAStarGreedy);
                                     }
                                     else
-                                        for (int iii = 0; iii < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; iii++)
+                                        for (var iii = 0; iii < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; iii++)
                                         {
                                             ThinkingQuantumChess.NumbersOfAllNode++;
                                             KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(KingOnTable[i].KingThinkingQuantum[0].TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
@@ -4290,7 +4290,7 @@ if (Kind == 2)
                                         FullGameThinkingQuantumTree(Order, iAStarGreedy, ii, jj, ik, jjj, false, LeafAStarGreedy);
                                     }
                                     else
-                                        for (int iii = 0; ii < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; iii++)
+                                        for (var iii = 0; ii < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; iii++)
                                         {
                                             ThinkingQuantumChess.NumbersOfAllNode++;
                                             SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(SolderesOnTable[i].SoldierThinkingQuantum[0].TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
@@ -4313,7 +4313,7 @@ if (Kind == 2)
                                         FullGameThinkingQuantumTree(Order, iAStarGreedy, ii, jj, ik, jjj, false, LeafAStarGreedy);
                                     }
                                     else
-                                        for (int iii = 0; iii < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; iii++)
+                                        for (var iii = 0; iii < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; iii++)
                                         {
                                             ThinkingQuantumChess.NumbersOfAllNode++;
                                             ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(ElephantOnTable[i].ElefantThinkingQuantum[0].TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
@@ -4336,7 +4336,7 @@ if (Kind == 2)
                                         FullGameThinkingQuantumTree(Order, iAStarGreedy, ii, jj, ik, jjj, false, LeafAStarGreedy);
                                     }
                                     else
-                                        for (int iii = 0; iii < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; iii++)
+                                        for (var iii = 0; iii < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; iii++)
                                         {
                                             ThinkingQuantumChess.NumbersOfAllNode++;
                                             HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(HoursesOnTable[i].HourseThinkingQuantum[0].TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
@@ -4359,7 +4359,7 @@ if (Kind == 2)
                                         FullGameThinkingQuantumTree(Order, iAStarGreedy, ii, jj, ik, jjj, false, LeafAStarGreedy);
                                     }
                                     else
-                                        for (int iii = 0; iii < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; iii++)
+                                        for (var iii = 0; iii < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; iii++)
                                         {
                                             ThinkingQuantumChess.NumbersOfAllNode++;
                                             CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(CastlesOnTable[i].CastleThinkingQuantum[0].TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
@@ -4383,7 +4383,7 @@ if (Kind == 2)
                                         FullGameThinkingQuantumTree(Order, iAStarGreedy, ii, jj, ik, jjj, false, LeafAStarGreedy);
                                     }
                                     else
-                                        for (int iii = 0; iii < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; iii++)
+                                        for (var iii = 0; iii < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; iii++)
                                         {
                                             ThinkingQuantumChess.NumbersOfAllNode++;
                                             MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(MinisterOnTable[i].MinisterThinkingQuantum[0].TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
@@ -4406,7 +4406,7 @@ if (Kind == 2)
                                         FullGameThinkingQuantumTree(Order, iAStarGreedy, ii, jj, ik, jjj, false, LeafAStarGreedy);
                                     }
                                     else
-                                        for (int iii = 0; iii < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; iii++)
+                                        for (var iii = 0; iii < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; iii++)
                                         {
                                             ThinkingQuantumChess.NumbersOfAllNode++;
                                             KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(KingOnTable[i].KingThinkingQuantum[0].TableT, Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
@@ -4464,7 +4464,7 @@ if (Kind == 2)
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.SolderesOnTable != null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinkingQuantum[0] != null && ii < A.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                for (var ii = 0; A.SolderesOnTable != null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinkingQuantum[0] != null && ii < A.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; ii++)
                                     MakeRegardAllCheckMateBranches(A.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[ii], Order);
 
                             }
@@ -4490,7 +4490,7 @@ if (Kind == 2)
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.ElephantOnTable != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinkingQuantum[0] != null && ii < A.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                for (var ii = 0; A.ElephantOnTable != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinkingQuantum[0] != null && ii < A.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; ii++)
                                     MakeRegardAllCheckMateBranches(A.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -4514,7 +4514,7 @@ if (Kind == 2)
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.HoursesOnTable != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinkingQuantum[0] != null && ii < A.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                for (var ii = 0; A.HoursesOnTable != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinkingQuantum[0] != null && ii < A.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; ii++)
                                     MakeRegardAllCheckMateBranches(A.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -4537,7 +4537,7 @@ if (Kind == 2)
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinkingQuantum[0] != null && ii < A.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                for (var ii = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinkingQuantum[0] != null && ii < A.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; ii++)
                                     MakeRegardAllCheckMateBranches(A.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -4561,7 +4561,7 @@ if (Kind == 2)
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.MinisterOnTable != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinkingQuantum[0] != null && ii < A.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                for (var ii = 0; A.MinisterOnTable != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinkingQuantum[0] != null && ii < A.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; ii++)
                                     MakeRegardAllCheckMateBranches(A.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -4584,7 +4584,7 @@ if (Kind == 2)
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.KingOnTable != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinkingQuantum[0] != null && ii < A.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                for (var ii = 0; A.KingOnTable != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinkingQuantum[0] != null && ii < A.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; ii++)
                                     MakeRegardAllCheckMateBranches(A.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -4610,7 +4610,7 @@ if (Kind == 2)
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.SolderesOnTable != null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinkingQuantum[0] != null && ii < A.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                for (var ii = 0; A.SolderesOnTable != null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinkingQuantum[0] != null && ii < A.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; ii++)
                                     MakeRegardAllCheckMateBranches(A.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -4634,7 +4634,7 @@ if (Kind == 2)
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.ElephantOnTable != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinkingQuantum[0] != null && ii < A.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                for (var ii = 0; A.ElephantOnTable != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinkingQuantum[0] != null && ii < A.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; ii++)
                                     MakeRegardAllCheckMateBranches(A.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -4658,7 +4658,7 @@ if (Kind == 2)
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.HoursesOnTable != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinkingQuantum[0] != null && ii < A.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                for (var ii = 0; A.HoursesOnTable != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinkingQuantum[0] != null && ii < A.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; ii++)
                                     MakeRegardAllCheckMateBranches(A.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -4681,7 +4681,7 @@ if (Kind == 2)
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinkingQuantum[0] != null && ii < A.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                for (var ii = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinkingQuantum[0] != null && ii < A.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; ii++)
                                     MakeRegardAllCheckMateBranches(A.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -4704,7 +4704,7 @@ if (Kind == 2)
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.MinisterOnTable != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinkingQuantum[0] != null && ii < A.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                for (var ii = 0; A.MinisterOnTable != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinkingQuantum[0] != null && ii < A.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; ii++)
                                     MakeRegardAllCheckMateBranches(A.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -4727,7 +4727,7 @@ if (Kind == 2)
                             Order *= -1; ChessRules.CurrentOrder *= -1;
                             try
                             {
-                                for (int ii = 0; A.KingOnTable != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinkingQuantum[0] != null && ii < A.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; ii++)
+                                for (var ii = 0; A.KingOnTable != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinkingQuantum[0] != null && ii < A.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; ii++)
                                     MakeRegardAllCheckMateBranches(A.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[ii], Order);
                             }
                             catch (Exception t)
@@ -10196,7 +10196,7 @@ if (Kind == 2)
                     if (Tab != null)
                     {
                         //Construct a Clone Copy of Table.
-                        for (int iii = 0; iii < 8; iii++)
+                        for (var iii = 0; iii < 8; iii++)
                             for (int jjj = 0; jjj < 8; jjj++)
                             {
                                 TablInit[iii, jjj] = Tab[iii, jjj];
@@ -10204,7 +10204,7 @@ if (Kind == 2)
                         //Initiate a Table.
                         Table = new int[8, 8];
                         //Construct a Clone Copy of Table.
-                        for (int iii = 0; iii < 8; iii++)
+                        for (var iii = 0; iii < 8; iii++)
                             for (int jjj = 0; jjj < 8; jjj++)
                             {
                                 Table[iii, jjj] = TablInit[iii, jjj];
@@ -10239,7 +10239,7 @@ if (Kind == 2)
                 SetObjectNumbers(Tab);
                 //List<Task> tHA = new List<Task>();
                 int[,] Table = new int[8, 8];
-                for (int iii = 0; iii < 8; iii++)
+                for (var iii = 0; iii < 8; iii++)
                     for (int jjj = 0; jjj < 8; jjj++)
                         Table[iii, jjj] = Tab[iii, jjj];
                 //ParallelOptions parallelOptions = new ParallelOptions();
@@ -13199,7 +13199,7 @@ if (Kind == 2)
                 SetObjectNumbers(Tab);
 
                 int[,] Table = new int[8, 8];
-                for (int iii = 0; iii < 8; iii++)
+                for (var iii = 0; iii < 8; iii++)
                     for (int jjj = 0; jjj < 8; jjj++)
                         Table[iii, jjj] = Tab[iii, jjj];
 
@@ -13628,7 +13628,7 @@ if (Kind == 2)
                 SetObjectNumbers(Tab);
 
                 int[,] Table = new int[8, 8];
-                for (int iii = 0; iii < 8; iii++)
+                for (var iii = 0; iii < 8; iii++)
                     for (int jjj = 0; jjj < 8; jjj++)
                         Table[iii, jjj] = Tab[iii, jjj];
                 Object oo = new Object();
@@ -15532,7 +15532,7 @@ if (Kind == 2)
                     OutPut += "\r\nPerception Soldier AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
 
                 PerceptionCount++;
-                int iii = SolderesOnTable[ik].SoldierThinkingQuantum[0].RowColumnSoldier[j][0];
+                var iii = SolderesOnTable[ik].SoldierThinkingQuantum[0].RowColumnSoldier[j][0];
                 int jjj = SolderesOnTable[ik].SoldierThinkingQuantum[0].RowColumnSoldier[j][1];
                 Color aa = a;
                 int[,] Tab = CloneATable(SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder[j]);
@@ -15564,7 +15564,7 @@ if (Kind == 2)
                     OutPut += "\r\nPerception Elephant AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
 
                 PerceptionCount++;
-                int iii = ElephantOnTable[ik].ElefantThinkingQuantum[0].RowColumnElefant[j][0];
+                var iii = ElephantOnTable[ik].ElefantThinkingQuantum[0].RowColumnElefant[j][0];
                 int jjj = ElephantOnTable[ik].ElefantThinkingQuantum[0].RowColumnElefant[j][1];
                 Color aa = a;
                 int[,] Tab = CloneATable(ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant[j]);
@@ -15594,7 +15594,7 @@ if (Kind == 2)
                     OutPut += "\r\nPerception Hourse AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
 
                 PerceptionCount++;
-                int iii = HoursesOnTable[ik].HourseThinkingQuantum[0].RowColumnHourse[j][0];
+                var iii = HoursesOnTable[ik].HourseThinkingQuantum[0].RowColumnHourse[j][0];
                 int jjj = HoursesOnTable[ik].HourseThinkingQuantum[0].RowColumnHourse[j][1];
                 Color aa = a;
                 int[,] Tab = CloneATable(HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse[j]);
@@ -15625,7 +15625,7 @@ if (Kind == 2)
                     OutPut += "\r\nPerception Castle AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
 
                 PerceptionCount++;
-                int iii = CastlesOnTable[ik].CastleThinkingQuantum[0].RowColumnCastle[j][0];
+                var iii = CastlesOnTable[ik].CastleThinkingQuantum[0].RowColumnCastle[j][0];
                 int jjj = CastlesOnTable[ik].CastleThinkingQuantum[0].RowColumnCastle[j][1];
                 Color aa = a;
                 int[,] Tab = CloneATable(CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle[j]);
@@ -15654,7 +15654,7 @@ if (Kind == 2)
                     OutPut += "\r\nPerception Minister AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction;
 
                 PerceptionCount++;
-                int iii = MinisterOnTable[ik].MinisterThinkingQuantum[0].RowColumnMinister[j][0];
+                var iii = MinisterOnTable[ik].MinisterThinkingQuantum[0].RowColumnMinister[j][0];
                 int jjj = MinisterOnTable[ik].MinisterThinkingQuantum[0].RowColumnMinister[j][1];
                 Color aa = a;
                 int[,] Tab = CloneATable(MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister[j]);
@@ -15684,7 +15684,7 @@ if (Kind == 2)
 
                 PerceptionCount++;
 
-                int iii = KingOnTable[ik].KingThinkingQuantum[0].RowColumnKing[j][0];
+                var iii = KingOnTable[ik].KingThinkingQuantum[0].RowColumnKing[j][0];
                 int jjj = KingOnTable[ik].KingThinkingQuantum[0].RowColumnKing[j][1];
                 Color aa = a;
                 int[,] Tab = CloneATable(KingOnTable[ik].KingThinkingQuantum[0].TableListKing[j]);
@@ -18075,7 +18075,7 @@ if (Kind == 2)
             //initiate local variables.
             List<List<double>> p = new List<List<double>>();
 
-            for (int ii = 0; ii < 6; ii++)
+            for (var ii = 0; ii < 6; ii++)
             {
                 List<double> pl = new List<double>();
                 p.Add(pl);
@@ -18963,7 +18963,7 @@ if (Kind == 5)
                     if (Tab != null)
                     {
                         //Clone  A Copy.
-                        for (int iii = 0; iii < 8; iii++)
+                        for (var iii = 0; iii < 8; iii++)
                             for (int jjj = 0; jjj < 8; jjj++)
                             {
                                 TablInit[iii, jjj] = Tab[iii, jjj];

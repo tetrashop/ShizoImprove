@@ -713,7 +713,7 @@ namespace QuantumRefrigiz
                 else
                 {
                     //Clone a Copy.
-                    for (int ii = 0; ii < 8; ii++)
+                    for (var ii = 0; ii < 8; ii++)
                         for (int jj = 0; jj < 8; jj++)
                             GeneticTable[ii, jj] = List[List.Count - 1][ii, jj];
                 }

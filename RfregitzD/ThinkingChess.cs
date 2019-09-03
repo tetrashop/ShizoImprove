@@ -547,7 +547,7 @@ namespace RefrigtzDLL
                 IndexMinister = 0;
                 IndexKing = 0;
                 TableConst = new int[8, 8];
-                for (int ii = 0; ii < 8; ii++)
+                for (var ii = 0; ii < 8; ii++)
                     for (int jj = 0; jj < 8; jj++)
                     {
                         TableConst[ii, jj] = Tab[ii, jj];
@@ -1683,7 +1683,7 @@ namespace RefrigtzDLL
                                 if (Order == -1 && Tab[i, j] >= 0)
                                 continue;
                             //For Enemies.
-                            for (int ii = 0; ii < 8; ii++)
+                            for (var ii = 0; ii < 8; ii++)
                             {
                                 for (int jj = 0; jj < 8; jj++)
                                 {
@@ -3096,7 +3096,7 @@ namespace RefrigtzDLL
 
 
                 //For Enemy.
-                for (int ii = 0; ii < 8; ii++)
+                for (var ii = 0; ii < 8; ii++)
                     for (int jj = 0; jj < 8; jj++)
                     {
                         if (Order == 1 && Tab[ii, jj] >= 0)
@@ -4017,7 +4017,7 @@ namespace RefrigtzDLL
                                 if (Order == -1 && Tabl1[i, j] >= 0)
                                 continue;
                             //For Enemy.
-                            for (int ii = 0; ii < 8; ii++)
+                            for (var ii = 0; ii < 8; ii++)
                                 for (int jj = 0; jj < 8; jj++)
                                 {
                                     //Ignore of Current.QC_OK.
@@ -4266,7 +4266,7 @@ namespace RefrigtzDLL
                     for (int k = 0; k < 8; k++)
                         Tab[h, k] = Table[h, k];
                 //For Slef Objects..
-                for (int ii = 0; ii < 8; ii++)
+                for (var ii = 0; ii < 8; ii++)
                     for (int jj = 0; jj < 8; jj++)
                     {
                         //Ignore Of Self Objects
@@ -4613,7 +4613,7 @@ namespace RefrigtzDLL
                             ////Parallel.For(0, 8, ColS =>
                             {
                                 ////Parallel.For(0, 8, ii =>
-                                for (int ii = 0; ii < 8; ii++)
+                                for (var ii = 0; ii < 8; ii++)
                                 {
                                     ////Parallel.For(0, 8, jj =>
                                     for (int jj = 0; jj < 8; jj++)
@@ -7287,7 +7287,7 @@ namespace RefrigtzDLL
                                 if (Order == -1 && TableS[i, j] >= 0)
                                 continue;
                             //Enemy
-                            for (int ii = 0; ii < 8; ii++)
+                            for (var ii = 0; ii < 8; ii++)
                             {
                                 for (int jj = 0; jj < 8; jj++)
                                 {
@@ -10589,7 +10589,7 @@ namespace RefrigtzDLL
                     }
                 */
                 ///For Stored Location of Objects.
-                int ii = Row;
+                var ii = Row;
                 int jj = Column;
                 if (CheckMateOcuured
                     || FoundFirstMating > AllDraw.MaxAStarGreedy
