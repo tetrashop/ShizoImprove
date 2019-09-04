@@ -18614,7 +18614,15 @@ if (Kind == 5)
                 Object OO1 = new Object();
                 lock (OO1)
                 {
-                    MaxDuringLevelThinkingCreation = System.Convert.ToInt32(AllDraw.THIScomboBoxMaxLevelText);
+                    lock (OO1)
+                    {
+                        try
+                        {
+                            if (AllDraw.THIScomboBoxMaxLevelText != "")
+                                MaxDuringLevelThinkingCreation = System.Convert.ToInt32(AllDraw.THIScomboBoxMaxLevelText);
+                        }
+                        catch (Exception t) { Log(t); }
+                    }
                 }
                 Object Om1 = new Object();
                 lock (Om1)

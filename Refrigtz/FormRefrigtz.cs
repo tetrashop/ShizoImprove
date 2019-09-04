@@ -338,6 +338,7 @@ namespace Refrigtz
       */
         void AllOp()
         {
+            while (!LoadedTable) { Thread.Sleep(1000); }
             MovmentsNumberMax = MovmentsNumber;
             //if (RefrigtzDLL.AllDraw.THISDummy != null)
             // RefrigtzDLL.AllDraw.THISDummy.Clone(Draw);
@@ -4068,10 +4069,9 @@ namespace Refrigtz
 
             }
         }
-
-        //Load Refregitz Form.
-        private void Form1_Load(object sender, EventArgs e)
+        bool DrawManagement()
         {
+            bool Found = false;
             String P = Path.GetFullPath(path3);
             AllDrawReplacement = Path.Combine(P, "AllDraw.asd");
             if (File.Exists("AllDraw.asd"))
@@ -4082,6 +4082,7 @@ namespace Refrigtz
                     {
                         File.Delete("AllDraw.asd");
                         File.Copy(AllDrawReplacement, "AllDraw.asd");
+                        Found = true;
                     }
 
                     else
@@ -4089,6 +4090,7 @@ namespace Refrigtz
                         if (File.Exists(AllDrawReplacement))
                             File.Delete(AllDrawReplacement);
                         File.Copy("AllDraw.asd", AllDrawReplacement);
+                        Found = true;
                     }
                 }
                 else
@@ -4096,13 +4098,23 @@ namespace Refrigtz
                     if (!Directory.Exists(Path.GetFullPath(path3)))
                         Directory.CreateDirectory(Path.GetFullPath(path3));
                     File.Copy("AllDraw.asd", AllDrawReplacement);
-                }  
+                    Found = true;
+
+                }
             }
             else if (File.Exists(AllDrawReplacement))
             {
                 File.Copy(AllDrawReplacement, "AllDraw.asd");
+                Found = true;
             }
-        
+            return Found;
+        } 
+        //Load Refregitz Form.
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            DrawManagement();
+
+
             BrownTimer = new Refrigtz.Timer(false);
             GrayTimer = new Refrigtz.Timer(false);
             TimerText = new Refrigtz.Timer(true);
@@ -4216,13 +4228,25 @@ namespace Refrigtz
                         //Read Last Table and Set MovementNumber  
                         
                         Table = ReadTable(0, ref MovmentsNumber);
-                       
-                        //Load AllDraw.asd
-                        if (!Quantum)
-                            DrawDrawen = (new TakeRoot()).Load(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-                        else
-                            DrawDrawen = (new TakeRoot()).Load(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                        if (DrawManagement())
+                        {
+                            //Load AllDraw.asd
+                            if (!Quantum)
+                                DrawDrawen = (new TakeRoot()).Load(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                            else
+                                DrawDrawen = (new TakeRoot()).Load(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
 
+                        }
+                        else
+                        {
+                         /*   (new TakeRoot()).Save(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+
+                                 if (!Quantum)
+                                DrawDrawen = (new TakeRoot()).Load(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                            else
+                                DrawDrawen = (new TakeRoot()).Load(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+
+                      */  }
                     }
                     else
                     {
@@ -4472,7 +4496,10 @@ namespace Refrigtz
                     TableName = Zero + TableName;
 
                     if (bookConn != null)
+                    {
                         bookConn.Close();
+                        bookConn.Dispose();
+                    }
                     bookConn = new OleDbConnection(connParam);
                     oleDbCmd.Connection = bookConn;
                     bookConn.Open();
@@ -4501,8 +4528,10 @@ namespace Refrigtz
                         MoveNumber++;
                     }
 
+                    //MoveNumber = Move;
 
                     int[,] TableA = new int[8, 8];
+
                     for (int i = 0; i < 8; i++)
                     {
                         for (int j = 0; j < 8; j++)
@@ -4651,15 +4680,17 @@ namespace Refrigtz
                         TableName = Zero + TableName;
 
                         if (bookConn != null)
+                        {
                             bookConn.Close();
+                            bookConn.Dispose();
+                        }
                         bookConn = new OleDbConnection(connParam);
                         oleDbCmd.Connection = bookConn;
                         bookConn.Open();
 
 
                         oleDbCmd.CommandText = "Select * From " + TableName;
-                        OleDbDataReader dr = null;
-                        dr = oleDbCmd.ExecuteReader();
+                        OleDbDataReader dr = oleDbCmd.ExecuteReader();
                         int ii = 0;
                         while (dr.Read())
                         {
@@ -4680,6 +4711,8 @@ namespace Refrigtz
                         {
                             MoveNumber++;
                         }
+
+                        //MoveNumber = Move;
 
                         int[,] TableA = new int[8, 8];
                         for (int i = 0; i < 8; i++)
@@ -4845,7 +4878,7 @@ namespace Refrigtz
                 }
 
 
-            }while (true); //(MoveNumber <= MovmentsNumberMax);
+            }while (MoveNumber <= MovmentsNumberMax);
              
             //Draw.TableList.Clear();
             //Draw.TableList.Add(Tab);
@@ -12175,6 +12208,9 @@ namespace Refrigtz
                 }
                 else
                 {
+                    (new TakeRoot()).Save(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                    DrawManagement();
+
                     Draw = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                     Draw.TableList.Clear();
                     Draw.TableList.Add(Table);
@@ -12222,6 +12258,9 @@ namespace Refrigtz
                 }
                 else
                 {
+                    (new TakeRoot()).Save(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                    DrawManagement();
+
                     DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                     DrawQ.TableList.Clear();
                     DrawQ.TableList.Add(Table);

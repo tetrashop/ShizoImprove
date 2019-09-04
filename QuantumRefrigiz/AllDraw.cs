@@ -18824,7 +18824,12 @@ if (Kind == 5)
                 Object OO = new Object();
                 lock (OO)
                 {
-                    MaxDuringLevelThinkingQuantumCreation = System.Convert.ToInt32(AllDraw.THIScomboBoxMaxLevelText);
+                    try
+                    {
+                        if (AllDraw.THIScomboBoxMaxLevelText != "")
+                            MaxDuringLevelThinkingQuantumCreation = System.Convert.ToInt32(AllDraw.THIScomboBoxMaxLevelText);
+                    }
+                    catch (Exception t) { Log(t); }
                 }
                 Object Om = new Object();
                 lock (Om)
