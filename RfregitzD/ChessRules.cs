@@ -1274,7 +1274,7 @@ namespace RefrigtzDLL
                 if (bn % 2 == 1)
                     ms = true;
                 //Movments String Number Creation in String.
-                bn = bn / 2;
+                bn = bn / 2 + 1;
                 String SN = "";
                 String S = "";
                 if (ms)
