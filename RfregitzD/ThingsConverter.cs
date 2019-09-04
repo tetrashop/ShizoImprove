@@ -404,7 +404,7 @@ namespace RefrigtzDLL
                     {
                         TableConverted = new int[8, 8];
                         for (var iii = 0; iii < 8; iii++)
-                            for (int jjj = 0; jjj < 8; jjj++)
+                            for (var jjj = 0; jjj < 8; jjj++)
                                 TableConverted[iii, jjj] = Tab[iii, jjj];
                     }
                     Object O1 = new Object();

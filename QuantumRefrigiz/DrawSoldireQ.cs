@@ -124,7 +124,7 @@ namespace QuantumRefrigiz
                 //Initiate Global Variables.  
                 Table = new int[8, 8];
                 for (var ii = 0; ii < 8; ii++)
-                    for (int jj = 0; jj < 8; jj++)
+                    for (var jj = 0; jj < 8; jj++)
                         Table[ii, jj] = Tab[ii, jj];
                 if (i >= 8 || j >= 8)
                     i = 7;
@@ -145,7 +145,7 @@ namespace QuantumRefrigiz
         {
             int[,] Tab = new int[8, 8];
             for (var i = 0; i < 8; i++)
-                for (int j = 0; j < 8; j++)
+                for (var j = 0; j < 8; j++)
                     Tab[i, j] = this.Table[i, j];
             //Initiate a Object and Assignemt of a Clone to Construction of a Copy.
 
@@ -161,7 +161,7 @@ namespace QuantumRefrigiz
             }
             AA.Table = new int[8, 8];
             for (var ii = 0; ii < 8; ii++)
-                for (int jj = 0; jj < 8; jj++)
+                for (var jj = 0; jj < 8; jj++)
                     AA.Table[ii, jj] = Tab[ii, jj];
             AA.RowS = RowS;
             AA.ColumnS = ColumnS;

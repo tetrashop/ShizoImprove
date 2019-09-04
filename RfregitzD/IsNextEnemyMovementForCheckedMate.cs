@@ -14,7 +14,7 @@ namespace RefrigtzDLL
             : base(Order, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments)
         {
             for (var i = 0; i < 8; i++)
-                for (int j = 0; j < 8; j++)
+                for (var j = 0; j < 8; j++)
                     TableIsNextEnemyMovementForCheckedMate[i, j] = Tab[i, j];
 
         }
@@ -22,7 +22,7 @@ namespace RefrigtzDLL
             : base(Order, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments, THi)
         {
             for (var i = 0; i < 8; i++)
-                for (int j = 0; j < 8; j++)
+                for (var j = 0; j < 8; j++)
                     TableIsNextEnemyMovementForCheckedMate[i, j] = Tab[i, j];
         }
         public bool Is()
@@ -101,11 +101,11 @@ namespace RefrigtzDLL
                 A60.Add(AllDraw.TableListAction[i]);
             int[,] A61 = new int[8, 8];
             for (var i = 0; i < 8; i++)
-                for (int j = 0; j < 8; j++)
+                for (var j = 0; j < 8; j++)
                     A61[i, j] = AllDraw.TableVeryfy[i, j];
             int[,] A62 = new int[8, 8];
             for (var i = 0; i < 8; i++)
-                for (int j = 0; j < 8; j++)
+                for (var j = 0; j < 8; j++)
                     A62[i, j] = AllDraw.TableVeryfyConst[i, j];
             int A63 = AllDraw.TaskBegin;
             int A64 = AllDraw.TaskEnd;
@@ -211,11 +211,11 @@ namespace RefrigtzDLL
                 AllDraw.TableListAction.Add(A60[i]);
             
             for (var i = 0; i < 8; i++)
-                for (int j = 0; j < 8; j++)
+                for (var j = 0; j < 8; j++)
                     AllDraw.TableVeryfy[i, j] = A61[i, j];
             
             for (var i = 0; i < 8; i++)
-                for (int j = 0; j < 8; j++)
+                for (var j = 0; j < 8; j++)
                     AllDraw.TableVeryfyConst[i, j] = A62[i, j];
              AllDraw.TaskBegin= A63;
              AllDraw.TaskEnd= A64;

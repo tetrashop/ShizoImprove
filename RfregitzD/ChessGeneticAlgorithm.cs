@@ -265,7 +265,7 @@ namespace RefrigtzDLL
             bool Find = false;
             for (var i = 0; i < 8; i++)
             {
-                for (int j = 0; j < 8; j++)
+                for (var j = 0; j < 8; j++)
                 {
                     if (Order == 1 && Cromosom1[i, j] <= 0)
                         continue;
@@ -320,7 +320,7 @@ namespace RefrigtzDLL
             //For All Table Home
             for (var i = 0; i < 8; i++)
             {
-                for (int j = 0; j < 8; j++)
+                for (var j = 0; j < 8; j++)
                 {
                     //Gray Order.
                     if (Order == 1)
@@ -714,7 +714,7 @@ namespace RefrigtzDLL
                 {
                     //Clone a Copy.
                     for (var ii = 0; ii < 8; ii++)
-                        for (int jj = 0; jj < 8; jj++)
+                        for (var jj = 0; jj < 8; jj++)
                             GeneticTable[ii, jj] = List[List.Count - 1][ii, jj];
                 }
                 //Initiate Global and Local Variables.

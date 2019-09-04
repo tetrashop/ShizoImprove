@@ -463,7 +463,7 @@ namespace RefrigtzDLL
             {
                 float[] Location = { -1, -1 };
                 for (var i = 0; i < 8; i++)
-                    for (int j = 0; j < 8; j++)
+                    for (var j = 0; j < 8; j++)
                     {
                         if (IsGray)
                         {
@@ -621,7 +621,7 @@ namespace RefrigtzDLL
                 }
                 AA.Tabl = new int[8, 8];
                 for (var i = 0; i < 8; i++)
-                    for (int j = 0; j < 8; j++)
+                    for (var j = 0; j < 8; j++)
                         AA.Tabl[i, j] = Tabl[i, j];
                 AA.OrderP = OrderP;
 
@@ -630,7 +630,7 @@ namespace RefrigtzDLL
                 //static variable to be Initiate
                 AA.ValuableSelfSupported = new List<int[]>();
                 for (var i = 0; i < 8; i++)
-                    for (int j = 0; j < 8; j++)
+                    for (var j = 0; j < 8; j++)
                         AA.ValuableSelfSupported.Add(ValuableSelfSupported[i]);
                 AA.CurrentAStarGredyMax = CurrentAStarGredyMax;
                 for (var i = 0; i < 6; i++)
@@ -1507,7 +1507,7 @@ if (Kind == 2)
 
                     //For Solderis.
                     for (var i = 0; i < SodierMidle; i++)
-                        for (int j = 0; A.SolderesOnTable != null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && j < A.SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                        for (var j = 0; A.SolderesOnTable != null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && j < A.SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                         {
                             try
                             {
@@ -1543,7 +1543,7 @@ if (Kind == 2)
                             Order = CDummy;
                         }
                     for (var i = 0; i < ElefantMidle; i++)
-                        for (int j = 0; A.ElephantOnTable != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && j < A.ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                        for (var j = 0; A.ElephantOnTable != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && j < A.ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                         {
 
                             try
@@ -1581,7 +1581,7 @@ if (Kind == 2)
                             Order = CDummy;
                         }
                     for (var i = 0; i < HourseMidle; i++)
-                        for (int j = 0; A.HoursesOnTable != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && j < A.HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                        for (var j = 0; A.HoursesOnTable != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && j < A.HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                         {
 
                             try
@@ -1616,7 +1616,7 @@ if (Kind == 2)
                             Order = CDummy;
                         }
                     for (var i = 0; i < CastleMidle; i++)
-                        for (int j = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && j < A.CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                        for (var j = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && j < A.CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
 
                             try
@@ -1651,7 +1651,7 @@ if (Kind == 2)
                             Order = CDummy;
                         }
                     for (var i = 0; i < MinisterMidle; i++)
-                        for (int j = 0; A.MinisterOnTable != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && j < A.MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                        for (var j = 0; A.MinisterOnTable != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && j < A.MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                         {
 
                             try
@@ -1688,7 +1688,7 @@ if (Kind == 2)
                             Order = CDummy;
                         }
                     for (var i = 0; i < KingMidle; i++)
-                        for (int j = 0; A.KingOnTable != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && j < A.KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                        for (var j = 0; A.KingOnTable != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && j < A.KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                         {
 
                             try
@@ -1727,7 +1727,7 @@ if (Kind == 2)
                 {
                     //ChessRules.CurrentOrder = -1;
                     for (var i = SodierMidle; i < SodierHigh; i++)
-                        for (int j = 0; A.SolderesOnTable != null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && j < A.SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                        for (var j = 0; A.SolderesOnTable != null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && j < A.SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                         {
 
                             try
@@ -1762,7 +1762,7 @@ if (Kind == 2)
                             Order = CDummy;
                         }
                     for (var i = ElefantMidle; i < ElefantHigh; i++)
-                        for (int j = 0; A.ElephantOnTable != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && j < A.ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                        for (var j = 0; A.ElephantOnTable != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && j < A.ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                         {
 
                             try
@@ -1797,7 +1797,7 @@ if (Kind == 2)
                             Order = CDummy;
                         }
                     for (var i = HourseMidle; i < HourseHight; i++)
-                        for (int j = 0; A.HoursesOnTable != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && j < A.HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                        for (var j = 0; A.HoursesOnTable != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && j < A.HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                         {
 
                             try
@@ -1832,7 +1832,7 @@ if (Kind == 2)
                             Order = CDummy;
                         }
                     for (var i = CastleMidle; i < CastleHigh; i++)
-                        for (int j = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && j < A.CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                        for (var j = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && j < A.CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
 
                             try
@@ -1867,7 +1867,7 @@ if (Kind == 2)
                             Order = CDummy;
                         }
                     for (var i = MinisterMidle; i < MinisterHigh; i++)
-                        for (int j = 0; A.MinisterOnTable != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && j < A.MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                        for (var j = 0; A.MinisterOnTable != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && j < A.MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                         {
 
                             try
@@ -1903,7 +1903,7 @@ if (Kind == 2)
                             Order = CDummy;
                         }
                     for (var i = KingMidle; i < KingHigh; i++)
-                        for (int j = 0; A.KingOnTable != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && j < A.KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                        for (var j = 0; A.KingOnTable != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && j < A.KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                         {
 
                             try
@@ -1960,7 +1960,7 @@ if (Kind == 2)
                     //ChessRules.CurrentOrder = 1;
                     //For  Soldeirs.
                     for (var i = 0; i < SodierMidle; i++)
-                        for (int j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                        for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                         {
                             try
                             {
@@ -2015,7 +2015,7 @@ if (Kind == 2)
                         }
                     //For Elephant.
                     for (var i = 0; i < ElefantMidle; i++)
-                        for (int j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                        for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                         {
 
                             try
@@ -2069,7 +2069,7 @@ if (Kind == 2)
                         }
                     //For Hourse.
                     for (var i = 0; i < HourseMidle; i++)
-                        for (int j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                        for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                         {
 
                             try
@@ -2123,7 +2123,7 @@ if (Kind == 2)
                         }
                     //For Gray Briges.
                     for (var i = 0; i < CastleMidle; i++)
-                        for (int j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                        for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
 
                             try
@@ -2184,7 +2184,7 @@ if (Kind == 2)
                         }
                     //For Ministers Gray.
                     for (var i = 0; i < MinisterMidle; i++)
-                        for (int j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                        for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                         {
 
                             try
@@ -2245,7 +2245,7 @@ if (Kind == 2)
                         }
                     //For Gray King.
                     for (var i = 0; i < KingMidle; i++)
-                        for (int j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                        for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                         {
 
                             try
@@ -2312,7 +2312,7 @@ if (Kind == 2)
                     //ChessRules.CurrentOrder = -1;
                     //For Solders Brown.
                     for (var i = SodierMidle; i < SodierHigh; i++)
-                        for (int j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                        for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                         {
 
                             try
@@ -2373,7 +2373,7 @@ if (Kind == 2)
                         }
                     //Elephant Brown 
                     for (var i = ElefantMidle; i < ElefantHigh; i++)
-                        for (int j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                        for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                         {
 
                             try
@@ -2434,7 +2434,7 @@ if (Kind == 2)
                         }
                     //Hourse Brown 
                     for (var i = HourseMidle; i < HourseHight; i++)
-                        for (int j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                        for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                         {
 
                             try
@@ -2495,7 +2495,7 @@ if (Kind == 2)
                         }
                     //Castles Brown 
                     for (var i = CastleMidle; i < CastleHigh; i++)
-                        for (int j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                        for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
 
                             try
@@ -2556,7 +2556,7 @@ if (Kind == 2)
                         }
                     //Minister Brown 
                     for (var i = MinisterMidle; i < MinisterHigh; i++)
-                        for (int j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                        for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                         {
 
                             try
@@ -2618,7 +2618,7 @@ if (Kind == 2)
                         }
                     //King Brown
                     for (var i = KingMidle; i < KingHigh; i++)
-                        for (int j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                        for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                         {
 
                             try
@@ -2694,7 +2694,7 @@ if (Kind == 2)
                 {
 
                     for (var i = 0; i < SodierMidle; i++)
-                        for (int j = 0; A.SolderesOnTable != null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && j < A.SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                        for (var j = 0; A.SolderesOnTable != null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && j < A.SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                         {
                             try
                             {
@@ -2710,7 +2710,7 @@ if (Kind == 2)
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (var i = 0; i < ElefantMidle; i++)
-                        for (int j = 0; A.ElephantOnTable != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && j < A.ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                        for (var j = 0; A.ElephantOnTable != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && j < A.ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                         {
 
                             try
@@ -2735,7 +2735,7 @@ if (Kind == 2)
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (var i = 0; i < HourseMidle; i++)
-                        for (int j = 0; A.HoursesOnTable != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && j < A.HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                        for (var j = 0; A.HoursesOnTable != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && j < A.HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                         {
                             try
                             {
@@ -2760,7 +2760,7 @@ if (Kind == 2)
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (var i = 0; i < CastleMidle; i++)
-                        for (int j = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && j < A.CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                        for (var j = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && j < A.CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
                             try
                             {
@@ -2784,7 +2784,7 @@ if (Kind == 2)
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (var i = 0; i < MinisterMidle; i++)
-                        for (int j = 0; A.MinisterOnTable != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && j < A.MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                        for (var j = 0; A.MinisterOnTable != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && j < A.MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                         {
                             try
                             {
@@ -2808,7 +2808,7 @@ if (Kind == 2)
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (var i = 0; i < KingMidle; i++)
-                        for (int j = 0; A.KingOnTable != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && j < A.KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                        for (var j = 0; A.KingOnTable != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && j < A.KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                         {
                             try
                             {
@@ -2835,7 +2835,7 @@ if (Kind == 2)
                 else
                 {
                     for (var i = SodierMidle; i < SodierHigh; i++)
-                        for (int j = 0; A.SolderesOnTable != null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && j < A.SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                        for (var j = 0; A.SolderesOnTable != null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && j < A.SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                         {
                             try
                             {
@@ -2858,7 +2858,7 @@ if (Kind == 2)
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (var i = ElefantMidle; i < ElefantHigh; i++)
-                        for (int j = 0; A.ElephantOnTable != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && j < A.ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                        for (var j = 0; A.ElephantOnTable != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && j < A.ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                         {
                             try
                             {
@@ -2882,7 +2882,7 @@ if (Kind == 2)
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (var i = HourseMidle; i < HourseHight; i++)
-                        for (int j = 0; A.HoursesOnTable != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && j < A.HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                        for (var j = 0; A.HoursesOnTable != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && j < A.HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                         {
                             try
                             {
@@ -2907,7 +2907,7 @@ if (Kind == 2)
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (var i = CastleMidle; i < CastleHigh; i++)
-                        for (int j = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && j < A.CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                        for (var j = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && j < A.CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
                             try
                             {
@@ -2931,7 +2931,7 @@ if (Kind == 2)
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (var i = MinisterMidle; i < MinisterHigh; i++)
-                        for (int j = 0; A.MinisterOnTable != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && j < A.MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                        for (var j = 0; A.MinisterOnTable != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && j < A.MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                         {
                             try
                             {
@@ -2955,7 +2955,7 @@ if (Kind == 2)
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (var i = KingMidle; i < MinisterHigh; i++)
-                        for (int j = 0; A.KingOnTable != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && j < A.KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                        for (var j = 0; A.KingOnTable != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && j < A.KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                         {
                             try
                             {
@@ -2991,7 +2991,7 @@ if (Kind == 2)
                 {
 
                     for (var i = 0; i < SodierMidle; i++)
-                        for (int j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                        for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                         {
                             UsePenaltyRegardMechnisamT = false;
                             try
@@ -3006,7 +3006,7 @@ if (Kind == 2)
                             }
                         }
                     for (var i = 0; i < ElefantMidle; i++)
-                        for (int j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                        for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                         {
                             UsePenaltyRegardMechnisamT = false;
                             try
@@ -3023,7 +3023,7 @@ if (Kind == 2)
                             }
                         }
                     for (var i = 0; i < HourseMidle; i++)
-                        for (int j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                        for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                         {
                             UsePenaltyRegardMechnisamT = false;
                             try
@@ -3040,7 +3040,7 @@ if (Kind == 2)
 
                         }
                     for (var i = 0; i < CastleMidle; i++)
-                        for (int j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                        for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
                             UsePenaltyRegardMechnisamT = false;
                             try
@@ -3057,7 +3057,7 @@ if (Kind == 2)
 
                         }
                     for (var i = 0; i < MinisterMidle; i++)
-                        for (int j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                        for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                         {
                             UsePenaltyRegardMechnisamT = false;
                             try
@@ -3074,7 +3074,7 @@ if (Kind == 2)
 
                         }
                     for (var i = 0; i < KingMidle; i++)
-                        for (int j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                        for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                         {
                             UsePenaltyRegardMechnisamT = false;
                             try
@@ -3094,7 +3094,7 @@ if (Kind == 2)
                 else
                 {
                     for (var i = SodierMidle; i < SodierHigh; i++)
-                        for (int j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                        for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                         {
                             UsePenaltyRegardMechnisamT = false;
                             try
@@ -3110,7 +3110,7 @@ if (Kind == 2)
                             }
                         }
                     for (var i = ElefantMidle; i < ElefantHigh; i++)
-                        for (int j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                        for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                         {
                             UsePenaltyRegardMechnisamT = false;
                             try
@@ -3127,7 +3127,7 @@ if (Kind == 2)
                             }
                         }
                     for (var i = HourseMidle; i < HourseHight; i++)
-                        for (int j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                        for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                         {
                             UsePenaltyRegardMechnisamT = false;
                             try
@@ -3145,7 +3145,7 @@ if (Kind == 2)
                             }
                         }
                     for (var i = CastleMidle; i < CastleHigh; i++)
-                        for (int j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                        for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
                             UsePenaltyRegardMechnisamT = false;
                             try
@@ -3162,7 +3162,7 @@ if (Kind == 2)
                             }
                         }
                     for (var i = MinisterMidle; i < MinisterHigh; i++)
-                        for (int j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                        for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                         {
                             UsePenaltyRegardMechnisamT = false;
                             try
@@ -3179,7 +3179,7 @@ if (Kind == 2)
                             }
                         }
                     for (var i = KingMidle; i < KingHigh; i++)
-                        for (int j = 0; KingOnTable != null && KingOnTable[i] != null
+                        for (var j = 0; KingOnTable != null && KingOnTable[i] != null
                             && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                         {
                             UsePenaltyRegardMechnisamT = false;
@@ -3218,7 +3218,7 @@ if (Kind == 2)
                 {
 
                     for (var i = 0; i < SodierMidle; i++)
-                        for (int j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                        for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                         {
 
                             try
@@ -3244,7 +3244,7 @@ if (Kind == 2)
                             }
                         }
                     for (var i = 0; i < ElefantMidle; i++)
-                        for (int j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                        for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                         {
                             try
                             {
@@ -3270,7 +3270,7 @@ if (Kind == 2)
                             }
                         }
                     for (var i = 0; i < HourseMidle; i++)
-                        for (int j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                        for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                         {
                             try
                             {
@@ -3296,7 +3296,7 @@ if (Kind == 2)
 
                         }
                     for (var i = 0; i < CastleMidle; i++)
-                        for (int j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                        for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
                             try
                             {
@@ -3320,7 +3320,7 @@ if (Kind == 2)
 
                         }
                     for (var i = 0; i < MinisterMidle; i++)
-                        for (int j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                        for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                         {
                             try
                             {
@@ -3345,7 +3345,7 @@ if (Kind == 2)
 
                         }
                     for (var i = 0; i < KingMidle; i++)
-                        for (int j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                        for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                         {
                             try
                             {
@@ -3373,7 +3373,7 @@ if (Kind == 2)
                 else
                 {
                     for (var i = SodierMidle; i < SodierHigh; i++)
-                        for (int j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                        for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                         {
                             try
                             {
@@ -3398,7 +3398,7 @@ if (Kind == 2)
                             }
                         }
                     for (var i = ElefantMidle; i < ElefantHigh; i++)
-                        for (int j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                        for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                         {
                             try
                             {
@@ -3423,7 +3423,7 @@ if (Kind == 2)
                             }
                         }
                     for (var i = HourseMidle; i < HourseHight; i++)
-                        for (int j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                        for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                         {
                             try
                             {
@@ -3449,7 +3449,7 @@ if (Kind == 2)
                             }
                         }
                     for (var i = CastleMidle; i < CastleHigh; i++)
-                        for (int j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                        for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
                             try
                             {
@@ -3474,7 +3474,7 @@ if (Kind == 2)
                             }
                         }
                     for (var i = MinisterMidle; i < MinisterHigh; i++)
-                        for (int j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                        for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                         {
                             try
                             {
@@ -3498,7 +3498,7 @@ if (Kind == 2)
                             }
                         }
                     for (var i = KingMidle; i < KingHigh; i++)
-                        for (int j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                        for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                         {
                             try
                             {
@@ -3539,7 +3539,7 @@ if (Kind == 2)
                 {
 
                     for (var i = 0; i < SodierMidle; i++)
-                        for (int j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                        for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                         {
 
                             try
@@ -3563,7 +3563,7 @@ if (Kind == 2)
                             }
                         }
                     for (var i = 0; i < ElefantMidle; i++)
-                        for (int j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                        for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                         {
                             try
                             {
@@ -3585,7 +3585,7 @@ if (Kind == 2)
                             }
                         }
                     for (var i = 0; i < HourseMidle; i++)
-                        for (int j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                        for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                         {
                             try
                             {
@@ -3608,7 +3608,7 @@ if (Kind == 2)
 
                         }
                     for (var i = 0; i < CastleMidle; i++)
-                        for (int j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                        for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
                             try
                             {
@@ -3629,7 +3629,7 @@ if (Kind == 2)
 
                         }
                     for (var i = 0; i < MinisterMidle; i++)
-                        for (int j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                        for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                         {
                             try
                             {
@@ -3651,7 +3651,7 @@ if (Kind == 2)
 
                         }
                     for (var i = 0; i < KingMidle; i++)
-                        for (int j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                        for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                         {
                             try
                             {
@@ -3676,7 +3676,7 @@ if (Kind == 2)
                 else
                 {
                     for (var i = SodierMidle; i < SodierHigh; i++)
-                        for (int j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                        for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                         {
                             try
                             {
@@ -3697,7 +3697,7 @@ if (Kind == 2)
                             }
                         }
                     for (var i = ElefantMidle; i < ElefantHigh; i++)
-                        for (int j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                        for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                         {
                             try
                             {
@@ -3718,7 +3718,7 @@ if (Kind == 2)
                             }
                         }
                     for (var i = HourseMidle; i < HourseHight; i++)
-                        for (int j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                        for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                         {
                             try
                             {
@@ -3739,7 +3739,7 @@ if (Kind == 2)
                             }
                         }
                     for (var i = CastleMidle; i < CastleHigh; i++)
-                        for (int j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                        for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
                             try
                             {
@@ -3761,7 +3761,7 @@ if (Kind == 2)
                             }
                         }
                     for (var i = MinisterMidle; i < MinisterHigh; i++)
-                        for (int j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                        for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                         {
                             try
                             {
@@ -3782,7 +3782,7 @@ if (Kind == 2)
                             }
                         }
                     for (var i = KingMidle; i < KingHigh; i++)
-                        for (int j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                        for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                         {
                             try
                             {
@@ -3822,7 +3822,7 @@ if (Kind == 2)
                 {
 
                     for (var i = 0; i < SodierMidle; i++)
-                        for (int j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                        for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                         {
 
                             try
@@ -3845,7 +3845,7 @@ if (Kind == 2)
                             }
                         }
                     for (var i = 0; i < ElefantMidle; i++)
-                        for (int j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                        for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                         {
                             try
                             {
@@ -3867,7 +3867,7 @@ if (Kind == 2)
                             }
                         }
                     for (var i = 0; i < HourseMidle; i++)
-                        for (int j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                        for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                         {
                             try
                             {
@@ -3890,7 +3890,7 @@ if (Kind == 2)
 
                         }
                     for (var i = 0; i < CastleMidle; i++)
-                        for (int j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                        for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
                             try
                             {
@@ -3911,7 +3911,7 @@ if (Kind == 2)
 
                         }
                     for (var i = 0; i < MinisterMidle; i++)
-                        for (int j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                        for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                         {
                             try
                             {
@@ -3933,7 +3933,7 @@ if (Kind == 2)
 
                         }
                     for (var i = 0; i < KingMidle; i++)
-                        for (int j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                        for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                         {
                             try
                             {
@@ -3958,7 +3958,7 @@ if (Kind == 2)
                 else
                 {
                     for (var i = SodierMidle; i < SodierHigh; i++)
-                        for (int j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                        for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                         {
                             try
                             {
@@ -3979,7 +3979,7 @@ if (Kind == 2)
                             }
                         }
                     for (var i = ElefantMidle; i < ElefantHigh; i++)
-                        for (int j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                        for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                         {
                             try
                             {
@@ -4000,7 +4000,7 @@ if (Kind == 2)
                             }
                         }
                     for (var i = HourseMidle; i < HourseHight; i++)
-                        for (int j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                        for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                         {
                             try
                             {
@@ -4021,7 +4021,7 @@ if (Kind == 2)
                             }
                         }
                     for (var i = CastleMidle; i < CastleHigh; i++)
-                        for (int j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                        for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
                             try
                             {
@@ -4043,7 +4043,7 @@ if (Kind == 2)
                             }
                         }
                     for (var i = MinisterMidle; i < MinisterHigh; i++)
-                        for (int j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                        for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                         {
                             try
                             {
@@ -4064,7 +4064,7 @@ if (Kind == 2)
                             }
                         }
                     for (var i = KingMidle; i < KingHigh; i++)
-                        for (int j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                        for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                         {
                             try
                             {
@@ -4108,7 +4108,7 @@ if (Kind == 2)
                     {
 
                         for (var i = 0; i < SodierMidle; i++)
-                            for (int j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                            for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                             {
 
                                 try
@@ -4134,7 +4134,7 @@ if (Kind == 2)
                                 }
                             }
                         for (var i = 0; i < ElefantMidle; i++)
-                            for (int j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                            for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                             {
                                 try
                                 {
@@ -4158,7 +4158,7 @@ if (Kind == 2)
                                 }
                             }
                         for (var i = 0; i < HourseMidle; i++)
-                            for (int j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                            for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                             {
                                 try
                                 {
@@ -4183,7 +4183,7 @@ if (Kind == 2)
 
                             }
                         for (var i = 0; i < CastleMidle; i++)
-                            for (int j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                            for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                             {
                                 try
                                 {
@@ -4206,7 +4206,7 @@ if (Kind == 2)
 
                             }
                         for (var i = 0; i < MinisterMidle; i++)
-                            for (int j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                            for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                             {
                                 try
                                 {
@@ -4231,7 +4231,7 @@ if (Kind == 2)
 
                             }
                         for (var i = 0; i < KingMidle; i++)
-                            for (int j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                            for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                             {
                                 try
                                 {
@@ -4258,7 +4258,7 @@ if (Kind == 2)
                     else
                     {
                         for (var i = SodierMidle; i < SodierHigh; i++)
-                            for (int j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                            for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                             {
                                 try
                                 {
@@ -4281,7 +4281,7 @@ if (Kind == 2)
                                 }
                             }
                         for (var i = ElefantMidle; i < ElefantHigh; i++)
-                            for (int j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                            for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                             {
                                 try
                                 {
@@ -4304,7 +4304,7 @@ if (Kind == 2)
                                 }
                             }
                         for (var i = HourseMidle; i < HourseHight; i++)
-                            for (int j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                            for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                             {
                                 try
                                 {
@@ -4327,7 +4327,7 @@ if (Kind == 2)
                                 }
                             }
                         for (var i = CastleMidle; i < CastleHigh; i++)
-                            for (int j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                            for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                             {
                                 try
                                 {
@@ -4351,7 +4351,7 @@ if (Kind == 2)
                                 }
                             }
                         for (var i = MinisterMidle; i < MinisterHigh; i++)
-                            for (int j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                            for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                             {
                                 try
                                 {
@@ -4375,7 +4375,7 @@ if (Kind == 2)
                                 }
                             }
                         for (var i = KingMidle; i < KingHigh; i++)
-                            for (int j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                            for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                             {
                                 try
                                 {
@@ -4429,7 +4429,7 @@ if (Kind == 2)
                 {
 
                     for (var i = 0; i < SodierMidle; i++)
-                        for (int j = 0; A.SolderesOnTable != null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && j < A.SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                        for (var j = 0; A.SolderesOnTable != null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && j < A.SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                         {
 
                             try
@@ -4454,7 +4454,7 @@ if (Kind == 2)
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (var i = 0; i < ElefantMidle; i++)
-                        for (int j = 0; A.ElephantOnTable != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && j < A.ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                        for (var j = 0; A.ElephantOnTable != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && j < A.ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                         {
 
                             try
@@ -4479,7 +4479,7 @@ if (Kind == 2)
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (var i = 0; i < HourseMidle; i++)
-                        for (int j = 0; A.HoursesOnTable != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && j < A.HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                        for (var j = 0; A.HoursesOnTable != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && j < A.HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                         {
                             try
                             {
@@ -4503,7 +4503,7 @@ if (Kind == 2)
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (var i = 0; i < CastleMidle; i++)
-                        for (int j = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && j < A.CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                        for (var j = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && j < A.CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
                             try
                             {
@@ -4526,7 +4526,7 @@ if (Kind == 2)
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (var i = 0; i < MinisterMidle; i++)
-                        for (int j = 0; A.MinisterOnTable != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && j < A.MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                        for (var j = 0; A.MinisterOnTable != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && j < A.MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                         {
                             try
                             {
@@ -4550,7 +4550,7 @@ if (Kind == 2)
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (var i = 0; i < KingMidle; i++)
-                        for (int j = 0; A.KingOnTable != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && j < A.KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                        for (var j = 0; A.KingOnTable != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && j < A.KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                         {
                             try
                             {
@@ -4576,7 +4576,7 @@ if (Kind == 2)
                 else
                 {
                     for (var i = SodierMidle; i < SodierHigh; i++)
-                        for (int j = 0; A.SolderesOnTable != null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && j < A.SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                        for (var j = 0; A.SolderesOnTable != null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && j < A.SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                         {
                             try
                             {
@@ -4599,7 +4599,7 @@ if (Kind == 2)
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (var i = ElefantMidle; i < ElefantHigh; i++)
-                        for (int j = 0; A.ElephantOnTable != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && j < A.ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                        for (var j = 0; A.ElephantOnTable != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && j < A.ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                         {
                             try
                             {
@@ -4623,7 +4623,7 @@ if (Kind == 2)
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (var i = HourseMidle; i < HourseHight; i++)
-                        for (int j = 0; A.HoursesOnTable != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && j < A.HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                        for (var j = 0; A.HoursesOnTable != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && j < A.HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                         {
                             try
                             {
@@ -4647,7 +4647,7 @@ if (Kind == 2)
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (var i = CastleMidle; i < CastleHigh; i++)
-                        for (int j = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && j < A.CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                        for (var j = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && j < A.CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
                             try
                             {
@@ -4670,7 +4670,7 @@ if (Kind == 2)
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (var i = MinisterMidle; i < MinisterHigh; i++)
-                        for (int j = 0; A.MinisterOnTable != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && j < A.MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                        for (var j = 0; A.MinisterOnTable != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && j < A.MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                         {
                             try
                             {
@@ -4693,7 +4693,7 @@ if (Kind == 2)
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     for (var i = KingMidle; i < MinisterHigh; i++)
-                        for (int j = 0; A.KingOnTable != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && j < A.KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                        for (var j = 0; A.KingOnTable != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && j < A.KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                         {
                             try
                             {
@@ -10176,7 +10176,7 @@ if (Kind == 2)
                     {
                         //Construct a Clone Copy of Table.
                         for (var iii = 0; iii < 8; iii++)
-                            for (int jjj = 0; jjj < 8; jjj++)
+                            for (var jjj = 0; jjj < 8; jjj++)
                             {
                                 TablInit[iii, jjj] = Tab[iii, jjj];
                             }
@@ -10184,7 +10184,7 @@ if (Kind == 2)
                         Table = new int[8, 8];
                         //Construct a Clone Copy of Table.
                         for (var iii = 0; iii < 8; iii++)
-                            for (int jjj = 0; jjj < 8; jjj++)
+                            for (var jjj = 0; jjj < 8; jjj++)
                             {
                                 Table[iii, jjj] = TablInit[iii, jjj];
                             }
@@ -10219,7 +10219,7 @@ if (Kind == 2)
                 //List<Task> tHA = new List<Task>();
                 int[,] Table = new int[8, 8];
                 for (var iii = 0; iii < 8; iii++)
-                    for (int jjj = 0; jjj < 8; jjj++)
+                    for (var jjj = 0; jjj < 8; jjj++)
                         Table[iii, jjj] = Tab[iii, jjj];
                 //ParallelOptions parallelOptions = new ParallelOptions();
                 //parallelOptions.MaxDegreeOfParallelism = PlatformHelper.ProcessorCount;
@@ -10240,7 +10240,7 @@ if (Kind == 2)
                     a = Color.Gray;
                 else
                     a = Color.Brown;
-                int j = 0;
+                var j = 0;
                 Object Omm = new Object();
                 lock (Omm)
                 {
@@ -10928,7 +10928,7 @@ if (Kind == 2)
                                             if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count == 0)
                                             {
                                                 //For All Movable Gray Solders.
-                                                for (int j = 0; j < AllDraw.SodierMovments; j++)
+                                                for (var j = 0; j < AllDraw.SodierMovments; j++)
                                                 ////Parallel.For(0, AllDraw.SodierMovments, j =>
                                                 {
                                                     //Thinking of Gray Solder Operation.
@@ -10985,7 +10985,7 @@ if (Kind == 2)
                                             {
                                                 //For All Possible Movments.
                                                 ////Parallel.For(0, AllDraw.ElefantMovments, j =>
-                                                for (int j = 0; j < AllDraw.ElefantMovments; j++)
+                                                for (var j = 0; j < AllDraw.ElefantMovments; j++)
                                                 {
                                                     //Operational Thinking Gray Elephant. 
                                                     Object OOO = new Object();
@@ -11039,7 +11039,7 @@ if (Kind == 2)
                                             if (HoursesOnTable[i].HourseThinking[0].TableListHourse.Count == 0)
                                             {
                                                 //For All Possible Movments.
-                                                for (int j = 0; j < AllDraw.HourseMovments; j++)
+                                                for (var j = 0; j < AllDraw.HourseMovments; j++)
                                                 ////Parallel.For(0, AllDraw.HourseMovments, j =>
                                                 {
                                                     //Thinking of Gray Hourse Oprational.
@@ -11092,7 +11092,7 @@ if (Kind == 2)
                                             {
                                                 //For All Possible Movments.
                                                 ////Parallel.For(0, AllDraw.CastleMovments, j =>
-                                                for (int j = 0; j < AllDraw.CastleMovments; j++)
+                                                for (var j = 0; j < AllDraw.CastleMovments; j++)
                                                 {
                                                     Object OOO = new Object();
                                                     lock (OOO)
@@ -11147,7 +11147,7 @@ if (Kind == 2)
                                             if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count == 0)
                                             {
                                                 //For All Possible Movments.
-                                                for (int j = 0; j < AllDraw.MinisterMovments; j++)
+                                                for (var j = 0; j < AllDraw.MinisterMovments; j++)
                                                 ////Parallel.For(0, AllDraw.MinisterMovments, j =>
                                                 {
                                                     //Thinking of Gray Minister Operational.
@@ -11207,7 +11207,7 @@ if (Kind == 2)
                                             {
                                                 //For All Possible Gray King Movments.
                                                 ////Parallel.For(0, AllDraw.KingMovments, j =>
-                                                for (int j = 0; j < AllDraw.KingMovments; j++)
+                                                for (var j = 0; j < AllDraw.KingMovments; j++)
                                                 {
                                                     //Thinking Of Gray King Operatins.
                                                     Object OOO = new Object();
@@ -11274,7 +11274,7 @@ if (Kind == 2)
                                             if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count == 0)
                                             {
                                                 //For All Movable Gray Solders.
-                                                for (int j = 0; j < AllDraw.SodierMovments; j++)
+                                                for (var j = 0; j < AllDraw.SodierMovments; j++)
                                                 ////Parallel.For(0, AllDraw.SodierMovments, j =>
                                                 {
                                                     //Thinking of Gray Solder Operation.
@@ -11329,7 +11329,7 @@ if (Kind == 2)
                                             {
                                                 //For All Possible Movments.
                                                 ////Parallel.For(0, AllDraw.ElefantMovments, j =>
-                                                for (int j = 0; j < AllDraw.ElefantMovments; j++)
+                                                for (var j = 0; j < AllDraw.ElefantMovments; j++)
                                                 {
                                                     //Operational Thinking Gray Elephant. 
                                                     Object OOO = new Object();
@@ -11381,7 +11381,7 @@ if (Kind == 2)
                                             if (HoursesOnTable[i].HourseThinking[0].TableListHourse.Count == 0)
                                             {
                                                 //For All Possible Movments.
-                                                for (int j = 0; j < AllDraw.HourseMovments; j++)
+                                                for (var j = 0; j < AllDraw.HourseMovments; j++)
                                                 ////Parallel.For(0, AllDraw.HourseMovments, j =>
                                                 {
                                                     //Thinking of Gray Hourse Oprational.
@@ -11435,7 +11435,7 @@ if (Kind == 2)
                                             {
                                                 //For All Possible Movments.
                                                 ////Parallel.For(0, AllDraw.CastleMovments, j =>
-                                                for (int j = 0; j < AllDraw.CastleMovments; j++)
+                                                for (var j = 0; j < AllDraw.CastleMovments; j++)
                                                 {
                                                     Object OOO = new Object();
                                                     lock (OOO)
@@ -11488,7 +11488,7 @@ if (Kind == 2)
                                             {
                                                 //For All Possible Movments.
                                                 ////Parallel.For(0, AllDraw.MinisterMovments, j =>
-                                                for (int j = 0; j < AllDraw.MinisterMovments; j++)
+                                                for (var j = 0; j < AllDraw.MinisterMovments; j++)
                                                 {
                                                     //Thinking of Gray Minister Operational.
                                                     Object OOO = new Object();
@@ -11540,7 +11540,7 @@ if (Kind == 2)
                                             if (KingOnTable[i].KingThinking[0].TableListKing.Count == 0)
                                             {
                                                 //For All Possible Gray King Movments.
-                                                for (int j = 0; j < AllDraw.KingMovments; j++)
+                                                for (var j = 0; j < AllDraw.KingMovments; j++)
                                                 {
                                                     //Thinking Of Gray King Operatins.
                                                     Object OOO = new Object();
@@ -11583,7 +11583,7 @@ if (Kind == 2)
         {
             bool Is = true;
             for (var i = 0; i < 8; i++)
-                for (int j = 0; j < 8; j++)
+                for (var j = 0; j < 8; j++)
                 {
                     if (t1[i, j] != t2[i, j])
                         Is = false;
@@ -11640,8 +11640,8 @@ if (Kind == 2)
                         {
                             if (SolderesOnTable[i] == null)
                                 continue;
-                            //int j = FoundTableIndex(this.SolderesOnTable[i].SoldierThinking[0].TableListSolder, SolderesOnTable[ii].SoldierThinking[0].TableConst);
-                            for (int j = 0; j < SolderesOnTable[i].SoldierThinking[0].HuristicListSolder.Count; j++)
+                            //var j = FoundTableIndex(this.SolderesOnTable[i].SoldierThinking[0].TableListSolder, SolderesOnTable[ii].SoldierThinking[0].TableConst);
+                            for (var j = 0; j < SolderesOnTable[i].SoldierThinking[0].HuristicListSolder.Count; j++)
                             {
                                 if (!(SolderesOnTable[i].SoldierThinking[0].IsSup[j]))
                                     continue;
@@ -11683,8 +11683,8 @@ if (Kind == 2)
                         {
                             if (SolderesOnTable[i] == null)
                                 continue;
-                            //int j = FoundTableIndex(this.SolderesOnTable[i].SoldierThinking[0].TableListSolder, SolderesOnTable[ii].SoldierThinking[0].TableConst);
-                            for (int j = 0; j < SolderesOnTable[i].SoldierThinking[0].HuristicListSolder.Count; j++)
+                            //var j = FoundTableIndex(this.SolderesOnTable[i].SoldierThinking[0].TableListSolder, SolderesOnTable[ii].SoldierThinking[0].TableConst);
+                            for (var j = 0; j < SolderesOnTable[i].SoldierThinking[0].HuristicListSolder.Count; j++)
                             {
                                 if (!(SolderesOnTable[i].SoldierThinking[0].IsSup[j]))
                                     continue;
@@ -11730,8 +11730,8 @@ if (Kind == 2)
                                 continue;
                             //if (this != null && this != null)
                             {
-                                //int j = FoundTableIndex(this.ElephantOnTable[i].ElefantThinking[0].TableListElefant, ElephantOnTable[ii].ElefantThinking[0].TableConst);
-                                for (int j = 0; j < ElephantOnTable[i].ElefantThinking[0].HuristicListElefant.Count; j++)
+                                //var j = FoundTableIndex(this.ElephantOnTable[i].ElefantThinking[0].TableListElefant, ElephantOnTable[ii].ElefantThinking[0].TableConst);
+                                for (var j = 0; j < ElephantOnTable[i].ElefantThinking[0].HuristicListElefant.Count; j++)
                                 {
                                     if (!(ElephantOnTable[i].ElefantThinking[0].IsSup[j]))
                                         continue;
@@ -11775,8 +11775,8 @@ if (Kind == 2)
                                 continue;
                             //if (this != null && this != null)
                             {
-                                //int j = FoundTableIndex(this.ElephantOnTable[i].ElefantThinking[0].TableListElefant, ElephantOnTable[ii].ElefantThinking[0].TableConst);
-                                for (int j = 0; j < ElephantOnTable[i].ElefantThinking[0].HuristicListElefant.Count; j++)
+                                //var j = FoundTableIndex(this.ElephantOnTable[i].ElefantThinking[0].TableListElefant, ElephantOnTable[ii].ElefantThinking[0].TableConst);
+                                for (var j = 0; j < ElephantOnTable[i].ElefantThinking[0].HuristicListElefant.Count; j++)
                                 {
                                     if (!(ElephantOnTable[i].ElefantThinking[0].IsSup[j]))
                                         continue;
@@ -11821,8 +11821,8 @@ if (Kind == 2)
                         {
                             if (HoursesOnTable[i] == null)
                                 continue;
-                            //int j = FoundTableIndex(this.HoursesOnTable[i].HourseThinking[0].TableListHourse, HoursesOnTable[ii].HourseThinking[0].TableConst);
-                            for (int j = 0; j < HoursesOnTable[i].HourseThinking[0].HuristicListHourse.Count; j++)
+                            //var j = FoundTableIndex(this.HoursesOnTable[i].HourseThinking[0].TableListHourse, HoursesOnTable[ii].HourseThinking[0].TableConst);
+                            for (var j = 0; j < HoursesOnTable[i].HourseThinking[0].HuristicListHourse.Count; j++)
                             {
                                 if (!(HoursesOnTable[i].HourseThinking[0].IsSup[j]))
                                     continue;
@@ -11863,8 +11863,8 @@ if (Kind == 2)
                         {
                             if (HoursesOnTable[i] == null)
                                 continue;
-                            //int j = FoundTableIndex(this.HoursesOnTable[i].HourseThinking[0].TableListHourse, HoursesOnTable[ii].HourseThinking[0].TableConst);
-                            for (int j = 0; j < HoursesOnTable[i].HourseThinking[0].HuristicListHourse.Count; j++)
+                            //var j = FoundTableIndex(this.HoursesOnTable[i].HourseThinking[0].TableListHourse, HoursesOnTable[ii].HourseThinking[0].TableConst);
+                            for (var j = 0; j < HoursesOnTable[i].HourseThinking[0].HuristicListHourse.Count; j++)
                             {
                                 if (!(HoursesOnTable[i].HourseThinking[0].IsSup[j]))
                                     continue;
@@ -11907,8 +11907,8 @@ if (Kind == 2)
                         {
                             if (CastlesOnTable[i] == null)
                                 continue;
-                            //int j = FoundTableIndex(this.CastlesOnTable[i].CastleThinking[0].TableListCastle, CastlesOnTable[ii].CastleThinking[0].TableConst);
-                            for (int j = 0; j < CastlesOnTable[i].CastleThinking[0].HuristicListCastle.Count; j++)
+                            //var j = FoundTableIndex(this.CastlesOnTable[i].CastleThinking[0].TableListCastle, CastlesOnTable[ii].CastleThinking[0].TableConst);
+                            for (var j = 0; j < CastlesOnTable[i].CastleThinking[0].HuristicListCastle.Count; j++)
                             {
                                 if (!(CastlesOnTable[i].CastleThinking[0].IsSup[j]))
                                     continue;
@@ -11948,8 +11948,8 @@ if (Kind == 2)
                         {
                             if (CastlesOnTable[i] == null)
                                 continue;
-                            //int j = FoundTableIndex(this.CastlesOnTable[i].CastleThinking[0].TableListCastle, CastlesOnTable[ii].CastleThinking[0].TableConst);
-                            for (int j = 0; j < CastlesOnTable[i].CastleThinking[0].HuristicListCastle.Count; j++)
+                            //var j = FoundTableIndex(this.CastlesOnTable[i].CastleThinking[0].TableListCastle, CastlesOnTable[ii].CastleThinking[0].TableConst);
+                            for (var j = 0; j < CastlesOnTable[i].CastleThinking[0].HuristicListCastle.Count; j++)
                             {
                                 if (!(CastlesOnTable[i].CastleThinking[0].IsSup[j]))
                                     continue;
@@ -11994,8 +11994,8 @@ if (Kind == 2)
                         {
                             if (MinisterOnTable[i] == null)
                                 continue;
-                            //int j = FoundTableIndex(this.MinisterOnTable[i].MinisterThinking[0].TableListMinister, MinisterOnTable[ii].MinisterThinking[0].TableConst);
-                            for (int j = 0; j < MinisterOnTable[i].MinisterThinking[0].HuristicListMinister.Count; j++)
+                            //var j = FoundTableIndex(this.MinisterOnTable[i].MinisterThinking[0].TableListMinister, MinisterOnTable[ii].MinisterThinking[0].TableConst);
+                            for (var j = 0; j < MinisterOnTable[i].MinisterThinking[0].HuristicListMinister.Count; j++)
                             {
                                 if (!(MinisterOnTable[i].MinisterThinking[0].IsSup[j]))
                                     continue;
@@ -12036,8 +12036,8 @@ if (Kind == 2)
                         {
                             if (MinisterOnTable[i] == null)
                                 continue;
-                            //int j = FoundTableIndex(this.MinisterOnTable[i].MinisterThinking[0].TableListMinister, MinisterOnTable[ii].MinisterThinking[0].TableConst);
-                            for (int j = 0; j < MinisterOnTable[i].MinisterThinking[0].HuristicListMinister.Count; j++)
+                            //var j = FoundTableIndex(this.MinisterOnTable[i].MinisterThinking[0].TableListMinister, MinisterOnTable[ii].MinisterThinking[0].TableConst);
+                            for (var j = 0; j < MinisterOnTable[i].MinisterThinking[0].HuristicListMinister.Count; j++)
                             {
                                 if (!(MinisterOnTable[i].MinisterThinking[0].IsSup[j]))
                                     continue;
@@ -12082,8 +12082,8 @@ if (Kind == 2)
                         {
                             if (KingOnTable[i] == null)
                                 continue;
-                            //int j = FoundTableIndex(this.KingOnTable[i].KingThinking[0].TableListKing, KingOnTable[ii].KingThinking[0].TableConst);
-                            for (int j = 0; j < KingOnTable[i].KingThinking[0].HuristicListKing.Count; j++)
+                            //var j = FoundTableIndex(this.KingOnTable[i].KingThinking[0].TableListKing, KingOnTable[ii].KingThinking[0].TableConst);
+                            for (var j = 0; j < KingOnTable[i].KingThinking[0].HuristicListKing.Count; j++)
                             {
                                 if (!(KingOnTable[i].KingThinking[0].IsSup[j]))
                                     continue;
@@ -12125,8 +12125,8 @@ if (Kind == 2)
                         {
                             if (KingOnTable[i] == null)
                                 continue;
-                            //int j = FoundTableIndex(this.KingOnTable[i].KingThinking[0].TableListKing, KingOnTable[ii].KingThinking[0].TableConst);
-                            for (int j = 0; j < KingOnTable[i].KingThinking[0].HuristicListKing.Count; j++)
+                            //var j = FoundTableIndex(this.KingOnTable[i].KingThinking[0].TableListKing, KingOnTable[ii].KingThinking[0].TableConst);
+                            for (var j = 0; j < KingOnTable[i].KingThinking[0].HuristicListKing.Count; j++)
                             {
                                 if (!(KingOnTable[i].KingThinking[0].IsSup[j]))
                                     continue;
@@ -13173,7 +13173,7 @@ if (Kind == 2)
 
                 int[,] Table = new int[8, 8];
                 for (var iii = 0; iii < 8; iii++)
-                    for (int jjj = 0; jjj < 8; jjj++)
+                    for (var jjj = 0; jjj < 8; jjj++)
                         Table[iii, jjj] = Tab[iii, jjj];
 
                 Object oo = new Object();
@@ -13193,7 +13193,7 @@ if (Kind == 2)
                     a = Color.Gray;
                 else
                     a = Color.Brown;
-                int j = 0;
+                var j = 0;
               
                 //Fairness conditions for perposive astar greedy search.
                 Object Omm = new Object();
@@ -13597,7 +13597,7 @@ if (Kind == 2)
 
                 int[,] Table = new int[8, 8];
                 for (var iii = 0; iii < 8; iii++)
-                    for (int jjj = 0; jjj < 8; jjj++)
+                    for (var jjj = 0; jjj < 8; jjj++)
                         Table[iii, jjj] = Tab[iii, jjj];
                 Object oo = new Object();
                 lock (oo)
@@ -13618,7 +13618,7 @@ if (Kind == 2)
                     a = Color.Gray;
                 else
                     a = Color.Brown;
-                int j = 0;
+                var j = 0;
                 //if (iAStarGreedy>=0)
                 //return null;
                 Object OOOO = new Object();
@@ -15369,7 +15369,7 @@ if (Kind == 2)
 
                 PerceptionCount++;
                 var iii = SolderesOnTable[ik].SoldierThinking[0].RowColumnSoldier[j][0];
-                int jjj = SolderesOnTable[ik].SoldierThinking[0].RowColumnSoldier[j][1];
+                var jjj = SolderesOnTable[ik].SoldierThinking[0].RowColumnSoldier[j][1];
                 Color aa = a;
                 int[,] Tab = CloneATable(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j]);
                 int Ord = Order * -1;
@@ -15401,7 +15401,7 @@ if (Kind == 2)
 
                 PerceptionCount++;
                 var iii = ElephantOnTable[ik].ElefantThinking[0].RowColumnElefant[j][0];
-                int jjj = ElephantOnTable[ik].ElefantThinking[0].RowColumnElefant[j][1];
+                var jjj = ElephantOnTable[ik].ElefantThinking[0].RowColumnElefant[j][1];
                 Color aa = a;
                 int[,] Tab = CloneATable(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j]);
                 int Ord = Order * -1;
@@ -15431,7 +15431,7 @@ if (Kind == 2)
 
                 PerceptionCount++;
                 var iii = HoursesOnTable[ik].HourseThinking[0].RowColumnHourse[j][0];
-                int jjj = HoursesOnTable[ik].HourseThinking[0].RowColumnHourse[j][1];
+                var jjj = HoursesOnTable[ik].HourseThinking[0].RowColumnHourse[j][1];
                 Color aa = a;
                 int[,] Tab = CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j]);
                 int Ord = Order * -1;
@@ -15462,7 +15462,7 @@ if (Kind == 2)
 
                 PerceptionCount++;
                 var iii = CastlesOnTable[ik].CastleThinking[0].RowColumnCastle[j][0];
-                int jjj = CastlesOnTable[ik].CastleThinking[0].RowColumnCastle[j][1];
+                var jjj = CastlesOnTable[ik].CastleThinking[0].RowColumnCastle[j][1];
                 Color aa = a;
                 int[,] Tab = CloneATable(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j]);
                 int Ord = Order * -1;
@@ -15491,7 +15491,7 @@ if (Kind == 2)
 
                 PerceptionCount++;
                 var iii = MinisterOnTable[ik].MinisterThinking[0].RowColumnMinister[j][0];
-                int jjj = MinisterOnTable[ik].MinisterThinking[0].RowColumnMinister[j][1];
+                var jjj = MinisterOnTable[ik].MinisterThinking[0].RowColumnMinister[j][1];
                 Color aa = a;
                 int[,] Tab = CloneATable(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j]);
                 int Ord = Order * -1;
@@ -15521,7 +15521,7 @@ if (Kind == 2)
                 PerceptionCount++;
 
                 var iii = KingOnTable[ik].KingThinking[0].RowColumnKing[j][0];
-                int jjj = KingOnTable[ik].KingThinking[0].RowColumnKing[j][1];
+                var jjj = KingOnTable[ik].KingThinking[0].RowColumnKing[j][1];
                 Color aa = a;
                 int[,] Tab = CloneATable(KingOnTable[ik].KingThinking[0].TableListKing[j]);
                 int Ord = Order * -1;
@@ -15571,7 +15571,7 @@ if (Kind == 2)
                 }
 
                 //Parallel.For(0, SolderesOnTable[ik].SoldierThinking[0].TableListSolder.Count, j =>
-                for (int j = 0; j < SolderesOnTable[ik].SoldierThinking[0].TableListSolder.Count; j++)
+                for (var j = 0; j < SolderesOnTable[ik].SoldierThinking[0].TableListSolder.Count; j++)
                 {
                     Object ooo = new Object();
                     lock (ooo)
@@ -15717,7 +15717,7 @@ if (Kind == 2)
                 try
                 {
                     ////Parallel.For(0, SodierMidle, ik =>
-                    for (int ik = 0; ik < SodierMidle; ik++)
+                    for (var ik = 0; ik < SodierMidle; ik++)
                     {
                         if (SolderesOnTable != null && SolderesOnTable[ik] != null && SolderesOnTable[ik].SoldierThinking != null && SolderesOnTable[ik].SoldierThinking[0] != null
                             )
@@ -15763,7 +15763,7 @@ if (Kind == 2)
                 }
               
                 ////Parallel.For(0, ElephantOnTable[ik].ElefantThinking[0].TableListElefant.Count, j =>
-                for (int j = 0; j < ElephantOnTable[ik].ElefantThinking[0].TableListElefant.Count; j++)
+                for (var j = 0; j < ElephantOnTable[ik].ElefantThinking[0].TableListElefant.Count; j++)
                 {
                     Object ooo = new Object();
                     lock (ooo)
@@ -15911,7 +15911,7 @@ if (Kind == 2)
                 try
                 {
                     ////Parallel.For(0, ElefantMidle, ik =>
-                    for (int ik = 0; ik < ElefantMidle; ik++)
+                    for (var ik = 0; ik < ElefantMidle; ik++)
                     {
                         if (ElephantOnTable != null && ElephantOnTable[ik] != null && ElephantOnTable[ik].ElefantThinking != null && ElephantOnTable[ik].ElefantThinking[0] != null
                             )
@@ -15959,7 +15959,7 @@ if (Kind == 2)
                 }
           
                 ////Parallel.For(0, HoursesOnTable[ik].HourseThinking[0].TableListHourse.Count, j =>
-                for (int j = 0; j < HoursesOnTable[ik].HourseThinking[0].TableListHourse.Count; j++)
+                for (var j = 0; j < HoursesOnTable[ik].HourseThinking[0].TableListHourse.Count; j++)
                 {
                     Object ooo = new Object();
                     lock (ooo)
@@ -16109,7 +16109,7 @@ if (Kind == 2)
                 try
                 {
                     ////Parallel.For(0, HourseMidle, ik =>
-                    for (int ik = 0; ik < HourseMidle; ik++)
+                    for (var ik = 0; ik < HourseMidle; ik++)
                     {
                         if (HoursesOnTable != null && HoursesOnTable[ik] != null && HoursesOnTable[ik].HourseThinking != null && HoursesOnTable[ik].HourseThinking[0] != null
                             )
@@ -16156,7 +16156,7 @@ if (Kind == 2)
                 }
              
                 ////Parallel.For(0, CastlesOnTable[ik].CastleThinking[0].TableListCastle.Count, j =>
-                for (int j = 0; j < CastlesOnTable[ik].CastleThinking[0].TableListCastle.Count; j++)
+                for (var j = 0; j < CastlesOnTable[ik].CastleThinking[0].TableListCastle.Count; j++)
                 {
                     if (CheckeHuristci(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j], Order, ik, j, 0))
                         continue;
@@ -16299,7 +16299,7 @@ if (Kind == 2)
                 try
                 {
                     ////Parallel.For(0, CastleMidle, ik =>
-                    for (int ik = 0; ik < CastleMidle; ik++)
+                    for (var ik = 0; ik < CastleMidle; ik++)
                     {
                         if (CastlesOnTable != null && CastlesOnTable[ik] != null && CastlesOnTable[ik].CastleThinking != null && CastlesOnTable[ik].CastleThinking[0] != null
                             )
@@ -16346,7 +16346,7 @@ if (Kind == 2)
                 }
               
                 ////Parallel.For(0, MinisterOnTable[ik].MinisterThinking[0].TableListMinister.Count, j =>
-                for (int j = 0; j < MinisterOnTable[ik].MinisterThinking[0].TableListMinister.Count; j++)
+                for (var j = 0; j < MinisterOnTable[ik].MinisterThinking[0].TableListMinister.Count; j++)
                 {
                     if (CheckeHuristci(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j], Order, ik, j, 0))
                         continue;
@@ -16498,7 +16498,7 @@ if (Kind == 2)
                 try
                 {
                     ////Parallel.For(0, MinisterMidle, ik =>
-                    for (int ik = 0; ik < MinisterMidle; ik++)
+                    for (var ik = 0; ik < MinisterMidle; ik++)
                     {
                         if (MinisterOnTable != null && MinisterOnTable[ik] != null && MinisterOnTable[ik].MinisterThinking != null && MinisterOnTable[ik].MinisterThinking[0] != null
                             )
@@ -16548,7 +16548,7 @@ if (Kind == 2)
                 if (KingOnTable[ik].KingThinking[0].TableListKing.Count == 0)
                     return Do;
                 // //Parallel.For(0, KingOnTable[ik].KingThinking[0].TableListKing.Count, j =>
-                for (int j = 0; j < KingOnTable[ik].KingThinking[0].TableListKing.Count; j++)
+                for (var j = 0; j < KingOnTable[ik].KingThinking[0].TableListKing.Count; j++)
                 {
                     if (CheckeHuristci(KingOnTable[ik].KingThinking[0].TableListKing[j], Order, ik, j, 0))
                         continue;
@@ -16694,7 +16694,7 @@ if (Kind == 2)
                 try
                 {
                     ////Parallel.For(0, KingMidle, ik =>
-                    for (int ik = 0; ik < KingMidle; ik++)
+                    for (var ik = 0; ik < KingMidle; ik++)
                     {
                         if (KingOnTable != null && KingOnTable[ik] != null && KingOnTable[ik].KingThinking != null && KingOnTable[ik].KingThinking[0] != null
                             )
@@ -16721,7 +16721,7 @@ if (Kind == 2)
                 try
                 {
                     ////Parallel.For(SodierMidle, SodierHigh, ik =>
-                    for (int ik = SodierMidle; ik < SodierHigh; ik++)
+                    for (var ik = SodierMidle; ik < SodierHigh; ik++)
                     {
                         if (SolderesOnTable != null && SolderesOnTable[ik] != null && SolderesOnTable[ik].SoldierThinking != null && SolderesOnTable[ik].SoldierThinking[0] != null
                             )
@@ -16750,7 +16750,7 @@ if (Kind == 2)
                 try
                 {
                     ////Parallel.For(ElefantMidle, ElefantHigh, ik =>
-                    for (int ik = ElefantMidle; ik < ElefantHigh; ik++)
+                    for (var ik = ElefantMidle; ik < ElefantHigh; ik++)
                     {
                         if (ElephantOnTable != null && ElephantOnTable[ik] != null && ElephantOnTable[ik].ElefantThinking != null && ElephantOnTable[ik].ElefantThinking[0] != null
                             )
@@ -16777,7 +16777,7 @@ if (Kind == 2)
                 try
                 {
                     ////Parallel.For(HourseMidle, HourseHight, ik =>
-                    for (int ik = HourseMidle; ik < HourseHight; ik++)
+                    for (var ik = HourseMidle; ik < HourseHight; ik++)
                     {
                         if (HoursesOnTable != null && HoursesOnTable[ik] != null && HoursesOnTable[ik].HourseThinking != null && HoursesOnTable[ik].HourseThinking[0] != null
                             )
@@ -16804,7 +16804,7 @@ if (Kind == 2)
                 try
                 {
                     ////Parallel.For(CastleMidle, CastleHigh, ik =>
-                    for (int ik = CastleMidle; ik < CastleHigh; ik++)
+                    for (var ik = CastleMidle; ik < CastleHigh; ik++)
                     {
                         if (CastlesOnTable != null && CastlesOnTable[ik] != null && CastlesOnTable[ik].CastleThinking != null && CastlesOnTable[ik].CastleThinking[0] != null
                             )
@@ -16832,7 +16832,7 @@ if (Kind == 2)
                 try
                 {
                     ////Parallel.For(MinisterMidle, MinisterHigh, ik =>
-                    for (int ik = MinisterMidle; ik < MinisterHigh; ik++)
+                    for (var ik = MinisterMidle; ik < MinisterHigh; ik++)
                     {
                         if (MinisterOnTable != null && MinisterOnTable[ik] != null && MinisterOnTable[ik].MinisterThinking != null && MinisterOnTable[ik].MinisterThinking[0] != null
                             )
@@ -16859,7 +16859,7 @@ if (Kind == 2)
                 try
                 {
                     ////Parallel.For(KingMidle, KingHigh, ik =>
-                    for (int ik = KingMidle; ik < KingHigh; ik++)
+                    for (var ik = KingMidle; ik < KingHigh; ik++)
                     {
 
                         if (KingOnTable != null && KingOnTable[ik] != null && KingOnTable[ik].KingThinking != null && KingOnTable[ik].KingThinking[0] != null
@@ -17815,7 +17815,7 @@ if (Kind == 2)
         {
             int[,] Table = new int[8, 8];
             for (var i = 0; i < 8; i++)
-                for (int j = 0; j < 8; j++)
+                for (var j = 0; j < 8; j++)
                     Table[i, j] = Tab[i, j];
             return Table;
         }
@@ -18142,14 +18142,14 @@ if (Kind == 2)
         {
             bool Zerro = true;
             for (var i = 0; i < 8; i++)
-                for (int j = 0; j < 8; j++)
+                for (var j = 0; j < 8; j++)
                     if (Ta[i, j] != 0)
                         Zerro = false;
             return Zerro;
         }
         void CheckedMateConfiguratiionSoldier(int Order, int i, bool Regrad)
         {
-            for (int j = 0; j < SolderesOnTable[i].SoldierThinking[0].PenaltyRegardListSolder.Count; j++)
+            for (var j = 0; j < SolderesOnTable[i].SoldierThinking[0].PenaltyRegardListSolder.Count; j++)
             {
                 try
                 {
@@ -18173,7 +18173,7 @@ if (Kind == 2)
         }
         void CheckedMateConfiguratiionElephant(int Order, int i, bool Regrad)
         {
-            for (int j = 0; j < ElephantOnTable[i].ElefantThinking[0].PenaltyRegardListElefant.Count; j++)
+            for (var j = 0; j < ElephantOnTable[i].ElefantThinking[0].PenaltyRegardListElefant.Count; j++)
             {
                 try
                 {
@@ -18197,7 +18197,7 @@ if (Kind == 2)
         }
         void CheckedMateConfiguratiionHourse(int Order, int i, bool Regrad)
         {
-            for (int j = 0; j < HoursesOnTable[i].HourseThinking[0].PenaltyRegardListHourse.Count; j++)
+            for (var j = 0; j < HoursesOnTable[i].HourseThinking[0].PenaltyRegardListHourse.Count; j++)
             {
                 try
                 {
@@ -18222,7 +18222,7 @@ if (Kind == 2)
 
         void CheckedMateConfiguratiionCastle(int Order, int i, bool Regrad)
         {
-            for (int j = 0; j < CastlesOnTable[i].CastleThinking[0].PenaltyRegardListCastle.Count; j++)
+            for (var j = 0; j < CastlesOnTable[i].CastleThinking[0].PenaltyRegardListCastle.Count; j++)
             {
                 try
                 {
@@ -18246,7 +18246,7 @@ if (Kind == 2)
         }
         void CheckedMateConfiguratiionMinister(int Order, int i, bool Regrad)
         {
-            for (int j = 0; j < MinisterOnTable[i].MinisterThinking[0].PenaltyRegardListMinister.Count; j++)
+            for (var j = 0; j < MinisterOnTable[i].MinisterThinking[0].PenaltyRegardListMinister.Count; j++)
             {
                 try
                 {
@@ -18270,7 +18270,7 @@ if (Kind == 2)
         }
         void CheckedMateConfiguratiionking(int Order, int i, bool Regrad)
         {
-            for (int j = 0; j < KingOnTable[i].KingThinking[0].PenaltyRegardListKing.Count; j++)
+            for (var j = 0; j < KingOnTable[i].KingThinking[0].PenaltyRegardListKing.Count; j++)
             {
                 try
                 {
@@ -18817,7 +18817,7 @@ if (Kind == 5)
             //For All Table Home
             for (var i = 0; i < 8; i++)
             {
-                for (int j = 0; j < 8; j++)
+                for (var j = 0; j < 8; j++)
                 {
                     //Gray Order.
                     if (Order == 1)
@@ -19141,7 +19141,7 @@ if (Kind == 5)
                 {
                     if (i + 1 < Tag.Length)
                     {
-                        for (int j = i + 1; j < i + RefrigtzDLL.AllDraw.MaxAStarGreedy.ToString().Length + 1; j++)
+                        for (var j = i + 1; j < i + RefrigtzDLL.AllDraw.MaxAStarGreedy.ToString().Length + 1; j++)
                         {
                             try
                             {

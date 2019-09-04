@@ -447,7 +447,7 @@ namespace RefrigtzDLL
                     {
                         //Number of Gray Objects at Last Row Bottmm.
                         for (var i = 0; i < 2; i++)
-                            for (int j = 6; j < 8; j++)
+                            for (var j = 6; j < 8; j++)
                                 if (Table[i, j] > 0)
                                     CH++;
                     }
@@ -455,7 +455,7 @@ namespace RefrigtzDLL
                     {
                         //Number of Brown Objects at Last tow Row Upper.
                         for (var i = 0; i < 8; i++)
-                            for (int j = 0; j < 2; j++)
+                            for (var j = 0; j < 2; j++)
                                 if (Table[i, j] < 0)
                                     CH++;
                     }
@@ -467,7 +467,7 @@ namespace RefrigtzDLL
                     {
                         //Number of Brown Objects Table at Last tow row Uppper.
                         for (var i = 0; i < 8; i++)
-                            for (int j = 6; j < 2; j++)
+                            for (var j = 6; j < 2; j++)
                                 if (Table[i, j] > 0)
                                     CH++;
                     }
@@ -475,7 +475,7 @@ namespace RefrigtzDLL
                     {
                         //Number of Gray Objects Table at Last tow rown below.
                         for (var i = 0; i < 2; i++)
-                            for (int j = 0; j < 8; j++)
+                            for (var j = 0; j < 8; j++)
                                 if (Table[i, j] < 0)
                                     CH++;
                     }
@@ -548,7 +548,7 @@ namespace RefrigtzDLL
                 IndexKing = 0;
                 TableConst = new int[8, 8];
                 for (var ii = 0; ii < 8; ii++)
-                    for (int jj = 0; jj < 8; jj++)
+                    for (var jj = 0; jj < 8; jj++)
                     {
                         TableConst[ii, jj] = Tab[ii, jj];
                     }
@@ -585,7 +585,7 @@ namespace RefrigtzDLL
                 int[,] Table = new int[8, 8];
                 //Assigne Parameter To New Objects.
                 for (var i = 0; i < 8; i++)
-                    for (int j = 0; j < 8; j++)
+                    for (var j = 0; j < 8; j++)
                         Table[i, j] = Tab[i, j];
                 //Return New Object.
                 return Table;
@@ -658,29 +658,29 @@ namespace RefrigtzDLL
                     }
                 }
                 //For All Moves Indexx Solders List Count.
-                for (int j = 0; j < RowColumnSoldier.Count; j++)
+                for (var j = 0; j < RowColumnSoldier.Count; j++)
 
                     //Add a Clone To New Solder indexx Object.
                     AA.RowColumnSoldier.Add(CloneAList(RowColumnSoldier[j], 2));
                 //For All Castle List Count.
-                for (int j = 0; j < RowColumnCastle.Count; j++)
+                for (var j = 0; j < RowColumnCastle.Count; j++)
                     //Add a Clone to New Castle index Objects List.
                     AA.RowColumnCastle.Add(CloneAList(RowColumnCastle[j], 2));
 
                 //For All Elephant index List Count.
-                for (int j = 0; j < RowColumnElefant.Count; j++)
+                for (var j = 0; j < RowColumnElefant.Count; j++)
                     //Add a Clone to New Elephant Object List.
                     AA.RowColumnElefant.Add(CloneAList(RowColumnElefant[j], 2));
                 //For All Hourse index List Count.
-                for (int j = 0; j < RowColumnHourse.Count; j++)
+                for (var j = 0; j < RowColumnHourse.Count; j++)
                     //Add a Clone to New Hourse index List.
                     AA.RowColumnHourse.Add(CloneAList(RowColumnHourse[j], 2));
                 //For All King index List Count.
-                for (int j = 0; j < RowColumnKing.Count; j++)
+                for (var j = 0; j < RowColumnKing.Count; j++)
                     //Add a Clone To New King Object List.
                     AA.RowColumnKing.Add(CloneAList(RowColumnKing[j], 2));
                 //For All Minister index Count.
-                for (int j = 0; j < RowColumnMinister.Count; j++)
+                for (var j = 0; j < RowColumnMinister.Count; j++)
                     //Add a Clone To Minister New index List.
                     AA.RowColumnMinister.Add(CloneAList(RowColumnMinister[j], 2));
                 //Assgine thread.
@@ -693,14 +693,14 @@ namespace RefrigtzDLL
                 if (TableT != null)
                     //For All Items in Table Object.
                     for (var i = 0; i < 8; i++)
-                        for (int j = 0; j < 8; j++)
+                        for (var j = 0; j < 8; j++)
                             //Assgine Table items in New Table Object.
                             AA.TableT[i, j] = TableT[i, j];
                 //If Table is Not Null.
                 if (TableConst != null)
                     //For All Items in Table Object.
                     for (var i = 0; i < 8; i++)
-                        for (int j = 0; j < 8; j++)
+                        for (var j = 0; j < 8; j++)
                             //Assignm Items in New Table Object.
                             AA.TableConst[i, j] = TableConst[i, j];
                 //For All Table State Movements in Castles Objects.
@@ -1494,8 +1494,8 @@ namespace RefrigtzDLL
             lock (O)
             {
                 int[,] Tab = new int[8, 8];
-                for (int ik = 0; ik < 8; ik++)
-                    for (int jk = 0; jk < 8; jk++)
+                for (var ik = 0; ik < 8; ik++)
+                    for (var jk = 0; jk < 8; jk++)
                         Tab[ik, jk] = Tabl[ik, jk];
                 double HuristicKillerValue = 0;
                 //Defualt is Gray Order.
@@ -1585,11 +1585,11 @@ namespace RefrigtzDLL
                             Order1 = Ord;
                             int[,] Tab = new int[8, 8];
                             ////Parallel.For(0, 8, ik =>
-                            for (int ik = 0; ik < 8; ik++)
+                            for (var ik = 0; ik < 8; ik++)
                             {
                                 if (!EnemyNotSupported)
                                     continue;
-                                for (int jk = 0; jk < 8; jk++)
+                                for (var jk = 0; jk < 8; jk++)
                                 ////Parallel.For(0, 8, jk =>
                                 {
                                     Object O3 = new Object();
@@ -1664,8 +1664,8 @@ namespace RefrigtzDLL
                 lock (O4)
                 {
                     int[,] Tab = new int[8, 8];
-                    for (int ik = 0; ik < 8; ik++)
-                        for (int jk = 0; jk < 8; jk++)
+                    for (var ik = 0; ik < 8; ik++)
+                        for (var jk = 0; jk < 8; jk++)
                             Tab[ik, jk] = Table[ik, jk];
                     bool S = true;
                     bool EnemyNotSupported = true;
@@ -1674,7 +1674,7 @@ namespace RefrigtzDLL
                     //For Current
                     for (var i = 0; i < 8; i++)
                     {
-                        for (int j = 0; j < 8; j++)
+                        for (var j = 0; j < 8; j++)
                         {
                             //Ignore of Enemy
                             if (Order == 1 && Tab[i, j] <= 0)
@@ -1685,7 +1685,7 @@ namespace RefrigtzDLL
                             //For Enemies.
                             for (var ii = 0; ii < 8; ii++)
                             {
-                                for (int jj = 0; jj < 8; jj++)
+                                for (var jj = 0; jj < 8; jj++)
                                 {
                                     //Ignore of Curent
                                     if (Order == 1 && Tab[ii, jj] >= 0)
@@ -1800,8 +1800,8 @@ namespace RefrigtzDLL
                 Object O = new Object();
                 lock (O)
                 {
-                    for (int ik = 0; ik < 8; ik++)
-                        for (int jk = 0; jk < 8; jk++)
+                    for (var ik = 0; ik < 8; ik++)
+                        for (var jk = 0; jk < 8; jk++)
                             Tab[ik, jk] = Table[ik, jk];
                 }
                 //When there is attack to some self node.
@@ -1897,8 +1897,8 @@ namespace RefrigtzDLL
                 Object O1 = new Object();
                 lock (O1)
                 {
-                    for (int ik = 0; ik < 8; ik++)
-                        for (int jk = 0; jk < 8; jk++)
+                    for (var ik = 0; ik < 8; ik++)
+                        for (var jk = 0; jk < 8; jk++)
                             Tab[ik, jk] = TableS[ik, jk];
                     int Ord = Order;
                     bool SelfSupported = false;
@@ -1922,8 +1922,8 @@ namespace RefrigtzDLL
                             a = Color.Gray;
                             if (Order * -1 == -1)
                                 a = Color.Brown;
-                            for (int ik = 0; ik < 8; ik++)
-                                for (int jk = 0; jk < 8; jk++)
+                            for (var ik = 0; ik < 8; ik++)
+                                for (var jk = 0; jk < 8; jk++)
                                     Tab[ik, jk] = TableS[ik, jk];
                             InAttackedNotSelfSupported = false;
                             SelfSupported = false;
@@ -1951,8 +1951,8 @@ namespace RefrigtzDLL
                                             a = Color.Gray;
                                             if (Order == -1)
                                                 a = Color.Brown;
-                                            for (int ik = 0; ik < 8; ik++)
-                                                for (int jk = 0; jk < 8; jk++)
+                                            for (var ik = 0; ik < 8; ik++)
+                                                for (var jk = 0; jk < 8; jk++)
                                                     Tab[ik, jk] = TableS[ik, jk];
                                             //When there is support and cuurent is less than enemy.
                                             //method return true when is not supporte and the enemy is less than cuurent in to be hitten.
@@ -2025,8 +2025,8 @@ namespace RefrigtzDLL
                     IsTowValuableObject = InAttackSelfThatNotSupportedCalculateValuableAll(TableS, Order, color, ikk, jkk, iik, jjk, ref ValuableSelfSupported);
                     //Initiate Variables.
                     int[,] Tab = new int[8, 8];
-                    for (int ik = 0; ik < 8; ik++)
-                        for (int jk = 0; jk < 8; jk++)
+                    for (var ik = 0; ik < 8; ik++)
+                        for (var jk = 0; jk < 8; jk++)
                             Tab[ik, jk] = TableS[ik, jk];
                     bool SelfSupported = false;
                     bool InAttackedNotSelfSupported = false;
@@ -2057,13 +2057,13 @@ namespace RefrigtzDLL
                     Order = Ord;
                     if (Order * -1 == -1)
                         a = Color.Brown;
-                    for (int ik = 0; ik < 8; ik++)
-                        for (int jk = 0; jk < 8; jk++)
+                    for (var ik = 0; ik < 8; ik++)
+                        for (var jk = 0; jk < 8; jk++)
                             Tab[ik, jk] = TableS[ik, jk];
                     InAttackedNotSelfSupported = false;
                     SelfSupported = false;
-                    for (int ik = 0; ik < 8; ik++)
-                        for (int jk = 0; jk < 8; jk++)
+                    for (var ik = 0; ik < 8; ik++)
+                        for (var jk = 0; jk < 8; jk++)
                             Tab[ik, jk] = TableS[ik, jk];
                     Object O2 = new Object();
                     lock (O2)
@@ -2091,8 +2091,8 @@ namespace RefrigtzDLL
                                     a = Color.Gray;
                                     if (Order == -1)
                                         a = Color.Brown;
-                                    for (int ik = 0; ik < 8; ik++)
-                                        for (int jk = 0; jk < 8; jk++)
+                                    for (var ik = 0; ik < 8; ik++)
+                                        for (var jk = 0; jk < 8; jk++)
                                             Tab[ik, jk] = TableS[ik, jk];
                                     //When there is supporte and cuurent is less than enemy.
                                     //method return true when is not supporte and the enemy is less than cuurent in to be hitten.
@@ -2132,8 +2132,8 @@ namespace RefrigtzDLL
             {
                 //Initiate Variables.
                 int[,] Tab = new int[8, 8];
-                for (int ik = 0; ik < 8; ik++)
-                    for (int jk = 0; jk < 8; jk++)
+                for (var ik = 0; ik < 8; ik++)
+                    for (var jk = 0; jk < 8; jk++)
                         Tab[ik, jk] = TableS[ik, jk];
                 int Ord = Order;
                 bool SelfSupported = false;
@@ -2144,7 +2144,7 @@ namespace RefrigtzDLL
                 //For Self
                 for (var i = 0; i < 8; i++)
                 {
-                    for (int j = 0; j < 8; j++)
+                    for (var j = 0; j < 8; j++)
                     {
                         S = true;
                         //Ignore of Enemy
@@ -2168,8 +2168,8 @@ namespace RefrigtzDLL
                                 a = Color.Gray;
                                 if (Order * -1 == -1)
                                     a = Color.Brown;
-                                for (int ik = 0; ik < 8; ik++)
-                                    for (int jk = 0; jk < 8; jk++)
+                                for (var ik = 0; ik < 8; ik++)
+                                    for (var jk = 0; jk < 8; jk++)
                                         Tab[ik, jk] = TableS[ik, jk];
                                 InAttackedNotSelfSupported = false;
                                 SelfSupported = false;
@@ -2199,8 +2199,8 @@ namespace RefrigtzDLL
                                                 a = Color.Gray;
                                                 if (Order == -1)
                                                     a = Color.Brown;
-                                                for (int ik = 0; ik < 8; ik++)
-                                                    for (int jk = 0; jk < 8; jk++)
+                                                for (var ik = 0; ik < 8; ik++)
+                                                    for (var jk = 0; jk < 8; jk++)
                                                         Tab[ik, jk] = TableS[ik, jk];
                                                 //When There is Supporter For Attacked Self Object and Is Greater than Attacking Object.
                                                 if (Support(Tab, RowD, ColD, i, j, a, Order) && (ObjectValueCalculator(Tab, i, j) <= ObjectValueCalculator(Tab, RowS, ColS)))
@@ -2304,8 +2304,8 @@ namespace RefrigtzDLL
             {
                 //Initiate Variables.
                 int[,] Tab = new int[8, 8];
-                for (int ik = 0; ik < 8; ik++)
-                    for (int jk = 0; jk < 8; jk++)
+                for (var ik = 0; ik < 8; ik++)
+                    for (var jk = 0; jk < 8; jk++)
                         Tab[ik, jk] = Table[ik, jk];
                 bool SelfSupported = false;
                 int Dum = ChessRules.CurrentOrder;
@@ -2940,7 +2940,7 @@ namespace RefrigtzDLL
                 
                     //For All Home
                     for (var i = 0; i < 8; i++)
-                        for (int j = 0; j < 8; j++)
+                        for (var j = 0; j < 8; j++)
                         {
                             //When there is different values in same location of tow Table return non equality.
                             if (Tab1[i, j] != Tab2[i, j])
@@ -3097,7 +3097,7 @@ namespace RefrigtzDLL
 
                 //For Enemy.
                 for (var ii = 0; ii < 8; ii++)
-                    for (int jj = 0; jj < 8; jj++)
+                    for (var jj = 0; jj < 8; jj++)
                     {
                         if (Order == 1 && Tab[ii, jj] >= 0)
                             continue;
@@ -3214,7 +3214,7 @@ namespace RefrigtzDLL
                     {
                         //For Brown
                         for (var i = 0; i < 8; i++)
-                            for (int j = 0; j < 8; j++)
+                            for (var j = 0; j < 8; j++)
                             {
                                 //Ignore of Gray and Empty
                                 if (Tabl[i, j] >= 0)
@@ -3296,7 +3296,7 @@ namespace RefrigtzDLL
                     {
                         //For Gray.
                         for (var i = 0; i < 8; i++)
-                            for (int j = 0; j < 8; j++)
+                            for (var j = 0; j < 8; j++)
                             {
                                 if (Tabl[i, j] <= 0)
                                     continue;
@@ -3593,8 +3593,8 @@ namespace RefrigtzDLL
                     if (Depth >= AllDraw.MaxAStarGreedy)
                         return Is;
                     //For All Enemies.
-                    for (int ik = 0; ik < 8; ik++)
-                        for (int jk = 0; jk < 8; jk++)
+                    for (var ik = 0; ik < 8; ik++)
+                        for (var jk = 0; jk < 8; jk++)
                         ////Parallel.For(0, 8, ik =>
                         ////Parallel.For(0, 8, jk =>
                         {
@@ -3606,8 +3606,8 @@ namespace RefrigtzDLL
                             if (System.Math.Abs(Tabl[ik, jk]) == 1)
                             {
                                 //For Current Home
-                                for (int iki = ik - 2; iki < ik + 3; iki++)
-                                    for (int jki = jk - 2; jki < jk + 3; jki++)
+                                for (var iki = ik - 2; iki < ik + 3; iki++)
+                                    for (var jki = jk - 2; jki < jk + 3; jki++)
 
                                     ////Parallel.For(ik - 2, ik + 3, iki =>
                                     ////Parallel.For(jk - 2, jk + 3, jki =>
@@ -3644,9 +3644,9 @@ namespace RefrigtzDLL
 
                                 //For Current Home
                                 ////Parallel.For(0, 8, iki =>
-                                for (int iki = 0; iki < 8; iki++)
+                                for (var iki = 0; iki < 8; iki++)
                                 {
-                                    int jki = iki + jk - ik;
+                                    var jki = iki + jk - ik;
                                     if (!Scop(ik, jk, iki, jki, 2))
                                         continue;
                                     //Ignore of Enemy
@@ -3673,9 +3673,9 @@ namespace RefrigtzDLL
                                 }//);
                                  //For Current Home
                                  ////Parallel.For(0, 8, iki =>
-                                for (int iki = 0; iki < 8; iki++)
+                                for (var iki = 0; iki < 8; iki++)
                                 {
-                                    int jki = iki * -1 + jk + ik;
+                                    var jki = iki * -1 + jk + ik;
                                     if (!Scop(ik, jk, iki, jki, 2))
                                         continue;
                                     //Ignore of Enemy
@@ -3706,8 +3706,8 @@ namespace RefrigtzDLL
                                 //For Current Home
                                 ////Parallel.For(ik - 2, ik + 3, iki =>
                                 ////Parallel.For(jk - 2, jk + 3, jki =>
-                                for (int iki = ik - 2; iki < ik + 3; iki++)
-                                    for (int jki = jk - 2; jki < jk + 3; jki++)
+                                for (var iki = ik - 2; iki < ik + 3; iki++)
+                                    for (var jki = jk - 2; jki < jk + 3; jki++)
 
                                     {
                                         if (!Scop(ik, jk, iki, jki, 3))
@@ -3737,9 +3737,9 @@ namespace RefrigtzDLL
                             {
                                 //For Current Home
                                 ////Parallel.For(0, 8, iki =>
-                                for (int iki = 0; iki < 8; iki++)
+                                for (var iki = 0; iki < 8; iki++)
                                 {
-                                    int jki = jk;
+                                    var jki = jk;
                                     if (!Scop(ik, jk, iki, jki, 4))
                                         continue;
                                     //Ignore of Enemy
@@ -3765,9 +3765,9 @@ namespace RefrigtzDLL
                                 }//);
                                  //For Current Home
                                  ////Parallel.For(0, 8, jki =>
-                                for (int jki = 0; jki < 8; jki++)
+                                for (var jki = 0; jki < 8; jki++)
                                 {
-                                    int iki = ik;
+                                    var iki = ik;
                                     if (!Scop(ik, jk, iki, jki, 4))
                                         continue;
                                     //Ignore of Enemy
@@ -3799,8 +3799,8 @@ namespace RefrigtzDLL
                                 //For Current Home
                                 ////Parallel.For(0, 8, iki =>
                                 ////Parallel.For(0, 8, jki =>
-                                for (int iki = 0; iki < 8; iki++)
-                                    for (int jki = 0; jki < 8; jki++)
+                                for (var iki = 0; iki < 8; iki++)
+                                    for (var jki = 0; jki < 8; jki++)
                                     {
                                         //Ignore of Enemy
                                         if (Order == 1 && Tabl[iki, jki] < 0)
@@ -3832,8 +3832,8 @@ namespace RefrigtzDLL
                                 //For Current Home
                                 ////Parallel.For(ik - 1, ik + 2, iki =>
                                 ////Parallel.For(jk - 1, jk + 2, jki =>
-                                for (int iki = ik - 1; iki < ik + 2; iki++)
-                                    for (int jki = jk - 1; jki < jk + 2; jki++)
+                                for (var iki = ik - 1; iki < ik + 2; iki++)
+                                    for (var jki = jk - 1; jki < jk + 2; jki++)
 
                                     {
                                         if (!Scop(ik, jk, iki, jki, 6))
@@ -4003,12 +4003,12 @@ namespace RefrigtzDLL
 
                     int[,] Tabl1 = new int[8, 8];
 
-                    for (int ik = 0; ik < 8; ik++)
-                        for (int jk = 0; jk < 8; jk++)
+                    for (var ik = 0; ik < 8; ik++)
+                        for (var jk = 0; jk < 8; jk++)
                             Tabl1[ik, jk] = Table[ik, jk];
                     //For Current.
                     for (var i = 0; i < 8; i++)
-                        for (int j = 0; j < 8; j++)
+                        for (var j = 0; j < 8; j++)
                         {
                             //Ignore of Enemy.QC_OK.
                             if (Order == 1 && Tabl1[i, j] <= 0)
@@ -4018,7 +4018,7 @@ namespace RefrigtzDLL
                                 continue;
                             //For Enemy.
                             for (var ii = 0; ii < 8; ii++)
-                                for (int jj = 0; jj < 8; jj++)
+                                for (var jj = 0; jj < 8; jj++)
                                 {
                                     //Ignore of Current.QC_OK.
                                     if (Order == 1 && Tabl1[ii, jj] >= 0)
@@ -4026,8 +4026,8 @@ namespace RefrigtzDLL
                                     else
                                         if (Order == -1 && Tabl1[ii, jj] >= 0)
                                         continue;
-                                    for (int ik = 0; ik < 8; ik++)
-                                        for (int jk = 0; jk < 8; jk++)
+                                    for (var ik = 0; ik < 8; ik++)
+                                        for (var jk = 0; jk < 8; jk++)
                                             Tabl1[ik, jk] = Table[ik, jk];
                                     //Take Movement.
                                     if (Attack(Tabl1, i, j, ii, jj, a, Order * -1))
@@ -4234,7 +4234,7 @@ namespace RefrigtzDLL
                     ChessRules.CurrentOrder = -1;
                 bool[,] Tab = new bool[8, 8];
                 for (var i = 0; i < 8; i++)
-                    for (int j = 0; j < 8; j++)
+                    for (var j = 0; j < 8; j++)
                     {
                         if (Order == 1 && Table[i, j] <= 0)
                             continue;
@@ -4267,7 +4267,7 @@ namespace RefrigtzDLL
                         Tab[h, k] = Table[h, k];
                 //For Slef Objects..
                 for (var ii = 0; ii < 8; ii++)
-                    for (int jj = 0; jj < 8; jj++)
+                    for (var jj = 0; jj < 8; jj++)
                     {
                         //Ignore Of Self Objects
                         if (Order == 1 && Tab[ii, jj] >= 0)
@@ -4305,7 +4305,7 @@ namespace RefrigtzDLL
                     for (int k = 0; k < 8; k++)
                         Tab[h, k] = Table[h, k];
                 for (var i = 0; i < 8; i++)
-                    for (int j = 0; j < 8; j++)
+                    for (var j = 0; j < 8; j++)
                     {
                         if (Order == 1 && Table[i, j] >= 0)
                             continue;
@@ -4616,7 +4616,7 @@ namespace RefrigtzDLL
                                 for (var ii = 0; ii < 8; ii++)
                                 {
                                     ////Parallel.For(0, 8, jj =>
-                                    for (int jj = 0; jj < 8; jj++)
+                                    for (var jj = 0; jj < 8; jj++)
                                     {
                                         Object O1 = new Object();
                                         lock (O1)
@@ -4741,8 +4741,8 @@ namespace RefrigtzDLL
                         {
                             int[,] Tab = new int[8, 8];
 
-                            for (int ik = 0; ik < 8; ik++)
-                                for (int jk = 0; jk < 8; jk++)
+                            for (var ik = 0; ik < 8; ik++)
+                                for (var jk = 0; jk < 8; jk++)
                                     Tab[ik, jk] = Table[ik, jk];
                             HA += (Sign * (System.Math.Abs(ObjectValueCalculator(Table, RowS, ColS, RowD, ColD))));
                             /* int Supported = 0;
@@ -4929,8 +4929,8 @@ namespace RefrigtzDLL
                 //Initiate Global static  Variable.
                 ChessRules.CurrentOrder = Order;
                 int[,] Table = new int[8, 8];
-                for (int ik = 0; ik < 8; ik++)
-                    for (int jk = 0; jk < 8; jk++)
+                for (var ik = 0; ik < 8; ik++)
+                    for (var jk = 0; jk < 8; jk++)
                         Table[ik, jk] = Tab[ik, jk];
 
                 //when there is a Movment from Parameter One to Second Parameter return Attacke..
@@ -6314,7 +6314,7 @@ namespace RefrigtzDLL
                                             AllDraw.OutPut += "\r\nHuristic Deep Learning Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ";
                                         else
                                             AllDraw.OutPut += "\r\nHuristic Deap Learning Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ";
-                                        for (int jj = 0; jj < AStarGreedy[k].SolderesOnTable[m].SoldierThinking[0].TableListSolder.Count; jj++)
+                                        for (var jj = 0; jj < AStarGreedy[k].SolderesOnTable[m].SoldierThinking[0].TableListSolder.Count; jj++)
                                             Huristic += AStarGreedy[k].SolderesOnTable[m].SoldierThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, jj, Order * -1);
                                     }
                                     //Repeate for Elephant.
@@ -6326,7 +6326,7 @@ namespace RefrigtzDLL
                                             AllDraw.OutPut += "\r\nHuristic Deep Learning Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ";
                                         else
                                             AllDraw.OutPut += "\r\nHuristic Deap Learning Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ";
-                                        for (int jj = 0; jj < AStarGreedy[k].ElephantOnTable[m].ElefantThinking[0].TableListElefant.Count; jj++)
+                                        for (var jj = 0; jj < AStarGreedy[k].ElephantOnTable[m].ElefantThinking[0].TableListElefant.Count; jj++)
                                             Huristic += AStarGreedy[k].ElephantOnTable[m].ElefantThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, jj, Order * -1);
                                     }
                                     //Repeate for Hourse.
@@ -6338,7 +6338,7 @@ namespace RefrigtzDLL
                                             AllDraw.OutPut += "\r\nHuristic Deep Learning Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ";
                                         else
                                             AllDraw.OutPut += "\r\nHuristic Deap Learning Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ";
-                                        for (int jj = 0; jj < AStarGreedy[k].HoursesOnTable[m].HourseThinking[0].TableListHourse.Count; jj++)
+                                        for (var jj = 0; jj < AStarGreedy[k].HoursesOnTable[m].HourseThinking[0].TableListHourse.Count; jj++)
                                             Huristic += AStarGreedy[k].HoursesOnTable[m].HourseThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, jj, Order * -1);
                                     }
                                     //Repeate for Castles.
@@ -6350,7 +6350,7 @@ namespace RefrigtzDLL
                                             AllDraw.OutPut += "\r\nHuristic Deep Learning Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ";
                                         else
                                             AllDraw.OutPut += "\r\nHuristic Deap Learning Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ";
-                                        for (int jj = 0; jj < AStarGreedy[k].CastlesOnTable[m].CastleThinking[0].TableListCastle.Count; jj++)
+                                        for (var jj = 0; jj < AStarGreedy[k].CastlesOnTable[m].CastleThinking[0].TableListCastle.Count; jj++)
                                             Huristic += AStarGreedy[k].CastlesOnTable[m].CastleThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, jj, Order * -1);
                                     }
                                     //Repeate for Minstre.
@@ -6362,7 +6362,7 @@ namespace RefrigtzDLL
                                             AllDraw.OutPut += "\r\nHuristic Deep Learning Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ";
                                         else
                                             AllDraw.OutPut += "\r\nHuristic Deap Learning Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ";
-                                        for (int jj = 0; jj < AStarGreedy[k].MinisterOnTable[m].MinisterThinking[0].TableListMinister.Count; jj++)
+                                        for (var jj = 0; jj < AStarGreedy[k].MinisterOnTable[m].MinisterThinking[0].TableListMinister.Count; jj++)
                                             Huristic += AStarGreedy[k].MinisterOnTable[m].MinisterThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, jj, Order * -1);
                                     }
                                     //Repeate for King.
@@ -6374,7 +6374,7 @@ namespace RefrigtzDLL
                                             AllDraw.OutPut += "\r\nHuristic Deep Learning King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ";
                                         else
                                             AllDraw.OutPut += "\r\nHuristic Deap Learning King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ";
-                                        for (int jj = 0; jj < AStarGreedy[k].KingOnTable[m].KingThinking[0].TableListKing.Count; jj++)
+                                        for (var jj = 0; jj < AStarGreedy[k].KingOnTable[m].KingThinking[0].TableListKing.Count; jj++)
                                             Huristic += AStarGreedy[k].KingOnTable[m].KingThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, jj, Order * -1);
                                     }
                                 }
@@ -6388,7 +6388,7 @@ namespace RefrigtzDLL
                                             AllDraw.OutPut += "\r\nHuristic Deep Learning Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ";
                                         else
                                             AllDraw.OutPut += "\r\nHuristic Deap Learning Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ";
-                                        for (int jj = 0; jj < AStarGreedy[k].SolderesOnTable[m].SoldierThinking[0].TableListSolder.Count; jj++)
+                                        for (var jj = 0; jj < AStarGreedy[k].SolderesOnTable[m].SoldierThinking[0].TableListSolder.Count; jj++)
                                             Huristic += AStarGreedy[k].SolderesOnTable[m].SoldierThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, jj, Order * -1);
                                     }
                                     //Repeate for Elephant.
@@ -6400,7 +6400,7 @@ namespace RefrigtzDLL
                                             AllDraw.OutPut += "\r\nHuristic Deep Learning Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ";
                                         else
                                             AllDraw.OutPut += "\r\nHuristic Deap Learning Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ";
-                                        for (int jj = 0; jj < AStarGreedy[k].ElephantOnTable[m].ElefantThinking[0].TableListElefant.Count; jj++)
+                                        for (var jj = 0; jj < AStarGreedy[k].ElephantOnTable[m].ElefantThinking[0].TableListElefant.Count; jj++)
                                             Huristic += AStarGreedy[k].ElephantOnTable[m].ElefantThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, jj, Order * -1);
                                     }
                                     //Repeate for Hourse.
@@ -6412,7 +6412,7 @@ namespace RefrigtzDLL
                                             AllDraw.OutPut += "\r\nHuristic Deep Learning Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ";
                                         else
                                             AllDraw.OutPut += "\r\nHuristic Deap Learning Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ";
-                                        for (int jj = 0; jj < AStarGreedy[k].HoursesOnTable[m].HourseThinking[0].TableListHourse.Count; jj++)
+                                        for (var jj = 0; jj < AStarGreedy[k].HoursesOnTable[m].HourseThinking[0].TableListHourse.Count; jj++)
                                             Huristic += AStarGreedy[k].HoursesOnTable[m].HourseThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, jj, Order * -1);
                                     }
                                     //Repeate for Castles.
@@ -6424,7 +6424,7 @@ namespace RefrigtzDLL
                                             AllDraw.OutPut += "\r\nHuristic Deep Learning Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ";
                                         else
                                             AllDraw.OutPut += "\r\nHuristic Deap Learning Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ";
-                                        for (int jj = 0; jj < AStarGreedy[k].CastlesOnTable[m].CastleThinking[0].TableListCastle.Count; jj++)
+                                        for (var jj = 0; jj < AStarGreedy[k].CastlesOnTable[m].CastleThinking[0].TableListCastle.Count; jj++)
                                             Huristic += AStarGreedy[k].CastlesOnTable[m].CastleThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, jj, Order * -1);
                                     }
                                     //Repeate for Minstre.
@@ -6436,7 +6436,7 @@ namespace RefrigtzDLL
                                             AllDraw.OutPut += "\r\nHuristic Deep Learning Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ";
                                         else
                                             AllDraw.OutPut += "\r\nHuristic Deap Learning Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ";
-                                        for (int jj = 0; jj < AStarGreedy[k].MinisterOnTable[m].MinisterThinking[0].TableListMinister.Count; jj++)
+                                        for (var jj = 0; jj < AStarGreedy[k].MinisterOnTable[m].MinisterThinking[0].TableListMinister.Count; jj++)
                                             Huristic += AStarGreedy[k].MinisterOnTable[m].MinisterThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, jj, Order * -1);
                                     }
                                     //Repeate for King.
@@ -6448,7 +6448,7 @@ namespace RefrigtzDLL
                                             AllDraw.OutPut += "\r\nHuristic Deep Learning King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ";
                                         else
                                             AllDraw.OutPut += "\r\nHuristic Deap Learning King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ";
-                                        for (int jj = 0; jj < AStarGreedy[k].KingOnTable[m].KingThinking[0].TableListKing.Count; jj++)
+                                        for (var jj = 0; jj < AStarGreedy[k].KingOnTable[m].KingThinking[0].TableListKing.Count; jj++)
                                             Huristic += AStarGreedy[k].KingOnTable[m].KingThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, jj, Order * -1);
                                     }
                                 }
@@ -7278,7 +7278,7 @@ namespace RefrigtzDLL
                     //.Current
                     for (var i = 0; i < 8; i++)
                     {
-                        for (int j = 0; j < 8; j++)
+                        for (var j = 0; j < 8; j++)
                         {
                             BREAK = 0;
                             if (Order == 1 && TableS[i, j] <= 0)
@@ -7289,7 +7289,7 @@ namespace RefrigtzDLL
                             //Enemy
                             for (var ii = 0; ii < 8; ii++)
                             {
-                                for (int jj = 0; jj < 8; jj++)
+                                for (var jj = 0; jj < 8; jj++)
                                 {
                                     BREAK = 0;
                                     if (Order == 1 && TableS[ii, jj] >= 0)
@@ -7409,7 +7409,7 @@ namespace RefrigtzDLL
                         if ((LearningV[0] || LearningV[1] || LearningV[2]))
                             continue;
                         ////Parallel.For(0, 8, j =>
-                        for (int j = 0; j < 8; j++)
+                        for (var j = 0; j < 8; j++)
                         {
                             if ((LearningV[0] || LearningV[1] || LearningV[2]))
                                 continue;
@@ -8777,7 +8777,7 @@ namespace RefrigtzDLL
                                 Object OO1 = new Object();
                                 lock (OO1)
                                 {
-                                    for (int ik = 0; ik < System.Math.Abs(TableS[i, j]); ik++)
+                                    for (var ik = 0; ik < System.Math.Abs(TableS[i, j]); ik++)
                                         LearniningTable.LearningAlgorithmPenaltyNet(ii, jj);
                                 }
                                 //When previous Move of Enemy goes to Dangoure Current Object.
@@ -8875,7 +8875,7 @@ namespace RefrigtzDLL
                                 Object OOO = new Object();
                                 lock (OOO)
                                 {
-                                    for (int ik = 0; ik < System.Math.Abs(TableS[i, j]); ik++)
+                                    for (var ik = 0; ik < System.Math.Abs(TableS[i, j]); ik++)
                                         LearniningTable.LearningAlgorithmRegardNet(ii, jj);
                                 }
 
@@ -8965,7 +8965,7 @@ namespace RefrigtzDLL
                             Object OO1 = new Object();
                             lock (OO1)
                             {
-                                for (int ik = 0; ik < System.Math.Abs(TableS[i, j]); ik++)
+                                for (var ik = 0; ik < System.Math.Abs(TableS[i, j]); ik++)
                                 {
                                     LearniningTable.LearningAlgorithmRegardNet(ii, jj);
                                     LearniningTable.LearningAlgorithmPenaltyNet(ii, jj);
@@ -9912,7 +9912,7 @@ namespace RefrigtzDLL
                 for (var i = ii - 2; i < ii + 3; i++)
                 {
                     ////Parallel.For(jj - 2, jj + 3, j =>
-                    for (int j = jj - 2; j < jj + 3; j++)
+                    for (var j = jj - 2; j < jj + 3; j++)
                     {
                         Object O = new Object();
                         lock (O)
@@ -9976,7 +9976,7 @@ namespace RefrigtzDLL
                         {
 
 
-                            int j = i + jj - ii;
+                            var j = i + jj - ii;
                             if (Scop(ii, jj, i, j, 2))
                             {
                                 ThinkingElephantBase(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
@@ -9993,7 +9993,7 @@ namespace RefrigtzDLL
                         lock (O)
                         {
                          
-                            int j = i * -1 + ii + jj;
+                            var j = i * -1 + ii + jj;
                             if (Scop(ii, jj, i, j, 2))
                             {
                                 ThinkingElephantBase(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
@@ -10286,7 +10286,7 @@ namespace RefrigtzDLL
                     {
 
 
-                        int j = jj;
+                        var j = jj;
 
                         ///Initiate a Local Variables.
                         int[,] TableS = new int[8, 8];
@@ -10313,7 +10313,7 @@ namespace RefrigtzDLL
             lock (O1)
             {
                 ////Parallel.For(0, 8, j =>
-                for (int j = 0; j < 8; j++)
+                for (var j = 0; j < 8; j++)
                 {
                     Object O = new Object();
                     lock (O)
@@ -10397,7 +10397,7 @@ namespace RefrigtzDLL
                 for (var i = 0; i < 8; i++)
                 {
                     ////Parallel.For(0, 8, j =>
-                    for (int j = 0; j < 8; j++)
+                    for (var j = 0; j < 8; j++)
                     {
                         Object O = new Object();
                         lock (O)
@@ -10481,7 +10481,7 @@ namespace RefrigtzDLL
                     for (var i = ii - 1; i < ii + 2; i++)
                     {
                         ////Parallel.For(jj - 1, jj + 2, j =>
-                        for (int j = jj - 1; j < jj + 2; j++)
+                        for (var j = jj - 1; j < jj + 2; j++)
                         {
 
 
@@ -10590,7 +10590,7 @@ namespace RefrigtzDLL
                 */
                 ///For Stored Location of Objects.
                 var ii = Row;
-                int jj = Column;
+                var jj = Column;
                 if (CheckMateOcuured
                     || FoundFirstMating > AllDraw.MaxAStarGreedy
                     )

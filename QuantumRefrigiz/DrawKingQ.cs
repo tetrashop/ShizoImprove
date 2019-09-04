@@ -124,7 +124,7 @@ namespace QuantumRefrigiz
                 //Iniatite Global Variables.
                 Table = new int[8, 8];
                 for (var ii = 0; ii < 8; ii++)
-                    for (int jj = 0; jj < 8; jj++)
+                    for (var jj = 0; jj < 8; jj++)
                         Table[ii, jj] = Tab[ii, jj];
                 for (var ii = 0; ii < AllDraw.KingMovments; ii++)
                     KingThinkingQuantum[ii] = new ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 8, Ord, TB, Cur, 2, 6);
@@ -142,7 +142,7 @@ namespace QuantumRefrigiz
         {
             int[,] Tab = new int[8, 8];
             for (var i = 0; i < 8; i++)
-                for (int j = 0; j < 8; j++)
+                for (var j = 0; j < 8; j++)
                     Tab[i, j] = this.Table[i, j];
             //Initiate a Construction Object and Clone a Copy.
             AA = new DrawKingQ( CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, this.Row, this.Column, this.color, this.Table, this.Order, false, this.Current);
@@ -156,7 +156,7 @@ namespace QuantumRefrigiz
             }
             AA.Table = new int[8, 8];
             for (var ii = 0; ii < 8; ii++)
-                for (int jj = 0; jj < 8; jj++)
+                for (var jj = 0; jj < 8; jj++)
                     AA.Table[ii, jj] = Tab[ii, jj];
             AA.Row = Row;
             AA.Column = Column;

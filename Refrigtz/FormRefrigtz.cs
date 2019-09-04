@@ -343,7 +343,7 @@ namespace Refrigtz
             // RefrigtzDLL.AllDraw.THISDummy.Clone(Draw);
             if (!Quantum)
             {
-                if (MovmentsNumber == 0)
+                if (MovmentsNumber == 1)
                 {
                    
                     /*   if (Stockfish)
@@ -1795,7 +1795,7 @@ namespace Refrigtz
             }
             else
             {
-                if (MovmentsNumber == 0)
+                if (MovmentsNumber == 1)
                 {
                    
                     /*            if (Stockfish)
@@ -5923,7 +5923,7 @@ namespace Refrigtz
                     if (RefrigtzDLL.AllDraw.DrawTable)
                     {
                         //System.Threading.Thread.Sleep(2);
-                        if (GameStarted && MovmentsNumber == 0)
+                        if (GameStarted && MovmentsNumber == 1)
                             buttonChangeArrangment.Visible = false;
                         //System.Threading.Thread.Sleep(8);
 
@@ -6047,7 +6047,7 @@ namespace Refrigtz
                         if (RefrigtzDLL.AllDraw.DrawTable)
                         {
                             //System.Threading.Thread.Sleep(100);
-                            if (GameStarted && MovmentsNumber == 0)
+                            if (GameStarted && MovmentsNumber == 1)
                                 buttonChangeArrangment.Visible = false;
                             //System.Threading.Thread.Sleep(8);
 
@@ -6163,7 +6163,7 @@ namespace Refrigtz
                         if (QuantumRefrigiz.AllDraw.DrawTable)
                         {
                             //System.Threading.Thread.Sleep(100);
-                            if (GameStarted && MovmentsNumber == 0)
+                            if (GameStarted && MovmentsNumber == 1)
                                 buttonChangeArrangment.Visible = false;
                             //System.Threading.Thread.Sleep(8);
 
@@ -12153,7 +12153,7 @@ namespace Refrigtz
                 //Draw.FoundOfCurrentTableNode(Table, OrderPlate * -1, ref THIS, ref FOUND);
                 //else
                 int Ord = 1;
-                if (MovmentsNumber == 0)
+                if (MovmentsNumber == 1)
                 {
                     if (Sec.radioButtonBrownOrder.Checked)
                         Ord = -1;
@@ -12200,7 +12200,7 @@ namespace Refrigtz
                 //Draw.FoundOfCurrentTableNode(Table, OrderPlate * -1, ref THIS, ref FOUND);
                 //else
                 int Ord = 1;
-                if (MovmentsNumber == 0)
+                if (MovmentsNumber == 1)
                 {
                     if (Sec.radioButtonBrownOrder.Checked)
                         Ord = -1;
@@ -15174,7 +15174,7 @@ namespace Refrigtz
                         AStarGreedyHuristic = true;
                     else
                         AStarGreedyHuristic = false;
-                    if (MovmentsNumber == 0)
+                    if (MovmentsNumber == 1)
                     {
                         Draw = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                         Draw.TableList.Clear();
@@ -15195,7 +15195,7 @@ namespace Refrigtz
                         AStarGreedyHuristic = true;
                     else
                         AStarGreedyHuristic = false;
-                    if (MovmentsNumber == 0)
+                    if (MovmentsNumber == 1)
                     {
                         DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                         DrawQ.TableList.Clear();
@@ -15564,7 +15564,7 @@ namespace Refrigtz
             UsePenaltyRegardMechnisam = false;
             checkBoxUsePenaltyRegradMechnisam.Checked = false;
 
-            if (MovmentsNumber == 0)
+            if (MovmentsNumber == 1)
             {
                 GrayTimer = new Refrigtz.Timer(true);
                 BrownTimer = new Refrigtz.Timer(true);
@@ -15730,7 +15730,7 @@ namespace Refrigtz
                         UsePenaltyRegardMechnisam = true;
                     else
                         UsePenaltyRegardMechnisam = false;
-                    if (MovmentsNumber == 0)
+                    if (MovmentsNumber == 1)
                     {
                         if (!Quantum)
                         {
@@ -16140,7 +16140,7 @@ namespace Refrigtz
             else
                 QuantumRefrigiz.AllDraw.DrawTable = false;
 
-            /*if (MovmentsNumber == 0)
+            /*if (MovmentsNumber == 1)
             {
                 for (int i = 0; i < 8; i++)
                 {
@@ -16331,7 +16331,7 @@ namespace Refrigtz
             checkBoxAStarGreedyHuristic.Checked = false;
             UsePenaltyRegardMechnisam = false;
             checkBoxUsePenaltyRegradMechnisam.Checked = false;
-            if (MovmentsNumber == 0)
+            if (MovmentsNumber == 1)
             {
                 GrayTimer = new Refrigtz.Timer(true);
                 BrownTimer = new Refrigtz.Timer(true);
@@ -16426,7 +16426,7 @@ namespace Refrigtz
             UsePenaltyRegardMechnisam = false;
             checkBoxUsePenaltyRegradMechnisam.Checked = false;
 
-            if (MovmentsNumber == 0)
+            if (MovmentsNumber == 1)
             {
                 GrayTimer = new Refrigtz.Timer(true);
                 BrownTimer = new Refrigtz.Timer(true);
@@ -16485,7 +16485,7 @@ namespace Refrigtz
             UsePenaltyRegardMechnisam = false;
             checkBoxUsePenaltyRegradMechnisam.Checked = false;
 
-            if (MovmentsNumber == 0)
+            if (MovmentsNumber == 1)
             {
                 GrayTimer = new Refrigtz.Timer(true);
                 BrownTimer = new Refrigtz.Timer(true);
@@ -16573,7 +16573,7 @@ namespace Refrigtz
             UsePenaltyRegardMechnisam = false;
             checkBoxUsePenaltyRegradMechnisam.Checked = false;
 
-            if (MovmentsNumber == 0)
+            if (MovmentsNumber == 1)
             {
                 GrayTimer = new Refrigtz.Timer(true);
                 BrownTimer = new Refrigtz.Timer(true);
@@ -16619,7 +16619,7 @@ namespace Refrigtz
                 label1.Text = "Refregiz";
                 label2.Text = "You";
             }
-            if (MovmentsNumber == 0)
+            if (MovmentsNumber == 1)
             {
                 DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                 DrawQ.TableList.Clear();
@@ -16793,7 +16793,7 @@ namespace Refrigtz
             AStarGreedyHuristic = false;
             checkBoxAStarGreedyHuristic.Checked = false;
             checkBoxUsePenaltyRegradMechnisam.Checked = false;
-            if (MovmentsNumber == 0)
+            if (MovmentsNumber == 1)
             {
                 GrayTimer = new Refrigtz.Timer(true);
                 BrownTimer = new Refrigtz.Timer(true);
@@ -16856,7 +16856,7 @@ namespace Refrigtz
             checkBoxAStarGreedyHuristic.Checked = false;
             UsePenaltyRegardMechnisam = false;
             checkBoxUsePenaltyRegradMechnisam.Checked = false;
-            if (MovmentsNumber == 0)
+            if (MovmentsNumber == 1)
             {
                 GrayTimer = new Refrigtz.Timer(true);
                 BrownTimer = new Refrigtz.Timer(true);
@@ -16917,7 +16917,7 @@ namespace Refrigtz
             UsePenaltyRegardMechnisam = false;
             checkBoxUsePenaltyRegradMechnisam.Checked = false;
 
-            if (MovmentsNumber == 0)
+            if (MovmentsNumber == 1)
             {
                 GrayTimer = new Refrigtz.Timer(true);
                 BrownTimer = new Refrigtz.Timer(true);
@@ -17078,7 +17078,7 @@ namespace Refrigtz
             checkBoxAStarGreedyHuristic.Checked = false;
             UsePenaltyRegardMechnisam = false;
             checkBoxUsePenaltyRegradMechnisam.Checked = false;
-            if (MovmentsNumber == 0)
+            if (MovmentsNumber == 1)
             {
                 GrayTimer = new Refrigtz.Timer(true);
                 BrownTimer = new Refrigtz.Timer(true);
@@ -17112,7 +17112,7 @@ namespace Refrigtz
             AStarGreedyHuristic = false;
             checkBoxAStarGreedyHuristic.Checked = false;
             checkBoxUsePenaltyRegradMechnisam.Checked = false;
-            if (MovmentsNumber == 0)
+            if (MovmentsNumber == 1)
             {
                 GrayTimer = new Refrigtz.Timer(true);
                 BrownTimer = new Refrigtz.Timer(true);
@@ -17172,7 +17172,7 @@ namespace Refrigtz
             checkBoxAStarGreedyHuristic.Checked = false;
             UsePenaltyRegardMechnisam = false;
             checkBoxUsePenaltyRegradMechnisam.Checked = false;
-            if (MovmentsNumber == 0)
+            if (MovmentsNumber == 1)
             {
                 GrayTimer = new Refrigtz.Timer(true);
                 BrownTimer = new Refrigtz.Timer(true);
