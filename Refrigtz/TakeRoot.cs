@@ -10,6 +10,8 @@ namespace Refrigtz
     [Serializable]
     public class TakeRoot
     {
+        public RefrigtzDLL.AllDraw t = null;
+        public QuantumRefrigiz.AllDraw tt = null;
         static void Log(Exception ex)
         {
             try
@@ -37,7 +39,7 @@ namespace Refrigtz
                         if (!Quantum)
                         {
                             GalleryStudio.RefregizMemmory tr = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-                            RefrigtzDLL.AllDraw t = tr.Load(Quantum, FormRefrigtz.OrderPlate);
+                            t = tr.Load(Quantum, FormRefrigtz.OrderPlate);
                             if (t != null)
                             {
                                 Curent.Draw = t;
@@ -58,11 +60,11 @@ namespace Refrigtz
                         else
                         {
                             GalleryStudio.RefregizMemmory tr = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-                           QuantumRefrigiz.AllDraw t = tr.LoadQ(Quantum, FormRefrigtz.OrderPlate);
+                            tt = tr.LoadQ(Quantum, FormRefrigtz.OrderPlate);
                             if (t != null)
                             {
                                
-                                Curent.DrawQ = t;
+                                Curent.DrawQ = tt;
 
                                 LoadTree = true;
                                 bool FOUND = false;
