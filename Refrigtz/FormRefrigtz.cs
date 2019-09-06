@@ -3828,7 +3828,7 @@ namespace Refrigtz
                         Store = ((Store * Count) + S) / (Count + 1.0);
                         Count++;
                         if (RefrigtzDLL.AllDraw.ActionStringReady)
-                            SetlableRefregitzMaxValue(labelNodesCount, RefrigtzDLL.ThinkingChess.NumbersOfAllNode.ToString() + " at time " + ((int)(Store)).ToString() + "N/s and by Elapsed time " + ((int)((EndTime - TimeElapsed) / 1000)).ToString() + " s by string" + RefrigtzDLL.AllDraw.ActionString + " By CheckMate Count " + RefrigtzDLL.ThinkingChess.FoundFirstMating.ToString() + " By CheckMate SELF Count " + RefrigtzDLL.ThinkingChess.FoundFirstSelfMating.ToString() + " For Order  " + RefrigtzDLL.AllDraw.OrderPlate.ToString());
+                            SetlableRefregitzMaxValue(labelNodesCount, RefrigtzDLL.ThinkingChess.NumbersOfAllNode.ToString() + " at time " + ((int)(Store)).ToString() + "N/s and by Elapsed time " + ((int)((EndTime - TimeElapsed) / 1000)).ToString() + " s by string" + RefrigtzDLL.AllDraw.ActionString.ToString() + " By CheckMate Count " + RefrigtzDLL.ThinkingChess.FoundFirstMating.ToString() + " By CheckMate SELF Count " + RefrigtzDLL.ThinkingChess.FoundFirstSelfMating.ToString() + " For Order  " + RefrigtzDLL.AllDraw.OrderPlate.ToString());
                         else
                             SetlableRefregitzMaxValue(labelNodesCount, RefrigtzDLL.ThinkingChess.NumbersOfAllNode.ToString() + " at time " + ((int)(Store)).ToString() + "N/s and by Elapsed time " + ((int)((EndTime - TimeElapsed) / 1000)).ToString() + " s" + " By CheckMate Count " + RefrigtzDLL.ThinkingChess.FoundFirstMating.ToString() + " By CheckMate SELF Count " + RefrigtzDLL.ThinkingChess.FoundFirstSelfMating.ToString() + " For Order  " + RefrigtzDLL.AllDraw.OrderPlate.ToString());
                     }
@@ -3842,7 +3842,7 @@ namespace Refrigtz
                         Store = ((Store * Count) + S) / (Count + 1.0);
                         Count++;
                         if (QuantumRefrigiz.AllDraw.ActionStringReady)
-                            SetlableRefregitzMaxValue(labelNodesCount, QuantumRefrigiz.ThinkingQuantumChess.NumbersOfAllNode.ToString() + " at time " + ((int)(Store)).ToString() + "N/s and by Elapsed time " + ((int)((EndTime - TimeElapsed) / 1000)).ToString() + " s by string" + QuantumRefrigiz.AllDraw.ActionString + " By CheckMate Count " + QuantumRefrigiz.ThinkingQuantumChess.FoundFirstMating.ToString() + " By CheckMate SELF Count " + QuantumRefrigiz.ThinkingQuantumChess.FoundFirstSelfMating.ToString() + " For Order  " + QuantumRefrigiz.AllDraw.OrderPlate.ToString());
+                            SetlableRefregitzMaxValue(labelNodesCount, QuantumRefrigiz.ThinkingQuantumChess.NumbersOfAllNode.ToString() + " at time " + ((int)(Store)).ToString() + "N/s and by Elapsed time " + ((int)((EndTime - TimeElapsed) / 1000)).ToString() + " s by string" + QuantumRefrigiz.AllDraw.ActionString.ToString() + " By CheckMate Count " + QuantumRefrigiz.ThinkingQuantumChess.FoundFirstMating.ToString() + " By CheckMate SELF Count " + QuantumRefrigiz.ThinkingQuantumChess.FoundFirstSelfMating.ToString() + " For Order  " + QuantumRefrigiz.AllDraw.OrderPlate.ToString());
                         else
                             SetlableRefregitzMaxValue(labelNodesCount, QuantumRefrigiz.ThinkingQuantumChess.NumbersOfAllNode.ToString() + " at time " + ((int)(Store)).ToString() + "N/s and by Elapsed time " + ((int)((EndTime - TimeElapsed) / 1000)).ToString() + " s" + " By CheckMate Count " + QuantumRefrigiz.ThinkingQuantumChess.FoundFirstMating.ToString() + " By CheckMate SELF Count " + QuantumRefrigiz.ThinkingQuantumChess.FoundFirstSelfMating.ToString() + " For Order  " + QuantumRefrigiz.AllDraw.OrderPlate.ToString());
                     }
@@ -3876,7 +3876,7 @@ namespace Refrigtz
                         RefrigtzDLL.AllDraw.MovmentsNumber = MovmentsNumber;
                         /*while (!(RefrigtzDLL.ChessRules.ObjectHittedRow != -1 && RefrigtzDLL.ChessRules.ObjectHittedColumn != -1) &&
                             (!RefrigtzDLL.AllDraw.ActionStringReady) &&
-                                 (!(RefrigtzDLL.AllDraw.OutPut != "")) &&
+                                 (!(RefrigtzDLL.AllDraw.H); != "")) &&
                                      (!(RefrigtzDLL.AllDraw.ConvertedKind == -1)) &&
                                          (!StateCC) &&
                                              (!StateCP))
@@ -3892,16 +3892,16 @@ namespace Refrigtz
                         }
                         if (RefrigtzDLL.AllDraw.ActionStringReady)
                         {
-                            SetBoxText(RefrigtzDLL.AllDraw.ActionString);
-                            RefrigtzDLL.AllDraw.ActionString = "";
+                            SetBoxText(RefrigtzDLL.AllDraw.ActionString.ToString());
+                            RefrigtzDLL.AllDraw.ActionString = new StringBuilder("");
                             RefrigtzDLL.AllDraw.ActionStringReady = false;
                             RefreshBoxText();
                         }
 
-                        if (RefrigtzDLL.AllDraw.OutPut != "")
+                        if (RefrigtzDLL.AllDraw.OutPut.ToString() != "")
                         {
-                            SetBoxText(RefrigtzDLL.AllDraw.OutPut);
-                            RefrigtzDLL.AllDraw.OutPut = "";
+                            SetBoxText(RefrigtzDLL.AllDraw.OutPut.ToString());
+                            RefrigtzDLL.AllDraw.OutPut= new StringBuilder( "");
                             RefreshBoxText();
 
                         }
@@ -3971,7 +3971,7 @@ namespace Refrigtz
                         QuantumRefrigiz.AllDraw.MovmentsNumber = MovmentsNumber;
                         /*while (!(QuantumRefrigiz.ChessRules.ObjectHittedRow != -1 && QuantumRefrigiz.ChessRules.ObjectHittedColumn != -1) &&
                             (!QuantumRefrigiz.AllDraw.ActionStringReady) &&
-                                 (!(QuantumRefrigiz.AllDraw.OutPut != "")) &&
+                                 (!(QuantumRefrigiz.AllDraw.OutPut.ToString() != "")) &&
                                      (!(QuantumRefrigiz.AllDraw.ConvertedKind == -1)) &&
                                          (!StateCC) &&
                                              (!StateCP))
@@ -3987,16 +3987,16 @@ namespace Refrigtz
                         }
                         if (QuantumRefrigiz.AllDraw.ActionStringReady)
                         {
-                            SetBoxText(QuantumRefrigiz.AllDraw.ActionString);
+                            SetBoxText(QuantumRefrigiz.AllDraw.ActionString.ToString());
                             RefreshBoxText();
-                            QuantumRefrigiz.AllDraw.ActionString = "";
+                            QuantumRefrigiz.AllDraw.ActionString = new StringBuilder("");
                             QuantumRefrigiz.AllDraw.ActionStringReady = false;
                         }
-                        if (QuantumRefrigiz.AllDraw.OutPut != "")
+                        if (QuantumRefrigiz.AllDraw.OutPut.ToString() != "")
                         {
-                            SetBoxText(QuantumRefrigiz.AllDraw.OutPut);
+                            SetBoxText(QuantumRefrigiz.AllDraw.OutPut.ToString());
                             RefreshBoxText();
-                            RefrigtzDLL.AllDraw.OutPut += "";
+                            RefrigtzDLL.AllDraw.OutPut.Append("");
 
                         }
 
@@ -11410,7 +11410,7 @@ namespace Refrigtz
 
 
         }
-        private static StringBuilder sortOutPut = null;
+        private static StringBuilder sortOutPut = new StringBuilder(null);
         private static int numOutputLines = 0;
 
         private static void SortOutputHandler(object sendingProcess,
@@ -12481,7 +12481,7 @@ namespace Refrigtz
             start.CreateNoWindow = true;
             start.ErrorDialog = false;  // Run the external process & wait for it to finish
             //proc.StartInfo = start;
-            //proc.StartInfo.RedirectStandardOutPut += true;
+            //proc.StartInfo.RedirectStandardOutPut.ToString() += true;
             //proc.StartInfo.RedirectStandardInput = true;
             //proc.StartInfo.RedirectStandardError = true;
             proc.OutputDataReceived += new DataReceivedEventHandler(SortOutputHandler);
@@ -14912,7 +14912,7 @@ namespace Refrigtz
                         Draw.TableList.Add(Table);
                         //Constructed a Draw All.
                         Draw.SetRowColumn(0);
-                        //OutPut.
+                        //OutPut.ToString().
                         SetBoxText("\r\nMovments Number " + MovmentsNumber.ToString() + " Fronted.");
                         //Refresh TextBox.
                         RefreshBoxText();

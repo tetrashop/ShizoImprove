@@ -33,7 +33,7 @@ namespace Refrigtz.Properties {
         }
         
         /// <summary>
-        ///   returns the cached ResourceManager instance used by this class.
+        ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static global::System.Resources.ResourceManager ResourceManager {
@@ -57,28 +57,6 @@ namespace Refrigtz.Properties {
             }
             set {
                 resourceCulture = value;
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to public App()
-        ///{
-        ///    AppDomain.CurrentDomain.AssemblyResolve +=new ResolveEventHandler(CurrentDomain_AssemblyResolve);
-        ///}
-        ///
-        ///System.Reflection.Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
-        ///{
-        ///    string dllName = args.Name.Contains(&apos;,&apos;) ? args.Name.Substring(0, args.Name.IndexOf(&apos;,&apos;)) : args.Name.Replace(&quot;.dll&quot;,&quot;&quot;);
-        ///
-        ///    dllName = dllName.Replace(&quot;.&quot;, &quot;_&quot;);
-        ///
-        ///    if (dllName.EndsWith(&quot;_resources&quot;)) return null;
-        ///
-        ///    System.Resources.ResourceManager rm = new System.Resour [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string App_xaml {
-            get {
-                return ResourceManager.GetString("App_xaml", resourceCulture);
             }
         }
         

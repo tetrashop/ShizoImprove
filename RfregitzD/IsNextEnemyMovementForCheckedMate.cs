@@ -31,7 +31,7 @@ namespace RefrigtzDLL
             Color a = Color.Gray;
             if (OrderP == -1)
                 a = Color.Brown;
-            String A1 = AllDraw.ActionString;
+            String A1 = AllDraw.ActionString.ToString();
             bool A2 = AllDraw.ActionStringReady;
             bool A3 = AllDraw.AStarGreadyFirstSearch;
             int A4 = AllDraw.AStarGreedyiLevelMax;
@@ -66,7 +66,7 @@ namespace RefrigtzDLL
             int A33 = AllDraw.NextRow;
             bool A34 = AllDraw.NoTableFound;
             int A35 = AllDraw.OrderPlate;
-            String A36 = AllDraw.OutPut;
+            String A36 = AllDraw.OutPut.ToString();
             bool A37 = AllDraw.Person;
             bool A38 = AllDraw.RedrawTable;
             bool A39 = AllDraw.RegardOccurred;
@@ -141,7 +141,7 @@ namespace RefrigtzDLL
             if (ThinkingChess.FoundFirstSelfMating > 0)
                 IS = true;
 
-            AllDraw.ActionString = A1;
+            AllDraw.ActionString =new StringBuilder(A1);
             AllDraw.ActionStringReady= A2;
              AllDraw.AStarGreadyFirstSearch= A3 ;
             AllDraw.AStarGreedyiLevelMax = A4;
@@ -176,7 +176,7 @@ namespace RefrigtzDLL
              AllDraw.NextRow = A33;
              AllDraw.NoTableFound = A34;
              AllDraw.OrderPlate = A35;
-             AllDraw.OutPut += A36;
+             AllDraw.OutPut.Append(A36);
              AllDraw.Person = A37;
              AllDraw.RedrawTable = A38;
              AllDraw.RegardOccurred = A39;
