@@ -4345,14 +4345,6 @@ namespace Refrigtz
 
                     //MessageBox.Show("Draw Not Found.");
                 }
-                else
-                {
-                    Draw = y.t;
-                    bool FOUND = false;
-                    RefrigtzDLL.AllDraw THIS = null;
-                    SetDrawFounding(ref FOUND, ref THIS, false);
-                
-                }
             }
             else
             {
@@ -4365,14 +4357,6 @@ namespace Refrigtz
                     QuantumRefrigiz.AllDraw.DepthIterative = 0;
 
                     //MessageBox.Show("Draw Not Found.");
-                }
-                else
-                {
-                    DrawQ = y.tt;
-                    bool FOUND = false;
-                    QuantumRefrigiz.AllDraw THIS = null;
-                    SetDrawFounding(ref FOUND, ref THIS, false);
-                    
                 }
             }
             if (Blitz)
@@ -6049,9 +6033,7 @@ namespace Refrigtz
                             ChessTable = (Image)new Bitmap(pictureBoxRefrigtz.Image.Width, pictureBoxRefrigtz.Image.Height);
                             g = Graphics.FromImage(ChessTable);
                             g.FillRectangle(new SolidBrush(Color.Yellow), new Rectangle(0, 0, pictureBoxRefrigtz.Width, pictureBoxRefrigtz.Height));
-                            if (Draw.TableList.Count > 0)
-                                Draw.SetObjectNumbers(Draw.TableList[0]);
-                            
+                            Draw.SetObjectNumbers(Draw.TableList[0]);
 
                             for (int i = 0; i < pictureBoxRefrigtz.Image.Width; i += pictureBoxRefrigtz.Image.Width / 8)
                                 for (int j = 0; j < pictureBoxRefrigtz.Image.Height; j += pictureBoxRefrigtz.Image.Height / 8)
@@ -12311,9 +12293,9 @@ namespace Refrigtz
                 {
 
                     Draw = THIS;
-                    Draw.TableList.Clear();
-                    Draw.TableList.Add(Table);
-                    Draw.SetRowColumn(0);
+                    //Draw.TableList.Clear();
+                    //Draw.TableList.Add(Table);
+                    //Draw.SetRowColumn(0);
                     // 
                     //
                     SetBoxText("\r\nDraw Found");
@@ -12344,9 +12326,9 @@ namespace Refrigtz
                     if (FOUND)
                     {
                         Draw = THIS;
-                        Draw.TableList.Clear();
-                        Draw.TableList.Add(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2]);
-                        Draw.SetRowColumn(0);
+                        //      Draw.TableList.Clear();
+                        //      Draw.TableList.Add(Table);
+                        //      Draw.SetRowColumn(0);
                         // 
                         //
                         SetBoxText("\r\nDraw Found By Recurve");
@@ -12359,11 +12341,10 @@ namespace Refrigtz
                             Draw.FoundOfCurrentTableNode(Table, Ord, ref THIS, ref FOUND);
                             if (FOUND)
                             {
-
                                 Draw = THIS;
-                                Draw.TableList.Clear();
-                                Draw.TableList.Add(Table);
-                                Draw.SetRowColumn(0);
+                                // Draw.TableList.Clear();
+                                //Draw.TableList.Add(Table);
+                                //Draw.SetRowColumn(0);
                                 // 
                                 //
                                 SetBoxText("\r\nDraw Found Target Of Tree Expansion!");
@@ -12444,9 +12425,9 @@ namespace Refrigtz
                 {
 
                     DrawQ = THIS;
-                    DrawQ.TableList.Clear();
-                    DrawQ.TableList.Add(Table);
-                     DrawQ.SetRowColumn(0);
+                    // DrawQ.TableList.Clear();
+                    // DrawQ.TableList.Add(Table);
+                    // DrawQ.SetRowColumn(0);
                     // 
                     //
                     SetBoxText("\r\nDraw Found");
@@ -12477,9 +12458,9 @@ namespace Refrigtz
                     if (FOUND)
                     {
                         DrawQ = THIS;
-                        DrawQ.TableList.Clear();
-                        DrawQ.TableList.Add(QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 2]);
-                        DrawQ.SetRowColumn(0);
+                        //       Draw.TableList.Clear();
+                        //     Draw.TableList.Add(Table);
+                        //    Draw.SetRowColumn(0);
                         // 
                         //
                         SetBoxText("\r\nDraw Found By Recurve");
@@ -12493,9 +12474,9 @@ namespace Refrigtz
                             if (FOUND)
                             {
                                 DrawQ = THIS;
-                                DrawQ.TableList.Clear();
-                                DrawQ.TableList.Add(Table);
-                                DrawQ.SetRowColumn(0);
+                                //Drawq.TableList.Clear();
+                                // Drawq.TableList.Add(Table);
+                                // Drawq.SetRowColumn(0);
                                 // 
                                 //
                                 SetBoxText("\r\nDraw Found Target Of Tree Expansion!");

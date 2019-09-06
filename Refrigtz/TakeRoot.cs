@@ -51,7 +51,7 @@ namespace Refrigtz
 
                                 RefrigtzDLL.AllDraw THIS = null;
 
-                               // Curent.SetDrawFounding(ref FOUND, ref THIS, true);
+                                Curent.SetDrawFounding(ref FOUND, ref THIS, false);
                                 DrawDrawen = true;
 
                                 System.Windows.Forms.MessageBox.Show("Load Completed.");
@@ -72,7 +72,7 @@ namespace Refrigtz
                                 Curent.DrawQ = Curent.RootFoundQ();
 
                                 QuantumRefrigiz.AllDraw THISQ = null;
-                               // Curent.SetDrawFounding(ref FOUND, ref THISQ, true);
+                                Curent.SetDrawFounding(ref FOUND, ref THISQ, false);
                                 DrawDrawen = true;
 
                                 System.Windows.Forms.MessageBox.Show("Load Completed.");
