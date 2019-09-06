@@ -152,9 +152,7 @@ namespace Refrigtz
             }
             else
             {
-#pragma warning disable CS0197 // Using 'FormRefrigtz.LoadTree' as a ref or out value or taking its address may cause a runtime exception because it is a field of a marshal-by-reference class
                 (new TakeRoot()).Save(ttt.Quantum, ttt, ref ttt.LoadTree, ttt.MovementsAStarGreedyHuristicFound, ttt.IInoreSelfObjects, ttt.UsePenaltyRegardMechnisam, ttt.BestMovments, ttt.PredictHuristic, ttt.OnlySelf, ttt.AStarGreedyHuristic, ttt.ArrangmentsChanged);
-#pragma warning restore CS0197 // Using 'FormRefrigtz.LoadTree' as a ref or out value or taking its address may cause a runtime exception because it is a field of a marshal-by-reference class
                 Application.Exit();
             }
         }
