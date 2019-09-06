@@ -187,7 +187,9 @@ namespace Refrigtz
         bool BobSection = false;
         bool AliceSection = false;
         public static bool Person = false;
+#pragma warning disable CS0414 // The field 'FormRefrigtz.CurrentKind' is assigned but its value is never used
         static int CurrentKind = 0;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.CurrentKind' is assigned but its value is never used
         public static bool StateCC = false;//Computer With Computer
         public static bool StateCP = true;//Person With Computer
         public static bool StateGe = false;//For Genetic Games.
@@ -231,11 +233,21 @@ namespace Refrigtz
         //private System.Timers.Timer queueManagementTimerSetTimer;
 
 
+#pragma warning disable CS0414 // The field 'FormRefrigtz.AllDo' is assigned but its value is never used
         bool AllDo = false;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.AllDo' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.AllMove' is assigned but its value is never used
         bool AllMove = false;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.AllMove' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.SetDLL' is assigned but its value is never used
         bool SetDLL = false;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.SetDLL' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.SetNode' is assigned but its value is never used
         bool SetNode = false;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.SetNode' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.SetTimer' is assigned but its value is never used
         bool SetTimer = false;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.SetTimer' is assigned but its value is never used
 
         /*private void worker_DoWork()
         {
@@ -574,10 +586,16 @@ namespace Refrigtz
                                         RefreshBoxText();
                                         Color a = Color.Brown;
 
+#pragma warning disable CS0219 // The variable 'FOUND' is assigned but its value is never used
                                         bool FOUND = false;
+#pragma warning restore CS0219 // The variable 'FOUND' is assigned but its value is never used
+#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
                                         RefrigtzDLL.AllDraw THIS = null;
+#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
 
-                                        SetDrawFounding(ref FOUND, ref THIS, false);
+                                        //SetDrawFounding(ref FOUND, ref THIS, false);
+
+                                        OrderPlate *= -1;
 
                                         if (RefrigtzDLL.ChessRules.BigKingCastleGray)
                                         {
@@ -670,8 +688,12 @@ namespace Refrigtz
                                         SetBoxText("\r\nYour Ready!");
                                         RefreshBoxText();
                                         Color a = Color.Brown;
+#pragma warning disable CS0219 // The variable 'FOUND' is assigned but its value is never used
                                         bool FOUND = false;
+#pragma warning restore CS0219 // The variable 'FOUND' is assigned but its value is never used
+#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
                                         RefrigtzDLL.AllDraw THIS = null;
+#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
 
 
                                         //SetDrawFounding(ref FOUND, ref THIS, true);
@@ -2027,10 +2049,14 @@ namespace Refrigtz
                                         RefreshBoxText();
                                         Color a = Color.Brown;
 
+#pragma warning disable CS0219 // The variable 'FOUND' is assigned but its value is never used
                                         bool FOUND = false;
+#pragma warning restore CS0219 // The variable 'FOUND' is assigned but its value is never used
+#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
                                         QuantumRefrigiz.AllDraw THIS = null;
+#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
 
-                                        SetDrawFounding(ref FOUND, ref THIS, false);
+                                       // SetDrawFounding(ref FOUND, ref THIS, false);
 
                                         if (QuantumRefrigiz.ChessRules.BigKingCastleGray)
                                         {
@@ -2123,8 +2149,12 @@ namespace Refrigtz
                                         SetBoxText("\r\nYour Ready!");
                                         RefreshBoxText();
                                         Color a = Color.Brown;
+#pragma warning disable CS0219 // The variable 'FOUND' is assigned but its value is never used
                                         bool FOUND = false;
+#pragma warning restore CS0219 // The variable 'FOUND' is assigned but its value is never used
+#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
                                         QuantumRefrigiz.AllDraw THIS = null;
+#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
 
 
                                         //SetDrawFounding(ref FOUND, ref THIS, true);
@@ -3855,7 +3885,9 @@ namespace Refrigtz
 
         void SetRefregitzDLL()
         {
+#pragma warning disable CS0219 // The variable 'Set' is assigned but its value is never used
             bool Set = false;
+#pragma warning restore CS0219 // The variable 'Set' is assigned but its value is never used
             SetDLL = true;
             //do
             {
@@ -4313,8 +4345,6 @@ namespace Refrigtz
 
                     //MessageBox.Show("Draw Not Found.");
                 }
-                else
-                    Draw = y.t;
             }
             else
             {
@@ -4328,8 +4358,6 @@ namespace Refrigtz
 
                     //MessageBox.Show("Draw Not Found.");
                 }
-                else
-                    DrawQ = y.tt;
             }
             if (Blitz)
             {
@@ -4481,7 +4509,9 @@ namespace Refrigtz
             else
                 OrderPlate = -1;
             RefrigtzDLL.ChessRules.CastleActBrown = false;
+#pragma warning disable CS0219 // The variable 'OneIncreament' is assigned but its value is never used
             bool OneIncreament = false;
+#pragma warning restore CS0219 // The variable 'OneIncreament' is assigned but its value is never used
             int[,] Tab = Table;
             int Move = 0;
             if (!Quantum)
@@ -5131,7 +5161,9 @@ namespace Refrigtz
                             Log(tt);
                             return false;
                         }
+#pragma warning disable CS0162 // Unreachable code detected
                         System.Threading.Thread.Sleep(2);
+#pragma warning restore CS0162 // Unreachable code detected
                     } while (true);
                 }
                 if (!Quantum)
@@ -5324,7 +5356,9 @@ namespace Refrigtz
 
 
             }
+#pragma warning disable CS0162 // Unreachable code detected
             return TableName;
+#pragma warning restore CS0162 // Unreachable code detected
         }
         //Creatiopn of Configuration Table
         void CreateConfigurationTable()
@@ -5378,7 +5412,9 @@ namespace Refrigtz
                     }
                 }
             }
+#pragma warning disable CS0168 // The variable 't' is declared but never used
             catch (Exception t)
+#pragma warning restore CS0168 // The variable 't' is declared but never used
             {
             }
         }
@@ -6935,7 +6971,7 @@ namespace Refrigtz
 
 
 
-                                                OrderPlate = OrderPlate * -1;
+                                                //OrderPlate *= -1;
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                                                 
                                                 GrayTimer.StopTime();
@@ -7039,7 +7075,9 @@ namespace Refrigtz
                                                 else
                                                 {
                                                     int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                     bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                     if (Hit != 0)
                                                         HitVal = true;
 
@@ -7092,7 +7130,7 @@ namespace Refrigtz
 
                                                 SetSyntax();
 
-                                                OrderPlate = OrderPlate * -1;
+                                                //OrderPlate *= -1;
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                                                 
                                                 GrayTimer.StopTime();
@@ -7134,7 +7172,9 @@ namespace Refrigtz
                                                     continue;
                                                 RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -7182,7 +7222,7 @@ namespace Refrigtz
 
                                                 SetSyntax();
 
-                                                OrderPlate = OrderPlate * -1;
+                                                //OrderPlate *= -1;
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                                                 
                                                 GrayTimer.StopTime();
@@ -7224,7 +7264,9 @@ namespace Refrigtz
                                                     continue;
                                                 RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -7272,7 +7314,7 @@ namespace Refrigtz
 
                                                 SetSyntax();
 
-                                                OrderPlate = OrderPlate * -1;
+                                                //OrderPlate *= -1;
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                                                 
                                                 GrayTimer.StopTime();
@@ -7317,7 +7359,9 @@ namespace Refrigtz
                                                     continue;
                                                 RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -7365,7 +7409,7 @@ namespace Refrigtz
 
                                                 SetSyntax();
 
-                                                OrderPlate = OrderPlate * -1;
+                                                //OrderPlate *= -1;
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                                                 
                                                 GrayTimer.StopTime();
@@ -7410,7 +7454,9 @@ namespace Refrigtz
                                                     continue;
                                                 RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -7459,7 +7505,7 @@ namespace Refrigtz
 
                                                 SetSyntax();
 
-                                                OrderPlate = OrderPlate * -1;
+                                                //OrderPlate *= -1;
 
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                                                 
@@ -7503,7 +7549,9 @@ namespace Refrigtz
                                                     continue;
                                                 RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -7551,7 +7599,7 @@ namespace Refrigtz
 
                                                 SetSyntax();
 
-                                                OrderPlate = OrderPlate * -1;
+                                                //OrderPlate *= -1;
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                                                 
                                                 GrayTimer.StopTime();
@@ -7748,7 +7796,7 @@ namespace Refrigtz
 
 
                                                 RefrigtzDLL.AllDraw.DrawTable = false;
-                                                OrderPlate = OrderPlate * -1;
+                                                //OrderPlate *= -1;
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                                                 
                                                 GrayTimer.StopTime();
@@ -7846,7 +7894,9 @@ namespace Refrigtz
                                                 else
                                                 {
                                                     int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                     bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                     if (Hit != 0)
                                                         HitVal = true;
 
@@ -7899,7 +7949,7 @@ namespace Refrigtz
 
                                                 SetSyntax();
 
-                                                OrderPlate = OrderPlate * -1;
+                                                //OrderPlate *= -1;
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                                                 
                                                 BrownTimer.StopTime();
@@ -7940,7 +7990,9 @@ namespace Refrigtz
                                                     continue;
                                                 RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -7988,7 +8040,7 @@ namespace Refrigtz
 
                                                 SetSyntax();
 
-                                                OrderPlate = OrderPlate * -1;
+                                                //OrderPlate *= -1;
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                                                 
                                                 BrownTimer.StopTime();
@@ -8031,7 +8083,9 @@ namespace Refrigtz
                                                     continue;
                                                 RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -8079,7 +8133,7 @@ namespace Refrigtz
 
                                                 SetSyntax();
 
-                                                OrderPlate = OrderPlate * -1;
+                                                //OrderPlate *= -1;
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                                                 
                                                 BrownTimer.StopTime();
@@ -8122,7 +8176,9 @@ namespace Refrigtz
                                                     continue;
                                                 RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -8170,7 +8226,7 @@ namespace Refrigtz
 
                                                 SetSyntax();
 
-                                                OrderPlate = OrderPlate * -1;
+                                                //OrderPlate *= -1;
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                                                 
                                                 BrownTimer.StopTime();
@@ -8213,7 +8269,9 @@ namespace Refrigtz
                                                     continue;
                                                 RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -8262,7 +8320,7 @@ namespace Refrigtz
 
                                                 SetSyntax();
 
-                                                OrderPlate = OrderPlate * -1;
+                                                //OrderPlate *= -1;
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                                                 
                                                 BrownTimer.StopTime();
@@ -8309,7 +8367,9 @@ namespace Refrigtz
                                                     continue;
                                                 RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -8358,7 +8418,7 @@ namespace Refrigtz
 
                                                 SetSyntax();
 
-                                                OrderPlate = OrderPlate * -1;
+                                                //OrderPlate *= -1;
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                                                 
 
@@ -8619,7 +8679,7 @@ namespace Refrigtz
 
 
 
-                                                OrderPlate = OrderPlate * -1;
+                                                //OrderPlate *= -1;
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
                                                 
                                                 GrayTimer.StopTime();
@@ -8726,7 +8786,9 @@ namespace Refrigtz
                                                 else
                                                 {
                                                     int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                     bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                     if (Hit != 0)
                                                         HitVal = true;
 
@@ -8779,7 +8841,7 @@ namespace Refrigtz
 
                                                 SetSyntax();
 
-                                                OrderPlate = OrderPlate * -1;
+                                                //OrderPlate *= -1;
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
                                                 
                                                 GrayTimer.StopTime();
@@ -8824,7 +8886,9 @@ namespace Refrigtz
 
                                                 QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -8873,7 +8937,7 @@ namespace Refrigtz
 
                                                 SetSyntax();
 
-                                                OrderPlate = OrderPlate * -1;
+                                                //OrderPlate *= -1;
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
                                                 
                                                 GrayTimer.StopTime();
@@ -8917,7 +8981,9 @@ namespace Refrigtz
 
                                                 QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -8966,7 +9032,7 @@ namespace Refrigtz
 
                                                 SetSyntax();
 
-                                                OrderPlate = OrderPlate * -1;
+                                                //OrderPlate *= -1;
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
                                                 
                                                 GrayTimer.StopTime();
@@ -9014,7 +9080,9 @@ namespace Refrigtz
 
                                                 QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -9064,7 +9132,7 @@ namespace Refrigtz
 
                                                 SetSyntax();
 
-                                                OrderPlate = OrderPlate * -1;
+                                                //OrderPlate *= -1;
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
                                                 
                                                 GrayTimer.StopTime();
@@ -9111,7 +9179,9 @@ namespace Refrigtz
 
                                                 QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -9161,7 +9231,7 @@ namespace Refrigtz
 
                                                 SetSyntax();
 
-                                                OrderPlate = OrderPlate * -1;
+                                                //OrderPlate *= -1;
 
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
                                                 
@@ -9207,7 +9277,9 @@ namespace Refrigtz
 
                                                 QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -9256,7 +9328,7 @@ namespace Refrigtz
 
                                                 SetSyntax();
 
-                                                OrderPlate = OrderPlate * -1;
+                                                //OrderPlate *= -1;
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
                                                 
                                                 GrayTimer.StopTime();
@@ -9458,7 +9530,7 @@ namespace Refrigtz
 
 
                                                 QuantumRefrigiz.AllDraw.DrawTable = false;
-                                                OrderPlate = OrderPlate * -1;
+                                                //OrderPlate *= -1;
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
                                                 
                                                 GrayTimer.StopTime();
@@ -9558,7 +9630,9 @@ namespace Refrigtz
                                                 else
                                                 {
                                                     int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                     bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                     if (Hit != 0)
                                                         HitVal = true;
 
@@ -9611,7 +9685,7 @@ namespace Refrigtz
 
                                                 SetSyntax();
 
-                                                OrderPlate = OrderPlate * -1;
+                                                //OrderPlate *= -1;
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
                                                 
                                                 BrownTimer.StopTime();
@@ -9654,7 +9728,9 @@ namespace Refrigtz
 
                                                 QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -9703,7 +9779,7 @@ namespace Refrigtz
 
                                                 SetSyntax();
 
-                                                OrderPlate = OrderPlate * -1;
+                                                //OrderPlate *= -1;
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
                                                 
                                                 BrownTimer.StopTime();
@@ -9749,7 +9825,9 @@ namespace Refrigtz
 
                                                 QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -9798,7 +9876,7 @@ namespace Refrigtz
 
                                                 SetSyntax();
 
-                                                OrderPlate = OrderPlate * -1;
+                                                //OrderPlate *= -1;
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
                                                 
                                                 BrownTimer.StopTime();
@@ -9843,7 +9921,9 @@ namespace Refrigtz
 
                                                 QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -9892,7 +9972,7 @@ namespace Refrigtz
 
                                                 SetSyntax();
 
-                                                OrderPlate = OrderPlate * -1;
+                                                //OrderPlate *= -1;
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
                                                 
                                                 BrownTimer.StopTime();
@@ -9937,7 +10017,9 @@ namespace Refrigtz
 
                                                 QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -9987,7 +10069,7 @@ namespace Refrigtz
 
                                                 SetSyntax();
 
-                                                OrderPlate = OrderPlate * -1;
+                                                //OrderPlate *= -1;
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
                                                 
                                                 BrownTimer.StopTime();
@@ -10036,7 +10118,9 @@ namespace Refrigtz
 
                                                 QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -10086,7 +10170,7 @@ namespace Refrigtz
 
                                                 SetSyntax();
 
-                                                OrderPlate = OrderPlate * -1;
+                                                //OrderPlate *= -1;
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
                                                 
 
@@ -12108,11 +12192,12 @@ namespace Refrigtz
                 }
             }
 
-       
+
+            SetDrawFounding(ref FOUND, ref THIS, false);
 
             OrderPlate *= -1;
 
-            SetDrawFounding(ref FOUND, ref THIS, false);
+           
 
             BobSection = true;
 
@@ -12202,7 +12287,7 @@ namespace Refrigtz
                         Ord = -1;
                 }
                 else
-                    Ord = OrderPlate * -1;
+                    Ord = OrderPlate;
                 Draw.FoundOfCurrentTableNode(Table, Ord, ref THIS, ref FOUND);
                 if (FOUND)
                 {
@@ -12225,14 +12310,14 @@ namespace Refrigtz
                     //if (First)
                     //Draw.FoundOfCurrentTableNode(Table, OrderPlate * -1, ref THIS, ref FOUND);
                     //else
-                    Ord = 1;
+                    Ord = -1;
                     if (MovmentsNumber == 1)
                     {
                         if (Sec.radioButtonBrownOrder.Checked)
-                            Ord = -1;
+                            Ord = 1;
                     }
                     else
-                        Ord = OrderPlate;
+                        Ord = OrderPlate * -1;
                     while (Draw.AStarGreedyString != null)
                         Draw = Draw.AStarGreedyString;
 
@@ -12334,7 +12419,7 @@ namespace Refrigtz
                         Ord = -1;
                 }
                 else
-                    Ord = OrderPlate * -1;
+                    Ord = OrderPlate;
                 DrawQ.FoundOfCurrentTableNode(Table, Ord, ref THIS, ref FOUND);
                 if (FOUND)
                 {
@@ -12357,14 +12442,14 @@ namespace Refrigtz
                     //if (First)
                     //Draw.FoundOfCurrentTableNode(Table, OrderPlate * -1, ref THIS, ref FOUND);
                     //else
-                    Ord = 1;
+                    Ord = -1;
                     if (MovmentsNumber == 1)
                     {
                         if (Sec.radioButtonBrownOrder.Checked)
-                            Ord = -1;
+                            Ord = 1;
                     }
                     else
-                        Ord = OrderPlate;
+                        Ord = OrderPlate * -1;
                     while (DrawQ.AStarGreedyString != null)
                         DrawQ = DrawQ.AStarGreedyString;
 
@@ -12859,13 +12944,15 @@ namespace Refrigtz
 
                     OpAfterAllTinking(ref StoreStateCC, ref StoreStateCP, ref StoreStateGe);
 
-                    OrderPlate *= -1;
-
                     if (!Quantum)
                         SetDrawFounding(ref FOUND, ref THIS, false);
                     else
                         SetDrawFounding(ref FOUND, ref THISQ, false);
 
+
+                    OrderPlate *= -1;
+
+                  
 
                     SetBoxTextWrite(Out);
 
@@ -12942,14 +13029,16 @@ namespace Refrigtz
                    
                     OpAfterAllTinking(ref StoreStateCC, ref StoreStateCP, ref StoreStateGe);
 
-                    OrderPlate *= -1;
-
                     if (!Quantum)
                         SetDrawFounding(ref FOUND, ref THIS, false);
                     else
                         SetDrawFounding(ref FOUND, ref THISQ, false);
 
 
+
+                    OrderPlate *= -1;
+
+                 
                     SetBoxTextWrite(Out);
 
 
@@ -13247,14 +13336,15 @@ namespace Refrigtz
                 THISQ = null;
                  OpAfterAllTinking(ref StoreStateCC, ref StoreStateCP, ref StoreStateGe);
 
-                OrderPlate *= -1;
-
                 if (!Quantum)
                     SetDrawFounding(ref FOUND, ref THIS, false);
                 else
                     SetDrawFounding(ref FOUND, ref THISQ, false);
 
 
+                OrderPlate *= -1;
+
+              
 
                 BobSection = true;
 
@@ -13528,13 +13618,14 @@ namespace Refrigtz
 
                 //BobWithStockfishFinished = true;
 
-                OrderPlate *= -1;
-
                 if (!Quantum)
                     SetDrawFounding(ref FOUND, ref THIS, false);
                 else
                     SetDrawFounding(ref FOUND, ref THISQ, false);
 
+                OrderPlate *= -1;
+
+              
                 SetBoxTextWrite(Out);
 
 
