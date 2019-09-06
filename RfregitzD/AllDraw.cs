@@ -3207,7 +3207,6 @@ if (Kind == 2)
                 //if (Found)
                 //return THIS;
                 ThinkingChess.NumbersOfAllNode++;
-
                 if (TableList.Count > 0 && ThinkingChess.TableEqual(TableList[0], Tab))
                 {
                     THIS = this;
@@ -13166,166 +13165,6 @@ if (Kind == 2)
                 }
             }
         }
-        public bool InitiateAStarGreedytCreationThinking(int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
-            )
-        {
-            Object o = new Object();
-            lock (o)
-            {
-                int DummyOrder = new int();
-                DummyOrder = Order;
-                int DummyCurrentOrder = new int();
-                DummyCurrentOrder = ChessRules.CurrentOrder;
-                int i = 0, ik = 0;
-                var j = 0;
-
-                int[,] Table = new int[8, 8];
-                for (var iii = 0; iii < 8; iii++)
-                    for (var jjj = 0; jjj < 8; jjj++)
-                        Table[iii, jjj] = Tab[iii, jjj];
-
-                //If Order is Gray.
-                if (Order == 1)
-                {
-                    int i1 = i, j1 = j;
-                    int[,] Tabl = CloneATable(Table);
-                    int DummyOrder1 = DummyOrder, DummyCurrentOrder1 = DummyCurrentOrder, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, Ord1 = Order;
-                    bool TB1 = TB;
-                    Color aa = a;
-
-
-                    var output = Task.Factory.StartNew(() =>
-                    Parallel.Invoke(() =>
-                    {
-                                //For All Gray Soldier Objects.
-                                Object O = new Object();
-                        lock (O)
-                        {
-                            this.InitiateAStarGreedytSodlerGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
-                        }
-                    }
-                    ,
-                    () =>
-                    {
-                                //For All Gray Elephant Objects.
-                                Object O = new Object();
-                        lock (O)
-                        {
-                            this.InitiateAStarGreedytElephantGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
-                        }
-                    }
-                    , () =>
-                    {
-                                //For All Gray Hourse Objects.
-                                Object O = new Object();
-                        lock (O)
-                        {
-                            this.InitiateAStarGreedythHourseGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
-                        }
-                    }
-                    ,
-                    () =>
-                    {
-                        Object O = new Object();
-                        lock (O)
-                        {
-                            this.InitiateAStarGreedythCastleGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
-                        }
-                    }
-                    , () =>
-                    {
-
-                        Object O = new Object();
-                        lock (O)
-                        {
-                            this.InitiateAStarGreedythMinisterGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
-                        }
-
-                    }
-                    , () =>
-                    {
-                        Object O = new Object();
-                        lock (O)
-                        {
-                            this.InitiateAStarGreedythKingGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
-                        }
-                    })
-                    );
-                    output.Wait();
-                }
-                else//Brown Order Considarations.
-                {
-                    int i1 = i, j1 = j;
-                    int[,] Tabl = CloneATable(Table);
-                    int DummyOrder1 = DummyOrder, DummyCurrentOrder1 = DummyCurrentOrder, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, Ord1 = Order;
-                    bool TB1 = TB;
-                    Color aa = a;
-                    //If Order is Gray.
-
-
-                    var output = Task.Factory.StartNew(() =>
-                    Parallel.Invoke(() =>
-                    {
-                                //For All Gray Soldier Objects.
-                                Object O = new Object();
-                        lock (O)
-                        {
-                            this.InitiateAStarGreedythSoldierBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
-                        }
-                    }
-                    ,
-                    () =>
-                    {
-                                //For All Gray Elephant Objects.
-                                Object O = new Object();
-                        lock (O)
-                        {
-                            this.InitiateAStarGreedythElephantBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
-                        }
-                    }
-                    , () =>
-                    {
-                                //For All Gray Hourse Objects.
-                                Object O = new Object();
-                        lock (O)
-                        {
-                            this.InitiateAStarGreedythHourseBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
-                        }
-                    }
-                    ,
-                    () =>
-                    {
-                        Object O = new Object();
-                        lock (O)
-                        {
-                            this.InitiateAStarGreedythCastleBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
-                        }
-                    }
-                    , () =>
-                    {
-
-                        Object O = new Object();
-                        lock (O)
-                        {
-                            this.InitiateAStarGreedythMinisterBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
-                        }
-
-                    }
-                    , () =>
-                    {
-                        Object O = new Object();
-                        lock (O)
-                        {
-                            this.InitiateAStarGreedythKingBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
-                        }
-                    })
-                );
-                    output.Wait();
-
-                }
-            }
-            return true;
-        }
         public AllDraw InitiateAStarGreedyt(int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
             )
         {
@@ -13390,7 +13229,151 @@ if (Kind == 2)
                 if (!FOUND)
                 {
                     //Initiate Of Local Variables.
-                    InitiateAStarGreedytCreationThinking(iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND, LeafAStarGreedy);
+                    Object o = new Object();
+                    lock (o)
+                    {
+
+                        //If Order is Gray.
+                        if (Order == 1)
+                        {
+                            int i1 = i, j1 = j;
+                            int[,] Tabl = CloneATable(Table);
+                            int DummyOrder1 = DummyOrder, DummyCurrentOrder1 = DummyCurrentOrder, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, Ord1 = Order;
+                            bool TB1 = TB;
+                            Color aa = a;
+
+
+                            var output = Task.Factory.StartNew(() =>
+                            Parallel.Invoke(() =>
+                            {
+                                    //For All Gray Soldier Objects.
+                                    Object O = new Object();
+                                lock (O)
+                                {
+                                    this.InitiateAStarGreedytSodlerGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                                }
+                            }
+                            ,
+                            () =>
+                            {
+                                    //For All Gray Elephant Objects.
+                                    Object O = new Object();
+                                lock (O)
+                                {
+                                    this.InitiateAStarGreedytElephantGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                                }
+                            }
+                            , () =>
+                            {
+                                    //For All Gray Hourse Objects.
+                                    Object O = new Object();
+                                lock (O)
+                                {
+                                    this.InitiateAStarGreedythHourseGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                                }
+                            }
+                            ,
+                            () =>
+                            {
+                                Object O = new Object();
+                                lock (O)
+                                {
+                                    this.InitiateAStarGreedythCastleGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                                }
+                            }
+                            , () =>
+                            {
+
+                                Object O = new Object();
+                                lock (O)
+                                {
+                                    this.InitiateAStarGreedythMinisterGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                                }
+
+                            }
+                            , () =>
+                            {
+                                Object O = new Object();
+                                lock (O)
+                                {
+                                    this.InitiateAStarGreedythKingGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                                }
+                            })
+                            );
+                            output.Wait();
+                        }
+                        else//Brown Order Considarations.
+                        {
+                            int i1 = i, j1 = j;
+                            int[,] Tabl = CloneATable(Table);
+                            int DummyOrder1 = DummyOrder, DummyCurrentOrder1 = DummyCurrentOrder, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, Ord1 = Order;
+                            bool TB1 = TB;
+                            Color aa = a;
+                            //If Order is Gray.
+
+
+                            var output = Task.Factory.StartNew(() =>
+                            Parallel.Invoke(() =>
+                            {
+                                    //For All Gray Soldier Objects.
+                                    Object O = new Object();
+                                lock (O)
+                                {
+                                    this.InitiateAStarGreedythSoldierBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                                }
+                            }
+                            ,
+                            () =>
+                            {
+                                    //For All Gray Elephant Objects.
+                                    Object O = new Object();
+                                lock (O)
+                                {
+                                    this.InitiateAStarGreedythElephantBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                                }
+                            }
+                            , () =>
+                            {
+                                    //For All Gray Hourse Objects.
+                                    Object O = new Object();
+                                lock (O)
+                                {
+                                    this.InitiateAStarGreedythHourseBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                                }
+                            }
+                            ,
+                            () =>
+                            {
+                                Object O = new Object();
+                                lock (O)
+                                {
+                                    this.InitiateAStarGreedythCastleBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                                }
+                            }
+                            , () =>
+                            {
+
+                                Object O = new Object();
+                                lock (O)
+                                {
+                                    this.InitiateAStarGreedythMinisterBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                                }
+
+                            }
+                            , () =>
+                            {
+                                Object O = new Object();
+                                lock (O)
+                                {
+                                    this.InitiateAStarGreedythKingBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                                }
+                            })
+                        );
+                            output.Wait();
+
+                        }
+                    }
+
                     /*
 
                     if (!FOUND)
