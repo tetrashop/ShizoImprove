@@ -10,6 +10,9 @@ namespace Refrigtz
     [Serializable]
     public class TakeRoot
     {
+        public RefrigtzDLL.AllDraw t = null;
+        public QuantumRefrigiz.AllDraw tt = null;
+
         static void Log(Exception ex)
         {
             try
@@ -37,7 +40,7 @@ namespace Refrigtz
                         if (!Quantum)
                         {
                             GalleryStudio.RefregizMemmory tr = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-                            RefrigtzDLL.AllDraw t = tr.Load(Quantum, FormRefrigtz.OrderPlate);
+                            t = tr.Load(Quantum, FormRefrigtz.OrderPlate);
                             if (t != null)
                             {
                                 Curent.Draw = t;
@@ -49,7 +52,7 @@ namespace Refrigtz
 
                                 RefrigtzDLL.AllDraw THIS = null;
 
-                                Curent.SetDrawFounding(ref FOUND, ref THIS, false);
+                                //Curent.SetDrawFounding(ref FOUND, ref THIS, false);
                                 DrawDrawen = true;
 
                                 System.Windows.Forms.MessageBox.Show("Load Completed.");
@@ -58,11 +61,11 @@ namespace Refrigtz
                         else
                         {
                             GalleryStudio.RefregizMemmory tr = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-                           QuantumRefrigiz.AllDraw t = tr.LoadQ(Quantum, FormRefrigtz.OrderPlate);
+                           tt = tr.LoadQ(Quantum, FormRefrigtz.OrderPlate);
                             if (t != null)
                             {
                                
-                                Curent.DrawQ = t;
+                                Curent.DrawQ = tt;
 
                                 LoadTree = true;
                                 bool FOUND = false;
@@ -70,7 +73,7 @@ namespace Refrigtz
                                 Curent.DrawQ = Curent.RootFoundQ();
 
                                 QuantumRefrigiz.AllDraw THISQ = null;
-                                Curent.SetDrawFounding(ref FOUND, ref THISQ, false);
+                                //Curent.SetDrawFounding(ref FOUND, ref THISQ, false);
                                 DrawDrawen = true;
 
                                 System.Windows.Forms.MessageBox.Show("Load Completed.");
