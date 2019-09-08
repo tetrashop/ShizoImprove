@@ -1277,10 +1277,10 @@ namespace QuantumRefrigiz
 
                 bool ms = false;
                 int bn = Movments;
-                if (bn % 2 == 1)
+                if (((bn - 1) % 2) == 1)
                     ms = true;
                 //Movments String Number Creation in String.
-                bn = bn / 2;
+                bn = ((int)(bn / 2));
                 String SN = "";
                 String S = "";
                 if (ms)

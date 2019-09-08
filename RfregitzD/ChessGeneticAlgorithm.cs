@@ -623,7 +623,7 @@ namespace RefrigtzDLL
                         else
                         {
                             //Situation 1.
-                            if (and)
+                            //if (and)
                             {
                                 //When Cromosom1 Current Location is Empty.
                                 if (Cromosom1[i, j] == 0)
