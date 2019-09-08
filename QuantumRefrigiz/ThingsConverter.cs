@@ -100,30 +100,39 @@ namespace QuantumRefrigiz
                             AllDraw.SodierConversionOcuured = true;
                             //Randomly Number of 4 kind Object.
                             int Rand = -1;
-                            if (AllDraw.Person && AllDraw.StateCP && AllDraw.THISSecradioButtonGrayOrderChecked)
+                            if (//AllDraw.Person && 
+                                AllDraw.StateCP && AllDraw.THISSecradioButtonGrayOrderChecked)
                             {
                                 if (AllDraw.OrderPlate == 1)
                                 {
-                                    while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100);
-                                    }
+                                    /* while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100);
+                                     }
 
-                                    Rand = AllDraw.ConvertedKind;
+                                     Rand = AllDraw.ConvertedKind;
 
+                                     AllDraw.ConvertedKind = -2;
+ */
+                                    Rand = 0;
+                                    ConvertedToMinister = true;
                                     AllDraw.ConvertedKind = -2;
-
                                 }
                             }
                             else
-                                if (AllDraw.Person && AllDraw.StateCP && AllDraw.THISSecradioButtonBrownOrderChecked)
+                                if (//AllDraw.Person && 
+                                AllDraw.StateCP && AllDraw.THISSecradioButtonBrownOrderChecked)
                             {
                                 if (AllDraw.OrderPlate == -1)
                                 {
                                     //(new FormُSelectItems()).ShowDialog();
-                                    while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100); 
-                                    }
+                                    /*  while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100); 
+                                      }
 
-                                    Rand = AllDraw.ConvertedKind;
+                                      Rand = AllDraw.ConvertedKind;
 
+                                      AllDraw.ConvertedKind = -2;
+                                 */
+                                    Rand = 0;
+                                    ConvertedToMinister = true;
                                     AllDraw.ConvertedKind = -2;
                                 }
                             }
@@ -200,28 +209,38 @@ namespace QuantumRefrigiz
                                 AllDraw.SodierConversionOcuured = true;
                                 //Randomly Number of 4 kind Object.
                                 int Rand = -1;
-                                if (AllDraw.Person && AllDraw.StateCP && AllDraw.THISSecradioButtonGrayOrderChecked)
+                                if (//AllDraw.Person &&
+                                    AllDraw.StateCP && AllDraw.THISSecradioButtonGrayOrderChecked)
                                 {
                                     if (AllDraw.OrderPlate == 1)
                                     {
-                                        while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100); 
-                                        }
+                                        /* while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100); 
+                                         }
 
-                                        Rand = AllDraw.ConvertedKind;
+                                         Rand = AllDraw.ConvertedKind;
 
+                                         AllDraw.ConvertedKind = -2;
+                                    */
+                                        Rand = 0;
+                                        ConvertedToMinister = true;
                                         AllDraw.ConvertedKind = -2;
                                     }
                                 }
                                 else
-                                    if (AllDraw.Person && AllDraw.StateCP && AllDraw.THISSecradioButtonBrownOrderChecked)
+                                    if (//AllDraw.Person && 
+                                    AllDraw.StateCP && AllDraw.THISSecradioButtonBrownOrderChecked)
                                 {
                                     if (AllDraw.OrderPlate == -1)
                                     {
-                                        while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100); 
-                                        }
+                                        /*  while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100); 
+                                          }
 
-                                        Rand = AllDraw.ConvertedKind;
+                                          Rand = AllDraw.ConvertedKind;
 
+                                          AllDraw.ConvertedKind = -2;
+                                      */
+                                        Rand = 0;
+                                        ConvertedToMinister = true;
                                         AllDraw.ConvertedKind = -2;
                                     }
                                 }
@@ -301,28 +320,38 @@ namespace QuantumRefrigiz
                                 AllDraw.SodierConversionOcuured = true;
                                 //Randomly Number of 4 kind Object.
                                 int Rand = -1;
-                                if (AllDraw.Person && AllDraw.StateCP && AllDraw.THISSecradioButtonGrayOrderChecked)
+                                if (//AllDraw.Person && 
+                                    AllDraw.StateCP && AllDraw.THISSecradioButtonGrayOrderChecked)
                                 {
                                     if (AllDraw.OrderPlate == 1)
                                     {
-                                        while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100);
-                                        }
+                                        /*  while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100);
+                                          }
 
-                                        Rand = AllDraw.ConvertedKind;
+                                          Rand = AllDraw.ConvertedKind;
 
+                                          AllDraw.ConvertedKind = -2;
+                                    */
+                                        Rand = 0;
+                                        ConvertedToMinister = true;
                                         AllDraw.ConvertedKind = -2;
                                     }
                                 }
                                 else
-                                    if (AllDraw.Person && AllDraw.StateCP && AllDraw.THISSecradioButtonBrownOrderChecked)
+                                    if (//AllDraw.Person && 
+                                    AllDraw.StateCP && AllDraw.THISSecradioButtonBrownOrderChecked)
                                 {
                                     if (AllDraw.OrderPlate == -1)
                                     {
-                                        while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100);
-                                        }
+                                        /*   while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100);
+                                           }
 
-                                        Rand = AllDraw.ConvertedKind;
+                                           Rand = AllDraw.ConvertedKind;
 
+                                           AllDraw.ConvertedKind = -2;
+                                      */
+                                        Rand = 0;
+                                        ConvertedToMinister = true;
                                         AllDraw.ConvertedKind = -2;
                                     }
                                 }
