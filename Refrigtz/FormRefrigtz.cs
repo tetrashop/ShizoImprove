@@ -4542,6 +4542,8 @@ namespace Refrigtz
                     }
                     int[,] TableA = new int[8, 8];
 
+                    Table = new int[8, 8];
+
                     for (int i = 0; i < 8; i++)
                     {
                         for (int j = 0; j < 8; j++)
@@ -4683,7 +4685,7 @@ namespace Refrigtz
 
 
 
-                if (Move > 1)
+                //if (Move > 1)
                 {
                     OrderPlate *= -1;
                     if (!Quantum)

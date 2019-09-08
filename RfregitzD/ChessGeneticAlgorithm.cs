@@ -216,6 +216,30 @@ namespace RefrigtzDLL
     [Serializable]
     public class ChessGeneticAlgorithm
     {
+        const int DistantColumnSmall = 6;
+        const int DistantColumnBig = 3;
+        const int DistantRowBelow = 7;
+        const int DistantRowUp = 0;
+
+        const int SmallCastleKingColumnBefore = 4;//44444
+        const int SmallCastleKingColumnAfter = 6;//666666
+        const int SmallCastleCastleColumnBefore = 7;
+        const int SmallCastleCastleColumnAfter = 5;
+
+        const int BigCastleKingColumnBefore = 4;
+        const int BigCastleKingColumnAfter = 2;
+        const int BigCastleCastleColumnBefore = 0;
+        const int BigCastleCastleColumnAfter = 3;
+
+        const int TowObjectDistanceInBigCastleBefor = 4;
+        const int TowObjectDistanceInBigCastleAfter = 1;
+        const int TowObjectDistanceInSamllCastleBefor = 2;
+        const int TowObjectDistanceInSmallCastleAfter = 1;
+        const int CastleGray = 4;
+        const int CastleBrown = -4;
+        const int KingGray = 6;
+        const int KingBrown = -6;
+
         //Initiate Global Variables.
         public bool MovementsAStarGreedyHuristicFoundT = false;
         public bool IgnoreSelfObjectsT = false;
@@ -312,73 +336,73 @@ namespace RefrigtzDLL
             ChessRules.SmallKingCastleGray = false;
             ChessRules.BigKingCastleBrown = false;
             ChessRules.BigKingCastleGray = false;
-            //Initiate Local Variables.
+            //Injtjate Local Varjables.
             bool Find = false;
             int FindNumber = 0;
-            bool Bri = false;
+            bool Brj = false;
 
             //For All Table Home
-            for (var i = 0; i < 8; i++)
+            for (var j = 0; j < 8; j++)
             {
-                for (var j = 0; j < 8; j++)
+                for (var i = 0; i < 8; i++)
                 {
                     //Gray Order.
                     if (Order == 1)
                     {
-                        //Situation 11.
+                        //Sjtuatjon 11.
                         if (and)
                         {
                             //All The Brown ObjectIgnored.
-                            if (Cromosom1[i, j] < 0 && Cromosom2[i, j] < 0)
+                            if (Cromosom1[j, i] < 0 && Cromosom2[j, i] < 0)
                                 continue;
                         }
-                        else///Situation 2.
+                        else///Sjtuatjon 2.
                         {
-                            //All The Brown Ojects Ignored.
-                            if (Cromosom1[i, j] < 0 || Cromosom2[i, j] < 0)
+                            //All The Brown Oiects Ignored.
+                            if (Cromosom1[j, i] < 0 || Cromosom2[j, i] < 0)
                                 continue;
                         }
                     }
                     else//Brown Order.
                     {
-                        //Situation 1.
+                        //Sjtuatjon 1.
                         if (and)
                         {
                             //All The Gray Objects Ignored.
-                            if (Cromosom1[i, j] > 0 && Cromosom2[i, j] > 0)
+                            if (Cromosom1[j, i] > 0 && Cromosom2[j, i] > 0)
                                 continue;
 
                         }
                         else
                         {
                             //All The Gray Objects Ignored.
-                            if (Cromosom1[i, j] > 0 || Cromosom2[i, j] > 0)
+                            if (Cromosom1[j, i] > 0 || Cromosom2[j, i] > 0)
                                 continue;
                         }
                     }
                     if (!ArrangmentsChanged)
                     {
                         {
-                            if (Order == 1 && j == 6 && i > 0 && i < 7)
+                            if (Order == 1 && i == 6 && j > 0 && j < 7)
                             {
-                                if (((Cromosom2[i, j + 1] > 0) || (Cromosom2[i + 1, j + 1] > 0 && Cromosom1[i + 1, j + 1] < 0) || (Cromosom2[i - 1, j + 1] > 0 && Cromosom1[i - 1, j + 1] < 0)) && Cromosom1[i, j] == 1)
+                                if (((Cromosom2[j, i + 1] > 0) || (Cromosom2[j + 1, i + 1] > 0 && Cromosom1[j + 1, i + 1] < 0) || (Cromosom2[j - 1, i + 1] > 0 && Cromosom1[j - 1, i + 1] < 0)) && Cromosom1[j, i] == 1)
                                 {
-                                    CromosomRowFirst = i;
-                                    CromosomColumnFirst = j;
-                                    if (Cromosom2[i, j + 1] > 0)
+                                    CromosomRowFirst = j;
+                                    CromosomColumnFirst = i;
+                                    if (Cromosom2[j, i + 1] > 0)
                                     {
-                                        CromosomRow = i;
-                                        CromosomColumn = j + 1;
+                                        CromosomRow = j;
+                                        CromosomColumn = i + 1;
                                     }
-                                    else if (Cromosom2[i + 1, j + 1] > 0 && Cromosom1[i + 1, j + 1] < 0)
+                                    else if (Cromosom2[j + 1, i + 1] > 0 && Cromosom1[j + 1, i + 1] < 0)
                                     {
-                                        CromosomRow = i + 1;
-                                        CromosomColumn = j + 1;
+                                        CromosomRow = j + 1;
+                                        CromosomColumn = i + 1;
                                     }
-                                    else if (Cromosom2[i - 1, j + 1] > 0 && Cromosom1[i - 1, j + 1] < 0)
+                                    else if (Cromosom2[j - 1, i + 1] > 0 && Cromosom1[j - 1, i + 1] < 0)
                                     {
-                                        CromosomRow = i - 1;
-                                        CromosomColumn = j + 1;
+                                        CromosomRow = j - 1;
+                                        CromosomColumn = i + 1;
                                     }
                                     Find = true;
                                     FindNumber++;
@@ -388,95 +412,95 @@ namespace RefrigtzDLL
 
                             }
                             else
-                                if (Order == -1 && j == 1 && i > 0 && i < 7)
+                                if (Order == -1 && i == 1 && j > 0 && j < 7)
+                            {
+                                if (((Cromosom2[j, i - 1] < 0) || (Cromosom2[j + 1, i - 1] < 0 && Cromosom1[j + 1, i - 1] > 0) || (Cromosom2[j - 1, i - 1] < 0 && Cromosom1[j - 1, i - 1] < 0)) && Cromosom1[j, i] == -1)
                                 {
-                                    if (((Cromosom2[i, j - 1] < 0) || (Cromosom2[i + 1, j - 1] < 0 && Cromosom1[i + 1, j - 1] > 0) || (Cromosom2[i - 1, j - 1] < 0 && Cromosom1[i - 1, j - 1] < 0)) && Cromosom1[i, j] == -1)
+                                    CromosomRowFirst = j;
+                                    CromosomColumnFirst = i;
+                                    if (Cromosom2[j, i - 1] > 0)
                                     {
-                                        CromosomRowFirst = i;
-                                        CromosomColumnFirst = j;
-                                        if (Cromosom2[i, j - 1] > 0)
-                                        {
-                                            CromosomRow = i;
-                                            CromosomColumn = j - 1;
-                                        }
-                                        else if (Cromosom2[i + 1, j - 1] > 0 && Cromosom1[i + 1, j - 1] < 0)
-                                        {
-                                            CromosomRow = i + 1;
-                                            CromosomColumn = j - 1;
-                                        }
-                                        else if (Cromosom2[i - 1, j - 1] > 0 && Cromosom1[i - 1, j - 1] < 0)
-                                        {
-                                            CromosomRow = i - 1;
-                                            CromosomColumn = j - 1;
-                                        }
-                                        FindNumber++;
-                                        AllDraw.SodierConversionOcuured = true;
+                                        CromosomRow = j;
+                                        CromosomColumn = i - 1;
                                     }
+                                    else if (Cromosom2[j + 1, i - 1] > 0 && Cromosom1[j + 1, i - 1] < 0)
+                                    {
+                                        CromosomRow = j + 1;
+                                        CromosomColumn = i - 1;
+                                    }
+                                    else if (Cromosom2[j - 1, i - 1] > 0 && Cromosom1[j - 1, i - 1] < 0)
+                                    {
+                                        CromosomRow = j - 1;
+                                        CromosomColumn = i - 1;
+                                    }
+                                    FindNumber++;
+                                    AllDraw.SodierConversionOcuured = true;
                                 }
+                            }
 
-                            //Castles King Validity Condition.
-                            if (Order == 1 && j == 0)
+                            //Castles King Valjdjty Condjtjon.
+                            if (Order == 1 && i == DistantRowUp)
                             {
                                 //Small Gray Castles King.
-                                if (i == 6 && Cromosom2[i, j] == 6 && Cromosom2[i + 1, j] == 4 && Cromosom1[i, j] != 6 && Cromosom1[i + 1, j] != 4)
+                                if (j == DistantColumnSmall && Cromosom2[SmallCastleCastleColumnAfter, DistantRowUp] == KingGray && Cromosom2[SmallCastleCastleColumnAfter, DistantRowUp] == CastleGray && Cromosom1[SmallCastleKingColumnBefore, DistantRowUp] == KingGray && Cromosom1[SmallCastleCastleColumnBefore, DistantRowUp] == CastleGray)
                                 {
-                                    CromosomRowFirst = i - 3;
-                                    CromosomColumnFirst = j;
-                                    CromosomRow = i;
-                                    CromosomColumn = j;
+                                    /*CromosomRowFirst = SmallCastleKingColumnBefore;
+                                    CromosomColumnFirst = i;
+                                    CromosomRow = SmallCastleCastleColumnAfter;
+                                    CromosomColumn = i;*/
                                     Find = true;
                                     FindNumber++;
                                     ChessRules.SmallKingCastleGray = true;
-                                    Bri = true;
+                                    Brj = true;
                                 }
-                                else //Big Briges King Gray.
-                                    if (i == 3 && Cromosom2[i, j] == 4 && Cromosom2[i - 1, j] == 6 && Cromosom1[i, j] != 4 && Cromosom1[i - 1, j] != 6)
-                                    {
-                                        CromosomRowFirst = i + 3;
-                                        CromosomColumnFirst = j;
-                                        CromosomRow = i;
-                                        CromosomColumn = j;
-                                        Find = true;
-                                        FindNumber++;
-                                        ChessRules.BigKingCastleGray = true;
-                                        Bri = true;
-                                    }
+                                else //Big Brjges King Gray.
+                                    if (j == DistantColumnBig && Cromosom2[BigCastleCastleColumnAfter, DistantRowUp] == CastleGray && Cromosom2[BigCastleKingColumnAfter, DistantRowUp] == KingGray && Cromosom1[BigCastleCastleColumnBefore, DistantRowUp] == CastleGray && Cromosom1[BigCastleKingColumnBefore, DistantRowUp] == KingGray)
+                                {
+                                    /* CromosomRowFirst = DistantRowUp;
+                                     CromosomColumnFirst = i;
+                                     CromosomRow = DistantRowUp;
+                                     CromosomColumn = i;*/
+                                    Find = true;
+                                    FindNumber++;
+                                    ChessRules.BigKingCastleGray = true;
+                                    Brj = true;
+                                }
 
                             }
-                            else if (j == 7)
+                            else if (i == DistantRowBelow)
                             {
                                 //Small Castles King Brown.
-                                if (i == 6 && Cromosom2[i, j] == -6 && Cromosom2[i + 1, j] == -4 && Cromosom1[i, j] != -6 && Cromosom1[i + 1, j] != -4)
+                                if (j == DistantColumnSmall && Cromosom2[BigCastleKingColumnAfter, DistantRowBelow] == KingBrown && Cromosom2[BigCastleCastleColumnAfter, DistantRowBelow] == CastleBrown && Cromosom1[BigCastleKingColumnBefore, DistantRowBelow] == KingBrown && Cromosom1[BigCastleCastleColumnBefore, DistantRowBelow] == CastleBrown)
                                 {
                                     Object O = new Object();
                                     lock (O)
                                     {
-                                        CromosomRowFirst = i - 3;
-                                        CromosomColumnFirst = j;
-                                        CromosomRow = i;
-                                        CromosomColumn = j;
+                                        /*CromosomRowFirst = DistantRowBelow;
+                                        CromosomColumnFirst = i;
+                                        CromosomRow = DistantRowBelow;
+                                        CromosomColumn = i;*/
                                         Find = true;
                                         FindNumber++;
                                         ChessRules.SmallKingCastleBrown = true;
-                                        Bri = true;
+                                        Brj = true;
                                     }
                                 }
                                 else//Big Castles King Brown.
-                                    if (i == 3 && Cromosom2[i, j] == -4 && Cromosom2[i - 1, j] == -6 && Cromosom1[i, j] != -4 && Cromosom1[i - 1, j] != -6)
-                                    {
+                                    if (j == DistantColumnBig && Cromosom2[BigCastleCastleColumnAfter, DistantRowBelow] == CastleBrown && Cromosom2[BigCastleKingColumnBefore, DistantRowBelow] == KingBrown && Cromosom1[BigCastleCastleColumnBefore, DistantRowBelow] == CastleBrown && Cromosom1[BigCastleKingColumnBefore, DistantRowBelow] == KingBrown)
+                                {
                                     Object O = new Object();
                                     lock (O)
                                     {
-                                        CromosomRowFirst = i + 3;
-                                        CromosomColumnFirst = j;
-                                        CromosomRow = i;
-                                        CromosomColumn = j;
+                                        /*  CromosomRowFirst = DistantRowBelow;
+                                          CromosomColumnFirst = i;
+                                          CromosomRow = DistantRowBelow;
+                                          CromosomColumn = i;*/
                                         Find = true;
                                         FindNumber++;
                                         ChessRules.BigKingCastleBrown = true;
-                                        Bri = true;
+                                        Brj = true;
                                     }
-                                    }
+                                }
 
                             }
 
@@ -485,26 +509,26 @@ namespace RefrigtzDLL
                     else
                     {
                         {
-                            if (Order == 1 && j == 1 && i > 0 && i < 7)
+                            if (Order == 1 && i == 1 && j > 0 && j < 7)
                             {
-                                if (((Cromosom2[i, j - 1] > 0) || (Cromosom2[i + 1, j - 1] > 0 && Cromosom1[i + 1, j - 1] < 0) || (Cromosom2[i - 1, j - 1] > 0 && Cromosom1[i - 1, j - 1] < 0)) && Cromosom1[i, j] == 1)
+                                if (((Cromosom2[j, i - 1] > 0) || (Cromosom2[j + 1, i - 1] > 0 && Cromosom1[j + 1, i - 1] < 0) || (Cromosom2[j - 1, i - 1] > 0 && Cromosom1[j - 1, i - 1] < 0)) && Cromosom1[j, i] == 1)
                                 {
-                                    CromosomRowFirst = i;
-                                    CromosomColumnFirst = j;
-                                    if (Cromosom2[i, j - 1] > 0)
+                                    CromosomRowFirst = j;
+                                    CromosomColumnFirst = i;
+                                    if (Cromosom2[j, i - 1] > 0)
                                     {
-                                        CromosomRow = i;
-                                        CromosomColumn = j - 1;
+                                        CromosomRow = j;
+                                        CromosomColumn = i - 1;
                                     }
-                                    else if (Cromosom2[i + 1, j - 1] > 0 && Cromosom1[i + 1, j - 1] < 0)
+                                    else if (Cromosom2[j + 1, i - 1] > 0 && Cromosom1[j + 1, i - 1] < 0)
                                     {
-                                        CromosomRow = i + 1;
-                                        CromosomColumn = j - 1;
+                                        CromosomRow = j + 1;
+                                        CromosomColumn = i - 1;
                                     }
-                                    else if (Cromosom2[i - 1, j - 1] > 0 && Cromosom1[i - 1, j - 1] < 0)
+                                    else if (Cromosom2[j - 1, i - 1] > 0 && Cromosom1[j - 1, i - 1] < 0)
                                     {
-                                        CromosomRow = i - 1;
-                                        CromosomColumn = j - 1;
+                                        CromosomRow = j - 1;
+                                        CromosomColumn = i - 1;
                                     }
                                     FindNumber++;
                                     AllDraw.SodierConversionOcuured = true;
@@ -513,146 +537,142 @@ namespace RefrigtzDLL
 
                             }
                             else
-                                if (Order == -1 && j == 6 && i > 0 && i < 7)
+                                if (Order == -1 && i == 6 && j > 0 && j < 7)
+                            {
+                                if (((Cromosom2[j, i + 1] < 0) || (Cromosom2[j + 1, i + 1] < 0 && Cromosom1[j + 1, i + 1] > 0) || (Cromosom2[j - 1, i + 1] < 0 && Cromosom1[j - 1, i + 1] < 0)) && Cromosom1[j, i] == -1)
                                 {
-                                    if (((Cromosom2[i, j + 1] < 0) || (Cromosom2[i + 1, j + 1] < 0 && Cromosom1[i + 1, j + 1] > 0) || (Cromosom2[i - 1, j + 1] < 0 && Cromosom1[i - 1, j + 1] < 0)) && Cromosom1[i, j] == -1)
+                                    CromosomRowFirst = j;
+                                    CromosomColumnFirst = i;
+                                    if (Cromosom2[j, i + 1] > 0)
                                     {
-                                        CromosomRowFirst = i;
-                                        CromosomColumnFirst = j;
-                                        if (Cromosom2[i, j + 1] > 0)
-                                        {
-                                            CromosomRow = i;
-                                            CromosomColumn = j + 1;
-                                        }
-                                        else if (Cromosom2[i + 1, j + 1] > 0 && Cromosom1[i + 1, j + 1] < 0)
-                                        {
-                                            CromosomRow = i + 1;
-                                            CromosomColumn = j + 1;
-                                        }
-                                        else if (Cromosom2[i - 1, j + 1] > 0 && Cromosom1[i - 1, j + 1] < 0)
-                                        {
-                                            CromosomRow = i - 1;
-                                            CromosomColumn = j + 1;
-                                        }
-                                        Find = true;
-                                        FindNumber++;
-                                        AllDraw.SodierConversionOcuured = true;
+                                        CromosomRow = j;
+                                        CromosomColumn = i + 1;
                                     }
+                                    else if (Cromosom2[j + 1, i + 1] > 0 && Cromosom1[j + 1, i + 1] < 0)
+                                    {
+                                        CromosomRow = j + 1;
+                                        CromosomColumn = i + 1;
+                                    }
+                                    else if (Cromosom2[j - 1, i + 1] > 0 && Cromosom1[j - 1, i + 1] < 0)
+                                    {
+                                        CromosomRow = j - 1;
+                                        CromosomColumn = i + 1;
+                                    }
+                                    Find = true;
+                                    FindNumber++;
+                                    AllDraw.SodierConversionOcuured = true;
                                 }
+                            }
 
-                            //Castles King Validity Condition.
-                            if (Order == 1 && j == 7)
+                            //Castles King Valjdjty Condjtjon.
+                            if (Order == 1 && i == DistantRowBelow)
                             {
                                 //Small Gray Castles King.
-                                if (i == 6 && Cromosom2[i, j] == 6 && Cromosom2[i + 1, j] == 4 && Cromosom1[i, j] != 6 && Cromosom1[i + 1, j] != 4)
+                                if (j == DistantColumnSmall && Cromosom2[SmallCastleKingColumnAfter, DistantRowBelow] == KingGray && Cromosom2[SmallCastleCastleColumnAfter, DistantRowBelow] == CastleGray && Cromosom1[SmallCastleKingColumnBefore, DistantRowBelow] == KingGray && Cromosom1[SmallCastleCastleColumnBefore, DistantRowBelow] == CastleGray)
                                 {
-                                    CromosomRowFirst = i - 3;
-                                    CromosomColumnFirst = j;
-                                    CromosomRow = i;
-                                    CromosomColumn = j;
+                                    /* CromosomRowFirst = DistantRowBelow;
+                                     CromosomColumnFirst = i;
+                                     CromosomRow = DistantRowBelow;
+                                     CromosomColumn = i;*/
                                     Find = true;
                                     FindNumber++;
                                     ChessRules.SmallKingCastleGray = true;
-                                    Bri = true;
+                                    Brj = true;
                                 }
-                                else //Big Briges King Gray.
-                                    if (i == 3 && Cromosom2[i, j] == 4 && Cromosom2[i - 1, j] == 6 && Cromosom1[i, j] != 4 && Cromosom1[i - 1, j] != 6)
-                                    {
-                                        CromosomRowFirst = i + 3;
-                                        CromosomColumnFirst = j;
-                                        CromosomRow = i;
-                                        CromosomColumn = j;
-                                        Find = true;
-                                        FindNumber++;
-                                        ChessRules.BigKingCastleGray = true;
-                                        Bri = true;
-                                    }
+                                else //Big Brjges King Gray.
+                                    if (j == DistantColumnBig && Cromosom2[BigCastleCastleColumnAfter, DistantRowBelow] == CastleGray && Cromosom2[BigCastleKingColumnAfter, DistantRowBelow] == KingGray && Cromosom1[BigCastleCastleColumnBefore, DistantRowBelow] == CastleGray && Cromosom1[BigCastleKingColumnBefore, DistantRowBelow] == KingGray)
+                                {
+                                    /*    CromosomRowFirst = DistantRowBelow;
+                                        CromosomColumnFirst = i;
+                                        CromosomRow = DistantRowBelow;
+                                        CromosomColumn = i;*/
+                                    Find = true;
+                                    FindNumber++;
+                                    ChessRules.BigKingCastleGray = true;
+                                    Brj = true;
+                                }
 
                             }
-                            else if (j == 0)
+                            else if (i == DistantRowUp)
                             {
                                 //Small Castles King Brown.
-                                if (i == 6 && Cromosom2[i, j] == -6 && Cromosom2[i + 1, j] == -4 && Cromosom1[i, j] != -6 && Cromosom1[i + 1, j] != -4)
+                                if (j == DistantColumnSmall && Cromosom2[SmallCastleKingColumnAfter, DistantRowUp] == KingBrown && Cromosom2[SmallCastleCastleColumnAfter, DistantRowUp] == CastleBrown && Cromosom1[SmallCastleKingColumnBefore, DistantRowUp] == KingBrown && Cromosom1[SmallCastleCastleColumnBefore, DistantRowUp] == CastleBrown)
                                 {
                                     Object O = new Object();
                                     lock (O)
                                     {
-                                        CromosomRowFirst = i - 3;
-                                        CromosomColumnFirst = j;
-                                        CromosomRow = i;
-                                        CromosomColumn = j;
+                                        /* CromosomRowFirst = DistantRowUp;
+                                         CromosomColumnFirst = i;
+                                         CromosomRow = DistantRowUp;
+                                         CromosomColumn = i;*/
                                         Find = true;
                                         FindNumber++;
                                         ChessRules.SmallKingCastleBrown = true;
-                                        Bri = true;
+                                        Brj = true;
                                     }
                                 }
                                 else//Big Castles King Brown.
-                                    if (i == 3 && Cromosom2[i, j] == -4 && Cromosom2[i - 1, j] == -6 && Cromosom1[i, j] != -4 && Cromosom1[i - 1, j] != -6)
-                                    {
+                                    if (j == DistantColumnBig && Cromosom2[BigCastleCastleColumnAfter, DistantRowUp] == CastleBrown && Cromosom2[BigCastleKingColumnAfter, DistantRowUp] == KingBrown && Cromosom1[BigCastleCastleColumnBefore, DistantRowUp] == CastleBrown && Cromosom1[BigCastleKingColumnBefore, DistantRowUp] == KingBrown)
+                                {
                                     Object O = new Object();
                                     lock (O)
                                     {
-                                        CromosomRowFirst = i + 3;
-                                        CromosomColumnFirst = j;
-                                        CromosomRow = i;
-                                        CromosomColumn = j;
+                                        /*   CromosomRowFirst = DistantRowUp;
+                                           CromosomColumnFirst = i;
+                                           CromosomRow = DistantRowUp;
+                                           CromosomColumn = i;*/
                                         Find = true;
                                         FindNumber++;
                                         ChessRules.BigKingCastleBrown = true;
-                                        Bri = true;
+                                        Brj = true;
                                     }
-                                    }
+                                }
 
                             }
 
                         }
                     }
 
-                    //When To Same Location Tbles are Different in Gen.
-                    if (Cromosom1[i, j] != Cromosom2[i, j])
+                    //When To Same Locatjon Tbles are Different jn Gen.
+                    if (Cromosom1[j, i] != Cromosom2[j, i])
                     {
-                        //When Cromosom 2 is Empty.
-                        if (Cromosom2[i, j] == 0)
+                        //When Cromosom 2 js Empty.
+                        if (Cromosom2[j, i] == 0)
                         {
-                            //Initiate Location of Table.
-                            CromosomRowFirst = i;
-                            CromosomColumnFirst = j;
-                            continue;
+                            //Injtjate Locatjon of Table.
+                            CromosomRowFirst = j;
+                            CromosomColumnFirst = i;
+                            Find = true;
+                            FindNumber++;
+                            //Ki = List[Index][CromosomRow, CromosomColumn];
                         }
                         else
                         {
-                            //Situation 1.
+                            //Sjtuatjon 1.
                             //if (and)
                             {
-                                //When Cromosom1 Current Location is Empty.
-                                if (Cromosom1[i, j] == 0)
+                                //When Cromosom1 Current Locatjon js Empty.
+                                if (Cromosom1[j, i] == 0)
                                 {
-                                    //Initiate Location of Gen.
-                                    CromosomRow = i;
-                                    CromosomColumn = j;
+                                    //Injtjate Locatjon of Gen.
+                                    CromosomRow = j;
+                                    CromosomColumn = i;
                                     Find = true;
                                     FindNumber++;
-                                    Ki = List[Index][CromosomRow, CromosomColumn];
-                                    continue;
+                                    //Ki = List[Index][CromosomRow, CromosomColumn];
                                 }
                             }
 
                         }
-                        //Store Location of Gen and Calculate Gen Numbers.
-                        CromosomRow = i;
-                        CromosomColumn = j;
-                        Find = true;
-                        FindNumber++;
-                        Ki = List[Index][CromosomRow, CromosomColumn];
-
+                        //Store Locatjon of Gen and Calculate Gen Numbers.
+                  
                     }
 
 
                 }
             }
-            //If Gen Foundation is Valid. 
-            if (((FindNumber == 1 || FindNumber == 2) && Find) || Bri || AllDraw.SodierConversionOcuured)
+            //If Gen Foundatjon js Valjd. 
+            if (((FindNumber == 1 || FindNumber == 2) && Find) || Brj || AllDraw.SodierConversionOcuured)
                 return Find;
             //Gen Not Found.
             return false;

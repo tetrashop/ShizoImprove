@@ -1271,7 +1271,7 @@ namespace RefrigtzDLL
 
                 bool ms = false;
                 int bn = Movments;
-                if (((bn - 1) % 2) == 1)
+                if (((bn) % 2) == 1)
                     ms = true;
                 //Movments String Number Creation in String.
                 bn = ((int)(bn / 2));
