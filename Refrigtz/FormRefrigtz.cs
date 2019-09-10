@@ -4113,380 +4113,384 @@ namespace Refrigtz
         //Load Refregitz Form.
         private void Form1_Load(object sender, EventArgs e)
         {
-            TakeRoot y = new TakeRoot();
-
-            DrawManagement();
-
-
-            BrownTimer = new Refrigtz.Timer(false);
-            GrayTimer = new Refrigtz.Timer(false);
-            TimerText = new Refrigtz.Timer(true);
-
-            BrownTimer.TimerInitiate("BrownTimer");
-            GrayTimer.TimerInitiate("GrayTimer");
-            //TTimerSet = new Thread(new ThreadStart(SetTimer));
-            //TTimerSet.Start();
-
-            TimerText.TimerInitiate("TimerText");
-
-            TimerText.StartTime("TimerText");
-
-
-            //Thread tr = new Thread(new ThreadStart(Timerstart));
-            //tr.Start();
-            bool DrawDrawen = false;
-            backgroundWorkerAllOp.RunWorkerAsync();
-            backgroundWorkerSetNode.RunWorkerAsync();
-            backgroundWorkerSetRefD.RunWorkerAsync();
-            // timerAllOperation.Start();
-
-            //Set and syncronization with dynamic refregitzdll.   
-            //tttt = new Thread(new ThreadStart(SetRefregitzDLL));
-            //ttt = new Thread(new ThreadStart(SetNodesCount));
-            AllOperate = new Thread(new ThreadStart(AllOperations));
-            //Wehn no need to load.
-            if (File.Exists(Root + "\\Run.txt"))
+            try
             {
-                AllDrawLoad = false;
-                NewTable = false;
-            }
+                TakeRoot y = new TakeRoot();
 
-            //Determne of several refrigitz proccess.
-            if (!LoadAG)
-            {
-                List<Process> a = new List<Process>();
-                a.AddRange(Process.GetProcessesByName("Refrigtz"));
-                if (a.Count > 1)
+                DrawManagement();
+
+
+                BrownTimer = new Refrigtz.Timer(false);
+                GrayTimer = new Refrigtz.Timer(false);
+                TimerText = new Refrigtz.Timer(true);
+
+                BrownTimer.TimerInitiate("BrownTimer");
+                GrayTimer.TimerInitiate("GrayTimer");
+                //TTimerSet = new Thread(new ThreadStart(SetTimer));
+                //TTimerSet.Start();
+
+                TimerText.TimerInitiate("TimerText");
+
+                TimerText.StartTime("TimerText");
+
+
+                //Thread tr = new Thread(new ThreadStart(Timerstart));
+                //tr.Start();
+                bool DrawDrawen = false;
+                backgroundWorkerAllOp.RunWorkerAsync();
+                backgroundWorkerSetNode.RunWorkerAsync();
+                backgroundWorkerSetRefD.RunWorkerAsync();
+                // timerAllOperation.Start();
+
+                //Set and syncronization with dynamic refregitzdll.   
+                //tttt = new Thread(new ThreadStart(SetRefregitzDLL));
+                //ttt = new Thread(new ThreadStart(SetNodesCount));
+                AllOperate = new Thread(new ThreadStart(AllOperations));
+                //Wehn no need to load.
+                if (File.Exists(Root + "\\Run.txt"))
                 {
+                    AllDrawLoad = false;
+                    NewTable = false;
+                }
 
-                    if (System.Windows.Forms.MessageBox.Show(null, "New Instant Of Refregitz!", "New Instant", MessageBoxButtons.YesNo) == DialogResult.No)
+                //Determne of several refrigitz proccess.
+                if (!LoadAG)
+                {
+                    List<Process> a = new List<Process>();
+                    a.AddRange(Process.GetProcessesByName("Refrigtz"));
+                    if (a.Count > 1)
                     {
 
-                        for (int i = 0; i < a.Count; i++)
+                        if (System.Windows.Forms.MessageBox.Show(null, "New Instant Of Refregitz!", "New Instant", MessageBoxButtons.YesNo) == DialogResult.No)
                         {
-                            try
-                            {
 
-                                a[i].Kill();
-                                exitToolStripMenuItem_Click(sender, e);
+                            for (int i = 0; i < a.Count; i++)
+                            {
+                                try
+                                {
+
+                                    a[i].Kill();
+                                    exitToolStripMenuItem_Click(sender, e);
+                                }
+                                catch (Exception t) { Log(t); Application.ExitThread(); }
+
                             }
-                            catch (Exception t) { Log(t); Application.ExitThread(); }
 
                         }
-
                     }
                 }
-            }
-            //When direcrories not exist.
-            if (!Directory.Exists(Root + "\\DataBase"))
-            {
-                if (!Directory.Exists(Root + "\\DataBase\\MainBank"))
+                //When direcrories not exist.
+                if (!Directory.Exists(Root + "\\DataBase"))
                 {
-                    Directory.CreateDirectory(Root + "\\DataBase\\MainBank");
-                    File.Move(Root + "\\ChessBank.accdb", Root + "\\DataBase\\MainBank\\ChessBank.accdb");
-                }
-            }
-            if (!Directory.Exists(Root + "\\Images"))
-            {
-                if (!Directory.Exists(Root + "\\Images\\Original"))
-                {
-                    Directory.CreateDirectory(Root + "\\Images\\Original");
-                }
-            }
-
-            //When file dos't exist.
-            if (!AllDrawLoad)
-            {
-                if (!System.IO.File.Exists(Root + "\\Database\\CurrentBank.accdb"))
-                {
-                    System.IO.File.Copy(Root + "\\Database\\MainBank\\ChessBank.accdb", Root + "\\Database\\CurrentBank.accdb");
-                    if (!File.Exists(Root + "\\Database\\Monitor.html"))
-                        System.IO.File.Copy(Root + "\\Database\\MainBank\\Monitor_Log.html", Root + "\\Database\\Monitor.html");
-                    if (File.Exists("List.txt"))
-                        File.Delete("List.txt");
-
-                    if (bookConn != null)
-                        if (bookConn != null)
-                            bookConn.Close();
-                    bookConn = new OleDbConnection(connParam);
-                    oleDbCmd.Connection = bookConn;
-
-
-                    InsertTableAtDataBase(Table);
-                    CreateConfigurationTable();
-
-                }
-                else
-                {
-                    //When movments not occured.
-                    if (!NewTable)
+                    if (!Directory.Exists(Root + "\\DataBase\\MainBank"))
                     {
-                        //UpdateConfigurationTableVal = false;
+                        Directory.CreateDirectory(Root + "\\DataBase\\MainBank");
+                        File.Move(Root + "\\ChessBank.accdb", Root + "\\DataBase\\MainBank\\ChessBank.accdb");
+                    }
+                }
+                if (!Directory.Exists(Root + "\\Images"))
+                {
+                    if (!Directory.Exists(Root + "\\Images\\Original"))
+                    {
+                        Directory.CreateDirectory(Root + "\\Images\\Original");
+                    }
+                }
 
-                        //When Configuration is Allowed Read Configuration.
-                        ReadConfigurationTable();
+                //When file dos't exist.
+                if (!AllDrawLoad)
+                {
+                    if (!System.IO.File.Exists(Root + "\\Database\\CurrentBank.accdb"))
+                    {
+                        System.IO.File.Copy(Root + "\\Database\\MainBank\\ChessBank.accdb", Root + "\\Database\\CurrentBank.accdb");
+                        if (!File.Exists(Root + "\\Database\\Monitor.html"))
+                            System.IO.File.Copy(Root + "\\Database\\MainBank\\Monitor_Log.html", Root + "\\Database\\Monitor.html");
+                        if (File.Exists("List.txt"))
+                            File.Delete("List.txt");
 
-                        //Set Configuration To True for some unknown reason!.
-                        //UpdateConfigurationTableVal = true;
-                        //Read Last Table and Set MovementNumber  
-                        
-                        Table = ReadTable(0, ref MovmentsNumber);
+                        if (bookConn != null)
+                            if (bookConn != null)
+                                bookConn.Close();
+                        bookConn = new OleDbConnection(connParam);
+                        oleDbCmd.Connection = bookConn;
 
-                        if (DrawManagement())
-                        {
-                            //Load AllDraw.asd
-                            if (!Quantum)
-                                DrawDrawen = y.Load(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-                            else
-                                DrawDrawen = y.Load(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
 
-                        }
-                        else
-                        {
-                         /*   (new TakeRoot()).Save(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                        InsertTableAtDataBase(Table);
+                        CreateConfigurationTable();
 
-                                 if (!Quantum)
-                                DrawDrawen = (new TakeRoot()).Load(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-                            else
-                                DrawDrawen = (new TakeRoot()).Load(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-
-                      */  }
                     }
                     else
                     {
+                        //When movments not occured.
+                        if (!NewTable)
+                        {
+                            //UpdateConfigurationTableVal = false;
 
-                        int iii = 0;
-                        do { iii++; } while (System.IO.File.Exists(Root + "\\Database\\Games\\CurrentBank" + iii.ToString() + ".accdb"));
-                        System.IO.File.Copy(Root + "\\Database\\CurrentBank.accdb", Root + "\\Database\\Games\\CurrentBank" + iii.ToString() + ".accdb");
-                        System.IO.File.Copy(Root + "\\Database\\Monitor.html", Root + "\\Database\\Games\\Monitor" + iii.ToString() + ".html");
-                        System.IO.File.Delete(Root + "\\Database\\CurrentBank.accdb");
-                        System.IO.File.Delete(Root + "\\Database\\Monitor.html");
-                        System.IO.File.Copy(Root + "\\Database\\MainBank\\ChessBank.accdb", Root + "\\Database\\CurrentBank.accdb");
-                        System.IO.File.Copy(Root + "\\Database\\MainBank\\Monitor_Log.html", Root + "\\Database\\Monitor.html");
-                        InsertTableAtDataBase(Table);
-                        CreateConfigurationTable();
+                            //When Configuration is Allowed Read Configuration.
+                            ReadConfigurationTable();
+
+                            //Set Configuration To True for some unknown reason!.
+                            //UpdateConfigurationTableVal = true;
+                            //Read Last Table and Set MovementNumber  
+
+                            Table = ReadTable(0, ref MovmentsNumber);
+
+                            if (DrawManagement())
+                            {
+                                //Load AllDraw.asd
+                                if (!Quantum)
+                                    DrawDrawen = y.Load(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                                else
+                                    DrawDrawen = y.Load(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+
+                            }
+                            else
+                            {
+                                /*   (new TakeRoot()).Save(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+
+                                        if (!Quantum)
+                                       DrawDrawen = (new TakeRoot()).Load(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                                   else
+                                       DrawDrawen = (new TakeRoot()).Load(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+
+                             */
+                            }
+                        }
+                        else
+                        {
+
+                            int iii = 0;
+                            do { iii++; } while (System.IO.File.Exists(Root + "\\Database\\Games\\CurrentBank" + iii.ToString() + ".accdb"));
+                            System.IO.File.Copy(Root + "\\Database\\CurrentBank.accdb", Root + "\\Database\\Games\\CurrentBank" + iii.ToString() + ".accdb");
+                            System.IO.File.Copy(Root + "\\Database\\Monitor.html", Root + "\\Database\\Games\\Monitor" + iii.ToString() + ".html");
+                            System.IO.File.Delete(Root + "\\Database\\CurrentBank.accdb");
+                            System.IO.File.Delete(Root + "\\Database\\Monitor.html");
+                            System.IO.File.Copy(Root + "\\Database\\MainBank\\ChessBank.accdb", Root + "\\Database\\CurrentBank.accdb");
+                            System.IO.File.Copy(Root + "\\Database\\MainBank\\Monitor_Log.html", Root + "\\Database\\Monitor.html");
+                            InsertTableAtDataBase(Table);
+                            CreateConfigurationTable();
+                        }
+                    }
+
+                    //Set Level Variable from selection.
+                    comboBoxMaxLevelText = comboBoxMaxLevel.Text;
+
+
+
+
+                }
+
+
+
+                if (File.Exists(Root + "\\Run.txt"))
+                {
+                    String _0 = File.ReadAllText(Root + "\\Run.txt");
+                    if (_0[0] == '1') _1 = true; else _1 = false;
+                    if (_0[1] == '1') _2 = true; else _2 = false;
+                    if (_0[2] == '1') _3 = true; else _3 = false;
+                    if (_0[3] == '1') _4 = true; else _4 = false;
+                    File.Delete(Root + "Run.txt");
+                    continueAGameToolStripMenuItem.Visible = false; if (_1) { computerWithComputerToolStripMenuItem_Click(sender, e); } else if (_2) { computerWithComputerToolStripMenuItem1_Click(sender, e); } else if (_3) { toolStripMenuItem3_Click(sender, e); } else if (_4) { toolStripMenuItem6_Click(sender, e); }
+
+                }
+
+
+                //Loaded = true;
+                LoadedDLL = true;
+
+                if (Sec.radioButtonGrayOrder.Checked && OrderPlate == 1)
+                    Person = true;
+                else
+                    if (Sec.radioButtonBrownOrder.Checked && OrderPlate == -1)
+                    Person = true;
+
+
+                //tttt.Start();
+                //ttt.Start();
+                AllOperate.Start();
+                if (!Quantum)
+                {
+                    if (!DrawDrawen)
+                    {
+                        Draw = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                        Draw.TableList.Clear();
+                        Draw.TableList.Add(Table);
+                        Draw.SetRowColumn(0);
+                        RefrigtzDLL.AllDraw.DepthIterative = 0;
+
+                        //MessageBox.Show("Draw Not Found.");
+                    }
+                    else
+                    {
+                        Draw = y.t;
+                        bool FOUND = false;
+                        RefrigtzDLL.AllDraw THIS = null;
+                        SetDrawFounding(ref FOUND, ref THIS, false);
+
+                    }
+                }
+                else
+                {
+                    if (!DrawDrawen)
+                    {
+                        DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                        DrawQ.TableList.Clear();
+                        DrawQ.TableList.Add(Table);
+                        DrawQ.SetRowColumn(0);
+                        QuantumRefrigiz.AllDraw.DepthIterative = 0;
+
+                        //MessageBox.Show("Draw Not Found.");
+                    }
+                    else
+                    {
+                        DrawQ = y.tt;
+                        bool FOUND = false;
+                        QuantumRefrigiz.AllDraw THIS = null;
+                        SetDrawFounding(ref FOUND, ref THIS, false);
+
+                    }
+                }
+                if (Blitz)
+                {
+                    BrownTimer = new Refrigtz.Timer(true);
+                    GrayTimer = new Refrigtz.Timer(true);
+
+                    if (OrderPlate == 1)
+                    {
+                        GrayTimer.StartTime("GrayTimer");
+                        BrownTimer.StopTime();
+                    }
+                    else
+                    {
+                        GrayTimer.StopTime();
+                        BrownTimer.StartTime("BrownTimer");
+                    }
+                }
+                else if (FullGame)
+                {
+
+                    BrownTimer = new Refrigtz.Timer(true);
+                    GrayTimer = new Refrigtz.Timer(true);
+
+                    if (OrderPlate == 1)
+                    {
+                        GrayTimer.StartTime("GrayTimer");
+                        BrownTimer.StopTime();
+                    }
+                    else
+                    {
+                        GrayTimer.StopTime();
+                        BrownTimer.StartTime("BrownTimer");
+                    }
+                }
+                else if (StateCC)
+                {
+                    GrayTimer = new Refrigtz.Timer(true);
+                    BrownTimer = new Refrigtz.Timer(true);
+                    if (OrderPlate == 1)
+                    {
+                        BobSection = true;
+                        AliceSection = false;
+                        GrayTimer.StartTime("GrayTimer");
+                        BrownTimer.StopTime();
+                    }
+                    else
+                    {
+                        BobSection = false;
+                        AliceSection = true;
+                        BrownTimer.StartTime("BrownTimer");
+                        GrayTimer.StopTime();
+                    }
+                    //UpdateConfigurationTableVal = true;
+                }
+                else if (Stockfish)
+                {
+                    GrayTimer = new Refrigtz.Timer(true);
+                    BrownTimer = new Refrigtz.Timer(true);
+
+                    if (OrderPlate == 1)
+                    {
+                        GrayTimer.StartTime("GrayTimer");
+                        BrownTimer.StopTime();
+                        BobSection = true;
+                        AliceSection = false;
+                    }
+                    else
+                    {
+                        BrownTimer.StartTime("BrownTimer");
+                        GrayTimer.StopTime();
+                        BobSection = false;
+                        AliceSection = true;
+                    }
+
+                    //
+                    // 
+
+                }
+                if (!Quantum)
+                {
+                    if (RefrigtzDLL.AllDraw.TableListAction.Count == 0)
+                        RefrigtzDLL.AllDraw.TableListAction.Add(Table);
+                }
+                else
+                {
+                    if (QuantumRefrigiz.AllDraw.TableListAction.Count == 0)
+                        QuantumRefrigiz.AllDraw.TableListAction.Add(Table);
+                }
+
+                DrawImageOfMain();
+
+
+                /*bool A = GrayTimer.TextChanged;
+                GrayTimer.TextChanged = true;
+                SetPrictureBoxRefregitzInvalidate(pictureBoxTimerGray);
+                SetPrictureBoxRefregitzUpdate(pictureBoxTimerGray);
+                GrayTimer.TextChanged = A;
+
+                A = BrownTimer.TextChanged;
+                BrownTimer.TextChanged = true;
+                */
+                SetPrictureBoxRefregitzInvalidate(pictureBoxTimerBrown);
+                SetPrictureBoxRefregitzUpdate(pictureBoxTimerBrown);
+                //BrownTimer.TextChanged = A;
+
+                //var parallelOptions = new ParallelOptions();
+                // parallelOptions.MaxDegreeOfParallelism = PlatformHelper.ProcessorCount;
+                //parallelOptions.MaxDegreeOfParallelism = PlatformHelper.ProcessorCount;
+                if (Quantum)
+                {
+                    String SFile = "QBN.aqs";
+                    if (File.Exists(SFile))
+                    {
+                        String SCoun = File.ReadAllText(SFile);
+                        //for (int i = 0; i < 2; i++)
+                        //for (int jj = 0; jj < 8; jj++)
+                        //for (int kk = 0; kk < 8; kk++)
+                        int L = 0, k = 0;
+                        String S = "";
+                        do
+                        {
+                            int kk = (L) % 8;
+                            int jj = ((L) / 8) % 8;
+                            int i = (((L) / 8) / 8) % 2;
+                            {
+                                S = SCoun.Substring(k, SCoun.IndexOf(','));
+                                S = S.Replace(",", "");
+                                QuantumRefrigiz.AllDraw.QuntumTable[i, jj, kk] = System.Convert.ToInt32(S);
+                                k += S.Length + 1;
+                                L++;
+                            }
+                        } while (k < SCoun.Length);
                     }
                 }
 
-                //Set Level Variable from selection.
-                comboBoxMaxLevelText = comboBoxMaxLevel.Text;
+                LoadedTable = true;
 
-
-
-
+                //worker_DoWork();
+                //worker_DoWorkMove();
+                //worker_DoWorkDLL();
+                //worker_DoWorkNodesCount();
             }
-
-
-
-            if (File.Exists(Root + "\\Run.txt"))
-            {
-                String _0 = File.ReadAllText(Root + "\\Run.txt");
-                if (_0[0] == '1') _1 = true; else _1 = false;
-                if (_0[1] == '1') _2 = true; else _2 = false;
-                if (_0[2] == '1') _3 = true; else _3 = false;
-                if (_0[3] == '1') _4 = true; else _4 = false;
-                File.Delete(Root + "Run.txt");
-                continueAGameToolStripMenuItem.Visible = false; if (_1) { computerWithComputerToolStripMenuItem_Click(sender, e); } else if (_2) { computerWithComputerToolStripMenuItem1_Click(sender, e); } else if (_3) { toolStripMenuItem3_Click(sender, e); } else if (_4) { toolStripMenuItem6_Click(sender, e); }
-
-            }
-
-
-            //Loaded = true;
-            LoadedDLL = true;
-
-            if (Sec.radioButtonGrayOrder.Checked && OrderPlate == 1)
-                Person = true;
-            else
-                if (Sec.radioButtonBrownOrder.Checked && OrderPlate == -1)
-                Person = true;
-
-
-            //tttt.Start();
-            //ttt.Start();
-            AllOperate.Start();
-            if (!Quantum)
-            {
-                if (!DrawDrawen)
-                {
-                    Draw = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-                    Draw.TableList.Clear();
-                    Draw.TableList.Add(Table);
-                    Draw.SetRowColumn(0);
-                    RefrigtzDLL.AllDraw.DepthIterative = 0;
-
-                    //MessageBox.Show("Draw Not Found.");
-                }
-                else
-                {
-                    Draw = y.t;
-                    bool FOUND = false;
-                    RefrigtzDLL.AllDraw THIS = null;
-                    SetDrawFounding(ref FOUND, ref THIS, false);
-
-                }
-            }
-            else
-            {
-                if (!DrawDrawen)
-                {
-                    DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-                    DrawQ.TableList.Clear();
-                    DrawQ.TableList.Add(Table);
-                    DrawQ.SetRowColumn(0);
-                    QuantumRefrigiz.AllDraw.DepthIterative = 0;
-
-                    //MessageBox.Show("Draw Not Found.");
-                }
-                else
-                {
-                    DrawQ = y.tt;
-                    bool FOUND = false;
-                    QuantumRefrigiz.AllDraw THIS = null;
-                    SetDrawFounding(ref FOUND, ref THIS, false);
-
-                }
-            }
-            if (Blitz)
-            {
-                BrownTimer = new Refrigtz.Timer(true);
-                GrayTimer = new Refrigtz.Timer(true);
-
-                if (OrderPlate == 1)
-                {
-                    GrayTimer.StartTime("GrayTimer");
-                    BrownTimer.StopTime();
-                }
-                else
-                {
-                    GrayTimer.StopTime();
-                    BrownTimer.StartTime("BrownTimer");
-                }
-            }
-            else if (FullGame)
-            {
-
-                BrownTimer = new Refrigtz.Timer(true);
-                GrayTimer = new Refrigtz.Timer(true);
-
-                if (OrderPlate == 1)
-                {
-                    GrayTimer.StartTime("GrayTimer");
-                    BrownTimer.StopTime();
-                }
-                else
-                {
-                    GrayTimer.StopTime();
-                    BrownTimer.StartTime("BrownTimer");
-                }
-            }
-            else if (StateCC)
-            {
-                GrayTimer = new Refrigtz.Timer(true);
-                BrownTimer = new Refrigtz.Timer(true);
-                if (OrderPlate == 1)
-                {
-                    BobSection = true;
-                    AliceSection = false;
-                    GrayTimer.StartTime("GrayTimer");
-                    BrownTimer.StopTime();
-                }
-                else
-                {
-                    BobSection = false;
-                    AliceSection = true;
-                    BrownTimer.StartTime("BrownTimer");
-                    GrayTimer.StopTime();
-                }
-                //UpdateConfigurationTableVal = true;
-            }
-            else if (Stockfish)
-            {
-                GrayTimer = new Refrigtz.Timer(true);
-                BrownTimer = new Refrigtz.Timer(true);
-
-                if (OrderPlate == 1)
-                {
-                    GrayTimer.StartTime("GrayTimer");
-                    BrownTimer.StopTime();
-                    BobSection = true;
-                    AliceSection = false;
-                }
-                else
-                {
-                    BrownTimer.StartTime("BrownTimer");
-                    GrayTimer.StopTime();
-                    BobSection = false;
-                    AliceSection = true;
-                }
-
-                //
-                // 
-
-            }
-            if (!Quantum)
-            {
-                if (RefrigtzDLL.AllDraw.TableListAction.Count == 0)
-                    RefrigtzDLL.AllDraw.TableListAction.Add(Table);
-            }
-            else
-            {
-                if (QuantumRefrigiz.AllDraw.TableListAction.Count == 0)
-                    QuantumRefrigiz.AllDraw.TableListAction.Add(Table);
-            }
-
-            DrawImageOfMain();
-
-
-            /*bool A = GrayTimer.TextChanged;
-            GrayTimer.TextChanged = true;
-            SetPrictureBoxRefregitzInvalidate(pictureBoxTimerGray);
-            SetPrictureBoxRefregitzUpdate(pictureBoxTimerGray);
-            GrayTimer.TextChanged = A;
-
-            A = BrownTimer.TextChanged;
-            BrownTimer.TextChanged = true;
-            */
-            SetPrictureBoxRefregitzInvalidate(pictureBoxTimerBrown);
-            SetPrictureBoxRefregitzUpdate(pictureBoxTimerBrown);
-            //BrownTimer.TextChanged = A;
-
-            //var parallelOptions = new ParallelOptions();
-            // parallelOptions.MaxDegreeOfParallelism = PlatformHelper.ProcessorCount;
-            //parallelOptions.MaxDegreeOfParallelism = PlatformHelper.ProcessorCount;
-            if (Quantum)
-            {
-                String SFile = "QBN.aqs";
-                if (File.Exists(SFile))
-                {
-                    String SCoun = File.ReadAllText(SFile);
-                    //for (int i = 0; i < 2; i++)
-                    //for (int jj = 0; jj < 8; jj++)
-                    //for (int kk = 0; kk < 8; kk++)
-                    int L = 0, k = 0;
-                    String S = "";
-                    do
-                    {
-                        int kk = (L) % 8;
-                        int jj = ((L) / 8) % 8;
-                        int i = (((L) / 8) / 8) % 2;
-                        {
-                            S = SCoun.Substring(k, SCoun.IndexOf(','));
-                            S = S.Replace(",", "");
-                            QuantumRefrigiz.AllDraw.QuntumTable[i, jj, kk] = System.Convert.ToInt32(S);
-                            k += S.Length + 1;
-                            L++;
-                        }
-                    } while (k < SCoun.Length);
-                }
-            }
-
-            LoadedTable = true;
-
-            //worker_DoWork();
-            //worker_DoWorkMove();
-            //worker_DoWorkDLL();
-            //worker_DoWorkNodesCount();
-
+            catch (Exception t) { Log(t); }
         }
         //Reading Table Database.
         int[,] ReadTable(int Movment, ref int MoveNumber)
@@ -4505,7 +4509,12 @@ namespace Refrigtz
                 QuantumRefrigiz.AllDraw.TableListAction.Clear();
             do
             {
-                
+                OrderPlate *= -1;
+                if (!Quantum)
+                    RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
+                else
+                    QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
+
                 try
                 {
 
@@ -4554,7 +4563,7 @@ namespace Refrigtz
                         }
 
                     }
-                   if (MoveNumber > 0)
+                    if (MoveNumber > 0)
                         SetAndConfirmSyntax();
                     else
                     {
@@ -4573,7 +4582,7 @@ namespace Refrigtz
 
                     //MoveNumber = Move;
 
-                   
+
 
                     if ((new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, 1, TableA, OrderPlate, -1, -1).CheckMate(TableA, OrderPlate)))
                     {
@@ -4591,7 +4600,7 @@ namespace Refrigtz
                     try
                     {
 
-                       // Move++;
+                        // Move++;
 
 
                         String TableName = (Move).ToString();
@@ -4625,12 +4634,12 @@ namespace Refrigtz
                             Tab[7, ii] = System.Convert.ToInt32(dr["h"]);
                             ii++;
                         }
-                       // Move++;
+                        // Move++;
                         if (Move > 2)
                             GameStarted = true;
                         //if (Move > 1)
                         {
-                           // MoveNumber++;
+                            // MoveNumber++;
                         }
 
                         //MoveNumber = Move;
@@ -4687,11 +4696,6 @@ namespace Refrigtz
 
                 //if (Move > 1)
                 {
-                    OrderPlate *= -1;
-                    if (!Quantum)
-                        RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
-                    else
-                        QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
 
                 }
             } while (MoveNumber <= MovmentsNumberMax);
@@ -6469,7 +6473,9 @@ namespace Refrigtz
                     if (R.FindGenToModified(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2], RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1], RefrigtzDLL.AllDraw.TableListAction, 0, OrderPlate, true))
                     {
                         bool HitVal = false;
-                        int Hit = RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2][R.CromosomRow, R.CromosomColumn];
+                        int Hit = 0;
+                        if (R.Hit)
+                            Hit = RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2][R.CromosomRow, R.CromosomColumn];
                         if (Hit != 0)
                             HitVal = true;
                         bool Convert = false;
@@ -6509,7 +6515,9 @@ namespace Refrigtz
                     if (R.FindGenToModified(QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 2], QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 1], QuantumRefrigiz.AllDraw.TableListAction, 0, OrderPlate, true))
                     {
                         bool HitVal = false;
-                        int Hit = QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 2][R.CromosomRow, R.CromosomColumn];
+                        int Hit = 0;
+                        if (R.Hit)
+                            Hit = RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2][R.CromosomRow, R.CromosomColumn];
                         if (Hit != 0)
                             HitVal = true;
                         bool Convert = false;
@@ -12886,7 +12894,9 @@ namespace Refrigtz
                         if (R.FindGenToModified(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2], RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1], RefrigtzDLL.AllDraw.TableListAction, 0, OrderPlate, true))
                         {
                             bool HitVal = false;
-                            int Hit = RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2][R.CromosomRow, R.CromosomColumn];
+                            int Hit = 0;
+                            if (R.Hit)
+                                Hit = RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2][R.CromosomRow, R.CromosomColumn];
                             if (Hit != 0)
                                 HitVal = true;
                             bool Convert = false;
@@ -12928,7 +12938,9 @@ namespace Refrigtz
                         if (R.FindGenToModified(QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 2], QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 1], QuantumRefrigiz.AllDraw.TableListAction, 0, OrderPlate, true))
                         {
                             bool HitVal = false;
-                            int Hit = QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 2][R.CromosomRow, R.CromosomColumn];
+                            int Hit = 0;
+                            if (R.Hit)
+                                Hit = RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2][R.CromosomRow, R.CromosomColumn];
                             if (Hit != 0)
                                 HitVal = true;
                             bool Convert = false;

@@ -1280,7 +1280,7 @@ namespace QuantumRefrigiz
                 if (((bn) % 2) == 1)
                     ms = true;
                 //Movments String Number Creation in String.
-                bn = ((int)(bn / 2));
+                bn = ((int)(bn / 2)) + 1;
                 String SN = "";
                 String S = "";
                 if (ms)
