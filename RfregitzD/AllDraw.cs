@@ -13755,7 +13755,7 @@ if (Kind == 2)
                         continue;
                     for (j = 0; j < SolderesOnTable[ik].SoldierThinking[0].HuristicListSolder.Count; j++)
                     {
-                        if ( SolderesOnTable[ik].SoldierThinking[0].IsSup[j]
+                        if ( SolderesOnTable[ik].SoldierThinking[0].IsSupHu[j]
                           )
                             continue;
 
@@ -13814,7 +13814,7 @@ if (Kind == 2)
                         continue;
                     for (j = 0; j < ElephantOnTable[ik].ElefantThinking[0].HuristicListElefant.Count; j++)
                     {
-                        if (ElephantOnTable[ik].ElefantThinking[0].IsSup[j]
+                        if (ElephantOnTable[ik].ElefantThinking[0].IsSupHu[j]
                    )
                             continue;
                         Object O = new Object();
@@ -13872,7 +13872,7 @@ if (Kind == 2)
                         continue;
                     for (j = 0; j < HoursesOnTable[ik].HourseThinking[0].HuristicListHourse.Count; j++)
                     {
-                        if (HoursesOnTable[ik].HourseThinking[0].IsSup[j]
+                        if (HoursesOnTable[ik].HourseThinking[0].IsSupHu[j]
                       )
                             continue;
                         Object O = new Object();
@@ -13929,7 +13929,7 @@ if (Kind == 2)
                         continue;
                     for (j = 0; j < CastlesOnTable[ik].CastleThinking[0].HuristicListCastle.Count; j++)
                     {
-                        if (CastlesOnTable[ik].CastleThinking[0].IsSup[j]
+                        if (CastlesOnTable[ik].CastleThinking[0].IsSupHu[j]
                      )
                             continue;
                         Object O = new Object();
@@ -13988,7 +13988,7 @@ if (Kind == 2)
                         continue;
                     for (j = 0; j < MinisterOnTable[ik].MinisterThinking[0].HuristicListMinister.Count; j++)
                     {
-                        if (MinisterOnTable[ik].MinisterThinking[0].IsSup[j]
+                        if (MinisterOnTable[ik].MinisterThinking[0].IsSupHu[j]
                           )
                             continue;
 
@@ -14049,7 +14049,7 @@ if (Kind == 2)
                         continue;
                     for (j = 0; j < KingOnTable[ik].KingThinking[0].HuristicListKing.Count; j++)
                     {
-                        if (KingOnTable[ik].KingThinking[0].IsSup[j]
+                        if (KingOnTable[ik].KingThinking[0].IsSupHu[j]
                           )
                             continue;
 
@@ -14261,7 +14261,7 @@ if (Kind == 2)
                     //Soldier.
                     for (j = 0; j < SolderesOnTable[ik].SoldierThinking[0].HuristicListSolder.Count; j++)
                     {
-                        if (SolderesOnTable[ik].SoldierThinking[0].IsSup[j]
+                        if (SolderesOnTable[ik].SoldierThinking[0].IsSupHu[j]
                        )
                             continue;
 
@@ -14316,7 +14316,7 @@ if (Kind == 2)
                         continue;
                     for (j = 0; j < ElephantOnTable[ik].ElefantThinking[0].HuristicListElefant.Count; j++)
                     {
-                        if ( ElephantOnTable[ik].ElefantThinking[0].IsSup[j]
+                        if ( ElephantOnTable[ik].ElefantThinking[0].IsSupHu[j]
                      )
                             continue;
                         if (CheckeHuristci(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j], Order, ik, j, 0))
@@ -14373,7 +14373,7 @@ if (Kind == 2)
                         continue;
                     for (j = 0; j < HoursesOnTable[ik].HourseThinking[0].HuristicListHourse.Count; j++)
                     {
-                        if (HoursesOnTable[ik].HourseThinking[0].IsSup[j]
+                        if (HoursesOnTable[ik].HourseThinking[0].IsSupHu[j]
                         )
                             continue;
                         if (CheckeHuristci(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j], Order, ik, j, 0))
@@ -14500,7 +14500,7 @@ if (Kind == 2)
                         continue;
                     for (j = 0; j < CastlesOnTable[ik].CastleThinking[0].HuristicListCastle.Count; j++)
                     {
-                        if (CastlesOnTable[ik].CastleThinking[0].IsSup[j]
+                        if (CastlesOnTable[ik].CastleThinking[0].IsSupHu[j]
                         )
                             continue;
 
@@ -14561,7 +14561,7 @@ if (Kind == 2)
                         continue;
                     for (j = 0; j < MinisterOnTable[ik].MinisterThinking[0].HuristicListMinister.Count; j++)
                     {
-                        if (MinisterOnTable[ik].MinisterThinking[0].IsSup[j]
+                        if (MinisterOnTable[ik].MinisterThinking[0].IsSupHu[j]
                           )
                             continue;
 
@@ -14617,7 +14617,7 @@ if (Kind == 2)
                         continue;
                     for (j = 0; j < KingOnTable[ik].KingThinking[0].HuristicListKing.Count; j++)
                     {
-                        if (KingOnTable[ik].KingThinking[0].IsSup[j]
+                        if (KingOnTable[ik].KingThinking[0].IsSupHu[j]
                          )
                             continue;
 

@@ -1650,14 +1650,14 @@ namespace RefrigtzW
                 {
                     if (AllDraw.ActionStringReady)
                     {
-                        SetBoxText(AllDraw.ActionString);
-                        AllDraw.ActionString = "";
+                        SetBoxText(AllDraw.ActionString.ToString());
+                        AllDraw.ActionString = new StringBuilder("");
                         AllDraw.ActionStringReady = false;
                     }
-                    if (AllDraw.OutPut != "")
+                    if (AllDraw.OutPut.ToString() != "")
                     {
-                        SetBoxText(AllDraw.OutPut);
-                        AllDraw.OutPut = "";
+                        SetBoxText(AllDraw.OutPut.ToString());
+                        AllDraw.OutPut = new StringBuilder("");
 
                     }
                     

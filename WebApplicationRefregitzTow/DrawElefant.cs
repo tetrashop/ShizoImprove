@@ -76,7 +76,7 @@ namespace RefrigtzW
         public double ReturnHuristic()
         {
             double a = 0;
-            for (int ii = 0; ii < AllDraw.ElefantMovments; ii++)
+            for (var ii = 0; ii < AllDraw.ElefantMovments; ii++)
 
                 a += ElefantThinking[ii].ReturnHuristic(-1, -1, Order, false);
 
@@ -118,10 +118,10 @@ namespace RefrigtzW
                 ArrangmentsChanged = Arrangments;
                 //Initiate Global Variables By Local Parameters.
                 Table = new int[8, 8];
-                for (int ii = 0; ii < 8; ii++)
-                    for (int jj = 0; jj < 8; jj++)
+                for (var ii = 0; ii < 8; ii++)
+                    for (var jj = 0; jj < 8; jj++)
                         Table[ii, jj] = Tab[ii, jj];
-                for (int ii = 0; ii < AllDraw.ElefantMovments; ii++)
+                for (var ii = 0; ii < AllDraw.ElefantMovments; ii++)
                     ElefantThinking[ii] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 16, Ord, TB, Cur, 4, 2);
 
                 Row = i;
@@ -137,13 +137,13 @@ namespace RefrigtzW
             )
         {
             int[,] Tab = new int[8, 8];
-            for (int i = 0; i < 8; i++)
-                for (int j = 0; j < 8; j++)
+            for (var i = 0; i < 8; i++)
+                for (var j = 0; j < 8; j++)
                     Tab[i, j] = this.Table[i, j];
             //Initiate a Constructed Object an Clone a Copy.
             AA = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, this.Row, this.Column, this.color, this.Table, this.Order, false, this.Current);
             AA.ArrangmentsChanged = ArrangmentsChanged;
-            for (int i = 0; i < AllDraw.ElefantMovments; i++)
+            for (var i = 0; i < AllDraw.ElefantMovments; i++)
             {
 
                 AA.ElefantThinking[i] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
@@ -151,8 +151,8 @@ namespace RefrigtzW
 
             }
             AA.Table = new int[8, 8];
-            for (int ii = 0; ii < 8; ii++)
-                for (int jj = 0; jj < 8; jj++)
+            for (var ii = 0; ii < 8; ii++)
+                for (var jj = 0; jj < 8; jj++)
                     AA.Table[ii, jj] = Tab[ii, jj];
             AA.Row = Row;
             AA.Column = Column;

@@ -24,6 +24,11 @@ namespace RefrigtzW
         Color color;
         int Order;
         int Current = 0;
+        private int rowSource;
+        private int columnSource;
+        private int[,] tableS;
+        private int v;
+
         //AllDraw. THIS;
         public ThingsConverter()
         { }
@@ -42,6 +47,18 @@ namespace RefrigtzW
 
 
         }
+
+        public ThingsConverter(bool arrangmentsChanged, int rowSource, int columnSource, Color color, int[,] tableS, int order, int v)
+        {
+            ArrangmentsChanged = arrangmentsChanged;
+            this.rowSource = rowSource;
+            this.columnSource = columnSource;
+            this.color = color;
+            this.tableS = tableS;
+            Order = order;
+            this.v = v;
+        }
+
         //Convert Operation of Randomly All State Method.
         public bool ConvertOperation(int i, int j, Color a, int[,] Tab, int Ord, bool TB, int Cur)
         {
@@ -55,7 +72,8 @@ namespace RefrigtzW
                 Order = Ord;
                 Current = Cur;
                 //If Convert is Act and click tow time occured
-                if (!Convert && ActOfClickEqualTow)
+                if (!Convert && (ActOfClickEqualTow || AllDraw.StateCC || (!AllDraw.Person)))
+
                 {
                     Object O = new Object();
                     lock (O)
@@ -105,17 +123,16 @@ namespace RefrigtzW
                             {
                                 if (AllDraw.OrderPlate == 1)
                                 {
-                                    /*     while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100); 
-                                         }
+                                    /* while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100);
+                                     }
 
-                                         Rand = AllDraw.ConvertedKind;
+                                     Rand = AllDraw.ConvertedKind;
 
-                                         AllDraw.ConvertedKind = -2;
-                                         */
+                                     AllDraw.ConvertedKind = -2;
+ */
                                     Rand = 0;
                                     ConvertedToMinister = true;
                                     AllDraw.ConvertedKind = -2;
-
                                 }
                             }
                             else
@@ -125,17 +142,16 @@ namespace RefrigtzW
                                 if (AllDraw.OrderPlate == -1)
                                 {
                                     //(new FormُSelectItems()).ShowDialog();
-                                    /* while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100); 
-                                     }
+                                    /*  while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100); 
+                                      }
 
-                                     Rand = AllDraw.ConvertedKind;
+                                      Rand = AllDraw.ConvertedKind;
 
-                                     AllDraw.ConvertedKind = -2;
-                               */
+                                      AllDraw.ConvertedKind = -2;
+                                 */
                                     Rand = 0;
                                     ConvertedToMinister = true;
                                     AllDraw.ConvertedKind = -2;
-
                                 }
                             }
                             else
@@ -211,18 +227,18 @@ namespace RefrigtzW
                                 AllDraw.SodierConversionOcuured = true;
                                 //Randomly Number of 4 kind Object.
                                 int Rand = -1;
-                                if (//AllDraw.Person && 
+                                if (//AllDraw.Person &&
                                     AllDraw.StateCP && AllDraw.THISSecradioButtonGrayOrderChecked)
                                 {
                                     if (AllDraw.OrderPlate == 1)
                                     {
-                                        /*     while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100);
-                                             }
+                                        /* while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100); 
+                                         }
 
-                                             Rand = AllDraw.ConvertedKind;
+                                         Rand = AllDraw.ConvertedKind;
 
-                                             AllDraw.ConvertedKind = -2;
-                                        */
+                                         AllDraw.ConvertedKind = -2;
+                                    */
                                         Rand = 0;
                                         ConvertedToMinister = true;
                                         AllDraw.ConvertedKind = -2;
@@ -234,13 +250,13 @@ namespace RefrigtzW
                                 {
                                     if (AllDraw.OrderPlate == -1)
                                     {
-                                        /*    while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100);
-                                            }
+                                        /*  while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100); 
+                                          }
 
-                                            Rand = AllDraw.ConvertedKind;
+                                          Rand = AllDraw.ConvertedKind;
 
-                                            AllDraw.ConvertedKind = -2;
-                                       */
+                                          AllDraw.ConvertedKind = -2;
+                                      */
                                         Rand = 0;
                                         ConvertedToMinister = true;
                                         AllDraw.ConvertedKind = -2;
@@ -260,7 +276,7 @@ namespace RefrigtzW
                                     else if (Order == -1)
                                     {
                                         //MinisterHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
-                                        Rand = 0;
+                                        Tab[Row, Column] = -5;
                                     }
                                     ConvertedToMinister = true;
                                 }
@@ -322,17 +338,17 @@ namespace RefrigtzW
                                 AllDraw.SodierConversionOcuured = true;
                                 //Randomly Number of 4 kind Object.
                                 int Rand = -1;
-                                if (//AllDraw.Person &&
+                                if (//AllDraw.Person && 
                                     AllDraw.StateCP && AllDraw.THISSecradioButtonGrayOrderChecked)
                                 {
                                     if (AllDraw.OrderPlate == 1)
                                     {
-                                        /* while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100);
-                                         }
+                                        /*  while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100);
+                                          }
 
-                                         Rand = AllDraw.ConvertedKind;
+                                          Rand = AllDraw.ConvertedKind;
 
-                                         AllDraw.ConvertedKind = -2;
+                                          AllDraw.ConvertedKind = -2;
                                     */
                                         Rand = 0;
                                         ConvertedToMinister = true;
@@ -340,17 +356,17 @@ namespace RefrigtzW
                                     }
                                 }
                                 else
-                                    if (//AllDraw.Person &&
+                                    if (//AllDraw.Person && 
                                     AllDraw.StateCP && AllDraw.THISSecradioButtonBrownOrderChecked)
                                 {
                                     if (AllDraw.OrderPlate == -1)
                                     {
-                                        /*  while (AllDraw.ConvertedKind == -1) {// System.Threading.Thread.Sleep(100); 
-                                          }
+                                        /*   while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100);
+                                           }
 
-                                          Rand = AllDraw.ConvertedKind;
+                                           Rand = AllDraw.ConvertedKind;
 
-                                          AllDraw.ConvertedKind = -2;
+                                           AllDraw.ConvertedKind = -2;
                                       */
                                         Rand = 0;
                                         ConvertedToMinister = true;
@@ -434,8 +450,8 @@ namespace RefrigtzW
                     lock (O)
                     {
                         TableConverted = new int[8, 8];
-                        for (int iii = 0; iii < 8; iii++)
-                            for (int jjj = 0; jjj < 8; jjj++)
+                        for (var iii = 0; iii < 8; iii++)
+                            for (var jjj = 0; jjj < 8; jjj++)
                                 TableConverted[iii, jjj] = Tab[iii, jjj];
                     }
                     Object O1 = new Object();

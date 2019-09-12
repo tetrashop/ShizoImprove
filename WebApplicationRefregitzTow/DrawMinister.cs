@@ -77,7 +77,7 @@ namespace RefrigtzW
         public double ReturnHuristic()
         {
             double a = 0;
-            for (int ii = 0; ii < AllDraw.MinisterMovments; ii++)
+            for (var ii = 0; ii < AllDraw.MinisterMovments; ii++)
 
                 a += MinisterThinking[ii].ReturnHuristic(-1, -1, Order, false);
 
@@ -116,10 +116,10 @@ namespace RefrigtzW
                 ArrangmentsChanged = Arrangments;
                 //Initiate Global Variables.
                 Table = new int[8, 8];
-                for (int ii = 0; ii < 8; ii++)
-                    for (int jj = 0; jj < 8; jj++)
+                for (var ii = 0; ii < 8; ii++)
+                    for (var jj = 0; jj < 8; jj++)
                         Table[ii, jj] = Tab[ii, jj];
-                for (int ii = 0; ii < AllDraw.MinisterMovments; ii++)
+                for (var ii = 0; ii < AllDraw.MinisterMovments; ii++)
                     MinisterThinking[ii] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 32, Ord, TB, Cur, 2, 5);
 
                 Row = i;
@@ -134,13 +134,13 @@ namespace RefrigtzW
             )
         {
             int[,] Tab = new int[8, 8];
-            for (int i = 0; i < 8; i++)
-                for (int j = 0; j < 8; j++)
+            for (var i = 0; i < 8; i++)
+                for (var j = 0; j < 8; j++)
                     Tab[i, j] = this.Table[i, j];
             //Initiate an Object and Clone a Construction Objectve.
             AA = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, this.color, this.Table, this.Order, false, this.Current);
             AA.ArrangmentsChanged = ArrangmentsChanged;
-            for (int i = 0; i < AllDraw.MinisterMovments; i++)
+            for (var i = 0; i < AllDraw.MinisterMovments; i++)
             {
 
                 AA.MinisterThinking[i] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
@@ -149,8 +149,8 @@ namespace RefrigtzW
 
             }
             AA.Table = new int[8, 8];
-            for (int ii = 0; ii < 8; ii++)
-                for (int jj = 0; jj < 8; jj++)
+            for (var ii = 0; ii < 8; ii++)
+                for (var jj = 0; jj < 8; jj++)
                     AA.Table[ii, jj] = Tab[ii, jj];
             AA.Row = Row;
             AA.Column = Column;

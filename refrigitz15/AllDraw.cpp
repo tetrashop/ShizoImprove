@@ -11297,7 +11297,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				}
 				for (j = 0; j < SolderesOnTable[ik].SoldierThinking[0].HuristicListSolder.size(); j++)
 				{
-					if (SolderesOnTable[ik].SoldierThinking[0].IsSup[j])
+					if (SolderesOnTable[ik].SoldierThinking[0].IsSupHu[j])
 					{
 						continue;
 					}
@@ -11358,7 +11358,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				}
 				for (j = 0; j < ElephantOnTable[ik].ElefantThinking[0].HuristicListElefant.size(); j++)
 				{
-					if (ElephantOnTable[ik].ElefantThinking[0].IsSup[j])
+					if (ElephantOnTable[ik].ElefantThinking[0].IsSupHu[j])
 					{
 						continue;
 					}
@@ -11421,7 +11421,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				}
 				for (j = 0; j < HoursesOnTable[ik].HourseThinking[0].HuristicListHourse.size(); j++)
 				{
-					if (HoursesOnTable[ik].HourseThinking[0].IsSup[j])
+					if (HoursesOnTable[ik].HourseThinking[0].IsSupHu[j])
 					{
 						continue;
 					}
@@ -11483,7 +11483,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				}
 				for (j = 0; j < CastlesOnTable[ik].CastleThinking[0].HuristicListCastle.size(); j++)
 				{
-					if (CastlesOnTable[ik].CastleThinking[0].IsSup[j])
+					if (CastlesOnTable[ik].CastleThinking[0].IsSupHu[j])
 					{
 						continue;
 					}
@@ -11547,7 +11547,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				}
 				for (j = 0; j < MinisterOnTable[ik].MinisterThinking[0].HuristicListMinister.size(); j++)
 				{
-					if (MinisterOnTable[ik].MinisterThinking[0].IsSup[j])
+					if (MinisterOnTable[ik].MinisterThinking[0].IsSupHu[j])
 					{
 						continue;
 					}
@@ -11613,7 +11613,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				}
 				for (j = 0; j < KingOnTable[ik].KingThinking[0].HuristicListKing.size(); j++)
 				{
-					if (KingOnTable[ik].KingThinking[0].IsSup[j])
+					if (KingOnTable[ik].KingThinking[0].IsSupHu[j])
 					{
 						continue;
 					}
@@ -11896,7 +11896,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				//Soldier.
 				for (j = 0; j < SolderesOnTable[ik].SoldierThinking[0].HuristicListSolder.size(); j++)
 				{
-					if (SolderesOnTable[ik].SoldierThinking[0].IsSup[j])
+					if (SolderesOnTable[ik].SoldierThinking[0].IsSupHu[j])
 					{
 						continue;
 					}
@@ -11955,7 +11955,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				}
 				for (j = 0; j < ElephantOnTable[ik].ElefantThinking[0].HuristicListElefant.size(); j++)
 				{
-					if (ElephantOnTable[ik].ElefantThinking[0].IsSup[j])
+					if (ElephantOnTable[ik].ElefantThinking[0].IsSupHu[j])
 					{
 						continue;
 					}
@@ -12016,7 +12016,7 @@ bool AllDraw::IsAQuantumeMoveOccured(bool IsQuantumMove)
 				}
 				for (j = 0; j < HoursesOnTable[ik].HourseThinking[0].HuristicListHourse.size(); j++)
 				{
-					if (HoursesOnTable[ik].HourseThinking[0].IsSup[j])
+					if (HoursesOnTable[ik].HourseThinking[0].IsSupHu[j])
 					{
 						continue;
 					}

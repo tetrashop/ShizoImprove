@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.IO;
-namespace RefrigtzW
-{
+namespace Refrigtz
+{[Serializable]
     class Syncronization
     {
         //Error Handling.
@@ -20,10 +20,7 @@ namespace RefrigtzW
                     File.AppendAllText(FormRefrigtz.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
                 }
             }
-            catch (Exception t)
-            {
-                Log(t);
-            }
+            catch (Exception t) { Log(t); }
         }
         //
         bool LastState = false;

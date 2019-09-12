@@ -76,7 +76,7 @@ namespace RefrigtzW
         public double ReturnHuristic()
         {
             double a = 0;
-            for (int ii = 0; ii < AllDraw.SodierMovments; ii++)
+            for (var ii = 0; ii < AllDraw.SodierMovments; ii++)
 
                 a += SoldierThinking[ii].ReturnHuristic(-1, -1, Order, false);
 
@@ -117,10 +117,10 @@ namespace RefrigtzW
                 ArrangmentsChanged = Arrangments;
                 //Initiate Global Variables.  
                 Table = new int[8, 8];
-                for (int ii = 0; ii < 8; ii++)
-                    for (int jj = 0; jj < 8; jj++)
+                for (var ii = 0; ii < 8; ii++)
+                    for (var jj = 0; jj < 8; jj++)
                         Table[ii, jj] = Tab[ii, jj];
-                for (int ii = 0; ii < AllDraw.SodierMovments; ii++)
+                for (var ii = 0; ii < AllDraw.SodierMovments; ii++)
 
                     SoldierThinking[ii] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 4, Ord, TB, Cur, 16, 1);
                 RowS = i;
@@ -135,15 +135,15 @@ namespace RefrigtzW
             )
         {
             int[,] Tab = new int[8, 8];
-            for (int i = 0; i < 8; i++)
-                for (int j = 0; j < 8; j++)
+            for (var i = 0; i < 8; i++)
+                for (var j = 0; j < 8; j++)
                     Tab[i, j] = this.Table[i, j];
             //Initiate a Object and Assignemt of a Clone to Construction of a Copy.
 
             AA = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, this.Row, this.Column, this.color, Tab, this.Order, false, this.Current
                 );
             AA.ArrangmentsChanged = ArrangmentsChanged;
-            for (int i = 0; i < AllDraw.SodierMovments; i++)
+            for (var i = 0; i < AllDraw.SodierMovments; i++)
             {
 
                 AA.SoldierThinking[i] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
@@ -151,8 +151,8 @@ namespace RefrigtzW
 
             }
             AA.Table = new int[8, 8];
-            for (int ii = 0; ii < 8; ii++)
-                for (int jj = 0; jj < 8; jj++)
+            for (var ii = 0; ii < 8; ii++)
+                for (var jj = 0; jj < 8; jj++)
                     AA.Table[ii, jj] = Tab[ii, jj];
             AA.RowS = RowS;
             AA.ColumnS = ColumnS;
