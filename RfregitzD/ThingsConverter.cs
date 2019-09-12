@@ -24,6 +24,11 @@ namespace RefrigtzDLL
         Color color;
         int Order;
         int Current = 0;
+        private int rowSource;
+        private int columnSource;
+        private int[,] tableS;
+        private int v;
+
         //AllDraw. THIS;
         public ThingsConverter()
         { }
@@ -42,6 +47,18 @@ namespace RefrigtzDLL
 
 
         }
+
+        public ThingsConverter(bool arrangmentsChanged, int rowSource, int columnSource, Color color, int[,] tableS, int order, int v)
+        {
+            ArrangmentsChanged = arrangmentsChanged;
+            this.rowSource = rowSource;
+            this.columnSource = columnSource;
+            this.color = color;
+            this.tableS = tableS;
+            Order = order;
+            this.v = v;
+        }
+
         //Convert Operation of Randomly All State Method.
         public bool ConvertOperation(int i, int j, Color a, int[,] Tab, int Ord, bool TB, int Cur)
         {
@@ -55,7 +72,8 @@ namespace RefrigtzDLL
                 Order = Ord;
                 Current = Cur;
                 //If Convert is Act and click tow time occured
-                if (!Convert && ActOfClickEqualTow)
+                if (!Convert && (ActOfClickEqualTow || AllDraw.StateCC || (!AllDraw.Person)))
+
                 {
                     Object O = new Object();
                     lock (O)

@@ -9069,6 +9069,38 @@ namespace RefrigtzDLL
                 return false;
             }
         }
+        void SoldierConversion(ref ThingsConverter t, int RowSource, int ColumnSource, int RowDestination, int ColumnDestination, int[,] TableS)
+        {
+
+            t.ConvertOperation((int)RowSource, (int)ColumnSource, color, TableS, Order, false, 0);
+
+            int[,] TableCon = new int[8, 8];
+
+            if (t.Convert)
+            {
+
+                TableS[RowSource, ColumnSource] = 0;
+                if (t.ConvertedToMinister)
+                    TableS[RowDestination, ColumnDestination] = 5;
+                else if (t.ConvertedToCastle)
+                    TableS[RowDestination, ColumnDestination] = 4;
+                else if (t.ConvertedToHourse)
+                    TableS[RowDestination, ColumnDestination] = 3;
+                else if (t.ConvertedToElefant)
+                    TableS[RowDestination, ColumnDestination] = 2;
+
+                if (Order == -1)
+                    TableS[RowDestination, ColumnDestination] *= -1;
+
+                /*for (int ik = 0; ik < 8; ik++)
+                {
+                    for (int jk = 0; jk < 8; jk++)
+                    {
+                        TableCon[ik, jk] = TableS[ik, jk];
+                    }
+                }*/
+            }
+        }
         void SolderThinkingChess(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
             Object O1 = new Object();
@@ -9089,11 +9121,13 @@ namespace RefrigtzDLL
                 ///When There is Movments.
                 if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[RowSource, ColumnSource], TableS, Order, RowSource, ColumnSource)).Rules(RowSource, ColumnSource, RowDestination, ColumnDestination, color, TableS[RowSource, ColumnSource], false))
                 {
-                    
-                        QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                        ThinkingAtRun = true; int CheckedM = 0;
 
-                        bool Sup = false;
+                    ThingsConverter t = new ThingsConverter(ArrangmentsChanged, RowSource, ColumnSource, color, TableS, Order,false, 0);
+
+                    QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                    ThinkingAtRun = true; int CheckedM = 0;
+
+                    bool Sup = false;
                     if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
                     {
                         IsSup.Add(true);
@@ -9114,185 +9148,192 @@ namespace RefrigtzDLL
                         Sup = false;
                     }
                     if (!Sup)
-                        {
+                    {
+SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestination, TableS);
+                        ///Add Table to List of Private.
+                        HitNumberSoldier.Add(TableS[RowDestination, ColumnDestination]);
 
-                            ///Add Table to List of Private.
-                            HitNumberSoldier.Add(TableS[RowDestination, ColumnDestination]);
-
-                            Object O = new Object();
-                            lock (O)
-                            {
-                                ThinkingRun = true;
-                            }
-                        }
-                        ///Predict Huristic.
-                        Object A = new object();
-                        lock (A)
+                        Object O = new Object();
+                        lock (O)
                         {
-                            //CalculateHuristics(true, 0, TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                            ThinkingRun = true;
                         }
-                        Object A1 = new object();
-                        lock (A1)
-                        {
-                            if (!Sup){NumbersOfAllNode++;}
-                        }
-                        int Killed = 0;
-                        if (!Sup)
+                    }
+                    ///Predict Huristic.
+                    Object A = new object();
+                    lock (A)
+                    {
+                        //CalculateHuristics(true, 0, TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                    }
+                    Object A1 = new object();
+                    lock (A1)
+                    {
+                        if (!Sup) { NumbersOfAllNode++; }
+                    }
+                    int Killed = 0;
+                    if (!Sup)
+                    {
+                        if ((!t.Convert))
                         {
                             Object A2 = new object();
                             lock (A2)
                             {
-                                Killed = TableS[RowDestination, ColumnDestination];
+                                Killed = TableConst[RowDestination, ColumnDestination];
                                 TableS[RowDestination, ColumnDestination] = TableS[RowSource, ColumnSource];
                                 TableS[RowSource, ColumnSource] = 0;
                             }
                         }
-
-
-
-                        //if (!Sup)
-                        {
-                            Object A3 = new object();
-                            lock (A3)
-                            {
-                                PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 1, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
-                                //{ ThinkingAtRun = false; return; }
-                            }
-                        }
-
-                        ///Store of Indexes Changes and Table in specific List.
-                        if (!Sup)
-                        {
-                            Object A4 = new object();
-                            lock (A4)
-                            {
-                                 int[] AS = new int[2];
-                                AS[0] = RowDestination;
-                                AS[1] = ColumnDestination;
-                                RowColumnSoldier.Add(AS);
-                                //RowColumn[Index, 0] = RowDestination;
-                                //RowColumn[Index, 1] = ColumnDestination;
-                                //Index+=1;
-                                TableListSolder.Add(CloneATable(TableS));
-                                IndexSoldier++;
-                            }
-                        }
-                        ///Wehn Predict of Operation Do operate a Predict of this movments.
-                        Object A5 = new object();
-                        lock (A5)
-                        {
-                            //Caused this for Stachostic results.
-                            if (!Sup) { CalculateHuristics(false, Killed, TableS, RowDestination, ColumnDestination, RowSource, ColumnSource, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour); }
-                        }
-
-                        //Calculate Huristic and Add to List and Cal Syntax.
-                        if (!Sup)
-                        {
-                            String H = "";
-                            Object A6 = new object();
-                            lock (A6)
-                            {
-                                double[] Hu = new double[10];
-                                //if (!(IsSup[j]))
-                                {
-                                    HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
-                                    if (IgnoreFromCheckandMateHuristic)
-                                        HuristicObjectDangourCheckMateValue = 0;
-                                    Hu[0] += HuristicAttackValue;
-                                    Hu[1] += HuristicMovementValue;
-                                    Hu[2] += HuristicSelfSupportedValue;
-                                    Hu[3] += HuristicObjectDangourCheckMateValue;
-                                    Hu[4] += HuristicKillerValue;
-                                    Hu[5] += HuristicReducedAttackValue;
-                                    Hu[6] += HeuristicDistabceOfCurrentMoveFromEnemyKingValue;
-                                    Hu[7] += HeuristicKingSafe;
-                                    Hu[8] = HeuristicFromCenter;
-                                    Hu[9] = HeuristicKingDangour;
-
-                                    H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
-                                    HuristicListSolder.Add(Hu);
-                                }
-                                /*else
-                                {
-                                    HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
-                                    if (IgnoreFromCheckandMateHuristic)
-                                        HuristicObjectDangourCheckMateValue = 0;
-                                    Hu[0] += HuristicAttackValue + HuristicAttackValueSup;
-                                    HuristicAttackValueSup = 0;
-                                    Hu[1] += HuristicMovementValue + HuristicMovementValueSup;
-                                    HuristicMovementValueSup = 0;
-                                    Hu[2] += HuristicSelfSupportedValue + HuristicSelfSupportedValueSup;
-                                    HuristicSelfSupportedValueSup = 0;
-                                    Hu[3] += HuristicObjectDangourCheckMateValue + HuristicObjectDangourCheckMateValueSup;
-                                    HuristicObjectDangourCheckMateValueSup = 0;
-                                    Hu[4] += HuristicKillerValue + HuristicKillerValueSup;
-                                    HuristicKillerValueSup = 0;
-                                    Hu[5] += HuristicReducedAttackValue + HuristicReducedAttackValueSup;
-                                    HuristicReducedAttackValueSup = 0;
-                                    Hu[6] += HeuristicDistabceOfCurrentMoveFromEnemyKingValue + HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
-                                    HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
-                                    Hu[7] += HeuristicKingSafe + HeuristicKingSafeSup;
-                                    HeuristicKingSafeSup = 0;
-                                    Hu[8] = HeuristicFromCenter + HeuristicFromCenterSup;
-                                    HeuristicFromCenterSup = 0;
-                                    Hu[9] = HeuristicKingDangour + HeuristicKingDangourSup;
-                                    HeuristicKingDangourSup = 0;
-                                    H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
-                                    HuristicListSolder.Add(Hu);
-                                    IsSup = false;
-                                }*/
-                            }
-                            Object O4 = new Object();
-                            lock (O4)
-                            {
-                                /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H);
-                                if (Order == 1)
-                                    AllDraw.OutPut.Append("\r\nThinking Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
-                                else
-                                    AllDraw.OutPut.Append("\r\nThinking Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
-                                */ThinkingLevel++;
-                                ThinkingAtRun = false;
-                            }
-                        }
                         else
                         {
-                            HuristicAttackValueSup += HuristicAttackValue;
-                            HuristicMovementValueSup += HuristicMovementValue;
-                            HuristicSelfSupportedValueSup += HuristicSelfSupportedValue;
-                            HuristicObjectDangourCheckMateValueSup += HuristicObjectDangourCheckMateValue;
-                            HuristicKillerValueSup += HuristicKillerValue;
-                            HuristicReducedAttackValueSup += HuristicReducedAttackValue;
-                            HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup += HeuristicDistabceOfCurrentMoveFromEnemyKingValue;
-                            HeuristicKingSafeSup += HeuristicKingSafe;
-                            HeuristicFromCenterSup += HeuristicFromCenter;
-                            HeuristicKingDangourSup += HeuristicKingDangour;
+                            Killed = TableConst[RowDestination, ColumnDestination];
+                        }
+                    }
+
+
+                    //if (!Sup)
+                    {
+                        Object A3 = new object();
+                        lock (A3)
+                        {
+                            PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 1, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                            //{ ThinkingAtRun = false; return; }
+                        }
+                    }
+
+                    ///Store of Indexes Changes and Table in specific List.
+                    if (!Sup)
+                    {
+                        Object A4 = new object();
+                        lock (A4)
+                        {
+                            int[] AS = new int[2];
+                            AS[0] = RowDestination;
+                            AS[1] = ColumnDestination;
+                            RowColumnSoldier.Add(AS);
+                            //RowColumn[Index, 0] = RowDestination;
+                            //RowColumn[Index, 1] = ColumnDestination;
+                            //Index+=1;
+                            TableListSolder.Add(CloneATable(TableS));
+                            IndexSoldier++;
+                        }
+                    }
+                    ///Wehn Predict of Operation Do operate a Predict of this movments.
+                    Object A5 = new object();
+                    lock (A5)
+                    {
+                        //Caused this for Stachostic results.
+                        if (!Sup) { CalculateHuristics(false, Killed, TableS, RowDestination, ColumnDestination, RowSource, ColumnSource, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour); }
+                    }
+
+                    //Calculate Huristic and Add to List and Cal Syntax.
+                    if (!Sup)
+                    {
+                        String H = "";
+                        Object A6 = new object();
+                        lock (A6)
+                        {
                             double[] Hu = new double[10];
-                            Hu[0] = HuristicAttackValueSup;
-                            //HuristicAttackValueSup = 0;
-                            Hu[1] = HuristicMovementValueSup;
-                            //HuristicMovementValueSup = 0;
-                            Hu[2] = HuristicSelfSupportedValueSup;
-                            //HuristicSelfSupportedValueSup = 0;
-                            Hu[3] = HuristicObjectDangourCheckMateValueSup;
-                            //HuristicObjectDangourCheckMateValueSup = 0;
-                            Hu[4] = HuristicKillerValueSup;
-                            //HuristicKillerValueSup = 0;
-                            Hu[5] = HuristicReducedAttackValueSup;
-                            //HuristicReducedAttackValueSup = 0;
-                            Hu[6] = HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
-                            //HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
-                            Hu[7] = HeuristicKingSafeSup;
-                            //HeuristicKingSafeSup = 0;
-                            Hu[8] = HeuristicFromCenterSup;
-                            //HeuristicFromCenterSup = 0;
-                            Hu[9] = HeuristicKingDangourSup;
-                            //HeuristicKingDangourSup = 0;
-                            String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
+                            //if (!(IsSup[j]))
+                            {
+                                HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
+                                if (IgnoreFromCheckandMateHuristic)
+                                    HuristicObjectDangourCheckMateValue = 0;
+                                Hu[0] += HuristicAttackValue;
+                                Hu[1] += HuristicMovementValue;
+                                Hu[2] += HuristicSelfSupportedValue;
+                                Hu[3] += HuristicObjectDangourCheckMateValue;
+                                Hu[4] += HuristicKillerValue;
+                                Hu[5] += HuristicReducedAttackValue;
+                                Hu[6] += HeuristicDistabceOfCurrentMoveFromEnemyKingValue;
+                                Hu[7] += HeuristicKingSafe;
+                                Hu[8] = HeuristicFromCenter;
+                                Hu[9] = HeuristicKingDangour;
+
+                                H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
+                                HuristicListSolder.Add(Hu);
+                            }
+                            /*else
+                            {
+                                HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
+                                if (IgnoreFromCheckandMateHuristic)
+                                    HuristicObjectDangourCheckMateValue = 0;
+                                Hu[0] += HuristicAttackValue + HuristicAttackValueSup;
+                                HuristicAttackValueSup = 0;
+                                Hu[1] += HuristicMovementValue + HuristicMovementValueSup;
+                                HuristicMovementValueSup = 0;
+                                Hu[2] += HuristicSelfSupportedValue + HuristicSelfSupportedValueSup;
+                                HuristicSelfSupportedValueSup = 0;
+                                Hu[3] += HuristicObjectDangourCheckMateValue + HuristicObjectDangourCheckMateValueSup;
+                                HuristicObjectDangourCheckMateValueSup = 0;
+                                Hu[4] += HuristicKillerValue + HuristicKillerValueSup;
+                                HuristicKillerValueSup = 0;
+                                Hu[5] += HuristicReducedAttackValue + HuristicReducedAttackValueSup;
+                                HuristicReducedAttackValueSup = 0;
+                                Hu[6] += HeuristicDistabceOfCurrentMoveFromEnemyKingValue + HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+                                HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+                                Hu[7] += HeuristicKingSafe + HeuristicKingSafeSup;
+                                HeuristicKingSafeSup = 0;
+                                Hu[8] = HeuristicFromCenter + HeuristicFromCenterSup;
+                                HeuristicFromCenterSup = 0;
+                                Hu[9] = HeuristicKingDangour + HeuristicKingDangourSup;
+                                HeuristicKingDangourSup = 0;
+                                H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
+                                HuristicListSolder.Add(Hu);
+                                IsSup = false;
+                            }*/
+                        }
+                        Object O4 = new Object();
+                        lock (O4)
+                        {
+                            /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H);
+                            if (Order == 1)
+                                AllDraw.OutPut.Append("\r\nThinking Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                            else
+                                AllDraw.OutPut.Append("\r\nThinking Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
+                            */
+                            ThinkingLevel++;
+                            ThinkingAtRun = false;
+                        }
+                    }
+                    else
+                    {
+                        HuristicAttackValueSup += HuristicAttackValue;
+                        HuristicMovementValueSup += HuristicMovementValue;
+                        HuristicSelfSupportedValueSup += HuristicSelfSupportedValue;
+                        HuristicObjectDangourCheckMateValueSup += HuristicObjectDangourCheckMateValue;
+                        HuristicKillerValueSup += HuristicKillerValue;
+                        HuristicReducedAttackValueSup += HuristicReducedAttackValue;
+                        HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup += HeuristicDistabceOfCurrentMoveFromEnemyKingValue;
+                        HeuristicKingSafeSup += HeuristicKingSafe;
+                        HeuristicFromCenterSup += HeuristicFromCenter;
+                        HeuristicKingDangourSup += HeuristicKingDangour;
+                        double[] Hu = new double[10];
+                        Hu[0] = HuristicAttackValueSup;
+                        //HuristicAttackValueSup = 0;
+                        Hu[1] = HuristicMovementValueSup;
+                        //HuristicMovementValueSup = 0;
+                        Hu[2] = HuristicSelfSupportedValueSup;
+                        //HuristicSelfSupportedValueSup = 0;
+                        Hu[3] = HuristicObjectDangourCheckMateValueSup;
+                        //HuristicObjectDangourCheckMateValueSup = 0;
+                        Hu[4] = HuristicKillerValueSup;
+                        //HuristicKillerValueSup = 0;
+                        Hu[5] = HuristicReducedAttackValueSup;
+                        //HuristicReducedAttackValueSup = 0;
+                        Hu[6] = HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+                        //HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+                        Hu[7] = HeuristicKingSafeSup;
+                        //HeuristicKingSafeSup = 0;
+                        Hu[8] = HeuristicFromCenterSup;
+                        //HeuristicFromCenterSup = 0;
+                        Hu[9] = HeuristicKingDangourSup;
+                        //HeuristicKingDangourSup = 0;
+                        String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
 
                         Object A4 = new object();
                         lock (A4)
                         {
-                             int[] AS = new int[2];
+                            int[] AS = new int[2];
                             AS[0] = RowDestination;
                             AS[1] = ColumnDestination;
                             RowColumnSoldier.Add(AS);
@@ -9313,9 +9354,9 @@ namespace RefrigtzDLL
                                 AllDraw.OutPut.Append("\r\nThinking Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                             */
                         ThinkingAtRun = false;
-                        }
-                        
-                   
+                    }
+
+
                 }
             }
             ThinkingAtRun = false;

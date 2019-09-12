@@ -55,7 +55,7 @@ namespace QuantumRefrigiz
                 Order = Ord;
                 Current = Cur;
                 //If Convert is Act and click tow time occured
-                if (!Convert && ActOfClickEqualTow)
+                if (!Convert && (ActOfClickEqualTow || AllDraw.StateCC || (!AllDraw.Person)))
                 {
                     Object O = new Object();
                     lock (O)

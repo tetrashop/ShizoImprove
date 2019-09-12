@@ -191,6 +191,7 @@ namespace RefrigtzDLL
         public static String THIScomboBoxMaxLevelText = "";
         public static AllDraw THISDummy = null;
         public static bool StateCP = false;
+        public static bool StateCC = false;
         public static int LastRow = -1;
         public static int LastColumn = -1;
         public static int NextRow = -1;
@@ -13569,22 +13570,22 @@ if (Kind == 2)
                     else
                     {
                         Object O = new Object();
-                        lock (O)
+                    lock (O)
+                    {
+                        Order = DummyOrder;
+                        ChessRules.CurrentOrder = DummyCurrentOrder;
+                        int Ord = Order, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
+                        //System.Threading.Thread.Sleep(2);
+                        //Parallel.Invoke(() =>
                         {
-                            Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                            int Ord = Order, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
-                            //System.Threading.Thread.Sleep(2);
-                            //Parallel.Invoke(() =>
-                            {
-                                Do = this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
-                                /*tFullGameThinkingTree = new Task(new Action(() => Do = this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy)));
-                                tFullGameThinkingTree.Start();
-                                T.Add(tFullGameThinkingTree);*/
+                            Do = this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
+                            /*tFullGameThinkingTree = new Task(new Action(() => Do = this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy)));
+                            tFullGameThinkingTree.Start();
+                            T.Add(tFullGameThinkingTree);*/
 
 
-                            }//);
-                        }
+                        }//);
+                    }
 
 
                         Object Om = new Object();

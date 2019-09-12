@@ -212,6 +212,7 @@ namespace QuantumRefrigiz
         public static String THIScomboBoxMaxLevelText = "";
         public static AllDraw THISDummy = null;
         public static bool StateCP = false;
+        public static bool StateCC = false;
         public static int LastRow = -1;
         public static int LastColumn = -1;
         public static int NextRow = -1;
