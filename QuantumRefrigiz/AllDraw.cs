@@ -12970,7 +12970,7 @@ if (Kind == 2)
                         IS = true;
                     }
                 }
-                if ((ThinkingQuantumChess.FoundFirstMating >= MaxAStarGreedy)) //|| (SetDeptIgnore))
+                if ((ThinkingQuantumChess.FoundFirstMating > MaxAStarGreedy)) //|| (SetDeptIgnore))
                 {
                     OutPut.Append( "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstMating.ToString());
                     IS = true;
@@ -13044,7 +13044,7 @@ if (Kind == 2)
                         IS = true;
                     }
                 }
-                if ((ThinkingQuantumChess.FoundFirstMating >= MaxAStarGreedy)) //|| (SetDeptIgnore))
+                if ((ThinkingQuantumChess.FoundFirstMating > MaxAStarGreedy)) //|| (SetDeptIgnore))
                 {
                     OutPut.Append( "\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstMating.ToString());
                     IS = true;

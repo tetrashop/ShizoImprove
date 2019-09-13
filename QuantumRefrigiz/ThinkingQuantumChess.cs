@@ -8549,7 +8549,7 @@ namespace QuantumRefrigiz
                                 RemoveAtList(kind);
                                 AddAtList(kind, Current);
                                 CheckedM = 3;
-                                //return true;
+                                return true;
                             }
 
 
@@ -8568,7 +8568,7 @@ namespace QuantumRefrigiz
                                 Current.LearningAlgorithmRegard();
                                 AddAtList(kind, Current);
                                 CheckedM = 3;
-                                //return true;
+                                return true;
                             }
                         }
                         if (//(AllDraw.OrderPlate == -1 && AA.CheckBrown)|| 
@@ -8585,7 +8585,7 @@ namespace QuantumRefrigiz
                                 RemoveAtList(kind);
                                 AddAtList(kind, Current);
                                 CheckedM = 3;
-                                //return true;
+                                return true;
                             }
 
 
@@ -8604,7 +8604,7 @@ namespace QuantumRefrigiz
                                 Current.LearningAlgorithmPenalty();
                                 AddAtList(kind, Current);
                                 CheckedM = 3;
-                                //return true;
+                                return true;
                             }
                         }
 
@@ -8619,7 +8619,7 @@ namespace QuantumRefrigiz
                                 Current.LearningAlgorithmPenalty();
                                 AddAtList(kind, Current);
                                 CheckedM = 3;
-                                //return true;
+                                return true;
                             }*/
                         }
 
@@ -8628,28 +8628,28 @@ namespace QuantumRefrigiz
                             DoEnemySelf = false;
                             EnemyCheckMateActionsString = true;
                             CheckedM = -2;
-                            //return true;
+                            return true;
                         }
                         if (Order == -1 && AA.CheckMateGray)
                         {
                             DoEnemySelf = false;
                             EnemyCheckMateActionsString = true;
                             CheckedM = -2;
-                            //return true;
+                            return true;
                         }
                         if (Order == 1 && AA.CheckMateGray)
                         {
 
                             EnemyCheckMateActionsString = false;
                             CheckedM = -2;
-                            //return true;
+                            return true;
                         }
                         if (Order == -1 && AA.CheckMateBrown)
                         {
 
                             EnemyCheckMateActionsString = false;
                             CheckedM = -2;
-                            //return true;
+                            return true;
                         }
 
                         if (Order == 1 && AA.CheckGray)
@@ -8661,7 +8661,7 @@ namespace QuantumRefrigiz
                                 NumberOfPenalties++;
                             }
                             CheckedM = -1;
-                            //return true;
+                            return true;
                         }
                         else
                             if (Order == -1 && AA.CheckBrown)
@@ -8673,7 +8673,7 @@ namespace QuantumRefrigiz
                                 NumberOfPenalties++;
                             }
                             CheckedM = -1;
-                            //return true;
+                            return true;
                         }
                     }
                     if (RETURN)

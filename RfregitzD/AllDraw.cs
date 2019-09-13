@@ -12947,7 +12947,7 @@ if (Kind == 2)
                         IS = true;
                     }
                 }
-                if ((ThinkingChess.FoundFirstMating >= MaxAStarGreedy)) //|| (SetDeptIgnore))
+                if ((ThinkingChess.FoundFirstMating > MaxAStarGreedy)) //|| (SetDeptIgnore))
                 {
                     OutPut.Append("\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString());
                     IS = true;
@@ -13021,7 +13021,7 @@ if (Kind == 2)
                         IS = true;
                     }
                 }
-                if ((ThinkingChess.FoundFirstMating >= MaxAStarGreedy)) //|| (SetDeptIgnore))
+                if ((ThinkingChess.FoundFirstMating > MaxAStarGreedy)) //|| (SetDeptIgnore))
                 {
                     OutPut.Append("\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString());
                     IS = true;

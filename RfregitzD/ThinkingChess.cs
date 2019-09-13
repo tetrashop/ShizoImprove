@@ -8542,7 +8542,7 @@ namespace RefrigtzDLL
                                 RemoveAtList(kind);
                                 AddAtList(kind, Current);
                                 CheckedM = 3;
-                                //return true;
+                                return true;
                             }
 
 
@@ -8561,7 +8561,7 @@ namespace RefrigtzDLL
                                 Current.LearningAlgorithmRegard();
                                 AddAtList(kind, Current);
                                 CheckedM = 3;
-                                //return true;
+                                return true;
                             }
                         }
                         if (//(AllDraw.OrderPlate == -1 && AA.CheckBrown)|| 
@@ -8578,7 +8578,7 @@ namespace RefrigtzDLL
                                 RemoveAtList(kind);
                                 AddAtList(kind, Current);
                                 CheckedM = 3;
-                                //return true;
+                                return true;
                             }
 
 
@@ -8597,7 +8597,7 @@ namespace RefrigtzDLL
                                 Current.LearningAlgorithmPenalty();
                                 AddAtList(kind, Current);
                                 CheckedM = 3;
-                                //return true;
+                                return true;
                             }
                         }
 
@@ -8621,28 +8621,28 @@ namespace RefrigtzDLL
                             DoEnemySelf = false;
                             EnemyCheckMateActionsString= true;
                             CheckedM = -2;
-                            //return true;
+                            return true;
                         }
                         if (Order == -1 && AA.CheckMateGray)
                         {
                             DoEnemySelf = false;
                             EnemyCheckMateActionsString= true;
                             CheckedM = -2;
-                            //return true;
+                            return true;
                         }
                         if (Order == 1 && AA.CheckMateGray)
                         {
 
                             EnemyCheckMateActionsString = false;
                             CheckedM = -2;
-                            //return true;
+                            return true;
                         }
                         if (Order == -1 && AA.CheckMateBrown)
                         {
 
                             EnemyCheckMateActionsString= false;
                             CheckedM = -2;
-                            //return true;
+                            return true;
                         }
 
                         if (Order == 1 && AA.CheckGray)
@@ -8654,7 +8654,7 @@ namespace RefrigtzDLL
                                 NumberOfPenalties++;
                             }
                             CheckedM = -1;
-                            //return true;
+                            return true;
                         }
                         else
                             if (Order == -1 && AA.CheckBrown)
@@ -8666,7 +8666,7 @@ namespace RefrigtzDLL
                                 NumberOfPenalties++;
                             }
                             CheckedM = -1;
-                            //return true;
+                            return true;
                         }
                     }
                     if (RETURN)
