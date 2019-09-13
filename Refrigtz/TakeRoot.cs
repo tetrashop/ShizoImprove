@@ -10,6 +10,9 @@ namespace Refrigtz
     [Serializable]
     public class TakeRoot
     {
+        public static int AllDrawKind = 0;//0,1,2,3,4,5,6
+        public static String AllDrawKindString = "";
+
         public RefrigtzDLL.AllDraw t = null;
         public QuantumRefrigiz.AllDraw tt = null;
 
@@ -26,14 +29,43 @@ namespace Refrigtz
             }
             catch (Exception t) { Log(t); }
         }
+        void SetAllDrawKindString()
+        {
+            if (AllDrawKind == 4)
+                AllDrawKindString = "AllDrawBT.asd";//Both True
+            else
+                if (AllDrawKind == 3)
+                AllDrawKindString = "AllDrawFFST.asd";//First false second true
+            else
+                if (AllDrawKind == 2)
+                AllDrawKindString = "AllDrawFTSF.asd";//First true second false
+            else
+                if (AllDrawKind == 1)
+                AllDrawKindString = "AllDrawFFSF.asd";//Fist false second false
+
+
+        }
 
         public bool Load(bool Quantum,FormRefrigtz Curent, ref bool LoadTree, bool MovementsAStarGreedyHuristicFound, bool IInoreSelfObjects, bool UsePenaltyRegardMechnisam, bool BestMovments, bool PredictHuristic, bool OnlySelf, bool AStarGreedyHuristic, bool ArrangmentsChanged)
         {
+            if (UsePenaltyRegardMechnisam && AStarGreedyHuristic)
+                AllDrawKind = 4;
+            else
+                                                 if ((!UsePenaltyRegardMechnisam) && AStarGreedyHuristic)
+                AllDrawKind = 3;
+            if (UsePenaltyRegardMechnisam && (!AStarGreedyHuristic))
+                AllDrawKind = 2;
+            if ((!UsePenaltyRegardMechnisam) && (!AStarGreedyHuristic))
+                AllDrawKind = 1;
+            //Set Configuration To True for some unknown reason!.
+            //UpdateConfigurationTableVal = true;                             
+            SetAllDrawKindString();
+
             bool DrawDrawen = false;
             //Load Middle Targets.
             try
             {
-                if (File.Exists("AllDraw.asd"))
+                if (File.Exists(FormRefrigtz.AllDrawKindString))
                 {
                     if (FormRefrigtz.MovmentsNumber >= 0)
                     {
@@ -80,7 +112,7 @@ namespace Refrigtz
                             }
                         }
                     }
-                    File.Delete("AllDraw.asd");
+                    File.Delete(FormRefrigtz.AllDrawKindString);
                 }
             }
             catch (Exception t) { Log(t); }
@@ -88,9 +120,22 @@ namespace Refrigtz
         }
         public bool Save(bool Quantum, FormRefrigtz Curent, ref bool LoadTree, bool MovementsAStarGreedyHuristicFound, bool IInoreSelfObjects, bool UsePenaltyRegardMechnisam, bool BestMovments, bool PredictHuristic, bool OnlySelf, bool AStarGreedyHuristic, bool ArrangmentsChanged)
         {
+            if (UsePenaltyRegardMechnisam && AStarGreedyHuristic)
+                AllDrawKind = 4;
+            else
+                                                 if ((!UsePenaltyRegardMechnisam) && AStarGreedyHuristic)
+                AllDrawKind = 3;
+            if (UsePenaltyRegardMechnisam && (!AStarGreedyHuristic))
+                AllDrawKind = 2;
+            if ((!UsePenaltyRegardMechnisam) && (!AStarGreedyHuristic))
+                AllDrawKind = 1;
+            //Set Configuration To True for some unknown reason!.
+            //UpdateConfigurationTableVal = true;                             
+            SetAllDrawKindString();
+
             try
             {
-                if (!File.Exists("AllDraw.asd"))
+                if (!File.Exists(AllDrawKindString))
                 {
                     GalleryStudio.RefregizMemmory rt = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged
                         );
@@ -127,9 +172,9 @@ namespace Refrigtz
                     }
                 }
                 else
-                      if (File.Exists("AllDraw.asd"))
+                      if (File.Exists(AllDrawKindString))
                 {
-                    File.Delete("AllDraw.asd");
+                    File.Delete(FormRefrigtz.AllDrawKindString);
                     GalleryStudio.RefregizMemmory rt = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged
                         );
                     //"Universal Root Founding";

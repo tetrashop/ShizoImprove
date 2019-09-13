@@ -17,6 +17,9 @@ namespace GalleryStudio
 
     public class RefregizMemmory //:AllDraw
     {
+        public static int AllDrawKind = 0;//0,1,2,3,4,5,6
+        public static String AllDrawKindString = "";
+
         public int iii = 0, jjj = 0;
         public bool MovementsAStarGreedyHuristicFoundT = false;
         public bool IgnoreSelfObjectsT = false;
@@ -26,7 +29,7 @@ namespace GalleryStudio
         public bool OnlySelfT = false;
         public bool AStarGreedyHuristicT = false;
         public bool ArrangmentsT = false;
-        const string SAllDraw = "AllDraw.asd";
+        string SAllDraw = "";
         public int Kind = 0;
         static GalleryStudio.RefregizMemmory Node;
         RefrigtzDLL.AllDraw Current = null;
@@ -51,9 +54,39 @@ namespace GalleryStudio
                 }
            
         }
+        void SetAllDrawKindString()
+        {
+            if (AllDrawKind == 4)
+                AllDrawKindString = "AllDrawBT.asd";//Both True
+            else
+                if (AllDrawKind == 3)
+                AllDrawKindString = "AllDrawFFST.asd";//First false second true
+            else
+                if (AllDrawKind == 2)
+                AllDrawKindString = "AllDrawFTSF.asd";//First true second false
+            else
+                if (AllDrawKind == 1)
+                AllDrawKindString = "AllDrawFFSF.asd";//Fist false second false
+
+
+        }
         public RefregizMemmory(bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments//) : base(MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments
             )
         {
+            if (UsePenaltyRegardMechnisa && AStarGreedyHuris)
+                AllDrawKind = 4;
+            else
+                                           if ((!UsePenaltyRegardMechnisa) && AStarGreedyHuris)
+                AllDrawKind = 3;
+            if (UsePenaltyRegardMechnisa && (!AStarGreedyHuris))
+                AllDrawKind = 2;
+            if ((!UsePenaltyRegardMechnisa) && (!AStarGreedyHuris))
+                AllDrawKind = 1;
+            //Set Configuration To True for some unknown reason!.
+            //UpdateConfigurationTableVal = true;                             
+            SetAllDrawKindString();
+            SAllDraw = AllDrawKindString;
+
             NextS = new List<RefregizMemmory>();
             NextE = new List<RefregizMemmory>();
             NextH = new List<RefregizMemmory>();
@@ -66,11 +99,11 @@ namespace GalleryStudio
             {
                 MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
                 IgnoreSelfObjectsT = IgnoreSelfObject;
-                UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
+                UsePenaltyRegardMechnisa = UsePenaltyRegardMechnisa;
                 BestMovmentsT = BestMovment;
                 PredictHuristicT = PredictHurist;
                 OnlySelfT = OnlySel;
-                AStarGreedyHuristicT = AStarGreedyHuris;
+                AStarGreedyHuris = AStarGreedyHuris;
                 ArrangmentsT = Arrangments;
             }
 

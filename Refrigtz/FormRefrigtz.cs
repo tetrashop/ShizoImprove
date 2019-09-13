@@ -89,6 +89,9 @@ namespace Refrigtz
     //Constructor
     public partial class FormRefrigtz : Form
     {
+        public static int AllDrawKind = 0;//0,1,2,3,4,5,6
+        public static String AllDrawKindString = "";
+
         bool MenueSelecte = false;
         String path3 = @"temp";       
         String AllDrawReplacement = "";
@@ -395,7 +398,7 @@ namespace Refrigtz
                                 a = Color.Brown;
                             RefrigtzDLL.ChessRules AA = new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, OrderPlate);
 
-                            //if (!UsePenaltyRegardMechnisamT)
+                            //if (!UsePenaltyRegardMechnisam)
                             if (AA.CheckMate(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1], OrderPlate))
                             {
                                 if (OrderPlate == 1 && AA.CheckMateGray)
@@ -1848,7 +1851,7 @@ namespace Refrigtz
                                 a = Color.Brown;
                             QuantumRefrigiz.ChessRules AA = new QuantumRefrigiz.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, OrderPlate);
 
-                            //if (!UsePenaltyRegardMechnisamT)
+                            //if (!UsePenaltyRegardMechnisam)
                             if (AA.CheckMate(QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 1], OrderPlate))
                             {
                                 if (OrderPlate == 1 && AA.CheckMateGray)
@@ -4074,17 +4077,30 @@ namespace Refrigtz
         }
         bool DrawManagement()
         {
+            if (UsePenaltyRegardMechnisam && AStarGreedyHuristic)
+                AllDrawKind = 4;
+            else
+                                  if ((!UsePenaltyRegardMechnisam) && AStarGreedyHuristic)
+                AllDrawKind = 3;
+            if (UsePenaltyRegardMechnisam && (!AStarGreedyHuristic))
+                AllDrawKind = 2;
+            if ((!UsePenaltyRegardMechnisam) && (!AStarGreedyHuristic))
+                AllDrawKind = 1;
+            //Set Configuration To True for some unknown reason!.
+            //UpdateConfigurationTableVal = true;                             
+            SetAllDrawKindString();
+
             bool Found = false;
             String P = Path.GetFullPath(path3);
-            AllDrawReplacement = Path.Combine(P, "AllDraw.asd");
-            if (File.Exists("AllDraw.asd"))
+            AllDrawReplacement = Path.Combine(P, AllDrawKindString);
+            if (File.Exists(AllDrawKindString))
             {
                 if (File.Exists(AllDrawReplacement))
                 {
-                    if (((new System.IO.FileInfo("AllDraw.asd").Length) < (new System.IO.FileInfo(AllDrawReplacement)).Length))
+                    if (((new System.IO.FileInfo(AllDrawKindString).Length) < (new System.IO.FileInfo(AllDrawReplacement)).Length))
                     {
-                        File.Delete("AllDraw.asd");
-                        File.Copy(AllDrawReplacement, "AllDraw.asd");
+                        File.Delete(AllDrawKindString);
+                        File.Copy(AllDrawReplacement, AllDrawKindString);
                         Found = true;
                     }
 
@@ -4092,7 +4108,7 @@ namespace Refrigtz
                     {
                         if (File.Exists(AllDrawReplacement))
                             File.Delete(AllDrawReplacement);
-                        File.Copy("AllDraw.asd", AllDrawReplacement);
+                        File.Copy(AllDrawKindString, AllDrawReplacement);
                         Found = true;
                     }
                 }
@@ -4100,18 +4116,35 @@ namespace Refrigtz
                 {
                     if (!Directory.Exists(Path.GetFullPath(path3)))
                         Directory.CreateDirectory(Path.GetFullPath(path3));
-                    File.Copy("AllDraw.asd", AllDrawReplacement);
+                    File.Copy(AllDrawKindString, AllDrawReplacement);
                     Found = true;
 
                 }
             }
             else if (File.Exists(AllDrawReplacement))
             {
-                File.Copy(AllDrawReplacement, "AllDraw.asd");
+                File.Copy(AllDrawReplacement, AllDrawKindString);
                 Found = true;
             }
+           
             return Found;
-        } 
+        }
+        void SetAllDrawKindString()
+        {
+            if (AllDrawKind == 4)
+                AllDrawKindString = "AllDrawBT.asd";//Both True
+            else
+                if (AllDrawKind == 3)
+                AllDrawKindString = "AllDrawFFST.asd";//First false second true
+            else
+                if (AllDrawKind == 2)
+                AllDrawKindString = "AllDrawFTSF.asd";//First true second false
+            else
+                if (AllDrawKind == 1)
+                AllDrawKindString = "AllDrawFFSF.asd";//Fist false second false
+
+
+        }
         //Load Refregitz Form.
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -4229,11 +4262,21 @@ namespace Refrigtz
 
                             //When Configuration is Allowed Read Configuration.
                             ReadConfigurationTable();
-
+                            if (UsePenaltyRegardMechnisam && AStarGreedyHuristic)                            
+                                AllDrawKind = 4;                           
+                            else
+                                if ((!UsePenaltyRegardMechnisam) && AStarGreedyHuristic)
+                                AllDrawKind = 3;
+                            if (UsePenaltyRegardMechnisam && (!AStarGreedyHuristic))
+                                AllDrawKind = 2;
+                            if ((!UsePenaltyRegardMechnisam) && (!AStarGreedyHuristic))
+                                AllDrawKind = 1;
                             //Set Configuration To True for some unknown reason!.
-                            //UpdateConfigurationTableVal = true;
-                            //Read Last Table and Set MovementNumber  
+                            //UpdateConfigurationTableVal = true;                             
+                            SetAllDrawKindString();
 
+
+                            //Read Last Table and Set MovementNumber 
                             Table = ReadTable(0, ref MovmentsNumber);
 
                             if (DrawManagement())
@@ -12223,6 +12266,19 @@ namespace Refrigtz
                             }
                             else
                             {
+                                if (UsePenaltyRegardMechnisam && AStarGreedyHuristic)
+                                    AllDrawKind = 4;
+                                else
+                                               if ((!UsePenaltyRegardMechnisam) && AStarGreedyHuristic)
+                                    AllDrawKind = 3;
+                                if (UsePenaltyRegardMechnisam && (!AStarGreedyHuristic))
+                                    AllDrawKind = 2;
+                                if ((!UsePenaltyRegardMechnisam) && (!AStarGreedyHuristic))
+                                    AllDrawKind = 1;
+                                //Set Configuration To True for some unknown reason!.
+                                //UpdateConfigurationTableVal = true;                             
+                                SetAllDrawKindString();
+
                                 (new TakeRoot()).Save(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                                 DrawManagement();
 
@@ -12238,6 +12294,19 @@ namespace Refrigtz
                         }
                         else
                         {
+                            if (UsePenaltyRegardMechnisam && AStarGreedyHuristic)
+                                AllDrawKind = 4;
+                            else
+                                               if ((!UsePenaltyRegardMechnisam) && AStarGreedyHuristic)
+                                AllDrawKind = 3;
+                            if (UsePenaltyRegardMechnisam && (!AStarGreedyHuristic))
+                                AllDrawKind = 2;
+                            if ((!UsePenaltyRegardMechnisam) && (!AStarGreedyHuristic))
+                                AllDrawKind = 1;
+                            //Set Configuration To True for some unknown reason!.
+                            //UpdateConfigurationTableVal = true;                             
+                            SetAllDrawKindString();
+
                             (new TakeRoot()).Save(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                             DrawManagement();
 
@@ -12253,6 +12322,19 @@ namespace Refrigtz
                     }
                     else
                     {
+                        if (UsePenaltyRegardMechnisam && AStarGreedyHuristic)
+                            AllDrawKind = 4;
+                        else
+                                               if ((!UsePenaltyRegardMechnisam) && AStarGreedyHuristic)
+                            AllDrawKind = 3;
+                        if (UsePenaltyRegardMechnisam && (!AStarGreedyHuristic))
+                            AllDrawKind = 2;
+                        if ((!UsePenaltyRegardMechnisam) && (!AStarGreedyHuristic))
+                            AllDrawKind = 1;
+                        //Set Configuration To True for some unknown reason!.
+                        //UpdateConfigurationTableVal = true;                             
+                        SetAllDrawKindString();
+
                         (new TakeRoot()).Save(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                         DrawManagement();
 
@@ -12355,6 +12437,19 @@ namespace Refrigtz
                             }
                             else
                             {
+                                if (UsePenaltyRegardMechnisam && AStarGreedyHuristic)
+                                    AllDrawKind = 4;
+                                else
+                                               if ((!UsePenaltyRegardMechnisam) && AStarGreedyHuristic)
+                                    AllDrawKind = 3;
+                                if (UsePenaltyRegardMechnisam && (!AStarGreedyHuristic))
+                                    AllDrawKind = 2;
+                                if ((!UsePenaltyRegardMechnisam) && (!AStarGreedyHuristic))
+                                    AllDrawKind = 1;
+                                //Set Configuration To True for some unknown reason!.
+                                //UpdateConfigurationTableVal = true;                             
+                                SetAllDrawKindString();
+
                                 (new TakeRoot()).Save(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                                 DrawManagement();
 
@@ -12371,6 +12466,19 @@ namespace Refrigtz
                         }
                         else
                         {
+                            if (UsePenaltyRegardMechnisam && AStarGreedyHuristic)
+                                AllDrawKind = 4;
+                            else
+                                                 if ((!UsePenaltyRegardMechnisam) && AStarGreedyHuristic)
+                                AllDrawKind = 3;
+                            if (UsePenaltyRegardMechnisam && (!AStarGreedyHuristic))
+                                AllDrawKind = 2;
+                            if ((!UsePenaltyRegardMechnisam) && (!AStarGreedyHuristic))
+                                AllDrawKind = 1;
+                            //Set Configuration To True for some unknown reason!.
+                            //UpdateConfigurationTableVal = true;                             
+                            SetAllDrawKindString();
+
                             (new TakeRoot()).Save(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                             DrawManagement();
 
@@ -12386,6 +12494,19 @@ namespace Refrigtz
                     }
                     else
                     {
+                        if (UsePenaltyRegardMechnisam && AStarGreedyHuristic)
+                            AllDrawKind = 4;
+                        else
+                                                 if ((!UsePenaltyRegardMechnisam) && AStarGreedyHuristic)
+                            AllDrawKind = 3;
+                        if (UsePenaltyRegardMechnisam && (!AStarGreedyHuristic))
+                            AllDrawKind = 2;
+                        if ((!UsePenaltyRegardMechnisam) && (!AStarGreedyHuristic))
+                            AllDrawKind = 1;
+                        //Set Configuration To True for some unknown reason!.
+                        //UpdateConfigurationTableVal = true;                             
+                        SetAllDrawKindString();
+
                         (new TakeRoot()).Save(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                         DrawManagement();
 
@@ -12481,6 +12602,19 @@ namespace Refrigtz
                     sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.size());
                     sw.Flush();
                      */
+                    if (UsePenaltyRegardMechnisam && AStarGreedyHuristic)
+                        AllDrawKind = 4;
+                    else
+                                             if ((!UsePenaltyRegardMechnisam) && AStarGreedyHuristic)
+                        AllDrawKind = 3;
+                    if (UsePenaltyRegardMechnisam && (!AStarGreedyHuristic))
+                        AllDrawKind = 2;
+                    if ((!UsePenaltyRegardMechnisam) && (!AStarGreedyHuristic))
+                        AllDrawKind = 1;
+                    //Set Configuration To True for some unknown reason!.
+                    //UpdateConfigurationTableVal = true;                             
+                    SetAllDrawKindString();
+
                     (new TakeRoot()).Save(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                     MessageBox.Show("No Konwledgs to begin with stockfish! Please delete one node of last table and continue");
                     Application.ExitThread();
@@ -12980,6 +13114,19 @@ namespace Refrigtz
             Object O = new Object();
             lock (O)
             {
+                if (UsePenaltyRegardMechnisam && AStarGreedyHuristic)
+                    AllDrawKind = 4;
+                else
+                                                 if ((!UsePenaltyRegardMechnisam) && AStarGreedyHuristic)
+                    AllDrawKind = 3;
+                if (UsePenaltyRegardMechnisam && (!AStarGreedyHuristic))
+                    AllDrawKind = 2;
+                if ((!UsePenaltyRegardMechnisam) && (!AStarGreedyHuristic))
+                    AllDrawKind = 1;
+                //Set Configuration To True for some unknown reason!.
+                //UpdateConfigurationTableVal = true;                             
+                SetAllDrawKindString();
+
                 //Saved Midle Target.
                 (new TakeRoot()).Save(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
 
@@ -15039,6 +15186,18 @@ namespace Refrigtz
                             do { i++; } while (System.IO.File.Exists(Root + "\\Database\\Games\\CurrentBank" + i.ToString() + ".accdb"));
                             System.IO.File.Copy(Root + "\\Database\\CurrentBank.accdb", Root + "\\Database\\Games\\CurrentBank" + i.ToString() + ".accdb");
                             System.IO.File.Delete(Root + "\\Database\\CurrentBank.accdb");
+                            if (UsePenaltyRegardMechnisam && AStarGreedyHuristic)
+                                AllDrawKind = 4;
+                            else
+                                               if ((!UsePenaltyRegardMechnisam) && AStarGreedyHuristic)
+                                AllDrawKind = 3;
+                            if (UsePenaltyRegardMechnisam && (!AStarGreedyHuristic))
+                                AllDrawKind = 2;
+                            if ((!UsePenaltyRegardMechnisam) && (!AStarGreedyHuristic))
+                                AllDrawKind = 1;
+                            //Set Configuration To True for some unknown reason!.
+                            //UpdateConfigurationTableVal = true;                             
+                            SetAllDrawKindString();
                             (new TakeRoot()).Save(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                             Application.Exit();
                             return;
@@ -15110,14 +15269,38 @@ namespace Refrigtz
                             do { i++; } while (System.IO.File.Exists(Root + "\\Database\\Games\\CurrentBank" + i.ToString() + ".accdb"));
                             System.IO.File.Copy(Root + "\\Database\\CurrentBank.accdb", Root + "\\Database\\Games\\CurrentBank" + i.ToString() + ".accdb");
                             System.IO.File.Delete(Root + "\\Database\\CurrentBank.accdb");
+                            if (UsePenaltyRegardMechnisam && AStarGreedyHuristic)
+                                AllDrawKind = 4;
+                            else
+                                                    if ((!UsePenaltyRegardMechnisam) && AStarGreedyHuristic)
+                                AllDrawKind = 3;
+                            if (UsePenaltyRegardMechnisam && (!AStarGreedyHuristic))
+                                AllDrawKind = 2;
+                            if ((!UsePenaltyRegardMechnisam) && (!AStarGreedyHuristic))
+                                AllDrawKind = 1;
+                            //Set Configuration To True for some unknown reason!.
+                            //UpdateConfigurationTableVal = true;                             
+                            SetAllDrawKindString();
                             (new TakeRoot()).Save(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                             Application.Exit();
                             return;
                         }
                     }
                 }
+                if (UsePenaltyRegardMechnisam && AStarGreedyHuristic)
+                    AllDrawKind = 4;
+                else
+                                                              if ((!UsePenaltyRegardMechnisam) && AStarGreedyHuristic)
+                    AllDrawKind = 3;
+                if (UsePenaltyRegardMechnisam && (!AStarGreedyHuristic))
+                    AllDrawKind = 2;
+                if ((!UsePenaltyRegardMechnisam) && (!AStarGreedyHuristic))
+                    AllDrawKind = 1;
+                //Set Configuration To True for some unknown reason!.
+                //UpdateConfigurationTableVal = true;                             
+                SetAllDrawKindString();
 
-              (new TakeRoot()).Save(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                (new TakeRoot()).Save(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
 
                 Application.Exit();
             }
@@ -15206,6 +15389,18 @@ namespace Refrigtz
                             do { i++; } while (System.IO.File.Exists(Root + "\\Database\\Games\\CurrentBank" + i.ToString() + ".accdb"));
                             System.IO.File.Copy(Root + "\\Database\\CurrentBank.accdb", Root + "\\Database\\Games\\CurrentBank" + i.ToString() + ".accdb");
                             System.IO.File.Delete(Root + "\\Database\\CurrentBank.accdb");
+                            if (UsePenaltyRegardMechnisam && AStarGreedyHuristic)
+                                AllDrawKind = 4;
+                            else
+                                                 if ((!UsePenaltyRegardMechnisam) && AStarGreedyHuristic)
+                                AllDrawKind = 3;
+                            if (UsePenaltyRegardMechnisam && (!AStarGreedyHuristic))
+                                AllDrawKind = 2;
+                            if ((!UsePenaltyRegardMechnisam) && (!AStarGreedyHuristic))
+                                AllDrawKind = 1;
+                            //Set Configuration To True for some unknown reason!.
+                            //UpdateConfigurationTableVal = true;                             
+                            SetAllDrawKindString();
                             (new TakeRoot()).Save(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                             Application.Exit();
                             return;
@@ -15277,6 +15472,18 @@ namespace Refrigtz
                             do { i++; } while (System.IO.File.Exists(Root + "\\Database\\Games\\CurrentBank" + i.ToString() + ".accdb"));
                             System.IO.File.Copy(Root + "\\Database\\CurrentBank.accdb", Root + "\\Database\\Games\\CurrentBank" + i.ToString() + ".accdb");
                             System.IO.File.Delete(Root + "\\Database\\CurrentBank.accdb");
+                            if (UsePenaltyRegardMechnisam && AStarGreedyHuristic)
+                                AllDrawKind = 4;
+                            else
+                                                if ((!UsePenaltyRegardMechnisam) && AStarGreedyHuristic)
+                                AllDrawKind = 3;
+                            if (UsePenaltyRegardMechnisam && (!AStarGreedyHuristic))
+                                AllDrawKind = 2;
+                            if ((!UsePenaltyRegardMechnisam) && (!AStarGreedyHuristic))
+                                AllDrawKind = 1;
+                            //Set Configuration To True for some unknown reason!.
+                            //UpdateConfigurationTableVal = true;                             
+                            SetAllDrawKindString();
                             (new TakeRoot()).Save(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                             Application.Exit();
                             return;
@@ -15295,9 +15502,22 @@ namespace Refrigtz
                                 System.IO.File.AppendAllText(SFile, QuantumRefrigiz.AllDraw.QuntumTable[i, jj, kk].ToString() + ",");
                             }
                 }
-                (new TakeRoot()).Save(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+           /*     if (UsePenaltyRegardMechnisam && AStarGreedyHuristic)
+                    AllDrawKind = 4;
+                else
+                                 if ((!UsePenaltyRegardMechnisam) && AStarGreedyHuristic)
+                    AllDrawKind = 3;
+                if (UsePenaltyRegardMechnisam && (!AStarGreedyHuristic))
+                    AllDrawKind = 2;
+                if ((!UsePenaltyRegardMechnisam) && (!AStarGreedyHuristic))
+                    AllDrawKind = 1;
+                //Set Configuration To True for some unknown reason!.
+                //UpdateConfigurationTableVal = true;                             
+                SetAllDrawKindString();
 
-                Application.Exit();
+                (new TakeRoot()).Save(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+*/
+               Application.Exit();
             }
             catch (Exception t) { Log(t); }
         }
@@ -16730,6 +16950,18 @@ namespace Refrigtz
 
         private void FormRefrigtz_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (UsePenaltyRegardMechnisam && AStarGreedyHuristic)
+                AllDrawKind = 4;
+            else
+                                                     if ((!UsePenaltyRegardMechnisam) && AStarGreedyHuristic)
+                AllDrawKind = 3;
+            if (UsePenaltyRegardMechnisam && (!AStarGreedyHuristic))
+                AllDrawKind = 2;
+            if ((!UsePenaltyRegardMechnisam) && (!AStarGreedyHuristic))
+                AllDrawKind = 1;
+            //Set Configuration To True for some unknown reason!.
+            //UpdateConfigurationTableVal = true;                             
+            SetAllDrawKindString();
             (new TakeRoot()).Save(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
         }
 

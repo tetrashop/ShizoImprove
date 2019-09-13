@@ -87,6 +87,9 @@ namespace RefrigtzW
     //Constructor
     public partial class FormRefrigtz
     {
+        public static int AllDrawKind = 0;//0,1,2,3,4,5,6
+        public static String AllDrawKindString = "";
+
 
         //Initiate Global Variable.
         //public bool DisableTemporarlyTimerUpdate = false;
@@ -1244,6 +1247,22 @@ namespace RefrigtzW
                 System.Threading.Thread.Sleep(30);
             } while (true);
         }
+        void SetAllDrawKindString()
+        {
+            if (AllDrawKind == 4)
+                AllDrawKindString = "AllDrawBT.asd";//Both True
+            else
+                if (AllDrawKind == 3)
+                AllDrawKindString = "AllDrawFFST.asd";//First false second true
+            else
+                if (AllDrawKind == 2)
+                AllDrawKindString = "AllDrawFTSF.asd";//First true second false
+            else
+                if (AllDrawKind == 1)
+                AllDrawKindString = "AllDrawFFSF.asd";//Fist false second false
+
+
+        }
         public void Load()
         {
             var parallelOptions = new ParallelOptions();
@@ -1269,6 +1288,19 @@ namespace RefrigtzW
             oleDbCmd.Connection = bookConn;
 
             ReadConfigurationTable();
+
+            if (UsePenaltyRegardMechnisam && AStarGreedyHuristic)
+                AllDrawKind = 4;
+            else
+                               if ((!UsePenaltyRegardMechnisam) && AStarGreedyHuristic)
+                AllDrawKind = 3;
+            if (UsePenaltyRegardMechnisam && (!AStarGreedyHuristic))
+                AllDrawKind = 2;
+            if ((!UsePenaltyRegardMechnisam) && (!AStarGreedyHuristic))
+                AllDrawKind = 1;
+            //Set Configuration To True for some unknown reason!.
+            //UpdateConfigurationTableVal = true;                             
+            SetAllDrawKindString();
 
             bookConn.Close();
             bookConn.Dispose();
@@ -1403,7 +1435,7 @@ namespace RefrigtzW
                         ttt = new WebApplicationRefregitzTow._Default();
                     }
                 }
-                if (!File.Exists("AllDraw.asd"))
+                if (!File.Exists(FormRefrigtz.AllDrawKindString))
                 {
                     RefrigtzW.RefregizMemmory rt = new RefrigtzW.RefregizMemmory(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged
                         );
@@ -1416,9 +1448,9 @@ namespace RefrigtzW
                         }
                 }
                 else
-                    if (File.Exists("AllDraw.asd"))
+                    if (File.Exists(FormRefrigtz.AllDrawKindString))
                 {
-                    File.Delete("AllDraw.asd");
+                    File.Delete(FormRefrigtz.AllDrawKindString);
                     RefrigtzW.RefregizMemmory rt = new RefrigtzW.RefregizMemmory(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged
                         );
                     //"Universal Root Founding";
