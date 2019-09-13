@@ -1037,6 +1037,12 @@ if (Kind == 2)
                         for (int Column = 0; Column < 8; Column++)
                             for (int Row = 0; Row < 8; Row++)
                             {
+                               /* if (!TableZero(Tabl))
+                                {
+
+                                    if (TableEqual(TableList[index], Tabl))
+                                        return;
+                                }*/
                                 if (TableList[index][Row, Column] == 0)
                                     continue;
                                 //When Things are Soldiers.
@@ -1066,7 +1072,7 @@ if (Kind == 2)
                                                 SodierHigh++;
                                             }
 
-
+                                           
                                         }
                                         catch (Exception t)
                                         {
@@ -1425,7 +1431,13 @@ if (Kind == 2)
 
                 for (var i = Ki2; i < KingHigh; i++)
                     KingOnTable[i] = null;
-                SetRowColumnFinished = true;
+                if (TableList.Count > 0)
+                {
+                    for (var i = 0; i < 8; i++)
+                        for (var j = 0; j < 8; j++)
+                            Tabl[i, j] = TableList[0][i, j];
+                }
+                        SetRowColumnFinished = true;
             }
         }
         void SetRowColumnFinishedWait()
