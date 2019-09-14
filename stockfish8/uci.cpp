@@ -32,11 +32,10 @@
 #include "stdafx.h"
 
 using namespace std;
-bool UCI::Option::BestMove;
+
 
 extern void benchmark(const Position& pos, istream& is);
 bool UCI::Option::BestMove;
-
 namespace {
 	
 	string MoveToFrom = "";
@@ -49,7 +48,7 @@ namespace {
   StateListPtr States(new std::deque<StateInfo>(1));
 
 
- 
+ /*
   void Write(string input)
   {
 	  try{
@@ -80,7 +79,7 @@ namespace {
 		  return;
 	  }
 	  //MoveToFrom = "";
-  }
+  }*/
   // position() is called when engine receives the "position" UCI command.
   // The function sets up the position described in the given FEN string ("fen")
   // or the starting position ("startpos") and then makes the moves given in the
@@ -231,7 +230,7 @@ void UCI::loop(int argc, char* argv[]) {
 
       // Additional custom non-UCI commands, useful for debugging
       else if (token == "flip")       pos.flip();
-	  else if (token == "wr")         Write(MoveToFrom);
+	  //else if (token == "wr")         Write(MoveToFrom);
       else if (token == "bench")      benchmark(pos, is);
       else if (token == "d")          sync_cout << pos << sync_endl;
       else if (token == "eval")       sync_cout << Eval::trace(pos) << sync_endl;
