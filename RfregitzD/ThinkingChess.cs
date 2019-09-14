@@ -6303,7 +6303,7 @@ namespace RefrigtzDLL
                             Object OOO = new Object();
                             lock (OOO)
                             {
-                                if (Order == -1)
+                                if (Order == 1)
                                 {
                                     //Repeate for Solder.
                                     for (int m = 0; m < AStarGreedy[k].SodierMidle; m++)
