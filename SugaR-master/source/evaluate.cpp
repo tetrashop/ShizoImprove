@@ -1000,9 +1000,9 @@ namespace {
 
 	Value v_Shashin_test = v;
 	
-	constexpr double SHASHIN_ADVANTAGE_PAWNS_COUNT = 1.0;
+	constexpr double SHASHIN_ADVANTAGE_PAWNS_COUNT = 1;
 	constexpr Value SHASHIN_ADVANTAGE_VALUE = Value(int(SHASHIN_ADVANTAGE_PAWNS_COUNT * double(PawnValueMg + PawnValueEg) / 2.0));
-	constexpr double Shashin_Scale_Factor_Default = 1.0;
+	constexpr double Shashin_Scale_Factor_Default = 1;
 
 	double king_Shashin_scale = Shashin_Scale_Factor_Default;
 	double passed_Shashin_scale = Shashin_Scale_Factor_Default;

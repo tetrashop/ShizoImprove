@@ -1579,7 +1579,7 @@ namespace QuantumRefrigiz
 
                 }
                 //Separate.
-                if (AllDraw.Less != Double.MinValue)
+                if (AllDraw.Less != int.MinValue)
                     S += " With Huristic (" + AllDraw.Less.ToString() + ")--";
                 else
                     S += " --";

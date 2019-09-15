@@ -1499,7 +1499,7 @@ namespace RefrigtzW
                         Tab[ik, jk] = Tabl[ik, jk];
                 double HuristicKillerValue = 0;
                 //Defualt is Gray Order.
-                double HA = 0.0;
+                double HA = 0;
                 double Sign = AllDraw.SignKiller;
                 int DummyOrder = Ord;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
@@ -3061,14 +3061,14 @@ namespace RefrigtzW
             Object O = new Object();
             lock (O)
             {
-                double Sign = 1.0;
+                double Sign = 1;
                 //When Current Order Sign Positive.
                 if (Order == AllDraw.OrderPlate)
-                    Sign = 1.0;
+                    Sign = 1;
                 else
                     //When Order is Opposite Sign Negative.
                     if (Order != AllDraw.OrderPlate)
-                    Sign = -1.0;
+                    Sign = -1;
 
                 return Sign;
             }
@@ -4392,7 +4392,7 @@ namespace RefrigtzW
                     else
                         //When King.
                         Dis = AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(RowS - RowB, 2) + System.Math.Pow(ColS - ColumnB, 2));
-                    //Dis = -1000.0;
+                    //Dis = -1000;
 
                 }
                 return Dis;

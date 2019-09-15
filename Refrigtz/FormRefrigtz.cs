@@ -6183,7 +6183,7 @@ namespace Refrigtz
             System.Threading.Thread.Sleep(5);
         }
 
-        double CalculateMoveMentHueuristicUser(int[,] Table, int Order, int Row, int Column, int RowSource, int ColumnS, Color color)
+        int CalculateMoveMentHueuristicUser(int[,] Table, int Order, int Row, int Column, int RowSource, int ColumnS, Color color)
         {
 
             RefrigtzDLL.ThinkingChess th = null;
@@ -6192,20 +6192,20 @@ namespace Refrigtz
                 th = new RefrigtzDLL.ThinkingChess(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, Row, Column);
             else
                 th1 = new QuantumRefrigiz.ThinkingQuantumChess(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, Row, Column);
-            double HuristicAttackValue = new double();
-            double HuristicMovementValue = new double();
-            double HuristicSelfSupportedValue = new double();
-            double HuristicObjectDangourCheckMateValue = new double();
-            double HuristicHittingValue = new double();
-            double HuristicReducedAttackValue = new double();
-            double HeuristicDistabceOfCurrentMoveFromEnemyKingValue = new double();
-            double HeuristicKingSafe = new double();
-            double HeuristicFromCenter = new double();
-            double HeuristicKingDangour = new double();
+            int HuristicAttackValue = new int();
+            int HuristicMovementValue = new int();
+            int HuristicSelfSupportedValue = new int();
+            int HuristicObjectDangourCheckMateValue = new int();
+            int HuristicHittingValue = new int();
+            int HuristicReducedAttackValue = new int();
+            int HeuristicDistabceOfCurrentMoveFromEnemyKingValue = new int();
+            int HeuristicKingSafe = new int();
+            int HeuristicFromCenter = new int();
+            int HeuristicKingDangour = new int();
             if (!Quantum)
             {
                 th.CalculateHuristics(true, 0, Table, Row, Column, RowSource, ColumnS, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicHittingValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
-                double[] Hu = new double[4];
+                int[] Hu = new int[4];
 
                 return HuristicAttackValue + HuristicMovementValue +
                 HuristicSelfSupportedValue +
@@ -6215,7 +6215,7 @@ namespace Refrigtz
             else
             {
                 th1.CalculateHuristics(true, 0, Table, Row, Column, RowSource, ColumnS, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicHittingValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
-                double[] Hu = new double[4];
+                int[] Hu = new int[4];
 
 
                 return HuristicAttackValue + HuristicMovementValue +

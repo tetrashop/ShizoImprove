@@ -226,7 +226,7 @@ namespace QuantumRefrigiz
         public bool SetRowColumnFinished = false;
         public static int MinThinkingQuantumTreeDepth = Int32.MaxValue;
         static int MaxDuringLevelThinkingQuantumCreation = 0;
-        public double MaxHuristicxT = Double.MinValue;
+        public int MaxHuristicxT = Int32.MinValue;
         public bool MovementsAStarGreedyHuristicFoundT = false;
         public bool IgnoreSelfObjectsT = false;
         public bool UsePenaltyRegardMechnisamT = true;
@@ -236,22 +236,22 @@ namespace QuantumRefrigiz
         public bool AStarGreedyHuristicT = false;
         int[] Index = { -1, -1, -1, -1, -1, -1 }, jindex = { -1, -1, -1, -1, -1, -1 }, Kind = { -1, -1, -1, -1, -1, -1 };
         public bool ArrangmentsChanged = false;
-        public static double AStarGreedytMaxCount = 0;
+        public static int AStarGreedytMaxCount = 0;
         public static bool FoundATable = false;
-        public static double Less = Double.MinValue;
+        public static int Less = Int32.MinValue;
         public bool CastlesKing = false;
         List<int[,]> MaxHuristicAStarGreedytBackWardTable = new List<int[,]>();
         public static int increasedProgress = 0;
-        public static double CurrentHuristic = Double.MinValue;
-        public static double SignAttack = 1;
-        public static double SignObjectDangour = 1;
-        public static double SignReducedAttacked = -1;
-        public static double SignSupport = 1;
-        public static double SignKiller = 1;
-        public static double SignMovments = 1;
-        public static double SignDistance = -1;
-        public static double SignKingSafe = -1;
-        public static double SignKingDangour = -1;
+        public static int CurrentHuristic = Int32.MinValue;
+        public static int SignAttack = 1;
+        public static int SignObjectDangour = 1;
+        public static int SignReducedAttacked = -1;
+        public static int SignSupport = 1;
+        public static int SignKiller = 1;
+        public static int SignMovments = 1;
+        public static int SignDistance = -1;
+        public static int SignKingSafe = -1;
+        public static int SignKingDangour = -1;
         public static bool DrawTable = true;
         public static int[,] TableVeryfy = new int[8, 8];
         public static int MaxAStarGreedy = 1;
@@ -307,27 +307,27 @@ namespace QuantumRefrigiz
         int RW1 = 0;
         int CL1 = 0;
         int Ki1 = 0;
-        double MaxLess1 = 0;
+        int MaxLess1 = 0;
         int RW2 = 0;
         int CL2 = 0;
         int Ki2 = 0;
-        double MaxLess2 = 0;
+        int MaxLess2 = 0;
         int RW3 = 0;
         int CL3 = 0;
         int Ki3 = 0;
-        double MaxLess3 = 0;
+        int MaxLess3 = 0;
         int RW4 = 0;
         int CL4 = 0;
         int Ki4 = 0;
-        double MaxLess4 = 0;
+        int MaxLess4 = 0;
         int RW5 = 0;
         int CL5 = 0;
         int Ki5 = 0;
-        double MaxLess5 = 0;
+        int MaxLess5 = 0;
         int RW6 = 0;
         int CL6 = 0;
         int Ki6 = 0;
-        double MaxLess6 = 0;
+        int MaxLess6 = 0;
         public static int LoopHuristicIndex = 0;
         static List<int> RWList = new List<int>();
         static List<int> ClList = new List<int>();
@@ -345,7 +345,7 @@ namespace QuantumRefrigiz
         public DrawCastleQ[] CastlesOnTable = new DrawCastleQ[4];
         public DrawMinisterQ[] MinisterOnTable = new DrawMinisterQ[2];
         public DrawKingQ[] KingOnTable = new DrawKingQ[2];
-        List<double[]> MaxHuristicAStarGreedytBackWard = new List<double[]>();
+        List<int[]> MaxHuristicAStarGreedytBackWard = new List<int[]>();
         const int MaxSoldeirFounded = 2;
         const int MaxElephntFounded = 6;
         const int MaxHourseFounded = 10;
@@ -520,7 +520,7 @@ namespace QuantumRefrigiz
             lock (a)
             {
 
-                MaxHuristicxT = Double.MinValue;
+                MaxHuristicxT = Int32.MinValue;
                 MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
                 IgnoreSelfObjectsT = IgnoreSelfObject;
                 UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
@@ -539,7 +539,7 @@ namespace QuantumRefrigiz
                 Object ol = new Object();
                 lock (ol)
                 {
-                    CurrentHuristic = Double.MinValue;
+                    CurrentHuristic = Int32.MinValue;
 
                     DrawTable = false;
 
@@ -665,7 +665,7 @@ namespace QuantumRefrigiz
                     AStarGreedyString.Clone(AA.AStarGreedyString);
                 if (TableList.Count == 1)
                     SetObjectNumbers(TableList[0]);
-                MaxHuristicxT = Double.MinValue;
+                MaxHuristicxT = Int32.MinValue;
                 AA.MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicFoundT;
                 AA.IgnoreSelfObjectsT = IgnoreSelfObjectsT;
                 AA.UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisamT;
@@ -769,7 +769,7 @@ namespace QuantumRefrigiz
             lock (a)
             {
                 OrderP = Order;
-                MaxHuristicxT = Double.MinValue;
+                MaxHuristicxT = Int32.MinValue;
                 MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
                 IgnoreSelfObjectsT = IgnoreSelfObject;
                 UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
@@ -796,7 +796,7 @@ namespace QuantumRefrigiz
                 Object ol = new Object();
                 lock (ol)
                 {
-                    CurrentHuristic = Double.MinValue;
+                    CurrentHuristic = Int32.MinValue;
 
                     DrawTable = false;
 
@@ -1454,7 +1454,7 @@ if (Kind == 2)
 
         }
         //Max Index List Of Huristic AStarGreedy First Method.
-        public void BeginIndexFoundingMaxLessofMaxList(int ListIndex, List<double> Founded, ref double LessB)
+        public void BeginIndexFoundingMaxLessofMaxList(int ListIndex, List<int> Founded, ref int LessB)
         {
             Object a = new Object();
             lock (a)
@@ -4761,7 +4761,7 @@ if (Kind == 2)
                 ChessRules AB = null;
 
                 int ToCheckMate = -1, ForCheckMate = -1, j, i;
-                List<double> Founded = new List<double>();
+                List<int> Founded = new List<int>();
                 int DummyOrder = Order;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
                 bool AA = false;
@@ -4860,7 +4860,7 @@ if (Kind == 2)
                                             }
                                             RegardOccurred = true;
                                             //if (SolderesOnTable[i].WinOcuuredatChiled >= 1 || SolderesOnTable[i].WinOcuuredatChiled >= 2 || SolderesOnTable[i].WinOcuuredatChiled >= 3)
-                                            // Less = double.MaxValue;
+                                            // Less = Int32.MaxValue;
                                             //if (((Do == 1 || AA)&&UsePenaltyRegardMechnisamT))
                                             //return TableHuristic;
                                             continue;
@@ -5036,7 +5036,7 @@ if (Kind == 2)
                                                         //TakeRoot.Pointer = this;
                                                         //Found of Max Non Probable Movments.
                                                         Founded.Clear();
-                                                        double LessB = Double.MinValue;
+                                                        int LessB = Int32.MinValue;
                                                         BeginIndexFoundingMaxLessofMaxList(0, Founded, ref LessB);
                                                         RW1 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0]];
                                                         CL1 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0] + 1];
@@ -5190,7 +5190,7 @@ if (Kind == 2)
                                             }
                                             TableHuristic = ElephantOnTable[i].ElefantThinkingQuantum[k].TableListElefant[j];
                                             //if (ElephantOnTable[i].WinOcuuredatChiled >= 1 || ElephantOnTable[i].WinOcuuredatChiled >= 2 || ElephantOnTable[i].WinOcuuredatChiled >= 3)
-                                            //Less = double.MaxValue;
+                                            //Less = Int32.MaxValue;
                                             RegardOccurred = true;
                                             //if (((Do == 1 || AA)&&UsePenaltyRegardMechnisamT))
                                             //return TableHuristic;
@@ -5329,7 +5329,7 @@ if (Kind == 2)
                                                         //TakeRoot.Pointer = this;
                                                         //Found of Max Non Probable Movments.
                                                         Founded.Clear();
-                                                        double LessB = Double.MinValue;
+                                                        int LessB = Int32.MinValue;
                                                         BeginIndexFoundingMaxLessofMaxList(0, Founded, ref LessB);
                                                         RW2 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0]];
                                                         CL2 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0] + 1];
@@ -5444,7 +5444,7 @@ if (Kind == 2)
                                             //if (((Do == 1 || AA)&&UsePenaltyRegardMechnisamT))
                                             //return TableHuristic;
                                             //if (HoursesOnTable[i].WinOcuuredatChiled >= 1 || HoursesOnTable[i].WinOcuuredatChiled >= 2 || HoursesOnTable[i].WinOcuuredatChiled >= 3)
-                                            //Less = double.MaxValue;
+                                            //Less = Int32.MaxValue;
                                             continue;
 
                                         }
@@ -5582,7 +5582,7 @@ if (Kind == 2)
                                                         //TakeRoot.Pointer = this;
                                                         //Found of Max Non Probable Movments.
                                                         Founded.Clear();
-                                                        double LessB = Double.MinValue;
+                                                        int LessB = Int32.MinValue;
                                                         BeginIndexFoundingMaxLessofMaxList(0, Founded, ref LessB);
                                                         RW3 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0]];
                                                         CL3 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0] + 1];
@@ -5703,7 +5703,7 @@ if (Kind == 2)
                                             TableHuristic = CastlesOnTable[i].CastleThinkingQuantum[k].TableListCastle[j];
                                             RegardOccurred = true;
                                             //if (CastlesOnTable[i].WinOcuuredatChiled >= 1 || CastlesOnTable[i].WinOcuuredatChiled >= 2 || CastlesOnTable[i].WinOcuuredatChiled >= 3)
-                                            //Less = double.MaxValue;
+                                            //Less = Int32.MaxValue;
                                             //if (((Do == 1 || AA)&&UsePenaltyRegardMechnisamT))
                                             //return TableHuristic;
                                             continue;
@@ -5836,7 +5836,7 @@ if (Kind == 2)
                                                         //TakeRoot.Pointer = this;
                                                         //Found of Max Non Probable Movments.
                                                         Founded.Clear();
-                                                        double LessB = Double.MinValue;
+                                                        int LessB = Int32.MinValue;
                                                         BeginIndexFoundingMaxLessofMaxList(0, Founded, ref LessB);
                                                         RW4 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0]];
                                                         CL4 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0] + 1];
@@ -5953,7 +5953,7 @@ if (Kind == 2)
                                         TableHuristic = MinisterOnTable[i].MinisterThinkingQuantum[k].TableListMinister[j];
                                         RegardOccurred = true;
                                         //if (MinisterOnTable[i].WinOcuuredatChiled >= 1 || MinisterOnTable[i].WinOcuuredatChiled >= 2 || MinisterOnTable[i].WinOcuuredatChiled >= 3)
-                                        //Less = double.MaxValue;
+                                        //Less = Int32.MaxValue;
                                         //if (((Do == 1 || AA)&&UsePenaltyRegardMechnisamT))
                                         //return TableHuristic;
                                         continue;
@@ -6088,7 +6088,7 @@ if (Kind == 2)
                                                     //TakeRoot.Pointer = this;
                                                     //Found of Max Non Probable Movments.
                                                     Founded.Clear();
-                                                    double LessB = Double.MinValue;
+                                                    int LessB = Int32.MinValue;
                                                     BeginIndexFoundingMaxLessofMaxList(0, Founded, ref LessB);
                                                     RW5 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0]];
                                                     CL5 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0] + 1];
@@ -6203,7 +6203,7 @@ if (Kind == 2)
                                             TableHuristic = KingOnTable[i].KingThinkingQuantum[k].TableListKing[j];
                                             RegardOccurred = true;
                                             //if (KingOnTable[i].WinOcuuredatChiled >= 1 || KingOnTable[i].WinOcuuredatChiled >= 2 || KingOnTable[i].WinOcuuredatChiled >= 3)
-                                            //Less = double.MaxValue;
+                                            //Less = Int32.MaxValue;
                                             //if (((Do == 1 || AA)&&UsePenaltyRegardMechnisamT))
                                             //return TableHuristic;
                                             continue;
@@ -6342,7 +6342,7 @@ if (Kind == 2)
                                                         //TakeRoot.Pointer = this;
                                                         //Found of Max Non Probable Movments.
                                                         Founded.Clear();
-                                                        double LessB = Double.MinValue;
+                                                        int LessB = Int32.MinValue;
                                                         BeginIndexFoundingMaxLessofMaxList(0, Founded, ref LessB);
                                                         RW6 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0]];
                                                         CL6 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0] + 1];
@@ -6469,7 +6469,7 @@ if (Kind == 2)
             }
             Thread.Sleep(10);
         }
-        void SaveLess(int i, int j, int k, int Kind, ref double Less, bool AA, int Order)
+        void SaveLess(int i, int j, int k, int Kind, ref int Less, bool AA, int Order)
         {
 
             if (Kind == 1)
@@ -6712,7 +6712,7 @@ if (Kind == 2)
                     RegardOccurred = true;
                     StringHuristics(4, 2, AA, Do, CastlesOnTable[i].WinOcuuredatChiled, CastlesOnTable[i].LoseOcuuredatChiled);
                     //if (CastlesOnTable[i].WinOcuuredatChiled >= 1 || CastlesOnTable[i].WinOcuuredatChiled >= 2 || CastlesOnTable[i].WinOcuuredatChiled >= 3)
-                    //Less = double.MaxValue;
+                    //Less = Int32.MaxValue;
 
 
 
@@ -6763,7 +6763,7 @@ if (Kind == 2)
                     StringHuristics(6, 2, AA, Do, KingOnTable[i].WinOcuuredatChiled, KingOnTable[i].LoseOcuuredatChiled);
 
                     //if (KingOnTable[i].WinOcuuredatChiled >= 1 || KingOnTable[i].WinOcuuredatChiled >= 2 || KingOnTable[i].WinOcuuredatChiled >= 3)
-                    // Less = double.MaxValue;
+                    // Less = Int32.MaxValue;
 
 
 
@@ -7439,7 +7439,7 @@ if (Kind == 2)
                 //ChessRules AB = null;
 
                 int j;
-                List<double> Founded = new List<double>();
+                List<int> Founded = new List<int>();
                 int DummyOrder = Order;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
                 bool AA = false;
@@ -7609,7 +7609,7 @@ if (Kind == 2)
                 //ChessRules AB = null;
 
                 int j;
-                List<double> Founded = new List<double>();
+                List<int> Founded = new List<int>();
                 int DummyOrder = Order;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
                 bool AA = false;
@@ -7744,7 +7744,7 @@ if (Kind == 2)
                 //ChessRules AB = null;
 
                 int j;
-                List<double> Founded = new List<double>();
+                List<int> Founded = new List<int>();
                 int DummyOrder = Order;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
                 bool AA = false;
@@ -7869,7 +7869,7 @@ if (Kind == 2)
                 //ChessRules AB = null;
 
                 int j;
-                List<double> Founded = new List<double>();
+                List<int> Founded = new List<int>();
                 int DummyOrder = Order;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
                 bool AA = false;
@@ -7994,7 +7994,7 @@ if (Kind == 2)
                 //ChessRules AB = null;
 
                 int j;
-                List<double> Founded = new List<double>();
+                List<int> Founded = new List<int>();
                 int DummyOrder = Order;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
                 bool AA = false;
@@ -8108,7 +8108,7 @@ if (Kind == 2)
                 //ChessRules AB = null;
 
                 int j;
-                List<double> Founded = new List<double>();
+                List<int> Founded = new List<int>();
                 int DummyOrder = Order;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
                 bool AA = false;
@@ -8254,7 +8254,7 @@ if (Kind == 2)
                 ChessRules AB = null;
 
                 int ToCheckMate = -1, ForCheckMate = -1, j, i;
-                List<double> Founded = new List<double>();
+                List<int> Founded = new List<int>();
                 int DummyOrder = Order;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
                 bool AA = false;
@@ -8516,7 +8516,7 @@ if (Kind == 2)
                                                         //TakeRoot.Pointer = this;
                                                         //Found of Max Non Probable Movments.
                                                         Founded.Clear();
-                                                        double LessB = Double.MinValue;
+                                                        int LessB = Int32.MinValue;
                                                         BeginIndexFoundingMaxLessofMaxList(0, Founded, ref LessB);
                                                         RW1 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0]];
                                                         CL1 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0] + 1];
@@ -8806,7 +8806,7 @@ if (Kind == 2)
                                                     //TakeRoot.Pointer = this;
                                                     //Found of Max Non Probable Movments.
                                                     Founded.Clear();
-                                                    double LessB = Double.MinValue;
+                                                    int LessB = Int32.MinValue;
                                                     BeginIndexFoundingMaxLessofMaxList(0, Founded, ref LessB);
                                                     RW2 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0]];
                                                     CL2 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0] + 1];
@@ -9066,7 +9066,7 @@ if (Kind == 2)
                                                     //TakeRoot.Pointer = this;
                                                     //Found of Max Non Probable Movments.
                                                     Founded.Clear();
-                                                    double LessB = Double.MinValue;
+                                                    int LessB = Int32.MinValue;
                                                     BeginIndexFoundingMaxLessofMaxList(0, Founded, ref LessB);
                                                     RW3 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0]];
                                                     CL3 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0] + 1];
@@ -9318,7 +9318,7 @@ if (Kind == 2)
                                                     //TakeRoot.Pointer = this;
                                                     //Found of Max Non Probable Movments.
                                                     Founded.Clear();
-                                                    double LessB = Double.MinValue;
+                                                    int LessB = Int32.MinValue;
                                                     BeginIndexFoundingMaxLessofMaxList(0, Founded, ref LessB);
                                                     RW4 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0]];
                                                     CL4 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0] + 1];
@@ -9571,7 +9571,7 @@ if (Kind == 2)
                                                     //TakeRoot.Pointer = this;
                                                     //Found of Max Non Probable Movments.
                                                     Founded.Clear();
-                                                    double LessB = Double.MinValue;
+                                                    int LessB = Int32.MinValue;
                                                     BeginIndexFoundingMaxLessofMaxList(0, Founded, ref LessB);
                                                     RW5 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0]];
                                                     CL5 = (int)MaxHuristicAStarGreedytBackWard[0][(int)Founded[0] + 1];
@@ -9827,7 +9827,7 @@ if (Kind == 2)
                                                     //TakeRoot.Pointer = this;
                                                     //Found of Max Non Probable Movments.
                                                     Founded.Clear();
-                                                    double LessB = Double.MinValue;
+                                                    int LessB = Int32.MinValue;
                                                     BeginIndexFoundingMaxLessofMaxList(0, Founded, ref LessB);
                                                     if (Founded[0] != 1)
                                                         continue;
@@ -9913,7 +9913,7 @@ if (Kind == 2)
                 int DummyOrder = Order;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
                 //Initiate For Dynamic Backward Current AStarGreedyi Non Minus Founded Max Movments Detection Global Variables.
-                List<double> Founded = new List<double>();
+                List<int> Founded = new List<int>();
                 //Initiateing Indicating Huristic Multiple Same Value Best Found of Movments.
                 MaxLess1 = -1;
                 MaxLess2 = -1;
@@ -9940,7 +9940,7 @@ if (Kind == 2)
                 CL6 = -1;
                 Ki6 = -1;
 
-                double[] BacWard = new double[25];
+                int[] BacWard = new int[25];
                 Object Omm = new Object();
                 lock (Omm)
                 {
@@ -10020,7 +10020,7 @@ if (Kind == 2)
                 int DummyOrder = Order;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
                 //Initiate For Dynamic Backward Current AStarGreedyi Non Minus Founded Max Movments Detection Global Variables.
-                List<double> Founded = new List<double>();
+                List<int> Founded = new List<int>();
                 //Initiateing Indicating Huristic Multiple Same Value Best Found of Movments.
                 MaxLess1 = -1;
                 MaxLess2 = -1;
@@ -10047,7 +10047,7 @@ if (Kind == 2)
                 CL6 = -1;
                 Ki6 = -1;
 
-                double[] BacWard = new double[25];
+                int[] BacWard = new int[25];
                 Object Omm = new Object();
                 lock (Omm)
                 {
@@ -10927,7 +10927,7 @@ if (Kind == 2)
                 return Min;
             }
         }
-        AllDraw InitiateAStarGreedytObjectGray(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy //, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
+        AllDraw InitiateAStarGreedytObjectGray(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy //, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
             Object oo = new Object();
@@ -11271,7 +11271,7 @@ if (Kind == 2)
             }
             return this;
         }
-        AllDraw InitiateAStarGreedytObjectBrown(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
+        AllDraw InitiateAStarGreedytObjectBrown(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
             Object oo = new Object();
@@ -12199,7 +12199,7 @@ if (Kind == 2)
             }
         }
 
-        AllDraw InitiateAStarGreedytSodlerGray(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
+        AllDraw InitiateAStarGreedytSodlerGray(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
             //List<Task> tH = new List<Task>();
@@ -12260,7 +12260,7 @@ if (Kind == 2)
 
             return this;
         }
-        AllDraw InitiateAStarGreedytElephantGray(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
+        AllDraw InitiateAStarGreedytElephantGray(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
             Object oo = new Object();
@@ -12316,7 +12316,7 @@ if (Kind == 2)
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
         }
-        AllDraw InitiateAStarGreedythHourseGray(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
+        AllDraw InitiateAStarGreedythHourseGray(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
             Object oo = new Object();
@@ -12376,7 +12376,7 @@ if (Kind == 2)
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
         }
-        AllDraw InitiateAStarGreedythCastleGray(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
+        AllDraw InitiateAStarGreedythCastleGray(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
             Object oo = new Object();
@@ -12434,7 +12434,7 @@ if (Kind == 2)
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
         }
-        AllDraw InitiateAStarGreedythMinisterGray(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
+        AllDraw InitiateAStarGreedythMinisterGray(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
             Object oo = new Object();
@@ -12492,7 +12492,7 @@ if (Kind == 2)
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
         }
-        AllDraw InitiateAStarGreedythKingGray(int iii, int jjjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
+        AllDraw InitiateAStarGreedythKingGray(int iii, int jjjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
             Object oo = new Object();
@@ -12549,7 +12549,7 @@ if (Kind == 2)
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
         }
-        AllDraw InitiateAStarGreedythSoldierBrown(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
+        AllDraw InitiateAStarGreedythSoldierBrown(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
             Object oo = new Object();
@@ -12610,7 +12610,7 @@ if (Kind == 2)
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
         }
-        AllDraw InitiateAStarGreedythElephantBrown(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
+        AllDraw InitiateAStarGreedythElephantBrown(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
             Object oo = new Object();
@@ -12668,7 +12668,7 @@ if (Kind == 2)
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
         }
-        AllDraw InitiateAStarGreedythHourseBrown(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
+        AllDraw InitiateAStarGreedythHourseBrown(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
             Object oo = new Object();
@@ -12728,7 +12728,7 @@ if (Kind == 2)
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
         }
-        AllDraw InitiateAStarGreedythCastleBrown(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
+        AllDraw InitiateAStarGreedythCastleBrown(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
             Object oo = new Object();
@@ -12787,7 +12787,7 @@ if (Kind == 2)
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
         }
-        AllDraw InitiateAStarGreedythMinisterBrown(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
+        AllDraw InitiateAStarGreedythMinisterBrown(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
             Object oo = new Object();
@@ -12842,7 +12842,7 @@ if (Kind == 2)
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
         }
-        AllDraw InitiateAStarGreedythKingBrown(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
+        AllDraw InitiateAStarGreedythKingBrown(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
             Object oo = new Object();
@@ -13201,7 +13201,7 @@ if (Kind == 2)
                 }
             }
         }
-        public bool InitiateAStarGreedytCreationThinking(int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
+        public bool InitiateAStarGreedytCreationThinking(int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
    )
         {
             Object o = new Object();
@@ -13362,7 +13362,7 @@ if (Kind == 2)
             return true;
         }
 
-        public AllDraw InitiateAStarGreedyt(int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
+        public AllDraw InitiateAStarGreedyt(int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
             {
@@ -13655,7 +13655,7 @@ if (Kind == 2)
                 return this;
             }
         }
-        public AllDraw InitiateAStarGreedytObject(int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double Less
+        public AllDraw InitiateAStarGreedytObject(int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
             bool Do = false;
@@ -13788,7 +13788,7 @@ if (Kind == 2)
             return IsDang;
 
         }
-        void BlitzGameThinkingQuantumTreeSolderGray(ref double PreviousLessS, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
+        void BlitzGameThinkingQuantumTreeSolderGray(ref int PreviousLessS, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         { //Soldeir
             for (ik = 0; ik < SodierMidle; ik++)
                 try
@@ -13855,7 +13855,7 @@ if (Kind == 2)
                     Log(t);
                 }
         }
-        void BlitzGameThinkingQuantumTreeElephantGray(ref double PreviousLessE, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
+        void BlitzGameThinkingQuantumTreeElephantGray(ref int PreviousLessE, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         { //Elephant
             for (ik = 0; ik < ElefantMidle; ik++)
                 try
@@ -13925,7 +13925,7 @@ if (Kind == 2)
                 }
                 catch (Exception t) { Log(t); }
         }
-        void BlitzGameThinkingQuantumTreeHourseGray(ref double PreviousLessH, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
+        void BlitzGameThinkingQuantumTreeHourseGray(ref int PreviousLessH, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         { //Hourse.
             for (ik = 0; ik < HourseMidle; ik++)
                 try
@@ -13991,7 +13991,7 @@ if (Kind == 2)
                 }
                 catch (Exception t) { Log(t); }
         }
-        void BlitzGameThinkingQuantumTreeCastleGray(ref double PreviousLessB, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
+        void BlitzGameThinkingQuantumTreeCastleGray(ref int PreviousLessB, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         {
             //Castle.
             for (ik = 0; ik < CastleMidle; ik++)
@@ -14065,7 +14065,7 @@ if (Kind == 2)
                 catch (Exception t) { Log(t); }
 
         }
-        void BlitzGameThinkingQuantumTreeMinisterGray(ref double PreviousLessM, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
+        void BlitzGameThinkingQuantumTreeMinisterGray(ref int PreviousLessM, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         { //Minister.
             for (ik = 0; ik < MinisterMidle; ik++)
                 try
@@ -14140,7 +14140,7 @@ if (Kind == 2)
                 }
                 catch (Exception t) { Log(t); }
         }
-        void BlitzGameThinkingQuantumTreeKingGray(ref double PreviousLessK, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
+        void BlitzGameThinkingQuantumTreeKingGray(ref int PreviousLessK, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         { //King.
             for (ik = 0; ik < KingMidle; ik++)
                 try
@@ -14363,7 +14363,7 @@ if (Kind == 2)
                 //Parallel.ForEach(tHA, items => Task.WaitAny(items));
             }
         }
-        void BlitzGameThinkingQuantumTreeSolderBrown(ref double PreviousLessS, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
+        void BlitzGameThinkingQuantumTreeSolderBrown(ref int PreviousLessS, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         {
             for (ik = SodierMidle; ik < SodierHigh; ik++)
                 try
@@ -14431,7 +14431,7 @@ if (Kind == 2)
                 }
                 catch (Exception t) { Log(t); }
         }
-        void BlitzGameThinkingQuantumTreeElephantBrown(ref double PreviousLessE, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
+        void BlitzGameThinkingQuantumTreeElephantBrown(ref int PreviousLessE, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         { //Elephant
             for (ik = ElefantMidle; ik < ElefantHigh; ik++)
                 try
@@ -14500,7 +14500,7 @@ if (Kind == 2)
                 catch (Exception t) { Log(t); }
 
         }
-        void BlitzGameThinkingQuantumTreeHourseBrown(ref double PreviousLessH, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
+        void BlitzGameThinkingQuantumTreeHourseBrown(ref int PreviousLessH, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         { //Hourse.
             for (ik = HourseMidle; ik < HourseHight; ik++)
                 try
@@ -14572,15 +14572,15 @@ if (Kind == 2)
         int FullGameMakimgBlitz(ref int[] Index, ref int[] jIndex, int Order, int LeafAStarGreedy)
         {
             int Kind = -1;
-            double PS = Double.MinValue, PE = Double.MinValue, PH = Double.MinValue, PB = Double.MinValue, PM = Double.MinValue, PK = Double.MinValue;
+            int PS = Int32.MinValue, PE = Int32.MinValue, PH = Int32.MinValue, PB = Int32.MinValue, PM = Int32.MinValue, PK = Int32.MinValue;
             if (Order != AllDraw.OrderPlate)
             {
-                PS = Double.MaxValue;
-                PE = Double.MaxValue;
-                PH = Double.MaxValue;
-                PB = Double.MaxValue;
-                PM = Double.MaxValue;
-                PK = Double.MaxValue;
+                PS = Int32.MaxValue;
+                PE = Int32.MaxValue;
+                PH = Int32.MaxValue;
+                PB = Int32.MaxValue;
+                PM = Int32.MaxValue;
+                PK = Int32.MaxValue;
 
             }
 
@@ -14639,7 +14639,7 @@ if (Kind == 2)
             }
             return System.Math.Abs(Kind);
         }
-        void BlitzGameThinkingQuantumTreeCastleBrown(ref double PreviousLessB, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
+        void BlitzGameThinkingQuantumTreeCastleBrown(ref int PreviousLessB, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         { //Castles.
             for (ik = CastleMidle; ik < CastleHigh; ik++)
                 try
@@ -14714,7 +14714,7 @@ if (Kind == 2)
                 catch (Exception t) { Log(t); }
 
         }
-        void BlitzGameThinkingQuantumTreeMinisterBrown(ref double PreviousLessM, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
+        void BlitzGameThinkingQuantumTreeMinisterBrown(ref int PreviousLessM, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         { //Minister.
             for (ik = MinisterMidle; ik < MinisterHigh; ik++)
                 try
@@ -14770,7 +14770,7 @@ if (Kind == 2)
                 catch (Exception t) { Log(t); }
 
         }
-        void BlitzGameThinkingQuantumTreeKingBrown(ref double PreviousLessK, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
+        void BlitzGameThinkingQuantumTreeKingBrown(ref int PreviousLessK, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         {        //King.
             for (ik = KingMidle; ik < KingHigh; ik++)
                 try
@@ -14853,15 +14853,15 @@ if (Kind == 2)
             int[] Index = new int[6];
 
             int[] jIndex = new int[6];
-            double PreviousLessS = Double.MinValue, PreviousLessE = Double.MinValue, PreviousLessH = Double.MinValue, PreviousLessB = Double.MinValue, PreviousLessM = Double.MinValue, PreviousLessK = Double.MinValue;
+            int PreviousLessS = Int32.MinValue, PreviousLessE = Int32.MinValue, PreviousLessH = Int32.MinValue, PreviousLessB = Int32.MinValue, PreviousLessM = Int32.MinValue, PreviousLessK = Int32.MinValue;
             if (Order != OrderPlate)
             {
-                PreviousLessS = Double.MaxValue;
-                PreviousLessE = Double.MaxValue;
-                PreviousLessH = Double.MaxValue;
-                PreviousLessB = Double.MaxValue;
-                PreviousLessM = Double.MaxValue;
-                PreviousLessK = Double.MaxValue;
+                PreviousLessS = Int32.MaxValue;
+                PreviousLessE = Int32.MaxValue;
+                PreviousLessH = Int32.MaxValue;
+                PreviousLessB = Int32.MaxValue;
+                PreviousLessM = Int32.MaxValue;
+                PreviousLessK = Int32.MaxValue;
 
             }
             //For Gray Order calculating foreach Objects Maximum total Huristic Count Incl;usively.
@@ -18062,9 +18062,9 @@ if (Kind == 2)
                     Table[i, j] = Tab[i, j];
             return Table;
         }
-        int MaxOfSixHuristic(double _1, double _2, double _3, double _4, double _5, double _6)
+        int MaxOfSixHuristic(int _1, int _2, int _3, int _4, int _5, int _6)
         {
-            double[] LessB = new double[6];
+            int[] LessB = new int[6];
             LessB[0] = _1;
             LessB[1] = _2;
             LessB[2] = _3;
@@ -18073,7 +18073,7 @@ if (Kind == 2)
             LessB[5] = _6;
 
             int Value = -1;
-            double Les = Double.MinValue;
+            int Les = Int32.MinValue;
             for (var i = 0; i < 6; i++)
             {
                 if (LessB[i] > Les)
@@ -18084,9 +18084,9 @@ if (Kind == 2)
             }
             return Value;
         }
-        int MinOfSixHuristic(double _1, double _2, double _3, double _4, double _5, double _6)
+        int MinOfSixHuristic(int _1, int _2, int _3, int _4, int _5, int _6)
         {
-            double[] LessB = new double[6];
+            int[] LessB = new int[6];
             LessB[0] = _1;
             LessB[1] = _2;
             LessB[2] = _3;
@@ -18095,7 +18095,7 @@ if (Kind == 2)
             LessB[5] = _6;
 
             int Value = -1;
-            double Les = Double.MaxValue;
+            int Les = Int32.MaxValue;
             for (var i = 0; i < 6; i++)
             {
                 if (LessB[i] < Les)
@@ -18107,17 +18107,17 @@ if (Kind == 2)
             return Value;
         }
         //best movement indexes founder method.
-        List<List<double>> FoundOfBestMovments(int AStarGreedy, ref List<double> i, ref List<double> j, ref List<double> k, AllDraw Dummy, Color a, int Order)
+        List<List<int>> FoundOfBestMovments(int AStarGreedy, ref List<int> i, ref List<int> j, ref List<int> k, AllDraw Dummy, Color a, int Order)
         {
             //initiate local variables.
-            List<List<double>> p = new List<List<double>>();
+            List<List<int>> p = new List<List<int>>();
 
             for (var ii = 0; ii < 6; ii++)
             {
-                List<double> pl = new List<double>();
+                List<int> pl = new List<int>();
                 p.Add(pl);
 
-                Less = Double.MinValue;
+                Less = Int32.MinValue;
             }
             List<AllDraw> DummyList = new List<AllDraw>();
             DummyList.Add(Dummy);
@@ -18846,7 +18846,7 @@ if (Kind == 5)
             lock (O)
             {
                 AllDraw.ActionStringReady = false;
-                //SignKiller = Double.MaxValue / (System.Math.Pow(6 * 32, AllDraw.MaxAStarGreedy) * 64 * 32);
+                //SignKiller = Int32.MaxValue / (System.Math.Pow(6 * 32, AllDraw.MaxAStarGreedy) * 64 * 32);
                 SignKiller = 1;
                 ThinkingQuantumChess.LearningVarsCheckedMateOccured = false;
                 ThinkingQuantumChess.LearningVarsCheckedMateOccuredOneCheckedMate = false;
@@ -18900,18 +18900,18 @@ if (Kind == 5)
                 Object ol = new Object();
                 lock (ol)
                 {
-                    CurrentHuristic = Double.MinValue;
+                    CurrentHuristic = Int32.MinValue;
 
                     //SetprogressBarRefregitzValue(THIS.progressBarVerify, 0);
                     //THIS.progressBarVerify.Invalidate();
                     //SetprogressBarUpdate(THIS.progressBarVerify);
-                    MaxHuristicxT = Double.MinValue;
-                    DrawCastleQ.MaxHuristicxB = Double.MinValue;
-                    DrawElefantQ.MaxHuristicxE = Double.MinValue;
-                    DrawHourseQ.MaxHuristicxH = Double.MinValue;
-                    DrawKingQ.MaxHuristicxK = Double.MinValue;
-                    DrawMinisterQ.MaxHuristicxM = Double.MinValue;
-                    DrawSoldierQ.MaxHuristicxS = Double.MinValue;
+                    MaxHuristicxT = Int32.MinValue;
+                    DrawCastleQ.MaxHuristicxB = Int32.MinValue;
+                    DrawElefantQ.MaxHuristicxE = Int32.MinValue;
+                    DrawHourseQ.MaxHuristicxH = Int32.MinValue;
+                    DrawKingQ.MaxHuristicxK = Int32.MinValue;
+                    DrawMinisterQ.MaxHuristicxM = Int32.MinValue;
+                    DrawSoldierQ.MaxHuristicxS = Int32.MinValue;
                     MovementsAStarGreedyHuristicFoundT = false;
                     DrawTable = false;
 
@@ -18966,7 +18966,7 @@ if (Kind == 5)
                     //Initiate a DFept On Movments.
                     InitiateForEveryKindThingHome(new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged), (int)SolderesOnTable[In].Row, (int)SolderesOnTable[In].Column, a, Table, Order, false, In);
                     //Initaite a Local Varibales of Huristics.
-                    Less = Double.MinValue;
+                    Less = Int32.MinValue;
                     //For Greater Than Zero ADraw Count Varibale. 
 
                     //If Repetedly Movments Occurred.
@@ -19063,7 +19063,7 @@ if (Kind == 5)
 
                         LoopHuristicIndex = 0;
 
-                        Less = Double.MinValue;
+                        Less = Int32.MinValue;
                     }
 
 
@@ -19081,11 +19081,11 @@ if (Kind == 5)
                         for (var i = 0; i <= MaxAStarGreedy; i++)
                             AllDraw.MaxAStarGreedyHuristicProgress += AllDraw.MaxAStarGreedyHuristicProgress * 6;
                         //THIS.progressBarVerify.Maximum = 999999999;
-                        increasedProgress = (int)((double)999999999 / (double)(AllDraw.MaxAStarGreedyHuristicProgress));
+                        increasedProgress = (int)((int)999999999 / (int)(AllDraw.MaxAStarGreedyHuristicProgress));
                         Object Omm1 = new Object();
                         lock (Omm1)
                         {
-                            AStarGreedytMaxCount = (double)MaxAStarGreedy;
+                            AStarGreedytMaxCount = (int)MaxAStarGreedy;
                         }
                     }
                     //SetprogressBarRefregitzValue(THIS.progressBarVerify, increasedProgress);
@@ -19113,7 +19113,7 @@ if (Kind == 5)
 
                     //Initaite Local Varibales.
                     Tab = new int[8, 8];
-                    Less = Double.MinValue;
+                    Less = Int32.MinValue;
                 }
                 ChessRules.CurrentOrder = Current;
                 Order = DummyOrder;
@@ -19144,7 +19144,7 @@ if (Kind == 5)
                             RemovePenalltyFromFirstBranches(Order);
                             //MaxAStarGreedy = 1;
                             AStarGreedyiLevelMax = 1;
-                            Less = Double.MinValue;
+                            Less = Int32.MinValue;
                             //TableHuristic = THISDummy.HuristicAStarGreedySearchPenalties(0, a, Order, false);
                             //TableHuristic = THISDummy.HuristicAStarGreedySearch(0, a, Order, false);
                             TableHuristic = HuristicAStarGreedySearch(0, a, Order, false);

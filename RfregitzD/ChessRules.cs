@@ -1572,7 +1572,7 @@ namespace RefrigtzDLL
 
                 }
                 //Separate.
-                if (AllDraw.Less != Double.MinValue)
+                if (AllDraw.Less != int.MinValue)
                     S += " With Huristic (" +RefrigtzDLL.AllDraw.Less.ToString() + ")--";
                 else
                     S += " --";

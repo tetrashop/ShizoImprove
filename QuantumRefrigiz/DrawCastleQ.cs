@@ -28,7 +28,7 @@ namespace QuantumRefrigiz
         public bool OnlySelfT = false;
         public bool AStarGreedyHuristicT = false;
         public bool ArrangmentsChanged = false;
-        public static double MaxHuristicxB = -20000000000000000;
+        public static long MaxHuristicxB = -20000000000000000;
         public float Row, Column;
         public Color color;
         public ThinkingQuantumChess[] CastleThinkingQuantum = new ThinkingQuantumChess[AllDraw.CastleMovments];
@@ -56,7 +56,7 @@ namespace QuantumRefrigiz
         public bool MaxFound(ref bool MaxNotFound)
         {
             
-                double a = ReturnHuristic();
+                int a = ReturnHuristic();
                 if (MaxHuristicxB < a)
                 {
                     MaxNotFound = false;
@@ -73,9 +73,9 @@ namespace QuantumRefrigiz
             MaxNotFound = true;
             return false;
         }
-        public double ReturnHuristic()
+        public int ReturnHuristic()
         {
-            double a = 0;
+            int a = 0;
             for (var ii = 0; ii < AllDraw.CastleMovments; ii++)
                 
                     a += CastleThinkingQuantum[ii].ReturnHuristic(-1, -1, Order, false);
@@ -232,9 +232,9 @@ namespace QuantumRefrigiz
                                 g.DrawImage(C[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                 if (RingHalf)
                                 {
-                                    double Prob = 180;
+                                    int Prob = 180;
                                     if (AllDraw.Less != 0)
-                                        Prob = 180 * (AllDraw.Less / Double.MaxValue);
+                                        Prob = 180 * (AllDraw.Less / int.MaxValue);
                                     g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, (int)Prob);
                                     if (LastRow != -1 && LastColumn != -1)
                                     {
@@ -267,9 +267,9 @@ namespace QuantumRefrigiz
                                 g.DrawImage(C[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                 if (RingHalf)
                                 {
-                                    double Prob = 180;
+                                    int Prob = 180;
                                     if (AllDraw.Less != 0)
-                                        Prob = 180 * (AllDraw.Less / Double.MaxValue);
+                                        Prob = 180 * (AllDraw.Less / int.MaxValue);
                                     g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, (int)Prob);
                                     if (LastRow != -1 && LastColumn != -1)
                                     {

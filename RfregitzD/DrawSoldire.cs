@@ -28,7 +28,7 @@ namespace RefrigtzDLL
         public bool OnlySelfT = false;
         public bool AStarGreedyHuristicT = false;
         public bool ArrangmentsChanged = false;
-        public static double MaxHuristicxS = Double.MinValue;
+        public static int MaxHuristicxS = int.MinValue;
         public float RowS, ColumnS;
         public Color color;
         public ThinkingChess[] SoldierThinking = new ThinkingChess[AllDraw.SodierMovments];
@@ -56,7 +56,7 @@ namespace RefrigtzDLL
         public bool MaxFound(ref bool MaxNotFound)
         {
 
-            double a = ReturnHuristic();
+            int a = ReturnHuristic();
             if (MaxHuristicxS < a)
             {
                 Object O2 = new Object();
@@ -73,9 +73,9 @@ namespace RefrigtzDLL
             MaxNotFound = true;
             return false;
         }
-        public double ReturnHuristic()
+        public int ReturnHuristic()
         {
-            double a = 0;
+            int a = 0;
             for (var ii = 0; ii < AllDraw.SodierMovments; ii++)
 
                 a += SoldierThinking[ii].ReturnHuristic(-1, -1, Order, false);

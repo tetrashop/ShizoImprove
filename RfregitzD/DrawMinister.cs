@@ -29,7 +29,7 @@ namespace RefrigtzDLL
         public bool AStarGreedyHuristicT = false;
 
         public bool ArrangmentsChanged = false;
-        public static double MaxHuristicxM = -20000000000000000;
+        public static long MaxHuristicxM = -20000000000000000;
         public float Row, Column;
         public Color color;
         public int[,] Table = null;
@@ -57,7 +57,7 @@ namespace RefrigtzDLL
         public bool MaxFound(ref bool MaxNotFound)
         {
 
-            double a = ReturnHuristic();
+            int a = ReturnHuristic();
             if (MaxHuristicxM < a)
             {
                 Object O2 = new Object();
@@ -74,9 +74,9 @@ namespace RefrigtzDLL
             MaxNotFound = true;
             return false;
         }
-        public double ReturnHuristic()
+        public int ReturnHuristic()
         {
-            double a = 0;
+            int a = 0;
             for (var ii = 0; ii < AllDraw.MinisterMovments; ii++)
 
                 a += MinisterThinking[ii].ReturnHuristic(-1, -1, Order, false);
