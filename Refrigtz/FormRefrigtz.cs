@@ -11520,7 +11520,19 @@ namespace Refrigtz
                     Table[ii, jj] = Table[i, j];
                     Table[i, j] = 0;
                 }
-                DrawQ = THIS;// OrderPlate = DrawQ.OrderP;
+                DrawQ = THIS;
+                //OrderPlate = DrawQ.OrderP;
+                QuantumRefrigiz.AllDraw.TableListAction.Add(Tab);
+                Person = false;
+                if (QuantumRefrigiz.AllDraw.AStarGreadyFirstSearch && QuantumRefrigiz.AllDraw.StoreADraw.Count > 0)
+                {
+                    QuantumRefrigiz.AllDraw.StoreADraw.RemoveAt(0);
+                    QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Clear();
+                    QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(Table);
+                    QuantumRefrigiz.AllDraw.StoreADraw[0].SetRowColumn(0);
+                }
+                QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(Table, -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
+              // OrderPlate = DrawQ.OrderP;
                 /*QuantumRefrigiz.AllDraw.TableListAction.Add(Tab);
                 Person = false;
                 if (QuantumRefrigiz.AllDraw.AStarGreadyFirstSearch && QuantumRefrigiz.AllDraw.StoreADraw.Count > 0)
@@ -11569,8 +11581,8 @@ namespace Refrigtz
                         RefreshBoxStatistic();
                     }
                 }*/
-
-                SetAndConfirmSyntax();
+                SetSyntax();
+                //SetAndConfirmSyntax();
 
                 OrderPlate = OrderPlate * -1;
                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
@@ -11604,7 +11616,19 @@ namespace Refrigtz
                     Table[ii, jj] = Table[i, j];
                     Table[i, j] = 0;
                 }
-                Draw = THIS;// OrderPlate = Draw.OrderP;
+                Draw = THIS;
+                ///OrderPlate = Draw.OrderP;
+                RefrigtzDLL.AllDraw.TableListAction.Add(Tab);
+                Person = false;
+                if (RefrigtzDLL.AllDraw.AStarGreadyFirstSearch && RefrigtzDLL.AllDraw.StoreADraw.Count > 0)
+                {
+                    RefrigtzDLL.AllDraw.StoreADraw.RemoveAt(0);
+                    RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Clear();
+                    RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(Table);
+                    RefrigtzDLL.AllDraw.StoreADraw[0].SetRowColumn(0);
+                }
+                RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(Table, -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
+                // OrderPlate = Draw.OrderP;
                 /*RefrigtzDLL.AllDraw.TableListAction.Add(Tab);
                 Person = false;
                 if (RefrigtzDLL.AllDraw.AStarGreadyFirstSearch && RefrigtzDLL.AllDraw.StoreADraw.Count > 0)
@@ -11654,7 +11678,7 @@ namespace Refrigtz
                     }
                 }*/
 
-                SetAndConfirmSyntax();
+                SetSyntax();
 
                 OrderPlate = OrderPlate * -1;
                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
@@ -13185,7 +13209,7 @@ namespace Refrigtz
                             bool Convert = false;
                             if (OrderPlate == 1)
                             {
-                                if (RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1][R.CromosomRow, R.CromosomColumn] == 1)
+                                if (RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1][R.CromosomRow, R.CromosomColumn] == 1 && (R.CromosomRow != -1 && R.CromosomColumn != -1))
                                 {
                                     if (R.CromosomColumn == 7)
                                         Convert = true;
@@ -13196,7 +13220,7 @@ namespace Refrigtz
                             }
                             else
                             {
-                                if (RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1][R.CromosomRow, R.CromosomColumn] == -1)
+                                if (RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1][R.CromosomRow, R.CromosomColumn] == -1 && (R.CromosomRow != -1 && R.CromosomColumn != -1))
                                 {
                                     if (R.CromosomColumn == 0)
                                         Convert = true;
@@ -13229,7 +13253,7 @@ namespace Refrigtz
                             bool Convert = false;
                             if (OrderPlate == 1)
                             {
-                                if (QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 1][R.CromosomRow, R.CromosomColumn] == 1)
+                                if (RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1][R.CromosomRow, R.CromosomColumn] == 1 && (R.CromosomRow != -1 && R.CromosomColumn != -1))
                                 {
                                     if (R.CromosomColumn == 7)
                                         Convert = true;
@@ -13240,7 +13264,7 @@ namespace Refrigtz
                             }
                             else
                             {
-                                if (QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 1][R.CromosomRow, R.CromosomColumn] == -1)
+                                if (RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1][R.CromosomRow, R.CromosomColumn] == -1 && (R.CromosomRow != -1 && R.CromosomColumn != -1))
                                 {
                                     if (R.CromosomColumn == 0)
                                         Convert = true;

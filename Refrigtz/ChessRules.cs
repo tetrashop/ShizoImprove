@@ -1,4 +1,4 @@
-﻿/***********************************************************************************
+/***********************************************************************************
  * Every Ruls of objective condition of chess game.*********************************
  * Current Rules Have not Attack Movements****************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Ramin Edjlal********************************************************************
@@ -147,12 +147,10 @@ namespace Refrigtz
         bool ArrangmentsBoard = false;
         static void Log(Exception ex)
         {
-            try
-            {
+            
                 string stackTrace = ex.ToString();
                 File.AppendAllText(FormRefrigtz.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
-            }
-            catch (Exception t) { Log(t); }
+           
         }
         public ChessRules(bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged, int oRDER)
         {
@@ -314,38 +312,28 @@ namespace Refrigtz
                             if (RowFirst == RowSecond - 2)
                             {
                                 //Consideration of Bridges King of Gray King.
-                                try
-                                {
+                                
                                     if (Table[RowSecond - 2, ColumnSecond] == 6 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond + 1, ColumnSecond] == 4)
                                     {
                                         BridgeActGray = true;
                                         SmallKingBridgeGray = true;
                                         return true;
                                     }
-                                }
-                                catch (Exception t)
-                                {
-                                    Log(t);
-                                }
+                               
                             }
 
                             else//For Greates Bridges King Movments.
                                 if (RowFirst == RowSecond + 2)
                                 {
                                     //Consideration of Bridges King M<ovments.
-                                    try
-                                    {
+                                    
                                         if (Table[RowSecond + 2, ColumnSecond] == 6 && Table[RowSecond + 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond - 2, ColumnSecond] == 4)
                                         {
                                             BridgeActGray = true;
                                             BigKingBridgeGray = true;
                                             return true;
                                         }
-                                    }
-                                    catch (Exception t)
-                                    {
-                                        Log(t);
-                                    }
+                                   
 
                                 }
                         }
@@ -362,8 +350,7 @@ namespace Refrigtz
                             //Small Brown King Bridges Consideration.
                             if (RowFirst == RowSecond - 2)
                             {
-                                try
-                                {
+                                
 
                                     if (Table[RowSecond - 2, ColumnSecond] == -6 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond + 1, ColumnSecond] == -4)
                                     {
@@ -371,30 +358,21 @@ namespace Refrigtz
                                         SmallKingBridgeBrown = true;
                                         return true;
                                     }
-                                }
-                                catch (Exception t)
-                                {
-                                    Log(t);
-                                }
+                               
 
                             }
                             else
                                 if (RowFirst == RowSecond + 2)
                                 //Brown Kings.Big King Bridges Consideration.
                                 {
-                                    try
-                                    {
+                                    
                                         if (Table[RowSecond + 2, ColumnSecond] == -6 && Table[RowSecond + 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond - 2, ColumnSecond] == -4)
                                         {
                                             //BridgeActBrown = true;
                                             BigKingBridgeBrown = true;
                                             return true;
                                         }
-                                    }
-                                    catch (Exception t)
-                                    {
-                                        Log(t);
-                                    }
+                                   
                                 }
                         }
                     }
@@ -415,38 +393,28 @@ namespace Refrigtz
                             if (RowFirst == RowSecond - 2)
                             {
                                 //Consideration of Bridges King of Gray King.
-                                try
-                                {
+                                
                                     if (Table[RowSecond - 2, ColumnSecond] == 6 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond + 1, ColumnSecond] == 4)
                                     {
                                         //BridgeActGray = true;
                                         //SmallKingBridgeGray = true;
                                         return true;
                                     }
-                                }
-                                catch (Exception t)
-                                {
-                                    Log(t);
-                                }
+                               
                             }
 
                             else//For Greates Bridges King Movments.
                                 if (RowFirst == RowSecond + 2)
                                 {
                                     //Consideration of Bridges King M<ovments.
-                                    try
-                                    {
+                                    
                                         if (Table[RowSecond + 2, ColumnSecond] == 6 && Table[RowSecond + 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond - 2, ColumnSecond] == 4)
                                         {
                                             //BridgeActGray = true;
                                             //BigKingBridgeGray = true;
                                             return true;
                                         }
-                                    }
-                                    catch (Exception t)
-                                    {
-                                        Log(t);
-                                    }
+                                   
 
                                 }
                         }
@@ -463,8 +431,7 @@ namespace Refrigtz
                             //Small Brown King Bridges Consideration.
                             if (RowFirst == RowSecond - 2)
                             {
-                                try
-                                {
+                                
 
                                     if (Table[RowSecond - 2, ColumnSecond] == -6 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond + 1, ColumnSecond] == -4)
                                     {
@@ -472,30 +439,21 @@ namespace Refrigtz
                                         //SmallKingBridgeBrown = true;
                                         return true;
                                     }
-                                }
-                                catch (Exception t)
-                                {
-                                    Log(t);
-                                }
+                               
 
                             }
                             else
                                 if (RowFirst == RowSecond + 2)
                                 //Brown Kings.Big King Bridges Consideration.
                                 {
-                                    try
-                                    {
+                                    
                                         if (Table[RowSecond + 2, ColumnSecond] == -6 && Table[RowSecond + 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond - 2, ColumnSecond] == -4)
                                         {
                                             //  BridgeActBrown = true;
                                             //BigKingBridgeBrown = true;
                                             return true;
                                         }
-                                    }
-                                    catch (Exception t)
-                                    {
-                                        Log(t);
-                                    }
+                                   
                                 }
                         }
                     }
@@ -1697,17 +1655,11 @@ namespace Refrigtz
 
             //Initiate Local and Global  Varibales.
             int[,] Table = new int[8, 8];
-            try
-            {
+            
                 for (int i = 0; i < 8; i++)
                     for (int j = 0; j < 8; j++)
                         Table[i, j] = Tab[i, j];
-            }
-            catch (Exception t)
-            {
-                Log(t);
-                return false;
-            }
+           
             CheckGray = false;
             CheckBrown = false;
             CheckMateBrown = false;
@@ -2190,107 +2142,75 @@ namespace Refrigtz
                 //Determination of Gray Enemy State Check at Enemy King at Around Existing Return Not Validity.
                 if (Order == 1 && Table[RowFirst, ColumnFirst] == 6)
                 {
-                    try
-                    {
+                    
                         if (Table[RowSecond + 1, ColumnSecond] == -6)
                             return false;
-                    }
-                    catch (Exception t) { Log(t); }
-                    try
-                    {
+                   
+                    
                         if (Table[RowSecond, ColumnSecond + 1] == -6)
                             return false;
-                    }
-                    catch (Exception t) { Log(t); }
-                    try
-                    {
+                   
+                    
                         if (Table[RowSecond + 1, ColumnSecond + 1] == -6)
                             return false;
-                    }
-                    catch (Exception t) { Log(t); }
-                    try
-                    {
+                   
+                    
                         if (Table[RowSecond - 1, ColumnSecond] == -6)
                             return false;
-                    }
-                    catch (Exception t) { Log(t); }
-                    try
-                    {
+                   
+                    
                         if (Table[RowSecond, ColumnSecond - 1] == -6)
                             return false;
-                    }
-                    catch (Exception t) { Log(t); }
-                    try
-                    {
+                   
+                    
                         if (Table[RowSecond - 1, ColumnSecond - 1] == -6)
                             return false;
-                    }
-                    catch (Exception t) { Log(t); }
-                    try
-                    {
+                   
+                    
                         if (Table[RowSecond + 1, ColumnSecond - 1] == -6)
                             return false;
-                    }
-                    catch (Exception t) { Log(t); }
-                    try
-                    {
+                   
+                    
                         if (Table[RowSecond - 1, ColumnSecond + 1] == -6)
                             return false;
-                    }
-                    catch (Exception t) { Log(t); }
+                   
 
 
                 }//Determination of Brown Enemy State Check at Enemy King at Around Existing Return Not Validity.         
                 else if (Order == -1 && Table[RowFirst, ColumnFirst] == -6)
                 {
-                    try
-                    {
+                    
                         if (Table[RowSecond + 1, ColumnSecond] == 6)
                             return false;
-                    }
-                    catch (Exception t) { Log(t); }
-                    try
-                    {
+                   
+                    
                         if (Table[RowSecond, ColumnSecond + 1] == 6)
                             return false;
-                    }
-                    catch (Exception t) { Log(t); }
-                    try
-                    {
+                   
+                    
                         if (Table[RowSecond + 1, ColumnSecond + 1] == 6)
                             return false;
-                    }
-                    catch (Exception t) { Log(t); }
-                    try
-                    {
+                   
+                    
                         if (Table[RowSecond - 1, ColumnSecond] == 6)
                             return false;
-                    }
-                    catch (Exception t) { Log(t); }
-                    try
-                    {
+                   
+                    
                         if (Table[RowSecond, ColumnSecond - 1] == 6)
                             return false;
-                    }
-                    catch (Exception t) { Log(t); }
-                    try
-                    {
+                   
+                    
                         if (Table[RowSecond - 1, ColumnSecond - 1] == 6)
                             return false;
-                    }
-                    catch (Exception t) { Log(t); }
-                    try
-                    {
+                   
+                    
                         if (Table[RowSecond + 1, ColumnSecond - 1] == 6)
                             return false;
-                    }
-                    catch (Exception t) { Log(t); }
-                    try
-                    {
+                   
+                    
                         if (Table[RowSecond - 1, ColumnSecond + 1] == 6)
                             return false;
-                    }
-                    catch (Exception t) { Log(t); }
+                   
 
                 }
                 return true;
@@ -2590,8 +2510,7 @@ namespace Refrigtz
                     if (Order == 1 && Order == 1)
                     {
                         //Depend on First Move do For Land Of Islam
-                        try
-                        {
+                        
                             if ((RowFirst == RowSecond) && (((ColumnSecond == ColumnFirst + 2 && Table[RowSecond, ColumnSecond - 1] == 0)) || (ColumnSecond == ColumnFirst + 1 && Table[RowSecond, ColumnSecond] == 0)))
                             {
                                 //When Destination is The Empty Return Validity Else Return Not Validity.
@@ -2613,18 +2532,13 @@ namespace Refrigtz
                                     }
 
                                 }
-                        }
-                        catch (Exception t)
-                        {
-                            Log(t);
-                        }
+                       
                     }
                     else//Brown Color.
                         if (Order == -1)
                         {
                             //Depend Of First Move do For Positivism
-                            try
-                            {
+                            
                                 if ((RowFirst == RowSecond) && ((ColumnFirst == ColumnSecond + 2 && Table[RowSecond, ColumnSecond + 1] == 0) || (ColumnFirst == ColumnSecond + 1 && Table[RowSecond, ColumnSecond] == 0)))
                                 {
                                     //If The Destination is Empty Return Validity Else Return Not Validity.
@@ -2640,11 +2554,7 @@ namespace Refrigtz
                                             //Return Validity.
                                             return true;
                                     }
-                            }
-                            catch (Exception t)
-                            {
-                                Log(t);
-                            }
+                           
                         }
                 }
                 else//If Soldeior Moved Previously.
@@ -2653,8 +2563,7 @@ namespace Refrigtz
                     if (Order == 1 && Order == 1)
                     {
                         //Depend on Second Move do For Land Of Islam
-                        try
-                        {
+                        
                             if ((RowFirst == RowSecond) && (ColumnSecond == ColumnFirst + 1))
                             {
                                 //When Destination is Empty Rerturn Validity Else Return Not Validty.
@@ -2672,18 +2581,13 @@ namespace Refrigtz
 
 
                                 }
-                        }
-                        catch (Exception t)
-                        {
-                            Log(t);
-                        }
+                       
                     }
                     else//Brown Color.
                         if (Order == -1)
                         {
                             //Depend Of Second Move do For Positivism Land
-                            try
-                            {
+                            
                                 if ((RowSecond == RowFirst) && (ColumnFirst == ColumnSecond + 1))
                                 {
                                     //Destination Empty Consideration 
@@ -2700,11 +2604,7 @@ namespace Refrigtz
                                             return true;
 
                                     }
-                            }
-                            catch (Exception t)
-                            {
-                                Log(t);
-                            }
+                           
                         }
                 }
             }
@@ -2732,8 +2632,7 @@ namespace Refrigtz
                     if (Order == 1)
                     {
                         //Depend on First Move do For Land Of Islam
-                        try
-                        {
+                        
                             if ((RowFirst == RowSecond) && ((ColumnSecond == ColumnFirst - 2 && Table[RowSecond, ColumnSecond + 1] == 0 && Table[RowSecond, ColumnSecond] == 0) || (ColumnSecond == ColumnFirst - 1) && Table[RowSecond, ColumnSecond] == 0))
                             {
                                 //When Destination is The Empty Return Validity Else Return Not Validity.
@@ -2755,18 +2654,13 @@ namespace Refrigtz
                                     }
 
                                 }
-                        }
-                        catch (Exception t)
-                        {
-                            Log(t);
-                        }
+                       
                     }
                     else//Brown Color.
                         if (Order == -1)
                         {
                             //Depend Of First Move do For Positivism
-                            try
-                            {
+                            
                                 if ((RowFirst == RowSecond) && ((ColumnFirst == ColumnSecond - 2 && Table[RowSecond, ColumnSecond - 1] == 0 && Table[RowSecond, ColumnSecond] == 0) || (ColumnFirst == ColumnSecond - 1 && Table[RowSecond, ColumnSecond] == 0)))
                                 {
                                     //If The Destination is Empty Return Validity Else Return Not Validity.
@@ -2782,11 +2676,7 @@ namespace Refrigtz
                                             //Return Validity.
                                             return true;
                                     }
-                            }
-                            catch (Exception t)
-                            {
-                                Log(t);
-                            }
+                           
                         }
                 }
                 else//If Soldeior Moved Previously.
@@ -2795,8 +2685,7 @@ namespace Refrigtz
                     if (Order == 1)
                     {
                         //Depend on Second Move do For Land Of Islam
-                        try
-                        {
+                        
                             if ((RowFirst == RowSecond) && (ColumnSecond == ColumnFirst - 1))
                             {
                                 //When Destination is Empty Rerturn Validity Else Return Not Validty.
@@ -2814,18 +2703,13 @@ namespace Refrigtz
 
 
                                 }
-                        }
-                        catch (Exception t)
-                        {
-                            Log(t);
-                        }
+                       
                     }
                     else//Brown Color.
                         if (Order == -1)
                         {
                             //Depend Of Second Move do For Positivism Land
-                            try
-                            {
+                            
                                 if ((RowSecond == RowFirst) && (ColumnFirst == ColumnSecond - 1))
                                 {
                                     //Destination Empty Consideration 
@@ -2842,11 +2726,7 @@ namespace Refrigtz
                                             return true;
 
                                     }
-                            }
-                            catch (Exception t)
-                            {
-                                Log(t);
-                            }
+                           
                         }
                 }
             }

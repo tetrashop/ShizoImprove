@@ -1,4 +1,4 @@
-﻿/****************************************************************************
+/****************************************************************************
  * Thinking Operation class.*************************************************
  * Ramin Edjlal**************************************************************
  * Drived Classess of Autamata Cellular Quantum Thinking Kernel**************
@@ -207,14 +207,12 @@ namespace Refrigtz
         ///Log of Errors.
         static void Log(Exception ex)
         {
-            try
-            {
+            
                 //Initiate Variable.
                 string stackTrace = ex.ToString();
                 //Write to File.
                 File.AppendAllText(FormRefrigtz.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); /// path of file where stack trace will be stored.
-            }
-            catch (Exception t) { Log(t); }
+           
         }
         //Constructor
         public ThinkingChess(bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, int i, int j)
@@ -385,15 +383,10 @@ namespace Refrigtz
                 //For All Depth(s).
                 for (int i = 0; i < AStarGreedy.Count; i++)
                 {
-                    try
-                    {
+                    
                         //Clone a Copy From Depth Objects.
                         AStarGreedy[i].Clone(AA.AStarGreedy[i]);
-                    }
-                    catch (Exception tt)
-                    {
-
-                    }
+                   
                 }
             }
             //For All Moves Indexx Solders List Count.
@@ -614,8 +607,7 @@ namespace Refrigtz
             int DummyOrder = Order;
             int DummyCurrentOrder = ChessRules.CurrentOrder;
             ///When AStarGreedy Huristic is Not Assigned.
-            try
-            {
+            
                 //When Huristic is not Greedy.
                 if (!AStarGreedyHuristicT)
                 {
@@ -1006,11 +998,7 @@ namespace Refrigtz
                         }
                     }
                 }
-            }
-
-            catch (Exception t)
-            {
-            }
+           
             Order = DummyOrder;
             ChessRules.CurrentOrder = DummyCurrentOrder;
             Order = DumOrder;
@@ -1028,8 +1016,7 @@ namespace Refrigtz
             int DummyOrder = Order;
             int DummyCurrentOrder = ChessRules.CurrentOrder;
             ///When AStarGreedy Huristic is Not Assigned.
-            try
-            {
+            
 
                 if (!AStarGreedyHuristicT)
                 {
@@ -1166,10 +1153,7 @@ namespace Refrigtz
                         }
                     }
                 }
-            }
-            catch (Exception t)
-            {
-            }
+           
 
             //Initiate to Begin Call Orders.
             Order = DummyOrder;
@@ -1193,8 +1177,7 @@ namespace Refrigtz
             int DummyOrder = Order;
             int DummyCurrentOrder = ChessRules.CurrentOrder;
             ///When There is no AStarGreedyHuristicT
-            try
-            {
+            
                 if (!AStarGreedyHuristicT)
                 {
                     ///For Every Object.
@@ -1315,10 +1298,7 @@ namespace Refrigtz
                         }
                     }
                 }
-            }
-            catch (Exception t)
-            {
-            }
+           
             //Initiate Orders to Call Begining.
             Order = DummyOrder;
             ChessRules.CurrentOrder = DummyCurrentOrder;
@@ -1335,8 +1315,7 @@ namespace Refrigtz
             int DummyOrder = Order;
             int DummyCurrentOrder = ChessRules.CurrentOrder;
 
-            try
-            {
+            
                 //For All Objects.
                 for (int iii = 0; iii < 8; iii++)
                     for (int jjj = 0; jjj < 8; jjj++)
@@ -1404,10 +1383,7 @@ namespace Refrigtz
 
                         HuristicHittingValue += HA * SignOrderToPlate(Order);
                     }
-            }
-            catch (Exception t)
-            {
-            }
+           
             Order = DummyOrder;
             ChessRules.CurrentOrder = DummyCurrentOrder;
 
@@ -1941,8 +1917,7 @@ namespace Refrigtz
             int DummyOrder = Order;
             int DummyCurrentOrder = ChessRules.CurrentOrder;
             //If There is Not AStarGreedy Huristic Boolean Value.
-            try
-            {
+            
                 if (!AStarGreedyHuristicT)
                 {
                     //For Current Object Lcation.
@@ -2081,10 +2056,7 @@ namespace Refrigtz
                         }
                     }
                 }
-            }
-            catch (Exception t)
-            {
-            }
+           
 
             //Reassignments of Global Orders with Local Begining One.
             Order = DummyOrder;
@@ -2096,8 +2068,7 @@ namespace Refrigtz
         ///Identification of Equality
         public static bool TableEqual(int[,] Tab1, int[,] Tab2)
         {
-            try
-            {
+            
                 //For All Home
                 for (int i = 0; i < 8; i++)
                     for (int j = 0; j < 8; j++)
@@ -2108,29 +2079,18 @@ namespace Refrigtz
                     }
                 //Else return equlity.
                 return true;
-            }
-            catch (Exception t)
-            {
-                Log(t);
-                return false;
-            }
+           
         }
         //If tow int Objects is equal.
         public static bool TableEqual(int Tab1, int Tab2)
         {
-            try
-            {
+            
                 //When there is different values in same location of tow Table return non equality.
                 if (Tab1 != Tab2)
                     return false;
                 //Else return equlity.
                 return true;
-            }
-            catch (Exception t)
-            {
-                Log(t);
-                return false;
-            }
+           
         }
         //Deterimination of Existance of Table in List.QC-OK.
         static public bool ExistTableInList(int[,] Tab, List<int[,]> List, int Index)
@@ -2788,8 +2748,7 @@ namespace Refrigtz
             double Check = 0;
             double CheckMate = 9999999;
 
-            try
-            {
+            
                 //if (AStarGreedyHuristicT)
                 {
                     //Consider Global Check CheckMate ObjectDanger Variables Orderly.
@@ -2901,10 +2860,7 @@ namespace Refrigtz
                         }
                     }
                 }
-            }
-            catch (Exception t)
-            {
-            }
+           
             //HuristicObjectDangourCheckMateValue *= SignOrderToPlate(Order);
             Order = DummyOrder;
             ChessRules.CurrentOrder = DummyCurrentOrder;
@@ -3110,8 +3066,7 @@ namespace Refrigtz
             int DummyOrder = Order;
             int DummyCurrentOrder = ChessRules.CurrentOrder;
             ///When AStarGreedy Huristic is Not Assigned.
-            try
-            {
+            
                 if (!AStarGreedyHuristicT)
                 {
                     ///For Current Objects.
@@ -3243,10 +3198,7 @@ namespace Refrigtz
                         }
                     }
                 }
-            }
-            catch (Exception t)
-            {
-            }
+           
 
             //Reassignments of Begin Call Global Orders.
             Order = DummyOrder;
@@ -3650,8 +3602,7 @@ namespace Refrigtz
         int SolderOnTableCount(ref DrawSoldier[] So, bool Mi)
         {
             int Count = 0, i = 0;
-            try
-            {
+            
                 //For Alll Solders on Color Calculate Solkder Count.
                 do
                 {
@@ -3674,8 +3625,7 @@ namespace Refrigtz
                     i++;
                 }
                 while (i < 64);
-            }
-            catch (Exception t) { }
+           
             return Count;
         }
         //Elepahnt On Table Count.
@@ -3683,8 +3633,7 @@ namespace Refrigtz
         {
 
             int Count = 0, i = 0;
-            try
-            {
+            
                 //For All Elephant items in Table.
                 do
                 {
@@ -3707,16 +3656,14 @@ namespace Refrigtz
                     i++;
                 }
                 while (i < 64);
-            }
-            catch (Exception t) { }
+           
             return Count;
         }
         //Calculate Hourse on table.
         int HourseOnTableCount(ref DrawHourse[] So, bool Mi)
         {
             int Count = 0, i = 0;
-            try
-            {
+            
                 do
                 {
                     //For All Hourse on Table .
@@ -3739,16 +3686,14 @@ namespace Refrigtz
                     i++;
                 }
                 while (i < 64);
-            }
-            catch (Exception t) { }
+           
             return Count;
         }
         //Calculate Bridges Count.
         int BridgeOnTableCount(ref DrawBridge[] So, bool Mi)
         {
             int Count = 0, i = 0;
-            try
-            {
+            
                 do
                 {
                     if (So[i] != null)
@@ -3770,16 +3715,14 @@ namespace Refrigtz
                     i++;
                 }
                 while (i < 64);
-            }
-            catch (Exception t) { }
+           
             return Count;
         }
         //Calculate Minsiter Count.
         int MinisterOnTableCount(ref DrawMinister[] So, bool Mi)
         {
             int Count = 0, i = 0;
-            try
-            {
+            
                 do
                 {
                     if (So[i] != null)
@@ -3801,16 +3744,14 @@ namespace Refrigtz
                     i++;
                 }
                 while (i < 64);
-            }
-            catch (Exception t) { }
+           
             return Count;
         }
         //Calculate King on Table.
         int KingOnTableCount(ref DrawKing[] So, bool Mi)
         {
             int Count = 0, i = 0;
-            try
-            {
+            
                 do
                 {
                     if (So[i] != null)
@@ -3832,8 +3773,7 @@ namespace Refrigtz
                     i++;
                 }
                 while (i < 64);
-            }
-            catch (Exception t) { }
+           
             return Count;
         }
         //Return Huristic.
