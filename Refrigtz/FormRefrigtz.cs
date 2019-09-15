@@ -12866,6 +12866,10 @@ namespace Refrigtz
             Object O = new Object();
             lock (O)
             {
+                if (state == null || state == "" || textBoxStatistic == null)
+                    return;
+                if (textBoxStatistic.Text == null)
+                    return;
                 // InvokeRequired required compares the thread ID of the
                 // calling thread to the thread ID of the creating thread.
                 // If these threads are different, it returns true.
@@ -12882,7 +12886,6 @@ namespace Refrigtz
                 {
                     try
                     {
-
                         textBoxStatistic.AppendText(state);
                     }
                     catch (Exception t) { Log(t); }

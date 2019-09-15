@@ -180,38 +180,38 @@ namespace RefrigtzDLL
         public int IndexKing = 0;
         //static public int Index = 0;
         //static public int[,] RowColumn;
-        public List<int[]> RowColumnSoldier = new List<int[]>();
-        public List<int[]> RowColumnElefant = new List<int[]>();
-        public List<int[]> RowColumnHourse = new List<int[]>();
-        public List<int[]> RowColumnCastle = new List<int[]>();
-        public List<int[]> RowColumnMinister = new List<int[]>();
-        public List<int[]> RowColumnKing = new List<int[]>();
+        public List<int[]> RowColumnSoldier = null;
+        public List<int[]> RowColumnElefant = null;
+        public List<int[]> RowColumnHourse = null;
+        public List<int[]> RowColumnCastle = null;
+        public List<int[]> RowColumnMinister = null;
+        public List<int[]> RowColumnKing = null;
         public int[,] TableT;
-        public List<int> HitNumberSoldier = new List<int>();
-        public List<int> HitNumberElefant = new List<int>();
-        public List<int> HitNumberHourse = new List<int>();
-        public List<int> HitNumberCastle = new List<int>();
-        public List<int> HitNumberMinister = new List<int>();
-        public List<int> HitNumberKing = new List<int>();
+        public List<int> HitNumberSoldier = null;
+        public List<int> HitNumberElefant = null;
+        public List<int> HitNumberHourse = null;
+        public List<int> HitNumberCastle = null;
+        public List<int> HitNumberMinister = null;
+        public List<int> HitNumberKing = null;
         public int[,] TableConst;
-        public List<int[,]> TableListSolder = new List<int[,]>();
-        public List<int[,]> TableListElefant = new List<int[,]>();
-        public List<int[,]> TableListHourse = new List<int[,]>();
-        public List<int[,]> TableListCastle = new List<int[,]>();
-        public List<int[,]> TableListMinister = new List<int[,]>();
-        public List<int[,]> TableListKing = new List<int[,]>();
-        public List<int[]> HuristicListSolder = new List<int[]>();
-        public List<int[]> HuristicListElefant = new List<int[]>();
-        public List<int[]> HuristicListHourse = new List<int[]>();
-        public List<int[]> HuristicListCastle = new List<int[]>();
-        public List<int[]> HuristicListMinister = new List<int[]>();
-        public List<int[]> HuristicListKing = new List<int[]>();
-        public List<QuantumAtamata> PenaltyRegardListSolder = new List<QuantumAtamata>();
-        public List<QuantumAtamata> PenaltyRegardListElefant = new List<QuantumAtamata>();
-        public List<QuantumAtamata> PenaltyRegardListHourse = new List<QuantumAtamata>();
-        public List<QuantumAtamata> PenaltyRegardListCastle = new List<QuantumAtamata>();
-        public List<QuantumAtamata> PenaltyRegardListMinister = new List<QuantumAtamata>();
-        public List<QuantumAtamata> PenaltyRegardListKing = new List<QuantumAtamata>();
+        public List<int[,]> TableListSolder = null;
+        public List<int[,]> TableListElefant = null;
+        public List<int[,]> TableListHourse = null;
+        public List<int[,]> TableListCastle = null;
+        public List<int[,]> TableListMinister = null;
+        public List<int[,]> TableListKing = null;
+        public List<int[]> HuristicListSolder = null;
+        public List<int[]> HuristicListElefant = null;
+        public List<int[]> HuristicListHourse = null;
+        public List<int[]> HuristicListCastle = null;
+        public List<int[]> HuristicListMinister = null;
+        public List<int[]> HuristicListKing = null;
+        public List<QuantumAtamata> PenaltyRegardListSolder = null;
+        public List<QuantumAtamata> PenaltyRegardListElefant = null;
+        public List<QuantumAtamata> PenaltyRegardListHourse = null;
+        public List<QuantumAtamata> PenaltyRegardListCastle = null;
+        public List<QuantumAtamata> PenaltyRegardListMinister = null;
+        public List<QuantumAtamata> PenaltyRegardListKing = null;
         public int Max;
         public int Row, Column;
         public Color color;
@@ -368,24 +368,36 @@ namespace RefrigtzDLL
                 Row = i;
                 Column = j;
                 //Clear Dearty Part.
-                /*TableListSolder.Clear();
-                TableListElefant.Clear();
-                TableListHourse.Clear();
-                TableListCastle.Clear();
-                TableListMinister.Clear();
-                TableListKing.Clear();
+
+                TableListSolder = new List<int[,]>();
+                TableListElefant = new List<int[,]>();
+                TableListHourse = new List<int[,]>();
+                TableListCastle = new List<int[,]>();
+                TableListMinister = new List<int[,]>();
+                TableListKing = new List<int[,]>();
+
                 RowColumnSoldier = new List<int[]>();
                 RowColumnElefant = new List<int[]>();
                 RowColumnHourse = new List<int[]>();
                 RowColumnCastle = new List<int[]>();
                 RowColumnMinister = new List<int[]>();
                 RowColumnKing = new List<int[]>();
+
                 HitNumberSoldier = new List<int>();
                 HitNumberElefant = new List<int>();
                 HitNumberHourse = new List<int>();
                 HitNumberCastle = new List<int>();
                 HitNumberMinister = new List<int>();
                 HitNumberKing = new List<int>();
+
+                HuristicListSolder = new List<int[]>();
+                HuristicListElefant = new List<int[]>();
+                HuristicListHourse = new List<int[]>();
+                HuristicListCastle = new List<int[]>();
+                HuristicListCastle = new List<int[]>();
+                HuristicListMinister = new List<int[]>();
+                HuristicListKing = new List<int[]>();
+
                 PenaltyRegardListSolder = new List<QuantumAtamata>();
                 PenaltyRegardListElefant = new List<QuantumAtamata>();
                 PenaltyRegardListHourse = new List<QuantumAtamata>();
@@ -393,12 +405,13 @@ namespace RefrigtzDLL
                 PenaltyRegardListMinister = new List<QuantumAtamata>();
                 PenaltyRegardListKing = new List<QuantumAtamata>();
                 AStarGreedy = new List<AllDraw>();
-                */
+
                 //Network  QuantumAtamata Book Initiate For Every Clone.
                 //ObjectValueCalculator(TableConst);
 
             }
         }
+
         /*int SetObjectValue(int[,] Tab, int Row, int Column)
         {
             Object o = new Object();
@@ -508,32 +521,44 @@ namespace RefrigtzDLL
                 AStarGreedy = new List<AllDraw>();
                 ThingsNumber = ThingN;
                 CurrentArray = CurA;
-                /*TableListSolder.Clear();
-                TableListElefant.Clear();
-                TableListHourse.Clear();
-                TableListCastle.Clear();
-                TableListMinister.Clear();
-                TableListKing.Clear();
+                TableListSolder = new List<int[,]>();
+                TableListElefant = new List<int[,]>();
+                TableListHourse = new List<int[,]>();
+                TableListCastle = new List<int[,]>();
+                TableListMinister = new List<int[,]>();
+                TableListKing = new List<int[,]>();
+
                 RowColumnSoldier = new List<int[]>();
                 RowColumnElefant = new List<int[]>();
                 RowColumnHourse = new List<int[]>();
                 RowColumnCastle = new List<int[]>();
                 RowColumnMinister = new List<int[]>();
                 RowColumnKing = new List<int[]>();
-                RowColumn = new int[1000000, 2];
+
                 HitNumberSoldier = new List<int>();
                 HitNumberElefant = new List<int>();
                 HitNumberHourse = new List<int>();
                 HitNumberCastle = new List<int>();
                 HitNumberMinister = new List<int>();
                 HitNumberKing = new List<int>();
+
+                HuristicListSolder = new List<int[]>();
+                HuristicListElefant = new List<int[]>();
+                HuristicListHourse = new List<int[]>();
+                HuristicListCastle = new List<int[]>();
+                HuristicListCastle = new List<int[]>();
+                HuristicListMinister = new List<int[]>();
+                HuristicListKing = new List<int[]>();
+
                 PenaltyRegardListSolder = new List<QuantumAtamata>();
                 PenaltyRegardListElefant = new List<QuantumAtamata>();
                 PenaltyRegardListHourse = new List<QuantumAtamata>();
                 PenaltyRegardListCastle = new List<QuantumAtamata>();
                 PenaltyRegardListMinister = new List<QuantumAtamata>();
                 PenaltyRegardListKing = new List<QuantumAtamata>();
-                */
+                AStarGreedy = new List<AllDraw>();
+
+
                 Row = i;
                 Column = j;
                 color = a;
