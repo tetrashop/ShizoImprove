@@ -10354,6 +10354,7 @@ if (Kind == 2)
                 for (var i = KingMidle; i < KingHigh; i++)
                     ServeISSup(Order, 6, i);
             }
+            AllDraw.OutPut.Append("\r\nServe:" + (TimeElapced.TimeNow() - Time).ToString() + "<br/>");
         }
         //Parallel.ForEach(tH, items => Task.WaitAny(items));
         void ServeISSup(int Order, int Kind,
@@ -10894,6 +10895,7 @@ if (Kind == 2)
                     }
                 }
             }
+            AllDraw.OutPut.Append("\r\nServeISSup:" + (TimeElapced.TimeNow() - Time).ToString() + "<br/>");
         }
 
         AllDraw InitiateAStarGreedytSodlerGray(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
@@ -11233,7 +11235,7 @@ if (Kind == 2)
             {
                 //List<Task> tH = new List<Task>();
                 //For Each Objects of Brown Sodiers.
-                Parallel.For(SodierMidle, SodierHigh, i =>
+                 Parallel.For(SodierMidle, SodierHigh, i =>
                 //for (var i = SodierMidle; i < SodierHigh; i++)
                 {
                     Object O = new Object();
