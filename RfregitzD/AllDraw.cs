@@ -12457,7 +12457,7 @@ if (Kind == 2)
 
                         if (AllDraw.OrderPlate == Order)
                         {
-                            if (SolderesOnTable[ik].SoldierThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessS || (SolderesOnTable[ik].SoldierThinking[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                            if (SolderesOnTable[ik].SoldierThinking[0].ReturnHuristic(ik, j, Order, false) < PreviousLessS || (SolderesOnTable[ik].SoldierThinking[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                             {
 
                             }
@@ -12514,7 +12514,7 @@ if (Kind == 2)
 
                         if (AllDraw.OrderPlate == Order)
                         {
-                            if (ElephantOnTable[ik].ElefantThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessE || (ElephantOnTable[ik].ElefantThinking[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                            if (ElephantOnTable[ik].ElefantThinking[0].ReturnHuristic(ik, j, Order, false) < PreviousLessE || (ElephantOnTable[ik].ElefantThinking[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                             {
                                 //ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = null;
                                 //ElephantOnTable[ik] = null;
@@ -12572,7 +12572,7 @@ if (Kind == 2)
 
                         if (AllDraw.OrderPlate == Order)
                         {
-                            if (HoursesOnTable[ik].HourseThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessH || (HoursesOnTable[ik].HourseThinking[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                            if (HoursesOnTable[ik].HourseThinking[0].ReturnHuristic(ik, j, Order, false) < PreviousLessH || (HoursesOnTable[ik].HourseThinking[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                             {
                                 //HoursesOnTable[ik].HourseThinking[0].AStarGreedy = null;
                                 //continue;
@@ -12630,7 +12630,7 @@ if (Kind == 2)
 
                         if (AllDraw.OrderPlate == Order)
                         {
-                            if (CastlesOnTable[ik].CastleThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessB || (CastlesOnTable[ik].CastleThinking[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                            if (CastlesOnTable[ik].CastleThinking[0].ReturnHuristic(ik, j, Order, false) < PreviousLessB || (CastlesOnTable[ik].CastleThinking[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                             {
 
                                 //CastlesOnTable[ik].CastleThinking[0].AStarGreedy = null;
@@ -12692,7 +12692,7 @@ if (Kind == 2)
                     {
                         if (AllDraw.OrderPlate == Order)
                         {
-                            if (MinisterOnTable[ik].MinisterThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessM || (MinisterOnTable[ik].MinisterThinking[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                            if (MinisterOnTable[ik].MinisterThinking[0].ReturnHuristic(ik, j, Order, false) < PreviousLessM || (MinisterOnTable[ik].MinisterThinking[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                             {
                                 //MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = null;
                                 // MinisterOnTable[ik] = null;
@@ -12753,7 +12753,7 @@ if (Kind == 2)
 
                         if (AllDraw.OrderPlate == Order)
                         {
-                            if (KingOnTable[ik].KingThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessK || (KingOnTable[ik].KingThinking[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                            if (KingOnTable[ik].KingThinking[0].ReturnHuristic(ik, j, Order, false) < PreviousLessK || (KingOnTable[ik].KingThinking[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                             {
                                 //KingOnTable[ik].KingThinking[0].AStarGreedy = null;
                                 //KingOnTable[ik] = null;
@@ -12974,7 +12974,7 @@ if (Kind == 2)
 
                     if (AllDraw.OrderPlate == Order)
                     {
-                        if (SolderesOnTable[ik].SoldierThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessS || (SolderesOnTable[ik].SoldierThinking[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                        if (SolderesOnTable[ik].SoldierThinking[0].ReturnHuristic(ik, j, Order, false) < PreviousLessS || (SolderesOnTable[ik].SoldierThinking[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                         {
                             //SolderesOnTable[ik].SoldierThinking[0].AStarGreedy = null;
                             //SolderesOnTable[ik] = null;
@@ -13028,7 +13028,7 @@ if (Kind == 2)
 
                     if (AllDraw.OrderPlate == Order)
                     {
-                        if (ElephantOnTable[ik].ElefantThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessE || (ElephantOnTable[ik].ElefantThinking[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                        if (ElephantOnTable[ik].ElefantThinking[0].ReturnHuristic(ik, j, Order, false) < PreviousLessE || (ElephantOnTable[ik].ElefantThinking[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 
                         {
                             //ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = null;
@@ -13086,7 +13086,7 @@ if (Kind == 2)
 
                     if (AllDraw.OrderPlate == Order)
                     {
-                        if (HoursesOnTable[ik].HourseThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessH || (HoursesOnTable[ik].HourseThinking[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                        if (HoursesOnTable[ik].HourseThinking[0].ReturnHuristic(ik, j, Order, false) < PreviousLessH || (HoursesOnTable[ik].HourseThinking[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 
                         {
                             //HoursesOnTable[ik].HourseThinking[0].AStarGreedy = null;
@@ -13217,7 +13217,7 @@ if (Kind == 2)
 
                     if (AllDraw.OrderPlate == Order)
                     {
-                        if (CastlesOnTable[ik].CastleThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessB || (CastlesOnTable[ik].CastleThinking[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                        if (CastlesOnTable[ik].CastleThinking[0].ReturnHuristic(ik, j, Order, false) < PreviousLessB || (CastlesOnTable[ik].CastleThinking[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 
                         {
                             //CastlesOnTable[ik].CastleThinking[0].AStarGreedy = null;
@@ -13278,7 +13278,7 @@ if (Kind == 2)
 
                     if (AllDraw.OrderPlate == Order)
                     {
-                        if (MinisterOnTable[ik].MinisterThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessM || (MinisterOnTable[ik].MinisterThinking[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                        if (MinisterOnTable[ik].MinisterThinking[0].ReturnHuristic(ik, j, Order, false) < PreviousLessM || (MinisterOnTable[ik].MinisterThinking[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
 
                         {
                             //MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = null;
@@ -13334,7 +13334,7 @@ if (Kind == 2)
 
                     if (AllDraw.OrderPlate == Order)
                     {
-                        if (KingOnTable[ik].KingThinking[0].ReturnHuristic(-1, j, Order, false) < PreviousLessK || (KingOnTable[ik].KingThinking[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                        if (KingOnTable[ik].KingThinking[0].ReturnHuristic(ik, j, Order, false) < PreviousLessK || (KingOnTable[ik].KingThinking[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                         {
                             //KingOnTable[ik].KingThinking[0].AStarGreedy = null;
                             //KingOnTable[ik] = null;
@@ -16581,6 +16581,7 @@ if (Kind == 2)
         }
         int MinOfSixHuristic(int _1, int _2, int _3, int _4, int _5, int _6)
         {
+            long Time = TimeElapced.TimeNow();
             int[] LessB = new int[6];
             LessB[0] = _1;
             LessB[1] = _2;
