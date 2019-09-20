@@ -50,12 +50,14 @@ namespace RefrigtzDLL
         }
         public void Dispose()
         {
+            long Time = TimeElapced.TimeNow();
             ValuableSelfSupported = null;
             E = null;
+            AllDraw.OutPut.Append("\r\nDispose:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         public bool MaxFound(ref bool MaxNotFound)
         {
-
+            long Time = TimeElapced.TimeNow();
             int a = ReturnHuristic();
             if (MaxHuristicxE < a)
             {
@@ -67,20 +69,23 @@ namespace RefrigtzDLL
                         ThinkingChess.MaxHuristicx = a;
                     MaxHuristicxE = a;
                 }
+                AllDraw.OutPut.Append("\r\nMaxFound:" + (TimeElapced.TimeNow() - Time).ToString());
                 return true;
             }
 
             MaxNotFound = true;
+            AllDraw.OutPut.Append("\r\nMaxFound:" + (TimeElapced.TimeNow() - Time).ToString());
             return false;
         }
         public int ReturnHuristic()
         {
+            long Time = TimeElapced.TimeNow();
             int a = 0;
             for (var ii = 0; ii < AllDraw.ElefantMovments; ii++)
 
                 a += ElefantThinking[ii].ReturnHuristic(-1, -1, Order, false);
 
-
+            AllDraw.OutPut.Append("\r\nReturnHuristic:" + (TimeElapced.TimeNow() - Time).ToString());
             return a;
         }
 
@@ -101,6 +106,7 @@ namespace RefrigtzDLL
         public DrawElefant(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//,ref AllDraw. THIS
             )
         {
+            long Time = TimeElapced.TimeNow();
             object balancelock = new object();
             lock (balancelock)
             {
@@ -130,12 +136,14 @@ namespace RefrigtzDLL
                 Order = Ord;
                 Current = Cur;
             }
+            AllDraw.OutPut.Append("\r\nDrawElefant:" + (TimeElapced.TimeNow() - Time).ToString());
 
         }
         //Clone a Copy.
         public void Clone(ref DrawElefant AA//, ref AllDraw. THIS
             )
         {
+            long Time = TimeElapced.TimeNow();
             int[,] Tab = new int[8, 8];
             for (var i = 0; i < 8; i++)
                 for (var j = 0; j < 8; j++)
@@ -159,11 +167,12 @@ namespace RefrigtzDLL
             AA.Order = Order;
             AA.Current = Current;
             AA.color = color;
-
+            AllDraw.OutPut.Append("\r\nClone:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         //Draw an Instatnt Elephant On the Table.
         public void DrawElefantOnTable(ref Graphics g, int CellW, int CellH)
         {
+            long Time = TimeElapced.TimeNow();
             try
             {
                 object balancelockS = new object();
@@ -204,6 +213,7 @@ namespace RefrigtzDLL
             {
                 Log(t);
             }
+            AllDraw.OutPut.Append("\r\nDrawElefantOnTable:" + (TimeElapced.TimeNow() - Time).ToString());
         }
     }
 }

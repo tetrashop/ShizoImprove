@@ -50,13 +50,15 @@ namespace RefrigtzDLL
         }
         public void Dispose()
         {
+            long Time = TimeElapced.TimeNow();
             ValuableSelfSupported = null;
             M = null;
+            AllDraw.OutPut.Append("\r\nDispose:" + (TimeElapced.TimeNow() - Time).ToString());
         }
 
         public bool MaxFound(ref bool MaxNotFound)
         {
-
+            long Time = TimeElapced.TimeNow();
             int a = ReturnHuristic();
             if (MaxHuristicxM < a)
             {
@@ -68,19 +70,22 @@ namespace RefrigtzDLL
                         ThinkingChess.MaxHuristicx = a;
                     MaxHuristicxM = a;
                 }
+                AllDraw.OutPut.Append("\r\nMaxFound:" + (TimeElapced.TimeNow() - Time).ToString());
                 return true;
             }
 
             MaxNotFound = true;
+            AllDraw.OutPut.Append("\r\nMaxFound:" + (TimeElapced.TimeNow() - Time).ToString());
             return false;
         }
         public int ReturnHuristic()
         {
+            long Time = TimeElapced.TimeNow();
             int a = 0;
             for (var ii = 0; ii < AllDraw.MinisterMovments; ii++)
 
                 a += MinisterThinking[ii].ReturnHuristic(-1, -1, Order, false);
-
+            AllDraw.OutPut.Append("\r\nReturnHuristic:" + (TimeElapced.TimeNow() - Time).ToString());
             return a;
         }
         //constructor 1.
@@ -101,6 +106,7 @@ namespace RefrigtzDLL
         public DrawMinister(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. THIS
             )
         {
+            long Time = TimeElapced.TimeNow();
             object balancelock = new object();
             lock (balancelock)
             {
@@ -128,11 +134,13 @@ namespace RefrigtzDLL
                 Current = Cur;
                 Order = Ord;
             }
+            AllDraw.OutPut.Append("\r\nDrawMinister:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         //Clone a Copy.
         public void Clone(ref DrawMinister AA//, ref AllDraw. THIS
             )
         {
+            long Time = TimeElapced.TimeNow();
             int[,] Tab = new int[8, 8];
             for (var i = 0; i < 8; i++)
                 for (var j = 0; j < 8; j++)
@@ -157,12 +165,12 @@ namespace RefrigtzDLL
             AA.Order = Order;
             AA.Current = Current;
             AA.color = color;
-
+            AllDraw.OutPut.Append("\r\nClone:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         //Draw an Mnister on the Table.
         public void DrawMinisterOnTable(ref Graphics g, int CellW, int CellH)
         {
-
+            long Time = TimeElapced.TimeNow();
             try
             {
                 object balancelockS = new object();
@@ -202,6 +210,7 @@ namespace RefrigtzDLL
             {
                 Log(t);
             }
+            AllDraw.OutPut.Append("\r\nDrawMinisterOnTable:" + (TimeElapced.TimeNow() - Time).ToString());
         }
     }
 }
