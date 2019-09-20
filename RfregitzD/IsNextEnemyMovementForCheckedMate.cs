@@ -13,20 +13,24 @@ namespace RefrigtzDLL
         public IsNextEnemyMovementForCheckedMate(int Order, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments,int[,] Tab)
             : base(Order, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments)
         {
+            long Time = TimeElapced.TimeNow();
             for (var i = 0; i < 8; i++)
                 for (var j = 0; j < 8; j++)
                     TableIsNextEnemyMovementForCheckedMate[i, j] = Tab[i, j];
-
+            AllDraw.OutPut.Append("\r\nIsNextEnemyMovementForCheckedMate:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         public IsNextEnemyMovementForCheckedMate(int Order, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, AllDraw THi,int[,] Tab)
             : base(Order, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments, THi)
         {
+            long Time = TimeElapced.TimeNow();
             for (var i = 0; i < 8; i++)
                 for (var j = 0; j < 8; j++)
                     TableIsNextEnemyMovementForCheckedMate[i, j] = Tab[i, j];
+            AllDraw.OutPut.Append("\r\nIsNextEnemyMovementForCheckedMate:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         public bool Is()
         {
+            long Time = TimeElapced.TimeNow();
             bool IS= false;
             Color a = Color.Gray;
             if (OrderP == -1)
@@ -238,6 +242,7 @@ namespace RefrigtzDLL
              ThinkingChess.NotSolvedKingDanger =B11;
              ThinkingChess.NumbersOfAllNode = B12;
              ThinkingChess.ThinkingRun = B13;
+            AllDraw.OutPut.Append("\r\nIs:" + (TimeElapced.TimeNow() - Time).ToString());
             return IS;
         }
     }

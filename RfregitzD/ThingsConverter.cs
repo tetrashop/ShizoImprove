@@ -31,11 +31,13 @@ namespace RefrigtzDLL
 
         //AllDraw. THIS;
         public ThingsConverter()
-        { }
+        { long Time = TimeElapced.TimeNow();
+        }
         //Constructor
         public ThingsConverter(bool Arrangments, int i, int j, Color a, int[,] Tab, int Ord, bool TB, int Cur//,ref AllDraw. THI
             )
         {
+            long Time = TimeElapced.TimeNow();
             //Initite Global Variables with Local Parameter.
             //THIS = THI;
             ArrangmentsChanged = Arrangments;
@@ -45,11 +47,12 @@ namespace RefrigtzDLL
             Order = Ord;
             Current = Cur;
 
-
+            AllDraw.OutPut.Append("\r\nThingsConverter:" + (TimeElapced.TimeNow() - Time).ToString());
         }
 
         public ThingsConverter(bool arrangmentsChanged, int rowSource, int columnSource, Color color, int[,] tableS, int order, int v)
         {
+            long Time = TimeElapced.TimeNow();
             ArrangmentsChanged = arrangmentsChanged;
             this.rowSource = rowSource;
             this.columnSource = columnSource;
@@ -57,11 +60,13 @@ namespace RefrigtzDLL
             this.tableS = tableS;
             Order = order;
             this.v = v;
+            AllDraw.OutPut.Append("\r\nThingsConverter:" + (TimeElapced.TimeNow() - Time).ToString());
         }
 
         //Convert Operation of Randomly All State Method.
         public bool ConvertOperation(int i, int j, Color a, int[,] Tab, int Ord, bool TB, int Cur)
         {
+            long Time = TimeElapced.TimeNow();
             Object OOO = new Object();
             lock (OOO)
             {
@@ -463,6 +468,7 @@ namespace RefrigtzDLL
 
                 }
                 System.Threading.Thread.Sleep(100);
+                AllDraw.OutPut.Append("\r\nConvertOperation:" + (TimeElapced.TimeNow() - Time).ToString());
                 //return Convert State.
                 return Convert;
             }
