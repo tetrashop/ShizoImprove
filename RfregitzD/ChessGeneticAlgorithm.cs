@@ -281,6 +281,7 @@ namespace RefrigtzDLL
         //Constructor.
         public ChessGeneticAlgorithm(bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
         {
+            long Time = TimeElapced.TimeNow();
             MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
             IgnoreSelfObjectsT = IgnoreSelfObject;
             UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
@@ -291,9 +292,11 @@ namespace RefrigtzDLL
             ArrangmentsChanged = Arrangments;
             //Initiate Global Variables.
             RowColumn.Clear();
+            AllDraw.OutPut.Append("\r\nChessGeneticAlgorithm:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         public bool FindHitToModified(int[,] Cromosom1, int[,] Cromosom2, List<int[,]> List, int Index, int Order, bool and)
         {
+            long Time = TimeElapced.TimeNow();
             bool Find = false;
             for (var i = 0; i < 8; i++)
             {
@@ -335,11 +338,13 @@ namespace RefrigtzDLL
                 if (Find)
                     break;
             }
+            AllDraw.OutPut.Append("\r\nFindHitToModified:" + (TimeElapced.TimeNow() - Time).ToString());
             return Find;
         }
         //Found of Different Home Gen in Tow Chess Home Table Method. 
         public bool FindGenToModified(int[,] Cromosom1, int[,] Cromosom2, List<int[,]> List, int Index, int Order, bool and)
         {
+            long Time = TimeElapced.TimeNow();
             ChessRules.SmallKingCastleBrown = false;
             ChessRules.SmallKingCastleGray = false;
             ChessRules.BigKingCastleBrown = false;
@@ -749,6 +754,7 @@ namespace RefrigtzDLL
 
                 }
             }
+            AllDraw.OutPut.Append("\r\nFindGenToModified:" + (TimeElapced.TimeNow() - Time).ToString());
             //If Gen Foundatjon js Valjd. 
             if (((FindNumber >= 1) && Find) || Brj || AllDraw.SodierConversionOcuured)
                 return Find;
@@ -758,6 +764,7 @@ namespace RefrigtzDLL
         //Table Foundation of Genetic Alogorithm Method.
         public int[,] GenerateTable(List<int[,]> List, int Index, int Order)
         {
+            long Time = TimeElapced.TimeNow();
             //Initiate Local Variables.
             Begine5:
             RowColumn.Clear();
@@ -806,6 +813,7 @@ namespace RefrigtzDLL
                 //If Gen Kind Not Found Retrun Not Valididity.
                 if (List[List.Count + MinusOne][CromosomRow, CromosomColumn] == 0)
                 {
+                    AllDraw.OutPut.Append("\r\nGenerateTable:" + (TimeElapced.TimeNow() - Time).ToString());
                     return null;
                 }
                 else
@@ -860,7 +868,7 @@ namespace RefrigtzDLL
 
                                 else
                                 {
-
+                                    AllDraw.OutPut.Append("\r\nGenerateTable:" + (TimeElapced.TimeNow() - Time).ToString());
                                     //Return Genetic Table.
                                     return GeneticTable;
                                 }
@@ -898,6 +906,7 @@ namespace RefrigtzDLL
                     if (Count >= 6)
                     {
                         NoGameFounf = true;
+                        AllDraw.OutPut.Append("\r\nGenerateTable:" + (TimeElapced.TimeNow() - Time).ToString());
                         return null;
                     }
 
@@ -917,6 +926,7 @@ namespace RefrigtzDLL
                     if (Count >= 6)
                     {
                         NoGameFounf = true;
+                        AllDraw.OutPut.Append("\r\nGenerateTable:" + (TimeElapced.TimeNow() - Time).ToString());
                         return null;
                     }
 
@@ -948,7 +958,10 @@ namespace RefrigtzDLL
                     Count++;
                 } while (Count < 6 && !(new ChessRules(0, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Ki, List[List.Count + MinusOne], Order, CromosomRow, CromosomColumn)).FindAThing(List[List.Count + MinusOne], ref CromosomRow, ref CromosomColumn, Ki, true, RowColumn));
                 if (Count >= 6)
+                {
+                    AllDraw.OutPut.Append("\r\nGenerateTable:" + (TimeElapced.TimeNow() - Time).ToString());
                     return null;
+                }
 
             }
             else
@@ -963,7 +976,10 @@ namespace RefrigtzDLL
                     Count++;
                 } while (Count < 6 && !(new ChessRules(0, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Ki, List[List.Count + MinusOne], Order, CromosomRow, CromosomColumn)).FindAThing(List[List.Count + MinusOne], ref CromosomRow, ref CromosomColumn, Ki, true, RowColumn));
                 if (Count >= 6)
+                {
+                    AllDraw.OutPut.Append("\r\nGenerateTable:" + (TimeElapced.TimeNow() - Time).ToString());
                     return null;
+                }
             }
 
             goto BeginFind;
