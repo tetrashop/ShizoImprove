@@ -164,6 +164,7 @@ namespace RefrigtzDLL
         }
         public ChessRules(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged, int oRDER)
         {
+            long Time = TimeElapced.TimeNow();
             CurrentAStarGredyMax = CurrentAStarGredy;
             MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
             IgnoreSelfObjectsT = IgnoreSelfObject;
@@ -177,6 +178,7 @@ namespace RefrigtzDLL
         }
         public ChessRules(int CurrentAStarGredy, int oRDER, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged)
         {
+            long Time = TimeElapced.TimeNow();
             CurrentAStarGredyMax = CurrentAStarGredy;
             Order = oRDER;
             MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
@@ -191,6 +193,7 @@ namespace RefrigtzDLL
         //Constructor 
         public ChessRules(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged, int Ki, int[,] A, int Ord, int i, int j)
         {
+            long Time = TimeElapced.TimeNow();
 
             CurrentAStarGredyMax = CurrentAStarGredy;
             MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
@@ -223,6 +226,7 @@ namespace RefrigtzDLL
             , bool SelfHomeStatCP = true
             )
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -333,6 +337,7 @@ namespace RefrigtzDLL
         //Castle King Movment Consideration.
         public bool CastleKing(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, int Ki)
         {
+            long Time = TimeElapced.TimeNow();
             if (!(ArrangmentsBoard))
             {             //Gray Order.
                 if (Order == 1)
@@ -517,6 +522,7 @@ namespace RefrigtzDLL
         //Simulation and Consdtruction of Check.
         public bool CheckConstructor(Color color, int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, int Ki, int Order)
         {
+            long Time = TimeElapced.TimeNow();
             //Initiate a Local Variable.
             int[,] tab = new int[8, 8];
             //Clone A Copy of Table.
@@ -547,6 +553,7 @@ namespace RefrigtzDLL
         //Method of Self Home int Objects Consideration.
         private bool ExistSelfHome(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, int Ki)
         {
+            long Time = TimeElapced.TimeNow();
             //Initiate of Local Variable.
             bool NotExistInDestinationSelfHome = false;
             //When There is Not Source and Destination is the Same Home Location. 
@@ -565,6 +572,7 @@ namespace RefrigtzDLL
         //Object Danger Consideration
         public bool ObjectDangourKingMove(int Order, int[,] Table, bool DoIgnore)
         {
+            long Time = TimeElapced.TimeNow();
             int[,] Tab = new int[8, 8];
             //Clone a Copy
             for (var i = 0; i < 8; i++)
@@ -765,6 +773,7 @@ namespace RefrigtzDLL
         }
         public bool ObjectDangourKingMove(int Order, int[,] Table)
         {
+            long Time = TimeElapced.TimeNow();
             int[,] Tab = new int[8, 8];
             //Clone a Copy
             for (var i = 0; i < 8; i++)
@@ -965,6 +974,7 @@ namespace RefrigtzDLL
         }
         bool AchmazCheckByMoveByRule(int[,] Tabl, int RowF, int ColumnF, int RowS, int ColumnS, int Order)
         {
+            long Time = TimeElapced.TimeNow();
             bool Achmaz = false;
             int[,] Table = new int[8, 8];
             for (var i = 0; i < 8; i++)
@@ -984,6 +994,7 @@ namespace RefrigtzDLL
         }
         public bool ObjectDangourKingMove(int Order, int[,] Table, bool DoIgnore, int ii, int jj)
         {
+            long Time = TimeElapced.TimeNow();
             int[,] Tab = new int[8, 8];
             //Clone a Copy
             for (var i = 0; i < 8; i++)
@@ -1190,6 +1201,7 @@ namespace RefrigtzDLL
         //Gray King Founder.
         public bool FindGrayKing(int[,] Table, ref int Row, ref int Column)
         {
+            long Time = TimeElapced.TimeNow();
             //For All Home Table.
             for (var i = 0; i < 8; i++)
                 for (var j = 0; j < 8; j++)
@@ -1209,6 +1221,7 @@ namespace RefrigtzDLL
         //Alpahber Object Consideration.
         static String ThingsAlphabet(int i)
         {
+            long Time = TimeElapced.TimeNow();
             //Initiate a Local Varibale. 
             String A = "";
             //Determinbe Gray Or Brown Movment.
@@ -1236,6 +1249,7 @@ namespace RefrigtzDLL
         //Row Alphabet Consideration.
         static String RowAlphabet(int i)
         {
+            long Time = TimeElapced.TimeNow();
             //Initiate Local Variable.
             String A = "";
             //Row Alphabet Consideration.
@@ -1264,6 +1278,7 @@ namespace RefrigtzDLL
 
             )
         {
+            long Time = TimeElapced.TimeNow();
             Object OOO = new Object();
             lock (OOO)
             {
@@ -1583,6 +1598,7 @@ namespace RefrigtzDLL
         //Consideration of Existing Table in List.
         bool ArrayInList(List<int[]> List, int[] A)
         {
+            long Time = TimeElapced.TimeNow();
             //Initiate Local Variables.
             bool Is = false;
             //For each Items of a Tow Part List.
@@ -1598,6 +1614,7 @@ namespace RefrigtzDLL
         //Find a Specific Objects.
         public bool FindAThing(int[,] Table, ref int Row, ref int Column, int Thing, bool BeMovable, List<int[]> List)
         {
+            long Time = TimeElapced.TimeNow();
             //For All Items In Table Home.
             for (var i = 0; i < 8; i++)
                 for (var j = 0; j < 8; j++)
@@ -1655,6 +1672,7 @@ namespace RefrigtzDLL
         //Brown King Found  Consideration.
         public bool FindBrownKing(int[,] Table, ref int Row, ref int Column)
         {
+            long Time = TimeElapced.TimeNow();
             //For All Home Table.
             for (var i = 0; i < 8; i++)
                 for (var j = 0; j < 8; j++)
@@ -1675,6 +1693,7 @@ namespace RefrigtzDLL
         //A Constraint Check Removed Unused Method.
         public bool CheckRemovableByAttack(int[,] Table, int Order)
         {
+            long Time = TimeElapced.TimeNow();
             //Initiate Local Variables.
             int[,] Tabl = new int[8, 8];
             //Clone a Copy.
@@ -1840,6 +1859,7 @@ namespace RefrigtzDLL
         }
         bool[,] VeryFye(int[,] Table, int Order, Color a, int ii, int jj)
         {
+            long Time = TimeElapced.TimeNow();
             int Cdummy = RefrigtzDLL.ChessRules.CurrentOrder;
             if (Order == 1)
                 RefrigtzDLL.ChessRules.CurrentOrder = 1;
@@ -1867,6 +1887,7 @@ namespace RefrigtzDLL
         }
         public bool OnlyKingMovable(int[,] Tab, bool[,] TabB, int Order)
         {
+            long Time = TimeElapced.TimeNow();
             for (var i = 0; i < 8; i++)
                 for (var j = 0; j < 8; j++)
                 {
@@ -1888,6 +1909,7 @@ namespace RefrigtzDLL
         }
         public bool Pat(int[,] Tab, int Order, Color a)
         {
+            long Time = TimeElapced.TimeNow();
             int[,] Table = new int[8, 8];
             for (var i = 0; i < 8; i++)
                 for (var j = 0; j < 8; j++)
@@ -1993,6 +2015,7 @@ namespace RefrigtzDLL
         }
         void CheckKing(int[,] Table, int Order, int RowK, int ColumnK)
         {
+            long Time = TimeElapced.TimeNow();
             int[,] Tab = new int[8, 8];
             //Clone a Copy.
             for (var ii = 0; ii < 8; ii++)
@@ -2061,6 +2084,7 @@ namespace RefrigtzDLL
         //Check Consideration Method.
         public bool Check(int[,] Table, int Ord)
         {
+            long Time = TimeElapced.TimeNow();
             //A player is not required to move their king out of check and the game concludes when there is a 100 % probability that one of the kings has been taken. As a result there is no checkmate.
             if (DrawKing.KingGrayNotCheckedByQuantumMove && Ord == 1)
                 return false;
@@ -2194,6 +2218,7 @@ namespace RefrigtzDLL
         }
         void CheckMateNotKing(int[,] Tab, int Ord, bool CheckGrayDummy, bool CheckBrownDummy, ref bool ActMove)
         {
+            long Time = TimeElapced.TimeNow();
             int DummyOrder = Ord;
             //For All Home Table.
             for (var i = 0; i < 8; i++)
@@ -2319,6 +2344,7 @@ namespace RefrigtzDLL
         //CheckMate Consideration.QC-OK
         public bool CheckMate(int[,] Tab, int Ord)
         {
+            long Time = TimeElapced.TimeNow();
 
             //Initiate Local and Global  Varibales.
             int[,] Table = new int[8, 8];
@@ -2421,6 +2447,7 @@ namespace RefrigtzDLL
         //Internal Rule of Chess Method.
         private bool Rule(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool ExistInDestinationEnemy, int Ki, bool SelfHomeStatCP)
         {
+            long Time = TimeElapced.TimeNow();
             //When is Not Castles King State.
             if (Kind != 7)
             {
@@ -2478,6 +2505,7 @@ namespace RefrigtzDLL
         //King Rule Method.
         public bool KingRules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool ExistInDestinationEnemy, int Ki)
         {
+            long Time = TimeElapced.TimeNow();
             bool Move = false;
             //When Miniaster Rule is Valid.
             if (MinisterRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy, Ki) && (System.Math.Abs(RowFirst - RowSecond) <= 1) && (System.Math.Abs(ColumnFirst - ColumnSecond) <= 1))
@@ -2646,6 +2674,7 @@ namespace RefrigtzDLL
         //Rules of Minister Method.
         public bool MinisterRules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool ExistInDestinationEnemy, int Ki)
         {
+            long Time = TimeElapced.TimeNow();
             bool Move = false;
             //When is Castles Rule.
             if (CastleRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy, Ki))
@@ -2662,6 +2691,7 @@ namespace RefrigtzDLL
         //Castles Rule Method.
         public bool CastleRules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool ExistInDestinationEnemy, int Ki)
         {
+            long Time = TimeElapced.TimeNow();
             bool Move = false;
             bool Act = false;
             //If Variation is Only in Row.
@@ -2851,6 +2881,7 @@ namespace RefrigtzDLL
         //Elephant Rule Method.
         public bool ElefantRules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool ExistInDestinationEnemy, int Ki)
         {
+            long Time = TimeElapced.TimeNow();
             bool Move = false;
             bool Act = false;
             //Orthogonal Movments of One Abs Derivation.
@@ -2956,6 +2987,7 @@ namespace RefrigtzDLL
         //Hource Rule Method.
         public bool HourseRules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool ExistInDestinationEnemy)
         {
+            long Time = TimeElapced.TimeNow();
             bool Move = false;
             //When L Movament is Occured. 
             if (System.Math.Abs(ColumnFirst - ColumnSecond) == 2 && System.Math.Abs(RowFirst - RowSecond) == 1)
@@ -2981,6 +3013,7 @@ namespace RefrigtzDLL
         }
         public bool SoldierRulesaArrangmentsBoardOne(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool ExistInDestinationEnemy)
         {
+            long Time = TimeElapced.TimeNow();
             bool Move = false;
             //When int is Gray.
             if (Order == 1)
@@ -3148,6 +3181,7 @@ namespace RefrigtzDLL
         }
         public bool SoldierRulesaArrangmentsBoardZero(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool ExistInDestinationEnemy)
         {
+            long Time = TimeElapced.TimeNow();
             bool Move = false;
             //When int is Gray.
             if (Order == 1)
@@ -3315,6 +3349,7 @@ namespace RefrigtzDLL
         //Solder Rule Method.
         public bool SoldierRules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool ExistInDestinationEnemy)
         {
+            long Time = TimeElapced.TimeNow();
 
             if (!(ArrangmentsBoard))
             {
