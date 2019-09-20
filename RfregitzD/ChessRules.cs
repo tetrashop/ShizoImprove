@@ -175,6 +175,7 @@ namespace RefrigtzDLL
             AStarGreedyHuristicT = AStarGreedyHuris;
             Order = oRDER;
             ArrangmentsBoard = ArrangmentsChanged;
+            AllDraw.OutPut.Append("\r\nChessRules:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         public ChessRules(int CurrentAStarGredy, int oRDER, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged)
         {
@@ -189,6 +190,7 @@ namespace RefrigtzDLL
             OnlySelfT = OnlySel;
             AStarGreedyHuristicT = AStarGreedyHuris;
             ArrangmentsBoard = ArrangmentsChanged;
+            AllDraw.OutPut.Append("\r\nChessRules:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         //Constructor 
         public ChessRules(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged, int Ki, int[,] A, int Ord, int i, int j)
@@ -215,6 +217,7 @@ namespace RefrigtzDLL
                 for (var jk = 0; jk < 8; jk++)
                     Table[ik, jk] = A[ik, jk];
             Order = Ord;
+            AllDraw.OutPut.Append("\r\nChessRules:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         //Initiate of Rules of Chess Refregitz.
         public bool Rules(int RowFirst, //The First Click Row
@@ -273,23 +276,34 @@ namespace RefrigtzDLL
                 if (Table[RowFirst, ColumnFirst] == 6)
                 {
                     if (System.Math.Abs(RowB - RowSecond) <= 1 && System.Math.Abs(ColumnB - ColumnSecond) <= 1)
+                    {
+                        AllDraw.OutPut.Append("\r\nRules:" + (TimeElapced.TimeNow() - Time).ToString());
                         return false;
+                    }
                 }
                 //Illegal King Foundation.
                 if (System.Math.Abs(RowB - RowG) <= 1 && System.Math.Abs(ColumnB - ColumnG) <= 1)
+                {
+                    AllDraw.OutPut.Append("\r\nRules:" + (TimeElapced.TimeNow() - Time).ToString());
                     return false;
+                }
             }//Brown Order.
             else
             {
                 if (Table[RowFirst, ColumnFirst] == -6)
                 {
                     if (System.Math.Abs(RowG - RowSecond) <= 1 && System.Math.Abs(ColumnG - ColumnSecond) <= 1)
+                    {
+                        AllDraw.OutPut.Append("\r\nRules:" + (TimeElapced.TimeNow() - Time).ToString());
                         return false;
+                    }
                 }
                 //Ilegal Kings Foundation.
                 if (System.Math.Abs(RowB - RowG) <= 1 && System.Math.Abs(ColumnB - ColumnG) <= 1)
+                {
+                    AllDraw.OutPut.Append("\r\nRules:" + (TimeElapced.TimeNow() - Time).ToString());
                     return false;
-
+                }
             }
             //Determination of Enemy in the Destionation Home.
             bool ExistInDestinationEnemy = new bool();
@@ -310,29 +324,49 @@ namespace RefrigtzDLL
                 {
                     //Solders of Gray at Begining.
                     if (ColumnFirst == 1 && (Order == 1))
+                    {
+
+                        AllDraw.OutPut.Append("\r\nRules:" + (TimeElapced.TimeNow() - Time).ToString());
                         return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, true, color, ExistInDestinationEnemy, Ki, SelfHomeStatCP);
+                    }
                     else//Solder of Brown At Begining.
                         if (ColumnFirst == 6 && (Order == -1))
-                            return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, true, color, ExistInDestinationEnemy, Ki, SelfHomeStatCP);
-                        else//Another Solder Movments.
-                            return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, false, color, ExistInDestinationEnemy, Ki, SelfHomeStatCP);
+                    {
+                        AllDraw.OutPut.Append("\r\nRules:" + (TimeElapced.TimeNow() - Time).ToString());
+                        return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, true, color, ExistInDestinationEnemy, Ki, SelfHomeStatCP);
+                    }
+                    else//Another Solder Movments.
+                    {
+                        AllDraw.OutPut.Append("\r\nRules:" + (TimeElapced.TimeNow() - Time).ToString());
+                        return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, false, color, ExistInDestinationEnemy, Ki, SelfHomeStatCP);
+                    }
                 }
                 else
                 {
                     //Solders of Gray at Begining.
                     if (ColumnFirst == 6 && (Order == 1))
+                    {
+                        AllDraw.OutPut.Append("\r\nRules:" + (TimeElapced.TimeNow() - Time).ToString());
                         return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, true, color, ExistInDestinationEnemy, Ki, SelfHomeStatCP);
+                    }
                     else//Solder of Brown At Begining.
                         if (ColumnFirst == 1 && (Order == -1))
-                            return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, true, color, ExistInDestinationEnemy, Ki, SelfHomeStatCP);
-                        else//Another Solder Movments.
-                            return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, false, color, ExistInDestinationEnemy, Ki, SelfHomeStatCP);
-
+                    {
+                        AllDraw.OutPut.Append("\r\nRules:" + (TimeElapced.TimeNow() - Time).ToString());
+                        return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, true, color, ExistInDestinationEnemy, Ki, SelfHomeStatCP);
+                    }
+                    else//Another Solder Movments.
+                    {
+                        AllDraw.OutPut.Append("\r\nRules:" + (TimeElapced.TimeNow() - Time).ToString());
+                        return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, false, color, ExistInDestinationEnemy, Ki, SelfHomeStatCP);
+                    }
                 }
             }
             else//For another Kind of Objects.
+            {
+                AllDraw.OutPut.Append("\r\nRules:" + (TimeElapced.TimeNow() - Time).ToString());
                 return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, false, color, ExistInDestinationEnemy, Ki, SelfHomeStatCP);
-
+            }
         }
         //Castle King Movment Consideration.
         public bool CastleKing(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, int Ki)
@@ -352,39 +386,40 @@ namespace RefrigtzDLL
                             if (RowFirst == RowSecond - 2 && ((RowSecond - 2) >= 0))
                             {
                                 //Consideration of Castles King of Gray King.
-                                
-                                    if (((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond - 2, ColumnSecond] == 6 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond + 1, ColumnSecond] == 4)
+
+                                if (((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond - 2, ColumnSecond] == 6 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond + 1, ColumnSecond] == 4)
+                                {
+                                    Object O = new Object();
+                                    lock (O)
                                     {
-                                        Object O = new Object();
-                                        lock (O)
-                                        {
-                                            CastleActGray = true;
-                                            SmallKingCastleGray = true;
-                                        }
-                                        
-                                        return true;
+                                        CastleActGray = true;
+                                        SmallKingCastleGray = true;
                                     }
-                               
+                                    AllDraw.OutPut.Append("\r\nCastleKing:" + (TimeElapced.TimeNow() - Time).ToString());
+                                    return true;
+                                }
+
                             }
 
                             else//For Greates Castles King Movments.
                                 if (RowFirst == RowSecond + 2 && ((RowSecond + 2) < 8))
-                                {
-                                    //Consideration of Castles King M<ovments.
-                                    
-                                        if (((RowSecond + 2) < 8) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond + 2, ColumnSecond] == 6 && Table[RowSecond + 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond - 2, ColumnSecond] == 4)
-                                        {
-                                        Object O = new Object();
-                                        lock (O)
-                                        {
-                                            CastleActGray = true;
-                                            BigKingCastleGray = true;
-                                        }
-                                            return true;
-                                        }
-                                   
+                            {
+                                //Consideration of Castles King M<ovments.
 
+                                if (((RowSecond + 2) < 8) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond + 2, ColumnSecond] == 6 && Table[RowSecond + 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond - 2, ColumnSecond] == 4)
+                                {
+                                    Object O = new Object();
+                                    lock (O)
+                                    {
+                                        CastleActGray = true;
+                                        BigKingCastleGray = true;
+                                    }
+                                    AllDraw.OutPut.Append("\r\nCastleKing:" + (TimeElapced.TimeNow() - Time).ToString());
+                                    return true;
                                 }
+
+
+                            }
                         }
                     }
                 }
@@ -399,38 +434,40 @@ namespace RefrigtzDLL
                             //Small Brown King Castles Consideration.
                             if (RowFirst == RowSecond - 2 && ((RowSecond - 2) < 8))
                             {
-                                
 
-                                    if (((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && Table[RowSecond - 2, ColumnSecond] == -6 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond + 1, ColumnSecond] == -4)
+
+                                if (((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && Table[RowSecond - 2, ColumnSecond] == -6 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond + 1, ColumnSecond] == -4)
+                                {
+                                    //CastleActBrown = true;
+                                    Object O1 = new Object();
+                                    lock (O1)
                                     {
-                                        //CastleActBrown = true;
-                                        Object O1 = new Object();
-                                        lock (O1)
-                                        {
-                                            SmallKingCastleBrown = true;
-                                        }
-                                        return true;
+                                        SmallKingCastleBrown = true;
                                     }
-                               
+                                    AllDraw.OutPut.Append("\r\nCastleKing:" + (TimeElapced.TimeNow() - Time).ToString());
+                                    return true;
+                                }
+
 
                             }
                             else
                                 if (RowFirst == RowSecond + 2 && ((RowSecond + 2) < 8))
-                                //Brown Kings.Big King Castles Consideration.
+                            //Brown Kings.Big King Castles Consideration.
+                            {
+
+                                if (((RowSecond + 2) < 8) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond + 2, ColumnSecond] == -6 && Table[RowSecond + 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond - 2, ColumnSecond] == -4)
                                 {
-                                    
-                                        if (((RowSecond + 2) < 8) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond + 2, ColumnSecond] == -6 && Table[RowSecond + 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond - 2, ColumnSecond] == -4)
-                                        {
-                                        //CastleActBrown = true;
-                                        Object O = new Object();
-                                        lock (O)
-                                        {
-                                            BigKingCastleBrown = true;
-                                        }
-                                            return true;
-                                        }
-                                   
+                                    //CastleActBrown = true;
+                                    Object O = new Object();
+                                    lock (O)
+                                    {
+                                        BigKingCastleBrown = true;
+                                    }
+                                    AllDraw.OutPut.Append("\r\nCastleKing:" + (TimeElapced.TimeNow() - Time).ToString());
+                                    return true;
                                 }
+
+                            }
                         }
                     }
                 }
@@ -450,31 +487,33 @@ namespace RefrigtzDLL
                             if (RowFirst == RowSecond - 2 && ((RowSecond - 2) >= 0))
                             {
                                 //Consideration of Castles King of Gray King.
-                                
 
-                                    if (((RowSecond - 2) >= 0) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && Table[RowSecond - 2, ColumnSecond] == 6 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond + 1, ColumnSecond] == 4)
-                                    {
-                                        //CastleActGray = true;
-                                        //SmallKingCastleGray = true;
-                                        return true;
-                                    }
-                               
+
+                                if (((RowSecond - 2) >= 0) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && Table[RowSecond - 2, ColumnSecond] == 6 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond + 1, ColumnSecond] == 4)
+                                {
+                                    AllDraw.OutPut.Append("\r\nCastleKing:" + (TimeElapced.TimeNow() - Time).ToString());
+                                    //CastleActGray = true;
+                                    //SmallKingCastleGray = true;
+                                    return true;
+                                }
+
                             }
 
                             else//For Greates Castles King Movments.
                                 if (RowFirst == RowSecond + 2 && ((RowSecond + 2) < 8))
-                                {
-                                    //Consideration of Castles King M<ovments.
-                                    
-                                        if (((RowSecond + 2) < 8) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond + 2, ColumnSecond] == 6 && Table[RowSecond + 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond - 2, ColumnSecond] == 4)
-                                        {
-                                            //CastleActGray = true;
-                                            //BigKingCastleGray = true;
-                                            return true;
-                                        }
-                                   
+                            {
+                                //Consideration of Castles King M<ovments.
 
+                                if (((RowSecond + 2) < 8) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond + 2, ColumnSecond] == 6 && Table[RowSecond + 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond - 2, ColumnSecond] == 4)
+                                {
+                                    AllDraw.OutPut.Append("\r\nCastleKing:" + (TimeElapced.TimeNow() - Time).ToString());
+                                    //CastleActGray = true;
+                                    //BigKingCastleGray = true;
+                                    return true;
                                 }
+
+
+                            }
                         }
                     }
                 }
@@ -489,34 +528,37 @@ namespace RefrigtzDLL
                             //Small Brown King Castles Consideration.
                             if (RowFirst == RowSecond - 2 && ((RowSecond - 2) > 0))
                             {
-                                
 
-                                    if (((RowSecond - 2) >= 0) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && Table[RowSecond - 2, ColumnSecond] == -6 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond + 1, ColumnSecond] == -4)
-                                    {
-                                        //CastleActBrown = true;
-                                        //SmallKingCastleBrown = true;
-                                        return true;
-                                    }
-                               
+
+                                if (((RowSecond - 2) >= 0) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && Table[RowSecond - 2, ColumnSecond] == -6 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond + 1, ColumnSecond] == -4)
+                                {
+                                    AllDraw.OutPut.Append("\r\nCastleKing:" + (TimeElapced.TimeNow() - Time).ToString());
+                                    //CastleActBrown = true;
+                                    //SmallKingCastleBrown = true;
+                                    return true;
+                                }
+
 
                             }
                             else
                                 if (RowFirst == RowSecond + 2 && ((RowSecond + 2) < 8))
-                                //Brown Kings.Big King Castles Consideration.
+                            //Brown Kings.Big King Castles Consideration.
+                            {
+
+                                if (((RowSecond + 2) < 8) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond + 2, ColumnSecond] == -6 && Table[RowSecond + 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond - 2, ColumnSecond] == -4)
                                 {
-                                    
-                                        if (((RowSecond + 2) < 8) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond + 2, ColumnSecond] == -6 && Table[RowSecond + 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond - 2, ColumnSecond] == -4)
-                                        {
-                                            //  CastleActBrown = true;
-                                            //BigKingCastleBrown = true;
-                                            return true;
-                                        }
-                                   
+                                    AllDraw.OutPut.Append("\r\nCastleKing:" + (TimeElapced.TimeNow() - Time).ToString());
+                                    //  CastleActBrown = true;
+                                    //BigKingCastleBrown = true;
+                                    return true;
                                 }
+
+                            }
                         }
                     }
                 }
             }
+            AllDraw.OutPut.Append("\r\nCastleKing:" + (TimeElapced.TimeNow() - Time).ToString());
             return false;
         }
         //Simulation and Consdtruction of Check.
@@ -541,12 +583,19 @@ namespace RefrigtzDLL
                 //When int of Order is Gray Check return Check State.
                 if (Order == 1)
                     if (CheckGray)
+                    {
+                        AllDraw.OutPut.Append("\r\nCheckConstructor:" + (TimeElapced.TimeNow() - Time).ToString());
                         return true;
+                    }
                 //When int is Brown State  there is Check State return Check State.
                 if (Order == -1)
                     if (CheckBrown)
+                    {
+                        AllDraw.OutPut.Append("\r\nCheckConstructor:" + (TimeElapced.TimeNow() - Time).ToString());
                         return true;
+                    }
             }
+            AllDraw.OutPut.Append("\r\nCheckConstructor:" + (TimeElapced.TimeNow() - Time).ToString());
             //Return Non Check State.
             return false;
         }
@@ -566,6 +615,7 @@ namespace RefrigtzDLL
                     if (Table[RowSecond, ColumnSecond] < 0 && Table[RowFirst, ColumnFirst] < 0)
                         NotExistInDestinationSelfHome = true;
             }
+            AllDraw.OutPut.Append("\r\nExistSelfHome:" + (TimeElapced.TimeNow() - Time).ToString());
             return NotExistInDestinationSelfHome;
         }
 
@@ -760,6 +810,7 @@ namespace RefrigtzDLL
                 CheckGray = CheckGrayDummy;
                 CheckBrown = CheckBrownDummy;
                 //Achamz is Validity.
+                AllDraw.OutPut.Append("\r\nObjectDangourKingMove:" + (TimeElapced.TimeNow() - Time).ToString());
                 return true;
             }
             RefrigtzDLL.ChessRules.CurrentOrder = CDummy;
@@ -769,6 +820,7 @@ namespace RefrigtzDLL
             CheckGray = CheckGrayDummy;
             CheckBrown = CheckBrownDummy;
             //Return Not Validiy.
+            AllDraw.OutPut.Append("\r\nObjectDangourKingMove:" + (TimeElapced.TimeNow() - Time).ToString());
             return false;
         }
         public bool ObjectDangourKingMove(int Order, int[,] Table)
@@ -961,6 +1013,7 @@ namespace RefrigtzDLL
                 CheckGray = CheckGrayDummy;
                 CheckBrown = CheckBrownDummy;
                 //Achamz is Validity.
+                AllDraw.OutPut.Append("\r\nObjectDangourKingMove:" + (TimeElapced.TimeNow() - Time).ToString());
                 return true;
             }
             RefrigtzDLL.ChessRules.CurrentOrder = CDummy;
@@ -990,6 +1043,7 @@ namespace RefrigtzDLL
                     Achmaz = true;
 
             }
+            AllDraw.OutPut.Append("\r\nAchmazCheckByMoveByRule:" + (TimeElapced.TimeNow() - Time).ToString());
             return Achmaz;
         }
         public bool ObjectDangourKingMove(int Order, int[,] Table, bool DoIgnore, int ii, int jj)
@@ -1024,6 +1078,7 @@ namespace RefrigtzDLL
                     CheckBrownObjectDangour = true;
                 if (CheckGray)
                     CheckGrayObjectDangour = true;
+                AllDraw.OutPut.Append("\r\nObjectDangourKingMove:" + (TimeElapced.TimeNow() - Time).ToString());
                 return true;
 
             }
@@ -1116,6 +1171,7 @@ namespace RefrigtzDLL
                                                                     CheckBrownObjectDangour = A.CheckBrownObjectDangour;
                                                                     RefrigtzDLL.ChessRules.CurrentOrder = CDummy;
                                                                     Order = COrder;
+                                                                    AllDraw.OutPut.Append("\r\nObjectDangourKingMove:" + (TimeElapced.TimeNow() - Time).ToString());
                                                                     return true;
                                                                 }
                                                             }
@@ -1170,7 +1226,8 @@ namespace RefrigtzDLL
                                                                         CheckBrownObjectDangour = A.CheckBrownObjectDangour;
                                                                         RefrigtzDLL.ChessRules.CurrentOrder = CDummy;
                                                                         Order = COrder;
-                                                                        return true;
+                                                                    AllDraw.OutPut.Append("\r\nObjectDangourKingMove:" + (TimeElapced.TimeNow() - Time).ToString());
+                                                                    return true;
                                                                     }
                                                                 }
                                                             }
@@ -1193,7 +1250,7 @@ namespace RefrigtzDLL
 
             RefrigtzDLL.ChessRules.CurrentOrder = CDummy;
             Order = COrder;
-
+            AllDraw.OutPut.Append("\r\nObjectDangourKingMove:" + (TimeElapced.TimeNow() - Time).ToString());
             //Iniatiate Of Global Varibales By Local Variables.
             //Return Not Validiy.
             return false;
@@ -1212,9 +1269,11 @@ namespace RefrigtzDLL
                         //Initiate Refreable Parameters.
                         Row = i;
                         Column = j;
+                        AllDraw.OutPut.Append("\r\nFindGrayKing:" + (TimeElapced.TimeNow() - Time).ToString());
                         return true;
                     }
                 }
+            AllDraw.OutPut.Append("\r\nFindGrayKing:" + (TimeElapced.TimeNow() - Time).ToString());
             //Not Found.
             return false;
         }
@@ -1243,6 +1302,7 @@ namespace RefrigtzDLL
             if (System.Math.Abs(i) == 6)
                 A += "(K)";
             //Retrun Alphabet.
+            AllDraw.OutPut.Append("\r\nThingsAlphabet:" + (TimeElapced.TimeNow() - Time).ToString());
             return A;
 
         }
@@ -1270,6 +1330,7 @@ namespace RefrigtzDLL
             if (i == 7)
                 A = "h";
             //Return Row Alphabet.
+            AllDraw.OutPut.Append("\r\nRowAlphabet:" + (TimeElapced.TimeNow() - Time).ToString());
             return A;
 
         }
@@ -1591,6 +1652,7 @@ namespace RefrigtzDLL
                     S += " With Huristic (" +RefrigtzDLL.AllDraw.Less.ToString() + ")--";
                 else
                     S += " --";
+                AllDraw.OutPut.Append("\r\nCreateStatistic:" + (TimeElapced.TimeNow() - Time).ToString());
                 //Return String Sysntax.
                 return SN + S;
             }
@@ -1608,6 +1670,7 @@ namespace RefrigtzDLL
                 if (A[0] == List[i][0] && A[1] == List[i][1])
                     Is = true;
             }
+            AllDraw.OutPut.Append("\r\nArrayInList:" + (TimeElapced.TimeNow() - Time).ToString());
             //Retrun Condition.
             return Is;
         }
@@ -1635,6 +1698,7 @@ namespace RefrigtzDLL
                             //Iniatiate Local Varibales.
                             Row = i;
                             Column = j;
+                            AllDraw.OutPut.Append("\r\nFindAThing:" + (TimeElapced.TimeNow() - Time).ToString());
                             //Found State.
                             return true;
                         }
@@ -1657,6 +1721,7 @@ namespace RefrigtzDLL
                                         //Initaite Local Variables.
                                         Row = i;
                                         Column = j;
+                                        AllDraw.OutPut.Append("\r\nFindAThing:" + (TimeElapced.TimeNow() - Time).ToString());
                                         //Found of State
                                         return true;
                                     }
@@ -1666,6 +1731,7 @@ namespace RefrigtzDLL
 
                     }
                 }
+            AllDraw.OutPut.Append("\r\nFindAThing:" + (TimeElapced.TimeNow() - Time).ToString());
             //Not Found State.
             return false;
         }
@@ -1683,10 +1749,12 @@ namespace RefrigtzDLL
                         //Initiate Refrencable Parameter.
                         Row = i;
                         Column = j;
+                        AllDraw.OutPut.Append("\r\nFindBrownKing:" + (TimeElapced.TimeNow() - Time).ToString());
                         //Found of Brown King.
                         return true;
                     }
                 }
+            AllDraw.OutPut.Append("\r\nFindBrownKing:" + (TimeElapced.TimeNow() - Time).ToString());
             //Not Found.
             return false;
         }
@@ -1851,6 +1919,7 @@ namespace RefrigtzDLL
                                 }
                             }
             }
+            AllDraw.OutPut.Append("\r\nCheckRemovableByAttack:" + (TimeElapced.TimeNow() - Time).ToString());
             //If Check Remoavbe Brown Or Gray Return Removable.
             if (CheckBrownRemovable || CheckGrayRemovable)
                 return true;
@@ -1883,6 +1952,7 @@ namespace RefrigtzDLL
                     }
                 }
             RefrigtzDLL.ChessRules.CurrentOrder = Cdummy;
+            AllDraw.OutPut.Append("\r\nVeryFye:" + (TimeElapced.TimeNow() - Time).ToString());
             return Tab;
         }
         public bool OnlyKingMovable(int[,] Tab, bool[,] TabB, int Order)
@@ -1896,14 +1966,21 @@ namespace RefrigtzDLL
                         if (Order == 1)
                         {
                             if (Tab[i, j] != 6)
+                            {
+                                AllDraw.OutPut.Append("\r\nOnlyKingMovable:" + (TimeElapced.TimeNow() - Time).ToString());
                                 return false;
+                            }
                         }
                         else
                             if (Tab[i, j] != -6)
-                                return false;
+                        {
+                            AllDraw.OutPut.Append("\r\nOnlyKingMovable:" + (TimeElapced.TimeNow() - Time).ToString());
+                            return false;
+                        }
                     }
 
                 }
+            AllDraw.OutPut.Append("\r\nOnlyKingMovable:" + (TimeElapced.TimeNow() - Time).ToString());
             return true;
 
         }
@@ -2011,6 +2088,7 @@ namespace RefrigtzDLL
             {
                 PatCheckedInKingRule = false;
             }
+            AllDraw.OutPut.Append("\r\nPat:" + (TimeElapced.TimeNow() - Time).ToString());
             return Pat;
         }
         void CheckKing(int[,] Table, int Order, int RowK, int ColumnK)
@@ -2079,7 +2157,7 @@ namespace RefrigtzDLL
                 if (BREAK)
                     break;
             }
-
+            AllDraw.OutPut.Append("\r\nCheckKing:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         //Check Consideration Method.
         public bool Check(int[,] Table, int Ord)
@@ -2115,6 +2193,7 @@ namespace RefrigtzDLL
                 CheckKing(Table, 1, RowB, ColumnB);
 
             Ord = DummyOrder;
+            AllDraw.OutPut.Append("\r\nCheck:" + (TimeElapced.TimeNow() - Time).ToString());
             //If Gray Check Or brwon Check return Check..
             if (CheckBrown || CheckGray)
                 return true;
@@ -2123,6 +2202,7 @@ namespace RefrigtzDLL
         }
         void CheckMateKing(int[,] Tab, int Ord, bool CheckGrayDummy, bool CheckBrownDummy, int RowK, int ColumnK, ref bool ActMove, bool Checked)
         {
+            long Time = TimeElapced.TimeNow();
             int DummyOrder = Order;
             //For All Home Table.
             for (var i = 0; i < 8; i++)
@@ -2215,6 +2295,7 @@ namespace RefrigtzDLL
                     break;
             }
             Order = DummyOrder;
+            AllDraw.OutPut.Append("\r\nCheckMateKing:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         void CheckMateNotKing(int[,] Tab, int Ord, bool CheckGrayDummy, bool CheckBrownDummy, ref bool ActMove)
         {
@@ -2340,6 +2421,7 @@ namespace RefrigtzDLL
                     break;
             }
             Order = DummyOrder;
+            AllDraw.OutPut.Append("\r\nCheckMateNotKing:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         //CheckMate Consideration.QC-OK
         public bool CheckMate(int[,] Tab, int Ord)
@@ -2435,12 +2517,14 @@ namespace RefrigtzDLL
                 lock (On)
                 {
                     AllDraw.EndOfGame = true;
+                    AllDraw.OutPut.Append("\r\nCheckMate:" + (TimeElapced.TimeNow() - Time).ToString());
                     return true;
                 }
             }
             //Initiate Global Variables.
             CheckGray = CheckGrayDummy;
             CheckBrown = CheckBrownDummy;
+            AllDraw.OutPut.Append("\r\nCheckMate:" + (TimeElapced.TimeNow() - Time).ToString());
             //Return Not CheckMate.
             return false;
         }
@@ -2453,7 +2537,10 @@ namespace RefrigtzDLL
             {
                 //Determination of Enemy Existing.
                 if (ExistSelfHome(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, Ki) && SelfHomeStatCP)
+                {
+                    AllDraw.OutPut.Append("\r\nRule:" + (TimeElapced.TimeNow() - Time).ToString());
                     return false;
+                }
             }
             //Determination of King Enemy at Destination Home.
             /*if (!KingAttacker)
@@ -2466,7 +2553,10 @@ namespace RefrigtzDLL
             }*/
             //If Source and The Destination are The Same.
             if (RowFirst == RowSecond && ColumnFirst == ColumnSecond)
+            {
+                AllDraw.OutPut.Append("\r\nRule:" + (TimeElapced.TimeNow() - Time).ToString());
                 return false;
+            }
             //Initiate Global Variable.
             Object O = new Object();
             lock (O)
@@ -2475,30 +2565,50 @@ namespace RefrigtzDLL
             }
             //Rule of Soldeir.
             if (Kind == 1)
-
+            {
+                AllDraw.OutPut.Append("\r\nRule:" + (TimeElapced.TimeNow() - Time).ToString());
                 return SoldierRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy);
+            }
 
             else//Rule of Castles.
                 if (Kind == 4)
-                    return CastleRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy, Ki);
+            {
+                AllDraw.OutPut.Append("\r\nRule:" + (TimeElapced.TimeNow() - Time).ToString());
+                return CastleRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy, Ki);
+            }
 
-                else//Rule of Hourses.
+            else//Rule of Hourses.
                     if (Kind == 3)
-                        return HourseRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy);
-                    else//Rule of Elephant.
+            {
+                AllDraw.OutPut.Append("\r\nRule:" + (TimeElapced.TimeNow() - Time).ToString());
+                return HourseRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy);
+            }
+            else//Rule of Elephant.
                         if (Kind == 2)
-                            return ElefantRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy, Ki);
-                        else
+            {
+                AllDraw.OutPut.Append("\r\nRule:" + (TimeElapced.TimeNow() - Time).ToString());
+                return ElefantRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy, Ki);
+            }
+            else
                             if (Kind == 5)//Rule of Ministers.
-                                return MinisterRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy, Ki);
-                            else
+            {
+                AllDraw.OutPut.Append("\r\nRule:" + (TimeElapced.TimeNow() - Time).ToString());
+                return MinisterRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy, Ki);
+            }
+            else
                                 if (Kind == 6)//Rule of Kings.
-                                    return KingRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy, Ki);
-                                else
+            {
+                AllDraw.OutPut.Append("\r\nRule:" + (TimeElapced.TimeNow() - Time).ToString());
+                return KingRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy, Ki);
+            }
+            else
                                     if (Kind == 7)//Rule of Castles King.
-                                        return CastleKing(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, Ki);
+            {
+                AllDraw.OutPut.Append("\r\nRule:" + (TimeElapced.TimeNow() - Time).ToString());
+                return CastleKing(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, Ki);
+            }
 
-
+            AllDraw.OutPut.Append("\r\nRule:" + (TimeElapced.TimeNow() - Time).ToString());
             //Non Rulements.
             return false;
         }
@@ -2669,6 +2779,7 @@ namespace RefrigtzDLL
                  */
                 Move = true;
             }
+            AllDraw.OutPut.Append("\r\nKingRule:" + (TimeElapced.TimeNow() - Time).ToString());
             return Move;
         }
         //Rules of Minister Method.
@@ -2686,6 +2797,7 @@ namespace RefrigtzDLL
                     //Return Validity.,
                     Move = true;
             //Return Not Valididty.
+            AllDraw.OutPut.Append("\r\nMinisterRule:" + (TimeElapced.TimeNow() - Time).ToString());
             return Move;
         }
         //Castles Rule Method.
@@ -2873,7 +2985,7 @@ namespace RefrigtzDLL
                     Move = false;
             }
              */
-
+            AllDraw.OutPut.Append("\r\nCastleRule:" + (TimeElapced.TimeNow() - Time).ToString());
             //Return not Vailidity.
             return Move;
 
@@ -2980,7 +3092,7 @@ namespace RefrigtzDLL
                     Move = false;
             }
              */
-
+            AllDraw.OutPut.Append("\r\nElephantRule:" + (TimeElapced.TimeNow() - Time).ToString());
             //Return Not Validity.
             return Move;
         }
@@ -3008,7 +3120,7 @@ namespace RefrigtzDLL
                      Move = false;
              }
              */
-
+            AllDraw.OutPut.Append("\r\nHourseRule:" + (TimeElapced.TimeNow() - Time).ToString());
             return Move;
         }
         public bool SoldierRulesaArrangmentsBoardOne(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool ExistInDestinationEnemy)
@@ -3176,6 +3288,7 @@ namespace RefrigtzDLL
                        
                     }
             }
+            AllDraw.OutPut.Append("\r\nSoldierRule:" + (TimeElapced.TimeNow() - Time).ToString());
             return Move;
 
         }
@@ -3344,6 +3457,7 @@ namespace RefrigtzDLL
                        
                     }
             }
+            AllDraw.OutPut.Append("\r\nSoldierRulesaArrangmentsBoardZero:" + (TimeElapced.TimeNow() - Time).ToString());
             return Move;
         }
         //Solder Rule Method.
@@ -3353,10 +3467,12 @@ namespace RefrigtzDLL
 
             if (!(ArrangmentsBoard))
             {
+                AllDraw.OutPut.Append("\r\nSoldierRules:" + (TimeElapced.TimeNow() - Time).ToString());
                 return SoldierRulesaArrangmentsBoardZero(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy);
             }
             else
             {
+                AllDraw.OutPut.Append("\r\nSoldierRules:" + (TimeElapced.TimeNow() - Time).ToString());
                 return SoldierRulesaArrangmentsBoardOne(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy);
             }
             /*if (Move)
