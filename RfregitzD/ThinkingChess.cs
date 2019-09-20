@@ -3632,6 +3632,7 @@ namespace RefrigtzDLL
                         Is[3] = IS[3];
                     }
                 }
+                AllDraw.OutPut.Append("\r\nIsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel:" + (TimeElapced.TimeNow() - Time).ToString());
                 return Is;
             }
         }
@@ -3664,7 +3665,10 @@ namespace RefrigtzDLL
                             else
                             {
                                 if (A.CheckMateBrown)
+                                {
+                                    AllDraw.OutPut.Append("\r\nIsNextMovmentIsCheckOrCheckMateForCurrentMovmentOnCurrentMovemnet:" + (TimeElapced.TimeNow() - Time).ToString());
                                     return Is;
+                                }
                             }
                         }
                         //When Order is Brown.
@@ -3676,7 +3680,10 @@ namespace RefrigtzDLL
                             else
                             {
                                 if (A.CheckMateGray)
+                                {
+                                    AllDraw.OutPut.Append("\r\nIsNextMovmentIsCheckOrCheckMateForCurrentMovmentOnCurrentMovemnet:" + (TimeElapced.TimeNow() - Time).ToString());
                                     return Is;
+                                }
                             }
                         }
 
@@ -3692,7 +3699,10 @@ namespace RefrigtzDLL
                             else
                             {
                                 if (A.CheckMateBrown)
+                                {
+                                    AllDraw.OutPut.Append("\r\nIsNextMovmentIsCheckOrCheckMateForCurrentMovmentOnCurrentMovemnet:" + (TimeElapced.TimeNow() - Time).ToString());
                                     return Is;
+                                }
                             }
                         }
                         //When Order * -1 is Brown
@@ -3704,11 +3714,15 @@ namespace RefrigtzDLL
                             else
                             {
                                 if (A.CheckMateGray)
+                                {
+                                    AllDraw.OutPut.Append("\r\nIsNextMovmentIsCheckOrCheckMateForCurrentMovmentOnCurrentMovemnet:" + (TimeElapced.TimeNow() - Time).ToString());
                                     return Is;
+                                }
                             }
                         }
                     }
                 }
+                AllDraw.OutPut.Append("\r\nIsNextMovmentIsCheckOrCheckMateForCurrentMovmentOnCurrentMovemnet:" + (TimeElapced.TimeNow() - Time).ToString());
                 return Is;
             }
         }
@@ -3729,7 +3743,10 @@ namespace RefrigtzDLL
                     int DummyOrder = Order;
                     int DummyCurrentOrder = ChessRules.CurrentOrder;
                     if (Depth >= AllDraw.MaxAStarGreedy)
+                    {
+                        AllDraw.OutPut.Append("\r\nIsNextMovmentIsCheckOrCheckMateForCurrentMovment:" + (TimeElapced.TimeNow() - Time).ToString());
                         return Is;
+                    }
                     //For All Enemies.
                     for (var ik = 0; ik < 8; ik++)
                         for (var jk = 0; jk < 8; jk++)
@@ -4002,7 +4019,9 @@ namespace RefrigtzDLL
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
                 }
+                AllDraw.OutPut.Append("\r\nIsNextMovmentIsCheckOrCheckMateForCurrentMovment:" + (TimeElapced.TimeNow() - Time).ToString());
                 return Is;
+
             }
         }
         //When Current Movements is in dangrous and is not movable.
@@ -4023,11 +4042,16 @@ namespace RefrigtzDLL
                 {
                     //Ignore of Self Objects.
                     if (Order == 1 && Tab[ii, jj] >= 0)
+                    {
+                        AllDraw.OutPut.Append("\r\nIsGardForCurrentMovmentsAndIsNotMovable:" + (TimeElapced.TimeNow() - Time).ToString());
                         return false;
+                    }
                     else
                         if (Order == -1 && Tab[ii, jj] <= 0)
+                    {
+                        AllDraw.OutPut.Append("\r\nIsGardForCurrentMovmentsAndIsNotMovable:" + (TimeElapced.TimeNow() - Time).ToString());
                         return false;
-
+                    }
                     //Restore
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
@@ -4035,11 +4059,16 @@ namespace RefrigtzDLL
                     //For Self Objects and Empty.
                     //Ignore of Enemy Objects.
                     if (Order == 1 && Tab[RowS, ColS] < 0)
+                    {
+                        AllDraw.OutPut.Append("\r\nIsGardForCurrentMovmentsAndIsNotMovable:" + (TimeElapced.TimeNow() - Time).ToString());
                         return false;
+                    }
                     else
                         if (Order == -1 && Tab[RowS, ColS] > 0)
+                    {
+                        AllDraw.OutPut.Append("\r\nIsGardForCurrentMovmentsAndIsNotMovable:" + (TimeElapced.TimeNow() - Time).ToString());
                         return false;
-                    //For Enemy Order.
+                    }         //For Enemy Order.
                     ChessRules.CurrentOrder = Order * -1;
                     //Initiate for not exiting from abnormal loop.
                     Attacked = false;
@@ -4113,7 +4142,10 @@ namespace RefrigtzDLL
                         }//);
                     }
                     else
+                    {
+                        AllDraw.OutPut.Append("\r\nIsGardForCurrentMovmentsAndIsNotMovable:" + (TimeElapced.TimeNow() - Time).ToString());
                         return false;
+                    }
                 }
                 //Restore.
                 Order = DummyOrder;
@@ -4121,6 +4153,7 @@ namespace RefrigtzDLL
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
 
+                AllDraw.OutPut.Append("\r\nIsGardForCurrentMovmentsAndIsNotMovable:" + (TimeElapced.TimeNow() - Time).ToString());
                 //continue Variable when true show an object is not movable or one enemy object attack more than one current Object.
                 return Attacked || NumberOfCurrentEnemyAttackSuchObject > 1;
             }
@@ -4134,7 +4167,10 @@ namespace RefrigtzDLL
             lock (O)
             {
                 if (Depth >= CurrentAStarGredyMax)
+                {
+                    AllDraw.OutPut.Append("\r\nIsCurrentCanGardHighPriorityEnemy:" + (TimeElapced.TimeNow() - Time).ToString());
                     return false;
+                }
                 Object O4 = new Object();
                 lock (O4)
                 {
@@ -4193,9 +4229,12 @@ namespace RefrigtzDLL
                                 }
                         }
                 }
+
+                AllDraw.OutPut.Append("\r\nIsCurrentCanGardHighPriorityEnemy:" + (TimeElapced.TimeNow() - Time).ToString());
                 return IsGardHighPriority;
             }
         }
+
         ///Huristic of Check and CheckMate.
         public int HuristicCheckAndCheckMate(int[,] Table, Color a)
         {
@@ -4327,6 +4366,8 @@ namespace RefrigtzDLL
                 //if (HA < 0)
                 //IgnoreFromCheckandMateHuristic = true;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
+                AllDraw.OutPut.Append("\r\nHuristicCheckAndCheckMate:" + (TimeElapced.TimeNow() - Time).ToString());
+
                 return HA * 1;
             }
         }
@@ -4357,6 +4398,7 @@ namespace RefrigtzDLL
                 //When King.
                 else if (System.Math.Abs(Object) == 6)
                     HA = 10;
+                AllDraw.OutPut.Append("\r\nVeryFye:" + (TimeElapced.TimeNow() - Time).ToString());
                 return HA;
             }
         }
@@ -4392,6 +4434,7 @@ namespace RefrigtzDLL
 
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
+                AllDraw.OutPut.Append("\r\nSupporterCount:" + (TimeElapced.TimeNow() - Time).ToString());
                 return Count;
             }
         }
@@ -4428,6 +4471,7 @@ namespace RefrigtzDLL
 
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
+                AllDraw.OutPut.Append("\r\nAttackerCount:" + (TimeElapced.TimeNow() - Time).ToString());
                 return Count;
             }
         }
@@ -4465,6 +4509,7 @@ namespace RefrigtzDLL
 
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
+                AllDraw.OutPut.Append("\r\nEnemyAttackerCount:" + (TimeElapced.TimeNow() - Time).ToString());
                 return Count;
             }
         }
@@ -4553,6 +4598,7 @@ namespace RefrigtzDLL
                     //Dis = (int)( -1000;
 
                 }
+                AllDraw.OutPut.Append("\r\nHeuristicDistabceOfCurrentMoveFromEnemyKing:" + (TimeElapced.TimeNow() - Time).ToString());
                 return Dis;
             }
         }
@@ -4699,6 +4745,7 @@ namespace RefrigtzDLL
 
                     }
                 }
+                AllDraw.OutPut.Append("\r\nHuristicSoldierFromCenter:" + (TimeElapced.TimeNow() - Time).ToString());
                 return 1 * HA;
             }
         }
@@ -4860,6 +4907,7 @@ namespace RefrigtzDLL
                 //Huristic[4] = (Huristic[4]* SignOrderToPlate(Order));
                 //Huristic[5] = (Huristic[5]* SignOrderToPlate(Order));
                 //Return Local Huristic.
+                AllDraw.OutPut.Append("\r\nHuristicAll:" + (TimeElapced.TimeNow() - Time).ToString());
                 return Huristic;
             }
         }
@@ -5093,6 +5141,7 @@ namespace RefrigtzDLL
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 //Store Local Huristic in Global One.
+                AllDraw.OutPut.Append("\r\nHuristicMovment:" + (TimeElapced.TimeNow() - Time).ToString());
                 return HA * 1;
             }
         }
@@ -5116,9 +5165,11 @@ namespace RefrigtzDLL
                     )
                 {
                     ChessRules.CurrentOrder = CCurentOrder;
+                    AllDraw.OutPut.Append("\r\nAttack:" + (TimeElapced.TimeNow() - Time).ToString());
                     return true;
                 }
                 ChessRules.CurrentOrder = CCurentOrder;
+                AllDraw.OutPut.Append("\r\nAttack:" + (TimeElapced.TimeNow() - Time).ToString());
                 return false;
             }
         }
@@ -5157,22 +5208,32 @@ namespace RefrigtzDLL
                         ChessRules.CurrentOrder = CCurrentOrder;
                         //Return ObjectDanger.
                         if ((AA.CheckGrayObjectDangour) && Order == 1)
+                        {
+                            AllDraw.OutPut.Append("\r\nObjectDanger:" + (TimeElapced.TimeNow() - Time).ToString());
                             return true;
+                        }
                         else
                             if ((AA.CheckBrownObjectDangour) && Order == -1)
+                        {
+                            AllDraw.OutPut.Append("\r\nObjectDanger:" + (TimeElapced.TimeNow() - Time).ToString());
                             return true;
-
+                        }
                     }
                     if (AA.CheckMate(Table, Order))
                     {
                         ChessRules.CurrentOrder = CCurrentOrder;
                         //Return ObjectDanger.
                         if ((AA.CheckGray || AA.CheckMateGray) && Order == 1)
+                        {
+                            AllDraw.OutPut.Append("\r\nObjectDanger:" + (TimeElapced.TimeNow() - Time).ToString());
                             return true;
+                        }
                         else
                             if ((AA.CheckBrown || AA.CheckMateBrown) && Order == -1)
+                        {
+                            AllDraw.OutPut.Append("\r\nObjectDanger:" + (TimeElapced.TimeNow() - Time).ToString());
                             return true;
-
+                        }
                     }
                 }
 
@@ -5181,6 +5242,8 @@ namespace RefrigtzDLL
 
 
                 ChessRules.CurrentOrder = CCurrentOrder;
+
+                AllDraw.OutPut.Append("\r\nObjectDanger:" + (TimeElapced.TimeNow() - Time).ToString());
                 //return Non ObjectDanger.
                 return false;
             }
@@ -5205,7 +5268,7 @@ namespace RefrigtzDLL
                     ///When [i,j] Supporte [ii,jj].
                     if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[i, j], Table, Order, i, j)).Rules(i, j, ii, jj, a, Table[i, j], false))
                     {
-
+                        AllDraw.OutPut.Append("\r\nSupport:" + (TimeElapced.TimeNow() - Time).ToString());
                         return true;
                     }
 
@@ -5220,10 +5283,11 @@ namespace RefrigtzDLL
                     ///When [i,j] Supporetd [ii,jj].
                     if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[i, j], Table, Order, i, j)).Rules(i, j, ii, jj, a, Table[i, j], false))
                     {
+                        AllDraw.OutPut.Append("\r\nSupport:" + (TimeElapced.TimeNow() - Time).ToString());
                         return true;
                     }
                 }
-
+                AllDraw.OutPut.Append("\r\nSupport:" + (TimeElapced.TimeNow() - Time).ToString());
                 return false;
             }
         }
@@ -5634,6 +5698,7 @@ namespace RefrigtzDLL
                         }
                     }
                 }
+                AllDraw.OutPut.Append("\r\nMaxHuristic:" + (TimeElapced.TimeNow() - Time).ToString());
                 return Found;
             }
         }
@@ -5672,7 +5737,7 @@ namespace RefrigtzDLL
                     i++;
 
                 };
-
+                AllDraw.OutPut.Append("\r\nSolderOnTableCount:" + (TimeElapced.TimeNow() - Time).ToString());
                 return Count;
             }
         }
@@ -5710,6 +5775,7 @@ namespace RefrigtzDLL
                    
                     i++;
                 };
+                AllDraw.OutPut.Append("\r\nElefantOnTableCount:" + (TimeElapced.TimeNow() - Time).ToString());
                 return Count;
             }
         }
@@ -5746,7 +5812,7 @@ namespace RefrigtzDLL
                    
                     i++;
                 };
-
+                AllDraw.OutPut.Append("\r\nHourseOnTableCount:" + (TimeElapced.TimeNow() - Time).ToString());
                 return Count;
             }
         }
@@ -5783,7 +5849,7 @@ namespace RefrigtzDLL
 
                     i++;
                 };
-
+                AllDraw.OutPut.Append("\r\nCastleOnTableCount:" + (TimeElapced.TimeNow() - Time).ToString());
                 return Count;
             }
         }
@@ -5819,6 +5885,7 @@ namespace RefrigtzDLL
                    
                     i++;
                 };
+                AllDraw.OutPut.Append("\r\nMinisterOnTableCount:" + (TimeElapced.TimeNow() - Time).ToString());
                 return Count;
             }
         }
@@ -5854,6 +5921,7 @@ namespace RefrigtzDLL
                    
                     i++;
                 };
+                AllDraw.OutPut.Append("\r\nKingOnTableCount:" + (TimeElapced.TimeNow() - Time).ToString());
                 return Count;
             }
         }
@@ -5884,7 +5952,12 @@ namespace RefrigtzDLL
 
                     //Optimization depend of numbers of unpealties nodes quefficient.  
                     if (UsePenaltyRegardMechnisamT)
+                    {
+                        AllDraw.OutPut.Append("\r\nReturnHuristic:" + (TimeElapced.TimeNow() - Time).ToString());
                         return Hur * ((int)(NumbersOfAllNode - NumbersOfCurrentBranchesPenalties) / (int)(NumbersOfAllNode));
+                    }
+                    AllDraw.OutPut.Append("\r\nReturnHuristic:" + (TimeElapced.TimeNow() - Time).ToString());
+
                     return Hur;
 
                 }
@@ -5920,6 +5993,8 @@ namespace RefrigtzDLL
                 else
                                             if (RowRealesed == 7)
                     A = "h";
+                AllDraw.OutPut.Append("\r\nAlphabet:" + (TimeElapced.TimeNow() - Time).ToString());
+
                 return A;
             }
         }
@@ -5954,6 +6029,7 @@ namespace RefrigtzDLL
                 else
                                             if (ColumnRealeased == 0)
                     A = "7";
+                AllDraw.OutPut.Append("\r\nNumber:" + (TimeElapced.TimeNow() - Time).ToString());
                 return A;
             }
         }
@@ -5965,8 +6041,11 @@ namespace RefrigtzDLL
             lock (O)
             {
                 int Huristic = 0;
-                  if (AStarGreedy == null)
+                if (AStarGreedy == null)
+                {
+                    AllDraw.OutPut.Append("\r\nReturnHuristicCalculartor:" + (TimeElapced.TimeNow() - Time).ToString());
                     return 0;
+                }
                 NumbersOfCurrentBranchesPenalties += NumberOfPenalties;
                 int DummyOrder = Order;
                 if (ii != -1)
@@ -6776,12 +6855,19 @@ namespace RefrigtzDLL
                     else
                     {
                         if (Order == AllDraw.OrderPlate)
+                        {
+                            AllDraw.OutPut.Append("\r\nReturnHuristicCalculartor:" + (TimeElapced.TimeNow() - Time).ToString());
                             return int.MinValue;
+                        }
                         else
+                        {
+                            AllDraw.OutPut.Append("\r\nReturnHuristicCalculartor:" + (TimeElapced.TimeNow() - Time).ToString());
                             return int.MaxValue;
+                        }
                     }
                 }
                 Order = DummyOrder;
+                AllDraw.OutPut.Append("\r\nReturnHuristicCalculartor:" + (TimeElapced.TimeNow() - Time).ToString());
                 return Huristic;
             }
         }
