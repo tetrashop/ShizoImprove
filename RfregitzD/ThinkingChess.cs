@@ -239,6 +239,7 @@ namespace RefrigtzDLL
         }
         void SetObjectNumbersInList(int[,] Tab)
         {
+            long Time = TimeElapced.TimeNow();
             SetObjectNumbers(Tab);
 
             int[,] A = new int[2, 6];
@@ -265,9 +266,11 @@ namespace RefrigtzDLL
             A[0, 5] = KingMidle;
             A[1, 5] = KingHigh;
             ObjectNumbers.Add(A);
+            AllDraw.OutPut.Append("\r\nSetObjectNumbersInList:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         public void SetObjectNumbers(int[,] TabS)
         {
+            long Time = TimeElapced.TimeNow();
             Object a = new Object();
             lock (a)
             {
@@ -345,10 +348,12 @@ namespace RefrigtzDLL
                         }
                     }
             }
+            AllDraw.OutPut.Append("\r\nSetObjectNumbers:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         //Constructor
         public ThinkingChess(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, int i, int j)
         {
+            long Time = TimeElapced.TimeNow();
             //Kind = Kin;
             Object O = new Object();
             lock (O)
@@ -410,6 +415,7 @@ namespace RefrigtzDLL
                 //ObjectValueCalculator(TableConst);
 
             }
+            AllDraw.OutPut.Append("\r\nThinkingChess:" + (TimeElapced.TimeNow() - Time).ToString());
         }
 
         /*int SetObjectValue(int[,] Tab, int Row, int Column)
@@ -450,6 +456,7 @@ namespace RefrigtzDLL
         //determine When Arrangment of Table Objects is Validated at Begin.
         bool BeginArragmentsOfOrderFinished(int[,] Table, int Order)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -493,15 +500,17 @@ namespace RefrigtzDLL
                                     CH++;
                     }
                 }
-
+                AllDraw.OutPut.Append("\r\nBeginArragmentsOfOrderFinished:" + (TimeElapced.TimeNow() - Time).ToString());
                 if (CH <= 8)
                     return true;
                 return false;
             }
+            
         }
         //Constructor
         public ThinkingChess(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, int i, int j, Color a, int[,] Tab, int Ma, int Ord, bool ThinkingBeg, int CurA, int ThingN, int Kin)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -599,10 +608,12 @@ namespace RefrigtzDLL
                 //ObjectValueCalculator(TableConst, Row, Column);
                 //SetObjectNumbers(TableConst);
             }
+            AllDraw.OutPut.Append("\r\nThinkingChess:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         //Clone A Table
         int[,] CloneATable(int[,] Tab)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -613,12 +624,15 @@ namespace RefrigtzDLL
                     for (var j = 0; j < 8; j++)
                         Table[i, j] = Tab[i, j];
                 //Return New Object.
+                AllDraw.OutPut.Append("\r\nCloneATable:" + (TimeElapced.TimeNow() - Time).ToString());
                 return Table;
             }
+            
         }
         //Clone A List.  
         int[] CloneAList(int[] Tab, int Count)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -628,6 +642,7 @@ namespace RefrigtzDLL
                 for (var i = 0; i < Count; i++)
                     Table[i] = Tab[i];
                 //Retrun new Object.
+                AllDraw.OutPut.Append("\r\nCloneAList:" + (TimeElapced.TimeNow() - Time).ToString());
                 return Table;
             }
         }
@@ -649,10 +664,11 @@ namespace RefrigtzDLL
         //Gwt Value of Book Netwrok  Atamtat at Every Need time form parameters index.
         int GetValue(int i, int j)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
-
+                AllDraw.OutPut.Append("\r\nGetValue:" + (TimeElapced.TimeNow() - Time).ToString());
                 return Value[i, j];
                 //return 1;
             }
@@ -660,6 +676,7 @@ namespace RefrigtzDLL
         ///Clone a Copy.
         public void Clone(ref ThinkingChess AA)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -909,10 +926,12 @@ namespace RefrigtzDLL
                 AA.ThinkingBegin = ThinkingBegin;
                 AA.ThinkingFinished = ThinkingFinished;
             }
+            AllDraw.OutPut.Append("\r\nClone:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         ///Huristic of Attacker.
         int HuristicAttack(bool Before, int[,] Table, int Ord, Color aa, int RowS, int ColS, int RowD, int ColD)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -1134,12 +1153,14 @@ namespace RefrigtzDLL
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 Order = DumOrder;
                 //Initiate to Begin Call Orders.
+                AllDraw.OutPut.Append("\r\nHuristicAttack:" + (TimeElapced.TimeNow() - Time).ToString());
                 return 1 * HA;
             }
         }
         int HuristicReducsedAttack(bool Before, int[,] Table, int Ord, Color aa, int RowS, int ColS, int RowD, int ColD
                )
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -1395,21 +1416,25 @@ namespace RefrigtzDLL
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 Order = DumOrder;
                 //Add Local Huristic to Global One.
+                AllDraw.OutPut.Append("\r\nHuristicReducsedAttack:" + (TimeElapced.TimeNow() - Time).ToString());
                 return HA * 1;
             }
         }
         ///Value of Object method.
         int GetObjectValue(int[,] Tabl, int ii, int jj, int Order)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
+                AllDraw.OutPut.Append("\r\nGetObjectValue:" + (TimeElapced.TimeNow() - Time).ToString());
                 return System.Math.Abs(Tabl[ii, jj]);
             }
         }
         ///Huristic of ObjectDanger.
         int HuristicObjectDangour(int[,] Table, int Order, Color a, int RowS, int ColS, int RowD, int ColD)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -1510,11 +1535,13 @@ namespace RefrigtzDLL
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 //Assignments of Global Huristic with Local One.
                 //return Local Huristic.
+                AllDraw.OutPut.Append("\r\nHuristicObjectDangour:" + (TimeElapced.TimeNow() - Time).ToString());
                 return HA * 1;
             }
         }
         int HuristicKiller(int Killed, int[,] Tabl, int RowS, int ColS, int RowD, int ColD, int Ord, Color aa, bool Hit)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -1577,13 +1604,14 @@ namespace RefrigtzDLL
                
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
-
+                AllDraw.OutPut.Append("\r\nHuristicKiller:" + (TimeElapced.TimeNow() - Time).ToString());
                 return 1 * HA;
             }
         }
         //Attacks Of Enemy that is not Supported.QC_OK
         bool InAttackEnemyThatIsNotSupported(int Kilded, int[,] Table, int Order, Color a, int i, int j, int ii, int jj)
         {
+            long Time = TimeElapced.TimeNow();
 
             Object O = new Object();
             lock (O)
@@ -1665,7 +1693,7 @@ namespace RefrigtzDLL
                         S = false;
 
                 }
-
+                AllDraw.OutPut.Append("\r\nInAttackEnemyThatIsNotSupported:" + (TimeElapced.TimeNow() - Time).ToString());
                 //When S is not valid there is one node in [EnemyNotSupported]
                 if (!S)
                 {
@@ -1680,6 +1708,7 @@ namespace RefrigtzDLL
         //When at least one Attacked Self Object return true.
         bool InAttackEnemyThatIsNotSupportedAll(bool EnemyIsValuable, int[,] Table, int Order, Color a, int ij, int ji, int iij, int jji, ref List<int[]> ValuableEnemyNotSupported)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -1785,7 +1814,7 @@ namespace RefrigtzDLL
                         }
                     }
                     //When there is at leat tow enmy of attackment.
-
+                    AllDraw.OutPut.Append("\r\nInAttackEnemyThatIsNotSupportedAll:" + (TimeElapced.TimeNow() - Time).ToString());
                     if (!S)
                     {
                         Order = Ord;
@@ -1800,6 +1829,7 @@ namespace RefrigtzDLL
         //When  there is more than tow self object not supported on atacked by movement return true.
         int IsNotSafeToMoveAenemeyToAttackMoreThanTowObject(int AttackCount, int[,] Table, int Order, int i, int j, int ii, int jj)
         {
+            long Time = TimeElapced.TimeNow();
 
             //For All Enemie
             Object O1 = new Object();
@@ -1808,15 +1838,27 @@ namespace RefrigtzDLL
 
                 //Ignore of Self
                 if (Order == 1 && Table[i, j] >= 0)
+                {
+                    AllDraw.OutPut.Append("\r\nIsNotSafeToMoveAenemeyToAttackMoreThanTowObject:" + (TimeElapced.TimeNow() - Time).ToString());
                     return 0;
+                }
                 if (Order == -1 && Table[i, j] <= 0)
+                {
+                    AllDraw.OutPut.Append("\r\nIsNotSafeToMoveAenemeyToAttackMoreThanTowObject:" + (TimeElapced.TimeNow() - Time).ToString());
                     return 0;
+                }
                 //For All Self and Empty.
                 //Ignore of Enemy.
                 if (Order == 1 && Table[ii, jj] < 0)
+                {
+                    AllDraw.OutPut.Append("\r\nIsNotSafeToMoveAenemeyToAttackMoreThanTowObject:" + (TimeElapced.TimeNow() - Time).ToString());
                     return 0;
+                }
                 if (Order == -1 && Table[ii, jj] > 0)
+                {
+                    AllDraw.OutPut.Append("\r\nIsNotSafeToMoveAenemeyToAttackMoreThanTowObject:" + (TimeElapced.TimeNow() - Time).ToString());
                     return 0;
+                }
                 ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[i, j], Table, Order * -1, i, j);
                 Color a = Color.Gray;
                 if (Order * -1 == -1)
@@ -1905,8 +1947,12 @@ namespace RefrigtzDLL
                         }//);
                     }
                     else
+                    {
+                        AllDraw.OutPut.Append("\r\nIsNotSafeToMoveAenemeyToAttackMoreThanTowObject:" + (TimeElapced.TimeNow() - Time).ToString());
                         return 0;
+                    }
                 }
+                AllDraw.OutPut.Append("\r\nIsNotSafeToMoveAenemeyToAttackMoreThanTowObject:" + (TimeElapced.TimeNow() - Time).ToString());
 
                 return AttackCount;
             }
@@ -1914,6 +1960,7 @@ namespace RefrigtzDLL
         //Supported of Self that is Not Attacks.QC_BAD
         bool InAttackSelfThatNotSupported(int[,] TableS, int Order, Color a, int ij, int ji, int ii, int jj)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -2023,7 +2070,7 @@ namespace RefrigtzDLL
                     {
                         S = false;
                     }
-
+                    AllDraw.OutPut.Append("\r\nInAttackSelfThatNotSupported:" + (TimeElapced.TimeNow() - Time).ToString());
 
                     Order = Ord;
                     //When S is valid the any is not in [SelfNotSupported];Self is Supporeted.
@@ -2037,6 +2084,7 @@ namespace RefrigtzDLL
         //When there is at least on self object that is not safty.
         bool InAttackSelfThatNotSupportedAll(int[,] TableS, int Order, Color a, int i, int j, int RowS, int ColS, int ikk, int jkk, int iik, int jjk)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -2143,6 +2191,7 @@ namespace RefrigtzDLL
                     }
                 }
                 Order = Ord;
+                AllDraw.OutPut.Append("\r\nInAttackSelfThatNotSupportedAll:" + (TimeElapced.TimeNow() - Time).ToString());
                 //When S is valid the any is not in [SelfNotSupported];Self is Supporeted.
                 if (S)
                     return false;
@@ -2152,6 +2201,7 @@ namespace RefrigtzDLL
         //Creation A Complete List of Attacked Self Object(s).
         bool InAttackSelfThatNotSupportedCalculateValuableAll(int[,] TableS, int Order, Color a, int ij, int ji, int ii, int jj, ref List<int[]> ValuableSelfSupported)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -2270,6 +2320,7 @@ namespace RefrigtzDLL
                     }
                 }
                 Order = Ord;
+                AllDraw.OutPut.Append("\r\nInAttackSelfThatNotSupportedCalculateValuableAll:" + (TimeElapced.TimeNow() - Time).ToString());
                 //When There is at last tow SelfNotSupporeted Object.
                 if (ValuableSelfSupported.Count > 1)
                     return true;
@@ -2278,6 +2329,7 @@ namespace RefrigtzDLL
         }
         bool ExistValuble(int[] Table, ref List<int[]> ValuableSelfSupported)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -2286,13 +2338,18 @@ namespace RefrigtzDLL
                 {
 
                     if (ValuableSelfSupported[i][0] == Table[0] && ValuableSelfSupported[i][1] == Table[1] && ValuableSelfSupported[i][2] == Table[2])
+                    {
+                        AllDraw.OutPut.Append("\r\nExistValuble:" + (TimeElapced.TimeNow() - Time).ToString());
                         return true;
+                    }
                 }
+                AllDraw.OutPut.Append("\r\nExistValuble:" + (TimeElapced.TimeNow() - Time).ToString());
                 return Is;
             }
         }
         bool MaxObjecvts(List<int> Obj, int Max)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -2318,12 +2375,14 @@ namespace RefrigtzDLL
                             MaxO = false;
                     }
                 }
+                AllDraw.OutPut.Append("\r\nMaxObjecvts:" + (TimeElapced.TimeNow() - Time).ToString());
                 return MaxO;
             }
         }
         //When Current Movment Take Supporte.QC_OK
         bool IsCurrentMoveTakeSupporte(int[,] Table, int Order, Color a, int i, int j, int ii, int jj)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -2353,6 +2412,7 @@ namespace RefrigtzDLL
                             SelfSupported = true;
                     }
                 }
+                AllDraw.OutPut.Append("\r\nIsCurrentMoveTakeSupporte:" + (TimeElapced.TimeNow() - Time).ToString());
                 return SelfSupported;
             }
         }
@@ -2360,6 +2420,7 @@ namespace RefrigtzDLL
         int HeuristicKingSafety(int[,] Tab, int Order, Color a, int CurrentAStarGredy, int RowS, int ColS, int RowD, int ColD
             )
         {
+            long Time = TimeElapced.TimeNow();
             /*Object O = new Object();
             lock (O)
             {
@@ -2499,113 +2560,115 @@ namespace RefrigtzDLL
 
                 }
             }
+            AllDraw.OutPut.Append("\r\nHeuristicKingSafety:" + (TimeElapced.TimeNow() - Time).ToString());
             return HA;
         }
         int HeuristicKingDangourous(int[,] Tab, int Order, Color a, int CurrentAStarGredy, int RowS, int ColS, int RowD, int ColD
             )
         {
-                /*Object O = new Object();
-                lock (O)
+            long Time = TimeElapced.TimeNow();
+            /*Object O = new Object();
+            lock (O)
+            {
+                int HeuristicKingDangour = 0;
+                int HA = 0;
+                //For Self.
+                //for (var RowS = 0; RowS < 8; RowS++)
+                ////Parallel.For(0, 8, RowS =>
                 {
-                    int HeuristicKingDangour = 0;
-                    int HA = 0;
-                    //For Self.
-                    //for (var RowS = 0; RowS < 8; RowS++)
-                    ////Parallel.For(0, 8, RowS =>
+                    ////Parallel.For(0, 8, ColS =>
+                    //for (var ColS = 0; ColS < 8; ColS++)
                     {
-                        ////Parallel.For(0, 8, ColS =>
-                        //for (var ColS = 0; ColS < 8; ColS++)
+                        //Ignore of Enemy and Empty.
+                        if (Order == 1 && Tab[RowS, ColS] <= 0)
+                            return 0;
+                        if (Order == -1 && Tab[RowS, ColS] >= 0)
+                            return 0;
+                        ChessRules A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tab[RowS, ColS], Tab, Order, RowS, ColS);
+                        //For Enemy and Empty.
+                        ////Parallel.For(0, 8, RowD =>
+                        //for (int RowD = 0; RowD < 8; RowD++)
                         {
-                            //Ignore of Enemy and Empty.
-                            if (Order == 1 && Tab[RowS, ColS] <= 0)
-                                return 0;
-                            if (Order == -1 && Tab[RowS, ColS] >= 0)
-                                return 0;
-                            ChessRules A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tab[RowS, ColS], Tab, Order, RowS, ColS);
-                            //For Enemy and Empty.
-                            ////Parallel.For(0, 8, RowD =>
-                            //for (int RowD = 0; RowD < 8; RowD++)
+                            ////Parallel.For(0, 8, ColD =>
+                            //for (int ColD = 0; ColD < 8; ColD++)
                             {
-                                ////Parallel.For(0, 8, ColD =>
-                                //for (int ColD = 0; ColD < 8; ColD++)
+                                //Ignore of Self.
+                                if (Order == 1 && Tab[RowD, ColD] > 0)
+                                    return 0;
+                                if (Order == -1 && Tab[RowD, ColD] < 0)
+                                    return 0;
+                                int[,] Table = new int[8, 8];
+                                //Clone a Copy.
+                                for (int ij = 0; ij < 8; ij++)
                                 {
-                                    //Ignore of Self.
-                                    if (Order == 1 && Tab[RowD, ColD] > 0)
-                                        return 0;
-                                    if (Order == -1 && Tab[RowD, ColD] < 0)
-                                        return 0;
-                                    int[,] Table = new int[8, 8];
-                                    //Clone a Copy.
-                                    for (int ij = 0; ij < 8; ij++)
+                                    for (int ji = 0; ji < 8; ji++)
                                     {
-                                        for (int ji = 0; ji < 8; ji++)
-                                        {
-                                            Object O2 = new Object();
-                                            lock (O2)
-                                            {
-                                                Table[ij, ji] = Tab[ij, ji];
-                                            }
-                                        }
-                                    }
-                                    Color AA = Color.Gray;
-                                    if (Order == -1)
-                                        AA = Color.Brown;
-                                    //When Self Move
-                                    if (A.Rules(RowS, ColS, RowD, ColD, AA, Table[RowS, ColS]))
-                                    {
-                                        //Take Mo0vment
                                         Object O2 = new Object();
                                         lock (O2)
                                         {
-                                            Table[RowD, ColD] = Table[RowS, ColS];
-                                            Table[RowS, ColS] = 0;
-                                        }
-                                        //The Move is Dqangrous.
-                                        Object O3 = new Object();
-                                        lock (O3)
-                                        {
-                                            //if (A.ObjectDangourKingMove(Order, Table, false))
-                                            A.ObjectDangourKingMove(Order, Table, false);
-                                            {
-                                                int[,] Table1 = new int[8, 8];
-                                                //Clone a Copy.
-
-                                                for (int ij = 0; ij < 8; ij++)
-                                                {
-                                                    for (int ji = 0; ji < 8; ji++)
-                                                    {
-                                                        Object OO2 = new Object();
-                                                        lock (OO2)
-                                                        {
-                                                            Table[ij, ji] = Tab[ij, ji];
-                                                        }
-                                                    }
-                                                }
-                                                //When Situation Observed Take Situation calcualte Huristic.
-                                                Object O4 = new Object();
-                                                lock (O4)
-                                                {
-                                                    if (Order == -1 && A.CheckGrayObjectDangour)
-                                                        HA += AllDraw.SignKingDangour * (ObjectValueCalculator(Table1,RowS,ColS,RowD,ColD));
-                                                    else
-                                                        if (Order == 1 && A.CheckBrownObjectDangour)
-                                                        HA += AllDraw.SignKingDangour * (ObjectValueCalculator(Table1,RowS,ColS,RowD,ColD));
-
-
-                                                }
-
-                                            }
+                                            Table[ij, ji] = Tab[ij, ji];
                                         }
                                     }
-                                }//);
+                                }
+                                Color AA = Color.Gray;
+                                if (Order == -1)
+                                    AA = Color.Brown;
+                                //When Self Move
+                                if (A.Rules(RowS, ColS, RowD, ColD, AA, Table[RowS, ColS]))
+                                {
+                                    //Take Mo0vment
+                                    Object O2 = new Object();
+                                    lock (O2)
+                                    {
+                                        Table[RowD, ColD] = Table[RowS, ColS];
+                                        Table[RowS, ColS] = 0;
+                                    }
+                                    //The Move is Dqangrous.
+                                    Object O3 = new Object();
+                                    lock (O3)
+                                    {
+                                        //if (A.ObjectDangourKingMove(Order, Table, false))
+                                        A.ObjectDangourKingMove(Order, Table, false);
+                                        {
+                                            int[,] Table1 = new int[8, 8];
+                                            //Clone a Copy.
+
+                                            for (int ij = 0; ij < 8; ij++)
+                                            {
+                                                for (int ji = 0; ji < 8; ji++)
+                                                {
+                                                    Object OO2 = new Object();
+                                                    lock (OO2)
+                                                    {
+                                                        Table[ij, ji] = Tab[ij, ji];
+                                                    }
+                                                }
+                                            }
+                                            //When Situation Observed Take Situation calcualte Huristic.
+                                            Object O4 = new Object();
+                                            lock (O4)
+                                            {
+                                                if (Order == -1 && A.CheckGrayObjectDangour)
+                                                    HA += AllDraw.SignKingDangour * (ObjectValueCalculator(Table1,RowS,ColS,RowD,ColD));
+                                                else
+                                                    if (Order == 1 && A.CheckBrownObjectDangour)
+                                                    HA += AllDraw.SignKingDangour * (ObjectValueCalculator(Table1,RowS,ColS,RowD,ColD));
+
+
+                                            }
+
+                                        }
+                                    }
+                                }
                             }//);
                         }//);
                     }//);
-                    //For Order Sign.
-                    HeuristicKingDangour += HA * 1;
-                    return HeuristicKingDangour;
-                }*/
-                int[,] Table = new int[8, 8];
+                }//);
+                //For Order Sign.
+                HeuristicKingDangour += HA * 1;
+                return HeuristicKingDangour;
+            }*/
+            int[,] Table = new int[8, 8];
 
                 for (int ij = 0; ij < 8; ij++)
                 {
@@ -2647,12 +2710,14 @@ namespace RefrigtzDLL
 
                     }
                 }
+            AllDraw.OutPut.Append("\r\nHeuristicKingDangourous:" + (TimeElapced.TimeNow() - Time).ToString());
             return HA;
         }
             //Huristic of Supportation.
             int HuristicSelfSupported(int[,] Tab, int Ord, Color aa, int RowS, int ColS, int RowD, int ColD
               )
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -2954,46 +3019,58 @@ namespace RefrigtzDLL
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 Order = DumOrder;
+                AllDraw.OutPut.Append("\r\nHuristicSelfSupported:" + (TimeElapced.TimeNow() - Time).ToString());
                 return HA * 1;
             }
         }        ///Identification of Equality
         public static bool TableEqual(int[,] Tab1, int[,] Tab2)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
-                
-                    //For All Home
-                    for (var i = 0; i < 8; i++)
-                        for (var j = 0; j < 8; j++)
+
+                //For All Home
+                for (var i = 0; i < 8; i++)
+                    for (var j = 0; j < 8; j++)
+                    {
+                        //When there is different values in same location of tow Table return non equality.
+                        if (Tab1[i, j] != Tab2[i, j])
                         {
-                            //When there is different values in same location of tow Table return non equality.
-                            if (Tab1[i, j] != Tab2[i, j])
-                                return false;
+                            AllDraw.OutPut.Append("\r\nTableEqual:" + (TimeElapced.TimeNow() - Time).ToString());
+                            return false;
                         }
-                    //Else return equlity.
-                    return true;
-               
+                    }
+                AllDraw.OutPut.Append("\r\nTableEqual:" + (TimeElapced.TimeNow() - Time).ToString());
+                //Else return equlity.
+                return true;
+
             }
         }
         //If tow int Objects is equal.
         public static bool TableEqual(int Tab1, int Tab2)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
-                
-                    //When there is different values in same location of tow Table return non equality.
-                    if (Tab1 != Tab2)
-                        return false;
-                    //Else return equlity.
-                    return true;
-               
+
+                //When there is different values in same location of tow Table return non equality.
+                if (Tab1 != Tab2)
+                {
+                    AllDraw.OutPut.Append("\r\nTableEqual:" + (TimeElapced.TimeNow() - Time).ToString());
+                    return false;
+                }
+                AllDraw.OutPut.Append("\r\nTableEqual:" + (TimeElapced.TimeNow() - Time).ToString());
+                //Else return equlity.
+                return true;
+
             }
         }
         //Deterimination of Existance of Table in List..
         static public bool ExistTableInList(int[,] Tab, List<int[,]> List, int Index)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -3013,6 +3090,7 @@ namespace RefrigtzDLL
                     }
                     Exist |= Eq;
                 }
+                AllDraw.OutPut.Append("\r\nExistTableInList:" + (TimeElapced.TimeNow() - Time).ToString());
                 //return Equality Local value of all lists.
                 return Exist;
             }
@@ -3020,6 +3098,7 @@ namespace RefrigtzDLL
         ///Move Determination.
         public bool Movable(int[,] Tab, int i, int j, int ii, int jj, Color a, int Order)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -3059,8 +3138,11 @@ namespace RefrigtzDLL
                         //And CheckedMated is Occured for gray. return false.
                         Table[ii, jj] = Store;
                         if (AA.CheckMateGray)
+                        {
+                            AllDraw.OutPut.Append("\r\nMovable:" + (TimeElapced.TimeNow() - Time).ToString());
                             return false;
-
+                        }
+                        AllDraw.OutPut.Append("\r\nMovable:" + (TimeElapced.TimeNow() - Time).ToString());
 
                         return true;
                     }
@@ -3071,11 +3153,16 @@ namespace RefrigtzDLL
                         Table[ii, jj] = Store;
                         //When CheckedMated occured for Brown return false.
                         if (AA.CheckMateBrown)
+                        {
+                            AllDraw.OutPut.Append("\r\nMovable:" + (TimeElapced.TimeNow() - Time).ToString());
                             return false;
+                        }
+                        AllDraw.OutPut.Append("\r\nMovable:" + (TimeElapced.TimeNow() - Time).ToString());
                         return true;
                     }
                 }
                 Table[ii, jj] = Store;
+                AllDraw.OutPut.Append("\r\nMovable:" + (TimeElapced.TimeNow() - Time).ToString());
                 return false;
             }
         }
@@ -3083,6 +3170,7 @@ namespace RefrigtzDLL
         //When Oredrs of OrderPalte and Calculation Order is not equal return negative one and else return one.
         int SignOrderToPlate(int Order)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -3094,7 +3182,7 @@ namespace RefrigtzDLL
                     //When Order is Opposite Sign Negative.
                     if (Order != AllDraw.OrderPlate)
                     Sign = -1;
-
+                AllDraw.OutPut.Append("\r\nSignOrderToPlate:" + (TimeElapced.TimeNow() - Time).ToString());
                 return Sign;
             }
 
@@ -3102,6 +3190,7 @@ namespace RefrigtzDLL
         //Remove Penalties of Unnesserily Nodes.
         public bool RemovePenalty(int[,] Tab, int Order, int i, int j)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -3113,9 +3202,15 @@ namespace RefrigtzDLL
                 {
                     //When there is Current Checked or Objects Danger return false.
                     if (Order == 1 && (AA.CheckGray || AA.CheckGrayObjectDangour))
+                    {
+                        AllDraw.OutPut.Append("\r\nRemovePenalty:" + (TimeElapced.TimeNow() - Time).ToString());
                         return Remove;
+                    }
                     if (Order == -1 && (AA.CheckBrown || AA.CheckBrownObjectDangour))
+                    {
+                        AllDraw.OutPut.Append("\r\nRemovePenalty:" + (TimeElapced.TimeNow() - Time).ToString());
                         return Remove;
+                    }
                 }
 
 
@@ -3200,29 +3295,41 @@ namespace RefrigtzDLL
                                                                 return Remove;
                                                             }
                                                             else
+                                                            {
+                                                                AllDraw.OutPut.Append("\r\nRemovePenalty:" + (TimeElapced.TimeNow() - Time).ToString());
                                                                 return Remove;
+                                                            }
                                                         }
                                                         else
+                                                        {
+                                                            AllDraw.OutPut.Append("\r\nRemovePenalty:" + (TimeElapced.TimeNow() - Time).ToString());
                                                             return Remove;
+                                                        }
                                                     }
                                             }
                                             else
-                                                return
-                                                    Remove;
-
+                                            {
+                                                AllDraw.OutPut.Append("\r\nRemovePenalty:" + (TimeElapced.TimeNow() - Time).ToString());
+                                                return Remove;
+                                            }
                                         }
                                         else
+                                        {
+                                            AllDraw.OutPut.Append("\r\nRemovePenalty:" + (TimeElapced.TimeNow() - Time).ToString());
                                             return Remove;
+                                        }
                                     }
                             }
                         }
                     }
+                AllDraw.OutPut.Append("\r\nRemovePenalty:" + (TimeElapced.TimeNow() - Time).ToString());
                 return Remove;
             }
         }
         //Dangouring of current movment fo current Order.
         bool IsCurrentStateIsDangreousForCurrentOrder(int[,] Tabl, int Order, Color a, int ii, int jj)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -3293,6 +3400,7 @@ namespace RefrigtzDLL
                                                                         //restore and return true.
                                                                         Order = DummyOrder;
                                                                         ChessRules.CurrentOrder = DummyCurrentOrder;
+                                                                        AllDraw.OutPut.Append("\r\nIsCurrentStateIsDangreousForCurrentOrder:" + (TimeElapced.TimeNow() - Time).ToString());
                                                                         return true;
                                                                     }
                                                                 }
@@ -3374,6 +3482,7 @@ namespace RefrigtzDLL
                                                                         //restore and return true.
                                                                         Order = DummyOrder;
                                                                         ChessRules.CurrentOrder = DummyCurrentOrder;
+                                                                        AllDraw.OutPut.Append("\r\nIsCurrentStateIsDangreousForCurrentOrder:" + (TimeElapced.TimeNow() - Time).ToString());
                                                                         return true;
                                                                     }
                                                                 }
@@ -3392,6 +3501,7 @@ namespace RefrigtzDLL
                             }
                     }
                 }
+                AllDraw.OutPut.Append("\r\nIsCurrentStateIsDangreousForCurrentOrder:" + (TimeElapced.TimeNow() - Time).ToString());
                 //return false.
                 return false;
             }
@@ -3400,6 +3510,7 @@ namespace RefrigtzDLL
         //When Next Movements is Checked.QC_OK.
         int[] IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(int Order, int[,] Tabl, int ik, int jk, int iki, int jki, int OrderPalte, int OrderPalteMulMinuse, int Depth, bool KindCheckedSelf)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -3527,6 +3638,7 @@ namespace RefrigtzDLL
         //When Next Movements is Checked.QC_OK.
         bool IsNextMovmentIsCheckOrCheckMateForCurrentMovmentOnCurrentMovemnet(int Order, int[,] Tabl, int ik, int jk, int iki, int jki, int OrderPalte)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -3602,6 +3714,7 @@ namespace RefrigtzDLL
         }
         int[] IsNextMovmentIsCheckOrCheckMateForCurrentMovment(int[,] Tabl, int Order, Color a, int Depth, int OrderPalte, int OrderPalteMinusPluse, bool KindCheckedSelf)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -3895,6 +4008,7 @@ namespace RefrigtzDLL
         //When Current Movements is in dangrous and is not movable.
         bool IsGardForCurrentMovmentsAndIsNotMovable(int[,] Tab, int Order, Color a, int ii, int jj, int RowS, int ColS)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -4015,6 +4129,7 @@ namespace RefrigtzDLL
         ///when current movments gards enemy with higer priority at movment.QC_OK
         bool IsCurrentCanGardHighPriorityEnemy(int Depth, int[,] Table, int Order, Color a, int ij, int ji, int iij, int jji, int OrderPlate)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -4084,6 +4199,7 @@ namespace RefrigtzDLL
         ///Huristic of Check and CheckMate.
         public int HuristicCheckAndCheckMate(int[,] Table, Color a)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -4217,6 +4333,7 @@ namespace RefrigtzDLL
         //Veryfy and detect Object Value.
         int VeryFye(int[,] Table, int Order, Color a)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -4247,6 +4364,7 @@ namespace RefrigtzDLL
         //Numbers of Supporting Current Objects method.
         int SupporterCount(int[,] Table, int Order, Color a, int ii, int jj)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -4280,6 +4398,7 @@ namespace RefrigtzDLL
         //Attacks on Enemies.
         int AttackerCount(int[,] Table, int Order, Color a, int i, int j)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -4315,6 +4434,7 @@ namespace RefrigtzDLL
         //Attackers of Enemies.QC_OK.
         int EnemyAttackerCount(int[,] Table, int Order, Color a, int ii, int jj)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -4351,6 +4471,7 @@ namespace RefrigtzDLL
         //Distance of Enemy Kings from Current Object.
         public int HeuristicDistabceOfCurrentMoveFromEnemyKing(int[,] Tab, int Order, int RowS, int ColS)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -4437,6 +4558,7 @@ namespace RefrigtzDLL
         }
         public int HuristicSoldierFromCenter(int[,] Table, Color aa, int Ord, int ii, int jj, int i, int j)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -4582,6 +4704,7 @@ namespace RefrigtzDLL
         }
         public int[] HuristicAll(bool Before, int Killed, int[,] Table, Color aa, int Ord, int RowS, int ColS, int RowD, int ColD)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -4743,6 +4866,7 @@ namespace RefrigtzDLL
         ///Huristic of Movments.
         public int HuristicMovment(bool Before, int[,] Table, Color aa, int Ord, int RowS, int ColS, int RowD, int ColD)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -4975,6 +5099,7 @@ namespace RefrigtzDLL
         ///Attack Determination.QC_Ok
         public bool Attack(int[,] Tab, int i, int j, int ii, int jj, Color a, int Order)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -5000,6 +5125,7 @@ namespace RefrigtzDLL
         //Object Danger Determination.
         public bool ObjectDanger(int[,] Tab, int i, int j, int ii, int jj, Color a, int Order)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -5062,6 +5188,7 @@ namespace RefrigtzDLL
         ///Supportation Determination.QC_OK
         public bool Support(int[,] Tab, int i, int j, int ii, int jj, Color a, int Order)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -5104,6 +5231,7 @@ namespace RefrigtzDLL
         //Return Msx Huiristic of Child Level.
         public bool MaxHuristic(ref int j, int Kin, ref int Less, int Order)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -5513,6 +5641,7 @@ namespace RefrigtzDLL
         //Count of Solders on Table.
         int SolderOnTableCount(ref DrawSoldier[] So, bool Mi, int MaxCount)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -5550,6 +5679,7 @@ namespace RefrigtzDLL
         //Elepahnt On Table Count.
         int ElefantOnTableCount(ref DrawElefant[] So, bool Mi, int MaxCount)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -5586,6 +5716,7 @@ namespace RefrigtzDLL
         //Calculate Hourse on table.
         int HourseOnTableCount(ref DrawHourse[] So, bool Mi, int MaxCount)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -5622,6 +5753,7 @@ namespace RefrigtzDLL
         //Calculate Castles Count.
         int CastleOnTableCount(ref DrawCastle[] So, bool Mi, int MaxCount)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -5658,6 +5790,7 @@ namespace RefrigtzDLL
         //Calculate Minsiter Count.
         int MinisterOnTableCount(ref DrawMinister[] So, bool Mi, int MaxCount)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -5692,6 +5825,7 @@ namespace RefrigtzDLL
         //Calculate King on Table.
         int KingOnTableCount(ref DrawKing[] So, bool Mi, int MaxCount)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -5726,6 +5860,7 @@ namespace RefrigtzDLL
         //Return Huristic.
         public int ReturnHuristic(int ii, int j, int Order, bool AA)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -5757,6 +5892,7 @@ namespace RefrigtzDLL
         }
         String Alphabet(int RowRealesed)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -5789,6 +5925,7 @@ namespace RefrigtzDLL
         }
         String Number(int ColumnRealeased)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -5822,6 +5959,7 @@ namespace RefrigtzDLL
         }
         public int ReturnHuristicCalculartor(int iAstarGready, int ii, int j, int Order)
         {
+            long Time = TimeElapced.TimeNow();
             //bool ActionStringSetting = false;
             Object O = new Object();
             lock (O)
@@ -6651,6 +6789,7 @@ namespace RefrigtzDLL
         //Scope of Every Objects Movments.
         bool Scop(int i, int j, int ii, int jj, int Kind)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -6750,6 +6889,7 @@ namespace RefrigtzDLL
         //Calculate Maximum of Six Max Huristic of Six Kind Objects.
         int MaxOfSixHuristic(int[] Less)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -6769,6 +6909,7 @@ namespace RefrigtzDLL
         //Calculate Minimum of Six Min Huristic of Six Kind Objects.note the enemy Huristic are negative.
         int MinOfSixHuristic(int[] Less)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -6789,6 +6930,7 @@ namespace RefrigtzDLL
 
         void KingThinkingChess(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -7044,6 +7186,7 @@ namespace RefrigtzDLL
         }
         String CheM(int A)
         {
+            long Time = TimeElapced.TimeNow();
             String AA = "";
             if (A <= -1 && A < 0)
                 AA = "+SelfChecked ";
@@ -7067,6 +7210,7 @@ namespace RefrigtzDLL
 
         void MinisterThinkingChess(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
+            long Time = TimeElapced.TimeNow();
             Object O11 = new Object();
             lock (O11)
             {
@@ -7320,6 +7464,7 @@ namespace RefrigtzDLL
         }
         bool IsPrviousMovemntIsDangrousForCurrent(int[,] TableS, int Order)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -7405,6 +7550,7 @@ namespace RefrigtzDLL
         //When There is not valuable Object in List Greater than Target Self Object return true.        
         bool IsObjectValaubleObjectSelf(int i, int j, int Object, ref List<int[]> ValuableSelfSupported)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -7430,6 +7576,7 @@ namespace RefrigtzDLL
         }
         bool IsObjectValaubleObjectEnemy(int i, int j, int Object, ref List<int[]> ValuableEnemyNotSupported)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -7446,6 +7593,7 @@ namespace RefrigtzDLL
         }
         bool[] SomeLearningVarsCalculator(int[,] TableS, int ik, int jk, int iik, int jjk)
         {
+            long Time = TimeElapced.TimeNow();
             Object O22 = new Object();
             lock (O22)
             {
@@ -7524,6 +7672,7 @@ namespace RefrigtzDLL
         }
         bool[] CalculateLearningVars(int Killed, int[,] TableS, int i, int j, int ii, int jj)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -7680,6 +7829,7 @@ namespace RefrigtzDLL
         void CastlesThinkingChess(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle
         )
         {
+            long Time = TimeElapced.TimeNow();
             Object O22 = new Object();
             lock (O22)
             {
@@ -7935,7 +8085,8 @@ namespace RefrigtzDLL
     }
     void HourseThinkingChess(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
     {
-        Object OO = new Object();
+            long Time = TimeElapced.TimeNow();
+            Object OO = new Object();
         lock (OO)
         {
 
@@ -8191,6 +8342,7 @@ namespace RefrigtzDLL
         }
         void ElephantThinkingChess(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
+            long Time = TimeElapced.TimeNow();
             Object OO = new Object();
             lock (OO)
             {
@@ -8446,6 +8598,7 @@ namespace RefrigtzDLL
         }
         bool EqualitTow(bool PenRegStrore, int kind)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -8472,6 +8625,7 @@ namespace RefrigtzDLL
         }
         bool EqualitOne(QuantumAtamata Current, int kind)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -8500,6 +8654,7 @@ namespace RefrigtzDLL
         }
         void AddAtList(int kind, QuantumAtamata Current)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -8532,6 +8687,7 @@ namespace RefrigtzDLL
         }
         void RemoveAtList(int kind)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -8564,6 +8720,7 @@ namespace RefrigtzDLL
         }
         bool PenaltyMechanisam(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, ref int CheckedM, int Killed, bool Before, int kind, int[,] TableS, int ii, int jj, ref QuantumAtamata Current, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int i, int j, bool Castle)
         {
+            long Time = TimeElapced.TimeNow();
             Object OO = new Object();
             lock (OO)
             {
@@ -9124,6 +9281,7 @@ namespace RefrigtzDLL
         }
         void SoldierConversion(ref ThingsConverter t, int RowSource, int ColumnSource, int RowDestination, int ColumnDestination, int[,] TableS)
         {
+            long Time = TimeElapced.TimeNow();
 
             t.ConvertOperation((int)RowSource, (int)ColumnSource, color, TableS, Order, false, 0);
 
@@ -9156,6 +9314,7 @@ namespace RefrigtzDLL
         }
         void SolderThinkingChess(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
+            long Time = TimeElapced.TimeNow();
             Object O1 = new Object();
             lock (O1)
             {
@@ -9416,6 +9575,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
         }
         void CastleThinkingBrown(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
+            long Time = TimeElapced.TimeNow();
             Object O1 = new Object();
             lock (O1)
             {
@@ -9560,6 +9720,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
             , ref int HeuristicFromCenter
             , ref int HeuristicKingDangour)
         {
+            long Time = TimeElapced.TimeNow();
             Object OO = new Object();
             lock (OO)
             {
@@ -9772,6 +9933,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
         }
         void CastleThinkingGray(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
+            long Time = TimeElapced.TimeNow();
             Object O1 = new Object();
             lock (O1)
             {
@@ -9907,6 +10069,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
         }
         public void HuristicPenaltyValuePerform(QuantumAtamata Current, int Order, ref int HuristicAttackValue, bool AllDrawClass = false)
         {
+            long Time = TimeElapced.TimeNow();
 
             Object O1 = new Object();
             lock (O1)
@@ -9976,6 +10139,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
         }
         public void ThinkingSoldierBase(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -9999,6 +10163,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
         }
         public void ThinkingSoldier(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
+            long Time = TimeElapced.TimeNow();
             Object O1 = new Object();
             lock (O1)
             {
@@ -10026,6 +10191,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
         }
         public void ThinkingElephantBase(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
+            long Time = TimeElapced.TimeNow();
             Object O1 = new Object();
             lock (O1)
             {
@@ -10055,6 +10221,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
 
         public void ThinkingElephant(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
+            long Time = TimeElapced.TimeNow();
             Object O2 = new Object();
             lock (O2)
             {
@@ -10102,6 +10269,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
         }
         public void ThinkingHourseOne(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
+            long Time = TimeElapced.TimeNow();
             Object O1 = new Object();
             lock (O1)
             {
@@ -10124,6 +10292,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
         }
         public void ThinkingHourseTwo(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
+            long Time = TimeElapced.TimeNow();
             Object O1 = new Object();
             lock (O1)
             {
@@ -10149,6 +10318,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
         }
         public void ThinkingHourseThree(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
+            long Time = TimeElapced.TimeNow();
             Object O1 = new Object();
             lock (O1)
             {
@@ -10175,6 +10345,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
         }
         public void ThinkingHourseFour(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
+            long Time = TimeElapced.TimeNow();
             Object O1 = new Object();
             lock (O1)
             {
@@ -10198,6 +10369,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
         }
         public void ThinkingHourseFive(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
+            long Time = TimeElapced.TimeNow();
             Object O1 = new Object();
             lock (O1)
             {
@@ -10226,6 +10398,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
         }
         public void ThinkingHourseSix(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
+            long Time = TimeElapced.TimeNow();
             Object O1 = new Object();
             lock (O1)
             {
@@ -10253,6 +10426,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
         }
         public void ThinkingHourseSeven(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -10281,6 +10455,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
         }
         public void ThinkingHourseEight(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
+            long Time = TimeElapced.TimeNow();
             Object O111 = new Object();
             lock (O111)
             {
@@ -10309,6 +10484,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
 
         public void ThinkingHourse(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -10368,6 +10544,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
         }
         public void ThinkingCastleOne(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
+            long Time = TimeElapced.TimeNow();
 
             Object O1 = new Object();
             lock (O1)
@@ -10402,7 +10579,9 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
             }
         }
         public void ThinkingCastleTow(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
-        {  //==================
+        {
+            long Time = TimeElapced.TimeNow();
+            //==================
             Object O1 = new Object();
             lock (O1)
             {
@@ -10440,6 +10619,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
         }
         public void ThinkingCastle(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
+            long Time = TimeElapced.TimeNow();
 
             Object O = new Object();
             lock (O)
@@ -10451,6 +10631,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
         }
         public void ThinkingMinisterBase(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
+            long Time = TimeElapced.TimeNow();
             Object O1 = new Object();
             lock (O1)
             {
@@ -10483,6 +10664,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
         }
         public void ThinkingMinister(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
+            long Time = TimeElapced.TimeNow();
             Object O1 = new Object();
             lock (O1)
             {
@@ -10506,6 +10688,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
         }
         public void ThinkingCastleGray(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -10536,6 +10719,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
         }
         public void ThinkingCastleBrown(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -10564,6 +10748,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
         }
         public void ThinkingKing(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
+            long Time = TimeElapced.TimeNow();
             Object O1 = new Object();
             lock (O1)
             {
@@ -10604,7 +10789,8 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
         ///Kernel of Thinking
         public void Thinking(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled)
         {
-            
+            long Time = TimeElapced.TimeNow();
+
             int ord = Order;
             Object O = new Object();
             lock (O)
@@ -10844,6 +11030,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
         }
         int RetrunValValue(int RowS, int ColS, int RowO, int ColO, int[,] Tab, int Sign)
         {
+            long Time = TimeElapced.TimeNow();
             int O = 0;
             if (RowO == -1 && ColO == -1)
                 O = System.Math.Abs(Tab[RowS, ColS]);
@@ -10856,6 +11043,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
         int ObjectValueCalculator(int[,] Table//, int Order
             , int RowS, int ColS, int RowO, int ColumnO)
         {
+            long Time = TimeElapced.TimeNow();
             int Val = 1;
             /*
             ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[RowS, ColS], Table, Order, RowS, ColS);
@@ -11057,6 +11245,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
         int ObjectValueCalculator(int[,] Table//, int Order
             , int RowS, int ColS)
         {
+            long Time = TimeElapced.TimeNow();
             int Val = 1;
 
 
@@ -11094,6 +11283,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
         }
         bool SignSelfEmpty(int Obj1, int Obj2, int Order, ref int Ord, ref Color A)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -11123,6 +11313,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
         }
         bool SignEnemyEmpty(int Obj1, int Obj2, int Order, ref int Ord, ref Color A)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -11152,6 +11343,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
         }
         bool SignNotEqualEnemy(int Obj1, int Obj2, int Order, ref int Ord, ref Color A)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -11182,6 +11374,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
         }
         bool SignEqualSelf(int Obj1, int Obj2, int Order, ref int Ord, ref Color A)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
@@ -11212,6 +11405,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
         }
         bool SignNotEqualSelf(int Obj1, int Obj2, int Order, ref int Ord, ref Color A)
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
